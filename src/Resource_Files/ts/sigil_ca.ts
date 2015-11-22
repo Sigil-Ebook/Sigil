@@ -774,94 +774,94 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="649"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="652"/>
         <source>Clipboard contains HTML formatting</source>
         <translation>El porta-retalls conté format HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="650"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="653"/>
         <source>Do you want to paste clipboard data as plain text?</source>
         <translation>Voleu copiar les dades del porta-retalls com a text pla?</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="845"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="849"/>
         <source>Open Tab For</source>
         <translation>Obre una pestanya per</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="859"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1019"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1021"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="863"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1037"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1039"/>
         <source>Open With</source>
         <translation>Obre amb</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="866"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="870"/>
         <source>Other Application</source>
         <translation>Una altra aplicació</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="914"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="918"/>
         <source>Clips</source>
         <translation>Retalls</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="924"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="928"/>
         <source>Add To Clips</source>
         <translation>Afegeix als retalls</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1009"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1027"/>
         <source>Insert File</source>
         <translation>Inserireix un fitxer</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1010"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1028"/>
         <source>Undo</source>
         <translation>Desfés</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1011"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1029"/>
         <source>Redo</source>
         <translation>Refés</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1012"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1030"/>
         <source>Cut</source>
         <translation>Retalla</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1013"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1031"/>
         <source>Copy</source>
         <translation>Copia</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1014"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1032"/>
         <source>Copy Image</source>
         <translation>Copia la imatge</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1015"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1033"/>
         <source>Paste</source>
         <translation>Enganxa</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1016"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1034"/>
         <source>Select All</source>
         <translation>Selecciona-ho tot</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1017"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1035"/>
         <source>Open</source>
         <translation>Obre</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1020"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1038"/>
         <source>Save As</source>
         <translation>Anomena i desa</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1024"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1042"/>
         <source>Inspect Element</source>
         <translation>Inspecciona l&apos;element</translation>
     </message>
@@ -891,7 +891,7 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
         <translation>L&apos;opció de reemplaçar-ho tot no s&apos;admet en aquesta vista. Canvieu a vista de codi.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="740"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="742"/>
         <source>Inspect Element</source>
         <translation>Inspecciona l&apos;element</translation>
     </message>
@@ -2221,7 +2221,7 @@ S&apos;actualitzarà l&apos;atribut títol de l&apos;encapçalament al document.
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="958"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="959"/>
         <source>Rename</source>
         <translation>Canvia el nom</translation>
     </message>
@@ -2289,24 +2289,24 @@ podeu activar-les o desactivar-les individualment a la llista de dalt.</translat
         <translation>Inclou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="821"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="822"/>
         <source>Up to level</source>
         <translation>Fins al nivell</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="823"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="824"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
         <translation>&lt;Selecciona els encapçalaments de la taula de continguts&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="826"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="887"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="827"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="888"/>
         <source>None</source>
         <translation>Cap</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="832"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="885"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="833"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="886"/>
         <source>All</source>
         <translation>Tot</translation>
     </message>
@@ -7946,13 +7946,13 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
         <location filename="../../MainUI/MainWindow.cpp" line="1853"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1868"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1896"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3137"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3143"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3285"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3105"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3141"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3147"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3153"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3289"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3489"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3687"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -8239,76 +8239,76 @@ Aquesta acció no es pot desfer.</translation>
         <translation>No cal fer canvis a la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2275"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2279"/>
         <source>Text selection marked.</source>
         <translation>S&apos;ha marcat el text seleccionat.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2277"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2295"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2281"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2299"/>
         <source>Text selection unmarked.</source>
         <translation>S&apos;ha desmarcat el text seleccionat.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2473"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2477"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Aquest EPUB no conté cap full d&apos;estil CSS per validar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3016"/>
         <source>Line: %1, Col: %2</source>
         <translation>Línia %1 - Columna %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3105"/>
         <source>File cannot be split at this position.</source>
         <translation>El fitxer no es pot dividir en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3122"/>
         <source>Split completed.</source>
         <translation>S&apos;ha completat la divisió.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3137"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3141"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>No es po dividir ja que un dels fitxers, com a mínim, no és HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3143"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3147"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>No es pot dividir %1 ja que l&apos;XML no és ben format</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3153"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>No es pot dividir ja que un dels fitxers, com a mínim, potser no és HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3168"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3172"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>S&apos;ha completat la divisió. Si cal, actualitzau la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3181"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>No s&apos;ha trobat cap marcador de divisió de fitxer.
 Utilizeu l&apos;ordre «Marcador de divisió» del menú «Insereix».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3290"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>El document s&apos;ha modificat.
 Voleu desar-ne els canvis?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3359"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3363"/>
         <source>No importer for file type: %1</source>
         <translation>No es poden importar els fitxers de tipus %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3366"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3370"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -8321,44 +8321,44 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
 Proveu de canviar les preferències de netedat del codi a «Endreçat per impressió polida» o a «HTML endreçat» i torneu a carregat el fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3371"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3375"/>
         <source>Loading file...</source>
         <translation>S&apos;està carregant el fitxer...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3385"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3389"/>
         <source>File loaded.</source>
         <translation>S&apos;ha carregat el fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3412"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3416"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>El creador d&apos;aquest fitxer l&apos;ha encriptat amb DRM. El Sigil no pot obrir aquests fitxers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
         <source>Cannot load EPUB: %1</source>
         <translation>No es pot carregar l&apos;EPUB %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
         <source>Cannot load file %1: %2</source>
         <translation>No es pot carregar el fitxer %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3452"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3456"/>
         <source>Saving EPUB...</source>
         <translation>S&apos;està desant l&apos;EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3461"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3465"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>El Sigil no pot desar fitxers del tipus «%1».
 Trieu un altre format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3490"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically clean on Save. Saving a file that is not well formed will cause it to be automatically fixed, which can result in data loss.
 
 Do you want to automatically fix the files before saving?</source>
@@ -8367,69 +8367,69 @@ Do you want to automatically fix the files before saving?</source>
 Voleu fer la correcció automàtica del fitxer abans de desar-lo?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3517"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3521"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>S&apos;ha desat l&apos;EPUB, però no tots els fitxers HTML són ben formats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3519"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3523"/>
         <source>EPUB saved.</source>
         <translation>S&apos;ha desat l&apos;EPUB.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3529"/>
         <source>Cannot save file %1: %2</source>
         <translation>No es pot desar el fitxer %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3660"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3664"/>
         <source>EPUB files (*.epub)</source>
         <translation>Fitxers EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3661"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3662"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3663"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3665"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3666"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3667"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Fitxers HTML  (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3664"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3668"/>
         <source>Text files (*.txt)</source>
         <translation>Fitxers de text (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3665"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3669"/>
         <source>All files (*.*)</source>
         <translation>Tots els fitxers (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3673"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3677"/>
         <source>EPUB file (*.epub)</source>
         <translation>Fitxer EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3687"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3754"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3758"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Conservació d&apos;atributs d&apos;encapçalament:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3755"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
         <source>ON</source>
         <translation>Actiu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3755"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
         <source>OFF</source>
         <translation>Inactiu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3780"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3784"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -8606,2316 +8606,2316 @@ Voleu desar-ne els canvis?</translation>
 <context>
     <name>Metadata</name>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="260"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="262"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
         <source>Creator</source>
         <translation>Creador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="261"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
         <source>Contributor</source>
         <translation>Contribuïdor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="262"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
         <source>Date</source>
         <translation>Data</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="265"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
         <source>Identifier</source>
         <translation>Identificador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
         <source>Subject</source>
         <translation>Matèria</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
         <translation>Frase o paraula clau arbitrària que descriu el tema o l&apos;assumpte tractat.
 Si cal, podeu fer servis més d&apos;un element «Tema».</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
         <source>Description</source>
         <translation>Descripció</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
         <source>Description of the publication&apos;s content.</source>
         <translation>Descripció del contingut de la publicació.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="491"/>
         <source>Publisher</source>
         <translation>Editorial</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
         <source>An entity responsible for making the publication available.</source>
         <translation>Persona, organització, o servei responsables de fer disponible el recurs i proporcionar-ne accés.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>Date: Publication</source>
         <translation>Data: Publicació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>The date of publication.</source>
         <translation>Data de la publicació de l&apos;obra.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>Date: Creation</source>
         <translation>Data: Creació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>The date of creation.</source>
         <translation>Data de la creació de l&apos;obra.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>Date: Modification</source>
         <translation>Data: Modificació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>The date of modification.</source>
         <translation>Data de la modificació de l&apos;obra.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>Date (custom)</source>
         <translation>Data (personalitzada)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>Enter your own event name in the File As column, e.g. updated.</source>
         <translation>Introduïu l&apos;esdeveniment que volgueu a la columna «Ordena com»; per exemple, «actualitzat».</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>Type</source>
         <translation>Gènere</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>The nature or genre of the content of the resource.</source>
         <translation>Descripció de la naturalesa o gènere del contingut del recurs.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>Format</source>
         <translation>Format</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
         <translation>Format del fitxer, suport físic, o dimensions del recurs.
 Es recomana usar un vocabulari controlat, per exemple, la llista de Internet Media Types (MIME).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>Source</source>
         <translation>Font</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>A reference to a resource from which the present publication is derived.</source>
         <translation>Referència a un altre recurs del qual se’n deriva en tot o en part el recurs descrit.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>Language</source>
         <translation>Llengua</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>An optional extra language of the publication.  Use a value from the Language drop down menu.  For example use &apos;English&apos; instead of the language code &apos;en&apos;.</source>
         <translation>Idioma addicional opcional de la publicaió.
 Utilitzeu una valor del menú emergent d&apos;idiomes. Per exemple, «Anglès» en lloc del codi d&apos;idioma «en».</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Relation</source>
         <translation>Relació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
         <translation>Referència a un recurs relacionat.
 Una bona pràctica és identificar el recurs mitjançant una sèrie de lletres o números d&apos;acord amb un sistema d&apos;identificació formal.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>Coverage</source>
         <translation>Abast</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
         <translation>Extensió o abast del contingut de la publicació.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Rights</source>
         <translation>Drets</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
         <translation>Informació sobre els drets legals que afecten l&apos;obra.
 Normalment, inclou els drets de propietat intel·lectual, el copyright i altres drets de propietat.
 El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>Title</source>
         <translation>Títol</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>An optional extra title of the publication in addition to the main title already entered.</source>
         <translation>Titol addicional opcional de l&apos;obra, a més a més del títol principal.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>Digital Object Identifier</source>
         <translation>Identificador d&apos;objecte digital</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>International Standard Book Number</source>
         <translation>Número Internacional Normalitzat per a llibres</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
         <source>International Standard Serial Number</source>
         <translation>Número Internacional Normalitzat per a Publicacions en Sèrie</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
         <source>Identifier (custom)</source>
         <translation>Identificador (personalitzat)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
         <source>Enter your own custom identifier name in the File As column, e.g. stocknumber</source>
         <translation>Introduïu el nom d&apos;identificador personalizat a la columna «Ordena com»; per exemple, «número de registre».</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Actor</source>
         <translation>Actor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Persona o organització que principalment mostra habilitats per actuar en una obra musical, dramàtica o d&apos;entreteniment.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Adapter</source>
         <translation>Adaptador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
         <translation>Persona o organització que:
 1) refà una composició musical, noemalment per a un mitjà diferent, o
 2) reescriu novel·les o escrits per al cinema o altres mitjans audiovisuals.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
         <source>Analyst</source>
         <translation>Analista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
         <translation>Persona o organització que revisa, examina i interpreta dades o informació en una àrea específica.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Animator</source>
         <translation>Animador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
         <translation>Persona o organització que dibuixa les imatges planes, manipula els objectes en tres dimensions o programa els ordinadors per fer moure objectes i imatges per tal de crear pel·lícules d&apos;animació. L&apos;animador fa servir eines com ara càmeres d&apos;animació, suports, pantalles de cel·luloide i tintes.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Annotator</source>
         <translation>Anotador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
         <translation>Persona que escriu notes manuscrites en un document imprès.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Applicant</source>
         <translation>Sol·licitant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
         <translation>Persona o organització responsable de la presentació d&apos;una sol·licitud o que es designada com a titular per rebre el resultat de la sol·licitud (per exemple, concessió de drets, remuneració, títol o càrrec).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Architect</source>
         <translation>Arquitecte</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
         <translation>Persona o organització que dissenya estructures o en supervisa la construcció.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
         <source>Arranger</source>
         <translation>Arranjador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
         <translation>Músic que adapta composicions musicals a instruments i veus diferents dels originals.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
         <source>Art copyist</source>
         <translation>Copista d&apos;art</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
         <translation>Persona que copia l’obra d’un artista.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
         <source>Artist</source>
         <translation>Artista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
         <translation>Persona o organització que concep i, potser, també du a terme un disseny gràfic original o una obra d&apos;art, si no es volen fer servir altres codis més concrets (com [egr] o [etr]). Per a il·lustradors de llibres, utilitzeu preferentment «il·lustrador» [ill].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
         <source>Artistic director</source>
         <translation>Director artístic</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
         <translation>Persona responsable de controlar el desenvolupament de l&apos;estil artístic d&apos;una producció sencera; incloent-ne la tria de les obres que s&apos;hi presenten i la selecció del personal principal de la producció.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Assignee</source>
         <translation>Cessionari</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
         <translation>Persona o organització a favor de la qual ha estat atorgada la llicència d&apos;impressió o publicació.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Associated name</source>
         <translation>Nom associat</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
         <translation>Persona o organització associada o que es troba en un objecte o col·lecció, la qual no es pot determinar si es un propietari anterior [fmo] o altre indicador de relació que n&apos;indiqui l&apos;origen.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Attributed name</source>
         <translation>Nom atribuït</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
         <translation>Autor, artista, etc. relacionat amb una obra amb la qual hi ha, o hi va haver, constància en ferm de ser-ne l&apos;autor, el creador, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Auctioneer</source>
         <translation>Subhastador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
         <translation>Persona o organització encarregada de la valoració i la subhasta pública de bens, especialment de llibres, obres d&apos;art, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Author</source>
         <translation>Autor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
         <translation>Persona o organització que és la principal responsable del contingut intel·lectual o artístic de l&apos;obra, generalment un text imprès. Aquest terme també es pot fer servir quan la responsabilitat correspon a més d&apos;una persona o organització.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
         <source>Author in quotations or text extracts</source>
         <translation>Autor de cites o extractes textuals</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
         <translation>Persona o organització l&apos;obra del qual ha estat ampliament citada o extractada en obres en les que no ha contribuït directament. Aquestes cites es troben sobretot en catàlegs d&apos;exposicions, col·leccions de fotografies, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
         <source>Author of afterword, colophon, etc.</source>
         <translation>Autor de l&apos;epíleg, colofó​​, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
         <translation>Persona o organització responsable de l&apos;epíleg, nota final, colofó, etc., però que no és l&apos;autor principal de l&apos;obra.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
         <source>Author of dialog</source>
         <translation>Autor del diàleg</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
         <translation>Persona o organització responsable del diàleg o del comentari parlat d&apos;un guió o d&apos;un enregistrament de so.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Author of introduction, etc.</source>
         <translation>Autor de la introducció, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
         <translation>Persona o organització responsable de la introducció, prefaci, pròleg, o altres tipus de material crític introductori, però que no és l&apos;autor principal.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
         <source>Author of screenplay, etc.</source>
         <translation>Guionista, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
         <translation>Persona o organització responsable del guió d&apos;una pel·lícula, diàleg, comentari parlat, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
         <source>Bibliographic antecedent</source>
         <translation>Antecedent bibliogràfic</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
         <translation>Persona o organització responsable d&apos;una obra en la qual es basa l&apos;obra descrita. Pot ser adequat per adaptacions, seqüeles, continuacions, índexs, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Binder</source>
         <translation>Enquadernador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
         <translation>Persona o organització responsable de l&apos;enquadernació de materials impresos o manuscrits.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Binding designer</source>
         <translation>Dissenyador de l&apos;enquadernació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
         <translation>Persona o organització responsable del disseny del relligat d&apos;un llibre, incloent-ne en tipus d&apos;enquadernació, els materials utilitzats i qualsevol aspecte decoratiu del relligat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
         <source>Book designer</source>
         <translation>Dissenyador del llibre</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
         <translation>Persona o organització responsable del disseny gràfic complet d&apos;un llibre, incloent-ne la maquetació del text i de les il·lustracions, la tria dels materials i el procés utilitzat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Book producer</source>
         <translation>Productor del llibre</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
         <translation>Persona o organització responsable de la producció de llibres i d&apos;altres mitjans impresos, si no es volen utilitzar altres codis més concrets (per exemple, [bkd], [egr], [tyd], [prt]).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
         <source>Bookjacket designer</source>
         <translation>Dissenyador de la sobrecoberta</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
         <translation>Persona o organització responsable del disseny de les cobertes flexibles d&apos;un llibre, incloent-ne els tipus de materials utilitzats i qualsevol aspecte decoratiu de la sobrecoberta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
         <source>Bookplate designer</source>
         <translation>Dissenyador de l&apos;ex-libris</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
         <translation>Persona o organització responsable del disseny de l&apos;etiqueta que identifica el propietari d&apos;un llibre, que generalment s&apos;enganxa a l&apos;interior de la coberta frontal.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
         <source>Bookseller</source>
         <translation>Llibreter</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
         <translation>Persona o organització que ven llibres i altres materials bibliogràfics, principalment, amb afany de lucre.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
         <source>Calligrapher</source>
         <translation>Cal·lígraf</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
         <translation>Persona o organització que escriu a mà de manera artística, normalment com a copista o cal·lígraf.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
         <source>Cartographer</source>
         <translation>Cartògraf</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
         <translation>Persona o organització responsable de la creació de mapes i altres materials cartogràfics.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
         <source>Censor</source>
         <translation>Censor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
         <translation>Censor, expurgador, mutilador, etc. oficial o privat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
         <source>Choreographer</source>
         <translation>Coreògraf</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
         <translation>Persona o organització que compon o arranja danses o altres moviments (per exemple, «mestre d&apos;espases») per a un musical, representació dramàtica o espectacle d&apos;entreteniment.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
         <source>Cinematographer</source>
         <translation>Director de fotografia</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
         <translation>Persona o organització encarregada de les imatges rodades per a una pel·lícula. Treballa sota la supervisió d&apos;un director. No s&apos;ha de confondre amb l&apos;operador de càmera o cameràman.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
         <source>Client</source>
         <translation>Client</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
         <translation>Persona o organització per a la que una altra persona o organització actua.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
         <source>Collaborator</source>
         <translation>Col·laborador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
         <source>Use for a person or organization that takes a limited part in the elaboration of a work of another person or organization that brings complements (e.g., appendices, notes) to the work.</source>
         <translation>Persona o organització que intervé d&apos;una forma limitada en l&apos;elaboració d&apos;una obre d&apos;una altra persona o organització per tal de complementar l&apos;obra amb apèndixs, notes, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
         <source>Collector</source>
         <translation>Col·leccionista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
         <translation>Persona o organització que ha compilat material de diverses fonts que ha estat ordenat, descrit i catalogat com a col·lecció. Un col·leccionista no és ni el creador del material ni la persona a la qual els manuscrits d&apos;una col·lecció s&apos;hi poden haver adreçat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Collotyper</source>
         <translation>Fototipista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
         <translation>Persona o organització responsable de la producció d&apos;impressions fotogràfiques a partir d&apos;una pel·licula o d&apos;un altre col·loide que tingui superfícies receptores o repel·lents a la tinta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
         <source>Commentator</source>
         <translation>Comentarista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
         <translation>Persona o organització que proporciona una interpretació, anàlisi o discussió del tema en un enregistrament, gravació de vídeo, o qualsevol altre mitjà audiovisual.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
         <source>Commentator for written text</source>
         <translation>Comentarista pel text escrit</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
         <translation>Persona o organització responsable dels comentaris o de les notes explicatives d&apos;un text. Per a l&apos;autor de les notes manuscrites d&apos;un llibre imprès, feu servir Anotador [ann].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
         <source>Compiler</source>
         <translation>Compilador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
         <translation>Persona o organització que produeix una obra o una publicació selecccionant i compilant material a partir d&apos;obres de diverses persones o entitats.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
         <source>Complainant</source>
         <translation>Querellant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
         <translation>Part que recorre als tribunals per a una reparació, normalment en un procés d&apos;equitat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Complainant-appellant</source>
         <translation>Querellant apel·lant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Querellant que presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència, normalment en un procés d&apos;equitat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
         <source>Complainant-appellee</source>
         <translation>Querellant apel·lat</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Querellant contra el qual es presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència, normalment en un procés d&apos;equitat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
         <source>Composer</source>
         <translation>Compositor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
         <translation>Persona o organització que crea una obra musical, noemalment una peça de música en forma manuscrita o impresa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
         <source>Compositor</source>
         <translation>Caixista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
         <translation>Persona o organització responsable de la creació dels motlles de metall o d&apos;altres materials utilitzats per obtenir text i imatges en un imprès.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
         <source>Conceptor</source>
         <translation>Autor de la idea</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
         <translation>Persona o organització responsable de la idea original en la qual es basa l&apos;obra, incloent-ne l&apos;autor científic d&apos;un element audiovisual i l&apos;autor d ela idea d&apos;un anunci.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
         <source>Conductor</source>
         <translation>Director d&apos;orquestra</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
         <translation>Persona que dirigeix un grup d&apos;intèrprets (orquestra, cor, òpera, etc.) en una representació musical, dràmatica o espectacle d&apos;entreteniment.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
         <source>Consultant</source>
         <translation>Consultor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
         <translation>Persona o organització competent en la matèria a qui es demana consell professional o serveis en un camp especialitzat de coneixement o d&apos;habilitats.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
         <source>Consultant to a project</source>
         <translation>Consultor d&apos;un projecte</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
         <translation>Persona o organització competent en la matèria a qui es contracta específicament per a supervisar intel·lectualment una tasca estratègica o operativa i per a crear o proposar-ne una solució o un pla d&apos;acció eficient mitjançant l&apos;anàlisi, l&apos;especificació o la indicació.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
         <source>Contestant</source>
         <translation>Impugnador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
         <translation>Part que s&apos;oposa, rebutja o impugna, en un tribunal, una reclamació, decisió, resultat, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
         <source>Contestant-appellant</source>
         <translation>Impugnador apel·lant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
         <translation>Impugnador que presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
         <source>Contestant-appellee</source>
         <translation>Impugnador apel·lat</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
         <translation>Impugnador en contra del qual es presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
         <source>Contestee</source>
         <translation>Impugnat</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
         <translation>Part que defensa una reclamació, decisió, resultat, etc. que ha estat rebutjada o impugnada en un tribunal.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
         <source>Contestee-appellant</source>
         <translation>Impugnat apel·lant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
         <translation>Impugnat que presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
         <source>Contestee-appellee</source>
         <translation>Impugnat apel·lant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
         <translation>Impugnat en contra del qual es presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
         <source>Contractor</source>
         <translation>Contractista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
         <translation>Persona o organització competent en la matèria que estableix un contracte amb una altra persona o organització per dur a terme una tasca concreta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
         <translation>Persona o organització l&apos;obra de la qual contribueix a una obra més gran, com ara un antologia, publicació en sèrie, o altre tipus de recopilació d&apos;obres individuals. No s&apos;ha de fer servir aquest element si l&apos;única funció en relació amb l&apos;obra és la d&apos;autor, editor, compilador o traductor.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
         <source>Copyright claimant</source>
         <translation>Sol·licitant del copyright</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
         <translation>Persona o organització que s&apos;inscriu com a propietària del copyright en el moment del registre. El copyright pot concesir-se o ser transferit després a una altra persona o organització i, aleshores, el sol·licitant es converteix en el titular del copyright.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
         <source>Copyright holder</source>
         <translation>Titular del copyright</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
         <translation>Persona o organització a qui es concedeixen o es trasfereixen els drets legals i de còpia pel que fa al contingut intel·lectual d&apos;una obra. El titular del copyright, encara que no sigui necessàriament el creador de l&apos;obra, normalment té els drets exclusius per a rebre beneficis econòmics provinents de la venda i l&apos;ús de l&apos;obra afectada per la protecció del copyright.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
         <source>Corrector</source>
         <translation>Corrector</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
         <translation>Persona o organització que corregeix manuscrits, com ara l&apos;encarregat oficial de corregir el treballs dels escrivents en un scriptòrium. Per a materials impresos, feu servir Corrector de proves.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
         <source>Correspondent</source>
         <translation>Corresponsal</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
         <translation>Persona o organització que ha estat el remitent o el destinatari d&apos;una carta o d&apos;un altra mena de comunicació.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
         <source>Costume designer</source>
         <translation>Dissenyador de vestuari</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
         <translation>Personao organització que dissenya o fa vestits, s&apos;encarrega dels pentinats, etc. en una representació musical o dramàtica o en un espectacle d&apos;entreteniment.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
         <source>Cover designer</source>
         <translation>Dissenyador de la coberta</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
         <translation>Persona o organització responsable del disseny gràfic de la coberta d&apos;un llibre o d&apos;un àlbum, o de l&apos;estoig, la capsa, el contenidor, etc. Per a la persona o orgnaització responsable del disseny gràfic del llibre sencer, feu servir Dissenyador del llibre; per a la sobrecoberta, Dissenyador de la sobrecoberta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
         <translation>Persona o organització responsable del contingut intel·lectual o artístic d&apos;una obra.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
         <source>Curator of an exhibition</source>
         <translation>Comissari de l&apos;exposició</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
         <translation>Persona o organització responsable de la concepció i l&apos;organització d&apos;una exposició.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
         <source>Dancer</source>
         <translation>Ballarí</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Persona o organització que presenta principalment habilitats de ball en una representació musical o dramàtica o d&apos;entreteniment.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
         <source>Data contributor</source>
         <translation>Contribuïdor de dades</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
         <translation>Persona o organització que proporciona dades per incloure-les en una base de dades o una altra col·lecció de dades.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
         <source>Data manager</source>
         <translation>Gestor de dades</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
         <translation>Persona o organització responsable de la gestió de bases de dades o altres fonts de dades.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
         <source>Dedicatee</source>
         <translation>A qui es dedica</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
         <translation>Persona o organització al qui se li dedica un llibre, manuscrit, etc. (no el destinatari d&apos;un obsequi).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
         <source>Dedicator</source>
         <translation>Qui dedica</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
         <translation>Autor d&apos;una dedicatòria, que pot ser redactada de manera formal, epistolar o en vers.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
         <source>Defendant</source>
         <translation>Demandat</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
         <translation>Part que nega o es defensa de les al·legacions que es fan en contra d&apos;ella en un plet i a qui es demana reparació o compensació, normalment en una acció legal.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
         <source>Defendant-appellant</source>
         <translation>Demandat apel·lant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
         <translation>Demandat que presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència, normalment en una acció legal.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
         <source>Defendant-appellee</source>
         <translation>Demandat apel·lat</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
         <translation>Demandat en contra del qual es presenta una apel·lació en un altre tribunal o jurisdicció per tal de revocar una sentència, normalment e una acció legal.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
         <source>Degree grantor</source>
         <translation>Otorgant del títol</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
         <translation>Organització que otorga un títol o grau per al qual es presenta una tesi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
         <source>Delineator</source>
         <translation>Delineant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
         <translation>Persona o organització que executa els dibuixos tècnics a partir dels dissenys d&apos;altres.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
         <source>Depicted</source>
         <translation>Representat</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
         <translation>Entitat representada en una obra, especialment en obres d&apos;art.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
         <source>Depositor</source>
         <translation>Dipositant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
         <translation>Persona o organització que diposita materials sota la custòdia d&apos;una biblioteca o arxiu sense transferir els drets de propietat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
         <source>Designer</source>
         <translation>Dissenyador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
         <translation>Persona o organització responsable del disseny si no es volen fer servir altres codis més concrets, com ara [bkd] o [tyd].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
         <source>Director</source>
         <translation>Director</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
         <translation>Persona o organització responsable de la gestió general d&apos;una obra o que supervisa la producció d&apos;una representació, pel·lícula o enregistrament de so.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
         <source>Dissertant</source>
         <translation>Aspirant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
         <translation>Persona que defensa una tesi per assolir un grau universitari o d&apos;educació superior.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
         <source>Distributor</source>
         <translation>Distribuïdor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
         <translation>Persona o organització que té drets exclusius o compartits per comercialitzar un objecte.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
         <source>Donor</source>
         <translation>Donant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
         <translation>Persona o organització que dóna un llibre, un manuscrit, etc. al seu propietari actual. Els donants als propietaris anteriors s&apos;anomenen «Propietari anterior» [fmo] o  Inscriptor [ins].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
         <source>Draftsman</source>
         <translation>Dibuixant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
         <translation>Persona o organització que prepara dibuixos tècnics o artístics.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
         <source>Dubious author</source>
         <translation>Autor dubtós</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
         <translation>Persona o organització a qui s&apos;atribueix una autoria dubtosa o incorrecta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
         <source>Editor</source>
         <translation>Editor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
         <translation>Persona o organització que prepara una obra en principi aliena per a ser publicada, interpretant o aclarint el text, afegint-ne una introducció o altre contingut introductori o dirigint tècnicament el personal d&apos;una editorial.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
         <source>Electrician</source>
         <translation>Electricista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
         <translation>Persona responsable d&apos;instal·lar un equip d&apos;il·luminació i d&apos;enfocar els llums d&apos;una producció i de controlar la il·luminació d&apos;una representació.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
         <source>Electrotyper</source>
         <translation>Electrotipista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
         <translation>Persona o organització que crea una planxa d&apos;impressió per mitjà de procediments electroquímics.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
         <source>Engineer</source>
         <translation>Enginyer</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
         <translation>Persona o organització responsable de la planificació i del disseny tècnic, especialment en la construcció.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
         <source>Engraver</source>
         <translation>Gravador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
         <translation>Persona o organització que talla les lletres, figures, etc, sobre una superfície, com ara una placa de fusta o de metall, per a la impressió.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
         <source>Etcher</source>
         <translation>Gravador d&apos;aiguaforts</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
         <translation>Persona o organització que prepara textos o imatges per ser impresos atacant amb àcid, o altra substància corrosiva, metall, fusta o una altra superfície.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
         <source>Expert</source>
         <translation>Expert</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
         <translation>Persona o organització encarregada de la descripció i taxació de bens, especialment objectes rars, obres d&apos;art, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Facsimilist</source>
         <translation>Autor de facsímils</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Use for a person or organization that executed the facsimile.</source>
         <translation>Persona o organització que va executar el facsímil.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
         <source>Field director</source>
         <translation>Director de camp</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
         <translation>Persona o organització que gestiona o supervisa la feina feta per tal de recollir dades o fer recerca en un entorn o localització real (generalment s&apos;aplica a les ciències naturals i socials).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
         <source>Film editor</source>
         <translation>Muntador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
         <translation>Persona o organització que fa el muntatge d&apos;una pel·lícula de cinema.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
         <source>First party</source>
         <translation>Primera part</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
         <translation>Persona o organització que s&apos;identifica com a part única o com a primera part. En cas d&apos;un traspàs de drets, és qui els cedeix. La primera part pot designar diverses parts alhora.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
         <source>Forger</source>
         <translation>Falsificador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
         <translation>Persona o organització que fa o imita alguna cosa de valor o d&apos;importància, especialment amb la intenció d&apos;estafar.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
         <source>Former owner</source>
         <translation>Propietari anterior</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
         <translation>Persona o organització que va ser propietària d&apos;un objecte en algun moment passat. Inclou aquells a qui el material els va ser regalat. Qui dona l&apos;objecte al propietari actual s&apos;anomena «Donant» [dnr].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
         <source>Funder</source>
         <translation>Financer</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
         <translation>Persona o organització  que dona suport econòmic a la producció de l&apos;obra.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
         <source>Geographic information specialist</source>
         <translation>Especialista d&apos;informació geogràfica</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
         <translation>Persona responsable del desenvolupament de sistemes d&apos;informació geogràfica (GIS) i de la seva integració amb dades de sistemes de posicionament global.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Honoree</source>
         <translation>Homenatjat</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </source>
         <translation>Persona o organització en memòria o honor del qual es dóna un llibre, manuscrit, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
         <source>Host</source>
         <translation>Presentador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
         <translation>Persona invitada o que sovint presenta un programa (normalment retransmès) que inclou altres convidats, intèrprets, etc. (per exemple, un presentador de programes d&apos;entrevistes).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
         <source>Illuminator</source>
         <translation>Il·luminador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
         <source>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</source>
         <translation>Persona o organització responsable de la decoració d&apos;una obra (especialment manuscrits) amb metalls preciosos o colors, generalment amb motius i dissenys molt elaborats.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
         <source>Illustrator</source>
         <translation>Il·lustrador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
         <translation>Persona o organització que idea i, potser també fa, un disseny o una il·lustració, normalment per tal d&apos;acompanyar un text escrit.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
         <source>Inscriber</source>
         <translation>Inscriptor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
         <source>Use for a person who signs a presentation statement.</source>
         <translation>Persona que signa una declaració d&apos;obsequi.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
         <source>Instrumentalist</source>
         <translation>Instrumentista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
         <translation>Persona o organització que principalment toca un intrument en una obra musical, dramàtica o d&apos;entreteniment.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
         <source>Interviewee</source>
         <translation>Entrevistat</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
         <translation>Persona o organització que es entrevistada en una consulta o reunió, generalment per un reporter, enquestador o qualsevol altre agent recol·lector d&apos;informació.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
         <source>Interviewer</source>
         <translation>Entrevistador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
         <translation>Persona o organització que actua com a reporter, enquestador o qualsevol altre agent recol·lector d&apos;informació en una consulta o reunió amb un o més individus.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
         <source>Inventor</source>
         <translation>Inventor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
         <translation>Persona o organització que crea per primera vegada un objecte d&apos;una utilitat concreta, o desenvolupa un procés nou per obtenir un objecte o un resultat conegut.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
         <source>Laboratory</source>
         <translation>Laboratori</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
         <source>Use for an institution that provides scientific analyses of material samples.</source>
         <translation>Institució que proporciona les anàlisis científiques de les mostres de materials.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
         <source>Laboratory director</source>
         <translation>Director de laboratori</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
         <translation>Persona o organització que administra o supervisa el treball realitzat en un entorn controlat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
         <source>Landscape architect</source>
         <translation>Arquitecte de paisatge</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
         <translation>Persona o organització el treball de la qual inclou coordinar la distribució de les estructures i les característiques existents i proposades del terreny.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
         <source>Lead</source>
         <translation>Cap</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
         <translation>Persona o organització que té una responsabilitat principal en una activitat o tasca concreta. S&apos;utilitza amb un altre codi o terme de relació per indicar que, en aquesta funció en particular, la persona o organització tenen una importància més gran. Si hi ha una o més persones o organitzacions en l&apos;element, s&apos;ha d&apos;utilitzar «Cap» només si s&apos;ha d&apos;aplicar a totes.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
         <source>Lender</source>
         <translation>Prestador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
         <translation>Persona o organització que permet l&apos;ús temporal d&apos;un llibre, manuscrit, etc., per exemple per fotocopiar o microfilmar.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
         <source>Libelant</source>
         <translation>Demandant per difamació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
         <translation>Part que interposa una demanda per difamació en un tribunal eclesiàstic o militar.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
         <source>Libelant-appellant</source>
         <translation>Demandant apel·lant per difamació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Demandant per difamació que presenta una apel·lació en un altre tibunal eclesiàstic o militar per tal de revocar una sentència.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
         <source>Libelant-appellee</source>
         <translation>Demandant apel·lat per difamació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Demandant per difamació en contra del qual es presenta una apel·lació en un altre tribunal eclesiàstic o militar per tal de revocar una sentència.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
         <source>Libelee</source>
         <translation>Demandat per difamació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
         <translation>Part en contra de la qual s&apos;interposa una demanda per difamació en un tribunal eclesiàstic o militar.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
         <source>Libelee-appellant</source>
         <translation>Demandat apel·lant per difamació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Demandat per difamació que presenta una apel·lació en un altre tribunal eclesiàstic o militar per tal de revocar una sentència.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
         <source>Libelee-appellee</source>
         <translation>Demandat apel·lat per difamació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Demandat per difamació en contra del qual es presenta una apel·lació en un altre tribunal eclesiàstic o militar per tal de revocar una sentència.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Librettist</source>
         <translation>Llibretista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
         <translation>Persona o organització que escriu el text d&apos;una òpera, oratori, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Licensee</source>
         <translation>Concessionari de la llicència</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
         <translation>Persona o organització que es el receptor original del dret d&apos;impressió o publicació.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
         <source>Licensor</source>
         <translation>Atorgant de la llicència</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
         <translation>Persona o organització que signa la llicència, imprimàtur, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
         <source>Lighting designer</source>
         <translation>Dissenyador d&apos;il·luminació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
         <translation>Persona o organització que dissenya el pla d&apos;il·luminació d&apos;una representació teatral, espectacle, pel·lícula, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Lithographer</source>
         <translation>Litògraf</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
         <translation>Persona o organització que prepara la pedra o la planxa per a la impressió litogràfica, incloent els artistes gràfics que creen un disseny directament sobre la superfície amb la qual es farà la impressió.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
         <source>Lyricist</source>
         <translation>Lletrista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
         <translation>Persona o organització autora del text d&apos;una cançó.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Manufacturer</source>
         <translation>Fabricant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
         <translation>Persona o organització que fa un treball manufacturat (un objecte fet o modificat per una o més persones). Exemples de treballs manufacturats: gerros, canons o mobles.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
         <source>Markup editor</source>
         <translation>Editor de marcatge</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
         <translation>Persona o organització que codifica en SGML, HTML o fa el marcatge en XML de metadades, text, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
         <source>Metadata contact</source>
         <translation>Contacte per a metadades</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
         <translation>Persona o organització responsable principalment de compilar i mantenir la descripcions originals d&apos;un conjunt de metadades (per exemple, un conjunt de metadades geogràfiques espacials).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
         <source>Metal-engraver</source>
         <translation>Gravador de metall</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
         <translation>Persona o organització responsable de la decoració, les il·lustracions, les lletres, etc. gravades en una superfície de metall per tal d&apos;imprimir o decaorar.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
         <source>Moderator</source>
         <translation>Moderador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
         <translation>Persona que presenta un programa (normalment retransmès) on es tracten temes, generalment amb la participació d&apos;experts en la matèria que es debat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
         <source>Monitor</source>
         <translation>Supervisor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
         <translation>Persona o organització que supervisa el compliment d&apos;un contracte i que es responsable de l&apos;informe i en controla la distribució. També se&apos;n pot dir agència de control.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
         <source>Music copyist</source>
         <translation>Copista de música</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
         <source>Use for a person who transcribes or copies musical notation</source>
         <translation>Persona que transcriu o copia notacions musicals</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
         <source>Musical director</source>
         <translation>Director musical</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
         <translation>Persona responsable de decisions musicals bàsiques sobre una producció, incloent-ne la coordinació del treball del compositor i  l&apos;editor de so i els mescladors, la selecció de músics i l&apos;organització o la direcció del so als assajos i les representacions.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
         <source>Musician</source>
         <translation>Músic</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
         <translation>Persona o organització que interpreta música o contribueix al context musical d&apos;una obra quan no és possible o no es vol identificar la funció d&apos;una forma més precisa.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Narrator</source>
         <translation>Narrador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
         <translation>Persona que narra els detall d&apos;una acció, un succés o una cadena d&apos;esdeveniments.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
         <source>Opponent</source>
         <translation>Oponent</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
         <translation>Persona o organització responsable d&apos;oposar una tesi o una memòria.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
         <source>Organizer of meeting</source>
         <translation>Organitzador de la reunió</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
         <translation>Persona o organització responsable d&apos;organitzar una reunió amb el propòsit d&apos;informar o planificar.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
         <source>Originator</source>
         <translation>Autor original</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
         <translation>Persona o organització que executa l&apos;obra, és a dir, el nom de la persona o l&apos;organització associada amb el contingut intel·lectual d&apos;una obra. Aquesta categoria no inclou l&apos;editorial o el seu personal ni el patrocinador, si no és que també en són els autors materials.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
         <source>Other</source>
         <translation>Altres</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
         <translation>Codis de relació d&apos;altres llistes que no tenen equivalent a la llista MARC o per a termes que no hi ténen un codi assignat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
         <source>Owner</source>
         <translation>Propietari</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
         <translation>Persona o organització que actualment és la propietària d&apos;un objecte o d&apos;una col·lecció.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
         <source>Papermaker</source>
         <translation>Fabricant del paper</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
         <translation>Persona o organització que fabrica paper, normalment a partir de fusta, roba o altres materials fibrosos.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
         <source>Patent applicant</source>
         <translation>Sol·licitant de la patent</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
         <source>Use for a person or organization that applied for a patent.</source>
         <translation>Persona o organització que va sol·licitar la patent.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
         <source>Patent holder</source>
         <translation>Titular de la patent</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
         <source>Use for a person or organization that was granted the patent referred to by the item. </source>
         <translation>Persona o organització a la que es va concedir la patent a la que es refereix l&apos;article.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
         <source>Patron</source>
         <translation>Patró</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
         <translation>Persona o organització responsable de l&apos;encàrrec d&apos;una obra.Normalment, un patró dona suport al treball dels artistes, escriptors, etc. mitjançant els seus medis o la seva influència. S&apos;inclou els que encarreguen i paguen obres individuals.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
         <source>Performer</source>
         <translation>Intèrpret</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
         <translation>Persona o organització que mostren habilitats musicals o d&apos;actuació en una representació dramàtica, musical o d&apos;entreteniment, si no s&apos;utilitzen altres codis més concrets ([act], [dnc], [itr], [voc], etc.) per indicar aquestes funcions. Si s&apos;utilitzen codis concrets, aleshores «Intèrpret» [prf] es fa servir per algú de qui no es coneix o no s&apos;indica la seva habilitat principal.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="475"/>
         <source>Permitting agency</source>
         <translation>Autoritat permitent</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="475"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
         <translation>Autoritat (normalment un departament del govern) que atorga el permís per fer l&apos;obra.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="476"/>
         <source>Photographer</source>
         <translation>Fotògraf</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="476"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
         <translation>Persona o organització responsable de fer fotografies per tal de ser utilitzades en la seva forma original o com a reproduccions.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="475"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="477"/>
         <source>Plaintiff</source>
         <translation>Demandant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="475"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="477"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
         <translation>Part que denuncia o demanda en un tribunal com a acció personal, normalment en un procés legal.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="476"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
         <source>Plaintiff-appellant</source>
         <translation>Demandant apel·lant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="476"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
         <translation>Demandant que presenta una apel·lació a un altre tribunal o jurisdicció perl tal de revocar una sentència, normalment en un procés legal.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="477"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="479"/>
         <source>Plaintiff-appellee</source>
         <translation>Demandant apel·lat</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="477"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="479"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
         <translation>Demandant en contra del qual es presenta una apel·lació a un altre tribunal o jurisdicció perl tal de revocar una sentència, normalment en un procés legal.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="480"/>
         <source>Platemaker</source>
         <translation>Productor de planxes</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="480"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
         <translation>Persona o organització responsable de fabricar les planxes que, normalment, s&apos;utilitzen per la impressió d&apos;imatges o text.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="479"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="481"/>
         <source>Printer</source>
         <translation>Impressor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="479"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="481"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
         <translation>Persona o organització que imprimeix textos amb motlles tipogràfics o planxes d&apos;impressió.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="480"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="482"/>
         <source>Printer of plates</source>
         <translation>Impressor de planxes</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="480"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="482"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
         <translation>Persona o organització que imprimeix il·lustracions amb planxes d&apos;impressió.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="481"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="483"/>
         <source>Printmaker</source>
         <translation>Impremter</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="481"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="483"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
         <translation>Persona o organització que prepara les formes impressores en relleu, rotogravat o planografia.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="482"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="484"/>
         <source>Process contact</source>
         <translation>Contacte de processament</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="482"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="484"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
         <translation>Persona o organització responsable principalment de dur a terme o iniciar un procés, com ara la compilació de conjunts de metadades.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="483"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="485"/>
         <source>Producer</source>
         <translation>Productor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="483"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="485"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
         <translation>Persona o organització responsable de fer una pel·lícula incloent-ne els aspectes financers, la gestió de la producció i l&apos;èxit comercial de l&apos;obra.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="484"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="486"/>
         <source>Production manager</source>
         <translation>Director de producció</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="484"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="486"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
         <translation>Persona responsable de totes les qüestions tècniques i financeres d&apos;una producció.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="485"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="487"/>
         <source>Production personnel</source>
         <translation>Personal de producció</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="485"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="487"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
         <translation>Persona o organització associada amb la producció (utillatge, il·luminació, efectes especials, etc.) d&apos;una representació musical, dramàtica o d&apos;entreteniment.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="486"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
         <source>Programmer</source>
         <translation>Programador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="486"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
         <translation>Persona o organització responsable de la cració o el manteniment del disseny, codi font, fitxers executables i documentació dels programes d&apos;ordinador.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="487"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
         <source>Project director</source>
         <translation>Director del projecte</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="487"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
         <translation>Persona o organització amb responsabilitat principal en tots els aspectes d&apos;un projecte, o que gestiona projectes molt grans que requereixen un nivell de responsabilitat superior, o que te responsabilitat general en la gestió de projectes, o que du a terme la direcció general sobre el gestor del projecte.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="490"/>
         <source>Proofreader</source>
         <translation>Corrector de proves</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="490"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
         <translation>Persona que corregeix proves d&apos;impressió. Per a manuscrits, feu servir «Corrector» [crr].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="491"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
         <translation>Persona o organització que imprimeix materials i els posa a l&apos;abast del públic, generalment text però també música, il·lustracions, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="490"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="492"/>
         <source>Publishing director</source>
         <translation>Director editorial</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="490"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="492"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
         <translation>Persona o organització que encapçala l&apos;elaboració d&apos;una obra col·lectiva per assegurar-ne la coherència o la continuïtat. Inclou els caps de redacció, els editors literaris, els editors de sèries, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="491"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="493"/>
         <source>Puppeteer</source>
         <translation>Titellaire</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="491"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="493"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
         <translation>Persona o organització que manipula, controla o dirigeix titelles en una representació musical, dràmatica o d&apos;entreteniment.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="492"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
         <source>Recipient</source>
         <translation>Destinatari</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="492"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
         <translation>Persona o organització a qui s&apos;adreça la correspondència.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="493"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="495"/>
         <source>Recording engineer</source>
         <translation>Enginyer de gravació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="493"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="495"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
         <translation>Persona o organització que supervisa els aspectes tècnics d&apos;una sessió d&apos;enregistrament de vídeo o d&apos;àudio.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
         <source>Redactor</source>
         <translation>Redactor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
         <translation>Persona o organització que escriu o desenvolupa la trama d&apos;un assumpte sense ser-ne el responsable intel·lectual del contingut.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="495"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="497"/>
         <source>Renderer</source>
         <translation>Representador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="495"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="497"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
         <translation>Persona o organització que prepara dibuixos de dissenys arquitectònics (representacions) amb una representació acurada en perspectiva per tal de mostrar l&apos;aspecte final del projecte.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
         <source>Reporter</source>
         <translation>Reporter</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
         <source>Use for a person or organization who writes or presents reports of news or current events on air or in print.</source>
         <translation>Persona o organització que escriu o presenta reportatges de notícies o successos.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="497"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
         <source>Repository</source>
         <translation>Dipòsit</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="497"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
         <translation>Organisme que custodia dades o objectes físics culturals i proporciona serveis per promoure&apos;n l&apos;ús continuat, compartit i coherent.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="500"/>
         <source>Research team head</source>
         <translation>Cap de l&apos;equip d&apos;investigació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="500"/>
         <source>Use for a person who directed or managed a research project.</source>
         <translation>Persona que dirigeix o gestiona un projecte de recerca.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="501"/>
         <source>Research team member</source>
         <translation>Membre de l&apos;equip d&apos;investigació</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="501"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
         <translation>Persona que participa en un projecte de recerca amb una funció que no n&apos;inclou la direcció o la gestió.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="500"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="502"/>
         <source>Researcher</source>
         <translation>Investigador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="500"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="502"/>
         <source>Use for a person or organization responsible for performing research. </source>
         <translation>Persona o organització que es decica a fer investigació.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="501"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="503"/>
         <source>Respondent</source>
         <translation>Demandat contestador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="501"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="503"/>
         <source>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</source>
         <translation>Part que presenta una resposta als tribunals com a conseqüència d&apos;una sol·licitud de reparació, normalment en un procés d&apos;equitat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="502"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="504"/>
         <source>Respondent-appellant</source>
         <translation>Demandat contestador apel·lant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="502"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="504"/>
         <source>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Demandat contestatdor que presenta una apel·lació a un altre tribunal o jurisdicció per tal de revocar una sentència, normalment en un procés d&apos;equitat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="503"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="505"/>
         <source>Respondent-appellee</source>
         <translation>Demandat contestador apel·lat</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="503"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="505"/>
         <source>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Demandat contestatdor en contra del qual es presenta una apel·lació a un altre tribunal o jurisdicció per tal de revocar una sentència, normalment en un procés d&apos;equitat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="504"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="506"/>
         <source>Responsible party</source>
         <translation>Part responsable</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="504"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="506"/>
         <source>Use for a person or organization legally responsible for the content of the published material.</source>
         <translation>Persona o organització legalment responsable del contingut del material publicat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="505"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="507"/>
         <source>Restager</source>
         <translation>Reescenificador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="505"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="507"/>
         <source>Use for a person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content.</source>
         <translation>Persona o organització, diferents del coreògraf o del director originals, responsables de tornar a escenificar una obra dramàtica o coreogràfica i que hi contribueix amb un contingut nou mínim.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="506"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
         <source>Reviewer</source>
         <translation>Crític</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="506"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
         <source>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</source>
         <translation>Persona o organització responsable de la ressenya o crítica d&apos;un llibre, pel·lícula cinematogràfica, representació, etc.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="507"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="509"/>
         <source>Rubricator</source>
         <translation>Rubricador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="507"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="509"/>
         <source>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</source>
         <translation>Persona o organització responsable de parts d&apos;una obra, generalment capçaleres o els títols d&apos;un manuscrit que apareixen en un color diferent, normalment vermell.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="510"/>
         <source>Scenarist</source>
         <translation>Guionista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="510"/>
         <source>Use for a person or organization who is the author of a motion picture screenplay.</source>
         <translation>Persona o organització autora d&apos;un guió cinematogràfic.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="509"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="511"/>
         <source>Scientific advisor</source>
         <translation>Assessor científic</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="509"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="511"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
         <translation>Persona o organització que aporta el seu coneixement científic, pedagògic o històric a la concepció i a la realització d&apos;una obra, especialment si es tracta d&apos;una obra audiovisual.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="510"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="512"/>
         <source>Scribe</source>
         <translation>Copista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="510"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="512"/>
         <source>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</source>
         <translation>Amanuense o escriptor de manuscrits polits. La persona que fa facsímils a mà s&apos;anomena «Autor de facsímils» [fac].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="511"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="513"/>
         <source>Sculptor</source>
         <translation>Escultor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="511"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="513"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
         <translation>Persona o organització que esculpeix figures que són representacions tridimensionals.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="512"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="514"/>
         <source>Second party</source>
         <translation>Segona part</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="512"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="514"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
         <translation>Persona o organització identificada com a segona part. En cas de transferència de drets, és el concessionari o destinatari, etc. La segona part pot estar formada per més d&apos;una entitat.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="513"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="515"/>
         <source>Secretary</source>
         <translation>Secretari</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="513"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="515"/>
         <source>Use for a person or organization who is a recorder, redactor, or other person responsible for expressing the views of a organization.</source>
         <translation>Persona o organització que enregistra, redacta o és potaveu dels punts de vista de l&apos;organització.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="514"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="516"/>
         <source>Set designer</source>
         <translation>Escenògraf</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="514"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="516"/>
         <source>Use for a person or organization who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set.</source>
         <translation>Persona o organització que interpreta els esbossos del director artístic per tal de construir les estructures físiques reals d&apos;una representació teatral, d&apos;entreteniment, pel·lícula, etc. Els escenògrafs creen els esquemes detallats i les especificacions per construir els decorats.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="515"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="517"/>
         <source>Signer</source>
         <translation>Signant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="515"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="517"/>
         <source>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</source>
         <translation>Persona la signatura de la qual apareix sense cap indicació de procedència o d&apos;oferiment. Si hi ha una declaració d&apos;oferiment, feu servir «Inscriptor» [ins].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="516"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="518"/>
         <source>Singer</source>
         <translation>Cantant</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="516"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="518"/>
         <source>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</source>
         <translation>Persona o orgnaització que fa servir la seva veu, amb o sense acompanyament instrumental, per fer música. Una representació pot incloure o no paraules reals.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="517"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="519"/>
         <source>Sound designer</source>
         <translation>Dissenyador de so</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="517"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="519"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
         <translation>Persona que produeix i reprodueix la banda sonora (en directe o enregistrada), que instal·la els micròfons, que ajusta els nivells de so i que coordina les fonts de so en una producció.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="518"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="520"/>
         <source>Speaker</source>
         <translation>Orador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="518"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="520"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
         <translation>Persona que participa en un programa (normalment retransmès) i fa una contribució formal o una presentació generalment no improvisada.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="519"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="521"/>
         <source>Sponsor</source>
         <translation>Patrocinador</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="519"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="521"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
         <translation>Persona o organització que facilita un contracte que permet o afavoreix l&apos;escriptura, o la impressió, o la publicació, etc. d&apos;una obra.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="520"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="522"/>
         <source>Stage manager</source>
         <translation>Director d&apos;escena</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="520"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="522"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
         <translation>Persona encarregada de tot allò que passa en escena durant una representació i que actua com a cap de tots els equips i com a ajudant del director en els assajos.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="521"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="523"/>
         <source>Standards body</source>
         <translation>Organisme de normalització</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="521"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="523"/>
         <source>Use for an organization responsible for the development or enforcement of a standard.</source>
         <translation>Organització responsable del desenvolupar o de fer complir d&apos;un estàndard.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="522"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="524"/>
         <source>Stereotyper</source>
         <translation>Estereotipista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="522"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="524"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
         <translation>Persona o organització que crea una planxa d&apos;impressió nova a partir d&apos;una altra superfície d&apos;impressió mitjançant motlle o còpia.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="523"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="525"/>
         <source>Storyteller</source>
         <translation>Conta contes</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="523"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="525"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
         <translation>Persona que narra contes amb una interpretació creativa o teatral.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="524"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="526"/>
         <source>Supporting host</source>
         <translation>Anfitrió</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="524"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="526"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
         <translation>Persona o organització que dóna suport (amb instal·lacions, personal o altres medis) a un projecte, programa, reunió, esdeveniment, objecte de dades, objecte cultural físic, o qualsevol altra entitat que pugui rebre suport.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="525"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="527"/>
         <source>Surveyor</source>
         <translation>Topògraf</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="525"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="527"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
         <translation>Persona o organització que mesura els terrenys per tal de determinar-ne les ubicacions, les formes i els límits.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="526"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="528"/>
         <source>Teacher</source>
         <translation>Mestre</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="526"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="528"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
         <translation>Persona que, en el context d&apos;un recurs, instrueix una matèria intel·lectual o ensenya a fer una habilitat física.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="527"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="529"/>
         <source>Technical director</source>
         <translation>Director tècnic</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="527"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="529"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
         <translation>Responsable general dels decorats, l&apos;utillatge, les llums i el so d&apos;una producció.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="528"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="530"/>
         <source>Thesis advisor</source>
         <translation>Director de la tesi</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="528"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="530"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
         <translation>Persona que sota la seva supervisió d&apos;un canditat a grau, redacta i presenta una tesi, memòria, o dissertació.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="529"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="531"/>
         <source>Transcriber</source>
         <translation>Transcriptor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="529"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="531"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
         <translation>Persona que prepara una còpia, manuscrita o tipogràfica, d&apos;un original, incloent materials dictats oralment o enregistrats. Els autors de facsímils manuals usen el codi [fac].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="530"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="532"/>
         <source>Translator</source>
         <translation>Traductor</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="530"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="532"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
         <translation>Persona o organització que tradueix un text d&apos;una llengua a una altra, o d&apos;una forma antiga d&apos;una llengüa a la forma moderna.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="531"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="533"/>
         <source>Type designer</source>
         <translation>Diseñador tipogràfic</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="531"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="533"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
         <translation>Persona o organització que ha dissenyat el tipus de lletra d&apos;un objecte concret.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="532"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="534"/>
         <source>Typographer</source>
         <translation>Tipògraf</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="532"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="534"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
         <translation>Persona o organització que es dedica principalment a triar i organitzar la tipografia d&apos;un objecte. Si el tipògraf també és responsable d&apos;altres aspectes del disseny gràfic d&apos;un llibre (per exemple, «Dissenyador del libre [bkd]», es poden posar els codis de les dues funcions.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="533"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="535"/>
         <source>Videographer</source>
         <translation>Productor de vídeo</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="533"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="535"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
         <translation>Persona o organització encarregada de la producció de vídeo; per exemple, l&apos;enregistrament de vídeo d&apos;una representació escènica en contraposició a una pel·lícula comercial. Pot ser l&apos;operador de càmera o supervisar un o més operadors de càmera. No s&apos;ha de conforndre amb el director de fotografia.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="534"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="536"/>
         <source>Vocalist</source>
         <translation>Vocalista</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="534"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="536"/>
         <source>Use for a person or organization who principally exhibits singing skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Persona o organització que principalment mostra l&apos;habilitat de cantar en una representació musical, dramàtica o d&apos;entreteniment.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="535"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="537"/>
         <source>Witness</source>
         <translation>Testimoni</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="535"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="537"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
         <translation>Persona que confirma la veracitat d&apos;un esdeveniment o d&apos;una acció.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="536"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="538"/>
         <source>Wood-engraver</source>
         <translation>Xilògraf (a contrafibra)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="536"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="538"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
         <translation>Persona o organització que imprimeix gravant en relleu sobre una superfície perpendicular a la fibra d&apos;un bloc de fusta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="537"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="539"/>
         <source>Woodcutter</source>
         <translation>Xilògraf (a fibra)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="537"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="539"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
         <translation>Persona o organització que imprimeix gravant en relleu sobre una superfície paral·lela a la fibra d&apos;un bloc de fusta.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="538"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="540"/>
         <source>Writer of accompanying material</source>
         <translation>Autor del text addicional</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="538"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="540"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
         <translation>Persona o organització que escriu el material significatiu que acompanya un enregistrament de so o altres tipus de material audiovisual.</translation>
     </message>
@@ -11009,7 +11009,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="126"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="408"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="409"/>
         <source>Status: </source>
         <translation>Estat:</translation>
     </message>
@@ -11019,150 +11019,150 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
         <translation>Error: No existeix cap connector amb aquest nom</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="129"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="130"/>
         <source>Error: Interpreter </source>
         <translation>Error: Intèrpret</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="129"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="130"/>
         <source> has no path set</source>
         <translation>no té un camí establert</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="142"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="143"/>
         <source>Installation Error: plugin launcher </source>
         <translation>Error a la instal·lació: execució del connector</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="143"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="144"/>
         <source> does not exist</source>
         <translation>no existeix</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="148"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="149"/>
         <source>Error: plugin engine </source>
         <translation>Error: motor dels connectors</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="149"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="150"/>
         <source> is not supported (yet!)</source>
         <translation>no suportat (encara!)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="155"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="156"/>
         <source>Status: ready</source>
         <translation>Estat: preparat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="182"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="183"/>
         <source>Error: plugin can not start</source>
         <translation>Error: el connector no es pot inicialitzar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="242"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="243"/>
         <source>Launcher process crashed</source>
         <translation>El procés d&apos;execució ha sofert un error</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="253"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="254"/>
         <source>Status: finished</source>
         <translation>Estat: finalitzat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="265"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="266"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="275"/>
         <source>Status: No Changes Made</source>
         <translation>Estat: No s&apos;ha fet cap canvi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="273"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation>Error: El connector a intentat eliminar l&apos;últim fitxer XHTML ... s&apos;estan interrompent els canvis</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="364"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="365"/>
         <source>Plugin failed to start</source>
         <translation>El connector ha fallat en inicialitzar-se</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="372"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="373"/>
         <source>Status: error</source>
         <translation>Estat: error</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="386"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="387"/>
         <source>Plugin cancelled</source>
         <translation>Connector cancel·lat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="387"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="388"/>
         <source>Status: cancelled</source>
         <translation>Estat: cancel·lat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="469"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="470"/>
         <source>Error Parsing Result XML:  </source>
         <translation>Error d&apos;anàlisi XML:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="526"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="527"/>
         <source>Incorrect XHTML: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="526"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="527"/>
         <source> Line/Col </source>
         <translation>Línia/Columna</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="549"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="550"/>
         <source>Check Report</source>
         <translation>Comproveu l&apos;informe</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="550"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="551"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>S&apos;ha detectat XHTML/XML incorrecte
 Esteu segur de voler continuar?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="568"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="569"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>Estat: netejant - s&apos;està eliminant fitxers</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="583"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="584"/>
         <source>Status: deleting </source>
         <translation>Estat: s&apos;està eliminant</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="613"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="614"/>
         <source>Status: Loading </source>
         <translation>Estat: s&apos;està carregant</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="624"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="625"/>
         <source>Input Plugin</source>
         <translation>Entrada del connector</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="625"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="626"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>El vostre llibre serà reemplaçat perdent qualsevol canvi no desat ... Esteu segur que voleu procedir</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="651"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="652"/>
         <source>Status: adding </source>
         <translation>Estat: s&apos;està afegint</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="688"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="689"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>Estat: netejant - s&apos;està modificant fitxers</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="717"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="718"/>
         <source>Status: modifying </source>
         <translation>Estat: s&apos;està modificant</translation>
     </message>
@@ -11258,59 +11258,59 @@ Esteu segur de voler continuar?</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="128"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="120"/>
         <source>Select Plugin Zip Archive</source>
         <translation>Seleccioneu un fitxer Zip amb el connector</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="128"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="120"/>
         <source>Plugin Files (*.zip)</source>
         <translation>Fitxers del connector (*.zip) </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="144"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="136"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
         <translation>Error: el connector plugin.xml no és vàlid o no es compatible amb el vostre sistema operatiu.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="147"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="139"/>
         <source>Warning: A plugin by that name already exists</source>
         <translation>Alerta: Ja existeix un connector amb aquest nom</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="150"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="142"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
         <translation>Error: el connector no s&apos;ha pogut descomprimir.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="153"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="145"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
         <translation>S&apos;ha produït un error: el connector no és un connector per al Sigil vàlid.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="186"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="178"/>
         <source>Nothing is Selected.</source>
         <translation>No hi ha res seleccionat.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="205"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="197"/>
         <source>Remove All Plugins</source>
         <translation>Elimina tots els connectors</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="206"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="198"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
         <translation>Esteu segur que voleu eliminar tots els connectors?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="279"/>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="289"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="248"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="258"/>
         <source>Select Interpreter</source>
         <translation>Seleccioneu un intèrpret</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="315"/>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="331"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="284"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="300"/>
         <source>Incorrect Interpreter Path selected</source>
         <translation>El camí seleccionat per l&apos;intèrpret és incorrecte</translation>
     </message>
@@ -11648,12 +11648,12 @@ Línia %1 - Columna %2 - %3</translation>
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="449"/>
+        <location filename="../../Misc/Utility.cpp" line="463"/>
         <source>Sigil has encountered a problem.</source>
         <translation>El Sigil ha tingut un problema.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="450"/>
+        <location filename="../../Misc/Utility.cpp" line="464"/>
         <source>Sigil cannot continue and will now close</source>
         <translation>Sigil no pot continuar i es tancarà</translation>
     </message>
@@ -12715,12 +12715,12 @@ ortogràfica és oberta.</translation>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="563"/>
+        <location filename="../../Misc/Utility.cpp" line="577"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="564"/>
+        <location filename="../../Misc/Utility.cpp" line="578"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>

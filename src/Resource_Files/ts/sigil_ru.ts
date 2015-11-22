@@ -774,94 +774,94 @@ There always has to be at least one.</source>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="649"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="652"/>
         <source>Clipboard contains HTML formatting</source>
         <translation>Буфер обмена содержит HTML форматирование</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="650"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="653"/>
         <source>Do you want to paste clipboard data as plain text?</source>
         <translation>Вставить содержимое буфера обмена как обычный текст?</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="845"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="849"/>
         <source>Open Tab For</source>
         <translation>Открыть вкладку для</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="859"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1019"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1021"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="863"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1037"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1039"/>
         <source>Open With</source>
         <translation>Открыть с помощью...</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="866"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="870"/>
         <source>Other Application</source>
         <translation>Другое приложение</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="914"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="918"/>
         <source>Clips</source>
         <translation>Фрагменты</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="924"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="928"/>
         <source>Add To Clips</source>
         <translation>Добавить во фрагменты</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1009"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1027"/>
         <source>Insert File</source>
         <translation>Вставить файл</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1010"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1028"/>
         <source>Undo</source>
         <translation>Отменить</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1011"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1029"/>
         <source>Redo</source>
         <translation>Вернуть</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1012"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1030"/>
         <source>Cut</source>
         <translation>Вырезать</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1013"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1031"/>
         <source>Copy</source>
         <translation>Скопировать</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1014"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1032"/>
         <source>Copy Image</source>
         <translation>Скопировать изображение</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1015"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1033"/>
         <source>Paste</source>
         <translation>Вставить</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1016"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1034"/>
         <source>Select All</source>
         <translation>Выделить всё</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1017"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1035"/>
         <source>Open</source>
         <translation>Открыть</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1020"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1038"/>
         <source>Save As</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1024"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1042"/>
         <source>Inspect Element</source>
         <translation>Изучить элемент</translation>
     </message>
@@ -891,7 +891,7 @@ There always has to be at least one.</source>
         <translation>Заменить все для текущего файла не поддерживается для этого вида. Переключитесь на Просмотр кода.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="740"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="742"/>
         <source>Inspect Element</source>
         <translation>Изучить элемент</translation>
     </message>
@@ -2220,7 +2220,7 @@ The heading&apos;s title attribute will be updated in the document.</source>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="958"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="959"/>
         <source>Rename</source>
         <translation>Переименовать</translation>
     </message>
@@ -2288,24 +2288,24 @@ You can then check or uncheck individual headings in the list above.</source>
         <translation>Использовать</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="821"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="822"/>
         <source>Up to level</source>
         <translation>До уровня</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="823"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="824"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
         <translation>&lt;Выберите включаемые в оглавление заголовки&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="826"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="887"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="827"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="888"/>
         <source>None</source>
         <translation>Никакие</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="832"/>
-        <location filename="../../Dialogs/HeadingSelector.cpp" line="885"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="833"/>
+        <location filename="../../Dialogs/HeadingSelector.cpp" line="886"/>
         <source>All</source>
         <translation>Все</translation>
     </message>
@@ -7944,13 +7944,13 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="1853"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1868"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1896"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3137"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3143"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3285"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3105"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3141"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3147"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3153"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3289"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3489"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3687"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -8237,75 +8237,75 @@ This action cannot be reversed.</source>
         <translation>Нет необходимых изменений оглавления.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2275"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2279"/>
         <source>Text selection marked.</source>
         <translation>Выделение отмечено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2277"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2295"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2281"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2299"/>
         <source>Text selection unmarked.</source>
         <translation>Отметка снята.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2473"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2477"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>В этом файле отсутствуют таблицы стилей CSS.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3016"/>
         <source>Line: %1, Col: %2</source>
         <translation>Строка: %1, Столбец: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3105"/>
         <source>File cannot be split at this position.</source>
         <translation>Файл невозможно разделить в этой позиции.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3122"/>
         <source>Split completed.</source>
         <translation>Разделение завершено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3137"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3141"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Разделение невозможно, так как выделен не файл HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3143"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3147"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Не удается разделить файл %1: ошибки в структуре XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3153"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Не удается разделить, поскольку по крайней мере один файл может не быть HTML-файлом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3168"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3172"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Разделение завершено. Может потребоваться обновление оглавления.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3181"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Нет найдено меток разделения файла. Используйте Вставка-&gt;Метка разделения.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3290"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Этот документ был изменён.
 Вы хотите сохранить изменения?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3359"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3363"/>
         <source>No importer for file type: %1</source>
         <translation>Нет импортера для файлового типа: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3366"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3370"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -8318,44 +8318,44 @@ Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and re
 Попробуйте изменить настройку Очистить код на Pretty Print Tidy или HTML Tidy и перезагрузите файл.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3371"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3375"/>
         <source>Loading file...</source>
         <translation>Загрузка файла...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3385"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3389"/>
         <source>File loaded.</source>
         <translation>Файл загружен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3412"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3416"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Создатель этого файла зашифровал его. Sigil не может открывать такие файлы.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Не удалось загрузить EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
         <source>Cannot load file %1: %2</source>
         <translation>Не удалось загрузить файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3452"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3456"/>
         <source>Saving EPUB...</source>
         <translation>Сохранение файла EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3461"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3465"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil не может сохранить файлы типа &quot;%1&quot;.
 Пожалуйста, выберите другой формат.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3490"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically clean on Save. Saving a file that is not well formed will cause it to be automatically fixed, which can result in data loss.
 
 Do you want to automatically fix the files before saving?</source>
@@ -8364,69 +8364,69 @@ Do you want to automatically fix the files before saving?</source>
 Вы хотите автоматически исправить файлы перед сохранением?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3517"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3521"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB сохранен, но некоторые HTML-файлы имеют ошибки в труктуре.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3519"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3523"/>
         <source>EPUB saved.</source>
         <translation>EPUB сохранен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3529"/>
         <source>Cannot save file %1: %2</source>
         <translation>Невозможно сохранить файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3660"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3664"/>
         <source>EPUB files (*.epub)</source>
         <translation>Файлы EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3661"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3662"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3663"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3665"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3666"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3667"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Файлы HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3664"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3668"/>
         <source>Text files (*.txt)</source>
         <translation>Текстовые файлы (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3665"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3669"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3673"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3677"/>
         <source>EPUB file (*.epub)</source>
         <translation>Файл EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3687"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3754"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3758"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Сохранить имеющиеся атрибуты заголовков прямо сейчас:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3755"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
         <source>ON</source>
         <translation>ВКЛ</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3755"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
         <source>OFF</source>
         <translation>ВЫКЛ</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3780"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3784"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -8601,2311 +8601,2311 @@ Do you want to save your changes?</source>
 <context>
     <name>Metadata</name>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="260"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="262"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
         <source>Creator</source>
         <translation>Создатель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="261"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
         <source>Contributor</source>
         <translation>Автор произведения, вошедшего в компиляцию</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="262"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="264"/>
         <source>Date</source>
         <translation>Дата</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="263"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="265"/>
         <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
         <source>Identifier</source>
         <translation>Идентификатор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
         <source>Subject</source>
         <translation>Субъект</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="281"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
         <translation>Произвольная фраза или ключевое слово, описывающее исследуемую тему. Используйте при необходимости несколько элементов «тема».</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
         <source>Description</source>
         <translation>Описание</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="282"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
         <source>Description of the publication&apos;s content.</source>
         <translation>Описание содержания публикации.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
-        <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="491"/>
         <source>Publisher</source>
         <translation>Издатель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="283"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
         <source>An entity responsible for making the publication available.</source>
         <translation>Лицо, ответственное за доступность публикации.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>Date: Publication</source>
         <translation>Дата: публикация</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="284"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
         <source>The date of publication.</source>
         <translation>Дата публикации</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>Date: Creation</source>
         <translation>Дата: создание</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="285"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
         <source>The date of creation.</source>
         <translation>Дата создания</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>Date: Modification</source>
         <translation>Дата: модификация</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="286"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
         <source>The date of modification.</source>
         <translation>Дата изменения</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>Date (custom)</source>
         <translation>Дата (иная)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="287"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
         <source>Enter your own event name in the File As column, e.g. updated.</source>
         <translation>Введите собственное имя для события в столбец File As, например, обновлено.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="288"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
         <source>The nature or genre of the content of the resource.</source>
         <translation>Природа или жанр содержимого ресурса</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="289"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
         <translation>MIME-тип или размеры публикации. Лучше всего использовать значения из контролируемого словаря (например, MIME-типы).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>Source</source>
         <translation>Источник</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="290"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
         <source>A reference to a resource from which the present publication is derived.</source>
         <translation>Ссылка на ресурс, являющийся источником данной публикации.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>Language</source>
         <translation>Язык</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="291"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
         <source>An optional extra language of the publication.  Use a value from the Language drop down menu.  For example use &apos;English&apos; instead of the language code &apos;en&apos;.</source>
         <translation>Дополнительный язык книги. Используйте значения из выпадающего меню Язык. Например, используйте &apos;English&apos; вместо кода &apos;en&apos;.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>Relation</source>
         <translation>Отношение</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="292"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
         <translation>Ссылка на связанный ресурс. Лучше всего определять ссылаемый ресурс посредством строки или числа, соответствующего формальной идентификационной системе.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>Coverage</source>
         <translation>Охват</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="293"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
         <translation>Степень или рамки содержания публикации.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Rights</source>
         <translation>Права</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="294"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
         <translation>Информация о правах, связанных с публикацией. Информация о правах часто охватывает права интеллектуальной собственности (ПИС), авторское право, и различные имущественные права. Если элемент права отсутствует, не может быть сделано никаких предположений о каких-либо правах, связанных с публикацией.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>Title</source>
         <translation>Название</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="295"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
         <source>An optional extra title of the publication in addition to the main title already entered.</source>
         <translation>Дополнительное название публикации.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="296"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
         <source>Digital Object Identifier</source>
         <translation>Цифровой идентификатор объекта</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="297"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
         <source>International Standard Book Number</source>
         <translation>Международный стандартный книжный номер</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="298"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="300"/>
         <source>International Standard Serial Number</source>
         <translation>Международный стандартный серийный номер</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
         <source>Identifier (custom)</source>
         <translation>Идентификатор (собственный)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="299"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="301"/>
         <source>Enter your own custom identifier name in the File As column, e.g. stocknumber</source>
         <translation>Введите собственное имя идентификатора в столбец File As, например, инвентаризационный номер.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Actor</source>
         <translation>Актёр</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="327"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Используется для обозначения лица или организации, демонстрирующего актёрское искусство в музыкальных или драматургических постановках или концертах.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Adapter</source>
         <translation>Автор адаптации</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="328"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
         <translation>Используется для обозначения лица или организации, которое: 1) перерабатывает музыкальную композицию обычно для разных средств исполнения; 2) переписывает романы или рассказы для кинофильмов или другого аудиовизуального носителя.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
         <source>Analyst</source>
         <translation>Аналитик</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="329"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
         <translation>Используется для обозначения лица или организации, рассматривающего, изучающего и интерпретирующего данные или информацию в определенной области.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Animator</source>
         <translation>Аниматор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="330"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
         <translation>Используется для обозначения лица или организации, рисующего двухмерные фигуры, манипулирующего трёхмерными объектами и/или также создающего компьютерные программы для придания объектам и изображениям иллюзии движения. Обычно аниматор использует в качестве инструментов своей деятельности анимационные камеры, стенды, целлулоидные экраны, диапозитивы и чернила.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Annotator</source>
         <translation>Автор аннотации</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="331"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
         <translation>Используется для обозначения лица, которое пишет рукописные аннотации на печатные материалы.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Applicant</source>
         <translation>Патентозаявитель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="332"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
         <translation>Используется для обозначения лица или организации, подавшего заявку на получение патента.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Architect</source>
         <translation>Архитектор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="333"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
         <translation>Используется для обозначения лица или организации, проектирующего сооружения или контролирующего их строительство.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
         <source>Arranger</source>
         <translation>Аранжировщик</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="334"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
         <translation>Используется для обозначения лица или организации, переложившего музыкальное произведение обычно для иного, чем в оригинале, средства исполнения. При аранжировке музыкальная основа оригинала по существу не изменяется.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
         <source>Art copyist</source>
         <translation>Копиист произведения изобразительного искусства</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="335"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
         <translation>Используется для обозначения лица (например, художника или скульптора), изготовляющего копии изобразительного искусства.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
         <source>Artist</source>
         <translation>Художник</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="336"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
         <translation>Используется для обозначения лица или организации, задумавшего и возможно также сделавшего оригинальный графический рисунок или произведение искусства, если специальные коды (напр., [egr], [etr]) не желательны. Для иллюстраторов книг предпочтителен код [ill].</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
         <source>Artistic director</source>
         <translation>Художественный руководитель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="337"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
         <translation>Используется для обозначения лица, ответственного за художественный стиль всей постановки, включая выбор произведений, которые будут поставлены, и подбор старшего режиссёрского персонала.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Assignee</source>
         <translation>Цессионарий</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="338"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
         <translation>Используется для обозначения лица или организации, которому была передана лицензия на печать или публикацию.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Associated name</source>
         <translation>Ассоциированное имя</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="339"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
         <translation>Используется для обозначения лица или организации, связанного или упомянутого в каталогизируемой единице или коллекции, но которое не может быть определено как «Бывший владелец» (fmo) или другим образом.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Attributed name</source>
         <translation>Предполагаемый автор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="340"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
         <translation>Используется для обозначения лица, в отношение которого имеются или имелись достаточные основания считать это лицо автором, создателем (и т. п.) произведения.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Auctioneer</source>
         <translation>Аукционист</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="341"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
         <translation>Используется для обозначения лица или организации, которому поручена оценка и продажа на аукционе вещей, редких книг, произведений искусства и т. д.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Author</source>
         <translation>Автор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="342"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
         <translation>Используется для обозначения лица или организации, несущего основную ответственность за интеллектуальное или художественное содержание произведения, обычно печатного текста.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
         <source>Author in quotations or text extracts</source>
         <translation>Автор цитат или выдержек из текста</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="343"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
         <translation>Используется для обозначения лица или организации, чьё произведение широко цитируются в других произведениях, в создании которых он/она не принимали непосредственного участия. Такое цитирование особенно часто используется в каталогах выставок, коллекциях фотографий и т. п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
         <source>Author of afterword, colophon, etc.</source>
         <translation>Автор послесловия, колофона и т. п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="344"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
         <translation>Используется для обозначения лица или организации, ответственного за послесловие, колофон и т. п., но не являющегося автором самого произведения.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
         <source>Author of dialog</source>
         <translation>Автор диалогов</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="345"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
         <translation>Используется для обозначения лица или организации, ответственного за диалог или устный комментарий для сценария или звукозаписи.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Author of introduction, etc.</source>
         <translation>Автор предисловия и т. п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="346"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за введение, предисловие, вступление, другой критический вводный материал, но не являющегося автором самого произведения.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
         <source>Author of screenplay, etc.</source>
         <translation>Автор сценария и т. п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="347"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за киносценарий, диалог, устный комментарий и т. п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
         <source>Bibliographic antecedent</source>
         <translation>Библиографический предшественник</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="348"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за произведение, на котором основано произведение, представленное в библиографической записи. Данный код может применяться в записях на адаптации, указатели, продолжения и т. п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Binder</source>
         <translation>Переплетчик</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="349"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за переплет рукописных или печатных материалов.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Binding designer</source>
         <translation>Оформитель переплета</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="350"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
         <translation>Используется для обозначения лица (или организации), ответственного за оформление переплета книги, включая тип переплета, тип используемых материалов и любые аспекты декора переплета.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
         <source>Book designer</source>
         <translation>Оформитель книги</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="351"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
         <translation>Используется для обозначения лица (или организации), ответственного за общее графическое оформление книги, включая шрифтовое и иллюстративное оформление, выбор материалов и технологии.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Book producer</source>
         <translation>Производитель книг</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="352"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
         <translation>Используется для обозначения лица (или организации), ответственного за производство книг и других печатных материалов, если специальные коды (например, [bkd], [egr], [tyd], [prt]) не подходят.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
         <source>Bookjacket designer</source>
         <translation>Оформитель суперобложки</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="353"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
         <translation>Используется для обозначения лица (или организации), ответственного за оформление мягкой обложки, созданной для или печатающейся вместе с книгой, включая выбор типа используемых материалов и любых деталей оформления суперобложки.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
         <source>Bookplate designer</source>
         <translation>Оформитель экслибриса</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="354"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
         <translation>Используется для обозначения лица (или организации), ответственного за оформление ярлыка, указывающего владельца книги, который обычно наклеивается на внутреннюю переднюю сторону обложки.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
         <source>Bookseller</source>
         <translation>Книготорговец</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="355"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
         <translation>Используется для обозначения лица (или организации), которое с выгодой для себя делает книги и другие библиографические материалы доступными для покупки.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
         <source>Calligrapher</source>
         <translation>Каллиграф</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="356"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
         <translation>Используется для обозначения лица (или организации), которое демонстрирует искусство художественного письма, обычно как переписчик, копировщик.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
         <source>Cartographer</source>
         <translation>Картограф</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="357"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за создание карт и других картографических материалов.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
         <source>Censor</source>
         <translation>Лицензедатель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="358"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
         <translation>Используется для обозначения лица (или организации), подписавшего лицензию, разрешение на печать и т. п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
         <source>Choreographer</source>
         <translation>Хореограф</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="359"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
         <translation>Используется для обозначения лица (или организации), осуществляющего постановку танцев или других движений (например, жонглирование мечами) для музыкальных или театральных представлений и концертов.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
         <source>Cinematographer</source>
         <translation>Кинематографист</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="360"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за изображения, сделанные для кинофильма. Работает под руководством режиссёра, или является оператором-постановщиком. Не путать с оператором-видеопостановщиком.
 </translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
         <source>Client</source>
         <translation>Клиент</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="361"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
         <translation>Используется для обозначения лица (или организации), в интересах которого действует другое лицо (или организация).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
         <source>Collaborator</source>
         <translation>Сотрудник</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="362"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
         <source>Use for a person or organization that takes a limited part in the elaboration of a work of another person or organization that brings complements (e.g., appendices, notes) to the work.</source>
         <translation>Используется для обозначения лица (или организации), принимающего ограниченное участие в работе другого человека или организации, которое делает дополнения к основному произведению (например, приложения, примечания).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
         <source>Collector</source>
         <translation>Коллекционер</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="363"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
         <translation>Используется для обозначения лица (или организации), собравшего материал из различных источников, который впоследствии был классифицирован, описан и каталогизирован как коллекция. Коллекционер не является ни создателем материала, ни лицом, которому рукописные материалы коллекции были адресованы.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Collotyper</source>
         <translation>Фототипист</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="364"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за производство фототипных оттисков с пленки или другого коллоида на черниловосприимчивой и чернилоотталкивающей поверхности.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
         <source>Commentator</source>
         <translation>Комментатор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="365"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
         <translation>Используется для обозначения лица (или организации), осуществляющего интерпретацию, анализ или обсуждение содержания записи, кинофильма или другого аудиовизуального материала.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
         <source>Commentator for written text</source>
         <translation>Автор комментариев и примечаний к печатному тексту</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="366"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
         <translation>Используется для обозначения лица (или организации), ответственного за комментарии или пояснения к тексту. Для автора рукописной аннотации в печатной книге используется код [ann] (Автор аннотации).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
         <source>Compiler</source>
         <translation>Составитель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="367"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
         <translation>Используется для обозначения лица (или организации), создающего произведение или публикацию путём отбора и объединения материала из разных произведений разных лиц или коллективов (организаций).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
         <source>Complainant</source>
         <translation>Истец возмещения</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="368"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
         <translation>Используется для обозначения стороны, которая обращается в суд для получения возмещения, обычно в производстве, основанном на нормах права справедливости (equity proceeding).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Complainant-appellant</source>
         <translation>Истец-апеллянт по делу, рассматриваемому на основе права «справедливости»</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="369"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Используется для обозначения истца, обжалующего в апелляционном порядке решение одного суда в суде высшей инстанции для пересмотра решения, обычно в производстве, основанном на нормах права «справедливости» (equity proceeding).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
         <source>Complainant-appellee</source>
         <translation>Истец-ответчик по апелляции в деле, рассматриваемом на основе права «справедливости»</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="370"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Используется для обозначения истца, против которого апеллянтом подана апелляция в суд высшей инстанции для пересмотра решения, обычно в производстве, основанном на нормах права «справедливости» (equity proceeding).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
         <source>Composer</source>
         <translation>Композитор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="371"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
         <translation>Используется для обозначения лица (или организации), создающего музыкальное произведение обычно в печатном или рукописном виде.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
         <source>Compositor</source>
         <translation>Наборщик</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="372"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
         <translation>Используется для обозначения лица (или организации), ответственного за ручной набор литер, создание металлических строк, отлитых на линотипе, или литейных форм, сделанных из других материалов, которые используются для печати текста и изображений.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
         <source>Conceptor</source>
         <translation>Автор идеи</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="373"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за оригинальную идею, на которой основано произведение, включая автора научной концепции аудио-визуального материала и автора рекламной концепции.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
         <source>Conductor</source>
         <translation>Дирижёр</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="374"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
         <translation>Используется для обозначения лица, руководящего коллективом исполнителей (оркестром, хором, оперой и т. п.) в музыкальной или драматической постановке или концерте.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
         <source>Consultant</source>
         <translation>Консультант</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="375"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
         <translation>Используется для обозначения лица (или организации), имеющего отношение к ресурсу и привлекаемого для профессиональной консультации или обслуживания в специализированной области знания или обучения.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
         <source>Consultant to a project</source>
         <translation>Консультант проекта</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="376"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
         <translation>Используется для обозначения лица (или организации), имеющего отношение к ресурсу и нанимаемого для общего интеллектуального наблюдения за стратегическими и оперативными задачами и для выработки или предложения решения или эффективного направления деятельности посредством анализа, разработки спецификаций или инструкций.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
         <source>Contestant</source>
         <translation>Противная сторона, выдвигающая в суде возражения против искового требования, постановления, решения и т. п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="377"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
         <translation>Используется для обозначения стороны, выступающей противником, конкурентом, или стороной, оспаривающей в судебном порядке поданный иск, решение, результат судебного разбирательства и т. д. в суде.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
         <source>Contestant-appellant</source>
         <translation>Противная сторона, выдвигающая в суде возражения против искового требования, постановления, решения и т. п. и подавшая апелляционную жалобу</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="378"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
         <translation>Используется для обозначения стороны в споре, которая обжалует в апелляционном порядке решение суда низшей инстанции в суде высшей инстанции для пересмотра решения.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
         <source>Contestant-appellee</source>
         <translation>Противная сторона, выдвигающая в суде возражения против искового требования, постановления, решения и т. п., против которой подана апелляционная жалоба в апелляционном процессе</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="379"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
         <translation>Используется для обозначения стороны в споре, против которой апеллянтом подана апелляция в суд высшей инстанции для пересмотра решения.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
         <source>Contestee</source>
         <translation>Противная сторона, отстаивающая свое исковое требование, постановление, решение и т. п., против которых ответчиком выдвинуты возражения в суде</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="380"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
         <translation>Используется для обозначения стороны в процессе, защищающейся от предъявленного ей искового требования или оспаривающей вынесенное против нее решение или результат судебного разбирательства в судах «общего права».</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
         <source>Contestee-appellant</source>
         <translation>Противная сторона, отстаивающая свое исковое требование, постановление, решение и т. п., против которых ответчиком выдвинуты возражения в суде, и подавшая апелляционную жалобу</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="381"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
         <translation>Используется для обозначения стороны, подающей апелляционную жалобу в суд высшей инстанции для пересмотра решения суда низшей инстанции.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
         <source>Contestee-appellee</source>
         <translation>Противная сторона, отстаивающая свое исковое требование, постановление, решение и т. п., против которых ответчиком выдвинуты возражения в суде и против которой подана апелляционная жалоба в апелляционном процессе</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="382"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
         <translation>Используется для обозначения стороны, против которой подана апелляционная жалоба в суд высшей инстанции для пересмотра судебного решения по делу.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
         <source>Contractor</source>
         <translation>Подрядчик</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="383"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
         <translation>Используется для обозначения лица (или организации), заключившего договор с другим лицом или организацией на выполнение определенных работ.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="384"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
         <translation>Используется для обозначения лица (или организации), произведение которого вошло в более крупное произведение, такое как антология, сериальное издание или другая компиляция авторских произведений. Этот код не следует использовать, если единственной ролью лица (или организации) относительно произведения является роль автора, издателя, составителя или переводчика.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
         <source>Copyright claimant</source>
         <translation>Претендент на авторское право</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="385"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
         <translation>Используется для обозначения лица (или организации), которое с момента регистрации именуется владельцем авторского права. С того момента, когда претендент становится владельцем авторского права, авторское право может быть отчуждено или позднее передано другому лицу (или организации).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
         <source>Copyright holder</source>
         <translation>Владелец авторского права</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="386"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
         <translation>Используется для обозначения лица (или организации), которому были предоставлены или переданы законные права на интеллектуальное содержание произведения и его копирование. Не всегда являясь создателем произведения, владелец авторского права обычно обладает исключительным правом на финансовую выгоду от продажи и использования произведения, защищенного знаком охраны авторского права.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
         <source>Corrector</source>
         <translation>Корректор рукописей</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="387"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
         <translation>Используется для обозначения лица (или организации), являющегося корректором рукописей, например, начальник скриптория, исправляющий работу переписчика. Для обозначения корректора печатных материалов используется код Proofreader.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
         <source>Correspondent</source>
         <translation>Корреспондент</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="388"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
         <translation>Используется для обозначения лица (или организации), являющегося либо автором, либо получателем письма или другой корреспонденции.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
         <source>Costume designer</source>
         <translation>Художник-костюмер</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="389"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
         <translation>Используется для обозначения лица (или организации), которое создает и делает костюмы, укладывает волосы и т. д. для музыкальной или театральной постановки или концерта.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
         <source>Cover designer</source>
         <translation>Оформитель обложки</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="390"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за графическое оформление обложки книги, альбома, книжного футляра, коробки, контейнера, и т. п. Для обозначения лица (или организации), ответственного за графическое оформление всей книги, используется код «Оформитель книги», суперобложек — «Оформитель суперобложки».</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="391"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за интеллектуальное или художественное содержание произведения.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
         <source>Curator of an exhibition</source>
         <translation>Куратор выставки</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="392"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за создание и организацию выставки.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
         <source>Dancer</source>
         <translation>Танцор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="393"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Используется для обозначения лица (или организации), демонстрирующего преимущественно искусство танца в музыкальной или драматической постановке или концерте.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
         <source>Data contributor</source>
         <translation>Поставщик данных</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="394"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
         <translation>Используется для обозначения лица (или организации), которое представляет данные для включения в базу данных или другой набор данных.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
         <source>Data manager</source>
         <translation>Администратор данных</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="395"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за администрирование баз данных или других источников данных.
 </translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
         <source>Dedicatee</source>
         <translation>Объект посвящения</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="396"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
         <translation>Используется для обозначения лица (или организации), которому посвящена данная книга, рукопись и т. п. (не путать с получателем дара).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
         <source>Dedicator</source>
         <translation>Автор посвящения</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="397"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
         <translation>Используется для обозначения лица, являющегося автором посвящения, которое может иметь как официальную, так и эпистолярную или стихотворную форму.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
         <source>Defendant</source>
         <translation>Ответчик</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="398"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
         <translation>Используется для обозначения стороны, которая защищается от предъявленного ей искового требования или отвергает это требование, и против которой направлены средства судебной защиты и взыскания, обычно, в судебном порядке.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
         <source>Defendant-appellant</source>
         <translation>Ответчик, подавший апелляционную жалобу</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="399"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
         <translation>Используется для обозначения ответчика, подающего апелляционную жалобу в суд высшей инстанции для пересмотра решения суда низшей инстанции.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
         <source>Defendant-appellee</source>
         <translation>Ответчик, против которого подана апелляционная жалоба</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="400"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
         <translation>Используется для обозначения ответчика, против которого подана апелляция в суд высшей инстанции для пересмотра судебного решения по делу.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
         <source>Degree grantor</source>
         <translation>Организация, утвердившая ученую степень</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="401"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
         <translation>Используется для обозначения организации, утвердившей ученую степень, на соискание которой была представлена описываемая диссертация.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
         <source>Delineator</source>
         <translation>Чертёжник</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="402"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
         <translation>Используется для обозначения лица (или организации), выполняющего технические рисунки с других чертежей, эскизов и набросков.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
         <source>Depicted</source>
         <translation>Предмет изображения</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="403"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
         <translation>Используется для обозначения предмета или лица, изображенного в произведении, особенно, в произведении искусства.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
         <source>Depositor</source>
         <translation>Депозитор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="404"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
         <translation>Используется для обозначения лица (или организации), размещающего материал на хранение в библиотеке или репозитарии без передачи юридических прав.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
         <source>Designer</source>
         <translation>Оформитель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="405"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за оформление, если более специальные коды (например, [bkd], [tyd]) ролей не желательны.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
         <source>Director</source>
         <translation>Режиссёр</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="406"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за общую организацию работы или руководящего постановкой в театре, кино или звукозаписью.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
         <source>Dissertant</source>
         <translation>Соискатель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="407"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
         <translation>Используется для обозначения лица, представляющего научную работу для получения ученой степени или диплома о высшем образовании.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
         <source>Distributor</source>
         <translation>Распространитель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="408"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
         <translation>Используется для обозначения лица (или организации), обладающего исключительным или частичным правом на продажу.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
         <source>Donor</source>
         <translation>Даритель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="409"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
         <translation>Используется для обозначения лица (или организации), подарившего книгу, рукопись и т. д. её нынешнему владельцу. Дарители предыдущим владельцам обозначаются кодом [fmo] (Бывший владелец) или [ins] (Автор дарственной надписи).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
         <source>Draftsman</source>
         <translation>Рисовальщик</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="410"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
         <translation>Используется для обозначения лица (или организации), подготавливающего художественные или технические рисунки.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
         <source>Dubious author</source>
         <translation>Сомнительный автор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="411"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
         <translation>Лицо (или организация), приписывание авторства которому сомнительно или неверно.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
         <source>Editor</source>
         <translation>Редактор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="412"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
         <translation>Используется для обозначения лица (или организации), которое готовит к публикации произведение, автором которого оно не является, объясняя текст, добавляя вводный материал или комментарии, либо осуществляет техническое руководство работой издательского коллектива.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
         <source>Electrician</source>
         <translation>Осветитель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="413"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
         <translation>Используется для обозначения лица, ответственного за настройку осветительной установки, фокусировку света для представления и управление освещением.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
         <source>Electrotyper</source>
         <translation>Изготовитель гальваностереотипов</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="414"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
         <translation>Используется для обозначения лица (или организации), создающего копию формы высокой печати методом гальванопластики.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
         <source>Engineer</source>
         <translation>Инженер</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="415"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за техническое планирование и проектирование, в особенности, сооружений.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
         <source>Engraver</source>
         <translation>Гравёр</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="416"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
         <translation>Используется для обозначения лица (или организации), которое вырезает буквы, фигуры и т. д. на деревянной или металлической поверхности для печати.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
         <source>Etcher</source>
         <translation>Офортист</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="417"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
         <translation>Используется для обозначения лица (или организации), которое воспроизводит текст или изображение для печати, подвергая металл, стекло или другой материал окислению или коррозии при помощи какого-либо вещества.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
         <source>Expert</source>
         <translation>Эксперт</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="418"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
         <translation>Используется для обозначения лица (или организации), которому поручено описание и оценка вещей, особенно редких книг, произведений искусства и т. п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Facsimilist</source>
         <translation>Факсимилист</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="419"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
         <source>Use for a person or organization that executed the facsimile.</source>
         <translation>Используется для обозначения лица (или организации), выполнившего факсимиле.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
         <source>Field director</source>
         <translation>Руководитель полевых работ</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="420"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
         <translation>Используется для обозначения лица (или организации), управляющего или контролирующего работу по сбору необработанных данных или осуществляющего исследование окружающей среды (обычно применимо к естественным и общественным наукам)</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
         <source>Film editor</source>
         <translation>Режиссёр монтажа</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="421"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
         <translation>Используется для обозначения лица (или организации), являющегося режиссёром монтажа кинокартины независимо от типа её физического носителя (например, ацетатная пленка, магнитная лента с изображением и звуком).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
         <source>First party</source>
         <translation>Первичный правообладатель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="422"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
         <translation>Используется для обозначения лица (или организации), именуемого стороной, прописанной в договоре единственной или первой. В случае передачи прав таковым является лицо, совершающее передачу права, цедент, индоссант, лицензедатель, даритель и т. п. Несколько сторон могут быть совместно названы первичным правообладателем.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
         <source>Forger</source>
         <translation>Изготовитель подделки</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="423"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
         <translation>Используется для обозначения лица (или организации), создающего или имитирующего какую-либо ценную или значимую вещь, в особенности с намерением совершения обмана.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
         <source>Former owner</source>
         <translation>Бывший владелец</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="424"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
         <translation>Используется для обозначения лица (или организации), когда-либо в прошлом являвшегося собственником данного объекта, в т. ч. лица (или организации), которому он был подарен. Лицо (или организация), подарившее данный объект её нынешнему владельцу, следует обозначать кодом [dnr] (Даритель).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
         <source>Funder</source>
         <translation>Инвестор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="425"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
         <translation>Используется для обозначения лица (или организации), оказавшего финансовую поддержку при создании произведения.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
         <source>Geographic information specialist</source>
         <translation>Специалист по географической информационной системе</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="426"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
         <translation>Используется для обозначения лица, ответственного за развитие географической информационной системы (GIS) и интеграцию её данных в данные системы глобального позиционирования.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Honoree</source>
         <translation>Объект чествования</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="427"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
         <source>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </source>
         <translation>Используется для обозначения лица (или организации), в честь которого или в память о котором подарена книга, рукопись и т. п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
         <source>Host</source>
         <translation>Гость</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="428"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
         <translation>Используется для обозначения лица, приглашенного или регулярно ведущего теле- или радиопрограмму, на которую приглашаются другие участники, исполнители и т. д. (например, ток-шоу со знаменитостью).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
         <source>Illuminator</source>
         <translation>Художник-иллюминатор рукописи</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="429"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
         <source>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</source>
         <translation>Используется для обозначения лица (или организации), украшающего произведение (в особенности, рукописный материал) драгоценными металлами или краской обычно в виде искусных рисунков и узоров.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
         <source>Illustrator</source>
         <translation>Иллюстратор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="430"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
         <translation>Используется для обозначения лица (или организации), которое задумывает и, возможно, выполняет рисунок, узор, орнамент или иллюстрацию обычно для сопровождения текста.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
         <source>Inscriber</source>
         <translation>Автор дарственной надписи</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="431"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
         <source>Use for a person who signs a presentation statement.</source>
         <translation>Используется для обозначения лица, подписавшего дарственную надпись.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
         <source>Instrumentalist</source>
         <translation>Инструменталист</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="432"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
         <translation>Используется для обозначения лица (или организации), главным образом играющего на каком-либо инструменте в музыкальной или театральной постановке или концерте.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
         <source>Interviewee</source>
         <translation>Интервьюируемый</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="433"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
         <translation>Используется для обозначения лица (или организации), дающего на совещании или мероприятии интервью репортёру или лицу, производящему опрос общественного мнения, либо какому-либо еще агенту, собирающему информацию.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
         <source>Interviewer</source>
         <translation>Интервьюер</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="434"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
         <translation>Используется для обозначения лица (или организации), действующего как репортёр, лицо, производящее опрос общественного мнения, либо как какой-либо другой агент, собирающий информацию во время совещания или мероприятия с одним или несколькими участниками.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
         <source>Inventor</source>
         <translation>Изобретатель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="435"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
         <translation>Используется для обозначения лица (или организации), которому принадлежит приоритет изобретения какого-либо полезного устройства или процесса, предназначенного для получения известного объекта или результата.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
         <source>Laboratory</source>
         <translation>Лаборатория</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="436"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
         <source>Use for an institution that provides scientific analyses of material samples.</source>
         <translation>Используется для обозначения учреждения, осуществляющего научные исследования материальных образцов, проб.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
         <source>Laboratory director</source>
         <translation>Руководитель лабораторных занятий</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="437"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
         <translation>Используется для обозначения лица (или организации), руководящего или контролирующего работу, осуществляемую в подконтрольном окружении.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
         <source>Landscape architect</source>
         <translation>Ландшафтный архитектор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="438"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
         <translation>Используется для обозначения лица (или организации), чья работа предполагает координирование упорядочивания существующего и предложенного ландшафта.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
         <source>Lead</source>
         <translation>Руководитель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="439"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
         <translation>Используется для обозначения лица (или организации), берущего на себя основную ответственность за осуществление определённой деятельности или усилия. Используется с другим термином или кодом роли, чтобы показать большую важность этого лица (или организации) относительно определенной специфической роли. Если используется несколько обозначений разных ролей, код [led] применяется только в том случае, когда он относится ко всем этим кодам.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
         <source>Lender</source>
         <translation>Дающий книгу в долг</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="440"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
         <translation>Используется для обозначения лица (или организации), позволяющего временное пользование книгой, рукописью и т. п., например, для фотокопирования или микрофильмирования.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
         <source>Libelant</source>
         <translation>Истец в морском и церковном судопроизводстве</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="441"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
         <translation>Используется для обозначения стороны, подающей иск по церковному или морскому делу.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
         <source>Libelant-appellant</source>
         <translation>Истец в морском и церковном судопроизводстве, подавший апелляционную жалобу</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="442"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Используется для обозначения истца в морском и церковном судопроизводстве, подающего апелляционную жалобу в суд высшей инстанции для пересмотра решения суда низшей инстанции.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
         <source>Libelant-appellee</source>
         <translation>Истец в морском и церковном судопроизводстве, против которого подана апелляционная жалоба</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="443"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Используется для обозначения истца в морском и церковном судопроизводстве, против которого в апелляционном процессе подана апелляционная жалоба в суд высшей инстанции для пересмотра судебного решения.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
         <source>Libelee</source>
         <translation>Ответчик в морском и церковном судопроизводстве</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="444"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
         <translation>Используется для обозначения стороны, против которой была подана жалоба в суд по делам, связанным с вопросами церкви или адмиралтейства.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
         <source>Libelee-appellant</source>
         <translation>Ответчик в морском и церковном судопроизводстве, подавший апелляционную жалобу</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="445"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Используется для обозначения ответчика, подающего апелляционную жалобу в суд высшей инстанции для пересмотра решения суда низшей инстанции по делам, связанным с вопросами церкви или адмиралтейства.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
         <source>Libelee-appellee</source>
         <translation>Ответчик в морском и церковном судопроизводстве, против которого подана апелляционная жалоба в апелляционном процессе</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="446"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Используется для обозначения ответчика, против которого подана апелляция в суд высшей инстанции для пересмотра судебного решения по делу, связанному с вопросами церкви или адмиралтейства.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Librettist</source>
         <translation>Либреттист</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="447"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
         <translation>Используется для обозначения лица (или организации), которое является автором текста оперы, оратории и т. п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Licensee</source>
         <translation>Лицензедержатель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="448"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
         <translation>Используется для обозначения лица (или организации), являющегося первоначальным получателем прав на печать или публикацию.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
         <source>Licensor</source>
         <translation>Лицензедатель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="449"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
         <translation>Используется для обозначения лица (или организации), подписавшего лицензию, разрешение на печать и т. п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
         <source>Lighting designer</source>
         <translation>Художник по свету</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="450"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
         <translation>Используется для обозначения лица (или организации), занимающегося световым оформлением театральной постановки, концерта, кинокартины и т. п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Lithographer</source>
         <translation>Литограф</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="451"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
         <translation>Используется для обозначения лица (или организации), изготавливающего печатную форму на литографском камне для литографической печати, в том числе для обозначения художника-графика, создающего изображение непосредственно на поверхности, с которой будет производиться печать.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
         <source>Lyricist</source>
         <translation>Автор слов песни</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="452"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
         <translation>Используется для обозначения лица (или организации), написавшего слова песни.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Manufacturer</source>
         <translation>Производитель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="453"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
         <translation>Используется для обозначения лица (или организации), создающего артефакт (объект, сделанный или модифицированный одним или несколькими лицами). Напр., вазы, артиллерийские орудия, предметы мебели.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
         <source>Markup editor</source>
         <translation>Редактор файлов гипертекстовой разметки</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="454"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
         <translation>Используется для обозначения лица (или организации), выполняющего кодирование средствами SGML, HTML или XML-разметки метаданных, текста и т. д.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
         <source>Metadata contact</source>
         <translation>Ответственный за метаданные</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="455"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
         <translation>Используется для обозначения лица (или организации), прежде всего ответственного за сбор информации и поддержку исходной версии набора метаданных (например, набор геопространственных метаданных).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
         <source>Metal-engraver</source>
         <translation>Гравёр по металлу</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="456"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за декоративные элементы, иллюстрации, литеры и т. п., вырезанные на металлической поверхности для печати или декора.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
         <source>Moderator</source>
         <translation>Ведущий</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="457"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
         <translation>Используется для обозначения лица, ведущего программу, как правило, радио- или телевизионную дискуссию с участием экспертов в обсуждаемой области.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
         <source>Monitor</source>
         <translation>Наблюдатель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="458"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
         <translation>Используется для обозначения лица (или организации), контролирующего соблюдение условий договора и ответственного за подготовку отчёта и контроль за его распространением.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
         <source>Music copyist</source>
         <translation>Переписчик нот</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="459"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
         <source>Use for a person who transcribes or copies musical notation</source>
         <translation>Используется для обозначения лица, которое переписывает или копирует музыкальную нотацию.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
         <source>Musical director</source>
         <translation>Музыкальный директор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="460"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
         <translation>Используется для обозначения лица, ответственного за основные решения по музыкальному обеспечению постановки, включая координирование работы композитора, звукового редактора, звукооператора, подбор музыкантов и организацию и/или звуковое сопровождение репетиций и представлений.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
         <source>Musician</source>
         <translation>Музыкант</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="461"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
         <translation>Используется для обозначения лица (или организации), исполняющего музыку или имеющего отношение к музыкальному содержанию произведения. Используется в том случае, когда невозможно или нежелательно более точное определение роли.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Narrator</source>
         <translation>Повествователь</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="462"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
         <translation>Используется для обозначения лица, устно сообщающего детали действия, события или ход событий.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
         <source>Opponent</source>
         <translation>Оппонент</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="463"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за оппонирование научной работе или диссертации.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
         <source>Organizer of meeting</source>
         <translation>Организатор конференции</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="464"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за подготовку конференции, отчётом или повесткой дня которой является каталогизируемый материал.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
         <source>Originator</source>
         <translation>Инициатор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="465"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
         <translation>Используется для обозначения лица (или организации), связанного с интеллектуальным содержанием произведения. Данная категория не включает в себя издателя, соавтора или спонсора за исключением тех случаев, когда они также входят в состав коллективного автора.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
         <source>Other</source>
         <translation>Прочее</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="466"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
         <translation>Используется для кодов, не имеющих эквивалентов в формате MARC 21 из перечней, отличных от данного, либо для терминов, которым код не присвоен.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
         <source>Owner</source>
         <translation>Владелец</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="467"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
         <translation>Используется для обозначения лица (или организации), которое в данный момент владеет каталогизируемой единицей или коллекцией, собранием.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
         <source>Papermaker</source>
         <translation>Изготовитель бумаги</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="468"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за изготовление бумаги, обычно из древа.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
         <source>Patent applicant</source>
         <translation>Патентозаявитель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="469"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
         <source>Use for a person or organization that applied for a patent.</source>
         <translation>Используется для обозначения лица (или организации), подавшего заявку на получение патента.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
         <source>Patent holder</source>
         <translation>Патентовладелец</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="470"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
         <source>Use for a person or organization that was granted the patent referred to by the item. </source>
         <translation>Используется для обозначения лица (или организации), получившее патент на упомянутое в объекте каталогизации изобретение, полезную модель или промышленный образец.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
         <source>Patron</source>
         <translation>Покровитель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="471"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за заказ произведения. Обычно покровитель использует свои средства или влияние, чтобы поддержать работу художников, писателей, и т.д. Эта категория включает тех, кто даёт заказ на оригинальные произведения и платит за них.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
         <source>Performer</source>
         <translation>Исполнитель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="472"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
         <translation>Используется для обозначения лица (или организации), демонстрирующего свое музыкальное или актерское искусство в ходе исполнения музыкального произведения, театральной постановки или на концерте. Код используется при отсутствии необходимости использовать более точные определители, например, такие как [act] (Актер), [dnc] (Танцовщик), [itr] (Инструменталист), [voc] (Вокалист) и т. д. Если при каталогизации специальные коды применяются, то код [prf] используется в тех случаях, когда амплуа исполнителя не известно или не указано.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="475"/>
         <source>Permitting agency</source>
         <translation>Разрешающее ведомство</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="473"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="475"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
         <translation>Используется для обозначения ведомства (обычно государственного учреждения), которое выдает разрешение на осуществление работы.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="476"/>
         <source>Photographer</source>
         <translation>Фотограф</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="474"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="476"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за фотографирование независимо от того, идёт ли речь об оригиналах или репродукциях.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="475"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="477"/>
         <source>Plaintiff</source>
         <translation>Истец</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="475"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="477"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
         <translation>Используется для обозначения стороны, которая подает жалобу или возбуждает дело в суде в частном порядке, обычно, с целью судебного рассмотрении дела.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="476"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
         <source>Plaintiff-appellant</source>
         <translation>Истец, подавший апелляционную жалобу</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="476"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
         <translation>Используется для обозначения истца, подающего апелляционную жалобу в суд высшей инстанции для пересмотра решения суда низшей инстанции, обычно, с целью судебного рассмотрении дела.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="477"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="479"/>
         <source>Plaintiff-appellee</source>
         <translation>Истец, против которого подана апелляционная жалоба</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="477"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="479"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
         <translation>Используется для обозначения истца, против которого в апелляционном процессе подана апелляция в суд высшей инстанции для пересмотра судебного решения по делу, обычно, с целью судебного рассмотрения дела.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="480"/>
         <source>Platemaker</source>
         <translation>Изготовитель печатных форм</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="478"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="480"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за изготовление полиграфических печатных форм с целью печати изображений и/или текстов.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="479"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="481"/>
         <source>Printer</source>
         <translation>Типограф</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="479"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="481"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
         <translation>Используется для обозначения лица (или организации), печатающего тексты наборным методом или с печатной формы.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="480"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="482"/>
         <source>Printer of plates</source>
         <translation>Печатник иллюстраций</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="480"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="482"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
         <translation>Используется для обозначения лица (или организации), выполняющего печать иллюстраций или элементов оформления с печатных форм.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="481"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="483"/>
         <source>Printmaker</source>
         <translation>Гравировщик</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="481"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="483"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
         <translation>Используется для обозначения лица (или организации), которое создает формы высокой печати или глубокой печати.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="482"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="484"/>
         <source>Process contact</source>
         <translation>Ответственный за обработку данных</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="482"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="484"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
         <translation>Используется для обозначения лица (или организации), в первую очередь ответственного за выполнение или запуск процесса, например, накопления наборов метаданных.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="483"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="485"/>
         <source>Producer</source>
         <translation>Продюсер</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="483"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="485"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за создание кинофильма (включая деловые аспекты и управление процессом производства кинофильма) и за его коммерческий успех.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="484"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="486"/>
         <source>Production manager</source>
         <translation>Руководитель производства</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="484"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="486"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
         <translation>Используется для обозначения лица, ответственного за решение всех технических и коммерческих вопросов постановки.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="485"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="487"/>
         <source>Production personnel</source>
         <translation>Персонал художественно-постановочной части</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="485"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="487"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
         <translation>Используется для обозначения лица (или организации), связанного с созданием реквизита, освещения, сценических эффектов и т. п. музыкального, драматического представления или концерта.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="486"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
         <source>Programmer</source>
         <translation>Программист</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="486"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за создание и/или поддержку компьютерных программ, исходных кодов, машинно-исполнимых цифровых файлов и сопроводительной документации.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="487"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
         <source>Project director</source>
         <translation>Руководитель проекта</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="487"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за все существенные направления проекта, или осуществляющего руководство крупным проектом, или полностью несущего ответственность за реализацию проектов, или руководящего работой менеджеров проектов.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="490"/>
         <source>Proofreader</source>
         <translation>Корректор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="488"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="490"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
         <translation>Используется для обозначения лица, производящего корректуру печатного текста. Для рукописных материалов используется код [crr] (Корректор рукописей).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="489"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="491"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
         <translation>Используется для обозначения лица (или организации), организующего или финансирующего издательский процесс, изготавливающего широкодоступный печатный материал, чаще текст, но также и ноты, изоиздания и т. п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="490"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="492"/>
         <source>Publishing director</source>
         <translation>Ответственный редактор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="490"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="492"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
         <translation>Используется для обозначения лица (или организации), которое контролирует ход коллективной работы и обеспечивает ее последовательность или непрерывность. Эта категория включает главных редакторов, литературных редакторов, редакторов серий и т. д.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="491"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="493"/>
         <source>Puppeteer</source>
         <translation>Кукловод</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="491"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="493"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
         <translation>Используется для обозначения лица (или организации), которое манипулирует, управляет куклами или марионетками в музыкальном, драматическом представлении или концерте.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="492"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
         <source>Recipient</source>
         <translation>Адресат</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="492"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
         <translation>Используется для обозначения лица (или организации), которому адресована корреспонденция.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="493"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="495"/>
         <source>Recording engineer</source>
         <translation>Инженер звукозаписи, видеозаписи</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="493"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="495"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за технические аспекты сеанса звуко- или видеозаписи.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
         <source>Redactor</source>
         <translation>Редактор-составитель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="494"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
         <translation>Используется для обозначения лица (или организации), которое разрабатывает структуру описываемой единицы, не неся при этом интеллектуальной ответственности за её содержание.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="495"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="497"/>
         <source>Renderer</source>
         <translation>Создатель эскизов</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="495"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="497"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
         <translation>Используется для обозначения лица (или организации), которое с архитектурных чертежей делает эскизы (то есть, изображения) в точной перспективе с целью дать представление о том, как будет выглядеть реализованный проект.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
         <source>Reporter</source>
         <translation>Репортёр</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="496"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
         <source>Use for a person or organization who writes or presents reports of news or current events on air or in print.</source>
         <translation>Используется для обозначения лица (или организации), которое пишет или представляет сообщение о новостях или текущих событиях в эфире или в печати.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="497"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
         <source>Repository</source>
         <translation>Репозитарий</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="497"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
         <translation>Используется для обозначения ведомства, которое принимает данные или объекты материальной культуры и предоставляет услуги по длительному хранению и общедоступному использованию этих данных или объектов.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="500"/>
         <source>Research team head</source>
         <translation>Руководитель исследовательского коллектива</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="498"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="500"/>
         <source>Use for a person who directed or managed a research project.</source>
         <translation>Используется для обозначения лица, которое руководит исследовательским проектом.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="501"/>
         <source>Research team member</source>
         <translation>Участник исследовательского коллектива</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="499"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="501"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
         <translation>Используется для обозначения лица, которое является участником исследований, и чья роль не предусматривает руководства или управления проектом.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="500"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="502"/>
         <source>Researcher</source>
         <translation>Исследователь</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="500"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="502"/>
         <source>Use for a person or organization responsible for performing research. </source>
         <translation>Используется для обозначения лица (или организации), ответственного за проведение научных исследований.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="501"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="503"/>
         <source>Respondent</source>
         <translation>Корреспондент</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="501"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="503"/>
         <source>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</source>
         <translation>Используется для обозначения лица (или организации), являющегося либо автором, либо получателем письма или другой корреспонденции.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="502"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="504"/>
         <source>Respondent-appellant</source>
         <translation>Ответчик по делу, рассмотренному на основе права справедливости, подавший апелляционную жалобу
 </translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="502"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="504"/>
         <source>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Используется для обозначения ответчика, подающего апелляционную жалобу в суд высшей инстанции для пересмотра решения суда низшей инстанции, обычно в делах, рассматриваемых на основе права «справедливости» (особенно в бракоразводных процессах).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="503"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="505"/>
         <source>Respondent-appellee</source>
         <translation>Ответчик по делу, рассмотренному на основе права справедливости, против которого подана апелляционная жалоба в апелляционном процессе</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="503"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="505"/>
         <source>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Используется для обозначения ответчика, против которого подана апелляционная жалоба в суд высшей инстанции для пересмотра судебного решения, обычно в делах, рассматриваемых на основе права «справедливости» (особенно в бракоразводных процессах).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="504"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="506"/>
         <source>Responsible party</source>
         <translation>Юридически ответственная сторона</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="504"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="506"/>
         <source>Use for a person or organization legally responsible for the content of the published material.</source>
         <translation>Используется для обозначения лица (или организации), несущего юридическую ответственность за содержание публикации.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="505"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="507"/>
         <source>Restager</source>
         <translation>Постановщик</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="505"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="507"/>
         <source>Use for a person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content.</source>
         <translation>Используется для обозначения лица (или организации), не являющегося первоначальным хореографом или режиссером, но ответственного за новую постановку хореографии или драматического произведения, привнося при этом минимальные изменения в содержание произведения.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="506"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
         <source>Reviewer</source>
         <translation>Рецензент</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="506"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
         <source>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</source>
         <translation>Используется для обозначения лица (или организации), являющегося автором рецензии на книгу, кинокартину, постановку и т.п.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="507"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="509"/>
         <source>Rubricator</source>
         <translation>Исполнитель заголовков и красных строк</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="507"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="509"/>
         <source>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</source>
         <translation>Используется для обозначения лица (или организации), ответственного за части произведения, обычно заголовки и красные строки в рукописях, которые оформлялись цветом, отличным от основного, обычно красным.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="510"/>
         <source>Scenarist</source>
         <translation>Сценарист</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="508"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="510"/>
         <source>Use for a person or organization who is the author of a motion picture screenplay.</source>
         <translation>Используется для обозначения лица (или организации), являющегося автором сценария кинофильма.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="509"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="511"/>
         <source>Scientific advisor</source>
         <translation>Научный консультант</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="509"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="511"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
         <translation>Используется для обозначения лица (или организации), внесшего научный, педагогический или исторический вклад в концепцию и реализацию произведения, в особенности, аудио-визуальных материалов.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="510"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="512"/>
         <source>Scribe</source>
         <translation>Писарь</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="510"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="512"/>
         <source>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</source>
         <translation>Используется для обозначения личного секретаря, пишущего под диктовку, и собственно писца рукописей. Для лиц, изготавливающих факсимильные копии текстов от руки, используется код [fac] (Факсимилист).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="511"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="513"/>
         <source>Sculptor</source>
         <translation>Скульптор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="511"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="513"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
         <translation>Используется для обозначения лица (или организации), которое лепит или вырезает трёхмерные фигуры.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="512"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="514"/>
         <source>Second party</source>
         <translation>Сторона-правопреемник</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="512"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="514"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
         <translation>Используется для обозначения лица (или организации), именуемого в юридических документах «другой стороной». В случае передачи прав таковым является правопреемник, цессионарий, индоссат, лицензиат, получающий дотацию и т. п. Несколько сторон могут быть совместно названы стороной-правопреемником.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="513"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="515"/>
         <source>Secretary</source>
         <translation>Секретарь</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="513"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="515"/>
         <source>Use for a person or organization who is a recorder, redactor, or other person responsible for expressing the views of a organization.</source>
         <translation>Используется для обозначения лица (или организации), выступающего в роли секретаря, редактора или иного лица, ответственного за выражение точки зрения организации.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="514"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="516"/>
         <source>Set designer</source>
         <translation>Художник-декоратор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="514"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="516"/>
         <source>Use for a person or organization who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set.</source>
         <translation>Используется для обозначения лица (или организации), которое переводит авторский замысел художника-постановщика с плоских эскизов на объёмные декорации для театрального представления, концерта, кинофильма, и т. д. Художники-декораторы делают детальные инструкции и спецификации для сооружения декораций.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="515"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="517"/>
         <source>Signer</source>
         <translation>Автор подписи</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="515"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="517"/>
         <source>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</source>
         <translation>Используется для обозначения лица, являющегося автором подписи без её пояснения или иного указания на происхождение этой подписи. Если речь идет о дарственной надписи/подписи, следует использовать код [ins] (Автор дарственной надписи).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="516"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="518"/>
         <source>Singer</source>
         <translation>Певец</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="516"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="518"/>
         <source>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</source>
         <translation>Используется для обозначения лица (или организации), использующего свой (его/ее/их) голос с аккомпанементом или без него для воспроизведения музыкального произведения. Исполнение может включать или не включать словесное содержание.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="517"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="519"/>
         <source>Sound designer</source>
         <translation>Художник по звуку</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="517"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="519"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
         <translation>Используется для обозначения лица, которое производит и воспроизводит звук (и живой, и записанный), устанавливает микрофоны, регулирует звуковые уровни и координирует источники звука.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="518"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="520"/>
         <source>Speaker</source>
         <translation>Диктор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="518"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="520"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
         <translation>Используется для обозначения лица, участвующего в теле- или радиопрограмме, чьё выступление строго формализовано и подготовлено, как правило, заранее.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="519"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="521"/>
         <source>Sponsor</source>
         <translation>Спонсор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="519"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="521"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
         <translation>Используется для обозначения лица (или организации), предоставившего контракт или под покровительством которого произведение было написано, напечатано, опубликовано и т. д.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="520"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="522"/>
         <source>Stage manager</source>
         <translation>Ассистент режиссера</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="520"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="522"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
         <translation>Используется для обозначения лица, ответственного за всё происходящее на сцене, действующего в качестве руководителя всех групп и помогающего директору во время репетиций.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="521"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="523"/>
         <source>Standards body</source>
         <translation>Орган по стандартизации</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="521"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="523"/>
         <source>Use for an organization responsible for the development or enforcement of a standard.</source>
         <translation>Используется для организации, ответственной за разработку или внедрение стандарта.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="522"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="524"/>
         <source>Stereotyper</source>
         <translation>Изготовитель стереотипов</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="522"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="524"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
         <translation>Используется для обозначения лица (или организации), изготовляющего новую монолитную печатную форму посредством отливания или копирования другой печатной формы.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="523"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="525"/>
         <source>Storyteller</source>
         <translation>Рассказчик</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="523"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="525"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
         <translation>Используется для обозначения лица, передающего историю, предание, сказку в творческой и/или театральной интерпретации.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="524"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="526"/>
         <source>Supporting host</source>
         <translation>Принимающая сторона</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="524"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="526"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
         <translation>Используется для обозначения лица (или организации), которое поддерживает (предоставляя удобства, штат, другие ресурсы) проект, программу, конференцию, мероприятие, объекты данных, материальные объекты культуры.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="525"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="527"/>
         <source>Surveyor</source>
         <translation>Землемер</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="525"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="527"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
         <translation>Используется для обозначения лица (или организации), которое производит замеры земельных участков и т. п. для определения местоположения, размеров и границ.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="526"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="528"/>
         <source>Teacher</source>
         <translation>Преподаватель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="526"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="528"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
         <translation>Используется для обозначения лица, которое в контексте каталогизируемого ресурса даёт теоретические знания по изучаемому предмету или демонстрирует во время преподавания физические приёмы и технику.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="527"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="529"/>
         <source>Technical director</source>
         <translation>Технический директор</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="527"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="529"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
         <translation>Используется для обозначения лица, которое в конечном счете отвечает за декорации, реквизит, свет и звук.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="528"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="530"/>
         <source>Thesis advisor</source>
         <translation>Научный руководитель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="528"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="530"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
         <translation>Используется для обозначения лица, под руководством которого соискатель ученой степени пишет и представляет научную работу, доклад или текст диссертации.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="529"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="531"/>
         <source>Transcriber</source>
         <translation>Переписчик</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="529"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="531"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
         <translation>Используется для обозначения лица, которое делает копию с оригинального материала от руки или на печатной машинке, в том числе с материала, записанного под диктовку или с устной записи. Для обозначения лиц изготавливающих факсимиле от руки используется код [fac] (Факсимилист).</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="530"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="532"/>
         <source>Translator</source>
         <translation>Переводчик</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="530"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="532"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
         <translation>Используется для обозначения лица (или организации), осуществляющего перевод текста с одного языка на другой или с устаревшей формы того же языка на современную.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="531"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="533"/>
         <source>Type designer</source>
         <translation>Дизайнер шрифтов</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="531"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="533"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
         <translation>Используется для обозначения лица (или организации), которое разработало начертание использованного шрифта.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="532"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="534"/>
         <source>Typographer</source>
         <translation>Шрифтовой оформитель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="532"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="534"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
         <translation>Используется для обозначения лица (или организации), несущего основную ответственность за подбор и применение шрифтов. Если шрифтовой оформитель отвечает и за другие аспекты графического оформления книги (например, является оформителем книги — код [bkd]), то возможно одновременное использование обоих кодов.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="533"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="535"/>
         <source>Videographer</source>
         <translation>Оператор-видеопостановщик</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="533"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="535"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
         <translation>Используется для обозначения лица (или организации), отвечающего за производство видеоматериалов, например, видеозапись сценической постановки, в отличие от коммерческого кинофильма. Может быть оператором или руководителем одного или нескольких операторов. Не путать с кинооператором-постановщиком.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="534"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="536"/>
         <source>Vocalist</source>
         <translation>Вокалист</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="534"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="536"/>
         <source>Use for a person or organization who principally exhibits singing skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Используется для обозначения лица (или организации), демонстрирующего вокальное искусство в ходе музыкального или драматического представления или в концерте.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="535"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="537"/>
         <source>Witness</source>
         <translation>Свидетель</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="535"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="537"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
         <translation>Используется для обозначения лица, которое подтверждает правильность происшедшего события или поступка.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="536"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="538"/>
         <source>Wood-engraver</source>
         <translation>Гравёр по дереву в технике торцовой ксилографии</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="536"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="538"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
         <translation>Используется для обозначения лица (или организации), которое создает печатные формы, вырезая рельеф образов на поперечном распиле деревянного блока.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="537"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="539"/>
         <source>Woodcutter</source>
         <translation>Гравёр по дереву в технике обрезной ксилографии</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="537"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="539"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
         <translation>Используется для обозначения лица (или организации), которое создает печатные формы, вырезая рельеф образов на продольном распиле деревянного блока.</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="538"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="540"/>
         <source>Writer of accompanying material</source>
         <translation>Автор текста сопроводительного материала</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/Metadata.cpp" line="538"/>
+        <location filename="../../BookManipulation/Metadata.cpp" line="540"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
         <translation>Используется для обозначения лица (или организации), написавшего значительный материал, сопровождающий звукозапись или другой аудиовизуальный материал.</translation>
     </message>
@@ -11000,7 +11000,7 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="126"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="408"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="409"/>
         <source>Status: </source>
         <translation>Состояние:</translation>
     </message>
@@ -11010,150 +11010,150 @@ Do you want to save your changes?</source>
         <translation>Ошибка: Плагин с таким именем уже существует</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="129"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="130"/>
         <source>Error: Interpreter </source>
         <translation>Ошибка: Интерпретатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="129"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="130"/>
         <source> has no path set</source>
         <translation>не установлен ни один путь</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="142"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="143"/>
         <source>Installation Error: plugin launcher </source>
         <translation>Ошибка установки: плагин запуска</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="143"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="144"/>
         <source> does not exist</source>
         <translation>не существует</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="148"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="149"/>
         <source>Error: plugin engine </source>
         <translation>Ошибка: движок плагина</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="149"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="150"/>
         <source> is not supported (yet!)</source>
         <translation>Hе поддерживается (пока!)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="155"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="156"/>
         <source>Status: ready</source>
         <translation>Статус: готов</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="182"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="183"/>
         <source>Error: plugin can not start</source>
         <translation>Ошибка: плагин не запускается</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="242"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="243"/>
         <source>Launcher process crashed</source>
         <translation>Процесс запуска потерпел крах</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="253"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="254"/>
         <source>Status: finished</source>
         <translation>Статус: закончено</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="265"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="266"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="275"/>
         <source>Status: No Changes Made</source>
         <translation>Статус: нет изменений</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="273"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation>Ошибка: Плагин попытался удалить последний XHTML-файл .. изменения будут отменены</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="364"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="365"/>
         <source>Plugin failed to start</source>
         <translation>Не удалось запустить модуль</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="372"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="373"/>
         <source>Status: error</source>
         <translation>Статус: ошибка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="386"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="387"/>
         <source>Plugin cancelled</source>
         <translation>Плагин отменен</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="387"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="388"/>
         <source>Status: cancelled</source>
         <translation>Статус: отменено</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="469"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="470"/>
         <source>Error Parsing Result XML:  </source>
         <translation>Ошибка при обработке результата XML:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="526"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="527"/>
         <source>Incorrect XHTML: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="526"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="527"/>
         <source> Line/Col </source>
         <translation>Строка/Столбец</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="549"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="550"/>
         <source>Check Report</source>
         <translation>Отчет проверки</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="550"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="551"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>Обнаружен неверный XHTML/XML
 Вы уверены, что хотите продолжить?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="568"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="569"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>Статус: очистка — удаление файлов</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="583"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="584"/>
         <source>Status: deleting </source>
         <translation>Статус: удаление</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="613"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="614"/>
         <source>Status: Loading </source>
         <translation>Статус: загрузка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="624"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="625"/>
         <source>Input Plugin</source>
         <translation>Ввод плагина</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="625"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="626"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>Текущая книга будет полностью заменена, возможна потеря всех несохраненных изменений ... Вы уверены, что хотите продолжить?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="651"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="652"/>
         <source>Status: adding </source>
         <translation>Статус: добавление</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="688"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="689"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>Статус: очистка — изменение файлов</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="717"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="718"/>
         <source>Status: modifying </source>
         <translation>Статус: изменение</translation>
     </message>
@@ -11249,59 +11249,59 @@ Are you Sure You Want to Continue?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="128"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="120"/>
         <source>Select Plugin Zip Archive</source>
         <translation>Выбор архива модуля</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="128"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="120"/>
         <source>Plugin Files (*.zip)</source>
         <translation>Файлы модулей (*.zip)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="144"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="136"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
         <translation>Ошибка: Плагин plugin.xml недействителен или не поддерживается вашей ОС</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="147"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="139"/>
         <source>Warning: A plugin by that name already exists</source>
         <translation>Внимание: Плагин с таким именем уже существует</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="150"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="142"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
         <translation>Ошибка: плагин не распаковался.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="153"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="145"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
         <translation>Ошибка: Плагин недействителен.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="186"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="178"/>
         <source>Nothing is Selected.</source>
         <translation>Ничего не выбрано.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="205"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="197"/>
         <source>Remove All Plugins</source>
         <translation>Удалить все плагины</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="206"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="198"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
         <translation>Вы уверены, что хотите удалить все ваши плагины?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="279"/>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="289"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="248"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="258"/>
         <source>Select Interpreter</source>
         <translation>Выбрать интерпретатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="315"/>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="331"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="284"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="300"/>
         <source>Incorrect Interpreter Path selected</source>
         <translation>Выбран неправильный путь к интерпретатору</translation>
     </message>
@@ -11639,12 +11639,12 @@ Line: %1 Column %2 - %3</source>
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="449"/>
+        <location filename="../../Misc/Utility.cpp" line="463"/>
         <source>Sigil has encountered a problem.</source>
         <translation>В Sigil обнаружена проблема.               </translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="450"/>
+        <location filename="../../Misc/Utility.cpp" line="464"/>
         <source>Sigil cannot continue and will now close</source>
         <translation>Sigil не может продолжать и сейчас закроется</translation>
     </message>
@@ -12695,12 +12695,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="563"/>
+        <location filename="../../Misc/Utility.cpp" line="577"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="564"/>
+        <location filename="../../Misc/Utility.cpp" line="578"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
