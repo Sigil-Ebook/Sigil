@@ -2870,6 +2870,24 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
       parser->_parser_state->_form_element = NULL;
     }
     return false;
+
+
+    // XHTML5 Parser support in body to fix <iframe/> and related non-void self-closing tags
+  } else if (parser->_options->use_xhtml_rules  && token->v.start_tag.is_self_closing &&
+             tag_in(token, kStartTag, (gumbo_tagset) { TAG(IFRAME), TAG(NOEMBED), 
+                   TAG(TEXTAREA), TAG(XMP) })) {
+    if (tag_in(token, kStartTag, (gumbo_tagset) { TAG(IFRAME), TAG(TEXTAREA), TAG(XMP) })) {
+      set_frameset_not_ok(parser);
+    }
+    insert_element_from_token(parser, token);
+    return true;
+  } else if (parser->_options->use_xhtml_rules  && 
+             tag_in(token, kEndTag,(gumbo_tagset) { TAG(IFRAME), TAG(NOEMBED), 
+                   TAG(TEXTAREA), TAG(XMP) })) {
+    pop_current_node(parser);
+    return true;
+
+
   } else if (tag_is(token, kStartTag, GUMBO_TAG_TEXTAREA)) {
     run_generic_parsing_algorithm(parser, token, GUMBO_LEX_RCDATA);
     parser->_parser_state->_ignore_next_linefeed = true;
