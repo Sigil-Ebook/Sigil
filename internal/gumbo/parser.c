@@ -4132,13 +4132,16 @@ GumboOutput* gumbo_parse_fragment(
            token.v.start_tag.attributes.data == NULL);
 
     if (parser._options->use_xhtml_rules && inject_end && !state->_self_closing_flag_acknowledged) {
-      // XHTML5 Parser support - immediately inject end tag if self-closing 
-      // non-void start tag was just processed
-      // which the html5 parser treats only as a start tag
-      state->_current_token = &injected_token;
       state->_self_closing_flag_acknowledged = true;
-      has_error = !handle_token(&parser, &injected_token) || has_error;
-      inject_end = false;
+      // only inject when the current token is not scheduled to be reprocessed
+      if (!state->_reprocess_current_token) {
+        // XHTML5 Parser support - immediately inject end tag if self-closing 
+        // non-void start tag was just processed
+        // which the html5 parser treats only as a start tag
+        state->_current_token = &injected_token;
+        has_error = !handle_token(&parser, &injected_token) || has_error;
+        inject_end = false;
+      }
     }
 
     if (!state->_self_closing_flag_acknowledged) {
