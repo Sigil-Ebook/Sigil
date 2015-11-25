@@ -143,7 +143,8 @@ private:
 
     void replace_all(std::string &s, const char * s1, const char * s2);
 
-    QString fix_self_closing_tags(const QString & source);
+    // Hopefully now unneeded
+    // QString fix_self_closing_tags(const QString & source);
 
     QString                         m_source;
     GumboOutput*                    m_output;

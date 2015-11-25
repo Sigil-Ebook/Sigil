@@ -145,8 +145,6 @@ void GumboInterface::parse()
     if (!m_source.isEmpty() && (m_output == NULL)) {
   
         m_hasnbsp = m_source.contains("&nbsp;");
-        // fix any non html valid self-closing tags
-        m_source = fix_self_closing_tags(m_source);
         m_utf8src = m_source.toStdString();
         // remove any xml header line and any trailing whitespace
         if (m_utf8src.compare(0,5,"<?xml") == 0) {
@@ -456,9 +454,6 @@ QList<GumboWellFormedError> GumboInterface::error_check()
     myoptions.max_errors = -1;
 
     if (!m_source.isEmpty() && (m_output == NULL)) {
-
-        // fix any non html valid self-closing tags
-        m_source = fix_self_closing_tags(m_source);
 
         m_utf8src = m_source.toStdString();
         // remove any xml header line and trailing whitespace
@@ -1212,6 +1207,7 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
 }
 
 
+#if 0
 
 // handle a few special cases that are hard to deal with inside of gumbo
 
@@ -1223,8 +1219,6 @@ static QStringList allowed_void_tags = QStringList() << "area"    << "base"     
                                                      << "link"    << "menuitem" << "meta" 
                                                      << "param"   << "source"   << "spacer" 
                                                      << "track"   << "wbr";
-
-#if 0
 
 // Handle the general case
 QString GumboInterface::fix_self_closing_tags(const QString &source)
@@ -1255,8 +1249,6 @@ QString GumboInterface::fix_self_closing_tags(const QString &source)
     }
     return newsource;
 }
-
-#else
 
 // Handle the specific problem of iframe being self-closed
 QString GumboInterface::fix_self_closing_tags(const QString &source)
