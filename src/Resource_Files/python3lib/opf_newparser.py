@@ -179,12 +179,14 @@ class Opf_Parser(object):
         if tname.startswith("opf:"):
             tname = tname[4:]
         # some special cases
+        # handle comments with no spaces to delimit 
+        if tname.startswith("!--"):
+            tname = "!--"
+            ttype = 'single'
+            comment = s[4:-3].strip()
+            tattr['comment'] = comment
         if tname == "?xml":
             tname = "xml"
-        if tname == "!--":
-            ttype = 'single'
-            comment = s[p:-3].strip()
-            tattr['comment'] = comment
         if ttype is None:
             # parse any attributes of begin or single tags
             while s.find('=',p) != -1 :

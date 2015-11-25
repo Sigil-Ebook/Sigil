@@ -14,6 +14,8 @@ Sigil 0.9.1
     - Update to Sigil_Plugin_Framework_rev6.epub
     - Make build order of sigilgumbo deterministic in order to help Linux packagers
     - Make plugin launcher success and error messages robust to non-utf-8 strings
+    - Fix for crash bug when comments exist inside manifest of opf
+    - Fix for Sigil's gumbo - only inject end tags when current token does NOT need to be reprocessed
 
 
 Sigil 0.9.0 Release
