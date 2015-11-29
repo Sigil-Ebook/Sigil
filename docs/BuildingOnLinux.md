@@ -43,23 +43,11 @@ If your software repos provide Python 3.4.0 or higher, by all means use them to 
 + python3.4-dev
 + libpython3.4
 + libpython3.4-dev
-+ python3.4-pip (might be python3-pip on some systems)
++ python3-pip
 + python3.4-tk
-
-In addition you may find you need to `sudo apt-get install` the following development packages (if they're not already installed):
-
-+ libxml2-dev
-+ libxslt1-dev
-
-If libxslt1-dev can't be found, try libxslt-dev.
-
-Once you have those installed, use pip3 from a terminal to install the python modules that Sigil requires.
-
->`sudo pip3 install six`
-
->`sudo pip3 install lxml`
-
-If pip3 barks about installing lxml, go back and make sure you installed the two development packages I mentioned.
++ python3.4-lxml
++ python3.4-six
+(might need to be `python3-<module>` on some systems)
 
 That's all the Python 3.4 stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X. The entire current list (which I *highly* recommend installing) is:
 
@@ -142,9 +130,11 @@ To test if Sigil's Python 3.4 plugin framework is fully functional, you can do t
 1. download testplugin_v010.zip from https://github.com/Sigil-Ebook/Sigil/tree/master/docs
 2. open Sigil to the normal nearly blank template epub it generates when opened
 3. use Plugins->Manage Plugins menu and make sure you have a Python 3.4 interpreter configured 
-4. use the "Add Plugin" button to navigate to and add testplugin.zip and then hit "Okay" to exit the Manage Plugins Dialog
-5. use Plugins->Manage Plugins->Edit->testplugins to launch the plugin and hit the "Start" button to run it
+4. use the "Add Plugin" button to navigate to and add testplugin_vXXX.zip and then hit "Okay" to exit the Manage Plugins Dialog
+5. use Plugins->Edit->testplugin to launch the plugin and hit the "Start" button to run it
 6. check the plugin output window for your missing or broken plugin test results
+
+Install any missing Python modules with your system's package management system or Python's pip3.
 
 ##<a name="advanced"/>Advanced Stuff
 

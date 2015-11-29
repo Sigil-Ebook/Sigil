@@ -45,21 +45,12 @@
 <li>python3.4-dev</li>
 <li>libpython3.4</li>
 <li>libpython3.4-dev</li>
-<li>python3.4-pip (might be python3-pip on some systems)</li>
+<li>python3-pip</li>
 <li>python3.4-tk</li>
+<li>python3.4-lxml</li>
+<li>python3.4-six
+(might need to be <code>python3-&lt;module&gt;</code> on some systems)</li>
 </ul>
-<p>In addition you may find you need to <code>sudo apt-get install</code> the following development packages (if they're not already installed):</p>
-<ul>
-<li>libxml2-dev</li>
-<li>libxslt1-dev</li>
-</ul>
-<p>If libxslt1-dev can't be found, try libxslt-dev.</p>
-<p>Once you have those installed, use pip3 from a terminal to install the python modules that Sigil requires.</p>
-<blockquote>
-<p><code>sudo pip3 install six</code></p>
-<p><code>sudo pip3 install lxml</code></p>
-</blockquote>
-<p>If pip3 barks about installing lxml, go back and make sure you installed the two development packages I mentioned.</p>
 <p>That's all the Python 3.4 stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X. The entire current list (which I <em>highly</em> recommend installing) is:</p>
 <ul>
 <li>six</li>
@@ -127,10 +118,11 @@ Unzip/untar the source code. Rename the uppermost directory ("Sigil-0.X.X" if yo
 <li>download testplugin_v010.zip from https://github.com/Sigil-Ebook/Sigil/tree/master/docs</li>
 <li>open Sigil to the normal nearly blank template epub it generates when opened</li>
 <li>use Plugins-&gt;Manage Plugins menu and make sure you have a Python 3.4 interpreter configured </li>
-<li>use the "Add Plugin" button to navigate to and add testplugin.zip and then hit "Okay" to exit the Manage Plugins Dialog</li>
-<li>use Plugins-&gt;Manage Plugins-&gt;Edit-&gt;testplugins to launch the plugin and hit the "Start" button to run it</li>
+<li>use the "Add Plugin" button to navigate to and add testplugin_vXXX.zip and then hit "Okay" to exit the Manage Plugins Dialog</li>
+<li>use Plugins-&gt;Edit-&gt;testplugin to launch the plugin and hit the "Start" button to run it</li>
 <li>check the plugin output window for your missing or broken plugin test results</li>
 </ol>
+<p>Install any missing Python modules with your system's package management system or Python's pip3.</p>
 <h2><a name="advanced"/>Advanced Stuff</h2>
 <p>There are several configuration and environment variable options that can tailor how Sigil is built and/or run. I've talked about a few of the cmake options already, but I'll mention them here again along with the rest--with a brief explanation of their purposes.</p>
 <p>-DCMAKE_INSTALL_PREFIX=<code>&lt;path&gt;</code> Configures the prefix where Sigil will be installed to (default is /usr/local)</p>
