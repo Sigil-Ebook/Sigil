@@ -41,10 +41,10 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
 
     pdb->set_engine_path("python2.7", ui.editPathPy2->text());
     pdb->set_engine_path("python3.4", ui.editPathPy3->text());
-    if (bundledInterpReady() && ui.editPathPy2->text() == "" && ui.editPathPy3->text() == "") {
-        settings.setUseBundledInterp(true);
-    }
-    else {
+
+    if (!bundledInterpReady()) {
+        settings.setUseBundledInterp(false);
+    } else {
         settings.setUseBundledInterp(m_useBundledInterp);
     }
 
@@ -81,19 +81,6 @@ void PluginWidget::readSettings()
     ui.editPathPy2->setText(pdb->get_engine_path("python2.7"));
     ui.editPathPy3->setText(pdb->get_engine_path("python3.4"));
 
-    if (bundledInterpReady()) {
-        ui.chkUseBundled->setEnabled(true);
-        if (ui.editPathPy2->text() == "" && ui.editPathPy3->text() == "") {
-            ui.chkUseBundled->setCheckState(Qt::Checked);
-            m_useBundledInterp = true;
-        } else if (m_useBundledInterp) {
-            ui.chkUseBundled->setCheckState(Qt::Checked);
-        } else {
-            ui.chkUseBundled->setCheckState(Qt::Unchecked);
-        }
-        enable_disable_controls();
-    }
-
     // clear out the table but do NOT clear out column headings
     while (ui.pluginTable->rowCount() > 0) {
         ui.pluginTable->removeRow(0);
@@ -107,6 +94,18 @@ void PluginWidget::readSettings()
     }
 
     ui.pluginTable->resizeColumnsToContents();
+
+    // If the python bundled interpreter is present/ready, enable the checkbox and set it
+    // based on the value of the SettingStore Value. Otherwise keep it disabled.
+    if (bundledInterpReady()) {
+        ui.chkUseBundled->setEnabled(true);
+        if (m_useBundledInterp) {
+            ui.chkUseBundled->setCheckState(Qt::Checked);
+        } else {
+            ui.chkUseBundled->setCheckState(Qt::Unchecked);
+        }
+        enable_disable_controls();
+    }
     m_isDirty = false;
 }
 
@@ -265,11 +264,10 @@ void PluginWidget::SetPy3()
 
 void PluginWidget::enable_disable_controls()
 {
-    // ui.editPathPy2->setEnabled(!m_useBundledInterp);
+    // Disable/enable the Python3 interpreter path widgets based
+    // on the value of the useBundledInterpreter checkbox.
     ui.editPathPy3->setEnabled(!m_useBundledInterp);
-    // ui.Py2Auto->setEnabled(!m_useBundledInterp);
     ui.Py3Auto->setEnabled(!m_useBundledInterp);
-    // ui.Py2Set->setEnabled(!m_useBundledInterp);
     ui.Py3Set->setEnabled(!m_useBundledInterp);
 }
 

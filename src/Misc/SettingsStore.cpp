@@ -231,8 +231,8 @@ QString SettingsStore::pluginLastFolder()
 bool SettingsStore::useBundledInterp()
 {
     clearSettingsGroup();
-    // False if unset. The logic when opening the plugin config widget decides default. 
-    return static_cast<bool>(value(KEY_PLUGIN_USE_BUNDLED_INTERP, false).toBool());
+    // Defaults to true.
+    return static_cast<bool>(value(KEY_PLUGIN_USE_BUNDLED_INTERP, true).toBool());
 }
 
 SettingsStore::BookViewAppearance SettingsStore::bookViewAppearance()
