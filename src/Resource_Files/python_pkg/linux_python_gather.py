@@ -4,21 +4,38 @@
 from __future__ import (unicode_literals, division, absolute_import,
                         print_function)
 
-import sys, os, inspect, shutil, platform, textwrap, py_compile, site
-from python_paths import py_ver, py_lib, py_exe, py_inc, py_dest, tmp_prefix
+import sys, os, inspect, shutil, subprocess, glob, platform, textwrap, py_compile, site
+from python_paths import py_ver, py_lib, py_exe, sigil_src, installer_name, tk_lib, tcl_lib
+from python_paths import cmake_build_root, qt_libs_dir, qt_plugins_dir, pkg_name, tcltk_support
 
 # Python standard modules location
 srcdir = os.path.dirname(inspect.getfile(os))
+# print ('srcdir', srcdir)
+
+temp_folder = os.path.join(cmake_build_root, 'temp_folder')
+# print ('tmp_folder', temp_folder)
+
+app_folder = os.path.join(temp_folder, 'sigil-ebook')
+#print ('app_folder', app_folder)
+
+py_dest = os.path.join(app_folder, 'python3')
+# print ('py_dest', py_dest)
 
 # Where we're going to copy stuff
 py_dir = os.path.join(py_dest, 'lib', os.path.basename(srcdir))
-print ('py_dir', py_dir)
-app_dir = os.path.dirname(py_dest)
-print ('app_dir', app_dir)
+# print ('py_dir', py_dir)
 
-pyhome_dir = os.path.join(app_dir.replace(tmp_prefix, ''), os.path.basename(py_dest))
-print ('pyhome_dir', pyhome_dir)
 site_dest = os.path.join(py_dir, 'site-packages')
+# print ('site_dest', site_dest)
+
+if os.path.exists(temp_folder) and os.path.isdir(temp_folder):
+    shutil.rmtree(temp_folder)
+
+os.makedirs(py_dir)
+os.makedirs(os.path.join(py_dest, 'bin'))
+if not os.path.exists(os.path.join(cmake_build_root, 'installer')):
+    os.makedirs(os.path.join(cmake_build_root, 'installer'))
+
 
 # Cherry-picked additional and/or modified modules
 site_packages = [ ('lxml', 'd'), 
@@ -30,6 +47,7 @@ site_packages = [ ('lxml', 'd'),
                   ('_regex_core.py','f'),
                   ('test_regex.py', 'f'),
                   ('cssselect', 'd'),
+                  ('encutils', 'd'),
                   ('cssutils', 'd'),
                   ('chardet', 'd')]
 
@@ -70,7 +88,7 @@ def ignore_in_dirs(base, items, ignored_dirs=None):
     return ans
 
 def copy_pylib():
-    shutil.copy2(py_lib, app_dir)
+    shutil.copy2(py_lib, app_folder)
     shutil.copy2(py_exe, os.path.join(py_dest, 'bin', "sigil-python3"))
 
 
@@ -92,7 +110,6 @@ def copy_python():
     #site_dest = os.path.join(py_dir, 'site-packages')
     copy_site_packages(site_packages, site_dest)
     create_site_py()
-    create_pyvenv()
 
     for x in os.walk(py_dir):
         for f in x[-1]:
@@ -107,6 +124,24 @@ def copy_python():
                         os.remove(z)
                 except:
                     print ('Failed to byte-compile', y)
+
+def copy_tcltk():
+    shutil.copy2(tk_lib, app_folder)
+    shutil.copy2(tcl_lib, app_folder)
+
+    def ignore_lib(root, items):
+            ans = []
+            for x in items:
+                ext = os.path.splitext(x)[1]
+                if (not ext and (x in ('demos', 'tzdata'))) or \
+                    (ext in ('.chm', '.htm', '.txt')):
+                    ans.append(x)
+            return ans
+
+    for entry in os.listdir(tcltk_support):
+        if entry in ('tk8.6', 'tcl8.6'):
+            if os.path.isdir(os.path.join(tcltk_support, entry)):
+                shutil.copytree(os.path.join(tcltk_support, entry), os.path.join(py_dest, 'lib', entry), ignore=ignore_lib)
 
 def create_site_py():
     with open(os.path.join(py_dir, 'site.py'), 'wb') as f:
@@ -151,15 +186,269 @@ def create_site_py():
             main()
             '''), 'UTF-8'))
 
-def create_pyvenv():
-    with open(os.path.join(py_dest, 'pyvenv.cfg'), 'wb') as f:
+def create_pyvenv(name, prefix):
+    pyvenv_home = os.path.join(prefix, 'python3', 'pyvenv.cfg')
+    with open(os.path.join(temp_folder, name), 'wb') as f:
         f.write(bytes(textwrap.dedent('''\
         home = %s
         include-system-site-packages = false
-        version = 3.4.0
-        ''') % pyhome_dir, 'UTF-8'))
+        version = 3.4.3
+        ''') % pyvenv_home, 'UTF-8'))
 
+def copy_strip_qt5():
+    qtlibs = ['Qt5Concurrent', 'Qt5Core', 'Qt5DBus', 'Qt5Gui', 'Qt5Multimedia', 'Qt5MultimediaWidgets', 'Qt5Network',
+              'Qt5OpenGL', 'Qt5Positioning', 'Qt5PrintSupport', 'Qt5Qml', 'Qt5Quick', 'Qt5Sensors', 'Qt5Sql', 'Qt5Svg',
+              'Qt5WebChannel', 'Qt5WebKit', 'Qt5WebKitWidgets', 'Qt5Widgets', 'Qt5Xml', 'Qt5XmlPatterns']
+    for lib in qtlibs:
+        name = os.path.join(qt_libs_dir, 'lib'+lib+'.so.5')
+        shutil.copy2(name, app_folder)
+        subprocess.check_call(['strip', '--strip-unneeded', os.path.join(app_folder, 'lib'+lib+'.so.5')])
+
+def copy_strip_icu5(ver='53'):
+    iculibs = ['icudata', 'icui18n', 'icuuc']
+    for lib in iculibs:
+        name = os.path.join(qt_libs_dir, 'lib'+lib+'.so.'+ver)
+        shutil.copy2(name, app_folder)
+        subprocess.check_call(['strip', '--strip-unneeded', os.path.join(app_folder, 'lib'+lib+'.so.'+ver)])
+
+def copy_strip_qt_plugins():
+    # Copy iconengines plugins
+    dest_folder = os.path.join(app_folder, 'iconengines')
+    os.mkdir(dest_folder)
+    shutil.copy2(os.path.join(qt_plugins_dir, 'iconengines', 'libqsvgicon.so'), dest_folder)
+    subprocess.check_call(['strip', '--strip-unneeded', os.path.join(dest_folder, 'libqsvgicon.so')])
+
+    # Copy imageformats plugins
+    imagelibs = ['qgif', 'qico', 'qjpeg', 'qmng', 'qsvg', 'qtiff', 'qtga', 'qwbmp']
+    dest_folder = os.path.join(app_folder, 'imageformats')
+    os.mkdir(dest_folder)
+    for lib in imagelibs:
+        name = os.path.join(qt_plugins_dir, 'imageformats', 'lib'+lib+'.so')
+        shutil.copy2(name, dest_folder)
+        subprocess.check_call(['strip', '--strip-unneeded', os.path.join(dest_folder, 'lib'+lib+'.so')])
+
+    # Copy audio plugins
+    audiolibs = ['qtaudio_alsa', 'qtmedia_pulse']
+    dest_folder = os.path.join(app_folder, 'audio')
+    os.mkdir(dest_folder)
+    for lib in audiolibs:
+        name = os.path.join(qt_plugins_dir, 'audio', 'lib'+lib+'.so')
+        shutil.copy2(name, dest_folder)
+        subprocess.check_call(['strip', '--strip-unneeded', os.path.join(dest_folder, 'lib'+lib+'.so')])
+
+    # Copy mediaservice plugins
+    medialibs = ['gstmediaplayer', 'gstaudiodecoder']
+    dest_folder = os.path.join(app_folder, 'mediaservice')
+    os.mkdir(dest_folder)
+    for lib in medialibs:
+        name = os.path.join(qt_plugins_dir, 'mediaservice', 'lib'+lib+'.so')
+        shutil.copy2(name, dest_folder)
+        subprocess.check_call(['strip', '--strip-unneeded', os.path.join(dest_folder, 'lib'+lib+'.so')])
+
+    # Copy platform plugins
+    platlibs = ['qminimal', 'qxcb', 'qoffscreen', 'qminimalegl', 'qlinuxfb', 'qeglfs']
+    dest_folder = os.path.join(app_folder, 'platforms')
+    os.mkdir(dest_folder)
+    for lib in platlibs:
+        name = os.path.join(qt_plugins_dir, 'platforms', 'lib'+lib+'.so')
+        shutil.copy2(name, dest_folder)
+        subprocess.check_call(['strip', '--strip-unneeded', os.path.join(dest_folder, 'lib'+lib+'.so')])
+
+    # Copy platformtheme plugins
+    dest_folder = os.path.join(app_folder, 'platformthemes')
+    os.mkdir(dest_folder)
+    shutil.copy2(os.path.join(qt_plugins_dir, 'platformthemes', 'libqgtk2.so'), dest_folder)
+    subprocess.check_call(['strip', '--strip-unneeded', os.path.join(dest_folder, 'libqgtk2.so')])
+
+    # Copy platforminputcontexts plugins
+    platinputlibs = ['composeplatforminputcontextplugin', 'ibusplatforminputcontextplugin']
+    dest_folder = os.path.join(app_folder, 'platforminputcontexts')
+    os.mkdir(dest_folder)
+    for lib in platinputlibs:
+        name = os.path.join(qt_plugins_dir, 'platforminputcontexts', 'lib'+lib+'.so')
+        shutil.copy2(name, dest_folder)
+        subprocess.check_call(['strip', '--strip-unneeded', os.path.join(dest_folder, 'lib'+lib+'.so')])
+
+    # Copy printsupport plugins
+    dest_folder = os.path.join(app_folder, 'printsupport')
+    os.mkdir(dest_folder)
+    shutil.copy2(os.path.join(qt_plugins_dir, 'printsupport', 'libcupsprintersupport.so'), dest_folder)
+    subprocess.check_call(['strip', '--strip-unneeded', os.path.join(dest_folder, 'libcupsprintersupport.so')])
+
+    # Copy sqldrivers plugins
+    sqllibs = ['qsqlite', 'qsqlmysql', 'qsqlpsql']
+    dest_folder = os.path.join(app_folder, 'sqldrivers')
+    os.mkdir(dest_folder)
+    for lib in sqllibs:
+        name = os.path.join(qt_plugins_dir, 'sqldrivers', 'lib'+lib+'.so')
+        shutil.copy2(name, dest_folder)
+        subprocess.check_call(['strip', '--strip-unneeded', os.path.join(dest_folder, 'lib'+lib+'.so')])
+
+def copy_resource_files():
+    resource_dir = os.path.join(sigil_src, 'src', 'Resource_Files')
+
+    # Copy the translation qm files
+    trans_dir = os.path.join(cmake_build_root, 'src')
+    dest_folder = os.path.join(app_folder, 'translations')
+    if not os.path.exists(dest_folder):
+        os.makedirs(dest_folder)
+    filenames = glob.glob('*.qm')
+    for filename in filenames:
+        shutil.copy2(os.path.join(cmake_build_root, 'src', filename), dest_folder)
+
+    # Copy the hunspell dictionary files
+    dict_dir = os.path.join(resource_dir, 'dictionaries')
+    dest_folder = os.path.join(app_folder, 'hunspell_dictionaries')
+    shutil.copytree(dict_dir, dest_folder)
+
+    # plugin launcher files
+    launcher_dir = os.path.join(resource_dir, 'plugin_launchers', 'python')
+    dest_folder = os.path.join(app_folder, 'plugin_launchers', 'python')
+    shutil.copytree(launcher_dir, dest_folder)
+
+    # Copy the python3lib
+    python3lib_dir = os.path.join(resource_dir, 'python3lib')
+    dest_folder = os.path.join(app_folder, 'python3lib')
+    shutil.copytree(python3lib_dir, dest_folder)
+
+    # Copy the example files
+    ex_dir = os.path.join(resource_dir, 'examples')
+    dest_folder = os.path.join(app_folder, 'examples')
+    shutil.copytree(ex_dir, dest_folder)
+
+def copy_libs_bins():
+    lib_src_dir = os.path.join(cmake_build_root, 'lib')
+    bin_src_dir = os.path.join(cmake_build_root, 'bin')
+
+    for lib in ['libhunspell.so', 'libsigilgumbo.so']:
+        shutil.copy2(os.path.join(lib_src_dir, lib), app_folder)
+        subprocess.check_call(['strip', '--strip-unneeded', os.path.join(app_folder, lib)])
+    shutil.copy2(os.path.join(bin_src_dir, 'sigil'), app_folder)
+    subprocess.check_call(['strip', '--strip-unneeded', os.path.join(app_folder, 'sigil')])
+    subprocess.check_call(['chrpath', '-d', os.path.join(app_folder, 'sigil')])
+
+def copy_misc_files():
+    resource_dir = os.path.join(sigil_src, 'src', 'Resource_Files')
+
+    # Copy the Unix launcher that sets the proper environment variables before launching the Sigil binary
+    #shutil.copy2(os.path.join(cmake_build_root, 'sigil-sh_install_configured'), os.path.join(temp_folder, 'sigil.sh'))
+
+    # Copy the Changelog
+    shutil.copy2(os.path.join(sigil_src, 'ChangeLog.txt'), app_folder)
+
+    # Copy the license file
+    shutil.copy2(os.path.join(sigil_src, 'COPYING.txt'), app_folder)
+
+    # Copy the icon file (used on Linux for the application icon)
+    shutil.copy2(os.path.join(resource_dir, 'icon', 'app_icon_48.png'), temp_folder)
+
+    # Copy the desktop file (used on Linux for the application settings)
+    shutil.copy2(os.path.join(resource_dir, 'freedesktop', 'sigil.desktop'), temp_folder)
+
+def create_launcher(filename, ldpath, perms):
+    with open(os.path.join(temp_folder, filename), 'wb') as f:
+        f.write(bytes(textwrap.dedent('''\
+        #!/bin/sh
+
+        # Entry point for Sigil on Unix systems.
+
+        LIB_DIR=%s
+
+        if [ -z "$LD_LIBRARY_PATH" ]; then
+          LD_LIBRARY_PATH="$LIB_DIR"
+        else
+          LD_LIBRARY_PATH="$LIB_DIR:$LD_LIBRARY_PATH"
+        fi
+
+        # Consolidate all of Sigil's files in one directory
+        if [ -z "$SIGIL_EXTRA_ROOT" ]; then
+          SIGIL_EXTRA_ROOT=$LIB_DIR
+          export SIGIL_EXTRA_ROOT
+        fi
+
+        export LD_LIBRARY_PATH
+
+        exec "$LIB_DIR/sigil" "$@"
+        ''') % ldpath, 'UTF-8'))
+    os.chmod(os.path.join(temp_folder, filename), perms)
+
+def create_setup():
+    with open(os.path.join(temp_folder, 'setup.sh'), 'wb') as f:
+        f.write(bytes(textwrap.dedent('''\
+        #!/bin/bash
+
+        if [ $(id -u) -ne 0 ]; then
+            DEST="$(getent passwd $USER | awk -F ':' '{print $6}')"
+            LAUNCHER=./user_sigil.sh
+            PYVENV=./user_pyvenv.cfg
+            echo "home = $DEST/sigil-ebook/python3/pyvenv.cfg\\ninclude-system-site-packages = false\\nversion = 3.4.3" > "$PYVENV"
+            DESKTOP="$DEST/.local/share/applications"
+            ICON="$DEST/.icons"
+            BINDIR="$DEST/bin"
+            chmod -R g-xr,o-xr .
+            MSG="Continue with the installation of Sigil to $DEST/sigil-ebook? (rerun the installer with root privileges to install Sigil system-wide)"
+        else
+            DEST=/opt
+            LAUNCHER=./system_sigil.sh
+            PYVENV=./system_pyvenv.cfg
+            DESKTOP=/usr/share/applications
+            ICON=/usr/share/pixmaps
+            BINDIR=/usr/bin
+            MSG="Continue with the installation of Sigil to /opt/sigil-ebook? (rerun the installer WITHOUT root privileges to install Sigil to your home directory)"
+        fi
+
+        read -r -p "$MSG [y/N] " response
+        case $response in
+            [yY][eE][sS]|[yY])
+                if [ -d "$DEST/sigil-ebook" ]; then
+                    rm -rf "$DEST/sigil-ebook"
+                fi
+                printf "\\nCopying files to $DEST/sigil-ebook ...\\n"
+                \cp -rf ./sigil-ebook "$DEST/sigil-ebook"
+                \cp -f "$LAUNCHER" "$DEST/sigil-ebook/sigil.sh"
+                \cp -f "$PYVENV" "$DEST/sigil-ebook/python3/pyvenv.cfg"
+
+                printf "\\nCreating desktop and icon entries ...\\n"
+                if [ ! -d "$DESKTOP" ] && [ $(id -u) -ne 0 ]; then
+                    mkdir -p "$DESKTOP"
+                fi
+                \cp -fv ./sigil.desktop "$DESKTOP/sigil.desktop"
+
+                if [ ! -d "$ICON" ] && [ $(id -u) -ne 0 ]; then
+                    mkdir -p "$ICON"
+                fi
+                \cp -fv ./app_icon_48.png "$ICON/sigil.png"
+
+                printf "\\nCreating link(s) ...\\n"
+                if [ ! -d "$BINDIR" ] && [ $(id -u) -ne 0 ]; then
+                    mkdir -p "$BINDIR"
+                fi
+                ln -sfv "$DEST/sigil-ebook/sigil.sh" "$BINDIR/sigil"
+                printf "\\nSigil installation complete.\\n"
+                ;;
+            *)
+                printf "\\nSigil installation cancelled.\\n"
+                exit 0
+                ;;
+        esac
+        '''), 'UTF-8'))
+    os.chmod(os.path.join(temp_folder, 'setup.sh'), 0o744)
 
 if __name__ == '__main__':
     copy_pylib()
     copy_python()
+    copy_tcltk()
+
+    copy_strip_qt5()
+    copy_strip_icu5()
+    copy_strip_qt_plugins()
+    copy_resource_files()
+    copy_libs_bins()
+    copy_misc_files()
+    create_launcher('user_sigil.sh', '~/sigil-ebook', 0o744)
+    create_launcher('system_sigil.sh', '/opt/sigil-ebook', 0o755)
+    create_pyvenv('user_pyvenv.cfg', '~/sigil-ebook')
+    create_pyvenv('system_pyvenv.cfg', '/opt/sigil-ebook' )
+    create_setup()
+    subprocess.check_call(['makeself.sh', '--bzip2', temp_folder, os.path.join(cmake_build_root, 'installer',
+                            installer_name+'.bz2.run'), 'Sigil Installer', './setup.sh'])

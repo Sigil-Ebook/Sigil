@@ -960,17 +960,21 @@ if( UNIX AND NOT APPLE )
     # Configure Linux launch script
     configure_file( ${LINUX_LAUNCH_INSTALL_SCRIPT} ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} )
 
-    # Stub out a framework for future external packaging scripts.
+    # Experimental installer creation -- currently unsupported.
+    add_custom_target( makeinstaller
+            COMMENT "Creating Self Extracting Installer..."
+            COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_BINARY_DIR}/linux_python_gather.py
+            DEPENDS ${PROJECT_NAME} )
+
+    # Stub out a framework for future external packaging scripts -- currently unsupported.
     if ( PKG_SYSTEM_PYTHON )
-        set( PYTHON_SUFFIX "/lib/sigil/python3" )
-        set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
         if ( 64_BIT_PLATFORM )
             set( PKG_NAME_PREFIX Sigil-${SIGIL_FULL_VERSION}-Linux-x86_64 )
         else()
             set( PKG_NAME_PREFIX Sigil-${SIGIL_FULL_VERSION}-Linux-x86 )
         endif()
-        configure_file( Resource_Files/python_pkg/python_paths.py ${OUTPUT_PACKAGE_DIR}/python_paths.py )
-        configure_file( Resource_Files/python_pkg/linux_python_gather.py ${OUTPUT_PACKAGE_DIR}/linux_python_gather.py COPYONLY)
+        configure_file( Resource_Files/python_pkg/python_paths.py ${CMAKE_BINARY_DIR}/python_paths.py )
+        configure_file( Resource_Files/python_pkg/linux_python_gather.py ${CMAKE_BINARY_DIR}/linux_python_gather.py COPYONLY)
     endif()
 
     if ( CMAKE_BUILD_TYPE STREQUAL "Debug")
