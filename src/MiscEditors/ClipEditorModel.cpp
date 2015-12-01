@@ -29,6 +29,7 @@
 #include <QRegularExpression>
 
 #include "MiscEditors/ClipEditorModel.h"
+#include "sigil_constants.h"
 
 static const QString SETTINGS_FILE          = "sigil_clips.ini";
 static const QString SETTINGS_GROUP         = "clip_entries";
@@ -506,7 +507,13 @@ void ClipEditorModel::AddExampleEntries()
 #elif defined(Q_OS_WIN32)
     examples_dir = QCoreApplication::applicationDirPath() + "/examples/";
 #else
-    examples_dir = QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower() + "/examples/";
+    // all flavours of linux / unix
+    // user supplied environment variable to 'share/sigil' directory will override everything
+    if (!sigil_extra_root.isEmpty()) {
+        examples_dir = sigil_extra_root + "/examples/";
+    } else {
+        examples_dir = sigil_share_root + "/examples/";
+    }
 #endif
     LoadData(examples_dir % CLIP_EXAMPLES_FILE);
 }
