@@ -189,19 +189,6 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
 }
 
 
-/**
- * Creates (or modifies, if it already exists) the Sigil temp folder so that it
- * can be read and modified by anyone.
- */
-void CreateTempFolderWithCorrectPermissions()
-{
-    QString temp_path = TempFolder::GetPathToSigilScratchpad();
-    QDir(temp_path).mkpath(temp_path);
-    QFile::setPermissions(temp_path, QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner |
-                          QFile::ReadGroup | QFile::WriteGroup | QFile::ExeGroup |
-                          QFile::ReadOther | QFile::WriteOther | QFile::ExeOther);
-}
-
 void VerifyPlugins()
 {
     PluginDB *pdb = PluginDB::instance();
@@ -257,12 +244,6 @@ int main(int argc, char *argv[])
         // and on Mac by the ICNS file.
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
         app.setWindowIcon(GetApplicationIcon());
-#endif
-        // On Unix systems, we make sure that the temp folder we
-        // create is accessible by all users. On Windows, there's
-        // a temp folder per user.
-#ifndef Q_OS_WIN32
-        CreateTempFolderWithCorrectPermissions();
 #endif
         // Needs to be created on the heap so that
         // the reply has time to return.

@@ -24,6 +24,7 @@
 #define TEMPFOLDER_H
 
 #include <QtCore/QString>
+#include <QtCore/QTemporaryDir>
 
 /**
  * A RAII wrapper around a temp folder. Creating an object of this
@@ -70,12 +71,12 @@ private:
     TempFolder(const TempFolder &);
 
     /**
-     * Provides a full path to a new temp folder.
-     * It is the callers responsibility to create the folder.
+     * Provides the template for QTemporaryDir for new temporary
+     * folders.
      *
-     * @return Full path to a new temp folder.
+     * @return Absolute path to a new temp folder template.
      */
-    static QString GetNewTempFolderPath();
+    static QString GetNewTempFolderTemplate();
 
     /**
      * Deletes the folder specified and all the files
@@ -94,7 +95,7 @@ private:
     /**
      * The full path to the temp folder.
      */
-    QString m_PathToFolder;
+    QTemporaryDir m_tempDir;
 };
 
 

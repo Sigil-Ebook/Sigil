@@ -19,71 +19,46 @@
 **
 *************************************************************************/
 
-#include <QtCore/QtCore>
 #include <QtCore/QDir>
-#include <QtCore/QFileInfo>
 #include <QtConcurrent/QtConcurrent>
 
 #include "Misc/TempFolder.h"
-#include "Misc/Utility.h"
-
-const QString PATH_SUFFIX = "/Sigil";
 
 TempFolder::TempFolder()
-    : m_PathToFolder(GetNewTempFolderPath())
+    : m_tempDir(GetNewTempFolderTemplate())
 {
-    QDir folder(m_PathToFolder);
-    folder.mkpath(folder.absolutePath());
+    // will be cleaned manually in the destructor
+    m_tempDir.setAutoRemove(false);
 }
 
 TempFolder::~TempFolder()
 {
-    QtConcurrent::run(DeleteFolderAndFiles, m_PathToFolder);
+    QtConcurrent::run(DeleteFolderAndFiles, m_tempDir.path());
 }
 
 
 QString TempFolder::GetPath()
 {
-    return m_PathToFolder;
+    return m_tempDir.path();
 }
 
 
 QString TempFolder::GetPathToSigilScratchpad()
 {
-    return QDir::tempPath() + PATH_SUFFIX + "/scratchpad";
+    return QDir::tempPath();
 }
 
 
-QString TempFolder::GetNewTempFolderPath()
+QString TempFolder::GetNewTempFolderTemplate()
 {
-    QString token = Utility::CreateUUID();
-    return GetPathToSigilScratchpad() + "/" + token;
+    return QDir::tempPath() + "/Sigil-XXXXXX";
 }
 
 
 bool TempFolder::DeleteFolderAndFiles(const QString &fullfolderpath)
 {
-    // Make sure the path exists, otherwise very
-    // bad things could happen
-    if (!QFileInfo(fullfolderpath).exists()) {
-        return false;
-    }
-
     QDir folder(fullfolderpath);
-    // Erase all the files in this folder
-    foreach(QFileInfo file, folder.entryInfoList(QDir::Dirs|QDir::Files|QDir::NoDotAndDotDot|QDir::Hidden)) {
-        // If it's a file, delete it
-        if (file.isFile()) {
-            folder.remove(file.fileName());
-        }
-        // Else it's a directory, delete it recursively
-        else {
-            DeleteFolderAndFiles(file.absoluteFilePath());
-        }
-    }
-    // Delete the folder after it's empty
-    folder.rmdir(folder.absolutePath());
-    return true;
+    return folder.removeRecursively();
 }
 
 
