@@ -22,7 +22,6 @@
 #include <QDir>
 #include <QFile>
 #include <QStringList>
-//#include <QStandardPaths>
 #include <QXmlStreamReader>
 
 #include "Misc/Plugin.h"
