@@ -114,7 +114,10 @@ QString CleanSource::ToValidXHTML(const QString &source)
     QString newsource = source;
 
     if (!XhtmlDoc::IsDataWellFormed(source)) {
-        newsource = PrettyPrintGumbo(newsource);
+        GumboInterface gp = GumboInterface(newsource);
+        newsource = gp.repair();
+        newsource = CharToEntity(newsource);
+        newsource = PrettifyDOCTYPEHeader(newsource);
     }
     return newsource;
 }
