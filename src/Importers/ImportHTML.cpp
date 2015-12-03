@@ -205,7 +205,7 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
             if (m_IgnoreDuplicates && current_filenames.contains(filename)) {
                 newpath = "../" + m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePathToOEBPS();
             } else {
-                newpath       = "../" + m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath)->GetRelativePathToOEBPS();
+                newpath = "../" + m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath)->GetRelativePathToOEBPS();
             }
 
             updates[ fullfilepath ] = newpath;
@@ -222,24 +222,26 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
 QHash<QString, QString> ImportHTML::LoadStyleFiles(const QStringList & file_paths )
 {
     QHash<QString, QString> updates;
-    QStringList current_filenames = m_Book->GetFolderKeeper()->GetAllFilenames();
     QDir folder(QFileInfo(m_FullFilePath).absoluteDir());
+    QStringList current_filenames = m_Book->GetFolderKeeper()->GetAllFilenames();
     foreach(QString file_path, file_paths) {
-            try {
-                QString newpath;
-                QFileInfo file_info(folder, file_path);
-                if (m_IgnoreDuplicates && current_filenames.contains(file_info.fileName())) {
-                    newpath = "../" + m_Book->GetFolderKeeper()->GetResourceByFilename(file_info.fileName())->GetRelativePathToOEBPS();
-                } else {
-                    newpath = "../" + m_Book->GetFolderKeeper()->AddContentFileToFolder(file_info.absoluteFilePath())->GetRelativePathToOEBPS();
-                }
+        try {
+            QString filename = QFileInfo(file_path).fileName();
+            QString fullfilepath  = QFileInfo(folder, file_path).absoluteFilePath();
+            QString newpath;
 
-                updates[ file_path ] = newpath;
-            } catch (FileDoesNotExist) {
-                // Do nothing. If the referenced file does not exist,
-                // well then we don't load it.
-                // TODO: log this.
+            if (m_IgnoreDuplicates && current_filenames.contains(filename)) {
+                newpath = "../" + m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePathToOEBPS();
+            } else {
+                newpath = "../" + m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath)->GetRelativePathToOEBPS();
             }
+
+            updates[ fullfilepath ] = newpath;
+        } catch (FileDoesNotExist) {
+            // Do nothing. If the referenced file does not exist,
+            // well then we don't load it.
+            // TODO: log this.
+        }
     }
 
     return updates;
