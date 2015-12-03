@@ -968,6 +968,13 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
         atts.append(build_attributes(at, no_entity_substitution, ((doupdates & SourceUpdates) && is_href_src_tag) ));
     }
 
+    // Make sure that the xmlns attribute exists as an html tag attribute
+    if (tagname == "html") {
+      if (atts.find("xmlns=") == std::string::npos) {
+        atts.append(" xmlns=\"http://www.w3.org/1999/xhtml\"");
+      }
+    }
+
     // determine closing tag type
     if (is_empty_tag) {
         close = "/";
