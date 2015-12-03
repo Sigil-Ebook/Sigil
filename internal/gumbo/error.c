@@ -61,7 +61,7 @@ static int print_message(GumboStringBuffer* output, const char* format, ...) {
   }
 #endif
 
-  if (bytes_written > remaining_capacity) {
+  if (bytes_written >= remaining_capacity) {
     gumbo_string_buffer_reserve(output->capacity + bytes_written, output);
     remaining_capacity = output->capacity - output->length;
     va_start(args, format);
