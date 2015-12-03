@@ -108,6 +108,7 @@ extern const QString SGC_INDEX_CSS_FILENAME;
 extern const QString HTML_COVER_FILENAME;
 extern const QString HTML_COVER_SOURCE;
 
+extern const QString SIGIL_CUSTOM_PREFS_DIR;
 extern const QString PATH_LIST_DELIM;
 extern const QString PYTHON_MAIN_PATH;
 extern const QStringList PYTHON_SYS_PATHS;
