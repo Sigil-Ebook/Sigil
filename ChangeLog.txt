@@ -4,8 +4,10 @@ Sigil 0.9.2
     - Simplify UseBundledInterpreter Logic
     - Preliminary Linux binary installer support added
     - Include Pull Request 161 by pinotree "Switch TempFolder to QTemporaryDir" to improve safety
-    - Fix bug when adding existing html links to styelsheets not being updated
+    - Fix bug when adding existing html links to stylesheets not being updated
     - Fix bug in Well-Formed error messages due to bug inside gumbo's error.c
+    - Add xmlns="http://www.w3.org/1999/xhtml" attribute to html tag if missing
+    - Reduce fear of Cleaning ToValidXHTML by using serialize not prettyprint
     
 
 Sigil 0.9.1
