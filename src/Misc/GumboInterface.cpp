@@ -1183,8 +1183,10 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
         std::string selfclosetag = "<" + tagname + atts + "/>";
         if (is_inline) {
             // always add newline after br tags when they are children of structural tags
-            if ((tagname == "br") && in_set(structural_tags, parentname)) selfclosetag.append("\n");
-            if (!in_head && (tagname != "html")) selfclosetag.append("\n");
+            if ((tagname == "br") && in_set(structural_tags, parentname)) {
+              selfclosetag.append("\n");
+              if (!in_head && (tagname != "html")) selfclosetag.append("\n");
+            }
             return selfclosetag;
         }
         if (!in_head && (tagname != "html")) selfclosetag.append("\n");
