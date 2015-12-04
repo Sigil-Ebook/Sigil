@@ -431,7 +431,7 @@ QString GumboInterface::perform_body_updates(const QString & new_body)
     }
     m_newbody = new_body.toStdString();
     enum UpdateTypes doupdates = BodyUpdates;
-    std::string utf8out = serialize_contents(m_output->document, doupdates);
+    std::string utf8out = serialize(m_output->document, doupdates);
     result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
     m_newbody= "";
     return result;
@@ -470,9 +470,7 @@ QList<GumboWellFormedError> GumboInterface::error_check()
             m_utf8src.insert(0,"<!DOCTYPE html>\n");
             line_offset--;
         }
-        // GumboInterface::m_mutex.lock();
         m_output = gumbo_parse_with_options(&myoptions, m_utf8src.data(), m_utf8src.length());
-        // GumboInterface::m_mutex.unlock();
     }
     const GumboVector* errors  = &m_output->errors;
     for (unsigned int i=0; i< errors->length; ++i) {
