@@ -51,7 +51,7 @@ const QStringList TIFF_EXTENSIONS = QStringList()  << "tif"  << "tiff";
 // container.xml and encryption.xml will be rewritten
 // on export. Other files in this directory are passed
 // through untouched.
-const QRegularExpression FILE_EXCEPTIONS("META-INF|page-map");
+const QRegularExpression FILE_EXCEPTIONS("META-INF|page-map|page_map");
 
 const QStringList MISC_TEXT_EXTENSIONS = QStringList()  << "txt"  << "js" << "xpgt";
 const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"   << "otf" << "woff";
@@ -77,6 +77,7 @@ const QStringList TEXT_MIMETYPES = QStringList() << "application/xhtml+xml"
 const QStringList STYLE_MIMETYPES = QStringList() << "text/css";
 const QStringList AUDIO_MIMETYPES = QStringList() << "audio/mpeg" << "audio/mp4" << "audio/ogg";
 const QStringList VIDEO_MIMETYPES = QStringList() << "video/mp4" << "video/mp4" << "video/mp4" << "video/ogg" << "video/webm";
+const QStringList PAGEMAP_MIMETYPES = QStringList() << "application/oebps-page-map+xml";
 
 static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                                      "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
@@ -147,7 +148,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
         QString extension = QFileInfo(normalised_file_path).suffix().toLower();
 
         if (fullfilepath.contains(FILE_EXCEPTIONS)) {
-            if (filename == "page-map.xml") {
+            if ((filename == "page-map.xml") || PAGEMAP_MIMETYPES.contains(mimetype)) {
                 new_file_path = m_FullPathToMiscFolder + "/" + filename;
                 resource = new MiscTextResource(m_FullPathToMainFolder, new_file_path);
             } else {
