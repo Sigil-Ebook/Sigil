@@ -22,7 +22,6 @@
 #include <QDir>
 #include <QFile>
 #include <QStringList>
-#include <QStandardPaths>
 #include <QXmlStreamReader>
 
 #include "Misc/Plugin.h"
@@ -69,7 +68,7 @@ PluginDB::~PluginDB()
 
 QString PluginDB::pluginsPath()
 {
-    return QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/plugins";
+    return Utility::DefinePrefsDir() + "/plugins";
 }
 
 

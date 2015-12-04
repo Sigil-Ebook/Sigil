@@ -2,6 +2,9 @@
 #include <QStringList>
 #include "sigil_constants.h"
 
+// Runtime env var override of Sigil's Preferences directory location
+const QString SIGIL_CUSTOM_PREFS_DIR = QString(getenv("SIGIL_CUSTOM_PREFS_DIR"));
+
 #if _WIN32
 const QString PATH_LIST_DELIM = ";";
 const QString PYTHON_MAIN_PATH = "/Python3";

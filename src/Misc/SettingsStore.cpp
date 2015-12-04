@@ -22,12 +22,13 @@
 
 #include <QtCore/QLocale>
 #include <QtCore/QCoreApplication>
-#include <QtCore/QStandardPaths>
 #include <QFile>
 #include <QDir>
 
 #include "Misc/SettingsStore.h"
 #include "Misc/PluginDB.h"
+#include "Misc/Utility.h"
+
 #include "sigil_constants.h"
 
 static QString SETTINGS_GROUP = "user_preferences";
@@ -87,7 +88,7 @@ static QString KEY_SPECIAL_CHARACTER_FONT_SIZE = SETTINGS_GROUP + "/" + "special
 
 
 SettingsStore::SettingsStore()
-    : QSettings(QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/sigil.ini", QSettings::IniFormat)
+    : QSettings(Utility::DefinePrefsDir() + "/sigil.ini", QSettings::IniFormat)
 {
 }
 

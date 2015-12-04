@@ -25,10 +25,10 @@
 #include <QByteArray>
 #include <QDataStream>
 #include <QtCore/QTime>
-#include <QtCore/QStandardPaths>
 #include <QRegularExpression>
 
 #include "MiscEditors/ClipEditorModel.h"
+#include "Misc/Utility.h"
 #include "sigil_constants.h"
 
 static const QString SETTINGS_FILE          = "sigil_clips.ini";
@@ -59,7 +59,7 @@ ClipEditorModel::ClipEditorModel(QObject *parent)
       m_FSWatcher(new QFileSystemWatcher()),
       m_IsDataModified(false)
 {
-    m_SettingsPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/" + SETTINGS_FILE;
+    m_SettingsPath = Utility::DefinePrefsDir() + "/" + SETTINGS_FILE;
     QStringList header;
     header.append(tr("Name"));
     header.append(tr("Text"));
