@@ -8,11 +8,13 @@ Sigil 0.9.2
     - Fix bug in Well-Formed error messages due to bug inside gumbo's error.c
     - Add xmlns="http://www.w3.org/1999/xhtml" attribute to html tag if missing
     - Reduce fear of Cleaning ToValidXHTML by using serialize not prettyprint
-    
+    - Add ability to change Sigil's user preferences directory by specifying a new path
+         via the SIGIL_CUSTOM_PREFS_DIR environment variable (path must be user-writable).
+
 
 Sigil 0.9.1
     - Fix bug when template sgc_toc.css could be changed to blank on save, since no InitialLoad() was done
-    - Change order of TextResource m_IsLoaded and m_CacheInUse flags to minimize potentail race exposure.
+    - Change order of TextResource m_IsLoaded and m_CacheInUse flags to minimize potential race exposure.
     - Fix PluginRunner bug that introduced errors into xhtml files when both the content.opf and xhtml were modified
     - Auto XML Decode and Escape Metadata entries created in the Metadata GUI
     - Alter pluginhunspell.py so a missing libhunspell doesn't stop ALL plugins from working

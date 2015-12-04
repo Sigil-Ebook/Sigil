@@ -47,6 +47,9 @@ public:
 
     static QString ChangeCase(const QString &text, const Casing &casing);
 
+    // Define the user preferences location to be used
+    static QString DefinePrefsDir();
+
     // Uses QUuid to generate a random UUID but also removes
     // the curly braces that QUuid::createUuid() adds
     static QString CreateUUID();

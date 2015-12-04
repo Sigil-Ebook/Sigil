@@ -37,6 +37,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
 #include <QtCore/QProcess>
+#include <QtCore/QStandardPaths>
 #include <QtCore/QStringList>
 #include <QtCore/QStringRef>
 #include <QtCore/QTextStream>
@@ -50,6 +51,7 @@
 #include <QFile>
 #include <QFileInfo>
 
+#include "sigil_constants.h"
 #include "sigil_exception.h"
 #include "Misc/QCodePage437Codec.h"
 
@@ -63,6 +65,20 @@
 static QCodePage437Codec *cp437 = 0;
 
 #include "Misc/Utility.h"
+
+
+// Define the user preferences location to be used
+QString Utility::DefinePrefsDir()
+{
+    // If the SIGIL_CUSTOM_PREFS_DIR environment variable override exists; use it.
+    // It's up to the user to provide a directory they have permission to write to.
+    if (!SIGIL_CUSTOM_PREFS_DIR.isEmpty()) {
+        return SIGIL_CUSTOM_PREFS_DIR;
+    } else {
+        return QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+    }
+}
+
 
 // Uses QUuid to generate a random UUID but also removes
 // the curly braces that QUuid::createUuid() adds

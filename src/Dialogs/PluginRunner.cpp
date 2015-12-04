@@ -166,7 +166,7 @@ int PluginRunner::exec(const QString &name)
 void PluginRunner::writeSigilCFG()
 {
     QStringList cfg = QStringList() << QCoreApplication::applicationDirPath();
-    cfg << QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+    cfg << Utility::DefinePrefsDir();
     QList <Resource *> selected_resources = m_bookBrowser->AllSelectedResources();
     foreach(Resource * resource, selected_resources) {
         cfg << resource->GetRelativePathToRoot();

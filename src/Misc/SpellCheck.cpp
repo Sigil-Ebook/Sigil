@@ -30,7 +30,6 @@
 #include <QtCore/QTextStream>
 #include <QtCore/QUrl>
 #include <QtWidgets/QApplication>
-#include <QtCore/QStandardPaths>
 
 #include "Misc/SpellCheck.h"
 #include "Misc/SettingsStore.h"
@@ -379,12 +378,12 @@ void SpellCheck::loadDictionaryNames()
 
 QString SpellCheck::dictionaryDirectory()
 {
-    return QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/hunspell_dictionaries";
+    return Utility::DefinePrefsDir() + "/hunspell_dictionaries";
 }
 
 QString SpellCheck::userDictionaryDirectory()
 {
-    return QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/user_dictionaries";
+    return Utility::DefinePrefsDir() + "/user_dictionaries";
 }
 
 QString SpellCheck::currentUserDictionaryFile()
