@@ -1037,7 +1037,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
 
     GumboVector* children = &node->v.element.children;
 
-    if (is_structural) last_char = '\n';
+    if (is_structural || (tagname == "#document")) last_char = '\n';
 
     for (unsigned int i = 0; i < children->length; ++i) {
 
@@ -1136,7 +1136,7 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
 
     std::string tagname = get_tag_name(node);
     std::string parentname = get_tag_name(node->parent);
-    bool in_head = (parentname == "head");
+    bool in_head = (tagname == "head" || parentname == "head");
 
     bool is_structural = in_set(structural_tags, tagname);
     bool is_inline = in_set(nonbreaking_inline, tagname);
@@ -1172,8 +1172,8 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
     // uncomment the following line
     // single = single || contents.empty();
 
-    char c                         = indent_chars.at(0);
-    int  n                         = indent_chars.length(); 
+    char c = indent_chars.at(0);
+    int  n = indent_chars.length(); 
     std::string indent_space = std::string((lvl-1)*n,c);
 
     // handle self-closed tags with no contents first
