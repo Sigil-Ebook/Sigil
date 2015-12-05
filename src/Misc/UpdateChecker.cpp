@@ -35,7 +35,7 @@
 #include "sigil_constants.h"
 
 static const QString DOWNLOAD_PAGE_LOCATION  = "http://sigil-ebook.com/get";
-static const QString UPDATE_XML_LOCATION     = "https://github.com/Sigil-Ebook/Sigil/raw/master/version.xml";
+static const QString UPDATE_XML_LOCATION     = "https://raw.githubusercontent.com/Sigil-Ebook/Sigil/master/version.xml";
 static const QString XML_VERSION_ELEMENT     = "current-version";
 static const QString LAST_ONLINE_VERSION_KEY = "last_online_version";
 static const QString LAST_CHECK_TIME_KEY     = "last_check_time";
@@ -126,7 +126,8 @@ QString UpdateChecker::TextInReply(QNetworkReply *reply)
     // This will automatically switch reading from
     // UTF-8 to UTF-16 if a BOM is detected
     in.setAutoDetectUnicode(true);
-    return in.readAll();
+    QString xmltext = in.readAll();
+    return xmltext;
 }
 
 

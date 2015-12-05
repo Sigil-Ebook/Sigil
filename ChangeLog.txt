@@ -10,6 +10,7 @@ Sigil 0.9.2
     - Reduce fear of Cleaning ToValidXHTML by using serialize not prettyprint
     - Add ability to change Sigil's user preferences directory by specifying a new path
          via the SIGIL_CUSTOM_PREFS_DIR environment variable (path must be user-writable).
+    - Restore Sigil's update checker that's been broken for a while
 
 
 Sigil 0.9.1
