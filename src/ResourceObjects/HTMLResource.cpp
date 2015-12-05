@@ -128,7 +128,7 @@ QStringList HTMLResource::GetManifestProperties() const
 QStringList HTMLResource::SplitOnSGFSectionMarkers()
 {
     QStringList sections = XhtmlDoc::GetSGFSectionSplits(GetText());
-    SetText(CleanSource::Clean(sections.takeFirst()));
+    SetText(CleanSource::Mend(sections.takeFirst()));
     return sections;
 }
 

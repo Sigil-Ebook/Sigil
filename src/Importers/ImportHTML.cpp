@@ -96,7 +96,7 @@ QString ImportHTML::LoadSource()
         m_CachedSource = CleanSource::CharToEntity(m_CachedSource);
 
         if (ss.cleanOn() & CLEANON_OPEN) {
-            m_CachedSource = CleanSource::Clean(XhtmlDoc::ResolveCustomEntities(m_CachedSource));
+            m_CachedSource = CleanSource::Mend(XhtmlDoc::ResolveCustomEntities(m_CachedSource));
         }
     }
 

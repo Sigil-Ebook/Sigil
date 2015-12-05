@@ -379,7 +379,7 @@ void FlowTab::SaveTabContent()
         SettingsStore ss;
         QString html = m_wBookView->GetHtml();
         if (ss.cleanOn() & CLEANON_OPEN) {
-            html = CleanSource::Clean(html);
+            html = CleanSource::Mend(html);
         }
         m_HTMLResource->SetText(html);
         m_wBookView->ResetModified();

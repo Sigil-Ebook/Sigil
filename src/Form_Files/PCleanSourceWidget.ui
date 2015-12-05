@@ -30,16 +30,16 @@
     <widget class="QGroupBox" name="groupBox_2">
      <property name="toolTip">
       <string>Choose when your HTML code is automatically 
-formatted and cleaned using your selected option.</string>
+mended.</string>
      </property>
      <property name="title">
-      <string>Automatically Clean and Format HTML Source Code:</string>
+      <string>Mend XHTML Source Code On:</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
-       <widget class="QCheckBox" name="CleanOnOpen">
+       <widget class="QCheckBox" name="MendOnOpen">
         <property name="toolTip">
-         <string>Clean when opening an EPUB or HTML file, 
+         <string>Mend when opening an EPUB or HTML file, 
 and when switching from Book View to Code View.</string>
         </property>
         <property name="text">
@@ -48,53 +48,12 @@ and when switching from Book View to Code View.</string>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QCheckBox" name="CleanOnSave">
+       <widget class="QCheckBox" name="MendOnSave">
         <property name="toolTip">
-         <string>Clean when saving an EPUB.</string>
+         <string>Mend when saving an EPUB.</string>
         </property>
         <property name="text">
          <string>Save</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="groupBox">
-     <property name="toolTip">
-      <string>Choose what type of cleaning and formatting
-should be done when automatic cleaning is enabled,
-or when cleaning manually.</string>
-     </property>
-     <property name="title">
-      <string>When Cleaning, Use This Type:</string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout2">
-      <item>
-       <widget class="QRadioButton" name="CleanLevelPrettyPrintGumbo">
-        <property name="toolTip">
-         <string>Perform formatting and cleaning of your code to make it valid XHTML.</string>
-        </property>
-        <property name="text">
-         <string>Pretty Print Gumbo</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="CleanLevelGumbo">
-        <property name="toolTip">
-         <string>Fully clean and format your code.
-This may change your formatting to use inline style sections.</string>
-        </property>
-        <property name="text">
-         <string>Google Gumbo-Parser</string>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
         </property>
        </widget>
       </item>

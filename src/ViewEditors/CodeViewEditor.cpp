@@ -1282,10 +1282,10 @@ void CodeViewEditor::AddReformatHTMLContextMenu(QMenu *menu)
     }
 
     QMenu *reformatMenu = new QMenu(tr("Reformat HTML"), menu);
-    QAction *cleanAction = new QAction(tr("Clean Source"), menu);
-    QAction *cleanAllAction = new QAction(tr("Clean Source - All HTML Files"), menu);
-    QAction *toValidAction = new QAction(tr("To Valid HTML"), menu);
-    QAction *toValidAllAction = new QAction(tr("To Valid HTML - All HTML Files"), menu);
+    QAction *cleanAction = new QAction(tr("Mend and Prettify Code"), menu);
+    QAction *cleanAllAction = new QAction(tr("Mend and Prettify Code - All HTML Files"), menu);
+    QAction *toValidAction = new QAction(tr("Mend Code"), menu);
+    QAction *toValidAllAction = new QAction(tr("Mend Code - All HTML Files"), menu);
     connect(cleanAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLCleanAction()));
     connect(cleanAllAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLCleanAllAction()));
     connect(toValidAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLToValidAction()));
@@ -3318,14 +3318,14 @@ void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
                 resources.append(t);
             }
         }
-        CleanSource::ReformatAll(resources, all ? CleanSource::ToValidXHTML : CleanSource::Clean);
+        CleanSource::ReformatAll(resources, to_valid ? CleanSource::Mend : CleanSource::MendPrettify);
     } else {
         original_text = toPlainText();
 
         if (to_valid) {
-            new_text = CleanSource::ToValidXHTML(original_text);
+            new_text = CleanSource::Mend(original_text);
         } else {
-            new_text = CleanSource::Clean(original_text);
+            new_text = CleanSource::MendPrettify(original_text);
         }
 
         if (original_text != new_text) {

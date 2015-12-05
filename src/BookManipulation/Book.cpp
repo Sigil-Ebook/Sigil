@@ -366,7 +366,7 @@ HTMLResource *Book::CreateSectionBreakOriginalResource(const QString &content, H
     originating_resource->RenameTo(GetFirstUniqueSectionName(old_extension));
     HTMLResource *new_resource = CreateNewHTMLFile();
     new_resource->RenameTo(originating_filename);
-    new_resource->SetText(CleanSource::Clean(content));
+    new_resource->SetText(CleanSource::Mend(content));
     m_Mainfolder->SuspendWatchingResources();
     new_resource->SaveToDisk();
     m_Mainfolder->ResumeWatchingResources();
@@ -999,10 +999,10 @@ Book::NewSectionResult Book::CreateOneNewSection(NewSection section_info,
     Q_ASSERT(html_resource);
 
     if (html_updates.isEmpty()) {
-        html_resource->SetText(CleanSource::Clean(section_info.source));
+        html_resource->SetText(CleanSource::Mend(section_info.source));
     } else {
         QString currentpath = html_resource->GetCurrentBookRelPath();
-        html_resource->SetText(PerformHTMLUpdates(CleanSource::Clean(section_info.source),
+        html_resource->SetText(PerformHTMLUpdates(CleanSource::Mend(section_info.source),
                                              html_updates,
                                              QHash<QString, QString>(), currentpath)() );
         html_resource->SetCurrentBookRelPath("");

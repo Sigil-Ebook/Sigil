@@ -45,38 +45,22 @@ static const QString HEAD_END = "</\\s*head\\s*>";
 
 // Performs general cleaning (and improving)
 // of provided book XHTML source code
-QString CleanSource::Clean(const QString &source)
+QString CleanSource::Mend(const QString &source)
 {
     SettingsStore settings;
-    SettingsStore::CleanLevel level = settings.cleanLevel();
     QString newsource = PreprocessSpecialCases(source);
-
-    switch (level) {
-        case SettingsStore::CleanLevel_PrettyPrint:
-        case SettingsStore::CleanLevel_PrettyPrintGumbo: {
-            newsource = level == SettingsStore::CleanLevel_PrettyPrint ? PrettyPrint(newsource) : PrettyPrintGumbo(newsource);
-            newsource = PrettifyDOCTYPEHeader(newsource);
-            return newsource;
-        }
-        case SettingsStore::CleanLevel_Gumbo: {
-            GumboInterface gp = GumboInterface(newsource);
-            newsource = gp.repair();
-            newsource = CharToEntity(newsource);
-            newsource = PrettifyDOCTYPEHeader(newsource);
-            return newsource;
-        }
-        default:
-            // The only thing we will do for Clean when set to None is just prettify
-            // the XML declaration at the top. 
-            return PrettifyDOCTYPEHeader(newsource);
-    }
+    GumboInterface gp = GumboInterface(newsource);
+    newsource = gp.repair();
+    newsource = CharToEntity(newsource);
+    newsource = PrettifyDOCTYPEHeader(newsource);
+    return newsource;
 }
 
 
-// Repair XHTML if needed using Gumbo and then PrettyPrint
-QString CleanSource::PrettyPrintGumbo(const QString &source)
+// Mend and Prettify XHTML
+QString CleanSource::MendPrettify(const QString &source)
 {
-    QString newsource = source;
+    QString newsource = PreprocessSpecialCases(source);
     GumboInterface gi = GumboInterface(newsource);
     newsource = gi.prettyprint();
     newsource = CharToEntity(newsource);
@@ -112,20 +96,10 @@ QString CleanSource::XMLPrettyPrintBS4(const QString &source)
 QString CleanSource::ToValidXHTML(const QString &source)
 {
     QString newsource = source;
-
     if (!XhtmlDoc::IsDataWellFormed(source)) {
-        GumboInterface gp = GumboInterface(newsource);
-        newsource = gp.repair();
-        newsource = CharToEntity(newsource);
-        newsource = PrettifyDOCTYPEHeader(newsource);
+        newsource = Mend(source);
     }
     return newsource;
-}
-
-QString CleanSource::PrettyPrint(const QString &source)
-{
-    HTMLPrettyPrint pp(source);
-    return pp.prettyPrint();
 }
 
 QString CleanSource::ProcessXML(const QString &source)
@@ -232,7 +206,6 @@ QString CleanSource::CharToEntity(const QString &source)
 
 void CleanSource::ReformatAll(QList <HTMLResource *> resources, QString(clean_func)(const QString &source))
 {
-    //QList <Resource *> resources = m_OPFModel.GetResourceListInFolder( Resource::HTMLResourceType );
     QProgressDialog progress(QObject::tr("Cleaning..."), 0, 0, resources.count(), Utility::GetMainWindow());
     progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
     int progress_value = 0;

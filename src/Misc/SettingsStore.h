@@ -49,13 +49,6 @@ public:
     SettingsStore();
     SettingsStore(QString filename);
 
-    enum CleanLevel {
-        CleanLevel_Off               = 0,
-        CleanLevel_PrettyPrintGumbo  = 100,
-        CleanLevel_PrettyPrint       = 160,
-        CleanLevel_Gumbo             = 200
-    };
-
     /**
      * The langauge to use for the user interface
      *
@@ -125,8 +118,6 @@ public:
      * @return The template name.
      */
     QString renameTemplate();
-
-    SettingsStore::CleanLevel cleanLevel();
 
     int cleanOn();
 
@@ -276,8 +267,6 @@ public slots:
      * @param name The name of the dictionary.
      */
     void setRenameTemplate(const QString &name);
-
-    void setCleanLevel(SettingsStore::CleanLevel level);
 
     void setCleanOn(int on);
 

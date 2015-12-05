@@ -34,18 +34,15 @@ class CleanSource
 {
 
 public:
-    // Performs general cleaning (and improving)
-    // of provided book XHTML source code
-    static QString Clean(const QString &source);
+    // Performs minimal mending to provided book XHTML code 
+    static QString Mend(const QString &source);
 
-    // Convert to valid XHTML with mild cleaning
+    // Convert to valid XHTML with Mending
     static QString ToValidXHTML(const QString &source);
 
     static QString ProcessXML(const QString &source);
 
-    static QString CleanGumbo(const QString &source);
-
-    static QString PrettyPrintGumbo(const QString &source);
+    static QString MendPrettify(const QString &source);
 
     static QString XMLPrettyPrintBS4(const QString &source);
 
@@ -56,8 +53,6 @@ public:
     static void ReformatAll(QList <HTMLResource *> resources, QString(clean_fun)(const QString &source));
 
 private:
-
-    static QString PrettyPrint(const QString &source);
 
     /**
      * Removes HTML meta tags with charset declarations.

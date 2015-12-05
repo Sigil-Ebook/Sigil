@@ -24,7 +24,6 @@
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QPushButton>
 
-#include "Misc/SettingsStore.h"
 #include "Tabs/ContentTab.h"
 #include "Tabs/WellFormedCheckComponent.h"
 #include "Tabs/WellFormedContent.h"
@@ -102,19 +101,14 @@ void WellFormedCheckComponent::DemandAttention()
 
 void WellFormedCheckComponent::DisplayErrorMessage()
 {
-    SettingsStore settings;
     const QString error_line = m_LastError.line != -1 ?
                                QString::number(m_LastError.line) :
                                "N/A";
     QString full_message = m_Message
                            .arg(m_Content->GetFilename(), error_line, m_LastError.message);
 
-    if (settings.cleanLevel() == SettingsStore::CleanLevel_Off) {
-        m_AutoFixButton->setVisible(false);
-    } else {
-        m_AutoFixButton->setVisible(true);
-        full_message.append(m_AutoFixMessage);
-    }
+    m_AutoFixButton->setVisible(true);
+    full_message.append(m_AutoFixMessage);
 
     m_MessageBox->setText(full_message);
     m_MessageBox->exec();

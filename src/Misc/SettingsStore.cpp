@@ -44,7 +44,6 @@ static QString KEY_VIEW_STATE = SETTINGS_GROUP + "/" + "view_state";
 static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
 static QString KEY_DEFAULT_USER_DICTIONARY = SETTINGS_GROUP + "/" + "user_dictionary_name";
 static QString KEY_ENABLED_USER_DICTIONARIES = SETTINGS_GROUP + "/" + "enabled_user_dictionaries";
-static QString KEY_CLEAN_LEVEL = SETTINGS_GROUP + "/" + "clean_level";
 static QString KEY_CLEAN_ON = SETTINGS_GROUP + "/" + "clean_on";
 static QString KEY_PRESERVE_ENTITY_NAMES = SETTINGS_GROUP + "/" + "preserve_entity_names";
 static QString KEY_PRESERVE_ENTITY_CODES = SETTINGS_GROUP + "/" + "preserve_entity_codes";
@@ -167,23 +166,6 @@ QString SettingsStore::renameTemplate()
 {
     clearSettingsGroup();
     return value(KEY_RENAME_TEMPLATE, "").toString();
-}
-
-SettingsStore::CleanLevel SettingsStore::cleanLevel()
-{
-    clearSettingsGroup();
-    int level = value(KEY_CLEAN_LEVEL, SettingsStore::CleanLevel_Gumbo).toInt();
-
-    switch (level) {
-        case SettingsStore::CleanLevel_PrettyPrint:
-        case SettingsStore::CleanLevel_PrettyPrintGumbo:
-        case SettingsStore::CleanLevel_Gumbo:
-            return static_cast<SettingsStore::CleanLevel>(level);
-            break;
-
-        default:
-            return SettingsStore::CleanLevel_Gumbo;
-    }
 }
 
 int SettingsStore::cleanOn()
@@ -357,12 +339,6 @@ void SettingsStore::setRenameTemplate(const QString &name)
 {
     clearSettingsGroup();
     setValue(KEY_RENAME_TEMPLATE, name);
-}
-
-void SettingsStore::setCleanLevel(SettingsStore::CleanLevel level)
-{
-    clearSettingsGroup();
-    setValue(KEY_CLEAN_LEVEL, level);
 }
 
 void SettingsStore::setCleanOn(int on)

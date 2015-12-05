@@ -236,6 +236,11 @@ set( IMPORTER_FILES
     Importers/ImportTXT.cpp
     Importers/ImportTXT.h
     )
+
+
+# These may now be obsolete if so remove them
+#    Misc/HTMLPrettyPrint.cpp
+#    Misc/HTMLPrettyPrint.h
     
 set( MISC_FILES    
     Misc/AppEventFilter.cpp
@@ -259,8 +264,6 @@ set( MISC_FILES
     Misc/HTMLEncodingResolver.h
     Misc/HTMLSpellCheck.cpp
     Misc/HTMLSpellCheck.h
-    Misc/HTMLPrettyPrint.cpp
-    Misc/HTMLPrettyPrint.h
     Misc/PasteTargetComboBox.cpp
     Misc/PasteTargetComboBox.h
     Misc/PasteTarget.h

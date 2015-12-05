@@ -64,7 +64,7 @@ QString ImportTXT::LoadSource() const
     source = CreateParagraphs(source.split(QChar('\n')));
 
     if (ss.cleanOn() & CLEANON_OPEN) {
-        return CleanSource::Clean(source);
+        return CleanSource::Mend(source);
     }
 
     return source;

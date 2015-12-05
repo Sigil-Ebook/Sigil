@@ -33,24 +33,16 @@ CleanSourceWidget::CleanSourceWidget()
 
 PreferencesWidget::ResultAction CleanSourceWidget::saveSettings()
 {
-    SettingsStore::CleanLevel new_clean_level = SettingsStore::CleanLevel_Off;
     int new_clean_on_level = 0;
 
-    if (ui.CleanLevelGumbo->isChecked()) {
-        new_clean_level = SettingsStore::CleanLevel_Gumbo;
-    } else {
-        new_clean_level = SettingsStore::CleanLevel_PrettyPrintGumbo;
-    }
-
-    if (ui.CleanOnOpen->isChecked()) {
+    if (ui.MendOnOpen->isChecked()) {
         new_clean_on_level |= CLEANON_OPEN;
     }
-    if (ui.CleanOnSave->isChecked()) {
+    if (ui.MendOnSave->isChecked()) {
         new_clean_on_level |= CLEANON_SAVE;
     }
 
     SettingsStore settings;
-    settings.setCleanLevel(new_clean_level);
     settings.setCleanOn(new_clean_on_level);
     return PreferencesWidget::ResultAction_None;
 }
@@ -58,11 +50,8 @@ PreferencesWidget::ResultAction CleanSourceWidget::saveSettings()
 void CleanSourceWidget::readSettings()
 {
     SettingsStore settings;
-    SettingsStore::CleanLevel level = settings.cleanLevel();
-    ui.CleanLevelPrettyPrintGumbo->setChecked(level == SettingsStore::CleanLevel_PrettyPrintGumbo);
-    ui.CleanLevelGumbo->setChecked(level == SettingsStore::CleanLevel_Gumbo);
     int cleanOn = settings.cleanOn();
-    ui.CleanOnOpen->setChecked(cleanOn & CLEANON_OPEN);
-    ui.CleanOnSave->setChecked(cleanOn & CLEANON_SAVE);
+    ui.MendOnOpen->setChecked(cleanOn & CLEANON_OPEN);
+    ui.MendOnSave->setChecked(cleanOn & CLEANON_SAVE);
 }
 

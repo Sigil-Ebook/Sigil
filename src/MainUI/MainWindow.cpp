@@ -3488,18 +3488,18 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
                 bool auto_fix = QMessageBox::Yes == QMessageBox::warning(this,
                                 tr("Sigil"),
                                 tr("This EPUB has HTML files that are not well formed and "
-                                   "your current Clean Source preferences are set to automatically clean on Save. "
+                                   "your current Clean Source preferences are set to automatically mend on Save. "
                                    "Saving a file that is not well formed will cause it to be automatically "
-                                   "fixed, which can result in data loss.\n\n"
-                                   "Do you want to automatically fix the files before saving?"),
+                                   "fixed, which very rarely may result in data loss.\n\n"
+                                   "Do you want to automatically mend the files before saving?"),
                                 QMessageBox::Yes|QMessageBox::No);
                 QApplication::setOverrideCursor(Qt::WaitCursor);
                 if (auto_fix) {
-                    CleanSource::ReformatAll(resources, CleanSource::Clean);
+                    CleanSource::ReformatAll(resources, CleanSource::Mend);
                     not_well_formed = false;
                 }
             } else {
-                CleanSource::ReformatAll(resources, CleanSource::Clean);
+                CleanSource::ReformatAll(resources, CleanSource::Mend);
             }
         }
 
