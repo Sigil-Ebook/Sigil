@@ -15,6 +15,7 @@ Sigil 0.9.2
     - Make identification and storage of page-map.xml more robust
     - Completely revamp Cleaning to use "Mend Code" and remove PrettyPrintGumbo as on option
     - Rename PrettyPrintGumbo to "Mend and Prettify" and move to CodeView Right-click menu
+    - Restore Sigil's update checker that's been broken for a while
 
 Sigil 0.9.1
     - Fix bug when template sgc_toc.css could be changed to blank on save, since no InitialLoad() was done
