@@ -28,6 +28,7 @@
 #include <QtGui/QStandardItemModel>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenu>
+#include <QShortcut>
 #include <QtCore/QSharedPointer>
 
 #include "Misc/SettingsStore.h"
@@ -79,6 +80,9 @@ private slots:
     void SelectAll();
     void ChangeAll();
 
+    void toggleShowAllWords();
+    void toggleCaseInsensitiveSort();
+
     void FilterEditTextChangedSlot(const QString &text);
 
     void OpenContextMenu(const QPoint &point);
@@ -121,6 +125,11 @@ private:
     bool m_MultipleSelection;
 
     int m_SelectRow;
+
+    QShortcut * m_FilterSC;
+    QShortcut * m_ShowAllSC;
+    QShortcut * m_NoCaseSC;
+    QShortcut * m_RefreshSC;
 
     Ui::SpellcheckEditor ui;
 };

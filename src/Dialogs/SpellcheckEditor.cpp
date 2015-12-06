@@ -49,7 +49,11 @@ SpellcheckEditor::SpellcheckEditor(QWidget *parent)
     m_SpellcheckEditorModel(new QStandardItemModel(this)),
     m_ContextMenu(new QMenu(this)),
     m_MultipleSelection(false),
-    m_SelectRow(-1)
+    m_SelectRow(-1),
+    m_FilterSC(new QShortcut(QKeySequence(tr("f", "Filter")), this)),
+    m_ShowAllSC(new QShortcut(QKeySequence(tr("s", "ShowAllWords")), this)),
+    m_NoCaseSC(new QShortcut(QKeySequence(tr("c", "Case-InsensitiveSort")), this)),
+    m_RefreshSC(new QShortcut(QKeySequence(tr("r", "Refresh")), this))
 {
     ui.setupUi(this);
     ui.FilterText->installEventFilter(this);
@@ -103,6 +107,18 @@ bool SpellcheckEditor::eventFilter(QObject *obj, QEvent *event)
 
     // pass the event on to the parent class
     return QDialog::eventFilter(obj, event);
+}
+
+void SpellcheckEditor::toggleShowAllWords()
+{
+  ui.ShowAllWords->click();
+  ui.SpellcheckEditorTree->setFocus();
+}
+
+void SpellcheckEditor::toggleCaseInsensitiveSort()
+{
+  ui.CaseInsensitiveSort->click();
+  ui.SpellcheckEditorTree->setFocus();
 }
 
 int SpellcheckEditor::SelectedRowsCount()
@@ -583,5 +599,10 @@ void SpellcheckEditor::ConnectSignalsSlots()
             this,               SLOT(ChangeState(int)));
     connect(ui.Dictionaries, SIGNAL(activated(const QString &)),
             this,            SLOT(DictionaryChanged(const QString &)));
+
+    connect(m_FilterSC, SIGNAL(activated()), ui.FilterText, SLOT(setFocus()));
+    connect(m_ShowAllSC, SIGNAL(activated()), this, SLOT(toggleShowAllWords()));
+    connect(m_NoCaseSC, SIGNAL(activated()), this, SLOT(toggleCaseInsensitiveSort()));
+    connect(m_RefreshSC, SIGNAL(activated()), this, SLOT(Refresh()));
 
 }
