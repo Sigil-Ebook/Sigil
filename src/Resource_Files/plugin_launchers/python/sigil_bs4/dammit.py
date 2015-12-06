@@ -95,15 +95,16 @@ class EntitySubstitution(object):
         "&": "amp",
         "<": "lt",
         ">": "gt",
+        "\u00a0" : "#160",
         }
 
-    BARE_AMPERSAND_OR_BRACKET = re.compile("([<>]|"
+    BARE_AMPERSAND_OR_BRACKET = re.compile(r"([<>\u00a0]|"
                                            "&(?!#\d+;|#x[0-9a-fA-F]+;|\w+;)"
                                            ")")
 
     IS_ENTITY = re.compile("(&#\d+;|&#x[0-9a-fA-F]+;|&\w+;)")
 
-    AMPERSAND_OR_BRACKET = re.compile("([<>&])")
+    AMPERSAND_OR_BRACKET = re.compile(r"([<>&\u00a0])")
 
     @classmethod
     def _substitute_html_entity(cls, matchobj):

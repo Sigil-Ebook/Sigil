@@ -29,22 +29,25 @@ NON_BREAKING_INLINE_TAGS = ("a","abbr","acronym","b","bdo","big","br",
     "button","cite","code","del","dfn","em","font","i","image","img",
     "input","ins","kbd","label","map","nobr","object","q","s","samp",
     "select","small","span","strike","strong","sub","sup","textarea",
-    "tt","u","var","wbr")
+    "tt","u","var","wbr","mbp:nu")
 
 PRESERVE_WHITESPACE_TAGS = ("pre","textarea","script","style")
 
-EMPTY_TAGS = ("area","base","basefont","bgsound","br","command","col",
+VOID_TAGS = ("area","base","basefont","bgsound","br","col","command",
     "embed","event-source","frame","hr","image","img","input","keygen",
-    "link","menuitem","meta","param","source","spacer","track","wbr")
+    "link","menuitem","meta","param","source","spacer","track","wbr",
+    "mbp:pagebreak")
 
 NO_ENTITY_SUB_TAGS = ("script", "style")
 
 SPECIAL_HANDLING_TAGS = ("html", "body")
 
 STRUCTURAL_TAGS = ("article","aside","blockquote","body","canvas",
-    "div","dl","figure","footer","head","header","hr","html","ol",
-    "section","script","style","table","ul")
+    "colgroup","div","dl","figure","footer","head","header","hr","html",
+    "ol","section","table","tbody","tfoot","thead","td","th","tr","ul")
 
+OTHER_TEXTHOLDING_TAGS = ("address","caption","dd","div","dt","h1","h2",
+    "h3","h4","h5","h6","legend","li","option","p","td","th","title")
 
 EBOOK_XML_PARENT_TAGS = ("package","metadata","manifest","spine","guide","ncx",
                          "head","doctitle","docauthor","navmap", "navpoint",
@@ -1353,8 +1356,12 @@ class Tag(PageElement):
                 s.append(text)
         return ''.join(s)
 
-    def serialize_xhtml(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
-        formatter = self._formatter_for_name('minimal')
+    def serialize_xhtml(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING, formatter="minimal"):
+        # First off, turn a string formatter into a function. This
+        # will stop the lookup from happening over and over again.
+        if not isinstance(formatter, collections.Callable):
+            formatter = self._formatter_for_name(formatter)
+
         prefix = ''
         close = ''
         closeTag = ''
@@ -1383,7 +1390,7 @@ class Tag(PageElement):
         else:
             closeTag = '</%s%s>' % (prefix, self.name)
 
-        contents = self.serialize_xhtml_contents(eventual_encoding)
+        contents = self.serialize_xhtml_contents(eventual_encoding, formatter)
 
         # strip extraneous whitespace before the primary closing tag
         if self.name in SPECIAL_HANDLING_TAGS:
@@ -1408,16 +1415,27 @@ class Tag(PageElement):
             s = ''.join(s)
         return s
 
-    def serialize_xhtml_contents(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING):
-        formatter = self._formatter_for_name('minimal')
+    def serialize_xhtml_contents(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING, formatter="minimal"):
+
+        # First off, turn a string formatter into a function. This
+        # will stop the lookup from happening over and over again.
+        if not isinstance(formatter, collections.Callable):
+            formatter = self._formatter_for_name(formatter)
+
         s = []
         for c in self:
             text = None
-            if isinstance(c, NavigableString):
+            if isinstance(c, Comment):
+                text = Comment(c).output_ready(formatter)
+                s.append(text)
+            elif isinstance(c, CData):
+                text = CData(c).output_ready(formatter)
+                s.append(text)
+            elif isinstance(c, NavigableString):
                 text = c.output_ready(formatter)
                 s.append(text)
             elif isinstance(c, Tag):
-                s.append(c.serialize_xhtml(eventual_encoding))
+                s.append(c.serialize_xhtml(eventual_encoding, formatter))
         return ''.join(s)
 
     def prettyprint_xhtml(self, indent_level=0, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
@@ -1428,7 +1446,12 @@ class Tag(PageElement):
         if not isinstance(formatter, collections.Callable):
             formatter = self._formatter_for_name(formatter)
 
-        attrs = []
+        is_structural = self.name in STRUCTURAL_TAGS
+        is_inline = self.name in NON_BREAKING_INLINE_TAGS
+
+        # build attribute string
+        attribs = []
+        atts = ""
         if self.attrs:
             for key, val in sorted(self.attrs.items()):
                 if val is None:
@@ -1447,70 +1470,68 @@ class Tag(PageElement):
                     decoded = (
                         str(key) + '='
                         + EntitySubstitution.quoted_attribute_value(text))
-                attrs.append(decoded)
+                attribs.append(decoded)
+            atts = " " + " ".join(attribs)
 
         prefix = ''
         if self.prefix:
             prefix = self.prefix + ":"
 
-        close = ''
-        closeTag = ''
-        if self.is_empty_element:
-            close = '/'
-        else:
-            closeTag = '</%s%s>' % (prefix, self.name)
+        is_void_tag = self.name in VOID_TAGS
 
-        indent_space = (indent_chars * (indent_level - 1))
-
-        is_structural = self.name in STRUCTURAL_TAGS
-        is_inline = self.name in NON_BREAKING_INLINE_TAGS and self.parent.name not in STRUCTURAL_TAGS
-        is_keepwhitespace = self.name in PRESERVE_WHITESPACE_TAGS
-        is_ppokay = not is_inline and not is_keepwhitespace
-
-        if is_structural:
-            contents = self.prettyprint_xhtml_contents(indent_level+1, eventual_encoding, formatter, indent_chars)
-            contents = contents.rstrip()
-            if contents != "": contents += "\n";
-        else:
-            contents = self.prettyprint_xhtml_contents(indent_level, eventual_encoding, formatter, indent_chars)
-
-        last_char = ' '
-        if contents != "": last_char = contents[-1:]
+        # get tag content
+        contents=""
+        if not is_void_tag:
+            if is_structural:
+                contents = self.prettyprint_xhtml_contents(indent_level+1, eventual_encoding, formatter, indent_chars)
+            else:
+                contents = self.prettyprint_xhtml_contents(indent_level, eventual_encoding, formatter, indent_chars)
 
         if self.hidden:
             # This is the 'document root' object.
-            s = contents
+            return contents
+
+        is_keepwhitespace = self.name in PRESERVE_WHITESPACE_TAGS
+        if not is_keepwhitespace and not is_inline:
+            contents = contents.rstrip()
+
+        single = is_void_tag
+        # for xhtml serialization with self-closing non-void tags
+        # uncomment the following line
+        # single = single or (contents == "")
+
+        indent_space = (indent_chars * (indent_level - 1))
+
+        # handle self-closed tags with no content first
+        if single:
+            selfclosetag = '<%s%s%s/>' % (prefix, self.name, atts)
+            if is_inline:
+                # always add newline after br tags when they are children of structural tags
+                if (self.name == "br") and self.parent.name in STRUCTURAL_TAGS:
+                    selfclosetag += "\n"
+                return selfclosetag
+            return indent_space + selfclosetag + "\n"
+
+        # handle the general case
+        starttag = '<%s%s%s>' % (prefix, self.name, atts)
+        closetag = '</%s%s>' % (prefix, self.name)
+        results = ""
+        if is_structural:
+            results = indent_space + starttag
+            if contents != "":
+                results += "\n" + contents + "\n" + indent_space
+            results += closetag + "\n"
+        elif is_inline:
+            results = starttag
+            results += contents
+            results += closetag
         else:
-            s = []
-
-            if not is_inline:
-                s.append(indent_space)
-
-            attribute_string = ''
-            if attrs:
-                attribute_string = ' ' + ' '.join(attrs)
-
-            s.append('<%s%s%s%s>' % (prefix, self.name, attribute_string, close))
-
-            if is_ppokay and is_structural and contents != "":
-                s.append("\n")
-
-            s.append(contents)
-
-            if is_ppokay and last_char != "\n" and contents != "" and is_structural:
-                s.append("\n")
-
-            if not is_inline and is_structural and closeTag and contents!="":
-                s.append(indent_space)
-
-            s.append(closeTag)
-
-            if is_ppokay:
-                s.append("\n")
-
-            s = ''.join(s)
-
-        return s
+            results = indent_space + starttag
+            if not is_keepwhitespace:
+                contents = contents.lstrip()
+            results += contents
+            results += closetag + "\n"
+        return results
 
     def prettyprint_xhtml_contents(self, indent_level=0, eventual_encoding=DEFAULT_OUTPUT_ENCODING, 
                         formatter="minimal", indent_chars=" "):
@@ -1524,29 +1545,77 @@ class Tag(PageElement):
         is_structural = self.name in STRUCTURAL_TAGS
         is_inline = self.name in NON_BREAKING_INLINE_TAGS
         is_keepwhitespace = self.name in PRESERVE_WHITESPACE_TAGS
-
         indent_space = (indent_chars * (indent_level - 1))
+        last_char = "x"
+        contains_block_tags = False
+
+        if is_structural or self.hidden:
+            last_char = "\n"
 
         s = []
-        i = -1
+
         for c in self:
-            i = i + 1
             text = None
-            if isinstance(c, NavigableString):
+            if isinstance(c, Comment):
+                text = Comment(c).output_ready(formatter)
+                s.append(text)
+            elif isinstance(c, CData):
+                text = CData(c).output_ready(formatter)
+                s.append(text)
+            elif isinstance(c, NavigableString):
                 text = c.output_ready(formatter)
                 tval = text
                 is_whitespace = (tval.strip() == "")
+
+                # handle pure whitespace differently
                 if is_whitespace:
-                    if is_keepwhitespace or is_inline:
+                    if is_keepwhitespace:
                         s.append(text)
+                    elif is_inline or self.name in OTHER_TEXTHOLDING_TAGS:
+                        if last_char not in " \t\v\f\r\n":
+                            s.append(" ")
+                        else:
+                            s.append("")
+                    else:
+                        # ignore this whitespace
+                        s.append("")
+
+                # handle all other text
                 else:
-                    if i==0 and is_structural:
+                    if is_structural and last_char == "\n":
                         s.append(indent_space)
                         text = text.lstrip()
                     s.append(text)
+
+            # handle tags
             elif isinstance(c, Tag):
                 val = c.prettyprint_xhtml(indent_level, eventual_encoding, formatter, indent_chars)
+                # track if contains block tags and append newline and prepend newline if needed
+                if not c.name in NON_BREAKING_INLINE_TAGS:
+                    contains_block_tags = True
+                    if last_char != "\n":
+                        s.append("\n")
+                        last_char = "\n"
+                # if child of a structual tag is inline and follows a newline, indent it properly
+                if is_structural and c.name in NON_BREAKING_INLINE_TAGS and last_char == '\n':
+                    s.append(indent_space)
+                    val = val.lstrip()
                 s.append(val)
+
+            else:
+                s.append("")
+
+            # update last_char
+            last_element = s[-1]
+            if last_element != "":
+                last_char = last_element[-1]
+
+        # after processing all children, handle inline tags that contain block level tags
+        if is_inline and contains_block_tags:
+            if last_char != "\n":
+                s.append("\n")
+            s.append(indent_space)
+
         return ''.join(s)
 
     def encode_contents(
