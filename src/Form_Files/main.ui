@@ -318,7 +318,7 @@
     <addaction name="menuIndex"/>
     <addaction name="separator"/>
     <addaction name="menuSpellCheckMenu"/>
-    <addaction name="actionValidateEpub"/>
+    <addaction name="actionWellFormedCheckEpub"/>
     <addaction name="actionValidateStylesheetsWithW3C"/>
     <addaction name="actionReports"/>
     <addaction name="separator"/>
@@ -447,7 +447,6 @@
    <addaction name="actionMetaEditor"/>
    <addaction name="actionGenerateTOC"/>
    <addaction name="actionSpellcheckEditor"/>
-   <addaction name="actionValidateEpub"/>
   </widget>
   <widget class="QToolBar" name="toolBarHeadings">
    <property name="windowTitle">
@@ -1504,16 +1503,12 @@
     <string>Tutorials</string>
    </property>
   </action>
-  <action name="actionValidateEpub">
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/document-validate_22px.png</normaloff>:/main/document-validate_22px.png</iconset>
-   </property>
+  <action name="actionWellFormedCheckEpub">
    <property name="text">
-    <string>&amp;Sanity Check EPUB</string>
+    <string>&amp;Well-Formed Check EPUB</string>
    </property>
    <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;SanityCheck EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="shortcut">
     <string>F7</string>

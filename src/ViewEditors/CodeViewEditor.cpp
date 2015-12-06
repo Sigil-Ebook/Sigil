@@ -3319,6 +3319,8 @@ void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
             }
         }
         CleanSource::ReformatAll(resources, to_valid ? CleanSource::Mend : CleanSource::MendPrettify);
+        mainWindow->GetCurrentBook()->SetModified();
+
     } else {
         original_text = toPlainText();
 

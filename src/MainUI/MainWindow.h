@@ -430,7 +430,7 @@ private slots:
     /**
      * Implements Validate Epub action functionality.
      */
-    void ValidateEpub();
+    void WellFormedCheckEpub();
 
     void ValidateStylesheetsWithW3C();
 
