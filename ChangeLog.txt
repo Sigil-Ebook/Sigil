@@ -1,5 +1,6 @@
 Sigil 0.9.2
     - Update BuildingOnLinux docs
+    - Update Building on Mac OS X docs
     - Fix example clips/searches loading on Linux
     - Simplify UseBundledInterpreter Logic
     - Preliminary Linux binary installer support added
@@ -16,6 +17,11 @@ Sigil 0.9.2
     - Completely revamp Cleaning to use "Mend Code" and remove PrettyPrintGumbo as on option
     - Rename PrettyPrintGumbo to "Mend and Prettify" and move to CodeView Right-click menu
     - Restore Sigil's update checker that's been broken for a while
+    - Update sigil_bs4 prettyprint_xhtml and serialize_xhtml routines to use logic of code in GumboInterface
+    - Update sigil_bs4 to use numeric entities when faced with nbsp so they do not get lost later in Sigil
+    - Rename "Sanity Check" to "Well-Formed Check EPUB" and remove check icon people confused with FlightCrew
+
+
 
 Sigil 0.9.1
     - Fix bug when template sgc_toc.css could be changed to blank on save, since no InitialLoad() was done
@@ -23,9 +29,9 @@ Sigil 0.9.1
     - Fix PluginRunner bug that introduced errors into xhtml files when both the content.opf and xhtml were modified
     - Auto XML Decode and Escape Metadata entries created in the Metadata GUI
     - Alter pluginhunspell.py so a missing libhunspell doesn't stop ALL plugins from working
-    - default to using clean by gumbo vs prettyprint gumbo in new installs
-    - fix prettyprint bug with trailing whitespace improperly inserted after inline tags inside div tags
-    - fix for bundled interpreter packages PIL and cssutils on Mac OS X that were missing
+    - Default to using clean by gumbo vs prettyprint gumbo in new installs
+    - Fix prettyprint bug with trailing whitespace improperly inserted after inline tags inside div tags
+    - Fix for bundled interpreter packages PIL and cssutils on Mac OS X that were missing
     - Fix for crash when using Find in BV on pages with no text, only images (issue #156)
     - Added testplugin_v010.zip to docs to allow Linux packagers to test their plugin implementation
     - Fix for prettyprint bug with tables (issue # 158)
@@ -49,17 +55,17 @@ Sigil 0.9.0 Release
     - Adjust pluginhunspell.py to try to find system hunspell if bundled hunspell is not built/installed
     - Fix hang/slowness in TOC creation when huge number of headings all exist in the same file
     - Performance speedups for NCX writing to help with slow ToC Creation
-    - bug fix for better detecting comments in sanitycheck.py
-    - bug fix for Adding Blank xhtml files to an epub3
-    - bug fix for Issue 140 - TOC gets cut-off under some platforms (lxml needs utf-8 not unicode)
-    - add cmake option INSTALL_BUNDLED_DICTS to enable/disable installation of bundled hunspell dictionaries
-    - allow SIGIL_DICTIONARIES env var to specify multiple paths (colon delimited)
+    - Bug fix for better detecting comments in sanitycheck.py
+    - Bug fix for Adding Blank xhtml files to an epub3
+    - Bug fix for Issue 140 - TOC gets cut-off under some platforms (lxml needs utf-8 not unicode)
+    - Add cmake option INSTALL_BUNDLED_DICTS to enable/disable installation of bundled hunspell dictionaries
+    - Allow SIGIL_DICTIONARIES env var to specify multiple paths (colon delimited)
     - Fix bug in sanitycheck.py error message creation
     - Identify woff files as fonts when importing epubs
     - Fixes for nbsp being "lost" when linking in stylesheets and when splitting and merging chapters
     - Fix for lost whitespace inside text holding tags when pretty printing
     - Workaround for broken QShortCut in Qt 5.4.X see Issue 149
-    - cleanup up some compiler warnigns
+    - Cleanup up some compiler warnigns
 
 
 Sigil 0.8.901 Second in the pre-release series - primarily a bug fix release

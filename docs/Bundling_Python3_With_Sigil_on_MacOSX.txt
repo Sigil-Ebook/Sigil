@@ -41,5 +41,5 @@ make addframeworks
 2. open Sigil.app to the normal nearly blank template epub it generates when opened
 3. use Plugins->Manage Plugins menu and make sure the "Use Bundled Python" checkbox is checked
 4. use the "Add Plugin" button to navigate to and add testplugin.zip and then hit "Okay" to exit the Manage Plugins Dialog
-5. use Plugins->Manage Plugins->Edit->testplugins to launch the plugin and hit the "Start" button to run it
+5. use Plugins->Edit->testplugins to launch the plugin and hit the "Start" button to run it
 6. check the plugin output window for your missing or broken plugin test results
