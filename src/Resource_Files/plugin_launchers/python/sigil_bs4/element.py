@@ -1608,7 +1608,7 @@ class Tag(PageElement):
             # update last_char
             last_element = s[-1]
             if last_element != "":
-                last_char = last_element[-1]
+                last_char = last_element[-1:]
 
         # after processing all children, handle inline tags that contain block level tags
         if is_inline and contains_block_tags:
