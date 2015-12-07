@@ -1593,22 +1593,26 @@ void CodeViewEditor::ReformatCSSSingleLineAction()
 
 void CodeViewEditor::ReformatHTMLCleanAction()
 {
-    ReformatHTML(false, false);
+    Book m_Book;
+    m_Book.ReformatHTML(false, false);
 }
 
 void CodeViewEditor::ReformatHTMLCleanAllAction()
 {
-    ReformatHTML(true, false);
+    Book m_Book;
+    m_Book.ReformatHTML(true, false);
 }
 
 void CodeViewEditor::ReformatHTMLToValidAction()
 {
-    ReformatHTML(false, true);
+    Book m_Book;
+    m_Book.ReformatHTML(false, true);
 }
 
 void CodeViewEditor::ReformatHTMLToValidAllAction()
 {
-    ReformatHTML(true, true);
+    Book m_Book;
+    m_Book.ReformatHTML(true, true);
 }
 
 QString CodeViewEditor::GetTagText()
@@ -3292,51 +3296,6 @@ void CodeViewEditor::ReformatCSS(bool multiple_line_format)
         cursor.select(QTextCursor::Document);
         cursor.insertText(new_text);
         cursor.endEditBlock();
-    }
-}
-
-void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
-{
-    QString original_text;
-    QString new_text;
-
-    if (all) {
-        QWidget *mainWindow_w = Utility::GetMainWindow();
-        MainWindow *mainWindow = dynamic_cast<MainWindow *>(mainWindow_w);
-
-        if (!mainWindow) {
-            Utility::DisplayStdErrorDialog("Could not determine main window.");
-            return;
-        }
-
-        mainWindow->GetCurrentContentTab()->SaveTabContent();
-        QList <HTMLResource *> resources;
-        Q_FOREACH(Resource * r, mainWindow->GetAllHTMLResources()) {
-            HTMLResource *t = dynamic_cast<HTMLResource *>(r);
-
-            if (t) {
-                resources.append(t);
-            }
-        }
-        CleanSource::ReformatAll(resources, to_valid ? CleanSource::Mend : CleanSource::MendPrettify);
-        mainWindow->GetCurrentBook()->SetModified();
-
-    } else {
-        original_text = toPlainText();
-
-        if (to_valid) {
-            new_text = CleanSource::Mend(original_text);
-        } else {
-            new_text = CleanSource::MendPrettify(original_text);
-        }
-
-        if (original_text != new_text) {
-            QTextCursor cursor = textCursor();
-            cursor.beginEditBlock();
-            cursor.select(QTextCursor::Document);
-            cursor.insertText(new_text);
-            cursor.endEditBlock();
-        }
     }
 }
 

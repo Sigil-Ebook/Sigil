@@ -312,12 +312,20 @@
      <addaction name="separator"/>
      <addaction name="actionCreateIndex"/>
     </widget>
+    <widget class="QMenu" name="menuReformatHTML">
+     <property name="title">
+      <string>Re&amp;format HTML</string>
+     </property>
+     <addaction name="actionMendPrettifyHTML"/>
+     <addaction name="actionMendHTML"/>
+    </widget>
     <addaction name="actionAddCover"/>
     <addaction name="actionMetaEditor"/>
     <addaction name="menuTOC"/>
     <addaction name="menuIndex"/>
     <addaction name="separator"/>
     <addaction name="menuSpellCheckMenu"/>
+    <addaction name="menuReformatHTML"/>
     <addaction name="actionWellFormedCheckEpub"/>
     <addaction name="actionValidateStylesheetsWithW3C"/>
     <addaction name="actionReports"/>
@@ -1505,7 +1513,7 @@
   </action>
   <action name="actionWellFormedCheckEpub">
    <property name="text">
-    <string>&amp;Well-Formed Check EPUB</string>
+    <string>Well-Formed Check &amp;EPUB</string>
    </property>
    <property name="toolTip">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -2257,6 +2265,16 @@
   <action name="actionManage_Plugins">
    <property name="text">
     <string>Manage Plugins</string>
+   </property>
+  </action>
+  <action name="actionMendPrettifyHTML">
+   <property name="text">
+    <string>Mend and &amp;Prettify All HTML Files</string>
+   </property>
+  </action>
+  <action name="actionMendHTML">
+   <property name="text">
+    <string>&amp;Mend All HTML Files</string>
    </property>
   </action>
  </widget>

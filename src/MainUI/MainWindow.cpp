@@ -3073,6 +3073,16 @@ void MainWindow::SetAutoSpellCheck(bool new_state)
     emit SettingsChanged();
 }
 
+void MainWindow::MendPrettifyHTML()
+{
+    m_Book->ReformatHTML(true, false);
+}
+
+void MainWindow::MendHTML()
+{
+    m_Book->ReformatHTML(true, true);
+}
+
 void MainWindow::ClearIgnoredWords()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -4020,6 +4030,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionWellFormedCheckEpub, "MainWindow.WellFormedCheckEpub");
     sm->registerAction(this, ui.actionValidateStylesheetsWithW3C, "MainWindow.ValidateStylesheetsWithW3C");
     sm->registerAction(this, ui.actionAutoSpellCheck, "MainWindow.AutoSpellCheck");
+    sm->registerAction(this, ui.actionMendPrettifyHTML, "MainWindow.MendPrettifyHTML");
+    sm->registerAction(this, ui.actionMendHTML, "MainWindow.MendHTML");
     sm->registerAction(this, ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
     sm->registerAction(this, ui.actionSpellcheck, "MainWindow.Spellcheck");
     sm->registerAction(this, ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
@@ -4364,6 +4376,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionSpellcheckEditor,   SIGNAL(triggered()), this, SLOT(SpellcheckEditorDialog()));
     connect(ui.actionAutoSpellCheck, SIGNAL(triggered(bool)), this, SLOT(SetAutoSpellCheck(bool)));
     connect(ui.actionSpellcheck,    SIGNAL(triggered()), m_FindReplace, SLOT(FindMisspelledWord()));
+    connect(ui.actionMendPrettifyHTML,    SIGNAL(triggered()), this, SLOT(MendPrettifyHTML()));
+    connect(ui.actionMendHTML,      SIGNAL(triggered()), this, SLOT(MendHTML()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateToc()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));

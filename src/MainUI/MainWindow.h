@@ -563,6 +563,10 @@ private slots:
 
     void SetAutoSpellCheck(bool new_state);
 
+    void MendPrettifyHTML();
+
+    void MendHTML();
+
     void ClearIgnoredWords();
 
     void RefreshSpellingHighlighting();
