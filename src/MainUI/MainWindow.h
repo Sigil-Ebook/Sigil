@@ -563,6 +563,12 @@ private slots:
 
     void SetAutoSpellCheck(bool new_state);
 
+    /**
+     * Reformats all the book's html resources using Book.cpp's ReformatAllHTML() function.
+     */
+    void MendPrettifyHTML();
+    void MendHTML();
+
     void ClearIgnoredWords();
 
     void RefreshSpellingHighlighting();

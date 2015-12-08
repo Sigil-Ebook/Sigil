@@ -3308,18 +3308,7 @@ void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
             Utility::DisplayStdErrorDialog("Could not determine main window.");
             return;
         }
-
-        mainWindow->GetCurrentContentTab()->SaveTabContent();
-        QList <HTMLResource *> resources;
-        Q_FOREACH(Resource * r, mainWindow->GetAllHTMLResources()) {
-            HTMLResource *t = dynamic_cast<HTMLResource *>(r);
-
-            if (t) {
-                resources.append(t);
-            }
-        }
-        CleanSource::ReformatAll(resources, to_valid ? CleanSource::Mend : CleanSource::MendPrettify);
-        mainWindow->GetCurrentBook()->SetModified();
+        mainWindow->GetCurrentBook()->ReformatAllHTML(to_valid);
 
     } else {
         original_text = toPlainText();

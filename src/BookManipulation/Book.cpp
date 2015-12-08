@@ -493,6 +493,18 @@ bool Book::IsDataOnDiskWellFormed(HTMLResource *html_resource)
     return error.line == -1;
 }
 
+void Book::ReformatAllHTML(bool to_valid)
+{
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    SaveAllResourcesToDisk();
+    QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
+    CleanSource::ReformatAll(html_resources, to_valid ? CleanSource::Mend : CleanSource::MendPrettify);
+    SetModified();
+
+    QApplication::restoreOverrideCursor();
+}
+
 
 Resource *Book::PreviousResource(Resource *resource)
 {
