@@ -30,7 +30,6 @@
 #include "BookManipulation/Book.h"
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/FolderKeeper.h"
-#include "MainUI/MainWindow.h"
 #include "Misc/GumboInterface.h"
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"
@@ -494,53 +493,16 @@ bool Book::IsDataOnDiskWellFormed(HTMLResource *html_resource)
     return error.line == -1;
 }
 
-void Book::ReformatHTML(bool all, bool to_valid)
+void Book::ReformatAllHTML(bool to_valid)
 {
-    QWidget *mainWindow_w = Utility::GetMainWindow();
-    MainWindow *mainWindow = dynamic_cast<MainWindow *>(mainWindow_w);
+    QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    if (!mainWindow) {
-        Utility::DisplayStdErrorDialog("Could not determine main window.");
-        return;
-    }
+    SaveAllResourcesToDisk();
+    QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
+    CleanSource::ReformatAll(html_resources, to_valid ? CleanSource::Mend : CleanSource::MendPrettify);
+    SetModified();
 
-    mainWindow->GetCurrentContentTab()->SaveTabContent();
-
-    if (all) {
-        QList <HTMLResource *> resources;
-        Q_FOREACH(Resource * r, mainWindow->GetAllHTMLResources()) {
-            HTMLResource *t = dynamic_cast<HTMLResource *>(r);
-            if (t) {
-                resources.append(t);
-            }
-        }
-        CleanSource::ReformatAll(resources, to_valid ? CleanSource::Mend : CleanSource::MendPrettify);
-        mainWindow->GetCurrentBook()->SetModified();
-
-    } else {
-        QString new_text;
-        QString original_text;
-
-        Resource *r = mainWindow->GetCurrentContentTab()->GetLoadedResource();
-        if (r->Type() != Resource::HTMLResourceType) {
-            return;
-        }
-        HTMLResource *resource = dynamic_cast<HTMLResource *>(r);
-
-        original_text = resource->GetText();
-
-        if (to_valid) {
-            new_text = CleanSource::Mend(original_text);
-        } else {
-            new_text = CleanSource::MendPrettify(original_text);
-        }
-
-        if (original_text != new_text) {
-            resource->SetText(new_text);
-            mainWindow->GetCurrentContentTab()->ContentChangedExternally();
-            mainWindow->GetCurrentBook()->SetModified();
-        }
-    }
+    QApplication::restoreOverrideCursor();
 }
 
 

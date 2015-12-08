@@ -287,7 +287,11 @@ public:
      */
     bool IsDataOnDiskWellFormed(HTMLResource *html_resource);
 
-    void ReformatHTML(bool all, bool to_valid);
+    /**
+     * Reformats All the book's html resources using either
+     * the 'Mend' or "Mend and Repair' CleanSource procedures.
+     */
+    void ReformatAllHTML(bool to_valid);
 
     /**
      * Checks for the presence of obfuscated fonts in the book.

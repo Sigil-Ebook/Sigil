@@ -1593,26 +1593,22 @@ void CodeViewEditor::ReformatCSSSingleLineAction()
 
 void CodeViewEditor::ReformatHTMLCleanAction()
 {
-    Book m_Book;
-    m_Book.ReformatHTML(false, false);
+    ReformatHTML(false, false);
 }
 
 void CodeViewEditor::ReformatHTMLCleanAllAction()
 {
-    Book m_Book;
-    m_Book.ReformatHTML(true, false);
+    ReformatHTML(true, false);
 }
 
 void CodeViewEditor::ReformatHTMLToValidAction()
 {
-    Book m_Book;
-    m_Book.ReformatHTML(false, true);
+    ReformatHTML(false, true);
 }
 
 void CodeViewEditor::ReformatHTMLToValidAllAction()
 {
-    Book m_Book;
-    m_Book.ReformatHTML(true, true);
+    ReformatHTML(true, true);
 }
 
 QString CodeViewEditor::GetTagText()
@@ -3296,6 +3292,40 @@ void CodeViewEditor::ReformatCSS(bool multiple_line_format)
         cursor.select(QTextCursor::Document);
         cursor.insertText(new_text);
         cursor.endEditBlock();
+    }
+}
+
+void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
+{
+    QString original_text;
+    QString new_text;
+
+    if (all) {
+        QWidget *mainWindow_w = Utility::GetMainWindow();
+        MainWindow *mainWindow = dynamic_cast<MainWindow *>(mainWindow_w);
+
+        if (!mainWindow) {
+            Utility::DisplayStdErrorDialog("Could not determine main window.");
+            return;
+        }
+        mainWindow->GetCurrentBook()->ReformatAllHTML(to_valid);
+
+    } else {
+        original_text = toPlainText();
+
+        if (to_valid) {
+            new_text = CleanSource::Mend(original_text);
+        } else {
+            new_text = CleanSource::MendPrettify(original_text);
+        }
+
+        if (original_text != new_text) {
+            QTextCursor cursor = textCursor();
+            cursor.beginEditBlock();
+            cursor.select(QTextCursor::Document);
+            cursor.insertText(new_text);
+            cursor.endEditBlock();
+        }
     }
 }
 

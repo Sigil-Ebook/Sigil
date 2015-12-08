@@ -3075,12 +3075,12 @@ void MainWindow::SetAutoSpellCheck(bool new_state)
 
 void MainWindow::MendPrettifyHTML()
 {
-    m_Book->ReformatHTML(true, false);
+    m_Book->ReformatAllHTML(false);
 }
 
 void MainWindow::MendHTML()
 {
-    m_Book->ReformatHTML(true, true);
+    m_Book->ReformatAllHTML(true);
 }
 
 void MainWindow::ClearIgnoredWords()
