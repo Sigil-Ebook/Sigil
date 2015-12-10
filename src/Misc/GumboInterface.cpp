@@ -1136,7 +1136,7 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
 
     std::string tagname = get_tag_name(node);
     std::string parentname = get_tag_name(node->parent);
-    bool in_head = (tagname == "head" || parentname == "head");
+    bool in_head = (parentname == "head");
 
     bool is_structural = in_set(structural_tags, tagname);
     bool is_inline = in_set(nonbreaking_inline, tagname);
