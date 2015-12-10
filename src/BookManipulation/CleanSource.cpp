@@ -204,16 +204,23 @@ QString CleanSource::CharToEntity(const QString &source)
 }
 
 
-void CleanSource::ReformatAll(QList <HTMLResource *> resources, QString(clean_func)(const QString &source))
+bool CleanSource::ReformatAll(QList <HTMLResource *> resources, QString(clean_func)(const QString &source))
 {
     QProgressDialog progress(QObject::tr("Cleaning..."), 0, 0, resources.count(), Utility::GetMainWindow());
     progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
     int progress_value = 0;
     progress.setValue(progress_value);
+    bool book_modified = false;
     foreach(HTMLResource * resource, resources) {
         progress.setValue(progress_value++);
         qApp->processEvents();
         QWriteLocker locker(&resource->GetLock());
-        resource->SetText(clean_func(resource->GetText()));
+        QString source = resource->GetText();
+        QString newsource = clean_func(source);
+        if (newsource != source) {
+            book_modified = true;
+            resource->SetText(newsource);
+        }
     }
+    return book_modified;
 }

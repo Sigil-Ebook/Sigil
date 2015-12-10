@@ -50,7 +50,7 @@ public:
 
     static QString CharToEntity(const QString &source);
 
-    static void ReformatAll(QList <HTMLResource *> resources, QString(clean_fun)(const QString &source));
+    static bool ReformatAll(QList <HTMLResource *> resources, QString(clean_fun)(const QString &source));
 
 private:
 

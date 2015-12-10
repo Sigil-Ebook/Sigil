@@ -499,9 +499,10 @@ void Book::ReformatAllHTML(bool to_valid)
 
     SaveAllResourcesToDisk();
     QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
-    CleanSource::ReformatAll(html_resources, to_valid ? CleanSource::Mend : CleanSource::MendPrettify);
-    SetModified();
-
+    bool book_modified = CleanSource::ReformatAll(html_resources, to_valid ? CleanSource::Mend : CleanSource::MendPrettify);
+    if (book_modified) {
+        SetModified();
+    }
     QApplication::restoreOverrideCursor();
 }
 
