@@ -2047,13 +2047,17 @@ static bool handle_initial(GumboParser* parser, GumboToken* token) {
     append_comment_node(parser, get_document_node(parser), token);
     return true;
   } else if (token->type == GUMBO_TOKEN_DOCTYPE) {
-    document->has_doctype = true;
-    document->name = token->v.doc_type.name;
-    document->public_identifier = token->v.doc_type.public_identifier;
-    document->system_identifier = token->v.doc_type.system_identifier;
-    document->doc_type_quirks_mode = compute_quirks_mode(&token->v.doc_type);
-    set_insertion_mode(parser, GUMBO_INSERTION_MODE_BEFORE_HTML);
-    return maybe_add_doctype_error(parser, token);
+    if (maybe_add_doctype_error(parser, token)) {
+      document->has_doctype = true;
+      document->name = token->v.doc_type.name;
+      document->public_identifier = token->v.doc_type.public_identifier;
+      document->system_identifier = token->v.doc_type.system_identifier;
+      document->doc_type_quirks_mode = compute_quirks_mode(&token->v.doc_type);
+      set_insertion_mode(parser, GUMBO_INSERTION_MODE_BEFORE_HTML);
+    } else {
+      ignore_token(parser);
+    }
+    return true;
   }
   parser_add_parse_error(parser, token);
   document->doc_type_quirks_mode = GUMBO_DOCTYPE_QUIRKS;
