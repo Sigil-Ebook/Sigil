@@ -798,25 +798,21 @@ std::string GumboInterface::get_tag_name(GumboNode *node)
 }
 
 
+// if epub3 docytpe use it otherwise set it to epub2 docytpe
 std::string GumboInterface::build_doctype(GumboNode *node)
 {
     std::string results = "";
     if (node->v.document.has_doctype) {
-        results.append("<!DOCTYPE ");
-        results.append(node->v.document.name);
+        std::string name(node->v.document.name);
         std::string pi(node->v.document.public_identifier);
-        if ((node->v.document.public_identifier != NULL) && !pi.empty() ) {
-            results.append(" PUBLIC \"");
-            results.append(node->v.document.public_identifier);
-            results.append("\"\n  \"");
-            results.append(node->v.document.system_identifier);
-            results.append("\"");
+        std::string si(node->v.document.system_identifier);
+        if ((name == "html") && pi.empty() && si.empty()) {
+            results.append("<!DOCTYPE html>\n\n");
+            return results;
         }
-        results.append(">\n\n");
-    } else {
-      results.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n");
-      results.append("  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n\n");
     }
+    results.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n");
+    results.append("  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n\n");
     return results;
 }
 
@@ -891,6 +887,7 @@ std::string GumboInterface::serialize_contents(GumboNode* node, enum UpdateTypes
     GumboVector* children = &node->v.element.children;
 
     bool inject_newline = false;
+    bool in_head_without_title = (tagname == "head");
 
     for (unsigned int i = 0; i < children->length; ++i) {
         GumboNode* child = static_cast<GumboNode*> (children->data[i]);
@@ -907,6 +904,7 @@ std::string GumboInterface::serialize_contents(GumboNode* node, enum UpdateTypes
             contents.append(serialize(child, doupdates));
             inject_newline = false;
             std::string childname = get_tag_name(child);
+            if (in_head_without_title && (childname == "title")) in_head_without_title = false;
             if (!is_inline && !keep_whitespace && !in_set(nonbreaking_inline,childname) && is_structural) {
                 contents.append("\n");
                 inject_newline = true;
@@ -935,7 +933,7 @@ std::string GumboInterface::serialize_contents(GumboNode* node, enum UpdateTypes
         }
 
     }
-
+    if (in_head_without_title) contents.append("<title></title>");
     return contents;
 }
 
@@ -1038,6 +1036,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
     GumboVector* children = &node->v.element.children;
 
     if (is_structural || (tagname == "#document")) last_char = '\n';
+    bool in_head_without_title = (tagname == "head");
 
     for (unsigned int i = 0; i < children->length; ++i) {
 
@@ -1067,6 +1066,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
 
             std::string val = prettyprint(child, lvl, indent_chars);
             std::string childname = get_tag_name(child);
+            if (in_head_without_title && (childname == "title")) in_head_without_title = false;
             if (!in_set(nonbreaking_inline, childname)) {
                 contains_block_tags = true;
                 if (last_char != '\n') {
@@ -1110,10 +1110,16 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
 
     }
 
+    // inject epmpty title into head if one is missing
+    if (in_head_without_title) {
+        if (last_char != '\n') contents.append("\n");
+        contents.append(indent_space + "<title></title>\n");
+        last_char = '\n';
+    }
+
     // treat inline tags containing block tags like a block tag
     if (is_inline && contains_block_tags) {
       if (last_char != '\n') contents.append("\n\n");
-      std::string indent_space = std::string((lvl-1)*n,c);
       contents.append(indent_space);
     }
 
