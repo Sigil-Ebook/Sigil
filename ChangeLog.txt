@@ -10,7 +10,7 @@ Sigil 0.9.2
     - Add xmlns="http://www.w3.org/1999/xhtml" attribute to html tag if missing
     - Reduce fear of Cleaning ToValidXHTML by using serialize not prettyprint
     - Add ability to change Sigil's user preferences directory by specifying a new path
-         via the SIGIL_CUSTOM_PREFS_DIR environment variable (path must be user-writable).
+         via the SIGIL_PREFS_DIR environment variable (path must be user-writable).
     - Fix lost DOCTYPE info when splitting or merging
     - Completely rework pretty printing via gumbo to be much more robust
     - Make identification and storage of page-map.xml more robust
