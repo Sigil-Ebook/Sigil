@@ -21,7 +21,7 @@ Sigil 0.9.2
     - Update sigil_bs4 to use numeric entities when faced with nbsp so they do not get lost later in Sigil
     - Rename "Sanity Check" to "Well-Formed Check EPUB" and remove check icon people confused with FlightCrew
     - Fix out of date error message referencing Tidy
-    - Coerce missing or bad doctypes to meet wither epub2 or epub3 standard
+    - Coerce missing or bad doctypes to meet either epub2 or epub3 standard
     - Inject empty title tag if missing from head
 
 
