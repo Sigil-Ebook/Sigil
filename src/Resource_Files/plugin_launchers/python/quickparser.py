@@ -80,6 +80,9 @@ class QuickXHTMLParser(object):
         if tname == '!doctype':
             tname = '!DOCTYPE'
         # special cases
+        if tname.startswith('!--'):
+            tname = '!--'
+            p = b+3
         if tname in SPECIAL_HANDLING_TAGS:
             ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
             tattr['special'] = s[p:backstep]
