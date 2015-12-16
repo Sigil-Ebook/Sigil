@@ -1385,7 +1385,7 @@ class Tag(PageElement):
         if self.prefix:
             prefix = self.prefix + ":"
 
-        if self.is_empty_element:
+        if self.name in VOID_TAGS:
             close = '/'
         else:
             closeTag = '</%s%s>' % (prefix, self.name)
