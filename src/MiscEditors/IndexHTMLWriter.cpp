@@ -84,18 +84,23 @@ void IndexHTMLWriter::WriteEntries(QStandardItem *parent_item)
             continue;
         }
 
+        // Need to html escape entry text
         // If the first letter of this entry is different than the last
         // entry then insert a special separator.
+        // Get actual first letter not htmlescaped
         QChar new_letter = item->text()[0].toLower();
         if (new_letter != letter && parent_item == root_item) {
             letter = new_letter;
             m_IndexHTMLFile += "<div class=\"sgc-index-new-letter\">";
-            m_IndexHTMLFile += QString(letter.toUpper());
+            // starting letter may be an & or > or < - therefore html escape it
+            m_IndexHTMLFile += QString(letter.toUpper()).toHtmlEscaped();
             m_IndexHTMLFile += "</div>";
         }
 
         m_IndexHTMLFile += "<div class=\"sgc-index-entry\">";
-        m_IndexHTMLFile += item->text() % "\n";
+        // make sure to use the html escaped text here for entry
+        QString etext = item->text().toHtmlEscaped();
+        m_IndexHTMLFile += etext % "\n";
         m_IndexHTMLFile += " ";
 
         // Print all the targets for this entry
