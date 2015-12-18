@@ -1128,21 +1128,19 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="32"/>
         <source>Choose when your HTML code is automatically 
-formatted and cleaned using your selected option.</source>
-        <translation>Выберите, когда ваш HTML код будет автоматически 
-отформатирован и очищен с помощью выбранных параметров.</translation>
+mended.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="36"/>
-        <source>Automatically Clean and Format HTML Source Code:</source>
-        <translation>Автоматически очистить и отформатировать исходный код HTML:</translation>
+        <source>Mend XHTML Source Code On:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="42"/>
-        <source>Clean when opening an EPUB or HTML file, 
+        <source>Mend when opening an EPUB or HTML file, 
 and when switching from Book View to Code View.</source>
-        <translation>Очищать при открытии EPUB or HTML-файла,
-и при переходе между окнами просмотра Книги и Кода.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="46"/>
@@ -1151,49 +1149,13 @@ and when switching from Book View to Code View.</source>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="53"/>
-        <source>Clean when saving an EPUB.</source>
-        <translation>Очистить перед сохранением в EPUB.</translation>
+        <source>Mend when saving an EPUB.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PCleanSourceWidget.ui" line="56"/>
         <source>Save</source>
         <translation>Сохранить</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PCleanSourceWidget.ui" line="66"/>
-        <source>Choose what type of cleaning and formatting
-should be done when automatic cleaning is enabled,
-or when cleaning manually.</source>
-        <translation>Выберите тип очистки и форматирования
-который должен быть выполнен, когда включена автоматическая очистка,
-или при очистке ручной.</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PCleanSourceWidget.ui" line="71"/>
-        <source>When Cleaning, Use This Type:</source>
-        <translation>Использовать этот тип при очистке: </translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PCleanSourceWidget.ui" line="77"/>
-        <source>Perform formatting and cleaning of your code to make it valid XHTML.</source>
-        <translation>Выполните форматирование и чистку кода, чтобы сделать его валидным XHTML.</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PCleanSourceWidget.ui" line="80"/>
-        <source>Pretty Print Gumbo</source>
-        <translation>Pretty Print Gumbo</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PCleanSourceWidget.ui" line="90"/>
-        <source>Fully clean and format your code.
-This may change your formatting to use inline style sections.</source>
-        <translation>Полностью очистка и форматирование вашего кода.
- Это может изменить ваше форматирование используя встроенный стиль разделов.</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PCleanSourceWidget.ui" line="94"/>
-        <source>Google Gumbo-Parser</source>
-        <translation>Парсер Google Gumbo</translation>
     </message>
 </context>
 <context>
@@ -1440,17 +1402,17 @@ Do you want to save your changes?</source>
 <context>
     <name>ClipEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="63"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="64"/>
         <source>Name</source>
         <translation>Название</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="64"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="65"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="674"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="681"/>
         <source>Unable to create file %1</source>
         <translation>Невозможно создать файл %1</translation>
     </message>
@@ -1540,23 +1502,23 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1285"/>
-        <source>Clean Source</source>
-        <translation>Чистка кода</translation>
+        <source>Mend and Prettify Code</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1286"/>
-        <source>Clean Source - All HTML Files</source>
-        <translation>Чистка кода - Все файлы HTML</translation>
+        <source>Mend and Prettify Code - All HTML Files</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1287"/>
-        <source>To Valid HTML</source>
-        <translation>В корректный HTML</translation>
+        <source>Mend Code</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1288"/>
-        <source>To Valid HTML - All HTML Files</source>
-        <translation>В корректный HTML - Все файлы HTML</translation>
+        <source>Mend Code - All HTML Files</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1318"/>
@@ -2655,17 +2617,17 @@ Do you want to save your changes?</source>
 <context>
     <name>IndexEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="61"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="60"/>
         <source>Text to Include</source>
         <translation>Включаемый текст</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="62"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="61"/>
         <source>Index Entries</source>
         <translation>Записи в указателе</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="343"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="342"/>
         <source>Unable to create file %1</source>
         <translation>Невозможно создать файл %1</translation>
     </message>
@@ -5936,94 +5898,99 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation>&amp;Указатель</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="333"/>
+        <location filename="../../Form_Files/main.ui" line="317"/>
+        <source>Re&amp;format HTML</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="341"/>
         <source>Plugins</source>
         <translation>Модули</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="351"/>
+        <location filename="../../Form_Files/main.ui" line="359"/>
         <location filename="../../MainUI/MainWindow.cpp" line="488"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="366"/>
+        <location filename="../../Form_Files/main.ui" line="374"/>
         <location filename="../../MainUI/MainWindow.cpp" line="252"/>
         <source>Edit</source>
         <translation>Правка</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="385"/>
+        <location filename="../../Form_Files/main.ui" line="393"/>
         <source>View</source>
         <translation>Вид</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="398"/>
+        <location filename="../../Form_Files/main.ui" line="406"/>
         <source>Insert</source>
         <translation>Вставка</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="415"/>
+        <location filename="../../Form_Files/main.ui" line="423"/>
         <source>Back</source>
         <translation>Назад</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="427"/>
+        <location filename="../../Form_Files/main.ui" line="435"/>
         <source>Donate</source>
         <translation>Пожертвовать проекту</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="439"/>
+        <location filename="../../Form_Files/main.ui" line="447"/>
         <source>Tools</source>
         <translation>Сервис</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="454"/>
+        <location filename="../../Form_Files/main.ui" line="461"/>
         <source>Heading</source>
         <translation>Заголовок</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="472"/>
+        <location filename="../../Form_Files/main.ui" line="479"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="489"/>
+        <location filename="../../Form_Files/main.ui" line="496"/>
         <source>Align</source>
         <translation>Выравнивание</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="504"/>
+        <location filename="../../Form_Files/main.ui" line="511"/>
         <source>List</source>
         <translation>Списки</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="517"/>
+        <location filename="../../Form_Files/main.ui" line="524"/>
         <source>Indent</source>
         <translation>Отступ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="530"/>
+        <location filename="../../Form_Files/main.ui" line="537"/>
         <source>Change Case</source>
         <translation>Сменить регистр</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="545"/>
+        <location filename="../../Form_Files/main.ui" line="552"/>
         <source>Text Direction</source>
         <translation>Направление текста</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="559"/>
+        <location filename="../../Form_Files/main.ui" line="566"/>
         <source>Clip Bar</source>
         <translation>Панель фрагментов</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="594"/>
+        <location filename="../../Form_Files/main.ui" line="601"/>
         <source>&amp;New</source>
         <translation>&amp;Создать</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="597"/>
+        <location filename="../../Form_Files/main.ui" line="604"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
@@ -6032,17 +5999,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Создать новую книгу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="602"/>
+        <location filename="../../Form_Files/main.ui" line="609"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="611"/>
+        <location filename="../../Form_Files/main.ui" line="618"/>
         <source>&amp;Save</source>
         <translation>&amp;Сохранить</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="614"/>
+        <location filename="../../Form_Files/main.ui" line="621"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
@@ -6051,17 +6018,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Сохранить эту книгу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="619"/>
+        <location filename="../../Form_Files/main.ui" line="626"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="624"/>
+        <location filename="../../Form_Files/main.ui" line="631"/>
         <source>Save &amp;As...</source>
         <translation>Сохранить &amp;как…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="627"/>
+        <location filename="../../Form_Files/main.ui" line="634"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
@@ -6070,27 +6037,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Сохранить эту книгу в файл с другим именем.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="632"/>
+        <location filename="../../Form_Files/main.ui" line="639"/>
         <source>Ctrl+Shift+S</source>
         <translation>Ctrl+Shift+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="637"/>
+        <location filename="../../Form_Files/main.ui" line="644"/>
         <source>Save A &amp;Copy...</source>
         <translation>Сохранить &amp;копию...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="640"/>
+        <location filename="../../Form_Files/main.ui" line="647"/>
         <source>Save a copy of your book to another file name.</source>
         <translation>Сохранить копию книги под другим именем файла</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="649"/>
+        <location filename="../../Form_Files/main.ui" line="656"/>
         <source>Cu&amp;t</source>
         <translation>В&amp;ырезать</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="652"/>
+        <location filename="../../Form_Files/main.ui" line="659"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
@@ -6099,12 +6066,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вырезает выделенный текст из документа и помещает его в буфер обмена.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="663"/>
+        <location filename="../../Form_Files/main.ui" line="670"/>
         <source>&amp;Paste</source>
         <translation>&amp;Вставить</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="666"/>
+        <location filename="../../Form_Files/main.ui" line="673"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
@@ -6113,27 +6080,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вставить содержимое буфера обмена в книгу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="673"/>
+        <location filename="../../Form_Files/main.ui" line="680"/>
         <source>&amp;Closing Tag</source>
         <translation>&amp;Закрывающий тэг</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="676"/>
+        <location filename="../../Form_Files/main.ui" line="683"/>
         <source>Insert a closing tag in Code View.</source>
         <translation>Вставить закрывающий тег в окне просмотра кода</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="679"/>
+        <location filename="../../Form_Files/main.ui" line="686"/>
         <source>Ctrl+.</source>
         <translation>Ctrl+.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="688"/>
+        <location filename="../../Form_Files/main.ui" line="695"/>
         <source>&amp;Undo</source>
         <translation>&amp;Отменить</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="691"/>
+        <location filename="../../Form_Files/main.ui" line="698"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
@@ -6142,17 +6109,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отменяет предыдущее дейсствие.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="696"/>
+        <location filename="../../Form_Files/main.ui" line="703"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="705"/>
+        <location filename="../../Form_Files/main.ui" line="712"/>
         <source>&amp;Redo</source>
         <translation>В&amp;ернуть</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="708"/>
+        <location filename="../../Form_Files/main.ui" line="715"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
@@ -6161,17 +6128,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Восстанавливает изменения, отмененные предыдущим действием Отменить.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="713"/>
+        <location filename="../../Form_Files/main.ui" line="720"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="722"/>
+        <location filename="../../Form_Files/main.ui" line="729"/>
         <source>&amp;Copy</source>
         <translation>&amp;Скопировать</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="725"/>
+        <location filename="../../Form_Files/main.ui" line="732"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
@@ -6180,12 +6147,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Копирует выделенный текст из документа и помещает его в буфер обмена.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="739"/>
+        <location filename="../../Form_Files/main.ui" line="746"/>
         <source>Align &amp;Left</source>
         <translation>Выровнять в&amp;лево</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="742"/>
+        <location filename="../../Form_Files/main.ui" line="749"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
@@ -6194,12 +6161,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Выравнивание содержимого по левому краю.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="756"/>
+        <location filename="../../Form_Files/main.ui" line="763"/>
         <source>Align &amp;Right</source>
         <translation>Выровнять в&amp;право</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="759"/>
+        <location filename="../../Form_Files/main.ui" line="766"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
@@ -6208,12 +6175,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Выравнивание содержимого по правому краю..&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="773"/>
+        <location filename="../../Form_Files/main.ui" line="780"/>
         <source>&amp;Center</source>
         <translation>Выровнять по &amp;центру</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="776"/>
+        <location filename="../../Form_Files/main.ui" line="783"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
@@ -6222,17 +6189,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Выравнивание содержимого по центру.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="781"/>
+        <location filename="../../Form_Files/main.ui" line="788"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="793"/>
+        <location filename="../../Form_Files/main.ui" line="800"/>
         <source>&amp;Justify</source>
         <translation>Выровнять по &amp;ширине</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="796"/>
+        <location filename="../../Form_Files/main.ui" line="803"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
@@ -6241,17 +6208,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Выравнивание содержимого по ширине.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="801"/>
+        <location filename="../../Form_Files/main.ui" line="808"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="813"/>
+        <location filename="../../Form_Files/main.ui" line="820"/>
         <source>&amp;Bold</source>
         <translation>Полу&amp;жирный</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="816"/>
+        <location filename="../../Form_Files/main.ui" line="823"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
@@ -6260,17 +6227,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Применение полужирного начертания к выделенному тексту.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="821"/>
+        <location filename="../../Form_Files/main.ui" line="828"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="833"/>
+        <location filename="../../Form_Files/main.ui" line="840"/>
         <source>&amp;Italic</source>
         <translation>&amp;Курсив</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="836"/>
+        <location filename="../../Form_Files/main.ui" line="843"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
@@ -6279,17 +6246,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Применение курсивного начертания к выделенному тексту..&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="841"/>
+        <location filename="../../Form_Files/main.ui" line="848"/>
         <source>Ctrl+I</source>
         <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="850"/>
+        <location filename="../../Form_Files/main.ui" line="857"/>
         <source>&amp;Open...</source>
         <translation>&amp;Открыть…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="853"/>
+        <location filename="../../Form_Files/main.ui" line="860"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
@@ -6298,17 +6265,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Открыть книгу с диска.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="858"/>
+        <location filename="../../Form_Files/main.ui" line="865"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="870"/>
+        <location filename="../../Form_Files/main.ui" line="877"/>
         <source>&amp;Underline</source>
         <translation>Под&amp;чёркивание</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="873"/>
+        <location filename="../../Form_Files/main.ui" line="880"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
@@ -6317,42 +6284,42 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подчеркивание выделенного теста.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="878"/>
+        <location filename="../../Form_Files/main.ui" line="885"/>
         <source>Ctrl+U</source>
         <translation>Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="887"/>
+        <location filename="../../Form_Files/main.ui" line="894"/>
         <source>&amp;Quit</source>
         <translation>В&amp;ыход</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="890"/>
+        <location filename="../../Form_Files/main.ui" line="897"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="893"/>
+        <location filename="../../Form_Files/main.ui" line="900"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="902"/>
+        <location filename="../../Form_Files/main.ui" line="909"/>
         <source>&amp;About...</source>
         <translation>&amp;О программе…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="905"/>
+        <location filename="../../Form_Files/main.ui" line="912"/>
         <source>Show information about Sigil.</source>
         <translation>Показать информацию о Sigil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="910"/>
+        <location filename="../../Form_Files/main.ui" line="917"/>
         <source>Add &amp;Cover...</source>
         <translation>Добавить о&amp;бложку...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="913"/>
+        <location filename="../../Form_Files/main.ui" line="920"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
@@ -6361,12 +6328,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Добавляет обложку.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="924"/>
+        <location filename="../../Form_Files/main.ui" line="931"/>
         <source>&amp;Metadata Editor...</source>
         <translation>Редактор &amp;метаданных...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="927"/>
+        <location filename="../../Form_Files/main.ui" line="934"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
@@ -6375,17 +6342,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Изменять и отображать информацию о книге, включая автора и название.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="932"/>
+        <location filename="../../Form_Files/main.ui" line="939"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="941"/>
+        <location filename="../../Form_Files/main.ui" line="948"/>
         <source>&amp;Generate Table Of Contents...</source>
         <translation>&amp;Создать оглавление...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="944"/>
+        <location filename="../../Form_Files/main.ui" line="951"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
@@ -6394,17 +6361,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Создать новое оглавление из заголовков книги.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="949"/>
+        <location filename="../../Form_Files/main.ui" line="956"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="954"/>
+        <location filename="../../Form_Files/main.ui" line="961"/>
         <source>&amp;Edit Table Of Contents...</source>
         <translation>Изменить оглавление...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="957"/>
+        <location filename="../../Form_Files/main.ui" line="964"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
@@ -6413,12 +6380,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Изменить существующее оглавление.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="971"/>
+        <location filename="../../Form_Files/main.ui" line="978"/>
         <source>&amp;Book View</source>
         <translation>К&amp;нига</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="974"/>
+        <location filename="../../Form_Files/main.ui" line="981"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
@@ -6427,12 +6394,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Изменять и отображать файлы в книге так, как они будут выглядеть при чтении.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="988"/>
+        <location filename="../../Form_Files/main.ui" line="995"/>
         <source>&amp;Code View</source>
         <translation>&amp;Код</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="991"/>
+        <location filename="../../Form_Files/main.ui" line="998"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
@@ -6441,27 +6408,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Изменять и отображать фактическое содержимое файлов в книге, включая форматирование, контролируя, как книга будет выглядеть в программах чтения электронных книг.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="998"/>
+        <location filename="../../Form_Files/main.ui" line="1005"/>
         <source>&amp;Toggle View State</source>
         <translation>Перек&amp;лючить вид</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1001"/>
+        <location filename="../../Form_Files/main.ui" line="1008"/>
         <source>Toggle Book View to Code View or Code View to Book View</source>
         <translation>Переключиться между окнами просмотра Книги и Кода.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1004"/>
+        <location filename="../../Form_Files/main.ui" line="1011"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1013"/>
+        <location filename="../../Form_Files/main.ui" line="1020"/>
         <source>&amp;Split At Cursor</source>
         <translation>Разделить по &amp;курсору</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1016"/>
+        <location filename="../../Form_Files/main.ui" line="1023"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
@@ -6470,17 +6437,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Разделить текущий файл на два с помощью курсора, как места разделения.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1021"/>
+        <location filename="../../Form_Files/main.ui" line="1028"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1030"/>
+        <location filename="../../Form_Files/main.ui" line="1037"/>
         <source>&amp;File...</source>
         <translation>&amp;Файл...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1033"/>
+        <location filename="../../Form_Files/main.ui" line="1040"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
@@ -6493,17 +6460,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вы можете добавить файлы в книгу через меню «Файл - Вставка - Файл».&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1040"/>
+        <location filename="../../Form_Files/main.ui" line="1047"/>
         <source>Ctrl+Shift+I</source>
         <translation>Ctrl+Shift+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1049"/>
+        <location filename="../../Form_Files/main.ui" line="1056"/>
         <source>&amp;Special Character...</source>
         <translation>Спе&amp;циальный символ...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1052"/>
+        <location filename="../../Form_Files/main.ui" line="1059"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
@@ -6512,12 +6479,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Выбрать символ для вставки в текст.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1063"/>
+        <location filename="../../Form_Files/main.ui" line="1070"/>
         <source>I&amp;D...</source>
         <translation>I&amp;D...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1066"/>
+        <location filename="../../Form_Files/main.ui" line="1073"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
@@ -6526,12 +6493,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вставить или изменить якорь с ID, чтобы использовать его как ссылку&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1077"/>
+        <location filename="../../Form_Files/main.ui" line="1084"/>
         <source>&amp;Link...</source>
         <translation>&amp;Ссылка...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1080"/>
+        <location filename="../../Form_Files/main.ui" line="1087"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
@@ -6540,12 +6507,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вставить или изменить гиперссылку.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1094"/>
+        <location filename="../../Form_Files/main.ui" line="1101"/>
         <source>&amp;Numbered List</source>
         <translation>&amp;Нумерованный список</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1097"/>
+        <location filename="../../Form_Files/main.ui" line="1104"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
@@ -6554,12 +6521,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Создание нумерованного списка.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1111"/>
+        <location filename="../../Form_Files/main.ui" line="1118"/>
         <source>Bulle&amp;ted List</source>
         <translation>&amp;Маркированный список</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1114"/>
+        <location filename="../../Form_Files/main.ui" line="1121"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
@@ -6568,17 +6535,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Создание маркированного списка.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1119"/>
+        <location filename="../../Form_Files/main.ui" line="1126"/>
         <source>Ctrl+Shift+L</source>
         <translation>Ctrl+Shift+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1131"/>
+        <location filename="../../Form_Files/main.ui" line="1138"/>
         <source>Stri&amp;kethrough</source>
         <translation>В&amp;ычёркивание</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1134"/>
+        <location filename="../../Form_Files/main.ui" line="1141"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
@@ -6587,12 +6554,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Зачеркивание выделенного текста линией.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1148"/>
+        <location filename="../../Form_Files/main.ui" line="1155"/>
         <source>&amp;Subscript</source>
         <translation>&amp;Нижний индекс</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1151"/>
+        <location filename="../../Form_Files/main.ui" line="1158"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
@@ -6601,12 +6568,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ввод маленьких букв ниже опорной линии текста.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1165"/>
+        <location filename="../../Form_Files/main.ui" line="1172"/>
         <source>Su&amp;perscript</source>
         <translation>&amp;Верхний индекс</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1168"/>
+        <location filename="../../Form_Files/main.ui" line="1175"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
@@ -6615,93 +6582,93 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ввод маленьких букв выше опорной линии текста.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1179"/>
+        <location filename="../../Form_Files/main.ui" line="1186"/>
         <source>&amp;Print...</source>
         <translation>Пе&amp;чать…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1182"/>
+        <location filename="../../Form_Files/main.ui" line="1189"/>
         <source>Print</source>
         <translation>Печать</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1185"/>
+        <location filename="../../Form_Files/main.ui" line="1192"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1194"/>
+        <location filename="../../Form_Files/main.ui" line="1201"/>
         <source>Print Pre&amp;view...</source>
         <translation>&amp;Просмотр печати…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1197"/>
+        <location filename="../../Form_Files/main.ui" line="1204"/>
         <source>Print Preview</source>
         <translation>Просмотр печати</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1202"/>
-        <location filename="../../Form_Files/main.ui" line="1205"/>
+        <location filename="../../Form_Files/main.ui" line="1209"/>
+        <location filename="../../Form_Files/main.ui" line="1212"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1208"/>
+        <location filename="../../Form_Files/main.ui" line="1215"/>
         <source>Ctrl+Shift+W</source>
         <translation>Ctrl+Shift+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1217"/>
+        <location filename="../../Form_Files/main.ui" line="1224"/>
         <source>Zoom &amp;In</source>
         <translation>&amp;Приблизить</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1220"/>
+        <location filename="../../Form_Files/main.ui" line="1227"/>
         <source>Zoom In</source>
         <translation>Приблизить</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1223"/>
+        <location filename="../../Form_Files/main.ui" line="1230"/>
         <source>Ctrl+=</source>
         <translation>Ctrl+=</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1232"/>
+        <location filename="../../Form_Files/main.ui" line="1239"/>
         <source>Zoom &amp;Out</source>
         <translation>&amp;Отдалить</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1235"/>
+        <location filename="../../Form_Files/main.ui" line="1242"/>
         <source>Zoom Out</source>
         <translation>Отдалить</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1238"/>
+        <location filename="../../Form_Files/main.ui" line="1245"/>
         <source>Ctrl+-</source>
         <translation>Ctrl+-</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1243"/>
+        <location filename="../../Form_Files/main.ui" line="1250"/>
         <source>Sho&amp;w Tag</source>
         <translation>Пока&amp;зать тег</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1246"/>
+        <location filename="../../Form_Files/main.ui" line="1253"/>
         <source>Show the enclosing tag HTML for the cursor position in Book View.</source>
         <translation>Показать завершающий тег HTML на месте курсора в окне просмотра Кода.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1249"/>
+        <location filename="../../Form_Files/main.ui" line="1256"/>
         <source>Ctrl+Alt+T</source>
         <translation>Ctrl+Alt+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1258"/>
+        <location filename="../../Form_Files/main.ui" line="1265"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
         <translation>&amp;Найти и заменить...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1261"/>
+        <location filename="../../Form_Files/main.ui" line="1268"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
@@ -6710,17 +6677,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Найти и заменить текст в документе.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1266"/>
+        <location filename="../../Form_Files/main.ui" line="1273"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1275"/>
+        <location filename="../../Form_Files/main.ui" line="1282"/>
         <source>Incre&amp;ase Indent</source>
         <translation>У&amp;величить отступ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1278"/>
+        <location filename="../../Form_Files/main.ui" line="1285"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
@@ -6729,17 +6696,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Увеличивает расстояние от поля до абзаца.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1283"/>
+        <location filename="../../Form_Files/main.ui" line="1290"/>
         <source>Ctrl+Alt+M</source>
         <translation>Ctrl+Alt+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1292"/>
+        <location filename="../../Form_Files/main.ui" line="1299"/>
         <source>&amp;Decrease Indent</source>
         <translation>У&amp;меньшить отступ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1295"/>
+        <location filename="../../Form_Files/main.ui" line="1302"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
@@ -6748,18 +6715,18 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Уменьшает расстояние от поля до абзаца.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1300"/>
-        <location filename="../../Form_Files/main.ui" line="1715"/>
+        <location filename="../../Form_Files/main.ui" line="1307"/>
+        <location filename="../../Form_Files/main.ui" line="1718"/>
         <source>Ctrl+Shift+M</source>
         <translation>Ctrl+Shift+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1309"/>
+        <location filename="../../Form_Files/main.ui" line="1316"/>
         <source>Te&amp;xt Direction LTR</source>
         <translation>Направление текста с&amp;лева направо</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1312"/>
+        <location filename="../../Form_Files/main.ui" line="1319"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
 
@@ -6772,12 +6739,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1325"/>
+        <location filename="../../Form_Files/main.ui" line="1332"/>
         <source>T&amp;ext Direction RTL</source>
         <translation>Направление текста сп&amp;рава налево</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1328"/>
+        <location filename="../../Form_Files/main.ui" line="1335"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
 
@@ -6789,12 +6756,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Устанавливает направление теста справа-налево.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1341"/>
+        <location filename="../../Form_Files/main.ui" line="1348"/>
         <source>Text Directi&amp;on Default</source>
         <translation>Направление текста по &amp;умолчанию</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1344"/>
+        <location filename="../../Form_Files/main.ui" line="1351"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
 
@@ -6807,22 +6774,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1353"/>
+        <location filename="../../Form_Files/main.ui" line="1360"/>
         <source>Remove &amp;Formatting</source>
         <translation>Удалить &amp;форматирование</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1356"/>
+        <location filename="../../Form_Files/main.ui" line="1363"/>
         <source>Ctrl+Space</source>
         <translation>Ctrl+Space</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1365"/>
+        <location filename="../../Form_Files/main.ui" line="1372"/>
         <source>&amp;Lowercase</source>
         <translation>В &amp;нижнем регистре</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1368"/>
+        <location filename="../../Form_Files/main.ui" line="1375"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
@@ -6834,17 +6801,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
  &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Устанавливает нижний регистр для выделенного текста.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1375"/>
+        <location filename="../../Form_Files/main.ui" line="1382"/>
         <source>Alt+L</source>
         <translation>Alt+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1384"/>
+        <location filename="../../Form_Files/main.ui" line="1391"/>
         <source>&amp;Uppercase</source>
         <translation>В &amp;верхнем регистре</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1387"/>
+        <location filename="../../Form_Files/main.ui" line="1394"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
@@ -6857,17 +6824,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1394"/>
+        <location filename="../../Form_Files/main.ui" line="1401"/>
         <source>Alt+U</source>
         <translation>Alt+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1403"/>
+        <location filename="../../Form_Files/main.ui" line="1410"/>
         <source>&amp;Titlecase</source>
         <translation>Регистр &amp;заголовка</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1406"/>
+        <location filename="../../Form_Files/main.ui" line="1413"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
@@ -6880,12 +6847,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1419"/>
+        <location filename="../../Form_Files/main.ui" line="1426"/>
         <source>&amp;Capitalize</source>
         <translation>&amp;Как в предложении</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1422"/>
+        <location filename="../../Form_Files/main.ui" line="1429"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
@@ -6898,127 +6865,127 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1431"/>
+        <location filename="../../Form_Files/main.ui" line="1438"/>
         <source>Sigil Website...</source>
         <translation>Сайт Sigil...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1436"/>
+        <location filename="../../Form_Files/main.ui" line="1443"/>
         <source>&amp;Next Tab</source>
         <translation>&amp;Следующая вкладка</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1439"/>
+        <location filename="../../Form_Files/main.ui" line="1446"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1444"/>
+        <location filename="../../Form_Files/main.ui" line="1451"/>
         <source>&amp;Previous Tab</source>
         <translation>&amp;Предыдущая вкладка</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1447"/>
+        <location filename="../../Form_Files/main.ui" line="1454"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1452"/>
+        <location filename="../../Form_Files/main.ui" line="1459"/>
         <source>&amp;Close Tab</source>
         <translation>&amp;Закрыть вкладку</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1455"/>
+        <location filename="../../Form_Files/main.ui" line="1462"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1460"/>
+        <location filename="../../Form_Files/main.ui" line="1467"/>
         <source>Split At &amp;Markers</source>
         <translation>Разделить по &amp;меткам глав</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1463"/>
+        <location filename="../../Form_Files/main.ui" line="1470"/>
         <source>Split At Sigil split file markers</source>
         <translation>Разделить по маркеру разделения Sigil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1466"/>
+        <location filename="../../Form_Files/main.ui" line="1473"/>
         <source>F6</source>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1471"/>
+        <location filename="../../Form_Files/main.ui" line="1478"/>
         <source>Split &amp;Marker</source>
         <translation>&amp;Метка разделения</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1474"/>
+        <location filename="../../Form_Files/main.ui" line="1481"/>
         <source>Insert Sigil split file marker</source>
         <translation>Вставить метку Sigil для разделения глав</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1477"/>
+        <location filename="../../Form_Files/main.ui" line="1484"/>
         <source>Ctrl+Shift+Return</source>
         <translation>Ctrl+Shift+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1482"/>
+        <location filename="../../Form_Files/main.ui" line="1489"/>
         <source>User &amp;Guide...</source>
         <translation>&amp;Руководство пользователя...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1485"/>
+        <location filename="../../Form_Files/main.ui" line="1492"/>
         <source>User Guide</source>
         <translation>Руководство пользователя</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1488"/>
+        <location filename="../../Form_Files/main.ui" line="1495"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1493"/>
+        <location filename="../../Form_Files/main.ui" line="1500"/>
         <source>&amp;Frequently Asked Questions...</source>
         <translation>&amp;Часто задаваемые вопросы…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1496"/>
+        <location filename="../../Form_Files/main.ui" line="1503"/>
         <source>Frequently Asked Questions</source>
         <translation>Часто задаваемые вопросы</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1501"/>
+        <location filename="../../Form_Files/main.ui" line="1508"/>
         <source>&amp;Tutorials...</source>
         <translation>&amp;Уроки...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1504"/>
+        <location filename="../../Form_Files/main.ui" line="1511"/>
         <source>Tutorials</source>
         <translation>Уроки</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1513"/>
-        <source>&amp;Sanity Check EPUB</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Form_Files/main.ui" line="1516"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;SanityCheck EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>Well-Formed Check &amp;EPUB</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1519"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1522"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1524"/>
+        <location filename="../../Form_Files/main.ui" line="1527"/>
         <source>Validate Stylesheets With &amp;W3C</source>
         <translation>Проверить таблицы стилей на &amp;W3C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1527"/>
+        <location filename="../../Form_Files/main.ui" line="1530"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
@@ -7031,12 +6998,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1540"/>
+        <location filename="../../Form_Files/main.ui" line="1543"/>
         <source>&amp;Spellcheck...</source>
         <translation>&amp;Орфография...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1543"/>
+        <location filename="../../Form_Files/main.ui" line="1546"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
@@ -7045,102 +7012,102 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Находит все слова с ошибками и позволяет добавить их в словарь или проигнорировать их.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1548"/>
+        <location filename="../../Form_Files/main.ui" line="1551"/>
         <source>Alt+Q</source>
         <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1556"/>
+        <location filename="../../Form_Files/main.ui" line="1559"/>
         <source>&amp;Highlight Misspelled Words</source>
         <translation>&amp;Подсвечивать слова с ошибками</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1559"/>
+        <location filename="../../Form_Files/main.ui" line="1562"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
         <translation>Переключает выделение слов с ошибками в окне просмотра Кода.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1564"/>
+        <location filename="../../Form_Files/main.ui" line="1567"/>
         <source>&amp;Next Misspelled Word</source>
         <translation>&amp;Следующее слово с ошибкой</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1567"/>
+        <location filename="../../Form_Files/main.ui" line="1570"/>
         <source>Find the next misspelled word in the book.</source>
         <translation>Найти следующую орфографическую ошибку в книге.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1570"/>
+        <location filename="../../Form_Files/main.ui" line="1573"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1575"/>
+        <location filename="../../Form_Files/main.ui" line="1578"/>
         <source>&amp;Add Misspelled Word</source>
         <translation>&amp;Добавить в словарь</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1578"/>
+        <location filename="../../Form_Files/main.ui" line="1581"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
         <translation>Добавить текущее слово с ошибкой в словарь пользователя по умолчанию.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1583"/>
+        <location filename="../../Form_Files/main.ui" line="1586"/>
         <source>&amp;Ignore Misspelled Word</source>
         <translation>Про&amp;игнорировать слово с ошибкой</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1586"/>
+        <location filename="../../Form_Files/main.ui" line="1589"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
         <translation>Игнорировать текущее слово с ошибкой, пока Sigil не будет перезагружен.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1591"/>
+        <location filename="../../Form_Files/main.ui" line="1594"/>
         <source>&amp;Clear Ignored Words</source>
         <translation>&amp;Забыть игнорируемые слова</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1594"/>
+        <location filename="../../Form_Files/main.ui" line="1597"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
         <translation>Очистить список игнорированных слов из проверки орфографии без перезагрузки Sigil.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1599"/>
+        <location filename="../../Form_Files/main.ui" line="1602"/>
         <source>&amp;Index Editor...</source>
         <translation>&amp;Редактор указателя...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1602"/>
+        <location filename="../../Form_Files/main.ui" line="1605"/>
         <source>Ctrl+Alt+I</source>
         <translation>Ctrl+Alt+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1607"/>
+        <location filename="../../Form_Files/main.ui" line="1610"/>
         <source>&amp;Delete Unused Media Files...</source>
         <translation>У&amp;далить неиспользуемые медиафайлы...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1612"/>
+        <location filename="../../Form_Files/main.ui" line="1615"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
         <translation>Удалить неиспользуемые к&amp;лассы стилей...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1617"/>
+        <location filename="../../Form_Files/main.ui" line="1620"/>
         <source>&amp;Reports...</source>
         <translation>От&amp;чёты...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1620"/>
+        <location filename="../../Form_Files/main.ui" line="1623"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1629"/>
+        <location filename="../../Form_Files/main.ui" line="1632"/>
         <source>&amp;Donate...</source>
         <translation>&amp;Пожертвовать проекту…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1632"/>
+        <location filename="../../Form_Files/main.ui" line="1635"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
@@ -7151,427 +7118,427 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1640"/>
+        <location filename="../../Form_Files/main.ui" line="1643"/>
         <source>Close &amp;Other Tabs</source>
         <translation>Закрыть &amp;все прочие вкладки</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1643"/>
+        <location filename="../../Form_Files/main.ui" line="1646"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1648"/>
+        <location filename="../../Form_Files/main.ui" line="1651"/>
         <source>Go To &amp;Line...</source>
         <translation>Перейти к &amp;строке…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1651"/>
+        <location filename="../../Form_Files/main.ui" line="1654"/>
         <source>Ctrl+/</source>
         <translation>Ctrl+/</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1656"/>
+        <location filename="../../Form_Files/main.ui" line="1659"/>
         <source>Find &amp;Next</source>
         <translation>Найти &amp;следующее совпадение</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1659"/>
+        <location filename="../../Form_Files/main.ui" line="1662"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1664"/>
+        <location filename="../../Form_Files/main.ui" line="1667"/>
         <source>Find &amp;Previous</source>
         <translation>Найти &amp;предыдущее совпадение</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1667"/>
+        <location filename="../../Form_Files/main.ui" line="1670"/>
         <source>Ctrl+Shift+G</source>
         <translation>Ctrl+Shift+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1672"/>
+        <location filename="../../Form_Files/main.ui" line="1675"/>
         <source>Replace</source>
         <translation>Заменить</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1675"/>
+        <location filename="../../Form_Files/main.ui" line="1678"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1680"/>
+        <location filename="../../Form_Files/main.ui" line="1683"/>
         <source>&amp;Replace/Find Next</source>
         <translation>Найти и заменить &amp;следующее</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1683"/>
+        <location filename="../../Form_Files/main.ui" line="1686"/>
         <source>Ctrl+]</source>
         <translation>Ctrl+]</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1688"/>
+        <location filename="../../Form_Files/main.ui" line="1691"/>
         <source>R&amp;eplace/Find Previous</source>
         <translation>Найти и заменить &amp;предыдущее</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1691"/>
+        <location filename="../../Form_Files/main.ui" line="1694"/>
         <source>Ctrl+[</source>
         <translation>Ctrl+[</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1696"/>
+        <location filename="../../Form_Files/main.ui" line="1699"/>
         <source>Replace &amp;All</source>
         <translation>Заменить &amp;все</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1699"/>
+        <location filename="../../Form_Files/main.ui" line="1702"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1704"/>
+        <location filename="../../Form_Files/main.ui" line="1707"/>
         <source>&amp;Count All</source>
         <translation>Пос&amp;читать все</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1707"/>
+        <location filename="../../Form_Files/main.ui" line="1710"/>
         <source>Alt+C</source>
         <translation>Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1712"/>
+        <location filename="../../Form_Files/main.ui" line="1715"/>
         <source>Mar&amp;k Selected Text</source>
         <translation>От&amp;метить выделенный текст</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1720"/>
+        <location filename="../../Form_Files/main.ui" line="1723"/>
         <source>Find &amp;Next In File</source>
         <translation>Найти и заменить в &amp;файле</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1725"/>
+        <location filename="../../Form_Files/main.ui" line="1728"/>
         <source>&amp;Replace Next In File</source>
         <translation>Заменить с&amp;ледующее в файле</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1730"/>
+        <location filename="../../Form_Files/main.ui" line="1733"/>
         <source>Replace &amp;All In File</source>
         <translation>&amp;Заменить все в файле</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1735"/>
+        <location filename="../../Form_Files/main.ui" line="1738"/>
         <source>&amp;Count All In File</source>
         <translation>&amp;Посчитать все в файле</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1740"/>
+        <location filename="../../Form_Files/main.ui" line="1743"/>
         <source>&amp;Saved Searches...</source>
         <translation>Предустановки поиска и &amp;замены...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1743"/>
+        <location filename="../../Form_Files/main.ui" line="1746"/>
         <source>Ctrl+Alt+F</source>
         <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1748"/>
+        <location filename="../../Form_Files/main.ui" line="1751"/>
         <source>&amp;Clip Editor...</source>
         <translation>Редактор &amp;фрагментов...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1751"/>
+        <location filename="../../Form_Files/main.ui" line="1754"/>
         <source>Open the Clip Editor.</source>
         <translation>Открыть редактор фрагментов</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1754"/>
+        <location filename="../../Form_Files/main.ui" line="1757"/>
         <source>Ctrl+Alt+C</source>
         <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1759"/>
+        <location filename="../../Form_Files/main.ui" line="1762"/>
         <source>Clip &amp;1</source>
         <translation>Фрагмент &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1762"/>
+        <location filename="../../Form_Files/main.ui" line="1765"/>
         <source>Insert Clip 1</source>
         <translation>Вставить фрагмент 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1765"/>
+        <location filename="../../Form_Files/main.ui" line="1768"/>
         <source>Ctrl+Alt+1</source>
         <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1770"/>
+        <location filename="../../Form_Files/main.ui" line="1773"/>
         <source>Clip 2&amp;</source>
         <translation>Фрагмент 2&amp;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1773"/>
+        <location filename="../../Form_Files/main.ui" line="1776"/>
         <source>Insert Clip 2</source>
         <translation>Вставить фрагмент 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1776"/>
+        <location filename="../../Form_Files/main.ui" line="1779"/>
         <source>Ctrl+Alt+2</source>
         <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1781"/>
+        <location filename="../../Form_Files/main.ui" line="1784"/>
         <source>Clip &amp;3</source>
         <translation>Фрагмент &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1784"/>
+        <location filename="../../Form_Files/main.ui" line="1787"/>
         <source>Insert Clip 3</source>
         <translation>Вставить фрагмент 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1787"/>
+        <location filename="../../Form_Files/main.ui" line="1790"/>
         <source>Ctrl+Alt+3</source>
         <translation>Ctrl+Alt+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1792"/>
+        <location filename="../../Form_Files/main.ui" line="1795"/>
         <source>Clip &amp;4</source>
         <translation>Фрагмент &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1795"/>
+        <location filename="../../Form_Files/main.ui" line="1798"/>
         <source>Insert Clip 4</source>
         <translation>Вставить фрагмент 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1798"/>
+        <location filename="../../Form_Files/main.ui" line="1801"/>
         <source>Ctrl+Alt+4</source>
         <translation>Ctrl+Alt+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1803"/>
+        <location filename="../../Form_Files/main.ui" line="1806"/>
         <source>Clip &amp;5</source>
         <translation>Фрагмент &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1806"/>
+        <location filename="../../Form_Files/main.ui" line="1809"/>
         <source>Insert Clip 5</source>
         <translation>Вставить фрагмент 5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1809"/>
+        <location filename="../../Form_Files/main.ui" line="1812"/>
         <source>Ctrl+Alt+5</source>
         <translation>Ctrl+Alt+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1814"/>
+        <location filename="../../Form_Files/main.ui" line="1817"/>
         <source>Clip &amp;6</source>
         <translation>Фрагмент &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1817"/>
+        <location filename="../../Form_Files/main.ui" line="1820"/>
         <source>Insert Clip 6</source>
         <translation>Вставить фрагмент 6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1820"/>
+        <location filename="../../Form_Files/main.ui" line="1823"/>
         <source>Ctrl+Alt+6</source>
         <translation>Ctrl+Alt+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1825"/>
+        <location filename="../../Form_Files/main.ui" line="1828"/>
         <source>Clip &amp;7</source>
         <translation>Фрагмент &amp;7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1828"/>
+        <location filename="../../Form_Files/main.ui" line="1831"/>
         <source>Insert Clip 7</source>
         <translation>Вставить фрагмент 7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1831"/>
+        <location filename="../../Form_Files/main.ui" line="1834"/>
         <source>Ctrl+Alt+7</source>
         <translation>Ctrl+Alt+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1836"/>
+        <location filename="../../Form_Files/main.ui" line="1839"/>
         <source>Clip &amp;8</source>
         <translation>Фрагмент &amp;8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1839"/>
+        <location filename="../../Form_Files/main.ui" line="1842"/>
         <source>Insert Clip 8</source>
         <translation>Вставить фрагмент 8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1842"/>
+        <location filename="../../Form_Files/main.ui" line="1845"/>
         <source>Ctrl+Alt+8</source>
         <translation>Ctrl+Alt+8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1847"/>
+        <location filename="../../Form_Files/main.ui" line="1850"/>
         <source>Clip &amp;9</source>
         <translation>Фрагмент &amp;9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1850"/>
+        <location filename="../../Form_Files/main.ui" line="1853"/>
         <source>Insert Clip 9</source>
         <translation>Вставить фрагмент 9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1853"/>
+        <location filename="../../Form_Files/main.ui" line="1856"/>
         <source>Ctrl+Alt+9</source>
         <translation>Ctrl+Alt+9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1858"/>
+        <location filename="../../Form_Files/main.ui" line="1861"/>
         <source>Clip 1&amp;0</source>
         <translation>Фрагмент 1&amp;0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1861"/>
+        <location filename="../../Form_Files/main.ui" line="1864"/>
         <source>Insert Clip 10</source>
         <translation>Вставить фрагмент 10</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1864"/>
+        <location filename="../../Form_Files/main.ui" line="1867"/>
         <source>Ctrl+Alt+0</source>
         <translation>Ctrl+Alt+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1869"/>
+        <location filename="../../Form_Files/main.ui" line="1872"/>
         <source>Clip 11</source>
         <translation>Фрагмент 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1872"/>
+        <location filename="../../Form_Files/main.ui" line="1875"/>
         <source>Insert Clip 11</source>
         <translation>Вставить фрагмент 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1877"/>
+        <location filename="../../Form_Files/main.ui" line="1880"/>
         <source>Clip 12</source>
         <translation>Фрагмент 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1880"/>
+        <location filename="../../Form_Files/main.ui" line="1883"/>
         <source>Insert Clip 12</source>
         <translation>Вставить фрагмент 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1885"/>
+        <location filename="../../Form_Files/main.ui" line="1888"/>
         <source>Clip 13</source>
         <translation>Фрагмент 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1888"/>
+        <location filename="../../Form_Files/main.ui" line="1891"/>
         <source>Insert Clip 13</source>
         <translation>Вставить фрагмент 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1893"/>
+        <location filename="../../Form_Files/main.ui" line="1896"/>
         <source>Clip 14</source>
         <translation>Фрагмент 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1896"/>
+        <location filename="../../Form_Files/main.ui" line="1899"/>
         <source>Insert Clip 14</source>
         <translation>Вставить фрагмент 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1901"/>
+        <location filename="../../Form_Files/main.ui" line="1904"/>
         <source>Clip 15</source>
         <translation>Фрагмент 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1904"/>
+        <location filename="../../Form_Files/main.ui" line="1907"/>
         <source>Insert Clip 15</source>
         <translation>Вставить фрагмент 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1909"/>
+        <location filename="../../Form_Files/main.ui" line="1912"/>
         <source>Clip 16</source>
         <translation>Фрагмент 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1912"/>
+        <location filename="../../Form_Files/main.ui" line="1915"/>
         <source>Insert Clip 16</source>
         <translation>Вставить фрагмент 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1917"/>
+        <location filename="../../Form_Files/main.ui" line="1920"/>
         <source>Clip 17</source>
         <translation>Фрагмент 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1920"/>
+        <location filename="../../Form_Files/main.ui" line="1923"/>
         <source>Insert Clip 17</source>
         <translation>Вставить фрагмент 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1925"/>
+        <location filename="../../Form_Files/main.ui" line="1928"/>
         <source>Clip 18</source>
         <translation>Фрагмент 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1928"/>
+        <location filename="../../Form_Files/main.ui" line="1931"/>
         <source>Insert Clip 18</source>
         <translation>Вставить фрагмент 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1933"/>
+        <location filename="../../Form_Files/main.ui" line="1936"/>
         <source>Clip 19</source>
         <translation>Фрагмент 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1936"/>
+        <location filename="../../Form_Files/main.ui" line="1939"/>
         <source>Insert Clip 19</source>
         <translation>Вставить фрагмент 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1941"/>
+        <location filename="../../Form_Files/main.ui" line="1944"/>
         <source>Clip 20</source>
         <translation>Фрагмент 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1944"/>
+        <location filename="../../Form_Files/main.ui" line="1947"/>
         <source>Insert Clip 20</source>
         <translation>Вставить фрагмент 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1949"/>
+        <location filename="../../Form_Files/main.ui" line="1952"/>
         <source>&amp;Preferences...</source>
         <translation>&amp;Параметры...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1952"/>
+        <location filename="../../Form_Files/main.ui" line="1955"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1957"/>
+        <location filename="../../Form_Files/main.ui" line="1960"/>
         <source>&amp;Zoom Reset</source>
         <translation>Исходный &amp;масштаб</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1960"/>
+        <location filename="../../Form_Files/main.ui" line="1963"/>
         <source>Zoom Reset</source>
         <translation>Исходный масштаб</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1963"/>
+        <location filename="../../Form_Files/main.ui" line="1966"/>
         <source>Ctrl+0</source>
         <translation>Ctrl+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1975"/>
+        <location filename="../../Form_Files/main.ui" line="1978"/>
         <source>Heading &amp;1</source>
         <translation>Заголовок &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1978"/>
+        <location filename="../../Form_Files/main.ui" line="1981"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
@@ -7580,17 +7547,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отформатировать абзац как заголовок 1-го уровня.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1983"/>
+        <location filename="../../Form_Files/main.ui" line="1986"/>
         <source>Ctrl+1</source>
         <translation>Ctrl+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1995"/>
+        <location filename="../../Form_Files/main.ui" line="1998"/>
         <source>Heading &amp;2</source>
         <translation>Заголовок &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1998"/>
+        <location filename="../../Form_Files/main.ui" line="2001"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
@@ -7599,17 +7566,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отформатировать абзац как заголовок 2-го уровня.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2003"/>
+        <location filename="../../Form_Files/main.ui" line="2006"/>
         <source>Ctrl+2</source>
         <translation>Ctrl+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2015"/>
+        <location filename="../../Form_Files/main.ui" line="2018"/>
         <source>Heading &amp;3</source>
         <translation>Заголовок &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2018"/>
+        <location filename="../../Form_Files/main.ui" line="2021"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
@@ -7618,17 +7585,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отформатировать абзац как заголовок 3-го уровня.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2023"/>
+        <location filename="../../Form_Files/main.ui" line="2026"/>
         <source>Ctrl+3</source>
         <translation>Ctrl+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2035"/>
+        <location filename="../../Form_Files/main.ui" line="2038"/>
         <source>Heading &amp;4</source>
         <translation>Заголовок &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2038"/>
+        <location filename="../../Form_Files/main.ui" line="2041"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
@@ -7637,17 +7604,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отформатировать абзац как заголовок 4-го уровня.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2043"/>
+        <location filename="../../Form_Files/main.ui" line="2046"/>
         <source>Ctrl+4</source>
         <translation>Ctrl+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2055"/>
+        <location filename="../../Form_Files/main.ui" line="2058"/>
         <source>Heading &amp;5</source>
         <translation>Заголовок &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2058"/>
+        <location filename="../../Form_Files/main.ui" line="2061"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
@@ -7656,17 +7623,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отформатировать абзац как заголовок 5-го уровня.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2063"/>
+        <location filename="../../Form_Files/main.ui" line="2066"/>
         <source>Ctrl+5</source>
         <translation>Ctrl+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2075"/>
+        <location filename="../../Form_Files/main.ui" line="2078"/>
         <source>Heading &amp;6</source>
         <translation>Заголовок &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2078"/>
+        <location filename="../../Form_Files/main.ui" line="2081"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
@@ -7675,17 +7642,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отформатировать абзац как заголовок 6-го уровня.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2083"/>
+        <location filename="../../Form_Files/main.ui" line="2086"/>
         <source>Ctrl+6</source>
         <translation>Ctrl+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2095"/>
+        <location filename="../../Form_Files/main.ui" line="2098"/>
         <source>&amp;Normal</source>
         <translation>&amp;Обычный текст</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2098"/>
+        <location filename="../../Form_Files/main.ui" line="2101"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
@@ -7694,37 +7661,37 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отформатировать как обычный абзац .&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2103"/>
+        <location filename="../../Form_Files/main.ui" line="2106"/>
         <source>Ctrl+7</source>
         <translation>Ctrl+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2111"/>
+        <location filename="../../Form_Files/main.ui" line="2114"/>
         <source>&amp;Preserve Existing Attributes</source>
         <translation>&amp;Сохранять имеющиеся атрибуты</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2114"/>
+        <location filename="../../Form_Files/main.ui" line="2117"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
         <translation>Примененяя этот стиль, сохранить существующие атрибуты тега</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2119"/>
+        <location filename="../../Form_Files/main.ui" line="2122"/>
         <source>Blank HTML File</source>
         <translation>Пустой файл HTML</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2122"/>
+        <location filename="../../Form_Files/main.ui" line="2125"/>
         <source>Add a new blank HTML file to the book.</source>
         <translation>Добавить новый пустой HTML-файл в книгу.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2131"/>
+        <location filename="../../Form_Files/main.ui" line="2134"/>
         <source>Existing Files...</source>
         <translation>Существующие файлы...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2134"/>
+        <location filename="../../Form_Files/main.ui" line="2137"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
@@ -7733,127 +7700,127 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Добавить файлы с компьютера в книгу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2141"/>
+        <location filename="../../Form_Files/main.ui" line="2144"/>
         <source>Blank Stylesheet</source>
         <translation>Пустой стиль</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2144"/>
+        <location filename="../../Form_Files/main.ui" line="2147"/>
         <source>Add a new blank stylesheet to the book.</source>
         <translation>Добавить новую пустую таблицу стилей в книгу.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2149"/>
+        <location filename="../../Form_Files/main.ui" line="2152"/>
         <source>Blank SVG Image</source>
         <translation>Пустое изображение SVG</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2152"/>
+        <location filename="../../Form_Files/main.ui" line="2155"/>
         <source>Add a new blank svg image file to the book.</source>
         <translation>Добавить новый пустой svg-файл в книгу.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2157"/>
+        <location filename="../../Form_Files/main.ui" line="2160"/>
         <source>Pre&amp;vious File</source>
         <translation>&amp;Предыдущий файл</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2160"/>
+        <location filename="../../Form_Files/main.ui" line="2163"/>
         <source>Open previous file of the same type.</source>
         <translation>Открыть предыдущий файл того же типа.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2163"/>
+        <location filename="../../Form_Files/main.ui" line="2166"/>
         <source>Alt+PgUp</source>
         <translation>Alt+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2168"/>
+        <location filename="../../Form_Files/main.ui" line="2171"/>
         <source>Next &amp;File</source>
         <translation>&amp;Следующий файл</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2171"/>
+        <location filename="../../Form_Files/main.ui" line="2174"/>
         <source>Open next file of the same type.</source>
         <translation>Открыть следующий файл того же типа.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2174"/>
+        <location filename="../../Form_Files/main.ui" line="2177"/>
         <source>Alt+PgDown</source>
         <translation>Alt+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2179"/>
+        <location filename="../../Form_Files/main.ui" line="2182"/>
         <source>&amp;Add To Index Editor</source>
         <translation>&amp;Добавить в редактор указателя</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2182"/>
+        <location filename="../../Form_Files/main.ui" line="2185"/>
         <source>Add the selected text to the Index Editor.</source>
         <translation>Добавить выбранный текст в Указатель.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2187"/>
+        <location filename="../../Form_Files/main.ui" line="2190"/>
         <source>&amp;Mark For Index</source>
         <translation>&amp;Пометить для указателя</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2190"/>
+        <location filename="../../Form_Files/main.ui" line="2193"/>
         <source>Mark the selected text for inclusion in the Index.</source>
         <translation>Отметить выбранный текст для включения в указатель.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2193"/>
+        <location filename="../../Form_Files/main.ui" line="2196"/>
         <source>Ctrl+Shift+X</source>
         <translation>Ctrl+Shift+X</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2198"/>
+        <location filename="../../Form_Files/main.ui" line="2201"/>
         <source>&amp;Create Index</source>
         <translation>Создать &amp;указатель</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2201"/>
+        <location filename="../../Form_Files/main.ui" line="2204"/>
         <source>Generate a new Index HTML file.</source>
         <translation>Генерировать новый HTML-файл указателя.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2206"/>
+        <location filename="../../Form_Files/main.ui" line="2209"/>
         <source>&amp;Create HTML Table Of Contents</source>
         <translation>Создать &amp;файл HTML с оглавлением</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2209"/>
+        <location filename="../../Form_Files/main.ui" line="2212"/>
         <source>Create a new HTML file using the current TOC.</source>
         <translation>Создать новый HTML-файл, используя текущее оглавление.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2214"/>
+        <location filename="../../Form_Files/main.ui" line="2217"/>
         <source>Book&amp;mark Location</source>
         <translation>Добавить &amp;закладку</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2217"/>
+        <location filename="../../Form_Files/main.ui" line="2220"/>
         <source>Ctrl+Alt+B</source>
         <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2222"/>
+        <location filename="../../Form_Files/main.ui" line="2225"/>
         <source>&amp;Go To Link Or Style</source>
         <translation>Перейти &amp;к ссылке или стилю</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2225"/>
+        <location filename="../../Form_Files/main.ui" line="2228"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2234"/>
+        <location filename="../../Form_Files/main.ui" line="2237"/>
         <source>&amp;Back</source>
         <translation>&amp;Назад</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2237"/>
+        <location filename="../../Form_Files/main.ui" line="2240"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
@@ -7863,34 +7830,44 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вернуться туда, куда вы последний раз перешли по ссылке или стилю, или добавили закладку.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2243"/>
+        <location filename="../../Form_Files/main.ui" line="2246"/>
         <source>Ctrl+\</source>
         <translation>Ctrl+\</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2248"/>
+        <location filename="../../Form_Files/main.ui" line="2251"/>
         <source>Paste From Clipboard &amp;History...</source>
         <translation>Вставить из &amp;истории буфера обмена...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2251"/>
+        <location filename="../../Form_Files/main.ui" line="2254"/>
         <source>Ctrl+Alt+V</source>
         <translation>Ctrl+Alt+V</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2256"/>
+        <location filename="../../Form_Files/main.ui" line="2259"/>
         <source>&amp;Delete Line</source>
         <translation>Удалить с&amp;троку</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2259"/>
+        <location filename="../../Form_Files/main.ui" line="2262"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2264"/>
+        <location filename="../../Form_Files/main.ui" line="2267"/>
         <source>Manage Plugins</source>
         <translation>Управление модулями</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2272"/>
+        <source>Mend and &amp;Prettify All HTML Files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2277"/>
+        <source>&amp;Mend All HTML Files</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="240"/>
@@ -7944,13 +7921,13 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="1853"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1868"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1896"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3105"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3141"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3147"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3153"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3289"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3489"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3687"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3116"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3152"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3158"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3300"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3500"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3698"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -8248,185 +8225,179 @@ This action cannot be reversed.</source>
         <translation>Отметка снята.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2477"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2478"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>В этом файле отсутствуют таблицы стилей CSS.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3016"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3017"/>
         <source>Line: %1, Col: %2</source>
         <translation>Строка: %1, Столбец: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3105"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3116"/>
         <source>File cannot be split at this position.</source>
         <translation>Файл невозможно разделить в этой позиции.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3122"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3133"/>
         <source>Split completed.</source>
         <translation>Разделение завершено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3141"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3152"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Разделение невозможно, так как выделен не файл HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3147"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3158"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Не удается разделить файл %1: ошибки в структуре XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3153"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Не удается разделить, поскольку по крайней мере один файл может не быть HTML-файлом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3172"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3183"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Разделение завершено. Может потребоваться обновление оглавления.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3181"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3192"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Нет найдено меток разделения файла. Используйте Вставка-&gt;Метка разделения.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3290"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3301"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Этот документ был изменён.
 Вы хотите сохранить изменения?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3363"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3374"/>
         <source>No importer for file type: %1</source>
         <translation>Нет импортера для файлового типа: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3370"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3381"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
 
-Try setting the Clean Source preference to Pretty Print Tidy or HTML Tidy and reloading the file.</source>
-        <translation>Следующий файл не был загружен из-за недействительного содержимого или ошибок в структуре XML:
-
-%1 (строка %2: %3)
-
-Попробуйте изменить настройку Очистить код на Pretty Print Tidy или HTML Tidy и перезагрузите файл.</translation>
+Try setting the Clean Source preference to Mend XHTML Source Code on Open and reloading the file.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3375"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3386"/>
         <source>Loading file...</source>
         <translation>Загрузка файла...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3389"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3400"/>
         <source>File loaded.</source>
         <translation>Файл загружен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3416"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Создатель этого файла зашифровал его. Sigil не может открывать такие файлы.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3434"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Не удалось загрузить EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3438"/>
         <source>Cannot load file %1: %2</source>
         <translation>Не удалось загрузить файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3456"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3467"/>
         <source>Saving EPUB...</source>
         <translation>Сохранение файла EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3465"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3476"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil не может сохранить файлы типа &quot;%1&quot;.
 Пожалуйста, выберите другой формат.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3490"/>
-        <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically clean on Save. Saving a file that is not well formed will cause it to be automatically fixed, which can result in data loss.
+        <location filename="../../MainUI/MainWindow.cpp" line="3501"/>
+        <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in data loss.
 
-Do you want to automatically fix the files before saving?</source>
-        <translation>В этом EPUB есть HTML-файлы, имеющие ошибки в структуре и текущие настройки Очистки кода — автоматически очищать при сохранении. Сохранение файла с ошибками в структуре повлечет за собой автоматическое исправление и возможность потери данных.
-
-Вы хотите автоматически исправить файлы перед сохранением?</translation>
+Do you want to automatically mend the files before saving?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3521"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3532"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB сохранен, но некоторые HTML-файлы имеют ошибки в труктуре.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3523"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3534"/>
         <source>EPUB saved.</source>
         <translation>EPUB сохранен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3540"/>
         <source>Cannot save file %1: %2</source>
         <translation>Невозможно сохранить файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3664"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3675"/>
         <source>EPUB files (*.epub)</source>
         <translation>Файлы EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3665"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3666"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3667"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3676"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3677"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3678"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Файлы HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3668"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3679"/>
         <source>Text files (*.txt)</source>
         <translation>Текстовые файлы (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3680"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3677"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3688"/>
         <source>EPUB file (*.epub)</source>
         <translation>Файл EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3687"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3698"/>
         <source>%1[*] - %2</source>
         <translation>%1[*] - %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3758"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3769"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Сохранить имеющиеся атрибуты заголовков прямо сейчас:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3770"/>
         <source>ON</source>
         <translation>ВКЛ</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3770"/>
         <source>OFF</source>
         <translation>ВЫКЛ</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3795"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -11249,59 +11220,59 @@ Are you Sure You Want to Continue?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="120"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="119"/>
         <source>Select Plugin Zip Archive</source>
         <translation>Выбор архива модуля</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="120"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="119"/>
         <source>Plugin Files (*.zip)</source>
         <translation>Файлы модулей (*.zip)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="136"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="135"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
         <translation>Ошибка: Плагин plugin.xml недействителен или не поддерживается вашей ОС</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="139"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="138"/>
         <source>Warning: A plugin by that name already exists</source>
         <translation>Внимание: Плагин с таким именем уже существует</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="142"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="141"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
         <translation>Ошибка: плагин не распаковался.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="145"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="144"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
         <translation>Ошибка: Плагин недействителен.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="178"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="177"/>
         <source>Nothing is Selected.</source>
         <translation>Ничего не выбрано.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="197"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="196"/>
         <source>Remove All Plugins</source>
         <translation>Удалить все плагины</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="198"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="197"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
         <translation>Вы уверены, что хотите удалить все ваши плагины?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="248"/>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="258"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="247"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="257"/>
         <source>Select Interpreter</source>
         <translation>Выбрать интерпретатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="284"/>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="300"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="282"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="298"/>
         <source>Incorrect Interpreter Path selected</source>
         <translation>Выбран неправильный путь к интерпретатору</translation>
     </message>
@@ -11385,7 +11356,7 @@ Entities can be separated by lines, commas, or spaces.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="865"/>
+        <location filename="../../BookManipulation/Book.cpp" line="878"/>
         <source>Merging Files..</source>
         <translation>Объединение файлов...</translation>
     </message>
@@ -11395,7 +11366,7 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation>Подсчет классов...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="233"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="209"/>
         <source>Cleaning...</source>
         <translation>Очистка...</translation>
     </message>
@@ -11632,19 +11603,19 @@ Line: %1 Column %2 - %3</source>
         <translation>&lt;p&gt;Доступна новая версия  Sigil — версия &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Вы хотите перейти на страницу загрузки?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="360"/>
+        <location filename="../../Misc/Utility.cpp" line="376"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Невозможно прочитать файл %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="463"/>
+        <location filename="../../Misc/Utility.cpp" line="479"/>
         <source>Sigil has encountered a problem.</source>
         <translation>В Sigil обнаружена проблема.               </translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="464"/>
+        <location filename="../../Misc/Utility.cpp" line="480"/>
         <source>Sigil cannot continue and will now close</source>
         <translation>Sigil не может продолжать и сейчас закроется</translation>
     </message>
@@ -12051,22 +12022,22 @@ Do you want to save your changes?</source>
 <context>
     <name>SearchEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="64"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="65"/>
         <source>Name</source>
         <translation>Название</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="65"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
         <source>Find</source>
         <translation>Найти</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="67"/>
         <source>Replace</source>
         <translation>Заменить</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="597"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="604"/>
         <source>Unable to create file %1</source>
         <translation>Невозможно создать файл %1</translation>
     </message>
@@ -12441,7 +12412,7 @@ is restarted or a new book is opened.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="516"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="532"/>
         <source>Ignore</source>
         <translation>Проигнорировать</translation>
     </message>
@@ -12499,80 +12470,104 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <translation>Обновить</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="138"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="161"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="200"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="53"/>
+        <source>f</source>
+        <comment>Filter</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="54"/>
+        <source>s</source>
+        <comment>ShowAllWords</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="55"/>
+        <source>c</source>
+        <comment>Case-InsensitiveSort</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="56"/>
+        <source>r</source>
+        <comment>Refresh</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="154"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="177"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="216"/>
         <source>No words selected.</source>
         <translation>Не выбранных слов.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="154"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="170"/>
         <source>Ignored word(s).</source>
         <translation>Игнорированное(ые) слово(а)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="189"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="205"/>
         <source>Added word(s) to dictionary.</source>
         <translation>Слово(а) добавлен(ы) в словарь.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="191"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="207"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
         <translation>Слово(а) добавлен(ы) в словарь. Словарь не включен в Настройках.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="206"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="222"/>
         <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
         <translation>Новое слово не должно содержать &apos;&lt;&apos;, &apos;&gt;&apos;, или &apos;&amp;&apos;.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="217"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="285"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="233"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="301"/>
         <source>No</source>
         <translation>Нет</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="236"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="252"/>
         <source>Word</source>
         <translation>Слово</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="237"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="253"/>
         <source>Count</source>
         <translation>Кол-во</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="238"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="254"/>
         <source>Misspelled?</source>
         <translation>Неверно?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="283"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="299"/>
         <source>Yes</source>
         <translation>Да</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="298"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="314"/>
         <source>Misspelled Words</source>
         <translation>Слов с  ошибками</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="298"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="314"/>
         <source>Total Unique Words</source>
         <translation>Уникальных слов</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="517"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="533"/>
         <source>Add to Dictionary</source>
         <translation>Добавить в словарь</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="518"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="534"/>
         <source>Find in Text</source>
         <translation>Найти в тексте</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="519"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="535"/>
         <source>Select All</source>
         <translation>Выделить всё</translation>
     </message>
@@ -12695,12 +12690,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="577"/>
+        <location filename="../../Misc/Utility.cpp" line="593"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="578"/>
+        <location filename="../../Misc/Utility.cpp" line="594"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
@@ -12759,22 +12754,22 @@ Continue using the requested filename?</source>
 <context>
     <name>WellFormedCheckComponent</name>
     <message>
-        <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="43"/>
+        <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="42"/>
         <source>&lt;p&gt;The operation you requested cannot be performed because &lt;b&gt;%1&lt;/b&gt; is not a well-formed XML document.&lt;/p&gt;&lt;p&gt;An error was found &lt;b&gt;at or above line %2: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Manually&lt;/i&gt; option will let you fix the problem by hand.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Запрошенная операция не может быть выполнена, поскольку &lt;b&gt;%1&lt;/b&gt; имеет ошибки в структуре XML.&lt;/p&gt;&lt;p&gt;Ошибка найдена &lt;b&gt;на или над строкой %2: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;опция &lt;i&gt;Исправить вручную&lt;/i&gt; позволит вам исправить проблему вручную.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="48"/>
+        <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="47"/>
         <source>&lt;p&gt;The &lt;i&gt;Fix Automatically&lt;/i&gt; option will instruct Sigil to try to repair the document. &lt;b&gt;This option may lead to loss of data!&lt;/b&gt;&lt;/p&gt;</source>
         <translation>&lt;p&gt;Опция &lt;i&gt;Исправить автоматически&lt;/i&gt; прикажет Sigil попробовать восстановить документ. &lt;b&gt;Эта опция может привести к потере данных!&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="55"/>
+        <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="54"/>
         <source>Fix &amp;Automatically</source>
         <translation>Исправить &amp;автоматически</translation>
     </message>
     <message>
-        <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="57"/>
+        <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="56"/>
         <source>Fix &amp;Manually</source>
         <translation>Исправить &amp;вручную</translation>
     </message>
