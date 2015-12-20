@@ -24,6 +24,11 @@ SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment']
 
 MAX_TAG_LEN = 20
 
+VOID_TAGS = ("area","base","basefont","bgsound","br","col","command",
+    "embed","event-source","frame","hr","image","img","input","keygen",
+    "link","menuitem","meta","param","source","spacer","track","wbr",
+    "mbp:pagebreak")
+
 class SanityCheck(object):
 
     def __init__(self, data, codec = 'utf-8'):
@@ -276,6 +281,13 @@ class SanityCheck(object):
                         self.has_error = True
                         break
 
+                # validate void tags are self-closed
+                if tname in VOID_TAGS and ttype == "end":
+                    error_msg = 'Void tag: ' + tname + ' has an illegal ending tag'
+                    self.errors.append((self.tag_start[0], self.tag_start[1], error_msg))
+                    self.has_error = True
+                    break
+
             yield text, tp, tname, ttype, tattr
 
             if ttype is not None:
@@ -307,7 +319,7 @@ def perform_sanity_check(apath):
 def main():
     samp1 = '<html>\n<head><title>testing & entities</title></head>\n'
     samp1 += '<body>\n<p>this&nbsp;is&#160;the&#xa0;<i><b>copyright'
-    samp1 += '</i></b> symbol "&copy;"</p>\n</body>\n</html>\n'
+    samp1 += '</i></b> symbol "&copy;"</p>\n<br></br>\n</body>\n</html>\n'
 
     samp2 = '''<html>
 <head>
@@ -316,6 +328,7 @@ def main():
 <body>
 <p>this&nbsp;is&#160;the&#xa0;<b><i>copyright</i></b> symbol "&copy;"</p>
 <p><!--This is a comment--></p>
+<br></br>
 </html>
 '''
 
