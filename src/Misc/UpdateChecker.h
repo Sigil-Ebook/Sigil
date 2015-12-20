@@ -25,9 +25,6 @@
 
 #include <QtCore/QObject>
 
-class QNetworkAccessManager;
-class QNetworkReply;
-
 /**
  * Responsible for checking the current online version of
  * Sigil against the running one. If a newer version
@@ -60,35 +57,7 @@ public:
      */
     void CheckForUpdate();
 
-private slots:
-
-    /**
-     * Gets called when the request posted by CheckForUpdate()
-     * gets a reply from the server.
-     *
-     * @param reply The network reply.
-     */
-    void ReplyRecieved(QNetworkReply *reply);
-
 private:
-
-    /**
-     * Extracts the full text present in the network reply.
-     *
-     * @param reply The reply from which text should be extracted.
-     * @return The full text content.
-     */
-    static QString TextInReply(QNetworkReply *reply);
-
-    /**
-     * Returns the version string present
-     * in the specified XML file, or an empty QString
-     * if the required element is not present.
-     *
-     * @param online_version_xml The xml content from the reply.
-     * @return The version string.
-     */
-    static QString ReadOnlineVersion(const QString &online_version_xml);
 
     /**
      * Compares the two provided version strings.
@@ -100,17 +69,6 @@ private:
      */
     static bool IsOnlineVersionNewer(const QString &current_version_string,
                                      const QString &online_version_string);
-
-
-    ///////////////////////////////
-    // PRIVATE MEMBER VARIABLES
-    ///////////////////////////////
-
-    /**
-     * The network manager used to post
-     * network requests and receive replies.
-     */
-    QNetworkAccessManager *m_NetworkManager;
 
 };
 
