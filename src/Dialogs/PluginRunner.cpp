@@ -107,6 +107,7 @@ int PluginRunner::exec(const QString &name)
     // set up paths and things for the plugin and interpreter
     m_pluginsFolder = PluginDB::pluginsPath();
     m_pluginType = plugin->get_type();
+    m_pluginAutoClose = plugin->get_autoclose();
 
     m_engine = plugin->get_engine();
     // Use the bundled interpreter if user requested it (and plugin supports it)
@@ -349,7 +350,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     // results too. We really should check that everything else a
     // plugin can set is really empty before calling accept because
     // it could have actual info the user needs to see in the dialog.
-    if (m_pluginType == "validation") {
+    if ((m_pluginType == "validation") || (m_pluginAutoClose == "true")) {
         accept();
         return;
     }

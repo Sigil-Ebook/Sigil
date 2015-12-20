@@ -303,6 +303,8 @@ Plugin *PluginDB::load_plugin(const QString &name)
                 plugin->set_oslist(reader.readElementText());
             } else if (reader.name() == "autostart") {
                 plugin->set_autostart(reader.readElementText());
+            } else if (reader.name() == "autoclose") {
+                plugin->set_autoclose(reader.readElementText());
             }
         }
     }

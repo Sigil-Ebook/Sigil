@@ -63,6 +63,9 @@ Plugin::Plugin(const QHash<QString, QString> &info)
     if (info.contains("autostart")) {
         set_autostart(info.value("autostart"));
     }
+    if (info.contains("autoclose")) {
+        set_autoclose(info.value("autoclose"));
+    }
 
 
 }
@@ -83,6 +86,7 @@ QHash<QString, QString> Plugin::serialize()
     info.insert("engine", get_engine());
     info.insert("oslist", get_oslist());
     info.insert("autostart", get_autostart());
+    info.insert("autoclose", get_autoclose());
 
     return info;
 }
@@ -133,6 +137,14 @@ QString Plugin::get_autostart()
   return m_autostart;
 }
 
+QString Plugin::get_autoclose()
+{
+  if (m_autoclose.isEmpty()) {
+     return "false";
+  }
+  return m_autoclose;
+}
+
 QString Plugin::get_oslist()
 {
     return m_oslist;
@@ -180,5 +192,15 @@ void Plugin::set_oslist(const QString &val)
 
 void Plugin::set_autostart(const QString &val)
 {
+  if (!val.isEmpty()) {
     m_autostart = val.toLower();
+  }
 }
+
+void Plugin::set_autoclose(const QString &val)
+{
+  if (!val.isEmpty()) {
+    m_autoclose = val.toLower();
+  }
+}
+

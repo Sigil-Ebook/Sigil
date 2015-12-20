@@ -113,6 +113,7 @@ private:
     QString m_pluginsFolder;
     QString m_bookRoot;
     QString m_pluginType;
+    QString m_pluginAutoClose;
     QByteArray m_pluginOutput;
     QString m_algorithm;
 
