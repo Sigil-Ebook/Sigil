@@ -58,8 +58,13 @@ Plugin::Plugin(const QHash<QString, QString> &info)
         set_engine(info.value("engine"));
     }
     if (info.contains("oslist")) {
-        set_engine(info.value("oslist"));
+        set_oslist(info.value("oslist"));
     }
+    if (info.contains("autostart")) {
+        set_autostart(info.value("autostart"));
+    }
+
+
 }
 
 Plugin::~Plugin()
@@ -77,6 +82,7 @@ QHash<QString, QString> Plugin::serialize()
     info.insert("version", get_version());
     info.insert("engine", get_engine());
     info.insert("oslist", get_oslist());
+    info.insert("autostart", get_autostart());
 
     return info;
 }
@@ -117,6 +123,14 @@ QString Plugin::get_version()
 QString Plugin::get_engine()
 {
     return m_engine;
+}
+
+QString Plugin::get_autostart()
+{
+  if (m_autostart.isEmpty()) {
+     return "false";
+  }
+  return m_autostart;
 }
 
 QString Plugin::get_oslist()
@@ -162,4 +176,9 @@ void Plugin::set_engine(const QString &val)
 void Plugin::set_oslist(const QString &val)
 {
     m_oslist = val;
+}
+
+void Plugin::set_autostart(const QString &val)
+{
+    m_autostart = val.toLower();
 }

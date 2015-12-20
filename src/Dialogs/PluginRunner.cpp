@@ -159,6 +159,10 @@ int PluginRunner::exec(const QString &name)
     ui.cancelButton->setEnabled(true);
     m_ready = true;
 
+    // autostart
+    if (plugin->get_autostart() == "true") {
+        QTimer::singleShot(300, ui.startButton, SLOT(click()));
+    }
     return QDialog::exec();
 }
 

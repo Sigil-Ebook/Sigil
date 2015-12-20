@@ -45,6 +45,7 @@ public:
     QString get_version();
     QString get_engine();
     QString get_oslist();
+    QString get_autostart();
 
     void set_name(const QString &val);
     void set_author(const QString &val);
@@ -53,6 +54,7 @@ public:
     void set_version(const QString &val);
     void set_engine(const QString &val);
     void set_oslist(const QString &val);
+    void set_autostart(const QString &val);
 
 private:
     QString m_name;
@@ -62,6 +64,7 @@ private:
     QString m_version;
     QString m_engine;
     QString m_oslist;
+    QString m_autostart;
 };
 
 #endif // PLUGIN_H
