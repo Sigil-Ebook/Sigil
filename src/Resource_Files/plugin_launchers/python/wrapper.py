@@ -345,7 +345,7 @@ class Wrapper(object):
         if pos == 0:
             self.spine = [(sid, linear, properties)] + self.spine
         elif pos == -1 or pos >= n:
-            self.spine = self.spine.append((sid, linear, properties))
+            self.spine.append((sid, linear, properties))
         else:
             self.spine = self.spine[0:pos] + [(sid, linear, properties)] + self.spine[pos:]
         self.modified['OEBPS/content.opf'] = 'file'
