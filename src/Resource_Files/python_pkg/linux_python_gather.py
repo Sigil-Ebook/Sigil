@@ -5,8 +5,8 @@ from __future__ import (unicode_literals, division, absolute_import,
                         print_function)
 
 import sys, os, inspect, shutil, subprocess, glob, platform, textwrap, py_compile, site
-from python_paths import py_ver, py_lib, py_exe, sigil_src, installer_name, tk_lib, tcl_lib
-from python_paths import cmake_build_root, qt_libs_dir, qt_plugins_dir, pkg_name, tcltk_support
+from python_paths import py_ver, py_lib, py_exe, sigil_src, installer_name, tk_lib, tcl_lib, tcltk_support
+from python_paths import cmake_build_root, qt_libs_dir, qt_plugins_dir, extra_manifest
 
 # Python standard modules location
 srcdir = os.path.dirname(inspect.getfile(os))
@@ -161,7 +161,7 @@ def create_site_py():
                                 "site-packages"))
             else:
                 for path in sys.path:
-                    py_ver = "".join(map(str, sys.version_info[:2]))
+                    py_ver = "".join(map(str, sys.version[:3])).replace(".", "")
                     if os.path.basename(path) == "python" + py_ver + ".zip":
                         sys.path.remove(path)
                 sys.path.append(os.path.join(sys.prefix, "lib", "site-packages"))
@@ -345,6 +345,17 @@ def copy_misc_files():
     # Copy the desktop file (used on Linux for the application settings)
     shutil.copy2(os.path.join(resource_dir, 'freedesktop', 'sigil.desktop'), temp_folder)
 
+def copy_strip_extra_manifest(manifest_file):
+    with open(manifest_file, 'r') as f:
+        for line in f:
+            filepath = line.strip()
+            if len(filepath) and not filepath.startswith('#'):
+                shutil.copy2(filepath, app_folder)
+                try:
+                    subprocess.check_call(['strip', '--strip-unneeded', os.path.join(app_folder, os.path.basename(filepath))])
+                except:
+                    pass
+
 def create_launcher(filename, ldpath, perms):
     with open(os.path.join(temp_folder, filename), 'wb') as f:
         f.write(bytes(textwrap.dedent('''\
@@ -353,6 +364,8 @@ def create_launcher(filename, ldpath, perms):
         # Entry point for Sigil on Unix systems.
 
         LIB_DIR=%s
+        SIGIL_PREFS_DIR="$HOME/Documents/sigil_prefs"
+        export SIGIL_PREFS_DIR
 
         if [ -z "$LD_LIBRARY_PATH" ]; then
           LD_LIBRARY_PATH="$LIB_DIR"
@@ -383,9 +396,10 @@ def create_setup():
             PYVENV=./user_pyvenv.cfg
             echo "home = $DEST/sigil-ebook/python3/pyvenv.cfg\\ninclude-system-site-packages = false\\nversion = 3.4.3" > "$PYVENV"
             DESKTOP="$DEST/.local/share/applications"
+            perl -pi -e "s!Exec=!Exec=$DEST/bin/!g" ./sigil.desktop
             ICON="$DEST/.icons"
             BINDIR="$DEST/bin"
-            chmod -R g-xr,o-xr .
+            #chmod -R g-xr,o-xr .
             MSG="Continue with the installation of Sigil to $DEST/sigil-ebook? (rerun the installer with root privileges to install Sigil system-wide)"
         else
             DEST=/opt
@@ -412,6 +426,7 @@ def create_setup():
                 if [ ! -d "$DESKTOP" ] && [ $(id -u) -ne 0 ]; then
                     mkdir -p "$DESKTOP"
                 fi
+                #perl -pi -e "s/Name=Sigil/Name=Sigil-App/g" ./sigil.desktop
                 \cp -fv ./sigil.desktop "$DESKTOP/sigil.desktop"
 
                 if [ ! -d "$ICON" ] && [ $(id -u) -ne 0 ]; then
@@ -445,7 +460,9 @@ if __name__ == '__main__':
     copy_resource_files()
     copy_libs_bins()
     copy_misc_files()
-    create_launcher('user_sigil.sh', '~/sigil-ebook', 0o744)
+    if len(extra_manifest) and os.path.exists(extra_manifest):
+        copy_strip_extra_manifest(extra_manifest)
+    create_launcher('user_sigil.sh', '~/sigil-ebook', 0o755)
     create_launcher('system_sigil.sh', '/opt/sigil-ebook', 0o755)
     create_pyvenv('user_pyvenv.cfg', '~/sigil-ebook')
     create_pyvenv('system_pyvenv.cfg', '/opt/sigil-ebook' )

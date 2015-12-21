@@ -19,11 +19,17 @@ py_dest = '${PYTHON_DEST_DIR}'
 tmp_prefix = '${MAIN_PACKAGE_DIR}'
 proj_name = '${PROJECT_NAME}'
 cmake_build_root = '${CMAKE_BINARY_DIR}'
+
+# Only used by Linux installer packaging from this point on.
 qt_libs_dir = '${QT_LIBRARY_DIR}'
 qt_plugins_dir = '${QT_PLUGINS_DIR}'
-pkg_name = '${PKG_NAME_PREFIX}'
 sigil_src = '${CMAKE_SOURCE_DIR}'
 installer_name = '${PKG_NAME_PREFIX}'
-tk_lib = '${TK_LIBRARY}'
-tcl_lib = '${TCL_LIBRARY}'
-tcltk_support='${TCLTK_SUPPORT}'
+
+# Manually define these in the cmake command ( i.e. -DTK_LIBRARY=/usr/local/lib/libtk86.so)
+tk_lib = '${TK_LIBRARY}'           # the path to libtk8x.so
+tcl_lib = '${TCL_LIBRARY}'         # the path to libtcl8x.so
+tcltk_support='${TCLTK_SUPPORT}'   # the prefix to the tcl8x and tk8x directories (contains *.tcl files)
+
+# *optional* full path to a file that contains additional files to include (one filepath per line)
+extra_manifest='${EXTRA_MANIFEST}'
