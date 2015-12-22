@@ -91,6 +91,22 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
+     <item row="5" column="2">
+      <widget class="QPushButton" name="showButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Details...</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
      <item row="5" column="3">
       <widget class="QPushButton" name="okButton">
        <property name="text">

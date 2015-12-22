@@ -82,6 +82,7 @@ private slots:
     void processError(QProcess::ProcessError error);
     void processOutput();
     void pluginFinished(int exitcode, QProcess::ExitStatus exitstatus );
+    void showHideConsole(bool ischecked);
 
 private:
 

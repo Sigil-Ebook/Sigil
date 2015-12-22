@@ -8,6 +8,7 @@
 #include <QXmlStreamAttributes>
 #include <QMessageBox>
 #include <QStandardPaths>
+#include <QDebug>
 #include "MainUI/MainWindow.h"
 #include "MainUI/BookBrowser.h"
 #include "Misc/Plugin.h"
@@ -158,13 +159,36 @@ int PluginRunner::exec(const QString &name)
     ui.progressBar->setRange(0,100);
     ui.progressBar->reset();
     ui.cancelButton->setEnabled(true);
+    ui.showButton->setVisible(false);
+    ui.showButton->setEnabled(false);
     m_ready = true;
+
 
     // autostart
     if (plugin->get_autostart() == "true") {
+        ui.startButton->setVisible(false);
+        if (m_pluginAutoClose == "true") {
+            ui.showButton->setEnabled(true);
+            ui.showButton->setVisible(true);
+            ui.showButton->setCheckable(true);
+            ui.textEdit->setVisible(false);
+            resize(789, 150);
+        }
         QTimer::singleShot(300, ui.startButton, SLOT(click()));
     }
     return QDialog::exec();
+}
+
+
+void PluginRunner::showHideConsole(bool ischecked)
+{
+    qDebug() << QString("In show hide\n");
+    ui.textEdit->setVisible(ischecked);
+    if (ischecked) {
+      resize(789, 550);
+    } else {
+      resize(789, 150);
+    }
 }
 
 
@@ -263,6 +287,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
         return;
     }
     if (m_result != "success") {
+        ui.statusLbl->setText(tr("Status: failed"));
         return;
     }
 
@@ -774,6 +799,7 @@ void PluginRunner::connectSignalsToSlots()
 {
     connect(ui.startButton, SIGNAL(clicked()), this, SLOT(startPlugin()));
     connect(ui.cancelButton, SIGNAL(clicked()), this, SLOT(cancelPlugin()));
+    connect(ui.showButton, SIGNAL(toggled(bool)), this, SLOT(showHideConsole(bool)));
     connect(&m_process, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(pluginFinished(int, QProcess::ExitStatus)));
     connect(&m_process, SIGNAL(error(QProcess::ProcessError)), this, SLOT(processError(QProcess::ProcessError)));
     connect(&m_process, SIGNAL(readyReadStandardError()), this, SLOT(processError()));

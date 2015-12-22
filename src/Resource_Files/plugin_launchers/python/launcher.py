@@ -140,10 +140,12 @@ class ProcessScript(object):
             sys.stderr.write("Error: %s\n" % e)
             sys.stdout = sys.stdout.stream
             sys.stderr = sys.stderr.stream
+            self.exitcode = -1
+            pass
+        if self.exitcode != 0:
             self.wrapout.append(_XML_HEADER)
             self.wrapout.append('<wrapper type="%s">\n<result>failed</result>\n<changes/>\n' % script_type)
-            self.exitcode = -1
-            return
+            return self.exitcode
         if script_type == "edit":
             # write out the final updated opf to the outdir
             container._w.write_opf()
@@ -285,8 +287,7 @@ def main(argv=unicode_argv()):
         if _DEBUG:
             resultxml += errorlog
     else:
-        if _DEBUG:
-            resultxml += successmsg
+        resultxml += successmsg
         resultxml += errorlog
     resultxml +='</msg>\n</wrapper>\n'
 
