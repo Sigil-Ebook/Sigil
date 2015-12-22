@@ -102,9 +102,6 @@ p, li { white-space: pre-wrap; }
        <property name="text">
         <string>Details...</string>
        </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
       </widget>
      </item>
      <item row="5" column="3">

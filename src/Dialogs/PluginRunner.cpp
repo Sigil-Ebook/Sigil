@@ -8,7 +8,7 @@
 #include <QXmlStreamAttributes>
 #include <QMessageBox>
 #include <QStandardPaths>
-#include <QDebug>
+
 #include "MainUI/MainWindow.h"
 #include "MainUI/BookBrowser.h"
 #include "Misc/Plugin.h"
@@ -170,9 +170,8 @@ int PluginRunner::exec(const QString &name)
         if (m_pluginAutoClose == "true") {
             ui.showButton->setEnabled(true);
             ui.showButton->setVisible(true);
-            ui.showButton->setCheckable(true);
             ui.textEdit->setVisible(false);
-            resize(789, 150);
+            resize(500, 100);
         }
         QTimer::singleShot(300, ui.startButton, SLOT(click()));
     }
@@ -180,15 +179,12 @@ int PluginRunner::exec(const QString &name)
 }
 
 
-void PluginRunner::showHideConsole(bool ischecked)
+void PluginRunner::showConsole()
 {
-    qDebug() << QString("In show hide\n");
-    ui.textEdit->setVisible(ischecked);
-    if (ischecked) {
-      resize(789, 550);
-    } else {
-      resize(789, 150);
-    }
+    ui.textEdit->setVisible(true);
+    ui.showButton->setEnabled(false);
+    ui.showButton->setVisible(false);
+    resize(789, 550);
 }
 
 
@@ -799,7 +795,7 @@ void PluginRunner::connectSignalsToSlots()
 {
     connect(ui.startButton, SIGNAL(clicked()), this, SLOT(startPlugin()));
     connect(ui.cancelButton, SIGNAL(clicked()), this, SLOT(cancelPlugin()));
-    connect(ui.showButton, SIGNAL(toggled(bool)), this, SLOT(showHideConsole(bool)));
+    connect(ui.showButton, SIGNAL(clicked()), this, SLOT(showConsole()));
     connect(&m_process, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(pluginFinished(int, QProcess::ExitStatus)));
     connect(&m_process, SIGNAL(error(QProcess::ProcessError)), this, SLOT(processError(QProcess::ProcessError)));
     connect(&m_process, SIGNAL(readyReadStandardError()), this, SLOT(processError()));
