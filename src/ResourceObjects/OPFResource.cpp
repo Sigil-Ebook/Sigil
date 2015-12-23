@@ -29,6 +29,7 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QUuid>
 #include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
@@ -49,6 +50,8 @@ static const QString ITEM_ELEMENT_TEMPLATE    = "<item id=\"%1\" href=\"%2\" med
 static const QString ITEMREF_ELEMENT_TEMPLATE = "<itemref idref=\"%1\"/>";
 static const QString OPF_REWRITTEN_COMMENT    = "<!-- Your OPF file was broken so Sigil "
         "tried to rebuild it for you. -->";
+
+static const QString PKG_VERSION = "<\\s*package[^>]*version\\s*=\\s*[\"\']([^\'\"])[\'\"][^>]*>";
 
 static const QString TEMPLATE_TEXT =
     "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
@@ -212,11 +215,25 @@ void OPFResource::SaveToDisk(bool book_wide_save)
 
 QString OPFResource::GetPackageVersion() const
 {
-  QReadLocker locker(&GetLock());
-  QString source = CleanSource::ProcessXML(GetText());
-  OPFParser p;
-  p.parse(source);
-  return p.m_package.m_version;
+    QReadLocker locker(&GetLock());
+    // The right way to do this is to properly parse the opf.
+    //  That means invoking the embedded python code and lxml.
+    // As this code will be called many times and from many places
+    // convert it to a simple QRegualr expression query for speed.
+
+    // QString source = CleanSource::ProcessXML(GetText());
+    // OPFParser p;
+    // p.parse(source);
+    // return p.m_package.m_version;
+
+    QString opftext = GetText();
+    QRegularExpression pkgversion_search(PKG_VERSION, QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch pkgversion_mo = pkgversion_search.match(opftext);
+    QString version = "2.0";
+    if (pkgversion_mo.hasMatch()) {
+        version = pkgversion_mo.captured(1);
+    }
+    return version;
 }
 
 
