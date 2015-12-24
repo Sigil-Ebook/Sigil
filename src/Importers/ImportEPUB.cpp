@@ -534,6 +534,7 @@ void ImportEPUB::ReadOPF()
 
         if (opf_reader.name() == "package") {
             m_UniqueIdentifierId = opf_reader.attributes().value("", "unique-identifier").toString();
+            m_PackageVersion = opf_reader.attributes().value("2.0", "version").toString();
         } else if (opf_reader.name() == "identifier") {
             ReadIdentifierElement(&opf_reader);
         }

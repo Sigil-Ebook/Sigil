@@ -225,6 +225,12 @@ private:
     bool m_HasSpineItems;
     bool m_NCXNotInManifest;
     QString m_NCXId;
+
+    /**
+     * The value of the opf package version tag
+     */
+    QString m_PackageVersion;
+
 };
 
 #endif // IMPORTEPUB_H
