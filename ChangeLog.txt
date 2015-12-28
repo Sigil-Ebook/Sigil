@@ -1,6 +1,7 @@
 pre-Sigil-0.9.3
     - Add a python based updatechecker for Sigil updates to prevent Windows OpenSSL build issues
     - Add an autostart/autoclose capability for plugin developers
+    - Stop 'Generate TOC' from introducing unnecessary spaces in front of class attibute values
 
 Sigil 0.9.2
     - Update BuildingOnLinux docs

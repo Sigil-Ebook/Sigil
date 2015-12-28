@@ -312,10 +312,15 @@ void HeadingSelector::PerformHeadingUpdates(QList<Headings::Heading *> & heading
         }
         QString new_class_attribute = QString(class_attribute)
                                       .remove(SIGIL_NOT_IN_TOC_CLASS)
-                                      .remove(OLD_SIGIL_NOT_IN_TOC_CLASS);
+                                      .remove(OLD_SIGIL_NOT_IN_TOC_CLASS)
+                                      .trimmed();
 
         if (!heading->include_in_toc) {
-            new_class_attribute = new_class_attribute.append(" " % SIGIL_NOT_IN_TOC_CLASS);
+            if (!new_class_attribute.isEmpty()) {
+                new_class_attribute = new_class_attribute.append(" " % SIGIL_NOT_IN_TOC_CLASS);
+            } else {
+                new_class_attribute = SIGIL_NOT_IN_TOC_CLASS;
+            }
         }
 
         // Only apply the change if it is different
