@@ -42,7 +42,7 @@ public:
 
     enum AvailablePreferences {
         AppearancePrefs        = 0,
-        CleanSourcePrefs       = 1,
+        GeneralSettingsPrefs   = 1,
         KeyboardShortcutsPrefs = 2,
         LanguagePrefs          = 3,
         SpellCheckPrefs        = 4,

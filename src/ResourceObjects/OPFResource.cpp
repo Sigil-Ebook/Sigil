@@ -35,6 +35,7 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Language.h"
 #include "Misc/Utility.h"
+#include "Misc/SettingsStore.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/ImageResource.h"
 #include "ResourceObjects/NCXResource.h"
@@ -58,6 +59,21 @@ static const QString TEMPLATE_TEXT =
     "<package version=\"2.0\" xmlns=\"http://www.idpf.org/2007/opf\" unique-identifier=\"BookId\">\n\n"
     "  <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:opf=\"http://www.idpf.org/2007/opf\">\n"
     "    <dc:identifier opf:scheme=\"UUID\" id=\"BookId\">urn:uuid:%1</dc:identifier>\n"
+    "  </metadata>\n\n"
+    "  <manifest>\n"
+    "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
+    "  </manifest>\n\n"
+    "  <spine toc=\"ncx\">\n"
+    "  </spine>\n\n"
+    "  <guide>\n\n</guide>\n\n"
+    "</package>";
+
+
+static const QString TEMPLATE3_TEXT =
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+    "<package version=\"3.0\" xmlns=\"http://www.idpf.org/2007/opf\" unique-identifier=\"BookId\" prefix=\"rendition: http://www.idpf.org/vocab/rendition/#\">\n\n"
+    "  <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:opf=\"http://www.idpf.org/2007/opf\" xmlns:dcterms=\"http://purl.org/dc/terms/\">\n"
+    "    <dc:identifier id=\"BookId\">urn:uuid:%1</dc:identifier>\n"
     "  </metadata>\n\n"
     "  <manifest>\n"
     "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
@@ -1030,7 +1046,12 @@ QStringList OPFResource::GetRelativePathsToAllFilesInOEPBS() const
 
 QString OPFResource::GetOPFDefaultText()
 {
-    return TEMPLATE_TEXT.arg(Utility::CreateUUID());
+    SettingsStore ss;
+    QString version = ss.defaultVersion();
+    if (version == "2.0") {
+        return TEMPLATE_TEXT.arg(Utility::CreateUUID());
+    }
+    return TEMPLATE3_TEXT.arg(Utility::CreateUUID());
 }
 
 

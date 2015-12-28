@@ -54,6 +54,8 @@ ImportHTML::ImportHTML(const QString &fullfilepath)
     m_IgnoreDuplicates(false),
     m_CachedSource(QString())
 {
+    SettingsStore ss;
+    m_DefaultVersion = ss.defaultVersion();
 }
 
 
@@ -205,7 +207,8 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
             if (m_IgnoreDuplicates && current_filenames.contains(filename)) {
                 newpath = "../" + m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePathToOEBPS();
             } else {
-                newpath = "../" + m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath)->GetRelativePathToOEBPS();
+                Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath);
+                newpath = "../" + resource->GetRelativePathToOEBPS();
             }
 
             updates[ fullfilepath ] = newpath;
@@ -233,7 +236,8 @@ QHash<QString, QString> ImportHTML::LoadStyleFiles(const QStringList & file_path
             if (m_IgnoreDuplicates && current_filenames.contains(filename)) {
                 newpath = "../" + m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePathToOEBPS();
             } else {
-                newpath = "../" + m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath)->GetRelativePathToOEBPS();
+                Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath);
+                newpath = "../" + resource->GetRelativePathToOEBPS();
             }
 
             updates[ fullfilepath ] = newpath;

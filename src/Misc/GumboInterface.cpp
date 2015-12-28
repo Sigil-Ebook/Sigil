@@ -798,6 +798,7 @@ std::string GumboInterface::get_tag_name(GumboNode *node)
 }
 
 
+// if missing leave it alone
 // if epub3 docytpe use it otherwise set it to epub2 docytpe
 std::string GumboInterface::build_doctype(GumboNode *node)
 {
@@ -809,10 +810,11 @@ std::string GumboInterface::build_doctype(GumboNode *node)
         if ((name == "html") && pi.empty() && si.empty()) {
             results.append("<!DOCTYPE html>\n\n");
             return results;
+        } else {
+            results.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n");
+            results.append("  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n\n");
         }
     }
-    results.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n");
-    results.append("  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n\n");
     return results;
 }
 

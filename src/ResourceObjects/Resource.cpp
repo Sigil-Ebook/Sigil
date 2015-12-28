@@ -41,6 +41,7 @@ Resource::Resource(const QString &mainfolder, const QString &fullfilepath, QObje
     m_LastWrittenTo(0),
     m_LastWrittenSize(0),
     m_CurrentBookRelPath(""),
+    m_EpubVersion("2.0"),
     m_ReadWriteLock(QReadWriteLock::Recursive)
 {
 }
@@ -117,6 +118,17 @@ QString Resource::GetCurrentBookRelPath()
       return GetRelativePathToRoot();
   }
   return m_CurrentBookRelPath;
+}
+
+void Resource::SetEpubVersion(const QString& version)
+{
+    m_EpubVersion = version;
+}
+
+
+QString Resource::GetEpubVersion()
+{
+  return m_EpubVersion;
 }
 
 

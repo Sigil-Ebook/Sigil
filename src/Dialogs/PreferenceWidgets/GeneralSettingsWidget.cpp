@@ -20,21 +20,26 @@
 **
 *************************************************************************/
 
-#include "Dialogs/PreferenceWidgets/CleanSourceWidget.h"
+#include "Dialogs/PreferenceWidgets/GeneralSettingsWidget.h"
 
 #include <QString>
 #include <QStringList>
 
-CleanSourceWidget::CleanSourceWidget()
+GeneralSettingsWidget::GeneralSettingsWidget()
 {
     ui.setupUi(this);
     readSettings();
 }
 
-PreferencesWidget::ResultAction CleanSourceWidget::saveSettings()
+PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
 {
-    int new_clean_on_level = 0;
 
+    int new_clean_on_level = 0;
+    QString new_epub_version = "2.0";
+
+    if (ui.EpubVersion3->isChecked()) {
+        new_epub_version = "3.0";
+    }
     if (ui.MendOnOpen->isChecked()) {
         new_clean_on_level |= CLEANON_OPEN;
     }
@@ -44,12 +49,16 @@ PreferencesWidget::ResultAction CleanSourceWidget::saveSettings()
 
     SettingsStore settings;
     settings.setCleanOn(new_clean_on_level);
+    settings.setDefaultVersion(new_epub_version);
     return PreferencesWidget::ResultAction_None;
 }
 
-void CleanSourceWidget::readSettings()
+void GeneralSettingsWidget::readSettings()
 {
     SettingsStore settings;
+    QString version = settings.defaultVersion();
+    ui.EpubVersion2->setChecked(version == "2.0");
+    ui.EpubVersion3->setChecked(version == "3.0");
     int cleanOn = settings.cleanOn();
     ui.MendOnOpen->setChecked(cleanOn & CLEANON_OPEN);
     ui.MendOnSave->setChecked(cleanOn & CLEANON_SAVE);

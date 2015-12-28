@@ -134,14 +134,20 @@ public:
     QUrl GetBaseUrl() const;
 
     /**
-     * gets and set the original path relative ot the import location
-     *
-     * @return The resource's ReadWriteLock.
+     * gets and set the original path relative to the import location
      */
 
     void SetCurrentBookRelPath(const QString& );
 
     QString GetCurrentBookRelPath();
+
+    /**
+     * gets and set the epub version this resource is used in
+     */
+
+    void SetEpubVersion(const QString& );
+
+    QString GetEpubVersion();
 
     /**
      * Returns a reference to the resource's ReadWriteLock.
@@ -278,9 +284,14 @@ private:
     qint64 m_LastWrittenSize;
 
     /**
-     * The original path to this resource form its imported epub
+     * The original path to this resource from its imported epub
      */
     QString m_CurrentBookRelPath;
+
+    /**
+     * The version of epub this resource is used in
+     */
+    QString m_EpubVersion;
 
     /**
      * The ReadWriteLock guarding access to the resource's data.

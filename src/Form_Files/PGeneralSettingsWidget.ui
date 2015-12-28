@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CleanSourceWidget</class>
- <widget class="QWidget" name="CleanSourceWidget">
+ <class>GeneralSettingsWidget</class>
+ <widget class="QWidget" name="GeneralSettingsWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Clean Source</string>
+   <string>General Settings</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="leftMargin">
@@ -26,6 +26,45 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="toolTip">
+      <string>Choose which version of epub to use
+when creating new or empty ebpus in Sigil.</string>
+     </property>
+     <property name="title">
+      <string>Create New or Empty Epubs as:</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout2">
+      <item>
+       <widget class="QRadioButton" name="EpubVersion2">
+        <property name="toolTip">
+         <string>Epub Version 2.</string>
+        </property>
+        <property name="text">
+         <string>Version 2</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="EpubVersion3">
+        <property name="toolTip">
+         <string>Epub Version 3.</string>
+        </property>
+        <property name="text">
+         <string>Version 3</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
    <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="toolTip">

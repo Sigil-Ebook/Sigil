@@ -83,6 +83,8 @@ private:
     bool m_IgnoreDuplicates;
 
     QString m_CachedSource;
+   
+    QString m_DefaultVersion;
 };
 
 #endif // IMPORTHTML_H

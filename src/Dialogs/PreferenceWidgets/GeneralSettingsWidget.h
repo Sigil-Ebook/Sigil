@@ -21,26 +21,26 @@
 *************************************************************************/
 
 #pragma once
-#ifndef CLEANSOURCEWIDGET_H
-#define CLEANSOURCEWIDGET_H
+#ifndef GENERALSETTINGSWIDGET_H
+#define GENERALSETTINGSWIDGET_H
 
 #include "PreferencesWidget.h"
 #include "Misc/SettingsStore.h"
-#include "ui_PCleanSourceWidget.h"
+#include "ui_PGeneralSettingsWidget.h"
 
 /**
  * Preferences widget for clean source code related items
  */
-class CleanSourceWidget : public PreferencesWidget
+class GeneralSettingsWidget : public PreferencesWidget
 {
 public:
-    CleanSourceWidget();
+    GeneralSettingsWidget();
     PreferencesWidget::ResultAction saveSettings();
 
 private:
     void readSettings();
 
-    Ui::CleanSourceWidget ui;
+    Ui::GeneralSettingsWidget ui;
 };
 
-#endif // CLEANSOURCEWIDGET_H
+#endif // GENERALSETTINGSWIDGET_H
