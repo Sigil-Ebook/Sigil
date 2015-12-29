@@ -2251,7 +2251,8 @@ QList<ViewEditor::ElementIndex> CodeViewEditor::ConvertStackToHierarchy(const QS
 std::tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<ViewEditor::ElementIndex> &hierarchy) const
 {
     QString source = toPlainText();
-    GumboInterface gi = GumboInterface(source);
+    QString version = "any_version";
+    GumboInterface gi = GumboInterface(source, version);
     gi.parse();
     QString webpath = ConvertHierarchyToQWebPath(hierarchy);
     GumboNode* end_node = gi.get_node_from_qwebpath(webpath);
@@ -2259,7 +2260,7 @@ std::tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<Vie
     unsigned int col = 0;
     if ((end_node->type == GUMBO_NODE_TEXT) || (end_node->type == GUMBO_NODE_WHITESPACE) || 
         (end_node->type == GUMBO_NODE_CDATA) || (end_node->type == GUMBO_NODE_COMMENT)) {
-      line = end_node->v.text.start_pos.line + 1; // compensate for xml header removed for gumbo
+        line = end_node->v.text.start_pos.line + 1; // compensate for xml header removed for gumbo
         col = end_node->v.text.start_pos.column;
     } else if ((end_node->type == GUMBO_NODE_ELEMENT) || (end_node->type == GUMBO_NODE_TEMPLATE)) {
       line = end_node->v.element.start_pos.line + 1; // comprensate for xml header removed for gumbo
@@ -3299,24 +3300,24 @@ void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
 {
     QString original_text;
     QString new_text;
+    QWidget *mainWindow_w = Utility::GetMainWindow();
+    MainWindow *mainWindow = dynamic_cast<MainWindow *>(mainWindow_w);
+    if (!mainWindow) {
+        Utility::DisplayStdErrorDialog("Could not determine main window.");
+        return;
+    }
+    QString version = mainWindow->GetCurrentBook()->GetConstOPF()->GetEpubVersion();
 
     if (all) {
-        QWidget *mainWindow_w = Utility::GetMainWindow();
-        MainWindow *mainWindow = dynamic_cast<MainWindow *>(mainWindow_w);
-
-        if (!mainWindow) {
-            Utility::DisplayStdErrorDialog("Could not determine main window.");
-            return;
-        }
         mainWindow->GetCurrentBook()->ReformatAllHTML(to_valid);
 
     } else {
         original_text = toPlainText();
 
         if (to_valid) {
-            new_text = CleanSource::Mend(original_text);
+          new_text = CleanSource::Mend(original_text, version);
         } else {
-            new_text = CleanSource::MendPrettify(original_text);
+          new_text = CleanSource::MendPrettify(original_text, version);
         }
 
         if (original_text != new_text) {

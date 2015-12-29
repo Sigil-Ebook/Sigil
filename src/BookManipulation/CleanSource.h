@@ -35,14 +35,14 @@ class CleanSource
 
 public:
     // Performs minimal mending to provided book XHTML code 
-    static QString Mend(const QString &source);
+    static QString Mend(const QString &source, const QString &version);
 
     // Convert to valid XHTML with Mending
-    static QString ToValidXHTML(const QString &source);
+    static QString ToValidXHTML(const QString &source, const QString &version );
 
     static QString ProcessXML(const QString &source);
 
-    static QString MendPrettify(const QString &source);
+    static QString MendPrettify(const QString &source, const QString &version);
 
     static QString XMLPrettyPrintBS4(const QString &source);
 
@@ -50,7 +50,7 @@ public:
 
     static QString CharToEntity(const QString &source);
 
-    static bool ReformatAll(QList <HTMLResource *> resources, QString(clean_fun)(const QString &source));
+    static bool ReformatAll(QList <HTMLResource *> resources, QString(clean_fun)(const QString &source, const QString &version));
 
 private:
 

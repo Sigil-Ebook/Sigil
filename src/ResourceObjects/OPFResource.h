@@ -239,7 +239,7 @@ private:
 
     QStringList GetRelativePathsToAllFilesInOEPBS() const;
 
-    static QString GetOPFDefaultText();
+    static QString GetOPFDefaultText(const QString &version);
 
     void FillWithDefaultText();
 

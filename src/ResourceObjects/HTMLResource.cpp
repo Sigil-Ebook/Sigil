@@ -113,7 +113,7 @@ QStringList HTMLResource::GetManifestProperties() const
 {
     QStringList properties;
     QReadLocker locker(&GetLock());
-    GumboInterface gi = GumboInterface(GetText());
+    GumboInterface gi = GumboInterface(GetText(), GetEpubVersion());
     gi.parse();
     QStringList props = gi.get_all_properties();
     if (props.contains("math")) properties.append("mathml");
@@ -128,7 +128,7 @@ QStringList HTMLResource::GetManifestProperties() const
 QStringList HTMLResource::SplitOnSGFSectionMarkers()
 {
     QStringList sections = XhtmlDoc::GetSGFSectionSplits(GetText());
-    SetText(CleanSource::Mend(sections.takeFirst()));
+    SetText(CleanSource::Mend(sections.takeFirst(),GetEpubVersion()));
     return sections;
 }
 
@@ -139,7 +139,7 @@ QStringList HTMLResource::GetPathsToLinkedResources()
     // Can NOT grab Read Lock here as this is also invoked in SetText which has write lock!
     // leading to instant lockup when renaming any resource
     // QReadLocker locker(&GetLock());
-    GumboInterface gi = GumboInterface(GetText());
+    GumboInterface gi = GumboInterface(GetText(),GetEpubVersion());
     gi.parse();
     QList<GumboTag> tags;
     tags << GUMBO_TAG_IMG << GUMBO_TAG_LINK;

@@ -36,7 +36,7 @@ public:
     TOCHTMLWriter(NCXModel::NCXEntry ncx_root_entry);
     ~TOCHTMLWriter();
 
-    QString WriteXML();
+    QString WriteXML(const QString &version);
 
 private:
     void WriteHead();

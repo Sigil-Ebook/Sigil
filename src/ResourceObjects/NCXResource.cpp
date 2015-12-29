@@ -54,6 +54,30 @@ static const QString TEMPLATE_TEXT =
     "</ncx>";
 
 
+// under xhtml5 / epub3 no doctype is allowed for the ncx
+static const QString TEMPLATE3_TEXT =
+    "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+    "<ncx xmlns=\"http://www.daisy.org/z3986/2005/ncx/\" version=\"2005-1\">\n"
+    "<head>\n"
+    "   <meta name=\"dtb:uid\" content=\"ID_UNKNOWN\" />\n"
+    "   <meta name=\"dtb:depth\" content=\"0\" />\n"
+    "   <meta name=\"dtb:totalPageCount\" content=\"0\" />\n"
+    "   <meta name=\"dtb:maxPageNumber\" content=\"0\" />\n"
+    "</head>\n"
+    "<docTitle>\n"
+    "   <text>Unknown</text>\n"
+    "</docTitle>\n"
+    "<navMap>\n"
+    "<navPoint id=\"navPoint-1\" playOrder=\"1\">\n"
+    "  <navLabel>\n"
+    "    <text>%1</text>\n"
+    "  </navLabel>\n"
+    "  <content src=\"Text/%2\" />\n"
+    "</navPoint>\n"
+    "</navMap>\n"
+    "</ncx>";
+
+
 NCXResource::NCXResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
     : XMLResource(mainfolder, fullfilepath, parent)
 {
@@ -134,7 +158,12 @@ void NCXResource::GenerateNCXFromTOCEntries(const Book *book, NCXModel::NCXEntry
 
 void NCXResource::FillWithDefaultText()
 {
-    SetText(TEMPLATE_TEXT.arg(tr("Start")).arg(FIRST_SECTION_NAME));
+    QString version = GetEpubVersion();
+    if (version.startsWith('2')) {
+        SetText(TEMPLATE_TEXT.arg(tr("Start")).arg(FIRST_SECTION_NAME));
+      } else {
+        SetText(TEMPLATE3_TEXT.arg(tr("Start")).arg(FIRST_SECTION_NAME));
+      }
 }
 
 

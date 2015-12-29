@@ -1185,8 +1185,9 @@ void MainWindow::CreateIndex()
     }
 
     // Write out the HTML index file.
+    QString version = index_resource->GetEpubVersion();
     IndexHTMLWriter index;
-    index_resource->SetText(index.WriteXML());
+    index_resource->SetText(index.WriteXML(version));
 
     // Setting a semantic on a resource that already has it set will remove the semantic.
     if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(index_resource) != GuideSemantics::Index) {
@@ -2216,7 +2217,8 @@ void MainWindow::CreateHTMLTOC()
     }
 
     TOCHTMLWriter toc(m_TableOfContents->GetRootEntry());
-    tocResource->SetText(toc.WriteXML());
+    QString version = tocResource->GetEpubVersion();
+    tocResource->SetText(toc.WriteXML(version));
 
     // Setting a semantic on a resource that already has it set will remove the semantic.
     if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(tocResource) != GuideSemantics::TableOfContents) {

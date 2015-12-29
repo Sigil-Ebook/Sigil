@@ -147,7 +147,7 @@ public:
 
     void SetEpubVersion(const QString& );
 
-    QString GetEpubVersion();
+    QString GetEpubVersion() const;
 
     /**
      * Returns a reference to the resource's ReadWriteLock.

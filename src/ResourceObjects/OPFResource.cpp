@@ -52,7 +52,7 @@ static const QString ITEMREF_ELEMENT_TEMPLATE = "<itemref idref=\"%1\"/>";
 static const QString OPF_REWRITTEN_COMMENT    = "<!-- Your OPF file was broken so Sigil "
         "tried to rebuild it for you. -->";
 
-static const QString PKG_VERSION = "<\\s*package[^>]*version\\s*=\\s*[\"\']([^\'\"])[\'\"][^>]*>";
+static const QString PKG_VERSION = "<\\s*package[^>]*version\\s*=\\s*[\"\']([^\'\"]*)[\'\"][^>]*>";
 
 static const QString TEMPLATE_TEXT =
     "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
@@ -1044,10 +1044,8 @@ QStringList OPFResource::GetRelativePathsToAllFilesInOEPBS() const
 }
 
 
-QString OPFResource::GetOPFDefaultText()
+QString OPFResource::GetOPFDefaultText(const QString &version)
 {
-    SettingsStore ss;
-    QString version = ss.defaultVersion();
     if (version == "2.0") {
         return TEMPLATE_TEXT.arg(Utility::CreateUUID());
     }
@@ -1057,7 +1055,10 @@ QString OPFResource::GetOPFDefaultText()
 
 void OPFResource::FillWithDefaultText()
 {
-    SetText(GetOPFDefaultText());
+    SettingsStore ss;
+    QString version = ss.defaultVersion();
+    SetText(GetOPFDefaultText(version));
+    SetEpubVersion(version);
 }
 
 

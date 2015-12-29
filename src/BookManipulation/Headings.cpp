@@ -73,7 +73,8 @@ QList<Headings::Heading> Headings::GetHeadingListForOneFile(HTMLResource *html_r
 {
     Q_ASSERT(html_resource);
     QString source = html_resource->GetText();
-    GumboInterface gi = GumboInterface(source);
+    QString version = html_resource->GetEpubVersion();
+    GumboInterface gi = GumboInterface(source, version);
     gi.parse();
 
     // get original source line number of body element

@@ -31,8 +31,10 @@ NCXWriter::NCXWriter(const Book *book, QIODevice &device)
     :
     XMLWriter(book, device),
     m_Headings(Headings::MakeHeadingHeirarchy(
-                   Headings::GetHeadingList(book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(true)))),
-    m_NCXRootEntry(NCXModel::NCXEntry())
+                 Headings::GetHeadingList(book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(true)))),
+    m_NCXRootEntry(NCXModel::NCXEntry()),
+    m_version(book->GetConstOPF()->GetEpubVersion())
+    
 {
 }
 
@@ -40,7 +42,9 @@ NCXWriter::NCXWriter(const Book *book, QIODevice &device)
 NCXWriter::NCXWriter(const Book *book, QIODevice &device, NCXModel::NCXEntry ncx_root_entry)
     :
     XMLWriter(book, device),
-    m_NCXRootEntry(ncx_root_entry)
+    m_NCXRootEntry(ncx_root_entry),
+    m_version(book->GetConstOPF()->GetEpubVersion())
+
 {
 }
 
@@ -55,8 +59,10 @@ void NCXWriter::WriteXMLFromHeadings()
 void NCXWriter::WriteXML()
 {
     m_Writer->writeStartDocument();
-    m_Writer->writeDTD("<!DOCTYPE ncx PUBLIC \"-//NISO//DTD ncx 2005-1//EN\"\n"
-                       "   \"http://www.daisy.org/z3986/2005/ncx-2005-1.dtd\">\n");
+    if (m_version == "2.0") {
+        m_Writer->writeDTD("<!DOCTYPE ncx PUBLIC \"-//NISO//DTD ncx 2005-1//EN\"\n"
+                           "   \"http://www.daisy.org/z3986/2005/ncx-2005-1.dtd\">\n");
+    }
     m_Writer->writeStartElement("ncx");
     m_Writer->writeAttribute("xmlns", "http://www.daisy.org/z3986/2005/ncx/");
     m_Writer->writeAttribute("version", "2005-1");
@@ -157,7 +163,8 @@ NCXModel::NCXEntry NCXWriter::ConvertHeadingsToNCX()
         if (prev_resource != heading.resource_file) {
             if (gi) delete gi;
             QString source = heading.resource_file->GetText();
-            gi = new GumboInterface(source);
+            QString version = heading.resource_file->GetEpubVersion();
+            gi = new GumboInterface(source, version);
             gi->parse();
             prev_resource = heading.resource_file;
         }

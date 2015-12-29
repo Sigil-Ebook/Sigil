@@ -33,7 +33,7 @@ class IndexHTMLWriter
 public:
     IndexHTMLWriter();
 
-    QString WriteXML();
+    QString WriteXML(const QString &version);
 
 private:
     void WriteEntries(QStandardItem *parent_item = NULL);

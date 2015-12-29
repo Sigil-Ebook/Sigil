@@ -39,6 +39,17 @@ static const QString TEMPLATE_BEGIN_TEXT =
     "</head>\n"
     "<body>\n";
 
+static const QString TEMPLATE3_BEGIN_TEXT =
+    "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n"
+    "\n"
+    "<!DOCTYPE html>\n\n"
+    "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:epub=\"http://www.idpf.org/2007/ops\">\n"
+    "<head>\n"
+    "<title>Index</title>\n"
+    "<link href=\"../Styles/" % SGC_INDEX_CSS_FILENAME % "\" rel=\"stylesheet\" type=\"text/css\" />\n"
+    "</head>\n"
+    "<body>\n";
+
 static const QString TEMPLATE_END_TEXT =
     "</body>\n"
     "</html>\n";
@@ -50,9 +61,13 @@ IndexHTMLWriter::IndexHTMLWriter()
 {
 }
 
-QString IndexHTMLWriter::WriteXML()
+QString IndexHTMLWriter::WriteXML(const QString &version)
 {
-    m_IndexHTMLFile += TEMPLATE_BEGIN_TEXT;
+    if (version == "2.0") {
+        m_IndexHTMLFile += TEMPLATE_BEGIN_TEXT;
+    } else {
+        m_IndexHTMLFile += TEMPLATE3_BEGIN_TEXT;
+    }
     m_IndexHTMLFile += "<div class=\"sgc-index-title\">";
     m_IndexHTMLFile += QObject::tr("Index");
     m_IndexHTMLFile += "</div>\n";

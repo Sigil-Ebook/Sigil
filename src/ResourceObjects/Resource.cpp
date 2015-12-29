@@ -126,7 +126,7 @@ void Resource::SetEpubVersion(const QString& version)
 }
 
 
-QString Resource::GetEpubVersion()
+QString Resource::GetEpubVersion() const
 {
   return m_EpubVersion;
 }

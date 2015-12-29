@@ -60,11 +60,12 @@ QSharedPointer<Book> ImportTXT::GetBook()
 QString ImportTXT::LoadSource() const
 {
     SettingsStore ss;
+    QString version = ss.defaultVersion();
     QString source = Utility::ReadUnicodeTextFile(m_FullFilePath);
     source = CreateParagraphs(source.split(QChar('\n')));
 
     if (ss.cleanOn() & CLEANON_OPEN) {
-        return CleanSource::Mend(source);
+      return CleanSource::Mend(source, version);
     }
 
     return source;

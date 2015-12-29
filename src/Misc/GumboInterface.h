@@ -47,8 +47,8 @@ class GumboInterface
 {
 public:
 
-    GumboInterface(const QString &source);
-    GumboInterface(const QString &source, const QHash<QString, QString> &source_updates);
+    GumboInterface(const QString &source, const QString &version);
+    GumboInterface(const QString &source, const QString &version, const QHash<QString, QString> &source_updates);
     ~GumboInterface();
 
     void    parse();
@@ -154,6 +154,7 @@ private:
     QString                         m_currentdir;
     std::string                     m_newbody;
     bool                            m_hasnbsp;
+    QString                         m_version;
     
 };
 

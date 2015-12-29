@@ -98,7 +98,7 @@ QString ImportHTML::LoadSource()
         m_CachedSource = CleanSource::CharToEntity(m_CachedSource);
 
         if (ss.cleanOn() & CLEANON_OPEN) {
-            m_CachedSource = CleanSource::Mend(XhtmlDoc::ResolveCustomEntities(m_CachedSource));
+          m_CachedSource = CleanSource::Mend(XhtmlDoc::ResolveCustomEntities(m_CachedSource), m_DefaultVersion);
         }
     }
 
@@ -110,7 +110,7 @@ QString ImportHTML::LoadSource()
 // and tries to convert it to Dublin Core
 void ImportHTML::LoadMetadata(const QString & source)
 {
-    GumboInterface gi(source);
+    GumboInterface gi(source, m_DefaultVersion);
     gi.parse();
     QList<Metadata::MetaElement> metadata;
     QList<GumboNode*> nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_META); 
@@ -146,6 +146,7 @@ void ImportHTML::UpdateFiles(HTMLResource *html_resource,
     QHash<QString, QString> css_updates;
     QString newsource = source;
     QString currentpath = html_resource->GetCurrentBookRelPath();
+    QString version = html_resource->GetEpubVersion();
     std::tie(html_updates, css_updates, std::ignore) =
         UniversalUpdates::SeparateHtmlCssXmlUpdates(updates);
     QList<Resource *> all_files = m_Book->GetFolderKeeper()->GetResourceList();
@@ -163,7 +164,7 @@ void ImportHTML::UpdateFiles(HTMLResource *html_resource,
     QFutureSynchronizer<void> sync;
     sync.addFuture(QtConcurrent::map(css_resources,
                                      std::bind(UniversalUpdates::LoadAndUpdateOneCSSFile, std::placeholders::_1, css_updates)));
-    html_resource->SetText(PerformHTMLUpdates(newsource, html_updates, css_updates, currentpath)());
+    html_resource->SetText(PerformHTMLUpdates(newsource, html_updates, css_updates, currentpath, version)());
     html_resource->SetCurrentBookRelPath("");
     sync.waitForFinished();
 }

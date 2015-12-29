@@ -379,7 +379,8 @@ void FlowTab::SaveTabContent()
         SettingsStore ss;
         QString html = m_wBookView->GetHtml();
         if (ss.cleanOn() & CLEANON_OPEN) {
-            html = CleanSource::Mend(html);
+            QString version = m_HTMLResource->GetEpubVersion();
+            html = CleanSource::Mend(html, version);
         }
         m_HTMLResource->SetText(html);
         m_wBookView->ResetModified();
@@ -832,7 +833,8 @@ void FlowTab::AutoFixWellFormedErrors()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         int pos = m_wCodeView->GetCursorPosition();
-        m_wCodeView->ReplaceDocumentText(CleanSource::ToValidXHTML(m_wCodeView->toPlainText()));
+        QString version = m_HTMLResource->GetEpubVersion();
+        m_wCodeView->ReplaceDocumentText(CleanSource::ToValidXHTML(m_wCodeView->toPlainText(), version));
         m_wCodeView->ScrollToPosition(pos);
     }
 }
