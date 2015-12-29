@@ -28,7 +28,6 @@ const QString SGC_INDEX_CSS_FILENAME = "sgc-index.css";
 
 static const QString TEMPLATE_BEGIN_TEXT =
     "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n"
-    "\n"
     "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
     "    \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n"
     "\n"
@@ -41,7 +40,6 @@ static const QString TEMPLATE_BEGIN_TEXT =
 
 static const QString TEMPLATE3_BEGIN_TEXT =
     "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n"
-    "\n"
     "<!DOCTYPE html>\n\n"
     "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:epub=\"http://www.idpf.org/2007/ops\">\n"
     "<head>\n"
