@@ -283,7 +283,7 @@ HTMLResource *Book::CreateEmptyHTMLFile()
 {
     HTMLResource *html_resource = CreateNewHTMLFile();
     QString version = html_resource->GetEpubVersion();
-    if (version == "2.0") {
+    if (version.startsWith('2')) {
         html_resource->SetText(EMPTY_HTML_FILE);
     } else {
         html_resource->SetText(EMPTY_HTML5_FILE);
@@ -297,7 +297,7 @@ HTMLResource *Book::CreateEmptyHTMLFile(HTMLResource *resource)
 {
     HTMLResource *new_resource = CreateNewHTMLFile();
     QString version = new_resource->GetEpubVersion();
-    if (version == "2.0") {
+    if (version.startsWith('2')) {
         new_resource->SetText(EMPTY_HTML_FILE);
     } else {
         new_resource->SetText(EMPTY_HTML5_FILE);
@@ -341,7 +341,7 @@ HTMLResource *Book::CreateHTMLCoverFile(QString text)
     QString version = html_resource->GetEpubVersion();
     html_resource->RenameTo(HTML_COVER_FILENAME);
     if (text.isEmpty()) {
-        if (version == "2.0") { 
+      if (version.startsWith('2')) { 
             text = HTML_COVER_SOURCE;
         } else {
             text = HTML5_COVER_SOURCE;
@@ -936,7 +936,7 @@ Resource *Book::MergeResources(QList<Resource *> resources)
     QList<QString> merged_filenames;
     QString version = sink_html_resource->GetEpubVersion();
     {
-      GumboInterface gi = GumboInterface(sink_html_resource->GetText(), version);
+        GumboInterface gi = GumboInterface(sink_html_resource->GetText(), version);
         new_bodies << gi.get_body_contents();
         Resource *failed_resource = NULL;
         
@@ -1061,12 +1061,12 @@ Book::NewSectionResult Book::CreateOneNewSection(NewSection section_info,
     QString version = html_resource->GetEpubVersion();
 
     if (html_updates.isEmpty()) {
-      html_resource->SetText(CleanSource::Mend(section_info.source, version));
+        html_resource->SetText(CleanSource::Mend(section_info.source, version));
     } else {
         QString currentpath = html_resource->GetCurrentBookRelPath();
         html_resource->SetText(PerformHTMLUpdates(CleanSource::Mend(section_info.source, version),
-                                             html_updates,
-                                                  QHash<QString, QString>(), currentpath, version)() );
+                                             html_updates, QHash<QString, QString>(), 
+                                             currentpath, version)() );
         html_resource->SetCurrentBookRelPath("");
     }
 

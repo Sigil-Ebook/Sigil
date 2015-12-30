@@ -59,7 +59,7 @@ void NCXWriter::WriteXMLFromHeadings()
 void NCXWriter::WriteXML()
 {
     m_Writer->writeStartDocument();
-    if (m_version == "2.0") {
+    if (m_version.startsWith('2')) {
         m_Writer->writeDTD("<!DOCTYPE ncx PUBLIC \"-//NISO//DTD ncx 2005-1//EN\"\n"
                            "   \"http://www.daisy.org/z3986/2005/ncx-2005-1.dtd\">\n");
     }

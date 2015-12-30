@@ -28,7 +28,6 @@
 #include <QtWidgets/QApplication>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
-#include <QDebug>
 
 #include "BookManipulation/FolderKeeper.h"
 #include "sigil_constants.h"
@@ -190,9 +189,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
         }
 
         m_Resources[ resource->GetIdentifier() ] = resource;
-        qDebug() << QString("In Folder Keeper ") << m_OPF->GetEpubVersion();
         resource->SetEpubVersion(m_OPF->GetEpubVersion());
-        qDebug() << QString("In Folder Keeper2 ") << resource->GetEpubVersion();
     }
     QFile::copy(fullfilepath, new_file_path);
 

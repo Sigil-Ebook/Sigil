@@ -3315,9 +3315,9 @@ void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
         original_text = toPlainText();
 
         if (to_valid) {
-          new_text = CleanSource::Mend(original_text, version);
+            new_text = CleanSource::Mend(original_text, version);
         } else {
-          new_text = CleanSource::MendPrettify(original_text, version);
+            new_text = CleanSource::MendPrettify(original_text, version);
         }
 
         if (original_text != new_text) {

@@ -97,7 +97,7 @@ QString CleanSource::ToValidXHTML(const QString &source, const QString &version)
 {
     QString newsource = source;
     if (!XhtmlDoc::IsDataWellFormed(source)) {
-      newsource = Mend(source, version);
+        newsource = Mend(source, version);
     }
     return newsource;
 }

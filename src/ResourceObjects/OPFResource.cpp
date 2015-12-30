@@ -1046,7 +1046,7 @@ QStringList OPFResource::GetRelativePathsToAllFilesInOEPBS() const
 
 QString OPFResource::GetOPFDefaultText(const QString &version)
 {
-    if (version == "2.0") {
+    if (version.startsWith('2')) {
         return TEMPLATE_TEXT.arg(Utility::CreateUUID());
     }
     return TEMPLATE3_TEXT.arg(Utility::CreateUUID());

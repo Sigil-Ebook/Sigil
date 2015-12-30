@@ -221,7 +221,7 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         source = CleanSource::CharToEntity(source);
 
         if (ss.cleanOn() & CLEANON_OPEN) {
-          source = CleanSource::Mend(source, version);
+            source = CleanSource::Mend(source, version);
         }
         // Even though well formed checks might have already run we need to double check because cleaning might
         // have tried to fix and may have failed or the user may have said to skip cleanning.
@@ -234,7 +234,7 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         // For files that are valid we need to do a second clean becasue PerformHTMLUpdates) will remove
         // the formatting.
         if (ss.cleanOn() & CLEANON_OPEN) {
-          source = CleanSource::Mend(source, version);
+            source = CleanSource::Mend(source, version);
         }
         html_resource->SetText(source);
         return QString();

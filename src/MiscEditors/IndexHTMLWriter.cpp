@@ -61,7 +61,7 @@ IndexHTMLWriter::IndexHTMLWriter()
 
 QString IndexHTMLWriter::WriteXML(const QString &version)
 {
-    if (version == "2.0") {
+    if (version.startsWith('2')) {
         m_IndexHTMLFile += TEMPLATE_BEGIN_TEXT;
     } else {
         m_IndexHTMLFile += TEMPLATE3_BEGIN_TEXT;
