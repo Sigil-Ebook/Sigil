@@ -25,7 +25,6 @@
 #include <QRegularExpressionMatch>
 #include <QDir>
 #include <QFileInfo>
-#include <QDebug>
 
 #include "Misc/Utility.h"
 #include "GumboInterface.h"
@@ -807,7 +806,6 @@ std::string GumboInterface::get_tag_name(GumboNode *node)
 std::string GumboInterface::build_doctype(GumboNode *node)
 {
     std::string results = "";
-    qDebug() << QString("In build_docytpe with ") << m_version;
     if (m_version.startsWith('2')) {
         results.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n");
         results.append("  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n\n");
