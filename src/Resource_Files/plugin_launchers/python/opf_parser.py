@@ -250,6 +250,10 @@ class Opf_Parser(object):
             res.append('/>\n')
         return "".join(res)
 
+    def get_epub_version(self):
+        (ver, uid, tattr) = self.package
+        return ver
+
     def get_package_tag(self):
         (ver, uid, tattr) = self.package
         packout = []

@@ -35,7 +35,9 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20151215
+_launcher_version=20160102
+
+_PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
 # Wrapper Class is used to peform record keeping for Sigil.  It keeps track of modified,
 # added, and deleted files while providing some degree of protection against files under
@@ -54,8 +56,8 @@ ext_mime_map = {
                 '.svg'  : 'image/svg+xml',
                 '.xhtml': 'application/xhtml+xml',
                 '.html' : 'application/xhtml+xml',
+                '.otf'  : 'application/vnd.ms-opentype',
                 '.ttf'  : 'application/x-font-ttf',
-                '.otf'  : 'application/x-font-opentype',
                 '.woff' : 'application/font-woff',
                 '.mp3'  : 'audio/mpeg',
                 '.mp4'  : 'video/mp4',
@@ -68,7 +70,7 @@ ext_mime_map = {
                 '.js'   : 'text/javascript',
                 '.epub' : 'application/epub+zip',
                 #'.js'   : 'application/javascript',
-                #'.otf'  : 'application/vnd.ms-opentype',
+                #'.otf'  : 'application/x-font-opentype',
                 }
 
 mime_base_map = {
@@ -138,6 +140,7 @@ class Wrapper(object):
         self.spine = []
         self.guide = []
         self.package_tag = None
+        self.epub_version = None
         # self.metadata_attr = None
         # self.metadata = []
         self.metadataxml = ''
@@ -153,6 +156,7 @@ class Wrapper(object):
             self.spine = op.get_spine()
             self.guide = op.get_guide()
             self.package_tag = op.get_package_tag()
+            self.epub_version = op.get_epub_version()
             # self.metadata = op.get_metadata()
             # self.metadata_attr = op.get_metadata_attr()
             self.metadataxml = op.get_metadataxml()
@@ -184,6 +188,8 @@ class Wrapper(object):
         global _launcher_version
         return _launcher_version
 
+    def getepubversion(self):
+        return self.epub_version
 
     # utility routine to get mime from href
     def getmime(self,  href):
@@ -417,7 +423,14 @@ class Wrapper(object):
         return self.package_tag
 
     def setpackagetag(self, new_packagetag):
-        self.package_tag = unicode_str(new_packagetag)
+        pkgtag = unicode_str(new_packagetag)
+        version = ""
+        mo = _PKG_VER.search(pkgtag)
+        if mo:
+            version = mo.group(1)
+        if version != self.epub_version:
+            raise WrapperException('Illegal to change the package version attribute')
+        self.package_tag = pkgtag
         self.modified['OEBPS/content.opf'] = 'file'
 
 

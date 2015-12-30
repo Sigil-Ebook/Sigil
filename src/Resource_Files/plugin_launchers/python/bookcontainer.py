@@ -56,6 +56,9 @@ class BookContainer(object):
     def launcher_version(self):
         return self._w.getversion()
 
+    def epub_version(self):
+        return self._w.getepubversion()
+
 # OPF Acess and Manipulation Routines
 
 # toc and pagemap access routines
