@@ -534,7 +534,7 @@ void ImportEPUB::ReadOPF()
 
         if (opf_reader.name() == "package") {
             m_UniqueIdentifierId = opf_reader.attributes().value("", "unique-identifier").toString();
-            m_PackageVersion = opf_reader.attributes().value("2.0", "version").toString();
+            m_PackageVersion = opf_reader.attributes().value("", "version").toString();
         } else if (opf_reader.name() == "identifier") {
             ReadIdentifierElement(&opf_reader);
         }
@@ -688,17 +688,18 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
 
 void ImportEPUB::LoadInfrastructureFiles()
 {
+    // always SetEpubVersion before SetText in OPF as SetText will validate with it
+    m_Book->GetOPF()->SetEpubVersion(m_PackageVersion);
     m_Book->GetOPF()->SetText(PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath)));
     QString OPFBookRelPath = m_OPFFilePath;
     OPFBookRelPath = OPFBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
     m_Book->GetOPF()->SetCurrentBookRelPath(OPFBookRelPath);
-    m_Book->GetOPF()->SetEpubVersion(m_PackageVersion);
 
     m_Book->GetNCX()->SetText(CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath)));
+    m_Book->GetNCX()->SetEpubVersion(m_PackageVersion);
     QString NCXBookRelPath = m_NCXFilePath;
     NCXBookRelPath = NCXBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
     m_Book->GetNCX()->SetCurrentBookRelPath(NCXBookRelPath);
-    m_Book->GetNCX()->SetEpubVersion(m_PackageVersion);
 }
 
 
