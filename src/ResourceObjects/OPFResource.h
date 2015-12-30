@@ -251,6 +251,8 @@ private:
 
     void UpdateText(const OPFParser &p);
 
+    QString ValidatePackageVersion(const QString &source);
+
     /**
      * Initializes m_Mimetypes.
      */

@@ -118,7 +118,8 @@ QString OPFResource::GetText() const
 void OPFResource::SetText(const QString &text)
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(text);
+    // QString source = CleanSource::ProcessXML(text);
+    QString source = ValidatePackageVersion(CleanSource::ProcessXML(text));
     TextResource::SetText(source);
 }
 
@@ -221,7 +222,7 @@ QString OPFResource::GetMainIdentifierValue() const
 
 void OPFResource::SaveToDisk(bool book_wide_save)
 {
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = ValidatePackageVersion(CleanSource::ProcessXML(GetText()));
     // Work around for covers appearing on the Nook. Issue 942.
     source = source.replace(QRegularExpression("<meta content=\"([^\"]+)\" name=\"cover\""), "<meta name=\"cover\" content=\"\\1\"");
     TextResource::SetText(source);
@@ -1057,8 +1058,8 @@ void OPFResource::FillWithDefaultText()
 {
     SettingsStore ss;
     QString version = ss.defaultVersion();
-    SetText(GetOPFDefaultText(version));
     SetEpubVersion(version);
+    SetText(GetOPFDefaultText(version));
 }
 
 
@@ -1135,3 +1136,23 @@ void OPFResource::UpdateText(const OPFParser &p)
     TextResource::SetText(p.convert_to_xml());
 }
 
+QString OPFResource::ValidatePackageVersion(const QString& source)
+{
+    QString newsource = source;
+    QString orig_version = GetEpubVersion();
+    QRegularExpression pkgversion_search(PKG_VERSION, QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch pkgversion_mo = pkgversion_search.match(newsource);
+    QString version = "2.0";
+    if (pkgversion_mo.hasMatch()) {
+        version = pkgversion_mo.captured(1);
+    }
+    if (version != orig_version) {
+        OPFParser p;
+        p.parse(newsource);
+        p.m_package.m_version = orig_version;
+        newsource = p.convert_to_xml();
+        Utility::DisplayStdWarningDialog("Changing package version inside Sigil is not supported", 
+                                         "Use an appropriate output plugin to make the initial conversion");
+    }
+    return newsource;
+}
