@@ -116,6 +116,7 @@ QStringList HTMLResource::GetManifestProperties() const
     GumboInterface gi = GumboInterface(GetText(), GetEpubVersion());
     gi.parse();
     QStringList props = gi.get_all_properties();
+    props.removeDuplicates();
     if (props.contains("math")) properties.append("mathml");
     if (props.contains("svg")) properties.append("svg");
     if (props.contains("nav")) properties.append("nav");

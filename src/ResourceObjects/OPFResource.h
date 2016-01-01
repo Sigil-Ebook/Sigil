@@ -143,6 +143,8 @@ public slots:
 
     void ResourceRenamed(const Resource *resource, QString old_full_path);
 
+    void UpdateManifestProperties(const QList<Resource *> resources);
+
 private:
 
     /**

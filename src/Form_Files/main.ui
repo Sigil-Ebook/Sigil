@@ -319,6 +319,12 @@
      <addaction name="actionMendPrettifyHTML"/>
      <addaction name="actionMendHTML"/>
     </widget>
+    <widget class="QMenu" name="menuEPUB3Tools">
+     <property name="title">
+      <string>ePub&amp;3 Tools</string>
+     </property>
+     <addaction name="actionUpdateManifestProperties"/>
+    </widget>
     <addaction name="actionAddCover"/>
     <addaction name="actionMetaEditor"/>
     <addaction name="menuTOC"/>
@@ -326,6 +332,7 @@
     <addaction name="separator"/>
     <addaction name="menuSpellCheckMenu"/>
     <addaction name="menuReformatHTML"/>
+    <addaction name="menuEPUB3Tools"/>
     <addaction name="actionWellFormedCheckEpub"/>
     <addaction name="actionValidateStylesheetsWithW3C"/>
     <addaction name="actionReports"/>
@@ -2275,6 +2282,11 @@
   <action name="actionMendHTML">
    <property name="text">
     <string>&amp;Mend All HTML Files</string>
+   </property>
+  </action>
+  <action name="actionUpdateManifestProperties">
+   <property name="text">
+    <string>&amp;Update Manifest Properties</string>
    </property>
   </action>
  </widget>

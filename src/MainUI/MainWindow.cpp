@@ -1117,6 +1117,20 @@ void MainWindow::AddCover()
     QApplication::restoreOverrideCursor();
 }
 
+
+void MainWindow::UpdateManifestProperties()
+{
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    if (!version.startsWith('3')) return;
+    SaveTabData();
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    QList<Resource *> resources = GetAllHTMLResources();
+    m_Book->GetOPF()->UpdateManifestProperties(resources);
+    m_Book->SetModified();
+    QApplication::restoreOverrideCursor();
+}
+
+
 void MainWindow::CreateIndex()
 {
     SaveTabData();
@@ -4034,6 +4048,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionAutoSpellCheck, "MainWindow.AutoSpellCheck");
     sm->registerAction(this, ui.actionMendPrettifyHTML, "MainWindow.MendPrettifyHTML");
     sm->registerAction(this, ui.actionMendHTML, "MainWindow.MendHTML");
+    sm->registerAction(this, ui.actionUpdateManifestProperties, "MainWindow.UpdateManifestProperties");
     sm->registerAction(this, ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
     sm->registerAction(this, ui.actionSpellcheck, "MainWindow.Spellcheck");
     sm->registerAction(this, ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
@@ -4380,6 +4395,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionSpellcheck,    SIGNAL(triggered()), m_FindReplace, SLOT(FindMisspelledWord()));
     connect(ui.actionMendPrettifyHTML,    SIGNAL(triggered()), this, SLOT(MendPrettifyHTML()));
     connect(ui.actionMendHTML,      SIGNAL(triggered()), this, SLOT(MendHTML()));
+    connect(ui.actionUpdateManifestProperties,      SIGNAL(triggered()), this, SLOT(UpdateManifestProperties()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateToc()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));

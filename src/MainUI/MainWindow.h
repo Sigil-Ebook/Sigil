@@ -225,6 +225,8 @@ public slots:
                                         const QUrl &fragment = QUrl(),
                                         bool precede_current_tab = false);
 
+    void UpdateManifestProperties();
+
     void CreateIndex();
 
     void runPlugin(QAction *action);

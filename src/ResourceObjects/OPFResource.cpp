@@ -1156,3 +1156,29 @@ QString OPFResource::ValidatePackageVersion(const QString& source)
     }
     return newsource;
 }
+
+void OPFResource::UpdateManifestProperties(const QList<Resource*> resources)
+{
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
+    if (p.m_package.m_version != "3.0") {
+        return;
+    }
+    foreach(Resource* resource, resources) {
+        const HTMLResource* html_resource = static_cast<const HTMLResource *>(resource);
+        QString href = html_resource->GetRelativePathToOEBPS();
+        int pos = p.m_hrefpos.value(href, -1);
+        if ((pos >= 0) && (pos < p.m_manifest.count())) {
+            ManifestEntry me = p.m_manifest.at(pos);
+            QStringList properties = html_resource->GetManifestProperties();
+            me.m_atts.remove("properties");
+            if (properties.count() > 0) {
+                me.m_atts["properties"] = properties.join(QString(" "));
+            }
+            p.m_manifest.replace(pos, me);
+        }
+    }
+    UpdateText(p);
+}
