@@ -1180,5 +1180,20 @@ void OPFResource::UpdateManifestProperties(const QList<Resource*> resources)
             p.m_manifest.replace(pos, me);
         }
     }
+    // now add the cover-image properties
+    int metapos  = GetCoverMeta(p);
+    if (metapos > -1) {
+        MetaEntry cmeta = p.m_metadata.at(metapos);
+        QString cover_id = cmeta.m_atts.value(QString("content"),QString(""));
+        if (!cover_id.isEmpty()) {
+            int pos = p.m_idpos.value(cover_id, -1);
+            if (pos >= 0 ) {
+                ManifestEntry me = p.m_manifest.at(p.m_idpos[cover_id]);
+                me.m_atts.remove("properties");
+                me.m_atts["properties"] = QString("cover-image");
+                p.m_manifest.replace(pos, me);
+            }
+        }
+    }
     UpdateText(p);
 }
