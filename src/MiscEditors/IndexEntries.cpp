@@ -71,7 +71,7 @@ void IndexEntries::AddOneEntry(QString text, QString filename, QString index_id_
             }
             // If not already in tree, add the entry in sorted order
             // Only sort categories - leave filename#id (last child) in order found
-            else if (parent_item->child(0, 0)->rowCount() && name.toLower() < parent_item->child(r, 0)->text().toLower()) {
+            else if (parent_item->child(0, 0)->rowCount() && (name.toLower().localeAwareCompare(parent_item->child(r, 0)->text().toLower()) < 0)) {
                 insert_at_row = r ;
                 break;
             }

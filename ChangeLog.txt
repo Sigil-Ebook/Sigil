@@ -9,6 +9,7 @@ pre-Sigil-0.9.3
     - Add "Epub3 Tools" to the Tools menu
     - Add "Update Manifest Properties" and "Generate Nav" to "Epub3 Tools" menu
     - Add technique to call long EmbeddedPython calls by using QtConcurrent::run
+    - Use localeAwareCompare to attempt to add Index Entries to build them sorted
 
 
 Sigil 0.9.2
