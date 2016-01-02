@@ -1,8 +1,9 @@
 /************************************************************************
 **
+**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
-**  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -1159,38 +1160,41 @@ void MainWindow::GenerateNav()
                 break;
             }
         }
-  }
+    }
 
-  PythonRoutines pr;
-  QString bookRoot = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
-  QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::GenerateNavInPython, bookRoot);
-  future.waitForFinished();
-  QString navdata = future.result();
-  // only delete the old nav if a new actual nav has been generated
-  if (!navdata.isEmpty()) {
-      m_Book->GetFolderKeeper()->SuspendWatchingResources();
-      // remove old nav file
-      if (delete_nav_list.count() > 0) {
-          m_BookBrowser->RemoveResources(m_TabManager->GetTabResources(), delete_nav_list);
-      }
-      // add a new nav file
-      TempFolder folder;
-      QString inpath = folder.GetPath() + "/nav.xhtml";
-      Utility::WriteUnicodeTextFile(navdata, inpath);
-      Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(inpath, false);
-      HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-      html_resource->SetText(navdata);
-      m_Book->GetFolderKeeper()->ResumeWatchingResources();
-      m_BookBrowser->BookContentModified();
-      m_BookBrowser->Refresh();
-      m_Book->SetModified();
-      ResourcesAddedOrDeleted();
-      ShowMessageOnStatusBar(tr("Nav generated."));
-      QApplication::restoreOverrideCursor();
-      return;
-  }
-  ShowMessageOnStatusBar(tr("Nav generation failed."));
-  QApplication::restoreOverrideCursor();
+    // Now build the nav in python in a separate thread since may be an long job
+    PythonRoutines pr;
+    QString bookRoot = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
+    QString navtitle = QString(tr("Table of Contents"));
+    QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::GenerateNavInPython, bookRoot, navtitle);
+    future.waitForFinished();
+    QString navdata = future.result();
+
+    // only delete the old nav if a new actual nav has been generated
+    if (!navdata.isEmpty()) {
+        m_Book->GetFolderKeeper()->SuspendWatchingResources();
+        // remove old nav file
+        if (delete_nav_list.count() > 0) {
+            m_BookBrowser->RemoveResources(m_TabManager->GetTabResources(), delete_nav_list);
+        }
+        // add a new nav file
+        TempFolder folder;
+        QString inpath = folder.GetPath() + "/nav.xhtml";
+        Utility::WriteUnicodeTextFile(navdata, inpath);
+        Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(inpath, false);
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        html_resource->SetText(navdata);
+        m_Book->GetFolderKeeper()->ResumeWatchingResources();
+        m_BookBrowser->BookContentModified();
+        m_BookBrowser->Refresh();
+        m_Book->SetModified();
+        ResourcesAddedOrDeleted();
+        ShowMessageOnStatusBar(tr("Nav generated."));
+        QApplication::restoreOverrideCursor();
+        return;
+    }
+    ShowMessageOnStatusBar(tr("Nav generation failed."));
+    QApplication::restoreOverrideCursor();
 }
 
 

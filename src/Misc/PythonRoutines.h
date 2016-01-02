@@ -31,7 +31,7 @@ public:
 
     PythonRoutines() {};
 
-    QString GenerateNavInPython(const QString &bookroot);
+    QString GenerateNavInPython(const QString &bookroot, const QString &navtitle);
 
 private:
 

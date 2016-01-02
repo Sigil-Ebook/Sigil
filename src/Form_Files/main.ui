@@ -321,7 +321,7 @@
     </widget>
     <widget class="QMenu" name="menuEPUB3Tools">
      <property name="title">
-      <string>ePub&amp;3 Tools</string>
+      <string>Epub&amp;3 Tools</string>
      </property>
      <addaction name="actionUpdateManifestProperties"/>
      <addaction name="actionGenerateNav"/>

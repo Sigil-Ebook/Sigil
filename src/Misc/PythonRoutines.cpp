@@ -26,13 +26,14 @@
 
 #include "Misc/PythonRoutines.h"
 
-QString PythonRoutines::GenerateNavInPython(const QString &bookroot)
+QString PythonRoutines::GenerateNavInPython(const QString &bookroot, const QString &navtitle)
 {
     QString results;
     int rv = -1;
     QString error_traceback;
     QList<QVariant> args;
     args.append(QVariant(bookroot));
+    args.append(QVariant(navtitle));
 
     EmbeddedPython * epython  = EmbeddedPython::instance();
 

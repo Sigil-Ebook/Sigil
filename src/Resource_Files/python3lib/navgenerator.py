@@ -4,28 +4,8 @@
 
 import sys
 import os
-import tempfile, shutil
-import re
 from urllib.parse import unquote
 from quickparser import QuickXHTMLParser
-
-
-ASCII_CHARS   = set(chr(x) for x in range(128))
-URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-                    'abcdefghijklmnopqrstuvwxyz'
-                    '0123456789' '#' '_.-/~')
-IRI_UNSAFE = ASCII_CHARS - URL_SAFE
-
-# returns a quoted IRI (not a URI)
-def quoteurl(href):
-    if isinstance(href,bytes):
-        href = href.decode('utf-8')
-    result = []
-    for char in href:
-        if char in IRI_UNSAFE:
-            char = "%%%02x" % ord(char)
-        result.append(char)
-    return ''.join(result)
 
 # unquotes url/iri
 def unquoteurl(href):
@@ -81,67 +61,63 @@ _guide_epubtype_map = {
      'other.warning'      : 'warning'
 }
 
-_ncx_tagname_map = {
-    'doctitle'   : 'docTitle',
-    'docauthor'  : 'docAuthor',
-    'navmap'     : 'navMap',
-    'navpoint'   : 'navPoint',
-    'playorder'  : 'playOrder',
-    'navlabel'   : 'navLabel',
-    'pagelist'   : 'pageList',
-    'pagetarget' : 'pageTarget'
-}
-
 # the plugin entry point
-def generateNav(ebook_root):
-    opf_path =  os.path.join(ebook_root,'OEBPS','content.opf')
+def generateNav(ebook_root, navtitle):
     opfdata = ""
-    with open(opf_path, 'rb') as f:
-        opfdata = f.read();
-        opfdata = opfdata.decode('utf-8', errors='replace')
+    opf_path =  os.path.join(ebook_root,'OEBPS','content.opf')
+    has_error = False
+    try:
+        with open(opf_path, 'rb') as f:
+            opfdata = f.read();
+            opfdata = opfdata.decode('utf-8', errors='replace')
+    except:
+        has_error = True
+        pass
+     
+    if has_error:
+        return ""
 
     # now parse opf
     opfparser = OPFParser(opfdata)
     guide_info = opfparser.get_guide()
-    navpath = opfparser.get_navpath()
-    if navpath is not None:
-        navpath = os.path.abspath(os.path.join(ebook_root, "OEBPS", navpath))
-    ncxpath = opfparser.get_ncxpath()
-    if ncxpath is not None:
-        ncxpath = os.path.abspath(os.path.join(ebook_root, "OEBPS", ncxpath))
     lang = opfparser.get_lang()
+    id2href = opfparser.get_id2hrefmap()
+    ncxpath = opfparser.get_ncxpath()
+    if ncxpath is None:
+        return ""
+    ncxpath = os.path.abspath(os.path.join(ebook_root, "OEBPS", ncxpath))
+    if not os.path.exists(ncxpath):
+        return ""
     
-    # generate a map of ids to hrefs
-    id2href = {}
-    manlist = opfparser.get_manifest()
-    for (id, href, mtype, attr) in manlist:
-        id2href[id] = href
+    # It is possible that the original <guide> contains references
+    # to files not in the spine. Putting those "dangling" references 
+    # in the EPUB3 navigation document will result in validation error:
+    # RSC-011 "Found a reference to a resource that is not a spine item.".
+    # We must check that the referenced files are listed in the spine.
 
-    # generate a list of hrefs in the spine
+    # First generate a list of hrefs in the spine
     spinelst = opfparser.get_spine()
     spine_hrefs = []
     for (idref, attr) in spinelst:
         spine_hrefs.append(id2href[idref])
 
-    # It is possible that the original <guide> contains references
-    # to files not in the spine;
-    # putting those "dangling" references in the EPUB3 navigation document
-    # will result in validation error:
-    # RSC-011 "Found a reference to a resource that is not a spine item.".
-    # Hence, we must check that the referenced files are listed in the spine.
+    # reduce guide to those references found to the spine
     guide_info_in_spine = []
     for gtyp, gtitle, ghref in guide_info:
-        ahref = unquoteurl(ghref) 
-        ahref = ahref.split('#')[0]
+        ahref = ghref.split('#')[0]
         if ahref in spine_hrefs:
             guide_info_in_spine.append((gtyp, gtitle, ghref))
 
-    # need to take info from opf guide, toc.ncx to create a valid "nav.xhtml"
-    qp = QuickXHTMLParser()
-    doctitle, toclist, pagelist = parse_ncx(qp, ncxpath)
-    
-    # now build a nav
-    navdata = build_nav(doctitle, toclist, pagelist, guide_info_in_spine, lang)
+    # need to take info from guide tag in opf and toc.ncx to create a valid nav.xhtml
+    try:
+        qp = QuickXHTMLParser()
+        doctitle, toclist, pagelist = parse_ncx(qp, ncxpath)
+        navdata = build_nav(doctitle, toclist, pagelist, guide_info_in_spine, lang, navtitle)
+    except:
+        has_error = True
+        pass
+    if has_error:
+        return ""
     return navdata
  
 
@@ -184,7 +160,7 @@ def parse_ncx(qp, ncxpath):
 
 
 # build up nave from toclist, pagelist and old opf2 guide info for landmarks
-def build_nav(doctitle, toclist, pagelist, guide_info, lang):
+def build_nav(doctitle, toclist, pagelist, guide_info, lang, navtitle):
     navres = []
     ind = '  '
     ibase = ind*3
@@ -204,7 +180,7 @@ def build_nav(doctitle, toclist, pagelist, guide_info, lang):
 
     # start with the toc
     navres.append(ind*2 + '<nav epub:type="toc" id="toc">\n')
-    navres.append(ind*3 + '<h1>Table of Contents</h1>\n')
+    navres.append(ind*3 + '<h1>' + navtitle + '</h1>\n')
     navres.append(ibase + '<ol>\n')
     curlvl = 1
     initial = True
@@ -276,17 +252,11 @@ class OPFParser(object):
     def __init__(self, opfdata):
         self.opf = opfdata
         self.opos = 0
-        self.package = None
-        self.metadata_attr = None
-        self.metadata = []
         self.lang = "en"
-        self.manifest = []
-        self.navpath = None
+        self.id2href= {}
         self.ncxpath = None
-        self.spine_attr = None
         self.spine=[]
         self.guide=[]
-        self.bindings=[]
         self._parseData()
 
     # OPF tag iterator
@@ -325,22 +295,12 @@ class OPFParser(object):
     def _parseData(self):
         cnt = 0
         for prefix, tname, tattr, tcontent in self._opf_tag_iter():
-            # package
-            if tname == "package":
-                ver = tattr.pop("version", "2.0")
-                uid = tattr.pop("unique-identifier","bookid")
-                self.package = (ver, uid, tattr)
-                continue
-            # metadata
-            if tname == "metadata":
-                self.metadata_attr = tattr
-                continue
+            # metadata for language
             if tname in ["meta", "link"] or tname.startswith("dc:") and "metadata" in prefix:
-                self.metadata.append((tname, tcontent, tattr))
                 if tname == "dc:language":
                     self.lang = tcontent
                 continue
-            # manifest
+            # manifest for ncxpath and idtohref map
             if tname == "item" and  prefix.endswith("manifest"):
                 nid = "xid%03d" %  cnt
                 cnt += 1
@@ -348,18 +308,11 @@ class OPFParser(object):
                 href = tattr.pop("href","")
                 mtype = tattr.pop("media-type","")
                 href = unquoteurl(href)
+                self.id2href[id] = href
                 if mtype == "application/x-dtbncx+xml":
                     self.ncxpath = href
-                if "properties" in tattr:
-                    props = tattr["properties"]
-                    if "nav" in props:
-                      self.navpath = href
-                self.manifest.append((id, href, mtype, tattr))
                 continue
             # spine
-            if tname == "spine":
-                self.spine_attr = tattr
-                continue
             if tname == "itemref" and prefix.endswith("spine"):
                 idref = tattr.pop("idref","")
                 self.spine.append((idref, tattr))
@@ -370,12 +323,6 @@ class OPFParser(object):
                 title = tattr.pop("title","")
                 href = unquoteurl(tattr.pop("href",""))
                 self.guide.append((type, title, href))
-                continue
-            # bindings
-            if tname in ["mediaTypes", "mediatypes"] and prefix.endswith("bindings"):
-                mtype = tattr.pop("media-type","")
-                handler = tattr.pop("handler","")
-                self.bindings.append((mtype, handler))
                 continue
 
     # parse and return either leading text or the next tag
@@ -460,17 +407,8 @@ class OPFParser(object):
                 ttype = 'single'
         return ttype, tname, tattr
 
-
-    def get_package(self):
-        (ver, uid, attr) = self.package
-        return (ver, uid, attr)
-
-    def get_manifest(self):
-        # (id, href, mtype, attr)
-        return self.manifest
-
-    def get_spine_attr(self):
-        return self.spine_attr
+    def get_id2hrefmap(self):
+        return self.id2href
 
     def get_spine(self): 
         # (idref, attr)
@@ -479,21 +417,6 @@ class OPFParser(object):
     def get_guide(self):
         # (gtype, gtitle, ghref)
         return self.guide
-
-    def get_bindings(self):
-        # (mtype, handler)
-        bindings = []
-        return self.bindings
-
-    def get_metadata_attr(self):
-        return self.metadata_attr
-
-    def get_metadata(self):
-        # (mname, mcontent, attr)
-        return self.metadata
-
-    def get_navpath(self):
-        return self.navpath
 
     def get_ncxpath(self):
         return self.ncxpath
