@@ -1172,7 +1172,7 @@ void MainWindow::GenerateNav()
 
     // only delete the old nav if a new actual nav has been generated
     if (!navdata.isEmpty()) {
-        m_Book->GetFolderKeeper()->SuspendWatchingResources();
+        // m_Book->GetFolderKeeper()->SuspendWatchingResources();
         // remove old nav file
         if (delete_nav_list.count() > 0) {
             m_BookBrowser->RemoveResources(m_TabManager->GetTabResources(), delete_nav_list);
@@ -1181,14 +1181,19 @@ void MainWindow::GenerateNav()
         TempFolder folder;
         QString inpath = folder.GetPath() + "/nav.xhtml";
         Utility::WriteUnicodeTextFile(navdata, inpath);
-        Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(inpath, false);
+        Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(inpath, true, "application/xhtml+xml");
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
         html_resource->SetText(navdata);
-        m_Book->GetFolderKeeper()->ResumeWatchingResources();
+        // Let Sigil know that something has changed
+        // m_Book->GetFolderKeeper()->ResumeWatchingResources();
         m_BookBrowser->BookContentModified();
         m_BookBrowser->Refresh();
         m_Book->SetModified();
         ResourcesAddedOrDeleted();
+        // Now add the nav property to the manifest
+        QList<Resource *> resources;
+        resources.append(resource);
+        m_Book->GetOPF()->UpdateManifestProperties(resources);
         ShowMessageOnStatusBar(tr("Nav generated."));
         QApplication::restoreOverrideCursor();
         return;
