@@ -324,6 +324,7 @@
       <string>ePub&amp;3 Tools</string>
      </property>
      <addaction name="actionUpdateManifestProperties"/>
+     <addaction name="actionGenerateNav"/>
     </widget>
     <addaction name="actionAddCover"/>
     <addaction name="actionMetaEditor"/>
@@ -2287,6 +2288,11 @@
   <action name="actionUpdateManifestProperties">
    <property name="text">
     <string>&amp;Update Manifest Properties</string>
+   </property>
+  </action>
+  <action name="actionGenerateNav">
+   <property name="text">
+    <string>Generate &amp;Nav</string>
    </property>
   </action>
  </widget>

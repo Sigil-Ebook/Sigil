@@ -310,6 +310,8 @@ set( MISC_FILES
     Misc/EmbeddedPython.cpp
     Misc/GumboInterface.h
     Misc/GumboInterface.cpp
+    Misc/PythonRoutines.h
+    Misc/PythonRoutines.cpp
     )
 
 set( MISC_EDITORS_FILES    

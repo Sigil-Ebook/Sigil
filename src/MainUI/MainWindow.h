@@ -227,6 +227,8 @@ public slots:
 
     void UpdateManifestProperties();
 
+    void GenerateNav();
+
     void CreateIndex();
 
     void runPlugin(QAction *action);

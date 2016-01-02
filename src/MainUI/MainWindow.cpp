@@ -25,6 +25,8 @@
 #include <QtCore/QSignalMapper>
 #include <QtCore/QThread>
 #include <QtCore/QTimer>
+#include <QtConcurrent>
+#include <QFuture>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QImage>
 #include <QtWidgets/QFileDialog>
@@ -73,9 +75,11 @@
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/Plugin.h"
 #include "Misc/PluginDB.h"
+#include "Misc/PythonRoutines.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SleepFunctions.h"
 #include "Misc/SpellCheck.h"
+#include "Misc/TempFolder.h"
 #include "Misc/TOCHTMLWriter.h"
 #include "Misc/Utility.h"
 #include "MiscEditors/IndexHTMLWriter.h"
@@ -1129,6 +1133,66 @@ void MainWindow::UpdateManifestProperties()
     m_Book->SetModified();
     QApplication::restoreOverrideCursor();
 }
+
+
+void MainWindow::GenerateNav()
+{
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    if (!version.startsWith('3')) return;
+
+    // prepare by flushing all current book changes to disk
+    SaveTabData();
+    m_Book->GetFolderKeeper()->SuspendWatchingResources();
+    m_Book->SaveAllResourcesToDisk();
+    m_Book->GetFolderKeeper()->ResumeWatchingResources();
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // find existing nav document is there is one
+    QList<Resource *> delete_nav_list;
+    QList<Resource *> resources = GetAllHTMLResources();
+    foreach(Resource * resource, resources) {
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        if (html_resource) {
+            QStringList props = html_resource->GetManifestProperties();
+            if (props.contains("nav")) {
+                delete_nav_list.append(resource);
+                break;
+            }
+        }
+  }
+
+  PythonRoutines pr;
+  QString bookRoot = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
+  QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::GenerateNavInPython, bookRoot);
+  future.waitForFinished();
+  QString navdata = future.result();
+  // only delete the old nav if a new actual nav has been generated
+  if (!navdata.isEmpty()) {
+      m_Book->GetFolderKeeper()->SuspendWatchingResources();
+      // remove old nav file
+      if (delete_nav_list.count() > 0) {
+          m_BookBrowser->RemoveResources(m_TabManager->GetTabResources(), delete_nav_list);
+      }
+      // add a new nav file
+      TempFolder folder;
+      QString inpath = folder.GetPath() + "/nav.xhtml";
+      Utility::WriteUnicodeTextFile(navdata, inpath);
+      Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(inpath, false);
+      HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+      html_resource->SetText(navdata);
+      m_Book->GetFolderKeeper()->ResumeWatchingResources();
+      m_BookBrowser->BookContentModified();
+      m_BookBrowser->Refresh();
+      m_Book->SetModified();
+      ResourcesAddedOrDeleted();
+      ShowMessageOnStatusBar(tr("Nav generated."));
+      QApplication::restoreOverrideCursor();
+      return;
+  }
+  ShowMessageOnStatusBar(tr("Nav generation failed."));
+  QApplication::restoreOverrideCursor();
+}
+
 
 
 void MainWindow::CreateIndex()
@@ -4049,6 +4113,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionMendPrettifyHTML, "MainWindow.MendPrettifyHTML");
     sm->registerAction(this, ui.actionMendHTML, "MainWindow.MendHTML");
     sm->registerAction(this, ui.actionUpdateManifestProperties, "MainWindow.UpdateManifestProperties");
+    sm->registerAction(this, ui.actionGenerateNav, "MainWindow.GenerateNav");
     sm->registerAction(this, ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
     sm->registerAction(this, ui.actionSpellcheck, "MainWindow.Spellcheck");
     sm->registerAction(this, ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
@@ -4396,6 +4461,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionMendPrettifyHTML,    SIGNAL(triggered()), this, SLOT(MendPrettifyHTML()));
     connect(ui.actionMendHTML,      SIGNAL(triggered()), this, SLOT(MendHTML()));
     connect(ui.actionUpdateManifestProperties,      SIGNAL(triggered()), this, SLOT(UpdateManifestProperties()));
+    connect(ui.actionGenerateNav,   SIGNAL(triggered()), this, SLOT(GenerateNav()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateToc()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));
