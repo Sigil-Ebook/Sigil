@@ -2,6 +2,16 @@ pre-Sigil-0.9.3
     - Add a python based updatechecker for Sigil updates to prevent Windows OpenSSL build issues
     - Add an autostart/autoclose capability for plugin developers
     - Stop 'Generate TOC' from introducing unnecessary spaces in front of class attibute values
+    - Add General Settings Preference for setting default (epub 2 or 3) for new documents
+    - Rework Sigil internals to support epub version (2 or 3) specific actions
+        - ImportHTML, ImportEPUB, Splitting and Merging, Index Generation, Mending, are all now epub version aware
+    - Add bk.epubversion() to plugin launcher/wrapper to allow plugins to be epub version aware
+    - Merge CleanSource Preference Settings into General Settings Preferences
+    - Add "Epub3 Tools" to the Tools menu
+    - Add "Update Manifest Properties" and "Generate Nav" to "Epub3 Tools" menu
+    - Add technique to call long EmbeddedPython calls by using QtConcurrent::run
+    - Use localeAwareCompare to attempt to add Index Entries to build them sorted
+
 
 Sigil 0.9.2
     - Update BuildingOnLinux docs

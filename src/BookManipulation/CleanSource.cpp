@@ -45,11 +45,11 @@ static const QString HEAD_END = "</\\s*head\\s*>";
 
 // Performs general cleaning (and improving)
 // of provided book XHTML source code
-QString CleanSource::Mend(const QString &source)
+QString CleanSource::Mend(const QString &source, const QString &version)
 {
     SettingsStore settings;
     QString newsource = PreprocessSpecialCases(source);
-    GumboInterface gp = GumboInterface(newsource);
+    GumboInterface gp = GumboInterface(newsource, version);
     newsource = gp.repair();
     newsource = CharToEntity(newsource);
     newsource = PrettifyDOCTYPEHeader(newsource);
@@ -58,10 +58,10 @@ QString CleanSource::Mend(const QString &source)
 
 
 // Mend and Prettify XHTML
-QString CleanSource::MendPrettify(const QString &source)
+QString CleanSource::MendPrettify(const QString &source, const QString &version)
 {
     QString newsource = PreprocessSpecialCases(source);
-    GumboInterface gi = GumboInterface(newsource);
+    GumboInterface gi = GumboInterface(newsource, version);
     newsource = gi.prettyprint();
     newsource = CharToEntity(newsource);
     newsource = PrettifyDOCTYPEHeader(newsource);
@@ -93,11 +93,11 @@ QString CleanSource::XMLPrettyPrintBS4(const QString &source)
 }
 
 // convert the source to valid XHTML
-QString CleanSource::ToValidXHTML(const QString &source)
+QString CleanSource::ToValidXHTML(const QString &source, const QString &version)
 {
     QString newsource = source;
     if (!XhtmlDoc::IsDataWellFormed(source)) {
-        newsource = Mend(source);
+        newsource = Mend(source, version);
     }
     return newsource;
 }
@@ -204,7 +204,7 @@ QString CleanSource::CharToEntity(const QString &source)
 }
 
 
-bool CleanSource::ReformatAll(QList <HTMLResource *> resources, QString(clean_func)(const QString &source))
+bool CleanSource::ReformatAll(QList <HTMLResource *> resources, QString(clean_func)(const QString &source, const QString &version))
 {
     QProgressDialog progress(QObject::tr("Cleaning..."), 0, 0, resources.count(), Utility::GetMainWindow());
     progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
@@ -216,7 +216,8 @@ bool CleanSource::ReformatAll(QList <HTMLResource *> resources, QString(clean_fu
         qApp->processEvents();
         QWriteLocker locker(&resource->GetLock());
         QString source = resource->GetText();
-        QString newsource = clean_func(source);
+        QString version = resource->GetEpubVersion();
+        QString newsource = clean_func(source, version);
         if (newsource != source) {
             book_modified = true;
             resource->SetText(newsource);

@@ -45,6 +45,7 @@ static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
 static QString KEY_DEFAULT_USER_DICTIONARY = SETTINGS_GROUP + "/" + "user_dictionary_name";
 static QString KEY_ENABLED_USER_DICTIONARIES = SETTINGS_GROUP + "/" + "enabled_user_dictionaries";
 static QString KEY_CLEAN_ON = SETTINGS_GROUP + "/" + "clean_on";
+static QString KEY_DEFAULT_VERSION = SETTINGS_GROUP + "/" + "default_version";
 static QString KEY_PRESERVE_ENTITY_NAMES = SETTINGS_GROUP + "/" + "preserve_entity_names";
 static QString KEY_PRESERVE_ENTITY_CODES = SETTINGS_GROUP + "/" + "preserve_entity_codes";
 
@@ -172,6 +173,12 @@ int SettingsStore::cleanOn()
 {
     clearSettingsGroup();
     return value(KEY_CLEAN_ON, (CLEANON_OPEN | CLEANON_SAVE)).toInt();
+}
+
+QString SettingsStore::defaultVersion()
+{
+    clearSettingsGroup();
+    return value(KEY_DEFAULT_VERSION, "2.0").toString();
 }
 
 QList <std::pair <ushort, QString>>  SettingsStore::preserveEntityCodeNames()
@@ -345,6 +352,12 @@ void SettingsStore::setCleanOn(int on)
 {
     clearSettingsGroup();
     setValue(KEY_CLEAN_ON, on);
+}
+
+void SettingsStore::setDefaultVersion(const QString &version)
+{
+    clearSettingsGroup();
+    setValue(KEY_DEFAULT_VERSION, version);
 }
 
 void SettingsStore::setPreserveEntityCodeNames(const QList<std::pair <ushort, QString>> codenames)

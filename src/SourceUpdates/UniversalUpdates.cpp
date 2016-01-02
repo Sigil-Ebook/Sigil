@@ -167,9 +167,10 @@ QString UniversalUpdates::UpdateOneHTMLFile(HTMLResource *html_resource,
     try {
         QWriteLocker locker(&html_resource->GetLock());
         QString currentpath = html_resource->GetCurrentBookRelPath();
+        QString version = html_resource->GetEpubVersion();
         QString source = html_resource->GetText();
         QString newsource = source;
-        newsource = PerformHTMLUpdates(newsource, html_updates, css_updates, currentpath)();
+        newsource = PerformHTMLUpdates(newsource, html_updates, css_updates, currentpath, version)();
         html_resource->SetText(newsource);
         html_resource->SetCurrentBookRelPath("");
         return QString();
@@ -207,6 +208,7 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
     }
 
     QString currentpath = html_resource->GetCurrentBookRelPath();
+    QString version = html_resource->GetEpubVersion();
 
     // non_well_formed will only be set if the user has chosen not to have
     // the file auto fixed.
@@ -219,7 +221,7 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         source = CleanSource::CharToEntity(source);
 
         if (ss.cleanOn() & CLEANON_OPEN) {
-            source = CleanSource::Mend(source);
+            source = CleanSource::Mend(source, version);
         }
         // Even though well formed checks might have already run we need to double check because cleaning might
         // have tried to fix and may have failed or the user may have said to skip cleanning.
@@ -227,12 +229,12 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
             throw QObject::tr(NON_WELL_FORMED_MESSAGE);
         }
 
-        source = PerformHTMLUpdates(source, html_updates, css_updates, currentpath)();
+        source = PerformHTMLUpdates(source, html_updates, css_updates, currentpath, version)();
         html_resource->SetCurrentBookRelPath("");
         // For files that are valid we need to do a second clean becasue PerformHTMLUpdates) will remove
         // the formatting.
         if (ss.cleanOn() & CLEANON_OPEN) {
-            source = CleanSource::Mend(source);
+            source = CleanSource::Mend(source, version);
         }
         html_resource->SetText(source);
         return QString();

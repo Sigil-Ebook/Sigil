@@ -49,7 +49,8 @@ void LinkUpdates::UpdateLinksInOneFile(HTMLResource *html_resource, QList<QStrin
     }
     QWriteLocker locker(&html_resource->GetLock());
     QString newsource = html_resource->GetText();
-    GumboInterface gi = GumboInterface(newsource);
+    QString version = html_resource->GetEpubVersion();
+    GumboInterface gi = GumboInterface(newsource, version);
     gi.parse();
     newsource = gi.perform_link_updates(newcsslinks);
     html_resource->SetText(CleanSource::CharToEntity(newsource));

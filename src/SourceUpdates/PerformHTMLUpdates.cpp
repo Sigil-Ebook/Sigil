@@ -27,12 +27,14 @@
 PerformHTMLUpdates::PerformHTMLUpdates(const QString &source,
                                        const QHash<QString, QString> &html_updates,
                                        const QHash<QString, QString> &css_updates,
-                                       const QString& currentpath)
+                                       const QString& currentpath,
+                                       const QString& version)
   :
   m_HTMLUpdates(html_updates),
   m_CSSUpdates(css_updates),
   m_CurrentPath(currentpath),
-  m_source(source)
+  m_source(source),
+  m_version(version)
 {
 }
 
@@ -40,7 +42,7 @@ PerformHTMLUpdates::PerformHTMLUpdates(const QString &source,
 QString PerformHTMLUpdates::operator()()
 {
     QString newsource = m_source;
-    GumboInterface gi = GumboInterface(newsource, m_HTMLUpdates);
+    GumboInterface gi = GumboInterface(newsource, m_version, m_HTMLUpdates);
     gi.parse();
     newsource = gi.perform_source_updates(m_CurrentPath);
     if (!m_CSSUpdates.isEmpty()) {

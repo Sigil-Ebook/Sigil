@@ -20,38 +20,27 @@
 **
 *************************************************************************/
 
-#include "Dialogs/PreferenceWidgets/CleanSourceWidget.h"
+#pragma once
+#ifndef GENERALSETTINGSWIDGET_H
+#define GENERALSETTINGSWIDGET_H
 
-#include <QString>
-#include <QStringList>
+#include "PreferencesWidget.h"
+#include "Misc/SettingsStore.h"
+#include "ui_PGeneralSettingsWidget.h"
 
-CleanSourceWidget::CleanSourceWidget()
+/**
+ * Preferences widget for clean source code related items
+ */
+class GeneralSettingsWidget : public PreferencesWidget
 {
-    ui.setupUi(this);
-    readSettings();
-}
+public:
+    GeneralSettingsWidget();
+    PreferencesWidget::ResultAction saveSettings();
 
-PreferencesWidget::ResultAction CleanSourceWidget::saveSettings()
-{
-    int new_clean_on_level = 0;
+private:
+    void readSettings();
 
-    if (ui.MendOnOpen->isChecked()) {
-        new_clean_on_level |= CLEANON_OPEN;
-    }
-    if (ui.MendOnSave->isChecked()) {
-        new_clean_on_level |= CLEANON_SAVE;
-    }
+    Ui::GeneralSettingsWidget ui;
+};
 
-    SettingsStore settings;
-    settings.setCleanOn(new_clean_on_level);
-    return PreferencesWidget::ResultAction_None;
-}
-
-void CleanSourceWidget::readSettings()
-{
-    SettingsStore settings;
-    int cleanOn = settings.cleanOn();
-    ui.MendOnOpen->setChecked(cleanOn & CLEANON_OPEN);
-    ui.MendOnSave->setChecked(cleanOn & CLEANON_SAVE);
-}
-
+#endif // GENERALSETTINGSWIDGET_H

@@ -298,7 +298,8 @@ void HeadingSelector::PerformHeadingUpdates(QList<Headings::Heading *> & heading
                 delete gi;
             }
             QString source = heading->resource_file->GetTOCCache();
-            gi = new GumboInterface(source);
+            QString version = heading->resource_file->GetEpubVersion();
+            gi = new GumboInterface(source, version);
             gi->parse();
             prev_resource = heading->resource_file;
         }
@@ -417,7 +418,8 @@ void HeadingSelector::UpdateOneHeadingTitle(QStandardItem *item, const QString &
             heading->is_changed = true;
 
             QString source = heading->resource_file->GetText();
-            GumboInterface gi = GumboInterface(source);
+            QString version = heading->resource_file->GetEpubVersion();
+            GumboInterface gi = GumboInterface(source, version);
             gi.parse();
             GumboNode* node = gi.get_node_from_path(heading->path_to_node);
             GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "title");
@@ -481,7 +483,8 @@ void HeadingSelector::ChangeHeadingLevel(int change_amount)
     QList<GumboTag> HEADING_LOOKUP = QList<GumboTag>() << GUMBO_TAG_H1 << GUMBO_TAG_H2 << GUMBO_TAG_H3 << GUMBO_TAG_H4 << GUMBO_TAG_H5 << GUMBO_TAG_H6;
     GumboTag new_tag = HEADING_LOOKUP.at(heading->level - 1);
     QString source = heading->resource_file->GetText();
-    GumboInterface gi = GumboInterface(source);
+    QString version = heading->resource_file->GetEpubVersion();
+    GumboInterface gi = GumboInterface(source, version);
     gi.parse();
     GumboNode* node = gi.get_node_from_path(heading->path_to_node);
     if (node->type == GUMBO_NODE_ELEMENT) {

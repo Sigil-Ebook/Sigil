@@ -1,7 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012  Dave Heiland
+**  Copyright (C) 2016, Kevin B. Hendricks, Stratofrd, Ontario
 **
 **  This file is part of Sigil.
 **
@@ -21,26 +20,25 @@
 *************************************************************************/
 
 #pragma once
-#ifndef CLEANSOURCEWIDGET_H
-#define CLEANSOURCEWIDGET_H
+#ifndef PYTHONROUTINES_H
+#define PYTHONROUTINES_H
 
-#include "PreferencesWidget.h"
-#include "Misc/SettingsStore.h"
-#include "ui_PCleanSourceWidget.h"
 
-/**
- * Preferences widget for clean source code related items
- */
-class CleanSourceWidget : public PreferencesWidget
+class PythonRoutines
 {
+
 public:
-    CleanSourceWidget();
-    PreferencesWidget::ResultAction saveSettings();
+
+    PythonRoutines() {};
+
+    QString GenerateNavInPython(const QString &bookroot, const QString &navtitle);
 
 private:
-    void readSettings();
 
-    Ui::CleanSourceWidget ui;
+    ///////////////////////////////
+    // PRIVATE MEMBER VARIABLES
+    ///////////////////////////////
+    
 };
 
-#endif // CLEANSOURCEWIDGET_H
+#endif // PYTHONROUTINES_H

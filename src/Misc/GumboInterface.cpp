@@ -25,7 +25,6 @@
 #include <QRegularExpressionMatch>
 #include <QDir>
 #include <QFileInfo>
-// #include <QDebug>
 
 #include "Misc/Utility.h"
 #include "GumboInterface.h"
@@ -106,7 +105,7 @@ static const char * attribute_nsprefixes[4] = { "", "xlink:", "xml:", "xmlns:" }
 // Do NOT change or delete m_utf8src once set until after you 
 // have properly destroyed the gumbo output tree
 
-GumboInterface::GumboInterface(const QString &source)
+GumboInterface::GumboInterface(const QString &source, const QString &version)
         : m_source(source),
           m_output(NULL),
           m_utf8src(""),
@@ -114,12 +113,13 @@ GumboInterface::GumboInterface(const QString &source)
           m_newcsslinks(""),
           m_currentdir(""),
           m_newbody(""),
-          m_hasnbsp(true)
+          m_hasnbsp(false),
+          m_version(version)
 {
 }
 
 
-GumboInterface::GumboInterface(const QString &source, const QHash<QString,QString> & source_updates)
+GumboInterface::GumboInterface(const QString &source, const QString &version, const QHash<QString,QString> & source_updates)
         : m_source(source),
           m_output(NULL),
           m_utf8src(""),
@@ -127,7 +127,8 @@ GumboInterface::GumboInterface(const QString &source, const QHash<QString,QStrin
           m_newcsslinks(""),
           m_currentdir(""),
           m_newbody(""),
-          m_hasnbsp(true)
+          m_hasnbsp(false),
+          m_version(version)
 {
 }
 
@@ -146,7 +147,9 @@ void GumboInterface::parse()
 {
     if (!m_source.isEmpty() && (m_output == NULL)) {
   
-        m_hasnbsp = m_source.contains("&nbsp;");
+        if (!m_version.startsWith('3')) {
+            m_hasnbsp = m_source.contains("&nbsp;");
+        }
         m_utf8src = m_source.toStdString();
         // remove any xml header line and any trailing whitespace
         if (m_utf8src.compare(0,5,"<?xml") == 0) {
@@ -798,10 +801,19 @@ std::string GumboInterface::get_tag_name(GumboNode *node)
 }
 
 
+// if missing leave it alone
 // if epub3 docytpe use it otherwise set it to epub2 docytpe
 std::string GumboInterface::build_doctype(GumboNode *node)
 {
     std::string results = "";
+    if (m_version.startsWith('2')) {
+        results.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n");
+        results.append("  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n\n");
+        return results;
+    } else if (m_version.startsWith('3')) {
+        results.append("<!DOCTYPE html>\n\n");
+        return results; 
+    }
     if (node->v.document.has_doctype) {
         std::string name(node->v.document.name);
         std::string pi(node->v.document.public_identifier);
@@ -809,10 +821,11 @@ std::string GumboInterface::build_doctype(GumboNode *node)
         if ((name == "html") && pi.empty() && si.empty()) {
             results.append("<!DOCTYPE html>\n\n");
             return results;
+        } else {
+            results.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n");
+            results.append("  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n\n");
         }
     }
-    results.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n");
-    results.append("  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n\n");
     return results;
 }
 

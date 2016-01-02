@@ -121,6 +121,8 @@ public:
 
     int cleanOn();
 
+    QString defaultVersion();
+
     /**
      * All appearance settings related to BookView.
      */
@@ -269,6 +271,8 @@ public slots:
     void setRenameTemplate(const QString &name);
 
     void setCleanOn(int on);
+
+    void setDefaultVersion(const QString &version);
 
     /**
      * Set the default font settings to use for rendering Book View/Preview

@@ -88,7 +88,8 @@ std::tuple<QString, QList<QString>> AnchorUpdates::GetOneFileIDs(HTMLResource *h
     Q_ASSERT(html_resource);
     QReadLocker locker(&html_resource->GetLock());
     QString newsource = html_resource->GetText();
-    GumboInterface gi = GumboInterface(newsource);
+    QString version = html_resource->GetEpubVersion();
+    GumboInterface gi = GumboInterface(newsource, version);
     gi.parse();
     QList<QString> ids = gi.get_all_values_for_attribute(QString("id"));
     return std::make_tuple(html_resource->Filename(), ids);
@@ -100,7 +101,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
-    GumboInterface gi = GumboInterface(html_resource->GetText());
+    GumboInterface gi = GumboInterface(html_resource->GetText(), html_resource->GetEpubVersion());
     gi.parse();
     const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);
     const QString &resource_filename = html_resource->Filename();
@@ -142,7 +143,7 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
-    GumboInterface gi = GumboInterface(html_resource->GetText());
+    GumboInterface gi = GumboInterface(html_resource->GetText(), html_resource->GetEpubVersion());
     gi.parse();
     const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);
     QString original_filename_with_relative_path = "../" % TEXT_FOLDER_NAME % "/" % originating_filename;
@@ -187,7 +188,7 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
-    GumboInterface gi = GumboInterface(html_resource->GetText());
+    GumboInterface gi = GumboInterface(html_resource->GetText(), html_resource->GetEpubVersion());
     gi.parse();
     const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);
     bool is_changed = false;

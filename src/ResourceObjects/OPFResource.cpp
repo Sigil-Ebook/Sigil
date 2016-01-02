@@ -35,6 +35,7 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Language.h"
 #include "Misc/Utility.h"
+#include "Misc/SettingsStore.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/ImageResource.h"
 #include "ResourceObjects/NCXResource.h"
@@ -51,13 +52,28 @@ static const QString ITEMREF_ELEMENT_TEMPLATE = "<itemref idref=\"%1\"/>";
 static const QString OPF_REWRITTEN_COMMENT    = "<!-- Your OPF file was broken so Sigil "
         "tried to rebuild it for you. -->";
 
-static const QString PKG_VERSION = "<\\s*package[^>]*version\\s*=\\s*[\"\']([^\'\"])[\'\"][^>]*>";
+static const QString PKG_VERSION = "<\\s*package[^>]*version\\s*=\\s*[\"\']([^\'\"]*)[\'\"][^>]*>";
 
 static const QString TEMPLATE_TEXT =
     "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
     "<package version=\"2.0\" xmlns=\"http://www.idpf.org/2007/opf\" unique-identifier=\"BookId\">\n\n"
     "  <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:opf=\"http://www.idpf.org/2007/opf\">\n"
     "    <dc:identifier opf:scheme=\"UUID\" id=\"BookId\">urn:uuid:%1</dc:identifier>\n"
+    "  </metadata>\n\n"
+    "  <manifest>\n"
+    "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
+    "  </manifest>\n\n"
+    "  <spine toc=\"ncx\">\n"
+    "  </spine>\n\n"
+    "  <guide>\n\n</guide>\n\n"
+    "</package>";
+
+
+static const QString TEMPLATE3_TEXT =
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+    "<package version=\"3.0\" xmlns=\"http://www.idpf.org/2007/opf\" unique-identifier=\"BookId\" prefix=\"rendition: http://www.idpf.org/vocab/rendition/#\">\n\n"
+    "  <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:opf=\"http://www.idpf.org/2007/opf\" xmlns:dcterms=\"http://purl.org/dc/terms/\">\n"
+    "    <dc:identifier id=\"BookId\">urn:uuid:%1</dc:identifier>\n"
     "  </metadata>\n\n"
     "  <manifest>\n"
     "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
@@ -102,7 +118,8 @@ QString OPFResource::GetText() const
 void OPFResource::SetText(const QString &text)
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(text);
+    // QString source = CleanSource::ProcessXML(text);
+    QString source = ValidatePackageVersion(CleanSource::ProcessXML(text));
     TextResource::SetText(source);
 }
 
@@ -205,7 +222,7 @@ QString OPFResource::GetMainIdentifierValue() const
 
 void OPFResource::SaveToDisk(bool book_wide_save)
 {
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = ValidatePackageVersion(CleanSource::ProcessXML(GetText()));
     // Work around for covers appearing on the Nook. Issue 942.
     source = source.replace(QRegularExpression("<meta content=\"([^\"]+)\" name=\"cover\""), "<meta name=\"cover\" content=\"\\1\"");
     TextResource::SetText(source);
@@ -1028,15 +1045,21 @@ QStringList OPFResource::GetRelativePathsToAllFilesInOEPBS() const
 }
 
 
-QString OPFResource::GetOPFDefaultText()
+QString OPFResource::GetOPFDefaultText(const QString &version)
 {
-    return TEMPLATE_TEXT.arg(Utility::CreateUUID());
+    if (version.startsWith('2')) {
+        return TEMPLATE_TEXT.arg(Utility::CreateUUID());
+    }
+    return TEMPLATE3_TEXT.arg(Utility::CreateUUID());
 }
 
 
 void OPFResource::FillWithDefaultText()
 {
-    SetText(GetOPFDefaultText());
+    SettingsStore ss;
+    QString version = ss.defaultVersion();
+    SetEpubVersion(version);
+    SetText(GetOPFDefaultText(version));
 }
 
 
@@ -1113,3 +1136,64 @@ void OPFResource::UpdateText(const OPFParser &p)
     TextResource::SetText(p.convert_to_xml());
 }
 
+QString OPFResource::ValidatePackageVersion(const QString& source)
+{
+    QString newsource = source;
+    QString orig_version = GetEpubVersion();
+    QRegularExpression pkgversion_search(PKG_VERSION, QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch pkgversion_mo = pkgversion_search.match(newsource);
+    QString version = "2.0";
+    if (pkgversion_mo.hasMatch()) {
+        version = pkgversion_mo.captured(1);
+    }
+    if (version != orig_version) {
+        OPFParser p;
+        p.parse(newsource);
+        p.m_package.m_version = orig_version;
+        newsource = p.convert_to_xml();
+        Utility::DisplayStdWarningDialog("Changing package version inside Sigil is not supported", 
+                                         "Use an appropriate output plugin to make the initial conversion");
+    }
+    return newsource;
+}
+
+void OPFResource::UpdateManifestProperties(const QList<Resource*> resources)
+{
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText());
+    OPFParser p;
+    p.parse(source);
+    if (p.m_package.m_version != "3.0") {
+        return;
+    }
+    foreach(Resource* resource, resources) {
+        const HTMLResource* html_resource = static_cast<const HTMLResource *>(resource);
+        QString href = html_resource->GetRelativePathToOEBPS();
+        int pos = p.m_hrefpos.value(href, -1);
+        if ((pos >= 0) && (pos < p.m_manifest.count())) {
+            ManifestEntry me = p.m_manifest.at(pos);
+            QStringList properties = html_resource->GetManifestProperties();
+            me.m_atts.remove("properties");
+            if (properties.count() > 0) {
+                me.m_atts["properties"] = properties.join(QString(" "));
+            }
+            p.m_manifest.replace(pos, me);
+        }
+    }
+    // now add the cover-image properties
+    int metapos  = GetCoverMeta(p);
+    if (metapos > -1) {
+        MetaEntry cmeta = p.m_metadata.at(metapos);
+        QString cover_id = cmeta.m_atts.value(QString("content"),QString(""));
+        if (!cover_id.isEmpty()) {
+            int pos = p.m_idpos.value(cover_id, -1);
+            if (pos >= 0 ) {
+                ManifestEntry me = p.m_manifest.at(p.m_idpos[cover_id]);
+                me.m_atts.remove("properties");
+                me.m_atts["properties"] = QString("cover-image");
+                p.m_manifest.replace(pos, me);
+            }
+        }
+    }
+    UpdateText(p);
+}

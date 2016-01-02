@@ -42,7 +42,7 @@ TOCHTMLWriter::~TOCHTMLWriter()
     }
 }
 
-QString TOCHTMLWriter::WriteXML()
+QString TOCHTMLWriter::WriteXML(const QString &version)
 {
     QString out;
 
@@ -54,11 +54,19 @@ QString TOCHTMLWriter::WriteXML()
 
     m_Writer = new QXmlStreamWriter(&out);
     m_Writer->writeStartDocument();
-    m_Writer->writeDTD("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
-                       "   \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
-    m_Writer->writeStartElement("html");
-    m_Writer->writeAttribute("xmlns", "http://www.w3.org/1999/xhtml");
-    m_Writer->writeCharacters("\n");
+    if (version.startsWith('2')) {
+        m_Writer->writeDTD("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
+                           "   \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
+        m_Writer->writeStartElement("html");
+        m_Writer->writeAttribute("xmlns", "http://www.w3.org/1999/xhtml");
+        m_Writer->writeCharacters("\n");
+    } else {
+        m_Writer->writeDTD("<!DOCTYPE html>\n");
+        m_Writer->writeStartElement("html");
+        m_Writer->writeAttribute("xmlns", "http://www.w3.org/1999/xhtml");
+        m_Writer->writeAttribute("xmlns:epub", "http://www.idpf.org/2007/ops");
+        m_Writer->writeCharacters("\n");
+    }
     WriteHead();
     WriteBody();
     m_Writer->writeEndDocument();

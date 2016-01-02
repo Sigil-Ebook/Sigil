@@ -32,7 +32,8 @@ public:
     PerformHTMLUpdates(const QString &source,
                        const QHash<QString, QString> &html_updates,
                        const QHash<QString, QString> &css_updates, 
-                       const QString& currentpath);
+                       const QString& currentpath,
+                       const QString& version);
 
     QString operator()();
 
@@ -46,6 +47,7 @@ private:
     const QHash<QString, QString> &m_CSSUpdates;
     const QString& m_CurrentPath;
     const QString& m_source;
+    const QString& m_version;
 };
 
 #endif // PERFORMHTMLUPDATES_H

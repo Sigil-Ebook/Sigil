@@ -189,6 +189,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
         }
 
         m_Resources[ resource->GetIdentifier() ] = resource;
+        resource->SetEpubVersion(m_OPF->GetEpubVersion());
     }
     QFile::copy(fullfilepath, new_file_path);
 

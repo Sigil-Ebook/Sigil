@@ -63,10 +63,16 @@ const QString WEBKIT_BODY_STYLE_CRUFT = " style=\"word-wrap: break-word; -webkit
 const QString DOC_PREFIX = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n"
                            "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
                            "  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n"
-                           "<html xmlns=\"http://www.w3.org/1999/xhtml\">";
+                           "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n";
+
+const QString DOC5_PREFIX = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n"
+                            "<!DOCTYPE html>\n"
+                            "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:epub=\"http://http://www.idpf.org/2007/ops\">\n";
+
+static const QString DOCTYPE_TAG = "<!(DOCTYPE[^>]*)>";
 
 const QString REMOVE_XML_TAG = "<\\?xml.*>";
-const QString REMOVE_DOCTYPE_TAG = "<!DOCTYPE.*>";
+const QString REMOVE_DOCTYPE_TAG = "<!DOCTYPE[^>]*>";
 const QString REMOVE_HTML_TAG = "<html.*>";
 
 const QString REPLACE_SPANS = "<span class=\"SigilReplace_\\d*\"( id=\"SigilReplace_\\d*\")*>";
@@ -246,6 +252,19 @@ void BookViewEditor::SetZoomFactor(float factor)
 
 QString BookViewEditor::SplitSection()
 {
+    QString html = page()->mainFrame()->toHtml();
+    QString doctype = "";
+    QRegularExpression doctype_search(DOCTYPE_TAG, QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch doctype_mo = doctype_search.match(html);
+    if (doctype_mo.hasMatch()) {
+        doctype = doctype_mo.captured(1);
+    }
+    QString newprefix;
+    if (doctype == "DOCTYPE html") {
+        newprefix = DOC5_PREFIX;
+    } else {
+        newprefix = DOC_PREFIX;
+    }
     QString head     = page()->mainFrame()->documentElement().findFirst("head").toOuterXml();
     QString body_tag = EvaluateJavascript(GET_BODY_TAG_HTML).toString();
     QString segment  = EvaluateJavascript(c_GetBlock % c_GetSegmentHTML).toString();
@@ -257,7 +276,7 @@ QString BookViewEditor::SplitSection()
     body_tag = body_tag.remove(WEBKIT_BODY_STYLE_CRUFT).remove("</body>");
     // In addition we strip Webkit namespace cruft out of the above text.
     // Every element will have an xmlns element on it which we want removed.
-    QString new_html = QString(DOC_PREFIX)
+    QString new_html = QString(newprefix)
                        .append(head.remove(XML_NAMESPACE_CRUFT))
                        .append(body_tag.remove(XML_NAMESPACE_CRUFT))
                        .append(segment.remove(XML_NAMESPACE_CRUFT))

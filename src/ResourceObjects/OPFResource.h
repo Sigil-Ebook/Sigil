@@ -143,6 +143,8 @@ public slots:
 
     void ResourceRenamed(const Resource *resource, QString old_full_path);
 
+    void UpdateManifestProperties(const QList<Resource *> resources);
+
 private:
 
     /**
@@ -239,7 +241,7 @@ private:
 
     QStringList GetRelativePathsToAllFilesInOEPBS() const;
 
-    static QString GetOPFDefaultText();
+    static QString GetOPFDefaultText(const QString &version);
 
     void FillWithDefaultText();
 
@@ -250,6 +252,8 @@ private:
     QString GetFileMimetype(const QString &filepath) const;
 
     void UpdateText(const OPFParser &p);
+
+    QString ValidatePackageVersion(const QString &source);
 
     /**
      * Initializes m_Mimetypes.

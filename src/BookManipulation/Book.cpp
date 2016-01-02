@@ -61,6 +61,21 @@ static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\
                                         "</body>\n"
                                         "</html>";
 
+static const QString EMPTY_HTML5_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                                        "<!DOCTYPE html>\n\n"
+                                        "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:epub=\"http://www.idpf.org/2007/ops\">\n"
+                                        "<head>\n"
+                                        "<title></title>\n"
+                                        "</head>\n"
+                                        "<body>\n"
+
+                                        // The numeric entity for nbsp is here so that the user starts writing
+                                        // inside the <p> element; if it's not here, webkit
+                                        // inserts text _outside_ the <p> element, Epub3 requires numeric entities
+                                        "<p>&#160;</p>\n"
+                                        "</body>\n"
+                                        "</html>";
+
 static const QString SGC_TOC_CSS_FILE =
     "div.sgc-toc-title {\n"
     "    font-size: 2em;\n"
@@ -118,6 +133,23 @@ const QString HTML_COVER_SOURCE =
     "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
     "\"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n"
     "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+    "<head>\n"
+    "  <title>Cover</title>\n"
+    "</head>\n"
+    ""
+    "<body>\n"
+    "  <div style=\"text-align: center; padding: 0pt; margin: 0pt;\">\n"
+    "    <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"100%\" preserveAspectRatio=\"xMidYMid meet\" version=\"1.1\" viewBox=\"0 0 SGC_IMAGE_WIDTH SGC_IMAGE_HEIGHT\" width=\"100%\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
+    "      <image width=\"SGC_IMAGE_WIDTH\" height=\"SGC_IMAGE_HEIGHT\" xlink:href=\"SGC_IMAGE_FILENAME\"/>\n"
+    "    </svg>\n"
+    "  </div>\n"
+    "</body>\n"
+    "</html>\n";
+
+const QString HTML5_COVER_SOURCE =
+    "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n"
+    "<!DOCTYPE html>\n\n"
+    "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:epub=\"http://www.idpf.org/2007/ops\">\n"
     "<head>\n"
     "  <title>Cover</title>\n"
     "</head>\n"
@@ -250,7 +282,12 @@ HTMLResource *Book::CreateNewHTMLFile()
 HTMLResource *Book::CreateEmptyHTMLFile()
 {
     HTMLResource *html_resource = CreateNewHTMLFile();
-    html_resource->SetText(EMPTY_HTML_FILE);
+    QString version = html_resource->GetEpubVersion();
+    if (version.startsWith('2')) {
+        html_resource->SetText(EMPTY_HTML_FILE);
+    } else {
+        html_resource->SetText(EMPTY_HTML5_FILE);
+    }
     SetModified(true);
     return html_resource;
 }
@@ -259,8 +296,12 @@ HTMLResource *Book::CreateEmptyHTMLFile()
 HTMLResource *Book::CreateEmptyHTMLFile(HTMLResource *resource)
 {
     HTMLResource *new_resource = CreateNewHTMLFile();
-    new_resource->SetText(EMPTY_HTML_FILE);
-
+    QString version = new_resource->GetEpubVersion();
+    if (version.startsWith('2')) {
+        new_resource->SetText(EMPTY_HTML_FILE);
+    } else {
+        new_resource->SetText(EMPTY_HTML5_FILE);
+    }
     if (resource != NULL) {
         QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
         int reading_order = GetOPF()->GetReadingOrder(resource) + 1;
@@ -297,9 +338,14 @@ void Book::MoveResourceAfter(HTMLResource *from_resource, HTMLResource *to_resou
 HTMLResource *Book::CreateHTMLCoverFile(QString text)
 {
     HTMLResource *html_resource = CreateNewHTMLFile();
+    QString version = html_resource->GetEpubVersion();
     html_resource->RenameTo(HTML_COVER_FILENAME);
     if (text.isEmpty()) {
-        text = HTML_COVER_SOURCE;
+      if (version.startsWith('2')) { 
+            text = HTML_COVER_SOURCE;
+        } else {
+            text = HTML5_COVER_SOURCE;
+        }
     }
     html_resource->SetText(text);
     html_resource->SaveToDisk();
@@ -365,8 +411,9 @@ HTMLResource *Book::CreateSectionBreakOriginalResource(const QString &content, H
     QString old_extension = originating_filename.right(originating_filename.length() - originating_filename.lastIndexOf("."));
     originating_resource->RenameTo(GetFirstUniqueSectionName(old_extension));
     HTMLResource *new_resource = CreateNewHTMLFile();
+    QString version = GetOPF()->GetEpubVersion();
     new_resource->RenameTo(originating_filename);
-    new_resource->SetText(CleanSource::Mend(content));
+    new_resource->SetText(CleanSource::Mend(content, version));
     m_Mainfolder->SuspendWatchingResources();
     new_resource->SaveToDisk();
     m_Mainfolder->ResumeWatchingResources();
@@ -887,8 +934,9 @@ Resource *Book::MergeResources(QList<Resource *> resources)
 
     QStringList new_bodies;
     QList<QString> merged_filenames;
+    QString version = sink_html_resource->GetEpubVersion();
     {
-        GumboInterface gi = GumboInterface(sink_html_resource->GetText());
+        GumboInterface gi = GumboInterface(sink_html_resource->GetText(), version);
         new_bodies << gi.get_body_contents();
         Resource *failed_resource = NULL;
         
@@ -906,7 +954,7 @@ Resource *Book::MergeResources(QList<Resource *> resources)
             }
 
             // Get the html document for this source resource.
-            GumboInterface ngi = GumboInterface(source_html_resource->GetText());
+            GumboInterface ngi = GumboInterface(source_html_resource->GetText(), version);
             new_bodies << ngi.get_body_contents();
             merged_filenames.append(Utility::URLEncodePath(source_resource->Filename()));
         }
@@ -1010,14 +1058,15 @@ Book::NewSectionResult Book::CreateOneNewSection(NewSection section_info,
     Utility::WriteUnicodeTextFile("PLACEHOLDER", fullfilepath);
     HTMLResource *html_resource = qobject_cast<HTMLResource *>(m_Mainfolder->AddContentFileToFolder(fullfilepath));
     Q_ASSERT(html_resource);
+    QString version = html_resource->GetEpubVersion();
 
     if (html_updates.isEmpty()) {
-        html_resource->SetText(CleanSource::Mend(section_info.source));
+        html_resource->SetText(CleanSource::Mend(section_info.source, version));
     } else {
         QString currentpath = html_resource->GetCurrentBookRelPath();
-        html_resource->SetText(PerformHTMLUpdates(CleanSource::Mend(section_info.source),
-                                             html_updates,
-                                             QHash<QString, QString>(), currentpath)() );
+        html_resource->SetText(PerformHTMLUpdates(CleanSource::Mend(section_info.source, version),
+                                             html_updates, QHash<QString, QString>(), 
+                                             currentpath, version)() );
         html_resource->SetCurrentBookRelPath("");
     }
 

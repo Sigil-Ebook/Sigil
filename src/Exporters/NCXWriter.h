@@ -111,6 +111,8 @@ private:
     const QList<Headings::Heading> m_Headings;
 
     NCXModel::NCXEntry m_NCXRootEntry;
+
+    QString m_version;
 };
 
 #endif // NCXWRITER_H

@@ -460,7 +460,8 @@ BookViewPreview::SearchTools BookViewPreview::GetSearchTools() const
     SearchTools search_tools;
     search_tools.fulltext = "";
     QString source = page()->mainFrame()->toHtml();
-    GumboInterface gi = GumboInterface(source);
+    QString version = "any_version";
+    GumboInterface gi = GumboInterface(source, version);
     gi.parse();
 
     // start with body node

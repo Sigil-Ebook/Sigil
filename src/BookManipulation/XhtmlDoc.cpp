@@ -178,7 +178,8 @@ QList<XhtmlDoc::XMLElement> XhtmlDoc::GetTagsInDocument(const QString &source, c
 
 QList<QString> XhtmlDoc::GetAllDescendantClasses(const QString & source)
 {
-    GumboInterface gi = GumboInterface(source);
+    QString version = "any_version";
+    GumboInterface gi = GumboInterface(source, version);
     QList<GumboNode*> nodes = gi.get_all_nodes_with_attribute(QString("class"));
     QStringList classes;
     foreach(GumboNode * node, nodes) {
@@ -197,7 +198,8 @@ QList<QString> XhtmlDoc::GetAllDescendantClasses(const QString & source)
 
 QList<QString> XhtmlDoc::GetAllDescendantStyleUrls(const QString & source)
 {
-    GumboInterface gi = GumboInterface(source);
+    QString version = "any_version";
+    GumboInterface gi = GumboInterface(source, version);
     QList<GumboNode*> nodes = gi.get_all_nodes_with_attribute(QString("style"));
     QStringList styles;
     foreach(GumboNode * node, nodes) {
@@ -217,7 +219,8 @@ QList<QString> XhtmlDoc::GetAllDescendantStyleUrls(const QString & source)
 
 QList<QString> XhtmlDoc::GetAllDescendantIDs(const QString & source)
 {
-    GumboInterface gi = GumboInterface(source);
+    QString version = "any_version";
+    GumboInterface gi = GumboInterface(source, version);
     QList<GumboNode*> nodes = gi.get_all_nodes_with_attribute(QString("id"));
     nodes.append(gi.get_all_nodes_with_attribute(QString("name")));
     QStringList IDs;
@@ -242,7 +245,8 @@ QList<QString> XhtmlDoc::GetAllDescendantIDs(const QString & source)
 
 QList<QString> XhtmlDoc::GetAllDescendantHrefs(const QString & source)
 {
-    GumboInterface gi = GumboInterface(source);
+    QString version = "any_version";
+    GumboInterface gi = GumboInterface(source, version);
     QList<GumboNode*> nodes = gi.get_all_nodes_with_attribute(QString("href"));
     QStringList hrefs;
     foreach(GumboNode * node, nodes) {
@@ -258,7 +262,8 @@ QList<QString> XhtmlDoc::GetAllDescendantHrefs(const QString & source)
 
 XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &source)
 {
-    GumboInterface gi = GumboInterface(source);
+    QString version = "any_version";
+    GumboInterface gi = GumboInterface(source, version);
     QList<GumboWellFormedError> results = gi.error_check();
     if (!results.isEmpty()) {
         XhtmlDoc::WellFormedError error;
@@ -531,7 +536,8 @@ QStringList XhtmlDoc::GetPathsToMediaFiles(const QString &source)
 
 QStringList XhtmlDoc::GetPathsToStyleFiles(const QString &source)
 {
-    GumboInterface gi = GumboInterface(source);
+    QString version = "any_version";
+    GumboInterface gi = GumboInterface(source, version);
     QStringList style_paths;
     QList<GumboNode*> nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_LINK);
     for (int i = 0; i < nodes.count(); ++i) {
@@ -552,7 +558,8 @@ QStringList XhtmlDoc::GetPathsToStyleFiles(const QString &source)
 
 QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const QString & source, QList<GumboTag> tags)
 {
-    GumboInterface gi = GumboInterface(source);
+    QString version = "any_version";
+    GumboInterface gi = GumboInterface(source, version);
     QStringList media_paths;
     QList<GumboNode*> nodes = gi.get_all_nodes_with_tags(tags);
     for (int i = 0; i < nodes.count(); ++i) {

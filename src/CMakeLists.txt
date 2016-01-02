@@ -162,8 +162,8 @@ set( DIALOG_FILES
     Dialogs/Preferences.h
     Dialogs/PreferenceWidgets/AppearanceWidget.cpp
     Dialogs/PreferenceWidgets/AppearanceWidget.h
-    Dialogs/PreferenceWidgets/CleanSourceWidget.cpp
-    Dialogs/PreferenceWidgets/CleanSourceWidget.h
+    Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp
+    Dialogs/PreferenceWidgets/GeneralSettingsWidget.h
     Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp
     Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.h
     Dialogs/PreferenceWidgets/LanguageWidget.cpp
@@ -310,6 +310,8 @@ set( MISC_FILES
     Misc/EmbeddedPython.cpp
     Misc/GumboInterface.h
     Misc/GumboInterface.cpp
+    Misc/PythonRoutines.h
+    Misc/PythonRoutines.cpp
     )
 
 set( MISC_EDITORS_FILES    
@@ -434,7 +436,7 @@ set( UI_FILES
     Form_Files/PAppearanceWidget.ui
     Form_Files/Preferences.ui
     Form_Files/PKeyboardShortcutsWidget.ui
-    Form_Files/PCleanSourceWidget.ui
+    Form_Files/PGeneralSettingsWidget.ui
     Form_Files/PLanguageWidget.ui
     Form_Files/PSpellCheckWidget.ui
     Form_Files/PPreserveEntitiesWidget.ui

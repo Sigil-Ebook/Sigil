@@ -67,7 +67,8 @@ void Index::AddIndexIDsOneFile(HTMLResource *html_resource)
 {
     QWriteLocker locker(&html_resource->GetLock());
     QString source = html_resource->GetText();
-    GumboInterface gi = GumboInterface(source);
+    QString version = html_resource->GetEpubVersion();
+    GumboInterface gi = GumboInterface(source, version);
     QList<GumboNode*> nodes = XhtmlDoc::GetIDNodes(gi, gi.get_root_node());
     bool resource_updated = false;
     int index_id_number = 1;
