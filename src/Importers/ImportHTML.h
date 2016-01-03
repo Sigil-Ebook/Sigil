@@ -84,7 +84,7 @@ private:
 
     QString m_CachedSource;
    
-    QString m_DefaultVersion;
+    QString m_EpubVersion;
 };
 
 #endif // IMPORTHTML_H

@@ -55,7 +55,7 @@ ImportHTML::ImportHTML(const QString &fullfilepath)
     m_CachedSource(QString())
 {
     SettingsStore ss;
-    m_DefaultVersion = ss.defaultVersion();
+    m_EpubVersion = ss.defaultVersion();
 }
 
 
@@ -63,6 +63,8 @@ void ImportHTML::SetBook(QSharedPointer<Book> book, bool ignore_duplicates)
 {
     m_Book = book;
     m_IgnoreDuplicates = ignore_duplicates;
+    // update epub version to match the book that was just set
+    m_EpubVersion = m_Book->GetConstOPF()->GetEpubVersion();
 }
 
 
@@ -98,7 +100,7 @@ QString ImportHTML::LoadSource()
         m_CachedSource = CleanSource::CharToEntity(m_CachedSource);
 
         if (ss.cleanOn() & CLEANON_OPEN) {
-          m_CachedSource = CleanSource::Mend(XhtmlDoc::ResolveCustomEntities(m_CachedSource), m_DefaultVersion);
+          m_CachedSource = CleanSource::Mend(XhtmlDoc::ResolveCustomEntities(m_CachedSource), m_EpubVersion);
         }
     }
 
@@ -110,7 +112,7 @@ QString ImportHTML::LoadSource()
 // and tries to convert it to Dublin Core
 void ImportHTML::LoadMetadata(const QString & source)
 {
-    GumboInterface gi(source, m_DefaultVersion);
+    GumboInterface gi(source, m_EpubVersion);
     gi.parse();
     QList<Metadata::MetaElement> metadata;
     QList<GumboNode*> nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_META); 
