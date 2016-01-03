@@ -270,6 +270,7 @@ private:
      */
     QHash<QString, QString> m_Mimetypes;
 
+    bool m_WarnedAboutVersion;
 };
 
 #endif // OPFRESOURCE_H

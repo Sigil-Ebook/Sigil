@@ -85,7 +85,8 @@ static const QString TEMPLATE3_TEXT =
 
 
 OPFResource::OPFResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
-  : XMLResource(mainfolder, fullfilepath, parent)
+  : XMLResource(mainfolder, fullfilepath, parent),
+    m_WarnedAboutVersion(false)
 {
     CreateMimetypes();
     FillWithDefaultText();
@@ -1151,8 +1152,11 @@ QString OPFResource::ValidatePackageVersion(const QString& source)
         p.parse(newsource);
         p.m_package.m_version = orig_version;
         newsource = p.convert_to_xml();
-        Utility::DisplayStdWarningDialog("Changing package version inside Sigil is not supported", 
-                                         "Use an appropriate output plugin to make the initial conversion");
+        if (!m_WarnedAboutVersion) {
+            Utility::DisplayStdWarningDialog("Changing package version inside Sigil is not supported", 
+                                             "Use an appropriate output plugin to make the initial conversion");
+            m_WarnedAboutVersion = true;
+        }
     }
     return newsource;
 }
