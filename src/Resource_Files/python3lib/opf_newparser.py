@@ -127,7 +127,7 @@ class Opf_Parser(object):
                 self.guide.append((type, title, href))
                 continue
             # bindings
-            if tname in ["mediaTypes", "mediatypes"] and prefix.endswith("bindings"):
+            if tname in ["mediaType", "mediatype"] and prefix.endswith("bindings"):
                 mtype = tattr.pop("media-type","")
                 handler = tattr.pop("handler","")
                 self.bindings.append((mtype, handler))
