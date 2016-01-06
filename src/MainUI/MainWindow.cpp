@@ -2471,6 +2471,11 @@ void MainWindow::SaveTabData()
 
 void MainWindow::MetaEditorDialog()
 {
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    if (version.startsWith('3')) {
+        Utility::DisplayStdWarningDialog(tr("Not Yet Implemented for epub3.  Use the content.opf tab in BookBrowser to manually edit the Metadata."));
+        return;
+    }
     // non-modal dialog
     m_MetaEditor->SetBook(m_Book);
     m_MetaEditor->show();
@@ -3783,8 +3788,10 @@ void MainWindow::UpdateUiWithCurrentFile(const QString &fullfilepath)
 {
     m_CurrentFilePath = fullfilepath;
     m_CurrentFileName = m_CurrentFilePath.isEmpty() ? DEFAULT_FILENAME : QFileInfo(m_CurrentFilePath).fileName();
+    QString epubversion = m_Book->GetConstOPF()->GetEpubVersion();
+
     // Update the titlebar
-    setWindowTitle(tr("%1[*] - %2").arg(m_CurrentFileName).arg(tr("Sigil")));
+    setWindowTitle(tr("%1[*] - epub%2 - %3").arg(m_CurrentFileName).arg(epubversion).arg(tr("Sigil")));
 
     if (m_CurrentFilePath.isEmpty()) {
         return;
