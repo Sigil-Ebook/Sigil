@@ -24,6 +24,7 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QDir>
+#include <QUrl>
 #include <QFileInfo>
 
 #include "Misc/Utility.h"
@@ -307,6 +308,10 @@ QStringList GumboInterface::get_properties(GumboNode* node)
     std::string tagname = get_tag_name(node);
     if (in_set(manifest_properties, tagname)) {
         properties.append(QString::fromStdString(tagname));
+    }
+    GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "src");
+    if (attr && !QUrl(QString::fromUtf8(attr->value)).isRelative()) {
+        properties.append(QString("remote-resources"));
     }
     GumboVector* children = &node->v.element.children;
     for (unsigned int i = 0; i < children->length; ++i) {

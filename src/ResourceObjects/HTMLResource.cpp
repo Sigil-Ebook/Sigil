@@ -122,6 +122,7 @@ QStringList HTMLResource::GetManifestProperties() const
     if (props.contains("nav")) properties.append("nav");
     if (props.contains("script")) properties.append("scripted");
     if (props.contains("epub:switch")) properties.append("switch");
+    if (props.contains("remote-resources")) properties.append("remote-resources");
     return properties;
 }
 
