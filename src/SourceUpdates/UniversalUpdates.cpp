@@ -141,9 +141,11 @@ std::tuple <QHash<QString, QString>,
         xml_updates[ key_path ] = QString(html_updates.value(key_path)).remove(QRegularExpression("^../"));
 
         // Font file updates are CSS updates, not HTML updates
+        // Actually with SVG font-face-uri tag and epub3 this is no longer true
+        // They can appear in both html and css
         if (FONT_EXTENSIONS.contains(extension)) {
             css_updates[ key_path ] = html_updates.value(key_path);
-            html_updates.remove(key_path);
+            // html_updates.remove(key_path);
         } else if (extension == "css") {
             // Needed for CSS updates because of @import rules
             css_updates[ key_path ] = html_updates.value(key_path);
