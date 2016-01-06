@@ -28,6 +28,7 @@
 #include <QtWidgets/QMessageBox>
 #include <QtWebKit/QWebSettings>
 #include <QtWebKitWidgets/QWebFrame>
+#include <QDir>
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/GumboInterface.h"
 #include "Misc/SettingsStore.h"
@@ -73,6 +74,15 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
     page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
     page()->settings()->setAttribute(QWebSettings::PluginsEnabled, true);
+
+    // Enable local-storage for epub3
+    page()->settings()->setAttribute(QWebSettings::LocalStorageEnabled, true);
+    QString localStorePath = Utility::DefinePrefsDir() + "/local-storage";
+    QDir storageDir(localStorePath);
+    if (!storageDir.exists()) {
+        storageDir.mkpath(localStorePath);
+    }
+    page()->settings()->setLocalStoragePath(localStorePath);
     CreateContextMenuActions();
     ConnectSignalsToSlots();
 }
