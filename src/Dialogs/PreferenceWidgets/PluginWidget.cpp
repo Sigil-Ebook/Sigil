@@ -42,6 +42,25 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
     pdb->set_engine_path("python2.7", ui.editPathPy2->text());
     pdb->set_engine_path("python3.4", ui.editPathPy3->text());
 
+
+    // handle the 3 assignable plugin buttons
+    QHash<QString, Plugin*> plugins = pdb->all_plugins();
+    QStringList keys = plugins.keys();
+    keys.sort();
+    QStringList pluginmap;
+    QStringList pnames;
+    pnames.append(ui.comboBox->currentText());
+    pnames.append(ui.comboBox_2->currentText());
+    pnames.append(ui.comboBox_3->currentText());
+    foreach (QString pname, pnames) {
+        if (keys.contains(pname)) {
+            pluginmap.append(pname);
+        } else {
+            pluginmap.append("");
+        }
+    }
+    settings.setPluginMap(pluginmap);
+
     if (!bundledInterpReady()) {
         settings.setUseBundledInterp(false);
     } else {
@@ -76,7 +95,6 @@ void PluginWidget::readSettings()
     // Load the available plugin information
     PluginDB *pdb = PluginDB::instance();
     QHash<QString, Plugin *> plugins;
-    int nrows = 0;
 
     ui.editPathPy2->setText(pdb->get_engine_path("python2.7"));
     ui.editPathPy3->setText(pdb->get_engine_path("python3.4"));
@@ -86,6 +104,7 @@ void PluginWidget::readSettings()
         ui.pluginTable->removeRow(0);
     }
 
+    int nrows = 0;
     plugins = pdb->all_plugins();
     foreach(Plugin *p, plugins) {
         ui.pluginTable->insertRow(nrows);
@@ -94,6 +113,30 @@ void PluginWidget::readSettings()
     }
 
     ui.pluginTable->resizeColumnsToContents();
+
+    // handle the 3 assignable plugin buttons
+    ui.comboBox->clear();
+    ui.comboBox_2->clear();
+    ui.comboBox_3->clear();
+
+    QStringList keys = plugins.keys();
+    keys.sort();
+    QStringList items = QStringList() << "";
+    items.append(keys);
+    ui.comboBox->addItems(items);
+    ui.comboBox_2->addItems(items);
+    ui.comboBox_3->addItems(items);
+
+    ui.comboBox->setCurrentIndex(0);
+    ui.comboBox_2->setCurrentIndex(0);
+    ui.comboBox_3->setCurrentIndex(0);
+    QStringList pluginmap = settings.pluginMap();
+    int t1 = ui.comboBox->findText(pluginmap.at(0));
+    int t2 = ui.comboBox_2->findText(pluginmap.at(1));
+    int t3 = ui.comboBox_3->findText(pluginmap.at(2));
+    ui.comboBox->setCurrentIndex(t1);
+    ui.comboBox_2->setCurrentIndex(t2);
+    ui.comboBox_3->setCurrentIndex(t3);
 
     // If the python bundled interpreter is present/ready, enable the checkbox and set it
     // based on the value of the SettingStore Value. Otherwise keep it disabled.
@@ -165,6 +208,9 @@ void PluginWidget::addPlugin()
     ui.pluginTable->insertRow(rows);
     setPluginTableRow(p,rows);
     ui.pluginTable->resizeColumnsToContents();
+    ui.comboBox->addItem(pluginname);
+    ui.comboBox_2->addItem(pluginname);
+    ui.comboBox_3->addItem(pluginname);
 }
 
 
@@ -184,7 +230,19 @@ void PluginWidget::removePlugin()
     ui.pluginTable->removeRow(row);
     pdb->remove_plugin(pluginname);
     ui.pluginTable->resizeColumnsToContents();
+    int item_to_remove = ui.comboBox->findText(pluginname);
+    if (item_to_remove > -1) {
+        ui.comboBox->removeItem(item_to_remove);
+        ui.comboBox_2->removeItem(item_to_remove);
+        ui.comboBox_3->removeItem(item_to_remove);
+    }
+    if (ui.comboBox->currentText() == pluginname) {
+      ui.comboBox->setCurrentIndex(-1);
+      ui.comboBox_2->setCurrentIndex(-1);
+      ui.comboBox_3->setCurrentIndex(-1);
+    }
 }
+
 
 void PluginWidget::removeAllPlugins()
 {
@@ -206,7 +264,19 @@ void PluginWidget::removeAllPlugins()
         pdb->remove_all_plugins();
         ui.pluginTable->resizeColumnsToContents();
     }
+    ui.comboBox->clear();
+    ui.comboBox_2->clear();
+    ui.comboBox_3->clear();
+    ui.comboBox->setCurrentIndex(-1);
+    ui.comboBox_2->setCurrentIndex(-1);
+    ui.comboBox_3->setCurrentIndex(-1);
 }
+
+
+void PluginWidget::pluginMapChanged(int i) {
+    m_isDirty = true;
+}
+
 
 bool PluginWidget::bundledInterpReady()
 {
@@ -325,4 +395,7 @@ void PluginWidget::connectSignalsToSlots()
     connect(ui.editPathPy2, SIGNAL(editingFinished()), this, SLOT(enginePy2PathChanged()));
     connect(ui.editPathPy3, SIGNAL(editingFinished()), this, SLOT(enginePy3PathChanged()));
     connect(ui.chkUseBundled, SIGNAL(stateChanged(int)), this, SLOT(useBundledPy3Changed(int)));
+    connect(ui.comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(pluginMapChanged(int)));
+    connect(ui.comboBox_2, SIGNAL(currentIndexChanged(int)), this, SLOT(pluginMapChanged(int)));
+    connect(ui.comboBox_3, SIGNAL(currentIndexChanged(int)), this, SLOT(pluginMapChanged(int)));
 }

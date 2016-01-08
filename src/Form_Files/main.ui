@@ -463,6 +463,12 @@
    <addaction name="actionMetaEditor"/>
    <addaction name="actionGenerateTOC"/>
    <addaction name="actionSpellcheckEditor"/>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionPlugin1"/>
+   <addaction name="actionPlugin2"/>
+   <addaction name="actionPlugin3"/>
   </widget>
   <widget class="QToolBar" name="toolBarHeadings">
    <property name="windowTitle">
@@ -2273,6 +2279,33 @@
   <action name="actionManage_Plugins">
    <property name="text">
     <string>Manage Plugins</string>
+   </property>
+  </action>
+  <action name="actionPlugin1">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/plugin_22px.png</normaloff>:/main/plugin_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run Plugin 1</string>
+   </property>
+  </action>
+  <action name="actionPlugin2">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/plugin_22px.png</normaloff>:/main/plugin_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run Plugin 2</string>
+   </property>
+  </action>
+  <action name="actionPlugin3">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/plugin_22px.png</normaloff>:/main/plugin_22px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run Plugin 3</string>
    </property>
   </action>
   <action name="actionMendPrettifyHTML">

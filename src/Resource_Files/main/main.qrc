@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/main">
+        <file>plugin_22px.png</file>
+        <file>plugin_16px.png</file>
         <file>metadata-editor_22px.png</file>
         <file>metadata-editor_16px.png</file>
         <file>generate-toc_22px.png</file>

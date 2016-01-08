@@ -31,6 +31,7 @@ private slots:
     void removePlugin();
     void removeAllPlugins();
     void pluginSelected(int row, int col);
+    void pluginMapChanged(int);
 
 private:
     enum PluginFields {

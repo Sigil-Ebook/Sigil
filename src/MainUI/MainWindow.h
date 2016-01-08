@@ -347,6 +347,13 @@ private slots:
      */
     void ApplicationFocusChanged(QWidget *old, QWidget *now);
 
+    /** 
+     *  Quick Launch Plugins
+     */
+    void RunPlugin1();
+    void RunPlugin2();
+    void RunPlugin3();
+
     /**
      * Some controls (CodeView, BookView and combo boxes in F&R) inherit PasteTarget
      * to allow various modeless/popup dialogs like Clipboard History, Clip Editor and
@@ -1004,6 +1011,10 @@ private:
     QMenu *m_menuPluginsEdit;
     QMenu *m_menuPluginsValidation;
     QAction *m_actionManagePlugins;
+    QAction *m_actionPlugin1;
+    QAction *m_actionPlugin2;
+    QAction *m_actionPlugin3;
+    QStringList m_pluginList;
     bool m_SaveCSS;
 
     /**

@@ -177,6 +177,10 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_menuPluginsOutput(NULL),
     m_menuPluginsEdit(NULL),
     m_menuPluginsValidation(NULL),
+    m_actionPlugin1(NULL),
+    m_actionPlugin2(NULL),
+    m_actionPlugin3(NULL),
+    m_pluginList(QStringList()),
     m_SaveCSS(false)
 {
     ui.setupUi(this);
@@ -223,14 +227,21 @@ void MainWindow::loadPluginsMenu()
 
     m_menuPlugins = ui.menuPlugins;
     m_actionManagePlugins = ui.actionManage_Plugins;
-
+    m_actionPlugin1 = ui.actionPlugin1;
+    m_actionPlugin2 = ui.actionPlugin2;
+    m_actionPlugin3 = ui.actionPlugin3;
+    
     unloadPluginsMenu();
 
     connect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
+    connect(m_actionPlugin1, SIGNAL(triggered()), this, SLOT(RunPlugin1()));
+    connect(m_actionPlugin2, SIGNAL(triggered()), this, SLOT(RunPlugin2()));
+    connect(m_actionPlugin3, SIGNAL(triggered()), this, SLOT(RunPlugin3()));
 
     QHash<QString, Plugin *> plugins = pdb->all_plugins();
     QStringList keys = plugins.keys();
     keys.sort();
+    m_pluginList = keys;
 
     foreach(QString key, keys) {
         Plugin *p = plugins.value(key);
@@ -298,6 +309,9 @@ void MainWindow::unloadPluginsMenu()
         }
     }
     disconnect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
+    disconnect(m_actionPlugin1, SIGNAL(triggered()), this, SLOT(RunPlugin1()));
+    disconnect(m_actionPlugin2, SIGNAL(triggered()), this, SLOT(RunPlugin2()));
+    disconnect(m_actionPlugin3, SIGNAL(triggered()), this, SLOT(RunPlugin3()));
 }
 
 void MainWindow::runPlugin(QAction *action)
@@ -1741,6 +1755,39 @@ void MainWindow::ApplicationFocusChanged(QWidget *old, QWidget *now)
             UpdateZoomLabel(zoom_factor);
             UpdateZoomSlider(zoom_factor);
         }
+    }
+}
+
+void MainWindow::RunPlugin1()
+{
+    SettingsStore ss;
+    QStringList namemap = ss.pluginMap();
+    QString pname = namemap.at(0);
+    if (m_pluginList.contains(pname)) {
+        PluginRunner prunner(m_TabManager, this);
+        prunner.exec(pname);
+    }
+}
+
+void MainWindow::RunPlugin2()
+{
+    SettingsStore ss;
+    QStringList namemap = ss.pluginMap();
+    QString pname = namemap.at(1);
+    if (m_pluginList.contains(pname)) {
+        PluginRunner prunner(m_TabManager, this);
+        prunner.exec(pname);
+    }
+}
+
+void MainWindow::RunPlugin3()
+{
+    SettingsStore ss;
+    QStringList namemap = ss.pluginMap();
+    QString pname = namemap.at(2);
+    if (m_pluginList.contains(pname)) {
+        PluginRunner prunner(m_TabManager, this);
+        prunner.exec(pname);
     }
 }
 
@@ -4188,6 +4235,11 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionClip18, "MainWindow.Clip18");
     sm->registerAction(this, ui.actionClip19, "MainWindow.Clip19");
     sm->registerAction(this, ui.actionClip20, "MainWindow.Clip20");
+
+    // for plugins
+    sm->registerAction(this, ui.actionPlugin1, "MainWindow.Plugins.RunPlugin1");
+    sm->registerAction(this, ui.actionPlugin2, "MainWindow.Plugins.RunPlugin2");
+    sm->registerAction(this, ui.actionPlugin3, "MainWindow.Plugins.RunPlugin3");
 
     ExtendIconSizes();
     UpdateClipsUI();

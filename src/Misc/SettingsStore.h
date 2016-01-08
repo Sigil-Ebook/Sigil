@@ -121,6 +121,8 @@ public:
 
     int cleanOn();
 
+    QStringList pluginMap();
+
     QString defaultVersion();
 
     /**
@@ -271,6 +273,8 @@ public slots:
     void setRenameTemplate(const QString &name);
 
     void setCleanOn(int on);
+
+    void setPluginMap(QStringList & map);
 
     void setDefaultVersion(const QString &version);
 

@@ -16,86 +16,20 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="2" column="0">
-      <widget class="QLabel" name="enginePy3">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
+     <item row="13" column="2">
+      <widget class="QComboBox" name="comboBox_2"/>
+     </item>
+     <item row="12" column="2">
+      <widget class="QComboBox" name="comboBox"/>
+     </item>
+     <item row="12" column="0">
+      <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>≥Python3.4:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        <string>Assign as Plugin 1</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="0" colspan="3">
-      <widget class="Line" name="line_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="2">
-      <layout class="QHBoxLayout" name="horizontalLayout1">
-       <item>
-        <widget class="QPushButton" name="Py3Auto">
-         <property name="text">
-          <string>Auto</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="Py3Set">
-         <property name="text">
-          <string>Set</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="editPathPy3">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="2">
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QPushButton" name="Py2Auto">
-         <property name="text">
-          <string>Auto</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="Py2Set">
-         <property name="text">
-          <string>Set</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="6" column="2">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="6" column="0" rowspan="6" colspan="2">
+     <item row="6" column="0" rowspan="6" colspan="3">
       <widget class="QTableWidget" name="pluginTable">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -163,6 +97,85 @@
        </column>
       </widget>
      </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="enginePy3">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>≥Python3.4:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" colspan="4">
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <layout class="QHBoxLayout" name="horizontalLayout1">
+       <item>
+        <widget class="QPushButton" name="Py3Auto">
+         <property name="text">
+          <string>Auto</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Py3Set">
+         <property name="text">
+          <string>Set</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="2">
+      <widget class="QLineEdit" name="editPathPy3">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="Py2Auto">
+         <property name="text">
+          <string>Auto</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Py2Set">
+         <property name="text">
+          <string>Set</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="6" column="3">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
      <item row="4" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
@@ -170,28 +183,28 @@
        </property>
       </widget>
      </item>
-     <item row="7" column="2">
+     <item row="7" column="3">
       <widget class="QPushButton" name="addButton">
        <property name="text">
         <string>Add Plugin</string>
        </property>
       </widget>
      </item>
-     <item row="9" column="2">
+     <item row="9" column="3">
       <widget class="QPushButton" name="removeAllButton">
        <property name="text">
         <string>Remove All</string>
        </property>
       </widget>
      </item>
-     <item row="8" column="2">
+     <item row="8" column="3">
       <widget class="QPushButton" name="removeButton">
        <property name="text">
         <string>Remove Plugin</string>
        </property>
       </widget>
      </item>
-     <item row="10" column="2">
+     <item row="10" column="3">
       <spacer name="verticalSpacer_2">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -204,7 +217,7 @@
        </property>
       </spacer>
      </item>
-     <item row="1" column="1">
+     <item row="1" column="2">
       <widget class="QLineEdit" name="editPathPy2">
        <property name="text">
         <string/>
@@ -234,7 +247,7 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
+     <item row="0" column="2">
       <widget class="QLabel" name="lblPath">
        <property name="maximumSize">
         <size>
@@ -247,7 +260,7 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="2">
+     <item row="0" column="3">
       <widget class="QCheckBox" name="chkUseBundled">
        <property name="enabled">
         <bool>false</bool>
@@ -259,6 +272,23 @@
         <string>Use Bundled Python</string>
        </property>
       </widget>
+     </item>
+     <item row="13" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Assign as Plugin 2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Assign as Plugin 3</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="2">
+      <widget class="QComboBox" name="comboBox_3"/>
      </item>
     </layout>
    </item>

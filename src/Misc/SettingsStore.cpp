@@ -44,6 +44,7 @@ static QString KEY_VIEW_STATE = SETTINGS_GROUP + "/" + "view_state";
 static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
 static QString KEY_DEFAULT_USER_DICTIONARY = SETTINGS_GROUP + "/" + "user_dictionary_name";
 static QString KEY_ENABLED_USER_DICTIONARIES = SETTINGS_GROUP + "/" + "enabled_user_dictionaries";
+static QString KEY_PLUGIN_USER_MAP = SETTINGS_GROUP + "/" + "plugin_user_map";
 static QString KEY_CLEAN_ON = SETTINGS_GROUP + "/" + "clean_on";
 static QString KEY_DEFAULT_VERSION = SETTINGS_GROUP + "/" + "default_version";
 static QString KEY_PRESERVE_ENTITY_NAMES = SETTINGS_GROUP + "/" + "preserve_entity_names";
@@ -173,6 +174,13 @@ int SettingsStore::cleanOn()
 {
     clearSettingsGroup();
     return value(KEY_CLEAN_ON, (CLEANON_OPEN | CLEANON_SAVE)).toInt();
+}
+
+QStringList SettingsStore::pluginMap()
+{
+    clearSettingsGroup();
+    QStringList EmptyMap = QStringList() << "" << "" << "";
+    return value(KEY_PLUGIN_USER_MAP, EmptyMap).toStringList();
 }
 
 QString SettingsStore::defaultVersion()
@@ -352,6 +360,12 @@ void SettingsStore::setCleanOn(int on)
 {
     clearSettingsGroup();
     setValue(KEY_CLEAN_ON, on);
+}
+
+void SettingsStore::setPluginMap(QStringList &map)
+{
+    clearSettingsGroup();
+    setValue(KEY_PLUGIN_USER_MAP, map);
 }
 
 void SettingsStore::setDefaultVersion(const QString &version)
