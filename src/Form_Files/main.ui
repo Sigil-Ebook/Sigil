@@ -2284,7 +2284,7 @@
   <action name="actionPlugin1">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/plugin_22px.png</normaloff>:/main/plugin_22px.png</iconset>
+     <normaloff>:/main/plugin_22px_1pips.png</normaloff>:/main/plugin_22px_1pips.png</iconset>
    </property>
    <property name="text">
     <string>Run Plugin 1</string>
@@ -2293,7 +2293,7 @@
   <action name="actionPlugin2">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/plugin_22px.png</normaloff>:/main/plugin_22px.png</iconset>
+     <normaloff>:/main/plugin_22px_2pips.png</normaloff>:/main/plugin_22px_2pips.png</iconset>
    </property>
    <property name="text">
     <string>Run Plugin 2</string>
@@ -2302,7 +2302,7 @@
   <action name="actionPlugin3">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/plugin_22px.png</normaloff>:/main/plugin_22px.png</iconset>
+     <normaloff>:/main/plugin_22px_3pips.png</normaloff>:/main/plugin_22px_3pips.png</iconset>
    </property>
    <property name="text">
     <string>Run Plugin 3</string>
