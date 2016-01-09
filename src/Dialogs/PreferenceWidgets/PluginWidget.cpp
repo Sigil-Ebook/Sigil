@@ -230,17 +230,28 @@ void PluginWidget::removePlugin()
     ui.pluginTable->removeRow(row);
     pdb->remove_plugin(pluginname);
     ui.pluginTable->resizeColumnsToContents();
+
+    // now update the toolbar plugin assignments
+    QString val1 = ui.comboBox->currentText();
+    QString val2 = ui.comboBox_2->currentText();
+    QString val3 = ui.comboBox_3->currentText();
+
+    // all 3 have the identical lists
     int item_to_remove = ui.comboBox->findText(pluginname);
     if (item_to_remove > -1) {
         ui.comboBox->removeItem(item_to_remove);
         ui.comboBox_2->removeItem(item_to_remove);
         ui.comboBox_3->removeItem(item_to_remove);
     }
-    if (ui.comboBox->currentText() == pluginname) {
-      ui.comboBox->setCurrentIndex(-1);
-      ui.comboBox_2->setCurrentIndex(-1);
-      ui.comboBox_3->setCurrentIndex(-1);
-    }
+    int target;
+    target = ui.comboBox->findText(val1);
+    ui.comboBox->setCurrentIndex(target);
+
+    target = ui.comboBox_2->findText(val2);
+    ui.comboBox_2->setCurrentIndex(target);
+
+    target = ui.comboBox_3->findText(val3);
+    ui.comboBox_3->setCurrentIndex(target);
 }
 
 
