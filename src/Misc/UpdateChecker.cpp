@@ -82,7 +82,6 @@ void UpdateChecker::CheckForUpdate()
         }
 
         QString current_online_version = res.toString();
-        qDebug() << current_online_version;
 
         if (current_online_version.isEmpty()) {
             return;
