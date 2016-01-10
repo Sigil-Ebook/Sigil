@@ -58,7 +58,7 @@ const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"   << 
 const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html"  << "htm" << "xml";
 const QStringList STYLE_EXTENSIONS     = QStringList() << "css";
 const QStringList AUDIO_EXTENSIONS     = QStringList() << "aac" << "m4a" << "mp3" << "mpeg" << "mpg" << "oga" << "ogg";
-const QStringList VIDEO_EXTENSIONS     = QStringList() << "m4v" << "mp4" << "mov" << "ogv" << "webm";
+const QStringList VIDEO_EXTENSIONS     = QStringList() << "m4v" << "mp4" << "mov" << "ogv" << "webm" << "vtt" << "ttml";
 
 const QString IMAGE_FOLDER_NAME = "Images";
 const QString FONT_FOLDER_NAME  = "Fonts";
@@ -76,7 +76,8 @@ const QStringList TEXT_MIMETYPES = QStringList() << "application/xhtml+xml"
                                    << "application/xml";
 const QStringList STYLE_MIMETYPES = QStringList() << "text/css";
 const QStringList AUDIO_MIMETYPES = QStringList() << "audio/mpeg" << "audio/mp4" << "audio/ogg";
-const QStringList VIDEO_MIMETYPES = QStringList() << "video/mp4" << "video/mp4" << "video/mp4" << "video/ogg" << "video/webm";
+const QStringList VIDEO_MIMETYPES = QStringList() << "video/mp4" << "video/mp4" << "video/mp4" 
+                                                  << "video/ogg" << "video/webm" << "text/vtt" << "application/ttml+xml" ;
 const QStringList PAGEMAP_MIMETYPES = QStringList() << "application/oebps-page-map+xml";
 
 static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
