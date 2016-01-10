@@ -33,6 +33,12 @@ public:
 
     QString GenerateNavInPython(const QString &bookroot, const QString &navtitle);
 
+    QString GenerateNcxInPython(const QString &navdata, const QString &navname,
+                                const QString &doctitle, const QString & mainid);
+
+    QList<QStringList> UpdateGuideFromNavInPython(const QString &navdata, const QString &navname);
+
+
 private:
 
     ///////////////////////////////

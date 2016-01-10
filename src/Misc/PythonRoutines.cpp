@@ -48,3 +48,61 @@ QString PythonRoutines::GenerateNavInPython(const QString &bookroot, const QStri
     return results;
 }
 
+
+QString PythonRoutines::GenerateNcxInPython(const QString &navdata, const QString &navname, 
+                                            const QString &doctitle, const QString & mainid)
+{
+    QString results;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(navdata));
+    args.append(QVariant(navname));
+    args.append(QVariant(doctitle));
+    args.append(QVariant(mainid));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("ncxgenerator"),
+                                         QString("generateNCX"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+        results = res.toString();
+    }
+    return results;
+}
+
+
+QList<QStringList> PythonRoutines::UpdateGuideFromNavInPython(const QString &navdata, const QString &navname)
+{
+    QList<QStringList> results;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(navdata));
+    args.append(QVariant(navname));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("ncxgenerator"),
+                                         QString("generateGuideEntries"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+        QList<QVariant> lst = res.toList();
+        foreach(QVariant qv, lst) {
+            results.append(qv.toStringList());
+        }
+        return results;
+    }
+
+    // The return value is the following sequence of value stored in a list 
+    // (guide_type, href (unquoted), title)  
+    QStringList gentry = QStringList() << "" << "" << "";
+    results.append(gentry);
+    return results;
+}
+

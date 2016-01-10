@@ -227,6 +227,8 @@ public slots:
 
     void UpdateManifestProperties();
 
+    void GenerateNcxFromNav();
+
     void GenerateNav();
 
     void CreateIndex();

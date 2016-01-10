@@ -42,6 +42,7 @@
 #include <QWebPage>
 #include <QString>
 #include <QStringList>
+
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/Index.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -1146,6 +1147,94 @@ void MainWindow::UpdateManifestProperties()
     QList<Resource *> resources = GetAllHTMLResources();
     m_Book->GetOPF()->UpdateManifestProperties(resources);
     m_Book->SetModified();
+    QApplication::restoreOverrideCursor();
+}
+
+
+void MainWindow::GenerateNcxFromNav()
+{
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    if (!version.startsWith('3')) return;
+
+    SaveTabData();
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // find existing nav document if there is one
+    HTMLResource * nav_resource = NULL;
+    QList<Resource *> resources = GetAllHTMLResources();
+    foreach(Resource * resource, resources) {
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        if (html_resource) {
+            QStringList props = html_resource->GetManifestProperties();
+            if (props.contains("nav")) {
+                nav_resource = html_resource;;
+                break;
+            }
+        }
+    }
+    QString navname = "";
+    QString navdata = "";
+    if (nav_resource) {
+        navdata = CleanSource::Mend(nav_resource->GetText(),"3.0");
+        navname = nav_resource->Filename();
+    }
+
+    if ((!nav_resource) || navdata.isEmpty()) {
+        ShowMessageOnStatusBar(tr("NCX generation failed."));
+        QApplication::restoreOverrideCursor();
+    }
+
+    QList<QVariant> mvalues = m_Book->GetConstOPF()->GetDCMetadataValues("title");
+    QString doctitle = "UNKNOWN";
+    if (!mvalues.isEmpty()) {
+        doctitle = mvalues.at(0).toString();
+    } 
+    QString mainid = m_Book->GetConstOPF()->GetMainIdentifierValue();
+
+    // Now build the ncx in python in a separate thread since may be an long job
+    PythonRoutines pr;
+    QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::GenerateNcxInPython, navdata, navname, doctitle, mainid);
+    future.waitForFinished();
+    QString ncxdata = future.result();
+
+    if (!ncxdata.isEmpty()) {
+        NCXResource * ncx_resource = m_Book->GetNCX();
+        ncx_resource->SetText(ncxdata);
+        m_BookBrowser->BookContentModified();
+        m_BookBrowser->Refresh();
+        m_Book->SetModified();
+
+        // now update the guide entries as well
+        PythonRoutines pr;
+        QList<QStringList> results = pr.UpdateGuideFromNavInPython(navdata, navname);
+        foreach(QStringList entry, results) {
+           QString gtype = entry.at(0);
+           QString href  = entry.at(1);
+           if (!gtype.isEmpty() && !href.isEmpty()) {
+               // remove any fragment identifier and extract file name
+               QStringList parts = href.split('#', QString::KeepEmptyParts);
+               QString base = parts.at(0);
+               QStringList path_pieces = base.split("/");
+               int last = path_pieces.count() - 1;
+               QString filename = path_pieces.at(last);
+               Resource * resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+               HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+               if (html_resource) {
+                   GuideSemantics* gs = GuideSemantics::Instance();
+                   GuideSemantics::GuideSemanticType tp = gs->MapReferenceTypeToGuideEnum(gtype);
+                   if (tp != GuideSemantics::GuideSemanticType::NoType) {
+                       m_Book->GetOPF()->AddGuideSemanticType(html_resource, tp); 
+                   }
+               }
+           }
+        }
+
+        ShowMessageOnStatusBar(tr("NCX generated."));
+        QApplication::restoreOverrideCursor();
+        return;
+    }
+
+    ShowMessageOnStatusBar(tr("NCX generation failed."));
     QApplication::restoreOverrideCursor();
 }
 
@@ -4177,6 +4266,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionMendHTML, "MainWindow.MendHTML");
     sm->registerAction(this, ui.actionUpdateManifestProperties, "MainWindow.UpdateManifestProperties");
     sm->registerAction(this, ui.actionGenerateNav, "MainWindow.GenerateNav");
+    sm->registerAction(this, ui.actionNcxFromNav, "MainWindow.NcxFromNav");
     sm->registerAction(this, ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
     sm->registerAction(this, ui.actionSpellcheck, "MainWindow.Spellcheck");
     sm->registerAction(this, ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
@@ -4530,6 +4620,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionMendHTML,      SIGNAL(triggered()), this, SLOT(MendHTML()));
     connect(ui.actionUpdateManifestProperties,      SIGNAL(triggered()), this, SLOT(UpdateManifestProperties()));
     connect(ui.actionGenerateNav,   SIGNAL(triggered()), this, SLOT(GenerateNav()));
+    connect(ui.actionNcxFromNav,    SIGNAL(triggered()), this, SLOT(GenerateNcxFromNav()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateToc()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));

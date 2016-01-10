@@ -748,7 +748,7 @@ void OPFResource::RemoveGuideReferenceForResource(const Resource *resource, OPFP
 
 GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(const Resource *resource, const OPFParser &p) const
 {
-  int pos = GetGuideReferenceForResourcePos(resource, p);
+    int pos = GetGuideReferenceForResourcePos(resource, p);
     if (pos > -1) {
         GuideEntry ge = p.m_guide.at(pos);
         QString type = ge.m_type;
@@ -761,7 +761,7 @@ GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(c
 void OPFResource::SetGuideSemanticTypeForResource(GuideSemantics::GuideSemanticType type,
                                                   const Resource *resource, OPFParser& p)
 {
-  int pos = GetGuideReferenceForResourcePos(resource, p);
+    int pos = GetGuideReferenceForResourcePos(resource, p);
     QString type_attribute;
     QString title_attribute;
     std::tie(type_attribute, title_attribute) = GuideSemantics::Instance()->GetGuideTypeMapping()[ type ];
