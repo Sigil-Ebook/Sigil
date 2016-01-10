@@ -73,14 +73,14 @@ def parse_nav(qp, navdata, navname):
     maxlvl = -1
     nav_type = None
     href = None
-    title = None
+    title = ""
     play = 0
     for txt, tp, tname, ttype, tattr in qp.parse_iter():
         if txt is not None:
-            if tp.endswith(".a"):
-                title = txt
+            if ".a." in tp or tp.endswith(".a"):
+                title = title + txt
             else:
-                title = None
+                title = ""
         else:
             if tname == "nav":
                 if ttype == "begin":
@@ -125,6 +125,7 @@ def parse_nav(qp, navdata, navname):
                         gtype = _epubtype_guide_map.get(epubtype, None)
                         href = unquoteurl(href)
                         landmarks.append((gtype, href, title))
+                title = ""
                 continue
 
     return toclist, pagelist, landmarks, maxlvl, pgcnt
@@ -146,10 +147,10 @@ def build_ncx(doctitle, mainid, maxlvl, pgcnt, toclist, pagelist):
     ncxres.append('  <text>' + doctitle + '</text>\n')
     ncxres.append('</docTitle>\n')
     ncxres.append('<navMap>\n')
-    plvl = 0
+    plvl = -1
     for (po, lvl, href, title) in toclist:
         # first close off any already opened navPoints
-        while lvl < plvl:
+        while lvl <= plvl:
             space = ind*plvl
             ncxres.append(space + '</navPoint>\n')
             plvl -= 1

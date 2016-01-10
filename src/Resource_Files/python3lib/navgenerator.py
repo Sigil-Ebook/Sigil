@@ -62,32 +62,12 @@ _guide_epubtype_map = {
 }
 
 # the plugin entry point
-def generateNav(ebook_root, navtitle):
-    opfdata = ""
-    opf_path =  os.path.join(ebook_root,'OEBPS','content.opf')
-    has_error = False
-    try:
-        with open(opf_path, 'rb') as f:
-            opfdata = f.read();
-            opfdata = opfdata.decode('utf-8', errors='replace')
-    except:
-        has_error = True
-        pass
-     
-    if has_error:
-        return ""
-
+def generateNav(opfdata, ncxdata, navtitle):
     # now parse opf
     opfparser = OPFParser(opfdata)
     guide_info = opfparser.get_guide()
     lang = opfparser.get_lang()
     id2href = opfparser.get_id2hrefmap()
-    ncxpath = opfparser.get_ncxpath()
-    if ncxpath is None:
-        return ""
-    ncxpath = os.path.abspath(os.path.join(ebook_root, "OEBPS", ncxpath))
-    if not os.path.exists(ncxpath):
-        return ""
     
     # It is possible that the original <guide> contains references
     # to files not in the spine. Putting those "dangling" references 
@@ -109,9 +89,10 @@ def generateNav(ebook_root, navtitle):
             guide_info_in_spine.append((gtyp, gtitle, ghref))
 
     # need to take info from guide tag in opf and toc.ncx to create a valid nav.xhtml
+    has_error = False
     try:
         qp = QuickXHTMLParser()
-        doctitle, toclist, pagelist = parse_ncx(qp, ncxpath)
+        doctitle, toclist, pagelist = parse_ncx(qp, ncxdata)
         navdata = build_nav(doctitle, toclist, pagelist, guide_info_in_spine, lang, navtitle)
     except:
         has_error = True
@@ -122,11 +103,7 @@ def generateNav(ebook_root, navtitle):
  
 
 # parse the current toc.ncx to extract toc info, and pagelist info
-def parse_ncx(qp, ncxpath):
-    ncxdata = ""
-    with open(ncxpath, 'rb') as f:
-        ncxdata = f.read()
-        ncxdata = ncxdata.decode('utf-8',errors='replace')
+def parse_ncx(qp, ncxdata):
     qp.setContent(ncxdata)
     pagelist = []
     toclist = []

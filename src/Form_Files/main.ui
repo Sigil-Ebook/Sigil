@@ -2326,7 +2326,7 @@
   </action>
   <action name="actionGenerateNav">
    <property name="text">
-    <string>Generate &amp;Nav</string>
+    <string>Generate &amp;Nav from NCX</string>
    </property>
   </action>
   <action name="actionNcxFromNav">

@@ -1172,6 +1172,7 @@ void MainWindow::GenerateNcxFromNav()
             }
         }
     }
+
     QString navname = "";
     QString navdata = "";
     if (nav_resource) {
@@ -1200,6 +1201,8 @@ void MainWindow::GenerateNcxFromNav()
     if (!ncxdata.isEmpty()) {
         NCXResource * ncx_resource = m_Book->GetNCX();
         ncx_resource->SetText(ncxdata);
+        ncx_resource->SaveToDisk();
+        m_TableOfContents->Refresh();
         m_BookBrowser->BookContentModified();
         m_BookBrowser->Refresh();
         m_Book->SetModified();
@@ -1246,20 +1249,20 @@ void MainWindow::GenerateNav()
 
     // prepare by flushing all current book changes to disk
     SaveTabData();
-    m_Book->GetFolderKeeper()->SuspendWatchingResources();
-    m_Book->SaveAllResourcesToDisk();
-    m_Book->GetFolderKeeper()->ResumeWatchingResources();
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
+    QString opfdata = m_Book->GetConstOPF()->GetText();
+    QString ncxdata = m_Book->GetNCX()->GetText();
+
     // find existing nav document is there is one
-    QList<Resource *> delete_nav_list;
+    HTMLResource * nav_resource = NULL;
     QList<Resource *> resources = GetAllHTMLResources();
     foreach(Resource * resource, resources) {
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
         if (html_resource) {
             QStringList props = html_resource->GetManifestProperties();
             if (props.contains("nav")) {
-                delete_nav_list.append(resource);
+                nav_resource = html_resource;
                 break;
             }
         }
@@ -1269,34 +1272,33 @@ void MainWindow::GenerateNav()
     PythonRoutines pr;
     QString bookRoot = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
     QString navtitle = QString(tr("Table of Contents"));
-    QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::GenerateNavInPython, bookRoot, navtitle);
+    QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::GenerateNavInPython, opfdata, ncxdata, navtitle);
     future.waitForFinished();
     QString navdata = future.result();
-
-    // only delete the old nav if a new actual nav has been generated
+    bool resource_added = false;
     if (!navdata.isEmpty()) {
-        // m_Book->GetFolderKeeper()->SuspendWatchingResources();
-        // remove old nav file
-        if (delete_nav_list.count() > 0) {
-            m_BookBrowser->RemoveResources(m_TabManager->GetTabResources(), delete_nav_list);
+        // create a new nav resource is none exists
+        if (!nav_resource) {
+            TempFolder folder;
+            QString inpath = folder.GetPath() + "/nav.xhtml";
+            Utility::WriteUnicodeTextFile(navdata, inpath);
+            Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(inpath, true, "application/xhtml+xml");
+            nav_resource = qobject_cast<HTMLResource *>(resource);
+            resource_added = true;
         }
-        // add a new nav file
-        TempFolder folder;
-        QString inpath = folder.GetPath() + "/nav.xhtml";
-        Utility::WriteUnicodeTextFile(navdata, inpath);
-        Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(inpath, true, "application/xhtml+xml");
-        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-        html_resource->SetText(navdata);
-        // Let Sigil know that something has changed
-        // m_Book->GetFolderKeeper()->ResumeWatchingResources();
+        // update it 
+        nav_resource->SetText(navdata);
         m_BookBrowser->BookContentModified();
         m_BookBrowser->Refresh();
         m_Book->SetModified();
-        ResourcesAddedOrDeleted();
+        if (resource_added) {
+            ResourcesAddedOrDeleted();
+        }
         // Now add the nav property to the manifest
         QList<Resource *> resources;
-        resources.append(resource);
+        resources.append((Resource *) nav_resource);
         m_Book->GetOPF()->UpdateManifestProperties(resources);
+
         ShowMessageOnStatusBar(tr("Nav generated."));
         QApplication::restoreOverrideCursor();
         return;
