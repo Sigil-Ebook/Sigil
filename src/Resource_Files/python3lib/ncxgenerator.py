@@ -105,12 +105,19 @@ def parse_nav(qp, navdata, navname):
                     href= href[2:]
                     if href == "":
                         href = "Text/" + navname
+                    else:
+                        href = "Text/" + href
                 elif href.startswith("#"):
                     href = "Text/" + navname + href
                 elif href.startswith("../"): 
                     href = href[3:]
-                if not href.startswith("Text"):
-                    href = "Text/" + href
+                    fold = href.split("/")[0]
+                    if fold not in ("Images","Fonts","Text","Styles","Audio","Video","Misc"):
+                        href = "Text/" + href
+                else:
+                    fold = href.split("/")[0]
+                    if fold not in ("Images","Fonts","Text","Styles","Audio","Video","Misc"):
+                        href = "Text/" + href
                 epubtype = tattr.get("epub:type", None)
                 continue
             if tname == "a" and ttype == "end":
