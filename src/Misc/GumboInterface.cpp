@@ -83,14 +83,16 @@ static std::unordered_set<std::string> manifest_properties = {
 
 
 static std::unordered_set<std::string> href_src_tags       = {
-  "a","audio","image","img","link","script","source","track","video","font-face-uri"
+  "a","audio","image","img","link","object","script","source","track","video","font-face-uri"
 };
 
 
 static const QChar POUND_SIGN    = QChar::fromLatin1('#');
 static const QChar FORWARD_SLASH = QChar::fromLatin1('/');
-static const std::string SRC = std::string("src");
-static const std::string HREF = std::string("href");
+static const std::string aSRC = std::string("src");
+static const std::string aHREF = std::string("href");
+static const std::string aPOSTER = std::string("poster");
+static const std::string aDATA = std::string("data");
 QHash<QString,QString> EmptyHash = QHash<QString,QString>();
 
 // These need to match the GumboAttributeNamespaceEnum sequence
@@ -856,7 +858,8 @@ std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entiti
     atts.append(name);
     std::string attvalue = at->value;
 
-    if (runupdates && (local_name == HREF || local_name == SRC)) {
+    if (runupdates && (local_name == aHREF || local_name == aSRC || 
+                       local_name == aPOSTER || local_name == aDATA)) {
         attvalue = update_attribute_value(attvalue);
     }
 
