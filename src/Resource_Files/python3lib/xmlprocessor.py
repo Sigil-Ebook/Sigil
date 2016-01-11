@@ -6,6 +6,7 @@ from sigil_bs4 import BeautifulSoup
 from sigil_bs4.builder._lxml import LXMLTreeBuilderForXML
 import re
 from urllib.parse import unquote
+from urllib.parse import urlsplit
 
 ASCII_CHARS   = set(chr(x) for x in range(128))
 URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -17,12 +18,16 @@ IRI_UNSAFE = ASCII_CHARS - URL_SAFE
 def quoteurl(href):
     if isinstance(href,bytes):
         href = href.decode('utf-8')
+    (scheme, netloc, path, query, fragment) = urlsplit(href, scheme="", allow_fragments=True)
+    if scheme != "":
+        scheme += "://"
+        href = href[len(scheme):]
     result = []
     for char in href:
         if char in IRI_UNSAFE:
             char = "%%%02x" % ord(char)
         result.append(char)
-    return ''.join(result)
+    return scheme + ''.join(result)
 
 # unquotes url/iri
 def unquoteurl(href):

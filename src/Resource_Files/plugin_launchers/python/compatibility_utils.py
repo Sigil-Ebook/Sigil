@@ -37,8 +37,10 @@ iswindows = sys.platform.startswith('win')
 
 try:
     from urllib.parse import unquote
+    from urllib.parse import urlsplit
 except ImportError:
     from urllib import unquote
+    from urlparse import urlsplit
 
 try:
     import html
@@ -195,15 +197,20 @@ URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 IRI_UNSAFE = ASCII_CHARS - URL_SAFE
 
 # returns a quoted IRI (not a URI)
+# modified to be scheme aware as external resources are possible in epub3
 def quoteurl(href):
     if isinstance(href,binary_type):
         href = href.decode('utf-8')
+    (ascheme, anetloc, apath, aquery, afragment) = urlsplit(href, scheme="", allow_fragments=True)
+    if ascheme != "":
+        ascheme += "://"
+        href = href[len(ascheme):]
     result = []
     for char in href:
         if char in IRI_UNSAFE:
             char = "%%%02x" % ord(char)
         result.append(char)
-    return ''.join(result)
+    return ascheme + ''.join(result)
 
 # unquotes url/iri
 def unquoteurl(href):

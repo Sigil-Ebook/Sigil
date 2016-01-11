@@ -457,8 +457,15 @@ QString Utility::DecodeXML(const QString &text)
 
 QString Utility::URLEncodePath(const QString &path)
 {
-    QByteArray encoded_url = QUrl::toPercentEncoding(path, QByteArray("/#"));
-    return QString::fromUtf8(encoded_url.constData(), encoded_url.count());
+    QString newpath = path;
+    QUrl href = QUrl(newpath);
+    QString scheme = href.scheme();
+    if (!scheme.isEmpty()) {
+        scheme = scheme + "://";
+        newpath.remove(0, scheme.length());
+    }
+    QByteArray encoded_url = QUrl::toPercentEncoding(newpath, QByteArray("/#"));
+    return scheme + QString::fromUtf8(encoded_url.constData(), encoded_url.count());
 }
 
 
