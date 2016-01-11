@@ -604,8 +604,8 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
                     new_id = QString("%1%2").arg(base_id).arg(duplicate_index);
                 }
 
-                const QString load_warning = "<p>" % QObject::tr("The OPF manifest contains duplicate ids for: <b>%1</b>").arg(id) % "</p>" %
-                                             "<p>- " % QObject::tr("A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.") % "</p>";
+                const QString load_warning = QObject::tr("The OPF manifest contains duplicate ids for: %1").arg(id) +
+                  " - " + QObject::tr("A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.");
                 id = new_id;
                 AddLoadWarning(load_warning);
             }
@@ -643,9 +643,9 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
 
             if (QFileInfo(ncxSearch.value()).suffix().toLower() == NCX_EXTENSION) {
                 m_NCXId = ncxSearch.key();
-                load_warning = "<p>" % QObject::tr("The OPF file did not identify the NCX file correctly.") % "</p>" %
-                               "<p>- " % QObject::tr("Sigil has used the following file as the NCX:") %
-                               QString(" <b>%1</b></p>").arg(m_NcxCandidates[ m_NCXId ]);
+                load_warning = QObject::tr("The OPF file did not identify the NCX file correctly.") + "\n" + 
+                               " - "  +  QObject::tr("Sigil has used the following file as the NCX:") + 
+                               QString(" %1").arg(m_NcxCandidates[ m_NCXId ]);
                 ncx_href = m_NcxCandidates[ m_NCXId ];
                 break;
             }
@@ -672,11 +672,11 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
         ncx_resource.SaveToDisk();
 
         if (ncx_href.isEmpty()) {
-            load_warning = "<p>" % QObject::tr("The OPF file does not contain an NCX file.") % "</p>" %
-                           "<p>- " % QObject::tr("Sigil has created a new one for you.") % "</p>";
+            load_warning = QObject::tr("The OPF file does not contain an NCX file.") + "\n" + 
+                           " - " +  QObject::tr("Sigil has created a new one for you.");
         } else {
-            load_warning = "<p>" % QObject::tr("The NCX file is not present in this EPUB.") % "</p>" %
-                           "<p>- " % QObject::tr("Sigil has created a new one for you.") % "</p>";
+            load_warning = QObject::tr("The NCX file is not present in this EPUB.") + "\n" + 
+                           " - " + QObject::tr("Sigil has created a new one for you.");
         }
     }
 
