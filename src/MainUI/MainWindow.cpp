@@ -1226,7 +1226,12 @@ void MainWindow::GenerateNcxFromNav()
                    GuideSemantics* gs = GuideSemantics::Instance();
                    GuideSemantics::GuideSemanticType tp = gs->MapReferenceTypeToGuideEnum(gtype);
                    if (tp != GuideSemantics::GuideSemanticType::NoType) {
-                       m_Book->GetOPF()->AddGuideSemanticType(html_resource, tp); 
+                       // So strange! The OPFResource AddSemantic code is set up to remove by adding again
+                       // I have no idea why, but I don't want to change it in case other code in Sigil
+                       // relies on that behaviour.  So check if it already exists first if not, add it
+                       if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(html_resource) != tp) {
+                           m_Book->GetOPF()->AddGuideSemanticType(html_resource, tp); 
+                       }
                    }
                }
            }
