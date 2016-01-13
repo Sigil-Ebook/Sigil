@@ -1141,12 +1141,16 @@ void MainWindow::AddCover()
 void MainWindow::UpdateManifestProperties()
 {
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
-    if (!version.startsWith('3')) return;
+    if (!version.startsWith('3')) {
+        ShowMessageOnStatusBar(tr("Not Available for epub2."));
+        return;
+    }
     SaveTabData();
     QApplication::setOverrideCursor(Qt::WaitCursor);
     QList<Resource *> resources = GetAllHTMLResources();
     m_Book->GetOPF()->UpdateManifestProperties(resources);
     m_Book->SetModified();
+    ShowMessageOnStatusBar(tr("OPF Manifest Properties Updated."));
     QApplication::restoreOverrideCursor();
 }
 
@@ -1154,7 +1158,10 @@ void MainWindow::UpdateManifestProperties()
 void MainWindow::GenerateNcxFromNav()
 {
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
-    if (!version.startsWith('3')) return;
+    if (!version.startsWith('3')) {
+        ShowMessageOnStatusBar(tr("Not Available for epub2."));
+        return;
+    }
 
     SaveTabData();
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -1250,7 +1257,10 @@ void MainWindow::GenerateNcxFromNav()
 void MainWindow::GenerateNav()
 {
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
-    if (!version.startsWith('3')) return;
+    if (!version.startsWith('3')) {
+        ShowMessageOnStatusBar(tr("Not Available for epub2."));
+        return;
+    }
 
     // prepare by flushing all current book changes to disk
     SaveTabData();
