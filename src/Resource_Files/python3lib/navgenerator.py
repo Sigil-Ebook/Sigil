@@ -209,6 +209,15 @@ def build_nav(doctitle, toclist, pagelist, guide_info, lang, navtitle):
     navres.append(ind*3 + '<ol>\n')
     for gtyp, gtitle, ghref in guide_info:
         etyp = _guide_epubtype_map.get(gtyp, "")
+        # need to properly update the href
+        # content.opf is in OEBPS
+        # but the nav will be in Text
+        if ghref.startswith("Text/"):
+            ghref = ghref[5:]
+            if etyp == "toc":
+                ghref = "#toc"
+        else:
+            ghref = "../" + ghref
         if etyp != "":
             navres.append(ind*4 + '<li>\n')
             navres.append(ind*5 + '<a epub:type="%s" href="%s">%s</a>\n' % (etyp, ghref, gtitle))
