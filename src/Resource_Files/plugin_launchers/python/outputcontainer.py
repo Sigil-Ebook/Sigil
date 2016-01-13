@@ -162,12 +162,14 @@ class OutputContainer(object):
 
     # New for epub3
     def manifest_epub3_iter(self):
-        # yields manifest id, href, mimetype, and properties
+        # yields manifest id, href, mimetype, properties, fallback, media-overlay
         for id in sorted(self._w.id_to_mime):
             mime = self._w.id_to_mime[id]
             href = self._w.id_to_href[id]
             properties = self._w.id_to_props[id]
-            yield id, href, mime, properties
+            fallback = self._w.id_to_fall[id]
+            overlay = self._w.id_to_over[id]
+            yield id, href, mime, properties, fallback, overlay
 
     def spine_iter(self):
         # yields spine idref, linear(yes,no,None), href in spine order
@@ -245,11 +247,18 @@ class OutputContainer(object):
     def id_to_href(self, id, ow=None):
         return self._w.map_id_to_href(id, ow)
 
-    # New for epub3
-    def id_to_properties(self, id, ow=None):
-        return self._w.map_id_to_props(id, ow)
-
     def href_to_basename(self, href, ow=None):
         if basename is not None:
             return href.split('/')[-1]
         return ow
+
+    # New for epub3
+    def id_to_properties(self, id, ow=None):
+        return self._w.map_id_to_props.get(id, ow)
+
+    def id_to_fallback(self, id, ow=None):
+        return self._w.map_id_to_fall.get(id, ow)
+
+    def id_to_overlay(self, id, ow=None):
+        return self._w.map_id_to_over.get(id, ow)
+

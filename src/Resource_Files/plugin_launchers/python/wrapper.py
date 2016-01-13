@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20160102
+_launcher_version=20160113
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
@@ -136,6 +136,8 @@ class Wrapper(object):
         self.id_to_mime = {}
         self.href_to_id = {}
         self.id_to_props = {}
+        self.id_to_fall = {}
+        self.id_to_over = {}
         self.spine_ppd = None
         self.spine = []
         self.guide = []
@@ -152,6 +154,8 @@ class Wrapper(object):
             self.id_to_mime = op.get_manifest_id_to_mime_dict().copy()
             self.href_to_id = op.get_href_to_manifest_id_dict().copy()
             self.id_to_props = op.get_manifest_id_to_properties_dict().copy()
+            self.id_to_fall = op.get_manifest_id_to_fallback_dict().copy()
+            self.id_to_over = op.get_manifest_id_to_overlay_dict().copy()
             self.spine_ppd = op.get_spine_ppd()
             self.spine = op.get_spine()
             self.guide = op.get_guide()
@@ -215,7 +219,15 @@ class Wrapper(object):
             properties = self.id_to_props[id]
             if properties is not None:
                 props = ' properties="%s"' % properties
-            manout.append('<item id="%s" href="%s" media-type="%s"%s />\n' % (id, href, mime, props))
+            fall = ''
+            fallback = self.id_to_fall[id]
+            if fallback is not None:
+                fall = ' fallback="%s"' % fallback
+            over = ''
+            overlay = self.id_to_over[id]
+            if overlay is not None:
+                over = ' media-overlay="%s"' % overlay
+            manout.append('<item id="%s" href="%s" media-type="%s"%s%s%s />\n' % (id, href, mime, props, fall, over))
         manout.append('</manifest>\n')
         return "".join(manout)
 
@@ -476,7 +488,7 @@ class Wrapper(object):
             fp.write(data)
         self.modified[id] = 'file'
 
-    def addfile(self, uniqueid, basename, data, mime=None, properties=None):
+    def addfile(self, uniqueid, basename, data, mime=None, properties=None, fallback=None, overlay=None):
         uniqueid = unicode_str(uniqueid)
         basename = unicode_str(basename)
         mime = unicode_str(mime)
@@ -512,6 +524,8 @@ class Wrapper(object):
         self.id_to_href[uniqueid] = href
         self.id_to_mime[uniqueid] = mime
         self.id_to_props[uniqueid] = properties
+        self.id_to_fall[uniqueid] = fallback
+        self.id_to_over[uniqueid] = overlay
         self.href_to_id[href] = uniqueid
         self.added.append(uniqueid)
         self.modified['OEBPS/content.opf'] = 'file'
@@ -541,6 +555,8 @@ class Wrapper(object):
         del self.id_to_href[id]
         del self.id_to_mime[id]
         del self.id_to_props[id]
+        del self.id_to_fall[id]
+        del self.id_to_over[id]
         del self.href_to_id[href]
         # remove from spine
         new_spine = []
@@ -557,15 +573,25 @@ class Wrapper(object):
             self.modified['OEBPS/content.opf'] = 'file'
         del self.id_to_filepath[id]
 
-    def set_manifest_epub3_properties(self, id, properties):
+    def set_manifest_epub3_attributes(self, id, properties=None, fallback=None, overlay=None):
         id = unicode_str(id)
         properties = unicode_str(properties)
         if properties is not None and properties == "":
             properties = None
+        fallback = unicode_str(fallback)
+        if fallback is not None and fallback == "":
+            fallback = None
+        overlay = unicode_str(overlay)
+        if overlay is not None and overlay == "":
+            overlay = None
         if id not in self.id_to_props:
             raise WrapperException('Id does not exist in manifest')
         del self.id_to_props[id]
+        del self.id_to_fall[id]
+        del self.id_to_over[id]
         self.id_to_props[id] = properties
+        self.id_to_fall[id] = fallback
+        self.id_to_over[id] = overlay
         self.modified['OEBPS/content.opf'] = 'file'
 
 
@@ -600,6 +626,14 @@ class Wrapper(object):
     def map_id_to_properties(self, id, ow):
         id = unicode_str(id)
         return self.id_to_props.get(id, ow)
+
+    def map_id_to_fallback(self, id, ow):
+        id = unicode_str(id)
+        return self.id_to_fall.get(id, ow)
+
+    def map_id_to_overlay(self, id, ow):
+        id = unicode_str(id)
+        return self.id_to_over.get(id, ow)
 
 
     # routines to work on ebook files that are not part of an opf manifest

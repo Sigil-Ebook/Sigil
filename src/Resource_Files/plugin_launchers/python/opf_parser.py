@@ -51,6 +51,8 @@ class Opf_Parser(object):
         self.manifest_id_to_mime = {}
         self.href_to_manifest_id = {}
         self.manifest_id_to_properties = {}
+        self.manifest_id_to_fallback = {}
+        self.manifest_id_to_overlay = {}
         self.spine = []
         self.spine_ppd = None
         self.guide = []
@@ -121,10 +123,14 @@ class Opf_Parser(object):
                     mtype = "application/xhtml+xml"
                 href = unquoteurl(href)
                 properties = tattr.pop("properties",None)
+                fallback = tattr.pop("fallback",None)
+                overlay = tattr.pop("media-overlay",None)
                 self.manifest_id_to_href[id] = href
                 self.manifest_id_to_mime[id] = mtype
                 self.href_to_manifest_id[href] = id
                 self.manifest_id_to_properties[id] = properties
+                self.manifest_id_to_fallback[id] = fallback
+                self.manifest_id_to_overlay[id] = overlay
                 continue
             # spine
             if tname == "spine":
@@ -298,6 +304,12 @@ class Opf_Parser(object):
 
     def get_manifest_id_to_properties_dict(self):
         return self.manifest_id_to_properties
+
+    def get_manifest_id_to_fallback_dict(self):
+        return self.manifest_id_to_fallback
+
+    def get_manifest_id_to_overlay_dict(self):
+        return self.manifest_id_to_overlay
 
     def get_spine_ppd(self):
         return self.spine_ppd

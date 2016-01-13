@@ -148,18 +148,18 @@ class BookContainer(object):
         self._w.writefile(id, data)
 
     # Modified for epub3
-    def addfile(self, uniqueid, basename, data, mime=None, properties=None):
+    def addfile(self, uniqueid, basename, data, mime=None, properties=None, fallback=None, overlay=None):
         # creates a new file in the manifest with unique manifest id, basename, data, and mimetype
-        self._w.addfile(uniqueid, basename, data, mime, properties)
+        self._w.addfile(uniqueid, basename, data, mime, properties, fallback, overlay)
 
     def deletefile(self, id):
         # removes the file associated with that manifest id, removes any existing spine entries as well
         self._w.deletefile(id)
 
     # New for epub3
-    def set_manifest_epub3_properties(self, id, properties):
-        # sets the epub3 manifest property for this manifest id
-        self._w.set_manifest_epub3_property(id, properties)
+    def set_manifest_epub3_attributes(self, id, properties=None, fallback=None, overlay=None):
+        # sets the epub3 manifest attrobutes for this manifest id
+        self._w.set_manifest_epub3_attributes(id, properties, fallback, overlay)
 
 # reading / writing / adding / deleting other ebook files that DO NOT exist in the opf manifest
 
@@ -227,12 +227,14 @@ class BookContainer(object):
 
     # New for epub3
     def manifest_epub3_iter(self):
-        # yields manifest id, href, mimetype, and properties
+        # yields manifest id, href, mimetype, properties, fallback, media-overlay
         for id in sorted(self._w.id_to_mime):
             mime = self._w.id_to_mime[id]
             href = self._w.id_to_href[id]
             properties = self._w.id_to_props[id]
-            yield id, href, mime, properties
+            fallback = self._w.id_to_fall[id]
+            overlay = self._w.id_to_over[id]
+            yield id, href, mime, properties, fallback, overlay
 
     def spine_iter(self):
         # yields spine idref, linear(yes,no,None), href in spine order
@@ -309,11 +311,18 @@ class BookContainer(object):
     def id_to_href(self, id, ow=None):
         return self._w.map_id_to_href(id, ow)
 
-    # New for epub3
-    def id_to_properties(self, id, ow=None):
-        return self._w.map_id_to_props(id, ow)
-
     def href_to_basename(self, href, ow=None):
         if basename is not None:
             return href.split('/')[-1]
         return ow
+
+    # New for epub3
+    def id_to_properties(self, id, ow=None):
+        return self._w.map_id_to_props.get(id, ow)
+
+    def id_to_fallback(self, id, ow=None):
+        return self._w.map_id_to_fall.get(id, ow)
+
+    def id_to_overlay(self, id, ow=None):
+        return self._w.map_id_to_over.get(id, ow)
+
