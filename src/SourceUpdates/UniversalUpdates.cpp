@@ -152,6 +152,9 @@ std::tuple <QHash<QString, QString>,
         } else if (IMAGE_EXTENSIONS.contains(extension)) {
             // Needed for CSS updates because of background-image rules
             css_updates[ key_path ] = html_updates.value(key_path);
+        } else if (SVG_EXTENSIONS.contains(extension)) {
+            // Needed for CSS updates because of background-image rules with svg files
+            css_updates[ key_path ] = html_updates.value(key_path);
         }
     }
     return std::make_tuple(html_updates, css_updates, xml_updates);
@@ -191,7 +194,6 @@ void UniversalUpdates::UpdateOneCSSFile(CSSResource *css_resource,
     if (!css_resource) {
         return;
     }
-
     QWriteLocker locker(&css_resource->GetLock());
     const QString &source = css_resource->GetText();
     css_resource->SetText(PerformCSSUpdates(source, css_updates)());
