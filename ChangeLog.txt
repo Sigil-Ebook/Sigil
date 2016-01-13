@@ -18,7 +18,8 @@ pre-Sigil-0.9.3
     - Recognize and handle .vtt and .ttml files for video subtitles and captioning
     - Prevent attempts from using Metadata Editor gui from hurting epub3 until support is added later
     - Lots of epub3 related bug fixes and changes
-
+    - Reworked the plugin_launcher epub3 interface code to allow fallback and media-overlay attributes
+    - AddModificationDate upon save is now epub2 and epub3 aware
 
 
 Sigil 0.9.2

@@ -30,6 +30,7 @@
 #include <QtCore/QUuid>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QDateTime>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
@@ -974,21 +975,48 @@ void OPFResource::WriteIdentifier(const QString &metaname, const QString &metava
 
 void OPFResource::AddModificationDateMeta()
 {
-    // temporary workaround to prevent epub2 modification date metadata
-    // forcing itself into an epub3
-    QString package_version = GetPackageVersion();
-    if (package_version.startsWith(QString("3"))) return;
-
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText());
     OPFParser p;
     p.parse(source);
+
+    QString epubversion = GetEpubVersion();
+    if (epubversion.startsWith('3')) {
+
+        // epub 3 set dcterms:modified date time in ISO 8601 format
+        QDateTime local(QDateTime::currentDateTime());
+        local.setTimeSpec(Qt::UTC);
+        QString datetime = local.toString(Qt::ISODate);
+        // if an entry exists, update it
+        for (int i=0; i < p.m_metadata.count(); ++i) {
+            MetaEntry me = p.m_metadata.at(i);
+            if (me.m_name == QString("meta")) {
+                QString property = me.m_atts.value(QString("property"), QString(""));
+                if (property == QString("dcterms:modified")) {
+                    me.m_content = datetime;
+                    p.m_metadata.replace(i, me);
+                    UpdateText(p);
+                    return;
+                }
+            }
+        }
+        // otherwize create a new entry
+        MetaEntry me;
+        me.m_name = QString("meta");
+        me.m_content = datetime;
+        me.m_atts["property"]="dcterms:modified";
+        p.m_metadata.append(me);
+        UpdateText(p);
+        return;
+    }   
+    // epub 2 version 
     QString date;
     QDate d = QDate::currentDate();
     // We can't use QDate.toString() because it will take into account the locale. Which mean we may not get Arabic 
     // numerals if the local uses it's own numbering system. So we use this instead to ensure we get a valid date per
     // the epub spec.
     QTextStream(&date) << d.year() << "-" << (d.month() < 10 ? "0" : "") << d.month() << "-" << (d.day() < 10 ? "0" : "") << d.day();
+    // if an entry exists, update it
     for (int i=0; i < p.m_metadata.count(); ++i) {
         MetaEntry me = p.m_metadata.at(i);
         if (me.m_name == QString("dc:date")) {
@@ -1002,6 +1030,7 @@ void OPFResource::AddModificationDateMeta()
             
         }
     }
+    // otherwize create a new entry
     MetaEntry me;
     me.m_name = QString("dc:date");
     me.m_content = date;
