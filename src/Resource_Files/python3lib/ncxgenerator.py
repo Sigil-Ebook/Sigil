@@ -166,7 +166,7 @@ def build_ncx(doctitle, mainid, maxlvl, pgcnt, toclist, pagelist):
         porder = str(po)
         if title is None:
             title = ""
-        ncxres.append(space + '<navPoint id="navPoint' + porder +'" playOrder="' + porder + '">\n')
+        ncxres.append(space + '<navPoint id="navPoint' + porder +'">\n')
         ncxres.append(space + '  <navLabel>\n')
         ncxres.append(space + '    <text>' + title + '</text>\n')
         ncxres.append(space + '  </navLabel>\n')
@@ -184,7 +184,7 @@ def build_ncx(doctitle, mainid, maxlvl, pgcnt, toclist, pagelist):
         for (cnt, href, title) in pagelist:
             porder = str(play + cnt)
             target = ind + '<pageTarget id="navPoint' + porder + '" type="normal"'
-            target += ' value="' + title + '" playOrder="' + porder + '" >\n'
+            target += ' value="' + title + '">\n'
             ncxres.append(target)
             ncxres.append(ind*2 + '<navLabel><text>' + title + '</text></navLabel>\n')
             ncxres.append(ind*2 + '<content src="' + href + '" />\n')
