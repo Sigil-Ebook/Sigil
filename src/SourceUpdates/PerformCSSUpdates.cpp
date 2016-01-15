@@ -47,7 +47,7 @@ QString PerformCSSUpdates::operator()()
             + QRegularExpression::escape(filename) + "|"
             + QRegularExpression::escape(filename);
         QRegularExpression reference(
-            "(?:(?:src|background|background-image)\\s*:|@import)\\s*"
+            "(?:(?:src|background|background-image|list-style-image)\\s*:|@import)\\s*"
             "[^;\\}\\(\"']*"
             "(?:"
             "url\\([\"']?(" + filename_regex_part + ")[\"']?\\)"
