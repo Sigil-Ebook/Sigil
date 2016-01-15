@@ -38,39 +38,43 @@ QString PerformCSSUpdates::operator()()
 {
     const QList<QString> &keys = m_CSSUpdates.keys();
     int num_keys = keys.count();
+    if (num_keys == 0) return m_Source;
 
-    for (int i = 0; i < num_keys; ++i) {
-        const QString &key_path = keys.at(i);
-        const QString &filename = QFileInfo(key_path).fileName();
-        QString filename_regex_part =
-            "[^\\(\\)\"']*/"
-            + QRegularExpression::escape(filename) + "|"
-            + QRegularExpression::escape(filename);
-        QRegularExpression reference(
-            "(?:(?:src|background|background-image|list-style-image|border-image|border-image-source|content)\\s*:|@import)\\s*"
-            "[^;\\}\\(\"']*"
-            "(?:"
-            "url\\([\"']?(" + filename_regex_part + ")[\"']?\\)"
-            "|"
-            "[\"'](" + filename_regex_part + ")[\"']"
-            ")"
-            "[^;\\}]*"
-            "(?:;|\\})");
-        int start_index = 0;
-        QRegularExpressionMatch mo = reference.match(m_Source, start_index);
-        do {
-            for (int i = 1; i < reference.captureCount(); ++i) {
-                if (mo.captured(i).trimmed().isEmpty()) {
-                    continue;
-                }
-
-                m_Source.replace(mo.capturedStart(i), mo.capturedLength(i), m_CSSUpdates.value(key_path));
-            }
-
-            start_index += mo.capturedLength();
-            mo = reference.match(m_Source, start_index);
-        } while (mo.hasMatch());
+    // create a new updates dictionary to allow it to be used more effectively
+    // lookup is by filename
+    QHash<QString,QString> newupdates;
+    foreach(QString key, keys) {
+        const QString &filename = QFileInfo(key).fileName();
+        newupdates[filename] = m_CSSUpdates[key];
     }
+    // Now parse the text once looking for keys and replacing them where needed
+    QRegularExpression reference(
+        "(?:(?:src|background|background-image|list-style-image|border-image|border-image-source|content)\\s*:|@import)\\s*"
+        "[^;\\}\\(\"']*"
+        "(?:"
+        "url\\([\"']?([^\\(\\)\"']*)[\"']?\\)"
+        "|"
+        "[\"']([^\\(\\)\"']*)[\"']"
+        ")"
+        "[^;\\}]*"
+        "(?:;|\\})");
+    int start_index = 0;
+    QRegularExpressionMatch mo = reference.match(m_Source, start_index);
+    do {
+        for (int i = 1; i < reference.captureCount(); ++i) {
+            if (mo.captured(i).trimmed().isEmpty()) {
+                continue;
+            }
+            QString akey = mo.captured(i);
+            const QString &filename = QFileInfo(akey).fileName();
+            QString newpath = newupdates.value(filename, "");
+            if (!newpath.isEmpty()) {
+                m_Source.replace(mo.capturedStart(i), mo.capturedLength(i), newpath);
+            }
+        }
+        start_index += mo.capturedLength();
+        mo = reference.match(m_Source, start_index);
+    } while (mo.hasMatch());
 
     return m_Source;
 }
