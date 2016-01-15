@@ -42,11 +42,15 @@ PerformHTMLUpdates::PerformHTMLUpdates(const QString &source,
 QString PerformHTMLUpdates::operator()()
 {
     QString newsource = m_source;
-    GumboInterface gi = GumboInterface(newsource, m_version, m_HTMLUpdates);
-    gi.parse();
-    newsource = gi.perform_source_updates(m_CurrentPath);
+    { 
+        GumboInterface gi = GumboInterface(newsource, m_version, m_HTMLUpdates);
+        gi.parse();
+        newsource = gi.perform_source_updates(m_CurrentPath);
+    }
     if (!m_CSSUpdates.isEmpty()) {
-        newsource = PerformCSSUpdates(newsource, m_CSSUpdates)();
+        GumboInterface gi = GumboInterface(newsource, m_version, m_CSSUpdates);
+        gi.parse();
+        newsource = gi.perform_style_updates(m_CurrentPath);
     }
     return CleanSource::CharToEntity(newsource);
 }

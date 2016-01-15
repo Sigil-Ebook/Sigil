@@ -257,6 +257,23 @@ QString GumboInterface::perform_source_updates(const QString& my_current_book_re
 }
 
 
+QString GumboInterface::perform_style_updates(const QString& my_current_book_relpath)
+{
+    m_currentdir = QFileInfo(my_current_book_relpath).dir().path();
+    QString result = "";
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+        enum UpdateTypes doupdates = StyleUpdates;
+        std::string utf8out = serialize(m_output->document, doupdates);
+        rtrim(utf8out);
+        result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
+    }
+    return result;
+}
+
+
 QString GumboInterface::perform_link_updates(const QString& newcsslinks)
 {
     m_newcsslinks = newcsslinks.toStdString();
@@ -715,7 +732,7 @@ void GumboInterface::replace_all(std::string &s, const char * s1, const char * s
 }
 
 
-std::string GumboInterface::update_attribute_value(std::string attvalue)
+std::string GumboInterface::update_attribute_value(const std::string &attvalue)
 {
     std::string result = attvalue; 
     QString attpath = Utility::URLDecodePath(QString::fromStdString(attvalue));
@@ -738,6 +755,45 @@ std::string GumboInterface::update_attribute_value(std::string attvalue)
     } 
     return result;
 }
+
+
+std::string GumboInterface::update_style_urls(const std::string &source)
+{
+    QString result = QString::fromStdString(source);
+    // Now parse the text once looking urls and replacing them where needed
+    QRegularExpression reference(
+        "(?:(?:src|background|background-image|list-style-image|border-image|border-image-source|content)\\s*:|@import)\\s*"
+        "[^;\\}\\(\"']*"
+        "(?:"
+        "url\\([\"']?([^\\(\\)\"']*)[\"']?\\)"
+        "|"
+        "[\"']([^\\(\\)\"']*)[\"']"
+        ")");
+    int start_index = 0;
+    QRegularExpressionMatch mo = reference.match(result, start_index);
+    do {
+        for (int i = 1; i < reference.captureCount(); ++i) {
+            if (mo.captured(i).trimmed().isEmpty()) {
+                continue;
+            }
+            QString apath = Utility::URLDecodePath(mo.captured(i));
+            QString search_key = QDir::cleanPath(m_currentdir + FORWARD_SLASH + apath);
+            QString new_href;
+            if (m_sourceupdates.contains(search_key)) {
+                new_href = m_sourceupdates.value(search_key);
+            }
+            if (!new_href.isEmpty()) {
+                new_href = Utility::URLEncodePath(new_href);
+                result.replace(mo.capturedStart(i), mo.capturedLength(i), new_href);
+            }
+        }
+        start_index += mo.capturedLength();
+        mo = reference.match(result, start_index);
+    } while (mo.hasMatch());
+
+    return result.toStdString();
+}
+
 
 
 std::string GumboInterface::substitute_xml_entities_into_text(const std::string &text)
@@ -851,7 +907,8 @@ std::string GumboInterface::get_attribute_name(GumboAttribute * at)
 }
 
 
-std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entities, bool runupdates)
+std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entities, 
+                                             bool run_src_updates, bool run_style_updates)
 {
     std::string atts = " ";
     std::string name = get_attribute_name(at);
@@ -859,9 +916,13 @@ std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entiti
     atts.append(name);
     std::string attvalue = at->value;
 
-    if (runupdates && (local_name == aHREF || local_name == aSRC || 
-                       local_name == aPOSTER || local_name == aDATA)) {
+    if (run_src_updates && (local_name == aHREF || local_name == aSRC || 
+                            local_name == aPOSTER || local_name == aDATA)) {
         attvalue = update_attribute_value(attvalue);
+    }
+
+    if (run_style_updates && (local_name == "style")) {
+        attvalue = update_style_urls(attvalue);
     }
 
     // we handle empty attribute values like so: alt=""
@@ -985,7 +1046,7 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
     const GumboVector * attribs = &node->v.element.attributes;
     for (unsigned int i=0; i< attribs->length; ++i) {
         GumboAttribute* at = static_cast<GumboAttribute*>(attribs->data[i]);
-        atts.append(build_attributes(at, no_entity_substitution, ((doupdates & SourceUpdates) && is_href_src_tag) ));
+        atts.append(build_attributes(at, no_entity_substitution, ((doupdates & SourceUpdates) && is_href_src_tag), (doupdates & StyleUpdates)));
     }
 
     // Make sure that the xmlns attribute exists as an html tag attribute
@@ -1011,6 +1072,12 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
         contents = serialize_contents(node, doupdates);
     }
 
+    if ((doupdates & StyleUpdates) && (tagname == "style") && 
+        (node->parent->type == GUMBO_NODE_ELEMENT) && 
+        (node->parent->v.element.tag == GUMBO_TAG_HEAD)) {
+        contents = update_style_urls(contents);
+    }
+
     if (need_special_handling) {
         ltrimnewlines(contents);
         rtrim(contents);
@@ -1019,6 +1086,7 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
 
     // build results
     std::string results;
+
 
     if ((doupdates & LinkUpdates) && (tagname == "link") && 
         (node->parent->type == GUMBO_NODE_ELEMENT) && 
@@ -1248,10 +1316,14 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
 }
 
 
+
+
+// The below are hopefully obsolete now but keep them since
+// they are a real pain to recreate and may be needed again
+// if other corner cases in gumbo xhtml support are found
 #if 0
 
-// handle a few special cases that are hard to deal with inside of gumbo
-
+// handle a few special cases that are hard to deal with insides of gumbo
 static QStringList allowed_void_tags = QStringList() << "area"    << "base"     << "basefont" 
                                                      << "bgsound" << "br"       << "col" 
                                                      << "command" << "embed"    << "event-source" 

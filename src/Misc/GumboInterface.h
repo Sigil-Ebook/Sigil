@@ -71,6 +71,7 @@ public:
 
     // routines for updating while serializing (see SourceUpdates and AnchorUpdates
     QString perform_source_updates(const QString & my_current_book_relpath);
+    QString perform_style_updates(const QString & my_current_book_relpath);
     QString perform_link_updates(const QString & newlinks);
     QString get_body_contents();
     QString perform_body_updates(const QString & new_body);
@@ -98,6 +99,7 @@ private:
         SourceUpdates  = 1 <<  0,
         LinkUpdates    = 1 <<  1,
         BodyUpdates    = 1 <<  2,
+        StyleUpdates   = 1 <<  3
     };
 
     QStringList get_properties(GumboNode* node);
@@ -120,9 +122,11 @@ private:
 
     std::string get_attribute_name(GumboAttribute * at);
 
-    std::string build_attributes(GumboAttribute * at, bool no_entities, bool runupdates = false);
+    std::string build_attributes(GumboAttribute * at, bool no_entities, bool run_src_updates = false, bool run_style_updates = false);
 
-    std::string update_attribute_value(std::string href);
+    std::string update_attribute_value(const std::string &href);
+
+    std::string update_style_urls(const std::string& source);
 
     std::string substitute_xml_entities_into_text(const std::string &text);
 
