@@ -33,7 +33,6 @@
 #include <QString>
 #include <QList>
 #include <QHash>
-// #include <QMutex>
 
 class QString;
 
@@ -98,7 +97,7 @@ private:
         NoUpdates      = 0, 
         SourceUpdates  = 1 <<  0,
         LinkUpdates    = 1 <<  1,
-        BodyUpdates    = 1 <<  2
+        BodyUpdates    = 1 <<  2,
     };
 
     QStringList get_properties(GumboNode* node);
