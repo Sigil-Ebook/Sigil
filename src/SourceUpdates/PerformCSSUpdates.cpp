@@ -49,7 +49,7 @@ QString PerformCSSUpdates::operator()()
     }
     // Now parse the text once looking for keys and replacing them where needed
     QRegularExpression reference(
-        "(?:(?:src|background|background-image|list-style-image|border-image|border-image-source|content)\\s*:|@import)\\s*"
+        "(?:(?:src|background|background-image|list-style|list-style-image|border-image|border-image-source|content)\\s*:|@import)\\s*"
         "[^;\\}\\(\"']*"
         "(?:"
         "url\\([\"']?([^\\(\\)\"']*)[\"']?\\)"

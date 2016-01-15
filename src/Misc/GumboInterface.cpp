@@ -762,7 +762,7 @@ std::string GumboInterface::update_style_urls(const std::string &source)
     QString result = QString::fromStdString(source);
     // Now parse the text once looking urls and replacing them where needed
     QRegularExpression reference(
-        "(?:(?:src|background|background-image|list-style-image|border-image|border-image-source|content)\\s*:|@import)\\s*"
+        "(?:(?:src|background|background-image|list-style|list-style-image|border-image|border-image-source|content)\\s*:|@import)\\s*"
         "[^;\\}\\(\"']*"
         "(?:"
         "url\\([\"']?([^\\(\\)\"']*)[\"']?\\)"
