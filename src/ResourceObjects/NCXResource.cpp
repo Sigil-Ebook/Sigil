@@ -117,7 +117,7 @@ bool NCXResource::GenerateNCXFromBookContents(const Book *book)
     NCXWriter ncx(book, buffer);
     ncx.WriteXMLFromHeadings();
     buffer.close();
-    QString new_text = CleanSource::ProcessXML(QString::fromUtf8(raw_ncx.constData(), raw_ncx.size()));
+    QString new_text = CleanSource::ProcessXML(QString::fromUtf8(raw_ncx.constData(), raw_ncx.size()),"application/x-dtbncx+xml");
     QString existing_text = GetText();
 
     // Only update the resource if have changed. Note that this is_changed trick will not
@@ -140,7 +140,7 @@ void NCXResource::GenerateNCXFromTOCContents(const Book *book, NCXModel *ncx_mod
     //    NCXWriter ncx(book, buffer, ncx_model.GetRootNCXEntry());
     //    ncx.WriteXML();
     //    buffer.close();
-    //    SetText(CleanSource::ProcessXML(QString::fromUtf8(raw_ncx.constData(), raw_ncx.size())));
+    //    SetText(CleanSource::ProcessXML(QString::fromUtf8(raw_ncx.constData(), raw_ncx.size()), "application/x-dtbncx+xml"));
     GenerateNCXFromTOCEntries(book, ncx_model->GetRootNCXEntry());
 }
 
@@ -152,7 +152,7 @@ void NCXResource::GenerateNCXFromTOCEntries(const Book *book, NCXModel::NCXEntry
     NCXWriter ncx(book, buffer, ncx_root_entry);
     ncx.WriteXML();
     buffer.close();
-    SetText(CleanSource::ProcessXML(QString::fromUtf8(raw_ncx.constData(), raw_ncx.size())));
+    SetText(CleanSource::ProcessXML(QString::fromUtf8(raw_ncx.constData(), raw_ncx.size()), "application/x-dtbncx+xml"));
 }
 
 

@@ -70,12 +70,13 @@ QString CleanSource::MendPrettify(const QString &source, const QString &version)
 
 
 // Repair XML if needed and PrettyPrint using BeautifulSoup4
-QString CleanSource::XMLPrettyPrintBS4(const QString &source)
+QString CleanSource::XMLPrettyPrintBS4(const QString &source, const QString mtype)
 {
     int rv = 0;
     QString error_traceback;
     QList<QVariant> args;
     args.append(QVariant(source));
+    args.append(QVariant(mtype));
     EmbeddedPython * epython  = EmbeddedPython::instance();
 
     QVariant res = epython->runInPython( QString("xmlprocessor"),
@@ -102,9 +103,9 @@ QString CleanSource::ToValidXHTML(const QString &source, const QString &version)
     return newsource;
 }
 
-QString CleanSource::ProcessXML(const QString &source)
+QString CleanSource::ProcessXML(const QString &source, const QString mtype)
 {
-    return XMLPrettyPrintBS4(source);
+    return XMLPrettyPrintBS4(source, mtype);
 }
 
 QString CleanSource::RemoveMetaCharset(const QString &source)

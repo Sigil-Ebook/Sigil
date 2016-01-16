@@ -281,6 +281,8 @@ private:
      */
     void CreateInfrastructureFiles();
 
+    void CreateExtensionToMediaTypeMap();
+
     /**
      * Dereferences two pointers and compares the values with "<".
      *
@@ -346,6 +348,10 @@ private:
     QString m_FullPathToTextFolder;
     QString m_FullPathToStylesFolder;
     QString m_FullPathToMiscFolder;
+    QHash<QString, QString> m_ExtToMType;
+
+
+
 };
 
 

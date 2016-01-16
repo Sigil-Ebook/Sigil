@@ -37,12 +37,15 @@
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
+#include "ResourceObjects/XMLResource.h"
+
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 #include "SourceUpdates/PerformHTMLUpdates.h"
 #include "SourceUpdates/PerformCSSUpdates.h"
 #include "SourceUpdates/PerformNCXUpdates.h"
 #include "SourceUpdates/PerformOPFUpdates.h"
+#include "SourceUpdates/PerformXMLUpdates.h"
 #include "SourceUpdates/UniversalUpdates.h"
 
 #define NON_WELL_FORMED_MESSAGE "Cannot perform HTML updates since the file is not well formed"
@@ -59,12 +62,14 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
     std::tie(html_updates, css_updates, xml_updates) = SeparateHtmlCssXmlUpdates(updates);
     QList<HTMLResource *> html_resources;
     QList<CSSResource *> css_resources;
+    QList<XMLResource *> xml_resources;
     OPFResource *opf_resource = NULL;
     NCXResource *ncx_resource = NULL;
     int num_files = resources.count();
 
     for (int i = 0; i < num_files; ++i) {
         Resource *resource = resources.at(i);
+
 
         if (resource->Type() == Resource::HTMLResourceType) {
             html_resources.append(qobject_cast<HTMLResource *>(resource));
@@ -74,6 +79,8 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
             opf_resource = qobject_cast<OPFResource *>(resource);
         } else if (resource->Type() == Resource::NCXResourceType) {
             ncx_resource = qobject_cast<NCXResource *>(resource);
+        } else if (resource->Type() == Resource::XMLResourceType) {
+            xml_resources.append(qobject_cast<XMLResource *>(resource));
         }
     }
 
@@ -91,13 +98,27 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
 
     sync.addFuture(html_future);
     sync.addFuture(css_future);
+
     // We can't schedule these with QtConcurrent because they
     // will (indirectly) call QTextDocument::setPlainText, and if
     // a tab is open for the ncx/opf, then an event needs to be sent
     // to the tab widget. Events can't cross threads, and we crash.
     const QString ncx_result = UpdateNCXFile(ncx_resource, xml_updates);
     const QString opf_result = UpdateOPFFile(opf_resource, xml_updates);
+
+    // Handle other xml resources one by one since done in Embedded Python
+    foreach(XMLResource * xml_resource, xml_resources) {
+        QString mtype = xml_resource->GetMediaType();
+        QString currentpath = xml_resource->GetCurrentBookRelPath();
+        QString version = xml_resource->GetEpubVersion();
+        const QString &source = Utility::ReadUnicodeTextFile(xml_resource->GetFullPath());
+        xml_resource->SetText(PerformXMLUpdates(source, xml_updates, currentpath, mtype)());
+        xml_resource->SetCurrentBookRelPath("");
+        xml_resource->SaveToDisk();
+    }
+
     sync.waitForFinished();
+
     // Now assemble our list of errors if any.
     QStringList load_update_errors;
 
@@ -197,6 +218,7 @@ void UniversalUpdates::UpdateOneCSSFile(CSSResource *css_resource,
     QWriteLocker locker(&css_resource->GetLock());
     const QString &source = css_resource->GetText();
     css_resource->SetText(PerformCSSUpdates(source, css_updates)());
+    css_resource->SetCurrentBookRelPath("");
 }
 
 QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
@@ -264,6 +286,7 @@ void UniversalUpdates::LoadAndUpdateOneCSSFile(CSSResource *css_resource,
 
     const QString &source = Utility::ReadUnicodeTextFile(css_resource->GetFullPath());
     css_resource->SetText(PerformCSSUpdates(source, css_updates)());
+    css_resource->SetCurrentBookRelPath("");
     css_resource->SaveToDisk();
 }
 

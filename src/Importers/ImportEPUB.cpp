@@ -695,7 +695,7 @@ void ImportEPUB::LoadInfrastructureFiles()
     OPFBookRelPath = OPFBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
     m_Book->GetOPF()->SetCurrentBookRelPath(OPFBookRelPath);
 
-    m_Book->GetNCX()->SetText(CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath)));
+    m_Book->GetNCX()->SetText(CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath),"application/x-dtbncx+xml"));
     m_Book->GetNCX()->SetEpubVersion(m_PackageVersion);
     QString NCXBookRelPath = m_NCXFilePath;
     NCXBookRelPath = NCXBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
@@ -740,9 +740,7 @@ std::tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const 
     currentpath = currentpath.remove(0,m_ExtractedFolderPath.length()+1);
     try {
         Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath, false, mimetype);
-        if (resource->Type() == Resource::HTMLResourceType) {
-            resource->SetCurrentBookRelPath(currentpath);
-        }
+        resource->SetCurrentBookRelPath(currentpath);
         QString newpath = "../" + resource->GetRelativePathToOEBPS();
         return std::make_tuple(currentpath, newpath);
     } catch (FileDoesNotExist) {

@@ -469,6 +469,8 @@ set( SOURCEUPDATE_FILES
     SourceUpdates/PerformNCXUpdates.h
     SourceUpdates/PerformCSSUpdates.cpp
     SourceUpdates/PerformCSSUpdates.h
+    SourceUpdates/PerformXMLUpdates.cpp
+    SourceUpdates/PerformXMLUpdates.h
     SourceUpdates/AnchorUpdates.cpp
     SourceUpdates/AnchorUpdates.h
     SourceUpdates/LinkUpdates.cpp

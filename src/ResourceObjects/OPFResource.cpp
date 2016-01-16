@@ -121,7 +121,7 @@ void OPFResource::SetText(const QString &text)
 {
     QWriteLocker locker(&GetLock());
     // QString source = CleanSource::ProcessXML(text);
-    QString source = ValidatePackageVersion(CleanSource::ProcessXML(text));
+    QString source = ValidatePackageVersion(CleanSource::ProcessXML(text, "application/oebps-package+xml"));
     TextResource::SetText(source);
 }
 
@@ -129,7 +129,7 @@ void OPFResource::SetText(const QString &text)
 GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(const Resource *resource) const
 {
     QReadLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     return GetGuideSemanticTypeForResource(resource, p);
@@ -144,7 +144,7 @@ QString OPFResource::GetGuideSemanticNameForResource(Resource *resource)
 QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
 {
     QReadLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     QHash <QString, QString> semantic_types;
@@ -177,7 +177,7 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
 QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource *> resources)
 {
     QReadLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     QHash <Resource *, int> reading_order;
@@ -195,7 +195,7 @@ QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource 
 int OPFResource::GetReadingOrder(const HTMLResource *html_resource) const
 {
     QReadLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     const Resource *resource = static_cast<const Resource *>(html_resource);
@@ -212,7 +212,7 @@ int OPFResource::GetReadingOrder(const HTMLResource *html_resource) const
 QString OPFResource::GetMainIdentifierValue() const
 {
     QReadLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     int i = GetMainIdentifier(p);
@@ -224,7 +224,7 @@ QString OPFResource::GetMainIdentifierValue() const
 
 void OPFResource::SaveToDisk(bool book_wide_save)
 {
-    QString source = ValidatePackageVersion(CleanSource::ProcessXML(GetText()));
+  QString source = ValidatePackageVersion(CleanSource::ProcessXML(GetText(),"application/oebps-package+xml"));
     // Work around for covers appearing on the Nook. Issue 942.
     source = source.replace(QRegularExpression("<meta content=\"([^\"]+)\" name=\"cover\""), "<meta name=\"cover\" content=\"\\1\"");
     TextResource::SetText(source);
@@ -240,7 +240,7 @@ QString OPFResource::GetPackageVersion() const
     // As this code will be called many times and from many places
     // convert it to a simple QRegualr expression query for speed.
 
-    // QString source = CleanSource::ProcessXML(GetText());
+    // QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     // OPFParser p;
     // p.parse(source);
     // return p.m_package.m_version;
@@ -260,7 +260,7 @@ QString OPFResource::GetUUIDIdentifierValue()
 {
     EnsureUUIDIdentifierPresent();
     QReadLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     for (int i=0; i < p.m_metadata.count(); ++i) {
@@ -282,7 +282,7 @@ QString OPFResource::GetUUIDIdentifierValue()
 void OPFResource::EnsureUUIDIdentifierPresent()
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     for (int i=0; i < p.m_metadata.count(); ++i) {
@@ -302,7 +302,7 @@ void OPFResource::EnsureUUIDIdentifierPresent()
 QString OPFResource::AddNCXItem(const QString &ncx_path)
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     QString path_to_oebps_folder = QFileInfo(GetFullPath()).absolutePath() + "/";
@@ -323,7 +323,7 @@ QString OPFResource::AddNCXItem(const QString &ncx_path)
 void OPFResource::UpdateNCXOnSpine(const QString &new_ncx_id)
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     QString ncx_id = p.m_spineattr.m_atts.value(QString("toc"),"");
@@ -337,7 +337,7 @@ void OPFResource::UpdateNCXOnSpine(const QString &new_ncx_id)
 void OPFResource::UpdateNCXLocationInManifest(const NCXResource *ncx)
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     QString ncx_id = p.m_spineattr.m_atts.value(QString("toc"), "");
@@ -357,7 +357,7 @@ void OPFResource::UpdateNCXLocationInManifest(const NCXResource *ncx)
 void OPFResource::AddSigilVersionMeta()
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     for (int i=0; i < p.m_metadata.count(); ++i) {
@@ -384,7 +384,7 @@ void OPFResource::AddSigilVersionMeta()
 bool OPFResource::IsCoverImage(const ImageResource *image_resource) const
 {
     QReadLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     QString resource_id = GetResourceManifestID(image_resource, p);
@@ -406,7 +406,7 @@ bool OPFResource::IsCoverImageCheck(QString resource_id, const OPFParser & p) co
 bool OPFResource::CoverImageExists() const
 {
     QReadLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     return GetCoverMeta(p) > -1;
@@ -416,7 +416,7 @@ bool OPFResource::CoverImageExists() const
 void OPFResource::AutoFixWellFormedErrors()
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     SetText(source);
 }
 
@@ -424,7 +424,7 @@ void OPFResource::AutoFixWellFormedErrors()
 QStringList OPFResource::GetSpineOrderFilenames() const
 {
     QReadLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     QStringList filenames_in_reading_order;
@@ -445,7 +445,7 @@ QStringList OPFResource::GetSpineOrderFilenames() const
 QList<Metadata::MetaElement> OPFResource::GetDCMetadata() const
 {
     QReadLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     QList<Metadata::MetaElement> metadata;
@@ -477,7 +477,7 @@ QList<QVariant> OPFResource::GetDCMetadataValues(QString text) const
 void OPFResource::SetDCMetadata(const QList<Metadata::MetaElement> &metadata)
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     RemoveDCElements(p);
@@ -491,7 +491,7 @@ void OPFResource::SetDCMetadata(const QList<Metadata::MetaElement> &metadata)
 void OPFResource::AddResource(const Resource *resource)
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     ManifestEntry me;
@@ -557,7 +557,7 @@ void OPFResource::AddCoverMetaForImage(const Resource *resource, OPFParser &p)
 void OPFResource::RemoveResource(const Resource *resource)
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     if (p.m_manifest.isEmpty()) return;
@@ -600,7 +600,7 @@ void OPFResource::RemoveResource(const Resource *resource)
 void OPFResource::AddGuideSemanticType(HTMLResource *html_resource, GuideSemantics::GuideSemanticType new_type)
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     GuideSemantics::GuideSemanticType current_type = GetGuideSemanticTypeForResource(html_resource, p);
@@ -621,7 +621,7 @@ void OPFResource::AddGuideSemanticType(HTMLResource *html_resource, GuideSemanti
 void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     QString resource_id = GetResourceManifestID(image_resource, p);
@@ -642,7 +642,7 @@ void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
 void OPFResource::UpdateSpineOrder(const QList<::HTMLResource *> html_files)
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     QList<SpineEntry> new_spine;
@@ -674,7 +674,7 @@ void OPFResource::UpdateSpineOrder(const QList<::HTMLResource *> html_files)
 void OPFResource::ResourceRenamed(const Resource *resource, QString old_full_path)
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     QString path_to_oebps_folder = QFileInfo(GetFullPath()).absolutePath() + "/";
@@ -976,7 +976,7 @@ void OPFResource::WriteIdentifier(const QString &metaname, const QString &metava
 void OPFResource::AddModificationDateMeta()
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
 
@@ -1195,7 +1195,7 @@ QString OPFResource::ValidatePackageVersion(const QString& source)
 void OPFResource::UpdateManifestProperties(const QList<Resource*> resources)
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     if (p.m_package.m_version != "3.0") {

@@ -40,11 +40,11 @@ public:
     // Convert to valid XHTML with Mending
     static QString ToValidXHTML(const QString &source, const QString &version );
 
-    static QString ProcessXML(const QString &source);
+    static QString ProcessXML(const QString &source, const QString mtype="");
 
     static QString MendPrettify(const QString &source, const QString &version);
 
-    static QString XMLPrettyPrintBS4(const QString &source);
+    static QString XMLPrettyPrintBS4(const QString &source, const QString mtype="");
 
     static QString PrettifyDOCTYPEHeader(const QString &source);
 

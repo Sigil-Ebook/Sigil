@@ -42,6 +42,7 @@ Resource::Resource(const QString &mainfolder, const QString &fullfilepath, QObje
     m_LastWrittenSize(0),
     m_CurrentBookRelPath(""),
     m_EpubVersion("2.0"),
+    m_MediaType(""),
     m_ReadWriteLock(QReadWriteLock::Recursive)
 {
 }
@@ -129,6 +130,18 @@ void Resource::SetEpubVersion(const QString& version)
 QString Resource::GetEpubVersion() const
 {
   return m_EpubVersion;
+}
+
+
+void Resource::SetMediaType(const QString& mtype)
+{
+    m_MediaType = mtype;
+}
+
+
+QString Resource::GetMediaType() const
+{
+  return m_MediaType;
 }
 
 

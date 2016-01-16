@@ -523,6 +523,8 @@ bool PluginRunner::checkIsWellFormed()
                 xmlFilesToCheck.append(href);
             } else if (mime == "application/xhtml+xml") {
                 xhtmlFilesToCheck.append(href);
+            } else if (mime == "application/smil+xml") {
+                xmlFilesToCheck.append(href);
             }
         }
     }
@@ -540,6 +542,8 @@ bool PluginRunner::checkIsWellFormed()
                 xmlFilesToCheck.append(href);
             } else if (mime == "application/xhtml+xml") {
                 xhtmlFilesToCheck.append(href);
+            } else if (mime == "application/smil+xml") {
+                xmlFilesToCheck.append(href);
             }
         }
     }
@@ -562,8 +566,12 @@ bool PluginRunner::checkIsWellFormed()
             // auto repair any xml file changes to be safe
             QString filePath = m_outputDir + "/" + href;
             ui.statusLbl->setText("Status: checking " + href);
+            QString mtype = "application/oebs-page-map+xml";
+            if (href.endsWith(".opf")) mtype = "application/oebps-package+xml";
+            if (href.endsWith(".ncx")) mtype = "application/x-dtbncx+xml";
+            if (href.endsWith(".smil")) mtype = "application/oebps-package+xml";
             QString data = Utility::ReadUnicodeTextFile(filePath);
-            QString newdata = CleanSource::ProcessXML(data);
+            QString newdata = CleanSource::ProcessXML(data, mtype);
             Utility::WriteUnicodeTextFile(newdata, filePath);
         }
     }

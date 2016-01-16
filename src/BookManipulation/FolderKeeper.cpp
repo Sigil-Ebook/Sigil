@@ -43,7 +43,7 @@ const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png
                                      << "gif"   << "tif"   << "tiff"
                                      << "bm"    << "bmp";
 const QStringList SVG_EXTENSIONS = QStringList() << "svg";
-
+const QStringList SMIL_EXTENSIONS = QStringList() << "smil";
 const QStringList JPG_EXTENSIONS = QStringList()   << "jpg"   << "jpeg";
 const QStringList TIFF_EXTENSIONS = QStringList()  << "tif"  << "tiff";
 
@@ -51,11 +51,12 @@ const QStringList TIFF_EXTENSIONS = QStringList()  << "tif"  << "tiff";
 // container.xml and encryption.xml will be rewritten
 // on export. Other files in this directory are passed
 // through untouched.
-const QRegularExpression FILE_EXCEPTIONS("META-INF|page-map|page_map");
+const QRegularExpression FILE_EXCEPTIONS("META-INF");
 
 const QStringList MISC_TEXT_EXTENSIONS = QStringList()  << "txt"  << "js" << "xpgt";
+const QStringList MISC_XML_EXTENSIONS  = QStringList() << "smil";
 const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"   << "otf" << "woff";
-const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html"  << "htm" << "xml";
+const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html"  << "htm";
 const QStringList STYLE_EXTENSIONS     = QStringList() << "css";
 const QStringList AUDIO_EXTENSIONS     = QStringList() << "aac" << "m4a" << "mp3" << "mpeg" << "mpg" << "oga" << "ogg";
 const QStringList VIDEO_EXTENSIONS     = QStringList() << "m4v" << "mp4" << "mov" << "ogv" << "webm" << "vtt" << "ttml";
@@ -68,17 +69,14 @@ const QString AUDIO_FOLDER_NAME = "Audio";
 const QString VIDEO_FOLDER_NAME = "Video";
 const QString MISC_FOLDER_NAME  = "Misc";
 
-const QStringList IMAGE_MIMEYPES = QStringList() << "image/gif" << "image/jpeg"
-                                   << "image/png";
-const QStringList SVG_MIMETYPES = QStringList() << "image/svg+xml";
-const QStringList TEXT_MIMETYPES = QStringList() << "application/xhtml+xml"
-                                   << "application/x-dtbook+xml"
-                                   << "application/xml";
-const QStringList STYLE_MIMETYPES = QStringList() << "text/css";
-const QStringList AUDIO_MIMETYPES = QStringList() << "audio/mpeg" << "audio/mp4" << "audio/ogg";
-const QStringList VIDEO_MIMETYPES = QStringList() << "video/mp4" << "video/mp4" << "video/mp4" 
+const QStringList IMAGE_MIMEYPES     = QStringList() << "image/gif" << "image/jpeg" << "image/png";
+const QStringList SVG_MIMETYPES      = QStringList() << "image/svg+xml";
+const QStringList TEXT_MIMETYPES     = QStringList() << "application/xhtml+xml" << "application/x-dtbook+xml";
+const QStringList STYLE_MIMETYPES    = QStringList() << "text/css";
+const QStringList AUDIO_MIMETYPES    = QStringList() << "audio/mpeg" << "audio/mp4" << "audio/ogg";
+const QStringList VIDEO_MIMETYPES    = QStringList() << "video/mp4" << "video/mp4" << "video/mp4" 
                                                   << "video/ogg" << "video/webm" << "text/vtt" << "application/ttml+xml" ;
-const QStringList PAGEMAP_MIMETYPES = QStringList() << "application/oebps-page-map+xml";
+const QStringList MISC_XML_MIMETYPES = QStringList() << "application/oebps-page-map+xml" <<  "application/smil+xml";
 
 static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                                      "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
@@ -96,6 +94,7 @@ FolderKeeper::FolderKeeper(QObject *parent)
     m_FSWatcher(new QFileSystemWatcher()),
     m_FullPathToMainFolder(m_TempFolder.GetPath())
 {
+    CreateExtensionToMediaTypeMap();
     CreateFolderStructure();
     CreateInfrastructureFiles();
 }
@@ -149,16 +148,11 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
         QString extension = QFileInfo(normalised_file_path).suffix().toLower();
 
         if (fullfilepath.contains(FILE_EXCEPTIONS)) {
-            if ((filename == "page-map.xml") || PAGEMAP_MIMETYPES.contains(mimetype)) {
-                new_file_path = m_FullPathToMiscFolder + "/" + filename;
-                resource = new MiscTextResource(m_FullPathToMainFolder, new_file_path);
-            } else {
-                // This is a big hack that assumes the new and old filepaths use root paths
-                // of the same length. I can't see how to fix this without refactoring
-                // a lot of the code to provide a more generalised interface.
-                new_file_path = m_FullPathToMainFolder % fullfilepath.right(fullfilepath.size() - m_FullPathToMainFolder.size());
-                resource = new Resource(m_FullPathToMainFolder, new_file_path);
-            }
+            // This is a big hack that assumes the new and old filepaths use root paths
+            // of the same length. I can't see how to fix this without refactoring
+            // a lot of the code to provide a more generalised interface.
+            new_file_path = m_FullPathToMainFolder % fullfilepath.right(fullfilepath.size() - m_FullPathToMainFolder.size());
+            resource = new Resource(m_FullPathToMainFolder, new_file_path);
         } else if (MISC_TEXT_EXTENSIONS.contains(extension)) {
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
             resource = new MiscTextResource(m_FullPathToMainFolder, new_file_path);
@@ -183,6 +177,9 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
         } else if (STYLE_EXTENSIONS.contains(extension) || STYLE_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToStylesFolder + "/" + filename;
             resource = new CSSResource(m_FullPathToMainFolder, new_file_path);
+        } else if (MISC_XML_EXTENSIONS.contains(extension) || MISC_XML_MIMETYPES.contains(mimetype)) {
+            new_file_path = m_FullPathToMiscFolder + "/" + filename;
+            resource = new XMLResource(m_FullPathToMainFolder, new_file_path);
         } else {
             // Fallback mechanism
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
@@ -191,6 +188,12 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
 
         m_Resources[ resource->GetIdentifier() ] = resource;
         resource->SetEpubVersion(m_OPF->GetEpubVersion());
+        if (!mimetype.isEmpty()) {
+            resource->SetMediaType(mimetype);
+        } else {
+           resource->SetMediaType(m_ExtToMType.value(extension));
+        }
+
     }
     QFile::copy(fullfilepath, new_file_path);
 
@@ -503,4 +506,41 @@ void FolderKeeper::CreateInfrastructureFiles()
     connect(m_FSWatcher, SIGNAL(fileChanged(const QString &)),
             this,        SLOT(ResourceFileChanged(const QString &)), Qt::DirectConnection);
     Utility::WriteUnicodeTextFile(CONTAINER_XML, m_FullPathToMetaInfFolder + "/container.xml");
+}
+
+
+
+// Initializes m_Mimetypes
+void FolderKeeper::CreateExtensionToMediaTypeMap()
+{
+  m_ExtToMType[ "bm"    ] = "image/bmp";
+  m_ExtToMType[ "bmp"   ] = "image/bmp";
+  m_ExtToMType[ "css"   ] = "text/css";
+  m_ExtToMType[ "gif"   ] = "image/gif";
+  m_ExtToMType[ "htm"   ] = "application/xhtml+xml";
+  m_ExtToMType[ "html"  ] = "application/xhtml+xml";
+  m_ExtToMType[ "jpeg"  ] = "image/jpeg";
+  m_ExtToMType[ "jpg"   ] = "image/jpeg";
+  m_ExtToMType[ "js"    ] = "text/javascript";
+  m_ExtToMType[ "mp3"   ] = "audio/mpeg";
+  m_ExtToMType[ "mp4"   ] = "video/mp4";
+  m_ExtToMType[ "ncx"   ] = "application/x-dtbncx+xml";
+  m_ExtToMType[ "oga"   ] = "audio/ogg";
+  m_ExtToMType[ "ogg"   ] = "audio/ogg";
+  m_ExtToMType[ "ogv"   ] = "video/ogg";
+  m_ExtToMType[ "opf"   ] = "application/oebps-package+xml";
+  m_ExtToMType[ "otf"   ] = "application/vnd.ms-opentype";
+  m_ExtToMType[ "pls"   ] = "application/pls+xml";
+  m_ExtToMType[ "png"   ] = "image/png";
+  m_ExtToMType[ "smil"  ] = "application/smil+xml";
+  m_ExtToMType[ "svg"   ] = "image/svg+xml";
+  m_ExtToMType[ "tif"   ] = "image/tiff";
+  m_ExtToMType[ "tiff"  ] = "image/tiff";
+  m_ExtToMType[ "ttf"   ] = "application/x-font-ttf";
+  m_ExtToMType[ "ttc"   ] = "application/x-font-truetype-collection";
+  m_ExtToMType[ "ttml"  ] = "application/ttml+xml";
+  m_ExtToMType[ "vtt"   ] = "text/vtt";
+  m_ExtToMType[ "webm"  ] = "video/webm";
+  m_ExtToMType[ "woff"  ] = "application/font-woff";
+  m_ExtToMType[ "xhtml" ] = "application/xhtml+xml";
 }

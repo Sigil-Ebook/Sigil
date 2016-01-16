@@ -150,6 +150,14 @@ public:
     QString GetEpubVersion() const;
 
     /**
+     * gets and sets the resources media-type
+     */
+
+    void SetMediaType(const QString& );
+
+    QString GetMediaType() const;
+
+    /**
      * Returns a reference to the resource's ReadWriteLock.
      *
      * @return The resource's ReadWriteLock.
@@ -292,6 +300,12 @@ private:
      * The version of epub this resource is used in
      */
     QString m_EpubVersion;
+
+    /**
+     * The media type of the resource
+     */
+    QString m_MediaType;
+
 
     /**
      * The ReadWriteLock guarding access to the resource's data.

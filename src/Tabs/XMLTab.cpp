@@ -49,7 +49,8 @@ void XMLTab::ScrollToLine(int line)
 
 void XMLTab::AutoFixWellFormedErrors()
 {
-    m_wCodeView->ReplaceDocumentText(CleanSource::ProcessXML(m_wCodeView->toPlainText()));
+    QString mtype = m_XMLResource->GetMediaType();
+    m_wCodeView->ReplaceDocumentText(CleanSource::ProcessXML(m_wCodeView->toPlainText(),mtype));
 }
 
 

@@ -14,6 +14,24 @@ URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
                     '0123456789' '#' '_.-/~')
 IRI_UNSAFE = ASCII_CHARS - URL_SAFE
 
+TEXT_FOLDER_NAME = "Text"
+ebook_xml_empty_tags = ["meta", "item", "itemref", "reference", "content"]
+
+def get_void_tags(mtype):
+    voidtags = []
+    if mtype == "application/oebps-package+xml":
+        voidtags = ["item", "itemref", "mediatype", "mediaType", "meta"]
+    elif mtype == "application/x-dtbncx+xml":
+        voidtags = ["meta", "reference", "content"]
+    elif mtype == "application/smil+xml":
+        voidtags = ["text", "audio"]
+    elif mtype == "application/oebps-page-map+xml":
+        voidtags = ["page"]
+    else:
+        voidtags = ebook_xml_empty_tags
+    return voidtags
+
+
 # returns a quoted IRI (not a URI)
 def quoteurl(href):
     if isinstance(href,bytes):
@@ -37,10 +55,6 @@ def unquoteurl(href):
     return href
 
 
-TEXT_FOLDER_NAME = "Text"
-ebook_xml_empty_tags = ["meta", "item", "itemref", "reference", "content"]
-
-
 def _remove_xml_header(data):
     return re.sub(r'<\s*\?xml\s*[^\?>]*\?*>\s*','',data, flags=re.I)
 
@@ -49,14 +63,16 @@ def _remove_xml_header(data):
 # re.sub(ncx_text_pattern,r'\1\2\3',newdata)
 
 # BS4 with lxml for xml strips whitespace so always will want to prettyprint xml
-def repairXML(data, self_closing_tags=ebook_xml_empty_tags, indent_chars="  "):
+def repairXML(data, mtype="", indent_chars="  "):
     data = _remove_xml_header(data)
+    voidtags = get_void_tags(mtype)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
-    xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=self_closing_tags)
+    xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=voidtags)
     soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars=indent_chars)
     return newdata
+
 
 def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
     data = _remove_xml_header(data)
@@ -143,6 +159,74 @@ def performOPFSourceUpdates(data, currentdir, keylist, valuelist):
                         attribute_value = attribute_value + "#" + fragment
                     attribute_value = quoteurl(attribute_value)
                     tag["href"] = attribute_value
+    newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
+    return newdata
+
+
+def performSMILUpdates(data, currentdir, keylist, valuelist):
+    data = _remove_xml_header(data)
+    # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
+    data = data.encode('utf-8')
+    # rebuild serialized lookup dictionary
+    updates = {}
+    for i in range(0, len(keylist)):
+        updates[ keylist[i] ] = valuelist[i]
+    xml_empty_tags = ["text", "audio"]
+    xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=xml_empty_tags)
+    soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
+    for tag in soup.find_all(["body","seq","text","audio"]):
+        for att in ["src", "epub:textref"]:
+            if att in tag.attrs :
+                ref = tag[att]
+                if ref.find(":") == -1 :
+                    parts = ref.split('#')
+                    url = parts[0]
+                    fragment = ""
+                    if len(parts) > 1:
+                        fragment = parts[1]
+                    bookrelpath = os.path.join(currentdir, unquoteurl(url))
+                    bookrelpath = os.path.normpath(bookrelpath)
+                    bookrelpath = bookrelpath.replace(os.sep, "/")
+                    if bookrelpath in updates:
+                        attribute_value = updates[bookrelpath]
+                        if fragment != "":
+                            attribute_value = attribute_value + "#" + fragment
+                        attribute_value = quoteurl(attribute_value)
+                        tag[att] = attribute_value
+    newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
+    return newdata
+
+
+def performPageMapUpdates(data, currentdir, keylist, valuelist):
+    data = _remove_xml_header(data)
+    # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
+    data = data.encode('utf-8')
+    # rebuild serialized lookup dictionary
+    updates = {}
+    for i in range(0, len(keylist)):
+        updates[ keylist[i] ] = valuelist[i]
+    xml_empty_tags = ["page"]
+    xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=xml_empty_tags)
+    soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
+    for tag in soup.find_all(["page"]):
+        for att in ["href"]:
+            if att in tag.attrs :
+                ref = tag[att]
+                if ref.find(":") == -1 :
+                    parts = ref.split('#')
+                    url = parts[0]
+                    fragment = ""
+                    if len(parts) > 1:
+                        fragment = parts[1]
+                    bookrelpath = os.path.join(currentdir, unquoteurl(url))
+                    bookrelpath = os.path.normpath(bookrelpath)
+                    bookrelpath = bookrelpath.replace(os.sep, "/")
+                    if bookrelpath in updates:
+                        attribute_value = updates[bookrelpath]
+                        if fragment != "":
+                            attribute_value = attribute_value + "#" + fragment
+                        attribute_value = quoteurl(attribute_value)
+                        tag[att] = attribute_value
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
     return newdata
 
