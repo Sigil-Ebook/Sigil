@@ -1310,10 +1310,11 @@ void MainWindow::GenerateNav()
             ResourcesAddedOrDeleted();
         }
         // Now add the nav property to the manifest
+        // And reload any tab if needed
         QList<Resource *> resources;
-        resources.append((Resource *) nav_resource);
+        resources.append(static_cast<Resource *>( nav_resource));
+        m_TabManager->ReloadTabDataForResources(resources);
         m_Book->GetOPF()->UpdateManifestProperties(resources);
-
         ShowMessageOnStatusBar(tr("Nav generated."));
         QApplication::restoreOverrideCursor();
         return;
