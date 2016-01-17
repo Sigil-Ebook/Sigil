@@ -24,10 +24,14 @@
 #include <QtWidgets/QStackedWidget>
 #include <QVBoxLayout>
 #include <QtWebKitWidgets/QWebInspector>
+#include <QDir>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 #include "MainUI/PreviewWindow.h"
 #include "Misc/SleepFunctions.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 #include "ViewEditors/BookViewPreview.h"
 
 static const QString SETTINGS_GROUP = "previewwindow";
@@ -177,6 +181,35 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList<ViewEditor:
 {
     if (!m_Preview->isVisible()) {
         return;
+    }
+
+    // If this page uses the mathml, inject a polyfill
+    // MathJax.js so that the mathml appears in the Preview Window
+    QRegularExpression mathused("<\\s*math [^>]*>");
+    QRegularExpressionMatch mo = mathused.match(text);
+    if (mo.hasMatch()) {
+        QString mathjaxurl;
+
+        // The path to MathJax.js is platform dependent
+#ifdef Q_OS_MAC
+        // On Mac OS X QCoreApplication::applicationDirPath() points to Sigil.app/Contents/MacOS/ 
+        QDir execdir(QCoreApplication::applicationDirPath());
+        execdir.cdUp();
+        mathjaxurl = execdir.absolutePath() + "/polyfills/MathJax.js";
+#elif defined(Q_OS_WIN32)
+        mathjaxurl = QCoreApplication::applicationDirPath() + "/polyfills/MathJax.js";
+#else
+        mathjaxurl = QCoreApplication::applicationDirPath() + "/polyfille/MathJax.js";
+#endif
+
+        mathjaxurl = "file://" + Utility::URLEncodePath(mathjaxurl);
+        int endheadpos = text.indexOf("</head>");
+        if (endheadpos > 1) {
+            QString inject_mathjax = 
+              "<script type=\"text/javascript\" "
+              "src=\"" + mathjaxurl + "\"></script>";
+            text.insert(endheadpos, inject_mathjax);
+        }
     }
 
     m_Preview->CustomSetDocument(filename, text);
