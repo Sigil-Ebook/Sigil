@@ -33,6 +33,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ViewEditors/BookViewPreview.h"
+#include "sigil_constants.h"
 
 static const QString SETTINGS_GROUP = "previewwindow";
 
@@ -199,7 +200,13 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList<ViewEditor:
 #elif defined(Q_OS_WIN32)
         mathjaxurl = QCoreApplication::applicationDirPath() + "/polyfills/MathJax.js";
 #else
-        mathjaxurl = QCoreApplication::applicationDirPath() + "/polyfille/MathJax.js";
+        // all flavours of linux / unix
+        // user supplied environment variable to 'share/sigil' directory will overrides everything
+        if (!sigil_extra_root.isEmpty()) {
+            mathjaxurl = sigil_extra_root + "/polyfills/MathJax.js";
+        } else {
+            mathjaxurl = sigil_share_root + "/polyfills/MathJax.js";
+        }
 #endif
 
         mathjaxurl = "file://" + Utility::URLEncodePath(mathjaxurl);
