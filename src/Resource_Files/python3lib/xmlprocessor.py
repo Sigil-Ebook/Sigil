@@ -163,14 +163,17 @@ def performOPFSourceUpdates(data, currentdir, keylist, valuelist):
     return newdata
 
 
+# Note xml_updates has paths relative to the OEBPS folder as base
+# As if they were meant only for OEBPS/content.opf and OEBPS/toc.ncx
+# So adjust them to be relative to the Misc directory where .smil files live in Sigil
 def performSMILUpdates(data, currentdir, keylist, valuelist):
     data = _remove_xml_header(data)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
-    # rebuild serialized lookup dictionary
+    # rebuild serialized lookup dictionary of xml_updates, properly adjusted
     updates = {}
     for i in range(0, len(keylist)):
-        updates[ keylist[i] ] = valuelist[i]
+        updates[ keylist[i] ] = "../" + valuelist[i]
     xml_empty_tags = ["text", "audio"]
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=xml_empty_tags)
     soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
@@ -196,15 +199,17 @@ def performSMILUpdates(data, currentdir, keylist, valuelist):
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
     return newdata
 
-
+# Note xml_updates has urls/iris relative to the OEBPS folder as base
+# As if they were meant only for OEBPS/content.opf and OEBPS/toc.ncx
+# So adjust them to be relative to the Misc directory where page-map.xml lives
 def performPageMapUpdates(data, currentdir, keylist, valuelist):
     data = _remove_xml_header(data)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
-    # rebuild serialized lookup dictionary
+    # rebuild serialized lookup dictionary of xml_updates properly adjusted
     updates = {}
     for i in range(0, len(keylist)):
-        updates[ keylist[i] ] = valuelist[i]
+        updates[ keylist[i] ] = "../" + valuelist[i]
     xml_empty_tags = ["page"]
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=xml_empty_tags)
     soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
