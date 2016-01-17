@@ -540,7 +540,7 @@ void MainWindow::ShowLastOpenFileWarnings()
     if (!m_LastOpenFileWarnings.isEmpty()) {
         Utility::DisplayStdWarningDialog(
             "<p><b>" %
-            tr("This EPUB contains errors.") %
+            tr("Opening this EPUB generated warnings.") %
             "</b></p><p>" %
             tr("Select Show Details for more information.") %
             "</p>",

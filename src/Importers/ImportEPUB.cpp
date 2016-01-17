@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -671,12 +672,17 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
 
         ncx_resource.SaveToDisk();
 
-        if (ncx_href.isEmpty()) {
-            load_warning = QObject::tr("The OPF file does not contain an NCX file.") + "\n" + 
-                           " - " +  QObject::tr("Sigil has created a new one for you.");
+        if (m_PackageVersion.startsWith('3')) { 
+            load_warning = QObject::tr("Sigil has created a template NCX") + "\n" + 
+              QObject::tr("to support epub2 backwards compatibility.");
         } else {
-            load_warning = QObject::tr("The NCX file is not present in this EPUB.") + "\n" + 
-                           " - " + QObject::tr("Sigil has created a new one for you.");
+            if (ncx_href.isEmpty()) {
+                load_warning = QObject::tr("The OPF file does not contain an NCX file.") + "\n" + 
+                               " - " +  QObject::tr("Sigil has created a new one for you.");
+            } else {
+                load_warning = QObject::tr("The NCX file is not present in this EPUB.") + "\n" + 
+                               " - " + QObject::tr("Sigil has created a new one for you.");
+            }
         }
     }
 
