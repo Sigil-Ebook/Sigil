@@ -109,7 +109,8 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     setContextMenuPolicy(Qt::CustomContextMenu);
     page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
     page()->settings()->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
-    page()->settings()->setAttribute(QWebSettings::LocalContentCanAccessRemoteUrls, false);
+    // page()->settings()->setAttribute(QWebSettings::LocalContentCanAccessRemoteUrls, false);
+    page()->settings()->setAttribute(QWebSettings::LocalContentCanAccessRemoteUrls, true);
     page()->settings()->setAttribute(QWebSettings::ZoomTextOnly, true);
     SettingsStore settings;
     SetCurrentZoomFactor(settings.zoomWeb());
