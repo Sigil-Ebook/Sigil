@@ -4,6 +4,7 @@ Sigil-0.9.3
     - Add 3 User-assignable ToolBar Buttons for up to 3 plugins - users can an assign key accelerators to them
     - Stop 'Generate TOC' from introducing unnecessary spaces in front of class attibute values
     - Use localeAwareCompare to attempt to add Index Entries to build them sorted
+    - Fix segfault caused by use of possibly stale htmlresource pointer in FlowTab destructor
     - Add technique to call long EmbeddedPython calls by using QtConcurrent::run
     - Add General Settings Preference for setting default (epub 2 or 3) for new documents
     - Merge CleanSource Preference Settings into General Settings Preferences
