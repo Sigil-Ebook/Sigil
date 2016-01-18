@@ -198,7 +198,7 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList<ViewEditor:
         execdir.cdUp();
         mathjaxurl = execdir.absolutePath() + "/polyfills/MathJax.js";
 #elif defined(Q_OS_WIN32)
-        mathjaxurl = QCoreApplication::applicationDirPath() + "/polyfills/MathJax.js";
+        mathjaxurl = "/" + QCoreApplication::applicationDirPath() + "/polyfills/MathJax.js";
 #else
         // all flavours of linux / unix
         // user supplied environment variable to 'share/sigil' directory will overrides everything
