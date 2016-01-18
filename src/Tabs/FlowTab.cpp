@@ -110,7 +110,7 @@ FlowTab::~FlowTab()
     // function to be called after we delete BV and PV later in this destructor.
     // No idea how that's possible but this prevents a segfault...
 
-    disconnect(m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+    //disconnect(m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
     disconnect(this, 0, 0, 0);
     m_WellFormedCheckComponent->deleteLater();
 
