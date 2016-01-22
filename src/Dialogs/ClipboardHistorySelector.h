@@ -64,7 +64,7 @@ private slots:
     void ApplicationActivated();
     void ApplicationDeactivated();
     void ClipboardItemDoubleClicked(QTableWidgetItem *item);
-    void ClipboardChanged(QClipboard::Mode mode);
+    void ClipboardChanged();
 
 private:
     void SetupClipboardHistoryTable();

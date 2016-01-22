@@ -61,8 +61,8 @@ void ClipboardHistorySelector::showEvent(QShowEvent *event)
 void ClipboardHistorySelector::ApplicationActivated()
 {
     // Turned on when Sigil is activated, put the latest text if any at the top of the history
-    ClipboardChanged(QClipboard::Clipboard);
-    connect(QApplication::clipboard(), SIGNAL(changed(QClipboard::Mode)), this, SLOT(ClipboardChanged(QClipboard::Mode)));
+    ClipboardChanged();
+    connect(QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(ClipboardChanged()));
 
     // If we are currently showing this dialog, refresh the display
     if (isVisible()) {
@@ -98,7 +98,7 @@ void ClipboardHistorySelector::RestoreClipboardState()
         QApplication::clipboard()->setText(m_ClipboardHistoryItems->at(0));
     }
 
-    connect(QApplication::clipboard(), SIGNAL(changed(QClipboard::Mode)), this, SLOT(ClipboardChanged(QClipboard::Mode)));
+    connect(QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(ClipboardChanged()));
 }
 
 void ClipboardHistorySelector::SetupClipboardHistoryTable()
@@ -152,12 +152,8 @@ void ClipboardHistorySelector::SetupClipboardHistoryTable()
     }
 }
 
-void ClipboardHistorySelector::ClipboardChanged(QClipboard::Mode mode)
+void ClipboardHistorySelector::ClipboardChanged()
 {
-    if (mode != QClipboard::Clipboard) {
-        return;
-    }
-
     const QString text = QApplication::clipboard()->text();
 
     if (text.isEmpty()) {
