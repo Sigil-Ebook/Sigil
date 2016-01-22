@@ -841,9 +841,9 @@ elseif (MSVC)
     endforeach( QM )
 
     # Copy the MathJax polyfill
-    set( MATHJAX_FILE ${CMAKE_SOURCE_DIR}/src/Resource_Files/polyfills/MathJax.js  )
+    set( MATHJAX_FILE ${CMAKE_SOURCE_DIR}/src/Resource_Files/polyfills/MathJax_win.js  )
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/polyfills/ )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${MATHJAX_FILE} ${MAIN_PACKAGE_DIR}/polyfills/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${MATHJAX_FILE} ${MAIN_PACKAGE_DIR}/polyfills/MathJax.js )
 
     # Copy the dictionary files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/hunspell_dictionaries/ )

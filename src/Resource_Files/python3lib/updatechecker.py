@@ -7,6 +7,7 @@ import re
 
 def check_for_updates(site_url):
     latest_version = ""
+    return latest_version  # Disable until a viable https timeout can be achieved/caught
     _version_pattern = re.compile(r'<current-version>([^<]*)</current-version>')
 
     try:
