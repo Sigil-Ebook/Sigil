@@ -65,6 +65,7 @@ private slots:
     void ApplicationDeactivated();
     void ClipboardItemDoubleClicked(QTableWidgetItem *item);
     void ClipboardChanged();
+    void TakeOwnershipOfClip();
 
 private:
     void SetupClipboardHistoryTable();
@@ -77,6 +78,8 @@ private:
 
     QStringList *m_ClipboardHistoryItems;
     QStringList *m_PreviousClipboardHistoryItems;
+
+    QString m_lastclip;
 
     Ui::ClipboardHistorySelector ui;
 };

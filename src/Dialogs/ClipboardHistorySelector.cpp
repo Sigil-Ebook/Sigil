@@ -26,6 +26,7 @@
 #include <QtGui/QKeyEvent>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidgetItem>
+#include <QTimer>
 
 #include "Dialogs/ClipboardHistorySelector.h"
 #include "MainUI/MainApplication.h"
@@ -152,6 +153,13 @@ void ClipboardHistorySelector::SetupClipboardHistoryTable()
     }
 }
 
+// This is only needed for Linux
+// See:  https://bugreports.qt.io/browse/QTBUG-44849
+void ClipboardHistorySelector::TakeOwnershipOfClip()
+{
+    QApplication::clipboard()->setText(m_lastclip);
+}
+
 void ClipboardHistorySelector::ClipboardChanged()
 {
     const QString text = QApplication::clipboard()->text();
@@ -159,6 +167,16 @@ void ClipboardHistorySelector::ClipboardChanged()
     if (text.isEmpty()) {
         return;
     }
+
+// This is only needed for Linux
+// See:  https://bugreports.qt.io/browse/QTBUG-44849
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+    // if there is something on the clipboard make sure we own it
+    if (!QApplication::clipboard()->ownsClipboard()) {
+        m_lastclip = text;
+	     QTimer::singleShot(50, this, SLOT(TakeOwnershipOfClip()));
+    }
+#endif
 
     int existing_index = m_ClipboardHistoryItems->indexOf(text);
 
