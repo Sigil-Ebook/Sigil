@@ -69,7 +69,7 @@ def _convert_attrs(element_attrs):
             name = _fromutf8(attr.name)
             prefix = repr(attr.namespace).lower() if name != 'xmlns' else None
             nsurl = attr.namespace.to_url()
-            return sigil_bs4.element.NamespacedAttributes(prefix, name, nsurl)
+            return sigil_bs4.element.NamespacedAttribute(prefix, name, nsurl)
         else:
             return _fromutf8(attr.name)
     def maybe_value_list(attr):
