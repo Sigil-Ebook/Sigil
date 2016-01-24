@@ -68,7 +68,7 @@ def _convert_attrs(element_attrs):
         if attr.namespace != gumboc.AttributeNamespace.NONE:
             name = _fromutf8(attr.name)
             prefix = repr(attr.namespace).lower() if name != 'xmlns' else None
-            nsurl = atr.namespace.to_url()
+            nsurl = attr.namespace.to_url()
             return sigil_bs4.element.NamespacedAttributes(prefix, name, nsurl)
         else:
             return _fromutf8(attr.name)
