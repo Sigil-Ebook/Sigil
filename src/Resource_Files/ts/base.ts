@@ -1378,7 +1378,7 @@ Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="283"/>
+        <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="297"/>
         <source>Paste</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2024,8 +2024,8 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="32"/>
-        <source>Choose which version of epub to use
-when creating new or empty ebpus in Sigil.</source>
+        <source>Choose which version of Epub to use
+when creating new or empty Epubs in Sigil.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2066,7 +2066,7 @@ mended.</source>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="81"/>
-        <source>Mend when opening an EPUB or HTML file, 
+        <source>Mend when opening an Epub or HTML file, 
 and when switching from Book View to Code View.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2077,12 +2077,32 @@ and when switching from Book View to Code View.</source>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="92"/>
-        <source>Mend when saving an EPUB.</source>
+        <source>Mend when saving an Epub.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="95"/>
         <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="105"/>
+        <source>Determine if Epubs are allowed to access remote resources via the internet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="108"/>
+        <source> Access by Epubs to remote resources via the internet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="114"/>
+        <source>Check to allow Epubs to access remote resources via the internet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="117"/>
+        <source>Accessing remote resources is allowed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
