@@ -1,15 +1,21 @@
 Sigil-0.9.3
+   Bug Fixes
     - Add a python based updatechecker for Sigil updates to prevent Windows OpenSSL build issues
     - Add an autostart/autoclose capability for plugin developers
     - Add 3 User-assignable ToolBar Buttons for up to 3 plugins - users can an assign key accelerators to them
     - Stop 'Generate TOC' from introducing unnecessary spaces in front of class attibute values
     - Use localeAwareCompare to attempt to add Index Entries to build them sorted
     - Fix segfault caused by use of possibly stale htmlresource pointer in FlowTab destructor
+    - Workaround Qt bug that causes slow selection/highlighting of xhtml on Linux
+    - Fix multiple typos in sigil_gumbo_bs4_adapter code
     - Add technique to call long EmbeddedPython calls by using QtConcurrent::run
+   New Features
     - Add General Settings Preference for setting default (epub 2 or 3) for new documents
     - Merge CleanSource Preference Settings into General Settings Preferences
+    - Add Setting to Allow Epubs to access remote resources via the internet to General Settings
     - Completely reworked Sigil internals to support epub version (2 or 3) specific functionality
         - ImportHTML, ImportEPUB, Splitting and Merging, Index Generation, Mending, are all now epub version aware
+    - AddModificationDate upon save is now epub2 and epub3 aware
     - Add "Epub3 Tools" to the Tools menu
     - Add three new epub3 tools: "Update Manifest Properties", "Generate Nav From NCX" and 
         "Generate NCX From Nav" to "Epub3 Tools" menu
@@ -19,11 +25,10 @@ Sigil-0.9.3
     - Extend url address recognition to include track, video, and object elements attributes
     - Recognize and store .vtt and .ttml files for video subtitles and captioning
     - Prevent attempts from using Metadata Editor gui from hurting epub3 until support is added later
-    - Many epub3 related bug fixes and changes to make sure all new epub3 links are properly updated
+    - Many epub3 related bug fixes and changes to make sure all new epub3 href/links are properly updated
     - Reworked the plugin_launcher epub3 interface code to allow fallback and media-overlay attributes
-    - AddModificationDate upon save is now epub2 and epub3 aware
     - Added support for MathML in Preview via Mathjax.js-single polyfill
-    - Added the void MathML tags to GumboInterface for proper serialization
+    - Added the MathML list of void tags to GumboInterface for proper serialization
 
 
 Sigil 0.9.2
