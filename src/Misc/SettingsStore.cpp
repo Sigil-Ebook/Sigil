@@ -46,6 +46,7 @@ static QString KEY_DEFAULT_USER_DICTIONARY = SETTINGS_GROUP + "/" + "user_dictio
 static QString KEY_ENABLED_USER_DICTIONARIES = SETTINGS_GROUP + "/" + "enabled_user_dictionaries";
 static QString KEY_PLUGIN_USER_MAP = SETTINGS_GROUP + "/" + "plugin_user_map";
 static QString KEY_CLEAN_ON = SETTINGS_GROUP + "/" + "clean_on";
+static QString KEY_REMOTE_ON = SETTINGS_GROUP + "/" + "remote_on";
 static QString KEY_DEFAULT_VERSION = SETTINGS_GROUP + "/" + "default_version";
 static QString KEY_PRESERVE_ENTITY_NAMES = SETTINGS_GROUP + "/" + "preserve_entity_names";
 static QString KEY_PRESERVE_ENTITY_CODES = SETTINGS_GROUP + "/" + "preserve_entity_codes";
@@ -168,6 +169,12 @@ QString SettingsStore::renameTemplate()
 {
     clearSettingsGroup();
     return value(KEY_RENAME_TEMPLATE, "").toString();
+}
+
+int SettingsStore::remoteOn()
+{
+    clearSettingsGroup();
+    return value(KEY_REMOTE_ON, 0).toInt();
 }
 
 int SettingsStore::cleanOn()
@@ -354,6 +361,12 @@ void SettingsStore::setRenameTemplate(const QString &name)
 {
     clearSettingsGroup();
     setValue(KEY_RENAME_TEMPLATE, name);
+}
+
+void SettingsStore::setRemoteOn(int on)
+{
+    clearSettingsGroup();
+    setValue(KEY_REMOTE_ON, on);
 }
 
 void SettingsStore::setCleanOn(int on)

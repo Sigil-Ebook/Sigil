@@ -119,6 +119,8 @@ public:
      */
     QString renameTemplate();
 
+    int remoteOn();
+
     int cleanOn();
 
     QStringList pluginMap();
@@ -271,6 +273,8 @@ public slots:
      * @param name The name of the dictionary.
      */
     void setRenameTemplate(const QString &name);
+
+    void setRemoteOn(int on);
 
     void setCleanOn(int on);
 

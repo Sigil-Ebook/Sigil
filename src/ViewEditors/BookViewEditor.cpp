@@ -109,10 +109,10 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     setContextMenuPolicy(Qt::CustomContextMenu);
     page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, false);
     page()->settings()->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
-    // page()->settings()->setAttribute(QWebSettings::LocalContentCanAccessRemoteUrls, false);
-    page()->settings()->setAttribute(QWebSettings::LocalContentCanAccessRemoteUrls, true);
-    page()->settings()->setAttribute(QWebSettings::ZoomTextOnly, true);
     SettingsStore settings;
+    // Allow epubs to access remote resources via the net        
+    page()->settings()->setAttribute(QWebSettings::LocalContentCanAccessRemoteUrls, (settings.remoteOn() == 1));
+    page()->settings()->setAttribute(QWebSettings::ZoomTextOnly, true);
     SetCurrentZoomFactor(settings.zoomWeb());
     installEventFilter(this);
     CreateContextMenuActions();

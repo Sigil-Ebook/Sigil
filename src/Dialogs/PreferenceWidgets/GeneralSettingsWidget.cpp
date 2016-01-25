@@ -47,9 +47,16 @@ PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
         new_clean_on_level |= CLEANON_SAVE;
     }
 
+    int new_remote_on_level = 0;
+
+    if (ui.AllowRemote->isChecked()) {
+        new_remote_on_level = 1;
+    }
+
     SettingsStore settings;
     settings.setCleanOn(new_clean_on_level);
     settings.setDefaultVersion(new_epub_version);
+    settings.setRemoteOn(new_remote_on_level);
     return PreferencesWidget::ResultAction_None;
 }
 
@@ -62,5 +69,7 @@ void GeneralSettingsWidget::readSettings()
     int cleanOn = settings.cleanOn();
     ui.MendOnOpen->setChecked(cleanOn & CLEANON_OPEN);
     ui.MendOnSave->setChecked(cleanOn & CLEANON_SAVE);
+    int remoteOn = settings.remoteOn();
+    ui.AllowRemote->setChecked(remoteOn);
 }
 

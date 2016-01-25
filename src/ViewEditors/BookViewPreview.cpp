@@ -74,8 +74,8 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
     page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
     page()->settings()->setAttribute(QWebSettings::PluginsEnabled, true);
-    // do the following just for testing
-    page()->settings()->setAttribute(QWebSettings::LocalContentCanAccessRemoteUrls, true);
+    // Allow epubs to access remote resources via the net
+    page()->settings()->setAttribute(QWebSettings::LocalContentCanAccessRemoteUrls, (settings.remoteOn() == 1));
     // Enable local-storage for epub3
     page()->settings()->setAttribute(QWebSettings::LocalStorageEnabled, true);
     QString localStorePath = Utility::DefinePrefsDir() + "/local-storage";
