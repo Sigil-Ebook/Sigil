@@ -1061,7 +1061,7 @@ void CodeViewEditor::mousePressEvent(QMouseEvent *event)
 void CodeViewEditor::mouseReleaseEvent(QMouseEvent *event)
 {
     emit PageClicked();
-    QPlainTextEdit::mousePressEvent(event);
+    QPlainTextEdit::mouseReleaseEvent(event);
 }
 
 
