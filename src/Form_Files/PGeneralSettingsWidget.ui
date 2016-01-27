@@ -102,19 +102,19 @@ and when switching from Book View to Code View.</string>
    <item>
     <widget class="QGroupBox" name="groupBox_3">
      <property name="toolTip">
-      <string>Determine if Epubs are allowed to access remote resources via the internet.</string>
+      <string>Determine if Epubs are allowed to access non-multimedia remote resources.</string>
      </property>
      <property name="title">
-      <string> Access by Epubs to remote resources via the internet</string>
+      <string> Control Access by Epubs to non-multimedia remote resources.</string>
      </property>
      <layout class="QGridLayout" name="gridLayout2">
       <item row="0" column="0">
        <widget class="QCheckBox" name="AllowRemote">
         <property name="toolTip">
-         <string>Check to allow Epubs to access remote resources via the internet</string>
+         <string>Check to allow Epubs to access non-multimedia remote resources.</string>
         </property>
         <property name="text">
-         <string>Accessing remote resources is allowed</string>
+         <string>Epubs may access all remote resources types.</string>
         </property>
         <property name="checked">
          <bool>false</bool>
