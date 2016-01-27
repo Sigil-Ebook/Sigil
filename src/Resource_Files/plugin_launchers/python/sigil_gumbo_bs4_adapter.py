@@ -75,7 +75,8 @@ def _convert_attrs(element_attrs):
     def maybe_value_list(attr):
         value = _fromutf8(attr.value)
         if " " in value:
-            value = sigil_bs4.element.whitespace_re.split(value)
+            if _fromutf8(attr.name) == "class" and attr.namespace == gumboc.AttributeNamespace.NONE:
+                value = sigil_bs4.element.whitespace_re.split(value)
         return value
     return dict((maybe_namespace(attr), maybe_value_list(attr)) for attr in element_attrs)
 
