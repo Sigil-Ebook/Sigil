@@ -2087,22 +2087,22 @@ and when switching from Book View to Code View.</source>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="105"/>
-        <source>Determine if Epubs are allowed to access remote resources via the internet.</source>
+        <source>Determine if Epubs are allowed to access non-multimedia remote resources.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="108"/>
-        <source> Access by Epubs to remote resources via the internet</source>
+        <source> Control Access by Epubs to non-multimedia remote resources.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="114"/>
-        <source>Check to allow Epubs to access remote resources via the internet</source>
+        <source>Check to allow Epubs to access non-multimedia remote resources.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="117"/>
-        <source>Accessing remote resources is allowed</source>
+        <source>Epubs may access all remote resources types.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
