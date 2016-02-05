@@ -30,6 +30,7 @@
 
 #include "Misc/GumboInterface.h"
 #include "ResourceObjects/OPFParser.h"
+#include "Misc/MarcRelators.h"
 
 class QMutex;
 class QString;
@@ -69,8 +70,8 @@ public:
 
     static Metadata *Instance();
 
-    const QHash<QString, MetaInfo> &GetRelatorMap();
-    const QHash<QString, MetaInfo> &GetBasicMetaMap();
+    QStringList GetSortedNames(QString infotype);
+    QString GetDescriptionByName(QString infotype, QString name);
 
     bool IsRelator(QString code);
 
@@ -141,15 +142,7 @@ private:
     // the values are the element types for those names
     QHash<QString, QString> m_BasicFullNames;
 
-    // The keys are the MARC relator codes
-    // and the values are the MetaInfo structures
-    // (see http://www.loc.gov/marc/relators/relaterm.html );
-    QHash<QString, MetaInfo> m_Relators;
-
-    // The keys are the full relator names
-    // the values are the MARC relator codes
-    // (e.g. aut -> Author )
-    QHash<QString, QString> m_RelatorFullNames;
+    MarcRelators * m_Relator;
 
     // The keys are special field names
     // the values are the text to display

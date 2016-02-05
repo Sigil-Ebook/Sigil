@@ -48,7 +48,7 @@ public:
      * @param metadata The metadata list that this dialog displays. \see Metadata
      * @param parent The dialog's parent.
      */
-    AddMetadata(const QHash<QString, Metadata::MetaInfo> &metadata, QWidget *parent = 0);
+  AddMetadata(Metadata* mdp, QString infotype, QWidget *parent = 0);
 
     /**
      * Returns the list of names selected by user.
@@ -94,11 +94,11 @@ private:
      */
     void ReadSettings();
 
-    /**
-     * Represents the metadata list that this dialog displays.
-     * @see Metadata
+    /** 
+     * stores metadata instance for workign with basic and roles
      */
-    const QHash<QString, Metadata::MetaInfo> &m_Metadata;
+    Metadata* m_Metadata;
+    QString   m_InfoType;
 
     /**
      * Holds the names of the selected entries

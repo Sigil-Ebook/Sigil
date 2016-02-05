@@ -278,6 +278,9 @@ set( MISC_FILES
     Misc/SearchOperations.cpp
     Misc/SearchOperations.h
     Misc/Language.cpp
+    Misc/Language.h
+    Misc/MarcRelators.cpp
+    Misc/MarcRelators.h
     Misc/UILanguage.cpp
     Misc/SettingsStore.cpp
     Misc/SettingsStore.h
