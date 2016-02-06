@@ -30,6 +30,7 @@
 
 #include "Misc/GumboInterface.h"
 #include "ResourceObjects/OPFParser.h"
+#include "Misc/DescriptiveMetaInfo.h"
 #include "Misc/MarcRelators.h"
 
 class QMutex;
@@ -40,14 +41,6 @@ class Metadata : public QObject
     Q_OBJECT
 
 public:
-
-    struct MetaInfo {
-        // The user-friendly name of the entry
-        QString name;
-
-        // The description of the entry
-        QString description;
-    };
 
     struct MetaElement {
         // The name of the element
@@ -69,6 +62,9 @@ public:
     };
 
     static Metadata *Instance();
+
+    const QHash<QString, DescriptiveMetaInfo> &GetRelatorMap();
+    const QHash<QString, DescriptiveMetaInfo> &GetBasicMetaMap();
 
     QStringList GetSortedNames(QString infotype);
     QString GetDescriptionByName(QString infotype, QString name);
@@ -134,9 +130,9 @@ private:
     static Metadata *m_Instance;
 
     // The keys are the untranslated Dublin Core element types
-    // and the values are the MetaInfo structures
+    // and the values are the DescriptiveMetaInfo structures
     // (see http://www.idpf.org/2007/opf/OPF_2.0_final_spec.html#Section2.2 );
-    QHash<QString, MetaInfo> m_Basic;
+    QHash<QString, DescriptiveMetaInfo> m_Basic;
 
     // The keys are the Dublin Core element user-friendly names
     // the values are the element types for those names

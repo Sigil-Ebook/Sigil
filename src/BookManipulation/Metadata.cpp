@@ -29,7 +29,6 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 #include "Misc/Language.h"
-#include "Misc/MarcRelators.h"
 
 static const QStringList EVENT_LIST           = QStringList() << "creation" << "publication" << "modification";
 static const QStringList MODIFICATION_ALIASES = QStringList() << "modified" << "modification";
@@ -96,6 +95,15 @@ bool Metadata::IsRelator(QString code)
   return m_Relator->isRelatorCode(code);
 }
 
+const QHash<QString, DescriptiveMetaInfo> & Metadata::GetRelatorMap()
+{
+    return m_Relator->GetCodeMap();
+}
+
+const QHash<QString, DescriptiveMetaInfo> & Metadata::GetBasicMetaMap()
+{
+    return m_Basic;
+}
 
 QStringList Metadata::GetSortedNames(QString infotype) 
 {
@@ -319,7 +327,7 @@ void Metadata::LoadBasicMetadata()
         QString name = data.at(i++);
         QString code = data.at(i++);
         QString description = data.at(i);
-        MetaInfo meta;
+        DescriptiveMetaInfo meta;
         meta.name = name;
         meta.description  = description;
         m_Basic.insert(code, meta);

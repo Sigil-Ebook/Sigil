@@ -27,7 +27,7 @@
 
 #include "ui_AddMetadata.h"
 #include "BookManipulation/Metadata.h"
-
+#include "Misc/DescriptiveMetaInfo.h"
 
 /**
  * The dialog for adding a single metadata element.
@@ -48,7 +48,7 @@ public:
      * @param metadata The metadata list that this dialog displays. \see Metadata
      * @param parent The dialog's parent.
      */
-  AddMetadata(Metadata* mdp, QString infotype, QWidget *parent = 0);
+  AddMetadata(const QHash<QString, DescriptiveMetaInfo> & metainfo, QWidget *parent = 0);
 
     /**
      * Returns the list of names selected by user.
@@ -95,10 +95,11 @@ private:
     void ReadSettings();
 
     /** 
-     * stores metadata instance for workign with basic and roles
+     * Represents the metadata information list that this dialog displays
+     * and generates a reverse mapping
      */
-    Metadata* m_Metadata;
-    QString   m_InfoType;
+    const QHash<QString, DescriptiveMetaInfo> & m_MetaInfo;
+    QHash<QString, QString> m_Name2Code;
 
     /**
      * Holds the names of the selected entries

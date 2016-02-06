@@ -22,17 +22,15 @@
 #include <QtCore/QDate>
 #include <QtCore/QModelIndex>
 
-#include "BookManipulation/Metadata.h"
 #include "Dialogs/AddMetadata.h"
 #include "Misc/SettingsStore.h"
 
 static const QString SETTINGS_GROUP = "add_metadata";
 
-AddMetadata::AddMetadata(Metadata * mdp, QString infotype, QWidget *parent)
+AddMetadata::AddMetadata(const QHash<QString, DescriptiveMetaInfo> &metainfo, QWidget *parent)
     :
     QDialog(parent),
-    m_Metadata(mdp),
-    m_InfoType(infotype)
+    m_MetaInfo(metainfo)
 {
     ui.setupUi(this);
     connect(ui.lwProperties, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)),
@@ -40,7 +38,13 @@ AddMetadata::AddMetadata(Metadata * mdp, QString infotype, QWidget *parent)
     connect(this, SIGNAL(accepted()), this, SLOT(WriteSettings()));
     connect(ui.lwProperties, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(accept()));
     // Fill the dialog with sorted translated metadata names
-    QStringList names = m_Metadata->GetSortedNames(m_InfoType);
+    QStringList names;
+    foreach (QString code, m_MetaInfo.keys()) {
+        QString name = m_MetaInfo.value(code, DescriptiveMetaInfo()).name;
+        m_Name2Code[name] = code;
+        names.append(name);
+    }
+    names.sort();
     foreach(QString name, names) {
         ui.lwProperties->addItem(name);
     }
@@ -49,8 +53,11 @@ AddMetadata::AddMetadata(Metadata * mdp, QString infotype, QWidget *parent)
 
 void AddMetadata::UpdateDescription(QListWidgetItem *current)
 {
-    QString text = m_Metadata->GetDescriptionByName(m_InfoType, current->text());
-
+    QString text;
+    QString code = m_Name2Code.value(current->text(), QString());
+    if (!code.isEmpty()) {
+        text = m_MetaInfo.value(code, DescriptiveMetaInfo() ).description;
+    }
     if (!text.isEmpty()) {
         ui.lbDescription->setText(text);
     }
@@ -65,7 +72,8 @@ void AddMetadata::SaveSelection()
 {
     m_SelectedEntries.clear();
     foreach(QListWidgetItem * item, ui.lwProperties->selectedItems()) {
-        m_SelectedEntries.append(Metadata::Instance()->GetCode(item->text()));
+        QString code = m_Name2Code.value(item->text(), QString() );
+        m_SelectedEntries.append(code);
     }
 }
 

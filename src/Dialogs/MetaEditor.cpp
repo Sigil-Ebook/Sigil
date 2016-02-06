@@ -196,7 +196,7 @@ void MetaEditor::AddMetadataToTable(Metadata::MetaElement book_meta, int row)
 
 void MetaEditor::AddBasic()
 {
-  AddMetadata addmeta(Metadata::Instance(), "basic", this);
+  AddMetadata addmeta(Metadata::Instance()->GetBasicMetaMap(), this);
 
     if (addmeta.exec() == QDialog::Accepted) {
         AddEmptyMetadataToTable(addmeta.GetSelectedEntries());
@@ -206,7 +206,7 @@ void MetaEditor::AddBasic()
 
 void MetaEditor::AddRole()
 {
-  AddMetadata addmeta(Metadata::Instance(), "role", this);
+  AddMetadata addmeta(Metadata::Instance()->GetRelatorMap(), this);
 
     if (addmeta.exec() == QDialog::Accepted) {
         AddEmptyMetadataToTable(addmeta.GetSelectedEntries());

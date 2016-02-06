@@ -21,54 +21,17 @@
 *************************************************************************/
 
 #pragma once
-#ifndef MARCRELATORS_H
-#define MARCRELATORS_H
+#ifndef DESCRIPTIVEMETAINFO_H
+#define DESCRIPTIVEMETAINFO_H
 
-#include <QCoreApplication>
-#include <QHash>
 class QString;
-class QStringList;
 
-#include "Misc/DescriptiveMetaInfo.h"
+struct DescriptiveMetaInfo {
+        // The user-friendly name of the relator entry
+        QString name;
 
-
-/**
- * Singleton.
- *
- * Marc Relators
- */
- 
-
-class MarcRelators
-{
-    Q_DECLARE_TR_FUNCTIONS(MarcRelators)
-
-public:
-    static MarcRelators *instance();
-
-    QString GetName(QString code);
-    QString GetDescriptionByCode(QString code);
-    QString GetDescriptionByName(QString name);
-    QString GetCode(QString name);
-    QStringList GetSortedNames();
-    bool isRelatorCode(QString code);
-    bool isRelatorName(QString name);
-    const QHash<QString, DescriptiveMetaInfo> &GetCodeMap();
-
-private:
-    MarcRelators();
-
-    void SetRelatorsMap();
-
-    // code -> DescriptiveMetaInfo -> name and description
-    QHash<QString, DescriptiveMetaInfo> m_CodeMap;
-    
-    // name -> code
-    QHash<QString, QString> m_NameMap;
-
-    QStringList m_sortedNames;
-
-    static MarcRelators *m_instance;
+        // The description of the relator entry
+        QString description;
 };
 
-#endif // MARCRELATORS_H
+#endif // DESCRIPTIVEMETAINFO_H
