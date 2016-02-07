@@ -1785,7 +1785,7 @@
   </action>
   <action name="actionClip2">
    <property name="text">
-    <string>Clip 2&amp;</string>
+    <string>Clip &amp;2</string>
    </property>
    <property name="toolTip">
     <string>Insert Clip 2</string>
