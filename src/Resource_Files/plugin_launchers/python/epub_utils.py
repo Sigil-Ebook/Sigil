@@ -138,8 +138,6 @@ def Adobe_encryption_key(uid):
 def Idpf_encryption_key(uid):
     # remove whitespace changing nothing else
     key = utf8_str(uid)
-    if key.startswith(b"urn:uuid:"):
-        key = key[9:]
     key = key.replace(bchr(0x20),b'')
     key = key.replace(bchr(0x09),b'')
     key = key.replace(bchr(0x0d),b'')
