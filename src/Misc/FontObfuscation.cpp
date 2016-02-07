@@ -66,6 +66,9 @@ void IdpfObfuscate(const QString &filepath, const QString &identifier)
     QByteArray contents = file.readAll();
     QByteArray key = IdpfKeyFromIdentifier(identifier);
     int key_size   = key.size();
+    if (key_size == 0) {
+        return;
+    }
 
     for (int i = 0; (i < IDPF_METHOD_NUM_BYTES) && (i < contents.size()); ++i) {
         contents[ i ] = contents[ i ] ^ key[ i % key_size ];
@@ -87,6 +90,9 @@ void AdobeObfuscate(const QString &filepath, const QString &identifier)
     QByteArray contents = file.readAll();
     QByteArray key = AdobeKeyFromIdentifier(identifier);
     int key_size   = key.size();
+    if (key_size == 0) {
+        return;
+    }
 
     for (int i = 0; (i < ADOBE_METHOD_NUM_BYTES) && (i < contents.size()); ++i) {
         contents[ i ] = contents[ i ] ^ key[ i % key_size ];
