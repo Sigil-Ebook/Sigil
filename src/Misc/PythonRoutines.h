@@ -23,6 +23,15 @@
 #ifndef PYTHONROUTINES_H
 #define PYTHONROUTINES_H
 
+#include <QString>
+#include <QStringList>
+
+struct MetadataPieces {
+    QString data;
+    QString otherxml;
+    QStringList idlist;
+    QString metatag;
+};
 
 class PythonRoutines
 {
@@ -37,6 +46,9 @@ public:
                                 const QString &doctitle, const QString & mainid);
 
     QList<QStringList> UpdateGuideFromNavInPython(const QString &navdata, const QString &navname);
+
+    MetadataPieces GetMetadataInPython(const QString& opfdata, const QString& version);
+    QString SetNewMetadataInPython(const MetadataPieces& mdp, const QString& opfdata, const QString& version);
 
 
 private:

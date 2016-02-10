@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016  Kevin B. Hendricks, Stratford, ON, Canada
 **  Copyright (C) 2011  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -23,11 +24,11 @@
 #ifndef LANGUAGE_H
 #define LANGUAGE_H
 
+#include <QString>
+#include <QStringList>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QHash>
-
-class QString;
-class QStringList;
+#include "Misc/DescriptiveMetaInfo.h"
 
 /**
  * Singleton.
@@ -44,6 +45,7 @@ public:
     QString GetLanguageName(QString language_code);
     QString GetLanguageCode(QString language_name);
     QStringList GetSortedPrimaryLanguageNames();
+    const QHash<QString, DescriptiveMetaInfo> & GetLangMap();
 
 private:
     Language();
@@ -53,6 +55,7 @@ private:
     // Use hash since order is not important (sort later)
     QHash<QString, QString> m_languageCodeMap;
     QHash<QString, QString> m_languageNameMap;
+    QHash<QString, DescriptiveMetaInfo> m_LangInfo;
 
     QStringList m_sortedPrimaryLanguageNames;
 

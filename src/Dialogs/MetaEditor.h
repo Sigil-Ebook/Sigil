@@ -1,8 +1,6 @@
-/************************************************************************
+/****************************************************************************
 **
-**  Copyright (C) 2011, 2012  John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+** Copyright (C) 2016 Kevin B. Hendricks, Stratford, ON Canada
 **
 **  This file is part of Sigil.
 **
@@ -21,231 +19,79 @@
 **
 *************************************************************************/
 
-#pragma once
 #ifndef METAEDITOR_H
 #define METAEDITOR_H
 
-#include <QtWidgets/QDialog>
-#include <QtGui/QStandardItemModel>
-#include "BookManipulation/Book.h"
-#include <BookManipulation/Metadata.h>
+#include <QString>
+#include <QDialog>
+#include <QModelIndex>
+#include <QHash>
+#include "Misc/DescriptiveMetaInfo.h"
+#include "Misc/Language.h"
+#include "Misc/MarcRelators.h"
+#include "Misc/PythonRoutines.h"
 
 #include "ui_MetaEditor.h"
 
-class OPFResource;
-class MetaEditorItemDelegate;
+class MainWindow;
+class Book;
 
-/**
- * The editor used to create and modify the book's metadata.
- */
-class MetaEditor : public QDialog
+class MetaEditor : public QDialog, private Ui::MetaEditor
 {
     Q_OBJECT
 
 public:
-
-    /**
-     * Constructor.
-     *
-     * @param parent The object's parent.
-     */
     MetaEditor(QWidget *parent = 0);
-    ~MetaEditor();
-    void SetBook(QSharedPointer<Book> book);
-    void ForceClose();
 
-signals:
-    void ShowStatusMessageRequest(const QString &message);
-
-protected slots:
-    void reject();
+public slots:
+    void updateActions();
 
 private slots:
+    void insertChild(QString code, QString contents="");
+    void insertRow(QString code, QString contents="");
+    void removeRow();
+    void moveRowUp();
+    void moveRowDown();
+    void saveData();
 
-    /**
-     * Inserts a metadata field with the provided name
-     * into the table. The value of the new field is empty by default.
-     *
-     * @param metaname The name of the new metadata field.
-     */
-    void AddEmptyMetadataToTable(const QStringList &metanames);
+    void selectElement();
+    void selectProperty();
 
-    /**
-     * Add Basic button functionality.
-     * Shows the window for selecting the new basic
-     * metadata type which creates the new type upon return.
-     */
-    void AddBasic();
+    void selectE2Element();
+    void selectE2Property();
 
-    /**
-     * Add Role button functionality.
-     * Shows the window for selecting the new advanced
-     * metadata type which creates the new type upon return.
-     */
-    void AddRole();
+ private:
+    void loadMetadataElements();
+    void loadMetadataProperties();
 
-    /**
-     * Copy button functionality.
-     * Copies the first selected entry and creates a new
-     * entry with the same contents.
-     */
-    void Copy();
+    void loadE2MetadataElements();
+    void loadE2MetadataProperties();
 
-    /**
-     * Remove button functionality.
-     * Removes the currently selected rows
-     * from the metadata table.
-     */
-    void Remove();
+    QString GetOPFMetadata();
+    QString SetNewOPFMetadata(QString& data);
 
-    /**
-     * Move up button functionality.
-     * Moves the first selected entry up one row
-     */
-    void MoveUp();
+    const QHash<QString, DescriptiveMetaInfo> & GetElementMap();
+    const QHash<QString, DescriptiveMetaInfo> & GetPropertyMap();
 
-    /**
-     * Move down button functionality.
-     * Moves the first selected entry down one row
-     */
-    void MoveDown();
+    QHash<QString, DescriptiveMetaInfo> m_ElementInfo;
+    QHash<QString, QString> m_ElementCode;
 
-    /**
-     * Adds a list of elements from the dialog to the saved metadata one at a time
-     */
-    void AddMetaElements(QString name, QList<QVariant> values, QString role_type = "", QString file_as = "");
+    QHash<QString, DescriptiveMetaInfo> m_PropertyInfo;
+    QHash<QString, QString> m_PropertyCode;
+    
+    QHash<QString, DescriptiveMetaInfo> m_E2ElementInfo;
+    QHash<QString, QString> m_E2ElementCode;
 
-    /**
-     * Adds one element from the dialog to the saved metadata
-     */
-    void AddMetaElement(QString name, QVariant value, QString role_type = "", QString file_as = "");
+    QHash<QString, DescriptiveMetaInfo> m_E2PropertyInfo;
+    QHash<QString, QString> m_E2PropertyCode;
+    
+    MarcRelators * m_Relator;
 
-    /**
-     * Reads the metadata from the metadata table and transfers it
-     * to the m_Book variable. This is usually called before closing the dialog.
-     */
-    bool SaveData();
-
-    /**
-     * Writes all the stored dialog settings like
-     * window position, geometry etc.
-     */
-    void WriteSettings();
-
-    void Save();
-
-    void ItemChangedHandler(QStandardItem *item);
-
-    void RowsRemovedHandler(const QModelIndex &parent, int start, int end);
-
-private:
-
-    // We need this to be able to use a forward
-    // declaration of Book in the QSharedPointer
-    Q_DISABLE_COPY(MetaEditor)
-
-    // Set the language choice from book or preferences
-    void SetLanguage();
-
-    /**
-     * Inserts a metadata field with the provided name
-     * and value into the table.
-     *
-     * @param metaname The name of the new metadata field.
-     * @param metavalue The value of the new metadata field.
-     */
-    void AddMetadataToTable(Metadata::MetaElement book_meta, int row = -1);
-
-    /**
-     * Reads the metadata from the Book and fills
-     * the metadata table with it.
-     */
-    void ReadMetadataFromBook();
-
-    /**
-     * Checks if it's ok to split this metadata field.
-     * We interpret (most) metadata fields containing semicolons
-     * as containing more than one value, but not for all fields.
-     *
-     * @param metaname The name of the metadata field.
-     * @return \c true if it's ok to split this field.
-     */
-    static bool OkToSplitInput(const QString &metaname);
-
-    /**
-     * Returns a list of all entries in the specified field value.
-     * Entries are separated by semicolons, so for instance
-     * "Doe, John;Doe, Jane" would return "Doe, John" and "Doe, Jane" in a list.
-     *
-     * @param field_value The raw string value of the field.
-     * @return The list of actual metadata values.
-     */
-    static QList<QVariant> InputsInField(const QString &field_value);
-
-    /**
-     * Fills the language combobox with all the supported languages.
-     */
-    void FillLanguageComboBox();
-
-    /**
-     * Sets up the metadata table.
-     */
-    void SetUpMetaTable();
-
-    /**
-     * Reads all the stored dialog settings like
-     * window position, geometry etc.
-     */
-    void ReadSettings();
-
-    // Setup signal connections
-    void ConnectSignals();
-
-    bool MaybeSaveDialogSaysProceed(bool is_forced);
-
-    void SetOriginalData();
-    void SetDataModifiedIfNeeded();
-
-    ///////////////////////////////
-    // PRIVATE MEMBER VARIABLES
-    ///////////////////////////////
-
-    struct OriginalData {
-        QString title;
-        QString author;
-        QString file_as;
-        QString language;
-    } m_OriginalData;
-
-    /**
-     * The item model that stores the meta information.
-     */
-    QStandardItemModel m_MetaModel;
-
-    /**
-     * The OPF whose metadata is being edited.
-     */
-    OPFResource *m_OPF;
-
-    /**
-     * A working copy of the book's metadata store.
-     * This is what we are changing with the dialog.
-     *
-     * @see Book::m_Metadata
-     */
-    QList<Metadata::MetaElement> m_Metadata;
-
-    QSharedPointer<Book> m_Book;
-
-    MetaEditorItemDelegate *m_cbDelegate;
-
-    bool m_IsDataModified;
-    /**
-     * Holds all the widgets Qt Designer created for us.
-     */
-    Ui::MetaEditor ui;
+    MainWindow * m_mainWindow;
+    QSharedPointer<Book> m_book;
+    QString m_version;
+    QString m_opfdata;
+    MetadataPieces m_mdp;
 };
 
 #endif // METAEDITOR_H
-
-

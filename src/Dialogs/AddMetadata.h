@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, ON, Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -23,10 +24,11 @@
 #ifndef ADDMETADATA_H
 #define ADDMETADATA_H
 
+#include <QString>
+#include <QStringList>
 #include <QtWidgets/QDialog>
 
 #include "ui_AddMetadata.h"
-#include "BookManipulation/Metadata.h"
 #include "Misc/DescriptiveMetaInfo.h"
 
 /**

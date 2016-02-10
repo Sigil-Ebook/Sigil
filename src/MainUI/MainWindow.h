@@ -56,7 +56,6 @@ class QSignalMapper;
 class QSlider;
 class QTimer;
 class FindReplace;
-class MetaEditor;
 class TabManager;
 class BookBrowser;
 class TableOfContents;
@@ -905,8 +904,6 @@ private:
      */
 
     FindReplace *m_FindReplace;
-
-    MetaEditor *m_MetaEditor;
 
     /**
      * The Table of Contents pane that displays a rendered view of the NCX.

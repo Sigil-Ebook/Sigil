@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016  Kevin B. Hendricks, Stratford, ON, Canada
 **  Copyright (C) 2011  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -58,6 +59,11 @@ QStringList Language::GetSortedPrimaryLanguageNames()
     return m_sortedPrimaryLanguageNames;
 }
 
+const QHash<QString, DescriptiveMetaInfo> & Language::GetLangMap()
+{
+    return m_LangInfo;
+}
+
 Language::Language()
 {
     SetLanguageMap();
@@ -83,21 +89,21 @@ void Language::SetLanguageMap()
          "sq"    << tr("Albanian") <<
          "am"    << tr("Amharic") <<
          "ar"    << tr("Arabic") <<
-         "ar-DZ" << tr("Arabic") % " - " % tr("Algeria") <<
-         "ar-BH" << tr("Arabic") % " - " % tr("Bahrain") <<
-         "ar-EG" << tr("Arabic") % " - " % tr("Egypt") <<
-         "ar-IQ" << tr("Arabic") % " - " % tr("Iraq") <<
-         "ar-JO" << tr("Arabic") % " - " % tr("Jordan") <<
-         "ar-KW" << tr("Arabic") % " - " % tr("Kuwait") <<
-         "ar-LB" << tr("Arabic") % " - " % tr("Lebanon") <<
-         "ar-LY" << tr("Arabic") % " - " % tr("Libya") <<
-         "ar-MA" << tr("Arabic") % " - " % tr("Morocco") <<
-         "ar-OM" << tr("Arabic") % " - " % tr("Oman") <<
-         "ar-QA" << tr("Arabic") % " - " % tr("Qatar") <<
-         "ar-SY" << tr("Arabic") % " - " % tr("Syria") <<
-         "ar-TN" << tr("Arabic") % " - " % tr("Tunisia") <<
-         "ar-AE" << tr("Arabic") % " - " % tr("United Arab Emirates") <<
-         "ar-YE" << tr("Arabic") % " - " % tr("Yemen") <<
+         "ar-DZ" << tr("Arabic") + QString(" - ") + tr("Algeria") <<
+         "ar-BH" << tr("Arabic") + QString(" - ") + tr("Bahrain") <<
+         "ar-EG" << tr("Arabic") + QString(" - ") + tr("Egypt") <<
+         "ar-IQ" << tr("Arabic") + QString(" - ") + tr("Iraq") <<
+         "ar-JO" << tr("Arabic") + QString(" - ") + tr("Jordan") <<
+         "ar-KW" << tr("Arabic") + QString(" - ") + tr("Kuwait") <<
+         "ar-LB" << tr("Arabic") + QString(" - ") + tr("Lebanon") <<
+         "ar-LY" << tr("Arabic") + QString(" - ") + tr("Libya") <<
+         "ar-MA" << tr("Arabic") + QString(" - ") + tr("Morocco") <<
+         "ar-OM" << tr("Arabic") + QString(" - ") + tr("Oman") <<
+         "ar-QA" << tr("Arabic") + QString(" - ") + tr("Qatar") <<
+         "ar-SY" << tr("Arabic") + QString(" - ") + tr("Syria") <<
+         "ar-TN" << tr("Arabic") + QString(" - ") + tr("Tunisia") <<
+         "ar-AE" << tr("Arabic") + QString(" - ") + tr("United Arab Emirates") <<
+         "ar-YE" << tr("Arabic") + QString(" - ") + tr("Yemen") <<
          "an"    << tr("Aragonese") <<
          "hy"    << tr("Armenian") <<
          "as"    << tr("Assamese") <<
@@ -105,7 +111,7 @@ void Language::SetLanguageMap()
          "ae"    << tr("Avestan") <<
          "ay"    << tr("Aymara") <<
          "az"    << tr("Azerbaijani") <<
-         "az-AZ" << tr("Azerbaijani") % " - " % tr("Azerbaijan") <<
+         "az-AZ" << tr("Azerbaijani") + QString(" - ") + tr("Azerbaijan") <<
          "bm"    << tr("Bambara") <<
          "ba"    << tr("Bashkir") <<
          "eu"    << tr("Basque") <<
@@ -118,16 +124,16 @@ void Language::SetLanguageMap()
          "bg"    << tr("Bulgarian") <<
          "my"    << tr("Burmese") <<
          "ca"    << tr("Catalan") <<
-         "ca-ES" << tr("Catalan") % " - " % tr("Spain") <<
+         "ca-ES" << tr("Catalan") + QString(" - ") + tr("Spain") <<
          "km"    << tr("Central Khmer") <<
          "ch"    << tr("Chamorro") <<
          "ce"    << tr("Chechen") <<
          "zh"    << tr("Chinese") <<
-         "zh-CN" << tr("Chinese") % " - " % tr("China") <<
-         "zh-HK" << tr("Chinese") % " - " % tr("Hong Kong") <<
-         "zh-MO" << tr("Chinese") % " - " % tr("Macau") <<
-         "zh-SG" << tr("Chinese") % " - " % tr("Singapore") <<
-         "zh-TW" << tr("Chinese") % " - " % tr("Taiwan") <<
+         "zh-CN" << tr("Chinese") + QString(" - ") + tr("China") <<
+         "zh-HK" << tr("Chinese") + QString(" - ") + tr("Hong Kong") <<
+         "zh-MO" << tr("Chinese") + QString(" - ") + tr("Macau") <<
+         "zh-SG" << tr("Chinese") + QString(" - ") + tr("Singapore") <<
+         "zh-TW" << tr("Chinese") + QString(" - ") + tr("Taiwan") <<
          "cu"    << tr("Church Slavic") <<
          "cv"    << tr("Chuvash") <<
          "kw"    << tr("Cornish") <<
@@ -136,25 +142,25 @@ void Language::SetLanguageMap()
          "hr"    << tr("Croatian") <<
          "cs"    << tr("Czech") <<
          "da"    << tr("Danish") <<
-         "da-DK" << tr("Danish") % " - " % tr("Denmark") <<
+         "da-DK" << tr("Danish") + QString(" - ") + tr("Denmark") <<
          "dv"    << tr("Dhivehi") <<
          "nl"    << tr("Dutch") <<
-         "nl-BE" << tr("Dutch") % " - " % tr("Belgium") <<
-         "nl-NL" << tr("Dutch") % " - " % tr("Netherlands") <<
+         "nl-BE" << tr("Dutch") + QString(" - ") + tr("Belgium") <<
+         "nl-NL" << tr("Dutch") + QString(" - ") + tr("Netherlands") <<
          "dz"    << tr("Dzongkha") <<
          "en"    << tr("English") <<
-         "en-AU" << tr("English") % " - " % tr("Australia") <<
-         "en-BZ" << tr("English") % " - " % tr("Belize") <<
-         "en-CA" << tr("English") % " - " % tr("Canada") <<
-         "en-CB" << tr("English") % " - " % tr("Caribbean") <<
-         "en-GB" << tr("English") % " - " % tr("Great Britain") <<
-         "en-IN" << tr("English") % " - " % tr("India") <<
-         "en-IE" << tr("English") % " - " % tr("Ireland") <<
-         "en-JM" << tr("English") % " - " % tr("Jamaica") <<
-         "en-PH" << tr("English") % " - " % tr("Phillippines") <<
-         "en-TT" << tr("English") % " - " % tr("Trinidad") <<
-         "en-ZA" << tr("English") % " - " % tr("South Africa") <<
-         "en-US" << tr("English") % " - " % tr("United States") <<
+         "en-AU" << tr("English") + QString(" - ") + tr("Australia") <<
+         "en-BZ" << tr("English") + QString(" - ") + tr("Belize") <<
+         "en-CA" << tr("English") + QString(" - ") + tr("Canada") <<
+         "en-CB" << tr("English") + QString(" - ") + tr("Caribbean") <<
+         "en-GB" << tr("English") + QString(" - ") + tr("Great Britain") <<
+         "en-IN" << tr("English") + QString(" - ") + tr("India") <<
+         "en-IE" << tr("English") + QString(" - ") + tr("Ireland") <<
+         "en-JM" << tr("English") + QString(" - ") + tr("Jamaica") <<
+         "en-PH" << tr("English") + QString(" - ") + tr("Phillippines") <<
+         "en-TT" << tr("English") + QString(" - ") + tr("Trinidad") <<
+         "en-ZA" << tr("English") + QString(" - ") + tr("South Africa") <<
+         "en-US" << tr("English") + QString(" - ") + tr("United States") <<
          "eo"    << tr("Esperanto") <<
          "et"    << tr("Estonian") <<
          "ee"    << tr("Ewe") <<
@@ -162,23 +168,23 @@ void Language::SetLanguageMap()
          "fj"    << tr("Fijian") <<
          "fi"    << tr("Finnish") <<
          "fr"    << tr("French") <<
-         "fr-BE" << tr("French") % " - " % tr("Belgium") <<
-         "fr-CA" << tr("French") % " - " % tr("Canada") <<
-         "fr-FR" << tr("French") % " - " % tr("France") <<
-         "fr-LU" << tr("French") % " - " % tr("Luxembourg") <<
-         "fr-CH" << tr("French") % " - " % tr("Switzerland") <<
+         "fr-BE" << tr("French") + QString(" - ") + tr("Belgium") <<
+         "fr-CA" << tr("French") + QString(" - ") + tr("Canada") <<
+         "fr-FR" << tr("French") + QString(" - ") + tr("France") <<
+         "fr-LU" << tr("French") + QString(" - ") + tr("Luxembourg") <<
+         "fr-CH" << tr("French") + QString(" - ") + tr("Switzerland") <<
          "ff"    << tr("Fulah") <<
-         "gd"    << tr("Gaelic") % " - " % tr("Scotland") <<
-         "gd-IE" << tr("Gaelic") % " - " % tr("Ireland") <<
+         "gd"    << tr("Gaelic") + QString(" - ") + tr("Scotland") <<
+         "gd-IE" << tr("Gaelic") + QString(" - ") + tr("Ireland") <<
          "gl"    << tr("Galician") <<
          "lg"    << tr("Ganda") <<
          "ka"    << tr("Georgian") <<
          "de"    << tr("German") <<
-         "de-AT" << tr("German") % " - " % tr("Austria") <<
-         "de-DE" << tr("German") % " - " % tr("Germany") <<
-         "de-LI" << tr("German") % " - " % tr("Liechtenstein") <<
-         "de-LU" << tr("German") % " - " % tr("Luxembourg") <<
-         "de-CH" << tr("German") % " - " % tr("Switzerland") <<
+         "de-AT" << tr("German") + QString(" - ") + tr("Austria") <<
+         "de-DE" << tr("German") + QString(" - ") + tr("Germany") <<
+         "de-LI" << tr("German") + QString(" - ") + tr("Liechtenstein") <<
+         "de-LU" << tr("German") + QString(" - ") + tr("Luxembourg") <<
+         "de-CH" << tr("German") + QString(" - ") + tr("Switzerland") <<
          "el"    << tr("Greek, Modern") <<
          "el-GR" << tr("Greek") <<
          "gn"    << tr("Guarani") <<
@@ -190,7 +196,7 @@ void Language::SetLanguageMap()
          "hi"    << tr("Hindi") <<
          "ho"    << tr("Hiri Motu") <<
          "hu"    << tr("Hungarian") <<
-         "hu-HU" << tr("Hungarian") % " - " % tr("Hungary") <<
+         "hu-HU" << tr("Hungarian") + QString(" - ") + tr("Hungary") <<
          "is"    << tr("Icelandic") <<
          "io"    << tr("Ido") <<
          "ig"    << tr("Igbo") <<
@@ -202,8 +208,8 @@ void Language::SetLanguageMap()
          "ik"    << tr("Inupiaq") <<
          "ga"    << tr("Irish") <<
          "it"    << tr("Italian") <<
-         "it-IT" << tr("Italian") % " - " % tr("Italy") <<
-         "it-CH" << tr("Italian") % " - " % tr("Switzerland") <<
+         "it-IT" << tr("Italian") + QString(" - ") + tr("Italy") <<
+         "it-CH" << tr("Italian") + QString(" - ") + tr("Switzerland") <<
          "ja"    << tr("Japanese") <<
          "jv"    << tr("Javanese") <<
          "kl"    << tr("Kalaallisut") <<
@@ -222,7 +228,7 @@ void Language::SetLanguageMap()
          "lo"    << tr("Lao") <<
          "la"    << tr("Latin") <<
          "lv"    << tr("Latvian") <<
-         "lv-LV" << tr("Latvian") % " - " % tr("Latvia") <<
+         "lv-LV" << tr("Latvian") + QString(" - ") + tr("Latvia") <<
          "li"    << tr("Limburgan") <<
          "ln"    << tr("Lingala") <<
          "lt"    << tr("Lithuanian") <<
@@ -232,8 +238,8 @@ void Language::SetLanguageMap()
          "mg"    << tr("Malagasy") <<
          "ml"    << tr("Malayalam") <<
          "ms"    << tr("Malay") <<
-         "ms-BN" << tr("Malay") % " - " % tr("Brunei") <<
-         "ms-MY" << tr("Malay") % " - " % tr("Malaysia") <<
+         "ms-BN" << tr("Malay") + QString(" - ") + tr("Brunei") <<
+         "ms-MY" << tr("Malay") + QString(" - ") + tr("Malaysia") <<
          "mt"    << tr("Maltese") <<
          "gv"    << tr("Manx") <<
          "mi"    << tr("Maori") <<
@@ -242,14 +248,14 @@ void Language::SetLanguageMap()
          "mn"    << tr("Mongolian") <<
          "na"    << tr("Nauru") <<
          "nv"    << tr("Navajo") <<
-         "nd"    << tr("Ndebele") % " - " % tr("North") <<
-         "nr"    << tr("Ndebele") % " - " % tr("South") <<
+         "nd"    << tr("Ndebele") + QString(" - ") + tr("North") <<
+         "nr"    << tr("Ndebele") + QString(" - ") + tr("South") <<
          "ng"    << tr("Ndonga") <<
          "ne"    << tr("Nepali") <<
          "se"    << tr("Northern, Sami") <<
          "no"    << tr("Norwegian") <<
-         "nb"    << tr("Norwegian") % " - " % tr("Bokmal") <<
-         "nn"    << tr("Norwegian") % " - " % tr("Nynorsk") <<
+         "nb"    << tr("Norwegian") + QString(" - ") + tr("Bokmal") <<
+         "nn"    << tr("Norwegian") + QString(" - ") + tr("Nynorsk") <<
          "ny"    << tr("Nyanja") <<
          "oc"    << tr("Occitan") <<
          "oj"    << tr("Ojibwa") <<
@@ -261,23 +267,23 @@ void Language::SetLanguageMap()
          "fa"    << tr("Persian") <<
          "pl"    << tr("Polish") <<
          "pt"    << tr("Portuguese") <<
-         "pt-BR" << tr("Portuguese") % " - " % tr("Brazil") <<
-         "pt-TT" << tr("Portuguese") % " - " % tr("Portugal") <<
+         "pt-BR" << tr("Portuguese") + QString(" - ") + tr("Brazil") <<
+         "pt-TT" << tr("Portuguese") + QString(" - ") + tr("Portugal") <<
          "ps"    << tr("Pushto") <<
          "qu"    << tr("Quechua") <<
          "ro"    << tr("Romanian") <<
-         "ro-MO" << tr("Romanian") % " - " % tr("Moldova") <<
-         "ro-RO" << tr("Romanian") % " - " % tr("Romania") <<
+         "ro-MO" << tr("Romanian") + QString(" - ") + tr("Moldova") <<
+         "ro-RO" << tr("Romanian") + QString(" - ") + tr("Romania") <<
          "rm"    << tr("Romansh") <<
          "rn"    << tr("Rundi") <<
          "ru"    << tr("Russian") <<
-         "ru-MO" << tr("Russian") % " - " % tr("Moldova") <<
+         "ru-MO" << tr("Russian") + QString(" - ") + tr("Moldova") <<
          "sm"    << tr("Samoan") <<
          "sg"    << tr("Sango") <<
          "sa"    << tr("Sanskrit") <<
          "sc"    << tr("Sardinian") <<
          "sr"    << tr("Serbian") <<
-         "sr-RS" << tr("Serbian") % " - " % tr("Serbia") <<
+         "sr-RS" << tr("Serbian") + QString(" - ") + tr("Serbia") <<
          "sn"    << tr("Shona") <<
          "ii"    << tr("Sichuan Yi") <<
          "sd"    << tr("Sindhi") <<
@@ -287,31 +293,31 @@ void Language::SetLanguageMap()
          "so"    << tr("Somali") <<
          "st"    << tr("Sotho, Southern") <<
          "es"    << tr("Spanish") <<
-         "es-AR" << tr("Spanish") % " - " % tr("Argentina") <<
-         "es-BO" << tr("Spanish") % " - " % tr("Bolivia") <<
-         "es-CL" << tr("Spanish") % " - " % tr("Chile") <<
-         "es-CO" << tr("Spanish") % " - " % tr("Columbia") <<
-         "es-CR" << tr("Spanish") % " - " % tr("Costa Rica") <<
-         "es-DO" << tr("Spanish") % " - " % tr("Dominican Republic") <<
-         "es-EC" << tr("Spanish") % " - " % tr("Ecuador") <<
-         "es-SV" << tr("Spanish") % " - " % tr("El Salvador") <<
-         "es-GT" << tr("Spanish") % " - " % tr("Guatemala") <<
-         "es-HN" << tr("Spanish") % " - " % tr("Honduras") <<
-         "es-MX" << tr("Spanish") % " - " % tr("Mexico") <<
-         "es-NI" << tr("Spanish") % " - " % tr("Nicaragua") <<
-         "es-PA" << tr("Spanish") % " - " % tr("Panama") <<
-         "es-PY" << tr("Spanish") % " - " % tr("Paraguay") <<
-         "es-PE" << tr("Spanish") % " - " % tr("Peru") <<
-         "es-PR" << tr("Spanish") % " - " % tr("Puerto Rico") <<
-         "es-ES" << tr("Spanish") % " - " % tr("Spain") <<
-         "es-UY" << tr("Spanish") % " - " % tr("Uruguay") <<
-         "es-VE" << tr("Spanish") % " - " % tr("Venezuela") <<
+         "es-AR" << tr("Spanish") + QString(" - ") + tr("Argentina") <<
+         "es-BO" << tr("Spanish") + QString(" - ") + tr("Bolivia") <<
+         "es-CL" << tr("Spanish") + QString(" - ") + tr("Chile") <<
+         "es-CO" << tr("Spanish") + QString(" - ") + tr("Columbia") <<
+         "es-CR" << tr("Spanish") + QString(" - ") + tr("Costa Rica") <<
+         "es-DO" << tr("Spanish") + QString(" - ") + tr("Dominican Republic") <<
+         "es-EC" << tr("Spanish") + QString(" - ") + tr("Ecuador") <<
+         "es-SV" << tr("Spanish") + QString(" - ") + tr("El Salvador") <<
+         "es-GT" << tr("Spanish") + QString(" - ") + tr("Guatemala") <<
+         "es-HN" << tr("Spanish") + QString(" - ") + tr("Honduras") <<
+         "es-MX" << tr("Spanish") + QString(" - ") + tr("Mexico") <<
+         "es-NI" << tr("Spanish") + QString(" - ") + tr("Nicaragua") <<
+         "es-PA" << tr("Spanish") + QString(" - ") + tr("Panama") <<
+         "es-PY" << tr("Spanish") + QString(" - ") + tr("Paraguay") <<
+         "es-PE" << tr("Spanish") + QString(" - ") + tr("Peru") <<
+         "es-PR" << tr("Spanish") + QString(" - ") + tr("Puerto Rico") <<
+         "es-ES" << tr("Spanish") + QString(" - ") + tr("Spain") <<
+         "es-UY" << tr("Spanish") + QString(" - ") + tr("Uruguay") <<
+         "es-VE" << tr("Spanish") + QString(" - ") + tr("Venezuela") <<
          "su"    << tr("Sundanese") <<
          "sw"    << tr("Swahili") <<
          "ss"    << tr("Swati") <<
          "sv"    << tr("Swedish") <<
-         "sv-FI" << tr("Swedish") % " - " % tr("Finland") <<
-         "sv-SE" << tr("Swedish") % " - " % tr("Sweden") <<
+         "sv-FI" << tr("Swedish") + QString(" - ") + tr("Finland") <<
+         "sv-SE" << tr("Swedish") + QString(" - ") + tr("Sweden") <<
          "tl"    << tr("Tagalog") <<
          "ty"    << tr("Tahitian") <<
          "tg"    << tr("Tajik") <<
@@ -325,15 +331,15 @@ void Language::SetLanguageMap()
          "ts"    << tr("Tsonga") <<
          "tn"    << tr("Tswana") <<
          "tr"    << tr("Turkish") <<
-         "tr-TR" << tr("Turkish") % " - " % tr("Turkey") <<
+         "tr-TR" << tr("Turkish") + QString(" - ") + tr("Turkey") <<
          "tk"    << tr("Turkmen") <<
          "tw"    << tr("Twi") <<
          "ug"    << tr("Uighur") <<
          "uk"    << tr("Ukrainian") <<
-         "uk-UA" << tr("Ukrainian") % " - " % tr("Ukraine") <<
+         "uk-UA" << tr("Ukrainian") + QString(" - ") + tr("Ukraine") <<
          "ur"    << tr("Urdu") <<
          "uz"    << tr("Uzbek") <<
-         "uz-UX" << tr("Uzbek") % " - " % tr("Uzbekistan") <<
+         "uz-UX" << tr("Uzbek") + QString(" - ") + tr("Uzbekistan") <<
          "ve"    << tr("Venda") <<
          "vi"    << tr("Vietnamese") <<
          "vo"    << tr("Volapuk") <<
@@ -653,5 +659,9 @@ void Language::SetLanguageMap()
         QString name = data.at(i);
         m_languageCodeMap.insert(code, name);
         m_languageNameMap.insert(name, code);
+        DescriptiveMetaInfo minfo;
+        minfo.name = name;
+        minfo.description = QString();
+        m_LangInfo.insert(code, minfo);
     }
 }

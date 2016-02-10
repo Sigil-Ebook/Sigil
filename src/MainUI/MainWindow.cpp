@@ -147,7 +147,6 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_BookBrowser(NULL),
     m_Clips(NULL),
     m_FindReplace(new FindReplace(this)),
-    m_MetaEditor(new MetaEditor(this)),
     m_TableOfContents(NULL),
     m_ValidationResultsView(NULL),
     m_PreviewWindow(NULL),
@@ -581,11 +580,6 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    // Must check if metadata is saved before book is saved
-    if (m_MetaEditor && m_MetaEditor->isVisible()) {
-        m_MetaEditor->ForceClose();
-    }
-
     if (MaybeSaveDialogSaysProceed()) {
         ShowMessageOnStatusBar(tr("Sigil is closing..."));
         WriteSettings();
@@ -2625,15 +2619,8 @@ void MainWindow::SaveTabData()
 
 void MainWindow::MetaEditorDialog()
 {
-    QString version = m_Book->GetConstOPF()->GetEpubVersion();
-    if (version.startsWith('3')) {
-        Utility::DisplayStdWarningDialog(tr("Not Yet Implemented for epub3.  Use the content.opf tab in BookBrowser to manually edit the Metadata."));
-        return;
-    }
-    // non-modal dialog
-    m_MetaEditor->SetBook(m_Book);
-    m_MetaEditor->show();
-    m_MetaEditor->raise();
+    MetaEditor medit(this);
+    medit.exec();
 }
 
 void MainWindow::UserGuide()
@@ -4772,8 +4759,8 @@ void MainWindow::ConnectSignalsToSlots()
             this,            SLOT(UpdateClipsUI()));
     connect(m_IndexEditor,  SIGNAL(ShowStatusMessageRequest(const QString &)),
             this,            SLOT(ShowMessageOnStatusBar(const QString &)));
-    connect(m_MetaEditor,  SIGNAL(ShowStatusMessageRequest(const QString &)),
-            this,            SLOT(ShowMessageOnStatusBar(const QString &)));
+    // connect(m_MetaEditor,  SIGNAL(ShowStatusMessageRequest(const QString &)),
+    //         this,            SLOT(ShowMessageOnStatusBar(const QString &)));
     connect(m_SpellcheckEditor,  SIGNAL(ShowStatusMessageRequest(const QString &)),
             this,            SLOT(ShowMessageOnStatusBar(const QString &)));
     connect(m_SpellcheckEditor,   SIGNAL(SpellingHighlightRefreshRequest()), this,  SLOT(RefreshSpellingHighlighting()));

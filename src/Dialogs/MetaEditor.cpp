@@ -1,8 +1,6 @@
-/************************************************************************
+/****************************************************************************
 **
-**  Copyright (C) 2011, 2012  John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, ON Canada
 **
 **  This file is part of Sigil.
 **
@@ -21,594 +19,654 @@
 **
 *************************************************************************/
 
-#include <QtCore/QDate>
-#include <QtGui/QShowEvent>
-#include <QtWidgets/QMessageBox>
-#include <QtWidgets/QPushButton>
 
-#include "Dialogs/MetaEditor.h"
+#include <QString>
+#include <QFileInfo>
+#include <QTextStream>
+#include <QDate>
+
+#include "Dialogs/TreeModel.h"
 #include "Dialogs/AddMetadata.h"
-#include "Dialogs/MetaEditorItemDelegate.h"
+#include "Dialogs/MetaEditor.h"
+#include "MainUI/MainWindow.h"
 #include "Misc/Language.h"
-#include "Misc/SettingsStore.h"
-#include "ResourceObjects/OPFResource.h"
-
-static const QString SETTINGS_GROUP      = "meta_editor";
+#include "Misc/PythonRoutines.h"
 
 MetaEditor::MetaEditor(QWidget *parent)
-    :
-    QDialog(parent),
-    m_cbDelegate(new MetaEditorItemDelegate()),
-    m_IsDataModified(false)
+  : QDialog(parent),
+    m_mainWindow(qobject_cast<MainWindow *>(parent)),
+    m_Relator(MarcRelators::instance())
 {
-    ui.setupUi(this);
-    ConnectSignals();
-}
+    setupUi(this);
 
-MetaEditor::~MetaEditor()
-{
-    if (m_cbDelegate) {
-        delete m_cbDelegate;
-        m_cbDelegate = 0;
-    }
-}
+    m_book = m_mainWindow->GetCurrentBook();
+    m_version = m_book->GetConstOPF()->GetEpubVersion();
+    m_opfdata = m_book->GetOPF()->GetText();
 
-void MetaEditor::SetBook(QSharedPointer<Book> book)
-{
-    m_Book = book;
-    m_OPF = m_Book->GetOPF();
-    m_Metadata = m_OPF->GetDCMetadata();
+    QStringList headers;
+    headers << tr("Name") << tr("Value");
 
-    SetUpMetaTable();
-    // Update position of window only if it was closed
-    if (!isVisible()) {
-        ReadSettings();
-    }
-    FillLanguageComboBox();
-    ReadMetadataFromBook();
-    SetLanguage();
-    SetOriginalData();
-    m_IsDataModified = false;
-}
+    QString data = GetOPFMetadata();
 
-void MetaEditor::SetOriginalData()
-{
-    m_OriginalData.title = ui.leTitle->text();
-    m_OriginalData.author = ui.leAuthor->text();
-    m_OriginalData.file_as = ui.leAuthorFileAs->text();
-    m_OriginalData.language = ui.cbLanguages->currentText();
-}
+    TreeModel *model = new TreeModel(headers, data);
+    view->setModel(model);
+    for (int column = 0; column < model->columnCount(); ++column)
+        view->resizeColumnToContents(column);
 
-void MetaEditor::SetLanguage()
-{
-    QString metadata_language;
-    foreach(Metadata::MetaElement meta, m_Metadata) {
-        if (meta.name == "language") {
-            metadata_language = meta.value.toString();
-            break;
-        }
+    if (m_version.startsWith('3')) { 
+        loadMetadataElements();
+        loadMetadataProperties();
+    } else {
+        loadE2MetadataElements();
+        loadE2MetadataProperties();
     }
 
-    // Set language from preferences if none in book
-    if (metadata_language.isEmpty()) {
-        SettingsStore settings;
-        int index = ui.cbLanguages->findText(Language::instance()->GetLanguageName(settings.defaultMetadataLang()), Qt::MatchExactly);
+    connect(view->selectionModel(),
+            SIGNAL(selectionChanged(const QItemSelection &,
+                                    const QItemSelection &)),
+            this, SLOT(updateActions()));
 
-        if (index == -1) {
-            index = ui.cbLanguages->findText(Language::instance()->GetLanguageName("en"), Qt::MatchExactly);
+    connect(delButton, SIGNAL(clicked()), this, SLOT(removeRow()));
+    connect(tbMoveUp, SIGNAL(clicked()), this, SLOT(moveRowUp()));
+    connect(tbMoveDown, SIGNAL(clicked()), this, SLOT(moveRowDown()));
 
-            if (index == -1) {
-                index = 0;
+    if (m_version.startsWith('3')) {
+        connect(addMetaButton, SIGNAL(clicked()), this, SLOT(selectElement()));
+        connect(addPropButton, SIGNAL(clicked()), this, SLOT(selectProperty()));
+    } else {
+        connect(addMetaButton, SIGNAL(clicked()), this, SLOT(selectE2Element()));
+        connect(addPropButton, SIGNAL(clicked()), this, SLOT(selectE2Property()));
+    }
+
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(saveData()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+
+    updateActions();
+}
+
+
+QString MetaEditor::GetOPFMetadata() {
+    PythonRoutines pr;
+    m_mdp = pr.GetMetadataInPython(m_opfdata, m_version);
+    QString data(m_mdp.data);
+    return data;
+}
+
+
+QString MetaEditor::SetNewOPFMetadata(QString& data) 
+{
+    QString newopfdata = m_opfdata;
+    m_mdp.data = data;
+    PythonRoutines pr;
+    QString results = pr.SetNewMetadataInPython(m_mdp, m_opfdata, m_version);
+    if (!results.isEmpty()) {
+        newopfdata = results;
+    }
+    return newopfdata;
+}
+
+
+const QHash<QString, DescriptiveMetaInfo> &  MetaEditor::GetElementMap()
+{
+    if (m_version.startsWith('3')) {
+        return m_ElementInfo;
+    }
+    return m_E2ElementInfo;
+}
+
+const QHash<QString, DescriptiveMetaInfo> &  MetaEditor::GetPropertyMap()
+{
+    if (m_version.startsWith('3')) {
+        return m_PropertyInfo;
+    }
+    return m_E2PropertyInfo;
+}
+
+
+void MetaEditor::selectElement()
+{
+    QStringList codes;
+    {
+         AddMetadata addelement(GetElementMap(), this);
+         if (addelement.exec() == QDialog::Accepted) {
+            codes = addelement.GetSelectedEntries();
+         }
+    }
+    foreach(QString code, codes) {
+        if (code == "dc:language") {
+            QStringList langcodes;
+            AddMetadata addvalue(Language::instance()->GetLangMap(), this);
+            if (addvalue.exec() == QDialog::Accepted) {
+                 langcodes = addvalue.GetSelectedEntries();
             }
-        }
-
-        ui.cbLanguages->setCurrentIndex(index);
-    }
-}
-
-void MetaEditor::AddEmptyMetadataToTable(const QStringList &metanames)
-{
-    foreach(QString metaname, metanames) {
-        Metadata::MetaElement book_meta;
-        book_meta.name = metaname;
-
-        if (Metadata::Instance()->IsRelator(book_meta.name)) {
-            book_meta.role_type = "contributor";
-        }
-
-        // Map dates and identifiers from user-friendly version to standard entries
-
-        // If we are inserting a date, that needs special treatment;
-        // We need to insert it as a QDate object so the table interface
-        // can automatically impose input restrictions
-        if (metaname == "creation" || metaname == "modification" || metaname == "publication"  || metaname == "customdate") {
-            book_meta.name = "date";
-            book_meta.value = QDate::currentDate();
-            book_meta.file_as = metaname;
-        } else if (metaname == "DOI" || metaname == "ISBN" || metaname == "ISSN"  || metaname == "customidentifier") {
-            book_meta.name = "identifier";
-            book_meta.value = QString();
-            book_meta.file_as = metaname;
-        }
-        // String-based metadata gets created normally
-        else {
-            book_meta.value = QString();
-        }
-
-        AddMetadataToTable(book_meta);
-    }
-}
-
-
-void MetaEditor::AddMetadataToTable(Metadata::MetaElement book_meta, int row)
-{
-    if (row < 0) {
-        row = m_MetaModel.rowCount();
-    }
-
-    m_MetaModel.insertRow(row);
-    // Set the display name
-    // All translations done in Metadata for consistency
-    QString fullname;
-
-    if (book_meta.name == "date") {
-        fullname = Metadata::Instance()->GetText("date");
-    } else if (book_meta.name == "identifier") {
-        fullname = Metadata::Instance()->GetText("identifier");
-    } else {
-        fullname = Metadata::Instance()->GetName(book_meta.name);
-    }
-
-    // Add name, making sure its not editable
-    m_MetaModel.setData(m_MetaModel.index(row, 0), fullname);
-    m_MetaModel.item(row, 0)->setEditable(false);
-    // Add value
-    m_MetaModel.setData(m_MetaModel.index(row, 1), book_meta.value);
-
-    // Add file_as and role_type and set editable based on type of entry
-    if (Metadata::Instance()->IsRelator(book_meta.name)) {
-        // File As
-        m_MetaModel.setData(m_MetaModel.index(row, 2), book_meta.file_as);
-        // Role Type - always ensure a default value
-        QString role = book_meta.role_type;
-
-        if (role.isEmpty()) {
-            role = "contributor";
-        }
-
-        m_MetaModel.setData(m_MetaModel.index(row, 3), Metadata::Instance()->GetText(role));
-    } else if (book_meta.name == "date" || book_meta.name == "identifier") {
-        // File As or Event description
-        m_MetaModel.setData(m_MetaModel.index(row, 2), book_meta.file_as);
-        // Role Type not used
-        m_MetaModel.setData(m_MetaModel.index(row, 3), "");
-        m_MetaModel.item(row, 3)->setEditable(false);
-    } else {
-        // File As not used
-        m_MetaModel.setData(m_MetaModel.index(row, 3), "");
-        m_MetaModel.item(m_MetaModel.rowCount() - 1, 3)->setEditable(false);
-        // Role Type not used
-        m_MetaModel.setData(m_MetaModel.index(row, 2), "");
-        m_MetaModel.item(row, 2)->setEditable(false);
-    }
-}
-
-
-void MetaEditor::AddBasic()
-{
-  AddMetadata addmeta(Metadata::Instance()->GetBasicMetaMap(), this);
-
-    if (addmeta.exec() == QDialog::Accepted) {
-        AddEmptyMetadataToTable(addmeta.GetSelectedEntries());
-    }
-}
-
-
-void MetaEditor::AddRole()
-{
-  AddMetadata addmeta(Metadata::Instance()->GetRelatorMap(), this);
-
-    if (addmeta.exec() == QDialog::Accepted) {
-        AddEmptyMetadataToTable(addmeta.GetSelectedEntries());
-    }
-}
-
-void MetaEditor::Copy()
-{
-    if (ui.tvMetaTable->selectionModel()->selectedIndexes().isEmpty()) {
-        return;
-    }
-
-    Metadata::MetaElement book_meta;
-    // Copy only the first selected row
-    int row = ui.tvMetaTable->selectionModel()->selectedIndexes().first().row();
-    QString code = m_MetaModel.data(m_MetaModel.index(row, 0)).toString();
-
-    if (code == Metadata::Instance()->GetText("date")) {
-        code = "date";
-    } else if (code == Metadata::Instance()->GetText("identifier")) {
-        code = "identifier";
-    } else {
-        code = Metadata::Instance()->GetCode(code);
-    }
-
-    book_meta.name = code;
-    book_meta.value = m_MetaModel.data(m_MetaModel.index(row, 1));
-    book_meta.file_as = m_MetaModel.data(m_MetaModel.index(row, 2)).toString();
-    book_meta.role_type = m_MetaModel.data(m_MetaModel.index(row, 3)).toString();
-    AddMetadataToTable(book_meta, row + 1);
-    ui.tvMetaTable->selectRow(row + 1);
-}
-
-void MetaEditor::Remove()
-{
-    while (ui.tvMetaTable->selectionModel()->hasSelection()) {
-        m_MetaModel.removeRow(ui.tvMetaTable->selectionModel()->selection().indexes().at(0).row());
-    }
-}
-
-void MetaEditor::AddMetaElements(QString name, QList<QVariant> values, QString role_type, QString file_as)
-{
-    foreach(QVariant value, values) {
-        AddMetaElement(name, value, role_type, file_as);
-    }
-}
-
-void MetaEditor::AddMetaElement(QString name, QVariant value, QString role_type, QString file_as)
-{
-    Metadata::MetaElement book_meta;
-    book_meta.name = name;
-    book_meta.value = value;
-
-    if (role_type == Metadata::Instance()->GetText("creator")) {
-        book_meta.role_type = "creator";
-    } else if (role_type == Metadata::Instance()->GetText("contributor")) {
-        book_meta.role_type = "contributor";
-    }
-
-    book_meta.file_as = file_as;
-    m_Metadata.append(book_meta);
-}
-
-void MetaEditor::SetDataModifiedIfNeeded()
-{
-    if (m_OriginalData.title != ui.leTitle->text() ||
-        m_OriginalData.author != ui.leAuthor->text() ||
-        m_OriginalData.file_as != ui.leAuthorFileAs->text() ||
-        m_OriginalData.language != ui.cbLanguages->currentText()) {
-        m_IsDataModified = true;
-    }
-}
-
-bool MetaEditor::SaveData()
-{
-    // Clear the book metadata so we don't duplicate something...
-    // Nothing should be lost as everything was loaded into the dialog
-    m_Metadata.clear();
-    // Save the required fields
-    // Author is stored using relator
-    AddMetaElements("title", InputsInField(ui.leTitle->text()));
-    QString author_name = ui.leAuthor->text();
-    QString author_file_as = ui.leAuthorFileAs->text();
-
-    if (author_name.isEmpty()) {
-        author_name = author_file_as;
-    }
-
-    AddMetaElements("aut", InputsInField(author_name), Metadata::Instance()->GetText("creator"), author_file_as);
-    AddMetaElements("language", InputsInField(ui.cbLanguages->currentText()));
-
-    // Save the table
-    for (int row = 0; row < m_MetaModel.rowCount(); row++) {
-        QString name   = m_MetaModel.data(m_MetaModel.index(row, 0)).toString();
-        QVariant value = m_MetaModel.data(m_MetaModel.index(row, 1));
-        QString file_as = m_MetaModel.data(m_MetaModel.index(row, 2)).toString();
-        QString role_type = m_MetaModel.data(m_MetaModel.index(row, 3)).toString();
-        // Mapping of translations to code done in Metadata for consistency
-        QString code;
-
-        // Handle date differently due to event name stored in file_as
-        if (name == Metadata::Instance()->GetText("date")) {
-            code = "date";
-        }
-        // Handle identifier differently due to scheme name stored in file_as
-        else if (name == Metadata::Instance()->GetText("identifier")) {
-            code = "identifier";
-        } else {
-            code = Metadata::Instance()->GetCode(name);
-        }
-
-        // For string-based metadata, create multiple entries
-        // if the typed in value contains semicolons
-        if (value.type() == QVariant::String && OkToSplitInput(code)) {
-            AddMetaElements(code, InputsInField(value.toString()), role_type, file_as);
-        } else {
-            AddMetaElement(code, value, role_type, file_as);
-        }
-    }
-
-    m_OPF->SetDCMetadata(m_Metadata);
-    m_Book->SetModified(true);
-    m_IsDataModified = false;
-    SetOriginalData();
-
-    emit ShowStatusMessageRequest(tr("Metadata saved."));
-    return true;
-}
-
-
-void MetaEditor::ReadMetadataFromBook()
-{
-    bool have_title = false;
-    bool have_author = false;
-    bool have_language = false;
-    foreach(Metadata::MetaElement book_meta, m_Metadata) {
-        // Load data into one of the main fields or into the table
-        // Only load the first of each type
-        if (!have_title && book_meta.name == "title") {
-            ui.leTitle->setText(book_meta.value.toString());
-            have_title = true;
-        }
-        // Convert basic and relator authors to main Author field - but only first creator Author
-        else if (!have_author && (book_meta.name == "author" || (book_meta.name == "aut" && book_meta.role_type == "creator"))) {
-            QString author_name = book_meta.value.toString();
-            QString author_file_as = book_meta.file_as;
-
-            if (author_name.isEmpty()) {
-                author_name = author_file_as;
+            QString lang = "en";
+            if (!langcodes.isEmpty()) {
+                lang = langcodes.at(0);
             }
-
-            ui.leAuthor->setText(author_name);
-            ui.leAuthorFileAs->setText(author_file_as);
-            have_author = true;
-        } else if (!have_language &&  book_meta.name == "language") {
-            ui.cbLanguages->setCurrentIndex(ui.cbLanguages->findText(book_meta.value.toString()));
-            have_language = true;
+            insertRow(code, lang);
+        } else if (code == "dc:identifier-isbn") {
+            QString content = "urn:isbn:[No data]";
+            code = "dc:identifier";
+            insertRow(code, content);
+        } else if (code == "dc:identifier-issn") {
+            QString content = "urn:issn:[No data]";
+            code = "dc:identifier";
+            insertRow(code, content);
+        } else if (code == "dc:identifier-doi") {
+            QString content = "urn:doi:[No data]";
+            code = "dc:identifier";
+            insertRow(code, content);
+        } else if (code == "dc:identifier-uuid") {
+            QString content = "urn:uuid:[No data]";
+            code = "dc:identifier";
+            insertRow(code, content);
+        } else if ((code == "dc:date") || (code == "dcterms:issued") || (code == "dcterms:created")) {
+            QString content = QDate::currentDate().toString(Qt::ISODate);
+            insertRow(code, content);
+        } else if (code == "dc:type") {
+            QString content = "[dictionary,index]";
+            insertRow(code, content);
+        } else if (code == "dc:creator-aut") {
+            code = "dc:creator";
+            insertRow(code);
+            insertChild(QString("role"),QString("aut"));
+            insertChild(QString("scheme"),QString("marc:relators"));
         } else {
-            AddMetadataToTable(book_meta);
+            insertRow(code);
+        }
+    }
+}
+
+void MetaEditor::selectE2Element()
+{
+    QStringList codes;
+    {
+         AddMetadata addelement(GetElementMap(), this);
+         if (addelement.exec() == QDialog::Accepted) {
+            codes = addelement.GetSelectedEntries();
+         }
+    }
+    foreach(QString code, codes) {
+        if (code == "dc:language") {
+            QStringList langcodes;
+            AddMetadata addvalue(Language::instance()->GetLangMap(), this);
+            if (addvalue.exec() == QDialog::Accepted) {
+                 langcodes = addvalue.GetSelectedEntries();
+            }
+            QString lang = "en";
+            if (!langcodes.isEmpty()) {
+                lang = langcodes.at(0);
+            }
+            insertRow(code, lang);
+        } else if (code == "dc:identifier-isbn") {
+            QString content = "[No data]";
+            code = "dc:identifier";
+            insertRow(code, content);
+            insertChild(QString("opf:scheme"), QString("urn:isbn"));
+        } else if (code == "dc:identifier-issn") {
+            QString content = "[No Data]";
+            code = "dc:identifier";
+            insertRow(code, content);
+            insertChild(QString("opf:scheme"), QString("urn:issn"));
+        } else if (code == "dc:identifier-doi") {
+            QString content = "[No data]";
+            code = "dc:identifier";
+            insertRow(code, content);
+            insertChild(QString("opf:scheme"), QString("urn:doi"));
+        } else if (code == "dc:identifier-uuid") {
+            QString content = "[No data]";
+            code = "dc:identifier";
+            insertRow(code, content);
+            insertChild(QString("opf:scheme"), QString("urn:uuid"));
+        } else if (code == "dc:identifier-custom") {
+            QString content = "[No data]";
+            code = "dc:identifier";
+            insertRow(code, content);
+            insertChild(QString("opf:scheme"));
+        } else if (code.startsWith("dc:date-")) {
+            QStringList parts = code.split('-');
+            QString dc_event = parts.at(1);
+            code = "dc:date";
+            QString content = QDate::currentDate().toString(Qt::ISODate);
+            insertRow(code,content);
+            insertChild(QString("opf:event"),dc_event);
+        } else if (code == "dc:creator-aut") {
+            code = "dc:creator";
+            insertRow(code);
+            insertChild(QString("opf:role"),QString("aut"));
+            insertChild(QString("opf:scheme"),QString("marc:relators"));
+        } else {
+            insertRow(code);
         }
     }
 }
 
 
-
-bool MetaEditor::OkToSplitInput(const QString &metaname)
+void MetaEditor::selectProperty()
 {
-    // The "description" and "rights" fields could have a semicolon
-    // in the text and there's also little point in providing multiple
-    // entries for these so we don't split them.
-    if (metaname == "description" || metaname == "rights") {
-        return false;
+    QStringList codes;
+    {
+        AddMetadata addproperty(GetPropertyMap(), this);
+        if (addproperty.exec() == QDialog::Accepted) {
+            codes = addproperty.GetSelectedEntries();
+        }
     }
+    foreach(QString code, codes) {
+        if (code.startsWith("title-type:")) {
+            QStringList parts = code.split(':');
+            QString content = parts.at(1);
+            insertChild(code, content);
+        } else if (code.startsWith("collection-type:")) {
+            QStringList parts = code.split(':');
+            QString content = parts.at(1);
+            insertChild(code, content);
+        } else if (code.startsWith("dir:")) {
+            QStringList parts = code.split(':');
+            QString content = parts.at(1);
+            insertChild(code, content);
+        } else if (code == "source-of") {
+            QString content = "pagination";
+            insertChild(code, content);
+        } else if (code == "group-position") {
+            QString content = "1";
+            insertChild(code, content);
+            insertChild(code, content);
+        } else if (code == "display-seq") {
+            QString content = "1";
+            insertChild(code, content);
+        } else if (code == "scheme") {
+            insertChild(code);
+        } else if ((code == "altlang") || (code == "xml:lang")) {
+            QStringList langcodes;
+            AddMetadata addvalue(Language::instance()->GetLangMap(), this);
+            if (addvalue.exec() == QDialog::Accepted) {
+                langcodes = addvalue.GetSelectedEntries();
+            }
+            QString lang= "en";
+            if (!langcodes.isEmpty()) {
+                lang = langcodes.at(0);
+            }
+            insertChild(code, lang);
+        } else if (code == "role") {
+            QStringList rolecodes;
+            AddMetadata addrole(MarcRelators::instance()->GetCodeMap(), this);
+            if (addrole.exec() == QDialog::Accepted) {
+                rolecodes = addrole.GetSelectedEntries();
+            }
+            QString role = "aut";
+            if (!rolecodes.isEmpty()) {
+                role = rolecodes.at(0);
+            }
+            insertChild(code, role);
+            code = "scheme";
+            QString scheme = "marc:relators";
+            insertChild(code, scheme);
+        } else if (code == "identifier-type") {
+            insertChild(code);
+            code = "scheme";
+            insertChild(code);
+        } else {
+            insertChild(code);
+        }
+    }
+}
 
-    return true;
+void MetaEditor::selectE2Property()
+{
+    QStringList codes;
+    {
+        AddMetadata addproperty(GetPropertyMap(), this);
+        if (addproperty.exec() == QDialog::Accepted) {
+            codes = addproperty.GetSelectedEntries();
+        }
+    }
+    foreach(QString code, codes) {
+        if (code.startsWith("dir:")) {
+            QStringList parts = code.split(':');
+            QString content = parts.at(1);
+            insertChild(code, content);
+        } else if (code == "opf:scheme") {
+            insertChild(code);
+        } else if (code == "xml:lang") {
+            QStringList langcodes;
+            AddMetadata addvalue(Language::instance()->GetLangMap(), this);
+            if (addvalue.exec() == QDialog::Accepted) {
+                langcodes = addvalue.GetSelectedEntries();
+            }
+            QString lang= "en";
+            if (!langcodes.isEmpty()) {
+                lang = langcodes.at(0);
+            }
+            insertChild(code, lang);
+        } else if (code == "opf:role") {
+            QStringList rolecodes;
+            AddMetadata addrole(MarcRelators::instance()->GetCodeMap(), this);
+            if (addrole.exec() == QDialog::Accepted) {
+                rolecodes = addrole.GetSelectedEntries();
+            }
+            QString role = "aut";
+            if (!rolecodes.isEmpty()) {
+                role = rolecodes.at(0);
+            }
+            insertChild(code, role);
+            code = "opf:scheme";
+            QString scheme = "marc:relators";
+            insertChild(code, scheme);
+        } else {
+            insertChild(code);
+        }
+    }
 }
 
 
-QList<QVariant> MetaEditor::InputsInField(const QString &field_value)
+void MetaEditor::saveData()
 {
-    QList<QVariant> inputs;
-    foreach(QString input, field_value.split(";", QString::SkipEmptyParts)) {
-        inputs.append(input.simplified());
-    }
-    return inputs;
+    TreeModel *model = qobject_cast<TreeModel *>(view->model());
+    QString data = model->getAllModelData();
+
+    QString newopfdata = SetNewOPFMetadata(data);
+    m_book->GetOPF()->SetText(newopfdata);
+    done(0);
 }
 
 
-void MetaEditor::FillLanguageComboBox()
+void MetaEditor::insertChild(QString code, QString contents)
 {
-    foreach(QString lang, Language::instance()->GetSortedPrimaryLanguageNames()) {
-        ui.cbLanguages->addItem(lang);
+    QModelIndex index = view->selectionModel()->currentIndex();
+    QAbstractItemModel *model = view->model();
+
+    // restrict children to be a grandchild of the root item
+    // and make sure you are in column 0 when inserting a child
+    if (index.parent() != QModelIndex()) {
+        index = index.parent();
     }
+    int row = index.row();
+    index = index.sibling(row,0);
+
+    if (model->columnCount(index) == 0) {
+        if (!model->insertColumn(0, index))
+            return;
+    }
+
+    if (!model->insertRow(0, index))
+        return;
+
+    QModelIndex child = model->index(0, 0, index);
+    model->setData(child, QVariant(code), Qt::EditRole);
+    for (int column = 1; column < model->columnCount(index); ++column) {
+        QModelIndex child = model->index(0, column, index);
+        if (!contents.isEmpty()) {
+            model->setData(child, QVariant(contents), Qt::EditRole);
+        } else {
+            model->setData(child, QVariant("[No data]"), Qt::EditRole);
+        }
+        if (!model->headerData(column, Qt::Horizontal).isValid())
+            model->setHeaderData(column, Qt::Horizontal, QVariant("[No header]"), Qt::EditRole);
+    }
+
+    view->selectionModel()->setCurrentIndex(model->index(0, 0, index),
+                                            QItemSelectionModel::ClearAndSelect);
+    updateActions();
 }
 
-void MetaEditor::SetUpMetaTable()
+
+void MetaEditor::insertRow(QString code, QString contents)
 {
-    m_MetaModel.clear();
-    ui.leTitle->setText("");
-    ui.leAuthor->setText("");
-    ui.leAuthorFileAs->setText("");
+    QModelIndex index = view->selectionModel()->currentIndex();
+    QAbstractItemModel *model = view->model();
 
-    QStringList header;
-    header.append(tr("Name"));
-    header.append(tr("Value"));
-    header.append(tr("File As"));
-    header.append(tr("Role Type"));
-    m_MetaModel.setHorizontalHeaderLabels(header);
-    ui.tvMetaTable->setModel(&m_MetaModel);
-    // Make the header fill all the available space
-    ui.tvMetaTable->horizontalHeader()->setStretchLastSection(true);
-    ui.tvMetaTable->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-    // Divide column widths roughly equally for default view
-    int columnCount = m_MetaModel.columnCount();
-
-    for (int i = 0; i < columnCount; i++) {
-        ui.tvMetaTable->setColumnWidth(i, 155);
+    // force all row insertions to be children of the root item
+    while(index.parent() != QModelIndex()) {
+        index = index.parent();
     }
 
-    ui.tvMetaTable->setSortingEnabled(false);
-    ui.tvMetaTable->setWordWrap(true);
-    ui.tvMetaTable->setAlternatingRowColors(true);
-    // The table's role_type column uses a combobox for editing its values
-    ui.tvMetaTable->setItemDelegateForColumn(3, m_cbDelegate);
-}
+    if (!model->insertRow(index.row()+1, index.parent()))
+        return;
 
-void MetaEditor::ReadSettings()
-{
-    SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
-    // The size of the window and it's full screen status
-    QByteArray geometry = settings.value("geometry").toByteArray();
 
-    if (!geometry.isNull()) {
-        restoreGeometry(geometry);
-    }
+    updateActions();
 
-    // Column widths
-    int size = settings.beginReadArray("column_data");
-
-    for (int i = 0; i < size && i < ui.tvMetaTable->horizontalHeader()->count(); i++) {
-        settings.setArrayIndex(i);
-        int column_width = settings.value("width").toInt();
-
-        if (column_width) {
-            ui.tvMetaTable->setColumnWidth(i, column_width);
+    QModelIndex child = model->index(index.row()+1, 0, index.parent());
+    model->setData(child, QVariant(code), Qt::EditRole);
+    for (int column = 1; column < model->columnCount(index.parent()); ++column) {
+        QModelIndex nchild = model->index(index.row()+1, column, index.parent());
+        if (!contents.isEmpty()) {
+            model->setData(nchild, QVariant(contents), Qt::EditRole);
+        } else {
+            model->setData(nchild, QVariant("[No data]"), Qt::EditRole);
         }
     }
 
-    settings.endArray();
-    settings.endGroup();
+    // force newly inserted row to be the currently selected item so that any
+    // follow-on insertChild calls use this as their parent.
+    view->selectionModel()->setCurrentIndex(child, QItemSelectionModel::ClearAndSelect);
+    updateActions();
 }
 
 
-void MetaEditor::WriteSettings()
+void MetaEditor::removeRow()
 {
-    SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
-    // The size of the window and it's full screen status
-    settings.setValue("geometry", saveGeometry());
-    // Column widths
-    settings.beginWriteArray("column_data");
+    QModelIndex index = view->selectionModel()->currentIndex();
+    QAbstractItemModel *model = view->model();
+    if (model->removeRow(index.row(), index.parent()))
+        updateActions();
+}
 
-    for (int i = 0; i < ui.tvMetaTable->horizontalHeader()->count(); i++) {
-        settings.setArrayIndex(i);
-        settings.setValue("width", ui.tvMetaTable->columnWidth(i));
+
+void MetaEditor::moveRowUp()
+{
+    QModelIndex index = view->selectionModel()->currentIndex();
+    TreeModel *model = qobject_cast<TreeModel *>(view->model());
+    if (model->moveRowUp(index.row(), index.parent()))
+        updateActions();
+}
+
+
+void MetaEditor::moveRowDown()
+{
+    QModelIndex index = view->selectionModel()->currentIndex();
+    TreeModel *model = qobject_cast<TreeModel *>(view->model());
+    if (model->moveRowDown(index.row(), index.parent()))
+        updateActions();
+}
+
+
+void MetaEditor::updateActions()
+{
+    bool hasSelection = !view->selectionModel()->selection().isEmpty();
+    delButton->setEnabled(hasSelection);
+
+    bool hasCurrent = view->selectionModel()->currentIndex().isValid();
+
+    if (hasCurrent) {
+        view->closePersistentEditor(view->selectionModel()->currentIndex());
     }
-
-    settings.endArray();
-    settings.endGroup();
 }
 
-void MetaEditor::MoveUp()
+void MetaEditor::loadMetadataElements()
 {
-    QModelIndexList selected_indexes = ui.tvMetaTable->selectionModel()->selectedIndexes();
 
-    if (selected_indexes.isEmpty()) {
+    // If the basic metadata has already been loaded
+    // by a previous Meta Editor, then don't load them again
+    if (!m_ElementInfo.isEmpty()) {
         return;
     }
 
-    // Get just the row numbers to move
-    QList<int> rows;
-    foreach(QModelIndex index, selected_indexes) {
-        int row = index.row();
+    // These descriptions are standard EPUB descriptions and should not be changed.
+    // Names and codes must be unique between basic and advanced (except Publisher)
+    // Abbreviations are not translated.
+    QStringList data;
+    data <<
+         tr("Author") << "dc:creator-aut" << tr("Represents a primary author of the book or publication") <<
+         tr("Subject") << "dc:subject" << tr("An arbitrary phrase or keyword describing the subject in question. Use multiple 'subject' elements if needed.") <<
+         tr("Description") << "dc:description" << tr("Description of the publication's content.") <<
+         tr("Publisher") << "dc:publisher" << tr("An entity responsible for making the publication available.") <<
+         tr("Date: Publication") << "dc:date" << tr("The date of publication.") <<
+         tr("Date: Creation") << "dcterms:created" << tr("The date of creation.") <<
+         tr("Date: Issued") << "dcterms:issued" << tr("The date of modification.") <<
+         tr("Date: Modification") << "dcterms:modfied" << tr("The date of modification.") <<
+         tr("Type") << "dc:type" << tr("Used to indicate that the given EPUB Publication is of a specialized type..") <<
+         tr("Format") << "dc:format" << tr("The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).") <<
+         tr("Source") << "dc:source" << tr("Identifies the related resource(s) from which this EPUB Publication is derived.") <<
+         tr("Language") << "dc:language" << tr("Specifies the language of the publication. Select from the dropdown menu") <<
+         tr("Relation") << "dc:relation" << tr("A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.") <<
+         tr("Coverage") << "dc:coverage" << tr("The extent or scope of the content of the publication's content.") <<
+         tr("Rights") << "dc:rights" << tr("Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.") <<
+         tr("Creator") << "dc:creator" << tr("Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.") <<
+         tr("Contributor") << "dc:contributor" << tr("Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.") <<
+         tr("Belongs to Collection") << "belongs-to-collection" << tr("Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.") <<
+         tr("Title") << "dc:title" << tr("A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.") <<
+         tr("Identifier: DOI") << "dc:identifier-doi" << tr("Digital Object Identifier associated with the given EPUB publication.") << 
+         tr("Identifier: ISBN") << "dc:identifier-isbn" << tr("International Standard Book Number associated with the given EPUB publication.") <<
+         tr("Identifier: ISSN") << "dc:identifier-issn" << tr("International Standard Serial Number associated with the given EPUB publication.") <<
+         tr("Identifier: UUID") << "dc:identifier-uuid" << tr("A Universally Unique Idenitifier generated for this EPUB publication.") <<
+         // tr("Identifier: Custom") << "dc:identifier-custom" << tr("A custom identifier based on a specified scheme") <<
+         tr("Custom Element") << "[No data]" << tr("An empty metadata element you can modify.");
 
-        if (row == 0) {
-            return;
-        }
-
-        if (!rows.contains(row)) {
-            rows.append(row);
-        }
-    }
-    qSort(rows);
-    // Move the rows as a block starting from the top
-    foreach(int row, rows) {
-        QList<QStandardItem *> items =  m_MetaModel.invisibleRootItem()->takeRow(row - 1);
-        m_MetaModel.invisibleRootItem()->insertRow(row, items);
+    for (int i = 0; i < data.count(); i++) {
+        QString name = data.at(i++);
+        QString code = data.at(i++);
+        QString description = data.at(i);
+        DescriptiveMetaInfo minfo;
+        minfo.name = name;
+        minfo.description  = description;
+        m_ElementInfo.insert(code, minfo);
+        m_ElementCode.insert(name, code);
     }
 }
 
-void MetaEditor::MoveDown()
+void MetaEditor::loadMetadataProperties()
 {
-    QModelIndexList selected_indexes = ui.tvMetaTable->selectionModel()->selectedIndexes();
-
-    if (selected_indexes.isEmpty()) {
+    // If the basic metadata has already been loaded
+    // by a previous Meta Editor, then don't load them again
+    if (!m_PropertyInfo.isEmpty()) {
         return;
     }
 
-    // Get just the row numbers to move
-    QList<int> rows;
-    foreach(QModelIndex index, selected_indexes) {
-        int row = index.row();
+    // These descriptions are standard EPUB descriptions and should not be changed.
+    // Names and codes must be unique between basic and advanced (except Publisher)
+    // Abbreviations are not translated.
+    QStringList data;
+    data <<
+         tr("Id Attribute") << "id" << tr("Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.") <<
+         tr("XML Language") << "xml:lang" << tr("Optional, language specifying attribute.  Uses some codes as dc:language.") <<
+         tr("Text Direction: rtl") << "dir:rtl" << tr("Optional text direction attribute for this metadata item. right-to-left (rtl).") <<
+         tr("Text Direction: ltr") << "dir:ltr" << tr("Optional text direction attribute for this metadata item. left-to-right (ltr).") <<
+         tr("Title Type: main") << "title-type:main" << tr("Indicates the associated title is the main title of the publication.  Only one main title should exist.") <<
+         tr("Title Type: subtitle") << "title-type:subtitle" << tr("Indicates that the associated title is a subtitle of the publication if one exists..") <<
+         tr("Title Type: short") << "title-type:short" << tr("Indicates that the associated title is a shortened title of the publication if one exists.") <<
+         tr("Title Type: collection") << "title-type:collection" << tr("Indicates that the associated title is the title of a Tcollection that includes this publication belongs to if one exists.") <<
+         tr("Title Type: edition") << "title-type:edition" << tr("Indicates that the associated title is an edition title for this publications if one exists.") <<
+         tr("Title Type: expanded") << "title-type:expanded" << tr("Indicates that the associated title is an expanded title for this publication if one exists.") <<
+         tr("Alternate Script") << "alternate-script" << tr("Provides an alternate expression of the associated property value in a language and script identified by an alternate-language attribute.") <<
+         tr("Alternate Language") << "altlang" << tr("Language code for the language used in the associated alternate-script property value.") <<
+         tr("Collection Type: set") << "collection-type:set" << tr("Property used with belongs-to-collection. Indicates the form or nature of a collection. The value 'set' should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..") <<
+         tr("Collection Type: series") << "collection-type:series" << tr("Property used with belongs-to-collection. Indicates the form or nature of a collection. The value 'series'' should be used for asequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.") <<
+         tr("Display Sequence") << "display-seq" << tr("Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).") <<
+         tr("File as") << "file-as" << tr("Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.") <<
+         tr("Group Position") << "group-position" << tr("Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).") <<
+         tr("Identifier Type") << "identifier-type" << tr("Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.") <<
+         tr("Meta Authority") << "meta-auth" << tr("Identifies the party or authority responsible for an instance of package metadata.") <<
+         tr("Role") << "role" << tr("Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.") <<
+         tr("Scheme") << "scheme" << tr("This attribute is typically added to dc:identifier, dc:source: dc:creator, or dc:contributor to indicate the controlled vocabulary system employed. (e.g. marc:relators to specifiy valid values for the role property.") <<
+         tr("Source of Pagination") << "source-of" << tr("Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.") <<
+         tr("Custom Property") << "[No data]" << tr("An empty metadata property or attribute you can modify.");
 
-        if (row == m_MetaModel.invisibleRootItem()->rowCount() - 1) {
-            return;
-        }
-
-        if (!rows.contains(row)) {
-            rows.append(row);
-        }
+    for (int i = 0; i < data.count(); i++) {
+        QString name = data.at(i++);
+        QString code = data.at(i++);
+        QString description = data.at(i);
+        DescriptiveMetaInfo minfo;
+        minfo.name = name;
+        minfo.description  = description;
+        m_PropertyInfo.insert(code, minfo);
+        m_PropertyCode.insert(name, code);
     }
-    qSort(rows);
-
-    // Move the rows as a block starting from the bottom
-    for (int i = rows.count() - 1; i >= 0; i--) {
-        int row = rows.at(i);
-        QList<QStandardItem *> items =  m_MetaModel.invisibleRootItem()->takeRow(row + 1);
-        m_MetaModel.invisibleRootItem()->insertRow(row, items);
-    }
 }
 
-void MetaEditor::Save()
+
+// Loads the basic metadata types, names, and descriptions
+void MetaEditor::loadE2MetadataElements()
 {
-    SaveData();
-    accept();
-}
-
-void MetaEditor::reject()
-{
-    WriteSettings();
-
-    if (MaybeSaveDialogSaysProceed(false)) {
-        QDialog::reject();
-    }
-}
-
-void MetaEditor::ForceClose()
-{
-    MaybeSaveDialogSaysProceed(true);
-    WriteSettings();
-    QDialog::reject();
-}
-
-bool MetaEditor::MaybeSaveDialogSaysProceed(bool is_forced)
-{
-    SetDataModifiedIfNeeded();
-
-    if (m_IsDataModified) {
-        QMessageBox::StandardButton button_pressed;
-        QMessageBox::StandardButtons buttons = is_forced ? QMessageBox::Save | QMessageBox::Discard
-                                               : QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel;
-        button_pressed = QMessageBox::warning(this,
-                                              tr("Sigil: Metadata Editor"),
-                                              tr("The metadata may have been modified.\n"
-                                                      "Do you want to save your changes?"),
-                                              buttons
-                                             );
-
-        if (button_pressed == QMessageBox::Save) {
-            return SaveData();
-        } else if (button_pressed == QMessageBox::Cancel) {
-            return false;
-        }
+    // If the basic metadata has already been loaded
+    // by a previous Meta Editor, then don't load them again
+    if (!m_E2ElementInfo.isEmpty()) {
+        return;
     }
 
-    return true;
+    // These descriptions are standard EPUB descriptions and should not be changed.
+    // Names and codes must be unique between basic and advanced (except Publisher)
+    // Abbreviations are not translated.
+    QStringList data;
+    data <<
+         tr("Author") << "dc:creator-aut" << tr("Represents a primary author of the book or publication") <<
+         tr("Title") << "dc:title" << tr("The main title of the epub publication.  Only one title may exist.") <<
+         tr("Creator") << "dc:creator" << tr("Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.") <<
+         tr("Contributor") << "dc:contributor" << tr("Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication'") <<
+         tr("Subject") << "dc:subject" << tr("An arbitrary phrase or keyword describing the subject in question. Use multiple 'subject' elements if needed.") <<
+         tr("Description") << "dc:description" << tr("Description of the publication's content.") <<
+         tr("Publisher") << "dc:publisher" << tr("An entity responsible for making the publication available.") <<
+         tr("Date: Publication") << "dc:date-publication" << tr("The date of publication.") <<
+         tr("Date: Creation") << "dc:date-creation" << tr("The date of creation.") <<
+         tr("Date: Modification") << "dc:date-modification" << tr("The date of modification.") <<
+         tr("Type") << "dc:type" << tr("The nature or genre of the content of the resource.") <<
+         tr("Format") << "dc:format" << tr("The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).") <<
+         tr("Source") << "dc:source" << tr("A reference to a resource from which the present publication is derived.") <<
+         tr("Language") << "dc:language" << tr("A language used in the publication. Choose a RFC5646 value.") <<
+         tr("Relation") << "dc:relation" << tr("A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.") <<
+         tr("Coverage") << "dc:coverage" << tr("The extent or scope of the content of the publication's content.") <<
+         tr("Rights") << "dc:rights" << tr("Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.") <<
+         tr("Identifier") + ": DOI"   << "dc:identifier-doi" << tr("Digital Object Identifier") <<
+         tr("Identifier") + ": ISBN"  << "dc:identifier-isbn" << tr("International Standard Book Number") <<
+         tr("Identifier") + ": ISSN"  << "dc:identifier-issn" << tr("International Standard Serial Number") <<
+         tr("Identifier") + ": UUID"  << "dc:identifier-uuid" << tr("Universally Unique Identifier") <<
+         tr("Identifier: Custom") << "dc:identifier-custom" << tr("A custom identifier based on a specified scheme") <<
+         tr("Custom Element") << "[No data]" << tr("An empty metadata element for you to modify");
+
+    for (int i = 0; i < data.count(); i++) {
+        QString name = data.at(i++);
+        QString code = data.at(i++);
+        QString description = data.at(i);
+        DescriptiveMetaInfo meta;
+        meta.name = name;
+        meta.description  = description;
+        m_E2ElementInfo.insert(code, meta);
+        m_E2ElementCode.insert(name, code);
+    }
 }
 
-void MetaEditor::ItemChangedHandler(QStandardItem *item)
+void MetaEditor::loadE2MetadataProperties()
 {
-    m_IsDataModified = true;
+    // If the basic metadata has already been loaded
+    // by a previous Meta Editor, then don't load them again
+    if (!m_E2PropertyInfo.isEmpty()) {
+        return;
+    }
+
+    // These descriptions are standard EPUB descriptions and should not be changed.
+    // Names and codes must be unique between basic and advanced (except Publisher)
+    // Abbreviations are not translated.
+    QStringList data;
+    data <<
+         tr("Id Attribute") << "id" << tr("Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.") <<
+         tr("XML Language") << "xml:lang" << tr("Optional, language specifying attribute.  Uses some codes as dc:language.") <<
+         tr("Text Direction: rtl") << "dir:rtl" << tr("Optional text direction attribute for this metadata item. right-to-left (rtl).") <<
+         tr("Text Direction: ltr") << "dir:ltr" << tr("Optional text direction attribute for this metadata item. left-to-right (ltr).") <<
+         tr("File as") << "opf:file-as" << tr("Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.") <<
+         tr("Role") << "opf:role" << tr("Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.") <<
+         tr("Scheme") << "opf:scheme" << tr("This attribute is typically added to dc:identifier, dc:source: dc:creator, or dc:contributor to indicate the controlled vocabulary system employed. (e.g. marc:relators to specifiy valid values for the role property.") <<
+         tr("Event") << "opf:event" << tr("This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.") <<
+         tr("Custom Attribute") << "[No data]" << tr("An empty metadata attribute you can modify.");
+
+    for (int i = 0; i < data.count(); i++) {
+        QString name = data.at(i++);
+        QString code = data.at(i++);
+        QString description = data.at(i);
+        DescriptiveMetaInfo minfo;
+        minfo.name = name;
+        minfo.description  = description;
+        m_E2PropertyInfo.insert(code, minfo);
+        m_E2PropertyCode.insert(name, code);
+    }
 }
 
-void MetaEditor::RowsRemovedHandler(const QModelIndex &parent, int start, int end)
-{
-    m_IsDataModified = true;
-}
-
-void MetaEditor::ConnectSignals()
-{
-    connect(ui.buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()), this, SLOT(reject()));
-    connect(ui.buttonBox->button(QDialogButtonBox::Ok), SIGNAL(clicked()), this, SLOT(Save()));
-    connect(ui.btAddBasic,    SIGNAL(clicked()), this, SLOT(AddBasic()));
-    connect(ui.btAddRole,     SIGNAL(clicked()), this, SLOT(AddRole()));
-    connect(ui.btCopy,        SIGNAL(clicked()), this, SLOT(Copy()));
-    connect(ui.btRemove,      SIGNAL(clicked()), this, SLOT(Remove()));
-    connect(ui.tbMoveUp,      SIGNAL(clicked()), this, SLOT(MoveUp()));
-    connect(ui.tbMoveDown,    SIGNAL(clicked()), this, SLOT(MoveDown()));
-
-    connect(&m_MetaModel, SIGNAL(itemChanged(QStandardItem *)),
-            this, SLOT(ItemChangedHandler(QStandardItem *)));
-    connect(&m_MetaModel, SIGNAL(rowsRemoved(const QModelIndex &, int, int)),
-            this, SLOT(RowsRemovedHandler(const QModelIndex &, int, int)));
-}
