@@ -30,7 +30,6 @@
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
-#include "BookManipulation/Metadata.h"
 #include "Dialogs/DeleteFiles.h"
 #include "Dialogs/RenameTemplate.h"
 #include "Importers/ImportHTML.h"
@@ -572,9 +571,6 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
     }
 
     m_LastFolderOpen = QFileInfo(filepaths.first()).absolutePath();
-    // We need to store the current metadata since the
-    // GetBook call will clear it.
-    QList<Metadata::MetaElement> old_metadata = m_Book->GetMetadata();
     QStringList current_filenames = m_Book->GetFolderKeeper()->GetAllFilenames();
     QStringList invalid_filenames;
     HTMLResource *current_html_resource = qobject_cast<HTMLResource *>(GetCurrentResource());
@@ -660,7 +656,8 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
             html_import.SetBook(m_Book, true);
             // Since we set the Book manually,
             // this call merely mutates our Book.
-            html_import.GetBook();
+            bool extract_metadata = false;
+            html_import.GetBook(extract_metadata);
             Resource *added_resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
             HTMLResource *added_html_resource = qobject_cast<HTMLResource *>(added_resource);
 
@@ -702,7 +699,6 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
             emit ResourceActivated(open_resource);
         }
 
-        m_Book->SetMetadata(old_metadata);
         emit BookContentModified();
         Refresh();
         emit ShowStatusMessageRequest(tr("File(s) added."));

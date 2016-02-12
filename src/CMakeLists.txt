@@ -86,8 +86,8 @@ set( BOOK_MANIPULATION_FILES
     BookManipulation/FolderKeeper.h
     BookManipulation/Headings.cpp
     BookManipulation/Headings.h
-    BookManipulation/Metadata.cpp
-    BookManipulation/Metadata.h
+    BookManipulation/HTMLMetadata.cpp
+    BookManipulation/HTMLMetadata.h
     BookManipulation/XhtmlDoc.cpp
     BookManipulation/XhtmlDoc.h
     BookManipulation/GuideSemantics.cpp

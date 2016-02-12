@@ -45,7 +45,7 @@ ImportTXT::ImportTXT(const QString &fullfilepath)
 
 // Reads and parses the file
 // and returns the created Book
-QSharedPointer<Book> ImportTXT::GetBook()
+QSharedPointer<Book> ImportTXT::GetBook(bool extract_metadata)
 {
     if (!Utility::IsFileReadable(m_FullFilePath)) {
         throw(CannotReadFile(m_FullFilePath.toStdString()));

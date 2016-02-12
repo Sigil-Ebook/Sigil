@@ -220,7 +220,7 @@ QString Book::GetPublicationIdentifier() const
 }
 
 
-QList<Metadata::MetaElement> Book::GetMetadata() const
+QList<MetaEntry> Book::GetMetadata() const
 {
     return GetConstOPF()->GetDCMetadata();
 }
@@ -230,7 +230,7 @@ QList<QVariant> Book::GetMetadataValues(QString text) const
     return GetConstOPF()->GetDCMetadataValues(text);
 }
 
-void Book::SetMetadata(const QList<Metadata::MetaElement> metadata)
+void Book::SetMetadata(const QList<MetaEntry> metadata)
 {
     GetOPF()->SetDCMetadata(metadata);
     SetModified(true);

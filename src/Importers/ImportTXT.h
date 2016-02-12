@@ -39,7 +39,7 @@ public:
 
     // Reads and parses the file
     // and returns the created Book
-    virtual QSharedPointer<Book> GetBook();
+    virtual QSharedPointer<Book> GetBook(bool extract_metadata=true);
 
 private:
 

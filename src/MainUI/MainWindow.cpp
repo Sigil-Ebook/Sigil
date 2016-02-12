@@ -1186,7 +1186,7 @@ void MainWindow::GenerateNcxFromNav()
         QApplication::restoreOverrideCursor();
     }
 
-    QList<QVariant> mvalues = m_Book->GetConstOPF()->GetDCMetadataValues("title");
+    QList<QVariant> mvalues = m_Book->GetConstOPF()->GetDCMetadataValues("dc:title");
     QString doctitle = "UNKNOWN";
     if (!mvalues.isEmpty()) {
         doctitle = mvalues.at(0).toString();

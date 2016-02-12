@@ -20,7 +20,6 @@
 *************************************************************************/
 
 #include "LanguageWidget.h"
-#include "BookManipulation/Metadata.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Language.h"
 #include "Misc/UILanguage.h"

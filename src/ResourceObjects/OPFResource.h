@@ -25,7 +25,6 @@
 
 #include <memory>
 #include "BookManipulation/GuideSemantics.h"
-#include "BookManipulation/Metadata.h"
 #include "ResourceObjects/XMLResource.h"
 #include "ResourceObjects/OPFParser.h"
 
@@ -108,10 +107,10 @@ public:
      *
      * @return The DC metadata, in the same format as the SetDCMetadata metadata parameter.
      */
-    QList<Metadata::MetaElement> GetDCMetadata() const;
+    QList<MetaEntry> GetDCMetadata() const;
 
     /**
-     * Returns the values for a specific metadata name.
+     * Returns the values for a specific dc: metadata name.
      *
      * @return A list of values
      */
@@ -127,7 +126,7 @@ public slots:
      * @param metadata A list with meta information about the book.
      */
 
-    void SetDCMetadata(const QList<Metadata::MetaElement>  &metadata);
+    void SetDCMetadata(const QList<MetaEntry>  &metadata);
 
     void AddResource(const Resource *resource);
 
@@ -184,10 +183,10 @@ private:
 
     QHash<Resource *, QString> GetResourceManifestIDMapping(const QList<Resource *> resources, const OPFParser &p);
 
-    // static void SetMetaElementsLast(xc::DOMDocument &document);
-
     void RemoveDCElements(OPFParser &p);
 
+
+#if 0
     /**
      * Dispatches each metadata entry based on its type.
      * The specialized Write* functions write the elements.
@@ -206,6 +205,7 @@ private:
      * @param document The OPF DOM document.
      */
     void WriteCreatorOrContributor(const Metadata::MetaElement book_meta, OPFParser &p);
+#endif
 
     /**
      * Writes simple metadata.
@@ -226,6 +226,7 @@ private:
      */
     void WriteIdentifier(const QString &metaname, const QString &metavalue, OPFParser &p);
 
+#if 0
     /**
      * Writes the <date> elements.
      * The metaname will be used for the event.
@@ -235,9 +236,7 @@ private:
      * @param document The OPF DOM document.
      */
     void WriteDate(const QString &metaname, const QVariant &metavalue, OPFParser &p);
-
-    // static bool BasicStructurePresent(const xc::DOMDocument &document);
-    // std::shared_ptr<xc::DOMDocument> CreateOPFFromScratch(const xc::DOMDocument *document=NULL) const;
+#endif
 
     QStringList GetRelativePathsToAllFilesInOEPBS() const;
 

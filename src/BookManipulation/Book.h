@@ -28,7 +28,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QUrl>
 #include <QtCore/QVariant>
-#include "BookManipulation/Metadata.h"
+#include "ResourceObjects/OPFParser.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "ResourceObjects/Resource.h"
 
@@ -113,7 +113,7 @@ public:
      *
      * @return A list of the book's metadata.
      */
-    QList<Metadata::MetaElement> GetMetadata() const;
+    QList<MetaEntry> GetMetadata() const;
 
     /**
      * Returns the values for a specific metadata name.
@@ -129,7 +129,7 @@ public:
      *                 are the metadata names, and the values are the lists of
      *                 metadata values for that metadata name.
      */
-    void SetMetadata(const QList<Metadata::MetaElement> metadata);
+    void SetMetadata(const QList<MetaEntry> metadata);
 
     QString GetFirstUniqueSectionName(QString extension = QString());
 

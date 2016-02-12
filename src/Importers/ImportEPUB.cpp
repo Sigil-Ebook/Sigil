@@ -49,7 +49,6 @@
 #include <QMessageBox>
 
 #include "BookManipulation/FolderKeeper.h"
-#include "BookManipulation/Metadata.h"
 #include "BookManipulation/CleanSource.h"
 #include "Importers/ImportEPUB.h"
 #include "Misc/FontObfuscation.h"
@@ -62,6 +61,7 @@
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/Resource.h"
+#include "ResourceObjects/OPFParser.h"
 #include "SourceUpdates/UniversalUpdates.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
@@ -101,7 +101,7 @@ ImportEPUB::ImportEPUB(const QString &fullfilepath)
 
 // Reads and parses the file
 // and returns the created Book
-QSharedPointer<Book> ImportEPUB::GetBook()
+QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
 {
     QList<XMLResource *> non_well_formed;
     SettingsStore ss;
@@ -195,9 +195,11 @@ QSharedPointer<Book> ImportEPUB::GetBook()
     // If spine was not present or did not contain any items, recreate the OPF from scratch
     // preserving any important metadata elements and making a new reading order.
     if (!m_HasSpineItems) {
-        QList<Metadata::MetaElement> originalMetadata = m_Book->GetOPF()->GetDCMetadata();
+        QList<MetaEntry> originalMetadata = m_Book->GetOPF()->GetDCMetadata();
         m_Book->GetOPF()->AutoFixWellFormedErrors();
-        m_Book->GetOPF()->SetDCMetadata(originalMetadata);
+        if (extract_metadata) {
+            m_Book->GetOPF()->SetDCMetadata(originalMetadata);
+        }
         AddLoadWarning(QObject::tr("The OPF file does not contain a valid spine.") % "\n" %
                        QObject::tr("Sigil has created a new one for you."));
     }
@@ -536,6 +538,7 @@ void ImportEPUB::ReadOPF()
         if (opf_reader.name() == "package") {
             m_UniqueIdentifierId = opf_reader.attributes().value("", "unique-identifier").toString();
             m_PackageVersion = opf_reader.attributes().value("", "version").toString();
+            if (m_PackageVersion == "1.0") m_PackageVersion = "2.0";
         } else if (opf_reader.name() == "identifier") {
             ReadIdentifierElement(&opf_reader);
         }

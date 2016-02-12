@@ -30,7 +30,7 @@
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/FolderKeeper.h"
-#include "BookManipulation/Metadata.h"
+#include "BookManipulation/HTMLMetadata.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Importers/ImportHTML.h"
 #include "Misc/GumboInterface.h"
@@ -77,10 +77,12 @@ XhtmlDoc::WellFormedError ImportHTML::CheckValidToLoad()
 
 // Reads and parses the file
 // and returns the created Book
-QSharedPointer<Book> ImportHTML::GetBook()
+QSharedPointer<Book> ImportHTML::GetBook(bool extract_metadata)
 {
     QString source = LoadSource();
-    LoadMetadata(source);
+    if (extract_metadata) {
+        LoadMetadata(source);
+    }
     UpdateFiles(CreateHTMLResource(), source, LoadFolderStructure(source));
     return m_Book;
 }
@@ -114,16 +116,15 @@ void ImportHTML::LoadMetadata(const QString & source)
 {
     GumboInterface gi(source, m_EpubVersion);
     gi.parse();
-    QList<Metadata::MetaElement> metadata;
+    QList<MetaEntry> metadata;
     QList<GumboNode*> nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_META); 
     for (int i = 0; i < nodes.count(); ++i) {
         GumboNode* node = nodes.at(i);
-        Metadata::MetaElement book_meta = Metadata::Instance()->MapToBookMetadata(node, gi);
-        if (!book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty()) {
-            metadata.append(book_meta);
+        MetaEntry meta = HTMLMetadata::Instance()->MapHTMLToOPFMetadata(node, gi);
+        if (!meta.m_name.isEmpty() && !meta.m_content.isEmpty()) {
+            metadata.append(meta);
         }
     }
-
     m_Book->SetMetadata(metadata);
 }
 

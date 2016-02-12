@@ -34,7 +34,6 @@
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
-#include "Misc/Language.h"
 #include "Misc/Utility.h"
 #include "Misc/SettingsStore.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -442,20 +441,17 @@ QStringList OPFResource::GetSpineOrderFilenames() const
 }
 
 
-QList<Metadata::MetaElement> OPFResource::GetDCMetadata() const
+QList<MetaEntry> OPFResource::GetDCMetadata() const
 {
     QReadLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
-    QList<Metadata::MetaElement> metadata;
+    QList<MetaEntry> metadata;
     for (int i=0; i < p.m_metadata.count(); ++i) {
-        MetaEntry me = p.m_metadata.at(i);
-        if (me.m_name.startsWith("dc:")) {
-            Metadata::MetaElement book_meta = Metadata::Instance()->MapMetaEntryToBookMetadata(me);
-            if (!book_meta.name.isEmpty() && !book_meta.value.toString().isEmpty()) {
-                metadata.append(book_meta);
-            }
+        if (p.m_metadata.at(i).m_name.startsWith("dc:")) {
+            MetaEntry me(p.m_metadata.at(i));
+            metadata.append(me);
         }
     }
     return metadata;
@@ -465,24 +461,27 @@ QList<Metadata::MetaElement> OPFResource::GetDCMetadata() const
 QList<QVariant> OPFResource::GetDCMetadataValues(QString text) const
 {
     QList<QVariant> values;
-    foreach(Metadata::MetaElement meta, GetDCMetadata()) {
-        if (meta.name == text) {
-            values.append(meta.value);
+    foreach(MetaEntry meta, GetDCMetadata()) {
+        if (meta.m_name == text) {
+            values.append(meta.m_content);
         }
     }
     return values;
 }
 
 
-void OPFResource::SetDCMetadata(const QList<Metadata::MetaElement> &metadata)
+void OPFResource::SetDCMetadata(const QList<MetaEntry> &metadata)
 {
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
+    // this will not work with refines so it needs to be fixed
     RemoveDCElements(p);
-    foreach(Metadata::MetaElement book_meta, metadata) {
-        MetadataDispatcher(book_meta, p);;
+    foreach(MetaEntry book_meta, metadata) {
+        MetaEntry me(book_meta);
+        me.m_content = me.m_content.toHtmlEscaped();
+        p.m_metadata.append(me);
     }
     UpdateText(p);
 }
@@ -887,7 +886,7 @@ void OPFResource::RemoveDCElements(OPFParser& p)
     }
 }
 
-
+#if 0
 void OPFResource::MetadataDispatcher(const Metadata::MetaElement &book_meta, OPFParser& p)
 {
     // We ignore badly formed meta elements.
@@ -941,7 +940,7 @@ void OPFResource::WriteCreatorOrContributor(const Metadata::MetaElement book_met
     me.m_content = value.toHtmlEscaped();
     p.m_metadata.append(me);
 }
-
+#endif
 
 void OPFResource::WriteSimpleMetadata(const QString &metaname, const QString &metavalue, OPFParser& p)
 {
@@ -1040,6 +1039,7 @@ void OPFResource::AddModificationDateMeta()
     UpdateText(p);
 }
 
+#if 0
 void OPFResource::WriteDate(const QString &metaname, const QVariant &metavalue, OPFParser& p)
 {
     QString date;
@@ -1058,7 +1058,7 @@ void OPFResource::WriteDate(const QString &metaname, const QVariant &metavalue, 
     me.m_atts[QString("opf:event")] = metaname;
     p.m_metadata.append(me);
 }
-
+#endif
 
 // Yeah, we could get this list of paths with the GetSortedContentFilesList()
 // func from FolderKeeper, but let's not create a strong coupling from

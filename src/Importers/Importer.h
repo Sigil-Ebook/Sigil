@@ -60,7 +60,7 @@ public:
      *
      * @return The file as a Book object, RAII wrapped.
      */
-    virtual QSharedPointer<Book> GetBook() = 0;
+    virtual QSharedPointer<Book> GetBook(bool extract_metadata=true) = 0;
 
     /**
      * Call this after calling GetBook() to get any warning messages that

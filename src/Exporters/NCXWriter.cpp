@@ -96,7 +96,7 @@ void NCXWriter::WriteHead()
 void NCXWriter::WriteDocTitle()
 {
     QString document_title;
-    QList<QVariant> titles = m_Book->GetMetadataValues("title");
+    QList<QVariant> titles = m_Book->GetMetadataValues("dc:title");
 
     if (titles.isEmpty()) {
         document_title = "Unknown";
