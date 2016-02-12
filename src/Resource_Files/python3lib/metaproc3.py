@@ -99,6 +99,7 @@ class MetadataProcessor(object):
         self.other = []
         self.op = None
         self.md = None
+        self.pkg = None
         self.id2rec = {}
         self.idlst = []
         self.metadata_attr = {}
@@ -108,12 +109,21 @@ class MetadataProcessor(object):
         self.md = self.op.get_metadata()
         self.idlst = self.op.get_idlst()
         self.metadata_attr = self.op.get_metadata_attr()
+        self.pkg = self.op.get_package()
 
         # first sort out recognized dc and primary meta from refines, and other metadata
         # while building up id2rec map, and removing id from idlst
         numrec = 0
+        (ver, uid, attr) = self.pkg
         for mentry in self.md:
             (mname, mcontent, mattr) = mentry
+            
+            # do not allow the gui to play with the unique-identifier to 
+            # prevent font obfuscation issues later
+            if mname == "dc:identifier" and mattr.get("id","") == uid:
+                self.other.append(mentry)
+                continue
+
             if mname in _recognized_dc:
                 self.rec.append(mentry)
                 id = mattr.get("id",None)

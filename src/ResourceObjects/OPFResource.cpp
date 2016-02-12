@@ -886,61 +886,6 @@ void OPFResource::RemoveDCElements(OPFParser& p)
     }
 }
 
-#if 0
-void OPFResource::MetadataDispatcher(const Metadata::MetaElement &book_meta, OPFParser& p)
-{
-    // We ignore badly formed meta elements.
-    if (book_meta.name.isEmpty() || book_meta.value.isNull()) {
-        return;
-    }
-
-    // Write Relator codes (always write author as relator code)
-    if (Metadata::Instance()->IsRelator(book_meta.name) || book_meta.name == "author") {
-      WriteCreatorOrContributor(book_meta, p);
-    }
-    // There is a relator for the publisher, but there is
-    // also a special publisher element that we would rather use
-    else if (book_meta.name == "pub") {
-      WriteSimpleMetadata("publisher", book_meta.value.toString(), p);
-    } else if (book_meta.name  == "language") {
-        WriteSimpleMetadata(book_meta.name,
-                            Language::instance()->GetLanguageCode(book_meta.value.toString()), p);
-    } else if (book_meta.name  == "identifier") {
-      WriteIdentifier(book_meta.file_as, book_meta.value.toString(), p);
-    } else if (book_meta.name == "date") {
-      WriteDate(book_meta.file_as, book_meta.value,p);
-    } else {
-      WriteSimpleMetadata(book_meta.name, book_meta.value.toString(), p);
-    }
-}
-
-
-void OPFResource::WriteCreatorOrContributor(const Metadata::MetaElement book_meta, OPFParser& p)
-{
-    QString value = book_meta.value.toString();
-    QString file_as = book_meta.file_as;
-    QString role_type = book_meta.role_type;
-    QString name = book_meta.name;
-
-    if (name == "author") {
-        name = "aut";
-    }
-
-    // Must have a role type
-    if (role_type.isEmpty()) {
-        role_type = "contributor";
-    }
-
-    MetaEntry me;
-    me.m_name = QString("dc:") + role_type;
-    me.m_atts[QString("opf:role")] = name;
-    if (!file_as.isEmpty()) {
-        me.m_atts[QString("opf:file-as")] = file_as;
-    }
-    me.m_content = value.toHtmlEscaped();
-    p.m_metadata.append(me);
-}
-#endif
 
 void OPFResource::WriteSimpleMetadata(const QString &metaname, const QString &metavalue, OPFParser& p)
 {
@@ -1039,26 +984,6 @@ void OPFResource::AddModificationDateMeta()
     UpdateText(p);
 }
 
-#if 0
-void OPFResource::WriteDate(const QString &metaname, const QVariant &metavalue, OPFParser& p)
-{
-    QString date;
-    QDate d = metavalue.toDate();
-    // We can't use QDate.toString() because it will take into account the locale. Which mean we may not get Arabic 
-    // numerals if the local uses it's own numbering system. So we use this instead to ensure we get a valid date per
-    // the epub spec.
-    QTextStream(&date) << d.year() << "-" << (d.month() < 10 ? "0" : "") << d.month() << "-" << (d.day() < 10 ? "0" : "") << d.day();
-
-    // This assumes that the "dc" prefix has been declared for the DC namespace
-    QHash<QString,QString> atts;
-    atts["opf:event"] = metaname;
-    MetaEntry me;
-    me.m_name=QString("dc:date");
-    me.m_content = date;
-    me.m_atts[QString("opf:event")] = metaname;
-    p.m_metadata.append(me);
-}
-#endif
 
 // Yeah, we could get this list of paths with the GetSortedContentFilesList()
 // func from FolderKeeper, but let's not create a strong coupling from

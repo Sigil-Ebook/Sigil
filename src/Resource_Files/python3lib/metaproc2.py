@@ -56,7 +56,7 @@ _recognized_dc = [
 ]
 
 _skip_meta = [
-    # "cover",
+    "cover",
 ]
 
 _rec2root = {
@@ -115,9 +115,9 @@ class MetadataProcessor(object):
         for mentry in self.md:
             (mname, mcontent, mattr) = mentry
 
-            # if mname == "dc:identifier" and mattr.get("id","") == uid:
-            #     self.other.append(mentry)
-            #     continue
+            if mname == "dc:identifier" and mattr.get("id","") == uid:
+                self.other.append(mentry)
+                continue
                 
             if mname in _recognized_dc:
                 self.rec.append(mentry)

@@ -185,28 +185,6 @@ private:
 
     void RemoveDCElements(OPFParser &p);
 
-
-#if 0
-    /**
-     * Dispatches each metadata entry based on its type.
-     * The specialized Write* functions write the elements.
-     *
-     * @param metaname The name of the metadata to be written.
-     * @param metavalue The value of the metadata to be written.
-     * @param document The OPF DOM document.
-     */
-    void MetadataDispatcher(const Metadata::MetaElement &book_meta, OPFParser &p);
-
-    /**
-     * Writes <creator> and <contributor> metadata elements.
-     *
-     * @param metaname The name of the metadata to be written.
-     * @param metavalue The value of the metadata to be written.
-     * @param document The OPF DOM document.
-     */
-    void WriteCreatorOrContributor(const Metadata::MetaElement book_meta, OPFParser &p);
-#endif
-
     /**
      * Writes simple metadata.
      *
@@ -225,18 +203,6 @@ private:
      * @param document The OPF DOM document.
      */
     void WriteIdentifier(const QString &metaname, const QString &metavalue, OPFParser &p);
-
-#if 0
-    /**
-     * Writes the <date> elements.
-     * The metaname will be used for the event.
-     *
-     * @param metaname The name of the metadata to be written.
-     * @param metavalue The value of the metadata to be written.
-     * @param document The OPF DOM document.
-     */
-    void WriteDate(const QString &metaname, const QVariant &metavalue, OPFParser &p);
-#endif
 
     QStringList GetRelativePathsToAllFilesInOEPBS() const;
 
