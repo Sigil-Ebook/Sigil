@@ -30,7 +30,10 @@
 #include "Dialogs/MetaEditor.h"
 #include "MainUI/MainWindow.h"
 #include "Misc/Language.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/PythonRoutines.h"
+
+static const QString SETTINGS_GROUP = "meta_editor";
 
 MetaEditor::MetaEditor(QWidget *parent)
   : QDialog(parent),
@@ -52,6 +55,10 @@ MetaEditor::MetaEditor(QWidget *parent)
     view->setModel(model);
     for (int column = 0; column < model->columnCount(); ++column)
         view->resizeColumnToContents(column);
+
+    if (!isVisible()) {
+        ReadSettings();
+    }
 
     if (m_version.startsWith('3')) { 
         loadMetadataElements();
@@ -361,6 +368,8 @@ void MetaEditor::selectE2Property()
 
 void MetaEditor::saveData()
 {
+    WriteSettings();
+
     TreeModel *model = qobject_cast<TreeModel *>(view->model());
     QString data = model->getAllModelData();
 
@@ -369,6 +378,11 @@ void MetaEditor::saveData()
     done(0);
 }
 
+void MetaEditor::reject()
+{
+    WriteSettings();
+    QDialog::reject();
+}
 
 void MetaEditor::insertChild(QString code, QString contents)
 {
@@ -670,3 +684,25 @@ void MetaEditor::loadE2MetadataProperties()
     }
 }
 
+void MetaEditor::ReadSettings()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+    // The size of the window and it's full screen status
+    QByteArray geometry = settings.value("geometry").toByteArray();
+
+    if (!geometry.isNull()) {
+        restoreGeometry(geometry);
+    }
+    settings.endGroup();
+}
+
+
+void MetaEditor::WriteSettings()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+    // The size of the window and it's full screen status
+    settings.setValue("geometry", saveGeometry());
+    settings.endGroup();
+}

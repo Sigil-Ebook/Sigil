@@ -46,12 +46,16 @@ public:
 public slots:
     void updateActions();
 
+protected slots:
+    void reject();
+
 private slots:
     void insertChild(QString code, QString contents="");
     void insertRow(QString code, QString contents="");
     void removeRow();
     void moveRowUp();
     void moveRowDown();
+    void WriteSettings();
     void saveData();
 
     void selectElement();
@@ -66,6 +70,8 @@ private slots:
 
     void loadE2MetadataElements();
     void loadE2MetadataProperties();
+
+    void ReadSettings();
 
     QString GetOPFMetadata();
     QString SetNewOPFMetadata(QString& data);
