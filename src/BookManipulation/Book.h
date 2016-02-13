@@ -399,12 +399,6 @@ private:
      */
     FolderKeeper *m_Mainfolder;
 
-    /**
-     * A hash with meta information about the book. The keys are
-     * are the metadata names, and the values are the lists of
-     * metadata values for that metadata name.
-     */
-    QHash<QString, QList<QVariant>> m_Metadata;
 
     /**
      * Stores the modified state of the book.
