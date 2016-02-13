@@ -9,7 +9,7 @@ Web Tools
 =========
 
 Sigil can be translated using the web based translation system Transifex. See
-https://www.transifex.net/projects/p/sigil/ . This is the preferred method for
+https://www.transifex.com/zdpo/sigil/ . This is the preferred method for
 translating Sigil.
 
 
