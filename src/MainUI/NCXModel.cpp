@@ -27,6 +27,7 @@
 #include "MainUI/NCXModel.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/NCXResource.h"
+#include "BookManipulation/CleanSource.h"
 
 NCXModel::NCXModel(QObject *parent)
     :
@@ -98,7 +99,7 @@ QString NCXModel::GetNCXText()
     QMutexLocker book_lock(&m_UsingBookMutex);
     NCXResource *ncx = m_Book->GetNCX();
     QReadLocker locker(&(ncx->GetLock()));
-    return ncx->GetText();
+    return CleanSource::ProcessXML(ncx->GetText(), "application/x-dtbncx+xml");
 }
 
 
