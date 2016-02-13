@@ -59,6 +59,8 @@ static const QString TEMPLATE_TEXT =
     "<package version=\"2.0\" xmlns=\"http://www.idpf.org/2007/opf\" unique-identifier=\"BookId\">\n\n"
     "  <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:opf=\"http://www.idpf.org/2007/opf\">\n"
     "    <dc:identifier opf:scheme=\"UUID\" id=\"BookId\">urn:uuid:%1</dc:identifier>\n"
+    "    <dc:language>%2</dc:language>\n"
+    "    <dc:title>[No data]</dc:title>\n"
     "  </metadata>\n\n"
     "  <manifest>\n"
     "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
@@ -74,6 +76,8 @@ static const QString TEMPLATE3_TEXT =
     "<package version=\"3.0\" xmlns=\"http://www.idpf.org/2007/opf\" unique-identifier=\"BookId\" prefix=\"rendition: http://www.idpf.org/vocab/rendition/#\">\n\n"
     "  <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:opf=\"http://www.idpf.org/2007/opf\" xmlns:dcterms=\"http://purl.org/dc/terms/\">\n"
     "    <dc:identifier id=\"BookId\">urn:uuid:%1</dc:identifier>\n"
+    "    <dc:language>%2</dc:language>\n"
+    "    <dc:title>[No data]</dc:title>\n"
     "  </metadata>\n\n"
     "  <manifest>\n"
     "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
@@ -1002,10 +1006,12 @@ QStringList OPFResource::GetRelativePathsToAllFilesInOEPBS() const
 
 QString OPFResource::GetOPFDefaultText(const QString &version)
 {
+    SettingsStore ss;
+    QString defaultLanguage = ss.defaultMetadataLang();
     if (version.startsWith('2')) {
-        return TEMPLATE_TEXT.arg(Utility::CreateUUID());
+      return TEMPLATE_TEXT.arg(Utility::CreateUUID()).arg(defaultLanguage);
     }
-    return TEMPLATE3_TEXT.arg(Utility::CreateUUID());
+    return TEMPLATE3_TEXT.arg(Utility::CreateUUID()).arg(defaultLanguage);
 }
 
 
