@@ -59,7 +59,7 @@ QStringList Language::GetSortedPrimaryLanguageNames()
     return m_sortedPrimaryLanguageNames;
 }
 
-const QHash<QString, DescriptiveMetaInfo> & Language::GetLangMap()
+const QHash<QString, DescriptiveInfo> & Language::GetLangMap()
 {
     return m_LangInfo;
 }
@@ -659,7 +659,7 @@ void Language::SetLanguageMap()
         QString name = data.at(i);
         m_languageCodeMap.insert(code, name);
         m_languageNameMap.insert(name, code);
-        DescriptiveMetaInfo minfo;
+        DescriptiveInfo minfo;
         minfo.name = name;
         minfo.description = QString();
         m_LangInfo.insert(code, minfo);

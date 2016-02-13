@@ -29,7 +29,7 @@
 #include <QtWidgets/QDialog>
 
 #include "ui_AddMetadata.h"
-#include "Misc/DescriptiveMetaInfo.h"
+#include "Misc/DescriptiveInfo.h"
 
 /**
  * The dialog for adding a single metadata element.
@@ -50,7 +50,7 @@ public:
      * @param metadata The metadata list that this dialog displays. \see Metadata
      * @param parent The dialog's parent.
      */
-  AddMetadata(const QHash<QString, DescriptiveMetaInfo> & metainfo, QWidget *parent = 0);
+  AddMetadata(const QHash<QString, DescriptiveInfo> & metainfo, QWidget *parent = 0);
 
     /**
      * Returns the list of names selected by user.
@@ -100,7 +100,7 @@ private:
      * Represents the metadata information list that this dialog displays
      * and generates a reverse mapping
      */
-    const QHash<QString, DescriptiveMetaInfo> & m_MetaInfo;
+    const QHash<QString, DescriptiveInfo> & m_MetaInfo;
     QHash<QString, QString> m_Name2Code;
 
     /**

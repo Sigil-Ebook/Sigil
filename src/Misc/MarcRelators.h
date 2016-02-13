@@ -29,7 +29,7 @@
 class QString;
 class QStringList;
 
-#include "Misc/DescriptiveMetaInfo.h"
+#include "Misc/DescriptiveInfo.h"
 
 
 /**
@@ -53,15 +53,15 @@ public:
     QStringList GetSortedNames();
     bool isRelatorCode(QString code);
     bool isRelatorName(QString name);
-    const QHash<QString, DescriptiveMetaInfo> &GetCodeMap();
+    const QHash<QString, DescriptiveInfo> &GetCodeMap();
 
 private:
     MarcRelators();
 
     void SetRelatorsMap();
 
-    // code -> DescriptiveMetaInfo -> name and description
-    QHash<QString, DescriptiveMetaInfo> m_CodeMap;
+    // code -> DescriptiveInfo -> name and description
+    QHash<QString, DescriptiveInfo> m_CodeMap;
     
     // name -> code
     QHash<QString, QString> m_NameMap;

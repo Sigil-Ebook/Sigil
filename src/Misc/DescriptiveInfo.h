@@ -21,17 +21,17 @@
 *************************************************************************/
 
 #pragma once
-#ifndef DESCRIPTIVEMETAINFO_H
-#define DESCRIPTIVEMETAINFO_H
+#ifndef DESCRIPTIVEINFO_H
+#define DESCRIPTIVEINFO_H
 
 class QString;
 
-struct DescriptiveMetaInfo {
-        // The user-friendly name of the relator entry
+struct DescriptiveInfo {
+        // The user-friendly name 
         QString name;
 
-        // The description of the relator entry
+        // Associated description of the name
         QString description;
 };
 
-#endif // DESCRIPTIVEMETAINFO_H
+#endif // DESCRIPTIVEINFO_H

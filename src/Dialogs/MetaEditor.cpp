@@ -113,7 +113,7 @@ QString MetaEditor::SetNewOPFMetadata(QString& data)
 }
 
 
-const QHash<QString, DescriptiveMetaInfo> &  MetaEditor::GetElementMap()
+const QHash<QString, DescriptiveInfo> &  MetaEditor::GetElementMap()
 {
     if (m_version.startsWith('3')) {
         return m_ElementInfo;
@@ -121,7 +121,7 @@ const QHash<QString, DescriptiveMetaInfo> &  MetaEditor::GetElementMap()
     return m_E2ElementInfo;
 }
 
-const QHash<QString, DescriptiveMetaInfo> &  MetaEditor::GetPropertyMap()
+const QHash<QString, DescriptiveInfo> &  MetaEditor::GetPropertyMap()
 {
     if (m_version.startsWith('3')) {
         return m_PropertyInfo;
@@ -541,7 +541,7 @@ void MetaEditor::loadMetadataElements()
         QString name = data.at(i++);
         QString code = data.at(i++);
         QString description = data.at(i);
-        DescriptiveMetaInfo minfo;
+        DescriptiveInfo minfo;
         minfo.name = name;
         minfo.description  = description;
         m_ElementInfo.insert(code, minfo);
@@ -590,7 +590,7 @@ void MetaEditor::loadMetadataProperties()
         QString name = data.at(i++);
         QString code = data.at(i++);
         QString description = data.at(i);
-        DescriptiveMetaInfo minfo;
+        DescriptiveInfo minfo;
         minfo.name = name;
         minfo.description  = description;
         m_PropertyInfo.insert(code, minfo);
@@ -641,7 +641,7 @@ void MetaEditor::loadE2MetadataElements()
         QString name = data.at(i++);
         QString code = data.at(i++);
         QString description = data.at(i);
-        DescriptiveMetaInfo meta;
+        DescriptiveInfo meta;
         meta.name = name;
         meta.description  = description;
         m_E2ElementInfo.insert(code, meta);
@@ -676,7 +676,7 @@ void MetaEditor::loadE2MetadataProperties()
         QString name = data.at(i++);
         QString code = data.at(i++);
         QString description = data.at(i);
-        DescriptiveMetaInfo minfo;
+        DescriptiveInfo minfo;
         minfo.name = name;
         minfo.description  = description;
         m_E2PropertyInfo.insert(code, minfo);

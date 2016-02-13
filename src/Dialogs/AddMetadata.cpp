@@ -28,7 +28,7 @@
 
 static const QString SETTINGS_GROUP = "add_metadata";
 
-AddMetadata::AddMetadata(const QHash<QString, DescriptiveMetaInfo> &metainfo, QWidget *parent)
+AddMetadata::AddMetadata(const QHash<QString, DescriptiveInfo> &metainfo, QWidget *parent)
     :
     QDialog(parent),
     m_MetaInfo(metainfo)
@@ -41,7 +41,7 @@ AddMetadata::AddMetadata(const QHash<QString, DescriptiveMetaInfo> &metainfo, QW
     // Fill the dialog with sorted translated metadata names
     QStringList names;
     foreach (QString code, m_MetaInfo.keys()) {
-        QString name = m_MetaInfo.value(code, DescriptiveMetaInfo()).name;
+        QString name = m_MetaInfo.value(code, DescriptiveInfo()).name;
         m_Name2Code[name] = code;
         names.append(name);
     }
@@ -57,7 +57,7 @@ void AddMetadata::UpdateDescription(QListWidgetItem *current)
     QString text;
     QString code = m_Name2Code.value(current->text(), QString());
     if (!code.isEmpty()) {
-        text = m_MetaInfo.value(code, DescriptiveMetaInfo() ).description;
+        text = m_MetaInfo.value(code, DescriptiveInfo() ).description;
     }
     if (!text.isEmpty()) {
         ui.lbDescription->setText(text);

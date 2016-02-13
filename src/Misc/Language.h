@@ -28,7 +28,7 @@
 #include <QStringList>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QHash>
-#include "Misc/DescriptiveMetaInfo.h"
+#include "Misc/DescriptiveInfo.h"
 
 /**
  * Singleton.
@@ -45,7 +45,7 @@ public:
     QString GetLanguageName(QString language_code);
     QString GetLanguageCode(QString language_name);
     QStringList GetSortedPrimaryLanguageNames();
-    const QHash<QString, DescriptiveMetaInfo> & GetLangMap();
+    const QHash<QString, DescriptiveInfo> & GetLangMap();
 
 private:
     Language();
@@ -55,7 +55,7 @@ private:
     // Use hash since order is not important (sort later)
     QHash<QString, QString> m_languageCodeMap;
     QHash<QString, QString> m_languageNameMap;
-    QHash<QString, DescriptiveMetaInfo> m_LangInfo;
+    QHash<QString, DescriptiveInfo> m_LangInfo;
 
     QStringList m_sortedPrimaryLanguageNames;
 

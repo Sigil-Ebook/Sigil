@@ -26,7 +26,7 @@
 #include <QDialog>
 #include <QModelIndex>
 #include <QHash>
-#include "Misc/DescriptiveMetaInfo.h"
+#include "Misc/DescriptiveInfo.h"
 #include "Misc/Language.h"
 #include "Misc/MarcRelators.h"
 #include "Misc/PythonRoutines.h"
@@ -76,19 +76,19 @@ private slots:
     QString GetOPFMetadata();
     QString SetNewOPFMetadata(QString& data);
 
-    const QHash<QString, DescriptiveMetaInfo> & GetElementMap();
-    const QHash<QString, DescriptiveMetaInfo> & GetPropertyMap();
+    const QHash<QString, DescriptiveInfo> & GetElementMap();
+    const QHash<QString, DescriptiveInfo> & GetPropertyMap();
 
-    QHash<QString, DescriptiveMetaInfo> m_ElementInfo;
+    QHash<QString, DescriptiveInfo> m_ElementInfo;
     QHash<QString, QString> m_ElementCode;
 
-    QHash<QString, DescriptiveMetaInfo> m_PropertyInfo;
+    QHash<QString, DescriptiveInfo> m_PropertyInfo;
     QHash<QString, QString> m_PropertyCode;
     
-    QHash<QString, DescriptiveMetaInfo> m_E2ElementInfo;
+    QHash<QString, DescriptiveInfo> m_E2ElementInfo;
     QHash<QString, QString> m_E2ElementCode;
 
-    QHash<QString, DescriptiveMetaInfo> m_E2PropertyInfo;
+    QHash<QString, DescriptiveInfo> m_E2PropertyInfo;
     QHash<QString, QString> m_E2PropertyCode;
     
     MarcRelators * m_Relator;

@@ -40,14 +40,14 @@ MarcRelators *MarcRelators::instance()
 
 QString MarcRelators::GetName(QString code)
 {
-    DescriptiveMetaInfo rel = m_CodeMap.value(code, DescriptiveMetaInfo() );
+    DescriptiveInfo rel = m_CodeMap.value(code, DescriptiveInfo() );
     return rel.name;
 }
 
 
 QString MarcRelators::GetDescriptionByCode(QString code)
 {
-    DescriptiveMetaInfo rel = m_CodeMap.value(code, DescriptiveMetaInfo());
+    DescriptiveInfo rel = m_CodeMap.value(code, DescriptiveInfo());
     return rel.description;
 }
 
@@ -81,14 +81,14 @@ QStringList MarcRelators::GetSortedNames()
     }
 
     foreach(QString code, m_CodeMap.keys()) {
-        DescriptiveMetaInfo rel = m_CodeMap.value(code);
+        DescriptiveInfo rel = m_CodeMap.value(code);
         m_sortedNames.append(rel.name);
     }
     m_sortedNames.sort();
     return m_sortedNames;
 }
 
-const QHash<QString, DescriptiveMetaInfo> & MarcRelators::GetCodeMap()
+const QHash<QString, DescriptiveInfo> & MarcRelators::GetCodeMap()
 {
     return m_CodeMap;
 }
@@ -379,7 +379,7 @@ void MarcRelators::SetRelatorsMap()
         QString name = data.at(i++);
         QString code = data.at(i++);
         QString description = data.at(i);
-        DescriptiveMetaInfo rel;
+        DescriptiveInfo rel;
         rel.name = name;
         rel.description  = description;
         m_CodeMap.insert(code, rel);
