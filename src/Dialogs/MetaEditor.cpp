@@ -94,8 +94,11 @@ MetaEditor::MetaEditor(QWidget *parent)
 
 QString MetaEditor::GetOPFMetadata() {
     PythonRoutines pr;
-    m_mdp = pr.GetMetadataInPython(m_opfdata, m_version);
-    QString data(m_mdp.data);
+    MetadataPieces mdp = pr.GetMetadataInPython(m_opfdata, m_version);
+    QString data = mdp.data;
+    m_otherxml = mdp.otherxml;
+    m_metatag = mdp.metatag;
+    m_idlist = mdp.idlist;
     return data;
 }
 
@@ -103,9 +106,13 @@ QString MetaEditor::GetOPFMetadata() {
 QString MetaEditor::SetNewOPFMetadata(QString& data) 
 {
     QString newopfdata = m_opfdata;
-    m_mdp.data = data;
+    MetadataPieces mdp;
+    mdp.data = data;
+    mdp.otherxml = m_otherxml;
+    mdp.metatag = m_metatag;
+    mdp.idlist = m_idlist;
     PythonRoutines pr;
-    QString results = pr.SetNewMetadataInPython(m_mdp, m_opfdata, m_version);
+    QString results = pr.SetNewMetadataInPython(mdp, m_opfdata, m_version);
     if (!results.isEmpty()) {
         newopfdata = results;
     }

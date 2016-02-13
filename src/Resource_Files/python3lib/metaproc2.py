@@ -96,14 +96,23 @@ class MetadataProcessor(object):
         self.md = None
         self.id2rec = {}
         self.idlst = []
-        self.metadata_attr = {}
+        self.metadata_attr = None
 
     def extract_recognized_metadata(self):
         self.op = OPFMetadataParser(self.opfdata)
         self.md = self.op.get_metadata()
         self.idlst = self.op.get_idlst()
-        self.metadata_attr = self.op.get_metadata_attr()
+        self.metadata_attr = self.op.get_metadata_attr().copy()
         self.pkg = self.op.get_package()
+
+        # add the opf attribute namespace to the metadata tag for OPF 2
+        # and make sure the dc namespace is there as well
+        if self.metadata_attr is None:
+            self.metadata_attr = {}
+        if "xmlsns:opf" not in self.metadata_attr:
+            self.metadata_attr["xmlns:opf"] = "http://www.idpf.org/2007/opf"
+        if "xmlsns:dc" not in self.metadata_attr:
+            self.metadata_attr["xmlns:dc"] = "http://purl.org/dc/elements/1.1/"
 
         # first sort out recognized dc and other metadata
         # while building up id2rec map, and removing id from idlst
@@ -177,7 +186,7 @@ class MetadataProcessor(object):
         if self.metadata_attr is not None:
             for key in self.metadata_attr:
                 val = self.metadata_attr[key]
-            res.append(' ' + key + '="'+val+'"' )
+                res.append(' ' + key + '="'+val+'"' )
         res.append('>\n')
         return "".join(res)
 

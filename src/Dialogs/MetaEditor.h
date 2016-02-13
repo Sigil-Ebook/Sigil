@@ -29,7 +29,6 @@
 #include "Misc/DescriptiveInfo.h"
 #include "Misc/Language.h"
 #include "Misc/MarcRelators.h"
-#include "Misc/PythonRoutines.h"
 
 #include "ui_MetaEditor.h"
 
@@ -97,7 +96,9 @@ private slots:
     QSharedPointer<Book> m_book;
     QString m_version;
     QString m_opfdata;
-    MetadataPieces m_mdp;
+    QString m_otherxml;
+    QString m_metatag;
+    QStringList m_idlist;
 };
 
 #endif // METAEDITOR_H

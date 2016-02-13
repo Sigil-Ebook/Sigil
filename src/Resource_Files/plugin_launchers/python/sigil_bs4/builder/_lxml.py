@@ -216,7 +216,7 @@ class LXMLTreeBuilderForXML(TreeBuilder):
         for inverted_nsmap in self.nsmaps:
             if inverted_nsmap is not None and namespace in inverted_nsmap:
                 prefixes.append(inverted_nsmap[namespace])
-        if len(prefixes) == 0 or  None in prefixes:
+        if len(prefixes) == 0 or (None in prefixes):
             return None
         # ow return the last (most recent) viable prefix
         return prefixes[-1]

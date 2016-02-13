@@ -209,7 +209,7 @@ class MetadataProcessor(object):
         if self.metadata_attr is not None:
             for key in self.metadata_attr:
                 val = self.metadata_attr[key]
-            res.append(' ' + key + '="'+val+'"' )
+                res.append(' ' + key + '="'+val+'"' )
         res.append('>\n')
         return "".join(res)
 
