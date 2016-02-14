@@ -570,9 +570,9 @@ void MetaEditor::loadMetadataProperties()
     QStringList data;
     data <<
          tr("Id Attribute") << "id" << tr("Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.") <<
-         tr("XML Language") << "xml:lang" << tr("Optional, language specifying attribute.  Uses some codes as dc:language.") <<
-         tr("Text Direction: rtl") << "dir:rtl" << tr("Optional text direction attribute for this metadata item. right-to-left (rtl).") <<
-         tr("Text Direction: ltr") << "dir:ltr" << tr("Optional text direction attribute for this metadata item. left-to-right (ltr).") <<
+         tr("XML Language") << "xml:lang" << tr("Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:langauge, dc:date, or dc:identifier metadata elements.") <<
+         tr("Text Direction: rtl") << "dir:rtl" << tr("Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.") <<
+         tr("Text Direction: ltr") << "dir:ltr" << tr("Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.") <<
          tr("Title Type: main") << "title-type:main" << tr("Indicates the associated title is the main title of the publication.  Only one main title should exist.") <<
          tr("Title Type: subtitle") << "title-type:subtitle" << tr("Indicates that the associated title is a subtitle of the publication if one exists..") <<
          tr("Title Type: short") << "title-type:short" << tr("Indicates that the associated title is a shortened title of the publication if one exists.") <<
@@ -670,9 +670,7 @@ void MetaEditor::loadE2MetadataProperties()
     QStringList data;
     data <<
          tr("Id Attribute") << "id" << tr("Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.") <<
-         tr("XML Language") << "xml:lang" << tr("Optional, language specifying attribute.  Uses some codes as dc:language.") <<
-         tr("Text Direction: rtl") << "dir:rtl" << tr("Optional text direction attribute for this metadata item. right-to-left (rtl).") <<
-         tr("Text Direction: ltr") << "dir:ltr" << tr("Optional text direction attribute for this metadata item. left-to-right (ltr).") <<
+         tr("XML Language") << "xml:lang" << tr("Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.") <<
          tr("File as") << "opf:file-as" << tr("Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.") <<
          tr("Role") << "opf:role" << tr("Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.") <<
          tr("Scheme") << "opf:scheme" << tr("This attribute is typically added to dc:identifier, dc:source: dc:creator, or dc:contributor to indicate the controlled vocabulary system employed. (e.g. marc:relators to specifiy valid values for the role property.") <<

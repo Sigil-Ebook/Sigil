@@ -70,11 +70,37 @@ static const QString TEMPLATE_TEXT =
     "  <guide>\n\n</guide>\n\n"
     "</package>";
 
+/** 
+ ** Epub 3 reserved prefix values for the package tag.
+ ** See http://www.idpf.org/epub/vocab/package/pfx/
+ **
+ ** Prefix      IRI
+ ** ---------   ---------------------------------------------------------
+ ** dcterms     http://purl.org/dc/terms/
+ ** epubsc      http://idpf.org/epub/vocab/sc/#
+ ** marc        http://id.loc.gov/vocabulary/
+ ** media       http://www.idpf.org/epub/vocab/overlays/#
+ ** onix        http://www.editeur.org/ONIX/book/codelists/current.html#
+ ** rendition   http://www.idpf.org/vocab/rendition/#
+ ** schema      http://schema.org/
+ ** xsd         http://www.w3.org/2001/XMLSchema#
+ **
+ **
+ ** Note single space is required after ":" that delimits the prefix
+ **
+ ** example: 
+ **
+ ** <package … 
+ **          prefix="foaf: http://xmlns.com/foaf/spec/
+ **                  dbp: http://dbpedia.org/ontology/">
+ **
+ */
+
 
 static const QString TEMPLATE3_TEXT =
     "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-    "<package version=\"3.0\" xmlns=\"http://www.idpf.org/2007/opf\" unique-identifier=\"BookId\" prefix=\"rendition: http://www.idpf.org/vocab/rendition/#\">\n\n"
-    "  <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:opf=\"http://www.idpf.org/2007/opf\" xmlns:dcterms=\"http://purl.org/dc/terms/\">\n"
+    "<package version=\"3.0\" unique-identifier=\"BookId\" xmlns=\"http://www.idpf.org/2007/opf\">\n\n"
+    "  <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n"
     "    <dc:identifier id=\"BookId\">urn:uuid:%1</dc:identifier>\n"
     "    <dc:language>%2</dc:language>\n"
     "    <dc:title>[No data]</dc:title>\n"
