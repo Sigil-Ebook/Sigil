@@ -1140,7 +1140,7 @@ QString OPFResource::ValidatePackageVersion(const QString& source)
         p.parse(newsource);
         p.m_package.m_version = orig_version;
         newsource = p.convert_to_xml();
-        if (!m_WarnedAboutVersion) {
+        if (!m_WarnedAboutVersion && !version.startsWith('1')) {
             Utility::DisplayStdWarningDialog("Changing package version inside Sigil is not supported", 
                                              "Use an appropriate output plugin to make the initial conversion");
             m_WarnedAboutVersion = true;
