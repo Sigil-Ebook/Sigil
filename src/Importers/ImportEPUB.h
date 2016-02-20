@@ -92,6 +92,12 @@ private:
     void LocateOrCreateNCX(const QString &ncx_id_on_spine);
 
     /**
+     * Locate Nav to determine if we need to create an empty one or not.
+     */
+    void LocateNav();
+
+
+    /**
      * Loads the book's infrastructure files, like
      * the NCX and the OPF.
      */

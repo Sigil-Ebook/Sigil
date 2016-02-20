@@ -181,6 +181,33 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
 
     ProcessFontFiles(resources, updates, encrypted_files);
 
+    if (m_PackageVersion.startsWith('3')) {
+        // we know a nav should exist but we have no easy way to identify it by resource or href
+        // or even manifest id since the entire manifest set of files was possibly renamed when
+        // updated concurrently by  multiple threads during UniversalUpdates
+        // So instead look through html resources and search to find the one with the nav
+        HTMLResource * nav_resource = NULL;
+        const QList<Resource *> resources = m_Book->GetFolderKeeper()->GetResourceList();
+        foreach(Resource * resource, resources) {
+            if (resource->Type() == Resource::HTMLResourceType) {
+                HTMLResource* html_resource = dynamic_cast<HTMLResource *>(resource);
+                if (html_resource) {
+                    QStringList props = html_resource->GetManifestProperties();
+                    if (props.contains("nav")) {
+                        nav_resource = html_resource;
+                        break;
+                    }
+                }
+            }
+        }
+        if (!nav_resource) { 
+            // we need to create a nav file here because one was not found
+            // it will automatically be added to the content.opf
+            nav_resource = m_Book->CreateEmptyNavFile(true);
+        }
+        m_Book->GetOPF()->SetNavResource(nav_resource);
+    }
+
     if (m_NCXNotInManifest) {
         // We manually created an NCX file because there wasn't one in the manifest.
         // Need to create a new manifest id for it.
@@ -527,6 +554,7 @@ void ImportEPUB::ReadOPF()
     QString opf_text = PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath));
     QXmlStreamReader opf_reader(opf_text);
     QString ncx_id_on_spine;
+    QString nav_id;
 
     while (!opf_reader.atEnd()) {
         opf_reader.readNext();
@@ -565,6 +593,7 @@ void ImportEPUB::ReadOPF()
 
     // Ensure we have an NCX available
     LocateOrCreateNCX(ncx_id_on_spine);
+
 }
 
 
@@ -590,6 +619,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     QString id   = opf_reader->attributes().value("", "id").toString();
     QString href = opf_reader->attributes().value("", "href").toString();
     QString type = opf_reader->attributes().value("", "media-type").toString();
+    QString properties = opf_reader->attributes().value("", "properties").toString();
     // Paths are percent encoded in the OPF, we use "normal" paths internally.
     href = Utility::URLDecodePath(href);
     QString extension = QFileInfo(href).suffix().toLower();

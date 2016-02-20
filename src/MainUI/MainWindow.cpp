@@ -1161,19 +1161,7 @@ void MainWindow::GenerateNcxFromNav()
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     // find existing nav document if there is one
-    HTMLResource * nav_resource = NULL;
-    QList<Resource *> resources = GetAllHTMLResources();
-    foreach(Resource * resource, resources) {
-        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-        if (html_resource) {
-            QStringList props = html_resource->GetManifestProperties();
-            if (props.contains("nav")) {
-                nav_resource = html_resource;;
-                break;
-            }
-        }
-    }
-
+    HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
     QString navname = "";
     QString navdata = "";
     if (nav_resource) {
@@ -1264,15 +1252,19 @@ void MainWindow::GenerateNav()
     QString ncxdata = m_Book->GetNCX()->GetText();
 
     // find existing nav document is there is one
-    HTMLResource * nav_resource = NULL;
-    QList<Resource *> resources = GetAllHTMLResources();
-    foreach(Resource * resource, resources) {
-        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-        if (html_resource) {
-            QStringList props = html_resource->GetManifestProperties();
-            if (props.contains("nav")) {
-                nav_resource = html_resource;
-                break;
+    HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
+    if (!nav_resource) {
+        // manually search just in case
+        QList<Resource *> resources = GetAllHTMLResources();
+        foreach(Resource * resource, resources) {
+            HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+            if (html_resource) {
+                QStringList props = html_resource->GetManifestProperties();
+                if (props.contains("nav")) {
+                    nav_resource = html_resource;
+                    m_Book->GetOPF()->SetNavResource(nav_resource);
+                    break;
+                }
             }
         }
     }
@@ -3588,11 +3580,17 @@ void MainWindow::CreateNewBook()
 {
     QSharedPointer<Book> new_book = QSharedPointer<Book>(new Book());
     new_book->CreateEmptyHTMLFile();
+    QString version = new_book->GetConstOPF()->GetEpubVersion();
+    if (version.startsWith('3')) {
+        HTMLResource * nav_resource = new_book->CreateEmptyNavFile();
+        new_book->GetOPF()->SetNavResource(nav_resource);
+    }
     SetNewBook(new_book);
     new_book->SetModified(false);
     m_SaveACopyFilename = "";
     UpdateUiWithCurrentFile("");
 }
+
 
 bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
 {

@@ -105,6 +105,12 @@ extern const QString AUDIO_HTML_BASE;
 extern const QString SGC_TOC_CSS_FILENAME;
 extern const QString SGC_INDEX_CSS_FILENAME;
 
+extern const QString HTML_NAV_FILENAME;
+extern const QString EMPTY_NAV_FILE_START;
+extern const QString EMPTY_NAV_FILE_TOC;
+extern const QString EMPTY_NAV_FILE_LANDMARKS;
+extern const QString EMPTY_NAV_FILE_END;
+
 extern const QString HTML_COVER_FILENAME;
 extern const QString HTML_COVER_SOURCE;
 

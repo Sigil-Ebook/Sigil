@@ -41,6 +41,7 @@
 #include "SourceUpdates/AnchorUpdates.h"
 #include "SourceUpdates/PerformHTMLUpdates.h"
 #include "SourceUpdates/UniversalUpdates.h"
+#include "Misc/SettingsStore.h"
 
 static const QString FIRST_CSS_NAME   = "Style0001.css";
 static const QString FIRST_SVG_NAME   = "Image0001.svg";
@@ -75,6 +76,52 @@ static const QString EMPTY_HTML5_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8
                                         "<p>&#160;</p>\n"
                                         "</body>\n"
                                         "</html>";
+
+const QString EMPTY_NAV_FILE_START = 
+    "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+    "<!DOCTYPE html>\n"
+    "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:epub=\"http://www.idpf.org/2007/ops\" "
+    "lang=\"%1\" xml:lang=\"%2\">\n"
+    "<head>\n"
+    "  <meta charset=\"utf-8\" />\n"
+    "  <style type=\"text/css\">\n"
+    "    nav#landmarks, nav#page-list { display:none; }\n"
+    "    ol { list-style-type: none; }\n"
+    "  </style>\n"
+    "</head>\n"
+    "<body epub:type=\"frontmatter\">\n";
+
+const QString EMPTY_NAV_FILE_TOC = 
+    "  <nav epub:type=\"toc\" id=\"toc\">\n"
+    "    <h1>%1</h1>\n"
+    "    <ol>\n"
+    "    </ol>\n"
+    "  </nav>\n";
+
+const QString EMPTY_NAV_FILE_LANDMARKS = 
+    "  <nav epub:type=\"landmarks\" id=\"landmarks\" hidden=\"\">\n"
+    "    <h2>%1</h2>\n"
+    "    <ol>\n"
+    "      <li>\n"
+    "        <a epub:type=\"toc\" href=\"#toc\">%2</a>\n"
+    "      </li>\n"
+    "    </ol>\n"
+    "  </nav>\n";
+
+const QString EMPTY_NAV_FILE_END = 
+    "<!-- \n"
+    "  <nav epub:type=\"page-list\" id=\"page-list\" hidden=\"\">\n"
+    "    <ol>\n"
+    "      <li><a href=\"../Text/Filename001.xhtml#pagei\">i</a></li>\n"
+    "      <li><a href=\"../Text/Filename001.xhtml#page001\">1</a></li>\n"
+    "      <li><a href=\"../Text/Filename001.xhtml#page002\">2</a></li>\n"
+    "    </ol>\n"
+    "  </nav>\n"
+    " -->\n"
+    "</body>\n"
+    "</html>";
+
+const QString HTML_NAV_FILENAME = "nav.xhtml";
 
 static const QString SGC_TOC_CSS_FILE =
     "div.sgc-toc-title {\n"
@@ -288,6 +335,29 @@ HTMLResource *Book::CreateEmptyHTMLFile()
     } else {
         html_resource->SetText(EMPTY_HTML5_FILE);
     }
+    SetModified(true);
+    return html_resource;
+}
+
+
+HTMLResource *Book::CreateEmptyNavFile(bool update_opf)
+{
+    TempFolder tempfolder;
+    QString fullfilepath = tempfolder.GetPath() + "/" + HTML_NAV_FILENAME;;
+    Utility::WriteUnicodeTextFile(PLACEHOLDER_TEXT, fullfilepath);
+    // Do not add it to the opf as it is already in the default opf
+    Resource * resource = m_Mainfolder->AddContentFileToFolder(fullfilepath, update_opf, "application/xhtml+xml");
+    HTMLResource * html_resource = qobject_cast<HTMLResource *>(resource);
+    SettingsStore ss;
+    QString defaultLanguage = ss.defaultMetadataLang();
+    QString navtitle = tr("Table of Contents");
+    QString guidetitle = tr("Landmarks");
+    QString navtext = EMPTY_NAV_FILE_START.arg(defaultLanguage).arg(defaultLanguage) +
+        EMPTY_NAV_FILE_TOC.arg(navtitle) + 
+        EMPTY_NAV_FILE_LANDMARKS.arg(guidetitle).arg(navtitle) +
+        EMPTY_NAV_FILE_END;
+    html_resource->SetText(navtext);
+    html_resource->SaveToDisk();
     SetModified(true);
     return html_resource;
 }

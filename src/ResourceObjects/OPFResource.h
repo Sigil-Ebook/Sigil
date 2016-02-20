@@ -118,6 +118,9 @@ public:
 
     QString GetRelativePathToRoot() const;
 
+    void SetNavResource(HTMLResource* nav);
+    HTMLResource* GetNavResource() const;
+
 public slots:
 
     /**
@@ -235,6 +238,7 @@ private:
      */
     QHash<QString, QString> m_Mimetypes;
 
+    HTMLResource * m_NavResource;
     bool m_WarnedAboutVersion;
 };
 

@@ -152,6 +152,10 @@ public:
      */
     HTMLResource *CreateEmptyHTMLFile();
 
+    /**
+     * Creates a new HTML Nav file with a basic nav structure.
+     */
+    HTMLResource *CreateEmptyNavFile(bool update_opf = false);
 
     /**
      * Creates a new HTMLResource file with a basic XHTML structure

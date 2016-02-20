@@ -107,6 +107,7 @@ static const QString TEMPLATE3_TEXT =
     "  </metadata>\n\n"
     "  <manifest>\n"
     "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
+    "    <item id=\"nav\" href=\"nav.xhtml\" media-type=\"application/xhtml+xml\" properties=\"nav\"/>\n"
     "  </manifest>\n\n"
     "  <spine toc=\"ncx\">\n"
     "  </spine>\n\n"
@@ -116,6 +117,7 @@ static const QString TEMPLATE3_TEXT =
 
 OPFResource::OPFResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
   : XMLResource(mainfolder, fullfilepath, parent),
+    m_NavResource(NULL),
     m_WarnedAboutVersion(false)
 {
     CreateMimetypes();
@@ -1189,3 +1191,16 @@ void OPFResource::UpdateManifestProperties(const QList<Resource*> resources)
     }
     UpdateText(p);
 }
+
+
+HTMLResource * OPFResource::GetNavResource()const
+{
+    return m_NavResource;
+}
+
+
+void OPFResource::SetNavResource(HTMLResource * nav_resource)
+{
+    m_NavResource = nav_resource;
+}
+
