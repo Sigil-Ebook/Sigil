@@ -107,7 +107,7 @@ static const QString TEMPLATE3_TEXT =
     "  </metadata>\n\n"
     "  <manifest>\n"
     "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
-    "    <item id=\"nav\" href=\"nav.xhtml\" media-type=\"application/xhtml+xml\" properties=\"nav\"/>\n"
+    "    <item id=\"nav\" href=\"Text/nav.xhtml\" media-type=\"application/xhtml+xml\" properties=\"nav\"/>\n"
     "  </manifest>\n\n"
     "  <spine toc=\"ncx\">\n"
     "  </spine>\n\n"
@@ -1202,5 +1202,18 @@ HTMLResource * OPFResource::GetNavResource()const
 void OPFResource::SetNavResource(HTMLResource * nav_resource)
 {
     m_NavResource = nav_resource;
+    // Make sure the proper nav property is set in the opf manifest
+    if (m_NavResource) { 
+        QWriteLocker locker(&GetLock());
+        QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+        OPFParser p;
+        p.parse(source);
+        QString href = m_NavResource->GetRelativePathToOEBPS();
+        int pos = p.m_hrefpos.value(href, -1);
+        if ((pos >= 0) && (pos < p.m_manifest.count())) {
+            ManifestEntry me = p.m_manifest.at(pos);
+            me.m_atts["properties"] = QString("nav");
+            p.m_manifest.replace(pos, me);
+        }
+    }
 }
-

@@ -554,7 +554,6 @@ void ImportEPUB::ReadOPF()
     QString opf_text = PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath));
     QXmlStreamReader opf_reader(opf_text);
     QString ncx_id_on_spine;
-    QString nav_id;
 
     while (!opf_reader.atEnd()) {
         opf_reader.readNext();
@@ -619,7 +618,6 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     QString id   = opf_reader->attributes().value("", "id").toString();
     QString href = opf_reader->attributes().value("", "href").toString();
     QString type = opf_reader->attributes().value("", "media-type").toString();
-    QString properties = opf_reader->attributes().value("", "properties").toString();
     // Paths are percent encoded in the OPF, we use "normal" paths internally.
     href = Utility::URLDecodePath(href);
     QString extension = QFileInfo(href).suffix().toLower();
