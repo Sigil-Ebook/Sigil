@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016              Kevin B. Hendricks Stratford, Ontario, Canada
 **  Copyright (C) 2013              John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -36,7 +37,7 @@
 const QString ENCODING_ATTRIBUTE   = "encoding\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')";
 const QString CHARSET_ATTRIBUTE    = "charset\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')";
 const QString STANDALONE_ATTRIBUTE = "standalone\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')";
-const QString VERSION_ATTRIBUTE    = "version\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')";
+const QString VERSION_ATTRIBUTE    = "<\\?xml[^>]*version\\s*=\\s*(?:\"|')([^\"']+)(?:\"|')[^>]*>";
 
 
 // Accepts a full path to an HTML file.
