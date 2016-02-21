@@ -282,6 +282,10 @@ set( MISC_FILES
     Misc/Language.cpp
     Misc/Language.h
     Misc/DescriptiveInfo.h
+    Misc/GuideItems.h
+    Misc/GuideItems.cpp
+    Misc/Landmarks.h
+    Misc/Landmarks.cpp
     Misc/MarcRelators.cpp
     Misc/MarcRelators.h
     Misc/UILanguage.cpp
