@@ -96,6 +96,9 @@ static const QString TEMPLATE_TEXT =
  **
  */
 
+//     "    <item id=\"nav\" href=\"Text/nav.xhtml\" media-type=\"application/xhtml+xml\" properties=\"nav\"/>\n"
+//     "    <itemref idref=\"nav\" linear=\"no\" />\n"
+
 
 static const QString TEMPLATE3_TEXT =
     "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
@@ -107,7 +110,6 @@ static const QString TEMPLATE3_TEXT =
     "  </metadata>\n\n"
     "  <manifest>\n"
     "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
-    "    <item id=\"nav\" href=\"Text/nav.xhtml\" media-type=\"application/xhtml+xml\" properties=\"nav\"/>\n"
     "  </manifest>\n\n"
     "  <spine toc=\"ncx\">\n"
     "  </spine>\n\n"
@@ -1215,5 +1217,36 @@ void OPFResource::SetNavResource(HTMLResource * nav_resource)
             me.m_atts["properties"] = QString("nav");
             p.m_manifest.replace(pos, me);
         }
+        UpdateText(p);
+    }
+}
+
+void OPFResource::SetItemRefLinear(Resource * resource, bool linear)
+{
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    QString resource_oebps_path = resource->GetRelativePathToOEBPS();
+    int pos = p.m_hrefpos.value(resource_oebps_path, -1);
+    QString item_id = "";
+    if (pos > -1) {
+        item_id = p.m_manifest.at(pos).m_id;
+        if (resource->Type() == Resource::HTMLResourceType) {
+            for (int i=0; i < p.m_spine.count(); ++i) {
+                QString idref = p.m_spine.at(i).m_idref;
+                if (idref == item_id) {
+                    SpineEntry se = p.m_spine.at(i);
+                    se.m_atts.remove(QString("linear"));
+                    // default is linear = "yes"
+                    if (!linear) {
+                        se.m_atts[QString("linear")] = QString("no");
+                    }
+                    p.m_spine.replace(i, se);
+                    break;
+                }
+            }
+        }
+        UpdateText(p);
     }
 }

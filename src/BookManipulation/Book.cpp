@@ -345,7 +345,6 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf)
     TempFolder tempfolder;
     QString fullfilepath = tempfolder.GetPath() + "/" + HTML_NAV_FILENAME;;
     Utility::WriteUnicodeTextFile(PLACEHOLDER_TEXT, fullfilepath);
-    // Do not add it to the opf as it is already in the default opf
     Resource * resource = m_Mainfolder->AddContentFileToFolder(fullfilepath, update_opf, "application/xhtml+xml");
     HTMLResource * html_resource = qobject_cast<HTMLResource *>(resource);
     SettingsStore ss;

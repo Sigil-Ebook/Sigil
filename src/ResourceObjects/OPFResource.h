@@ -93,6 +93,8 @@ public:
 
     QStringList GetSpineOrderFilenames() const;
 
+    void SetItemRefLinear(Resource * resource, bool linear);
+
     /**
      * SetSpineOrderFromFilenames
      * The setter to complement GetSpineOrderFilenames()

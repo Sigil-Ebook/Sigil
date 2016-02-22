@@ -3582,8 +3582,9 @@ void MainWindow::CreateNewBook()
     new_book->CreateEmptyHTMLFile();
     QString version = new_book->GetConstOPF()->GetEpubVersion();
     if (version.startsWith('3')) {
-        HTMLResource * nav_resource = new_book->CreateEmptyNavFile();
+        HTMLResource * nav_resource = new_book->CreateEmptyNavFile(true);
         new_book->GetOPF()->SetNavResource(nav_resource);
+        new_book->GetOPF()->SetItemRefLinear(nav_resource, false);
     }
     SetNewBook(new_book);
     new_book->SetModified(false);

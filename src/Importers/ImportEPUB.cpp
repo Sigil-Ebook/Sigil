@@ -204,6 +204,8 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
             // we need to create a nav file here because one was not found
             // it will automatically be added to the content.opf
             nav_resource = m_Book->CreateEmptyNavFile(true);
+            Resource * res = dynamic_cast<Resource *>(nav_resource);
+            m_Book->GetOPF()->SetItemRefLinear(res, false);
         }
         m_Book->GetOPF()->SetNavResource(nav_resource);
     }
