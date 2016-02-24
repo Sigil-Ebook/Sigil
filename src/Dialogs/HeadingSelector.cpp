@@ -343,11 +343,7 @@ void HeadingSelector::PerformHeadingUpdates(QList<Headings::Heading *> & heading
 
         // Now apply the new id as needed.
 
-        QString existing_id_attribute;
-        GumboAttribute* id_attr = gumbo_get_attribute(&node->v.element.attributes, "id");
-        if (id_attr) {
-            existing_id_attribute = QString::fromUtf8(id_attr->value);
-        }
+        QString existing_id_attribute = heading->id;
         QString new_id_attribute(existing_id_attribute);
 
         if (!heading->include_in_toc || heading->at_file_start) {
@@ -378,8 +374,11 @@ void HeadingSelector::PerformHeadingUpdates(QList<Headings::Heading *> & heading
         // Only apply the change if it is different
         if (new_id_attribute.trimmed() != existing_id_attribute) {
             heading->is_changed = true;
+            heading->id = new_id_attribute;
 
+            GumboAttribute* id_attr = gumbo_get_attribute(&node->v.element.attributes, "id");
             GumboElement* element = &node->v.element;
+            
             if (!new_id_attribute.isEmpty()) {
                 if (id_attr) {
                     gumbo_attribute_set_value(id_attr, new_id_attribute.toUtf8().constData());

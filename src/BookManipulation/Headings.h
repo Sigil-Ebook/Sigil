@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015, 2016  Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -56,6 +56,8 @@ public:
         // (lower number means 'bigger' heading )
         int level;
         int orig_level;
+        
+        QString id;
 
         // True if the heading appears within
         // 20 lines after the body tag

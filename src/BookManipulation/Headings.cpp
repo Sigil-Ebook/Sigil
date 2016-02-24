@@ -104,6 +104,12 @@ QList<Headings::Heading> Headings::GetHeadingListForOneFile(HTMLResource *html_r
            heading.title = QString::fromUtf8(attr->value);
         }
         heading.orig_title     = heading.title;
+        heading.id = QString();
+        attr = gumbo_get_attribute(&node->v.element.attributes,"id");
+        if (attr) {
+           heading.id = QString::fromUtf8(attr->value);
+        }
+
         if (!heading.title.isEmpty()) {
             heading.text = heading.title;
         } else {
