@@ -92,6 +92,11 @@ public:
     // routine to check if well-formed
     QList<GumboWellFormedError> error_check();
 
+    // routines to work with node and it children only
+    QList<GumboNode*> get_nodes_with_attribute(GumboNode* node, const char * att_name);
+
+    QList<GumboNode*> get_nodes_with_tags(GumboNode* node, const QList<GumboTag> & tags);
+
 private:
 
     enum UpdateTypes {
@@ -104,11 +109,7 @@ private:
 
     QStringList get_properties(GumboNode* node);
 
-    QList<GumboNode*> get_nodes_with_attribute(GumboNode* node, const char * att_name);
-
     QStringList get_values_for_attr(GumboNode* node, const char* attr_name);
-
-    QList<GumboNode*> get_nodes_with_tags(GumboNode* node, const QList<GumboTag> & tags);
 
     std::string serialize(GumboNode* node, enum UpdateTypes doupdates = NoUpdates);
 
