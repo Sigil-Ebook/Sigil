@@ -119,6 +119,8 @@ set( RESOURCE_OBJECT_FILES
     ResourceObjects/OPFParser.h
     ResourceObjects/OPFResource.cpp
     ResourceObjects/OPFResource.h
+    ResourceObjects/NavProcessor.cpp
+    ResourceObjects/NavProcessor.h
     ResourceObjects/NCXResource.cpp
     ResourceObjects/NCXResource.h
     ResourceObjects/XMLResource.cpp
@@ -128,6 +130,8 @@ set( RESOURCE_OBJECT_FILES
 set( DIALOG_FILES
     Dialogs/About.cpp
     Dialogs/About.h
+    Dialogs/AddSemantics.cpp
+    Dialogs/AddSemantics.h
     Dialogs/AddMetadata.cpp
     Dialogs/AddMetadata.h
     Dialogs/ClipboardHistorySelector.h
@@ -438,7 +442,8 @@ set( UI_FILES
     Form_Files/SelectIndexTitle.ui
     Form_Files/SelectFiles.ui
     Form_Files/MetaEditor.ui 
-    Form_Files/AddMetadata.ui 
+    Form_Files/AddMetadata.ui
+    Form_Files/AddSemantics.ui 
     Form_Files/About.ui 
     Form_Files/EditTOC.ui 
     Form_Files/HeadingSelector.ui 
