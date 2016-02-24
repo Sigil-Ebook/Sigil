@@ -122,6 +122,11 @@ public:
     // &amp; -> &    &apos; -> '  &quot; -> "   &lt; -> <  &gt; -> >
     static QString DecodeXML(const QString &text);
 
+    // Encodes (Escapes) XML string
+    // & -> &amp;    ' -> &apos;    " -> &quot;   < -> &lt;     > ->  &gt;
+    static QString EncodeXML(const QString &text);
+
+
     /**
      * URL encodes the provided path string.
      * The path separator ('/') and the ID hash ('#') are left alone.

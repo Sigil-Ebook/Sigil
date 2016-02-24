@@ -454,6 +454,11 @@ QString Utility::DecodeXML(const QString &text)
     return newtext;
 }
 
+QString Utility::EncodeXML(const QString &text)
+{
+    QString newtext(text);
+    return newtext.toHtmlEscaped();
+}
 
 QString Utility::URLEncodePath(const QString &path)
 {
