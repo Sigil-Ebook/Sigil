@@ -84,7 +84,7 @@ GumboOutput*  gumbo_new_output_init(void) {
 // No entities are allowed (replace them with their utf-8 character equivalents)
 // Note: CDATA and COMMENTS text should NOT include their respective delimiters
 // ie. No <-- --> and not CDATA[[ and ]]
-GumboNode*  gumbo_create_text_node(GumboNode* node, GumboNodeType type, const char * text) {
+GumboNode*  gumbo_create_text_node(GumboNodeType type, const char * text) {
   assert(type != GUMBO_NODE_DOCUMENT);
   assert(type != GUMBO_NODE_TEMPLATE);
   assert(type != GUMBO_NODE_ELEMENT);

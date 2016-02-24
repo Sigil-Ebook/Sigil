@@ -38,7 +38,7 @@ extern "C" {
   // Note: Use gumbo_destroy_node(GumboNode * node) to properly destroy the node if outside 
   // the final output tree
 
-  GumboNode*  gumbo_create_text_node(GumboNode* node, GumboNodeType type, const char * text);
+  GumboNode*  gumbo_create_text_node(GumboNodeType type, const char * text);
 
   // Creates an element node with the tag (enum) in the specified namespace and returns it.
   // Since no original text exists, any created element tag must already exist in the tag_enum.h
