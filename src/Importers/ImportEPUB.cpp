@@ -95,7 +95,8 @@ ImportEPUB::ImportEPUB(const QString &fullfilepath)
     : Importer(fullfilepath),
       m_ExtractedFolderPath(m_TempFolder.GetPath()),
       m_HasSpineItems(false),
-      m_NCXNotInManifest(false)
+      m_NCXNotInManifest(false),
+      m_NavResource(NULL)
 {
 }
 
@@ -182,22 +183,10 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
     ProcessFontFiles(resources, updates, encrypted_files);
 
     if (m_PackageVersion.startsWith('3')) {
-        // we know a nav should exist but we have no easy way to identify it by resource or href
-        // or even manifest id since the entire manifest set of files was possibly renamed when
-        // updated concurrently by  multiple threads during UniversalUpdates
-        // So instead look through html resources and search to find the one with the nav
         HTMLResource * nav_resource = NULL;
-        const QList<Resource *> resources = m_Book->GetFolderKeeper()->GetResourceList();
-        foreach(Resource * resource, resources) {
-            if (resource->Type() == Resource::HTMLResourceType) {
-                HTMLResource* html_resource = dynamic_cast<HTMLResource *>(resource);
-                if (html_resource) {
-                    QStringList props = html_resource->GetManifestProperties();
-                    if (props.contains("nav")) {
-                        nav_resource = html_resource;
-                        break;
-                    }
-                }
+        if (m_NavResource) {
+            if (m_NavResource->Type() == Resource::HTMLResourceType) {
+                nav_resource = dynamic_cast<HTMLResource*>(m_NavResource);
             }
         }
         if (!nav_resource) { 
@@ -620,6 +609,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     QString id   = opf_reader->attributes().value("", "id").toString();
     QString href = opf_reader->attributes().value("", "href").toString();
     QString type = opf_reader->attributes().value("", "media-type").toString();
+    QString properties = opf_reader->attributes().value("", "properties").toString();
     // Paths are percent encoded in the OPF, we use "normal" paths internally.
     href = Utility::URLDecodePath(href);
     QString extension = QFileInfo(href).suffix().toLower();
@@ -647,6 +637,12 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
             m_Files[ id ] = href;
             m_FileMimetypes[ id ] = type;
             m_MainfestFilePaths << href;
+
+            // store information about any nav document
+            if (properties.contains("nav")) {
+                m_NavId = id;
+                m_NavHref = href;
+            }
         }
     } else {
         m_NcxCandidates[ id ] = href;
@@ -779,6 +775,9 @@ std::tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const 
     currentpath = currentpath.remove(0,m_ExtractedFolderPath.length()+1);
     try {
         Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath, false, mimetype);
+        if (path == m_NavHref) {
+            m_NavResource = resource;
+        }
         resource->SetCurrentBookRelPath(currentpath);
         QString newpath = "../" + resource->GetRelativePathToOEBPS();
         return std::make_tuple(currentpath, newpath);

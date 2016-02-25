@@ -225,6 +225,9 @@ private:
     bool m_HasSpineItems;
     bool m_NCXNotInManifest;
     QString m_NCXId;
+    QString m_NavId;
+    QString m_NavHref;
+    Resource * m_NavResource;
 
     /**
      * The value of the opf package version tag
