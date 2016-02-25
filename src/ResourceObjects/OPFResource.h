@@ -24,7 +24,7 @@
 #define OPFRESOURCE_H
 
 #include <memory>
-#include "BookManipulation/GuideSemantics.h"
+#include "Misc/GuideItems.h"
 #include "ResourceObjects/XMLResource.h"
 #include "ResourceObjects/OPFParser.h"
 
@@ -58,9 +58,8 @@ public:
 
     virtual void SetText(const QString &text);
 
-    GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource(const Resource *resource) const;
+    QString GetGuideSemanticCodeForResource(const Resource *resource) const;
     QString GetGuideSemanticNameForResource(Resource *resource);
-
     QHash <QString, QString> GetGuideSemanticNameForPaths();
 
     int GetReadingOrder(const HTMLResource *html_resource) const;
@@ -139,7 +138,7 @@ public slots:
 
     void RemoveResource(const Resource *resource);
 
-    void AddGuideSemanticType(HTMLResource *html_resource, GuideSemantics::GuideSemanticType new_type);
+    void AddGuideSemanticCode(HTMLResource *html_resource, QString code, bool toggle = true);
 
     void SetResourceAsCoverImage(ImageResource *image_resource);
 
@@ -175,11 +174,11 @@ private:
 
     void RemoveGuideReferenceForResource(const Resource *resource, OPFParser &p);
 
-    GuideSemantics::GuideSemanticType GetGuideSemanticTypeForResource(const Resource *resource, const OPFParser &p) const;
+    QString GetGuideSemanticCodeForResource(const Resource *resource, const OPFParser &p) const;
 
-    void SetGuideSemanticTypeForResource(GuideSemantics::GuideSemanticType type, const Resource *resource, OPFParser &p);
+    void SetGuideSemanticCodeForResource(QString code, const Resource *resource, OPFParser &p);
 
-    void RemoveDuplicateGuideTypes(GuideSemantics::GuideSemanticType new_type, OPFParser &p);
+    void RemoveDuplicateGuideCodes(QString code, OPFParser &p);
 
         // CAN BE -1 means no cover meta element
     int GetCoverMeta(const OPFParser &p) const;

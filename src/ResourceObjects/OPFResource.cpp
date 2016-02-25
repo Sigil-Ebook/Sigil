@@ -36,11 +36,15 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/GuideItems.h"
+#include "Misc/Landmarks.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/ImageResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/OPFParser.h"
+#include "ResourceObjects/NavProcessor.h"
+
 
 #include "sigil_constants.h"
 
@@ -159,53 +163,6 @@ void OPFResource::SetText(const QString &text)
 }
 
 
-GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(const Resource *resource) const
-{
-    QReadLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
-    OPFParser p;
-    p.parse(source);
-    return GetGuideSemanticTypeForResource(resource, p);
-}
-
-
-QString OPFResource::GetGuideSemanticNameForResource(Resource *resource)
-{
-    return GuideSemantics::Instance()->GetGuideName(GetGuideSemanticTypeForResource(resource));
-}
-
-QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
-{
-    QReadLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
-    OPFParser p;
-    p.parse(source);
-    QHash <QString, QString> semantic_types;
-
-    foreach(GuideEntry ge, p.m_guide) {
-        QString href = ge.m_href;
-        QStringList parts = href.split('#', QString::KeepEmptyParts);
-
-        QString type_text = ge.m_type;
-        GuideSemantics::GuideSemanticType type =
-            GuideSemantics::Instance()->MapReferenceTypeToGuideEnum(type_text);
-        semantic_types[parts.at(0)] = GuideSemantics::Instance()->GetGuideName(type);
-    }
-
-    // Cover image semantics don't use reference
-    int pos  = GetCoverMeta(p);
-    if (pos > -1) {
-        MetaEntry me = p.m_metadata.at(pos);
-        QString cover_id = me.m_atts.value(QString("content"),QString(""));
-        ManifestEntry man = p.m_manifest.at(p.m_idpos[cover_id]);
-        QString href = man.m_href;
-        GuideSemantics::GuideSemanticType type =
-                    GuideSemantics::Instance()->MapReferenceTypeToGuideEnum("cover");
-        semantic_types[href] = GuideSemantics::Instance()->GetGuideName(type);
-    }
-
-    return semantic_types;
-}
 
 QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource *> resources)
 {
@@ -615,6 +572,11 @@ void OPFResource::RemoveResource(const Resource *resource)
             }
         }
         RemoveGuideReferenceForResource(resource, p);
+        QString version = GetEpubVersion();
+        if (version.startsWith('3')) {
+            NavProcessor navproc(GetNavResource());
+            navproc.RemoveLandmarkForResource(resource);
+        }
     }
     if (pos > -1) {
         p.m_manifest.removeAt(pos);
@@ -630,24 +592,150 @@ void OPFResource::RemoveResource(const Resource *resource)
 }
 
 
-void OPFResource::AddGuideSemanticType(HTMLResource *html_resource, GuideSemantics::GuideSemanticType new_type)
+void OPFResource::AddGuideSemanticCode(HTMLResource *html_resource, QString new_code, bool toggle)
 {
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
-    GuideSemantics::GuideSemanticType current_type = GetGuideSemanticTypeForResource(html_resource, p);
+    QString current_code = GetGuideSemanticCodeForResource(html_resource, p);
 
-    if (current_type != new_type) {
-      RemoveDuplicateGuideTypes(new_type, p);
-      SetGuideSemanticTypeForResource(new_type, html_resource, p);
-    }
-    // If the current type is the same as the new one,
-    // we toggle it off.
-    else {
-      RemoveGuideReferenceForResource(html_resource, p);
+    if ((current_code != new_code) || !toggle) {
+        RemoveDuplicateGuideCodes(new_code, p);
+        SetGuideSemanticCodeForResource(new_code, html_resource, p);
+    } else {
+        // If the current code is the same as the new one,
+        // we toggle it off.
+        RemoveGuideReferenceForResource(html_resource, p);
     }
     UpdateText(p);
+}
+
+QString OPFResource::GetGuideSemanticCodeForResource(const Resource *resource, const OPFParser &p) const
+{
+    QString gtype;
+    int pos = GetGuideReferenceForResourcePos(resource, p);
+    if (pos > -1) {
+        GuideEntry ge = p.m_guide.at(pos);
+        gtype = ge.m_type;
+    }
+    return gtype;
+}
+
+int OPFResource::GetGuideReferenceForResourcePos(const Resource *resource, const OPFParser &p) const
+{
+    QString resource_oebps_path = resource->GetRelativePathToOEBPS();
+    for (int i=0; i < p.m_guide.count(); ++i) {
+        GuideEntry ge = p.m_guide.at(i);
+        QString href = ge.m_href;
+        QStringList parts = href.split('#', QString::KeepEmptyParts);
+        if (parts.at(0) == resource_oebps_path) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+void OPFResource::RemoveDuplicateGuideCodes(QString code, OPFParser& p)
+{
+    // Industry best practice is to have only one
+    // <guide> reference type instance per xhtml file.
+    // For NoType, there is nothing to remove.
+    if (code.isEmpty()) return;
+    if (p.m_guide.isEmpty()) return;
+
+    // build up the list to be deleted in reverse order
+    QList<int> dellist;
+    for (int i = p.m_guide.count() - 1; i >= 0; --i) {
+        GuideEntry ge = p.m_guide.at(i);
+        QString gtype = ge.m_type;
+        if (gtype == code) {
+            dellist.append(i);
+        }
+    }
+    // remove them from the list in reverse order
+    foreach(int index, dellist) {
+        p.m_guide.removeAt(index);
+    }
+}
+
+void OPFResource::RemoveGuideReferenceForResource(const Resource *resource, OPFParser& p)
+{
+    if (p.m_guide.isEmpty()) return;
+    int pos = GetGuideReferenceForResourcePos(resource, p);
+    if (pos > -1) {
+        p.m_guide.removeAt(pos);
+    }
+}
+
+
+void OPFResource::SetGuideSemanticCodeForResource(QString code, const Resource *resource, OPFParser& p)
+{
+    if (code.isEmpty()) return;
+    int pos = GetGuideReferenceForResourcePos(resource, p);
+    QString title = GuideItems::instance()->GetName(code);
+    if (pos > -1) {
+        GuideEntry ge = p.m_guide.at(pos);
+        ge.m_type = code;
+        ge.m_title = title;
+        p.m_guide.replace(pos, ge);
+    } else {
+        GuideEntry ge;
+        ge.m_type = code;
+        ge.m_title = title;
+        ge.m_href = resource->GetRelativePathToOEBPS();
+        p.m_guide.append(ge);
+    }
+}
+
+
+QString OPFResource::GetGuideSemanticCodeForResource(const Resource *resource) const
+{
+    QReadLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    return GetGuideSemanticCodeForResource(resource, p);
+}
+
+
+QString OPFResource::GetGuideSemanticNameForResource(Resource *resource)
+{
+    return GuideItems::instance()->GetName(GetGuideSemanticCodeForResource(resource));
+}
+
+
+QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
+{
+    QString version = GetEpubVersion();
+    if (version.startsWith('3')) {
+      NavProcessor navproc(GetNavResource());
+        return navproc.GetLandmarkNameForPaths();
+    }
+
+    QReadLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+
+    QHash <QString, QString> semantic_types;
+    foreach(GuideEntry ge, p.m_guide) {
+        QString href = ge.m_href;
+        QStringList parts = href.split('#', QString::KeepEmptyParts);
+        QString gtype = ge.m_type;
+        semantic_types[parts.at(0)] = GuideItems::instance()->GetName(gtype);
+    }
+
+    // Cover image semantics don't use reference
+    int pos  = GetCoverMeta(p);
+    if (pos > -1) {
+        MetaEntry me = p.m_metadata.at(pos);
+        QString cover_id = me.m_atts.value(QString("content"),QString(""));
+        ManifestEntry man = p.m_manifest.at(p.m_idpos[cover_id]);
+        QString href = man.m_href;
+        semantic_types[href] = GuideItems::instance()->GetName("cover");
+    }
+    return semantic_types;
 }
 
 
@@ -752,94 +840,6 @@ void OPFResource::ResourceRenamed(const Resource *resource, QString old_full_pat
         }
     }
     UpdateText(p);
-}
-
-
-int OPFResource::GetGuideReferenceForResourcePos(const Resource *resource, const OPFParser &p) const
-{
-    QString resource_oebps_path = resource->GetRelativePathToOEBPS();
-    for (int i=0; i < p.m_guide.count(); ++i) {
-        GuideEntry ge = p.m_guide.at(i);
-        QString href = ge.m_href;
-        QStringList parts = href.split('#', QString::KeepEmptyParts);
-        if (parts.at(0) == resource_oebps_path) {
-            return i;
-        }
-    }
-    return -1;
-}
-
-
-void OPFResource::RemoveGuideReferenceForResource(const Resource *resource, OPFParser& p)
-{
-    if (p.m_guide.isEmpty()) return;
-    int pos = GetGuideReferenceForResourcePos(resource, p);
-    if (pos > -1) {
-        p.m_guide.removeAt(pos);
-    }
-}
-
-
-GuideSemantics::GuideSemanticType OPFResource::GetGuideSemanticTypeForResource(const Resource *resource, const OPFParser &p) const
-{
-    int pos = GetGuideReferenceForResourcePos(resource, p);
-    if (pos > -1) {
-        GuideEntry ge = p.m_guide.at(pos);
-        QString type = ge.m_type;
-        return GuideSemantics::Instance()->MapReferenceTypeToGuideEnum(type);
-    }
-    return GuideSemantics::NoType;
-}
-
-
-void OPFResource::SetGuideSemanticTypeForResource(GuideSemantics::GuideSemanticType type,
-                                                  const Resource *resource, OPFParser& p)
-{
-    int pos = GetGuideReferenceForResourcePos(resource, p);
-    QString type_attribute;
-    QString title_attribute;
-    std::tie(type_attribute, title_attribute) = GuideSemantics::Instance()->GetGuideTypeMapping()[ type ];
-
-    if (pos > -1) {
-        GuideEntry ge = p.m_guide.at(pos);
-        ge.m_type = type_attribute;
-        ge.m_title = title_attribute;
-        p.m_guide.replace(pos, ge);
-    } else {
-        GuideEntry ge;
-        ge.m_type = type_attribute;
-        ge.m_title = title_attribute;
-        ge.m_href = resource->GetRelativePathToOEBPS();
-        p.m_guide.append(ge);
-    }
-}
-
-
-void OPFResource::RemoveDuplicateGuideTypes(GuideSemantics::GuideSemanticType new_type, OPFParser& p)
-{
-    // Industry best practice is to have only one
-    // <guide> reference type instance per book.
-    // For NoType, there is nothing to remove.
-    if (new_type == GuideSemantics::NoType) {
-        return;
-    }
-
-    if (p.m_guide.isEmpty()) return;
-
-    // build up the list to be deleted in reverse order
-    QList<int> dellist;
-    for (int i = p.m_guide.count() - 1; i >= 0; --i) {
-        GuideEntry ge = p.m_guide.at(i);
-        QString type_text = ge.m_type;
-        GuideSemantics::GuideSemanticType current_type = GuideSemantics::Instance()->MapReferenceTypeToGuideEnum(type_text);
-        if (current_type == new_type) {
-            dellist.append(i);
-        }
-    }
-    // remove them from the list in reverse order
-    foreach(int index, dellist) {
-        p.m_guide.removeAt(index);
-    }
 }
 
 

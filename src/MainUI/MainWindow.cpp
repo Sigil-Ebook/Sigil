@@ -88,6 +88,7 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
+#include "ResourceObjects/NavProcessor.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 #include "SourceUpdates/LinkUpdates.h"
@@ -1063,7 +1064,7 @@ void MainWindow::AddCover()
             html_resources.append(html_resource);
 
             // Check if this is an existing cover file.
-            if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(html_resource) == GuideSemantics::Cover) {
+            if (m_Book->GetOPF()->GetGuideSemanticCodeForResource(html_resource) == "cover") {
                 html_cover_resource = html_resource;
             } else if (resource->Filename().toLower() == HTML_COVER_FILENAME && html_cover_resource == NULL) {
                 html_cover_resource = html_resource;
@@ -1089,10 +1090,14 @@ void MainWindow::AddCover()
     try {
         Resource *image_resource = m_Book->GetFolderKeeper()->GetResourceByFilename(image_filename);
 
-        // Set cover semantics on both files.
-        if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(html_cover_resource) != GuideSemantics::Cover) {
-            m_Book->GetOPF()->AddGuideSemanticType(html_cover_resource, GuideSemantics::Cover);
+        // Set cover semantics
+        QString version = m_Book->GetOPF()->GetEpubVersion();
+        if (version.startsWith('3')) {
+            NavProcessor navproc(m_Book->GetOPF()->GetNavResource());
+            navproc.AddLandmarkCode(html_cover_resource, "cover", false);
         }
+        m_Book->GetOPF()->AddGuideSemanticCode(html_cover_resource, "cover", false);
+        
         ImageResource *image_type_resource = qobject_cast<ImageResource *>(image_resource);
         if (image_type_resource) {
             if (!m_Book->GetOPF()->IsCoverImage(image_type_resource)) {
@@ -1212,16 +1217,9 @@ void MainWindow::GenerateNcxFromNav()
                Resource * resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
                HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
                if (html_resource) {
-                   GuideSemantics* gs = GuideSemantics::Instance();
-                   GuideSemantics::GuideSemanticType tp = gs->MapReferenceTypeToGuideEnum(gtype);
-                   if (tp != GuideSemantics::GuideSemanticType::NoType) {
-                       // So strange! The OPFResource AddSemantic code is set up to remove by adding again
-                       // I have no idea why, but I don't want to change it in case other code in Sigil
-                       // relies on that behaviour.  So check if it already exists first if not, add it
-                       if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(html_resource) != tp) {
-                           m_Book->GetOPF()->AddGuideSemanticType(html_resource, tp); 
-                       }
-                   }
+                   // The OPFResource AddSemantic code defaults to remove by adding again (ie. toggling)
+                   // Setting the last parameter (toggle) to false disables toggling
+                   m_Book->GetOPF()->AddGuideSemanticCode(html_resource, gtype, false); 
                }
            }
         }
@@ -1347,7 +1345,7 @@ void MainWindow::CreateIndex()
             html_resources.append(html_resource);
 
             // Check if this is an existing index file.
-            if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(html_resource) == GuideSemantics::Index) {
+            if (m_Book->GetOPF()->GetGuideSemanticCodeForResource(html_resource) == "index") {
                 index_resource = html_resource;
             } else if (resource->Filename() == HTML_INDEX_FILE && html_resource == NULL) {
                 index_resource = html_resource;
@@ -1383,9 +1381,12 @@ void MainWindow::CreateIndex()
     IndexHTMLWriter index;
     index_resource->SetText(index.WriteXML(version));
 
-    // Setting a semantic on a resource that already has it set will remove the semantic.
-    if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(index_resource) != GuideSemantics::Index) {
-        m_Book->GetOPF()->AddGuideSemanticType(index_resource, GuideSemantics::Index);
+    // Normally Setting a semantic on a resource that already has it set will remove the semantic.
+    //  Pass along toggle as false to disable this default behaviour
+    m_Book->GetOPF()->AddGuideSemanticCode(index_resource, "index", false);
+    if (version.startsWith('3')) {
+      NavProcessor navproc(m_Book->GetOPF()->GetNavResource());
+        navproc.AddLandmarkCode(index_resource, "index", false);
     }
 
     m_Book->SetModified();
@@ -2421,7 +2422,7 @@ void MainWindow::CreateHTMLTOC()
             htmlResources.append(htmlResource);
 
             // Check if this is an existing toc file.
-            if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(htmlResource) == GuideSemantics::TableOfContents) {
+            if (m_Book->GetOPF()->GetGuideSemanticCodeForResource(htmlResource) == "toc") {
                 tocResource = htmlResource;
             } else if (resource->Filename() == HTML_TOC_FILE && tocResource == NULL) {
                 tocResource = htmlResource;
@@ -2448,9 +2449,9 @@ void MainWindow::CreateHTMLTOC()
     tocResource->SetText(toc.WriteXML(version));
 
     // Setting a semantic on a resource that already has it set will remove the semantic.
-    if (m_Book->GetOPF()->GetGuideSemanticTypeForResource(tocResource) != GuideSemantics::TableOfContents) {
-        m_Book->GetOPF()->AddGuideSemanticType(tocResource, GuideSemantics::TableOfContents);
-    }
+    // Unless you pass toggle as false as the final parameter
+    // In epub3 only the nav should be marked as the toc so do not set this landmark in the nav
+    m_Book->GetOPF()->AddGuideSemanticCode(tocResource, "toc", false);
 
     m_Book->SetModified();
     m_BookBrowser->Refresh();

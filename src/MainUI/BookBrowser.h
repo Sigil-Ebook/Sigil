@@ -27,7 +27,6 @@
 #include <QtWidgets/QDockWidget>
 
 #include "BookManipulation/Book.h"
-#include "BookManipulation/GuideSemantics.h"
 #include "ResourceObjects/Resource.h"
 
 class MainWindow;
@@ -39,7 +38,6 @@ class QAction;
 class QMenu;
 class QModelIndex;
 class QPoint;
-class QSignalMapper;
 class QToolButton;
 class QTreeView;
 class QVBoxLayout;
@@ -291,11 +289,8 @@ private slots:
     /**
      * Adds the semantic type information to the currently
      * selected resource.
-     *
-     * @param type The integer value of the GuideSemantics::GuideSemanticType
-     *             to be added to the resource.
      */
-    void AddGuideSemanticType(int type);
+    void AddSemanticCode();
 
     /**
      * Implements the Merge context menu action functionality.
@@ -353,12 +348,6 @@ private:
     void CreateContextMenuActions();
 
     /**
-     * Creates all the actions for the <guide>
-     * element semantics.
-     */
-    void CreateGuideSemanticActions();
-
-    /**
      * Tries to setup the context menu for the specified point,
      * and returns true on success.
      *
@@ -375,35 +364,12 @@ private:
     void SetupResourceSpecificContextMenu(Resource *resource);
 
     /**
-     * Sets up the sub-menu for adding semantic information.
-     *
-     * @param resource The resource on which the context menu was invoked.
-     */
-    void SetupSemanticContextmenu(Resource *resource);
-
-    /**
-     * Sets up the sub-menu for adding semantic information,
-     * when the menu is invoked for HTMLResources.
-     *
-     * @param resource The resource on which the context menu was invoked.
-     */
-    void SetupHTMLSemanticContextMenu(Resource *resource);
-
-    /**
      * Sets up the sub-menu for adding semantic information,
      * when the menu is invoked for ImageResources.
      *
      * @param resource The resource on which the context menu was invoked.
      */
     void SetupImageSemanticContextMenu(Resource *resource);
-
-    /**
-     * Sets the checked state for the HTML semantic actions
-     * based on the resource's current state.
-     *
-     * @param resource The resource on which the context menu was invoked.
-     */
-    void SetHTMLSemanticActionCheckState(Resource *resource);
 
     /**
      * Sets up the sub-menu for adding or removing font obfuscation,
@@ -446,9 +412,7 @@ private:
      */
     QList <Resource *> ValidSelectedResources(Resource::ResourceType resource_type);
 
-
     void RefreshCounts();
-
 
 
     ///////////////////////////////
@@ -476,12 +440,6 @@ private:
     QMenu *m_ContextMenu;
 
     /**
-     * The sub-menu for adding semantic
-     * information to resources.
-     */
-    QMenu *m_SemanticsContextMenu;
-
-    /**
      * The sub-menu for marking fonts
      * for obfuscation.
      */
@@ -507,25 +465,13 @@ private:
     QAction *m_SortHTML;
     QAction *m_RenumberTOC;
     QAction *m_LinkStylesheets;
+    QAction *m_AddSemantics;
     QAction *m_SaveAs;
     QAction *m_ValidateWithW3C;
 
     QMenu *m_OpenWithContextMenu;
     QAction *m_OpenWith;
     QAction *m_OpenWithEditor;
-
-    /**
-     * All the semantic actions for the <guide>
-     * element. Only present on HTMLResources.
-     */
-    QList<QAction *> m_GuideSemanticActions;
-
-    /**
-     * Used to translate all the triggered() signals from the
-     * various guide-related semantic actions into calls to
-     * AddGuideSemanticType().
-     */
-    QSignalMapper *m_GuideSemanticMapper;
 
     /**
      * The resource type of the last item on which the

@@ -32,6 +32,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/DeleteFiles.h"
 #include "Dialogs/RenameTemplate.h"
+#include "Dialogs/AddSemantics.h"
 #include "Importers/ImportHTML.h"
 #include "MainUI/BookBrowser.h"
 #include "MainUI/MainWindow.h"
@@ -41,9 +42,12 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "Misc/OpenExternally.h"
+#include "Misc/GuideItems.h"
+#include "Misc/Landmarks.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
+#include "ResourceObjects/NavProcessor.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
@@ -58,14 +62,11 @@ BookBrowser::BookBrowser(QWidget *parent)
     m_TreeView(new QTreeView(this)),
     m_OPFModel(new OPFModel(this)),
     m_ContextMenu(new QMenu(this)),
-    m_SemanticsContextMenu(new QMenu(this)),
     m_FontObfuscationContextMenu(new QMenu(this)),
     m_OpenWithContextMenu(new QMenu(this)),
-    m_GuideSemanticMapper(new QSignalMapper(this)),
     m_LastContextMenuType(Resource::GenericResourceType),
     m_RenamedResource(NULL)
 {
-    m_SemanticsContextMenu->setTitle(tr("Add Semantics"));
     m_FontObfuscationContextMenu->setTitle(tr("Font Obfuscation"));
     m_OpenWithContextMenu->setTitle(tr("Open With"));
     setWidget(m_TreeView);
@@ -265,7 +266,6 @@ void BookBrowser::OpenContextMenu(const QPoint &point)
 
     m_ContextMenu->exec(m_TreeView->viewport()->mapToGlobal(point));
     m_ContextMenu->clear();
-    m_SemanticsContextMenu->clear();
     // Ensure any actions with keyboard shortcuts that might have temporarily been
     // disabled are enabled again to let the shortcut work outside the menu.
     m_Delete->setEnabled(true);
@@ -1209,26 +1209,51 @@ void BookBrowser::SetCoverImage()
 }
 
 
-void BookBrowser::AddGuideSemanticType(int type)
+void BookBrowser::AddSemanticCode()
 {
     QList <Resource *> resources = ValidSelectedResources();
     int scrollY = m_TreeView->verticalScrollBar()->value();
 
-    if (resources.isEmpty()) {
+    if (resources.count()!= 1) {
         return;
     }
 
-    foreach(Resource * resource, resources) {
-        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-        m_Book->GetOPF()->AddGuideSemanticType(html_resource, (GuideSemantics::GuideSemanticType) type);
-
+    Resource * resource = resources.first();
+    if (resource->Type() != Resource::HTMLResourceType) {
+        return;
     }
-    m_OPFModel->Refresh();
-    emit BookContentModified();
+    HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
 
+    QStringList codes;
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    if (version.startsWith('3')) {
+        AddSemantics addmeaning(Landmarks::instance()->GetCodeMap(), this);
+        if (addmeaning.exec() == QDialog::Accepted) {
+            codes = addmeaning.GetSelectedEntries();
+            QString new_code = codes.at(0);
+            NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
+            navproc.AddLandmarkCode(html_resource, new_code);
+            // if new_code is valid for guide as well, update the guide too
+            QString guide_code = Landmarks::instance()->GuideLandMapping(new_code);
+            if (!guide_code.isEmpty()) {
+                m_Book->GetOPF()->AddGuideSemanticCode(html_resource, guide_code);
+                m_OPFModel->Refresh();
+            }
+            emit BookContentModified();
+        }
+    } else {
+        AddSemantics addmeaning(GuideItems::instance()->GetCodeMap(), this);
+        if (addmeaning.exec() == QDialog::Accepted) {
+            codes = addmeaning.GetSelectedEntries();
+            m_Book->GetOPF()->AddGuideSemanticCode(html_resource, codes.at(0));
+            m_OPFModel->Refresh();
+            emit BookContentModified();
+        }
+    }
     SelectResources(resources);
     m_TreeView->verticalScrollBar()->setSliderPosition(scrollY);
 }
+
 
 void BookBrowser::Merge()
 {
@@ -1370,6 +1395,7 @@ void BookBrowser::CreateContextMenuActions()
     m_SortHTML                = new QAction(tr("Sort") + "...",          this);
     m_RenumberTOC             = new QAction(tr("Renumber TOC Entries"),  this);
     m_LinkStylesheets         = new QAction(tr("Link Stylesheets..."),   this);
+    m_AddSemantics            = new QAction(tr("Add Semantics..."),      this);
     m_ValidateWithW3C         = new QAction(tr("Validate with W3C"),     this);
     m_OpenWith                = new QAction(tr("Open With") + "...",     this);
     m_SaveAs                  = new QAction(tr("Save As") + "...",       this);
@@ -1389,6 +1415,8 @@ void BookBrowser::CreateContextMenuActions()
     sm->registerAction(this, m_Rename, "MainWindow.BookBrowser.Rename");
     m_LinkStylesheets->setToolTip("Link Stylesheets to selected file(s).");
     sm->registerAction(this, m_LinkStylesheets, "MainWindow.BookBrowser.LinkStylesheets");
+    m_AddSemantics->setToolTip("Add Semantics to selected file(s).");
+    sm->registerAction(this, m_AddSemantics, "MainWindow.BookBrowser.AddSemantics");
     // Has to be added to the book browser itself as well
     // for the keyboard shortcut to work.
     addAction(m_CopyHTML);
@@ -1396,84 +1424,7 @@ void BookBrowser::CreateContextMenuActions()
     addAction(m_Merge);
     addAction(m_Rename);
     addAction(m_LinkStylesheets);
-    CreateGuideSemanticActions();
-}
-
-
-void BookBrowser::CreateGuideSemanticActions()
-{
-    QAction *action = NULL;
-    action = new QAction(tr("Cover"), this);
-    action->setData(GuideSemantics::Cover);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Cover);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("Title Page"), this);
-    action->setData(GuideSemantics::TitlePage);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::TitlePage);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("Table Of Contents"), this);
-    action->setData(GuideSemantics::TableOfContents);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::TableOfContents);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("Index"), this);
-    action->setData(GuideSemantics::Index);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Index);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("Glossary"), this);
-    action->setData(GuideSemantics::Glossary);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Glossary);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("Acknowledgements"), this);
-    action->setData(GuideSemantics::Acknowledgements);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Acknowledgements);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("Bibliography"), this);
-    action->setData(GuideSemantics::Bibliography);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Bibliography);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("Colophon"), this);
-    action->setData(GuideSemantics::Colophon);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Colophon);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("Copyright Page"), this);
-    action->setData(GuideSemantics::CopyrightPage);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::CopyrightPage);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("Dedication"), this);
-    action->setData(GuideSemantics::Dedication);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Dedication);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("Epigraph"), this);
-    action->setData(GuideSemantics::Epigraph);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Epigraph);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("Foreword"), this);
-    action->setData(GuideSemantics::Foreword);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Foreword);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("List Of Illustrations"), this);
-    action->setData(GuideSemantics::ListOfIllustrations);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::ListOfIllustrations);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("List Of Tables"), this);
-    action->setData(GuideSemantics::ListOfTables);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::ListOfTables);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("Notes"), this);
-    action->setData(GuideSemantics::Notes);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Notes);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("Preface"), this);
-    action->setData(GuideSemantics::Preface);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Preface);
-    m_GuideSemanticActions.append(action);
-    action = new QAction(tr("Text"), this);
-    action->setData(GuideSemantics::Text);
-    m_GuideSemanticMapper->setMapping(action, GuideSemantics::Text);
-    m_GuideSemanticActions.append(action);
-    foreach(QAction * action, m_GuideSemanticActions) {
-        action->setCheckable(true);
-    }
+    addAction(m_AddSemantics);
 }
 
 
@@ -1518,6 +1469,7 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
             m_SortHTML->setEnabled(item_count > 1);
             m_ContextMenu->addAction(m_LinkStylesheets);
             m_LinkStylesheets->setEnabled(AllCSSResources().count() > 0);
+            m_ContextMenu->addAction(m_AddSemantics);
         }
 
         if (resource->Type() == Resource::FontResourceType) {
@@ -1532,8 +1484,10 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
             m_ContextMenu->addAction(m_ValidateWithW3C);
         }
 
-        // Semantic Menu
-        SetupSemanticContextmenu(resource);
+        if (resource->Type() == Resource::ImageResourceType) {
+            SetupImageSemanticContextMenu(resource);
+        }
+
         m_ContextMenu->addSeparator();
 
         // Open With
@@ -1590,33 +1544,9 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
     return true;
 }
 
-
-void BookBrowser::SetupSemanticContextmenu(Resource *resource)
-{
-    if (resource->Type() == Resource::HTMLResourceType) {
-        SetupHTMLSemanticContextMenu(resource);
-        m_ContextMenu->addMenu(m_SemanticsContextMenu);
-    } else if (resource->Type() == Resource::ImageResourceType) {
-        SetupImageSemanticContextMenu(resource);
-        m_ContextMenu->addMenu(m_SemanticsContextMenu);
-    }
-
-    m_SemanticsContextMenu->setEnabled(ValidSelectedItemCount() == 1);
-}
-
-
-void BookBrowser::SetupHTMLSemanticContextMenu(Resource *resource)
-{
-    foreach(QAction * action, m_GuideSemanticActions) {
-        m_SemanticsContextMenu->addAction(action);
-    }
-    SetHTMLSemanticActionCheckState(resource);
-}
-
-
 void BookBrowser::SetupImageSemanticContextMenu(Resource *resource)
 {
-    m_SemanticsContextMenu->addAction(m_CoverImage);
+    m_ContextMenu->addAction(m_CoverImage);
     ImageResource *image_resource = qobject_cast<ImageResource *>(GetCurrentResource());
     Q_ASSERT(image_resource);
     m_CoverImage->setChecked(false);
@@ -1625,44 +1555,6 @@ void BookBrowser::SetupImageSemanticContextMenu(Resource *resource)
         m_CoverImage->setChecked(true);
     }
 }
-
-
-void BookBrowser::SetHTMLSemanticActionCheckState(Resource *resource)
-{
-    if (resource->Type() != Resource::HTMLResourceType) {
-        return;
-    }
-
-    HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-    Q_ASSERT(html_resource);
-    foreach(QAction *action, m_GuideSemanticActions) {
-        action->setChecked(false);
-    }
-    GuideSemantics::GuideSemanticType semantic_type =
-        m_Book->GetOPF()->GetGuideSemanticTypeForResource(html_resource);
-
-    if (semantic_type == GuideSemantics::NoType) {
-        return;
-    }
-
-    foreach(Resource * valid_resource, ValidSelectedResources()) {
-        HTMLResource *valid_html_resource = qobject_cast<HTMLResource *>(valid_resource);
-        Q_ASSERT(html_resource);
-        GuideSemantics::GuideSemanticType valid_semantic_type =
-            m_Book->GetOPF()->GetGuideSemanticTypeForResource(valid_html_resource);
-
-        if (valid_semantic_type != semantic_type) {
-            return;
-        }
-    }
-    foreach(QAction * action, m_GuideSemanticActions) {
-        if (action->data().toInt() == semantic_type) {
-            action->setChecked(true);
-            break;
-        }
-    }
-}
-
 
 void BookBrowser::SetupFontObfuscationMenu()
 {
@@ -1726,6 +1618,7 @@ void BookBrowser::ConnectSignalsToSlots()
     connect(m_CoverImage,              SIGNAL(triggered()), this, SLOT(SetCoverImage()));
     connect(m_Merge,                   SIGNAL(triggered()), this, SLOT(Merge()));
     connect(m_LinkStylesheets,         SIGNAL(triggered()), this, SLOT(LinkStylesheets()));
+    connect(m_AddSemantics,            SIGNAL(triggered()), this, SLOT(AddSemanticCode()));
     connect(m_SaveAs,                  SIGNAL(triggered()), this, SLOT(SaveAs()));
     connect(m_ValidateWithW3C,         SIGNAL(triggered()), this, SLOT(ValidateStylesheetWithW3C()));
     connect(m_OpenWith,                SIGNAL(triggered()), this, SLOT(OpenWith()));
@@ -1733,10 +1626,7 @@ void BookBrowser::ConnectSignalsToSlots()
     connect(m_AdobesObfuscationMethod, SIGNAL(triggered()), this, SLOT(AdobesObfuscationMethod()));
     connect(m_IdpfsObfuscationMethod,  SIGNAL(triggered()), this, SLOT(IdpfsObfuscationMethod()));
     connect(m_NoObfuscationMethod,     SIGNAL(triggered()), this, SLOT(NoObfuscationMethod()));
-    foreach(QAction * action, m_GuideSemanticActions) {
-        connect(action, SIGNAL(triggered()), m_GuideSemanticMapper, SLOT(map()));
-    }
-    connect(m_GuideSemanticMapper, SIGNAL(mapped(int)), this, SLOT(AddGuideSemanticType(int)));
+
 }
 
 
