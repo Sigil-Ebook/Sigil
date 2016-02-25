@@ -1164,16 +1164,19 @@ void OPFResource::UpdateManifestProperties(const QList<Resource*> resources)
     }
     foreach(Resource* resource, resources) {
         const HTMLResource* html_resource = static_cast<const HTMLResource *>(resource);
-        QString href = html_resource->GetRelativePathToOEBPS();
-        int pos = p.m_hrefpos.value(href, -1);
-        if ((pos >= 0) && (pos < p.m_manifest.count())) {
-            ManifestEntry me = p.m_manifest.at(pos);
-            QStringList properties = html_resource->GetManifestProperties();
-            me.m_atts.remove("properties");
-            if (properties.count() > 0) {
-                me.m_atts["properties"] = properties.join(QString(" "));
+        // do not overwrite the nav property, it must stay no matter what
+        if (html_resource != m_NavResource) {
+            QString href = html_resource->GetRelativePathToOEBPS();
+            int pos = p.m_hrefpos.value(href, -1);
+            if ((pos >= 0) && (pos < p.m_manifest.count())) {
+                ManifestEntry me = p.m_manifest.at(pos);
+                QStringList properties = html_resource->GetManifestProperties();
+                me.m_atts.remove("properties");
+                if (properties.count() > 0) {
+                    me.m_atts["properties"] = properties.join(QString(" "));
+                }
+                p.m_manifest.replace(pos, me);
             }
-            p.m_manifest.replace(pos, me);
         }
     }
     // now add the cover-image properties
