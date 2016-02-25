@@ -27,7 +27,6 @@
 #include <QtCore/QHash>
 
 #include "Misc/CSSInfo.h"
-#include "BookManipulation/GuideSemantics.h"
 #include "ResourceObjects/XMLResource.h"
 
 class QString;
@@ -57,13 +56,6 @@ public:
     HTMLResource(const QString &mainfolder, const QString &fullfilepath,
                  const QHash<QString, Resource *> &resources,
                  QObject *parent = NULL);
-
-    /**
-     * Sets the guide semantic type information.
-     *
-     * @param type The new semantic type.
-     */
-    void SetGuideSemanticType(GuideSemantics::GuideSemanticType type);
 
     QString GetTOCCache();
     void    SetTOCCache(const QString & text);

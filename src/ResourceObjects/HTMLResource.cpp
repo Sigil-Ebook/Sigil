@@ -29,7 +29,6 @@
 // #include <QDebug>
 
 #include "BookManipulation/CleanSource.h"
-#include "BookManipulation/GuideSemantics.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 #include "Misc/GumboInterface.h"
