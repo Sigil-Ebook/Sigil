@@ -1154,7 +1154,7 @@ void MainWindow::UpdateManifestProperties()
 }
 
 
-void MainWindow::GenerateNcxFromNav()
+void MainWindow::GenerateNCXFromNav()
 {
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
     if (!version.startsWith('3')) {
@@ -1234,7 +1234,7 @@ void MainWindow::GenerateNcxFromNav()
 }
 
 
-void MainWindow::GenerateNav()
+void MainWindow::GenerateNavFromNCX()
 {
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
     if (!version.startsWith('3')) {
@@ -1251,21 +1251,6 @@ void MainWindow::GenerateNav()
 
     // find existing nav document is there is one
     HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
-    if (!nav_resource) {
-        // manually search just in case
-        QList<Resource *> resources = GetAllHTMLResources();
-        foreach(Resource * resource, resources) {
-            HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-            if (html_resource) {
-                QStringList props = html_resource->GetManifestProperties();
-                if (props.contains("nav")) {
-                    nav_resource = html_resource;
-                    m_Book->GetOPF()->SetNavResource(nav_resource);
-                    break;
-                }
-            }
-        }
-    }
 
     // Now build the nav in python in a separate thread since may be an long job
     PythonRoutines pr;
@@ -1277,6 +1262,7 @@ void MainWindow::GenerateNav()
     bool resource_added = false;
     if (!navdata.isEmpty()) {
         // create a new nav resource is none exists
+        // this should never happen but maybe someone deleted the nav manually
         if (!nav_resource) {
             TempFolder folder;
             QString inpath = folder.GetPath() + "/nav.xhtml";
@@ -2377,6 +2363,45 @@ void MainWindow::GenerateToc()
         ShowMessageOnStatusBar(tr("Table Of Contents generated."));
     } else {
         ShowMessageOnStatusBar(tr("No Table Of Contents changes were necessary."));
+    }
+
+    QApplication::restoreOverrideCursor();
+}
+
+
+void MainWindow::GenerateNavTOC()
+{
+    SaveTabData();
+    QList<Resource *> resources = GetAllHTMLResources();
+
+    if (resources.isEmpty()) {
+        return;
+    }
+
+    bool is_headings_changed = false;
+    {
+        HeadingSelector toc(m_Book, this);
+
+        if (toc.exec() != QDialog::Accepted) {
+            ShowMessageOnStatusBar(tr("Generate Nav TOC cancelled."));
+            return;
+        }
+
+        is_headings_changed = toc.IsBookChanged();
+    }
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    NavProcessor navproc(m_Book->GetOPF()->GetNavResource());
+    bool nav_changed = navproc.GenerateTOCFromBookContents(m_Book.data());
+
+    if (is_headings_changed || nav_changed) {
+        // Reload the current tab to see visual impact if user changed heading level(s)
+        // It might not have been the current tab, but what the heck, possible user has Nav  open even.
+        ResourcesAddedOrDeleted();
+        m_Book.data()->SetModified();
+        ShowMessageOnStatusBar(tr("Nav Table Of Contents generated."));
+    } else {
+        ShowMessageOnStatusBar(tr("No Nav Table Of Contents changes were necessary."));
     }
 
     QApplication::restoreOverrideCursor();
@@ -4270,8 +4295,9 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionMendPrettifyHTML, "MainWindow.MendPrettifyHTML");
     sm->registerAction(this, ui.actionMendHTML, "MainWindow.MendHTML");
     sm->registerAction(this, ui.actionUpdateManifestProperties, "MainWindow.UpdateManifestProperties");
-    sm->registerAction(this, ui.actionGenerateNav, "MainWindow.GenerateNav");
-    sm->registerAction(this, ui.actionNcxFromNav, "MainWindow.NcxFromNav");
+    sm->registerAction(this, ui.actionGenerateNavFromNCX, "MainWindow.GenerateNavFromNCX");
+    sm->registerAction(this, ui.actionNCXFromNav, "MainWindow.NCXFromNav");
+    sm->registerAction(this, ui.actionGenerateNavTOC, "MainWindow.GenerateNavTOC");
     sm->registerAction(this, ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
     sm->registerAction(this, ui.actionSpellcheck, "MainWindow.Spellcheck");
     sm->registerAction(this, ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
@@ -4624,8 +4650,9 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionMendPrettifyHTML,    SIGNAL(triggered()), this, SLOT(MendPrettifyHTML()));
     connect(ui.actionMendHTML,      SIGNAL(triggered()), this, SLOT(MendHTML()));
     connect(ui.actionUpdateManifestProperties,      SIGNAL(triggered()), this, SLOT(UpdateManifestProperties()));
-    connect(ui.actionGenerateNav,   SIGNAL(triggered()), this, SLOT(GenerateNav()));
-    connect(ui.actionNcxFromNav,    SIGNAL(triggered()), this, SLOT(GenerateNcxFromNav()));
+    connect(ui.actionGenerateNavFromNCX,   SIGNAL(triggered()), this, SLOT(GenerateNavFromNCX()));
+    connect(ui.actionNCXFromNav,    SIGNAL(triggered()), this, SLOT(GenerateNCXFromNav()));
+    connect(ui.actionGenerateNavTOC,    SIGNAL(triggered()), this, SLOT(GenerateNavTOC()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateToc()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));

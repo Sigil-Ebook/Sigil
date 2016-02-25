@@ -324,8 +324,9 @@
       <string>Epub&amp;3 Tools</string>
      </property>
      <addaction name="actionUpdateManifestProperties"/>
-     <addaction name="actionGenerateNav"/>
-     <addaction name="actionNcxFromNav"/>
+     <addaction name="actionGenerateNavFromNCX"/>
+     <addaction name="actionNCXFromNav"/>
+     <addaction name="actionGenerateNavTOC"/>
     </widget>
     <addaction name="actionAddCover"/>
     <addaction name="actionMetaEditor"/>
@@ -2324,14 +2325,19 @@
     <string>&amp;Update Manifest Properties</string>
    </property>
   </action>
-  <action name="actionGenerateNav">
+  <action name="actionGenerateNavFromNCX">
    <property name="text">
     <string>Generate &amp;Nav from NCX</string>
    </property>
   </action>
-  <action name="actionNcxFromNav">
+  <action name="actionNCXFromNav">
    <property name="text">
     <string>Generate NC&amp;X from Nav</string>
+   </property>
+  </action>
+  <action name="actionGenerateNavTOC">
+   <property name="text">
+    <string>Generate Nav TOC from Book Headings</string>
    </property>
   </action>
  </widget>

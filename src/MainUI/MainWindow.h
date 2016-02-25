@@ -226,9 +226,9 @@ public slots:
 
     void UpdateManifestProperties();
 
-    void GenerateNcxFromNav();
+    void GenerateNCXFromNav();
 
-    void GenerateNav();
+    void GenerateNavFromNCX();
 
     void CreateIndex();
 
@@ -607,6 +607,7 @@ private slots:
     void RemoveResources(QList<Resource *> resources = QList<Resource *>());
 
     void GenerateToc();
+    void GenerateNavTOC();
     void EditTOCDialog();
     void CreateHTMLTOC();
 
