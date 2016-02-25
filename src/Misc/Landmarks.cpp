@@ -95,6 +95,12 @@ const QHash<QString, DescriptiveInfo> & Landmarks::GetCodeMap()
 Landmarks::Landmarks()
 {
     SetLandmarksMap();
+    SetGuideLandMap();
+}
+
+QString Landmarks::GuideLandMapping(QString code)
+{
+  return m_GuideLandMap.value(code, QString());
 }
 
 void Landmarks::SetLandmarksMap()
@@ -170,4 +176,32 @@ void Landmarks::SetLandmarksMap()
         m_CodeMap.insert(code, rel);
         m_NameMap.insert(name, code);
     }
+}
+
+
+void Landmarks::SetGuideLandMap()
+{
+    if (!m_GuideLandMap.isEmpty()) {
+        return;
+    }
+
+    m_GuideLandMap[ "acknowledgements" ] = "acknowledgments";
+    m_GuideLandMap[ "acknowledgments"  ] = "acknowledegments";
+    m_GuideLandMap[ "bibliography"     ] = "bibliography";
+    m_GuideLandMap[ "text"             ] = "bodymatter";
+    m_GuideLandMap[ "bodymatter"       ] = "text";
+    m_GuideLandMap[ "colophon"         ] = "colophon";
+    m_GuideLandMap[ "copyright-page"   ] = "copyright-page";
+    m_GuideLandMap[ "cover"            ] = "cover";
+    m_GuideLandMap[ "dedication"       ] = "dedication";
+    m_GuideLandMap[ "epigraph"         ] = "epigraph";
+    m_GuideLandMap[ "foreword"         ] = "foreword";
+    m_GuideLandMap[ "glossary"         ] = "glossary";
+    m_GuideLandMap[ "index"            ] = "index";
+    m_GuideLandMap[ "loi"              ] = "loi";
+    m_GuideLandMap[ "lot"              ] = "lot";
+    m_GuideLandMap[ "preface"          ] = "preface";
+    m_GuideLandMap[ "title-page"       ] = "titlepage";
+    m_GuideLandMap[ "titlepage"        ] = "title-page";
+    m_GuideLandMap[ "toc"              ] = "toc";
 }

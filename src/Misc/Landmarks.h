@@ -43,6 +43,7 @@ class Landmarks
     Q_DECLARE_TR_FUNCTIONS(Landmarks)
 
 public:
+
     static Landmarks *instance();
 
     QString GetName(QString code);
@@ -53,11 +54,15 @@ public:
     bool isLandmarksCode(QString code);
     bool isLandmarksName(QString name);
     const QHash<QString, DescriptiveInfo> &GetCodeMap();
+    QString GuideLandMapping(QString code);
 
 private:
+
     Landmarks();
 
     void SetLandmarksMap();
+
+    void SetGuideLandMap();
 
     // code -> DescriptiveInfo -> name and description
     QHash<QString, DescriptiveInfo> m_CodeMap;
@@ -67,6 +72,8 @@ private:
 
     QStringList m_sortedNames;
 
+    QHash<QString, QString> m_GuideLandMap;
+    
     static Landmarks *m_instance;
 };
 
