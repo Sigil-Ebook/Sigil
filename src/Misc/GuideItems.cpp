@@ -112,7 +112,7 @@ void GuideItems::SetGuideItemsMap()
         tr("Text") << "text" << tr("The start of the main text content of a publication.") <<
         tr("Colophon") << "colophon" << tr("A brief description usually located at the end of a publication, describing production notes relevant to the edition.") <<
         tr("Copyright Page") << "copyright-page" << tr("The copyright page of the work.") <<
-        tr("Cover Page") << "cover" << tr("The publications cover(s), jacket information, etc.") <<
+        tr("Cover") << "cover" << tr("The publications cover(s), jacket information, etc.") <<
         tr("Dedication") << "dedication" << tr("An inscription addressed to one or several particular person(s).") <<
         tr("Epigraph") << "epigraph" << tr("A quotation that is pertinent but not integral to the text.") <<
         tr("Foreword") << "foreword" << tr("An introductory section that precedes the work, typically not written by the work's author.") <<

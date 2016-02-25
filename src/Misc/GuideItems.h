@@ -24,9 +24,9 @@
 #define GUIDEITEMS_H
 
 #include <QCoreApplication>
+#include <QString>
+#include <QStringList>
 #include <QHash>
-class QString;
-class QStringList;
 
 #include "Misc/DescriptiveInfo.h"
 
