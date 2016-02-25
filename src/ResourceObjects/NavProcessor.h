@@ -50,19 +50,27 @@ public:
     ~NavProcessor();
 
     QList<NavTOCEntry> GetTOC();
-    QList<NavPageListEntry> GetPageList();
     QList<NavLandmarkEntry> GetLandmarks();
+    QList<NavPageListEntry> GetPageList();
     
+    void AddLandmarkCode(const Resource * resource, QString new_code, bool toggle = true);
+    void RemoveLandmarkForResource(const Resource * resource);
+    QString GetLandmarkCodeForResource(const Resource * resource);
+    QHash<QString, QString> GetLandmarkNameForPaths();
+
+private:    
     QString BuildTOC(const QList<NavTOCEntry> & toclist);
     QString BuildLandmarks(const QList<NavLandmarkEntry> & landlist);
     QString BuildPageList(const QList<NavPageListEntry> & pagelist);
     
-    void SetPageList(const QList<NavPageListEntry> & pagelist);
     void SetTOC(const QList<NavTOCEntry> & toclist);
     void SetLandmarks(const QList<NavLandmarkEntry> & landlist);
-
-private:
+    void SetPageList(const QList<NavPageListEntry> & pagelist);
+	
+    int GetResourceLandmarkPos(const Resource * resource, const QList<NavLandmarkEntry> & landlist);
+	
     QList<NavTOCEntry> GetNodeTOC(GumboInterface gi, const GumboNode* node, int lvl);
+    
     HTMLResource * m_NavResource;
 };
 #endif  // NAVPROCESSORH
