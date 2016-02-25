@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>300</width>
-    <height>600</height>
+    <width>224</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,6 +26,12 @@
       <bool>false</bool>
      </property>
      <widget class="QListWidget" name="lwProperties">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>450</height>
+       </size>
+      </property>
       <property name="selectionMode">
        <enum>QAbstractItemView::ExtendedSelection</enum>
       </property>
@@ -42,8 +48,8 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>600</width>
-        <height>100</height>
+        <width>200</width>
+        <height>150</height>
        </size>
       </property>
       <property name="text">
