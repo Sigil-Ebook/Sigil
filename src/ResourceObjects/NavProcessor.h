@@ -23,6 +23,8 @@
 
 #include <QString>
 #include <QList>
+#include "BookManipulation/Book.h"
+#include "BookManipulation/Headings.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "Misc/GumboInterface.h"
 
@@ -58,6 +60,8 @@ public:
     QString GetLandmarkCodeForResource(const Resource * resource);
     QHash<QString, QString> GetLandmarkNameForPaths();
 
+    bool GenerateTOCFromBookContents(const Book* book);
+
 private:    
     QString BuildTOC(const QList<NavTOCEntry> & toclist);
     QString BuildLandmarks(const QList<NavLandmarkEntry> & landlist);
@@ -68,8 +72,8 @@ private:
     void SetPageList(const QList<NavPageListEntry> & pagelist);
 	
     int GetResourceLandmarkPos(const Resource * resource, const QList<NavLandmarkEntry> & landlist);
-	
-    QList<NavTOCEntry> GetNodeTOC(GumboInterface gi, const GumboNode* node, int lvl);
+    QList<NavTOCEntry> GetNodeTOC(GumboInterface & gi, const GumboNode* node, int lvl);
+    QList<NavTOCEntry> HeadingWalker(const Headings::Heading & heading, int lvl);
     
     HTMLResource * m_NavResource;
 };

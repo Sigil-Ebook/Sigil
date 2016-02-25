@@ -30,7 +30,7 @@
 #include "Misc/Utility.h"
 #include "Misc/GumboInterface.h"
 #include "Misc/Landmarks.h"
-
+#include "BookManipulation/FolderKeeper.h"
 #include "ResourceObjects/NavProcessor.h"
 
 static const QString NAV_PAGELIST_PATTERN = "\\s*<!--\\s*SIGIL_REPLACE_PAGELIST_HERE\\s*-->\\s*";
@@ -38,7 +38,7 @@ static const QString NAV_LANDMARKS_PATTERN = "\\s*<!--\\s*SIGIL_REPLACE_LANDMARK
 static const QString NAV_TOC_PATTERN = "\\s*<!--\\s*SIGIL_REPLACE_TOC_HERE\\s*-->\\s*";
 
 NavProcessor::NavProcessor(HTMLResource * nav_resource)
-: m_NavResource(nav_resource)
+  : m_NavResource(nav_resource)
 {
 }
 
@@ -52,30 +52,30 @@ QList<NavLandmarkEntry> NavProcessor::GetLandmarks()
 {
     QList<NavLandmarkEntry> landlist;
     if (!m_NavResource) return landlist; 
-	
+
     QReadLocker locker(&m_NavResource->GetLock());
 
     GumboInterface gi = GumboInterface(m_NavResource->GetText(), "3.0");
     gi.parse();
     const QList<GumboNode*> nav_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_NAV);
     for (int i = 0; i < nav_nodes.length(); ++i) {
-	    GumboNode* node = nav_nodes.at(i);
-	    GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "epub:type");
-	    if (attr && (QString::fromUtf8(attr->value) == "landmarks")) {
+        GumboNode* node = nav_nodes.at(i);
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "epub:type");
+        if (attr && (QString::fromUtf8(attr->value) == "landmarks")) {
             const QList<GumboTag> tags = QList<GumboTag>() << GUMBO_TAG_A;;
-	        const QList<GumboNode*> anchor_nodes = gi.get_nodes_with_tags(node, tags);
-	        for (int j = 0; j < anchor_nodes.length(); ++j) {
-		        NavLandmarkEntry le;
-		        GumboNode* ancnode = anchor_nodes.at(j);
-		        GumboAttribute* typeattr = gumbo_get_attribute(&ancnode->v.element.attributes, "epub:type");
-		        GumboAttribute* hrefattr = gumbo_get_attribute(&ancnode->v.element.attributes, "href");
-		        if (typeattr) le.etype = QString::fromUtf8(typeattr->value);
-		        if (hrefattr) le.href = Utility::URLDecodePath(QString::fromUtf8(hrefattr->value));
-		        le.title = Utility::DecodeXML(gi.get_local_text_of_node(ancnode));
-		        landlist.append(le);
-	        }
-	       break;
-	    }
+            const QList<GumboNode*> anchor_nodes = gi.get_nodes_with_tags(node, tags);
+            for (int j = 0; j < anchor_nodes.length(); ++j) {
+                NavLandmarkEntry le;
+                GumboNode* ancnode = anchor_nodes.at(j);
+                GumboAttribute* typeattr = gumbo_get_attribute(&ancnode->v.element.attributes, "epub:type");
+                GumboAttribute* hrefattr = gumbo_get_attribute(&ancnode->v.element.attributes, "href");
+                if (typeattr) le.etype = QString::fromUtf8(typeattr->value);
+                if (hrefattr) le.href = Utility::URLDecodePath(QString::fromUtf8(hrefattr->value));
+                le.title = Utility::DecodeXML(gi.get_local_text_of_node(ancnode));
+                landlist.append(le);
+            }
+            break;
+        }
     }
     return landlist;
 }
@@ -85,28 +85,28 @@ QList<NavPageListEntry> NavProcessor::GetPageList()
 {
     QList<NavPageListEntry> pagelist;
     if (!m_NavResource) return pagelist; 
-	
+        
     QReadLocker locker(&m_NavResource->GetLock());
 
     GumboInterface gi = GumboInterface(m_NavResource->GetText(), "3.0");
     gi.parse();
     const QList<GumboNode*> nav_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_NAV);
     for (int i = 0; i < nav_nodes.length(); ++i) {
-	    GumboNode* node = nav_nodes.at(i);
-	    GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "epub:type");
-	    if (attr && (QString::fromUtf8(attr->value) == "page-list")) {
+        GumboNode* node = nav_nodes.at(i);
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "epub:type");
+        if (attr && (QString::fromUtf8(attr->value) == "page-list")) {
             QList<GumboTag> tags = QList<GumboTag>() << GUMBO_TAG_A;
-	        const QList<GumboNode*> anchor_nodes = gi.get_nodes_with_tags(node, tags);
-	        for (int j = 0; j < anchor_nodes.length(); ++j) {
-	            NavPageListEntry pe;
-	            GumboNode* ancnode = anchor_nodes.at(j);
-		        GumboAttribute* hrefattr = gumbo_get_attribute(&ancnode->v.element.attributes, "href");
-		        if (hrefattr) pe.href = Utility::URLDecodePath(QString::fromUtf8(hrefattr->value));
-		        pe.pagename = Utility::DecodeXML(gi.get_local_text_of_node(ancnode));
-		        pagelist.append(pe);
-	        }
-	        break;
-	    }
+            const QList<GumboNode*> anchor_nodes = gi.get_nodes_with_tags(node, tags);
+            for (int j = 0; j < anchor_nodes.length(); ++j) {
+                NavPageListEntry pe;
+                GumboNode* ancnode = anchor_nodes.at(j);
+                GumboAttribute* hrefattr = gumbo_get_attribute(&ancnode->v.element.attributes, "href");
+                if (hrefattr) pe.href = Utility::URLDecodePath(QString::fromUtf8(hrefattr->value));
+                pe.pagename = Utility::DecodeXML(gi.get_local_text_of_node(ancnode));
+                pagelist.append(pe);
+            }
+            break;
+        }
     }
     return pagelist;
 }
@@ -116,52 +116,62 @@ QList<NavTOCEntry> NavProcessor::GetTOC()
 {
     QList<NavTOCEntry> toclist;
     if (!m_NavResource) return toclist; 
-	
+        
     QReadLocker locker(&m_NavResource->GetLock());
 
     GumboInterface gi = GumboInterface(m_NavResource->GetText(), "3.0");
     gi.parse();
     const QList<GumboNode*> nav_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_NAV);
     for (int i = 0; i < nav_nodes.length(); ++i) {
-	    GumboNode* node = nav_nodes.at(i);
-	    GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "epub:type");
-	    if (attr && (QString::fromUtf8(attr->value) == "toc")) {
+        GumboNode* node = nav_nodes.at(i);
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "epub:type");
+        if (attr && (QString::fromUtf8(attr->value) == "toc")) {
             QList<GumboTag> tags = QList<GumboTag>() << GUMBO_TAG_OL;
-	        const QList<GumboNode*> ol_nodes = gi.get_nodes_with_tags(node, tags);
-	        for (int j = 0; j < ol_nodes.length(); ++j) {
-	            GumboNode * olnode = ol_nodes.at(j);
-		        toclist.append(GetNodeTOC(gi, olnode, 1));
-	        }
-	        break;		
-	    }
+            const QList<GumboNode*> ol_nodes = gi.get_nodes_with_tags(node, tags);
+            for (int j = 0; j < ol_nodes.length(); ++j) {
+                GumboNode * olnode = ol_nodes.at(j);
+                toclist.append(GetNodeTOC(gi, olnode, 1));
+            }
+            break;              
+        }
     }
     return toclist;
 }
 
 
-QList<NavTOCEntry> NavProcessor::GetNodeTOC(GumboInterface gi, const GumboNode * node, int lvl)
+QList<NavTOCEntry> NavProcessor::GetNodeTOC(GumboInterface & gi, const GumboNode * node, int lvl)
 {
     if ((node->type != GUMBO_NODE_ELEMENT) || (node->v.element.tag != GUMBO_TAG_OL)) {
         return QList<NavTOCEntry>();
     }
+  
     QList<NavTOCEntry> toclist;
     const GumboVector* children = &node->v.element.children;
+
     for (unsigned int i = 0; i < children->length; ++i) {
         GumboNode * child = static_cast<GumboNode*>(children->data[i]);
         if (child->type == GUMBO_NODE_ELEMENT) {
-            if (child->v.element.tag == GUMBO_TAG_A) {
-            	NavTOCEntry te;
-            	te.lvl = lvl;
-            	GumboAttribute* hrefattr = gumbo_get_attribute(&child->v.element.attributes, "href");
-		        if (hrefattr) te.href = Utility::URLDecodePath(QString::fromUtf8(hrefattr->value));
-	            te.title = Utility::DecodeXML(gi.get_local_text_of_node(child));
-                toclist.append(te);
-            } else if (child->v.element.tag == GUMBO_TAG_OL) {
-                toclist.append(GetNodeTOC(gi, child, lvl+1));
+            if (child->v.element.tag == GUMBO_TAG_LI) {
+                const GumboVector* li_children = &child->v.element.children;
+                for (unsigned int j = 0; j < li_children->length; ++j) {
+                    GumboNode * li_child = static_cast<GumboNode*>(li_children->data[j]);
+                    if (li_child->type == GUMBO_NODE_ELEMENT) {
+                        if (li_child->v.element.tag == GUMBO_TAG_A) {
+                            NavTOCEntry te;
+                            te.lvl = lvl;
+                            GumboAttribute* hrefattr = gumbo_get_attribute(&li_child->v.element.attributes, "href");
+                            if (hrefattr) te.href = Utility::URLDecodePath(QString::fromUtf8(hrefattr->value));
+                            te.title = Utility::DecodeXML(gi.get_local_text_of_node(li_child));
+                            toclist.append(te);
+                        } else if (li_child->v.element.tag == GUMBO_TAG_OL) {
+                            toclist.append(GetNodeTOC(gi, li_child, lvl+1));
+                        }
+                    }
+                }
             }  
         }
     } 
-    return toclist;		
+    return toclist;             
 }
 
 
@@ -174,44 +184,44 @@ QString NavProcessor::BuildTOC(const QList<NavTOCEntry> & toclist)
     QString base = step.repeated(2);
     res << "\n" + base + "<ol>\n";
     foreach(NavTOCEntry te, toclist) {
-	    int lvl = te.lvl;
-	    QString href = Utility::URLEncodePath(te.href);
-	    QString title = Utility::EncodeXML(te.title);
-	    if (lvl > curlvl) {
-	        while(lvl > curlvl) {
-	            QString indent = base + step.repeated(curlvl);
-	            res << indent + "<ol>/n";
-	            res << indent + step + "<li>\n";
-	            res << indent + step.repeated(2) + "<a href=\"" + href + "\">" + title + "</a>\n";
-	            curlvl++;
-	        }
-	    } else if (lvl < curlvl) {
-	        while(lvl < curlvl) {
+        int lvl = te.lvl;
+        QString href = Utility::URLEncodePath(te.href);
+        QString title = Utility::EncodeXML(te.title);
+        if (lvl > curlvl) {
+            while(lvl > curlvl) {
+                QString indent = base + step.repeated(curlvl);
+                res << indent + "<ol>\n";
+                res << indent + step + "<li>\n";
+                res << indent + step.repeated(2) + "<a href=\"" + href + "\">" + title + "</a>\n";
+                curlvl++;
+            }
+        } else if (lvl < curlvl) {
+            while(lvl < curlvl) {
                 QString indent = base + step.repeated(curlvl-1);
-	    	    res << indent + step + "</li>\n";
-	    	    res << indent + "</ol>\n";
-	    	    curlvl--;
-	        }
-	        QString indent = base + step.repeated(lvl-1);
-	        res << indent + step  + "</li>\n";
-	        res << indent + step + "<li>\n";
-	        res << indent + step.repeated(2) + "<a href=\"" + href + "\">" + title + "</a>\n";	        
-	    } else {
-	        QString indent = base + step.repeated(lvl-1);
-	        if (!initial) {
-	    	    res << indent + step  + "</li>\n";
-	        }
-	        res << indent + step + "<li>\n";
-	        res << indent + step.repeated(2) + "<a href=\"" + href + "\">" + title + "</a>\n";	        
-	    }
-	    initial = false;
-	    curlvl = lvl;
+                res << indent + step + "</li>\n";
+                res << indent + "</ol>\n";
+                curlvl--;
+            }
+            QString indent = base + step.repeated(lvl-1);
+            res << indent + step  + "</li>\n";
+            res << indent + step + "<li>\n";
+            res << indent + step.repeated(2) + "<a href=\"" + href + "\">" + title + "</a>\n";              
+        } else {
+            QString indent = base + step.repeated(lvl-1);
+            if (!initial) {
+                res << indent + step  + "</li>\n";
+            }
+            res << indent + step + "<li>\n";
+            res << indent + step.repeated(2) + "<a href=\"" + href + "\">" + title + "</a>\n";              
+        }
+        initial = false;
+        curlvl = lvl;
     }
     while(curlvl > 0) {
-	    QString indent = base + step.repeated(curlvl-1);
-	    res << indent + step + "</li>\n";
-	    res << indent + "</ol>\n";
-	    --curlvl;
+        QString indent = base + step.repeated(curlvl-1);
+        res << indent + step + "</li>\n";
+        res << indent + "</ol>\n";
+        --curlvl;
     }
     return res.join("");
 }
@@ -224,12 +234,12 @@ QString NavProcessor::BuildLandmarks(const QList<NavLandmarkEntry> & landlist)
     QString base = step.repeated(2);
     res << "\n" + base + "<ol>\n";
     foreach(NavLandmarkEntry le, landlist) {
-	    QString etype = le.etype;
-	    QString href = Utility::URLEncodePath(le.href);
-	    QString title = Utility::EncodeXML(le.title);
-	    res << base + step + "<li>\n";
-	    res << base + step.repeated(2) + "<a epub:type=\"" + etype + "\" href=\"" + href + "\">" + title + "</a>\n";
-	    res << base + step + "</li>\n";
+        QString etype = le.etype;
+        QString href = Utility::URLEncodePath(le.href);
+        QString title = Utility::EncodeXML(le.title);
+        res << base + step + "<li>\n";
+        res << base + step.repeated(2) + "<a epub:type=\"" + etype + "\" href=\"" + href + "\">" + title + "</a>\n";
+        res << base + step + "</li>\n";
     }
     res << base + "</ol>\n";
     return res.join("");
@@ -243,9 +253,9 @@ QString NavProcessor::BuildPageList(const QList<NavPageListEntry> & pagelist)
     QString base = step.repeated(3);
     res << "\n" + base + "<ol>\n";
     foreach(NavPageListEntry pe, pagelist) {
-	    QString pagename = Utility::EncodeXML(pe.pagename);
-	    QString href = Utility::URLEncodePath(pe.href);
-	    res << base + step + "<li><a href=\"" + href + "\">" + pagename + "</a></li>\n";
+        QString pagename = Utility::EncodeXML(pe.pagename);
+        QString href = Utility::URLEncodePath(pe.href);
+        res << base + step + "<li><a href=\"" + href + "\">" + pagename + "</a></li>\n";
     }
     res << base + "</ol>\n";
     return res.join("");
@@ -255,28 +265,28 @@ QString NavProcessor::BuildPageList(const QList<NavPageListEntry> & pagelist)
 void NavProcessor::SetPageList(const QList<NavPageListEntry> & pagelist)
 {
     if (!m_NavResource) return; 
-	
+        
     // QWriteLocker locker(&m_NavResource->GetLock());
     GumboInterface gi = GumboInterface(m_NavResource->GetText(), "3.0");
     gi.parse();
     const QList<GumboNode*> nav_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_NAV);
     for (int i = 0; i < nav_nodes.length(); ++i) {
-	    GumboNode* node = nav_nodes.at(i);
+        GumboNode* node = nav_nodes.at(i);
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "epub:type");
-	    if (attr && (QString::fromUtf8(attr->value) == "page-list")) {
+        if (attr && (QString::fromUtf8(attr->value) == "page-list")) {
             QList<GumboTag> tags = QList<GumboTag>() << GUMBO_TAG_OL;
-	        const QList<GumboNode*> ol_nodes = gi.get_nodes_with_tags(node, tags);
-	        for (int j = 0; j < ol_nodes.length(); ++j) {
-		        GumboNode * olnode = ol_nodes.at(j);
-		        GumboNode * parent = node;
-		        gumbo_remove_from_parent(olnode);
-		        gumbo_destroy_node(olnode);
-		        GumboNode * placeholder = gumbo_create_text_node(GUMBO_NODE_COMMENT,"SIGIL_REPLACE_PAGELIST_HERE");
-		        gumbo_append_node(parent, placeholder);
-		        break;
-	        }
-	        break;
-	    }
+            const QList<GumboNode*> ol_nodes = gi.get_nodes_with_tags(node, tags);
+            for (int j = 0; j < ol_nodes.length(); ++j) {
+                GumboNode * olnode = ol_nodes.at(j);
+                GumboNode * parent = node;
+                gumbo_remove_from_parent(olnode);
+                gumbo_destroy_node(olnode);
+                GumboNode * placeholder = gumbo_create_text_node(GUMBO_NODE_COMMENT,"SIGIL_REPLACE_PAGELIST_HERE");
+                gumbo_append_node(parent, placeholder);
+                break;
+            }
+            break;
+        }
     }
     QString nav_data = gi.getxhtml();
     QString page_xml = BuildPageList(pagelist);
@@ -284,7 +294,7 @@ void NavProcessor::SetPageList(const QList<NavPageListEntry> & pagelist)
                        QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption);
     QRegularExpressionMatch mo = pagelist_placeholder.match(nav_data);
     if (mo.hasMatch()) {
-	    nav_data.replace(mo.capturedStart(), mo.capturedLength(), page_xml);
+        nav_data.replace(mo.capturedStart(), mo.capturedLength(), page_xml);
     }
     m_NavResource->SetText(nav_data);
 }
@@ -293,28 +303,28 @@ void NavProcessor::SetPageList(const QList<NavPageListEntry> & pagelist)
 void NavProcessor::SetLandmarks(const QList<NavLandmarkEntry> & landlist)
 {
     if (!m_NavResource) return; 
-	
+        
     // QWriteLocker locker(&m_NavResource->GetLock());
     GumboInterface gi = GumboInterface(m_NavResource->GetText(), "3.0");
     gi.parse();
     const QList<GumboNode*> nav_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_NAV);
     for (int i = 0; i < nav_nodes.length(); ++i) {
-	    GumboNode* node = nav_nodes.at(i);
-	    GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "epub:type");
-	    if (attr && (QString::fromUtf8(attr->value) == "landmarks")) {
+        GumboNode* node = nav_nodes.at(i);
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "epub:type");
+        if (attr && (QString::fromUtf8(attr->value) == "landmarks")) {
             QList<GumboTag> tags = QList<GumboTag>() << GUMBO_TAG_OL;
-	        const QList<GumboNode*> ol_nodes = gi.get_nodes_with_tags(node, tags);
-	        for (int j = 0; j < ol_nodes.length(); ++j) {
-	            GumboNode * olnode = ol_nodes.at(j);
-		        GumboNode * parent = node;
-		        gumbo_remove_from_parent(olnode);
-		        gumbo_destroy_node(olnode);
-		        GumboNode * placeholder = gumbo_create_text_node(GUMBO_NODE_COMMENT,"SIGIL_REPLACE_LANDMARKS_HERE");
-		        gumbo_append_node(parent, placeholder);
-		        break;
-	        }
-	        break;
-	    }
+            const QList<GumboNode*> ol_nodes = gi.get_nodes_with_tags(node, tags);
+            for (int j = 0; j < ol_nodes.length(); ++j) {
+                GumboNode * olnode = ol_nodes.at(j);
+                GumboNode * parent = node;
+                gumbo_remove_from_parent(olnode);
+                gumbo_destroy_node(olnode);
+                GumboNode * placeholder = gumbo_create_text_node(GUMBO_NODE_COMMENT,"SIGIL_REPLACE_LANDMARKS_HERE");
+                gumbo_append_node(parent, placeholder);
+                break;
+            }
+            break;
+        }
     }
     QString nav_data = gi.getxhtml();
     QString land_xml = BuildLandmarks(landlist);
@@ -322,7 +332,7 @@ void NavProcessor::SetLandmarks(const QList<NavLandmarkEntry> & landlist)
                        QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption);
     QRegularExpressionMatch mo = landmarks_placeholder.match(nav_data);
     if (mo.hasMatch()) {
-	    nav_data.replace(mo.capturedStart(), mo.capturedLength(), land_xml);
+        nav_data.replace(mo.capturedStart(), mo.capturedLength(), land_xml);
     }
     m_NavResource->SetText(nav_data);
 }
@@ -332,28 +342,28 @@ void NavProcessor::SetLandmarks(const QList<NavLandmarkEntry> & landlist)
 void NavProcessor::SetTOC(const QList<NavTOCEntry> & toclist)
 {
     if (!m_NavResource) return; 
-	
+        
     // QWriteLocker locker(&m_NavResource->GetLock());
     GumboInterface gi = GumboInterface(m_NavResource->GetText(), "3.0");
     gi.parse();
     const QList<GumboNode*> nav_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_NAV);
     for (int i = 0; i < nav_nodes.length(); ++i) {
-	    GumboNode* node = nav_nodes.at(i);
-	    GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "epub:type");
-	    if (attr && (QString::fromUtf8(attr->value) == "toc")) {
+        GumboNode* node = nav_nodes.at(i);
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "epub:type");
+        if (attr && (QString::fromUtf8(attr->value) == "toc")) {
             QList<GumboTag> tags = QList<GumboTag>()  << GUMBO_TAG_OL;
-	        const QList<GumboNode*> ol_nodes = gi.get_nodes_with_tags(node, tags);
-	        for (int j = 0; j < ol_nodes.length(); ++j) {
-	            GumboNode * olnode = ol_nodes.at(j);
-		        GumboNode * parent = node;
-		        gumbo_remove_from_parent(olnode);
-		        gumbo_destroy_node(olnode);
-		        GumboNode * placeholder = gumbo_create_text_node(GUMBO_NODE_COMMENT,"SIGIL_REPLACE_TOC_HERE");
-		        gumbo_append_node(parent, placeholder);
-		        break;
-	        }
-	    break;
-	    }
+            const QList<GumboNode*> ol_nodes = gi.get_nodes_with_tags(node, tags);
+            for (int j = 0; j < ol_nodes.length(); ++j) {
+                GumboNode * olnode = ol_nodes.at(j);
+                GumboNode * parent = node;
+                gumbo_remove_from_parent(olnode);
+                gumbo_destroy_node(olnode);
+                GumboNode * placeholder = gumbo_create_text_node(GUMBO_NODE_COMMENT,"SIGIL_REPLACE_TOC_HERE");
+                gumbo_append_node(parent, placeholder);
+                break;
+            }
+            break;
+        }
     }
     QString nav_data = gi.getxhtml();
     QString toc_xml = BuildTOC(toclist);
@@ -361,7 +371,7 @@ void NavProcessor::SetTOC(const QList<NavTOCEntry> & toclist)
                        QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption);
     QRegularExpressionMatch mo = toc_placeholder.match(nav_data);
     if (mo.hasMatch()) {
-	    nav_data.replace(mo.capturedStart(), mo.capturedLength(), toc_xml);
+        nav_data.replace(mo.capturedStart(), mo.capturedLength(), toc_xml);
     }
     m_NavResource->SetText(nav_data);
 }
@@ -449,5 +459,52 @@ QHash <QString, QString> NavProcessor::GetLandmarkNameForPaths()
         semantic_types[parts.at(0)] = title;
     }
     return semantic_types;
+}
+
+bool NavProcessor::GenerateTOCFromBookContents(const Book* book)
+{
+    QString prev_xml = BuildTOC(GetTOC());
+    QWriteLocker locker(&m_NavResource->GetLock());
+    bool is_changed = false;
+
+    QList<HTMLResource*> htmlresources = book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(true);
+    const QList<Headings::Heading> headings = Headings::MakeHeadingHeirarchy(Headings::GetHeadingList(htmlresources));
+    QList<NavTOCEntry> toclist;
+    foreach(const Headings::Heading & heading, headings) {
+        toclist.append(HeadingWalker(heading, 1));
+    }
+    QString new_xml = BuildTOC(toclist);
+    is_changed = new_xml != prev_xml;
+    SetTOC(toclist);
+    return is_changed;
+}
+
+
+QList<NavTOCEntry>  NavProcessor::HeadingWalker(const Headings::Heading & heading, int lvl)
+{
+    QList<NavTOCEntry> toclist;
+    QString nav_file = m_NavResource->GetRelativePathToOEBPS();
+    QString heading_file = heading.resource_file->GetRelativePathToOEBPS();
+    if (heading.include_in_toc && (nav_file != heading_file)) {
+        NavTOCEntry te;
+        te.lvl = lvl;
+        te.title = heading.text;
+        QString id_to_use = heading.id;
+        // If this heading appears right after a section break,
+        // then it "represents" and links to its file; otherwise,
+        // we link to the heading element directly
+
+        // Prevent links back to to the nav itself form the nav
+        if (heading.at_file_start) {
+            te.href = "../" + heading_file;
+        } else {
+            te.href = "../" + heading_file + "#" + id_to_use;
+        }
+        toclist.append(te);
+    }
+    foreach(Headings::Heading child_heading, heading.children) {
+        toclist.append(HeadingWalker(child_heading, lvl+1));
+    }
+    return toclist;
 }
 
