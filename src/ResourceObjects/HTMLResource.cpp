@@ -118,7 +118,8 @@ QStringList HTMLResource::GetManifestProperties() const
     props.removeDuplicates();
     if (props.contains("math")) properties.append("mathml");
     if (props.contains("svg")) properties.append("svg");
-    if (props.contains("nav")) properties.append("nav");
+    // nav as a property should only be used on the nav document and no where else
+    // if (props.contains("nav")) properties.append("nav");
     if (props.contains("script")) properties.append("scripted");
     if (props.contains("epub:switch")) properties.append("switch");
     if (props.contains("remote-resources")) properties.append("remote-resources");
