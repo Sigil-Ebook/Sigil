@@ -85,6 +85,8 @@ private:
     QList<NavTOCEntry> MakeHierarchy(const QList<NavTOCEntry> & toclist);
     void AddChildEntry(NavTOCEntry &parent, NavTOCEntry new_child);
 
+    QString ConvertHREFToOEBPSRelative(const QString & href);
+    QString ConvertOEBPSToNavRelative(const QString & href);
     
     HTMLResource * m_NavResource;
 };
