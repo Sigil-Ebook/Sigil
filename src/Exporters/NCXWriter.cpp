@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -32,17 +33,17 @@ NCXWriter::NCXWriter(const Book *book, QIODevice &device)
     XMLWriter(book, device),
     m_Headings(Headings::MakeHeadingHeirarchy(
                  Headings::GetHeadingList(book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(true)))),
-    m_NCXRootEntry(NCXModel::NCXEntry()),
+    m_TOCRootEntry(TOCModel::TOCEntry()),
     m_version(book->GetConstOPF()->GetEpubVersion())
     
 {
 }
 
 
-NCXWriter::NCXWriter(const Book *book, QIODevice &device, NCXModel::NCXEntry ncx_root_entry)
+NCXWriter::NCXWriter(const Book *book, QIODevice &device, TOCModel::TOCEntry toc_root_entry)
     :
     XMLWriter(book, device),
-    m_NCXRootEntry(ncx_root_entry),
+    m_TOCRootEntry(toc_root_entry),
     m_version(book->GetConstOPF()->GetEpubVersion())
 
 {
@@ -51,7 +52,7 @@ NCXWriter::NCXWriter(const Book *book, QIODevice &device, NCXModel::NCXEntry ncx
 
 void NCXWriter::WriteXMLFromHeadings()
 {
-    m_NCXRootEntry = ConvertHeadingsToNCX();
+    m_TOCRootEntry = ConvertHeadingsToTOC();
     WriteXML();
 }
 
@@ -115,10 +116,10 @@ void NCXWriter::WriteNavMap()
     int play_order = 1;
     m_Writer->writeStartElement("navMap");
 
-    if (!m_NCXRootEntry.children.isEmpty()) {
+    if (!m_TOCRootEntry.children.isEmpty()) {
         // The NavMap is written recursively;
         // WriteNavPoint is called for each entry in the tree
-        foreach(NCXModel::NCXEntry entry, m_NCXRootEntry.children) {
+        foreach(TOCModel::TOCEntry entry, m_TOCRootEntry.children) {
             WriteNavPoint(entry, play_order);
         }
     } else {
@@ -148,22 +149,22 @@ void NCXWriter::WriteFallbackNavPoint()
 }
 
 
-NCXModel::NCXEntry NCXWriter::ConvertHeadingsToNCX()
+TOCModel::TOCEntry NCXWriter::ConvertHeadingsToTOC()
 {
-    NCXModel::NCXEntry ncx_root;
+    TOCModel::TOCEntry toc_root;
     foreach(const Headings::Heading & heading, m_Headings) {
-        ncx_root.children.append(ConvertHeadingWalker(heading));
+        toc_root.children.append(ConvertHeadingWalker(heading));
     }
-    return ncx_root;
+    return toc_root;
 }
 
 
-NCXModel::NCXEntry NCXWriter::ConvertHeadingWalker(const Headings::Heading &heading)
+TOCModel::TOCEntry NCXWriter::ConvertHeadingWalker(const Headings::Heading &heading)
 {
-    NCXModel::NCXEntry ncx_child;
+    TOCModel::TOCEntry toc_child;
 
     if (heading.include_in_toc) {
-        ncx_child.text = heading.text;
+        toc_child.text = heading.text;
         QString heading_file = heading.resource_file->GetRelativePathToOEBPS();
         QString id_to_use = heading.id;
 
@@ -171,22 +172,22 @@ NCXModel::NCXEntry NCXWriter::ConvertHeadingWalker(const Headings::Heading &head
         // then it "represents" and links to its file; otherwise,
         // we link to the heading element directly
         if (heading.at_file_start) {
-            ncx_child.target = Utility::URLEncodePath(heading_file);
+            toc_child.target = Utility::URLEncodePath(heading_file);
         } else {
             QString path = heading_file + "#" + id_to_use;
-            ncx_child.target = Utility::URLEncodePath(path);
+            toc_child.target = Utility::URLEncodePath(path);
         }
     }
 
     foreach(Headings::Heading child_heading, heading.children) {
-        ncx_child.children.append(ConvertHeadingWalker(child_heading));
+        toc_child.children.append(ConvertHeadingWalker(child_heading));
     }
-    return ncx_child;
+    return toc_child;
 }
 
 
 
-void NCXWriter::WriteNavPoint(const NCXModel::NCXEntry &entry, int &play_order)
+void NCXWriter::WriteNavPoint(const TOCModel::TOCEntry &entry, int &play_order)
 {
     m_Writer->writeStartElement("navPoint");
     m_Writer->writeAttribute("id", QString("navPoint-%1").arg(play_order));
@@ -198,7 +199,7 @@ void NCXWriter::WriteNavPoint(const NCXModel::NCXEntry &entry, int &play_order)
     m_Writer->writeEndElement();
     m_Writer->writeEmptyElement("content");
     m_Writer->writeAttribute("src", entry.target);
-    foreach(NCXModel::NCXEntry child, entry.children) {
+    foreach(TOCModel::TOCEntry child, entry.children) {
         WriteNavPoint(child, play_order);
     }
     m_Writer->writeEndElement();
@@ -208,7 +209,7 @@ void NCXWriter::WriteNavPoint(const NCXModel::NCXEntry &entry, int &play_order)
 int NCXWriter::GetTOCDepth() const
 {
     int max_depth = 0;
-    foreach(NCXModel::NCXEntry entry, m_NCXRootEntry.children) {
+    foreach(TOCModel::TOCEntry entry, m_TOCRootEntry.children) {
         int current_depth = 0;
         TOCDepthWalker(entry , current_depth, max_depth);
     }
@@ -216,7 +217,7 @@ int NCXWriter::GetTOCDepth() const
 }
 
 
-void NCXWriter::TOCDepthWalker(const NCXModel::NCXEntry &entry , int &current_depth, int &max_depth) const
+void NCXWriter::TOCDepthWalker(const TOCModel::TOCEntry &entry , int &current_depth, int &max_depth) const
 {
     current_depth++;
 
@@ -224,7 +225,7 @@ void NCXWriter::TOCDepthWalker(const NCXModel::NCXEntry &entry , int &current_de
         max_depth = current_depth;
     }
 
-    foreach(NCXModel::NCXEntry child_entry , entry.children) {
+    foreach(TOCModel::TOCEntry child_entry , entry.children) {
         int new_current_depth = current_depth;
         TOCDepthWalker(child_entry, new_current_depth, max_depth);
     }

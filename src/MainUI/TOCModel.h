@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016 Kevin B Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -20,8 +21,8 @@
 *************************************************************************/
 
 #pragma once
-#ifndef NCXMODEL_H
-#define NCXMODEL_H
+#ifndef TOCMODEL_H
+#define TOCMODEL_H
 
 #include <QtCore/QFutureWatcher>
 #include <QtCore/QMutex>
@@ -41,7 +42,7 @@ class QUrl;
  * A hierarchical model for the NCX structure.
  * Meant to be used with a Qt View class (like QTreeView).
  */
-class NCXModel : public QStandardItemModel
+class TOCModel : public QStandardItemModel
 {
     Q_OBJECT
 
@@ -52,7 +53,7 @@ public:
      *
      * @param parent The model's parent.
      */
-    NCXModel(QObject *parent = 0);
+    TOCModel(QObject *parent = 0);
 
     /**
      * Sets the model's book.
@@ -84,7 +85,7 @@ public:
     /**
      * Represents a single entry in the NCX TOC.
      */
-    struct NCXEntry {
+    struct TOCEntry {
         /**
          * The entry text that will be presented to the user.
          */
@@ -99,7 +100,7 @@ public:
         /**
          * This entry's sub-entries (its children).
          */
-        QList<NCXEntry> children;
+        QList<TOCEntry> children;
 
         /**
          * If \c true, then this is an "invisible" root NCXEntry;
@@ -107,19 +108,17 @@ public:
          */
         bool is_root;
 
-        NCXEntry() {
+        TOCEntry() {
             is_root = false;
         }
     };
 
     /**
-     * Reads the NCX file, parses it and returns the root NCX
-     * entry (that entry is the tree start). It's basically
-     * just a function composition of ParseNCX and GetNCXText.
-     *
-     * @return The root NCX entry.
+     * Reads the NCX file or Nav file, parses it and returns the root TOC
+     * entry (that entry is the tree start). 
+     * @return The root TOCEntry.
      */
-    NCXEntry GetRootNCXEntry();
+    TOCEntry GetRootTOCEntry();
 
 signals:
     void RefreshDone();
@@ -143,12 +142,12 @@ private:
     QString GetNCXText();
 
     /**
-     * Parses the NCX source and returns the root NCX entry.
+     * Parses the NCX source and returns the root TOC entry.
      *
      * @param ncx_source The NCX source code.
-     * @return The root NCX entry.
+     * @return The root TOCEntry.
      */
-    static NCXEntry ParseNCX(const QString &ncx_source);
+    static TOCEntry ParseNCX(const QString &ncx_source);
 
     /**
      * Parses an NCX navPoint element. Calls itself recursively
@@ -157,20 +156,20 @@ private:
      * @param ncx The QXmlStreamReader reading an NCX file positioned
      *            on a navPoint element.
      */
-    static NCXEntry ParseNavPoint(QXmlStreamReader &ncx);
+    static TOCEntry ParseNavPoint(QXmlStreamReader &ncx);
 
     /**
-     * Builds the actual display model from the tree of NCXEntries.
+     * Builds the actual display model from the tree of TOCEntries.
      *
-     * @param root_entry The root NCX entry.
+     * @param root_entry The root TOC entry.
      */
-    void BuildModel(const NCXEntry &root_entry);
+    void BuildModel(const TOCEntry &root_entry);
 
     /**
      * Adds the provided entry as an item child to the provided parent.
      * Calls itself recursively if the entry has children of it's own.
      */
-    static void AddEntryToParentItem(const NCXEntry &entry, QStandardItem *parent);
+    static void AddEntryToParentItem(const TOCEntry &entry, QStandardItem *parent);
 
 
     ///////////////////////////////
@@ -196,8 +195,8 @@ private:
      * Watches the completion of the GetRootNCXEntry func
      * and signals the RefreshEnd func when the root NCX entry is ready.
      */
-    QFutureWatcher<NCXEntry> *m_NcxRootWatcher;
+    QFutureWatcher<TOCEntry> *m_TocRootWatcher;
 };
 
 
-#endif // NCXMODEL_H
+#endif // TOCMODEL_H

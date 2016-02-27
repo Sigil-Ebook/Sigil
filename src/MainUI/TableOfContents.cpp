@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -43,7 +44,7 @@ TableOfContents::TableOfContents(QWidget *parent)
     m_MainWidget(new QWidget(this)),
     m_Layout(new QVBoxLayout(m_MainWidget)),
     m_TreeView(new QTreeView(m_MainWidget)),
-    m_NCXModel(new NCXModel(this))
+    m_TOCModel(new TOCModel(this))
 {
     m_Layout->setContentsMargins(0, 0, 0, 0);
 #ifdef Q_OS_MAC
@@ -57,7 +58,7 @@ TableOfContents::TableOfContents(QWidget *parent)
     SetupTreeView();
     connect(m_TreeView, SIGNAL(clicked(const QModelIndex &)), this, SLOT(ItemClickedHandler(const QModelIndex &)));
     connect(&m_RefreshTimer, SIGNAL(timeout()), this, SLOT(Refresh()));
-    connect(m_NCXModel, SIGNAL(RefreshDone()), m_TreeView, SLOT(expandAll()));
+    connect(m_TOCModel, SIGNAL(RefreshDone()), m_TreeView, SLOT(expandAll()));
 }
 
 void TableOfContents::showEvent(QShowEvent *event)
@@ -69,14 +70,14 @@ void TableOfContents::showEvent(QShowEvent *event)
 void TableOfContents::SetBook(QSharedPointer<Book> book)
 {
     m_Book = book;
-    m_NCXModel->SetBook(book);
+    m_TOCModel->SetBook(book);
     connect(m_Book->GetNCX(), SIGNAL(Modified()), this, SLOT(StartRefreshDelay()));
     Refresh();
 }
 
 void TableOfContents::Refresh()
 {
-    m_NCXModel->Refresh();
+    m_TOCModel->Refresh();
 }
 
 void TableOfContents::StartRefreshDelay()
@@ -84,18 +85,18 @@ void TableOfContents::StartRefreshDelay()
     // Repeatedly calling start() will re-start the timer
     // and that's exactly what we want.
     // We want the timer to fire REFRESH_DELAY miliseconds
-    // after the user has stopped typing up the NCX.
+    // after the user has stopped typing up the Nav/NCX.
     m_RefreshTimer.start();
 }
 
 void TableOfContents::RenumberTOCContents()
 {
-    m_Book->GetNCX()->GenerateNCXFromTOCContents(m_Book.data(), m_NCXModel);
+    m_Book->GetNCX()->GenerateNCXFromTOCContents(m_Book.data(), m_TOCModel);
 }
 
 void TableOfContents::ItemClickedHandler(const QModelIndex &index)
 {
-    QUrl url         = m_NCXModel->GetUrlForIndex(index);
+    QUrl url         = m_TOCModel->GetUrlForIndex(index);
     QString filename = QFileInfo(url.path()).fileName();
 
     int line = -1;
@@ -116,9 +117,9 @@ void TableOfContents::ItemClickedHandler(const QModelIndex &index)
     }
 }
 
-NCXModel::NCXEntry TableOfContents::GetRootEntry()
+TOCModel::TOCEntry TableOfContents::GetRootEntry()
 {
-    return m_NCXModel->GetRootNCXEntry();
+    return m_TOCModel->GetRootTOCEntry();
 }
 
 void TableOfContents::SetupTreeView()
@@ -132,7 +133,7 @@ void TableOfContents::SetupTreeView()
     m_TreeView->setDropIndicatorShown(false);
     m_TreeView->setDragDropMode(QAbstractItemView::NoDragDrop);
     m_TreeView->setAnimated(true);
-    m_TreeView->setModel(m_NCXModel);
+    m_TreeView->setModel(m_TOCModel);
     m_TreeView->setIndentation(COLUMN_INDENTATION);
     m_TreeView->setHeaderHidden(true);
 }

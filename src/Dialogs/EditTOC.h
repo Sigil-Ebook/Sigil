@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2013 Dave Heiland
 **
 **  This file is part of Sigil.
@@ -30,7 +31,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenu>
 
-#include "MainUI/NCXModel.h"
+#include "MainUI/TOCModel.h"
 #include "BookManipulation/Headings.h"
 #include "ResourceObjects/NCXResource.h"
 
@@ -74,11 +75,11 @@ private:
     void AddEntry(bool above);
     QModelIndex CheckSelection(int row);
 
-    NCXModel::NCXEntry ConvertTableToEntries();
-    NCXModel::NCXEntry ConvertItemToEntry(QStandardItem *item);
+    TOCModel::TOCEntry ConvertTableToEntries();
+    TOCModel::TOCEntry ConvertItemToEntry(QStandardItem *item);
 
-    void BuildModel(const NCXModel::NCXEntry &root_entry);
-    void AddEntryToParentItem(const NCXModel::NCXEntry &entry, QStandardItem *parent, int level);
+    void BuildModel(const TOCModel::TOCEntry &root_entry);
+    void AddEntryToParentItem(const TOCModel::TOCEntry &entry, QStandardItem *parent, int level);
 
     void ExpandChildren(QStandardItem *item);
 
@@ -113,7 +114,7 @@ private:
     QAction *m_MoveDown;
     QAction *m_MoveUp;
 
-    NCXModel *m_NCXModel;
+    TOCModel *m_TOCModel;
 
     Ui::EditTOC ui;
 };

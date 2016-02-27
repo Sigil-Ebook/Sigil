@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -28,7 +29,7 @@
 
 #include "BookManipulation/Book.h"
 #include "MainUI/MainWindow.h"
-#include "MainUI/NCXModel.h"
+#include "MainUI/TOCModel.h"
 
 class QTimer;
 class QTreeView;
@@ -78,7 +79,7 @@ public slots:
      */
     void RenumberTOCContents();
 
-    NCXModel::NCXEntry GetRootEntry();
+    TOCModel::TOCEntry GetRootEntry();
 
 private slots:
 
@@ -149,7 +150,7 @@ private:
     /**
      * The data model used to feed the tree view.
      */
-    NCXModel *m_NCXModel;
+    TOCModel *m_TOCModel;
 };
 
 #endif // TABLEOFCONTENTS_H

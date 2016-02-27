@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -132,24 +133,17 @@ bool NCXResource::GenerateNCXFromBookContents(const Book *book)
 }
 
 
-void NCXResource::GenerateNCXFromTOCContents(const Book *book, NCXModel *ncx_model)
+void NCXResource::GenerateNCXFromTOCContents(const Book *book, TOCModel *toc_model)
 {
-    //    QByteArray raw_ncx;
-    //    QBuffer buffer(&raw_ncx);
-    //    buffer.open(QIODevice::WriteOnly);
-    //    NCXWriter ncx(book, buffer, ncx_model.GetRootNCXEntry());
-    //    ncx.WriteXML();
-    //    buffer.close();
-    //    SetText(CleanSource::ProcessXML(QString::fromUtf8(raw_ncx.constData(), raw_ncx.size()), "application/x-dtbncx+xml"));
-    GenerateNCXFromTOCEntries(book, ncx_model->GetRootNCXEntry());
+    GenerateNCXFromTOCEntries(book, toc_model->GetRootTOCEntry());
 }
 
-void NCXResource::GenerateNCXFromTOCEntries(const Book *book, NCXModel::NCXEntry ncx_root_entry)
+void NCXResource::GenerateNCXFromTOCEntries(const Book *book, TOCModel::TOCEntry toc_root_entry)
 {
     QByteArray raw_ncx;
     QBuffer buffer(&raw_ncx);
     buffer.open(QIODevice::WriteOnly);
-    NCXWriter ncx(book, buffer, ncx_root_entry);
+    NCXWriter ncx(book, buffer, toc_root_entry);
     ncx.WriteXML();
     buffer.close();
     SetText(CleanSource::ProcessXML(QString::fromUtf8(raw_ncx.constData(), raw_ncx.size()), "application/x-dtbncx+xml"));

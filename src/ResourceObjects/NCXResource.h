@@ -23,7 +23,7 @@
 #ifndef NCXRESOURCE_H
 #define NCXRESOURCE_H
 
-#include "MainUI/NCXModel.h"
+#include "MainUI/TOCModel.h"
 #include "ResourceObjects/XMLResource.h"
 
 class Book;
@@ -52,8 +52,8 @@ public:
     void SetMainID(const QString &main_id);
 
     bool GenerateNCXFromBookContents(const Book *book);
-    void GenerateNCXFromTOCContents(const Book *book, NCXModel *ncx_model);
-    void GenerateNCXFromTOCEntries(const Book *book, NCXModel::NCXEntry ncx_root_entry);
+    void GenerateNCXFromTOCContents(const Book *book, TOCModel *toc_model);
+    void GenerateNCXFromTOCEntries(const Book *book, TOCModel::TOCEntry toc_root_entry);
 
     QString GetRelativePathToRoot() const;
 

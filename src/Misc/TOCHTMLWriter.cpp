@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
@@ -27,10 +28,10 @@
 
 const QString SGC_TOC_CSS_FILENAME = "sgc-toc.css";
 
-TOCHTMLWriter::TOCHTMLWriter(NCXModel::NCXEntry ncx_root_entry)
+TOCHTMLWriter::TOCHTMLWriter(TOCModel::TOCEntry toc_root_entry)
     :
     m_Writer(0),
-    m_NCXRootEntry(ncx_root_entry)
+    m_TOCRootEntry(toc_root_entry)
 {
 }
 
@@ -105,12 +106,12 @@ void TOCHTMLWriter::WriteBody()
     m_Writer->writeEndElement();
     m_Writer->writeCharacters("\n");
     // Entries
-    WriteEntries(m_NCXRootEntry);
+    WriteEntries(m_TOCRootEntry);
 }
 
-void TOCHTMLWriter::WriteEntries(NCXModel::NCXEntry parent_entry, int level)
+void TOCHTMLWriter::WriteEntries(TOCModel::TOCEntry parent_entry, int level)
 {
-    foreach(NCXModel::NCXEntry entry, parent_entry.children) {
+    foreach(TOCModel::TOCEntry entry, parent_entry.children) {
         m_Writer->writeStartElement("div");
         m_Writer->writeAttribute("class", "sgc-toc-level-" % QString::number(level));
         m_Writer->writeCharacters("\n");

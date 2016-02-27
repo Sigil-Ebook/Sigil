@@ -23,7 +23,7 @@
 #ifndef TOCHTMLWRITER_H
 #define TOCHTMLWRITER_H
 
-#include "MainUI/NCXModel.h"
+#include "MainUI/TOCModel.h"
 
 class QXmlStreamWriter;
 
@@ -33,7 +33,7 @@ class QXmlStreamWriter;
 class TOCHTMLWriter
 {
 public:
-    TOCHTMLWriter(NCXModel::NCXEntry ncx_root_entry);
+    TOCHTMLWriter(TOCModel::TOCEntry toc_root_entry);
     ~TOCHTMLWriter();
 
     QString WriteXML(const QString &version);
@@ -41,11 +41,11 @@ public:
 private:
     void WriteHead();
     void WriteBody();
-    void WriteEntries(NCXModel::NCXEntry entry, int level = 1);
+    void WriteEntries(TOCModel::TOCEntry entry, int level = 1);
 
     QXmlStreamWriter *m_Writer;
 
-    NCXModel::NCXEntry m_NCXRootEntry;
+    TOCModel::TOCEntry m_TOCRootEntry;
 };
 
 #endif // TOCHTMLWRITER_H

@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2013 Dave Heiland
 **
 **  This file is part of Sigil.
@@ -40,7 +41,7 @@ EditTOC::EditTOC(QSharedPointer<Book> book, QList<Resource *> resources, QWidget
     m_Resources(resources),
     m_TableOfContents(new QStandardItemModel(this)),
     m_ContextMenu(new QMenu(this)),
-    m_NCXModel(new NCXModel(this))
+    m_TOCModel(new TOCModel(this))
 {
     ui.setupUi(this);
     ui.TOCTree->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -67,9 +68,9 @@ void EditTOC::UpdateTreeViewDisplay()
 
 void EditTOC::CreateTOCModel()
 {
-    m_NCXModel->SetBook(m_Book);
+    m_TOCModel->SetBook(m_Book);
 
-    NCXModel::NCXEntry ncx_entry = m_NCXModel->GetRootNCXEntry();
+    TOCModel::TOCEntry toc_entry = m_TOCModel->GetRootTOCEntry();
 
     m_TableOfContents->clear();
     QStringList header;
@@ -77,7 +78,7 @@ void EditTOC::CreateTOCModel()
     header.append(tr("Target"));
     m_TableOfContents->setHorizontalHeaderLabels(header);
 
-    BuildModel(ncx_entry);
+    BuildModel(toc_entry);
 }
 
 void EditTOC::Save()
@@ -85,14 +86,14 @@ void EditTOC::Save()
     m_Book->GetNCX()->GenerateNCXFromTOCEntries(m_Book.data(), ConvertTableToEntries());
 }
 
-NCXModel::NCXEntry EditTOC::ConvertTableToEntries()
+TOCModel::TOCEntry EditTOC::ConvertTableToEntries()
 {
     return ConvertItemToEntry(m_TableOfContents->invisibleRootItem());
 }
 
-NCXModel::NCXEntry EditTOC::ConvertItemToEntry(QStandardItem *item)
+TOCModel::TOCEntry EditTOC::ConvertItemToEntry(QStandardItem *item)
 {
-    NCXModel::NCXEntry entry;
+    TOCModel::TOCEntry entry;
 
     if (item != m_TableOfContents->invisibleRootItem()) {
         entry.text = item->text();
@@ -480,14 +481,14 @@ bool EditTOC::eventFilter(QObject *obj, QEvent *event)
     return QDialog::eventFilter(obj, event);
 }
 
-void EditTOC::BuildModel(const NCXModel::NCXEntry &root_entry)
+void EditTOC::BuildModel(const TOCModel::TOCEntry &root_entry)
 {
-    foreach(const NCXModel::NCXEntry& child_entry, root_entry.children) {
+    foreach(const TOCModel::TOCEntry& child_entry, root_entry.children) {
         AddEntryToParentItem(child_entry, m_TableOfContents->invisibleRootItem(), 1);
     }
 }
 
-void EditTOC::AddEntryToParentItem(const NCXModel::NCXEntry &entry, QStandardItem *parent, int level)
+void EditTOC::AddEntryToParentItem(const TOCModel::TOCEntry &entry, QStandardItem *parent, int level)
 {
     Q_ASSERT(parent);
     QStandardItem *entry_item = new QStandardItem(entry.text);
@@ -497,7 +498,7 @@ void EditTOC::AddEntryToParentItem(const NCXModel::NCXEntry &entry, QStandardIte
     row_items << entry_item << target_item ;
     parent->appendRow(row_items);
 
-    foreach(const NCXModel::NCXEntry &child_entry, entry.children) {
+    foreach(const TOCModel::TOCEntry &child_entry, entry.children) {
         AddEntryToParentItem(child_entry, entry_item, level + 1);
     }
 }

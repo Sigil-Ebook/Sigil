@@ -25,7 +25,7 @@
 
 #include "BookManipulation/Headings.h"
 #include "Exporters/XMLWriter.h"
-#include "MainUI/NCXModel.h"
+#include "MainUI/TOCModel.h"
 
 /**
  * Writes the NCX file of the EPUB publication.
@@ -43,7 +43,7 @@ public:
      */
     NCXWriter(const Book *book, QIODevice &device);
 
-    NCXWriter(const Book *book, QIODevice &device, NCXModel::NCXEntry ncx_root_entry);
+    NCXWriter(const Book *book, QIODevice &device, TOCModel::TOCEntry toc_root_entry);
 
     void WriteXML();
 
@@ -77,7 +77,7 @@ private:
      * @param heading The heading being written.
      * @param play_order A reference to the general <navPoints> playorder.
      */
-    void WriteNavPoint(const NCXModel::NCXEntry &entry , int &play_order);
+    void WriteNavPoint(const TOCModel::TOCEntry &entry , int &play_order);
 
     /**
      * Returns the depth of the TOC tree
@@ -94,11 +94,11 @@ private:
      * @param current_depth A reference to the depth of the current sub-tree.
      * @param max_depth A reference to the current maximum depth.
      */
-    void TOCDepthWalker(const NCXModel::NCXEntry &entry, int &current_depth, int &max_depth) const;
+    void TOCDepthWalker(const TOCModel::TOCEntry &entry, int &current_depth, int &max_depth) const;
 
-    NCXModel::NCXEntry ConvertHeadingsToNCX();
+    TOCModel::TOCEntry ConvertHeadingsToTOC();
 
-    NCXModel::NCXEntry ConvertHeadingWalker(const Headings::Heading &heading);
+    TOCModel::TOCEntry ConvertHeadingWalker(const Headings::Heading &heading);
 
 
     ///////////////////////////////
@@ -110,7 +110,7 @@ private:
      */
     const QList<Headings::Heading> m_Headings;
 
-    NCXModel::NCXEntry m_NCXRootEntry;
+    TOCModel::TOCEntry m_TOCRootEntry;
 
     QString m_version;
 };

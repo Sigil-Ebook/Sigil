@@ -390,8 +390,8 @@ set( MAINUI_FILES
     MainUI/OPFModel.h
     MainUI/OPFModelItem.cpp
     MainUI/OPFModelItem.h
-    MainUI/NCXModel.cpp
-    MainUI/NCXModel.h
+    MainUI/TOCModel.cpp
+    MainUI/TOCModel.h
     MainUI/ValidationResultsView.cpp
     MainUI/ValidationResultsView.h
     )

@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -24,23 +25,24 @@
 #include <QtConcurrent/QtConcurrent>
 #include <QtWidgets/QApplication>
 
-#include "MainUI/NCXModel.h"
+#include "MainUI/TOCModel.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/NCXResource.h"
+#include "ResourceObjects/NavProcessor.h"
 #include "BookManipulation/CleanSource.h"
 
-NCXModel::NCXModel(QObject *parent)
+TOCModel::TOCModel(QObject *parent)
     :
     QStandardItemModel(parent),
     m_Book(NULL),
     m_RefreshInProgress(false),
-    m_NcxRootWatcher(new QFutureWatcher<NCXModel::NCXEntry>(this))
+    m_TocRootWatcher(new QFutureWatcher<TOCModel::TOCEntry>(this))
 {
-    connect(m_NcxRootWatcher, SIGNAL(finished()), this, SLOT(RefreshEnd()));
+    connect(m_TocRootWatcher, SIGNAL(finished()), this, SLOT(RefreshEnd()));
 }
 
 
-void NCXModel::SetBook(QSharedPointer<Book> book)
+void TOCModel::SetBook(QSharedPointer<Book> book)
 {
     {
         // We need to make sure we don't step on the toes of GetNCXText
@@ -51,7 +53,7 @@ void NCXModel::SetBook(QSharedPointer<Book> book)
 }
 
 
-QUrl NCXModel::GetUrlForIndex(const QModelIndex &index)
+QUrl TOCModel::GetUrlForIndex(const QModelIndex &index)
 {
     QStandardItem *item = itemFromIndex(index);
 
@@ -67,7 +69,7 @@ QUrl NCXModel::GetUrlForIndex(const QModelIndex &index)
 // This is because access to m_RefreshInProgress is not guarded.
 // We *could* guard it, but there's no need to call this func
 // from several threads so we just disallow it with the assert.
-void NCXModel::Refresh()
+void TOCModel::Refresh()
 {
     Q_ASSERT(QThread::currentThread() == QApplication::instance()->thread());
 
@@ -76,25 +78,25 @@ void NCXModel::Refresh()
     }
 
     m_RefreshInProgress = true;
-    m_NcxRootWatcher->setFuture(QtConcurrent::run(this, &NCXModel::GetRootNCXEntry));
+    m_TocRootWatcher->setFuture(QtConcurrent::run(this, &TOCModel::GetRootTOCEntry));
 }
 
 
-void NCXModel::RefreshEnd()
+void TOCModel::RefreshEnd()
 {
-    BuildModel(m_NcxRootWatcher->result());
+    BuildModel(m_TocRootWatcher->result());
     m_RefreshInProgress = false;
     emit RefreshDone();
 }
 
 
-NCXModel::NCXEntry NCXModel::GetRootNCXEntry()
+TOCModel::TOCEntry TOCModel::GetRootTOCEntry()
 {
     return ParseNCX(GetNCXText());
 }
 
 
-QString NCXModel::GetNCXText()
+QString TOCModel::GetNCXText()
 {
     QMutexLocker book_lock(&m_UsingBookMutex);
     NCXResource *ncx = m_Book->GetNCX();
@@ -103,11 +105,11 @@ QString NCXModel::GetNCXText()
 }
 
 
-NCXModel::NCXEntry NCXModel::ParseNCX(const QString &ncx_source)
+TOCModel::TOCEntry TOCModel::ParseNCX(const QString &ncx_source)
 {
     QXmlStreamReader ncx(ncx_source);
     bool in_navmap = false;
-    NCXModel::NCXEntry root;
+    TOCModel::TOCEntry root;
     root.is_root = true;
 
     while (!ncx.atEnd()) {
@@ -132,7 +134,7 @@ NCXModel::NCXEntry NCXModel::ParseNCX(const QString &ncx_source)
     }
 
     if (ncx.hasError()) {
-        NCXModel::NCXEntry empty;
+        TOCModel::TOCEntry empty;
         empty.is_root = true;
         return empty;
     }
@@ -141,9 +143,9 @@ NCXModel::NCXEntry NCXModel::ParseNCX(const QString &ncx_source)
 }
 
 
-NCXModel::NCXEntry NCXModel::ParseNavPoint(QXmlStreamReader &ncx)
+TOCModel::TOCEntry TOCModel::ParseNavPoint(QXmlStreamReader &ncx)
 {
-    NCXModel::NCXEntry current;
+    TOCModel::TOCEntry current;
 
     while (!ncx.atEnd()) {
         ncx.readNext();
@@ -173,16 +175,16 @@ NCXModel::NCXEntry NCXModel::ParseNavPoint(QXmlStreamReader &ncx)
 }
 
 
-void NCXModel::BuildModel(const NCXModel::NCXEntry &root_entry)
+void TOCModel::BuildModel(const TOCModel::TOCEntry &root_entry)
 {
     clear();
-    foreach(const NCXModel::NCXEntry & child_entry, root_entry.children) {
+    foreach(const TOCModel::TOCEntry & child_entry, root_entry.children) {
         AddEntryToParentItem(child_entry, invisibleRootItem());
     }
 }
 
 
-void NCXModel::AddEntryToParentItem(const NCXEntry &entry, QStandardItem *parent)
+void TOCModel::AddEntryToParentItem(const TOCEntry &entry, QStandardItem *parent)
 {
     Q_ASSERT(parent);
     QStandardItem *item = new QStandardItem(entry.text);
@@ -192,12 +194,7 @@ void NCXModel::AddEntryToParentItem(const NCXEntry &entry, QStandardItem *parent
     item->setDragEnabled(false);
     item->setDropEnabled(false);
     parent->appendRow(item);
-    foreach(const NCXModel::NCXEntry & child_entry, entry.children) {
+    foreach(const TOCModel::TOCEntry & child_entry, entry.children) {
         AddEntryToParentItem(child_entry, item);
     }
 }
-
-
-
-
-
