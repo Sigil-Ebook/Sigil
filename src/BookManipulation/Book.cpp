@@ -991,6 +991,14 @@ QStringList Book::GetStylesheetsInHTMLFile(HTMLResource *html_resource)
 
 Resource *Book::MergeResources(QList<Resource *> resources)
 {
+
+    // Make sure that the nav resource is not part of a merge
+    Resource* nav_resource = GetConstOPF()->GetNavResource();
+    if (nav_resource && resources.contains(nav_resource)) {
+        // return the nav_resource as the failed resource
+        return nav_resource;
+    }
+
     QProgressDialog progress(QObject::tr("Merging Files.."), 0, 0, resources.count(), QApplication::activeWindow());
     progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
     int progress_value = 0;
