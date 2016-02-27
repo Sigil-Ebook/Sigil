@@ -1237,24 +1237,28 @@ void BookBrowser::AddSemanticCode()
         AddSemantics addmeaning(Landmarks::instance()->GetCodeMap(), this);
         if (addmeaning.exec() == QDialog::Accepted) {
             codes = addmeaning.GetSelectedEntries();
-            QString new_code = codes.at(0);
-            NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
-            navproc.AddLandmarkCode(html_resource, new_code);
-            // if new_code is valid for guide as well, update the guide too
-            QString guide_code = Landmarks::instance()->GuideLandMapping(new_code);
-            if (!guide_code.isEmpty()) {
-                m_Book->GetOPF()->AddGuideSemanticCode(html_resource, guide_code);
-                m_OPFModel->Refresh();
+            if (!codes.isEmpty()) {
+                QString new_code = codes.at(0);
+                NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
+                navproc.AddLandmarkCode(html_resource, new_code);
+                // if new_code is valid for guide as well, update the guide too
+                QString guide_code = Landmarks::instance()->GuideLandMapping(new_code);
+                if (!guide_code.isEmpty()) {
+                    m_Book->GetOPF()->AddGuideSemanticCode(html_resource, guide_code);
+                    m_OPFModel->Refresh();
+                }
+                emit BookContentModified();
             }
-            emit BookContentModified();
         }
     } else {
         AddSemantics addmeaning(GuideItems::instance()->GetCodeMap(), this);
         if (addmeaning.exec() == QDialog::Accepted) {
             codes = addmeaning.GetSelectedEntries();
-            m_Book->GetOPF()->AddGuideSemanticCode(html_resource, codes.at(0));
-            m_OPFModel->Refresh();
-            emit BookContentModified();
+            if (!codes.isEmpty()) {
+                m_Book->GetOPF()->AddGuideSemanticCode(html_resource, codes.at(0));
+                m_OPFModel->Refresh();
+                emit BookContentModified();
+            }
         }
     }
     SelectResources(resources);
