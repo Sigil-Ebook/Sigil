@@ -613,7 +613,12 @@ bool PluginRunner::deleteFiles(const QStringList &files)
         if (mime == "application/x-dtbncx+xml") {
             continue;
         }
+        // under epub3 the nav can not be deleted either
+        Resource * nav_resource = m_book->GetConstOPF()->GetNavResource();
         Resource *resource = m_hrefToRes.value(href, NULL);
+        if (nav_resource && (nav_resource == resource)) {
+            continue;
+        }
         if (resource) {
             ui.statusLbl->setText(tr("Status: deleting ") + resource->Filename());
 
