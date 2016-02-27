@@ -34,6 +34,7 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NCXResource.h"
+#include "ResourceObjects/NavProcessor.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 #include "SourceUpdates/UniversalUpdates.h"
@@ -383,7 +384,14 @@ void OPFModel::InitializeModel()
     ClearModel();
     QList<Resource *> resources = m_Book->GetFolderKeeper()->GetResourceList();
     QHash <Resource *, int> reading_order_all = m_Book->GetOPF()->GetReadingOrderAll(resources);
-    QHash <QString, QString> semantic_type_all = m_Book->GetOPF()->GetGuideSemanticNameForPaths();
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    QHash <QString, QString> semantic_type_all;
+    if (version.startsWith('3')) {
+        NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
+        semantic_type_all = navproc.GetLandmarkNameForPaths();
+    } else { 
+        semantic_type_all = m_Book->GetOPF()->GetGuideSemanticNameForPaths();
+    }
 
     foreach(Resource * resource, resources) {
         AlphanumericItem *item = new AlphanumericItem(resource->Icon(), resource->Filename());
