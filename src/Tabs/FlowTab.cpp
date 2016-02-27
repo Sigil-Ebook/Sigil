@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016 Kevin B Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012  Dave Heiland
 **  Copyright (C) 2012  Grant Drake
@@ -110,7 +111,6 @@ FlowTab::~FlowTab()
     // function to be called after we delete BV and PV later in this destructor.
     // No idea how that's possible but this prevents a segfault...
 
-    //disconnect(m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
     disconnect(this, 0, 0, 0);
     m_WellFormedCheckComponent->deleteLater();
 
@@ -954,6 +954,18 @@ void FlowTab::SplitSection()
         return;
     }
 
+    QWidget *mainWindow_w = Utility::GetMainWindow();
+    MainWindow *mainWindow = dynamic_cast<MainWindow *>(mainWindow_w);
+    if (!mainWindow) {
+        Utility::DisplayStdErrorDialog("Could not determine main window.");
+        return;
+    }
+    HTMLResource * nav_resource = mainWindow->GetCurrentBook()->GetConstOPF()->GetNavResource();
+    if (nav_resource && (nav_resource == m_HTMLResource)) {
+        Utility::DisplayStdErrorDialog("The Nav file can not be split");
+        return;
+    }
+
     if (m_ViewState == MainWindow::ViewState_BookView) {
         QString content = m_wBookView->SplitSection();
         // The webview visually has split off the text, but not yet saved to the underlying resource
@@ -967,6 +979,18 @@ void FlowTab::SplitSection()
 void FlowTab::InsertSGFSectionMarker()
 {
     if (!IsDataWellFormed()) {
+        return;
+    }
+
+    QWidget *mainWindow_w = Utility::GetMainWindow();
+    MainWindow *mainWindow = dynamic_cast<MainWindow *>(mainWindow_w);
+    if (!mainWindow) {
+        Utility::DisplayStdErrorDialog("Could not determine main window.");
+        return;
+    }
+    HTMLResource * nav_resource = mainWindow->GetCurrentBook()->GetConstOPF()->GetNavResource();
+    if (nav_resource && (nav_resource == m_HTMLResource)) {
+        Utility::DisplayStdErrorDialog("The Nav file can not be split");
         return;
     }
 
