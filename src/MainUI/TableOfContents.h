@@ -151,6 +151,9 @@ private:
      * The data model used to feed the tree view.
      */
     TOCModel *m_TOCModel;
+
+    QString m_EpubVersion;
+
 };
 
 #endif // TABLEOFCONTENTS_H

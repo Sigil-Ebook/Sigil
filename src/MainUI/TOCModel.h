@@ -196,6 +196,8 @@ private:
      * and signals the RefreshEnd func when the root NCX entry is ready.
      */
     QFutureWatcher<TOCEntry> *m_TocRootWatcher;
+
+    QString m_EpubVersion;
 };
 
 

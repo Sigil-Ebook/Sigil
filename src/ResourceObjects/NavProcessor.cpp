@@ -578,3 +578,64 @@ QList<NavTOCEntry>  NavProcessor::HeadingWalker(const Headings::Heading & headin
     return toclist;
 }
 
+
+TOCModel::TOCEntry NavProcessor::GetRootTOCEntry()
+{
+    TOCModel::TOCEntry root;
+    root.is_root = true;
+    QList<NavTOCEntry> navtree = MakeHierarchy(GetTOC());
+    foreach(NavTOCEntry nav_entry, navtree) {
+        AddTOCEntry(nav_entry, root);
+    }
+    return root;
+}
+
+
+void NavProcessor::AddTOCEntry(const NavTOCEntry & nav_entry, TOCModel::TOCEntry & parent) 
+{
+    TOCModel::TOCEntry toc_entry;
+    toc_entry.text = nav_entry.title;
+    QString href = nav_entry.href;
+    if (href.startsWith("../")) {
+        href.remove("../");
+    }
+    toc_entry.target = href;
+    foreach(NavTOCEntry nav_child, nav_entry.children) {
+        AddTOCEntry(nav_child, toc_entry);
+    }
+    parent.children.append(toc_entry);
+}
+
+
+// Based on the approach used in Headings::
+QList<NavTOCEntry> NavProcessor::MakeHierarchy(const QList<NavTOCEntry> & toclist)
+{
+    QList<NavTOCEntry> navtree = toclist;
+    for (int i = 0; i < navtree.size(); ++i) {
+        // As long as entries after this one are higher in level, we 
+        // continue adding them to this entry's children or grandchildren
+        while(true) {
+            if ((i == navtree.size() - 1) || (navtree[ i + 1 ].lvl  <= navtree[ i ].lvl)) {
+                break;
+            }
+            AddChildEntry(navtree[ i ], navtree[ i + 1 ]);
+            // The removeAt function will "push down" the rest
+            // of the elements in the list by one after
+            // it removes this element
+            navtree.removeAt(i + 1);
+        }
+    }
+    return navtree;
+}
+
+
+// Adds the new_child heading to the parent heading;
+// the new_child is propagated down the tree (to its children) if needed
+void NavProcessor::AddChildEntry(NavTOCEntry &parent, NavTOCEntry new_child)
+{
+    if ((!parent.children.isEmpty()) && (parent.children.last().lvl < new_child.lvl)) {
+        AddChildEntry(parent.children.last(), new_child);
+    } else {
+        parent.children.append(new_child);
+    }
+}

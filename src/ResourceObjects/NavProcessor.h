@@ -27,11 +27,14 @@
 #include "BookManipulation/Headings.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "Misc/GumboInterface.h"
+#include "MainUI/TOCModel.h"
 
 struct NavTOCEntry {
     int lvl;
     QString title;
     QString href;
+    // allow for either flat or hierarchical use
+    QList<NavTOCEntry> children;
 };
 
 struct NavPageListEntry {
@@ -62,6 +65,8 @@ public:
 
     bool GenerateTOCFromBookContents(const Book* book);
 
+    TOCModel::TOCEntry GetRootTOCEntry();
+
 private:    
     QString BuildTOC(const QList<NavTOCEntry> & toclist);
     QString BuildLandmarks(const QList<NavLandmarkEntry> & landlist);
@@ -74,6 +79,12 @@ private:
     int GetResourceLandmarkPos(const Resource * resource, const QList<NavLandmarkEntry> & landlist);
     QList<NavTOCEntry> GetNodeTOC(GumboInterface & gi, const GumboNode* node, int lvl);
     QList<NavTOCEntry> HeadingWalker(const Headings::Heading & heading, int lvl);
+
+    void AddTOCEntry(const NavTOCEntry & nav_entry, TOCModel::TOCEntry & parent);
+
+    QList<NavTOCEntry> MakeHierarchy(const QList<NavTOCEntry> & toclist);
+    void AddChildEntry(NavTOCEntry &parent, NavTOCEntry new_child);
+
     
     HTMLResource * m_NavResource;
 };

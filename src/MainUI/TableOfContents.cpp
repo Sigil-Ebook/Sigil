@@ -71,7 +71,13 @@ void TableOfContents::SetBook(QSharedPointer<Book> book)
 {
     m_Book = book;
     m_TOCModel->SetBook(book);
-    connect(m_Book->GetNCX(), SIGNAL(Modified()), this, SLOT(StartRefreshDelay()));
+    m_EpubVersion = m_Book->GetConstOPF()->GetEpubVersion();
+    if (m_EpubVersion.startsWith('3')) {
+      connect(m_Book->GetConstOPF()->GetNavResource(), SIGNAL(Modified()), this, SLOT(StartRefreshDelay()));
+    } else {
+      connect(m_Book->GetNCX(), SIGNAL(Modified()), this, SLOT(StartRefreshDelay()));
+    }
+    
     Refresh();
 }
 
@@ -91,7 +97,10 @@ void TableOfContents::StartRefreshDelay()
 
 void TableOfContents::RenumberTOCContents()
 {
-    m_Book->GetNCX()->GenerateNCXFromTOCContents(m_Book.data(), m_TOCModel);
+    if (m_EpubVersion.startsWith('3')) {
+    } else {
+        m_Book->GetNCX()->GenerateNCXFromTOCContents(m_Book.data(), m_TOCModel);
+    }
 }
 
 void TableOfContents::ItemClickedHandler(const QModelIndex &index)

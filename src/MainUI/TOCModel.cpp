@@ -28,6 +28,7 @@
 #include "MainUI/TOCModel.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/NCXResource.h"
+#include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NavProcessor.h"
 #include "BookManipulation/CleanSource.h"
 
@@ -48,6 +49,7 @@ void TOCModel::SetBook(QSharedPointer<Book> book)
         // We need to make sure we don't step on the toes of GetNCXText
         QMutexLocker book_lock(&m_UsingBookMutex);
         m_Book = book;
+        m_EpubVersion = m_Book->GetConstOPF()->GetEpubVersion();
     }
     Refresh();
 }
@@ -92,6 +94,10 @@ void TOCModel::RefreshEnd()
 
 TOCModel::TOCEntry TOCModel::GetRootTOCEntry()
 {
+    if (m_EpubVersion.startsWith('3')) {
+        NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
+        return navproc.GetRootTOCEntry();
+    }
     return ParseNCX(GetNCXText());
 }
 
