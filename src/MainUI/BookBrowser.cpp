@@ -1045,8 +1045,15 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
     }
 
     Resource *next_resource = NULL;
-    Resource::ResourceType resource_type = resources.first()->Type();
 
+    Resource * nav_resource =  m_Book->GetConstOPF()->GetNavResource();
+    if (nav_resource && resources.contains(nav_resource)) {
+        Utility::DisplayStdErrorDialog(
+            tr("The Nav document can not be removed.")
+        );
+        return;
+    }
+    Resource::ResourceType resource_type = resources.first()->Type();
     if (resource_type == Resource::OPFResourceType ||
         resource_type == Resource::NCXResourceType) {
         Utility::DisplayStdErrorDialog(

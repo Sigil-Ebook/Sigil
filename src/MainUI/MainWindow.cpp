@@ -3370,6 +3370,12 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource *origina
         return;
     }
 
+    HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
+    if (nav_resource and nav_resource == originating_resource) {
+        QMessageBox::warning(this, tr("Sigil"), tr("The Nav file cannot be split."));
+        return;
+    }
+
     HTMLResource *html_resource = m_Book->CreateSectionBreakOriginalResource(content, originating_resource);
     m_BookBrowser->Refresh();
     // Open the old shortened content in a new tab preceding the current one.
@@ -3389,6 +3395,10 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource *origina
 void MainWindow::SplitOnSGFSectionMarkers()
 {
     QList<Resource *> html_resources = GetAllHTMLResources();
+    Resource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
+    if (nav_resource) {
+        html_resources.removeOne(nav_resource);
+    }
 
     SaveTabData();
 
