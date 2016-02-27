@@ -109,8 +109,7 @@ void Landmarks::SetLandmarksMap()
         return;
     }
 
-    // For the authoritiative relator list and descriptive definitions see http://www.loc.gov/marc/relators/
-    // Names and codes must be unique between basic and advanced (except Publisher).
+    //  See http://www.idpf.org/epub/vocab/structure/
     QStringList data;
     data <<
         tr("Acknowledgments") << "acknowledgments" << tr("A passage containing acknowledgments to entities involved in the realization of the work.") <<
@@ -144,6 +143,7 @@ void Landmarks::SetLandmarksMap()
         tr("List of Illustrations") << "loi" << tr("A listing of illustrations included in the work.") <<
         tr("List of Tables") << "lot" << tr("A listing of tables included in the work.") <<
         tr("List of Video Clips") << "lov" << tr("A listing of video clips included in the work.") <<
+        tr("List of Pages") << "page-list" << tr("A list of links to page start locations from a print version of the ebook") <<
         tr("Notice") << "notice" << tr("Information that requires special attention, and that must not be skipped or suppressed. Examples include: alert, warning, caution, danger, important.") <<
         tr("Other Credits") << "other-credits" << tr("Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.") <<
         tr("Part") << "part" << tr("A major structural division of a piece of writing, typically encapsulating a set of related chapters.") <<
@@ -153,7 +153,7 @@ void Landmarks::SetLandmarksMap()
         tr("Rear Notes") << "rearnotes" << tr("A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.") <<
         tr("Subchapter") << "subchapter" << tr("A major sub-division of a chapter.") <<
         tr("Title Page") << "titlepage" << tr("A page at the beginning of a book giving its title, authors, publisher and other publication information.") <<
-        tr("Table of Content") << "toc" << tr("A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work's frontmatter, or at the beginning of a section.") <<
+        tr("Table of Contents") << "toc" << tr("A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work's frontmatter, or at the beginning of a section.") <<
         tr("Volume") << "volume" << tr("A component of a collection.") <<
         tr("Warning") << "warning" << tr("A warning or caution about specific material. Status: Deprecated - Replaced by 'notice'.") <<
         tr("Abstract") << "abstract" << tr("A short summary of the principle ideas, concepts and conclusions of the work, or of a section or except within it. Status: Draft.") <<
