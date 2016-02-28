@@ -34,6 +34,7 @@
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"
 #include "Misc/HTMLSpellCheck.h"
+#include "Misc/Landmarks.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
@@ -95,6 +96,9 @@ const QString EMPTY_NAV_FILE_TOC =
     "  <nav epub:type=\"toc\" id=\"toc\">\n"
     "    <h1>%1</h1>\n"
     "    <ol>\n"
+    "      <li>\n"
+    "        <a href=\"../Text/%2\">%3</a>\n"
+    "      </li>\n"
     "    </ol>\n"
     "  </nav>\n";
 
@@ -349,10 +353,11 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf)
     HTMLResource * html_resource = qobject_cast<HTMLResource *>(resource);
     SettingsStore ss;
     QString defaultLanguage = ss.defaultMetadataLang();
-    QString navtitle = tr("Table of Contents");
-    QString guidetitle = tr("Landmarks");
+    QString navtitle = Landmarks::instance()->GetName("toc");
+    QString guidetitle = Landmarks::instance()->GetName("landmarks");
+    QString start = tr("Start");
     QString navtext = EMPTY_NAV_FILE_START.arg(defaultLanguage).arg(defaultLanguage) +
-        EMPTY_NAV_FILE_TOC.arg(navtitle) + 
+      EMPTY_NAV_FILE_TOC.arg(navtitle).arg(FIRST_SECTION_NAME).arg(start) + 
         EMPTY_NAV_FILE_LANDMARKS.arg(guidetitle).arg(navtitle) +
         EMPTY_NAV_FILE_END;
     html_resource->SetText(navtext);
