@@ -1234,67 +1234,6 @@ void MainWindow::GenerateNCXFromNav()
 }
 
 
-void MainWindow::GenerateNavFromNCX()
-{
-    QString version = m_Book->GetConstOPF()->GetEpubVersion();
-    if (!version.startsWith('3')) {
-        ShowMessageOnStatusBar(tr("Not Available for epub2."));
-        return;
-    }
-
-    // prepare by flushing all current book changes to disk
-    SaveTabData();
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-
-    QString opfdata = m_Book->GetConstOPF()->GetText();
-    QString ncxdata = m_Book->GetNCX()->GetText();
-
-    // find existing nav document is there is one
-    HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
-
-    // Now build the nav in python in a separate thread since may be an long job
-    PythonRoutines pr;
-    QString bookRoot = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
-    QString navtitle = QString(tr("Table of Contents"));
-    QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::GenerateNavInPython, opfdata, ncxdata, navtitle);
-    future.waitForFinished();
-    QString navdata = future.result();
-    bool resource_added = false;
-    if (!navdata.isEmpty()) {
-        // create a new nav resource is none exists
-        // this should never happen but maybe someone deleted the nav manually
-        if (!nav_resource) {
-            TempFolder folder;
-            QString inpath = folder.GetPath() + "/nav.xhtml";
-            Utility::WriteUnicodeTextFile(navdata, inpath);
-            Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(inpath, true, "application/xhtml+xml");
-            nav_resource = qobject_cast<HTMLResource *>(resource);
-            resource_added = true;
-        }
-        // update it 
-        nav_resource->SetText(navdata);
-        m_BookBrowser->BookContentModified();
-        m_BookBrowser->Refresh();
-        m_Book->SetModified();
-        if (resource_added) {
-            ResourcesAddedOrDeleted();
-        }
-        // Now add the nav property to the manifest
-        // And reload any tab if needed
-        QList<Resource *> resources;
-        resources.append(static_cast<Resource *>( nav_resource));
-        m_TabManager->ReloadTabDataForResources(resources);
-        m_Book->GetOPF()->UpdateManifestProperties(resources);
-        ShowMessageOnStatusBar(tr("Nav generated."));
-        QApplication::restoreOverrideCursor();
-        return;
-    }
-    ShowMessageOnStatusBar(tr("Nav generation failed."));
-    QApplication::restoreOverrideCursor();
-}
-
-
-
 void MainWindow::CreateIndex()
 {
     SaveTabData();
@@ -2331,6 +2270,7 @@ void MainWindow::EditTOCDialog()
     ShowMessageOnStatusBar(tr("Table Of Contents edited."));
 }
 
+// For epub2 this set the NCX for epub3 this sets the Nac TOC section
 void MainWindow::GenerateToc()
 {
     SaveTabData();
@@ -2352,10 +2292,19 @@ void MainWindow::GenerateToc()
         is_headings_changed = toc.IsBookChanged();
     }
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    // Regenerate the NCX regardless of whether headings were changed, in case the user erased it.
-    bool is_ncx_changed = m_Book->GetNCX()->GenerateNCXFromBookContents(m_Book.data());
 
-    if (is_headings_changed || is_ncx_changed) {
+    bool is_toc_changed = false;
+
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+
+    if (version.startsWith('3')) {
+        NavProcessor navproc(m_Book->GetOPF()->GetNavResource());
+        is_toc_changed = navproc.GenerateTOCFromBookContents(m_Book.data());
+    } else {
+        // Regenerate the NCX regardless of whether headings were changed, in case the user erased it.
+        is_toc_changed = m_Book->GetNCX()->GenerateNCXFromBookContents(m_Book.data());
+    }
+    if (is_headings_changed || is_toc_changed) {
         // Reload the current tab to see visual impact if user changed heading level(s)
         // It might not have been the current tab, but what the heck, possible user has the NCX open even.
         ResourcesAddedOrDeleted();
@@ -2363,45 +2312,6 @@ void MainWindow::GenerateToc()
         ShowMessageOnStatusBar(tr("Table Of Contents generated."));
     } else {
         ShowMessageOnStatusBar(tr("No Table Of Contents changes were necessary."));
-    }
-
-    QApplication::restoreOverrideCursor();
-}
-
-
-void MainWindow::GenerateNavTOC()
-{
-    SaveTabData();
-    QList<Resource *> resources = GetAllHTMLResources();
-
-    if (resources.isEmpty()) {
-        return;
-    }
-
-    bool is_headings_changed = false;
-    {
-        HeadingSelector toc(m_Book, this);
-
-        if (toc.exec() != QDialog::Accepted) {
-            ShowMessageOnStatusBar(tr("Generate Nav TOC cancelled."));
-            return;
-        }
-
-        is_headings_changed = toc.IsBookChanged();
-    }
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-
-    NavProcessor navproc(m_Book->GetOPF()->GetNavResource());
-    bool nav_changed = navproc.GenerateTOCFromBookContents(m_Book.data());
-
-    if (is_headings_changed || nav_changed) {
-        // Reload the current tab to see visual impact if user changed heading level(s)
-        // It might not have been the current tab, but what the heck, possible user has Nav  open even.
-        ResourcesAddedOrDeleted();
-        m_Book.data()->SetModified();
-        ShowMessageOnStatusBar(tr("Nav Table Of Contents generated."));
-    } else {
-        ShowMessageOnStatusBar(tr("No Nav Table Of Contents changes were necessary."));
     }
 
     QApplication::restoreOverrideCursor();
@@ -2437,6 +2347,7 @@ void MainWindow::CreateHTMLTOC()
 
     HTMLResource *tocResource = NULL;
     QList<HTMLResource *> htmlResources;
+
     // Turn the list of Resources that are really HTMLResources to a real list
     // of HTMLResources.
     QList<Resource *> resources = GetAllHTMLResources();
@@ -2454,13 +2365,11 @@ void MainWindow::CreateHTMLTOC()
             }
         }
     }
-
     // Close the tab so the focus saving doesn't overwrite the text were
     // replacing in the resource.
     if (tocResource != NULL) {
         m_TabManager->CloseTabForResource(tocResource);
     }
-
     // Create the an HTMLResource for the TOC if it doesn't exit.
     if (tocResource == NULL) {
         tocResource = m_Book->CreateEmptyHTMLFile();
@@ -2468,7 +2377,6 @@ void MainWindow::CreateHTMLTOC()
         htmlResources.insert(0, tocResource);
         m_Book->GetOPF()->UpdateSpineOrder(htmlResources);
     }
-
     TOCHTMLWriter toc(m_TableOfContents->GetRootEntry());
     QString version = tocResource->GetEpubVersion();
     tocResource->SetText(toc.WriteXML(version));
@@ -2483,6 +2391,7 @@ void MainWindow::CreateHTMLTOC()
     OpenResource(tocResource);
     QApplication::restoreOverrideCursor();
 }
+
 
 void MainWindow::ChangeCasing(int casing_mode)
 {
@@ -4305,9 +4214,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionMendPrettifyHTML, "MainWindow.MendPrettifyHTML");
     sm->registerAction(this, ui.actionMendHTML, "MainWindow.MendHTML");
     sm->registerAction(this, ui.actionUpdateManifestProperties, "MainWindow.UpdateManifestProperties");
-    sm->registerAction(this, ui.actionGenerateNavFromNCX, "MainWindow.GenerateNavFromNCX");
     sm->registerAction(this, ui.actionNCXFromNav, "MainWindow.NCXFromNav");
-    sm->registerAction(this, ui.actionGenerateNavTOC, "MainWindow.GenerateNavTOC");
     sm->registerAction(this, ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
     sm->registerAction(this, ui.actionSpellcheck, "MainWindow.Spellcheck");
     sm->registerAction(this, ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
@@ -4660,9 +4567,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionMendPrettifyHTML,    SIGNAL(triggered()), this, SLOT(MendPrettifyHTML()));
     connect(ui.actionMendHTML,      SIGNAL(triggered()), this, SLOT(MendHTML()));
     connect(ui.actionUpdateManifestProperties,      SIGNAL(triggered()), this, SLOT(UpdateManifestProperties()));
-    connect(ui.actionGenerateNavFromNCX,   SIGNAL(triggered()), this, SLOT(GenerateNavFromNCX()));
     connect(ui.actionNCXFromNav,    SIGNAL(triggered()), this, SLOT(GenerateNCXFromNav()));
-    connect(ui.actionGenerateNavTOC,    SIGNAL(triggered()), this, SLOT(GenerateNavTOC()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateToc()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));

@@ -228,8 +228,6 @@ public slots:
 
     void GenerateNCXFromNav();
 
-    void GenerateNavFromNCX();
-
     void CreateIndex();
 
     void runPlugin(QAction *action);
@@ -607,7 +605,6 @@ private slots:
     void RemoveResources(QList<Resource *> resources = QList<Resource *>());
 
     void GenerateToc();
-    void GenerateNavTOC();
     void EditTOCDialog();
     void CreateHTMLTOC();
 

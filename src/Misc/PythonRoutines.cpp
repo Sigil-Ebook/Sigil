@@ -26,29 +26,6 @@
 
 #include "Misc/PythonRoutines.h"
 
-QString PythonRoutines::GenerateNavInPython(const QString &opfdata, const QString &ncxdata, const QString &navtitle)
-{
-    QString results;
-    int rv = -1;
-    QString error_traceback;
-    QList<QVariant> args;
-    args.append(QVariant(opfdata));
-    args.append(QVariant(ncxdata));
-    args.append(QVariant(navtitle));
-
-    EmbeddedPython * epython  = EmbeddedPython::instance();
-
-    QVariant res = epython->runInPython( QString("navgenerator"),
-                                         QString("generateNav"),
-                                         args,
-                                         &rv,
-                                         error_traceback);
-    if (rv == 0) {
-        results = res.toString();
-    }
-    return results;
-}
-
 
 QString PythonRoutines::GenerateNcxInPython(const QString &navdata, const QString &navname, 
                                             const QString &doctitle, const QString & mainid)

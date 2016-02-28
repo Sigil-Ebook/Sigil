@@ -40,8 +40,6 @@ public:
 
     PythonRoutines() {};
 
-    QString GenerateNavInPython(const QString &opfdata, const QString &ncxdata, const QString &navtitle);
-
     QString GenerateNcxInPython(const QString &navdata, const QString &navname,
                                 const QString &doctitle, const QString & mainid);
 
