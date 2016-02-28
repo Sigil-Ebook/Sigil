@@ -537,6 +537,10 @@ QHash <QString, QString> NavProcessor::GetLandmarkNameForPaths()
     return semantic_types;
 }
 
+
+// Interface to Set the Nav TOC directly from Book Contents (Headings)
+// Get the Book headings and Make a Tree out of them and then convert
+// That tree of headings to our flat NavTOCEntry list
 bool NavProcessor::GenerateTOCFromBookContents(const Book* book)
 {
     QString prev_xml = BuildTOC(GetTOC());
@@ -555,7 +559,7 @@ bool NavProcessor::GenerateTOCFromBookContents(const Book* book)
     return is_changed;
 }
 
-
+// Used by GenerateTOCFromBookContents
 QList<NavTOCEntry>  NavProcessor::HeadingWalker(const Headings::Heading & heading, int lvl)
 {
     QList<NavTOCEntry> toclist;
@@ -569,7 +573,6 @@ QList<NavTOCEntry>  NavProcessor::HeadingWalker(const Headings::Heading & headin
         // If this heading appears right after a section break,
         // then it "represents" and links to its file; otherwise,
         // we link to the heading element directly
-
         // Prevent links back to to the nav itself form the nav
         if (heading.at_file_start) {
             te.href = ConvertOEBPSToNavRelative(heading_file);
@@ -585,6 +588,12 @@ QList<NavTOCEntry>  NavProcessor::HeadingWalker(const Headings::Heading & headin
 }
 
 
+
+
+// Interface from Dockable Table of Contents Widget to get the Nav TOC
+// Need to take our flat Nav TOC list and create a tree then convert that
+// tree to become a TOCModel::TOCEntry tree with returned root that is
+// used in the Tabel Of Contents Dockable Widget
 TOCModel::TOCEntry NavProcessor::GetRootTOCEntry()
 {
     TOCModel::TOCEntry root;
@@ -595,7 +604,6 @@ TOCModel::TOCEntry NavProcessor::GetRootTOCEntry()
     }
     return root;
 }
-
 
 void NavProcessor::AddTOCEntry(const NavTOCEntry & nav_entry, TOCModel::TOCEntry & parent) 
 {
@@ -609,10 +617,9 @@ void NavProcessor::AddTOCEntry(const NavTOCEntry & nav_entry, TOCModel::TOCEntry
     parent.children.append(toc_entry);
 }
 
-
-// Based on the approach used in Headings::
 QList<NavTOCEntry> NavProcessor::MakeHierarchy(const QList<NavTOCEntry> & toclist)
 {
+    // Based on the approach used in Headings::
     QList<NavTOCEntry> navtree = toclist;
     for (int i = 0; i < navtree.size(); ++i) {
         // As long as entries after this one are higher in level, we 
@@ -631,8 +638,7 @@ QList<NavTOCEntry> NavProcessor::MakeHierarchy(const QList<NavTOCEntry> & toclis
     return navtree;
 }
 
-
-// Adds the new_child heading to the parent heading;q
+// Adds the new_child heading to the parent heading;
 // the new_child is propagated down the tree (to its children) if needed
 void NavProcessor::AddChildEntry(NavTOCEntry &parent, NavTOCEntry new_child)
 {
@@ -643,6 +649,41 @@ void NavProcessor::AddChildEntry(NavTOCEntry &parent, NavTOCEntry new_child)
     }
 }
 
+
+
+
+
+// Interface from EditTOC Dialog to Set the Nav TOC 
+// passes in TOCModel::TOCEntry root
+// So convert to flat Nav TOC Entry list and rebuild the Nav TOC Section
+void NavProcessor::GenerateNavTOCFromTOCEntries(const TOCModel::TOCEntry& root)
+{
+    QList<NavTOCEntry> toclist;
+    foreach(TOCModel::TOCEntry entry, root.children) {
+        toclist.append(AddEditTOCEntry(entry, 1));
+    }
+    SetTOC(toclist);   
+}
+
+// Used by GenerateNavTOCFromTOCEntries
+QList<NavTOCEntry> NavProcessor::AddEditTOCEntry(TOCModel::TOCEntry & entry, int lvl)
+{
+    QList<NavTOCEntry> toclist;
+    NavTOCEntry te;
+    te.title = entry.text;
+    QString href = ConvertOEBPSToNavRelative(entry.target);
+    te.href = href;
+    te.lvl = lvl;
+    toclist.append(te);
+    foreach(TOCModel::TOCEntry child, entry.children) {
+        toclist.append(AddEditTOCEntry(child, lvl+1));
+    }
+    return toclist;
+}
+
+
+
+// Utility Routines to convert hrefs from NCX Relative to Nav Relative and Back
 
 // convert nav relative paths to be relative to OEBPS folder
 // Nav lives in OEBPS/Text/ in Sigil

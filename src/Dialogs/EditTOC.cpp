@@ -29,6 +29,8 @@
 #include "Dialogs/SelectHyperlink.h"
 #include "Misc/SettingsStore.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/OPFResource.h"
+#include "ResourceObjects/NavProcessor.h"
 #include "sigil_constants.h"
 
 static const QString SETTINGS_GROUP   = "edit_toc";
@@ -83,7 +85,13 @@ void EditTOC::CreateTOCModel()
 
 void EditTOC::Save()
 {
-    m_Book->GetNCX()->GenerateNCXFromTOCEntries(m_Book.data(), ConvertTableToEntries());
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    if (version.startsWith('3')) {
+        NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
+        navproc.GenerateNavTOCFromTOCEntries(ConvertTableToEntries());
+    } else {
+        m_Book->GetNCX()->GenerateNCXFromTOCEntries(m_Book.data(), ConvertTableToEntries());
+    }
 }
 
 TOCModel::TOCEntry EditTOC::ConvertTableToEntries()

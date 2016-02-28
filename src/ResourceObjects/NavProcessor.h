@@ -57,15 +57,22 @@ public:
     QList<NavTOCEntry> GetTOC();
     QList<NavLandmarkEntry> GetLandmarks();
     QList<NavPageListEntry> GetPageList();
-    
+
+    // Set Nav Section from Actual Book Headings
+    bool GenerateTOCFromBookContents(const Book* book);
+
+    // Set Nav Section from TOCEntry Tree
+    void GenerateNavTOCFromTOCEntries(const TOCModel::TOCEntry& root);
+
+    // Get current Nav as TOCEntry Tree
+    TOCModel::TOCEntry GetRootTOCEntry();
+
+    // For Working with Landmarks
     void AddLandmarkCode(const Resource * resource, QString new_code, bool toggle = true);
     void RemoveLandmarkForResource(const Resource * resource);
     QString GetLandmarkCodeForResource(const Resource * resource);
     QHash<QString, QString> GetLandmarkNameForPaths();
 
-    bool GenerateTOCFromBookContents(const Book* book);
-
-    TOCModel::TOCEntry GetRootTOCEntry();
 
 private:    
     QString BuildTOC(const QList<NavTOCEntry> & toclist);
@@ -84,6 +91,8 @@ private:
 
     QList<NavTOCEntry> MakeHierarchy(const QList<NavTOCEntry> & toclist);
     void AddChildEntry(NavTOCEntry &parent, NavTOCEntry new_child);
+    
+    QList<NavTOCEntry> AddEditTOCEntry(TOCModel::TOCEntry & rentry, int lvl);
 
     QString ConvertHREFToOEBPSRelative(const QString & href);
     QString ConvertOEBPSToNavRelative(const QString & href);
