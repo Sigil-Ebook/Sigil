@@ -182,6 +182,7 @@ QList<NavTOCEntry> NavProcessor::GetTOC()
             for (int j = 0; j < ol_nodes.length(); ++j) {
                 GumboNode * olnode = ol_nodes.at(j);
                 toclist.append(GetNodeTOC(gi, olnode, 1));
+                break;
             }
             break;              
         }
@@ -631,7 +632,7 @@ QList<NavTOCEntry> NavProcessor::MakeHierarchy(const QList<NavTOCEntry> & toclis
 }
 
 
-// Adds the new_child heading to the parent heading;
+// Adds the new_child heading to the parent heading;q
 // the new_child is propagated down the tree (to its children) if needed
 void NavProcessor::AddChildEntry(NavTOCEntry &parent, NavTOCEntry new_child)
 {
