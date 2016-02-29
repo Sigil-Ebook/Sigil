@@ -158,12 +158,11 @@ void Landmarks::SetLandmarksMap()
         tr("Warning") << "warning" << tr("A warning or caution about specific material. Status: Deprecated - Replaced by 'notice'.") <<
         tr("Abstract") << "abstract" << tr("A short summary of the principle ideas, concepts and conclusions of the work, or of a section or except within it. Status: Draft.") <<
         tr("Annotation") << "annotation" << tr("Explanatory information about passages in the work. Status: Deprecated") <<
-        tr("Aside") << "aside" << tr("Secondary or supplementary content, typically formatted as an inset or box.") <<
         tr("Keywords") << "keywords" << tr("A collection of key words or phrases used to previde searchable metadata. Status: Draft") <<
         tr("Notes") << "notes" << tr("A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: 'footnotes', 'rearnotes'") <<
         tr("Revision History") << "revision-history" << tr("A record of changes made to a work.") <<
         tr("Series Page") << "seriespage" << tr("Marketing section used to list related publications. Status: Draft") <<
-        tr("Sidebar") << "sidebar" << tr("Secondary or supplementary content, typically formatted as an inset or box. Status: Deprecated - Replaced by 'aside'.");
+        tr("Sidebar") << "sidebar" << tr("Secondary or supplementary content, typically formatted as an inset or box.");
 
 
     for (int i = 0; i < data.count(); i++) {
