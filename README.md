@@ -2,25 +2,30 @@ About
 =====
 
 Sigil is a free, open source, multi-platform ebook editor.
-It is designed to edit books in ePub format.
+It is designed to edit books in ePub format (both ePub 2 and ePub 3).
 
 
 Links
 =====
 
 * Its website is located at http://sigil-ebook.com
+
 * Its current code repository is located at https://github.com/Sigil-Ebook/Sigil
+
 * Translations are located at https://www.transifex.com/projects/p/sigil/
-* Support forums are located at http://www.mobileread.com/
+
+* Support forums are located at http://www.mobileread.com/forums
+    Select Sigil form the list of main forums
+
+* Sigil Plugin Index (hosted by www.mobileread.com) at 
+    http://www.mobileread.com/forums/showthread.php?t=247431
 
 
 Issue Tracker
 =============
 
 Issue tracking is intended for discussion around issues with the code. It
-is not intended for developers to discuss ideas before taking the time to
-implement them. It is also intended for actual bug tracking. It is not
-intended for feature requests.
+It is also intended for actual bug tracking and for tracking feature requests.
 
 At one point in time issue tracking was disabled because it had become
 unhelpful. The majority of issues where requests or abusive comments related
@@ -53,6 +58,7 @@ for detailed instructions on how to build a fully relocatable Python 3.4.X frame
 building Sigil.  
 
 To build Sigil with your newly built relocateable Python 3.4.X framework see:
+
    docs/Bundling_Python3_With_Sigil_on_MacOSX.txt
 
 
@@ -64,4 +70,20 @@ COPYING.txt.
 
 Note that libraries and components Sigil used and bundles may use a different
 license (that is compatible with the GPLv3) from Sigil. See the specific
-component for their respective license.
+component for their respective license.  The source code from these
+projects can be found under Sigil/3rdparty unless otherwise indicated.  
+Please see their respective folders for complete license information.
+
+Currently these projects include:
+    - Hunspell - http://hunspell.sourceforge.net
+    - MiniZip version 1.1
+    - Perl-compatible Regular Expression Library (pcre)
+    - ZLib Data Compression Library (zlib 1.2.8)
+    - jQuery-1.6.2 (src/Resource_Files/javascript/jquery-1.6.2.min.js)
+    - MathJax.js single file version: (src/Resource_Files/polyfills)
+
+In addtion, Sigil uses the following other packages that have been specifically
+modified for use inside Sigil.
+    - Beautiful Soup 4 (src/Resource_Files/plugin_launchers/sigil_bs4)
+    - Google's Gumbo Parser (internal/gumbo)
+
