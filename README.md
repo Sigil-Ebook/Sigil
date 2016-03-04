@@ -24,7 +24,11 @@ Links
 Issue Tracker
 =============
 
-Issue tracking is intended for discussion around issues with the code. It
+Please do not use the issue tracker to ask questions.  Both of the main developers
+of Sigil monitor the Sigil Forum at https://www.mobileread.com/forums.
+All questions should be directed there.
+
+Issue tracking is intended for discussion around issues with the code. 
 It is also intended for actual bug tracking and for tracking feature requests.
 
 At one point in time issue tracking was disabled because it had become
