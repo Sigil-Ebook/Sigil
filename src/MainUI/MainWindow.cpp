@@ -3288,7 +3288,7 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource *origina
     }
 
     HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
-    if (nav_resource and nav_resource == originating_resource) {
+    if (nav_resource && nav_resource == originating_resource) {
         QMessageBox::warning(this, tr("Sigil"), tr("The Nav file cannot be split."));
         return;
     }
