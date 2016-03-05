@@ -2,8 +2,8 @@ Sigil-0.9.4
    Bug Fixes
     - Prevent the use of zero length key fields when obfuscating fonts
     - IDPF font obfuscation key accepts all input except as specified
-    - Fix error in main.ui accelerator assignment
-    - Updated Transifex project URL
+    - Fix typo in main.ui accelerator assignment
+    - Update Transifex project URL
     - Prevent NCX Weirdness with ampersand added when editing NCX in codeview and TOC widget showing
     - Fix lost namespace attributes on metadata tag
     - Allow auto conversion from package version 1.0 to 2.0
@@ -23,20 +23,19 @@ Sigil-0.9.4
         - Create NavProcessor to use gumbo to update the nav.xhtml
         - Add support for Adding/Removing Nav Landmarks
         - Better identify the true nav when loading epub3s
-        - Add new EPUB3 Tool to generate Nav TOC from Book Headings
+        - Add ability to generate Nav TOC from Book Headings to CreateTOC tool
         - Check for valid nav otherwise create a new default one ready for updates
         - Do not allow split markers to be added to nav.xhtml
         - Do not allow nav to get merged
-        - Do not allow the nav.xhtml to be deleted
+        - Do not allow the nav to be deleted
         - Do not allow plugins to delete the nav under epub3
     - Completely Revamp BookBrowser interface to support both Guide and Landmark Semantics
         - Create Semantics Dialog to better handle epub2 and epub3 semantics
-        - Create Landmark and GuideItems Semantic classes
+        - Create Separate Guide/Landmarks classes for epub2 and epub3 respectively
+        - Rename DescriptiveMetaInfo structure to just DescriptiveInfo to work with guide/landmarks elements
         - Add a mapping from Landmark to Guide and Back
         - Remove old GuideSemantics code
         - Make sure Landmarks semantics show up in BookBrowser tooltips
-        - Create Separate Guide/Landmarks classes for epub2 and epub3 respectively
-        - Rename DescriptiveMetaInfo structure to just DescriptiveInfo to work with guide/landmarks elements
         - Update epub3 semantic vocab in Landmarks
     - Completely Revamp how the dockable TableOfContents gui widget is built and updated
         - Remove strong coupling between TableOfContents widget and NCX
