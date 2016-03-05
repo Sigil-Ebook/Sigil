@@ -1074,7 +1074,9 @@ void MainWindow::AddCover()
 
     // Populate the HTML cover file with the necessary text.
     // If a template file exists, use its text for the cover source.
+    QString version = m_Book->GetOPF()->GetEpubVersion();
     QString text = HTML_COVER_SOURCE;
+    if (version.startsWith('3')) text = HTML5_COVER_SOURCE;
     QString cover_path = Utility::DefinePrefsDir() + "/" + HTML_COVER_FILENAME;
     if (QFile::exists(cover_path)) {
         text = Utility::ReadUnicodeTextFile(cover_path);
@@ -1091,7 +1093,6 @@ void MainWindow::AddCover()
         Resource *image_resource = m_Book->GetFolderKeeper()->GetResourceByFilename(image_filename);
 
         // Set cover semantics
-        QString version = m_Book->GetOPF()->GetEpubVersion();
         if (version.startsWith('3')) {
             NavProcessor navproc(m_Book->GetOPF()->GetNavResource());
             navproc.AddLandmarkCode(html_cover_resource, "cover", false);
@@ -1114,6 +1115,13 @@ void MainWindow::AddCover()
             text.replace("SGC_IMAGE_WIDTH", width);
             text.replace("SGC_IMAGE_HEIGHT", height);
             html_cover_resource->SetText(text);
+
+            // Finally, if epub3 update the html resource manifest properties
+            if (version.startsWith('3')) {
+                QList<Resource*> resources_to_update;
+                resources_to_update.append(html_cover_resource);
+                m_Book->GetOPF()->UpdateManifestProperties(resources_to_update);
+            }
         } else {
             Utility::DisplayStdErrorDialog(tr("Unexpected error. Only image files can be used for the cover."));
         }

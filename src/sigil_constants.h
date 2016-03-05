@@ -113,6 +113,7 @@ extern const QString EMPTY_NAV_FILE_END;
 
 extern const QString HTML_COVER_FILENAME;
 extern const QString HTML_COVER_SOURCE;
+extern const QString HTML5_COVER_SOURCE;
 
 extern const QString SIGIL_PREFS_DIR;
 extern const QString PATH_LIST_DELIM;
