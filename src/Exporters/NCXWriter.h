@@ -108,7 +108,7 @@ private:
     /**
      * A hierarchical tree of all the headings in the book.
      */
-    const QList<Headings::Heading> m_Headings;
+    QList<Headings::Heading> m_Headings;
 
     TOCModel::TOCEntry m_TOCRootEntry;
 

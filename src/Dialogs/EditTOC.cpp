@@ -45,6 +45,12 @@ EditTOC::EditTOC(QSharedPointer<Book> book, QList<Resource *> resources, QWidget
     m_ContextMenu(new QMenu(this)),
     m_TOCModel(new TOCModel(this))
 {
+    // Remove the Nav resource from list of HTMLResources if it exists (EPUB3)
+    HTMLResource* nav_resource = m_Book->GetConstOPF()->GetNavResource();
+    if (nav_resource) {
+        m_Resources.removeOne(nav_resource);
+    }
+
     ui.setupUi(this);
     ui.TOCTree->setContextMenuPolicy(Qt::CustomContextMenu);
     ui.TOCTree->installEventFilter(this);

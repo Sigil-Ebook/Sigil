@@ -32,6 +32,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/OPFResource.h"
 #include "sigil_constants.h"
 
 static const QString SETTINGS_GROUP   = "heading_selector";
@@ -57,7 +58,15 @@ HeadingSelector::HeadingSelector(QSharedPointer<Book> book, QWidget *parent)
     ConnectSignalsToSlots();
     ui.tvTOCDisplay->setModel(&m_TableOfContents);
     LockHTMLResources();
-    QList<Headings::Heading> flat_headings = Headings::GetHeadingList(m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(true), true);
+
+    // Remove the Nav resource from list of  HTMLResources if it exists (EPUB3)
+    QList<HTMLResource*> htmlresources = m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(true);
+    HTMLResource* nav_resource = m_Book->GetConstOPF()->GetNavResource();
+    if (nav_resource) {
+        htmlresources.removeOne(nav_resource);
+    }
+
+    QList<Headings::Heading> flat_headings = Headings::GetHeadingList(htmlresources, true);
     m_Headings = Headings::MakeHeadingHeirarchy(flat_headings);
     PopulateSelectHeadingCombo(GetMaxHeadingLevel(flat_headings));
     RefreshTOCModelDisplay();
