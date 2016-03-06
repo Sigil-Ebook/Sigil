@@ -547,7 +547,12 @@ bool NavProcessor::GenerateTOCFromBookContents(const Book* book)
     QWriteLocker locker(&m_NavResource->GetLock());
     bool is_changed = false;
 
+    // Remove the Nav resource from list of HTMLResources if it exists (EPUB3)
     QList<HTMLResource*> htmlresources = book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(true);
+    if (m_NavResource) {
+        htmlresources.removeOne(m_NavResource);
+    }
+
     const QList<Headings::Heading> headings = Headings::MakeHeadingHeirarchy(Headings::GetHeadingList(htmlresources));
     QList<NavTOCEntry> toclist;
     foreach(const Headings::Heading & heading, headings) {

@@ -26,6 +26,7 @@
 #include "BookManipulation/Headings.h"
 #include "Exporters/XMLWriter.h"
 #include "MainUI/TOCModel.h"
+#include "ResourceObjects/HTMLResource.h"
 
 /**
  * Writes the NCX file of the EPUB publication.
@@ -108,11 +109,14 @@ private:
     /**
      * A hierarchical tree of all the headings in the book.
      */
-    const QList<Headings::Heading> m_Headings;
+    QList<Headings::Heading> m_Headings;
 
     TOCModel::TOCEntry m_TOCRootEntry;
 
     QString m_version;
+
+    HTMLResource * m_NavResource;
+
 };
 
 #endif // NCXWRITER_H
