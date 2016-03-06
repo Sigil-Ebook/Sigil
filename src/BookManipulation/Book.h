@@ -129,7 +129,7 @@ public:
      *                 are the metadata names, and the values are the lists of
      *                 metadata values for that metadata name.
      */
-    void SetMetadata(const QList<MetaEntry> metadata);
+    void SetMetadata(const QList<MetaEntry> & metadata);
 
     QString GetFirstUniqueSectionName(QString extension = QString());
 

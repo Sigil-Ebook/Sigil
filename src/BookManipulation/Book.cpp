@@ -281,7 +281,7 @@ QList<QVariant> Book::GetMetadataValues(QString text) const
     return GetConstOPF()->GetDCMetadataValues(text);
 }
 
-void Book::SetMetadata(const QList<MetaEntry> metadata)
+void Book::SetMetadata(const QList<MetaEntry> &metadata)
 {
     GetOPF()->SetDCMetadata(metadata);
     SetModified(true);
