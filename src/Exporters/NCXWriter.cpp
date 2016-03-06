@@ -25,6 +25,7 @@
 #include "BookManipulation/Book.h"
 #include "Exporters/NCXWriter.h"
 #include "Misc/Utility.h"
+#include "ResourceObjects/HTMLResource.h"
 #include "sigil_constants.h"
 
 NCXWriter::NCXWriter(const Book *book, QIODevice &device)
@@ -32,14 +33,14 @@ NCXWriter::NCXWriter(const Book *book, QIODevice &device)
     XMLWriter(book, device),
     m_Headings(),
     m_TOCRootEntry(TOCModel::TOCEntry()),
-    m_version(book->GetConstOPF()->GetEpubVersion()),
-    m_NavResource(book->GetConstOPF()->GetNavResource())
+    m_version(book->GetConstOPF()->GetEpubVersion())
 
 {
     // Remove the Nav resource from list of HTMLResources if it exists (EPUB3)
     QList<HTMLResource*> htmlresources = book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(true);
-    if (m_NavResource) {
-        htmlresources.removeOne(m_NavResource);
+    HTMLResource* nav_resource = book->GetConstOPF()->GetNavResource();
+    if (nav_resource) {
+        htmlresources.removeOne(nav_resource);
     }
 
     m_Headings = Headings::MakeHeadingHeirarchy(Headings::GetHeadingList(htmlresources));
