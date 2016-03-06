@@ -13,6 +13,8 @@ Sigil-0.9.4
     - Only the true nav should ever have the nav manifest property set
     - Prevent nav property from being overwritten when updating manifest properties
     - Prevent segfault if user add semantics but never chooses one
+    - Prevent Add Cover from returning the wrong doctype for epub3
+    - Make sure cover-image and svg (if needed) are added as epub3 manifest properties when adding a cover
    New Features
     - Extract all MarcRelators related code into its own class so it can be shared
     - Added some missing MARC relators
