@@ -382,7 +382,7 @@ void MetaEditor::saveData()
 
     QString newopfdata = SetNewOPFMetadata(data);
     m_book->GetOPF()->SetText(newopfdata);
-    done(0);
+    QDialog::accept();
 }
 
 void MetaEditor::reject()

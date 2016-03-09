@@ -2555,7 +2555,12 @@ void MainWindow::SaveTabData()
 void MainWindow::MetaEditorDialog()
 {
     MetaEditor medit(this);
-    medit.exec();
+    if (medit.exec() != QDialog::Accepted) {
+        ShowMessageOnStatusBar(tr("Metadata Editor cancelled."));
+        return;
+    }
+    ShowMessageOnStatusBar(tr("Metadata edited."));
+    m_Book->SetModified();
 }
 
 void MainWindow::UserGuide()
