@@ -84,6 +84,16 @@ QSharedPointer<Book> ImportHTML::GetBook(bool extract_metadata)
         LoadMetadata(source);
     }
     UpdateFiles(CreateHTMLResource(), source, LoadFolderStructure(source));
+
+    // Before returning the new book, if it is epub3, make sure it has a nav
+    if (m_EpubVersion.startsWith('3')) {
+        HTMLResource* nav_resource = m_Book->GetConstOPF()->GetNavResource();
+        if (!nav_resource) {
+            HTMLResource * nav_resource = m_Book->CreateEmptyNavFile(true);
+            m_Book->GetOPF()->SetNavResource(nav_resource);
+            m_Book->GetOPF()->SetItemRefLinear(nav_resource, false);
+        }
+    }
     return m_Book;
 }
 

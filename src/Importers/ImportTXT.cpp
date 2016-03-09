@@ -40,6 +40,8 @@ const QString FIRST_SECTION_NAME   = FIRST_SECTION_PREFIX + ".xhtml";
 ImportTXT::ImportTXT(const QString &fullfilepath)
     : Importer(fullfilepath)
 {
+    SettingsStore ss;
+    m_EpubVersion = ss.defaultVersion(); 
 }
 
 
@@ -53,6 +55,15 @@ QSharedPointer<Book> ImportTXT::GetBook(bool extract_metadata)
 
     QString source = LoadSource();
     InitializeHTMLResource(source, CreateHTMLResource(source));
+    // Before returning the new book, if it is epub3, make sure it has a nav
+    if (m_EpubVersion.startsWith('3')) {
+        HTMLResource* nav_resource = m_Book->GetConstOPF()->GetNavResource();
+        if (!nav_resource) {
+            HTMLResource * nav_resource = m_Book->CreateEmptyNavFile(true);
+            m_Book->GetOPF()->SetNavResource(nav_resource);
+            m_Book->GetOPF()->SetItemRefLinear(nav_resource, false);
+        }
+    }
     return m_Book;
 }
 
