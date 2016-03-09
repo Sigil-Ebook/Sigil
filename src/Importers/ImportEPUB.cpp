@@ -542,7 +542,7 @@ void ImportEPUB::LocateOPF()
 
 void ImportEPUB::ReadOPF()
 {
-    QString opf_text = PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath));
+    QString opf_text = CleanSource::ProcessXML(PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath)),OEBPS_MIMETYPE);
     QXmlStreamReader opf_reader(opf_text);
     QString ncx_id_on_spine;
 
@@ -725,7 +725,7 @@ void ImportEPUB::LoadInfrastructureFiles()
 {
     // always SetEpubVersion before SetText in OPF as SetText will validate with it
     m_Book->GetOPF()->SetEpubVersion(m_PackageVersion);
-    m_Book->GetOPF()->SetText(PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath)));
+    m_Book->GetOPF()->SetText(CleanSource::ProcessXML(PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath)),OEBPS_MIMETYPE));
     QString OPFBookRelPath = m_OPFFilePath;
     OPFBookRelPath = OPFBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
     m_Book->GetOPF()->SetCurrentBookRelPath(OPFBookRelPath);
