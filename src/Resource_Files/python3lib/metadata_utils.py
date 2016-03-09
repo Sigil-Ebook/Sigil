@@ -61,6 +61,8 @@ def unquoteurl(href):
 
 # encode to make xml safe
 def xmlencode(data):
+    if data is None:
+        return ''
     newdata = data
     newdata.replace('&', '&amp;')
     newdata.replace('<', '&lt;')
@@ -70,6 +72,8 @@ def xmlencode(data):
 
 #decode xml encoded strings
 def xmldecode(data):
+    if data is None:
+        return ''
     newdata = data
     newdata.replace('&quot;', '"')
     newdata.replace('&gt;', '>')
