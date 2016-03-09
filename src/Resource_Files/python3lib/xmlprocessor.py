@@ -240,8 +240,8 @@ def main():
     opfxml = '''
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId" version="2.0">
-  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
-    <dc:identifier id="BookId" opf:scheme="UUID">urn:uuid:a418a8f1-dcbc-4c5d-a18f-533765e34ee8</dc:identifier>
+  <metadata xmlns:mydc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+    <mydc:identifier id="BookId" opf:scheme="UUID">urn:uuid:a418a8f1-dcbc-4c5d-a18f-533765e34ee8</mydc:identifier>
   </metadata>
   <manifest>
     <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml" />
@@ -262,7 +262,7 @@ def main():
   <guide />
 </package>
 '''
-    print(repairXML(opfxml))
+    print(repairXML(opfxml, "application/oebps-package+xml"))
     return 0
 
 if __name__ == '__main__':

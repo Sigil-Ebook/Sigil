@@ -42,6 +42,18 @@ from sigil_bs4.dammit import EncodingDetector
 
 LXML = 'lxml'
 
+_standard_epub_prefix_map = {
+    "http://www.idpf.org/2007/opf"                             : "opf",
+    "http://purl.org/dc/elements/1.1/"                         : "dc",
+    "http://purl.org/dc/terms/"                                : "dcterms",
+    "http://id.loc.gov/vocabulary/"                            : "marc",
+    "http://www.idpf.org/vocab/rendition/#"                    : "rendition",
+    "http://www.editeur/org/ONIX/book/codelists/current.html#" : "onix",
+    "http://www.idpf.org/epub/vocab/overlays/#"                : "media",
+    "http://www.idpf.org/2007/ops"                             : "epub"
+}
+
+
 class LXMLTreeBuilderForXML(TreeBuilder):
     DEFAULT_PARSER_CLASS = etree.XMLParser
 
@@ -156,9 +168,19 @@ class LXMLTreeBuilderForXML(TreeBuilder):
         nsprefix = None
 
         # Fix bug in bs4 _lxml.py that ignores attributes that specify namespaces on this tag
-
         # Invert each namespace map as it comes in.
         if len(nsmap) > 0:
+
+            # to make later processing easier, remap epub namespaces to use
+            # epub standard prefixes
+            new_nsmap = {}
+            for pfx, ns in list(nsmap.items()):
+                new_pfx = _standard_epub_prefix_map.get(ns, pfx)
+                if new_pfx is not None and new_pfx == "opf" and pfx is None:
+                    new_pfx = None
+                new_nsmap[new_pfx] = ns
+            nsmap = new_nsmap
+
             # A new namespace mapping has come into play.
             inverted_nsmap = dict((value, key) for key, value in list(nsmap.items()))
             self.nsmaps.append(inverted_nsmap)
