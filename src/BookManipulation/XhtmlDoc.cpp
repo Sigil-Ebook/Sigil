@@ -566,7 +566,9 @@ QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const QString & source, 
         GumboNode* node = nodes.at(i);
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "src");
         if (!attr) {
-            attr = gumbo_get_attribute(&node->v.element.attributes, "xlink:href");
+            // search for xlink:href using gumbo attribute namespace
+            attr = gumbo_get_attribute(&node->v.element.attributes, "href");
+            if (attr && attr->attr_namespace != GUMBO_ATTR_NAMESPACE_XLINK) attr = NULL;
         }
         if (attr) {
             QString relative_path = Utility::URLDecodePath(QString::fromUtf8(attr->value));
