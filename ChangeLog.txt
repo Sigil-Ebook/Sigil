@@ -15,6 +15,10 @@ Sigil-0.9.4
     - Prevent segfault if user add semantics but never chooses one
     - Prevent Add Cover from returning the wrong doctype for epub3
     - Make sure cover-image and svg (if needed) are added as epub3 manifest properties when adding a cover
+    - Make sure all referenced resources are found for Delete Unused Media
+    - Remap non-standard epub namespace prefixes in the opf to those now reserved for epub3
+    - Make loading epubs with broken opf files more robust
+
    New Features
     - Extract all MarcRelators related code into its own class so it can be shared
     - Added some missing MARC relators
