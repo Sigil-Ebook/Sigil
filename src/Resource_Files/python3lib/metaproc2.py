@@ -29,7 +29,7 @@
 
 import sys
 import os
-from metadata_utils import quoteurl, unquoteurl, xmlencode, buildxml, valid_id, OPFMetadataParser
+from metadata_utils import quoteurl, unquoteurl, xmldecode, buildxml, valid_id, OPFMetadataParser
 
 import re
 
