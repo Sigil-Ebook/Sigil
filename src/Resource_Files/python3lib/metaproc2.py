@@ -29,7 +29,7 @@
 
 import sys
 import os
-from metadata_utils import quoteurl, unquoteurl, xmlencode, xmldecode, buildxml, valid_id, OPFMetadataParser
+from metadata_utils import quoteurl, unquoteurl, xmlencode, buildxml, valid_id, OPFMetadataParser
 
 import re
 
@@ -158,7 +158,7 @@ class MetadataProcessor(object):
             print("other", self.other)
             print("idlst", self.idlst)
 
-    # get recognized metadata with included refines as text based tree of 
+    # get recognized metadata as text based tree of 
     # metadata elements with properties/attributes as indented children
     def get_recognized_metadata(self):
         data=[]

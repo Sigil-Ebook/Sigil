@@ -64,10 +64,10 @@ def xmlencode(data):
     if data is None:
         return ''
     newdata = data
-    newdata.replace('&', '&amp;')
-    newdata.replace('<', '&lt;')
-    newdata.replace('>', '&gt;')
-    newdata.replace('"', '&quot;')
+    newdata = newdata.replace('&', '&amp;')
+    newdata = newdata.replace('<', '&lt;')
+    newdata = newdata.replace('>', '&gt;')
+    newdata = newdata.replace('"', '&quot;')
     return newdata
 
 #decode xml encoded strings
@@ -75,10 +75,10 @@ def xmldecode(data):
     if data is None:
         return ''
     newdata = data
-    newdata.replace('&quot;', '"')
-    newdata.replace('&gt;', '>')
-    newdata.replace('&lt;', '<')
-    newdata.replace('&amp;', '&')
+    newdata = newdata.replace('&quot;', '"')
+    newdata = newdata.replace('&gt;', '>')
+    newdata = newdata.replace('&lt;', '<')
+    newdata = newdata.replace('&amp;', '&')
     return newdata
 
 def buildxml(mentry):
@@ -90,7 +90,7 @@ def buildxml(mentry):
     if tattr is not None:
         for key in tattr:
             val = tattr[key]
-            val.replace('"','&quot;')
+            val = val.replace('"','&quot;')
             tag.append(' ' + key + '="'+val+'"' )
     if tcontent is not None:
         tag.append('>' + xmlencode(tcontent) + '</' + tname + '>\n')
