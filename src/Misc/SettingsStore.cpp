@@ -56,6 +56,9 @@ static QString KEY_PLUGIN_ENGINE_PATHS = SETTINGS_GROUP + "/" + "plugin_engine_p
 static QString KEY_PLUGIN_LAST_FOLDER = SETTINGS_GROUP + "/" + "plugin_add_last_folder";
 static QString KEY_PLUGIN_USE_BUNDLED_INTERP = SETTINGS_GROUP + "/" + "plugin_use_bundled_interp";
 
+static QString KEY_CSS_EPUB2_VALIDATION_SPEC = SETTINGS_GROUP + "/" + "css_epub2_validation_spec";
+static QString KEY_CSS_EPUB3_VALIDATION_SPEC = SETTINGS_GROUP + "/" + "css_epub3_validation_spec";
+
 static QString KEY_BOOK_VIEW_FONT_FAMILY_STANDARD = SETTINGS_GROUP + "/" + "book_view_font_family_standard";
 static QString KEY_BOOK_VIEW_FONT_FAMILY_SERIF = SETTINGS_GROUP + "/" + "book_view_font_family_serif";
 static QString KEY_BOOK_VIEW_FONT_FAMILY_SANS_SERIF = SETTINGS_GROUP + "/" + "book_view_font_family_sans_serif";
@@ -240,6 +243,18 @@ bool SettingsStore::useBundledInterp()
     return static_cast<bool>(value(KEY_PLUGIN_USE_BUNDLED_INTERP, true).toBool());
 }
 
+QString SettingsStore::cssEpub2ValidationSpec()
+{
+    clearSettingsGroup();
+    return value(KEY_CSS_EPUB2_VALIDATION_SPEC, "css21").toString();
+}
+
+QString SettingsStore::cssEpub3ValidationSpec()
+{
+    clearSettingsGroup();
+    return value(KEY_CSS_EPUB3_VALIDATION_SPEC, "css30").toString();
+}
+
 SettingsStore::BookViewAppearance SettingsStore::bookViewAppearance()
 {
     clearSettingsGroup();
@@ -422,6 +437,18 @@ void SettingsStore::setUseBundledInterp(bool use)
 {
     clearSettingsGroup();
     setValue(KEY_PLUGIN_USE_BUNDLED_INTERP, use);
+}
+
+void SettingsStore::setCssEpub2ValidationSpec(const QString &spec)
+{
+    clearSettingsGroup();
+    setValue(KEY_CSS_EPUB2_VALIDATION_SPEC, spec);
+}
+
+void SettingsStore::setCssEpub3ValidationSpec(const QString &spec)
+{
+    clearSettingsGroup();
+    setValue(KEY_CSS_EPUB3_VALIDATION_SPEC, spec);
 }
 
 void SettingsStore::setBookViewAppearance(const SettingsStore::BookViewAppearance &book_view_appearance)

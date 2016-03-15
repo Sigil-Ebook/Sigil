@@ -25,6 +25,7 @@
 #include <QtGui/QDesktopServices>
 
 #include "Misc/Utility.h"
+#include "Misc/SettingsStore.h"
 #include "ResourceObjects/CSSResource.h"
 
 static const QString W3C_HTML_FORM = "<html>"
@@ -37,7 +38,7 @@ static const QString W3C_HTML_FORM = "<html>"
                                      "   <form id='form' enctype='multipart/form-data' action='http://jigsaw.w3.org/css-validator/validator' method='post'>"
                                      "    <p><textarea name='text' rows='12' cols='70'>%4</textarea></p>"
                                      "    <input type='hidden' name='lang' value='en' />"
-                                     "    <input type='hidden' name='profile' value='css21' />"
+                                     "    <input type='hidden' name='profile' value='%5' />"
                                      "   </form>"
                                      "  </div>"
                                      "  <script type='text/javascript'>"
@@ -83,11 +84,24 @@ Resource::ResourceType CSSResource::Type() const
 
 void CSSResource::ValidateStylesheetWithW3C()
 {
+    SettingsStore settings;
+    QString spec;
+
+    // use css 3.0 for EPUB3 W3C validation.
+    // check user prefs for EPUB2 CSS spec
+    if (GetEpubVersion().startsWith('3')) {
+        spec = settings.cssEpub3ValidationSpec();
+    }
+    else {
+        spec = settings.cssEpub2ValidationSpec();
+    }
+
     const QString &post_form_html = W3C_HTML_FORM
                                     .arg(tr("Sigil will send your stylesheet data to the <a href='http://jigsaw.w3.org/css-validator/'>W3C Validation Service</a>."))
                                     .arg(tr("This page should disappear once loaded after 3 seconds."))
                                     .arg(tr("If your browser does not have javascript enabled, click on the button below."))
-                                    .arg(GetText());
+                                    .arg(GetText())
+                                    .arg(spec);
     const QString &temp_file_path = Utility::GetTemporaryFileNameWithExtension(".html");
     Utility::WriteUnicodeTextFile(post_form_html, temp_file_path);
     m_TemporaryValidationFiles.append(temp_file_path);

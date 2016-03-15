@@ -7,25 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>383</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>General Settings</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <property name="leftMargin">
-    <number>6</number>
-   </property>
-   <property name="topMargin">
-    <number>0</number>
-   </property>
-   <property name="rightMargin">
-    <number>0</number>
-   </property>
-   <property name="bottomMargin">
-    <number>0</number>
-   </property>
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="toolTip">
@@ -107,7 +95,7 @@ and when switching from Book View to Code View.</string>
      <property name="title">
       <string> Control Access by Epubs to non-multimedia remote resources.</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout2">
+     <layout class="QGridLayout" name="gridLayout_3">
       <item row="0" column="0">
        <widget class="QCheckBox" name="AllowRemote">
         <property name="toolTip">
@@ -125,14 +113,52 @@ and when switching from Book View to Code View.</string>
     </widget>
    </item>
    <item>
+    <widget class="QGroupBox" name="groupBox_4">
+     <property name="toolTip">
+      <string>What CSS spec to specify for W3C validation</string>
+     </property>
+     <property name="title">
+      <string>EPUB2 CSS Validation Specification:</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QRadioButton" name="Epub2css21">
+        <property name="toolTip">
+         <string>Validate with CSS 2.1</string>
+        </property>
+        <property name="text">
+         <string>CSS 2.1</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="Epub2css30">
+        <property name="toolTip">
+         <string>Validate with CSS 3.0</string>
+        </property>
+        <property name="text">
+         <string>CSS 3.0</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>40</width>
-       <height>20</height>
+       <width>20</width>
+       <height>40</height>
       </size>
      </property>
     </spacer>
