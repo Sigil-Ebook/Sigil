@@ -95,6 +95,11 @@ public:
     QString pluginLastFolder();
     bool useBundledInterp();
 
+    /**
+     * Get version specification for W3C validation
+     */
+    QString cssEpub2ValidationSpec();
+    QString cssEpub3ValidationSpec();
 
     /**
      * Whether automatic Spellcheck is enabled or not
@@ -250,6 +255,12 @@ public slots:
     void setPluginEnginePaths(const QHash <QString, QString> &enginepaths);
     void setPluginLastFolder(const QString &lastfolder);
     void setUseBundledInterp(bool use);
+
+    /**
+     * Set which css version to specify to the W3C Validator
+     */
+    void setCssEpub2ValidationSpec(const QString &spec);
+    void setCssEpub3ValidationSpec(const QString &spec);
 
     /**
      * Set whether automatic Spellcheck is enabled
