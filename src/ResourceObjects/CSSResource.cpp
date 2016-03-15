@@ -85,15 +85,15 @@ Resource::ResourceType CSSResource::Type() const
 void CSSResource::ValidateStylesheetWithW3C()
 {
     SettingsStore settings;
-    QString spec;
+    QString w3c_spec;
 
     // use css 3.0 for EPUB3 W3C validation.
     // check user prefs for EPUB2 CSS spec
     if (GetEpubVersion().startsWith('3')) {
-        spec = settings.cssEpub3ValidationSpec();
+        w3c_spec = settings.cssEpub3ValidationSpec();
     }
     else {
-        spec = settings.cssEpub2ValidationSpec();
+        w3c_spec = settings.cssEpub2ValidationSpec();
     }
 
     const QString &post_form_html = W3C_HTML_FORM
@@ -101,7 +101,7 @@ void CSSResource::ValidateStylesheetWithW3C()
                                     .arg(tr("This page should disappear once loaded after 3 seconds."))
                                     .arg(tr("If your browser does not have javascript enabled, click on the button below."))
                                     .arg(GetText())
-                                    .arg(spec);
+                                    .arg(w3c_spec);
     const QString &temp_file_path = Utility::GetTemporaryFileNameWithExtension(".html");
     Utility::WriteUnicodeTextFile(post_form_html, temp_file_path);
     m_TemporaryValidationFiles.append(temp_file_path);

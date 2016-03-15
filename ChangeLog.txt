@@ -1,3 +1,10 @@
+Sigil-0.9.5
+   Bug Fixes
+
+   New Features
+    - Allow user to choose what version of CSS gets used in the "Validate Stylesheets
+         With W3C" tool for EPUB2s (EPUB3s will use CSS 3.0) via user preference (General).
+
 Sigil-0.9.4
    Bug Fixes
     - Prevent the use of zero length key fields when obfuscating fonts

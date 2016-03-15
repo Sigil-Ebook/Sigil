@@ -47,9 +47,6 @@ PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
     if (ui.MendOnSave->isChecked()) {
         new_clean_on_level |= CLEANON_SAVE;
     }
-    if (ui.Epub2css21->isChecked()) {
-        css_epub2_spec = "css21";
-    }
     if (ui.Epub2css30->isChecked()) {
         css_epub2_spec = "css30";
     }

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>383</height>
+    <height>384</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -95,6 +95,9 @@ and when switching from Book View to Code View.</string>
      <property name="title">
       <string> Control Access by Epubs to non-multimedia remote resources.</string>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="0" column="0">
        <widget class="QCheckBox" name="AllowRemote">
@@ -115,16 +118,19 @@ and when switching from Book View to Code View.</string>
    <item>
     <widget class="QGroupBox" name="groupBox_4">
      <property name="toolTip">
-      <string>What CSS spec to specify for W3C validation</string>
+      <string>What CSS version to specify for W3C validation tool for EPUB2 (EPUB3 uses CSS 3.0)</string>
      </property>
      <property name="title">
-      <string>EPUB2 CSS Validation Specification:</string>
+      <string>EPUB2 W3C CSS Validation Specification:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QRadioButton" name="Epub2css21">
         <property name="toolTip">
-         <string>Validate with CSS 2.1</string>
+         <string>W3C validator will use CSS 2.1 for EPUB2</string>
         </property>
         <property name="text">
          <string>CSS 2.1</string>
@@ -137,7 +143,7 @@ and when switching from Book View to Code View.</string>
       <item>
        <widget class="QRadioButton" name="Epub2css30">
         <property name="toolTip">
-         <string>Validate with CSS 3.0</string>
+         <string>W3C validator will use CSS 3.0 for EPUB2</string>
         </property>
         <property name="text">
          <string>CSS 3.0</string>
