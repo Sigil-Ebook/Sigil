@@ -125,7 +125,18 @@ MetaEntry HTMLMetadata::FixupHTMLMetadata(QString name, QString value, const QHa
 }
 
 
+
 // Converts HTML sourced Dublin Core metadata to OPF style metadata
+//
+// Sample of HTML Based DC Metadata:
+//   <meta name="DC.Title" content="The Title"/>
+//   <meta name="DC.Language" content="en"/>
+//   <meta name="DC.Creator" content=""/>
+//   <meta name="DC.Publisher" content="Publisher Name"/>
+//   <meta name="DC.Date" content="2016-03-01"/>
+//   <meta name="DC.Identifier" content="978-0-00000-000-0" scheme="ISBN"/>
+//   <meta name="DC.Relation" content="978-0-00000-000-0" scheme="ISBN"/>
+
 MetaEntry HTMLMetadata::HtmlToOpfDC(QString mname, QString mvalue, const QHash<QString,QString> & matts)
 {
     // Dublin Core from html file with the original 15 element namespace or
@@ -147,12 +158,10 @@ MetaEntry HTMLMetadata::HtmlToOpfDC(QString mname, QString mvalue, const QHash<Q
         dc_event = "publication";
     }
 
-    QString role   = (name == "dc:creator") || (name == "dc:contributor") ? refinement : QString();
+    QString role   = (name == "creator") || (name == "contributor") ? refinement : QString();
+
     QString scheme = matts.value("scheme");
-    if (scheme.isEmpty()) {
-        scheme = matts.value("opf:scheme");
-    }
-    if ((name == "dc:identifier") && (scheme.isEmpty())) {
+    if ((name == "identifier") && (scheme.isEmpty())) {
         scheme = refinement;
     }
     if (!scheme.isEmpty()) {
@@ -162,7 +171,7 @@ MetaEntry HTMLMetadata::HtmlToOpfDC(QString mname, QString mvalue, const QHash<Q
     }
 
     MetaEntry me;
-    me.m_name  = name;
+    me.m_name  = "dc:" + name;
     me.m_content = mvalue;
     if (!scheme.isEmpty()) {
         me.m_atts[ "opf:scheme" ] = scheme;

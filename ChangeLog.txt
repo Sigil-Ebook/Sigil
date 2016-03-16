@@ -1,5 +1,6 @@
 Sigil-0.9.5
    Bug Fixes
+    - Fix breakage when ImportHTML in gathering HTML based DC. metadata
 
    New Features
     - Allow user to choose what version of CSS gets used in the "Validate Stylesheets
