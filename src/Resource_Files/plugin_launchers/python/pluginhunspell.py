@@ -62,6 +62,11 @@ class HunspellChecker(object):
 
 
     def loadDictionary(self, affpath, dpath):
+        if sys.platform.startswith('win'):
+            # Win32 bug needs a longpath prefix to trick hunspell into always using _wfopen instead of fopen.
+            # Only matters if library paths contain non-ascii characters.
+            affpath = '\\\\?\\' + affpath
+            dpath = '\\\\?\\' + dpath
         if type(affpath) == text_type:
             affpath = affpath.encode('utf-8')
         if type(dpath) == text_type:
