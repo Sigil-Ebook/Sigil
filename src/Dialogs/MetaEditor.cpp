@@ -216,22 +216,22 @@ void MetaEditor::selectE2Element()
             QString content = "[No data]";
             code = "dc:identifier";
             insertRow(code, content);
-            insertChild(QString("opf:scheme"), QString("urn:isbn"));
+            insertChild(QString("opf:scheme"), QString("ISBN"));
         } else if (code == "dc:identifier-issn") {
             QString content = "[No Data]";
             code = "dc:identifier";
             insertRow(code, content);
-            insertChild(QString("opf:scheme"), QString("urn:issn"));
+            insertChild(QString("opf:scheme"), QString("ISSN"));
         } else if (code == "dc:identifier-doi") {
             QString content = "[No data]";
             code = "dc:identifier";
             insertRow(code, content);
-            insertChild(QString("opf:scheme"), QString("urn:doi"));
+            insertChild(QString("opf:scheme"), QString("DOI"));
         } else if (code == "dc:identifier-uuid") {
             QString content = "[No data]";
             code = "dc:identifier";
             insertRow(code, content);
-            insertChild(QString("opf:scheme"), QString("urn:uuid"));
+            insertChild(QString("opf:scheme"), QString("UUID"));
         } else if (code == "dc:identifier-custom") {
             QString content = "[No data]";
             code = "dc:identifier";
@@ -248,7 +248,6 @@ void MetaEditor::selectE2Element()
             code = "dc:creator";
             insertRow(code);
             insertChild(QString("opf:role"),QString("aut"));
-            insertChild(QString("opf:scheme"),QString("marc:relators"));
         } else {
             insertRow(code);
         }
@@ -335,11 +334,7 @@ void MetaEditor::selectE2Property()
         }
     }
     foreach(QString code, codes) {
-        if (code.startsWith("dir:")) {
-            QStringList parts = code.split(':');
-            QString content = parts.at(1);
-            insertChild(code, content);
-        } else if (code == "opf:scheme") {
+        if (code == "opf:scheme") {
             insertChild(code);
         } else if (code == "xml:lang") {
             QStringList langcodes;
@@ -363,9 +358,6 @@ void MetaEditor::selectE2Property()
                 role = rolecodes.at(0);
             }
             insertChild(code, role);
-            code = "opf:scheme";
-            QString scheme = "marc:relators";
-            insertChild(code, scheme);
         } else {
             insertChild(code);
         }
@@ -673,7 +665,7 @@ void MetaEditor::loadE2MetadataProperties()
          tr("XML Language") << "xml:lang" << tr("Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.") <<
          tr("File as") << "opf:file-as" << tr("Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.") <<
          tr("Role") << "opf:role" << tr("Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.") <<
-         tr("Scheme") << "opf:scheme" << tr("This attribute is typically added to dc:identifier, dc:source: dc:creator, or dc:contributor to indicate the controlled vocabulary system employed. (e.g. marc:relators to specifiy valid values for the role property.") <<
+         tr("Scheme") << "opf:scheme" << tr("This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, or UUID.") <<
          tr("Event") << "opf:event" << tr("This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.") <<
          tr("Custom Attribute") << "[No data]" << tr("An empty metadata attribute you can modify.");
 
