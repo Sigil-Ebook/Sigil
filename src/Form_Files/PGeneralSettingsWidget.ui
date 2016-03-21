@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>384</height>
+    <height>413</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -117,23 +117,39 @@ and when switching from Book View to Code View.</string>
    </item>
    <item>
     <widget class="QGroupBox" name="groupBox_4">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="toolTip">
-      <string>What CSS version to specify for W3C validation tool for EPUB2 (EPUB3 uses CSS 3.0)</string>
+      <string>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</string>
      </property>
      <property name="title">
-      <string>EPUB2 W3C CSS Validation Specification:</string>
+      <string>EPUB2 W3C Stylesheet Validation Level:</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <layout class="QHBoxLayout" name="horizontalLayoutcss2">
+      <item>
+       <widget class="QRadioButton" name="Epub2css20">
+        <property name="toolTip">
+         <string>W3C stylesheet validator will use CSS level 2 for EPUB2</string>
+        </property>
+        <property name="text">
+         <string>CSS Level 2</string>
+        </property>
+       </widget>
+      </item>
       <item>
        <widget class="QRadioButton" name="Epub2css21">
         <property name="toolTip">
-         <string>W3C validator will use CSS 2.1 for EPUB2</string>
+         <string>W3C stylesheet validator will use CSS level 2.1 for EPUB2</string>
         </property>
         <property name="text">
-         <string>CSS 2.1</string>
+         <string>CSS Level 2.1</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -143,13 +159,70 @@ and when switching from Book View to Code View.</string>
       <item>
        <widget class="QRadioButton" name="Epub2css30">
         <property name="toolTip">
-         <string>W3C validator will use CSS 3.0 for EPUB2</string>
+         <string>W3C stylesheet validator will use CSS level 3 for EPUB2</string>
         </property>
         <property name="text">
-         <string>CSS 3.0</string>
+         <string>CSS Level 3</string>
         </property>
         <property name="checked">
          <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_5">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="toolTip">
+      <string>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</string>
+     </property>
+     <property name="title">
+      <string>EPUB3 W3C Stylesheet Validation Level:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayoutcss3">
+      <item>
+       <widget class="QRadioButton" name="Epub3css20">
+        <property name="toolTip">
+         <string>W3C stylesheet validator will use CSS level 2 for EPUB3</string>
+        </property>
+        <property name="text">
+         <string>CSS Level 2</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="Epub3css21">
+        <property name="toolTip">
+         <string>W3C stylesheet validator will use CSS level 2.1 for EPUB3</string>
+        </property>
+        <property name="text">
+         <string>CSS Level 2.1</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="Epub3css30">
+        <property name="toolTip">
+         <string>W3C stylesheet validator will use CSS level 3 for EPUB3</string>
+        </property>
+        <property name="text">
+         <string>CSS Level 3</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
         </property>
        </widget>
       </item>

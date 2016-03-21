@@ -36,7 +36,6 @@ PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
 
     int new_clean_on_level = 0;
     QString new_epub_version = "2.0";
-    QString css_epub2_spec = "css21";
 
     if (ui.EpubVersion3->isChecked()) {
         new_epub_version = "3.0";
@@ -47,8 +46,21 @@ PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
     if (ui.MendOnSave->isChecked()) {
         new_clean_on_level |= CLEANON_SAVE;
     }
-    if (ui.Epub2css30->isChecked()) {
-        css_epub2_spec = "css30";
+
+    QString css_epub2_spec = "css21";
+
+    if (ui.Epub2css20->isChecked()) {
+        css_epub2_spec = "css2";
+    } else if (ui.Epub2css30->isChecked()) {
+        css_epub2_spec = "css3";
+    }
+
+    QString css_epub3_spec = "css3";
+
+    if (ui.Epub3css20->isChecked()) {
+        css_epub3_spec = "css2";
+    } else if (ui.Epub3css21->isChecked()) {
+        css_epub3_spec = "css21";
     }
 
     int new_remote_on_level = 0;
@@ -61,6 +73,7 @@ PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
     settings.setCleanOn(new_clean_on_level);
     settings.setDefaultVersion(new_epub_version);
     settings.setCssEpub2ValidationSpec(css_epub2_spec);
+    settings.setCssEpub3ValidationSpec(css_epub3_spec);
     settings.setRemoteOn(new_remote_on_level);
     return PreferencesWidget::ResultAction_None;
 }
@@ -69,11 +82,16 @@ void GeneralSettingsWidget::readSettings()
 {
     SettingsStore settings;
     QString version = settings.defaultVersion();
-    QString css_epub2_spec = settings.cssEpub2ValidationSpec();
     ui.EpubVersion2->setChecked(version == "2.0");
     ui.EpubVersion3->setChecked(version == "3.0");
+    QString css_epub2_spec = settings.cssEpub2ValidationSpec();
+    ui.Epub2css20->setChecked(css_epub2_spec == "css2");
     ui.Epub2css21->setChecked(css_epub2_spec == "css21");
-    ui.Epub2css30->setChecked(css_epub2_spec == "css30");
+    ui.Epub2css30->setChecked(css_epub2_spec == "css3");
+    QString css_epub3_spec = settings.cssEpub3ValidationSpec();
+    ui.Epub3css20->setChecked(css_epub3_spec == "css2");
+    ui.Epub3css21->setChecked(css_epub3_spec == "css21");
+    ui.Epub3css30->setChecked(css_epub3_spec == "css3");
     int cleanOn = settings.cleanOn();
     ui.MendOnOpen->setChecked(cleanOn & CLEANON_OPEN);
     ui.MendOnSave->setChecked(cleanOn & CLEANON_SAVE);

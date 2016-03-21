@@ -33,7 +33,7 @@ static const QString W3C_HTML_FORM = "<html>"
                                      "  <p>%1</p>"
                                      "  <p><b>%2</b></p>"
                                      "  <p>%3</p>"
-                                     "  <p><input id='button' type='submit' value='Check' /></p>"
+                                     "  <p><input id='button' form='form' type='submit' value='Check' /></p>"
                                      "  <div>"
                                      "   <form id='form' enctype='multipart/form-data' action='http://jigsaw.w3.org/css-validator/validator' method='post'>"
                                      "    <p><textarea name='text' rows='12' cols='70'>%4</textarea></p>"
@@ -87,8 +87,7 @@ void CSSResource::ValidateStylesheetWithW3C()
     SettingsStore settings;
     QString w3c_spec;
 
-    // use css 3.0 for EPUB3 W3C validation.
-    // check user prefs for EPUB2 CSS spec
+    // check user prefs for EPUB stylesheet validation level
     if (GetEpubVersion().startsWith('3')) {
         w3c_spec = settings.cssEpub3ValidationSpec();
     }
