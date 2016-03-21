@@ -1,6 +1,9 @@
 Sigil-0.9.5
    Bug Fixes
     - Fix breakage when ImportHTML in gathering HTML based DC. metadata
+    - Remove incorrect use of opf:scheme from dc:creator and dc:contributor under epub2
+    - Fix issues with hunspell spell checking under Windows when non-ascii paths to dictionaries
+    - Fix issues with overridding the prefs directory on Windows with non-ascii paths
 
    New Features
     - Allow user to choose what version of CSS gets used in the "Validate Stylesheets
