@@ -1098,7 +1098,9 @@ void OPFResource::CreateMimetypes()
     m_Mimetypes[ "mp3"   ] = "audio/mpeg";
     m_Mimetypes[ "oga"   ] = "audio/ogg";
     m_Mimetypes[ "ogg"   ] = "audio/ogg";
+    m_Mimetypes[ "m4a"   ] = "audio/mp4";
     m_Mimetypes[ "mp4"   ] = "video/mp4";
+    m_Mimetypes[ "m4v"   ] = "video/mp4";
     m_Mimetypes[ "ogv"   ] = "video/ogg";
     m_Mimetypes[ "webm"  ] = "video/webm";
     m_Mimetypes[ "smil"  ] = "application/smil+xml";

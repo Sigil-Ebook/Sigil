@@ -57,10 +57,13 @@ ext_mime_map = {
                 '.xhtml': 'application/xhtml+xml',
                 '.html' : 'application/xhtml+xml',
                 '.otf'  : 'application/vnd.ms-opentype',
+                #'.otf'  : 'application/x-font-opentype',
                 '.ttf'  : 'application/x-font-ttf',
                 '.woff' : 'application/font-woff',
                 '.mp3'  : 'audio/mpeg',
+                '.m4a'  : 'audio/mp4',
                 '.mp4'  : 'video/mp4',
+                '.m4v'  : 'video/mp4',
                 '.css'  : 'text/css',
                 '.ncx'  : 'application/x-dtbncx+xml',
                 '.xml'  : 'application/oebs-page-map+xml',
@@ -68,9 +71,8 @@ ext_mime_map = {
                 '.smil' : 'application/smil+xml',
                 '.pls'  : 'application/pls-xml',
                 '.js'   : 'text/javascript',
-                '.epub' : 'application/epub+zip',
                 #'.js'   : 'application/javascript',
-                #'.otf'  : 'application/x-font-opentype',
+                '.epub' : 'application/epub+zip',
                 }
 
 mime_base_map = {
@@ -92,6 +94,7 @@ mime_base_map = {
                 'application/oebps-package+xml' : '',
                 'application/oebs-page-map+xml' : 'Misc',
                 'application/smil+xml'          : 'Misc',
+                'text/javascript'               : 'Misc',
                 'application/pls-xml'           : 'Misc',
                 }
 

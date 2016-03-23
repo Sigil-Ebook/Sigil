@@ -73,9 +73,9 @@ const QStringList IMAGE_MIMEYPES     = QStringList() << "image/gif" << "image/jp
 const QStringList SVG_MIMETYPES      = QStringList() << "image/svg+xml";
 const QStringList TEXT_MIMETYPES     = QStringList() << "application/xhtml+xml" << "application/x-dtbook+xml";
 const QStringList STYLE_MIMETYPES    = QStringList() << "text/css";
-const QStringList AUDIO_MIMETYPES    = QStringList() << "audio/mpeg" << "audio/mp4" << "audio/ogg";
-const QStringList VIDEO_MIMETYPES    = QStringList() << "video/mp4" << "video/mp4" << "video/mp4" 
-                                                  << "video/ogg" << "video/webm" << "text/vtt" << "application/ttml+xml" ;
+const QStringList AUDIO_MIMETYPES    = QStringList() << "audio/mpeg" << "audio/mp3" << "audio/ogg" << "audio/mp4";
+const QStringList VIDEO_MIMETYPES    = QStringList() << "video/mp4" << "video/ogg" << "video/webm" << 
+                                                        "text/vtt" << "application/ttml+xml" ;
 const QStringList MISC_XML_MIMETYPES = QStringList() << "application/oebps-page-map+xml" <<  "application/smil+xml";
 
 static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
@@ -523,7 +523,9 @@ void FolderKeeper::CreateExtensionToMediaTypeMap()
   m_ExtToMType[ "jpg"   ] = "image/jpeg";
   m_ExtToMType[ "js"    ] = "text/javascript";
   m_ExtToMType[ "mp3"   ] = "audio/mpeg";
+  m_ExtToMType[ "m4a"   ] = "audio/mp4";
   m_ExtToMType[ "mp4"   ] = "video/mp4";
+  m_ExtToMType[ "m4v"   ] = "video/mp4";
   m_ExtToMType[ "ncx"   ] = "application/x-dtbncx+xml";
   m_ExtToMType[ "oga"   ] = "audio/ogg";
   m_ExtToMType[ "ogg"   ] = "audio/ogg";
