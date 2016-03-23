@@ -6,6 +6,7 @@ Sigil-0.9.5
     - Fix issues with overridding the prefs directory on Windows with non-ascii paths
     - Fix broken manual "Check" button on W3C stylesheet validation's generated html form.
     - Fix media-type recognition for .m4a and .m4v file extenstions in main Sigil and plugin code
+    - Treat ruby and rt as inline tags when pretty-printing in Sigils and for plugins
 
    New Features
     - Allow user to choose what level of CSS gets used in the "Validate Stylesheets

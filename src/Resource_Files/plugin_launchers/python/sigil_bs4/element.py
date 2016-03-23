@@ -27,8 +27,8 @@ whitespace_re = re.compile("\s+")
 
 NON_BREAKING_INLINE_TAGS = ("a","abbr","acronym","b","bdo","big","br",
     "button","cite","code","del","dfn","em","font","i","image","img",
-    "input","ins","kbd","label","map","nobr","object","q","s","samp",
-    "select","small","span","strike","strong","sub","sup","textarea",
+    "input","ins","kbd","label","map","nobr","object","q","ruby","rt","s",
+    "samp","select","small","span","strike","strong","sub","sup","textarea",
     "tt","u","var","wbr","mbp:nu")
 
 PRESERVE_WHITESPACE_TAGS = ("pre","textarea","script","style")
