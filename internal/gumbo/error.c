@@ -70,7 +70,6 @@ static int print_message(GumboStringBuffer* output, const char* format, ...) {
     va_end(args);
   }
   output->length += bytes_written;
-  va_end(args);
   return bytes_written;
 }
 
