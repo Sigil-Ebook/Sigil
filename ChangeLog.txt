@@ -1,7 +1,8 @@
 Sigil-0.9.5
    Bug Fixes
-    - Fix breakage when ImportHTML in gathering HTML based DC. metadata
-    - Remove incorrect use of opf:scheme from dc:creator and dc:contributor under epub2
+    - Fix regression when ImportHTML in gathering HTML based DC. metadata
+    - Fix regression - remove incorrect use of opf:scheme from dc:creator and dc:contributor under epub2
+    - Fix regression - the guide reference tag is always a void tag
     - Fix issues with hunspell spell checking under Windows when non-ascii paths to dictionaries
     - Fix issues with overridding the prefs directory on Windows with non-ascii paths
     - Fix broken manual "Check" button on W3C stylesheet validation's generated html form.
