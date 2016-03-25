@@ -20,7 +20,7 @@ ebook_xml_empty_tags = ["meta", "item", "itemref", "reference", "content"]
 def get_void_tags(mtype):
     voidtags = []
     if mtype == "application/oebps-package+xml":
-        voidtags = ["item", "itemref", "mediatype", "mediaType", "meta"]
+        voidtags = ["item", "itemref", "mediatype", "mediaType", "meta", "reference"]
     elif mtype == "application/x-dtbncx+xml":
         voidtags = ["meta", "reference", "content"]
     elif mtype == "application/smil+xml":
