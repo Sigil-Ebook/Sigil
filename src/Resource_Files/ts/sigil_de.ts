@@ -903,17 +903,17 @@ Mindestens eine Datei muss verbleiben.</translation>
 <context>
     <name>CSSResource</name>
     <message>
-        <location filename="../../ResourceObjects/CSSResource.cpp" line="87"/>
+        <location filename="../../ResourceObjects/CSSResource.cpp" line="99"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
         <translation>Sigil sendet Ihre Stylesheet-Daten an den &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validierungsservice&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/CSSResource.cpp" line="88"/>
+        <location filename="../../ResourceObjects/CSSResource.cpp" line="100"/>
         <source>This page should disappear once loaded after 3 seconds.</source>
         <translation>Diese Seite sollte nach dem Laden innerhalb von 3 Sekunden verschwinden.</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/CSSResource.cpp" line="89"/>
+        <location filename="../../ResourceObjects/CSSResource.cpp" line="101"/>
         <source>If your browser does not have javascript enabled, click on the button below.</source>
         <translation>Wenn Ihr Browser kein JavaScript aktiviert hat, klicken Sie auf die Schaltfläche unten.</translation>
     </message>
@@ -1976,51 +1976,51 @@ umlaufend vom Anfang bis zur aktuellen Position.</translation>
         <translation>Allgemeine Einstellungen</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="32"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="20"/>
         <source>Choose which version of Epub to use
 when creating new or empty Epubs in Sigil.</source>
         <translation>Legt fest, welche ePub-Version neue
 ePubs haben sollen.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="36"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="24"/>
         <source>Create New or Empty Epubs as:</source>
         <translation>Neue oder leere ePubs erstellen als:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="42"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="30"/>
         <source>Epub Version 2.</source>
         <translation>ePub-Version 2.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="45"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="33"/>
         <source>Version 2</source>
         <translation>Version 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="55"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="43"/>
         <source>Epub Version 3.</source>
         <translation>ePub-Version 3.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="58"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="46"/>
         <source>Version 3</source>
         <translation>Version 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="71"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="59"/>
         <source>Choose when your HTML code is automatically 
 mended.</source>
         <translation>Legt fest, wann der HTML-Code automatisch
 bereinigt werden soll.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="75"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="63"/>
         <source>Mend XHTML Source Code On:</source>
         <translation>XHTML-Quellcode bereinigen beim:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="81"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="69"/>
         <source>Mend when opening an Epub or HTML file, 
 and when switching from Book View to Code View.</source>
         <translation>Bereinigt Quellcode, wenn eine EPUB- oder
@@ -2028,39 +2028,107 @@ HTML-Datei geöffnet wird oder beim Wechseln
 zur Quelltext-Ansicht.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="85"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="73"/>
         <source>Open</source>
         <translation>Öffnen</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="92"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="80"/>
         <source>Mend when saving an Epub.</source>
         <translation>Bereinigen beim Speichern.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="95"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="83"/>
         <source>Save</source>
         <translation>Speichern</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="105"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="93"/>
         <source>Determine if Epubs are allowed to access non-multimedia remote resources.</source>
         <translation>Legt fest, ob ePubs auf Nicht-Multimedia-Internet-Ressourcen zugreifen dürfen.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="108"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="96"/>
         <source> Control Access by Epubs to non-multimedia remote resources.</source>
         <translation>Zugriff von ePubs auf Nicht-Multimedia-Internet-Ressourcen</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="114"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="105"/>
         <source>Check to allow Epubs to access non-multimedia remote resources.</source>
         <translation>Aktivieren Sie diese Option, um ePubs den Zugriff auf Nicht-Multimedia-Internet-Ressourcen zu gewähren.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="117"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="108"/>
         <source>Epubs may access all remote resources types.</source>
         <translation>Epubs können auf alle Internet-Ressourcen zugreifen.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="127"/>
+        <source>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</source>
+        <translation>Die zu verwendende CSS Level-Version für EPUB2-Stylesheet-Validierung. </translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="130"/>
+        <source>EPUB2 W3C Stylesheet Validation Level:</source>
+        <translation>EPUB2-W3C-Stylesheet-Validierung:</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="139"/>
+        <source>W3C stylesheet validator will use CSS level 2 for EPUB2</source>
+        <translation>Das Stylesheet wird mit CSS Level 2 für EPUB2 validiert.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="142"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="199"/>
+        <source>CSS Level 2</source>
+        <translation>CSS Level 2</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="149"/>
+        <source>W3C stylesheet validator will use CSS level 2.1 for EPUB2</source>
+        <translation>Das Stylesheet wird mit CSS Level 2.1 für EPUB2 validiert.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="152"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="209"/>
+        <source>CSS Level 2.1</source>
+        <translation>CSS Level 2.1</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="162"/>
+        <source>W3C stylesheet validator will use CSS level 3 for EPUB2</source>
+        <translation>Das Stylesheet wird mit CSS Level 3 für EPUB2 validiert.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="165"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="222"/>
+        <source>CSS Level 3</source>
+        <translation>CSS Level 3</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="184"/>
+        <source>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</source>
+        <translation>Die zu verwendende CSS Level-Version für EPUB3-Stylesheet-Validierung. </translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="187"/>
+        <source>EPUB3 W3C Stylesheet Validation Level:</source>
+        <translation>EPUB3-W3C-Stylesheet-Validierung:</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="196"/>
+        <source>W3C stylesheet validator will use CSS level 2 for EPUB3</source>
+        <translation>Das Stylesheet wird mit CSS Level 2 für EPUB3 validiert.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="206"/>
+        <source>W3C stylesheet validator will use CSS level 2.1 for EPUB3</source>
+        <translation>Das Stylesheet wird mit CSS Level 2.1 für EPUB3 validiert.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="219"/>
+        <source>W3C stylesheet validator will use CSS level 3 for EPUB3</source>
+        <translation>Das Stylesheet wird mit CSS Level 3 für EPUB3 validiert.</translation>
     </message>
 </context>
 <context>
@@ -8925,12 +8993,12 @@ Diese Aktion kann nicht rückgängig gemacht werden.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2559"/>
         <source>Metadata Editor cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Metadaten-Editor wurde abgebrochen.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2562"/>
         <source>Metadata edited.</source>
-        <translation type="unfinished"/>
+        <translation>Metadaten wurden bearbeitet.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2653"/>
@@ -9437,7 +9505,7 @@ Möchten Sie die Dateien vor dem Speichern automatisch bereinigen?</translation>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Book producer</source>
-        <translation type="unfinished"/>
+        <translation>Buchproduzent</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
@@ -9447,7 +9515,7 @@ Möchten Sie die Dateien vor dem Speichern automatisch bereinigen?</translation>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Bookjacket designer</source>
-        <translation type="unfinished"/>
+        <translation>Schutzumschlag-Designer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
@@ -11855,604 +11923,608 @@ Möchten Sie die Dateien vor dem Speichern automatisch bereinigen?</translation>
         <translation>Wert</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="521"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="623"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="513"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>Author</source>
         <translation>Autor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="521"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="623"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="513"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>Represents a primary author of the book or publication</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="522"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="627"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="514"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="619"/>
         <source>Subject</source>
         <translation>Thema</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="522"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="627"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="514"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="619"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
         <translation>Thema, das im Dokument behandelt wird. Bei Bedarf können mehrere &quot;Thema&quot;-Elemente benutzt werden.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="523"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="628"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="515"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
         <source>Description</source>
         <translation>Beschreibung</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="523"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="628"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="515"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
         <source>Description of the publication&apos;s content.</source>
         <translation>Zusammenfassung des Inhalts des Dokuments.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="524"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="629"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="516"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="621"/>
         <source>Publisher</source>
         <translation>Herausgeber</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="524"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="629"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="516"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="621"/>
         <source>An entity responsible for making the publication available.</source>
         <translation>Name der veröffentlichenden Instanz, typischerweise der Verleger oder Herausgeber.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="525"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="630"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="517"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="622"/>
         <source>Date: Publication</source>
         <translation>Datum: Veröffentlichung</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="525"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="630"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="517"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="622"/>
         <source>The date of publication.</source>
         <translation>Das Datum der Veröffentlichung.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="526"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="631"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="518"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="623"/>
         <source>Date: Creation</source>
         <translation>Datum: Erstellung</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="526"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="631"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="518"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="623"/>
         <source>The date of creation.</source>
         <translation>Das Datum der Erstellung.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="527"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="519"/>
         <source>Date: Issued</source>
         <translation>Datum: Ausstellung</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="527"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="528"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="632"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="519"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="520"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="624"/>
         <source>The date of modification.</source>
         <translation>Das Datum der letzten Änderung.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="528"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="632"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="520"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="624"/>
         <source>Date: Modification</source>
         <translation>Datum: Änderung</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="529"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="633"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="521"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="625"/>
         <source>Type</source>
         <translation>Typ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="529"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="521"/>
         <source>Used to indicate that the given EPUB Publication is of a specialized type..</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="530"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="634"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="522"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="626"/>
         <source>Format</source>
         <translation>Format</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="530"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="634"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="522"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="626"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
         <translation>Der Medien-Typ des Dokuments. (Als Wert sollte der MIME-Medientyp eingetragen sein.)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="635"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="523"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="627"/>
         <source>Source</source>
         <translation>Quelle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="523"/>
         <source>Identifies the related resource(s) from which this EPUB Publication is derived.</source>
         <translation>Die Quelle, von der das ePub-Dokument abgeleitet ist.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="532"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="636"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="524"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="628"/>
         <source>Language</source>
         <translation>Sprache</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="532"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="524"/>
         <source>Specifies the language of the publication. Select from the dropdown menu</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="533"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="637"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="525"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="629"/>
         <source>Relation</source>
         <translation>Bezug</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="533"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="637"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="525"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="629"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
         <translation>Beziehung zwischen dem Dokument zu einem zugehörigen Editionsprojekt oder der Quelle.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="534"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="638"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="526"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="630"/>
         <source>Coverage</source>
         <translation>Geltungsbereich</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="534"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="638"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="526"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="630"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
         <translation>Das räumliche oder zeitliche Thema der Ressource, die räumliche Anwendbarkeit der Ressource oder der Rechtsraum, für den die Ressource gilt.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="535"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="639"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="527"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="631"/>
         <source>Rights</source>
         <translation>Rechte</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="535"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="639"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="527"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="631"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
         <translation>Angaben zum Urheberrecht des Dokuments. Rechteinformationen umfassen oft Intellectual Property Rights (Rechte des geistigen Eigentums), Urheberrecht und verschiedene andere Eigentumsrechte . Wenn das Rechte-Element fehlt, kann daraus nicht auf Rechtsfreiheit geschlossen werden.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="536"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="625"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="528"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="617"/>
         <source>Creator</source>
         <translation>Urheber</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="536"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="528"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="537"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="626"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="529"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="618"/>
         <source>Contributor</source>
         <translation>Mitwirkender</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="537"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="529"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="538"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="530"/>
         <source>Belongs to Collection</source>
         <translation>Zugehörige Sammlung</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="538"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="530"/>
         <source>Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="539"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="624"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="616"/>
         <source>Title</source>
         <translation>Titel:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="539"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
         <source>A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="540"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="532"/>
         <source>Identifier: DOI</source>
         <translation>Bezeichner: DOI</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="540"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="532"/>
         <source>Digital Object Identifier associated with the given EPUB publication.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="541"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="533"/>
         <source>Identifier: ISBN</source>
         <translation>Bezeichner: ISBN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="541"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="533"/>
         <source>International Standard Book Number associated with the given EPUB publication.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="542"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="534"/>
         <source>Identifier: ISSN</source>
         <translation>Bezeichner: ISSN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="542"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="534"/>
         <source>International Standard Serial Number associated with the given EPUB publication.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="543"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="535"/>
         <source>Identifier: UUID</source>
         <translation>Bezeichner: UUID</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="543"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="535"/>
         <source>A Universally Unique Idenitifier generated for this EPUB publication.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="545"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="645"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="537"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="637"/>
         <source>Custom Element</source>
         <translation>Benutzerdefiniertes Element</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="545"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="537"/>
         <source>An empty metadata element you can modify.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="672"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="664"/>
         <source>Id Attribute</source>
         <translation>ID-Attribut</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="672"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="664"/>
         <source>Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="573"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="665"/>
         <source>XML Language</source>
         <translation>XML-Sprache</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="573"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:langauge, dc:date, or dc:identifier metadata elements.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="574"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
         <source>Text Direction: rtl</source>
         <translation>Textrichtung: RNL</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="574"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
         <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="575"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="567"/>
         <source>Text Direction: ltr</source>
         <translation>Textrichtung: LNR</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="575"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="567"/>
         <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="576"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
         <source>Title Type: main</source>
         <translation>Titeltyp: main</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="576"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
         <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="577"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="569"/>
         <source>Title Type: subtitle</source>
         <translation>Titeltyp: subtitle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="577"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="569"/>
         <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="578"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="570"/>
         <source>Title Type: short</source>
         <translation>Titeltyp: short</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="578"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="570"/>
         <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="579"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="571"/>
         <source>Title Type: collection</source>
         <translation>Titeltyp: collection</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="579"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="571"/>
         <source>Indicates that the associated title is the title of a Tcollection that includes this publication belongs to if one exists.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="580"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
         <source>Title Type: edition</source>
         <translation>Titeltyp: edition</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="580"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
         <source>Indicates that the associated title is an edition title for this publications if one exists.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="581"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="573"/>
         <source>Title Type: expanded</source>
         <translation>Titeltyp: expanded</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="581"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="573"/>
         <source>Indicates that the associated title is an expanded title for this publication if one exists.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="582"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="574"/>
         <source>Alternate Script</source>
         <translation>Alternatives Alphabet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="582"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="574"/>
         <source>Provides an alternate expression of the associated property value in a language and script identified by an alternate-language attribute.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="583"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="575"/>
         <source>Alternate Language</source>
         <translation>Alternative Sprache</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="583"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="575"/>
         <source>Language code for the language used in the associated alternate-script property value.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="584"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="576"/>
         <source>Collection Type: set</source>
         <translation>Sammlungstyp: set</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="584"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="576"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="585"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="577"/>
         <source>Collection Type: series</source>
         <translation>Sammlungstyp: series</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="585"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="577"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for asequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="586"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="578"/>
         <source>Display Sequence</source>
         <translation>Anzeigereihenfolge</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="586"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="578"/>
         <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="587"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="579"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
         <source>File as</source>
         <translation>Sortierung</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="587"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="579"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
         <source>Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="588"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="580"/>
         <source>Group Position</source>
         <translation>Gruppenposition</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="588"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="580"/>
         <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="589"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="581"/>
         <source>Identifier Type</source>
         <translation>Bezeichnertyp</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="589"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="581"/>
         <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="590"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="582"/>
         <source>Meta Authority</source>
         <translation>Metadatenstelle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="590"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="582"/>
         <source>Identifies the party or authority responsible for an instance of package metadata.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="591"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="675"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="583"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
         <source>Role</source>
         <translation>Rolle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="591"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="675"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="583"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
         <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="592"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="676"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="584"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
         <source>Scheme</source>
         <translation>Schema</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="592"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="676"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="584"/>
         <source>This attribute is typically added to dc:identifier, dc:source: dc:creator, or dc:contributor to indicate the controlled vocabulary system employed. (e.g. marc:relators to specifiy valid values for the role property.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="593"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="585"/>
         <source>Source of Pagination</source>
         <translation>Seitenzahlquelle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="593"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="585"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="594"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="586"/>
         <source>Custom Property</source>
         <translation>Benutzerdefinierte Eigenschaft</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="594"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="586"/>
         <source>An empty metadata property or attribute you can modify.</source>
         <translation>Eine leere Metadaten-Eigenschaft oder ein Attribut, das geändert werden kann.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="624"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="616"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
         <translation>Der Haupttitel des Buches. Nur ein Titel ist zulässig.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="625"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="617"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="626"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="618"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="633"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="625"/>
         <source>The nature or genre of the content of the resource.</source>
         <translation>Der Typ bzw. das Genre des Dokuments. </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="635"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="627"/>
         <source>A reference to a resource from which the present publication is derived.</source>
         <translation>Die Quelle, von der das Dokument abgeleitet ist.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="636"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="628"/>
         <source>A language used in the publication. Choose a RFC5646 value.</source>
         <translation>Die Sprache des Buchs als RFC5646-Wert.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="640"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="641"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="642"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="643"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="632"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="633"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="634"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="635"/>
         <source>Identifier</source>
         <translation>Bezeichner</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="640"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="632"/>
         <source>Digital Object Identifier</source>
         <translation>Digital Object Identifier</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="641"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="633"/>
         <source>International Standard Book Number</source>
         <translation>International Standard Book Number</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="642"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="634"/>
         <source>International Standard Serial Number</source>
         <translation>International Standard Serial Number</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="643"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="635"/>
         <source>Universally Unique Identifier</source>
         <translation>Universally Unique Identifier</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="644"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="636"/>
         <source>Identifier: Custom</source>
         <translation>Bezeichner: benutzerdefiniert</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="644"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="636"/>
         <source>A custom identifier based on a specified scheme</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="645"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="637"/>
         <source>An empty metadata element for you to modify</source>
         <translation>Ein leeres Metadaten-Element, das geändert werden kann.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="665"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="677"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
+        <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, or UUID.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
         <source>Event</source>
         <translation>Ereignis</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="677"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
         <source>This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="678"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="670"/>
         <source>Custom Attribute</source>
         <translation>Benutzerdefiniertes Attribut</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="678"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="670"/>
         <source>An empty metadata attribute you can modify.</source>
         <translation>Ein leeres Metadaten-Attribut, das geändert werden kann.</translation>
     </message>
