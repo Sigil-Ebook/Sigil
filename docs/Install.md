@@ -66,7 +66,7 @@ Build Options
 Other useful variables are:
 * CMAKE_PREFIX_PATH
   * E.g. /usr/local/opt/qt5/lib/cmake/
-  * Which allows you to specifiy where cmake's Qt5 files are located if they are not part of the system path.
+  * Which allows you to specify where cmake's Qt5 files are located if they are not part of the system path.
 * Qt5_DIR
   * E.g. "C:\Qt\x64\5.4.0\5.4\msvc2013_64\lib\cmake\Qt5"
   * Location of Qt5 CMake .cmake files for finding cmake. It's more proper to set this than the prefix path above.
