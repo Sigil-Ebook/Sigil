@@ -37,12 +37,10 @@
 <h2><a name="cmake"/>Getting CMake</h2>
 <p>Once again: <code>sudo apt-get install cmake</code> will get you what you need on Debian type systems. If your favorite software repositories can't supply CMake 3.0 or better, you'll need to download the source from <a href="http://www.cmake.org">cmake.org</a> and build it it yourself. I've done it myself and their instructions are pretty good. You can either build it with an older version of CMake, or there's a boot-strap method if all you have is gcc/make.</p>
 <h2><a name="qt5"/>Getting Qt5</h2>
-<blockquote>
-<p><strong> <em>NOTE: No help/support/bug-fixes will be forthcoming for those attempting to build Sigil with anything higher than Qt5.5.1 at this time</em> </strong></p>
-</blockquote>
+<p><center><strong><em>NOTE: No help/support/bug-fixes will be forthcoming for those attempting to build Sigil with anything higher than Qt5.5.1 at this time</em></strong></center></p>
 <p>You can waste a lot of time trying to figure out if you have all the individual Qt5 packages installed that are necessary to build Sigil (which your software repos provide) ... or you can just download the binary installer from the <a href="http://download.qt.io/archive/qt/">official Qt website</a>. Sigil requires Qt5.4.0 - Qt5.5.1, but the "official" Sigil releases are built with Qt5.4.2. Note: the official binary releases of Qt5 are incompatible with Sigil starting with Qt5.6 (a result of QtWebkit being dropped from their installers). Look for the version that's appropriate for your architecture (qt-opensource-linux-<strong><em>x86</em></strong>-5.4.x.run or qt-opensource-linux-<strong><em>x64</em></strong>-5.4.x.run). Make sure its executable bit is set and launch it with administrative privileges to install it in its default location of /opt/Qt5.4.x (which is what I recommend). Or install it wherever you like--but just note that my command line examples later are going to assume the location of /opt/Qt5.4.x. Adjust accordingly if you choose different location.</p>
 <h2><a name="python"/>Getting Python 3.4</h2>
-<p>If your software repos provide Python 3.4.0 or higher, by all means use them to get the correct pieces installed. On Ubuntu/Debian I recommend (at a minimum) to <code>sudo apt-get install</code> the following packages:</p>
+<p>If your software repos provide Python 3.4.0 or higher, by all means use them to get the correct pieces installed. On Ubuntu/Debian I recommend (at a minimum) to <code>sudo apt-get install</code> the following packages (might need to be <code>python3.4-&lt;module name&gt;</code> on some systems):</p>
 <ul>
 <li>python3</li>
 <li>python3-dev</li>
@@ -51,8 +49,7 @@
 <li>python3-pip</li>
 <li>python3-tk</li>
 <li>python3-lxml</li>
-<li>python3-six
-(might need to be <code>python3.4-&lt;module name&gt;</code> on some systems)</li>
+<li>python3-six</li>
 </ul>
 <p>If your repos don't include Python 3.4.x or higher, truck on over to <a href="http://www.python.org">Python.org</a> and start reading how to build/install it from source. Whatever else you do, make sure you configure it with the <code>--enable-shared</code> option. You'll need the libpython3.4m.so library to build Sigil.</p>
 <p>That's all the Python 3.4 stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X. These can all be installed from python.org's <a href="https://pypi.python.org">Python Package Index</a> using pip3 from the command-line. The entire current list (which I <em>highly</em> recommend installing) is:</p>
