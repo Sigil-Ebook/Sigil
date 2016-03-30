@@ -45,7 +45,8 @@
 #include <QtCore/QUrl>
 #include <QtCore/QUuid>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMessageBox>
+#include <QTextEdit>
+#include <QMessageBox>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QFile>
@@ -63,6 +64,24 @@
 #define BUFF_SIZE 8192
 
 static QCodePage437Codec *cp437 = 0;
+
+// Subclass QMessageBox for our StdWarningDialog to make any Details Resizable
+class SigilMessageBox: public QMessageBox
+{
+    public:
+        SigilMessageBox(QWidget* parent) : QMessageBox(parent) 
+        {
+            setSizeGripEnabled(true);
+        }
+    private:
+        virtual void resizeEvent(QResizeEvent * e) {
+            QMessageBox::resizeEvent(e);
+            setMaximumSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
+            if (QWidget *textEdit = findChild<QTextEdit *>()) {
+                textEdit->setMaximumHeight(QWIDGETSIZE_MAX);
+            }
+        }
+};
 
 #include "Misc/Utility.h"
 
@@ -528,18 +547,19 @@ void Utility::DisplayStdErrorDialog(const QString &error_message, const QString 
 
 void Utility::DisplayStdWarningDialog(const QString &warning_message, const QString &detailed_text)
 {
-    QMessageBox message_box(QApplication::activeWindow());
+    SigilMessageBox message_box(QApplication::activeWindow());
     message_box.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
     message_box.setModal(true);
     message_box.setIcon(QMessageBox::Warning);
     message_box.setWindowTitle("Sigil");
     message_box.setText(warning_message);
     message_box.setTextFormat(Qt::RichText);
+    // message_box.setSizePolicy(QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred));
+    // message_box.setSizeGripEnabled(true);
 
     if (!detailed_text.isEmpty()) {
         message_box.setDetailedText(detailed_text);
     }
-
     message_box.setStandardButtons(QMessageBox::Close);
     message_box.exec();
 }
