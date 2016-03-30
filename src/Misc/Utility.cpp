@@ -554,8 +554,6 @@ void Utility::DisplayStdWarningDialog(const QString &warning_message, const QStr
     message_box.setWindowTitle("Sigil");
     message_box.setText(warning_message);
     message_box.setTextFormat(Qt::RichText);
-    // message_box.setSizePolicy(QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred));
-    // message_box.setSizeGripEnabled(true);
 
     if (!detailed_text.isEmpty()) {
         message_box.setDetailedText(detailed_text);
