@@ -48,7 +48,7 @@ static const QString HEAD_END = "</\\s*head\\s*>";
 QString CleanSource::Mend(const QString &source, const QString &version)
 {
     SettingsStore settings;
-    QString newsource = PreprocessSpecialCases(source);
+    QString newsource = source;
     GumboInterface gp = GumboInterface(newsource, version);
     newsource = gp.repair();
     newsource = CharToEntity(newsource);
@@ -60,7 +60,7 @@ QString CleanSource::Mend(const QString &source, const QString &version)
 // Mend and Prettify XHTML
 QString CleanSource::MendPrettify(const QString &source, const QString &version)
 {
-    QString newsource = PreprocessSpecialCases(source);
+    QString newsource = source;
     GumboInterface gi = GumboInterface(newsource, version);
     newsource = gi.prettyprint();
     newsource = CharToEntity(newsource);
@@ -128,6 +128,10 @@ QString CleanSource::RemoveMetaCharset(const QString &source)
 }
 
 
+#if 0
+// this is broken, it can't handle more than one xmlns on the svg tag
+// and the order of those namespace attributes, nor does it properly
+// handle end tags that are prefixed </svg:text>
 QString CleanSource::PreprocessSpecialCases(const QString &source)
 {
     QString newsource = source;
@@ -145,7 +149,7 @@ QString CleanSource::PreprocessSpecialCases(const QString &source)
     newsource.replace(child_svg_tag_with_prefix, child_tag_no_prefix);
     return newsource;
 }
-
+#endif
 
 // Be careful to make sure that we do not mess up epub3 <!DOCTYPE html> here
 QString CleanSource::PrettifyDOCTYPEHeader(const QString &source)
