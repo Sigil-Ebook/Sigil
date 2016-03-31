@@ -34,8 +34,8 @@ NON_BREAKING_INLINE_TAGS = ("a","abbr","acronym","b","bdo","big","br",
 PRESERVE_WHITESPACE_TAGS = ("pre","textarea","script","style")
 
 VOID_TAGS = ("area","base","basefont","bgsound","br","col","command",
-    "embed","event-source","frame","hr","image","img","input","keygen",
-    "link","menuitem","meta","param","source","spacer","track","wbr",
+    "embed","event-source","frame","hr","img","input","keygen",
+    "link","meta","param","source","spacer","track","wbr",
     "mbp:pagebreak")
 
 NO_ENTITY_SUB_TAGS = ("script", "style")

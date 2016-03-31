@@ -58,8 +58,8 @@ static std::unordered_set<std::string> no_entity_sub       = {
 
 static std::unordered_set<std::string> void_tags          = {
   "area","base","basefont","bgsound","br","col","command","embed",
-  "event-source","frame","hr","image","img","input","keygen","link",
-  "menuitem","meta","param","source","spacer","track","wbr", 
+  "event-source","frame","hr","img","input","keygen","link",
+  "meta","param","source","spacer","track","wbr", 
   "mbp:pagebreak", "mglyph", "mspace", "mprescripts", "none",
   "maligngroup", "malignmark", "msline"
 };

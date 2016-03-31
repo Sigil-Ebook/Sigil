@@ -4125,9 +4125,8 @@ GumboOutput* gumbo_parse_fragment(
       if (token.type == GUMBO_TOKEN_START_TAG && token.v.start_tag.is_self_closing) {
         if (!tag_in(&token, true, (gumbo_tagset) { TAG(AREA), TAG(BASE), 
                 TAG(BASEFONT), TAG(BGSOUND), TAG(BR), TAG(COL), 
-                TAG(EMBED), TAG(FRAME), TAG(HR), TAG(IMAGE), 
-                TAG(IMG), TAG(INPUT), TAG(ISINDEX), TAG(KEYGEN), 
-                TAG(LINK), TAG(MENUITEM), TAG(META), TAG(PARAM), 
+                TAG(EMBED), TAG(FRAME), TAG(HR), TAG(IMG), TAG(INPUT), 
+                TAG(ISINDEX), TAG(KEYGEN), TAG(LINK), TAG(META), TAG(PARAM), 
                 TAG(SOURCE), TAG(SPACER), TAG(TRACK), TAG(WBR) })) {
           inject_end = true;
           // since self closing tag,  end tag should share same 
