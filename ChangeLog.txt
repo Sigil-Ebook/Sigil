@@ -1,3 +1,9 @@
+preSigil-0.9.6
+   Bug Fixes
+    - Make StdWarningDialog resizeable when "Show Details" is used
+    - Remove PreProcessSpecialCases as it is no longer needed and is inherently broken
+    - Remove svg image and html5 menuitem from the Sigil and plugin list of void elements
+
 Sigil-0.9.5
    Bug Fixes
     - Fix regression when ImportHTML in gathering HTML based DC. metadata
