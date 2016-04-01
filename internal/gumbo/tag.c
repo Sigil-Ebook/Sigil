@@ -101,27 +101,38 @@ GumboTag gumbo_tagn_enum(const char* tagname, int length) {
 
 
 #if 0
+/**
+ * This version removes unrecognized svg and mathml prefixes from
+ * tags to force the gumbo parser to actually recognize that svg:svg is 
+ * actually an svg tag and similarly for m:math and mml:math and even math:math.
+ * Without it gumbo treats these as unknown tags in the html namespace 
+ * and not to the correct svg or mathml namespaces 
+ **/
 GumboTag gumbo_tagn_enum(const char* tagname, int length) {
-  /* handle mapping of standard prefixes */
+  /* handle replacement of standard prefixes */
   const char * tagnameptr;
   int tagnamelength;
-  const char* svg = "svg";
-  const char* math = "math";
   int position = -1;
-  if (!case_memcmp(tagname, "svg:svg", 7)) {
-    tagnameptr = svg;
-    tagnamelength = 3;
-  } else if (!case_memcmp(tagname, "m:math", 6)) {
-      tagnameptr = math;
-      tagnamelength = 4;
+  if (!case_memcmp(tagname, "svg:", 4)) {
+    tagnameptr = tagname + 4;
+    tagnamelength = length - 4;
+  } else if (!case_memcmp(tagname, "m:", 2)) {
+    tagnameptr = tagname + 2;
+    tagnamelength = length - 2;
+  } else if (!case_memcmp(tagname, "mml:", 4)) {
+    tagnameptr = tagname + 4;
+    tagnamelength = length - 4;
+  } else if (!case_memcmp(tagname, "math:", 5)) {
+    tagnameptr = tagname + 5;
+    tagnamelength = length - 5;
   } else {
-      tagnameptr = tagname;
-      tagnamelength = length;
+    tagnameptr = tagname;
+    tagnamelength = length;
   }
   position = perfhash((const unsigned char *)tagnameptr, tagnamelength);
   if (position >= 0 &&
       tagnamelength == kGumboTagSizes[position] &&
-      !case_memcmp(tagnameptr, kGumboTagNames[position], length))
+      !case_memcmp(tagnameptr, kGumboTagNames[position], tagnamelength))
     return (GumboTag)position;
   return GUMBO_TAG_UNKNOWN;
 }
