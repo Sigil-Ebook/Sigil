@@ -41,14 +41,14 @@
 #include <utility>
 
 static const QString HEAD_END = "</\\s*head\\s*>";
-
+const QString SVG_NAMESPACE_PREFIX = "<\\s*[^>]*(xmlns\\s*:\\s*svg\\s*=\\s*(?:\"|')[^\"']+(?:\"|'))[^>]*>";
 
 // Performs general cleaning (and improving)
 // of provided book XHTML source code
 QString CleanSource::Mend(const QString &source, const QString &version)
 {
     SettingsStore settings;
-    QString newsource = source;
+    QString newsource = PreprocessSpecialCases(source);
     GumboInterface gp = GumboInterface(newsource, version);
     newsource = gp.repair();
     newsource = CharToEntity(newsource);
@@ -60,7 +60,7 @@ QString CleanSource::Mend(const QString &source, const QString &version)
 // Mend and Prettify XHTML
 QString CleanSource::MendPrettify(const QString &source, const QString &version)
 {
-    QString newsource = source;
+    QString newsource = PreprocessSpecialCases(source);
     GumboInterface gi = GumboInterface(newsource, version);
     newsource = gi.prettyprint();
     newsource = CharToEntity(newsource);
@@ -128,28 +128,34 @@ QString CleanSource::RemoveMetaCharset(const QString &source)
 }
 
 
-#if 0
-// this is broken, it can't handle more than one xmlns on the svg tag
-// and the order of those namespace attributes, nor does it properly
-// handle end tags that are prefixed </svg:text>
+// neither svg nor math tags need a namespace prefix defined
+// especially as epub3 now includes them into the html5 spec
+// So we need to remove the svg prefix from the tags before
+// processing them with gumbo
 QString CleanSource::PreprocessSpecialCases(const QString &source)
 {
     QString newsource = source;
-    // For content files we want to retain the functionality offered by an
-    // auto-correcting html parser, but this can only handle one namespace
-    // in the <html> tag and simply strips tags with namespace prefixes it
-    // doesn't understand. The solution used here is to embed the namespace
-    // definition in the root tag itself.
+    // remove prefix from root tag and add unprefixed svg namespace to it
     QRegularExpression root_svg_tag_with_prefix("<\\s*svg\\s*:\\s*svg");
     QString root_svg_embeddedNS = "<svg xmlns=\"http://www.w3.org/2000/svg\"";
     newsource.replace(root_svg_tag_with_prefix, root_svg_embeddedNS);
-    // Once the root tag has an embedded namespace, strip the prefix from all other tags
-    QRegularExpression child_svg_tag_with_prefix("<\\s*svg\\s*:");
-    QString child_tag_no_prefix = "<";
-    newsource.replace(child_svg_tag_with_prefix, child_tag_no_prefix);
+    // search for any prefixed svg namespace in that root tag and remove it
+    QRegularExpression svg_nsprefix(SVG_NAMESPACE_PREFIX);
+    QRegularExpressionMatch mo = svg_nsprefix.match(newsource);
+    if (mo.hasMatch()) {
+        newsource.replace(mo.capturedStart(1), mo.capturedLength(1), "");
+    } 
+    // now strip the prefix from all child starting tags
+    QRegularExpression starting_child_svg_tag_with_prefix("<\\s*svg\\s*:");
+    QString starting_child_tag_no_prefix = "<";
+    newsource.replace(starting_child_svg_tag_with_prefix, starting_child_tag_no_prefix);
+    // do the same for any child ending tags
+    QRegularExpression ending_child_svg_tag_with_prefix("<\\s*/\\s*svg\\s*:");
+    QString ending_child_tag_no_prefix = "</";
+    newsource.replace(ending_child_svg_tag_with_prefix, ending_child_tag_no_prefix);
     return newsource;
 }
-#endif
+
 
 // Be careful to make sure that we do not mess up epub3 <!DOCTYPE html> here
 QString CleanSource::PrettifyDOCTYPEHeader(const QString &source)

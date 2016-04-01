@@ -89,6 +89,7 @@ case_memcmp(const char *s1, const char *s2, int n)
 	return 0;
 }
 
+
 GumboTag gumbo_tagn_enum(const char* tagname, int length) {
   int position = perfhash((const unsigned char *)tagname, length);
   if (position >= 0 &&
@@ -97,6 +98,35 @@ GumboTag gumbo_tagn_enum(const char* tagname, int length) {
     return (GumboTag)position;
   return GUMBO_TAG_UNKNOWN;
 }
+
+
+#if 0
+GumboTag gumbo_tagn_enum(const char* tagname, int length) {
+  /* handle mapping of standard prefixes */
+  const char * tagnameptr;
+  int tagnamelength;
+  const char* svg = "svg";
+  const char* math = "math";
+  int position = -1;
+  if (!case_memcmp(tagname, "svg:svg", 7)) {
+    tagnameptr = svg;
+    tagnamelength = 3;
+  } else if (!case_memcmp(tagname, "m:math", 6)) {
+      tagnameptr = math;
+      tagnamelength = 4;
+  } else {
+      tagnameptr = tagname;
+      tagnamelength = length;
+  }
+  position = perfhash((const unsigned char *)tagnameptr, tagnamelength);
+  if (position >= 0 &&
+      tagnamelength == kGumboTagSizes[position] &&
+      !case_memcmp(tagnameptr, kGumboTagNames[position], length))
+    return (GumboTag)position;
+  return GUMBO_TAG_UNKNOWN;
+}
+#endif
+
 
 GumboTag gumbo_tag_enum(const char* tagname) {
   return gumbo_tagn_enum(tagname, strlen(tagname));

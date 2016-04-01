@@ -64,6 +64,12 @@ private:
      */
     static QString RemoveMetaCharset(const QString &source);
 
+    // neither svg nor math tags need a namespace prefix defined
+    // especially as epub3 now includes them into the html5 spec
+    // So we need to remove the svg prefix from the tags before
+    // processing them with gumbo
+    static QString PreprocessSpecialCases(const QString &source);
+
 };
 
 
