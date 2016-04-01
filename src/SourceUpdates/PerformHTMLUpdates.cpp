@@ -41,7 +41,7 @@ PerformHTMLUpdates::PerformHTMLUpdates(const QString &source,
 
 QString PerformHTMLUpdates::operator()()
 {
-    QString newsource = m_source;
+    QString newsource = CleanSource::PreprocessSpecialCases(m_source);
     { 
         GumboInterface gi = GumboInterface(newsource, m_version, m_HTMLUpdates);
         gi.parse();

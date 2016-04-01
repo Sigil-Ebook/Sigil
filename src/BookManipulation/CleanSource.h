@@ -52,6 +52,15 @@ public:
 
     static bool ReformatAll(QList <HTMLResource *> resources, QString(clean_fun)(const QString &source, const QString &version));
 
+    /** 
+     * neither svg nor math tags need a namespace prefix defined
+     * especially as epub3 now includes them into the html5 spec
+     * So we need to remove the svg prefix from the tags before
+     * processing them with gumbo
+     **/
+     static QString PreprocessSpecialCases(const QString &source);
+
+
 private:
 
     /**
@@ -63,12 +72,6 @@ private:
      * so this meta tag is useless anyway.
      */
     static QString RemoveMetaCharset(const QString &source);
-
-    // neither svg nor math tags need a namespace prefix defined
-    // especially as epub3 now includes them into the html5 spec
-    // So we need to remove the svg prefix from the tags before
-    // processing them with gumbo
-    static QString PreprocessSpecialCases(const QString &source);
 
 };
 
