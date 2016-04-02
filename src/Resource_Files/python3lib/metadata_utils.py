@@ -90,7 +90,7 @@ def buildxml(mentry):
     if tattr is not None:
         for key in tattr:
             val = tattr[key]
-            val = val.replace('"','&quot;')
+            val = xmlencode(val);
             tag.append(' ' + key + '="'+val+'"' )
     if tcontent is not None:
         tag.append('>' + xmlencode(tcontent) + '</' + tname + '>\n')
