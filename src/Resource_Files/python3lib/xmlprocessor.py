@@ -58,6 +58,26 @@ def unquoteurl(href):
 def _remove_xml_header(data):
     return re.sub(r'<\s*\?xml\s*[^\?>]*\?*>\s*','',data, flags=re.I)
 
+def _make_it_sane(data):
+    # remove empty tags that freak out lxml
+    emptytag = re.compile(r'''(<\s*[/]*\s*>)''')
+    data=emptytag.sub("", data);
+
+    # handle spurious single tag start
+    badtagstart = re.compile(r'''(<[^>]*<)''')
+    mo = badtagstart.search(data)
+    while mo is not None:
+        data = data[0:mo.start(1)] + "&lt;" + data[mo.start(1)+1:]
+        mo = badtagstart.search(data)
+    
+    # handle spurious single tag ends
+    badtagend = re.compile(r'''(>[^<]*>)''')
+    mo = badtagend.search(data)
+    while mo is not None:
+        data = data[0:mo.end(1)-1] + "&gt;" + data[mo.end(1):]
+        mo = badtagend.search(data)
+    return data
+
 
 # ncx_text_pattern = re.compile(r'''(<text>)\s*(\S[^<]*\S)\s*(</text>)''',re.IGNORECASE)
 # re.sub(ncx_text_pattern,r'\1\2\3',newdata)
@@ -65,6 +85,7 @@ def _remove_xml_header(data):
 # BS4 with lxml for xml strips whitespace so always will want to prettyprint xml
 def repairXML(data, mtype="", indent_chars="  "):
     data = _remove_xml_header(data)
+    data = _make_it_sane(data)
     voidtags = get_void_tags(mtype)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
@@ -246,6 +267,7 @@ def main():
   <manifest>
     <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml" />
     <item href="Text/Section0001.xhtml" id="Section0001.xhtml" media-type="application/xhtml+xml" />
+<   >
   </manifest>
   <spine toc="ncx">
     <itemref idref="Section0001.xhtml" >
