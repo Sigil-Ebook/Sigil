@@ -1,8 +1,9 @@
 preSigil-0.9.6
    Bug Fixes
     - Make StdWarningDialog resizeable when "Show Details" is used
-    - Remove PreProcessSpecialCases as it is no longer needed and is inherently broken
-    - Remove svg image and html5 menuitem from the Sigil and plugin list of void elements
+    - Fix CleanSource svg prefix removal bug that sometimes broke valid svg code 
+    - Remove svg image and html5 menuitem from the list of void elements in the Sigil and plugin code
+    - Properly xml escape "&" in metadata attribute values
 
 Sigil-0.9.5
    Bug Fixes
