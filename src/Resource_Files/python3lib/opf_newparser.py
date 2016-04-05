@@ -102,7 +102,7 @@ class Opf_Parser(object):
                 self.metadata.append((tname, tcontent, tattr))
                 continue
             # manifest
-            if tname == "item" and  prefix.endswith("manifest"):
+            if tname == "item" and  "manifest" in prefix:
                 nid = "xid%03d" %  cnt
                 cnt += 1
                 id = tattr.pop("id",nid)
@@ -115,19 +115,19 @@ class Opf_Parser(object):
             if tname == "spine":
                 self.spine_attr = tattr
                 continue
-            if tname == "itemref" and prefix.endswith("spine"):
+            if tname == "itemref" and "spine" in prefix:
                 idref = tattr.pop("idref","")
                 self.spine.append((idref, tattr))
                 continue
             # guide
-            if tname == "reference" and  prefix.endswith("guide"):
+            if tname == "reference" and  "guide" in prefix:
                 type = tattr.pop("type","")
                 title = tattr.pop("title","")
                 href = unquoteurl(tattr.pop("href",""))
                 self.guide.append((type, title, href))
                 continue
             # bindings
-            if tname in ["mediaType", "mediatype"] and prefix.endswith("bindings"):
+            if tname in ["mediaType", "mediatype"] and "bindings" in prefix:
                 mtype = tattr.pop("media-type","")
                 handler = tattr.pop("handler","")
                 self.bindings.append((mtype, handler))
