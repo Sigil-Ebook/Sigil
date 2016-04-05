@@ -7,6 +7,9 @@ from sigil_bs4.builder._lxml import LXMLTreeBuilderForXML
 import re
 from urllib.parse import unquote
 from urllib.parse import urlsplit
+from lxml import etree
+from io import BytesIO
+
 
 ASCII_CHARS   = set(chr(x) for x in range(128))
 URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -20,7 +23,7 @@ ebook_xml_empty_tags = ["meta", "item", "itemref", "reference", "content"]
 def get_void_tags(mtype):
     voidtags = []
     if mtype == "application/oebps-package+xml":
-        voidtags = ["item", "itemref", "mediatype", "mediaType", "meta", "reference"]
+        voidtags = ["item", "itemref", "mediatype", "mediaType", "reference"]
     elif mtype == "application/x-dtbncx+xml":
         voidtags = ["meta", "reference", "content"]
     elif mtype == "application/smil+xml":
@@ -56,25 +59,82 @@ def unquoteurl(href):
 
 
 def _remove_xml_header(data):
-    return re.sub(r'<\s*\?xml\s*[^\?>]*\?*>\s*','',data, flags=re.I)
+    return re.sub(r'<\s*\?xml\s*[^\?>]*\?*>\s*','',data, count=1,flags=re.I)
 
+def _well_formed(data):
+    result = True 
+    newdata = data
+    if isinstance(newdata, str):
+        newdata = newdata.encode('utf-8')
+    try:
+        parser = etree.XMLParser(encoding='utf-8', recover=False)
+        tree = etree.parse(BytesIO(newdata), parser)
+    except Exception:
+        result = False
+        pass
+    return result
+
+def _reformat(data):
+    newdata = data
+    if isinstance(newdata, str):
+        newdata = newdata.encode('utf-8')
+    parser = etree.XMLParser(encoding='utf-8', recover=True, ns_clean=True, 
+                             remove_comments=True, remove_pis=True, strip_cdata=True, resolve_entities=False)
+    tree = etree.parse(BytesIO(newdata), parser)
+    newdata = etree.tostring(tree.getroot(),encoding='UTF-8', xml_declaration=False)
+    return newdata 
+
+# does not support cdata sections yet
 def _make_it_sane(data):
-    # remove empty tags that freak out lxml
+    # first remove all comments as they may contain unescaped xml reserved characters
+    # that will confuse the remaining _make_it_sane regular expressions
+    comments = re.compile(r'''<!--.*?-->''', re.DOTALL)
+    data = comments.sub("",data)
+    # remove invalid tags that freak out lxml
     emptytag = re.compile(r'''(<\s*[/]*\s*>)''')
     data=emptytag.sub("", data);
-
-    # handle spurious single tag start
+    # handle double tag start
     badtagstart = re.compile(r'''(<[^>]*<)''')
+    extrastart = re.compile(r'''<\s*<''');
+    missingend = re.compile(r'''<\s*[a-zA-Z:]+[^<]*\s<''')
+    startinattrib = re.compile(r'''<\s*[a-z:A-Z]+[^<]*["'][^<"']*<''')
     mo = badtagstart.search(data)
     while mo is not None:
-        data = data[0:mo.start(1)] + "&lt;" + data[mo.start(1)+1:]
+        fixdata = data[mo.start(1):mo.end(1)]
+        mextra = extrastart.match(fixdata)
+        mmiss = missingend.match(fixdata)
+        mattr = startinattrib.match(fixdata)
+        if mextra is not None:
+            fixdata = fixdata[1:]
+        elif mattr is not None:
+            fixdata = fixdata[0:-1] + "&lt;"
+        elif mmiss is not None:
+            fixdata = fixdata[0:-1].rstrip() + "> <"
+        else:
+            fixdata = "&lt;" + fixdata[1:]
+        data = data[0:mo.start(1)] + fixdata + data[mo.end(1):]
         mo = badtagstart.search(data)
     
-    # handle spurious single tag ends
+    # handle double tag end
     badtagend = re.compile(r'''(>[^<]*>)''')
+    extraend = re.compile(r'''>\s*>''');
+    missingstart = re.compile(r'''>\s[^>]*[a-zA-Z:]+[^>]*>''')
+    endinattrib = re.compile(r'''>[^>]*["'][^>'"]*>''')
     mo = badtagend.search(data)
     while mo is not None:
-        data = data[0:mo.end(1)-1] + "&gt;" + data[mo.end(1):]
+        fixdata = data[mo.start(1):mo.end(1)]
+        mextra = extraend.match(fixdata)
+        mmiss = missingstart.match(fixdata)
+        mattr = endinattrib.match(fixdata)
+        if mextra is not None:
+            fixdata = fixdata[0:-1]
+        elif mattr is not None:
+            fixdata = "&gt;" + fixdata[1:]
+        elif mmiss is not None:
+            fixdata = "> <" + fixdata[1:].lstrip()
+        else:
+            fixdata = fixdata[0:-1] + "&gt;"
+        data = data[0:mo.start(1)] + fixdata + data[mo.end(1):]
         mo = badtagend.search(data)
     return data
 
@@ -83,12 +143,17 @@ def _make_it_sane(data):
 # re.sub(ncx_text_pattern,r'\1\2\3',newdata)
 
 # BS4 with lxml for xml strips whitespace so always will want to prettyprint xml
+# data is expectedd to be in unicode
 def repairXML(data, mtype="", indent_chars="  "):
     data = _remove_xml_header(data)
-    data = _make_it_sane(data)
+    if not _well_formed(data):
+        data = _make_it_sane(data)
+    if not _well_formed(data):
+        data = _reformat(data)
+    # lxml requires utf-8 on Mac, won't work with unicode
+    if isinstance(data, str):
+        data = data.encode('utf-8')
     voidtags = get_void_tags(mtype)
-    # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
-    data = data.encode('utf-8')
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=voidtags)
     soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars=indent_chars)
@@ -265,12 +330,13 @@ def main():
     <mydc:identifier id="BookId" opf:scheme="UUID">urn:uuid:a418a8f1-dcbc-4c5d-a18f-533765e34ee8</mydc:identifier>
   </metadata>
   <manifest>
+    <!-- this has a lot of bad characters & < > \" \'-->
     <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml" />
     <item href="Text/Section0001.xhtml" id="Section0001.xhtml" media-type="application/xhtml+xml" />
-<   >
   </manifest>
+< >
   <spine toc="ncx">
-    <itemref idref="Section0001.xhtml" >
+    <itemref idref="Section0001.xhtml"/>
   </spine>
   <text>
     this is a bunch of nonsense
