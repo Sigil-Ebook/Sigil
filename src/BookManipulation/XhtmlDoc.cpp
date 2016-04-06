@@ -389,7 +389,7 @@ QStringList XhtmlDoc::GetLinkedStylesheets(const QString &source)
             element.attributes.contains("rel") &&
             (element.attributes.value("rel").toLower() == "stylesheet") &&
             element.attributes.contains("href")) {
-            linked_css_paths.append(element.attributes.value("href"));
+            linked_css_paths.append(Utility::URLDecodePath(element.attributes.value("href")));
         }
     }
     return linked_css_paths;
