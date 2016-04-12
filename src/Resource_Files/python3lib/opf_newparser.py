@@ -35,7 +35,15 @@ def unquoteurl(href):
     href = unquote(href)
     return href
 
-_OPF_PARENT_TAGS = ['xml', 'package', 'metadata', 'dc-metadata', 'x-metadata', 'manifest', 'spine', 'tours', 'guide', 'bindings']
+SPECIAL_HANDLING_TAGS = {
+    '?xml'     : ('xmlheader', -1), 
+    '!--'      : ('comment', -3),
+    '!DOCTYPE' : ('doctype', -1),
+}
+
+SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment']
+
+_OPF_PARENT_TAGS = ['package', 'metadata', 'dc-metadata', 'x-metadata', 'manifest', 'spine', 'tours', 'guide', 'bindings']
 
 class Opf_Parser(object):
 
@@ -173,20 +181,25 @@ class Opf_Parser(object):
             p += 1
             while p < n and s[p:p+1] == ' ' : p += 1
         b = p
+        # handle comment special case as there may be no spaces to 
+        # delimit name begin or end 
+        if s[b:].startswith('!--'):
+            p = b+3
+            tname = '!--'
+            ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
+            tattr['special'] = s[p:backstep].strip()
+            return tname, ttype, tattr
         while p < n and s[p:p+1] not in ('>', '/', ' ', '"', "'","\r","\n") : p += 1
         tname=s[b:p].lower()
         # remove redundant opf: namespace prefixes on opf tags
         if tname.startswith("opf:"):
             tname = tname[4:]
-        # some special cases
-        # handle comments with no spaces to delimit 
-        if tname.startswith("!--"):
-            tname = "!--"
-            ttype = 'single'
-            comment = s[4:-3].strip()
-            tattr['comment'] = comment
-        if tname == "?xml":
-            tname = "xml"
+        # more special cases
+        if tname == '!doctype':
+            tname = '!DOCTYPE'
+        if tname in SPECIAL_HANDLING_TAGS:
+            ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
+            tattr['special'] = s[p:backstep]
         if ttype is None:
             # parse any attributes of begin or single tags
             while s.find('=',p) != -1 :

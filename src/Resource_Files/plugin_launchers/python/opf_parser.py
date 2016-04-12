@@ -31,7 +31,15 @@ from unipath import pathof
 
 import sys, os
 
-_OPF_PARENT_TAGS = ['xml', 'package', 'metadata', 'dc-metadata', 'x-metadata', 'manifest', 'spine', 'tours', 'guide', 'bindings']
+SPECIAL_HANDLING_TAGS = {
+    '?xml'     : ('xmlheader', -1), 
+    '!--'      : ('comment', -3),
+    '!DOCTYPE' : ('doctype', -1),
+}
+
+SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment']
+
+_OPF_PARENT_TAGS = ['package', 'metadata', 'dc-metadata', 'x-metadata', 'manifest', 'spine', 'tours', 'guide', 'bindings']
 
 class Opf_Parser(object):
 
@@ -113,7 +121,7 @@ class Opf_Parser(object):
                     self.cover_id = tattr.get("content",None)
                 continue
             # manifest
-            if tname == "item" and  prefix.endswith("manifest"):
+            if tname == "item" and "manifest" in prefix:
                 nid = "xid%03d" %  cnt
                 cnt += 1
                 id = tattr.pop("id", nid)
@@ -137,21 +145,21 @@ class Opf_Parser(object):
                 if tattr is not None:
                     self.spine_ppd = tattr.get("page-progression-direction", None)
                 continue
-            if tname == "itemref" and prefix.endswith("spine"):
+            if tname == "itemref" and "spine" in prefix:
                 idref = tattr.pop("idref", "")
                 linear = tattr.pop("linear", None)
                 properties = tattr.pop("properties", None)
                 self.spine.append((idref, linear, properties))
                 continue
             # guide
-            if tname == "reference" and  prefix.endswith("guide"):
+            if tname == "reference" and  "guide" in prefix:
                 type = tattr.pop("type",'')
                 title = tattr.pop("title",'')
                 href = unquoteurl(tattr.pop("href",''))
                 self.guide.append((type, title, href))
                 continue
             # bindings (stored but ignored for now)
-            if tname in ["mediaType", "mediatype"] and prefix.endswith("bindings"):
+            if tname in ["mediaType", "mediatype"] and "bindings" in prefix:
                 mtype = tattr.pop("media-type","")
                 handler = tattr.pop("handler","")
                 self.bindings.append((mtype, handler))
@@ -197,18 +205,25 @@ class Opf_Parser(object):
             p += 1
             while p < n and s[p:p+1] == ' ' : p += 1
         b = p
+        # handle comment special case as there may be no spaces to 
+        # delimit name begin or end 
+        if s[b:].startswith('!--'):
+            p = b+3
+            tname = '!--'
+            ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
+            tattr['special'] = s[p:backstep].strip()
+            return tname, ttype, tattr
         while p < n and s[p:p+1] not in ('>', '/', ' ', '"', "'","\r","\n") : p += 1
         tname=s[b:p].lower()
         # remove redundant opf: namespace prefixes on opf tags
         if tname.startswith("opf:"):
             tname = tname[4:]
-        # some special cases
-        if tname.startswith("!--"):
-            ttype = 'single'
-            comment = s[4:-3].strip()
-            tattr['comment'] = comment
-        if tname == "?xml":
-            tname = "xml"
+        # more special cases
+        if tname == '!doctype':
+            tname = '!DOCTYPE'
+        if tname in SPECIAL_HANDLING_TAGS:
+            ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
+            tattr['special'] = s[p:backstep]
         if ttype is None:
             # parse any attributes of begin or single tags
             while s.find('=',p) != -1 :

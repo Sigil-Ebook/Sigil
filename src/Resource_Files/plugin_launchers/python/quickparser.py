@@ -75,14 +75,19 @@ class QuickXHTMLParser(object):
             p += 1
             while p < n and s[p:p+1] == ' ' : p += 1
         b = p
+        # handle comment special case as there may be no spaces to 
+        # delimit name begin or end 
+        if s[b:].startswith('!--'):
+            p = b+3
+            tname = '!--'
+            ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
+            tattr['special'] = s[p:backstep].strip()
+            return tname, ttype, tattr
         while p < n and s[p:p+1] not in ('>', '/', ' ', '"', "'", "\r", "\n") : p += 1
         tname=s[b:p].lower()
         if tname == '!doctype':
             tname = '!DOCTYPE'
         # special cases
-        if tname.startswith('!--'):
-            tname = '!--'
-            p = b+3
         if tname in SPECIAL_HANDLING_TAGS:
             ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
             tattr['special'] = s[p:backstep]
