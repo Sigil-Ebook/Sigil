@@ -770,7 +770,7 @@ QHash<QString, QString> ImportEPUB::LoadFolderStructure()
 
 std::tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const QString &mimetype)
 {
-    QString fullfilepath = QFileInfo(m_OPFFilePath).absolutePath() + "/" + path;
+    QString fullfilepath = QDir::cleanPath(QFileInfo(m_OPFFilePath).absolutePath() + "/" + path);
     QString currentpath = fullfilepath;
     currentpath = currentpath.remove(0,m_ExtractedFolderPath.length()+1);
     try {
