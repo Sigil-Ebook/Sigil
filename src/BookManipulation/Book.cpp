@@ -78,6 +78,8 @@ static const QString EMPTY_HTML5_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8
                                         "</body>\n"
                                         "</html>";
 
+const QString SGC_NAV_CSS_FILENAME = "sgc-nav.css";
+
 const QString EMPTY_NAV_FILE_START = 
     "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
     "<!DOCTYPE html>\n"
@@ -85,10 +87,7 @@ const QString EMPTY_NAV_FILE_START =
     "lang=\"%1\" xml:lang=\"%2\">\n"
     "<head>\n"
     "  <meta charset=\"utf-8\" />\n"
-    "  <style type=\"text/css\">\n"
-    "    nav#landmarks, nav#page-list { display:none; }\n"
-    "    ol { list-style-type: none; }\n"
-    "  </style>\n"
+    "  <link href=\"../Styles/%3\" rel=\"stylesheet\" type=\"text.css\"/>"
     "</head>\n"
     "<body epub:type=\"frontmatter\">\n";
 
@@ -124,6 +123,18 @@ const QString EMPTY_NAV_FILE_END =
     " -->\n"
     "</body>\n"
     "</html>";
+
+static const QString SGC_NAV_CSS_FILE =
+    "nav#landmarks {\n"
+    "    display:none;\n"
+    "}\n\n"
+    "nav#page-list {\n"
+    "    display:none;\n"
+    "}\n\n"
+    "ol {\n"
+    "    list-style-type: none;\n"
+    "}\n\n";
+
 
 const QString HTML_NAV_FILENAME = "nav.xhtml";
 
@@ -346,6 +357,30 @@ HTMLResource *Book::CreateEmptyHTMLFile()
 
 HTMLResource *Book::CreateEmptyNavFile(bool update_opf)
 {
+    bool found_css = false;
+    QList<Resource*> resources = GetFolderKeeper()->GetResourceTypeAsGenericList<CSSResource>(false);
+    foreach(Resource *resource, resources) {
+        if (resource->Filename() == SGC_NAV_CSS_FILENAME) {
+            found_css = true;
+            break;
+        }
+    }
+    // If NAV CSS file does not exist look for a default file                                                              
+    // in preferences directory and if none create one.                                                                         
+    if (!found_css) {
+        TempFolder tempfolder;
+        QString css_path = Utility::DefinePrefsDir() + "/" + SGC_NAV_CSS_FILENAME;
+        if (!QFile::exists(css_path)) {
+            css_path = tempfolder.GetPath() + "/" + SGC_NAV_CSS_FILENAME;
+            Utility::WriteUnicodeTextFile(SGC_NAV_CSS_FILE, css_path);
+        }
+        Resource * resource = GetFolderKeeper()->AddContentFileToFolder(css_path, update_opf, "text/css");
+        CSSResource *css_resource = qobject_cast<CSSResource *> (resource);
+        // Need to make sure InitialLoad is done in newly added css resource object to prevent                              
+        // blank css issues after a save to disk                                                                            
+        if (css_resource) css_resource->InitialLoad();       
+    }
+
     TempFolder tempfolder;
     QString fullfilepath = tempfolder.GetPath() + "/" + HTML_NAV_FILENAME;;
     Utility::WriteUnicodeTextFile(PLACEHOLDER_TEXT, fullfilepath);
@@ -356,8 +391,9 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf)
     QString navtitle = Landmarks::instance()->GetName("toc");
     QString guidetitle = Landmarks::instance()->GetName("landmarks");
     QString start = tr("Start");
-    QString navtext = EMPTY_NAV_FILE_START.arg(defaultLanguage).arg(defaultLanguage) +
-      EMPTY_NAV_FILE_TOC.arg(navtitle).arg(FIRST_SECTION_NAME).arg(start) + 
+    QString navtext = 
+        EMPTY_NAV_FILE_START.arg(defaultLanguage).arg(defaultLanguage).arg(SGC_NAV_CSS_FILENAME) +
+        EMPTY_NAV_FILE_TOC.arg(navtitle).arg(FIRST_SECTION_NAME).arg(start) + 
         EMPTY_NAV_FILE_LANDMARKS.arg(guidetitle).arg(navtitle) +
         EMPTY_NAV_FILE_END;
     html_resource->SetText(navtext);

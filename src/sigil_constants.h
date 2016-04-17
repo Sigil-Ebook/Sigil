@@ -110,6 +110,7 @@ extern const QString EMPTY_NAV_FILE_START;
 extern const QString EMPTY_NAV_FILE_TOC;
 extern const QString EMPTY_NAV_FILE_LANDMARKS;
 extern const QString EMPTY_NAV_FILE_END;
+extern const QString SGC_NAV_CSS_FILENAME;
 
 extern const QString HTML_COVER_FILENAME;
 extern const QString HTML_COVER_SOURCE;
