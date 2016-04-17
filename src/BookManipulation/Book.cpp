@@ -87,7 +87,7 @@ const QString EMPTY_NAV_FILE_START =
     "lang=\"%1\" xml:lang=\"%2\">\n"
     "<head>\n"
     "  <meta charset=\"utf-8\" />\n"
-    "  <link href=\"../Styles/%3\" rel=\"stylesheet\" type=\"text.css\"/>"
+    "  <link href=\"../Styles/%3\" rel=\"stylesheet\" type=\"text/css\"/>"
     "</head>\n"
     "<body epub:type=\"frontmatter\">\n";
 
