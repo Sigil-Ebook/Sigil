@@ -4,6 +4,16 @@ preSigil-0.9.6
     - Fix CleanSource svg prefix removal bug that sometimes broke valid svg code 
     - Remove svg image and html5 menuitem from the list of void elements in the Sigil and plugin code
     - Properly xml escape "&" in metadata attribute values
+    - Properly perform source updates on epub load even when they do not follow recommended spec
+    - Make handling of comments in both xhtml and xml more roubst
+    - Properly url escape css file names to handle css files with spaces in them
+    - Try to make direct editing of content.opf more safe by auto-fixing errors when possible
+    - Properly handle WellFormed checks for pure XML in XMLResource.cpp by using embedded python3 lxml
+    - Make opf_newparser.py and xmlprocessor.py more robust to broken user input in content.opf
+    - Make ProcessXML (repairXML in xmlprocessor.py) - leave untouched anything well-formed
+
+  New Features
+    - create sgc-nav.css stylesheet for nav and allow templates in Prefs Dir for user to control it 
 
 Sigil-0.9.5
    Bug Fixes

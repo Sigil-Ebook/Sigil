@@ -103,6 +103,57 @@ QString CleanSource::ToValidXHTML(const QString &source, const QString &version)
     return newsource;
 }
 
+XhtmlDoc::WellFormedError CleanSource::WellFormedXMLCheck(const QString &source, const QString mtype)
+{
+    XhtmlDoc::WellFormedError error; 
+    int rv = 0;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(source));
+    args.append(QVariant(mtype));
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("xmlprocessor"),
+                                         QString("WellFormedXMLCheck"),
+                                         args,
+                                         &rv,
+                                         error_traceback);    
+    if (rv != 0) {
+        Utility::DisplayStdWarningDialog(QString("error in xmlprocessor WellFormedXMLCheck: ") + QString::number(rv), 
+                                         error_traceback);
+        // an error happened during check, return well-formed as true
+        return error;
+    }
+    QStringList errors = res.toStringList();
+    error.line = errors.at(0).toInt();
+    error.column = errors.at(1).toInt();
+    error.message = errors.at(2);
+    return error;
+}
+
+bool CleanSource::IsWellFormedXML(const QString &source, const QString mtype)
+{
+    int rv = 0;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(source));
+    args.append(QVariant(mtype));
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("xmlprocessor"),
+                                         QString("IsWellFormedXML"),
+                                         args,
+                                         &rv,
+                                         error_traceback);    
+    if (rv != 0) {
+        Utility::DisplayStdWarningDialog(QString("error in xmlprocessor IsWellFormedXML: ") + QString::number(rv), 
+                                         error_traceback);
+        // an error happened during check return well-formed as true
+        return true;
+    }
+    return res.toBool();
+}
+
 QString CleanSource::ProcessXML(const QString &source, const QString mtype)
 {
     return XMLPrettyPrintBS4(source, mtype);

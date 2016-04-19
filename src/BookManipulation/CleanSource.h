@@ -27,6 +27,7 @@
 #include <QtCore/QList>
 
 #include "ResourceObjects/HTMLResource.h"
+#include "BookManipulation/XhtmlDoc.h"
 
 class QStringList;
 
@@ -41,6 +42,10 @@ public:
     static QString ToValidXHTML(const QString &source, const QString &version );
 
     static QString ProcessXML(const QString &source, const QString mtype="");
+
+    static XhtmlDoc::WellFormedError WellFormedXMLCheck(const QString &source, const QString mtype="");
+
+    static bool IsWellFormedXML(const QString &source, const QString mtype="");
 
     static QString MendPrettify(const QString &source, const QString &version);
 

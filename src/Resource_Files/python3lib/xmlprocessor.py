@@ -9,6 +9,7 @@ from urllib.parse import unquote
 from urllib.parse import urlsplit
 from lxml import etree
 from io import BytesIO
+from opf_newparser import Opf_Parser
 
 
 ASCII_CHARS   = set(chr(x) for x in range(128))
@@ -59,7 +60,8 @@ def unquoteurl(href):
 
 
 def _remove_xml_header(data):
-    return re.sub(r'<\s*\?xml\s*[^\?>]*\?*>\s*','',data, count=1,flags=re.I)
+    newdata = data
+    return re.sub(r'<\s*\?xml\s*[^\?>]*\?*>\s*','',newdata, count=1,flags=re.I)
 
 def _well_formed(data):
     result = True 
@@ -142,20 +144,58 @@ def _make_it_sane(data):
 # ncx_text_pattern = re.compile(r'''(<text>)\s*(\S[^<]*\S)\s*(</text>)''',re.IGNORECASE)
 # re.sub(ncx_text_pattern,r'\1\2\3',newdata)
 
-# BS4 with lxml for xml strips whitespace so always will want to prettyprint xml
 # data is expectedd to be in unicode
+def WellFormedXMLErrorCheck(data, mtype=""):
+    newdata = _remove_xml_header(data)
+    if isinstance(newdata, str):
+        newdata = newdata.encode('utf-8')
+    line = "-1"
+    column = "-1"
+    message = "well-formed"
+    try:
+        parser = etree.XMLParser(encoding='utf-8', recover=False)
+        tree = etree.parse(BytesIO(newdata), parser)
+    except Exception:
+        line = "0"
+        column = "0"
+        message = "exception"
+        if len(parser.error_log) > 0:
+            error = parser.error_log[0]
+            message = error.message
+            if isinstance(message, bytes):
+                message = message.decode('utf-8')
+            line = "%d" % error.line
+            column = "%d" % error.column
+        pass
+    result = [line, column, message]
+    return result
+
+
+def IsWellFormedXML(data, mtype=""):
+    [line, column, message] = WellFormedXMLErrorCheck(data, mtype)
+    result = line == "-1"
+    return result
+
+
+# data is expected to be in unicode
+# note: bs4 with lxml for xml strips whitespace so always prettyprint xml
 def repairXML(data, mtype="", indent_chars="  "):
-    data = _remove_xml_header(data)
-    if not _well_formed(data):
-        data = _make_it_sane(data)
-    if not _well_formed(data):
-        data = _reformat(data)
+    newdata = _remove_xml_header(data)
+    # if well-formed - don't mess with it
+    if _well_formed(newdata):
+        return data
+    newdata = _make_it_sane(newdata)
+    if not _well_formed(newdata):
+        newdata = _reformat(newdata)
+        if mtype == "application/oebps-package+xml":
+            newdata = newdata.decode('utf-8')
+            newdata = Opf_Parser(newdata).rebuild_opfxml()
     # lxml requires utf-8 on Mac, won't work with unicode
-    if isinstance(data, str):
-        data = data.encode('utf-8')
+    if isinstance(newdata, str):
+        newdata = newdata.encode('utf-8')
     voidtags = get_void_tags(mtype)
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=voidtags)
-    soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
+    soup = BeautifulSoup(newdata, features=None, from_encoding="utf-8", builder=xmlbuilder)
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars=indent_chars)
     return newdata
 
@@ -323,6 +363,7 @@ def performPageMapUpdates(data, currentdir, keylist, valuelist):
 
 
 def main():
+    argv = sys.argv
     opfxml = '''
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId" version="2.0">
@@ -334,9 +375,9 @@ def main():
     <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml" />
     <item href="Text/Section0001.xhtml" id="Section0001.xhtml" media-type="application/xhtml+xml" />
   </manifest>
-< >
+< 
   <spine toc="ncx">
-    <itemref idref="Section0001.xhtml"/>
+    <itemref idref="Section0001.xhtml">
   </spine>
   <text>
     this is a bunch of nonsense
@@ -350,6 +391,13 @@ def main():
   <guide />
 </package>
 '''
+    print(argv)
+    if not argv[-1].endswith("xmlprocessor.py"):
+        with open(argv[-1],'rb') as f:
+            opfxml = f.read();
+            if isinstance(opfxml, bytes):
+                opfxml = opfxml.decode('utf-8')
+
     print(repairXML(opfxml, "application/oebps-package+xml"))
     return 0
 

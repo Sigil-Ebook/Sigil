@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015              Kevin B. Hendricks  Stratford, ON Canada
+**  Copyright (C) 2015, 2016        Kevin B. Hendricks  Stratford, ON Canada
 **  Copyright (C) 2013              John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -157,11 +157,9 @@ QString OPFResource::GetText() const
 void OPFResource::SetText(const QString &text)
 {
     QWriteLocker locker(&GetLock());
-    // QString source = CleanSource::ProcessXML(text);
-    QString source = ValidatePackageVersion(CleanSource::ProcessXML(text, "application/oebps-package+xml"));
+    QString source = ValidatePackageVersion(text);
     TextResource::SetText(source);
 }
-
 
 
 QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource *> resources)
@@ -1131,29 +1129,27 @@ void OPFResource::UpdateText(const OPFParser &p)
     TextResource::SetText(p.convert_to_xml());
 }
 
+
 QString OPFResource::ValidatePackageVersion(const QString& source)
 {
     QString newsource = source;
     QString orig_version = GetEpubVersion();
     QRegularExpression pkgversion_search(PKG_VERSION, QRegularExpression::CaseInsensitiveOption);
-    QRegularExpressionMatch pkgversion_mo = pkgversion_search.match(newsource);
-    QString version = "2.0";
-    if (pkgversion_mo.hasMatch()) {
-        version = pkgversion_mo.captured(1);
-    }
-    if (version != orig_version) {
-        OPFParser p;
-        p.parse(newsource);
-        p.m_package.m_version = orig_version;
-        newsource = p.convert_to_xml();
-        if (!m_WarnedAboutVersion && !version.startsWith('1')) {
-            Utility::DisplayStdWarningDialog("Changing package version inside Sigil is not supported", 
-                                             "Use an appropriate output plugin to make the initial conversion");
-            m_WarnedAboutVersion = true;
+    QRegularExpressionMatch mo = pkgversion_search.match(newsource);
+    if (mo.hasMatch()) {
+        QString version = mo.captured(1);
+        if (version != orig_version) {
+            newsource.replace(mo.capturedStart(1), mo.capturedLength(1), orig_version);
+            if (!m_WarnedAboutVersion && !version.startsWith('1')) {
+                Utility::DisplayStdWarningDialog("Changing package version inside Sigil is not supported", 
+                                                 "Use an appropriate output plugin to make the initial conversion");
+                m_WarnedAboutVersion = true;
+            }
         }
     }
     return newsource;
 }
+
 
 void OPFResource::UpdateManifestProperties(const QList<Resource*> resources)
 {
@@ -1225,6 +1221,7 @@ void OPFResource::SetNavResource(HTMLResource * nav_resource)
         UpdateText(p);
     }
 }
+
 
 void OPFResource::SetItemRefLinear(Resource * resource, bool linear)
 {

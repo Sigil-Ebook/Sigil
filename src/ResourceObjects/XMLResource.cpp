@@ -41,8 +41,13 @@ bool XMLResource::FileIsWellFormed() const
 {
     // TODO: expand this with a dialog to fix the problem
     QReadLocker locker(&GetLock());
-    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(GetText());
-    bool well_formed = error.line == -1;
+    QString mtype = GetMediaType();
+    if ((mtype == "application/xhtml+xml") || (mtype == "application/x-dtbook+xml")) { 
+        XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(GetText());
+        bool well_formed = error.line == -1;
+        return well_formed;
+    }
+    bool well_formed = CleanSource::IsWellFormedXML(GetText(),mtype);
     return well_formed;
 }
 
@@ -50,7 +55,14 @@ bool XMLResource::FileIsWellFormed() const
 XhtmlDoc::WellFormedError XMLResource::WellFormedErrorLocation() const
 {
     QReadLocker locker(&GetLock());
-    return XhtmlDoc::WellFormedErrorForSource(GetText());
+    QString mtype = GetMediaType();
+    XhtmlDoc::WellFormedError error;
+    if ((mtype == "application/xhtml+xml") || (mtype == "application/x-dtbook+xml")) { 
+        error = XhtmlDoc::WellFormedErrorForSource(GetText());
+    } else {
+        error = CleanSource::WellFormedXMLCheck(GetText(), mtype);
+    }
+    return error;
 }
 
 
