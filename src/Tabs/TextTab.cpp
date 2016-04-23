@@ -212,7 +212,20 @@ void TextTab::SaveTabContent()
         return;
     }
 
+    // Losing focus will invoke SaveTabContent
+    // which may run SaveToDisk on the underlying resource 
+    // that will reset the cursor to the end of file
+    // so save the cursor position and then put it
+    // back after the SaveToDisk
+    int cursorPosition = m_wCodeView->GetCursorPosition();
+
+    // BUT: the call to SaveToDisk here makes no sense to me
+    // A QPlainText is directly tied to TextEdit so nothing
+    // should need be written to actual disk here.
+    // So I thnk the SaveToDisk should go away along with
+    // the need to save and restore the cursor position
     m_TextResource->SaveToDisk();
+    m_wCodeView->ScrollToPosition(cursorPosition);
     ContentTab::SaveTabContent();
 }
 
