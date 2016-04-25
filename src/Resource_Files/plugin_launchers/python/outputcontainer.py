@@ -248,7 +248,7 @@ class OutputContainer(object):
         return self._w.map_id_to_href(id, ow)
 
     def href_to_basename(self, href, ow=None):
-        if basename is not None:
+        if href is not None:
             return href.split('/')[-1]
         return ow
 

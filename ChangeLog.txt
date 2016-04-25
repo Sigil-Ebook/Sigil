@@ -11,6 +11,7 @@ preSigil-0.9.6
     - Properly handle WellFormed checks for pure XML in XMLResource.cpp by using embedded python3 lxml
     - Make opf_newparser.py and xmlprocessor.py more robust to broken user input in content.opf
     - Make ProcessXML (repairXML in xmlprocessor.py) - leave untouched anything well-formed
+    - Fix thinko in plugin bookcontainer.py and outputcontainer.py contributed by wrCisco 
 
   New Features
     - create sgc-nav.css stylesheet for nav and allow templates in Prefs Dir for user to control it 
