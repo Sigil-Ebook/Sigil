@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, ON Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -27,6 +28,7 @@
 
 const int TAB_SPACES_WIDTH = 4;
 const QString LINE_MARKER("[SIGIL_NEWLINE]");
+static const QString DELIMITERS = "}{;";
 
 CSSInfo::CSSInfo(const QString &text, bool isCSSFile)
     : m_OriginalText(text),
@@ -368,6 +370,10 @@ void CSSInfo::parseCSSSelectors(const QString &text, const int &offsetLines, con
     // Then the element based selectors could be:
     //    e1 / e1 > e2 / e1 e2 / e1 + e2 / e1[attribs...] / e1#id1 / e1, e2 / ...
     // Really needs a parser to do this properly, this will only handle the 90% scenarios.
+
+    // Note: selector groups can be sepaparated by line feeds so you can not stop
+    // at the beginning of line when searching for the start of a selector
+
     int pos = 0;
     int open_brace_pos = -1;
     int close_brace_pos = -1;
@@ -379,11 +385,11 @@ void CSSInfo::parseCSSSelectors(const QString &text, const int &offsetLines, con
             break;
         }
 
-        // Now search backwards until we get a line containing text.
+        // Now search backwards until we get a line (or more)  containing text .
         bool have_text = false;
         pos = open_brace_pos - 1;
 
-        while ((pos >= 0) && ((search_text.at(pos) != QChar('\n') && search_text.at(pos) != QChar('}')) || !have_text)) {
+        while ((pos >= 0) && (!DELIMITERS.contains(search_text.at(pos)) || !have_text)) {
             if (search_text.at(pos).isLetter()) {
                 have_text = true;
             }
