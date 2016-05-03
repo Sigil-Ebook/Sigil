@@ -12,6 +12,9 @@ preSigil-0.9.6
     - Make opf_newparser.py and xmlprocessor.py more robust to broken user input in content.opf
     - Make ProcessXML (repairXML in xmlprocessor.py) - leave untouched anything well-formed
     - Fix thinko in plugin bookcontainer.py and outputcontainer.py contributed by wrCisco 
+    - Fix for improper encoding in plugins on Mac OS X due to missing inherited plugin environment
+    - Fix for typos in epub xmlns when splitting epub3 ebooks in BookView
+    - Update testplugin_v012.zip to testplugin_v013.zip to handle sgc-nav.css new feature
 
   New Features
     - create sgc-nav.css stylesheet for nav and allow templates in Prefs Dir for user to control it 
