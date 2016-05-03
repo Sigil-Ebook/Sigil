@@ -8,6 +8,7 @@
 #include <QXmlStreamAttributes>
 #include <QMessageBox>
 #include <QStandardPaths>
+#include <QProcessEnvironment>
 
 #include "MainUI/MainWindow.h"
 #include "MainUI/BookBrowser.h"
@@ -246,6 +247,15 @@ void PluginRunner::startPlugin()
     args.append(m_pluginType);
     args.append(QDir::toNativeSeparators(m_pluginPath));
     QString executable = QDir::toNativeSeparators(m_enginePath);
+
+#ifdef Q_OS_MAC
+    // On Mac OS X, it appears that QProcess does not inherit the callers process environment at all
+    // which directly contradicts the Qt documentation.
+    // So we simply read the system environment and set it for QProcess manually
+    // so that python getpreferredencoding() and stdout/stderr/stdin encodings to get properly set
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    m_process.setProcessEnvironment(env);
+#endif
 
     m_process.start(executable, args);
     ui.statusLbl->setText("Status: running");
