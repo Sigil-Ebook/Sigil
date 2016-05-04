@@ -97,6 +97,41 @@ CSSInfo::CSSSelector *CSSInfo::getCSSSelectorForElementClass(const QString &elem
     return NULL;
 }
 
+QList<CSSInfo::CSSSelector *> CSSInfo::getAllCSSSelectorsForElementClass(const QString &elementName, const QString &className)
+{
+    QList<CSSInfo::CSSSelector *> matches;
+    if (!className.isEmpty()) {
+        // Find the selector(s) if any with this class name
+        QList<CSSInfo::CSSSelector *> class_selectors = getClassSelectors(className);
+
+        if (class_selectors.count() > 0) {
+            // First look for match on element and class
+            foreach(CSSInfo::CSSSelector * cssSelector, class_selectors) {
+                // Always match on wildcard class selector
+                if (cssSelector->elementNames.isEmpty()) {
+                    matches.append(cssSelector);;
+                }
+                if (cssSelector->elementNames.contains(elementName)) {
+                    // Doublecheck that the full element.class is actually in the text
+                    // to avoid, e.g.,  div class="test" matching p.test + div
+                    if (cssSelector->groupText.contains(elementName % "." % className)) {
+                        matches.append(cssSelector);
+                    }
+                }
+            }
+        }
+    } else {
+        // try match on element name alone
+        foreach(CSSInfo::CSSSelector * cssSelector, m_CSSSelectors) {
+            if (cssSelector->elementNames.contains(elementName) && cssSelector->classNames.isEmpty()) {
+                matches.append(cssSelector);
+            }
+        }
+    }
+    return matches;
+}
+
+
 QStringList CSSInfo::getAllPropertyValues(QString property)
 {
     QStringList property_values;

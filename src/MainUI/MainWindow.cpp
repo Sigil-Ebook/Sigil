@@ -1528,7 +1528,8 @@ void MainWindow::DeleteUnusedStyles()
         return;
     }
 
-    QList<BookReports::StyleData *> html_class_usage = BookReports::GetHTMLClassUsage(m_Book, true);
+    // QList<BookReports::StyleData *> html_class_usage = BookReports::GetHTMLClassUsage(m_Book, true);
+    QList<BookReports::StyleData *> html_class_usage = BookReports::GetALLHTMLClassUsage(m_Book, true);
     QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_Book, html_class_usage);
     qDeleteAll(html_class_usage);
     QList<BookReports::StyleData *> css_selectors_to_delete;

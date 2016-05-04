@@ -74,6 +74,13 @@ public:
      */
     CSSSelector *getCSSSelectorForElementClass(const QString &elementName, const QString &className);
 
+    /**
+     * Search for *all* CSS selector that match an elementName, and classname
+     * not just the first.  Needed because one use of an html class can actually 
+     * relate to more than one style
+     */
+
+    QList<CSSSelector *> getAllCSSSelectorsForElementClass(const QString &elementName, const QString &className);
 
     /**
      * Return a list of all property values for the given property in the CSS.
