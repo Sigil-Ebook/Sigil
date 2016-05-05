@@ -15,6 +15,9 @@ preSigil-0.9.6
     - Fix for improper encoding in plugins on Mac OS X due to missing inherited plugin environment
     - Fix for typos in epub xmlns when splitting epub3 ebooks in BookView
     - Update testplugin_v012.zip to testplugin_v013.zip to handle sgc-nav.css new feature
+    - Fix bugs in DeleteUnusedStyles when selector exists more than once in the same stylesheet
+    - Fix bugs in DeleteUnusedStyles when group selectors span more than one line
+    - Fix bugs in Reports on CSS Styles missing cases when selector exists more than once
 
   New Features
     - create sgc-nav.css stylesheet for nav and allow templates in Prefs Dir for user to control it 
