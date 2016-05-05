@@ -17,7 +17,8 @@ preSigil-0.9.6
     - Update testplugin_v012.zip to testplugin_v013.zip to handle sgc-nav.css new feature
     - Fix bugs in DeleteUnusedStyles when selector exists more than once in the same stylesheet
     - Fix bugs in DeleteUnusedStyles when group selectors span more than one line
-    - Fix bugs in Reports on CSS Styles missing cases when selector exists more than once
+    - Fix bugs in Reports: CSS Styles missing cases when selector exists more than once
+    - Fix bug in Reports: All Files to use Landmark Semantics under epub3 not guide semantics
 
   New Features
     - create sgc-nav.css stylesheet for nav and allow templates in Prefs Dir for user to control it 
