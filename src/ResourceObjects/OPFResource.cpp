@@ -707,7 +707,7 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
 {
     QString version = GetEpubVersion();
     if (version.startsWith('3')) {
-      NavProcessor navproc(GetNavResource());
+        NavProcessor navproc(GetNavResource());
         return navproc.GetLandmarkNameForPaths();
     }
 

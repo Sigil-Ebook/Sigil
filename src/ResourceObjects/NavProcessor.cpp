@@ -523,6 +523,19 @@ QString NavProcessor::GetLandmarkCodeForResource(const Resource *resource)
     return etype;
 }
 
+QString NavProcessor::GetLandmarkNameForResource(const Resource *resource)
+{
+    const QList<NavLandmarkEntry> landlist = GetLandmarks();
+    QReadLocker locker(&m_NavResource->GetLock());
+    int pos = GetResourceLandmarkPos(resource, landlist);
+    QString etitle;
+    if (pos > -1) {
+        NavLandmarkEntry le = landlist.at(pos);
+        etitle = le.title;
+    }
+    return etitle;
+}
+
 QHash <QString, QString> NavProcessor::GetLandmarkNameForPaths()
 {
     const QList<NavLandmarkEntry> landlist = GetLandmarks();

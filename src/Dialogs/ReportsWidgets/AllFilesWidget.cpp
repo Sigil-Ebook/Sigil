@@ -35,6 +35,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/NavProcessor.h"
 
 static const QString SETTINGS_GROUP = "reports";
 static const QString DEFAULT_REPORT_FILE = "AllFilesReport.csv";
@@ -72,6 +73,7 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     ui.fileTree->header()->setSortIndicatorShown(true);
     double total_size = 0;
     QString main_folder = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
+    QString version = m_Book->GetOPF()->GetEpubVersion();
     foreach(Resource *resource, m_AllResources) {
         QString fullpath = resource->GetFullPath();
         QString filepath = resource->GetRelativePath();
@@ -101,7 +103,12 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems << item;
         // Semantics
         item = new QStandardItem();
-        item->setText(m_Book->GetOPF()->GetGuideSemanticNameForResource(resource));
+        if (version.startsWith('3')) {
+            NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
+            item->setText(navproc.GetLandmarkNameForResource(resource));
+        } else {
+            item->setText(m_Book->GetOPF()->GetGuideSemanticNameForResource(resource));
+        }
         rowItems << item;
 
         // Add item to table

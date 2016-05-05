@@ -71,6 +71,7 @@ public:
     void AddLandmarkCode(const Resource * resource, QString new_code, bool toggle = true);
     void RemoveLandmarkForResource(const Resource * resource);
     QString GetLandmarkCodeForResource(const Resource * resource);
+    QString GetLandmarkNameForResource(const Resource * resource);
     QHash<QString, QString> GetLandmarkNameForPaths();
 
 
