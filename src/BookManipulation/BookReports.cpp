@@ -105,7 +105,7 @@ QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QSharedPointer<Bo
 }
 
 // needed because one use of a class in html can actually match more than one selector with same specificity
-QList<BookReports::StyleData *> BookReports::GetALLHTMLClassUsage(QSharedPointer<Book> book, bool show_progress)
+QList<BookReports::StyleData *> BookReports::GetAllHTMLClassUsage(QSharedPointer<Book> book, bool show_progress)
 {
     QList<HTMLResource *> html_resources = book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(false);
     QList<CSSResource *> css_resources = book->GetFolderKeeper()->GetResourceTypeList<CSSResource>(false);

@@ -57,7 +57,7 @@ void StylesInCSSFilesWidget::CreateReport(QSharedPointer<Book> book)
     m_Book = book;
     SetupTable();
     // Get the list of classes in HTML and what selectors they match
-    QList<BookReports::StyleData *> html_classes_usage = BookReports::GetHTMLClassUsage(m_Book);
+    QList<BookReports::StyleData *> html_classes_usage = BookReports::GetAllHTMLClassUsage(m_Book);
     // Get the list of selectors in CSS files and if they were matched by HTML classes
     QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_Book, html_classes_usage);
     qDeleteAll(html_classes_usage);
