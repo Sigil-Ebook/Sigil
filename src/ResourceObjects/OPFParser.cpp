@@ -209,7 +209,7 @@ ManifestEntry::ManifestEntry(const QVariant& qv)
 QString ManifestEntry::convert_to_xml() const
 {
   QStringList xmlres;
-  xmlres << "    <item  id=\"" + m_id + "\"";
+  xmlres << "    <item id=\"" + m_id + "\"";
   xmlres << " href=\"" + Utility::URLEncodePath(m_href) + "\"";
   xmlres << " media-type=\"" + m_mtype+ "\"";
   foreach (QString kv, m_atts.keys()) {
@@ -301,7 +301,7 @@ SpineEntry::SpineEntry(const QVariant& qv)
 QString SpineEntry::convert_to_xml() const
 {
   QStringList xmlres;
-  xmlres << "    <itemref  idref=\"" + m_idref + "\"";
+  xmlres << "    <itemref idref=\"" + m_idref + "\"";
   foreach (QString kv, m_atts.keys()) {
       QString val = m_atts.value(kv,"");
       val.replace("\"", "&quot;");
@@ -335,7 +335,7 @@ GuideEntry::GuideEntry(const QVariant& qv)
 QString GuideEntry::convert_to_xml() const
 {
   QStringList xmlres;
-  xmlres << "    <reference  type=\"" + m_type + "\"";
+  xmlres << "    <reference type=\"" + m_type + "\"";
   xmlres << " title=\"" + m_title + "\"";
   xmlres << " href=\"" + Utility::URLEncodePath(m_href) + "\"";
   xmlres << "/>\n";

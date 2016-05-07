@@ -20,6 +20,7 @@ preSigil-0.9.6
     - Fix bugs in Reports: CSS Styles missing cases when selector exists more than once
     - Fix bug in Reports: All Files to use Landmark Semantics under epub3 not guide semantics
     - Fix bug, slow in loading ini when too large clipboard history, user can delete them via dialog
+    - Stop cosmetic double-spaces being introduced into OPF manifest, spine and guide entries
 
   New Features
     - create sgc-nav.css stylesheet for nav and allow templates in Prefs Dir for user to control it 
