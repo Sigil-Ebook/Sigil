@@ -48,6 +48,7 @@ public:
 public slots:
     void SaveClipboardState();
     void RestoreClipboardState();
+    void buttonClicked(QAbstractButton * button);
 
 signals:
     void PasteRequest(const QString &);
@@ -81,6 +82,7 @@ private:
 
     QString m_lastclip;
 
+    bool m_savedHistory;
     Ui::ClipboardHistorySelector ui;
 };
 

@@ -2262,7 +2262,7 @@
   </action>
   <action name="actionPasteClipboardHistory">
    <property name="text">
-    <string>Paste From Clipboard &amp;History...</string>
+    <string>Edit/Paste From Clipboard &amp;History...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+V</string>

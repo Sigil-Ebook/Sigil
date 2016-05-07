@@ -40,7 +40,8 @@ ClipboardHistorySelector::ClipboardHistorySelector(QWidget *parent)
     :
     QDialog(parent),
     m_ClipboardHistoryItems(new QStringList()),
-    m_PreviousClipboardHistoryItems(new QStringList())
+    m_PreviousClipboardHistoryItems(new QStringList()),
+    m_savedHistory(false)
 {
     ui.setupUi(this);
     ExtendUI();
@@ -222,7 +223,7 @@ bool ClipboardHistorySelector::eventFilter(QObject *obj, QEvent *event)
             int key = keyEvent->key();
             int row = -1;
 
-            if (key == Qt::Key_Delete) {
+            if ((key == Qt::Key_Backspace) || (key == Qt::Key_Delete)) {
                 int current_row = ui.clipboardItemsTable->currentRow();
 
                 if (current_row >= 0) {
@@ -259,6 +260,17 @@ void ClipboardHistorySelector::ClipboardItemDoubleClicked(QTableWidgetItem *item
     accept();
 }
 
+
+void ClipboardHistorySelector::buttonClicked(QAbstractButton * button)
+{
+    QDialogButtonBox::StandardButton standardButton = ui.buttonBox->standardButton(button);
+    // abort does an abort without cancelloing changes 
+    if (standardButton == QDialogButtonBox::Abort) {
+        m_savedHistory = true;
+    }
+}
+
+
 void ClipboardHistorySelector::accept()
 {
     if (ui.clipboardItemsTable->rowCount() > 0) {
@@ -281,12 +293,14 @@ void ClipboardHistorySelector::accept()
 
 void ClipboardHistorySelector::reject()
 {
-    // As user is cancelling, reject any deltions they have done to the history
-    m_ClipboardHistoryItems->clear();
-    for (int i=0; i < m_PreviousClipboardHistoryItems->count(); i++) {
-        m_ClipboardHistoryItems->append(m_PreviousClipboardHistoryItems->at(i));
+    if (!m_savedHistory) {
+        // As user is cancelling, reject any deletions they have done to the history
+        m_ClipboardHistoryItems->clear();
+        for (int i=0; i < m_PreviousClipboardHistoryItems->count(); i++) {
+            m_ClipboardHistoryItems->append(m_PreviousClipboardHistoryItems->at(i));
+        }
     }
-
+    m_savedHistory = false;
     WriteSettings();
     QDialog::reject();
 }
@@ -295,6 +309,8 @@ void ClipboardHistorySelector::ExtendUI()
 {
     QPushButton *paste_button = ui.buttonBox->button(QDialogButtonBox::Ok);
     paste_button->setText(tr("Paste"));
+    QPushButton *save_button = ui.buttonBox->button(QDialogButtonBox::Abort);
+    save_button->setText(tr("Save"));
     ui.clipboardItemsTable->installEventFilter(this);
     ui.clipboardItemsTable->setWordWrap(false);
     ui.clipboardItemsTable->horizontalHeader()->setStretchLastSection(true);
@@ -303,6 +319,8 @@ void ClipboardHistorySelector::ExtendUI()
 void ClipboardHistorySelector::ConnectSignalsToSlots()
 {
     connect(ui.clipboardItemsTable,    SIGNAL(itemDoubleClicked(QTableWidgetItem *)),  this, SLOT(ClipboardItemDoubleClicked(QTableWidgetItem *)));
+    connect(ui.buttonBox, SIGNAL(clicked(QAbstractButton *)), this, SLOT(buttonClicked(QAbstractButton *)));
+
     MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
 
     if (mainApplication) {
