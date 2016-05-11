@@ -41,7 +41,6 @@
 #include <QtWebKitWidgets/QWebFrame>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
-#include <QDebug>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/CleanSource.h"
@@ -84,8 +83,8 @@ const QString XHTML_NAMESPACE = "http://www.w3.org/1999/xhtml";
  * The JavaScript source code for getting a string representation
  * of the "body" tag (without the children).
  */
-static const QString GET_BODY_TAG_HTML = "new XMLSerializer().serializeToString( document.body.cloneNode(false) );";
 
+static const QString GET_BODY_TAG_HTML = "new XMLSerializer().serializeToString( document.body.cloneNode(false) );";
 
 BookViewEditor::BookViewEditor(QWidget *parent)
     :
@@ -521,14 +520,43 @@ QString BookViewEditor::GetCaretElementName()
 
 void BookViewEditor::ApplyCaseChangeToSelection(const Utility::Casing &casing)
 {
-    // This is going to lose any styles that may have been applied within
-    // that selected text.
+    //  Users can actually select too much here including tags
+    //  Pasting over the tags then loses content (such as anchor links)
+    //  So we detect if the user selected more than just text, and if so
+    //  simply return
+
+    // javascript to get html of window selection
+    QString javascript = "var xml = '';"
+                         "if (window.getSelection) {"
+                         "  var selection = window.getSelection();"
+                         "  if (selection.rangeCount > 0) {"
+                         "    var range = selection.getRangeAt(0);"
+                         "    var clonedSelection = range.cloneContents();"
+                         "    var div = document.createElement('div');"
+                         "    div.appendChild(clonedSelection);"
+                         "    xml = div.innerHTML;"
+                         "  }"
+                         "}"
+                         "xml;";
+
+    QString selected_html  = EvaluateJavascript(javascript).toString();
+
     QString selected_text = GetSelectedText();
+
+    // if you selected more than just text simply return
+    if (selected_text != selected_html) {
+        return;
+    }
+
     QString new_text = Utility::ChangeCase(selected_text, casing);
 
+    // if nothing changed, simply return
     if (new_text == selected_text) {
         return;
     }
+
+    // This is going to lose any styles that may have been applied within
+    // that selected text.
 
     // The "proper" way to do a replacement of the text (and allow undo) will
     // undoubtedly involve reams of javascript. However there is a quick and
@@ -663,8 +691,6 @@ void BookViewEditor::cut()
 
 void BookViewEditor::paste()
 {
-    qDebug() << QString("in BV::paste()");
-
     QClipboard *clipboard = QApplication::clipboard();
 
     if (clipboard->mimeData()->hasHtml()) {
@@ -1025,7 +1051,6 @@ void BookViewEditor::keyPressEvent(QKeyEvent *event)
 {
 
     // Propagate to base class
-    // qDebug() << QString("in BV::keyPressEvent");
     if ( event->matches(QKeySequence::Paste) ) {
         paste();
     } else {
