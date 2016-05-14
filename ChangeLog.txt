@@ -25,6 +25,7 @@ preSigil-0.9.6
 
   New Features
     - create sgc-nav.css stylesheet for nav and allow templates in Prefs Dir for user to control it 
+    - Add General Setting to allow user to set own temporary directory location
 
 Sigil-0.9.5
    Bug Fixes
