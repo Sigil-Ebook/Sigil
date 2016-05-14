@@ -33,12 +33,20 @@
  */
 class GeneralSettingsWidget : public PreferencesWidget
 {
+    Q_OBJECT
+
 public:
     GeneralSettingsWidget();
     PreferencesWidget::ResultAction saveSettings();
 
+private slots:
+    void autoTempFolder();
+    void setTempFolder();
+    void tempFolderPathChanged();
+
 private:
     void readSettings();
+    void connectSignalsToSlots();
 
     Ui::GeneralSettingsWidget ui;
 };

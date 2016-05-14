@@ -23,6 +23,7 @@
 #include <QtConcurrent/QtConcurrent>
 
 #include "Misc/TempFolder.h"
+#include "SettingsStore.h"
 
 TempFolder::TempFolder()
     : m_tempDir(GetNewTempFolderTemplate())
@@ -45,13 +46,15 @@ QString TempFolder::GetPath()
 
 QString TempFolder::GetPathToSigilScratchpad()
 {
-    return QDir::tempPath();
+    SettingsStore ss;
+    return ss.tempFolderHome();
 }
 
 
 QString TempFolder::GetNewTempFolderTemplate()
 {
-    return QDir::tempPath() + "/Sigil-XXXXXX";
+    SettingsStore ss;
+    return ss.tempFolderHome() + "/Sigil-XXXXXX"; 
 }
 
 

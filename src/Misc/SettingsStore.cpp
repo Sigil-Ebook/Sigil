@@ -59,6 +59,8 @@ static QString KEY_PLUGIN_USE_BUNDLED_INTERP = SETTINGS_GROUP + "/" + "plugin_us
 static QString KEY_CSS_EPUB2_VALIDATION_SPEC = SETTINGS_GROUP + "/" + "css_epub2_validation_spec";
 static QString KEY_CSS_EPUB3_VALIDATION_SPEC = SETTINGS_GROUP + "/" + "css_epub3_validation_spec";
 
+static QString KEY_TEMP_FOLDER = SETTINGS_GROUP + "/" + "temp_folder_path";
+
 static QString KEY_BOOK_VIEW_FONT_FAMILY_STANDARD = SETTINGS_GROUP + "/" + "book_view_font_family_standard";
 static QString KEY_BOOK_VIEW_FONT_FAMILY_SERIF = SETTINGS_GROUP + "/" + "book_view_font_family_serif";
 static QString KEY_BOOK_VIEW_FONT_FAMILY_SANS_SERIF = SETTINGS_GROUP + "/" + "book_view_font_family_sans_serif";
@@ -255,6 +257,12 @@ QString SettingsStore::cssEpub3ValidationSpec()
     return value(KEY_CSS_EPUB3_VALIDATION_SPEC, "css30").toString();
 }
 
+QString SettingsStore::tempFolderHome()
+{
+    clearSettingsGroup();
+    return value(KEY_TEMP_FOLDER, QDir::tempPath()).toString();
+}
+
 SettingsStore::BookViewAppearance SettingsStore::bookViewAppearance()
 {
     clearSettingsGroup();
@@ -449,6 +457,12 @@ void SettingsStore::setCssEpub3ValidationSpec(const QString &spec)
 {
     clearSettingsGroup();
     setValue(KEY_CSS_EPUB3_VALIDATION_SPEC, spec);
+}
+
+void SettingsStore::setTempFolderHome(const QString &path)
+{
+    clearSettingsGroup();
+    setValue(KEY_TEMP_FOLDER, path);
 }
 
 void SettingsStore::setBookViewAppearance(const SettingsStore::BookViewAppearance &book_view_appearance)

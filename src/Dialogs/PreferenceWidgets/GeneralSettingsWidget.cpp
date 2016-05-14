@@ -24,11 +24,17 @@
 
 #include <QString>
 #include <QStringList>
+#include <QDir>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QDebug>
+#include "Misc/Utility.h"
 
 GeneralSettingsWidget::GeneralSettingsWidget()
 {
     ui.setupUi(this);
     readSettings();
+    connectSignalsToSlots();
 }
 
 PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
@@ -69,12 +75,17 @@ PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
         new_remote_on_level = 1;
     }
 
+    QString new_temp_folder_home = QDir::tempPath();
+    if (!ui.lineEdit->text().isEmpty()) {
+         new_temp_folder_home = ui.lineEdit->text();
+    }
     SettingsStore settings;
     settings.setCleanOn(new_clean_on_level);
     settings.setDefaultVersion(new_epub_version);
     settings.setCssEpub2ValidationSpec(css_epub2_spec);
     settings.setCssEpub3ValidationSpec(css_epub3_spec);
     settings.setRemoteOn(new_remote_on_level);
+    settings.setTempFolderHome(new_temp_folder_home);
     return PreferencesWidget::ResultAction_None;
 }
 
@@ -97,5 +108,46 @@ void GeneralSettingsWidget::readSettings()
     ui.MendOnSave->setChecked(cleanOn & CLEANON_SAVE);
     int remoteOn = settings.remoteOn();
     ui.AllowRemote->setChecked(remoteOn);
+    QString temp_folder_home = settings.tempFolderHome();
+    ui.lineEdit->setText(temp_folder_home);
 }
 
+void GeneralSettingsWidget::autoTempFolder()
+{
+    qDebug() << "In autoTempFolder";
+    QString system_temp_folder = QDir::tempPath();
+    ui.lineEdit->setText(system_temp_folder);
+}
+
+void GeneralSettingsWidget::setTempFolder()
+{
+    qDebug() << "In setTempFolder";
+    QString name = QFileDialog::getExistingDirectory(this, tr("Select Folder for Temporary Files"));
+    if (name.isEmpty()) {
+        return;
+    }
+    ui.lineEdit->setText(name);
+}
+
+void GeneralSettingsWidget::tempFolderPathChanged()
+{
+    qDebug() << "In tempFolderPathChanged()";
+    // make sure typed in path actually exists and is writeable
+    QString tempfolderpath = ui.lineEdit->text();
+    if (!tempfolderpath.isEmpty()) {
+        QFileInfo tempinfo(tempfolderpath);
+        if (!tempinfo.exists() || !tempinfo.isDir() || !tempinfo.isReadable() || !tempinfo.isWritable() ) {
+            disconnect(ui.lineEdit, SIGNAL(editingFinished()), this, SLOT(tempFolderPathChanged()));
+            Utility::DisplayStdWarningDialog(tr("Incorrect Folder for Temporary Files selected"));
+            ui.lineEdit->setText("");
+            connect(ui.lineEdit, SIGNAL(editingFinished()), this, SLOT(tempFolderPathChanged()));
+        }
+    }
+}
+
+void GeneralSettingsWidget::connectSignalsToSlots()
+{
+    connect(ui.autoButton, SIGNAL(clicked()), this, SLOT(autoTempFolder()));
+    connect(ui.browseButton, SIGNAL(clicked()), this, SLOT(setTempFolder()));
+    connect(ui.lineEdit, SIGNAL(editingFinished()), this, SLOT(tempFolderPathChanged()));
+}

@@ -101,6 +101,12 @@ public:
     QString cssEpub2ValidationSpec();
     QString cssEpub3ValidationSpec();
 
+
+    /**
+     * Get path to temp folder home
+     */
+    QString tempFolderHome();
+    
     /**
      * Whether automatic Spellcheck is enabled or not
      *
@@ -261,6 +267,11 @@ public slots:
      */
     void setCssEpub2ValidationSpec(const QString &spec);
     void setCssEpub3ValidationSpec(const QString &spec);
+
+    /**
+     * Set path to temp folder home
+     */
+    void setTempFolderHome(const QString &path);
 
     /**
      * Set whether automatic Spellcheck is enabled
