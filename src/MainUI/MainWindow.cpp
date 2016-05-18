@@ -1491,7 +1491,7 @@ void MainWindow::DeleteUnusedMedia()
     style_urls.removeDuplicates();
 
     QStringList style_url_files;
-    QRegularExpression url_file_search("url\\s*\\(\\s*['\"]([^'\"]*).*");
+    QRegularExpression url_file_search("url\\s*\\(\\s*['\"]?([^\\(\\)'\"]*)[\"']?\\)");
     foreach (QString url, style_urls) {
         QRegularExpressionMatch match = url_file_search.match(url);
         if (match.hasMatch()) {

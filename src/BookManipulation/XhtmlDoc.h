@@ -136,6 +136,8 @@ public:
 
     static QStringList GetPathsToStyleFiles(const QString &source);
 
+    static QStringList GetAllURLPathsFromStylesheet(const QString & source, const QString & csspath);
+
     static QStringList GetAllMediaPathsFromMediaChildren(const QString &source, QList<GumboTag> tags);
 
 

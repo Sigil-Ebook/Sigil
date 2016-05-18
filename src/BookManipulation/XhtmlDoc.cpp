@@ -33,6 +33,7 @@
 #include <QtXml/QXmlSimpleReader>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QDir>
 #include <QFileInfo>
 
 #include "BookManipulation/CleanSource.h"
@@ -554,6 +555,38 @@ QStringList XhtmlDoc::GetPathsToStyleFiles(const QString &source)
   style_paths.removeDuplicates();
   return style_paths;
 }
+
+QStringList XhtmlDoc::GetAllURLPathsFromStylesheet(const QString & source, const QString & csspath)
+{
+    QStringList urlpaths;
+    QRegularExpression reference(
+        "(?:(?:src|background|background-image|list-style|list-style-image|border-image|border-image-source|content)\\s*:|@import)\\s*"
+        "[^;\\}\\(\"']*"
+        "(?:"
+        "url\\([\"']?([^\\(\\)\"']*)[\"']?\\)"
+        "|"
+        "[\"']([^\\(\\)\"']*)[\"']"
+        ")"
+        "[^;\\}]*"
+        "(?:;|\\})");
+    int start_index = 0;
+    QRegularExpressionMatch mo = reference.match(source, start_index);
+    do {
+        for (int i = 1; i < reference.captureCount(); ++i) {
+            if (mo.captured(i).trimmed().isEmpty()) {
+                continue;
+            }
+            QString apath = Utility::URLDecodePath(mo.captured(i));
+            QString relpath = QDir::cleanPath(csspath + "/" + apath);
+            urlpaths.append(relpath);
+        }
+        start_index += mo.capturedLength();
+        mo = reference.match(source, start_index);
+    } while (mo.hasMatch());
+
+    return urlpaths;
+}
+
 
 
 QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const QString & source, QList<GumboTag> tags)

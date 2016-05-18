@@ -22,6 +22,7 @@ preSigil-0.9.6
     - Fix bug, slow in loading ini when too large clipboard history, user can delete them via dialog
     - Stop cosmetic double-spaces being introduced into OPF manifest, spine and guide entries
     - Fix bug when user selects too much in BookView and then tries to change case
+    - Fix bug in Delete Unused Media when css urls do not use quotes 
 
   New Features
     - create sgc-nav.css stylesheet for nav and allow templates in Prefs Dir for user to control it 
