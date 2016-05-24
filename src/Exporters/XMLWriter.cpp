@@ -32,6 +32,7 @@ XMLWriter::XMLWriter(const Book *book, QIODevice &device)
     m_Writer(new QXmlStreamWriter(&m_IODevice))
 {
     m_Writer->setAutoFormatting(true);
+    m_Writer->setAutoFormattingIndent(2);
 }
 
 

@@ -23,6 +23,7 @@ preSigil-0.9.6
     - Stop cosmetic double-spaces being introduced into OPF manifest, spine and guide entries
     - Fix bug when user selects too much in BookView and then tries to change case
     - Fix bug in Delete Unused Media when css urls do not use quotes 
+    - Try to set all ways of updating the ncx to use 2 character indentation of head element
 
   New Features
     - create sgc-nav.css stylesheet for nav and allow templates in Prefs Dir for user to control it 
