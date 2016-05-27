@@ -8,6 +8,8 @@ import sys
 import os
 import re
 
+from gencheck import GenCheck
+
 PY3 = sys.version_info[0] == 3
 
 if PY3:
@@ -19,22 +21,14 @@ SPECIAL_HANDLING_TAGS = {
     '?xml'     : ('xmlheader', -1),
     '!--'      : ('comment', -3),
     '!DOCTYPE' : ('doctype', -1),
+    '![CDATA[' : ('cdata', -3)
 }
 
-SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment']
+SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment', 'cdata']
 
 MAX_TAG_LEN = 20
 
-# Map mediatype to package/module
-# Maps to a tuple representing the file & classname
-XML_TYPE_MAP ={}
-# Seperate checkers of epub2|3 may not be necessary
-XML_TYPE_MAP['opf2'] = ('opf2check', 'OPFCheck')
-XML_TYPE_MAP['opf3'] = ('opf3check', 'OPFCheck')
-XML_TYPE_MAP['ncx'] = ('ncxcheck', 'NCXCheck')
-# XML_TYPE_MAP['adobepagemap'] = 'adobemap_check'
-# XML_TYPE_MAP['smil'] = 'smil_check'
-
+PKG_VERSION = re.compile(r'''<\s*package[^>]*version\s*=\s*[\"\']([^\'\"]*)[\'\"][^>]*>''')
 # Ampersand not part of any entity
 AMP_PATTERN = re.compile(r'&(?!#?[a-zA-Z0-9]*;)')
 # Entities of all kinds
@@ -53,15 +47,10 @@ class XMLSanityCheck(object):
         self.content = data
         self.clen = len(self.content)
         self.media_type = media_type
-
-        # Import specific self.media_type-based checker
-        self.checker_obj = None
-        if self.media_type is not None and self.media_type in XML_TYPE_MAP.keys():
-            package = XML_TYPE_MAP[self.media_type][0]
-            name = XML_TYPE_MAP[self.media_type][1]
-            # Equivalent to -- from <package> import <name> as self.checker_obj
-            # i.e. from opfchecker import OPFCheck as self.checker_obj
-            self.checker_obj = getattr(__import__(package, fromlist=[name]), name)
+        self.pkgver = None
+        m = PKG_VERSION.search(data)
+        if m:
+            self.pkgver = m.group(1)
 
         # parser position information
         self.pos = 0
@@ -84,21 +73,24 @@ class XMLSanityCheck(object):
     def check(self):
         # persistent counter variables initialized
         # only import once per xmlsanitycheck.check()
-        if self.checker_obj is not None:
-            chk = self.checker_obj()
+        #if self.checker_obj is not None:
+        #    chk = self.checker_obj()
+        if self.media_type is not None:
+            chk = GenCheck(self.media_type, self.pkgver)
         for text, tp, tname, ttype, tattr in self.parse_iter():
             if self.has_error:
                 break
             # pass the yielded data (and self) to the media-specifc xml checker's "check" method
-            if self.checker_obj is not None:
+            if self.media_type is not None and tname is not None and tname not in SPECIAL_HANDLING_TAGS:
                 chk.check(self, text, tp, tname, ttype, tattr)
                 if self.has_error:
                     break
-        # Check to see if the mandatory_sections list is satisfied
-        if self.checker_obj is not None and not self.has_error:
-            if chk.mandatory_sections:
-                self.errors.append((1, 0, 'Missing mandatory %s section' % chk.mandatory_sections[0]))
-            self.has_error = True
+        # Check to see if minimum counts test is satisfied
+        if self.media_type is not None and not self.has_error:
+            mincount_errors = chk.mincounts()
+            if mincount_errors is not None:
+                self.errors.append((1, 0, mincount_errors))
+                self.has_error = True
         return (self.has_error, self.errors)
 
     def illegal_ampersand(self, s):
@@ -151,6 +143,13 @@ class XMLSanityCheck(object):
             ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
             tattr['special'] = s[p:backstep]
             return tname, ttype, tattr
+        # handle cdata special case as there may be no spaces to delimit name begin or end
+        if s[b:b+8] == "![CDATA[":
+            p = b+8
+            tname = "![CDATA["
+            ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
+            tattr['special'] = s[p:backstep]
+            return tname, ttype, tattr
         while s[p:p+1] not in ('>', '/', ' ', '"', "'", "\r", "\n") :
             p += 1
             if (p - b) > MAX_TAG_LEN or p >= taglen:
@@ -159,8 +158,6 @@ class XMLSanityCheck(object):
                 self.has_error = True
                 return None, None, None
         tname=s[b:p]
-        if tname.lower() == '!doctype':
-            tname = '!DOCTYPE'
         # special cases
         if tname in SPECIAL_HANDLING_TAGS:
             ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
@@ -171,7 +168,7 @@ class XMLSanityCheck(object):
                 while s[p:p+1] == ' ' : p += 1
                 b = p
                 while s[p:p+1] != '=' : p += 1
-                aname = s[b:p].lower()
+                aname = s[b:p]
                 aname = aname.rstrip(' ')
                 if aname.find(' ') >= 0:
                     error_msg = 'Attribute "' + aname + '" contains unexpected whitespace'
@@ -250,7 +247,13 @@ class XMLSanityCheck(object):
         # handle comment as a special case to deal with multi-line comments
         if self.content[p:p+4] == '<!--':
             tb = p
-            te = self.content.find('-->',p+1)
+            te = self.content.find('-->',p+4)
+            if te != -1:
+                te = te+2
+        # handle cdata section as a special case to deal with multi-line 
+        elif self.content[p:p+9] == '<![CDATA[':
+            tb = p
+            te = self.content.find(']]>',p+9)
             if te != -1:
                 te = te+2
         else :
@@ -282,6 +285,11 @@ class XMLSanityCheck(object):
                     if c == '\n':
                         self.line += 1
                         self.col = 0
+                if '<' in text or '>' in text:
+                    error_msg = 'Contains unescaped "<" or ">" characters as text'
+                    self.errors.append((self.line, self.col, error_msg))
+                    self.has_error = True
+
                 bad_entity = self.illegal_entities(text)
                 if self.illegal_ampersand(text) or bad_entity is not None:
                     error_msg = 'Text contains an illegal "&" character'
@@ -362,6 +370,8 @@ def perform_sanity_check(apath, media_type=None):
 
 
 def main():
+    argv = sys.argv
+
     samp1 = '''<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN"
    "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd">
@@ -386,36 +396,29 @@ def main():
 </ncx>
 '''
 
-    samp2 = '''<?xml version="1.0" encoding="utf-8"?>
-<package version="2.0" unique-identifier="BookId" xmlns="http://www.idpf.org/2007/opf">
-  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
-    <dc:identifier id="BookId" opf:scheme="UUID">urn:uuid:11f66712-1bef-4bad-9d1e-afd8030bf3f2</dc:identifier>
-    <dc:language>en</dc:language>
-    <dc:title>[No data]</dc:title>
-  </metadata>
-  <manifest>
-    <item  id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
-    <item  id="Section0001.xhtml" href="Text/Section0001.xhtml" media-type="application/xhtml+xml"/>
-  </manifest>
-  <spine toc="ncx">
-    <itemref  idref="Section0001.xhtml"/>
-  </spine>
-  <guide>
-  </guide>
-</package>
-'''
+    # p = XMLSanityCheck(samp1, media_type="ncx")
+    # has_error, errlist = p.check()
+    # print(samp1)
+    # print(has_error)
+    # print(errlist)
 
-    p = XMLSanityCheck(samp1, media_type="ncx")
-    has_error, errlist = p.check()
-    print(samp1)
-    print(has_error)
-    print(errlist)
-
-    p = XMLSanityCheck(samp2, media_type="opf")
-    has_error, errlist = p.check()
-    print(samp2)
-    print(has_error)
-    print(errlist)
+    filepath = None
+    mtype = None
+    data = None
+    if len(argv) > 1:
+        filepath = argv[1]
+    if len(argv) > 2:
+        mtype = argv[2]
+    if mtype and filepath:
+        with open(filepath,'rb') as f:
+            data = f.read()
+            if isinstance(data, binary_type):
+                data = data.decode('utf-8', errors='replace')
+        p = XMLSanityCheck(data, media_type=mtype)
+        has_error, errlist = p.check()
+        print(data)
+        print(has_error)
+        print(errlist)
 
     return 0
 
