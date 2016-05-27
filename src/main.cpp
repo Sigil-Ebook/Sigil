@@ -31,6 +31,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMessageBox>
 #include <QXmlStreamReader>
+#include <QFileInfo>
 
 #include "Misc/PluginDB.h"
 #include "Misc/UILanguage.h"
@@ -204,6 +205,8 @@ int main(int argc, char *argv[])
     qInstallMessageHandler(MessageHandler);
 #endif
     MainApplication app(argc, argv);
+
+    // Set up embedded python integration first thing
     EmbeddedPython* epython = EmbeddedPython::instance();
     epython->addToPythonSysPath(epython->embeddedRoot());
     epython->addToPythonSysPath(PluginDB::launcherRoot() + "/python");
@@ -239,6 +242,15 @@ int main(int argc, char *argv[])
             }
         }
         app.installTranslator(&translator);
+
+        // Check for existing qt_styles.qss in Prefs dir and load it if present
+        QString qt_stylesheet_path = Utility::DefinePrefsDir() + "/qt_styles.qss";
+        QFileInfo QtStylesheetInfo(qt_stylesheet_path);
+        if (QtStylesheetInfo.exists() && QtStylesheetInfo.isFile() && QtStylesheetInfo.isReadable()) {
+            QString qtstyles = Utility::ReadUnicodeTextFile(qt_stylesheet_path);
+            app.setStyleSheet(qtstyles);
+        }
+
         // We set the window icon explicitly on Linux.
         // On Windows this is handled by the RC file,
         // and on Mac by the ICNS file.
