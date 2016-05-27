@@ -94,12 +94,6 @@ public:
     // creating a file at this location and removing it afterwards.
     static QString GetTemporaryFileNameWithExtension(const QString &extension);
 
-    // Creates a copy of the provided file with a random name in
-    // the systems TEMP directory and returns the full path to the new file.
-    // The extension of the original file is preserved. If the original file
-    // doesn't exist, an empty string is returned.
-    static QString CreateTemporaryCopy(const QString &fullfilepath);
-
     // Returns true if the file can be read;
     // shows an error dialog if it can't
     // with a message elaborating what's wrong

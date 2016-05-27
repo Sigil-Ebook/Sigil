@@ -55,6 +55,7 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 #include "Misc/QCodePage437Codec.h"
+#include "Misc/SettingsStore.h"
 
 #ifndef MAX_PATH
 // Set Max length to 256 because that's the max path size on many systems.
@@ -356,24 +357,8 @@ bool Utility::RenameFile(const QString &oldfilepath, const QString &newfilepath)
 
 QString Utility::GetTemporaryFileNameWithExtension(const QString &extension)
 {
-    return QDir::temp().absolutePath() + "/sigil_" + Utility::CreateUUID() + extension;
-}
-
-// Creates a copy of the provided file with a random name in
-// the systems TEMP directory and returns the full path to the new file.
-// The extension of the original file is preserved. If the original file
-// doesn't exist, an empty string is returned.
-QString Utility::CreateTemporaryCopy(const QString &fullfilepath)
-{
-    if (!QFileInfo(fullfilepath).exists() || !QFileInfo(fullfilepath).isFile()) {
-        return QString();
-    }
-
-    QString temp_file_path = QDir::temp().absolutePath() + "/" +
-                             Utility::CreateUUID() + "." +
-                             QFileInfo(fullfilepath).suffix();
-    QFile::copy(fullfilepath, temp_file_path);
-    return temp_file_path;
+    SettingsStore ss;
+    return ss.tempFolderHome() +  "/sigil_" + Utility::CreateUUID() + extension;
 }
 
 

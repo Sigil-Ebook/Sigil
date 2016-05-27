@@ -32,7 +32,6 @@ which pip3
 sudo pip3 install six
 sudo pip3 install html5lib
 sudo pip3 install lxml
-sudo pip3 install beautifulsoup4
 sudo pip3 install Pillow
 sudo pip3 install regex
 sudo pip3 install cssutils
