@@ -9,7 +9,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>SGVERSION</string>
 	<key>CFBundleGetInfoString</key>
-	<string>SGVERSION Sigil Open Source ePub Editor. See http://code.google.com/p/sigil/</string>
+	<string>SGVERSION Sigil Open Source EPUB Editor. See http://code.google.com/p/sigil/</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.sigil-ebook.Sigil.app</string>
 	<key>CFBundleDocumentTypes</key>
