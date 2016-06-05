@@ -116,6 +116,19 @@ class BookContainer(object):
         # new_guide must be an ordered list of tupes (type, title, href)
         self._w.setguide(new_guide)
 
+
+# bindings get/set access routines
+
+    # New for epub3
+    def getbindings_epub3(self):
+        # bindings is an ordered list of tuples (media-type, handler)
+        return self._w.getbindings_epub3()
+
+    # New for epub3
+    def setbindings_epub3(self, new_bindings):
+        # new_bindings is an ordered list of tuples (media-type, handler)
+        self._w.setbindings_epub3(new_bindings)
+
 # metadata get/set
 
     def getmetadataxml(self):
@@ -249,12 +262,21 @@ class BookContainer(object):
             href = self._w.id_to_href[id]
             yield id, linear, properties, href
 
+
     def guide_iter(self):
         # yields guide reference type, title, href, and manifest id of href
         for (type, title, href) in self._w.guide:
             thref = href.split('#')[0]
             id = self._w.href_to_id.get(thref, None)
             yield type, title, href, id
+
+    # New for epub3
+    def bindings_epub3_iter(self):
+        # yields media-type handler in bindings order
+        for (mtype, handler) in self._w.bindings:
+            handler_href = self._w.id_to_href[handler]
+            yield mtype, handler, handler_href
+
 
     def media_iter(self):
         # yields manifest, title, href, and manifest id of href

@@ -336,3 +336,7 @@ class Opf_Parser(object):
     # list of (type, title, href)
     def get_guide(self):
         return self.guide
+
+    # list of (media-type, handler)
+    def get_bindings(self):
+        return self.bindings

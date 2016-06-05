@@ -92,6 +92,13 @@ class OutputContainer(object):
         # guide is an ordered list of tuples (type, title, href)
         return self._w.guide
 
+# bindings get
+   # New for epub3
+    def getbindings_epub3(self):
+        # bindings is an ordered list of tuples (media-type, handler)
+        return self._w.getbindings_epub3()
+
+
 # metadata get/set
 
     def getmetadataxml(self):
@@ -190,6 +197,13 @@ class OutputContainer(object):
             thref = href.split('#')[0]
             id = self._w.href_to_id.get(thref, None)
             yield type, title, href, id
+
+    # New for epub3
+    def bindings_epub3_iter(self):
+        # yields media-type handler in bindings order
+        for (mtype, handler) in self._w.bindings:
+            handler_href = self._w.id_to_href[handler]
+            yield mtype, handler, handler_href
 
     def media_iter(self):
         # yields manifest, title, href, and manifest id of href

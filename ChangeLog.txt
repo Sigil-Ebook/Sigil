@@ -25,11 +25,13 @@ preSigil-0.9.6
     - Fix bug in Delete Unused Media when css urls do not use quotes 
     - Try to set all ways of updating the ncx to use 2 character indentation of head element
     - Fix Building Relocatable Python on Mac build instructions to remove BeautifulSoup4 requirement
+    - Fix for generating empty guide for epub3 when in plugins
 
   New Features
     - create sgc-nav.css stylesheet for nav and allow templates in Prefs Dir for user to control it 
     - Add General Setting to allow user to set own temporary directory location
     - Add Qt Stylesheet support - Recognize and load "qt_styles.qss" file if stored in Sigil Preferences folder
+    - Extended the plugin interface to add support for epub3 bindings elements
 
 
 Sigil-0.9.5
