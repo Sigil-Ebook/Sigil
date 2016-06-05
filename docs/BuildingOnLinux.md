@@ -150,7 +150,7 @@ If you configured with the default install prefix, you can launch by entering "s
 
 To test if Sigil's Python 3.4 plugin framework is fully functional, you can do the following:
 
-1. download testplugin_v010.zip from [https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v012.zip](https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v012.zip)
+1. download testplugin_v013.zip from [https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v013.zip](https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v012.zip)
 2. open Sigil to the normal nearly blank template epub it generates when opened
 3. use Plugins->Manage Plugins menu and make sure you have a Python 3.4 interpreter configured 
 4. use the "Add Plugin" button to navigate to and add testplugin_vXXX.zip and then hit "Okay" to exit the Manage Plugins Dialog

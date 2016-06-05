@@ -37,7 +37,7 @@ make addframeworks
 
 # To test if the newly bundled python 3 version of Sigil is working properly ypou can do the following:
 
-1. download testplugin_v010.zip from https://github.com/Sigil-Ebook/Sigil/tree/master/docs
+1. download testplugin_v013.zip from https://github.com/Sigil-Ebook/Sigil/tree/master/docs
 2. open Sigil.app to the normal nearly blank template epub it generates when opened
 3. use Plugins->Manage Plugins menu and make sure the "Use Bundled Python" checkbox is checked
 4. use the "Add Plugin" button to navigate to and add testplugin.zip and then hit "Okay" to exit the Manage Plugins Dialog
