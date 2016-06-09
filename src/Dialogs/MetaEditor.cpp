@@ -24,6 +24,7 @@
 #include <QFileInfo>
 #include <QTextStream>
 #include <QDate>
+#include <QShortcut>
 
 #include "Dialogs/TreeModel.h"
 #include "Dialogs/AddMetadata.h"
@@ -38,7 +39,8 @@ static const QString SETTINGS_GROUP = "meta_editor";
 MetaEditor::MetaEditor(QWidget *parent)
   : QDialog(parent),
     m_mainWindow(qobject_cast<MainWindow *>(parent)),
-    m_Relator(MarcRelators::instance())
+    m_Relator(MarcRelators::instance()),
+    m_RemoveRow(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Delete),this, 0, 0, Qt::WidgetWithChildrenShortcut))
 {
     setupUi(this);
 
@@ -76,6 +78,7 @@ MetaEditor::MetaEditor(QWidget *parent)
     connect(delButton, SIGNAL(clicked()), this, SLOT(removeRow()));
     connect(tbMoveUp, SIGNAL(clicked()), this, SLOT(moveRowUp()));
     connect(tbMoveDown, SIGNAL(clicked()), this, SLOT(moveRowDown()));
+    connect(m_RemoveRow, SIGNAL(activated()), this, SLOT(removeRow()));
 
     if (m_version.startsWith('3')) {
         connect(addMetaButton, SIGNAL(clicked()), this, SLOT(selectElement()));
@@ -89,6 +92,12 @@ MetaEditor::MetaEditor(QWidget *parent)
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     updateActions();
+}
+
+
+MetaEditor::~MetaEditor()
+{
+    m_RemoveRow->deleteLater();
 }
 
 

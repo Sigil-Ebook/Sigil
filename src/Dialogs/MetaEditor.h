@@ -32,6 +32,7 @@
 
 #include "ui_MetaEditor.h"
 
+class QShortcut;
 class MainWindow;
 class Book;
 
@@ -41,6 +42,7 @@ class MetaEditor : public QDialog, private Ui::MetaEditor
 
 public:
     MetaEditor(QWidget *parent = 0);
+    ~MetaEditor();
 
 public slots:
     void updateActions();
@@ -90,9 +92,9 @@ private slots:
     QHash<QString, DescriptiveInfo> m_E2PropertyInfo;
     QHash<QString, QString> m_E2PropertyCode;
     
-    MarcRelators * m_Relator;
-
     MainWindow * m_mainWindow;
+    MarcRelators * m_Relator;
+    QShortcut * m_RemoveRow;
     QSharedPointer<Book> m_book;
     QString m_version;
     QString m_opfdata;
