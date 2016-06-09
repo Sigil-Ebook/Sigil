@@ -32,6 +32,7 @@ preSigil-0.9.6
     - Add General Setting to allow user to set own temporary directory location
     - Add Qt Stylesheet support - Recognize and load "qt_styles.qss" file if stored in Sigil Preferences folder
     - Extended the plugin interface to add support for epub3 bindings elements
+    - Add option + forward delete shortcut to active Metadata Editor remove
 
 
 Sigil-0.9.5
