@@ -3,9 +3,14 @@
 #  XCode 7 users with El Capitan or Later need to download XCode 6 and copy the MacOSX10.10sdk out of it
 #     and put it into the right place inside XCode.app in order to get the now missing openssl headers
 #
-#  Alternatively you can download and build and install openssl-1.0.2h (or later)
-#  openssl is required for python's pip3 to work properly as a package installer
-   
+#     Or extract the /usr/include/openssl directory and contents from the MacOSX101.10.sdk and install it into /usr/local/include 
+#
+#     Or download and build and install openssl-1.0.2h (or later) and install it into /usr/local and be sure it is found first
+#     as this version is incompatible with the openssl dylib that is still installed even on Mac OS X 10.11
+#     You will then need to include your openssl dylibs with your build of Sigil
+#
+#  A working openssl with headers is required for python's pip3 to work properly as a package installer
+
 
 # Before building remember to rename any /Applications/Python 3.4.app to save it and replace it afterwards
 # as the damn python installation from source always overwrites it no matter the configure prefix used
