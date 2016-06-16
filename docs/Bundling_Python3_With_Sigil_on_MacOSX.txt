@@ -1,13 +1,23 @@
 # FIRST:  See Building_A_Relocatable_Python_Framework_on_MacOSX.txt
-#         Also make sure you have the latest XCode and Command Line tools Installed
+#
+#         Also make sure you have the latest XCode and ** Command Line tools** Installed
+#
 #         You will need to have CMake 3.0 or later installed and in your path
+#
+#         Make sure you have installed Qt 5.4.2 or Qt 5.5.1 as you can not use Qt 5.6 as Qt has removed Webkit in Qt 5.6
+#           Use the binary installer downloadable directly from Qt
+
+# XCode 7 users may want to install the MacOSX 10.10sdk from XCode 6.3 as 10.11sdk has removed openssl headers
 
 # standard deployment target
 export MACOSX_DEPLOYMENT_TARGET=10.9
 
 # Set the location of where the relocatable Python framework was installed
 # See "Building_A_Relocatable_Python_Framework_on_MacOSX.txt
-export MYDEST=/tmp/Frameworks
+
+# Remember to stay away from /tmp locations as Mac OSX has a daemon that will delete 
+# files in tmp older than 3 days right out from underneath the user
+export MYDEST=/Users/$USER/devtools/Frameworks
 
 # Set the location of where Qt 5.4.2 is installed
 export MYQTHOME=~/Qt
@@ -29,7 +39,35 @@ export PATH=${MYDEST}/Python.framework/Versions/3.4/bin:${PATH}
 
 mkdir build
 cd build
-cmake -DPKG_SYSTEM_PYTHON=1 -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=${MYQTHOME}/5.4/clang_64/lib/cmake -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/ ../Sigil
+
+# Mac OSX Yosemite users with XCode 6.3 should use the following cmake command:
+
+cmake -DPKG_SYSTEM_PYTHON=1 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_PREFIX_PATH=${MYQTHOME}/5.4/clang_64/lib/cmake \
+      -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/ \
+      ../Sigil
+
+# Mac OSX El Capitan and later users with XCode 7 who have copied in the MacOSX10.10sdk, should use the following cmake command:
+cmake -DPKG_SYSTEM_PYTHON=1 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
+      -DCMAKE_PREFIX_PATH=${MYQTHOME}/5.4/clang_64/lib/cmake \
+      -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/ \
+      ../Sigil
+
+# Mac OSX El Capitan and later users with XCode 7 who have NOT copied in the MacOSX10.10sdk should use the following cmake command:
+cmake -DPKG_SYSTEM_PYTHON=1 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
+      -DCMAKE_PREFIX_PATH=${MYQTHOME}/5.4/clang_64/lib/cmake \
+      -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/ \
+      ../Sigil
+
+# After cmake completes
 make
 make addframeworks
 
@@ -43,3 +81,4 @@ make addframeworks
 4. use the "Add Plugin" button to navigate to and add testplugin.zip and then hit "Okay" to exit the Manage Plugins Dialog
 5. use Plugins->Edit->testplugins to launch the plugin and hit the "Start" button to run it
 6. check the plugin output window for your missing or broken plugin test results
+

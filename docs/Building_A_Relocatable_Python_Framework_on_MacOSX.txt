@@ -1,20 +1,31 @@
-# Before building remember to rename /Applications/Python 3.4.app to save it and replace it afterwards
+# Pre-Build requirements for El Captian and later users:
+#
+#  XCode 7 users with El Capitan or Later need to download XCode 6 and copy the MacOSX10.10sdk out of it
+#     and put it into the right place inside XCode.app in order to get the now missing openssl headers
+#
+#  Alternatively you can download and build and install openssl-1.0.2h (or later)
+#  openssl is required for python's pip3 to work properly as a package installer
+   
+
+# Before building remember to rename any /Applications/Python 3.4.app to save it and replace it afterwards
 # as the damn python installation from source always overwrites it no matter the configure prefix used
 
 # Also make sure you have the latest XCode and Command Line Tools Installed
 
-# Download Python-3.4.3.tgz from www.python.org
+# Download Python-3.4.4.tgz from www.python.org
 
 export MACOSX_DEPLOYMENT_TARGET=10.9
 
 # Pick a location where the relocatable Python framework will be installed
-export MYDEST=/tmp/Frameworks
+# stay away from /tmp locations since Mac OS X will auto deelete files older than 3 days in /tmp right out from under you
 
-# now build Python 3.4.3 as a framework
-# Need to patch Python-3.4.3.tgz to allow it to build Mac OS X 10.9 compliant 
+export MYDEST=/Users/${USER}/devtools/Frameworks
+
+# now build Python 3.4.4 as a framework
+# Need to patch Python-3.4.4.tgz to allow it to build Mac OS X 10.9 compliant 
 # build under Mac OS X 10.10
 
-tar -zxvf Python-3.4.3.tgz
+tar -zxvf Python-3.4.4.tgz
 cd Python-3.4.4
 patch -p0 < python_configure_fix.patch
 
