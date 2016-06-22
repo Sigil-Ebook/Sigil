@@ -1,4 +1,10 @@
-preSigil-0.9.6
+preSigil-0.9.7
+   Bug Fixes
+    - Allow tags in the svg and mathml namespace to automtically self-close if empty to help work around
+         a bug in Kindlegen that will not seem to accept a closing svg image tag even though image is non-void
+
+
+Sigil-0.9.6
    Bug Fixes
     - Make StdWarningDialog resizeable when "Show Details" is used
     - Fix CleanSource svg prefix removal bug that sometimes broke valid svg code 

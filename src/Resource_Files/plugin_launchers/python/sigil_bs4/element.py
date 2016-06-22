@@ -1382,15 +1382,18 @@ class Tag(PageElement):
                     ntext = (str(key) + '=' + EntitySubstitution.quoted_attribute_value(text))
                 attrs.append(ntext)
 
+        contents = self.serialize_xhtml_contents(eventual_encoding, formatter)
+
+        in_xml_ns = self.namespace != 'http://www.w3.org/1999/xhtml'
+        testcontents = contents.strip()
+
         if self.prefix:
             prefix = self.prefix + ":"
 
-        if self.name in VOID_TAGS:
+        if self.name in VOID_TAGS or (in_xml_ns and testcontents==""):
             close = '/'
         else:
             closeTag = '</%s%s>' % (prefix, self.name)
-
-        contents = self.serialize_xhtml_contents(eventual_encoding, formatter)
 
         # strip extraneous whitespace before the primary closing tag
         if self.name in SPECIAL_HANDLING_TAGS:
@@ -1473,12 +1476,6 @@ class Tag(PageElement):
                 attribs.append(decoded)
             atts = " " + " ".join(attribs)
 
-        prefix = ''
-        if self.prefix:
-            prefix = self.prefix + ":"
-
-        is_void_tag = self.name in VOID_TAGS
-
         # get tag content
         contents=""
         if not is_void_tag:
@@ -1491,14 +1488,17 @@ class Tag(PageElement):
             # This is the 'document root' object.
             return contents
 
+        in_xml_ns = self.namespace != 'http://www.w3.org/1999/xhtml'
+        testcontents = contents.strip()
+        single = self.name in VOID_TAGS or (in_xml_ns and testcontents == "")
+
+        prefix = ''
+        if self.prefix:
+            prefix = self.prefix + ":"
+
         is_keepwhitespace = self.name in PRESERVE_WHITESPACE_TAGS
         if not is_keepwhitespace and not is_inline:
             contents = contents.rstrip()
-
-        single = is_void_tag
-        # for xhtml serialization with self-closing non-void tags
-        # uncomment the following line
-        # single = single or (contents == "")
 
         indent_space = (indent_chars * (indent_level - 1))
 

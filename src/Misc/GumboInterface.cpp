@@ -1038,10 +1038,11 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
     std::string atts = "";
     std::string tagname            = get_tag_name(node);
     bool need_special_handling     = in_set(special_handling, tagname);
-    bool is_void_tag              = in_set(void_tags, tagname);
+    bool is_void_tag               = in_set(void_tags, tagname);
     bool no_entity_substitution    = in_set(no_entity_sub, tagname);
-    // bool is_inline                 = in_set(nonbreaking_inline, tagname);
     bool is_href_src_tag           = in_set(href_src_tags, tagname);
+    bool in_xml_ns                 = node->v.element.tag_namespace != GUMBO_NAMESPACE_HTML;
+    // bool is_inline                 = in_set(nonbreaking_inline, tagname);
 
     // build attr string  
     const GumboVector * attribs = &node->v.element.attributes;
@@ -1057,13 +1058,7 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
       }
     }
 
-    // determine closing tag type
-    if (is_void_tag) {
-        close = "/";
-    } else {
-        closeTag = "</" + tagname + ">";
-    }
-
+    // determine contents
     std::string contents;
 
     if ((tagname == "body") && (doupdates & BodyUpdates)) {
@@ -1071,6 +1066,15 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
     } else {
         // serialize your contents
         contents = serialize_contents(node, doupdates);
+    }
+
+    // determine closing tag type
+    std::string testcontents = contents;
+    ltrim(testcontents);
+    if (is_void_tag || (in_xml_ns && testcontents.empty())) {
+        close = "/";
+    } else {
+        closeTag = "</" + tagname + ">";
     }
 
     if ((doupdates & StyleUpdates) && (tagname == "style") && 
@@ -1087,7 +1091,6 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
 
     // build results
     std::string results;
-
 
     if ((doupdates & LinkUpdates) && (tagname == "link") && 
         (node->parent->type == GUMBO_NODE_ELEMENT) && 
@@ -1237,6 +1240,7 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
 
     bool is_structural = in_set(structural_tags, tagname);
     bool is_inline = in_set(nonbreaking_inline, tagname);
+    bool in_xml_ns = node->v.element.tag_namespace != GUMBO_NAMESPACE_HTML;
 
     // build attr string
     std::string atts = "";
@@ -1264,10 +1268,10 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
         rtrim(contents);
     }
 
-    bool single = is_void_tag;
-    // for xhtml serialization that allows non-void tags to be self-closing
-    // uncomment the following line
-    // single = single || contents.empty();
+    std::string testcontents = contents;
+    ltrim(testcontents);
+
+    bool single = is_void_tag || (in_xml_ns && testcontents.empty());
 
     char c = indent_chars.at(0);
     int  n = indent_chars.length(); 
