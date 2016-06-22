@@ -558,7 +558,7 @@ void CodeViewEditor::ScrollToTop()
     verticalScrollBar()->setValue(0);
 }
 
-void CodeViewEditor::ScrollToPosition(int cursor_position)
+void CodeViewEditor::ScrollToPosition(int cursor_position, bool center_screen)
 {
     if (cursor_position < 0) {
         return;
@@ -570,13 +570,15 @@ void CodeViewEditor::ScrollToPosition(int cursor_position)
 
     // If height is 0, then the widget is still collapsed
     // and centering the screen will do squat.
-    if (height() > 0) {
-        centerCursor();
-    } else {
-        m_DelayedCursorScreenCenteringRequired = true;
-    }
+    if (center_screen) {
+        if (height() > 0) {
+            centerCursor();
+        } else {
+            m_DelayedCursorScreenCenteringRequired = true;
+        }
 
-    m_CaretUpdate.clear();
+        m_CaretUpdate.clear();
+    }
 }
 
 void CodeViewEditor::ScrollToLine(int line)

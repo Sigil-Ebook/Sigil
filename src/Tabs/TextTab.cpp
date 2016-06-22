@@ -225,7 +225,7 @@ void TextTab::SaveTabContent()
     // So I thnk the SaveToDisk should go away along with
     // the need to save and restore the cursor position
     m_TextResource->SaveToDisk();
-    m_wCodeView->ScrollToPosition(cursorPosition);
+    m_wCodeView->ScrollToPosition(cursorPosition, false);
     ContentTab::SaveTabContent();
 }
 

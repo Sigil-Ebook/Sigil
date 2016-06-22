@@ -2,7 +2,7 @@ preSigil-0.9.7
    Bug Fixes
     - Allow tags in the svg and mathml namespace to automtically self-close if empty to help work around
          a bug in Kindlegen that will not seem to accept a closing svg image tag even though image is non-void
-
+    - prevent TextTab from constantly recentering page when focus is lost
 
 Sigil-0.9.6
    Bug Fixes

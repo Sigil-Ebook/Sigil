@@ -188,7 +188,7 @@ public:
      */
     void ScrollToTop();
 
-    void ScrollToPosition(int cursor_position);
+    void ScrollToPosition(int cursor_position, bool center_screen = true);
 
     /**
      * Scrolls the view to the specified line.
