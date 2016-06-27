@@ -966,6 +966,11 @@ void FlowTab::SplitSection()
         return;
     }
 
+    // Handle warning the user about undefined url fragments.
+    if (!mainWindow->ProceedWithUndefinedUrlFragments()) {
+        return;
+    }
+
     if (m_ViewState == MainWindow::ViewState_BookView) {
         QString content = m_wBookView->SplitSection();
         // The webview visually has split off the text, but not yet saved to the underlying resource

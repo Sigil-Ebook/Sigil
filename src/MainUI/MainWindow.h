@@ -200,6 +200,11 @@ public:
 
     static void clearMemoryCaches();
 
+    /**
+     * Handle warning the user about undefined url fragments.
+     */
+    bool ProceedWithUndefinedUrlFragments();
+
 public slots:
     void AnyCodeView();
 
