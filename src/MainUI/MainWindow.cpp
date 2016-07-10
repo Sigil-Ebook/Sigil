@@ -1024,76 +1024,27 @@ void MainWindow::clearMemoryCaches()
     QWebSettings::setMaximumPagesInCache(numpages);
 }
 
+
 bool MainWindow::ProceedWithUndefinedUrlFragments()
 {
-    // Get a string list of all filenames
-    QList<Resource *> html_resources = GetAllHTMLResources();
-    QStringList html_filenames;
-    bool hasUndefinedUrlFrags = false;
-    foreach(Resource *resource, html_resources) {
-        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-        html_filenames.append(html_resource->Filename());
-        if (!html_resource->FileIsWellFormed()) {
-            QMessageBox::warning(this, tr("Sigil"), tr("Cannot split: %1 XML is not well formed").arg(html_resource->Filename()));
-            return false;
-        }
-    }
-
-    QString filename = QString();
-    QString href = QString();
-    QString href_file = QString();
-    QString href_id = QString();
-    QString file = QString();
-
-    // Get book links and ids
-    QHash<QString, QList<XhtmlDoc::XMLElement>> links = m_Book->GetLinkElements();
-    QHash<QString, QStringList> all_ids = m_Book->GetIdsInHTMLFiles();
-
-    // Check if all url fragment ids exist in target html files
-    foreach(Resource * resource, html_resources) {
-        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-        filename = html_resource->Filename();
-
-        foreach(XhtmlDoc::XMLElement element, links[filename]) {
-            href = element.attributes["href"];
-            QUrl url(href);
-            bool is_target_file = false;
-            if (url.scheme().isEmpty() || url.scheme() == "file") {
-                href_file = url.fileName();
-                href_id = url.fragment();
-                is_target_file = true;
-            }
-
-            if (is_target_file && !href_id.isEmpty()) {
-                file = href_file;
-                if (href_file.isEmpty()) {
-                    file = filename;
-                }
-                if (html_filenames.contains(file) && !all_ids[file].contains(href_id)) {
-                    hasUndefinedUrlFrags = true;
-                    break;
-                }
-            }
-        }
-        if (hasUndefinedUrlFrags) {
-            break;
-        }
-    }
-
-    if (hasUndefinedUrlFrags) {
+    std::tuple<bool, QString, QString, QString, QString> result = m_Book->HasUndefinedURLFragments();
+    if (std::get<0>(result)) {
         QMessageBox::StandardButton button_pressed;
-        const QString &msg = tr("<p>The url fragment <b>%1</b> in <b>%2</b> (found in <b>%3</b>) does not exist in the target file "
+        const QString &msg = tr("<html><p>The url fragment <b>%1</b> in the href <b>%2</b> (found in <b>%3</b>) does not exist in the target file (<b>%4</b>) "
                                 "(and there may be more). Splitting or merging under these conditions can result in broken links.</p>"
-                                "<p>Do you still wish to continue?</p>");
-        button_pressed = QMessageBox::warning(this, tr("Sigil"), msg.arg(href_id, href, filename), QMessageBox::Yes | QMessageBox::No);
+                                "<p>Do you still wish to continue?</p></html>");
 
-        if (button_pressed == QMessageBox::No) {
+        button_pressed = QMessageBox::warning(this, tr("Sigil"),
+                                msg.arg(std::get<1>(result), std::get<2>(result), std::get<3>(result), std::get<4>(result)),
+                                QMessageBox::Yes | QMessageBox::No);
+        if (button_pressed != QMessageBox::Yes) {
             return false;
         }
         return true;
     }
     return true;
 }
+
 
 void MainWindow::AddCover()
 {

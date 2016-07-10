@@ -1155,6 +1155,77 @@ void Book::SetModified(bool modified)
     }
 }
 
+std::tuple<bool, QString, QString, QString, QString> Book::HasUndefinedURLFragments()
+{
+    QList<HTMLResource *> html_resources = GetHTMLResources();
+    QStringList html_filenames;
+    bool hasUndefinedUrlFrags = false;
+
+    foreach(HTMLResource *html_resource, html_resources) {
+        html_filenames.append(html_resource->Filename());
+    }
+
+    QString filename = QString();
+    QString href = QString();
+    QString href_file = QString();
+    QString href_id = QString();
+    QString file = QString();
+
+    QHash<QString, QStringList> links = GetRelLinksInAllFiles(html_resources);
+    QHash<QString, QStringList> all_ids = GetIDsInAllFiles(html_resources);
+
+    foreach(HTMLResource *html_resource, html_resources) {
+        filename = html_resource->Filename();
+        foreach(href, links[filename]) {
+            QUrl url(href);
+            bool is_target_file = false;
+            if (url.scheme().isEmpty() || url.scheme() == "file") {
+                href_file = url.fileName();
+                href_id = url.fragment();
+                is_target_file = true;
+            }
+
+            if (is_target_file && !href_id.isEmpty()) {
+                file = href_file;
+                if (href_file.isEmpty()) {
+                    file = filename;
+                }
+                if (html_filenames.contains(file) && !all_ids[file].contains(href_id)) {
+                    hasUndefinedUrlFrags = true;
+                    break;
+                }
+            }
+        }
+        if (hasUndefinedUrlFrags) {
+            break;
+        }
+    }
+    return std::make_tuple(hasUndefinedUrlFrags, href_id, href, filename, file);
+}
+
+QHash<QString, QStringList> Book::GetRelLinksInAllFiles(const QList<HTMLResource *> &html_resources)
+{
+    const QList<QPair<QString, QStringList>> &links_in_files = QtConcurrent::blockingMapped(html_resources, GetRelLinksInOneFile);
+    QHash<QString, QStringList> links_in_files_map;
+    for (int i = 0; i < links_in_files.count(); ++i) {
+        QPair<QString, QStringList> entry = links_in_files.at(i);
+        links_in_files_map.insert(entry.first, entry.second);
+    }
+    return links_in_files_map;
+}
+
+
+QHash<QString, QStringList> Book::GetIDsInAllFiles(const QList<HTMLResource *> &html_resources)
+{
+    const QList<QPair<QString, QStringList>> &IDs_in_files = QtConcurrent::blockingMapped(html_resources, GetOneFileIDs);
+    QHash<QString, QStringList> ID_map;
+
+    for (int i = 0; i < IDs_in_files.count(); ++i) {
+        QPair<QString, QStringList> entry = IDs_in_files.at(i);
+        ID_map.insert(entry.first, entry.second);
+    }
+    return ID_map;
+}
 
 void Book::SaveOneResourceToDisk(Resource *resource)
 {
@@ -1192,4 +1263,43 @@ Book::NewSectionResult Book::CreateOneNewSection(NewSection section_info,
     section.created_section = html_resource;
     section.reading_order = section_info.reading_order;
     return section;
+}
+
+QPair<QString, QStringList> Book::GetRelLinksInOneFile(HTMLResource *html_resource)
+{
+    Q_ASSERT(html_resource);
+    QReadLocker locker(&html_resource->GetLock());
+    GumboInterface gi = GumboInterface(html_resource->GetText(), html_resource->GetEpubVersion());
+    gi.parse();
+    QPair<QString, QStringList> link_pair;
+    QStringList hreflist;
+    const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);
+    for (int i = 0; i < anchor_nodes.length(); ++i) {
+        GumboNode* node = anchor_nodes.at(i);
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
+
+        // We find the hrefs that are relative and contain an href.
+        if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
+            hreflist.append(QString::fromUtf8(attr->value));
+        }
+    }
+    link_pair.first = html_resource->Filename();
+    link_pair.second = hreflist;
+    return link_pair;
+}
+
+
+QPair<QString, QStringList> Book::GetOneFileIDs(HTMLResource *html_resource)
+{
+    Q_ASSERT(html_resource);
+    QReadLocker locker(&html_resource->GetLock());
+    QString newsource = html_resource->GetText();
+    QString version = html_resource->GetEpubVersion();
+    GumboInterface gi = GumboInterface(newsource, version);
+    gi.parse();
+    QPair<QString, QStringList> id_pair;
+    QStringList ids = gi.get_all_values_for_attribute(QString("id"));
+    id_pair.first = html_resource->Filename();
+    id_pair.second = ids;
+    return id_pair;
 }

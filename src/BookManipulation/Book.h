@@ -306,6 +306,23 @@ public:
 
     QList<HTMLResource *> GetHTMLResources();
 
+    /** Check for undefined url fragments in all HTMLResources.
+     * Return a tuple result (undefined fragments exist?, fragment, href, source-file, target-file)
+     */
+    std::tuple<bool, QString, QString, QString, QString> HasUndefinedURLFragments();
+
+    /**
+     * Get all href values in all relative links from supplied HTMLResources
+     * using QtConcurrent. Return hash of hrefs keyed on filename.
+     */
+    static QHash<QString, QStringList> GetRelLinksInAllFiles(const QList<HTMLResource *> &html_resources);
+
+    /**
+     * Get all id values from supplied HTMLResources using QtConcurrent.
+     * Return hash of ids keyed on filename.
+     */
+    static QHash<QString, QStringList> GetIDsInAllFiles(const QList<HTMLResource *> &html_resources);
+
 public slots:
 
     /**
@@ -391,6 +408,17 @@ private:
      */
     NewSectionResult CreateOneNewSection(NewSection section_info,
                                          const QHash<QString, QString> &html_updates);
+
+    /**
+     * Get all href values in all relative links from one HTMLResource
+     * Return QPair(filename, hrefs).
+     */
+    static QPair<QString, QStringList> GetRelLinksInOneFile(HTMLResource *html_resource);
+
+    /**
+     * Get all id values from one HTMLResource. Return QPair(filename, ids).
+     */
+    static QPair<QString, QStringList> GetOneFileIDs(HTMLResource *html_resource);
 
 
     ////////////////////////////

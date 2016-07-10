@@ -201,7 +201,7 @@ public:
     static void clearMemoryCaches();
 
     /**
-     * Handle warning the user about undefined url fragments.
+     * Handle warning the user about undefined url fragments when splitting/merging resources.
      */
     bool ProceedWithUndefinedUrlFragments();
 
