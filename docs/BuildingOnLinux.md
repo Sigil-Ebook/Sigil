@@ -139,7 +139,7 @@ If that still doesn't get rid of the "`GL/gl.h errors`", some newer systems may 
 
 Also note that building Sigil with precompiled versions of Qt5.4.2/5.5.x downloaded from qt.io require that the gstreamer v0.10 development headers be installed. Many newer Linux versions don't come with gstreamer0.10 installed by default any more, so you may need to install it first. This the case on Ubuntu 16.04 (Xenial) for example.
 
-> `sudo apt-get install libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
+> `sudo apt-get install libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev`
 
 ###Installing Sigil
 If all goes well, install Sigil with:
