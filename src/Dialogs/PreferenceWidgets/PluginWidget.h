@@ -20,11 +20,8 @@ public:
 private slots:
     void addPlugin();
     bool bundledInterpReady();
-    void AutoFindPy2();
     void AutoFindPy3();
-    void SetPy2();
     void SetPy3();
-    void enginePy2PathChanged();
     void enginePy3PathChanged();
     void enable_disable_controls();
     void useBundledPy3Changed(int);

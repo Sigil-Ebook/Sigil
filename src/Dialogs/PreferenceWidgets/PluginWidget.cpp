@@ -39,7 +39,6 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
 
     PluginDB *pdb = PluginDB::instance();
 
-    pdb->set_engine_path("python2.7", ui.editPathPy2->text());
     pdb->set_engine_path("python3.4", ui.editPathPy3->text());
 
 
@@ -50,7 +49,6 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
     QStringList pluginmap;
     QStringList pnames;
     pnames.append(ui.comboBox->currentText());
-    pnames.append(ui.comboBox_2->currentText());
     pnames.append(ui.comboBox_3->currentText());
     foreach (QString pname, pnames) {
         if (keys.contains(pname)) {
@@ -96,7 +94,6 @@ void PluginWidget::readSettings()
     PluginDB *pdb = PluginDB::instance();
     QHash<QString, Plugin *> plugins;
 
-    ui.editPathPy2->setText(pdb->get_engine_path("python2.7"));
     ui.editPathPy3->setText(pdb->get_engine_path("python3.4"));
 
     // clear out the table but do NOT clear out column headings
@@ -302,16 +299,6 @@ bool PluginWidget::bundledInterpReady()
     return false;
 }
 
-void PluginWidget::AutoFindPy2()
-{
-    QString p2path = QStandardPaths::findExecutable("python2");
-    if (p2path.isEmpty()) {
-        p2path = QStandardPaths::findExecutable("python");
-    }
-    ui.editPathPy2->setText(p2path);
-    m_isDirty = true;
-}
-
 void PluginWidget::AutoFindPy3()
 {
     // Search for a system python 3
@@ -320,16 +307,6 @@ void PluginWidget::AutoFindPy3()
         p3path = QStandardPaths::findExecutable("python");
     }
     ui.editPathPy3->setText(p3path);
-    m_isDirty = true;
-}
-
-void PluginWidget::SetPy2()
-{
-    QString name = QFileDialog::getOpenFileName(this, tr("Select Interpreter"));
-    if (name.isEmpty()) {
-        return;
-    }
-    ui.editPathPy2->setText(name);
     m_isDirty = true;
 }
 
@@ -350,22 +327,6 @@ void PluginWidget::enable_disable_controls()
     ui.editPathPy3->setEnabled(!m_useBundledInterp);
     ui.Py3Auto->setEnabled(!m_useBundledInterp);
     ui.Py3Set->setEnabled(!m_useBundledInterp);
-}
-
-void PluginWidget::enginePy2PathChanged()
-{
-    // make sure typed in path actually exists
-    QString enginepath = ui.editPathPy2->text();
-    if (!enginepath.isEmpty()) {
-        QFileInfo enginfo(enginepath);
-        if (!enginfo.exists() || !enginfo.isFile() || !enginfo.isReadable() || !enginfo.isExecutable() ) {
-            disconnect(ui.editPathPy2, SIGNAL(editingFinished()), this, SLOT(enginePy2PathChanged()));
-            Utility::DisplayStdWarningDialog(tr("Incorrect Interpreter Path selected"));
-            ui.editPathPy2->setText("");
-            connect(ui.editPathPy2, SIGNAL(editingFinished()), this, SLOT(enginePy2PathChanged()));
-        }
-    }
-    m_isDirty = true;
 }
 
 void PluginWidget::enginePy3PathChanged()
@@ -395,15 +356,12 @@ void PluginWidget::useBundledPy3Changed(int)
 
 void PluginWidget::connectSignalsToSlots()
 {
-    connect(ui.Py2Auto, SIGNAL(clicked()), this, SLOT(AutoFindPy2()));
     connect(ui.Py3Auto, SIGNAL(clicked()), this, SLOT(AutoFindPy3()));
-    connect(ui.Py2Set, SIGNAL(clicked()), this, SLOT(SetPy2()));
     connect(ui.Py3Set, SIGNAL(clicked()), this, SLOT(SetPy3()));
     connect(ui.addButton, SIGNAL(clicked()), this, SLOT(addPlugin()));
     connect(ui.removeButton, SIGNAL(clicked()), this, SLOT(removePlugin()));
     connect(ui.removeAllButton, SIGNAL(clicked()), this, SLOT(removeAllPlugins()));
     connect(ui.pluginTable, SIGNAL(cellDoubleClicked(int,int)), this, SLOT(pluginSelected(int,int)));
-    connect(ui.editPathPy2, SIGNAL(editingFinished()), this, SLOT(enginePy2PathChanged()));
     connect(ui.editPathPy3, SIGNAL(editingFinished()), this, SLOT(enginePy3PathChanged()));
     connect(ui.chkUseBundled, SIGNAL(stateChanged(int)), this, SLOT(useBundledPy3Changed(int)));
     connect(ui.comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(pluginMapChanged(int)));

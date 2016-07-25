@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>681</width>
-    <height>345</height>
+    <height>398</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -146,22 +146,7 @@
       </widget>
      </item>
      <item row="1" column="3">
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QPushButton" name="Py2Auto">
-         <property name="text">
-          <string>Auto</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="Py2Set">
-         <property name="text">
-          <string>Set</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <layout class="QHBoxLayout" name="horizontalLayout"/>
      </item>
      <item row="6" column="3">
       <spacer name="verticalSpacer">
@@ -216,36 +201,6 @@
         </size>
        </property>
       </spacer>
-     </item>
-     <item row="1" column="2">
-      <widget class="QLineEdit" name="editPathPy2">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="lblEngine">
-       <property name="text">
-        <string>Interpreters:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="enginePy2">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>≥Python2.7:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
      </item>
      <item row="0" column="2">
       <widget class="QLabel" name="lblPath">
