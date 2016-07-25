@@ -32,7 +32,7 @@ class PerformCSSUpdates
 
 public:
 
-    PerformCSSUpdates(const QString &source, const QHash<QString, QString> &css_updates);
+  PerformCSSUpdates(const QString &source, const QHash<QString, QString> &css_updates, const QString &currentpath);
 
     QString operator()();
 
@@ -42,9 +42,11 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    QString m_Source;
+    const QString& m_Source;
 
     const QHash<QString, QString> &m_CSSUpdates;
+
+    const QString& m_CurrentPath;
 };
 
 #endif // PERFORMCSSUPDATES_H

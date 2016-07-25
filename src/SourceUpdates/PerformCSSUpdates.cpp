@@ -19,34 +19,35 @@
 **
 *************************************************************************/
 
-#include <QtCore/QFileInfo>
-#include <QtCore/QString>
+#include <QDir>
+#include <QUrl>
+#include <QFileInfo>
+#include <QString>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 
+#include "Misc/Utility.h"
 #include "SourceUpdates/PerformCSSUpdates.h"
 
-PerformCSSUpdates::PerformCSSUpdates(const QString &source, const QHash<QString, QString> &css_updates)
+static const QChar FORWARD_SLASH = QChar::fromLatin1('/');
+
+PerformCSSUpdates::PerformCSSUpdates(const QString &source, const QHash<QString, QString> &css_updates, const QString &currentpath)
     :
     m_Source(source),
-    m_CSSUpdates(css_updates)
+    m_CSSUpdates(css_updates),
+    m_CurrentPath(currentpath)
 {
 }
 
 
 QString PerformCSSUpdates::operator()()
 {
+    QString result(m_Source);
+    QString origDir = QFileInfo(m_CurrentPath).dir().path();
     const QList<QString> &keys = m_CSSUpdates.keys();
     int num_keys = keys.count();
-    if (num_keys == 0) return m_Source;
+    if (num_keys == 0) return result;
 
-    // create a new updates dictionary to allow it to be used more effectively
-    // lookup is by filename
-    QHash<QString,QString> newupdates;
-    foreach(QString key, keys) {
-        const QString &filename = QFileInfo(key).fileName();
-        newupdates[filename] = m_CSSUpdates[key];
-    }
     // Now parse the text once looking for keys and replacing them where needed
     QRegularExpression reference(
         "(?:(?:src|background|background-image|list-style|list-style-image|border-image|border-image-source|content)\\s*:|@import)\\s*"
@@ -59,22 +60,27 @@ QString PerformCSSUpdates::operator()()
         "[^;\\}]*"
         "(?:;|\\})");
     int start_index = 0;
-    QRegularExpressionMatch mo = reference.match(m_Source, start_index);
+    QRegularExpressionMatch mo = reference.match(result, start_index);
     do {
         for (int i = 1; i < reference.captureCount(); ++i) {
             if (mo.captured(i).trimmed().isEmpty()) {
                 continue;
             }
-            QString akey = mo.captured(i);
-            const QString &filename = QFileInfo(akey).fileName();
-            QString newpath = newupdates.value(filename, "");
-            if (!newpath.isEmpty()) {
-                m_Source.replace(mo.capturedStart(i), mo.capturedLength(i), newpath);
+            QString apath = Utility::URLDecodePath(mo.captured(i));
+            QString search_key = QDir::cleanPath(origDir + FORWARD_SLASH + apath);
+            QString new_href;
+            if (m_CSSUpdates.contains(search_key)) {
+                new_href = m_CSSUpdates.value(search_key);
             }
+            if (!new_href.isEmpty()) {
+                new_href = Utility::URLEncodePath(new_href);
+                result.replace(mo.capturedStart(i), mo.capturedLength(i), new_href);
+            }
+
         }
         start_index += mo.capturedLength();
-        mo = reference.match(m_Source, start_index);
+        mo = reference.match(result, start_index);
     } while (mo.hasMatch());
 
-    return m_Source;
+    return result;
 }
