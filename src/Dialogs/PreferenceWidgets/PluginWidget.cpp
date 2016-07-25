@@ -49,6 +49,7 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
     QStringList pluginmap;
     QStringList pnames;
     pnames.append(ui.comboBox->currentText());
+    pnames.append(ui.comboBox_2->currentText());
     pnames.append(ui.comboBox_3->currentText());
     foreach (QString pname, pnames) {
         if (keys.contains(pname)) {
@@ -72,21 +73,25 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
 void PluginWidget::setPluginTableRow(Plugin *p, int row)
 {
     QString pname(p->get_name());
+    bool sortingOn = ui.pluginTable->isSortingEnabled();
+    ui.pluginTable->setSortingEnabled(false);
     ui.pluginTable->setItem(row, PluginWidget::NameField,        new QTableWidgetItem(pname));
     ui.pluginTable->item(row,0)->setToolTip(p->get_description());
     ui.pluginTable->setItem(row, PluginWidget::VersionField,     new QTableWidgetItem(p->get_version()));
     ui.pluginTable->setItem(row, PluginWidget::AuthorField,      new QTableWidgetItem(p->get_author()));
     ui.pluginTable->setItem(row, PluginWidget::TypeField,        new QTableWidgetItem(p->get_type()));
     ui.pluginTable->setItem(row, PluginWidget::EngineField,      new QTableWidgetItem(p->get_engine()));
+    ui.pluginTable->setSortingEnabled(sortingOn);
 }
 
 
 void PluginWidget::readSettings()
 {
     SettingsStore settings;
+
     // The last folder used for saving and opening files
     m_LastFolderOpen = settings.pluginLastFolder();
-    
+
     // Should the bundled Python interpreter be used?
     m_useBundledInterp = settings.useBundledInterp();
 
@@ -95,6 +100,8 @@ void PluginWidget::readSettings()
     QHash<QString, Plugin *> plugins;
 
     ui.editPathPy3->setText(pdb->get_engine_path("python3.4"));
+
+    ui.pluginTable->setSortingEnabled(false);
 
     // clear out the table but do NOT clear out column headings
     while (ui.pluginTable->rowCount() > 0) {
@@ -127,10 +134,14 @@ void PluginWidget::readSettings()
     ui.comboBox->setCurrentIndex(0);
     ui.comboBox_2->setCurrentIndex(0);
     ui.comboBox_3->setCurrentIndex(0);
+
     QStringList pluginmap = settings.pluginMap();
+    // prevent segfaults from corrupted settings files
+    while (pluginmap.count() < 3) pluginmap.append(QString(""));
     int t1 = ui.comboBox->findText(pluginmap.at(0));
     int t2 = ui.comboBox_2->findText(pluginmap.at(1));
     int t3 = ui.comboBox_3->findText(pluginmap.at(2));
+
     ui.comboBox->setCurrentIndex(t1);
     ui.comboBox_2->setCurrentIndex(t2);
     ui.comboBox_3->setCurrentIndex(t3);
@@ -146,6 +157,8 @@ void PluginWidget::readSettings()
         }
         enable_disable_controls();
     }
+
+    ui.pluginTable->setSortingEnabled(true);
     m_isDirty = false;
 }
 
@@ -201,6 +214,7 @@ void PluginWidget::addPlugin()
         return;
     }
 
+    ui.pluginTable->setSortingEnabled(false);
     int rows = ui.pluginTable->rowCount();
     ui.pluginTable->insertRow(rows);
     setPluginTableRow(p,rows);
@@ -208,6 +222,7 @@ void PluginWidget::addPlugin()
     ui.comboBox->addItem(pluginname);
     ui.comboBox_2->addItem(pluginname);
     ui.comboBox_3->addItem(pluginname);
+    ui.pluginTable->setSortingEnabled(true);
 }
 
 
@@ -221,12 +236,15 @@ void PluginWidget::removePlugin()
         return;
     }
 
+    ui.pluginTable->setSortingEnabled(false);
+
     PluginDB *pdb = PluginDB::instance();
     int row = ui.pluginTable->row(itemlist.at(0));
     QString pluginname = ui.pluginTable->item(row, PluginWidget::NameField)->text();
     ui.pluginTable->removeRow(row);
     pdb->remove_plugin(pluginname);
     ui.pluginTable->resizeColumnsToContents();
+
 
     // now update the toolbar plugin assignments
     QString val1 = ui.comboBox->currentText();
@@ -249,6 +267,9 @@ void PluginWidget::removePlugin()
 
     target = ui.comboBox_3->findText(val3);
     ui.comboBox_3->setCurrentIndex(target);
+
+    ui.pluginTable->setSortingEnabled(true);
+
 }
 
 
@@ -266,11 +287,13 @@ void PluginWidget::removeAllPlugins()
     msgBox.setDefaultButton(noButton);
     msgBox.exec();
     if (msgBox.clickedButton() == yesButton) {
+        ui.pluginTable->setSortingEnabled(false);
         while (ui.pluginTable->rowCount() > 0) {
             ui.pluginTable->removeRow(0);
         }
         pdb->remove_all_plugins();
         ui.pluginTable->resizeColumnsToContents();
+        ui.pluginTable->setSortingEnabled(true);
     }
     ui.comboBox->clear();
     ui.comboBox_2->clear();

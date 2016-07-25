@@ -1810,10 +1810,12 @@ void MainWindow::RunPlugin1()
 {
     SettingsStore ss;
     QStringList namemap = ss.pluginMap();
-    QString pname = namemap.at(0);
-    if (m_pluginList.contains(pname)) {
-        PluginRunner prunner(m_TabManager, this);
-        prunner.exec(pname);
+    if (namemap.count() > 0) {
+        QString pname = namemap.at(0);
+        if (m_pluginList.contains(pname)) {
+            PluginRunner prunner(m_TabManager, this);
+            prunner.exec(pname);
+        }
     }
 }
 
@@ -1821,10 +1823,12 @@ void MainWindow::RunPlugin2()
 {
     SettingsStore ss;
     QStringList namemap = ss.pluginMap();
-    QString pname = namemap.at(1);
-    if (m_pluginList.contains(pname)) {
-        PluginRunner prunner(m_TabManager, this);
-        prunner.exec(pname);
+    if (namemap.count() > 1) {
+        QString pname = namemap.at(1);
+        if (m_pluginList.contains(pname)) {
+            PluginRunner prunner(m_TabManager, this);
+            prunner.exec(pname);
+        }
     }
 }
 
@@ -1832,10 +1836,12 @@ void MainWindow::RunPlugin3()
 {
     SettingsStore ss;
     QStringList namemap = ss.pluginMap();
-    QString pname = namemap.at(2);
-    if (m_pluginList.contains(pname)) {
-        PluginRunner prunner(m_TabManager, this);
-        prunner.exec(pname);
+    if (namemap.count() > 2) {
+        QString pname = namemap.at(2);
+        if (m_pluginList.contains(pname)) {
+            PluginRunner prunner(m_TabManager, this);
+            prunner.exec(pname);
+        }
     }
 }
 
