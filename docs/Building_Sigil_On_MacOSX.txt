@@ -1,11 +1,17 @@
 # FIRST:  See Building_A_Relocatable_Python_Framework_on_MacOSX.txt
 #
+# SECOND: See Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt
+#
 #         Also make sure you have the latest XCode and ** Command Line tools** Installed
 #
 #         You will need to have CMake 3.0 or later installed and in your path
 #
-#         Make sure you have installed Qt 5.4.2 or Qt 5.5.1 as you can not use Qt 5.6 as Qt has removed Webkit in Qt 5.6
-#           Use the binary installer downloadable directly from Qt
+#         If you want to use official stock Qt then Make sure you have installed Qt 5.4.2 
+#         or Qt 5.5.1 as you can not use stock Qt 5.6 as Qt has removed QtWebkit in Qt 5.6.
+#
+#         Alternatively, you can follow the Qt build instructions to add QtWebKit back 
+#         to Qt 5.6.X and build Qt yourself directly from source.  This is what the official
+#         Sigil builds now do.
 
 # XCode 7 users may want to install the MacOSX 10.10sdk from XCode 6.3 as 10.11sdk has removed openssl headers
 
@@ -19,8 +25,12 @@ export MACOSX_DEPLOYMENT_TARGET=10.9
 # files in tmp older than 3 days right out from underneath the user
 export MYDEST=/Users/$USER/devtools/Frameworks
 
-# Set the location of where Qt 5.4.2 is installed
-export MYQTHOME=~/Qt
+# Set the location of where Qt is installed
+
+# if you are using stock Qt 5.4.2 build use the next line instead
+# export MYQTHOME=~/Qt/5.4/clang_64
+
+export MYQTHOME=~/Qt56
 
 # Set the location of where you want your Sigil repo to be stored
 export MYSIGILREPO=~/repo
@@ -30,12 +40,12 @@ cd ${MYSIGILREPO}
 git clone https://github.com/Sigil-Ebook/Sigil.git
 
 # Add Qt to the path
-export PATH=${PATH}:${MYQTHOME}/5.4/clang_64/bin
+export PATH=${PATH}:${MYQTHOME}/bin
 
 # Make sure the newly created relocatable python framework is found first
 # **before** and system version of Python3
 
-export PATH=${MYDEST}/Python.framework/Versions/3.4/bin:${PATH}
+export PATH=${MYDEST}/Python.framework/Versions/3.5/bin:${PATH}
 
 mkdir build
 cd build
@@ -45,7 +55,7 @@ cd build
 cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
       -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_PREFIX_PATH=${MYQTHOME}/5.4/clang_64/lib/cmake \
+      -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
       -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/ \
       ../Sigil
 
@@ -54,7 +64,7 @@ cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
-      -DCMAKE_PREFIX_PATH=${MYQTHOME}/5.4/clang_64/lib/cmake \
+      -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
       -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/ \
       ../Sigil
 
@@ -63,7 +73,7 @@ cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
-      -DCMAKE_PREFIX_PATH=${MYQTHOME}/5.4/clang_64/lib/cmake \
+      -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
       -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/ \
       ../Sigil
 
@@ -81,4 +91,3 @@ make addframeworks
 4. use the "Add Plugin" button to navigate to and add testplugin.zip and then hit "Okay" to exit the Manage Plugins Dialog
 5. use Plugins->Edit->testplugins to launch the plugin and hit the "Start" button to run it
 6. check the plugin output window for your missing or broken plugin test results
-

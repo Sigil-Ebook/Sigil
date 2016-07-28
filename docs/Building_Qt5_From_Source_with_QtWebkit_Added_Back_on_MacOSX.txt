@@ -1,0 +1,60 @@
+# Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX
+
+# IMPORTANT - Instead of building Qt from source as outlined here you can instead
+# use stock Qt 5.4.2 or Qt 5.5.1 that you can download
+# and install from Qt directly.
+
+# But in order to use the very latest versions of Qt you will need to add QtWebkit back
+# and build from source
+
+# FIRST:  make sure you have XCode 6 installed and the Command Line Tools
+
+# As of Qt 5.6, QtWebkit was removed from the stock Qt releases.  Sigil depends on this 
+# module for both its BookView and Preview windows.  We are following the examples of
+# the Linux Distributions and Adding back QtWebKit to the Qt sources to build our own
+# Qt distribution.
+
+# Here are the steps to building Qt from source with QtWebkit added back
+# cd to a location to store your src tree
+export MYQTSRC=`pwd`
+
+# clone qtwebkit from git::/code.qt.io/qt/qtwebkit.git
+git clone git://code.qt.io/qt.qtwebkit.git
+
+# download qt-everywhere-opensource-src-5.6.1-1.tar.gz directly from Qt
+# from http://download.qt.io/archive/qt/5.6/5.6.1-1/single/
+
+# and then unpack it
+tar -zxvf qt-everywhere-opensource-src-5.6.1-1.tar.gz
+
+# copy the qtwebkit directory into qt-everywhere-opensource-src-5.6.1 to sit beside qtbase, etc
+cd qt-everywhere-opensource-src-5.6.1
+mkdir qtwebkit
+cp -R ../qtwebkit/ ./qtwebkit
+
+# next on Mac OS X there is a build fix needed for Qt-5.6.1-1 that needs to be added
+# grab the patch file from the git Sigil-Ebook/Sifil/docs
+patch -p0 <  qt_561_osx.patch
+
+# set the correct module version inisde of the newly added qtwebkit directory
+# edit qtwebkit/.qmake.conf and change this line 
+# MODULE_VERSION = 5.7
+# to
+# MODULE_VERSION = 5.6.1
+
+# Create a destination directory to house your complete Qt binary in your home directory
+# to match how stock Qt does it
+cd ~/
+mkdir Qt56
+
+# Now return and create a shadow build inside a new directory to keep your Qt sources clean
+cd ${MYQTSRC}
+mkdir buildqt
+cd buildqt
+../qt-everywhere-opensource-src-5.6.1/configure --prefix=/Users/${USER}/Qt56 -opensource -nomake examples -nomake tests
+# note the build itself can take a couple of hours depending on memory available, disk and cpus used
+make -j4
+make install
+
+# After the install phase completes your newly built Qt should exist in ~/Qt56 ready to be
+# Used to build Sigil with

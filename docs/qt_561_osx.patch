@@ -1,0 +1,19 @@
+--- qtbase/examples/widgets/mac/qmaccocoaviewcontainer/qmaccocoaviewcontainer.pro.orig	2016-07-27 10:19:39.000000000 -0400
++++ qtbase/examples/widgets/mac/qmaccocoaviewcontainer/qmaccocoaviewcontainer.pro	2016-07-27 10:20:33.000000000 -0400
+@@ -5,3 +5,6 @@
+ 
+ QT += widgets
+ 
++# install
++target.path = $$[QT_INSTALL_EXAMPLES]/widgets/mac/qmaccocoaviewcontainer
++INSTALLS += target
+--- qtbase/examples/widgets/mac/qmacnativewidget/qmacnativewidget.pro.orig	2016-07-27 10:21:06.000000000 -0400
++++ qtbase/examples/widgets/mac/qmacnativewidget/qmacnativewidget.pro	2016-07-27 10:21:46.000000000 -0400
+@@ -5,3 +5,7 @@
+ 
+ QT += widgets
+ #QT += widgets-private gui-private core-private
++
++# install
++target.path = $$[QT_INSTALL_EXAMPLES]/widgets/mac/qmacnativewidget
++INSTALLS += target
