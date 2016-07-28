@@ -119,6 +119,7 @@ extern const QString HTML5_COVER_SOURCE;
 extern const QString SIGIL_PREFS_DIR;
 extern const QString PATH_LIST_DELIM;
 extern const QString PYTHON_MAIN_PATH;
+extern const QString PYTHON_MAIN_BIN_PATH;
 extern const QStringList PYTHON_SYS_PATHS;
 
 #if !defined(_WIN32) && !defined(__APPLE__)

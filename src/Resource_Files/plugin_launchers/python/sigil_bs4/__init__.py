@@ -154,6 +154,9 @@ class BeautifulSoup(Tag):
 
         from_encoding = from_encoding or deprecated_argument(
             "fromEncoding", "from_encoding")
+        if from_encoding and isinstance(markup, unicode):
+            warnings.warn("You provided Unicode markup but also provided a value for from_encoding. Your from_encoding will be ignored.")
+            from_encoding = None
 
         if len(kwargs) > 0:
             arg = list(kwargs.keys()).pop()
@@ -191,7 +194,10 @@ class BeautifulSoup(Tag):
 
         if hasattr(markup, 'read'):        # It's a file-type object.
             markup = markup.read()
-        elif len(markup) <= 256:
+        elif len(markup) <= 256 and (
+                (isinstance(markup, bytes) and not b'<' in markup)
+                or (isinstance(markup, unicode) and not u'<' in markup)
+        ):
             # Print out warnings for a couple beginner problems
             # involving passing non-markup to Beautiful Soup.
             # Beautiful Soup will still parse the input as markup,

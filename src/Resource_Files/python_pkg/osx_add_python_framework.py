@@ -50,11 +50,13 @@ site_packages = [ ('lxml', 'd'),
                   ('PIL', 'd'), 
                   ('regex.py','f'),
                   ('_regex.so','f'),
+                  ('_regex.cpython-35m-darwin.so','f'),
                   ('_regex_core.py','f'),
                   ('test_regex.py', 'f'),
                   ('cssselect', 'd'),
                   ('encutils', 'd'),
                   ('cssutils', 'd'),
+                  ('webencodings', 'd'), # needed by html5lib
                   ('chardet', 'd')]
 
 

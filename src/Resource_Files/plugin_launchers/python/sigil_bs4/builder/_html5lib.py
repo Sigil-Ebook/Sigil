@@ -38,6 +38,15 @@ from sigil_bs4.element import (
     Tag,
     )
 
+try:
+    # Pre-0.99999999
+    from html5lib.treebuilders import _base as treebuilder_base
+    new_html5lib = False
+except ImportError:
+    # 0.99999999 and up
+    from html5lib.treebuilders import base as treebuilder_base
+    new_html5lib = True
+
 class HTML5TreeBuilder(HTMLTreeBuilder):
     """Use html5lib to build a tree."""
 
@@ -62,7 +71,14 @@ class HTML5TreeBuilder(HTMLTreeBuilder):
         if self.soup.parse_only is not None:
             warnings.warn("You provided a value for parse_only, but the html5lib tree builder doesn't support parse_only. The entire document will be parsed.")
         parser = html5lib.HTMLParser(tree=self.create_treebuilder)
-        doc = parser.parse(markup, encoding=self.user_specified_encoding)
+
+        extra_kwargs = dict()
+        if not isinstance(markup, unicode):
+            if new_html5lib:
+                extra_kwargs['override_encoding'] = self.user_specified_encoding
+            else:
+                extra_kwargs['encoding'] = self.user_specified_encoding
+        doc = parser.parse(markup, **extra_kwargs)
 
         # Set the character encoding detected by the tokenizer.
         if isinstance(markup, unicode):
@@ -70,7 +86,13 @@ class HTML5TreeBuilder(HTMLTreeBuilder):
             # charEncoding to UTF-8 if it gets Unicode input.
             doc.original_encoding = None
         else:
-            doc.original_encoding = parser.tokenizer.stream.charEncoding[0]
+            original_encoding = parser.tokenizer.stream.charEncoding[0]
+            if not isinstance(original_encoding, basestring):
+                # In 0.99999999 and up, the encoding is an html5lib
+                # Encoding object. We want to use a string for compatibility
+                # with other tree builders.
+                original_encoding = original_encoding.name
+            doc.original_encoding = original_encoding
 
     def create_treebuilder(self, namespaceHTMLElements):
         self.underlying_builder = TreeBuilderForHtml5lib(
@@ -82,7 +104,7 @@ class HTML5TreeBuilder(HTMLTreeBuilder):
         return '<html><head></head><body>%s</body></html>' % fragment
 
 
-class TreeBuilderForHtml5lib(html5lib.treebuilders._base.TreeBuilder):
+class TreeBuilderForHtml5lib(treebuilder_base.TreeBuilder):
 
     def __init__(self, soup, namespaceHTMLElements):
         self.soup = soup
@@ -120,7 +142,8 @@ class TreeBuilderForHtml5lib(html5lib.treebuilders._base.TreeBuilder):
         return self.soup
 
     def getFragment(self):
-        return html5lib.treebuilders._base.TreeBuilder.getFragment(self).element
+        return treebuilder_base.TreeBuilder.getFragment(self).element
+
 
 class AttrList(object):
     def __init__(self, element):
@@ -149,9 +172,9 @@ class AttrList(object):
         return name in list(self.attrs.keys())
 
 
-class Element(html5lib.treebuilders._base.Node):
+class Element(treebuilder_base.Node):
     def __init__(self, element, soup, namespace):
-        html5lib.treebuilders._base.Node.__init__(self, element.name)
+        treebuilder_base.Node.__init__(self, element.name)
         self.element = element
         self.soup = soup
         self.namespace = namespace
@@ -336,7 +359,8 @@ class Element(html5lib.treebuilders._base.Node):
 
 class TextNode(Element):
     def __init__(self, element, soup):
-        html5lib.treebuilders._base.Node.__init__(self, None)
+        treebuilder_base.Node.__init__(self, None)
+
         self.element = element
         self.soup = soup
 
