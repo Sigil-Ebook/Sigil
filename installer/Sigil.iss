@@ -16,7 +16,7 @@ Compression=lzma2/ultra
 SolidCompression=yes
 OutputDir=..\installer
 LicenseFile=${LICENSE_LOCATION}
-; WinXP is the lowest supported version
+; Win Vista is the lowest supported version
 MinVersion=0,6.0
 PrivilegesRequired=admin
 OutputBaseFilename=Sigil-${SIGIL_FULL_VERSION}-Windows${ISS_SETUP_FILENAME_PLATFORM}-Setup
@@ -34,9 +34,7 @@ ArchitecturesInstallIn64BitMode="${ISS_ARCH}"
 
 [Files]
 Source: "Sigil\*"; DestDir: "{app}"; Flags: createallsubdirs recursesubdirs ignoreversion
-Source: vendor\vcredist2010.exe; DestDir: {tmp}
-Source: vendor\vcredist2013.exe; DestDir: {tmp}
-Source: postinstall\postinstall.bat; DestDir: {tmp}
+Source: vendor\vcredist2015.exe; DestDir: {tmp}
 
 [Components]
 ; Main files cannot be unchecked. Doesn't do anything, just here for show
@@ -69,12 +67,8 @@ Components: dicon\common; Name: "{commondesktop}\Sigil"; Filename: "{app}\Sigil.
 Components: dicon\user; Name: "{userdesktop}\Sigil"; Filename: "{app}\Sigil.exe"
 
 [Run]
-Filename: {tmp}\postinstall.bat; Parameters: """{app}\Python3\pyvenv.cfg"" ""{app}\Python3"""; StatusMsg: Configuring pyvenv.cfg file...
-;Filename: {tmp}\vcredist2010.exe; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2010.msi"" "; StatusMsg: Checking for 2010 RunTime for Python...
-;Filename: {tmp}\vcredist2013.exe; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2013.msi"" "; StatusMsg: Checking for 2013 RunTime for Sigil...
-; The following two commands have the ability to detect whether or not c++ runtimes need to be installed.
-Filename: {tmp}\vcredist2010.exe; Check: VCRedistNeeds2010Install; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2010.msi"" "; StatusMsg: Checking for 2010 RunTime for Python...
-Filename: {tmp}\vcredist2013.exe; Check: VCRedistNeeds2013Install; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2013.msi"" "; StatusMsg: Checking for 2013 RunTime for Sigil...
+; The following command detects whether or not the c++ runtime need to be installed.
+Filename: {tmp}\vcredist2015.exe; Check: VCRedistNeeds2015Install; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2015.msi"" "; StatusMsg: Checking for VS 2015 RunTime ...
 
 [Code]
 #IFDEF UNICODE
@@ -104,9 +98,9 @@ const
   VC_2013_REDIST_X86_ADD = '{F8CFEB22-A2E7-3971-9EDA-4B11EDEFC185}';
   VC_2013_REDIST_X64_ADD = '{929FBD26-9020-399B-9A7A-751D61F0B942}';
 
-  // Visual C++ 2015 Redistributable 14.0.23026
-  VC_2015_REDIST_X86_MIN = '{A2563E55-3BEC-3828-8D67-E5E8B9E8B675}';
-  VC_2015_REDIST_X64_MIN = '{0D3E9E15-DE7A-300B-96F1-B4AF12B96488}';
+  // Visual C++ 2015 Redistributable 14.0.24210
+  VC_2015_REDIST_X86_MIN = '{8FD71E98-EE44-3844-9DAD-9CB0BBBC603C}';
+  VC_2015_REDIST_X64_MIN = '{C0B2C673-ECAA-372D-94E5-E89440D087AD}';
   // Microsoft Visual C++ 2015 Additional Runtime - 11.0.61030.0
   VC_2015_REDIST_X86_ADD = '{BE960C1C-7BAD-3DE6-8B1A-2616FE532845}';
   VC_2015_REDIST_X64_ADD = '{BC958BD2-5DAC-3862-BB1A-C1BE0790438D}';
@@ -119,31 +113,16 @@ begin
   Result := MsiQueryProductState(ProductID) = INSTALLSTATE_DEFAULT;
 end;
 
-function VCRedistNeeds2010Install: Boolean;
+function VCRedistNeeds2015Install: Boolean;
 begin
   // here the Result must be True when you need to install your VCRedist
   // or False when you don't need to, so now it's upon you how you build
   // this statement, the following won't install your VC redist only when
-  // the Visual C++ 2010 Redist and Visual C++ 2010 SP1 Redist are
-  // installed for the current user
+  // the Visual C++ 2015 Redist are installed for the current user
 
-  // Checking to see if VC++ 2010 sp1 redistributable is installed
+   // Checking to see if VC++ 2015 redistributable is installed
   if Is64BitInstallMode then
-    Result := not (VCVersionInstalled(VC_2010_REDIST_X64) or VCVersionInstalled(VC_2010_SP1_REDIST_X64))
+    Result := not (VCVersionInstalled(VC_2015_REDIST_X64_MIN))
   else
-    Result := not (VCVersionInstalled(VC_2010_REDIST_X86) or VCVersionInstalled(VC_2010_SP1_REDIST_X86));
-end;
-
-function VCRedistNeeds2013Install: Boolean;
-begin
-  // here the Result must be True when you need to install your VCRedist
-  // or False when you don't need to, so now it's upon you how you build
-  // this statement, the following won't install your VC redist only when
-  // the Visual C++ 2013 Redist are installed for the current user
-
-   // Checking to see if VC++ 2013 redistributable is installed
-  if Is64BitInstallMode then
-    Result := not (VCVersionInstalled(VC_2013_REDIST_X64_MIN))
-  else
-    Result := not (VCVersionInstalled(VC_2013_REDIST_X86_MIN));
+    Result := not (VCVersionInstalled(VC_2015_REDIST_X86_MIN));
 end;

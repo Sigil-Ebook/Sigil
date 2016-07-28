@@ -17,10 +17,6 @@ lib_dir = os.path.join(py_dest, 'Lib')
 dll_dir = os.path.join(py_dest, 'DLLs')
 site_dest = os.path.join(lib_dir, 'site-packages')
 
-# A hack. This must eventually be set by a postinstall script, or
-# possibly Sigil itself at runtime. Installing the 32-bit version
-# of Sigil on 64-bit Windows will break this hardcoded crap.
-pyvenv_home_dir = r'C:\Program Files\%s\Python3'% proj_name
 
 # Cherry-picked additional and/or modified site modules
 site_packages = [ ('lxml', 'd'), 
@@ -34,6 +30,7 @@ site_packages = [ ('lxml', 'd'),
                   ('cssselect', 'd'),
                   ('encutils', 'd'),
                   ('cssutils', 'd'),
+                  ('webencodings', 'd'), # needed by html5lib
                   ('chardet', 'd')]
 
 
@@ -100,11 +97,16 @@ def copy_tk_tcl():
 
 def copy_pylib():
     #shutil.copy2(py_lib, py_dest)
-    try: 
-        shutil.copy2(os.path.join(sys_dlls, 'python%s.dll'%py_ver), py_dest)
-        shutil.copy2(os.path.join(sys_dlls, 'python%s.dll'%py_ver), tmp_prefix)
-    except:
-        print ('Couldn\'t find the Python%s.dll file. May need to include -DSYS_DLL_DIR="c:\windows\syswow64" in the cmake command.'%py_ver)
+    fldrs = (pybase, sys_dlls)
+    dll_found = False
+    for fldr in fldrs:
+        if os.path.exists(os.path.join(fldr, 'python%s.dll'%py_ver)):
+            shutil.copy2(os.path.join(fldr, 'python%s.dll'%py_ver), py_dest)
+            shutil.copy2(os.path.join(fldr, 'python%s.dll'%py_ver), tmp_prefix)
+            dll_found = True
+            break
+    if not dll_found:
+        print ('Couldn\'t find the Python%s.dll file.'%py_ver)
         exit
     try:
         shutil.copy2(os.path.join(sys_dlls, 'pywintypes%s.dll'%py_ver), py_dest)
@@ -135,9 +137,9 @@ def compile_libs():
                 y = os.path.join(x[0], f)
                 rel = os.path.relpath(y, lib_dir)
                 try:
-                    py_compile.compile(y, cfile=y+'o',dfile=rel, doraise=True, optimize=2)
+                    py_compile.compile(y, cfile=y+'c',dfile=rel, doraise=True, optimize=2)
                     os.remove(y)
-                    z = y+'c'
+                    z = y+'o'
                     if os.path.exists(z):
                         os.remove(z)
                 except:
@@ -189,10 +191,8 @@ def create_site_py():
 def create_pyvenv():
     with open(os.path.join(py_dest, 'pyvenv.cfg'), 'wb') as f:
         f.write(bytes(textwrap.dedent('''\
-        home = %s
-        include-system-site-packages = false
-        version = 3.4.0
-        ''') % pyvenv_home_dir, 'UTF-8'))
+        applocal = true
+        '''), 'UTF-8'))
 
 
 if __name__ == '__main__':

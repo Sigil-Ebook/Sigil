@@ -905,29 +905,19 @@ elseif (MSVC)
     # Add -DWIN_INSTALLER_USE_64BIT_CRT=1 to the cmake call if you want to build
     # an installer for the x64 verison of Sigil. This will make sure that the
     # correct CRT libs are included in the installer.
-    # Python3.4 needs C++ 2010 runtime and Sigil needs C++ 2013 runtime
-    # Hopefully we'll be able to consolidate with the C++ 2015 runtime in the future.
+    # All components now use the VC++ 2015 redistributable.
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${TEMP_PACKAGE_DIR}/vendor/ )
     if ( WIN_INSTALLER_USE_64BIT_CRT )
         message( STATUS "Using the 64 bit CRT in the Sigil Windows installer" )
-        message( STATUS "Ensure vcredist2010_x64.exe and vcredist2013_x64.exe have been placed in installer/ if you plan on running makeinstaller" )
+        message( STATUS "Ensure vcredist_x64.exe for VS2015 has been placed in installer/ if you plan on running makeinstaller" )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/vcredist2010_x64.exe ${TEMP_PACKAGE_DIR}/vendor/vcredist2010.exe )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/vcredist2013_x64.exe ${TEMP_PACKAGE_DIR}/vendor/vcredist2013.exe )
+            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/vcredist_x64.exe ${TEMP_PACKAGE_DIR}/vendor/vcredist2015.exe )
     else()
         message( STATUS "Using the 32 bit CRT in the Sigil Windows installer" )
-        message( STATUS "Ensure vcredist2010_x86.exe and vcredist2013_x86.exe have been placed in installer/ if you plan on running makeinstaller" )
+        message( STATUS "Ensure vcredist_x86.exe for VS2015 has been placed in installer/ if you plan on running makeinstaller" )
         add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/vcredist2010_x86.exe ${TEMP_PACKAGE_DIR}/vendor/vcredist2010.exe )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/vcredist2013_x86.exe ${TEMP_PACKAGE_DIR}/vendor/vcredist2013.exe )
+            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/vcredist_x86.exe ${TEMP_PACKAGE_DIR}/vendor/vcredist2015.exe )
     endif()
-
-    # Add postinstall script to Inno package
-	add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${TEMP_PACKAGE_DIR}/postinstall/ )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/src/Resource_Files/windows/postinstall.bat ${TEMP_PACKAGE_DIR}/postinstall/ )
 
     # Copy the Changelog
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
