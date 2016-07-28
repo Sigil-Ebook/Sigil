@@ -27,11 +27,6 @@
 # of version numbers that should be taken into account when searching
 # for Python.  You need to set this variable before calling
 # find_package(PythonInterp).
-#
-# If calling both ``find_package(PythonInterp)`` and
-# ``find_package(PythonLibs)``, call ``find_package(PythonInterp)`` first to
-# get the currently active Python version by default with a consistent version
-# of PYTHON_LIBRARIES.
 
 #=============================================================================
 # Copyright 2005-2010 Kitware, Inc.
@@ -51,8 +46,8 @@
 unset(_Python_NAMES)
 
 set(_PYTHON1_VERSIONS 1.6 1.5)
-set(_PYTHON2_VERSIONS 2.7 2.6 2.5 2.4 2.3 2.2 2.1 2.0)
-set(_PYTHON3_VERSIONS 3.6 3.5 3.4 3.3 3.2 3.1 3.0)
+set(_PYTHON2_VERSIONS 2.7 2.6)
+set(_PYTHON3_VERSIONS 3.5 3.4 3.3)
 
 if(PythonInterp_FIND_VERSION)
     if(PythonInterp_FIND_VERSION_COUNT GREATER 1)
@@ -76,23 +71,18 @@ if(PythonInterp_FIND_VERSION)
 else()
     set(_PYTHON_FIND_OTHER_VERSIONS ${_PYTHON3_VERSIONS} ${_PYTHON2_VERSIONS} ${_PYTHON1_VERSIONS})
 endif()
+
+list(APPEND _Python_NAMES python)
+
+# Search for the current active python version first
 find_program(PYTHON_EXECUTABLE NAMES ${_Python_NAMES})
 
 # Set up the versions we know about, in the order we will search. Always add
 # the user supplied additional versions to the front.
-set(_Python_VERSIONS ${Python_ADDITIONAL_VERSIONS})
-# If FindPythonInterp has already found the major and minor version,
-# insert that version next to get consistent versions of the interpreter and
-# library.
-if(DEFINED PYTHONLIBS_VERSION_STRING)
-  string(REPLACE "." ";" _PYTHONLIBS_VERSION "${PYTHONLIBS_VERSION_STRING}")
-  list(GET _PYTHONLIBS_VERSION 0 _PYTHONLIBS_VERSION_MAJOR)
-  list(GET _PYTHONLIBS_VERSION 1 _PYTHONLIBS_VERSION_MINOR)
-  list(APPEND _Python_VERSIONS ${_PYTHONLIBS_VERSION_MAJOR}.${_PYTHONLIBS_VERSION_MINOR})
-endif()
-# Search for the current active python version first
-list(APPEND _Python_VERSIONS ";")
-list(APPEND _Python_VERSIONS ${_PYTHON_FIND_OTHER_VERSIONS})
+set(_Python_VERSIONS
+  ${Python_ADDITIONAL_VERSIONS}
+  ${_PYTHON_FIND_OTHER_VERSIONS}
+  )
 
 unset(_PYTHON_FIND_OTHER_VERSIONS)
 unset(_PYTHON1_VERSIONS)
@@ -101,7 +91,7 @@ unset(_PYTHON3_VERSIONS)
 
 # Search for newest python version if python executable isn't found
 if(NOT PYTHON_EXECUTABLE)
-    foreach(_CURRENT_VERSION IN LISTS _Python_VERSIONS)
+    foreach(_CURRENT_VERSION ${_Python_VERSIONS})
       set(_Python_NAMES python${_CURRENT_VERSION})
       if(WIN32)
         list(APPEND _Python_NAMES python)
@@ -139,8 +129,8 @@ if(PYTHON_EXECUTABLE)
             string(REGEX REPLACE " .*" "" PYTHON_VERSION_STRING "${_VERSION}")
             string(REGEX REPLACE "^([0-9]+)\\.[0-9]+.*" "\\1" PYTHON_VERSION_MAJOR "${PYTHON_VERSION_STRING}")
             string(REGEX REPLACE "^[0-9]+\\.([0-9])+.*" "\\1" PYTHON_VERSION_MINOR "${PYTHON_VERSION_STRING}")
-            if(PYTHON_VERSION_STRING MATCHES "^[0-9]+\\.[0-9]+\\.([0-9]+)")
-                set(PYTHON_VERSION_PATCH "${CMAKE_MATCH_1}")
+            if(PYTHON_VERSION_STRING MATCHES "^[0-9]+\\.[0-9]+\\.[0-9]+.*")
+                string(REGEX REPLACE "^[0-9]+\\.[0-9]+\\.([0-9]+).*" "\\1" PYTHON_VERSION_PATCH "${PYTHON_VERSION_STRING}")
             else()
                 set(PYTHON_VERSION_PATCH "0")
             endif()
@@ -149,8 +139,8 @@ if(PYTHON_EXECUTABLE)
             # this is older.
             set(PYTHON_VERSION_STRING "1.4")
             set(PYTHON_VERSION_MAJOR "1")
-            set(PYTHON_VERSION_MINOR "4")
-            set(PYTHON_VERSION_PATCH "0")
+            set(PYTHON_VERSION_MAJOR "4")
+            set(PYTHON_VERSION_MAJOR "0")
         endif()
     endif()
     unset(_PYTHON_VERSION_RESULT)
