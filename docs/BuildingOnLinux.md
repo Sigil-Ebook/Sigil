@@ -14,7 +14,7 @@ To build Sigil on Linux, you need to get/do the following things:
 8. [Advanced Stuff](#advanced)
 
 Since I'm basically an Ubuntu/Debian guy at heart, I'll be mentioning stuff like:
- 
+
 >`sudo apt-get install`
 
 from here on out. You'll have to forgive me for not knowing all the yum/pacman/emerge equivalents. It's not a slight--I can assure you.
@@ -124,12 +124,22 @@ Once the cmake configure command finishes with no errors, build Sigil with:
 
 >`make (or make -j4 if you have plenty of processor cores)`
 
+###Common compilation failures/Errors.
+
 If you get an error that mentions qopengl.h, or you get a "`fatal error: GL/gl.h: No such file or directory
  #  include <GL/gl.h>`" error message, this usually implies that the OpenGL development headers for your system's video driver are missing or outdated. This can usually be remedied by installing the mesa-common-dev meta-package:
- 
+
 > `sudo apt-get install mesa-common-dev`
 
-> Note: this has nothing to do with actually updating or changing your system's video driver, it simply installs some development headers that can be used when compiling other programs.
+Note: this has nothing to do with actually updating or changing your system's video driver, it simply installs some development headers that can be used when compiling other programs.
+
+If that still doesn't get rid of the "`GL/gl.h errors`", some newer systems may be required to install an additional package:
+
+> `sudo apt-get install libglu1-mesa-dev`
+
+Also note that building Sigil with precompiled versions of Qt5.4.2/5.5.x downloaded from qt.io require that the gstreamer v0.10 development headers be installed. Many newer Linux versions don't come with gstreamer0.10 installed by default any more, so you may need to install it first. This the case on Ubuntu 16.04 (Xenial) for example.
+
+> `sudo apt-get install libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev`
 
 ###Installing Sigil
 If all goes well, install Sigil with:
@@ -144,7 +154,7 @@ If installing to a non-default and unprivileged prefix, simply:
 will suffice.
 
 
-If you configured with the default install prefix, you can launch by entering "sigil" (no quotes) at a terminal. If you configured to install somewhere else, you may need to create a link to the sigil launch script (`<CMAKE_INSTALL_PREFIX>/bin/sigil`) in a directory that is on your path. There's also a .desktop file in `<SIGIL_SHARE_PREFIX>/share/applications' that you can create a link to on your desktop.
+If you configured with the default install prefix, you can launch by entering "sigil" (no quotes) at a terminal. If you configured to install somewhere else, you may need to create a link to the sigil launch script (`<CMAKE_INSTALL_PREFIX>/bin/sigil`) in a directory that is on your path. There's also a .desktop file in `<SIGIL_SHARE_PREFIX>/share/applications` that you can create a link to on your desktop. Sigil should also appear in your Desktop Environment's menu system (under Office and/or Accessories). You may need to logout in back in for the menu entries to be visible after installing (you can also force your menus to update if you have the xdg-utils package installed by issuing the "xdg-desktop-menu forceupdate" command from a terminal)
 
 ##<a name="testing"/>Testing Sigil's Python plugin framework
 

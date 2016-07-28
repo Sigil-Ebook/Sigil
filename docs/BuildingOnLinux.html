@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="generator" content="ReText 4.1.2">
+<meta name="generator" content="ReText 6.0.1">
 <title>BuildingOnLinux</title>
 </head>
 <body>
@@ -110,11 +110,20 @@
 <blockquote>
 <p><code>make (or make -j4 if you have plenty of processor cores)</code></p>
 </blockquote>
+<h3>Common compilation failures/Errors.</h3>
 <p>If you get an error that mentions qopengl.h, or you get a "<code>fatal error: GL/gl.h: No such file or directory
  #  include &lt;GL/gl.h&gt;</code>" error message, this usually implies that the OpenGL development headers for your system's video driver are missing or outdated. This can usually be remedied by installing the mesa-common-dev meta-package:</p>
 <blockquote>
 <p><code>sudo apt-get install mesa-common-dev</code></p>
+</blockquote>
 <p>Note: this has nothing to do with actually updating or changing your system's video driver, it simply installs some development headers that can be used when compiling other programs.</p>
+<p>If that still doesn't get rid of the "<code>GL/gl.h errors</code>", some newer systems may be required to install an additional package:</p>
+<blockquote>
+<p><code>sudo apt-get install libglu1-mesa-dev</code></p>
+</blockquote>
+<p>Also note that building Sigil with precompiled versions of Qt5.4.2/5.5.x downloaded from qt.io require that the gstreamer v0.10 development headers be installed. Many newer Linux versions don't come with gstreamer0.10 installed by default any more, so you may need to install it first. This the case on Ubuntu 16.04 (Xenial) for example.</p>
+<blockquote>
+<p><code>sudo apt-get install libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev</code></p>
 </blockquote>
 <h3>Installing Sigil</h3>
 <p>If all goes well, install Sigil with:</p>
@@ -126,7 +135,7 @@
 <p><code>make install</code></p>
 </blockquote>
 <p>will suffice.</p>
-<p>If you configured with the default install prefix, you can launch by entering "sigil" (no quotes) at a terminal. If you configured to install somewhere else, you may need to create a link to the sigil launch script (<code>&lt;CMAKE_INSTALL_PREFIX&gt;/bin/sigil</code>) in a directory that is on your path. There's also a .desktop file in `<SIGIL_SHARE_PREFIX>/share/applications' that you can create a link to on your desktop.</p>
+<p>If you configured with the default install prefix, you can launch by entering "sigil" (no quotes) at a terminal. If you configured to install somewhere else, you may need to create a link to the sigil launch script (<code>&lt;CMAKE_INSTALL_PREFIX&gt;/bin/sigil</code>) in a directory that is on your path. There's also a .desktop file in <code>&lt;SIGIL_SHARE_PREFIX&gt;/share/applications</code> that you can create a link to on your desktop. Sigil should also appear in your Desktop Environment's menu system (under Office and/or Accessories). You may need to logout in back in for the menu entries to be visible after installing (you can also force your menus to update if you have the xdg-utils package installed by issuing the "xdg-desktop-menu forceupdate" command from a terminal)</p>
 <h2><a name="testing"/>Testing Sigil's Python plugin framework</h2>
 <p>To test if Sigil's Python 3.4 plugin framework is fully functional, you can do the following:</p>
 <ol>
