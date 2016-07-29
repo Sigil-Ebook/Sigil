@@ -301,6 +301,13 @@ def copy_resource_files():
     dest_folder = os.path.join(app_folder, 'hunspell_dictionaries')
     shutil.copytree(dict_dir, dest_folder)
 
+    # Copy the MathJax.js file
+    mathjax_file = os.path.join(resource_dir, 'polyfills', "MathJax.js")
+    dest_folder = os.path.join(app_folder, 'polyfills')
+    if not os.path.exists(dest_folder):
+        os.makedirs(dest_folder)
+    shutil.copy2(mathjax_file, dest_folder)
+
     # plugin launcher files
     launcher_dir = os.path.join(resource_dir, 'plugin_launchers', 'python')
     dest_folder = os.path.join(app_folder, 'plugin_launchers', 'python')
