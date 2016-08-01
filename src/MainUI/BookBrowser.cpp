@@ -643,7 +643,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
         }
 
         if (QFileInfo(filepath).fileName() == "page-map.xml") {
-            m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath);
+          m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath, true, QString("application/oebps-page-map+xml"));
         } else if (TEXT_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
             ImportHTML html_import(filepath);
             XhtmlDoc::WellFormedError error = html_import.CheckValidToLoad();

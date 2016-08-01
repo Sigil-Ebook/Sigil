@@ -1063,7 +1063,11 @@ QString OPFResource::GetUniqueID(const QString &preferred_id, const OPFParser& p
 
 QString OPFResource::GetResourceMimetype(const Resource *resource) const
 {
-    return GetFileMimetype(resource->Filename());
+    QString mimetype = resource->GetMediaType();
+    if (mimetype.isEmpty()) {
+        mimetype = GetFileMimetype(resource->Filename());
+    }
+    return mimetype; 
 }
 
 
