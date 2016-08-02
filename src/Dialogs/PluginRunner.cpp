@@ -491,7 +491,7 @@ bool PluginRunner::processResultXML()
 
                 QString linenumber;
                 bool   line_ok;
-                int vlinenumber;
+                int vlinenumber = -1;
                 linenumber = attr.value("linenumber").toString();
                 vlinenumber = linenumber.toInt(&line_ok);
                 if (!line_ok) {
@@ -500,7 +500,7 @@ bool PluginRunner::processResultXML()
 
                 QString charoffset;
                 bool   coff_ok;
-                int vcharoffset;
+                int vcharoffset = -1;
                 charoffset = attr.value("charoffset").toString();
                 vcharoffset = charoffset.toInt(&coff_ok);
                 if (!coff_ok) {

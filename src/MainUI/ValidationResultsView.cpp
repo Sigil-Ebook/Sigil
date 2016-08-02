@@ -175,7 +175,7 @@ void ValidationResultsView::ResultDoubleClicked(QTableWidgetItem *item)
         Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
         // if character offset info exists, use it in preference to just the line number
         if (charoffset != -1) {
-            emit OpenResourceRequest(resource, -1, charoffset, QString(), MainWindow::ViewState_CodeView);
+            emit OpenResourceRequest(resource, line, charoffset, QString(), MainWindow::ViewState_CodeView);
         } else {
             emit OpenResourceRequest(resource, line, -1, QString(), MainWindow::ViewState_CodeView);
         }
