@@ -42,7 +42,13 @@ class ValidationContainer(OutputContainer):
         super(ValidationContainer, self).__init__(wrapper, debug)
 
     def add_result(self, restype, filename, linenumber, message):
+        if isinstance(linenumber, int):
+            linenumber = "%d" % linenumber
         self.results.append(ValidationResult(restype, filename, linenumber, "-1", message))
 
     def add_extended_result(self, restype, filename, linenumber, charoffset, message):
+        if isinstance(linenumber, int):
+            linenumber = "%d" % linenumber
+        if isinstance(charoffset, int):
+            charoffset = "%d" % charoffset
         self.results.append(ValidationResult(restype, filename, linenumber, charoffset, message))
