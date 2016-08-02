@@ -490,15 +490,24 @@ bool PluginRunner::processResultXML()
                 }
 
                 QString linenumber;
-                bool   lok;
+                bool   line_ok;
                 int vlinenumber;
                 linenumber = attr.value("linenumber").toString();
-                vlinenumber = linenumber.toInt(&lok);
-                if (!lok) {
-                    vlinenumber = 0;
+                vlinenumber = linenumber.toInt(&line_ok);
+                if (!line_ok) {
+                    vlinenumber = -1;
                 }
 
-                m_validationResults.append(ValidationResult(vtype, attr.value("filename").toString(), vlinenumber<0?0:(size_t)vlinenumber, attr.value("message").toString()));
+                QString charoffset;
+                bool   coff_ok;
+                int vcharoffset;
+                charoffset = attr.value("charoffset").toString();
+                vcharoffset = charoffset.toInt(&coff_ok);
+                if (!coff_ok) {
+                    vcharoffset = -1;
+                }
+
+                m_validationResults.append(ValidationResult(vtype, attr.value("filename").toString(), vlinenumber, vcharoffset, attr.value("message").toString()));
             }
         }
     }

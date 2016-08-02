@@ -23,11 +23,21 @@
 
 #include "Misc/ValidationResult.h"
 
-ValidationResult::ValidationResult(ValidationResult::ResType type, const QString &filename, size_t linenumber, const QString &message)
+ValidationResult::ValidationResult(ValidationResult::ResType type, const QString &filename, int linenumber, const QString &message)
 {
     m_type       = type;
     m_filename   = filename;
     m_linenumber = linenumber;
+    m_charoffset = -1;
+    m_message    = message;
+}
+
+ValidationResult::ValidationResult(ValidationResult::ResType type, const QString &filename, int linenumber, int charoffset, const QString &message)
+{
+    m_type       = type;
+    m_filename   = filename;
+    m_linenumber = linenumber;
+    m_charoffset = charoffset;
     m_message    = message;
 }
 
@@ -45,9 +55,14 @@ QString ValidationResult::Filename()
 	return m_filename;
 }
 
-size_t ValidationResult::LineNumber()
+int ValidationResult::LineNumber()
 {
 	return m_linenumber;
+}
+
+int ValidationResult::CharOffset()
+{
+	return m_charoffset;
 }
 
 QString ValidationResult::Message()

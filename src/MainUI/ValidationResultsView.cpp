@@ -111,9 +111,10 @@ void ValidationResultsView::ValidateCurrentBook()
                         continue;
                     }
                     QString filename = details[1];
-                    size_t lineno = details[2].toInt();
-                    QString msg = details[3];
-                    results.append(ValidationResult(vtype,filename,lineno,msg));
+                    int lineno = details[2].toInt();
+                    int charoffset = details[3].toInt();
+                    QString msg = details[4];
+                    results.append(ValidationResult(vtype,filename,lineno,charoffset,msg));
                 }
             }
         }
@@ -160,16 +161,24 @@ void ValidationResultsView::ResultDoubleClicked(QTableWidgetItem *item)
 
     QString filename = QFileInfo(path_item->text()).fileName();
     QTableWidgetItem *line_item = m_ResultTable->item(row, 1);
+    QTableWidgetItem *offset_item = m_ResultTable->item(row, 2);
 
-    if (!line_item) {
+    if (!line_item || !offset_item) {
         return;
     }
 
+
     int line = line_item->text().toInt();
+    int charoffset = offset_item->text().toInt();
 
     try {
         Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
-        emit OpenResourceRequest(resource, line, -1, QString(), MainWindow::ViewState_CodeView);
+        // if character offset info exists, use it in preference to just the line number
+        if (charoffset != -1) {
+            emit OpenResourceRequest(resource, -1, charoffset, QString(), MainWindow::ViewState_CodeView);
+        } else {
+            emit OpenResourceRequest(resource, line, -1, QString(), MainWindow::ViewState_CodeView);
+        }
     } catch (ResourceDoesNotExist) {
         return;
     }
@@ -219,16 +228,21 @@ void ValidationResultsView::DisplayResults(const QList<ValidationResult> &result
         item->setBackground(row_brush);
         m_ResultTable->setItem(rownum, 1, item);
 
-        item = new QTableWidgetItem(result.Message());
+        item = result.CharOffset() > 0 ? new QTableWidgetItem(QString::number(result.CharOffset())) : new QTableWidgetItem(tr("N/A"));
         item->setBackground(row_brush);
         m_ResultTable->setItem(rownum, 2, item);
+
+        item = new QTableWidgetItem(result.Message());
+        item->setBackground(row_brush);
+        m_ResultTable->setItem(rownum, 3, item);
     }
 
-    // We first force the line number column
-    // to the smallest needed size...
+    // Make Line and Offset columns as small as possible
+    // Ditto for Filename
     m_ResultTable->resizeColumnToContents(0);
-    // ... and now the file column can be widened.
     m_ResultTable->resizeColumnToContents(1);
+    m_ResultTable->resizeColumnToContents(2);
+    //m_ResultTable->resizeColumnsToContents();
 }
 
 
@@ -251,9 +265,9 @@ void ValidationResultsView::DisplayNoProblemsMessage()
 void ValidationResultsView::ConfigureTableForResults()
 {
     m_ResultTable->setRowCount(0);
-    m_ResultTable->setColumnCount(3);
+    m_ResultTable->setColumnCount(4);
     m_ResultTable->setHorizontalHeaderLabels(
-        QStringList() << tr("File") << tr("Line") << tr("Message"));
+    QStringList() << tr("File") << tr("Line") << tr("Offset") << tr("Message"));
     m_ResultTable->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 }
 

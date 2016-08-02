@@ -33,18 +33,22 @@ public:
         ResType_Error
     };
 
-    ValidationResult(ValidationResult::ResType type, const QString &filename, size_t linenumber, const QString &message);
+    // Use int to allow negative values to indicate if field is valid or not for linenumber and charoffset
+    ValidationResult(ValidationResult::ResType type, const QString &filename, int linenumber, const QString &message);
+    ValidationResult(ValidationResult::ResType type, const QString &filename, int linenumber, int charoffset, const QString &message);
     ~ValidationResult();
 
     ValidationResult::ResType Type();
     QString Filename();
-    size_t LineNumber();
+    int LineNumber();
+    int CharOffset();
     QString Message();
 
 private:
     ValidationResult::ResType m_type;
     QString m_filename;
-    size_t m_linenumber;
+    int m_linenumber;
+    int m_charoffset;
     QString m_message;
 };
 

@@ -33,8 +33,9 @@ class ValidationResult(object):
     TYPE_WARN  = 'warning'
     TYPE_ERROR = 'error'
 
-    def __init__(self, restype, filename, linenumber, message):
+    def __init__(self, restype, filename, linenumber, charoffset, message):
         self.restype = restype
         self.filename = filename
         self.linenumber = linenumber
+        self.charoffset = charoffset
         self.message = message

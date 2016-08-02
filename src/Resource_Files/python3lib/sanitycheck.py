@@ -311,7 +311,7 @@ def perform_sanity_check(apath):
     if has_error:
         for line, col, msg in errlist:
             msg += '.  near column %d' % col
-            res = "%s%s%s%s%d%s%s" % ('error', sep, filename, sep, line, sep, msg)
+            res = "%s%s%s%s%d%s%s%s%s" % ('error', sep, filename, sep, line, sep, -1, sep, msg)
             reslst.append(res)
     return reslst
             
