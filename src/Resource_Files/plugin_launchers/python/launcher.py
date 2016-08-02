@@ -188,7 +188,7 @@ class ProcessScript(object):
                 self.wrapout.append('<modified href="%s" id="%s" media-type="%s" />\n' % (bookhref, id, mime))
         if script_type == 'validation':
             for vres in container.results:
-                self.wrapout.append('<validationresult type="%s" filename="%s" linenumber="%s" message="%s" />\n' % (vres.restype, vres.filename, vres.linenumber, vres.message))
+                self.wrapout.append('<validationresult type="%s" filename="%s" linenumber="%s" charoffset="%s" message="%s" />\n' % (vres.restype, vres.filename, vres.linenumber, vres.charoffset, vres.message))
         self.wrapout.append('</changes>\n')
         self.exitcode = 0
         return
