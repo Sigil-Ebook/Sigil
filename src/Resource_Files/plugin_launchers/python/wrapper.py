@@ -828,11 +828,14 @@ class Wrapper(object):
                 if len(share_override):
                     apaths.append(unipath.abspath(os.path.join(share_override, "hunspell_dictionaries")))
                 else:
+                    # prepend usual places where hunspell dictionaries are located in unix systems
+                    apaths.append(os.path.join(os.sep, 'usr', 'share', 'myspell')
+                    apaths.append(os.path.join(os.sep, 'usr', 'share', 'hunspell')
                     # Otherwise, use Sigil's bundled hunspell dictionary location.
                     apaths.append(unipath.abspath(os.path.join(share_prefix, "share", 'sigil', "hunspell_dictionaries")))
             apaths.append(unipath.abspath(os.path.join(self.usrsupdir,"hunspell_dictionaries")))
         return apaths
-                        
+
     def get_gumbo_path(self):
         if sys.platform.startswith('darwin'):
             lib_dir = unipath.abspath(os.path.join(self.appdir,"..","lib"))
@@ -844,7 +847,7 @@ class Wrapper(object):
             lib_dir = unipath.abspath(self.appdir)
             lib_name = 'libsigilgumbo.so'
         return os.path.join(lib_dir, lib_name)
-            
+
     def get_hunspell_path(self):
         if sys.platform.startswith('darwin'):
             lib_dir = unipath.abspath(os.path.join(self.appdir,"..","lib"))
