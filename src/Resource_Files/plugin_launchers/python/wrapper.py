@@ -646,7 +646,10 @@ class Wrapper(object):
             base = "Video"
         else:
             base = mime_base_map.get(mime,'Misc')
-        href = base + "/" + basename
+        if base == "":
+            href = basename
+        else:
+            href = base + "/" + basename
         return self.href_to_id.get(href,ow)
 
     def map_id_to_href(self, id, ow):
@@ -676,9 +679,10 @@ class Wrapper(object):
         id = unicode_str(book_href)
         if id in self.id_to_href:
             raise WrapperException('Incorrect interface routine - use readfile')
-        # handle special case of trying to read the opf
+        # handle special case of trying to read the opf after it has been modified
         if id is not None and id == "OEBPS/content.opf":
-            return self.build_opf()
+            if id in self.modified:
+                return self.build_opf()
         filepath = self.id_to_filepath.get(id, None)
         if filepath is None:
             raise WrapperException('book href does not exist')
