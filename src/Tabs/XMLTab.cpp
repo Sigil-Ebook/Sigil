@@ -25,9 +25,9 @@
 #include "Tabs/XMLTab.h"
 
 
-XMLTab::XMLTab(XMLResource *resource, int line_to_scroll_to, QWidget *parent)
+XMLTab::XMLTab(XMLResource *resource, int line_to_scroll_to, int position_to_scroll_to, QWidget *parent)
     :
-    TextTab(resource, CodeViewEditor::Highlight_XHTML, line_to_scroll_to, parent),
+    TextTab(resource, CodeViewEditor::Highlight_XHTML, line_to_scroll_to, position_to_scroll_to, parent),
     m_XMLResource(resource),
     m_WellFormedCheckComponent(new WellFormedCheckComponent(this, parent))
 {
@@ -44,6 +44,11 @@ XMLTab::~XMLTab()
 void XMLTab::ScrollToLine(int line)
 {
     TextTab::ScrollToLine(line);
+}
+
+void XMLTab::ScrollToPosition(int cursor_position)
+{
+    TextTab::ScrollToPosition(cursor_position);
 }
 
 

@@ -34,7 +34,7 @@ class OPFTab : public XMLTab
 
 public:
 
-    OPFTab(OPFResource *resource, int line_to_scroll_to = -1, QWidget *parent = 0);
+    OPFTab(OPFResource *resource, int line_to_scroll_to = -1, int position_to_scroll_to = -1, QWidget *parent = 0);
 
     void AutoFixWellFormedErrors();
 

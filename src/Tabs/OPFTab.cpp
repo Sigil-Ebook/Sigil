@@ -22,9 +22,9 @@
 #include "ResourceObjects/OPFResource.h"
 #include "Tabs/OPFTab.h"
 
-OPFTab::OPFTab(OPFResource *resource, int line_to_scroll_to, QWidget *parent)
+OPFTab::OPFTab(OPFResource *resource, int line_to_scroll_to, int position_to_scroll_to, QWidget *parent)
     :
-    XMLTab(resource, line_to_scroll_to, parent),
+    XMLTab(resource, line_to_scroll_to, position_to_scroll_to, parent),
     m_OPFResource(resource)
 {
 }

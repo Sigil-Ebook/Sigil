@@ -38,11 +38,14 @@ public:
 
     XMLTab(XMLResource *resource,
            int line_to_scroll_to = -1,
+           int position_to_scroll_to = -1,
            QWidget *parent = 0);
 
     ~XMLTab();
 
     void ScrollToLine(int line);
+
+    void ScrollToPosition(int cursor_position);
 
     virtual void AutoFixWellFormedErrors();
 

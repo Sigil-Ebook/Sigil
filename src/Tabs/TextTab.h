@@ -41,11 +41,14 @@ public:
     TextTab(TextResource *resource,
             CodeViewEditor::HighlighterType type,
             int line_to_scroll_to = -1,
+            int position_to_scroll_to = -1,
             QWidget *parent = 0);
 
     ~TextTab();
 
     void ScrollToLine(int line);
+
+    void ScrollToPosition(int cursor_position);
 
     // Overrides inherited from ContentTab
     bool IsModified();
@@ -153,6 +156,7 @@ private:
     TextResource *m_TextResource;
 
     int m_LineToScrollTo;
+    int m_PositionToScrollTo;
 
 };
 

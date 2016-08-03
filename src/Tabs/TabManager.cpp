@@ -409,7 +409,11 @@ bool TabManager::SwitchedToExistingTab(const Resource *resource,
         TextTab *text_tab = qobject_cast<TextTab *>(tab);
 
         if (text_tab != NULL) {
-            text_tab->ScrollToLine(line_to_scroll_to);
+            if (position_to_scroll_to > 0) {
+                text_tab->ScrollToPosition(position_to_scroll_to);
+            } else {
+                text_tab->ScrollToLine(line_to_scroll_to);
+            }
             return true;
         }
 
@@ -455,7 +459,7 @@ ContentTab *TabManager::CreateTabForResource(Resource *resource,
         }
 
         case Resource::CSSResourceType: {
-            tab = new CSSTab(qobject_cast<CSSResource *>(resource), line_to_scroll_to, this);
+            tab = new CSSTab(qobject_cast<CSSResource *>(resource), line_to_scroll_to, position_to_scroll_to, this);
             break;
         }
 
@@ -465,32 +469,33 @@ ContentTab *TabManager::CreateTabForResource(Resource *resource,
         }
 
         case Resource::MiscTextResourceType: {
-            tab = new MiscTextTab(qobject_cast<MiscTextResource *>(resource), line_to_scroll_to, this);
+            tab = new MiscTextTab(qobject_cast<MiscTextResource *>(resource), line_to_scroll_to, position_to_scroll_to, this);
             break;
         }
 
         case Resource::SVGResourceType: {
-            tab = new SVGTab(qobject_cast<SVGResource *>(resource), line_to_scroll_to, this);
+            tab = new SVGTab(qobject_cast<SVGResource *>(resource), line_to_scroll_to, position_to_scroll_to, this);
             break;
         }
 
         case Resource::OPFResourceType: {
-            tab = new OPFTab(qobject_cast<OPFResource *>(resource), line_to_scroll_to, this);
+            tab = new OPFTab(qobject_cast<OPFResource *>(resource), line_to_scroll_to, position_to_scroll_to, this);
             break;
         }
 
         case Resource::NCXResourceType: {
-            tab = new NCXTab(qobject_cast<NCXResource *>(resource), line_to_scroll_to, this);
+            tab = new NCXTab(qobject_cast<NCXResource *>(resource), line_to_scroll_to, position_to_scroll_to, this);
             break;
         }
 
         case Resource::XMLResourceType: {
-            tab = new XMLTab(qobject_cast<XMLResource *>(resource), line_to_scroll_to, this);
+            tab = new XMLTab(qobject_cast<XMLResource *>(resource), line_to_scroll_to, position_to_scroll_to, this);
             break;
         }
 
         case Resource::TextResourceType: {
-            tab = new TextTab(qobject_cast<TextResource *>(resource), CodeViewEditor::Highlight_NONE, line_to_scroll_to, this);
+            tab = new TextTab(qobject_cast<TextResource *>(resource), CodeViewEditor::Highlight_NONE, 
+                              line_to_scroll_to, position_to_scroll_to, this);
             break;
         }
 

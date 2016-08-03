@@ -34,7 +34,7 @@ class MiscTextTab : public TextTab
     Q_OBJECT
 
 public:
-    MiscTextTab(MiscTextResource *resource, int line_to_scroll_to = -1, QWidget *parent = 0);
+    MiscTextTab(MiscTextResource *resource, int line_to_scroll_to = -1, int position_to_scroll_to = -1, QWidget *parent = 0);
 };
 
 #endif // MISCTEXTTAB_H

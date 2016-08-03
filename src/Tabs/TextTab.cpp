@@ -31,12 +31,14 @@
 TextTab::TextTab(TextResource *resource,
                  CodeViewEditor::HighlighterType type,
                  int line_to_scroll_to,
+                 int position_to_scroll_to,
                  QWidget *parent)
     :
     ContentTab(resource, parent),
     m_wCodeView(new CodeViewEditor(type, false, this)),
     m_TextResource(resource),
-    m_LineToScrollTo(line_to_scroll_to)
+    m_LineToScrollTo(line_to_scroll_to),
+    m_PositionToScrollTo(position_to_scroll_to)
 {
     m_Layout->addWidget(m_wCodeView);
     setFocusProxy(m_wCodeView);
@@ -63,6 +65,10 @@ void TextTab::ScrollToLine(int line)
     m_wCodeView->ScrollToLine(line);
 }
 
+void TextTab::ScrollToPosition(int cursor_position)
+{
+    m_wCodeView->ScrollToPosition(cursor_position);
+}
 
 bool TextTab::IsModified()
 {
@@ -258,7 +264,11 @@ void TextTab::DelayedInitialization()
 {
     m_wCodeView->CustomSetDocument(m_TextResource->GetTextDocumentForWriting());
     m_wCodeView->Zoom();
-    m_wCodeView->ScrollToLine(m_LineToScrollTo);
+    if (m_PositionToScrollTo > 0) {
+        m_wCodeView->ScrollToPosition(m_PositionToScrollTo);
+    } else {
+        m_wCodeView->ScrollToLine(m_LineToScrollTo);
+    }
 }
 
 
