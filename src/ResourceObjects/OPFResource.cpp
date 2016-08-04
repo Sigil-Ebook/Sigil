@@ -1107,6 +1107,7 @@ void OPFResource::CreateMimetypes()
     m_Mimetypes[ "webm"  ] = "video/webm";
     m_Mimetypes[ "smil"  ] = "application/smil+xml";
     m_Mimetypes[ "pls"   ] = "application/pls+xml";
+    m_Mimetypes[ "xpgt"  ] = "application/adobe-page-template+xml";
     m_Mimetypes[ "js"    ] = "text/javascript";
     // Until the standards gods grace us with font mimetypes,
     // these will have to do

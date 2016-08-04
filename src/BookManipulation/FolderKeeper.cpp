@@ -53,8 +53,8 @@ const QStringList TIFF_EXTENSIONS = QStringList()  << "tif"  << "tiff";
 // through untouched.
 const QRegularExpression FILE_EXCEPTIONS("META-INF");
 
-const QStringList MISC_TEXT_EXTENSIONS = QStringList()  << "txt"  << "js" << "xpgt";
-const QStringList MISC_XML_EXTENSIONS  = QStringList() << "smil";
+const QStringList MISC_TEXT_EXTENSIONS = QStringList()  << "txt"  << "js";
+const QStringList MISC_XML_EXTENSIONS  = QStringList() << "smil" << "xpgt" << "pls";
 const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"   << "otf" << "woff";
 const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html"  << "htm";
 const QStringList STYLE_EXTENSIONS     = QStringList() << "css";
@@ -76,7 +76,8 @@ const QStringList STYLE_MIMETYPES    = QStringList() << "text/css";
 const QStringList AUDIO_MIMETYPES    = QStringList() << "audio/mpeg" << "audio/mp3" << "audio/ogg" << "audio/mp4";
 const QStringList VIDEO_MIMETYPES    = QStringList() << "video/mp4" << "video/ogg" << "video/webm" << 
                                                         "text/vtt" << "application/ttml+xml" ;
-const QStringList MISC_XML_MIMETYPES = QStringList() << "application/oebps-page-map+xml" <<  "application/smil+xml";
+const QStringList MISC_XML_MIMETYPES = QStringList() << "application/oebps-page-map+xml" <<  "application/smil+xml" <<
+                                                        "application/adobe-page-template+xml" << "application/pls+xml";
 
 static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                                      "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
@@ -544,5 +545,6 @@ void FolderKeeper::CreateExtensionToMediaTypeMap()
   m_ExtToMType[ "vtt"   ] = "text/vtt";
   m_ExtToMType[ "webm"  ] = "video/webm";
   m_ExtToMType[ "woff"  ] = "application/font-woff";
+  m_ExtToMType[ "xpgt"  ] = "application/adobe-page-template+xml";
   m_ExtToMType[ "xhtml" ] = "application/xhtml+xml";
 }

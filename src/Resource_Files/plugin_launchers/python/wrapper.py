@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20160802
+_launcher_version=20160804
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
@@ -69,33 +69,35 @@ ext_mime_map = {
                 '.xml'  : 'application/oebs-page-map+xml',
                 '.opf'  : 'application/oebps-package+xml',
                 '.smil' : 'application/smil+xml',
-                '.pls'  : 'application/pls-xml',
+                '.pls'  : 'application/pls+xml',
+                '.xpgt' : 'application/adobe-page-template+xml',
                 '.js'   : 'text/javascript',
                 #'.js'   : 'application/javascript',
                 '.epub' : 'application/epub+zip',
                 }
 
 mime_base_map = {
-                'image/jpeg'                    : 'Images',
-                'image/png'                     : 'Images',
-                'image/gif'                     : 'Images',
-                'image/svg+xml'                 : 'Images',
-                'application/xhtml+xml'         : 'Text',
-                'application/x-font-ttf'        : 'Fonts',
-                'application/x-font-opentype'   : 'Fonts',
-                'application/vnd.ms-opentype'   : 'Fonts',
-                'application/font-woff'         : 'Fonts',
-                'audio/mpeg'                    : 'Audio',
-                'audio/mp3'                     : 'Audio',
-                'audio/mp4'                     : 'Audio',
-                'video/mp4'                     : 'Video',
-                'text/css'                      : 'Styles',
-                'application/x-dtbncx+xml'      : '',
-                'application/oebps-package+xml' : '',
-                'application/oebs-page-map+xml' : 'Misc',
-                'application/smil+xml'          : 'Misc',
-                'text/javascript'               : 'Misc',
-                'application/pls-xml'           : 'Misc',
+                'image/jpeg'                           : 'Images',
+                'image/png'                            : 'Images',
+                'image/gif'                            : 'Images',
+                'image/svg+xml'                        : 'Images',
+                'application/xhtml+xml'                : 'Text',
+                'application/x-font-ttf'               : 'Fonts',
+                'application/x-font-opentype'          : 'Fonts',
+                'application/vnd.ms-opentype'          : 'Fonts',
+                'application/font-woff'                : 'Fonts',
+                'audio/mpeg'                           : 'Audio',
+                'audio/mp3'                            : 'Audio',
+                'audio/mp4'                            : 'Audio',
+                'video/mp4'                            : 'Video',
+                'text/css'                             : 'Styles',
+                'application/x-dtbncx+xml'             : '',
+                'application/oebps-package+xml'        : '',
+                'application/oebs-page-map+xml'        : 'Misc',
+                'application/smil+xml'                 : 'Misc',
+                'application/adobe-page-template+xml'  : 'Misc',
+                'text/javascript'                      : 'Misc',
+                'application/pls+xml'                  : 'Misc',
                 }
 
 
@@ -639,7 +641,7 @@ class Wrapper(object):
         basename = unicode_str(basename)
         ext = os.path.splitext(basename)[1]
         ext = ext.lower()
-        mime = ext_mime_map.get(ext,None)
+        mime = ext_mime_map.get(ext,"")
         if mime.startswith("audio"):
             base = 'Audio'
         elif mime.startswith("video"):
@@ -695,7 +697,7 @@ class Wrapper(object):
         basename = os.path.basename(filepath)
         ext = os.path.splitext(basename)[1]
         ext = ext.lower()
-        mime = ext_mime_map.get(ext,'')
+        mime = ext_mime_map.get(ext,"")
         data = b''
         with open(filepath,'rb') as fp:
             data = fp.read()
