@@ -342,11 +342,16 @@ void SpellCheck::loadDictionaryNames()
         }
     }
     // else use the env var runtime overridden 'share/sigil/hunspell_dictionaries/' location.
-    else if (!sigil_extra_root.isEmpty()) {
-        paths.append(sigil_extra_root + "/hunspell_dictionaries/");
-    } else {
-        // else use the standard build time 'share/sigil/hunspell_dictionaries/'location.
-        paths.append(sigil_share_root + "/hunspell_dictionaries/");
+    else {
+        if (!sigil_extra_root.isEmpty()) {
+            paths.append(sigil_extra_root + "/hunspell_dictionaries/");
+        } else {
+            // prepend the usual places where hunspell dictionaries are located in unix systems
+            paths.append("/usr/share/myspell/");
+            paths.append("/usr/share/hunspell/");
+            // else use the standard build time 'share/sigil/hunspell_dictionaries/'location.
+            paths.append(sigil_share_root + "/hunspell_dictionaries/");
+        }
     }
 #endif
     // Add the user dictionary directory last because anything in here
