@@ -2,7 +2,28 @@ preSigil-0.9.7
    Bug Fixes
     - Allow tags in the svg and mathml namespace to automtically self-close if empty to help work around
          a bug in Kindlegen that will not seem to accept a closing svg image tag even though image is non-void
-    - prevent TextTab from constantly recentering page when focus is lost
+    - Prevent TextTab from constantly recentering page when focus is lost
+    - Fix bugs in plugin basename_to_id when used with xpgt files or any unrecognized extensions
+    - Fix typos in pls mimetype in plugins
+    - Fix code synchronization issues among 3 places where file extensions are mapped to mimetypes
+    - Fix plugin readotherfile interface to rebuild the opf on the fly only if it has been modified
+    - Fix plugin validation issues with integer vs string representations of line number and character offsets
+    - Fix duplicate filename in multiple directories bug when updating CSS urls
+    - Fix bug in page-map.xml mimetype when "Add Existing ..." is used
+
+  New Features
+    - Extend validation plugin interface with add_extended_result() method to allow better cursor positioning
+    - Extend TextTab and  Tabs derived by it to position cursor based on offset
+    - Allow editing of page-map.xml files, xpgt files and other misc xml based files inside Sigil
+    - Update Windows builds use Python 3.5, VS2015
+    - Update Mac OS X builds and build instructions to use Python-3.5.2
+    - Remove support for python2.7 *only* plugins and simply Manage Plugins settings
+    - Update to Qt 5.6.1-1 with QtWebKit added back for release builds for Windows (VS2015)  and Mac OSX
+    - Update Mac OS X and Linux build instruction documentation for recent changes
+    - Allow Linux Dictionaries to look up default paths  for dictionaries passed in by build cmake settings
+    - Mke the columns in the Manage Plugins table be sortable by the user
+    - Better detect undefined and non-existing url fragments to prevent issues when splitting or merging files
+
 
 Sigil-0.9.6
    Bug Fixes
