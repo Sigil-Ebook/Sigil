@@ -334,25 +334,7 @@ void SpellCheck::loadDictionaryNames()
 #elif defined(Q_OS_WIN32)
     paths << QCoreApplication::applicationDirPath() + "/hunspell_dictionaries";
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-    // prefer the directory specified by the env var SIGIL_DICTIONARIES above all else.
-    if (!system_hunspell_dicts.isEmpty()) {
-        // Handle multiple colon-delimited paths
-        foreach (QString s, system_hunspell_dicts.split(":")) {
-            paths << s.trimmed();
-        }
-    }
-    // else use the env var runtime overridden 'share/sigil/hunspell_dictionaries/' location.
-    else {
-        if (!sigil_extra_root.isEmpty()) {
-            paths.append(sigil_extra_root + "/hunspell_dictionaries/");
-        } else {
-            // prepend the usual places where hunspell dictionaries are located in unix systems
-            paths.append("/usr/share/myspell/");
-            paths.append("/usr/share/hunspell/");
-            // else use the standard build time 'share/sigil/hunspell_dictionaries/'location.
-            paths.append(sigil_share_root + "/hunspell_dictionaries/");
-        }
-    }
+    paths << Utility::LinuxHunspellDictionaryDirs();
 #endif
     // Add the user dictionary directory last because anything in here
     // will override installation supplied dictionaries.

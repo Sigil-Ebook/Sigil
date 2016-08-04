@@ -50,6 +50,11 @@ public:
     // Define the user preferences location to be used
     static QString DefinePrefsDir();
 
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+    // Return correct path(s) for Linux hunspell dictionaries
+    static QStringList LinuxHunspellDictionaryDirs();
+#endif
+
     // Uses QUuid to generate a random UUID but also removes
     // the curly braces that QUuid::createUuid() adds
     static QString CreateUUID();
