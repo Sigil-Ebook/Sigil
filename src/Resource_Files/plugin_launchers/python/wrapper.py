@@ -124,6 +124,7 @@ class Wrapper(object):
         # initialize the sigil cofiguration info passed in outdir with sigil.cfg
         self.appdir = None
         self.usrsupdir = None
+        self.linux_hunspell_dict_dirs = []
         self.selected = []
         cfg = ''
         with open(os.path.join(self.outdir, 'sigil.cfg'), 'rb') as f:
@@ -133,6 +134,8 @@ class Wrapper(object):
         if len(cfg_lst) >= 2:
             self.appdir = cfg_lst.pop(0)
             self.usrsupdir = cfg_lst.pop(0)
+            if not sys.platform.startswith('darwin') and not sys.platform.startswith('win'):
+                self.linux_hunspell_dict_dirs = cfg_lst.pop(0).split(":")
             self.selected = cfg_lst
         os.environ['SigilGumboLibPath'] = self.get_gumbo_path()
 
@@ -803,42 +806,11 @@ class Wrapper(object):
             apaths.append(unipath.abspath(os.path.join(self.usrsupdir,"hunspell_dictionaries")))
         else:
             # Linux
-            system_hunspell_dicts = ''
-            share_prefix = ''
-            share_override = ''
-
-            # get the env var SIGIL_DICTIONARIES set at launch time.
-            if 'SIGIL_DICTIONARIES' in os.environ.keys():
-                system_hunspell_dicts = os.environ['SIGIL_DICTIONARIES']
-
-            # Runtime env var override of 'share/sigil' directory.
-            if 'SIGIL_EXTRA_ROOT' in os.environ.keys():
-                share_override = os.environ['SIGIL_EXTRA_ROOT']
-
-            # The sigil launch script in <install_prefix>/bin knows where Sigil's build time
-            # share prefix is and sets the env var SIGIL_SHARE_PREFIX to its value.
-            if 'SIGIL_SHARE_PREFIX' in os.environ.keys():
-                share_prefix = os.environ['SIGIL_SHARE_PREFIX']
-
-            # If someone didn't launch Sigil with its launch script, this may save the
-            # day (as long as the user didn't override SHARE_INSTALL_PREFIX at compile time).
-            if not len(share_prefix) and not len(share_override):
-                share_prefix = unipath.abspath(os.path.join(self.appdir,"..",".."))
-
-            # If the SIGIL_DICTIONARIES env var has content, use it for the dictionary location.
-            if len(system_hunspell_dicts):
-                for path in system_hunspell_dicts.split(':'):
-                    apaths.append(unipath.abspath(path.strip()))
-            else:
-                # If the 'share/sigil' location has indeed been overridden at runtime, use that.
-                if len(share_override):
-                    apaths.append(unipath.abspath(os.path.join(share_override, "hunspell_dictionaries")))
-                else:
-                    # Otherwise, use Sigil's bundled hunspell dictionary location.
-                    apaths.append(unipath.abspath(os.path.join(share_prefix, "share", 'sigil', "hunspell_dictionaries")))
+            for path in self.linux_hunspell_dict_dirs:
+                apaths.append(unipath.abspath(path.strip()))
             apaths.append(unipath.abspath(os.path.join(self.usrsupdir,"hunspell_dictionaries")))
         return apaths
-                        
+
     def get_gumbo_path(self):
         if sys.platform.startswith('darwin'):
             lib_dir = unipath.abspath(os.path.join(self.appdir,"..","lib"))
@@ -850,7 +822,7 @@ class Wrapper(object):
             lib_dir = unipath.abspath(self.appdir)
             lib_name = 'libsigilgumbo.so'
         return os.path.join(lib_dir, lib_name)
-            
+
     def get_hunspell_path(self):
         if sys.platform.startswith('darwin'):
             lib_dir = unipath.abspath(os.path.join(self.appdir,"..","lib"))
@@ -862,4 +834,3 @@ class Wrapper(object):
             lib_dir = unipath.abspath(self.appdir)
             lib_name = 'libhunspell.so'
         return os.path.join(lib_dir, lib_name)
-

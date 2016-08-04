@@ -969,8 +969,15 @@ if( UNIX AND NOT APPLE )
     if ( NOT SHARE_INSTALL_PREFIX )
         set ( SHARE_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX} )
     endif()
+
     set ( SIGIL_SHARE_ROOT "${SHARE_INSTALL_PREFIX}/share/sigil" )
-    set_source_files_properties( sigil_constants.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_SHARE_ROOT="${SIGIL_SHARE_ROOT}" )
+
+    # Set some defines that sigil_constants.cpp can then access
+    set_property (
+        SOURCE sigil_constants.cpp
+        PROPERTY COMPILE_DEFINITIONS
+        SIGIL_SHARE_ROOT="${SIGIL_SHARE_ROOT}" DICTS_ARE_BUNDLED=${INSTALL_BUNDLED_DICTS} EXTRA_DICT_DIRS="${EXTRA_DICT_DIRS}"
+    )
 
     # Launch script for sigil
     set( LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED ${CMAKE_BINARY_DIR}/sigil-sh_install_configured )

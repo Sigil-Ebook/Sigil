@@ -27,10 +27,12 @@ const QString PATH_LIST_DELIM = ":";
 // Runtime env var override of Sigil's 'share/sigil' directory
 const QString sigil_extra_root = QString(getenv("SIGIL_EXTRA_ROOT"));
 // Runtime env var override of hunspell dictionaries directory to use
-const QString system_hunspell_dicts = QString(getenv("SIGIL_DICTIONARIES"));
+const QString hunspell_dicts_override = QString(getenv("SIGIL_DICTIONARIES"));
 // Standard build-time location of Sigil's 'share/sigil' directory. Set in src/CMakeLists.txt with the line:
 // set_source_files_properties( sigil_constants.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_SHARE_ROOT="${SIGIL_SHARE_ROOT}" )
 const QString sigil_share_root = QString(SIGIL_SHARE_ROOT);
+const bool dicts_are_bundled = DICTS_ARE_BUNDLED;
+const QString extra_dict_dirs = QString(EXTRA_DICT_DIRS);
 const QString PYTHON_MAIN_PATH = "/python3/lib/python3.4";
 #if __x86_64__ || __ppc64__
 const QStringList PYTHON_SYS_PATHS = QStringList () << "/plat-x86_64-linux-gnu" << "/plat-linux" << "/lib-dynload" << "/site-packages";
