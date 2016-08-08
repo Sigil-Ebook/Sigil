@@ -1292,6 +1292,7 @@ void MainWindow::CreateIndex()
     // Turn the list of Resources that are really HTMLResources to a real list
     // of HTMLResources.
     QList<Resource *> resources = GetAllHTMLResources();
+    HTMLResource *toc_resource = NULL;
     foreach(Resource * resource, resources) {
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
 
@@ -1299,10 +1300,16 @@ void MainWindow::CreateIndex()
             html_resources.append(html_resource);
 
             // Check if this is an existing index file.
-            if (m_Book->GetOPF()->GetGuideSemanticCodeForResource(html_resource) == "index") {
+            QString guide_semantic = m_Book->GetOPF()->GetGuideSemanticCodeForResource(html_resource);
+
+            if (guide_semantic == "index") {
                 index_resource = html_resource;
             } else if (resource->Filename() == HTML_INDEX_FILE && html_resource == NULL) {
                 index_resource = html_resource;
+            }
+            // determine any epub2 toc resource to skip it when indexing
+            if (guide_semantic == "toc") {
+                toc_resource = html_resource;
             }
         }
     }
@@ -1323,6 +1330,17 @@ void MainWindow::CreateIndex()
 
     // Skip indexing the index page itself
     html_resources.removeOne(index_resource);
+
+    // Skip indexing any epub3 nav document
+    HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
+    if (nav_resource) {
+        html_resources.removeOne(nav_resource);
+    }
+
+    // Skip indexing any epub2 toc document
+    if (toc_resource) {
+        html_resources.removeOne(toc_resource);
+    }
 
     // Scan the book, add ids for any tag containing at least one index entry and store the
     // document index entry at the same time (including custom and from the index editor).
