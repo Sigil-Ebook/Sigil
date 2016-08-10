@@ -89,7 +89,7 @@ static int T1[] = {
 };
 
 #ifndef perfhash_tolower
-#define perfhash_tolower(c) tolower(c)
+#define perfhash_tolower(c) gumbo_tolower(c)
 #endif
 
 static int perfhash(const unsigned char *key, int len)

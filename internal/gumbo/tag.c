@@ -74,7 +74,7 @@ void gumbo_tag_from_original_text(GumboStringPiece* text) {
  * characters and is locale-independent to remain truthy to the
  * standard
  */
-#define tolower(c) gumbo_tolower(c)
+#define perfhash_tolower(c) gumbo_tolower(c)
 #include "tag_perf.h"
 
 static int
