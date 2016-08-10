@@ -261,7 +261,7 @@ items, some check is needed before accessing these tables.
 #if defined COMPILE_PCRE8
 
 typedef unsigned char pcre_uchar;
-#define IN_UCHARS(x) (x)
+#define IN_UCHARS(x) ((pcre_uchar)x)
 #define MAX_255(c) 1
 #define TABLE_GET(c, table, default) ((table)[c])
 
@@ -275,7 +275,7 @@ pcre.h(.in) and disable (comment out) this message. */
 
 typedef pcre_uint16 pcre_uchar;
 #define UCHAR_SHIFT (1)
-#define IN_UCHARS(x) ((x) << UCHAR_SHIFT)
+#define IN_UCHARS(x) ((pcre_uchar)(x) << UCHAR_SHIFT)
 #define MAX_255(c) ((c) <= 255u)
 #define TABLE_GET(c, table, default) (MAX_255(c)? ((table)[c]):(default))
 
@@ -283,7 +283,7 @@ typedef pcre_uint16 pcre_uchar;
 
 typedef pcre_uint32 pcre_uchar;
 #define UCHAR_SHIFT (2)
-#define IN_UCHARS(x) ((x) << UCHAR_SHIFT)
+#define IN_UCHARS(x) ((pcre_uchar)(x) << UCHAR_SHIFT)
 #define MAX_255(c) ((c) <= 255u)
 #define TABLE_GET(c, table, default) (MAX_255(c)? ((table)[c]):(default))
 
