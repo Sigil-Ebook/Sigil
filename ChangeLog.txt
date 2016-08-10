@@ -10,6 +10,7 @@ preSigil-0.9.7
     - Fix plugin validation issues with integer vs string representations of line number and character offsets
     - Fix duplicate filename in multiple directories bug when updating CSS urls
     - Fix bug in page-map.xml mimetype when "Add Existing ..." is used
+    - Fix undefined behaiviour shifting signed negative values in 3rdparty libs and fix many warnings
 
   New Features
     - Extend validation plugin interface with add_extended_result() method to allow better cursor positioning
