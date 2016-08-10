@@ -3,6 +3,10 @@
  * For conditions of distribution and use, see copyright notice in zlib.h
  */
 
+#if defined(Z_HAVE_UNISTD_H) || defined(HAVE_UNISTD_H) || defined(__APPLE__)
+# include <unistd.h>
+#endif
+
 #ifdef _LARGEFILE64_SOURCE
 #  ifndef _LARGEFILE_SOURCE
 #    define _LARGEFILE_SOURCE 1
@@ -35,7 +39,7 @@
 #  include <io.h>
 #endif
 
-#ifdef WINAPI_FAMILY
+#if defined (_WIN32) || defined( WINAPI_FAMILY)
 #  define open _open
 #  define read _read
 #  define write _write

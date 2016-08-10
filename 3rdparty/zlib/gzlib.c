@@ -4,7 +4,7 @@
  */
 
 #include "gzguts.h"
-#include <unistd.h> /* needed for lseek */
+
 #if defined(_WIN32) && !defined(__BORLANDC__)
 #  define LSEEK _lseeki64
 #else
