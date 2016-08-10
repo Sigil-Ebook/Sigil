@@ -131,6 +131,9 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
         case QtDebugMsg:
             fprintf(stderr, "Debug: %s\n", message.toLatin1().constData());
             break;
+        case QtInfoMsg:
+            fprintf(stderr, "Info: %s\n", message.toLatin1().constData());
+            break;
         // TODO: should go to a log
         case QtWarningMsg:
             fprintf(stderr, "Warning: %s\n", message.toLatin1().constData());
