@@ -132,7 +132,7 @@ static void read_char(Utf8Iterator* iter) {
   for (const char* c = iter->_start; c < iter->_end; ++c) {
     decode(&state, &code_point, (uint32_t) (unsigned char) (*c));
     if (state == UTF8_ACCEPT) {
-      iter->_width = c - iter->_start + 1;
+      iter->_width = (int)(c - iter->_start + 1);
       // This is the special handling for carriage returns that is mandated by
       // the HTML5 spec.  Since we're looking for particular 7-bit literal
       // characters, we operate in terms of chars and only need a check for iter
@@ -159,7 +159,7 @@ static void read_char(Utf8Iterator* iter) {
     } else if (state == UTF8_REJECT) {
       // We don't want to consume the invalid continuation byte of a multi-byte
       // run, but we do want to skip past an invalid first byte.
-      iter->_width = c - iter->_start + (c == iter->_start);
+      iter->_width = (int)(c - iter->_start) + (c == iter->_start);
       iter->_current = kUtf8ReplacementChar;
       add_error(iter, GUMBO_ERR_UTF8_INVALID);
       return;
@@ -171,7 +171,7 @@ static void read_char(Utf8Iterator* iter) {
   // enter this method, it will detect that there's no input to consume and
   // output an EOF.
   iter->_current = kUtf8ReplacementChar;
-  iter->_width = iter->_end - iter->_start;
+  iter->_width = (int)(iter->_end - iter->_start);
   add_error(iter, GUMBO_ERR_UTF8_TRUNCATED);
 }
 
