@@ -2464,7 +2464,7 @@ valid_named_ref := |*
 *|;
 }%%
 
-%% write data;
+%% write data noerror nofinal;
 
 static bool consume_named_ref(
     struct GumboInternalParser* parser, Utf8Iterator* input, bool is_in_attribute,
@@ -2481,6 +2481,7 @@ static bool consume_named_ref(
   // Avoid unused variable warnings.
   (void) act;
   (void) ts;
+  (void) char_ref_en_valid_named_ref;
 
   start = p;
   %% write exec;

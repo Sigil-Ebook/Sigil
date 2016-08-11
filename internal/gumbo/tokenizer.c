@@ -535,7 +535,7 @@ static StateResult emit_current_tag(GumboParser* parser, GumboToken* output) {
     // token, but it's still initialized as normal, so it must be manually
     // deallocated.  There may also be attributes to destroy, in certain broken
     // cases like </div</th> (the "th" is an attribute there).
-    for (int i = 0; i < tag_state->_attributes.length; ++i) {
+    for (unsigned int i = 0; i < tag_state->_attributes.length; ++i) {
       gumbo_destroy_attribute(tag_state->_attributes.data[i]);
     }
     gumbo_free(tag_state->_attributes.data);
@@ -558,7 +558,7 @@ static StateResult emit_current_tag(GumboParser* parser, GumboToken* output) {
 // avoid a memory leak.
 static void abandon_current_tag(GumboParser* parser) {
   GumboTagState* tag_state = &parser->_tokenizer_state->_tag_state;
-  for (int i = 0; i < tag_state->_attributes.length; ++i) {
+  for (unsigned int i = 0; i < tag_state->_attributes.length; ++i) {
     gumbo_destroy_attribute(tag_state->_attributes.data[i]);
   }
   gumbo_free(tag_state->_attributes.data);
@@ -778,7 +778,7 @@ static bool finish_attribute_name(GumboParser* parser) {
   assert(tag_state->_attributes.capacity);
 
   GumboVector* /* GumboAttribute* */ attributes = &tag_state->_attributes;
-  for (int i = 0; i < attributes->length; ++i) {
+  for (unsigned int i = 0; i < attributes->length; ++i) {
     GumboAttribute* attr = attributes->data[i];
     if (strlen(attr->name) == tag_state->_buffer.length &&
         memcmp(attr->name, tag_state->_buffer.data,
@@ -2955,7 +2955,7 @@ void gumbo_token_destroy(GumboToken* token) {
       gumbo_free((void*) token->v.doc_type.system_identifier);
       return;
     case GUMBO_TOKEN_START_TAG:
-      for (int i = 0; i < token->v.start_tag.attributes.length; ++i) {
+      for (unsigned int i = 0; i < token->v.start_tag.attributes.length; ++i) {
         GumboAttribute* attr = token->v.start_tag.attributes.data[i];
         if (attr) {
           // May have been nulled out if this token was merged with another.

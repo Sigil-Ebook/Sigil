@@ -27,8 +27,6 @@
 #include "util.h"
 #include "vector.h"
 
-static const size_t kMessageBufferSize = 256;
-
 // Prints a formatted message to a StringBuffer.  This automatically resizes the
 // StringBuffer as necessary to fit the message.  Returns the number of bytes
 // written.
@@ -156,7 +154,7 @@ static const char* find_next_newline(
 
 GumboError* gumbo_add_error(GumboParser* parser) {
   int max_errors = parser->_options->max_errors;
-  if (max_errors >= 0 && parser->_output->errors.length >= (unsigned int)max_errors) {
+  if (max_errors >= 0 && parser->_output->errors.length >= (unsigned int) max_errors) {
     return NULL;
   }
   GumboError* error = gumbo_malloc(sizeof(GumboError));

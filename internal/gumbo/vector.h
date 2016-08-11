@@ -40,7 +40,7 @@ void* gumbo_vector_pop(GumboVector* vector);
 
 // Inserts an element at a specific index.  This is potentially O(N) time, but
 // is necessary for some of the spec's behavior.
-void gumbo_vector_insert_at(void* element, int index, GumboVector* vector);
+void gumbo_vector_insert_at(void* element, unsigned int index, GumboVector* vector);
 
 // Removes an element from the vector, or does nothing if the element is not in
 // the vector.
@@ -48,7 +48,7 @@ void gumbo_vector_remove(const void* element, GumboVector* vector);
 
 // Removes and returns an element at a specific index.  Note that this is
 // potentially O(N) time and should be used sparingly.
-void* gumbo_vector_remove_at(int index, GumboVector* vector);
+void* gumbo_vector_remove_at(unsigned int index, GumboVector* vector);
 
 int gumbo_vector_index_of(GumboVector* vector, const void* element);
 

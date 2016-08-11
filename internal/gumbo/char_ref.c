@@ -13960,8 +13960,6 @@ static const short _char_ref_eof_trans[] = {
 };
 
 static const int char_ref_start = 7623;
-static const int char_ref_first_final = 7623;
-static const int char_ref_error = 0;
 
 static const int char_ref_en_valid_named_ref = 7623;
 
@@ -13992,6 +13990,7 @@ static bool consume_named_ref(
   // Avoid unused variable warnings.
   (void) act;
   (void) ts;
+  (void) char_ref_en_valid_named_ref;
 
   start = p;
   

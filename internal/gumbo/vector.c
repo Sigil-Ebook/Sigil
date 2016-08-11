@@ -71,7 +71,7 @@ void* gumbo_vector_pop(GumboVector* vector) {
 }
 
 int gumbo_vector_index_of(GumboVector* vector, const void* element) {
-  for (int i = 0; i < vector->length; ++i) {
+  for (unsigned int i = 0; i < vector->length; ++i) {
     if (vector->data[i] == element) {
       return i;
     }
@@ -79,7 +79,7 @@ int gumbo_vector_index_of(GumboVector* vector, const void* element) {
   return -1;
 }
 
-void gumbo_vector_insert_at(void* element, int index, GumboVector* vector) {
+void gumbo_vector_insert_at(void* element, unsigned int index, GumboVector* vector) {
   assert(index >= 0);
   assert(index <= vector->length);
   enlarge_vector_if_full(vector, 1);
@@ -108,7 +108,7 @@ void gumbo_vector_remove(const void* node, GumboVector* vector) {
   gumbo_vector_remove_at(index, vector);
 }
 
-void* gumbo_vector_remove_at(int index, GumboVector* vector) {
+void* gumbo_vector_remove_at(unsigned int index, GumboVector* vector) {
   assert(index >= 0);
   assert(index < vector->length);
   void* result = vector->data[index];
