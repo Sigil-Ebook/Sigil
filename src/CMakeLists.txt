@@ -520,18 +520,6 @@ set( LINUX_DESKTOP_ICON_FILE
 set( LINUX_LAUNCH_INSTALL_SCRIPT
     Resource_Files/bash/sigil-sh_install
     )
-    
-set( LINUX_LAUNCH_PKG_SCRIPT
-    Resource_Files/bash/sigil-sh_pkg
-    )
-
-set( LINUX_DEBIAN_CONTROL_FILE
-    Resource_Files/bash/control
-    )
-    
-set( LINUX_RPM_SPEC_FILE
-    Resource_Files/bash/specfile
-    )
 
 if ( NOT DEFINED PKG_SYSTEM_PYTHON )
     if (MSVC)
@@ -543,10 +531,6 @@ endif()
 
 if ( PKG_SYSTEM_PYTHON )
     add_definitions( -DBUNDLING_PYTHON )
-    if ( MSVC )
-        set_source_files_properties(Misc/EmbeddedPython.cpp
-                    PROPERTIES COMPILE_FLAGS "/Zc:wchar_t")
-    endif()
 endif()
 
 # Default will work for building 32bit Sigil on Windows 32bit and
@@ -719,9 +703,7 @@ add_definitions( -DQT_USE_FAST_OPERATOR_PLUS )
 # "Link time code generation" flags for MSVC
 if( MSVC )
     add_definitions( /DUNICODE /D_UNICODE /DHAVE_ROUND )
-    # The /Zc:wchar_t- flag can't go into add_definitions
-    # because the RC compiler picks it up too and it provokes a name clash
-    set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:wchar_t- /MP")
+    set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
     set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Oi /GL" ) 
     set( CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /LTCG" )
 
@@ -781,6 +763,9 @@ if( APPLE )
 # For Linux and Windows, provide binary installers.
 # For this to work on Windows, Inno Setup's iscc compiler needs to be installed and on the system path.
 elseif (MSVC)
+    set_source_files_properties(sigil_constants.cpp PROPERTIES COMPILE_FLAGS "/D_CRT_SECURE_NO_WARNINGS")
+    set_source_files_properties(Misc/EmbeddedPython.cpp PROPERTIES COMPILE_FLAGS "/D_CRT_SECURE_NO_WARNINGS")
+
     query_qmake(QT_INSTALL_LIBS QT_LIBRARY_DIR)
     query_qmake(QT_INSTALL_BINS QT_INSTALL_BINS)
     query_qmake(QT_INSTALL_PLUGINS QT_PLUGINS_DIR)

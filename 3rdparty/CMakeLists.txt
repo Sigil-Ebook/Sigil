@@ -7,7 +7,7 @@ project(3rdparty)
 #       cmake directory.
 
 IF(MSVC)
-    add_definitions( /D_CRT_SECURE_NO_WARNINGS /DUNICODE /D_UNICODE /Zc:wchar_t-  )
+    add_definitions( /D_CRT_SECURE_NO_WARNINGS /DUNICODE /D_UNICODE )
 ENDIF()
 
 if( NOT USE_SYSTEM_LIBS OR NOT ZLIB_FOUND )

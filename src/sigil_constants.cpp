@@ -4,7 +4,7 @@
 
 // Runtime env var override of Sigil's Preferences directory location
 #if _WIN32
-const QString SIGIL_PREFS_DIR = QString::fromUtf16(_wgetenv(L"SIGIL_PREFS_DIR"));
+const QString SIGIL_PREFS_DIR = QString::fromWCharArray(_wgetenv(L"SIGIL_PREFS_DIR"));
 #else
 const QString SIGIL_PREFS_DIR = QString(getenv("SIGIL_PREFS_DIR"));
 #endif

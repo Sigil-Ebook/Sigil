@@ -35,7 +35,7 @@ if( MSVC )
 
     set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
     set( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /Oi /GL" )
-    # set_target_properties( sigilgumbo PROPERTIES STATIC_LIBRARY_FLAGS "/LTCG" )
+    set_target_properties( sigilgumbo PROPERTIES SHARED_LIBRARY_FLAGS "/LTCG" )
 endif()
 
 if( UNIX AND NOT APPLE )
