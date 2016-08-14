@@ -764,7 +764,7 @@ if( APPLE )
 # For this to work on Windows, Inno Setup's iscc compiler needs to be installed and on the system path.
 elseif (MSVC)
     set_source_files_properties(sigil_constants.cpp PROPERTIES COMPILE_FLAGS "/D_CRT_SECURE_NO_WARNINGS")
-    set_source_files_properties(Misc/EmbeddedPython.cpp PROPERTIES COMPILE_FLAGS "/D_CRT_SECURE_NO_WARNINGS")
+    set_source_files_properties(Misc/OpenExternally.cpp PROPERTIES COMPILE_FLAGS "/D_CRT_SECURE_NO_WARNINGS")
 
     query_qmake(QT_INSTALL_LIBS QT_LIBRARY_DIR)
     query_qmake(QT_INSTALL_BINS QT_INSTALL_BINS)
