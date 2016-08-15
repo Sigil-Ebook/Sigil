@@ -173,7 +173,7 @@ void gumbo_insert_node(GumboNode* node, GumboNode* target_parent, int target_ind
     node->index_within_parent = index;
     gumbo_vector_insert_at((void*) node, index, children);
     assert(node->index_within_parent < children->length);
-    for (int i = index + 1; i < children->length; ++i) {
+    for (unsigned int i = index + 1; i < children->length; ++i) {
       GumboNode* sibling = children->data[i];
       sibling->index_within_parent = i;
       assert(sibling->index_within_parent < children->length);
@@ -200,7 +200,7 @@ void gumbo_remove_from_parent(GumboNode* node) {
   gumbo_vector_remove_at(index, children);
   node->parent = NULL;
   node->index_within_parent = -1;
-  for (int i = index; i < children->length; ++i) {
+  for (unsigned int i = index; i < children->length; ++i) {
     GumboNode* child = children->data[i];
     child->index_within_parent = i;
   }
@@ -220,7 +220,7 @@ GumboNode* clone_element_node(const GumboNode* node) {
   gumbo_vector_init(1, &element->children);
   const GumboVector* old_attributes = &node->v.element.attributes;
   gumbo_vector_init(old_attributes->length, &element->attributes);
-  for (int i = 0; i < old_attributes->length; ++i) {
+  for (unsigned int i = 0; i < old_attributes->length; ++i) {
     const GumboAttribute* old_attr = old_attributes->data[i];
     GumboAttribute* attr = gumbo_malloc(sizeof(GumboAttribute));
     *attr = *old_attr;

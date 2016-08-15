@@ -1287,7 +1287,7 @@ static void reconstruct_active_formatting_elements(GumboParser* parser) {
   gumbo_debug("Reconstructing elements from %d on %s parent.\n", i,
               gumbo_normalized_tagname(
                   get_current_node(parser)->v.element.tag));
-  for(; i < elements->length; ++i) {
+  for(; i < (int)elements->length; ++i) {
     // Step 7 & 8.
     assert(elements->length > 0);
     assert(i < elements->length);
@@ -2470,7 +2470,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
       return false;
     }
     bool success = true;
-    for (int i = 0; i < state->_open_elements.length; ++i) {
+    for (unsigned int i = 0; i < state->_open_elements.length; ++i) {
       if (!node_tag_in_set(state->_open_elements.data[i], (gumbo_tagset) {
             TAG(DD), TAG(DT), TAG(LI), TAG(OPTGROUP), TAG(OPTION), TAG(P),
             TAG(RB), TAG(RP), TAG(RT), TAG(RTC), TAG(TBODY), TAG(TD),
