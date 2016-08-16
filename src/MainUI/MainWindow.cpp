@@ -239,6 +239,8 @@ void MainWindow::loadPluginsMenu()
     connect(m_actionPlugin2, SIGNAL(triggered()), this, SLOT(RunPlugin2()));
     connect(m_actionPlugin3, SIGNAL(triggered()), this, SLOT(RunPlugin3()));
 
+    updateToolTipsOnPluginIcons();
+
     QHash<QString, Plugin *> plugins = pdb->all_plugins();
     QStringList keys = plugins.keys();
     keys.sort();
@@ -321,7 +323,6 @@ void MainWindow::runPlugin(QAction *action)
     PluginRunner prunner(m_TabManager, this);
     prunner.exec(pname);
 }
-
 
 void MainWindow::SelectResources(QList<Resource *> resources)
 {
@@ -2656,6 +2657,8 @@ void MainWindow::PreferencesDialog()
         // To ensure any font size changes are immediately applied.
         m_SelectCharacter->show();
     }
+
+    updateToolTipsOnPluginIcons();
 }
 
 
@@ -2679,8 +2682,24 @@ void MainWindow::ManagePluginsDialog()
         // To ensure any font size changes are immediately applied.
         m_SelectCharacter->show();
     }
+
+    updateToolTipsOnPluginIcons();
 }
 
+void MainWindow::updateToolTipsOnPluginIcons()
+{
+    SettingsStore ss;
+    QStringList namemap = ss.pluginMap();
+    QString pname1 = tr("RunPlugin1");
+    QString pname2 = tr("RunPlugin2");
+    QString pname3 = tr("RunPlugin3");
+    if (namemap.count() > 0) pname1 = namemap.at(0);
+    if (namemap.count() > 1) pname2 = namemap.at(1);
+    if (namemap.count() > 2) pname3 = namemap.at(2);
+    m_actionPlugin1->setToolTip(pname1);
+    m_actionPlugin2->setToolTip(pname2);
+    m_actionPlugin3->setToolTip(pname3);
+}
 
 void MainWindow::WellFormedCheckEpub()
 {

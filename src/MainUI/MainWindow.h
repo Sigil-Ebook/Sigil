@@ -653,6 +653,7 @@ private slots:
     void unloadPluginsMenu();
 
 private:
+    void updateToolTipsOnPluginIcons();
     void UpdateClipButton(int clip_number, QAction *ui_action);
     void InsertFiles(const QStringList &selected_images);
     void InsertFilesFromDisk();
