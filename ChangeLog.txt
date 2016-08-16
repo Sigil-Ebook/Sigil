@@ -25,6 +25,7 @@ preSigil-0.9.7
     - Allow Linux Dictionaries to look up default paths  for dictionaries passed in by build cmake settings
     - Mke the columns in the Manage Plugins table be sortable by the user
     - Better detect undefined and non-existing url fragments to prevent issues when splitting or merging files
+    - Make tooltips for Run Plugin Icons show the name of the selected plugin on hover
 
 
 Sigil-0.9.6
