@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20160804
+_launcher_version=20160816
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
@@ -107,6 +107,18 @@ PROTECTED_FILES = [
     'OEBPS/content.opf'
 ]
 
+TEXT_MIMETYPES = [
+                'image/svg+xml',
+                'application/xhtml+xml',
+                'text/css',
+                'application/x-dtbncx+xml',
+                'application/oebps-package+xml',
+                'application/oebs-page-map+xml',
+                'application/smil+xml',
+                'application/adobe-page-template+xml',
+                'text/javascript',
+                'application/pls+xml'
+]
 
 class WrapperException(Exception):
     pass
@@ -505,7 +517,7 @@ class Wrapper(object):
         with open(filepath,'rb') as fp:
             data = fp.read()
         mime = self.id_to_mime.get(id,'')
-        if mime.endswith('+xml'):
+        if mime in TEXT_MIMETYPES:
             data = unicode_str(data)
         return data
 
@@ -521,7 +533,7 @@ class Wrapper(object):
         base = os.path.dirname(filepath)
         if not unipath.exists(base):
             os.makedirs(pathof(base))
-        if mime.endswith('+xml') or isinstance(data, text_type):
+        if mime in TEXT_MIMETYPES or isinstance(data, text_type):
             data = utf8_str(data)
         with open(filepath,'wb') as fp:
             fp.write(data)
@@ -556,7 +568,7 @@ class Wrapper(object):
         base = os.path.dirname(filepath)
         if not unipath.exists(base):
             os.makedirs(base)
-        if mime.endswith('+xml') or isinstance(data, text_type):
+        if mime in TEXT_MIMETYPES or isinstance(data, text_type):
             data = utf8_str(data)
         with open(filepath,'wb') as fp:
             fp.write(data)
@@ -704,7 +716,7 @@ class Wrapper(object):
         data = b''
         with open(filepath,'rb') as fp:
             data = fp.read()
-        if mime.endswith('+xml'):
+        if mime in TEXT_MIMETYPES:
             data = unicode_str(data)
         return data
 
