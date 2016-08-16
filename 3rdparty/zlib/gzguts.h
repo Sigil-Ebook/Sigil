@@ -3,7 +3,7 @@
  * For conditions of distribution and use, see copyright notice in zlib.h
  */
 
-#if defined(Z_HAVE_UNISTD_H) || defined(HAVE_UNISTD_H) || defined(__APPLE__)
+#if defined(Z_HAVE_UNISTD_H) || defined(HAVE_UNISTD_H) || defined(__APPLE__) || defined(__unix__)
 # include <unistd.h>
 #endif
 
