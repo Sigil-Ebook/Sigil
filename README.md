@@ -84,15 +84,17 @@ projects can be found under Sigil/3rdparty unless otherwise indicated.
 Please see their respective folders for complete license information.
 
 Currently these projects include:
-    * Hunspell - http://hunspell.sourceforge.net
-    * MiniZip version 1.1
-    * Perl-compatible Regular Expression Library (pcre)
-    * ZLib Data Compression Library (zlib 1.2.8)
-    * jQuery-1.6.2 (src/Resource_Files/javascript/jquery-1.6.2.min.js)
-    * MathJax.js single file version: (src/Resource_Files/polyfills)
+
+* Hunspell - http://hunspell.sourceforge.net
+* MiniZip version 1.1
+* Perl-compatible Regular Expression Library (pcre)
+* ZLib Data Compression Library (zlib 1.2.8)
+* jQuery-1.6.2 (src/Resource_Files/javascript/jquery-1.6.2.min.js)
+* MathJax.js single file version: (src/Resource_Files/polyfills)
 
 In addtion, Sigil uses the following other packages that have been specifically
-modified for use inside Sigil.
-    * Beautiful Soup 4 (src/Resource_Files/plugin_launchers/sigil_bs4)
-    * Google's Gumbo Parser (internal/gumbo)
+modified for use inside Sigil:
+
+* Beautiful Soup 4 (src/Resource_Files/plugin_launchers/sigil_bs4)
+* Google's Gumbo Parser (internal/gumbo)
 
