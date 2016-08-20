@@ -49,6 +49,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/HTMLSpellCheck.h"
+#include "Misc/QuickSerialHtmlParser.h"
 #include "Misc/Utility.h"
 #include "PCRE/PCRECache.h"
 #include "ViewEditors/CodeViewEditor.h"
@@ -92,10 +93,17 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     m_clipMapper(new QSignalMapper(this)),
     m_MarkedTextStart(-1),
     m_MarkedTextEnd(-1),
-    m_ReplacingInMarkedText(false)
+    m_ReplacingInMarkedText(false),
+    m_QSHParser(nullptr),
+    //DEBUG
+    m_DEBUG(false)
 {
     if (high_type == CodeViewEditor::Highlight_XHTML) {
         m_Highlighter = new XHTMLHighlighter(check_spelling, this);
+        //need this to build language map
+        //cannot use the XHTMLHighlighter instance, alas
+        //so we parse text double - waiting for better idea
+        m_QSHParser = new QuickSerialHtmlParser();
     } else if (high_type == CodeViewEditor::Highlight_CSS) {
         m_Highlighter = new CSSHighlighter(this);
     } else {
@@ -112,13 +120,17 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     setFrameStyle(QFrame::NoFrame);
     // Set the Zoom factor but be sure no signals are set because of this.
     m_CurrentZoomFactor = settings.zoomText();
-    Zoom();
+    Zoom();   
 }
 
 CodeViewEditor::~CodeViewEditor()
 {
     m_ScrollOneLineUp->deleteLater();
     m_ScrollOneLineDown->deleteLater();
+    if(m_QSHParser) {
+        delete m_QSHParser;
+        m_QSHParser=nullptr;
+    }
 }
 
 QSize CodeViewEditor::sizeHint() const
@@ -145,6 +157,7 @@ void CodeViewEditor::CustomSetDocument(QTextDocument &document)
 
     ResetFont();
     m_isLoadFinished = true;
+    updateLangMap();
     emit DocumentSet();
 }
 
@@ -1096,6 +1109,10 @@ void CodeViewEditor::contextMenuEvent(QContextMenuEvent *event)
     if (InViewableImage()) {
         AddViewImageContextMenu(menu);
     }
+    //DEBUG
+    if(m_DEBUG){
+        AddPosInTxtContextMenu(menu);
+    }
 
     menu->exec(event->globalPos());
     delete menu;
@@ -1139,7 +1156,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
         // If a misspelled word is selected try to offer spelling suggestions.
         if (offer_spelling) {
             SpellCheck *sc = SpellCheck::instance();
-            QStringList suggestions = sc->suggest(selected_word);
+            QStringList suggestions = sc->suggestML(selected_word);
             QAction *suggestAction = 0;
 
             // We want to limit the number of suggestions so we don't
@@ -1213,7 +1230,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
 QString CodeViewEditor::GetCurrentWordAtCaret(bool select_word)
 {
     QTextCursor c = textCursor();
-
+    QString lang=m_QSHParser->getLanguage(c.position());
     // See if we are close to or inside of a misspelled word. If so select it.
     if (!c.hasSelection()) {
         // We cannot use QTextCursor::charFormat because the format is not set directly in
@@ -1227,7 +1244,8 @@ QString CodeViewEditor::GetCurrentWordAtCaret(bool select_word)
                     c.setPosition(c.block().position() + r.start);
                     c.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, r.length);
                     setTextCursor(c);
-                    return c.selectedText();
+                    QString lword=(lang.isNull())?c.selectedText():lang+QChar(',')+c.selectedText();
+                    return lword;
                 } else {
                     return toPlainText().mid(c.block().position() + r.start, r.length);
                 }
@@ -1240,7 +1258,8 @@ QString CodeViewEditor::GetCurrentWordAtCaret(bool select_word)
         int selLen = c.selectionEnd() - c.block().position() - selStart;
         foreach(QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
             if (r.start == selStart && selLen == r.length && r.format.underlineStyle() == QTextCharFormat::WaveUnderline/*QTextCharFormat::SpellCheckUnderline*/) {
-                return c.selectedText();
+                QString lword=(lang.isNull())?c.selectedText():lang+QChar(',')+c.selectedText();
+                return lword;
             }
         }
     }
@@ -1799,7 +1818,7 @@ bool CodeViewEditor::MarkForIndex(const QString &title)
 // Overridden so we can emit the FocusGained() signal.
 void CodeViewEditor::focusInEvent(QFocusEvent *event)
 {
-    RehighlightDocument();
+    RehighlightDocument(); //is it really neccesery?
     emit FocusGained(this);
     QPlainTextEdit::focusInEvent(event);
 }
@@ -3538,6 +3557,7 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect(this, SIGNAL(cursorPositionChanged()), this, SLOT(EmitFilteredCursorMoved()));
     connect(this, SIGNAL(textChanged()), this, SIGNAL(PageUpdated()));
     connect(this, SIGNAL(textChanged()), this, SLOT(TextChangedFilter()));
+    connect(this, SIGNAL(textChanged()), this, SLOT(updateLangMap()));
     connect(this, SIGNAL(undoAvailable(bool)), this, SLOT(UpdateUndoAvailable(bool)));
     connect(this, SIGNAL(selectionChanged()), this, SLOT(ResetLastFindMatch()));
     connect(m_ScrollOneLineUp,   SIGNAL(activated()), this, SLOT(ScrollOneLineUp()));
@@ -3547,4 +3567,31 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect(m_addDictMapper, SIGNAL(mapped(const QString &)), this, SLOT(addToUserDictionary(const QString &)));
     connect(m_ignoreSpellingMapper, SIGNAL(mapped(const QString &)), this, SLOT(ignoreWord(const QString &)));
     connect(m_clipMapper, SIGNAL(mapped(const QString &)), this, SLOT(PasteClipEntryFromName(const QString &)));
+}
+
+void CodeViewEditor::updateLangMap(){
+    m_QSHParser->parseText(this->document()->toPlainText());
+}
+
+//DEBUG
+void CodeViewEditor::AddPosInTxtContextMenu(QMenu *menu)
+{
+    QAction *topAction = 0;
+
+    if (!menu->actions().isEmpty()) {
+        topAction = menu->actions().at(0);
+    }
+
+    QString text = tr("Position in Text: ")+QString::number(textCursor().position());
+    QAction *showPosition = new QAction(text, menu);
+
+    if (!topAction) {
+        menu->addAction(showPosition);
+    } else {
+        menu->insertAction(topAction, showPosition);
+    }
+
+    if (topAction) {
+        menu->insertSeparator(topAction);
+    }
 }

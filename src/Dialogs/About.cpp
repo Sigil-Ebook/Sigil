@@ -47,7 +47,7 @@ About::About(QWidget *parent)
                            .arg(mo.captured(1).toInt())
                            .arg(mo.captured(2).toInt())
                            .arg(mo.captured(3).toInt());
-    ui.lbVersionDisplay->setText(version_text);
+    ui.lbVersionDisplay->setText(version_text+" (spellcheck)");
     QString credits = "<h4>" + tr("Maintainer(s)") + "</h4>" +
                       "<ul>" +
                       "<li>Kevin Hendricks</li>" +

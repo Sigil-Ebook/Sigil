@@ -37,6 +37,7 @@
 #include "ui_SpellcheckEditor.h"
 
 class QPoint;
+class SpellCheck;
 
 /**
  * The editor used to create and modify index entries
@@ -60,6 +61,7 @@ signals:
     void SpellingHighlightRefreshRequest();
     void FindWordRequest(QString word);
     void UpdateWordRequest(QString old_word, QString new_word);
+
 
 protected:
     bool eventFilter(QObject *obj, QEvent *ev);
@@ -89,6 +91,18 @@ private slots:
 
     void Sort(int logicalindex, Qt::SortOrder order);
 
+//******varlogs
+    const QString choseDictionary();
+    void loadDictionary();
+    void loadDictionary(const QString lang);
+    void unloadDictionary();
+    void getDictionary();
+    void changeDictionary();
+    void update_cbCAToolTipp(const QString &word);
+    void changeCodeOrAlias(const int row, const int column);
+
+//******varlogs end
+
 private:
     void CreateModel(int logicalindex, Qt::SortOrder order);
     void UpdateDictionaries();
@@ -101,7 +115,7 @@ private:
 
     void SelectRow(int row);
 
-    QList<QStandardItem *> GetSelectedItems();
+    QList<QStandardItem *> GetSelectedItems(const int column);
 
     void ReadSettings();
     void WriteSettings();
@@ -110,6 +124,17 @@ private:
     void SetupContextMenu(const QPoint &point);
 
     void ConnectSignalsSlots();
+
+    //***varlogs
+    void setupMultiLanguageUi();
+    void setupLoadedDicsTable();
+    void populateLoadedDicsTable();
+    const QString getSelectedWordLanguage();
+    QString toCodeName(QString code);
+    QString toDicName(QString code);
+    QAction *m_loadDic;
+    QAction *m_changeDic;
+    //***varlogs end
 
     QAction *m_Ignore;
     QAction *m_Add;
@@ -132,6 +157,10 @@ private:
     QShortcut * m_RefreshSC;
 
     Ui::SpellcheckEditor ui;
+
+    SpellCheck * m_SpellCheck;
+    QList<QVariant> m_bookDCLanguages;
+
 };
 
 #endif // SPELLCHECKEDITOR_H

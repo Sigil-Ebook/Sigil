@@ -86,6 +86,7 @@
 #include "Misc/TempFolder.h"
 #include "Misc/TOCHTMLWriter.h"
 #include "Misc/Utility.h"
+#include "Misc/QuickSerialHtmlParser.h"
 #include "MiscEditors/IndexHTMLWriter.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
@@ -2149,8 +2150,12 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
     QApplication::restoreOverrideCursor();
 }
 
-void MainWindow::FindWord(QString word)
+void MainWindow::FindWord(QString lword)
 {
+    QStringList lw{lword.split(',')};
+    QString lang=lw.first();
+    QString word=lw.last();
+
     SaveTabData();
     SetViewState(MainWindow::ViewState_CodeView);
 
@@ -2206,7 +2211,7 @@ void MainWindow::FindWord(QString word)
         }
         QString text = html_resource->GetText();
 
-        int found_pos = HTMLSpellCheck::WordPosition(text, word, start_pos);
+        int found_pos = HTMLSpellCheck::WordPosition(text, word, lang, start_pos);
         if (found_pos >= 0) {
             if (resource->Filename() != current_html_filename) {
                 OpenResourceAndWaitUntilLoaded(resource, -1, found_pos);
@@ -3591,14 +3596,18 @@ void MainWindow::SetNewBook(QSharedPointer<Book> new_book)
     m_TabManager->CloseOtherTabs();
     m_TabManager->CloseAllTabs(true);
     m_Book = new_book;
+    //main language must be set before m_BookBrowser is called
+    //because it calls in the end QuickSerialHtmlParser
+    SpellCheck *sc = SpellCheck::instance();
+    sc->setMainDCLanguage(m_Book->getBookMainDCLanguageCodes().first().toString());
+    sc->clearIgnoredWords();
     m_BookBrowser->SetBook(m_Book);
     m_TableOfContents->SetBook(m_Book);
     m_ValidationResultsView->SetBook(m_Book);
     m_IndexEditor->SetBook(m_Book);
     m_ClipEditor->SetBook(m_Book);
     m_SpellcheckEditor->SetBook(m_Book);
-    SpellCheck *sc = SpellCheck::instance();
-    sc->clearIgnoredWords();
+
     ResetLinkOrStyleBookmark();
     SettingsStore settings;
     settings.setRenameTemplate("");

@@ -324,6 +324,8 @@ set( MISC_FILES
     Misc/GumboInterface.cpp
     Misc/PythonRoutines.h
     Misc/PythonRoutines.cpp
+    Misc/QuickSerialHtmlParser.h
+    Misc/QuickSerialHtmlParser.cpp
     )
 
 set( MISC_EDITORS_FILES    

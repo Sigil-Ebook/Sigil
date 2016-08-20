@@ -181,6 +181,7 @@ void Language::SetLanguageMap()
          "ka"    << tr("Georgian") <<
          "de"    << tr("German") <<
          "de-AT" << tr("German") + QString(" - ") + tr("Austria") <<
+         "de-BE" << tr("German") + QString(" - ") + tr("Belgium") <<
          "de-DE" << tr("German") + QString(" - ") + tr("Germany") <<
          "de-LI" << tr("German") + QString(" - ") + tr("Liechtenstein") <<
          "de-LU" << tr("German") + QString(" - ") + tr("Luxembourg") <<
@@ -277,6 +278,7 @@ void Language::SetLanguageMap()
          "rm"    << tr("Romansh") <<
          "rn"    << tr("Rundi") <<
          "ru"    << tr("Russian") <<
+         "ru-RU" << tr("Russian") + QString(" - ") + tr("Russia") <<
          "ru-MO" << tr("Russian") + QString(" - ") + tr("Moldova") <<
          "sm"    << tr("Samoan") <<
          "sg"    << tr("Sango") <<

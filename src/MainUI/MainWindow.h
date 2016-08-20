@@ -595,7 +595,7 @@ private slots:
     void ResourceUpdatedFromDisk(Resource *resource);
 
     void UpdateWord(QString old_word, QString new_word);
-    void FindWord(QString word);
+    void FindWord(QString lword);
 
     /**
      * Return a map of stylesheets included/excluded for all given resources

@@ -40,14 +40,18 @@ void WordUpdates::UpdateWordsInOneFile(HTMLResource *html_resource, QString old_
     QWriteLocker locker(&html_resource->GetLock());
     QString text = html_resource->GetText();
     QList<HTMLSpellCheck::MisspelledWord> words = HTMLSpellCheck::GetWords(text);
-
+    QStringList lword=old_word.split(',');
+    QString lang=lword.first();
+    QString w=lword.last();
     // Change in reverse to preserve location information
     for (int i = words.count() - 1; i >= 0; i--) {
         HTMLSpellCheck::MisspelledWord word = words[i];
-        if (word.text != old_word) {
+        if (word.text != w) {
             continue;
         }
+        if(word.language==lang){
         text.replace(word.offset, word.length, new_word);
+        }
     }
     html_resource->SetText(text);
 }
