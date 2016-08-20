@@ -42,6 +42,8 @@
 #include <QWebPage>
 #include <QString>
 #include <QStringList>
+#include <QFont>
+#include <QFontMetrics>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/Index.h"
@@ -4101,8 +4103,15 @@ void MainWindow::PlatformSpecificTweaks()
 #ifndef Q_OS_MAC
     ui.actionClose->setEnabled(false);
     ui.actionClose->setVisible(false);
+    // attempt to grow icons for high dpi displays on Windows and Linux
+    int iconsize = QFontMetrics(QFont()).lineSpacing() * 2;
+    if (iconsize < 22) iconsize = 22;
+    QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();
+    foreach(QToolBar * toolbar, all_toolbars) {
+        toolbar->setIconSize(QSize(iconsize,iconsize));
+    }
 #else
-    // Macs also use bigger icons
+    // Macs also use bigger icons but scale them automatically for high dpi displays
     QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();
     foreach(QToolBar * toolbar, all_toolbars) {
         toolbar->setIconSize(QSize(32, 32));
