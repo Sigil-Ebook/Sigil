@@ -599,19 +599,28 @@ QString SpellCheck::getMainDCLanguage(){
 }
 
 void SpellCheck::setDictionaryAlias(const QString lang, const QString dic){
-    if(m_dicAliasTable.contains(lang)){
-        QString d{codeToAlias(lang)};
-        if(alreadyLoadedDics().contains(d)) unloadDictionary(d);
-        m_dicAliasTable.remove(lang);
-    }
+    removeDictionaryAlias(lang);
     m_dicAliasTable.insert(lang,dic);
 }
+
+void SpellCheck::removeDictionaryAlias(const QString lang){
+    if(m_dicAliasTable.contains(lang)){
+        QString d{codeToAlias(lang)};
+        m_dicAliasTable.remove(lang);
+        //check if some other language uses it
+        if(aliasToCode(d).length()==0){
+            unloadDictionary(d);
+        }
+    }
+}
+
 const QString SpellCheck::codeToAlias(const QString languageCode){
     QString alias{m_dicAliasTable.value(languageCode,QString())};
     QString dic{languageCode};
     dic=(alias.isEmpty())?dic.replace("-","_"):alias;
     return dic;
 }
+
 const QStringList SpellCheck::aliasToCode(const QString dic){
      return m_dicAliasTable.keys(dic);
  }

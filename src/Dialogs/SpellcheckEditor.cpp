@@ -628,12 +628,14 @@ void SpellcheckEditor::populateLoadedDicsTable(){
 void SpellcheckEditor::changeCodeOrAlias(const int row, const int column){
     if(column==0){
         bool ok;
-        QString code{ui.twLoadedDics->item(row,column)->text()};
-        code=QInputDialog::getText(this, tr("Change language code for dictionary"),
-                                   tr("Code:"), QLineEdit::Normal,code,&ok);
+        QString orig_code{ui.twLoadedDics->item(row,column)->text()};
+        QString code = QInputDialog::getText(this, tr("Change language code for dictionary"),
+                                   tr("Code:"), QLineEdit::Normal,orig_code,&ok);
         if(ok && !code.isEmpty()){
             ui.twLoadedDics->item(row,column)->setText(code);
+            m_SpellCheck->removeDictionaryAlias(orig_code);
             m_SpellCheck->setDictionaryAlias(code,ui.twLoadedDics->item(row,1)->text());
+            m_SpellCheck->loadDictionary(code);
             Refresh();
         }
         return;

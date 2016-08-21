@@ -94,6 +94,7 @@ public:
      QString getMainDCLanguage();
 
      void setDictionaryAlias(const QString lang, const QString dic);
+     void removeDictionaryAlias(const QString lang);
      const QString codeToAlias(const QString languageCode);
      const QStringList aliasToCode(const QString dic);
      const bool isLoaded(const QString code);
