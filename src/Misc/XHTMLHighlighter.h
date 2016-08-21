@@ -28,6 +28,8 @@
 
 #include "Misc/SettingsStore.h"
 
+class QuickSerialHtmlParser;
+
 class XHTMLHighlighter : public QSyntaxHighlighter
 {
 
@@ -107,6 +109,10 @@ private:
     bool m_enableSpellCheck;
 
     SettingsStore::CodeViewAppearance m_codeViewAppearance;
+
+    // here QSharedPointer to avoid memory leak (?)
+    // as we don't want to overload ~QSyntaxHighlighter()
+    QSharedPointer<QuickSerialHtmlParser> m_QSHparser;
 };
 
 #endif // XHTMLHIGHLIGHTER_H

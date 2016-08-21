@@ -1303,3 +1303,12 @@ QPair<QString, QStringList> Book::GetOneFileIDs(HTMLResource *html_resource)
     id_pair.second = ids;
     return id_pair;
 }
+//***varlogs
+QList<QVariant> Book::getBookMainDCLanguageCodes()
+{
+   QList<QVariant> clist(GetConstOPF()->GetDCMetadataValues("dc:language"));
+     if(clist.isEmpty()){
+      clist.append("");
+   }
+   return(clist);
+}

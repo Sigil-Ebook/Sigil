@@ -350,7 +350,8 @@ void SpellCheckWidget::readSettings()
     // Load the available dictionary names.
     Language *lang = Language::instance();
     SpellCheck *sc = SpellCheck::instance();
-    QStringList dicts = sc->dictionaries();
+    //QStringList dicts = sc->dictionaries();
+    QStringList dicts = sc->alreadyLoadedDics();
     ui.dictionaries->clear();
     foreach(QString dict, dicts) {
         QString name = lang->GetLanguageName(dict);

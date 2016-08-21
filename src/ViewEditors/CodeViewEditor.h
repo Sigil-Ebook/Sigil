@@ -47,6 +47,7 @@ class LineNumberArea;
 class QSyntaxHighlighter;
 class QContextMenuEvent;
 class QSignalMapper;
+class QuickSerialHtmlParser;
 
 /**
  * A text editor for source code.
@@ -526,6 +527,8 @@ private slots:
     void ReformatHTMLToValidAction();
     void ReformatHTMLToValidAllAction();
 
+    void updateLangMap();
+
 private:
     bool IsMarkedText();
 
@@ -825,6 +828,12 @@ private:
      * Whether spelling highlighting should be reapplied when this tab is next given focus.
      */
     bool m_pendingSpellingHighlighting;
+
+    QuickSerialHtmlParser *m_QSHParser;
+
+    //DEBUG
+    bool m_DEBUG;
+    void AddPosInTxtContextMenu(QMenu *menu);
 };
 
 #endif // CODEVIEWEDITOR_H

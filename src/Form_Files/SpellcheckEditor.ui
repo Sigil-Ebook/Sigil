@@ -51,7 +51,7 @@
       </widget>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0,0,0,0">
+      <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0,0,0,0,0,0,0">
        <item>
         <widget class="QPushButton" name="Ignore">
          <property name="toolTip">
@@ -74,7 +74,7 @@ is restarted or a new book is opened.</string>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>20</height>
+           <height>10</height>
           </size>
          </property>
         </spacer>
@@ -123,7 +123,7 @@ dictionary selected below.</string>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>20</height>
+           <height>10</height>
           </size>
          </property>
         </spacer>
@@ -164,10 +164,63 @@ The selected word does not have to be misspelled.</string>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>40</height>
+           <height>10</height>
           </size>
          </property>
         </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="lLoadedDicts">
+         <property name="text">
+          <string>Loaded Dictionaries:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="twLoadedDics">
+         <property name="mouseTracking">
+          <bool>true</bool>
+         </property>
+         <property name="toolTipDuration">
+          <number>-1</number>
+         </property>
+         <property name="columnCount">
+          <number>0</number>
+         </property>
+         <attribute name="horizontalHeaderCascadingSectionResizes">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="horizontalHeaderDefaultSectionSize">
+          <number>55</number>
+         </attribute>
+         <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+          <bool>false</bool>
+         </attribute>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontal_AddRemove">
+         <item>
+          <widget class="QPushButton" name="pbAddDictionary">
+           <property name="toolTip">
+            <string>Load secondary dictionary.</string>
+           </property>
+           <property name="text">
+            <string>Add</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pbRemoveDictionary">
+           <property name="toolTip">
+            <string>Remove secondary dictionary.</string>
+           </property>
+           <property name="text">
+            <string>Remove</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
@@ -200,10 +253,24 @@ The selected word does not have to be misspelled.</string>
        <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
-         <height>20</height>
+         <height>10</height>
         </size>
        </property>
       </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="lb_wordc">
+       <property name="text">
+        <string>Words (misspelled):</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="le_wordc">
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -228,7 +295,7 @@ Use if you edit any HTML files while Spellcheck is open.</string>
        <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
-         <height>20</height>
+         <height>10</height>
         </size>
        </property>
       </spacer>

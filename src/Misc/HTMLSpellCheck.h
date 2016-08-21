@@ -24,6 +24,7 @@
 #define HTMLSPELLCHECK_H
 
 #include <QtCore/QStringList>
+class QuickSerialHtmlParser;
 
 class HTMLSpellCheck
 {
@@ -32,6 +33,7 @@ public:
 
     struct MisspelledWord {
         QString text;
+        QString language;
         int offset;
         int length;
     };
@@ -43,7 +45,7 @@ public:
             bool first_only = false,
             bool include_all_words = false);
 
-    static QList<MisspelledWord> GetMisspelledWords(const QString &text);
+    static QList<MisspelledWord> GetMisspelledWords(const QString &text, QuickSerialHtmlParser *QSHParser);
 
     static QList<HTMLSpellCheck::MisspelledWord> GetWords(const QString &text);
 
@@ -60,6 +62,7 @@ public:
 
     static QStringList GetAllWords(const QString &text);
 
+
     static MisspelledWord GetFirstMisspelledWord(const QString &text,
             int start_offset,
             int end_offset,
@@ -71,6 +74,17 @@ public:
             const QString &search_regex);
 
     static int WordPosition(QString text, QString word, int start_pos);
+
+ //***varlogs
+    static int WordPosition(QString text, QString word, QString lang, int start_pos);
+    static QList<MisspelledWord> GetMLMisspelledWords(const QString &text,
+            int start_offset,
+            int end_offset,
+            const QString &search_regex,
+            QuickSerialHtmlParser *qshp,
+            bool first_only = false,
+            bool include_all_words = false
+);
 
 private:
 

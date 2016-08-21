@@ -26,15 +26,21 @@
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
 #include <QtCore/QIODevice>
-#include <QtCore/QTextCodec>
+
+#include<QTextCodec>
+
 #include <QtCore/QTextStream>
 #include <QtCore/QUrl>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QInputDialog>
 
 #include "Misc/SpellCheck.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
+#include "BookManipulation/Book.h"
+#include "MainUI/MainWindow.h"
+#include "Misc/Language.h"
 
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 # include <stdlib.h>
@@ -54,7 +60,11 @@ SpellCheck *SpellCheck::instance()
 SpellCheck::SpellCheck() :
     m_hunspell(0),
     m_codec(0),
-    m_wordchars("")
+    m_wordchars(""),
+    m_loadedDics {},
+    m_dicAliasTable {{"en","en_GB"},{"en-UK","en_GB"}},
+    m_mainDCLanguage("")
+
 {
     // There is a considerable lag involved in loading the Spellcheck dictionaries
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -77,8 +87,9 @@ SpellCheck::SpellCheck() :
     }
 
     // Load the dictionary the user has selected if one was saved.
-    SettingsStore settings;
-    setDictionary(settings.dictionary());
+    //SettingsStore settings;
+    //setDictionary(settings.dictionary());
+    //loadDictionary(settings.dictionary());
     QApplication::restoreOverrideCursor();
 }
 
@@ -88,11 +99,15 @@ SpellCheck::~SpellCheck()
         delete m_hunspell;
         m_hunspell = 0;
     }
-
+    for (auto dic : m_loadedDics.keys()){
+       delete m_loadedDics.value(dic).hunspell;
+       m_loadedDics.remove(dic);
+    }
     if (m_instance) {
         delete m_instance;
         m_instance = 0;
     }
+
 }
 
 QStringList SpellCheck::userDictionaries()
@@ -144,7 +159,52 @@ QStringList SpellCheck::suggest(const QString &word)
     m_hunspell->free_list(&suggestedWords, count);
     return suggestions;
 }
+QStringList SpellCheck::suggest(const QString &word, const QString languageCode)
+{
+    HunDictionary hd{m_loadedDics.value(codeToAlias(languageCode))};
 
+    if (!hd.hunspell) {
+        return QStringList();
+    }
+
+    QStringList suggestions;
+
+    char **suggestedWords;
+    int count = hd.hunspell->suggest
+            (&suggestedWords, hd.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
+
+    for (int i = 0; i < count; ++i) {
+        suggestions << hd.codec->toUnicode(suggestedWords[i]);
+    }
+
+    hd.hunspell->free_list(&suggestedWords, count);
+    return suggestions;
+}
+QStringList SpellCheck::suggestML(const QString &lword)
+{
+    QStringList list{lword.split(',')};
+    QString languageCode{list.first()};
+    QString word{list.last()};
+
+    HunDictionary hd{m_loadedDics.value(codeToAlias(languageCode))};
+
+    if (!hd.hunspell) {
+        return QStringList();
+    }
+
+    QStringList suggestions;
+
+    char **suggestedWords;
+    int count = hd.hunspell->suggest
+            (&suggestedWords, hd.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
+
+    for (int i = 0; i < count; ++i) {
+        suggestions << hd.codec->toUnicode(suggestedWords[i]);
+    }
+
+    hd.hunspell->free_list(&suggestedWords, count);
+    return suggestions;
+}
 void SpellCheck::clearIgnoredWords()
 {
     m_ignoredWords.clear();
@@ -158,6 +218,14 @@ void SpellCheck::ignoreWord(const QString &word)
     m_ignoredWords.append(word);
 }
 
+const bool SpellCheck::ignoreWord(const QString &word, const QString &langCode)
+{
+    if(ignoreWordInDictionary(word,langCode)){
+    m_ignoredWords.append(word);
+    return true;
+    }
+    return false;
+}
 void SpellCheck::ignoreWordInDictionary(const QString &word)
 {
     if (!m_hunspell) {
@@ -165,6 +233,19 @@ void SpellCheck::ignoreWordInDictionary(const QString &word)
     }
 
     m_hunspell->add(m_codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
+}
+
+const bool SpellCheck::ignoreWordInDictionary(const QString &word, const QString &langCode)
+{
+    //not time critical so direct struct;
+    HunDictionary hd{m_loadedDics.value(codeToAlias(langCode))};
+
+    if (!hd.hunspell) {
+        return false;
+    }
+
+    hd.hunspell->add(hd.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
+    return true;
 }
 
 void SpellCheck::setDictionary(const QString &name, bool forceReplace)
@@ -233,7 +314,13 @@ QString SpellCheck::getWordChars()
     return m_wordchars;
 }
 
-
+const QString SpellCheck::getWordChars(const QString lang){
+    if(lang.isEmpty()||
+            lang.isNull()||
+            !m_loadedDics.keys().contains(m_dicAliasTable.value(lang)))
+            return QString();
+    return m_loadedDics[m_dicAliasTable.value(lang)].wordchars;
+}
 
 void SpellCheck::reloadDictionary()
 {
@@ -384,3 +471,173 @@ QString SpellCheck::userDictionaryFile(QString dict_name)
     return userDictionaryDirectory() + "/" + dict_name;
 }
 
+//***varlog's multilanguage
+
+bool SpellCheck::spell(const QString word, const QString languageCode)
+{
+
+    QString dic(codeToAlias(languageCode));
+
+    if (m_loadedDics.contains(dic)) {
+            return m_loadedDics[dic].hunspell->
+                    spell(m_loadedDics[dic].codec->
+                          fromUnicode(Utility::getSpellingSafeText(word)).constData()) != 0;
+    }
+    return true;
+}
+
+const QString SpellCheck::findDictionary(const QString languageCode)
+
+{
+    if(languageCode.isEmpty()) return(QString());
+    QStringList dics{dictionaries()};
+    QString dicName{codeToAlias(languageCode)};
+    QStringList ldics;
+
+    if(dics.contains(dicName)) return(dicName);
+    foreach(QString d,dics){
+        if(languageCode==getCode(d) && dics.contains(d)){
+            setDictionaryAlias(languageCode,d);
+            return d;
+        }
+        if(d.contains(dicName)) ldics.append(d);
+    }
+    if(ldics.length()==0){
+        QString msg=QObject::tr("No suitable dictionary for \"")+languageCode+QObject::tr("\" found.");
+        Utility::DisplayStdErrorDialog(msg);
+        return("");
+    }
+    QString c;
+    if(ldics.length()==1){
+        c=ldics.first();
+    }else{
+        c= QInputDialog::getItem(nullptr,
+                                     QObject::tr("Multiple Dictionaries found!"),
+                                     QObject::tr("Chose dictionary for book language:"),ldics,0,false);
+    }
+    //chosing dictionary "ln_WHATEVER" sets this dictionary as alias for "ln"
+    setDictionaryAlias(dicName,c);
+    return (c);
+}
+
+void SpellCheck::loadDictionary(const QString languageCode)
+{
+    //languageCode is ln or ln-LN
+    QString dicName{codeToAlias(languageCode)};
+
+    // See if we are already have a hunspell object for this language.
+    if (m_loadedDics.contains(dicName)) {
+        return;
+    }
+
+    // If we don't have a dictionary we cannot continue.
+    if (dicName.isEmpty() || !m_dictionaries.contains(dicName)) {
+        return;
+    }
+
+    // Dictionary files to use.
+    QString aff = QString("%1%2.aff").arg(m_dictionaries.value(dicName)).arg(dicName);
+    QString dic = QString("%1%2.dic").arg(m_dictionaries.value(dicName)).arg(dicName);
+
+    struct HunDictionary hd;
+    // Create a new hunspell object.
+    hd.hunspell = new Hunspell(aff.toLocal8Bit().constData(), dic.toLocal8Bit().constData());
+
+    // Get the encoding for the text in the dictionary.
+
+    hd.codec =QTextCodec::codecForName(hd.hunspell->get_dic_encoding());
+    if (hd.codec == 0) {
+       hd.codec = QTextCodec::codecForName("UTF-8");
+    }
+
+    // Get the extra wordchars used for tokenization
+    hd.wordchars = hd.codec->toUnicode(hd.hunspell->get_wordchars());
+
+    m_loadedDics.insert(dicName,hd);
+
+    if(!m_dicAliasTable.contains(languageCode)) m_dicAliasTable.insert(getCode(dicName),dicName);
+
+    // Load in the words from the user dictionaries.
+    foreach(QString word, allUserDictionaryWords()) {
+        ignoreWordInDictionary(word);
+    }
+
+    // Reload the words in the "Ignored" dictionary.
+    foreach(QString word, m_ignoredWords) {
+        ignoreWordInDictionary(word);
+    }
+}
+
+void SpellCheck::unloadDictionary(const QString name){
+
+    if(m_loadedDics.contains(name)){
+        delete m_loadedDics.value(name).hunspell;
+        m_loadedDics.remove(name);
+    }
+
+}
+
+const QStringList SpellCheck::alreadyLoadedDics(){
+    return m_loadedDics.keys(); //implicit convertion?
+}
+
+void SpellCheck::setMainDCLanguage(const QString language){
+    //we have new book
+    m_mainDCLanguage=language;
+    //unload previously used dictionaries
+    for(auto dic:m_loadedDics.keys()){
+        QStringList list{aliasToCode(dic)};
+        if(!list.isEmpty()){
+            if(!list.contains(language)) unloadDictionary(dic);
+        }
+    }
+    //load main language dictionary
+    loadDictionary(language);
+}
+QString SpellCheck::getMainDCLanguage(){
+    return m_mainDCLanguage;
+}
+
+void SpellCheck::setDictionaryAlias(const QString lang, const QString dic){
+    removeDictionaryAlias(lang);
+    m_dicAliasTable.insert(lang,dic);
+}
+
+void SpellCheck::removeDictionaryAlias(const QString lang){
+    if(m_dicAliasTable.contains(lang)){
+        QString d{codeToAlias(lang)};
+        m_dicAliasTable.remove(lang);
+        //check if some other language uses it
+        if(aliasToCode(d).length()==0){
+            unloadDictionary(d);
+        }
+    }
+}
+
+const QString SpellCheck::codeToAlias(const QString languageCode){
+    QString alias{m_dicAliasTable.value(languageCode,QString())};
+    QString dic{languageCode};
+    dic=(alias.isEmpty())?dic.replace("-","_"):alias;
+    return dic;
+}
+
+const QStringList SpellCheck::aliasToCode(const QString dic){
+     return m_dicAliasTable.keys(dic);
+ }
+
+const QString SpellCheck::getCode(const QString dicName){
+    QString code{dicName};
+    code=code.replace('_','-');
+    QStringList list{code.split('-')};
+    QString suffix{list.last()};
+    suffix=suffix.toLower();
+    if(suffix==list.first()) return suffix;
+    return code;
+}
+
+const bool SpellCheck::isLoaded(const QString code){
+    QString alias{codeToAlias(code)};
+    QStringList dics{alreadyLoadedDics()};
+    if(dics.contains(alias)) return true;
+    return false;
+}

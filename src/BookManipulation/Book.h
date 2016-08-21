@@ -323,6 +323,9 @@ public:
      */
     static QHash<QString, QStringList> GetIDsInAllFiles(const QList<HTMLResource *> &html_resources);
 
+//***varlogs
+   QList<QVariant> getBookMainDCLanguageCodes();
+
 public slots:
 
     /**

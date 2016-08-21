@@ -25,6 +25,7 @@
 #include "Misc/Utility.h"
 #include "Misc/XHTMLHighlighter.h"
 #include "Misc/HTMLSpellCheck.h"
+#include "Misc/QuickSerialHtmlParser.h"
 #include "Misc/SettingsStore.h"
 
 // All of our regular expressions
@@ -54,8 +55,9 @@ static const QString ENTITY_END             = ";";
 // Constructor
 XHTMLHighlighter::XHTMLHighlighter(bool checkSpelling, QObject *parent)
     : QSyntaxHighlighter(parent),
-      m_checkSpelling(checkSpelling)
-
+      m_checkSpelling(checkSpelling),
+      //XHTMLHighlighter is not allowed to build languageMap
+      m_QSHparser(new QuickSerialHtmlParser(QString(),false,false,true))
 {
     SettingsStore settings;
     m_codeViewAppearance = settings.codeViewAppearance();
@@ -425,7 +427,8 @@ void XHTMLHighlighter::CheckSpelling(const QString &text)
     // at some zoom levels and often doesn't display at all. So we're using wave
     // underline since it's good enough for most people.
     format.setUnderlineStyle(QTextCharFormat::WaveUnderline);
-    QList<HTMLSpellCheck::MisspelledWord> misspelled_words = HTMLSpellCheck::GetMisspelledWords(text);
+    QList<HTMLSpellCheck::MisspelledWord> misspelled_words = HTMLSpellCheck::GetMisspelledWords(text,
+                                                                     m_QSHparser.data());
     foreach(HTMLSpellCheck::MisspelledWord misspelled_word, misspelled_words) {
         setFormat(misspelled_word.offset, misspelled_word.length, format);
     }
