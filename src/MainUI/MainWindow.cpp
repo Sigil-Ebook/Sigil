@@ -4105,7 +4105,7 @@ void MainWindow::PlatformSpecificTweaks()
     ui.actionClose->setVisible(false);
     // attempt to grow icons for high dpi displays on Windows and Linux
     int iconsize = QFontMetrics(QFont()).lineSpacing() * 2;
-    if (iconsize < 22) iconsize = 22;
+    if (iconsize < 24) iconsize = 24;
     QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();
     foreach(QToolBar * toolbar, all_toolbars) {
         toolbar->setIconSize(QSize(iconsize,iconsize));
