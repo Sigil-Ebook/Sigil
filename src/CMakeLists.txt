@@ -804,25 +804,13 @@ elseif (MSVC)
         COMMAND cmake -E echo "For this to work, Inno Setup's iscc compiler needs to be installed and on the system path."
         COMMAND iscc ${ISS_TEMP_LOCATION} )
 
-    # We need to copy the files that will be used to make the installer to
-    # a temporary directory. On the MSVC compiler the PRE_BUILD custom commands
-    # can be added directly, but on other generators we need an intermediate target
-    # since the PRE_BUILD condition is not supported. Using the intermediate for
-    # MSVC makes it unnecessarily recompile that target every time the project is built.
-    # So we use the direct way on MSVC, and the intemediate way for other generators.
-    if( MSVC_IDE )
-        set( TARGET_FOR_COPY makeinstaller )
-        add_dependencies( makeinstaller ${PROJECT_NAME} )
-    else()
-        set( TARGET_FOR_COPY copyfiles )
-        
-        # The intermediate target for copying
-        add_custom_target(  copyfiles
-                            COMMENT "Copying installer files to temporary location..."
-                            DEPENDS ${PROJECT_NAME} )
-                            
-        add_dependencies( makeinstaller copyfiles )
-    endif()
+    # Intermediate step to create folders and copy files
+    set( TARGET_FOR_COPY copyfiles )
+    add_custom_target(  copyfiles
+                        COMMENT "Copying installer files to temporary location..."
+                        DEPENDS ${PROJECT_NAME} )
+
+    add_dependencies( makeinstaller copyfiles )
     
     # Copy ISS file to temp folder location
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD 
@@ -876,11 +864,7 @@ elseif (MSVC)
                         COMMAND cmake -E copy ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/sigilgumbo.dll ${MAIN_PACKAGE_DIR} )
 
     # Set the path of the application executable
-    if( MSVC_IDE )
-        set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
-    else()
-        set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
-    endif()
+    set( EXE_PATH ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
 
     # Copy the application executable
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
