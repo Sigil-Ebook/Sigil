@@ -12,6 +12,7 @@ preSigil-0.9.7
     - Fix bug in page-map.xml mimetype when "Add Existing ..." is used
     - Fix undefined behaiviour shifting signed negative values in 3rdparty libs and fix many warnings
     - Fix text vs binary file type recognition in the plugin interface (CSS and js files are text not binary) 
+    - Fix too small toolbar icons on high dpi displays
 
   New Features
     - Extend validation plugin interface with add_extended_result() method to allow better cursor positioning
@@ -26,6 +27,8 @@ preSigil-0.9.7
     - Mke the columns in the Manage Plugins table be sortable by the user
     - Better detect undefined and non-existing url fragments to prevent issues when splitting or merging files
     - Make tooltips for Run Plugin Icons show the name of the selected plugin on hover
+    - Upgrade from jquery 1.6.2 to version 2.2.4
+    - Upgrade from jquery.scrollTo 1.4.2 to version 2.1.2
 
 
 Sigil-0.9.6
