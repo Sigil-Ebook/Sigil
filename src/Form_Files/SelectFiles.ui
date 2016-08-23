@@ -134,7 +134,7 @@ your book and automatically insert into your document.</string>
           <widget class="QToolButton" name="ThumbnailDecrease">
            <property name="icon">
             <iconset>
-             <normaloff>:/main/list-remove_22px.png</normaloff>:/main/list-remove_22px.png</iconset>
+             <normaloff>:/main/list-remove_48px.png</normaloff>:/main/list-remove_48px.png</iconset>
            </property>
           </widget>
          </item>
@@ -142,7 +142,7 @@ your book and automatically insert into your document.</string>
           <widget class="QToolButton" name="ThumbnailIncrease">
            <property name="icon">
             <iconset>
-             <normaloff>:/main/list-add_22px.png</normaloff>:/main/list-add_22px.png</iconset>
+             <normaloff>:/main/list-add_48px.png</normaloff>:/main/list-add_48px.png</iconset>
            </property>
           </widget>
          </item>

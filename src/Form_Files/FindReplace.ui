@@ -62,12 +62,12 @@
           </property>
           <property name="icon">
            <iconset resource="../Resource_Files/main/main.qrc">
-            <normaloff>:/main/widget-close-16.png</normaloff>:/main/widget-close-16.png</iconset>
+            <normaloff>:/main/widget-close-48.png</normaloff>:/main/widget-close-48.png</iconset>
           </property>
           <property name="iconSize">
            <size>
-            <width>16</width>
-            <height>16</height>
+            <width>24</width>
+            <height>24</height>
            </size>
           </property>
           <property name="autoRaise">
@@ -110,13 +110,13 @@
           </property>
           <property name="icon">
            <iconset resource="../Resource_Files/main/main.qrc">
-            <normaloff>:/main/chevron-down_16px.png</normaloff>:/main/chevron-down_16px.png
+            <normaloff>:/main/chevron-down_48px.png</normaloff>:/main/chevron-down_48px.png
            </iconset>
           </property>
           <property name="iconSize">
            <size>
-            <width>16</width>
-            <height>16</height>
+            <width>24</width>
+            <height>24</height>
            </size>
           </property>
           <property name="autoRaise">
