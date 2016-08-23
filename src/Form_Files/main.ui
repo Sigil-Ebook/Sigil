@@ -1163,7 +1163,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-text-subscript_44px.png</normaloff>:/main/format-text-subscript_44px.png</iconset>
+     <normaloff>:/main/format-text-subscript_48px.png</normaloff>:/main/format-text-subscript_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Subscript</string>
@@ -1180,7 +1180,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-text-superscript_44px.png</normaloff>:/main/format-text-superscript_44px.png</iconset>
+     <normaloff>:/main/format-text-superscript_48px.png</normaloff>:/main/format-text-superscript_48px.png</iconset>
    </property>
    <property name="text">
     <string>Su&amp;perscript</string>
