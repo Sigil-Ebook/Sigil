@@ -2,17 +2,17 @@
 #include <QStringList>
 #include "sigil_constants.h"
 
-// Runtime env var override of Sigil's Preferences directory location
 #if _WIN32
-const QString SIGIL_PREFS_DIR = QString::fromWCharArray(_wgetenv(L"SIGIL_PREFS_DIR"));
-#else
-const QString SIGIL_PREFS_DIR = QString(getenv("SIGIL_PREFS_DIR"));
-#endif
+#include <QProcessEnvironment>
 
-#if _WIN32
+// Windows barks about getenv or _wgetenv. This elicits no warnings and works with unicode paths
+const QString SIGIL_PREFS_DIR = QProcessEnvironment::systemEnvironment().value("SIGIL_PREFS_DIR", "").trimmed();
+
 const QString PATH_LIST_DELIM = ";";
 const QString PYTHON_MAIN_PATH = "/Python3";
 const QStringList PYTHON_SYS_PATHS = QStringList() << "/Lib" << "/DLLs" << "/Lib/site-packages";
+#else
+const QString SIGIL_PREFS_DIR = QString(getenv("SIGIL_PREFS_DIR"));
 #endif
 
 #if __APPLE__

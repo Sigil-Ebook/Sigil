@@ -20,6 +20,9 @@
 *************************************************************************/
 
 #include <QtCore/QProcess>
+#if defined(Q_OS_WIN32)
+#include <QProcessEnvironment>
+#endif
 #include <QtCore/QStandardPaths>
 #include <QtWidgets/QFileDialog>
 
@@ -162,7 +165,8 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
 #if defined(Q_OS_WIN32)
-    static QString LAST_LOCATION(getenv("PROGRAMFILES"));
+    // Windows barks about getenv or _wgetenv. This elicits no warnings and works with unicode paths
+    static QString LAST_LOCATION = QProcessEnvironment::systemEnvironment().value("PROGRAMFILES", "").trimmed();
 #else
     static QString LAST_LOCATION = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
 #endif
