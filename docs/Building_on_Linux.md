@@ -1,6 +1,6 @@
 #<center>Building Sigil on Linux</centers>
 
-If your system's software repositories provide Qt5.4.x or higher and Python 3.4.x or higher, you may be able to compile Sigil using almost entirely repo-provided dependencies. These systems will likely be Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable. If your system qualifies, check out the [Building Sigil on cutting-edge Linux](./Building_Sigil_on_cutting_edge_Linux.md) documentation.
+If your system's software repositories provide Qt5.4.x or higher and Python 3.4.x or higher, you may be able to compile Sigil using almost entirely repo-provided dependencies. These systems will likely be Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable. If your system qualifies, check out the [Building on cutting-edge Linux](./Building_on_cutting_edge_Linux.md) documentation.
 
 Otherwise, continue on ...
 
