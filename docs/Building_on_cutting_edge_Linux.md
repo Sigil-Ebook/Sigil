@@ -1,11 +1,11 @@
 #<center>Building Sigil on Cutting-Edge Linux</center>
 ##<center>Systems like Ubuntu 16.04 (and its derivitives) or newer</center>
 
-If you're looking for instructions on how to build on systems older than Ubuntu 16.04 (systems whose repo version of Qt5 is less than 5.4.2), should look at the [Building_on_Linux](./Building_on_Linux.md) documentation.
+If you're looking for instructions on how to build on systems older than Ubuntu 16.04 (systems whose repo version of Qt5 is less than 5.4.2), you should look at the [Building_on_Linux](./Building_on_Linux.md) documentation.
 
 ##General Overview
 
-The requirements for building Sigil on cutting edge Linux systems like Ubuntu 16.04, Mint 18, Arch Linux, etc.. should be able to be installed almost entirely from your system's software repositories.
+The requirements for building Sigil on cutting edge Linux systems like Ubuntu 16.04, Mint 18, Arch Linux, etc., should be able to be installed almost entirely from your system's software repositories.
 
 To build Sigil on newer Linux systems, you need to get/do the following things:
 
@@ -36,7 +36,7 @@ to get pretty-much everything you need to configure/compile/install C++ projects
 Once again: `sudo apt-get install cmake` will get you what you need on Ubuntu-type systems.
 
 ##<a name="qt5"/>Getting Qt5
-<center>**If your repos don't provide at lease Qt5.4.2, use the [Building_on_Linux](./Building_on_Older_Linux.md) documentation**</center>
+<center>**If your repos don't provide at lease Qt5.4.2, use the [Building_on_Linux](./Building_on_Linux.md) documentation**</center>
 
 To get Sigil's Qt5 requirements, `sudo apt-get install` the following packages:
 
