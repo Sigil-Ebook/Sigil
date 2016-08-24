@@ -71,6 +71,23 @@ And finally to build Sigil itself see:
    docs/Building_Sigil_On_MacOSX.txt
 
 
+For Building on Windows
+========================
+
+Building Sigil on Windows now requires Visual Studio 2015, Python >= 3.5, and Qt >= 5.4.2
+(with QtWebKit addedback in). Qt5.6.1-1 is currently what the Sigil Windows installer packages
+ are built with.
+
+To build a suitable Qt5.6.1 with Visual Studio 2015 (with QtWebKit added back in), see:
+
+> [docs/Building_Qt_for_Sigil_on_Windows.md](./docs/Building_Qt_for_Sigil_on_Windows.md) ([or.html](./docs/Building_Qt_for_Sigil_on_Windows.html))
+
+To build Sigil itself on Windows, see:
+
+> [docs/Building_Sigil_on_Windows.md](./docs/Building_Sigil_on_Windows.md) ([or.html](./docs/Building_Sigil_on_Windows.html))
+
+
+
 License
 =======
 
