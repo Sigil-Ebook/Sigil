@@ -35,9 +35,9 @@ For those who are looking for a shortcut, I'm also going to post links to my pre
 
 **NOTE: My precompiled Qt5.6.1 binaries are built and distributed in agreement with Qt's GPL license requirements. They're tailored specifically for Sigil's needs, and they should only be used to build Sigil or other Open Source, GPL compatible software.**
 
-[64-bit Precompiled (GPL) Qt5.6.1 with QtWebKit](https://drive.google.com/open?id=0BwuQyKLvJUjyTUlMdnRTNmRlMms) ~46-48Mb
+[64-bit Precompiled (GPL) Qt5.6.1 with QtWebKit](http://goo.gl/RTze2A) ~46-48Mb
 
-[32-bit Precompiled (GPL) Qt5.6.1 with QtWebKit](https://drive.google.com/open?id=0BwuQyKLvJUjyR01lZXdfY0p0Vmc) ~40-42Mb
+[32-bit Precompiled (GPL) Qt5.6.1 with QtWebKit](http://goo.gl/oirIxd) ~40-42Mb
 
 Once you have a version of Qt5.6.1-1 (with QtWebKit enabled) built with VS2015 and installed, **make sure its "bin" directory (the one containing "windeployqt.exe) is added to your PATH** ("C:\MyQt64|32\Qt5.6.1\bin" if using my precompiled Qt5.6.1 package, and it was extracted to the root of the C: drive).
 

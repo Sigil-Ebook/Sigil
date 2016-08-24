@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="generator" content="ReText 6.0.1">
-<title>Building Sigil On Windows</title>
+<title>Building_Sigil_on_Windows</title>
 </head>
 <body>
 <h1><center>Building Sigil on Windows</center></h1>
@@ -28,11 +28,11 @@
 <h2><a name="inno"/>Inno Setup</h2>
 <p>Get the unicode version (5.5.9 at the time of this writing) from <a href="http://www.jrsoftware.org/isdl.php">jrsoftware.org</a> make sure you say yes to the Preprocessor option when installing. <strong>Also make sure the Inno Setup directory (the one containing "ISCC.exe") is added to your PATH</strong>. There is no 64-bit version of Inno Setup, but you can still use it to create 64-bit program installers.</p>
 <h2><a name="qt5"/>Qt5.6.1-1</h2>
-<p>Bit of a catch-22 here, unfortunately. Sigil for Windows requires VS2015, so Sigil requires a version of Qt5 built with VS2015. Sigil also needs a version of Qt5 that includes QtWebkit. But there are no precompiled versions of Qt5 with QtWebKit built with VS2015. Which means you need to build a special version of Qt5.6.1-1 with QtWebKit added back in yourself (or get someone else to do it for you and provide you a zip of the binary Qt5 SDK). You'll find a "Building Qt for Sigil on Windows" document in the docs folder which outlines the general procedure for building Qt5.6.1 with QtWebKit enabled yourself.</p>
+<p>Bit of a catch-22 here, unfortunately. Sigil for Windows requires VS2015, so Sigil requires a version of Qt5 built with VS2015. Sigil also needs a version of Qt5 that includes QtWebkit. But there are no precompiled versions of Qt5 with QtWebKit built with VS2015. Which means you need to build a special version of Qt5.6.1-1 with QtWebKit added back in yourself (or get someone else to do it for you and provide you a zip of the binary Qt5 SDK). You'll find a "Building_Qt_for_Sigil_on_Windows" document in the docs folder which outlines the general procedure for building Qt5.6.1 with QtWebKit enabled yourself.</p>
 <p>For those who are looking for a shortcut, I'm also going to post links to my precompiled and stripped down versions of Qt5.6.1-1 that are tailored for building the release versions of Sigil that get distributed with the official Sigil installer packages. These archives are compressed using 7-Zip, so you'll need to <a href="http://www.7-zip.org/">install that</a> to extract them. I recommend extracting them to the root of the C: drive (C:\MyQt64 or C:\MyQt32). They're links to my my Google Drive, so be prepared for slowness and/or unavailability at times.</p>
 <p><strong>NOTE: My precompiled Qt5.6.1 binaries are built and distributed in agreement with Qt's GPL license requirements. They're tailored specifically for Sigil's needs, and they should only be used to build Sigil or other Open Source, GPL compatible software.</strong></p>
-<p><a href="https://drive.google.com/open?id=0BwuQyKLvJUjyTUlMdnRTNmRlMms">64-bit Precompiled (GPL) Qt5.6.1 with QtWebKit</a> ~46-48Mb</p>
-<p><a href="https://drive.google.com/open?id=0BwuQyKLvJUjyR01lZXdfY0p0Vmc">32-bit Precompiled (GPL) Qt5.6.1 with QtWebKit</a> ~40-42Mb</p>
+<p><a href="http://goo.gl/RTze2A">64-bit Precompiled (GPL) Qt5.6.1 with QtWebKit</a> ~46-48Mb</p>
+<p><a href="http://goo.gl/oirIxd">32-bit Precompiled (GPL) Qt5.6.1 with QtWebKit</a> ~40-42Mb</p>
 <p>Once you have a version of Qt5.6.1-1 (with QtWebKit enabled) built with VS2015 and installed, <strong>make sure its "bin" directory (the one containing "windeployqt.exe) is added to your PATH</strong> ("C:\MyQt64|32\Qt5.6.1\bin" if using my precompiled Qt5.6.1 package, and it was extracted to the root of the C: drive).</p>
 <h2><a name="python"/>Getting Python 3.5</h2>
 <p><strong>This is important</strong>. If you're going to be building the 64-bit version of Sigil, you need to install the 64-bit version of Python 3.5. If you're building a 32-bit version of Sigil then you need to install a 32-bit version of Python 3.5.</p>
