@@ -1,4 +1,8 @@
-#<center>Building Sigil on Linux</center>
+#<center>Building Sigil on Linux</centers>
+
+If your system's software repositories provide Qt5.4.x or higher and Python 3.4.x or higher, you may be able to compile Sigil using almost entirely repo-provided dependencies. These systems will likely be Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable. If your system qualifies, check out the [Building Sigil on cutting-edge Linux](./Building_Sigil_on_cutting_edge_Linux.md) documentation.
+
+Otherwise, continue on ...
 
 ##General Overview
 
@@ -6,7 +10,7 @@ To build Sigil on Linux, you need to get/do the following things:
 
 1. [A Linux build-toolchain](#gcc) with a C++11 capable compiler (gcc4.8.x-ish or higher recommended)
 2. [CMake](#cmake) (3.0 or higher)
-3. [Qt5.4.0 - Qt5.5.1](#qt5) (Qt5.4.2 is currently the "official" Sigil Qt5)
+3. [Qt5.4.0 - Qt5.5.1](#qt5)
 4. [Python 3.4](#python) (or higher)
 5. [The Sigil source code](#sigil) (downloaded tarball/zipfile or a git clone)
 6. [Build/Install Sigil](#build)
@@ -34,9 +38,9 @@ at a command prompt to see if your version is sufficient. I've seen some later v
 Once again: `sudo apt-get install cmake` will get you what you need on Debian type systems. If your favorite software repositories can't supply CMake 3.0 or better, you'll need to download the source from [cmake.org](http://www.cmake.org) and build it it yourself. I've done it myself and their instructions are pretty good. You can either build it with an older version of CMake, or there's a boot-strap method if all you have is gcc/make.
 
 ##<a name="qt5"/>Getting Qt5
- <center>***NOTE: No help/support/bug-fixes will be forthcoming for those attempting to build Sigil with anything higher than Qt5.5.1 at this time***</center>
+ <center>***NOTE: Do NOT use any of the official precompiled Qt binaries higher than Qt5.5.1 at this time. 5.6.x and higher are missing a component Sigil needs.***</center>
 
-You can waste a lot of time trying to figure out if you have all the individual Qt5 packages installed that are necessary to build Sigil (which your software repos provide) ... or you can just download the binary installer from the [official Qt website](http://download.qt.io/archive/qt/). Sigil requires Qt5.4.0 - Qt5.5.1, but the "official" Sigil releases are built with Qt5.4.2. Note: the official binary releases of Qt5 are incompatible with Sigil starting with Qt5.6 (a result of QtWebkit being dropped from their installers). Look for the version that's appropriate for your architecture (qt-opensource-linux-***x86***-5.4.x.run or qt-opensource-linux-***x64***-5.4.x.run). Make sure its executable bit is set and launch it with administrative privileges to install it in its default location of /opt/Qt5.4.x (which is what I recommend). Or install it wherever you like--but just note that my command line examples later are going to assume the location of /opt/Qt5.4.x. Adjust accordingly if you choose different location.
+Download a binary installer from the [official Qt website](http://download.qt.io/archive/qt/). Sigil requires Qt5.4.0 - Qt5.5.1. Note: the official binary releases of Qt5 are incompatible with Sigil starting with Qt5.6 (a result of QtWebkit being dropped from their installers). Look for the version that's appropriate for your architecture (qt-opensource-linux-***x86***-5.4.x.run or qt-opensource-linux-***x64***-5.4.x.run). Make sure its executable bit is set and launch it with administrative privileges to install it in its default location of /opt/Qt5.4.x (which is what I recommend). Or install it wherever you like--but just note that my command line examples later are going to assume the location of /opt/Qt5.4.x. Adjust accordingly if you choose different location.
 
 
 ##<a name="python"/>Getting Python 3.4
@@ -82,7 +86,7 @@ You can clone the Sigil Github repository:
 
 >`git clone https://github.com/Sigil-Ebook/Sigil.git`
 
-Or you can download a specific release tarball/zipfile from Sigil's [releases page](https://github.com/Sigil-Ebook/Sigil/releases) on Github.
+Or you can download a specific release tarball/zipfile from Sigil's [releases page](https://github.com/Sigil-Ebook/Sigil/releases/latest) on Github.
 
 I recommend the latter method, as the github repository version might not always be stable at any given moment (even though we try hard not to leave it broken). 
 
@@ -154,7 +158,7 @@ If installing to a non-default and unprivileged prefix, simply:
 will suffice.
 
 
-If you configured with the default install prefix, you can launch by entering "sigil" (no quotes) at a terminal. If you configured to install somewhere else, you may need to create a link to the sigil launch script (`<CMAKE_INSTALL_PREFIX>/bin/sigil`) in a directory that is on your path. There's also a .desktop file in `<SIGIL_SHARE_PREFIX>/share/applications` that you can create a link to on your desktop. Sigil should also appear in your Desktop Environment's menu system (under Office and/or Accessories). You may need to logout in back in for the menu entries to be visible after installing (you can also force your menus to update if you have the xdg-utils package installed by issuing the "xdg-desktop-menu forceupdate" command from a terminal)
+If you configured with the default install prefix, you can launch by entering "sigil" (no quotes) at a terminal. If you configured to install somewhere else, you may need to create a link to the sigil launch script (`<CMAKE_INSTALL_PREFIX>/bin/sigil`) in a directory that is on your path. There's also a .desktop file in `<SIGIL_SHARE_PREFIX>/share/applications` that you can create a link to on your desktop. Sigil should also appear in your Desktop Environment's menu system (under Office and/or Accessories). You may need to logout and back in for the menu entries to be visible after installing (you can also force your menus to update if you have the xdg-utils package installed by issuing the "xdg-desktop-menu forceupdate" command from a terminal)
 
 ##<a name="testing"/>Testing Sigil's Python plugin framework
 
@@ -181,7 +185,7 @@ There are several configuration and environment variable options that can tailor
 
 -DSYSTEM_LIBS_REQUIRED=(0|1) When used in conjunction with -DUSE_SYSTEM_LIBS=1, the Sigil build process will fail if all the necessary libraries can't be located on the system, instead of falling back on the bundled versions (default is 0).
 
--DINSTALL_BUNDLED_DICTS=(0|1) Default is 1. Can be used to enable/disable the installation of the bundled Hunspell dictionaries used for spellchecking. If this is disabled (-DINSTALL_BUNDLED_DICTS=0), then the standard system spell-check dictionary location of /usr/share/hunspell will be searched for eligible dictionaries. If additional system paths need to be searched for dictionaries, they can be added using the -DEXTRA_DICT_DIRS option.
+-DINSTALL_BUNDLED_DICTS=(0|1) Default is 1. Can be used to enable/disable the installation of the bundled Hunspell dictionaries used for spellchecking. If this is disabled (-DINSTALL_BUNDLED_DICTS=0), then the standard system spell-check dictionary location of /usr/share/hunspell will be searched for eligible dictionaries. If additional system paths need to be searched for dictionaries, they can be added using the -DEXTRA_DICT_DIRS option. Setting this to 0 will require that you manually install the language-specific hunspell dictionaries (from your software repos) yourself (e.g. `sudo apt-get install hunspell-en-us`).
 
 -DEXTRA_DICT_DIRS=`<path1>`:`<path2>` Path(s) that should be searched for eligible spellcheck dictionaries (in addition to /usr/share/hunspell). Multiple paths should be separated by colons. This option is only relevant if -DINSTALL_BUNDLED_DICTS=0 is also specified.
 
