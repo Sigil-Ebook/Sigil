@@ -84,7 +84,7 @@ void LanguageWidget::readSettings()
 
     ui.cbMetadataLanguage->setCurrentIndex(index);
     // UI Language
-    index = ui.cbUILanguage->findText(Language::instance()->GetLanguageName(settings.uiLanguage()));
+    index = ui.cbUILanguage->findText(Language::instance()->GetLanguageName(settings.uiLanguage().replace("_", "-")));
 
     if (index == -1) {
         index = ui.cbUILanguage->findText(Language::instance()->GetLanguageName("en"));
