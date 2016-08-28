@@ -1,0 +1,13 @@
+--- parser.c.orig	2016-07-13 09:25:04.312703211 -0400
++++ parser.c	2016-07-13 10:13:34.475133927 -0400
+@@ -7420,6 +7420,10 @@
+ 	}
+ 	if (ent->checked == 0)
+ 	    ent->checked = 2;
++	
++	/* Prevent entity from being parsed and expanded twice (Bug 760367). */
++	was_checked = 0;
++
+     } else if (ent->checked != 1) {
+ 	ctxt->nbentities += ent->checked / 2;
+     }

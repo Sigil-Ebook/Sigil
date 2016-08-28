@@ -61,7 +61,6 @@ endif()
 
 #############################################################################
 
-
 # Qt5 packages minimum version 5.4
 find_package(Qt5 5.4 COMPONENTS Core Network Svg WebKit WebKitWidgets Widgets Xml XmlPatterns Concurrent PrintSupport LinguistTools)
 set(CMAKE_AUTOMOC ON)
@@ -984,6 +983,10 @@ if( UNIX AND NOT APPLE )
         install( PROGRAMS ${HUNSPELL_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/sigil/ )
     endif()
     install( PROGRAMS ${GUMBO_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/sigil/ )
+    if( BUILD_PATCHED_LIBXML2 )
+        install( PROGRAMS ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libsigilxml2.so.2.9.4 DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/sigil/ )
+        install( FILES ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libxml2.so.2 DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/sigil/ )
+    endif()
     install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${SHARE_INSTALL_PREFIX}/share/applications/ )
     install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${SHARE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
     install( FILES ${QM_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/translations/ )

@@ -44,3 +44,7 @@ if (SYSTEM_LIBS_REQUIRED)
         MESSAGE(FATAL_ERROR "Could not find all required system libraries...")
     endif()
 endif()
+
+if( (UNIX AND NOT APPLE) AND BUILD_PATCHED_LIBXML2 )
+      include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/ext_libxml2.cmake)
+endif()
