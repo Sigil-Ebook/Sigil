@@ -231,7 +231,12 @@ void TextTab::SaveTabContent()
     // So I thnk the SaveToDisk should go away along with
     // the need to save and restore the cursor position
     m_TextResource->SaveToDisk();
-    m_wCodeView->ScrollToPosition(cursorPosition, false);
+
+    // Some systems (Linux/Windows) may lose text highlighting when
+    // ScrollToPosition is called unnecessarily. Only reposition
+    // if the cursor has actually moved.
+    int newcursorPosition = m_wCodeView->GetCursorPosition();
+    if (newcursorPosition != cursorPosition) m_wCodeView->ScrollToPosition(cursorPosition, false);
     ContentTab::SaveTabContent();
 }
 
