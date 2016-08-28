@@ -225,11 +225,12 @@ void TextTab::SaveTabContent()
     // back after the SaveToDisk
     int cursorPosition = m_wCodeView->GetCursorPosition();
 
-    // BUT: the call to SaveToDisk here makes no sense to me
-    // A QPlainText is directly tied to TextEdit so nothing
-    // should need be written to actual disk here.
-    // So I thnk the SaveToDisk should go away along with
-    // the need to save and restore the cursor position
+    // The call to SaveToDisk **IS** needed here even though the
+    // QTextEdit is tied directly to the QtQPlainTextDocument.
+    // Webkit is passed in an xhtml file but all supporting files
+    // such as CSS, svg, and etc are only ever read from Disk,
+    // so any time focus is lost and the contents of the TextTab 
+    // have changed, we should save them to disk
     m_TextResource->SaveToDisk();
 
     // Some systems (Linux/Windows) may lose text highlighting when

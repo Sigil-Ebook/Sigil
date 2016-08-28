@@ -558,6 +558,14 @@ void CodeViewEditor::ScrollToTop()
     verticalScrollBar()->setValue(0);
 }
 
+// Note: using
+//     QTextCursor cursor(document()); 
+// instead of:
+//     QTextCursor cursor = textCursor();
+// creates a new text coursor that points to the document top
+// and so loses the state of the current textCursor if one exists
+// and this includes any existing highlighting asscoiated with it
+
 void CodeViewEditor::ScrollToPosition(int cursor_position, bool center_screen)
 {
     if (cursor_position < 0) {
