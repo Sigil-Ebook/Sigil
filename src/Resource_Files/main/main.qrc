@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/main">
         <file>back-to-link-style_22px.png</file>
-        <file>back-to-link-style_44px.png</file>
+        <file>back-to-link-style_48px.png</file>
         <file>chevron-down_16px.png</file>
         <file>chevron-up_16px.png</file>
         <file>document-add_16px.png</file>
@@ -57,25 +57,25 @@
         <file>emblem-favorite_48px.png</file>
         <file>format-case-capitalize_16px.png</file>
         <file>format-case-capitalize_22px.png</file>
-        <file>format-case-capitalize_44px.png</file>
+        <file>format-case-capitalize_48px.png</file>
         <file>format-case-lowercase_16px.png</file>
         <file>format-case-lowercase_22px.png</file>
-        <file>format-case-lowercase_44px.png</file>
+        <file>format-case-lowercase_48px.png</file>
         <file>format-case-titlecase_16px.png</file>
         <file>format-case-titlecase_22px.png</file>
-        <file>format-case-titlecase_44px.png</file>
+        <file>format-case-titlecase_48px.png</file>
         <file>format-case-uppercase_16px.png</file>
         <file>format-case-uppercase_22px.png</file>
-        <file>format-case-uppercase_44px.png</file>
+        <file>format-case-uppercase_48px.png</file>
         <file>format-direction-default_16px.png</file>
         <file>format-direction-default_22px.png</file>
-        <file>format-direction-default_44px.png</file>
+        <file>format-direction-default_48px.png</file>
         <file>format-direction-ltr_16px.png</file>
         <file>format-direction-ltr_22px.png</file>
-        <file>format-direction-ltr_44px.png</file>
+        <file>format-direction-ltr_48px.png</file>
         <file>format-direction-rtl_16px.png</file>
         <file>format-direction-rtl_22px.png</file>
-        <file>format-direction-rtl_44px.png</file>
+        <file>format-direction-rtl_48px.png</file>
         <file>format-indent-less_16px.png</file>
         <file>format-indent-less_22px.png</file>
         <file>format-indent-less_48px.png</file>
@@ -114,46 +114,46 @@
         <file>format-text-underline_48px.png</file>
         <file>generate-toc_16px.png</file>
         <file>generate-toc_22px.png</file>
-        <file>generate-toc_44px.png</file>
+        <file>generate-toc_48px.png</file>
         <file>heading-1_16px.png</file>
         <file>heading-1_22px.png</file>
-        <file>heading-1_44px.png</file>
+        <file>heading-1_48px.png</file>
         <file>heading-2_16px.png</file>
         <file>heading-2_22px.png</file>
-        <file>heading-2_44px.png</file>
+        <file>heading-2_48px.png</file>
         <file>heading-3_16px.png</file>
         <file>heading-3_22px.png</file>
-        <file>heading-3_44px.png</file>
+        <file>heading-3_48px.png</file>
         <file>heading-4_16px.png</file>
         <file>heading-4_22px.png</file>
-        <file>heading-4_44px.png</file>
+        <file>heading-4_48px.png</file>
         <file>heading-5_16px.png</file>
         <file>heading-5_22px.png</file>
-        <file>heading-5_44px.png</file>
+        <file>heading-5_48px.png</file>
         <file>heading-6_16px.png</file>
         <file>heading-6_22px.png</file>
-        <file>heading-6_44px.png</file>
+        <file>heading-6_48px.png</file>
         <file>heading-normal_16px.png</file>
         <file>heading-normal_22px.png</file>
-        <file>heading-normal_44px.png</file>
+        <file>heading-normal_48px.png</file>
         <file>help-browser_16px.png</file>
         <file>help-browser_22px.png</file>
         <file>help-browser_48px.png</file>
         <file>insert-bullet-list_16px.png</file>
         <file>insert-bullet-list_22px.png</file>
-        <file>insert-bullet-list_44px.png</file>
+        <file>insert-bullet-list_48px.png</file>
         <file>insert-hyperlink_22px.png</file>
-        <file>insert-hyperlink_44px.png</file>
+        <file>insert-hyperlink_48px.png</file>
         <file>insert-id_22px.png</file>
-        <file>insert-id_44px.png</file>
+        <file>insert-id_48px.png</file>
         <file>insert-image_16px.png</file>
         <file>insert-image_22px.png</file>
-        <file>insert-image_44px.png</file>
+        <file>insert-image_48px.png</file>
         <file>insert-numbered-list_16px.png</file>
         <file>insert-numbered-list_22px.png</file>
-        <file>insert-numbered-list_44px.png</file>
+        <file>insert-numbered-list_48px.png</file>
         <file>insert-special-character_22px.png</file>
-        <file>insert-special-character_44px.png</file>
+        <file>insert-special-character_48px.png</file>
         <file>list-add_16px.png</file>
         <file>list-add_22px.png</file>
         <file>list-add_48px.png</file>
@@ -162,7 +162,7 @@
         <file>list-remove_48px.png</file>
         <file>metadata-editor_16px.png</file>
         <file>metadata-editor_22px.png</file>
-        <file>metadata-editor_44px.png</file>
+        <file>metadata-editor_48px.png</file>
         <file>plugin_22px_1pips.png</file>
         <file>plugin_22px_2pips.png</file>
         <file>plugin_22px_3pips.png</file>
@@ -174,16 +174,16 @@
         <file>process-stop_48px.png</file>
         <file>split-section_16px.png</file>
         <file>split-section_22px.png</file>
-        <file>split-section_44px.png</file>
+        <file>split-section_48px.png</file>
         <file>view-book_16px.png</file>
         <file>view-book_22px.png</file>
-        <file>view-book_44px.png</file>
+        <file>view-book_48px.png</file>
         <file>view-code_16px.png</file>
         <file>view-code_22px.png</file>
-        <file>view-code_44px.png</file>
+        <file>view-code_48px.png</file>
         <file>view-split_16px.png</file>
         <file>view-split_22px.png</file>
-        <file>view-split_44px.png</file>
+        <file>view-split_48px.png</file>
         <file>widget-close-16.png</file>
         <file>widget-close-22.png</file>
         <file>widget-close-48.png</file>

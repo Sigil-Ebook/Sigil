@@ -939,7 +939,7 @@
   <action name="actionMetaEditor">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/metadata-editor_44px.png</normaloff>:/main/metadata-editor_44px.png</iconset>
+     <normaloff>:/main/metadata-editor_48px.png</normaloff>:/main/metadata-editor_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Metadata Editor...</string>
@@ -956,7 +956,7 @@
   <action name="actionGenerateTOC">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/generate-toc_44px.png</normaloff>:/main/generate-toc_44px.png</iconset>
+     <normaloff>:/main/generate-toc_48px.png</normaloff>:/main/generate-toc_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Generate Table Of Contents...</string>
@@ -986,7 +986,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/view-book_44px.png</normaloff>:/main/view-book_44px.png</iconset>
+     <normaloff>:/main/view-book_48px.png</normaloff>:/main/view-book_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Book View</string>
@@ -1003,7 +1003,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/view-code_44px.png</normaloff>:/main/view-code_44px.png</iconset>
+     <normaloff>:/main/view-code_48px.png</normaloff>:/main/view-code_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Code View</string>
@@ -1028,7 +1028,7 @@
   <action name="actionSplitSection">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/split-section_44px.png</normaloff>:/main/split-section_44px.png</iconset>
+     <normaloff>:/main/split-section_48px.png</normaloff>:/main/split-section_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Split At Cursor</string>
@@ -1045,7 +1045,7 @@
   <action name="actionInsertFile">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/insert-image_44px.png</normaloff>:/main/insert-image_44px.png</iconset>
+     <normaloff>:/main/insert-image_48px.png</normaloff>:/main/insert-image_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;File...</string>
@@ -1064,7 +1064,7 @@
   <action name="actionInsertSpecialCharacter">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/insert-special-character_44px.png</normaloff>:/main/insert-special-character_44px.png</iconset>
+     <normaloff>:/main/insert-special-character_48px.png</normaloff>:/main/insert-special-character_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Special Character...</string>
@@ -1078,7 +1078,7 @@
   <action name="actionInsertId">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/insert-id_44px.png</normaloff>:/main/insert-id_44px.png</iconset>
+     <normaloff>:/main/insert-id_48px.png</normaloff>:/main/insert-id_48px.png</iconset>
    </property>
    <property name="text">
     <string>I&amp;D...</string>
@@ -1092,7 +1092,7 @@
   <action name="actionInsertHyperlink">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/insert-hyperlink_44px.png</normaloff>:/main/insert-hyperlink_44px.png</iconset>
+     <normaloff>:/main/insert-hyperlink_48px.png</normaloff>:/main/insert-hyperlink_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Link...</string>
@@ -1109,7 +1109,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/insert-numbered-list_44px.png</normaloff>:/main/insert-numbered-list_44px.png</iconset>
+     <normaloff>:/main/insert-numbered-list_48px.png</normaloff>:/main/insert-numbered-list_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Numbered List</string>
@@ -1126,7 +1126,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/insert-bullet-list_44px.png</normaloff>:/main/insert-bullet-list_44px.png</iconset>
+     <normaloff>:/main/insert-bullet-list_48px.png</normaloff>:/main/insert-bullet-list_48px.png</iconset>
    </property>
    <property name="text">
     <string>Bulle&amp;ted List</string>
@@ -1324,7 +1324,7 @@
   <action name="actionTextDirectionLTR">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-direction-ltr_44px.png</normaloff>:/main/format-direction-ltr_44px.png</iconset>
+     <normaloff>:/main/format-direction-ltr_48px.png</normaloff>:/main/format-direction-ltr_48px.png</iconset>
    </property>
    <property name="text">
     <string>Te&amp;xt Direction LTR</string>
@@ -1340,7 +1340,7 @@
   <action name="actionTextDirectionRTL">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-direction-rtl_44px.png</normaloff>:/main/format-direction-rtl_44px.png</iconset>
+     <normaloff>:/main/format-direction-rtl_48px.png</normaloff>:/main/format-direction-rtl_48px.png</iconset>
    </property>
    <property name="text">
     <string>T&amp;ext Direction RTL</string>
@@ -1356,7 +1356,7 @@
   <action name="actionTextDirectionDefault">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-direction-default_44px.png</normaloff>:/main/format-direction-default_44px.png</iconset>
+     <normaloff>:/main/format-direction-default_48px.png</normaloff>:/main/format-direction-default_48px.png</iconset>
    </property>
    <property name="text">
     <string>Text Directi&amp;on Default</string>
@@ -1380,7 +1380,7 @@
   <action name="actionCasingLowercase">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-case-lowercase_44px.png</normaloff>:/main/format-case-lowercase_44px.png</iconset>
+     <normaloff>:/main/format-case-lowercase_48px.png</normaloff>:/main/format-case-lowercase_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Lowercase</string>
@@ -1399,7 +1399,7 @@
   <action name="actionCasingUppercase">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-case-uppercase_44px.png</normaloff>:/main/format-case-uppercase_44px.png</iconset>
+     <normaloff>:/main/format-case-uppercase_48px.png</normaloff>:/main/format-case-uppercase_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Uppercase</string>
@@ -1418,7 +1418,7 @@
   <action name="actionCasingTitlecase">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-case-titlecase_44px.png</normaloff>:/main/format-case-titlecase_44px.png</iconset>
+     <normaloff>:/main/format-case-titlecase_48px.png</normaloff>:/main/format-case-titlecase_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Titlecase</string>
@@ -1434,7 +1434,7 @@
   <action name="actionCasingCapitalize">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/format-case-capitalize_44px.png</normaloff>:/main/format-case-capitalize_44px.png</iconset>
+     <normaloff>:/main/format-case-capitalize_48px.png</normaloff>:/main/format-case-capitalize_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Capitalize</string>
@@ -1986,7 +1986,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-1_44px.png</normaloff>:/main/heading-1_43px.png</iconset>
+     <normaloff>:/main/heading-1_48px.png</normaloff>:/main/heading-1_43px.png</iconset>
    </property>
    <property name="text">
     <string>Heading &amp;1</string>
@@ -2006,7 +2006,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-2_44px.png</normaloff>:/main/heading-2_44px.png</iconset>
+     <normaloff>:/main/heading-2_48px.png</normaloff>:/main/heading-2_48px.png</iconset>
    </property>
    <property name="text">
     <string>Heading &amp;2</string>
@@ -2026,7 +2026,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-3_44px.png</normaloff>:/main/heading-3_44px.png</iconset>
+     <normaloff>:/main/heading-3_48px.png</normaloff>:/main/heading-3_48px.png</iconset>
    </property>
    <property name="text">
     <string>Heading &amp;3</string>
@@ -2046,7 +2046,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-4_44px.png</normaloff>:/main/heading-4_44px.png</iconset>
+     <normaloff>:/main/heading-4_48px.png</normaloff>:/main/heading-4_48px.png</iconset>
    </property>
    <property name="text">
     <string>Heading &amp;4</string>
@@ -2066,7 +2066,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-5_44px.png</normaloff>:/main/heading-5_44px.png</iconset>
+     <normaloff>:/main/heading-5_48px.png</normaloff>:/main/heading-5_48px.png</iconset>
    </property>
    <property name="text">
     <string>Heading &amp;5</string>
@@ -2086,7 +2086,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-6_44px.png</normaloff>:/main/heading-6_44px.png</iconset>
+     <normaloff>:/main/heading-6_48px.png</normaloff>:/main/heading-6_48px.png</iconset>
    </property>
    <property name="text">
     <string>Heading &amp;6</string>
@@ -2106,7 +2106,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-normal_44px.png</normaloff>:/main/heading-normal_44px.png</iconset>
+     <normaloff>:/main/heading-normal_48px.png</normaloff>:/main/heading-normal_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Normal</string>
@@ -2245,7 +2245,7 @@
   <action name="actionGoBackFromLinkOrStyle">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/back-to-link-style_44px.png</normaloff>:/main/back-to-link-style_44px.png</iconset>
+     <normaloff>:/main/back-to-link-style_48px.png</normaloff>:/main/back-to-link-style_48px.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Back</string>
