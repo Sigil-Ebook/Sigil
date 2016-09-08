@@ -30,6 +30,7 @@ preSigil-0.9.7
     - Make tooltips for Run Plugin Icons show the name of the selected plugin on hover
     - Upgrade from jquery 1.6.2 to version 2.2.4
     - Upgrade from jquery.scrollTo 1.4.2 to version 2.1.2
+    - Upgrade to double sized 48x48 pixel icons for High DPI displays, Special Thanks to PatNY for creating our icons
 
 
 Sigil-0.9.6
