@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20160816
+_launcher_version=20160909
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
@@ -56,6 +56,7 @@ ext_mime_map = {
                 '.svg'  : 'image/svg+xml',
                 '.xhtml': 'application/xhtml+xml',
                 '.html' : 'application/xhtml+xml',
+                '.htm'  : 'application/xhtml+xml',
                 '.otf'  : 'application/vnd.ms-opentype',
                 #'.otf'  : 'application/x-font-opentype',
                 '.ttf'  : 'application/x-font-ttf',
