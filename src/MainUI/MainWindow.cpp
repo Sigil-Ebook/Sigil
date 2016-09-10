@@ -4104,7 +4104,16 @@ void MainWindow::PlatformSpecificTweaks()
     ui.actionClose->setEnabled(false);
     ui.actionClose->setVisible(false);
     // attempt to grow icons for high dpi displays on Windows and Linux
-    int iconsize = QFontMetrics(QFont()).lineSpacing() * 2;
+    QString envvar = Utility::GetEnvironmentVar("SIGIL_ICON_SCALE_FACTOR");
+    double iconscalefactor = 1.8;
+    if (!envvar.isEmpty()) {
+        bool ok;
+        iconscalefactor = envvar.toDouble(&ok);
+        if (!ok || iconscalefactor > 3 || iconscalefactor < 1) {
+            iconscalefactor = 1.8;
+        }
+    }
+    int iconsize = QFontMetrics(QFont()).lineSpacing() * iconscalefactor;
     if (iconsize < 12) iconsize = 12;
     QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();
     foreach(QToolBar * toolbar, all_toolbars) {
