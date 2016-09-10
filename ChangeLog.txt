@@ -14,6 +14,7 @@ preSigil-0.9.7
     - Fix text vs binary file type recognition in the plugin interface (CSS and js files are text not binary) 
     - Fix too small toolbar icons on high dpi displays
     - Fix bug that caused text highlighting to get lost on some systems when doing a CSS Find & Replace.
+    - Fix bug in plugin interface basename_to_id to recognize .htm extensions
 
   New Features
     - Extend validation plugin interface with add_extended_result() method to allow better cursor positioning
