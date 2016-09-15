@@ -43,7 +43,7 @@ git clone https://github.com/Sigil-Ebook/Sigil.git
 export PATH=${PATH}:${MYQTHOME}/bin
 
 # Make sure the newly created relocatable python framework is found first
-# **before** and system version of Python3
+# **before** any system version of Python3
 
 export PATH=${MYDEST}/Python.framework/Versions/3.5/bin:${PATH}
 
@@ -81,7 +81,7 @@ cmake -DPKG_SYSTEM_PYTHON=1 \
 make
 make addframeworks
 
-# In ${MYSIGILREPO}/build/bin you will find a the newly built Sigil.app
+# In ${MYSIGILREPO}/build/bin you will find the newly built Sigil.app
 
 # To test if the newly bundled python 3 version of Sigil is working properly ypou can do the following:
 

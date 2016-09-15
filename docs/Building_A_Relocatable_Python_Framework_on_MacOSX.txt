@@ -23,7 +23,7 @@
 export MACOSX_DEPLOYMENT_TARGET=10.9
 
 # Pick a location where the relocatable Python framework will be installed
-# stay away from /tmp locations since Mac OS X will auto deelete files older 
+# stay away from /tmp locations since Mac OS X will auto delete files older 
 # than 3 days in /tmp right out from under you
 
 export MYDEST=/Users/${USER}/devtools/Frameworks
