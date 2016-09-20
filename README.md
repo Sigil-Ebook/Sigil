@@ -70,7 +70,8 @@ building Sigil.
 Sigil requires at least Qt 5.4.2, or Qt 5.5.1.  If you use a newer Qt version you must
 add back QtWebkit to the Qt sources and build all of Qt yourself from source, see
 
-> [docs/Building_Qt5_From_Source_with_QtWebKit_Added_Back_on_MacOSX.txt](./docs/Building_Qt5_From_Source_with_QtWebKit_Added_Back_on_MacOSX.txt)
+> [docs/Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt](./docs/Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt)
+
 
 And finally to build Sigil itself see:
 
