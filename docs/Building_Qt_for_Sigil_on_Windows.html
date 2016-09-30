@@ -14,7 +14,7 @@
 <p><a href="http://doc.qt.io/qt-5/windows-requirements.html">This next document</a> discusses some external requirements necessary for building Qt. I <strong>do</strong> recommend building Qt5.6.1 with ICU support enabled, so pay close attention to those details. In order to do so, you'll either need to build ICU yourself (with VS2015) or find some suitable precompiled binaries. I highly recommend the latter. <a href="http://www.npcglib.org/~stathis/blog/precompiled-icu/">The Sigmoid site</a> is fantastic for this. Download a version (I used <a href="http://www.npcglib.org/~stathis/blog/precompiled-icu-past/">ICU v55.1</a> at the time of this writing) built with VS2015 (make sure you get the proper 32/64-bit version to match whatever version of Qt/Sigil you're going to build). The documents tells you what needs to be added to the build environment's LIB and INCLUDE environment variables so ICU support will be compiled into Qt.</p>
 <p>The main things to take away from the requirements document are:</p>
 <ul>
-<li>ICU: download it from sigmoid (for VS2015) and add it's lib and include dirs to the build environment's LIB and INCLUDE variables.</li>
+<li>ICU: download it from sigmoid (for VS2015) and add its lib and include dirs to the build environment's LIB and INCLUDE variables.</li>
 <li>Perl: (I recommend <a href="http://strawberryperl.com/">Strawberry Perl for Windows</a>, myself). Install it and add it to your PATH.</li>
 <li><a href="https://www.python.org/">Python</a>: make sure it can be found on your PATH</li>
 <li>Add the gnuwin32/bin folder of the downloaded/extracted Qt5.6.1-1 source to your PATH.</li>

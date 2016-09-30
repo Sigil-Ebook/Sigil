@@ -47,11 +47,11 @@ Linux Build and Install
 For Linux systems whose software repositories do not provide Qt5.4.0 (or higher), the
 detailed instructions for building/installing Sigil can be found in:
 
-> [docs/Building_on_Linux.md](./docs/Building_on_Linux.md) ([or.html](./docs/Building_on_Linux.html))
+> [docs/Building_on_Linux.md](./docs/Building_on_Linux.md) ([or .html](./docs/Building_on_Linux.html))
 
 For newer Linux systems like Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable, you may be able to compile Sigil using almost entirely repo-provided dependencies. Instructions for doing so can be found in:
 
-> [docs/Building_on_cutting_edge_Linux.md](./docs/Building_on_cutting_edge_Linux.md) ([or.html](./docs/Building_on_cutting_edge_Linux.html))
+> [docs/Building_on_cutting_edge_Linux.md](./docs/Building_on_cutting_edge_Linux.md) ([or .html](./docs/Building_on_cutting_edge_Linux.html))
 
 
 For Building on Mac OS X
@@ -87,11 +87,11 @@ Building Sigil on Windows now requires Visual Studio 2015, Python >= 3.5, and Qt
 
 To build a suitable Qt5.6.1 with Visual Studio 2015 (with QtWebKit added back in), see:
 
-> [docs/Building_Qt_for_Sigil_on_Windows.md](./docs/Building_Qt_for_Sigil_on_Windows.md) ([or.html](./docs/Building_Qt_for_Sigil_on_Windows.html))
+> [docs/Building_Qt_for_Sigil_on_Windows.md](./docs/Building_Qt_for_Sigil_on_Windows.md) ([or .html](./docs/Building_Qt_for_Sigil_on_Windows.html))
 
 To build Sigil itself on Windows, see:
 
-> [docs/Building_Sigil_on_Windows.md](./docs/Building_Sigil_on_Windows.md) ([or.html](./docs/Building_Sigil_on_Windows.html))
+> [docs/Building_Sigil_on_Windows.md](./docs/Building_Sigil_on_Windows.md) ([or .html](./docs/Building_Sigil_on_Windows.html))
 
 
 

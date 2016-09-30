@@ -12,7 +12,7 @@ Here are a some resources for building Qt on Windows that I suggest reading up o
 
 The main things to take away from the requirements document are:
 
-* ICU: download it from sigmoid (for VS2015) and add it's lib and include dirs to the build environment's LIB and INCLUDE variables.
+* ICU: download it from sigmoid (for VS2015) and add its lib and include dirs to the build environment's LIB and INCLUDE variables.
 * Perl: (I recommend [Strawberry Perl for Windows](http://strawberryperl.com/), myself). Install it and add it to your PATH.
 * [Python](https://www.python.org/): make sure it can be found on your PATH
 * Add the gnuwin32/bin folder of the downloaded/extracted Qt5.6.1-1 source to your PATH.

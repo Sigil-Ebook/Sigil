@@ -147,6 +147,8 @@ Install any missing Python modules with your system's package management system 
 
 There are several configuration and environment variable options that can tailor how Sigil is built and/or run. I've talked about a few of the cmake options already, but I'll mention them here again along with the rest--with a brief explanation of their purposes.
 
+### CMake options
+
 -DCMAKE_INSTALL_PREFIX=`<path>` Configures the prefix where Sigil will be installed to (default is /usr/local)
 
 -DSHARE_INSTALL_PREFIX=`<path>` Configures the prefix where Sigil's support files will be installed to (default is /usr/local meaning the support files will be installed in /usr/local/share/sigil)
@@ -167,6 +169,10 @@ The following three cmake options are used to manually specify which Python3 you
 
 -DPYTHON_EXECUTABLE=`<the path to the python3.x interpreter>`
 
+-DBUILD_PATCHED_LIBXML2=(0|1) Some newer versions of libxml2 have a bug that causes QtWebKit to render html entities twice. Adding -DBUILD_PATCHED_LIBXML2=1 to the cmake command will clone the libxml2 git repo, checkout a specific commit, patch the source, build it and install it alongside Sigil (does not affect the system version of libxml2). Requires git, libtool, autoconf and automake packages to be installed (as well as a working internet connection). Cmake should notify of any missing programs needed. The default is to NOT build the patched version of libxml2 (-DBUILD_PATCHED_LIBXML2=0).
+
+### Environment Variables
+
 The following are environment variables that can be set at runtime to affect how Sigil is run after building/installing. They are commonly set by manually editing Sigil's launch script (`<CMAKE_INSTALL_PREFIX>`/bin/sigil).
 
 SIGIL_PREFS_DIR - Changes where sigil looks for and updates its user preference data. Needs to specify a full path in a directory where the user has write privileges.
@@ -174,5 +180,7 @@ SIGIL_PREFS_DIR - Changes where sigil looks for and updates its user preference 
 SIGIL_EXTRA_ROOT - Handy for relocating the Sigil support files. For instance you can move the `<CMAKE_SHARE_PREFIX>/share/sigil` directory anywhere you like. You just have to set SIGIL_EXTRA_ROOT to the path where you moved `<CMAKE_SHARE_PREFIX>/share/sigil` to.
 
 SIGIL_DICTIONARIES - Used to tell Sigil what directories are to be searched for Hunspell dictionary files. Multiple directories can be specified by separating the paths with a colon. i.e. SIGIL_DICTIONARIES="/usr/share/hunspell" or SIGIL_DICTIONARIES="/usr/share/hunspell:/usr/share/hunspellextra" Setting this variable at run time will override all compile-time dictionary search paths (except for any user-supplied dictionaries manually added to their preference directory's hunspell_dictionary location).
+
+SIGIL_ICON_SCALE_FACTOR - Valid values: 1.0 to 3.0. The default value (with no variable set) is 1.8. Sigil scales its menu icons based on font-size. This can sometimes result in icons being a bit too large (or too small) depending on the system Qt theme. Use this variable to tweak the icon size if deemed necessary.
 
 The Sigil launch script also sets a SIGIL_SHARE_PREFIX environment variable, but it is automatically set to be the same as the cmake SHARE_INSTALL_PREFIX build-time option. It would be unwise to change this environment variable. Use the SIGIL_EXTRA_ROOT environment variable instead, if you need to alter the location of Sigil's support files after building Sigil.
