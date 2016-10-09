@@ -22,7 +22,7 @@
 #pragma once
 #ifndef SPELLCHECK_H
 #define SPELLCHECK_H
-
+#include <memory>
 #include <QtCore/QHash>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
@@ -87,21 +87,25 @@ public:
      * varlog's multilanguage;
      */
      const QString findDictionary(const QString languageCode);
-     void loadDictionary(const QString languageCode);
+     void loadDictionaryForLang(const QString languageCode);
      void unloadDictionary(const QString name);
      const QStringList alreadyLoadedDics();
-     void setMainDCLanguage(const QString language);
+     void setDCLanguages(const QList<QVariant> dclangs);
      QString getMainDCLanguage();
-
-     void setDictionaryAlias(const QString lang, const QString dic);
-     void removeDictionaryAlias(const QString lang);
      const QString codeToAlias(const QString languageCode);
      const QStringList aliasToCode(const QString dic);
      const bool isLoaded(const QString code);
-
+     void setDictionaryAlias(const QString lang, const QString dic);
+     void removeDictionaryAlias(const QString lang);
+     void WriteSettings();
      bool spell(const QString word, const QString languageCode);
 private:
+     void loadDictionary(const QString dicName);
+     void ReadSettings();
+     void setUpSpellCheck();
      const QString getCode(const QString dicName);
+     void setUpNewBook();
+
      //end varlog
 
 private:
@@ -115,12 +119,13 @@ private:
     QHash<QString, QString> m_dictionaries;
     QStringList m_ignoredWords;
 
-    static SpellCheck *m_instance;
+    static std::unique_ptr<SpellCheck> m_instance;
 
     QMap<QString,HunDictionary> m_loadedDics;
     QMap<QString,QString> m_dicAliasTable;
+    QStringList m_DCLanguages;
     QString m_mainDCLanguage;
-
+    QStringList m_lastSessionDics;
 
 };
 

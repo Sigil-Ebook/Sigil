@@ -55,7 +55,9 @@ void SpellCheckWidget::setUpTable()
     ui.userDictList->setModel(&m_Model);
     // Make the header fill all the available space
     ui.userDictList->horizontalHeader()->setStretchLastSection(true);
+    ui.userDictList->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
     ui.userDictList->resizeColumnToContents(0);
+    ui.userDictList->resizeColumnToContents(1);
     ui.userDictList->verticalHeader()->setVisible(false);
     ui.userDictList->setSortingEnabled(false);
     ui.userDictList->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -81,8 +83,12 @@ PreferencesWidget::ResultAction SpellCheckWidget::saveSettings()
     SettingsStore settings;
     settings.setEnabledUserDictionaries(EnabledDictionaries());
     settings.setDefaultUserDictionary(ui.defaultUserDictionary->text());
-    settings.setDictionary(ui.dictionaries->itemData(ui.dictionaries->currentIndex()).toString());
+    //settings.setDictionary(ui.dictionaries->itemData(ui.dictionaries->currentIndex()).toString());
     settings.setSpellCheck(ui.HighlightMisspelled->checkState() == Qt::Checked);
+    settings.setLoadLastSessionDictionaries(ui.cB_loadDicFromLastSession->checkState() == Qt::Checked);
+    settings.setUnloadCurrentDIctionaries(ui.cB_UnloadCurrDIcs->checkState() == Qt::Checked);
+    settings.setLoadMainLanguageDictionary(ui.cB_loadBookMainLangDic->checkState() == Qt::Checked);
+    settings.setLoadAllLanguagesDIctionaries(ui.cB_loadAllMetaLangDic->checkState() == Qt::Checked);
 
     SpellCheck *sc = SpellCheck::instance();
     sc->setDictionary(settings.dictionary(), true);
@@ -352,7 +358,7 @@ void SpellCheckWidget::readSettings()
     SpellCheck *sc = SpellCheck::instance();
     //QStringList dicts = sc->dictionaries();
     QStringList dicts = sc->alreadyLoadedDics();
-    ui.dictionaries->clear();
+    //ui.dictionaries->clear();
     foreach(QString dict, dicts) {
         QString name = lang->GetLanguageName(dict);
 
@@ -360,19 +366,19 @@ void SpellCheckWidget::readSettings()
             name = dict;
         }
 
-        ui.dictionaries->addItem(name, dict);
+       // ui.dictionaries->addItem(name, dict);
     }
     // Select the current dictionary.
     QString currentDict = sc->currentDictionary();
     SettingsStore settings;
 
-    if (!currentDict.isEmpty()) {
-        int index = ui.dictionaries->findData(currentDict);
+//    if (!currentDict.isEmpty()) {
+//        int index = ui.dictionaries->findData(currentDict);
 
-        if (index > -1) {
-            ui.dictionaries->setCurrentIndex(index);
-        }
-    }
+//        if (index > -1) {
+//            ui.dictionaries->setCurrentIndex(index);
+//        }
+//    }
 
     // Load the list of user dictionaries.
     QDir userDictDir(SpellCheck::userDictionaryDirectory());
@@ -404,6 +410,10 @@ void SpellCheckWidget::readSettings()
 
     // Set whether mispelled words are highlighted or not
     ui.HighlightMisspelled->setChecked(settings.spellCheck());
+    ui.cB_loadDicFromLastSession->setChecked(settings.setLoadLastSessionDictionaries());
+    ui.cB_UnloadCurrDIcs->setChecked(settings.setUnloadCurrentDIctionaries());
+    ui.cB_loadBookMainLangDic->setChecked(settings.setLoadMainLanguageDictionary());
+    ui.cB_loadAllMetaLangDic->setChecked(settings.setLoadAllLanguagesDIctionaries());
 
     m_isDirty = false;
 }
@@ -546,7 +556,7 @@ void SpellCheckWidget::dictionariesCurrentIndexChanged(int index)
     m_isDirty = true;
 }
 
-void SpellCheckWidget::highlightChanged(int state)
+void SpellCheckWidget::checkBoxChanged(int state)
 {
     m_isDirty = true;
 }
@@ -570,9 +580,12 @@ void SpellCheckWidget::connectSignalsToSlots()
     connect(ui.editWord, SIGNAL(clicked()), this, SLOT(editWord()));
     connect(ui.removeWord, SIGNAL(clicked()), this, SLOT(removeWord()));
     connect(ui.removeAll, SIGNAL(clicked()), this, SLOT(removeAll()));
-    connect(ui.dictionaries, SIGNAL(currentIndexChanged(int)), this, SLOT(dictionariesCurrentIndexChanged(int)));
-    connect(ui.HighlightMisspelled, SIGNAL(stateChanged(int)), this, SLOT(highlightChanged(int)));
-
+    //connect(ui.dictionaries, SIGNAL(currentIndexChanged(int)), this, SLOT(dictionariesCurrentIndexChanged(int)));
+    connect(ui.HighlightMisspelled, SIGNAL(stateChanged(int)), this, SLOT(checkBoxChanged(int)));
+    connect(ui.cB_loadDicFromLastSession, SIGNAL(stateChanged(int)),this, SLOT(checkBoxChanged(int)));
+    connect(ui.cB_UnloadCurrDIcs, SIGNAL(stateChanged(int)),this, SLOT(checkBoxChanged(int)));
+    connect(ui.cB_loadBookMainLangDic, SIGNAL(stateChanged(int)),this, SLOT(checkBoxChanged(int)));
+    connect(ui.cB_loadAllMetaLangDic, SIGNAL(stateChanged(int)),this, SLOT(checkBoxChanged(int)));
     QItemSelectionModel *selectionModel = ui.userDictList->selectionModel();
     connect(selectionModel,     SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
             this,               SLOT(SelectionChanged(const QItemSelection &, const QItemSelection &)));

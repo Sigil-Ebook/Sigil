@@ -46,15 +46,25 @@
 # include <stdlib.h>
 #endif
 
-SpellCheck *SpellCheck::m_instance = 0;
+static const QString SETTINGS_GROUP = "spellcheck_dictionaries";
+
+const QString NO_LINGUISTIC_CONTENT="zxx";
+const QString MULTI_LANGUAGE="mul";
+const QString UNDETERMINED_LANGUAGE="und";
+const QString UNCODED_LANGUAGE="mis";
+const QStringList NO_SPELL_LANGUAGES {NO_LINGUISTIC_CONTENT,MULTI_LANGUAGE};
+const QStringList NO_DICTIONARY_LANGUAGES {NO_LINGUISTIC_CONTENT,MULTI_LANGUAGE,
+            UNDETERMINED_LANGUAGE,UNCODED_LANGUAGE};
+
+std::unique_ptr<SpellCheck> SpellCheck::m_instance = nullptr;
 
 SpellCheck *SpellCheck::instance()
 {
-    if (m_instance == 0) {
-        m_instance = new SpellCheck();
+    if (m_instance == nullptr) {
+        m_instance = std::unique_ptr<SpellCheck>(new SpellCheck());
     }
 
-    return m_instance;
+    return m_instance.get();
 }
 
 SpellCheck::SpellCheck() :
@@ -62,8 +72,8 @@ SpellCheck::SpellCheck() :
     m_codec(0),
     m_wordchars(""),
     m_loadedDics {},
-    m_dicAliasTable {{"en","en_GB"},{"en-UK","en_GB"}},
-    m_mainDCLanguage("")
+    m_dicAliasTable {},
+    m_mainDCLanguage(QString())
 
 {
     // There is a considerable lag involved in loading the Spellcheck dictionaries
@@ -86,10 +96,9 @@ SpellCheck::SpellCheck() :
         }
     }
 
-    // Load the dictionary the user has selected if one was saved.
-    //SettingsStore settings;
-    //setDictionary(settings.dictionary());
-    //loadDictionary(settings.dictionary());
+    ReadSettings();
+    setUpSpellCheck();
+
     QApplication::restoreOverrideCursor();
 }
 
@@ -103,10 +112,10 @@ SpellCheck::~SpellCheck()
        delete m_loadedDics.value(dic).hunspell;
        m_loadedDics.remove(dic);
     }
-    if (m_instance) {
-        delete m_instance;
-        m_instance = 0;
-    }
+//    if (m_instance) {
+//        delete m_instance;
+//        m_instance = 0;
+//    }
 
 }
 
@@ -475,7 +484,6 @@ QString SpellCheck::userDictionaryFile(QString dict_name)
 
 bool SpellCheck::spell(const QString word, const QString languageCode)
 {
-
     QString dic(codeToAlias(languageCode));
 
     if (m_loadedDics.contains(dic)) {
@@ -520,11 +528,8 @@ const QString SpellCheck::findDictionary(const QString languageCode)
     return (c);
 }
 
-void SpellCheck::loadDictionary(const QString languageCode)
+void SpellCheck::loadDictionary(const QString dicName)
 {
-    //languageCode is ln or ln-LN
-    QString dicName{codeToAlias(languageCode)};
-
     // See if we are already have a hunspell object for this language.
     if (m_loadedDics.contains(dicName)) {
         return;
@@ -555,8 +560,6 @@ void SpellCheck::loadDictionary(const QString languageCode)
 
     m_loadedDics.insert(dicName,hd);
 
-    if(!m_dicAliasTable.contains(languageCode)) m_dicAliasTable.insert(getCode(dicName),dicName);
-
     // Load in the words from the user dictionaries.
     foreach(QString word, allUserDictionaryWords()) {
         ignoreWordInDictionary(word);
@@ -565,6 +568,16 @@ void SpellCheck::loadDictionary(const QString languageCode)
     // Reload the words in the "Ignored" dictionary.
     foreach(QString word, m_ignoredWords) {
         ignoreWordInDictionary(word);
+    }
+}
+void SpellCheck::loadDictionaryForLang(const QString languageCode)
+{
+    //languageCode is ln or ln-LN
+    QString dicName{codeToAlias(languageCode)};
+    loadDictionary(dicName);
+    //if(!m_dicAliasTable.contains(languageCode)) m_dicAliasTable.insert(getCode(dicName),dicName);
+    if(!m_dicAliasTable.contains(languageCode)){
+        m_dicAliasTable.insert(languageCode,dicName);
     }
 }
 
@@ -581,19 +594,42 @@ const QStringList SpellCheck::alreadyLoadedDics(){
     return m_loadedDics.keys(); //implicit convertion?
 }
 
-void SpellCheck::setMainDCLanguage(const QString language){
+void SpellCheck::setDCLanguages(const QList<QVariant> dclangs){
     //we have new book
-    m_mainDCLanguage=language;
-    //unload previously used dictionaries
-    for(auto dic:m_loadedDics.keys()){
-        QStringList list{aliasToCode(dic)};
-        if(!list.isEmpty()){
-            if(!list.contains(language)) unloadDictionary(dic);
+    m_DCLanguages.clear();
+    for(auto l:dclangs){
+        QString lang{l.toString()};
+        if(!NO_DICTIONARY_LANGUAGES.contains(lang)){
+            m_DCLanguages<<lang;
         }
     }
-    //load main language dictionary
-    loadDictionary(language);
+    m_mainDCLanguage=m_DCLanguages.first();
+    setUpNewBook();
 }
+
+void SpellCheck::setUpNewBook(){
+    SettingsStore settings;
+    if(settings.setUnloadCurrentDIctionaries())
+        //unload previously used dictionaries
+        for(auto dic:m_loadedDics.keys()){
+            QStringList list{aliasToCode(dic)};
+            if(!list.isEmpty()){
+                if(!list.contains(m_mainDCLanguage)) unloadDictionary(dic);
+            }
+        }
+
+    if(settings.setLoadMainLanguageDictionary()){
+        if(!m_mainDCLanguage.isEmpty()){
+            loadDictionaryForLang(m_mainDCLanguage);
+        }
+    }
+    if(settings.setLoadAllLanguagesDIctionaries()){
+        for(auto code:m_DCLanguages){
+            loadDictionaryForLang(code);
+        }
+    }
+}
+
 QString SpellCheck::getMainDCLanguage(){
     return m_mainDCLanguage;
 }
@@ -640,4 +676,62 @@ const bool SpellCheck::isLoaded(const QString code){
     QStringList dics{alreadyLoadedDics()};
     if(dics.contains(alias)) return true;
     return false;
+}
+
+void SpellCheck::WriteSettings(){
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+    settings.remove("");
+    //aliases
+    QStringList codes{m_dicAliasTable.keys()};
+    settings.beginWriteArray("aliases",codes.size());
+    for(int i=0;i<codes.size();i++){
+        settings.setArrayIndex(i);
+        settings.setValue("code",codes.at(i));
+        settings.setValue("alias",m_dicAliasTable.value(codes.at(i)));
+    }
+    settings.endArray();
+    //sessions dictionaries
+    QStringList dics{m_loadedDics.keys()};
+    settings.beginWriteArray("session_dictionary",dics.size());
+    for(int i=0;i<dics.size();i++){
+        settings.setArrayIndex(i);
+        settings.setValue("code",dics.at(i));
+    }
+    settings.endArray();
+    settings.endGroup();
+}
+void SpellCheck::ReadSettings(){
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+
+    int size{settings.beginReadArray("aliases")};
+    if(size>0){
+        m_dicAliasTable.clear();
+        for(int i=0;i<size;i++){
+            settings.setArrayIndex(i);
+            m_dicAliasTable.insert(
+                        settings.value("code").toString(),
+                        settings.value("alias").toString());
+        }
+        settings.endArray();
+    }else{
+        m_dicAliasTable={{"en","en_GB"},{"en-UK","en_GB"}};
+    }
+      size=settings.beginReadArray("session_dictionary");
+      for(int i=0;i<size;i++){
+          settings.setArrayIndex(i);
+          m_lastSessionDics.append(settings.value("code").toString());
+      }
+    settings.endArray();
+    settings.endGroup();
+}
+
+void SpellCheck::setUpSpellCheck(){
+    SettingsStore settings;
+    if(settings.setLoadLastSessionDictionaries()){
+        for(int i=0;i<m_lastSessionDics.size();i++){
+            loadDictionary(m_lastSessionDics.at(i));
+        }
+    }
 }

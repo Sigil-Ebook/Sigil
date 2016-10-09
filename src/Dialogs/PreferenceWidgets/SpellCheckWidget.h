@@ -55,7 +55,7 @@ private slots:
 
     void SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
     void dictionariesCurrentIndexChanged(int index);
-    void highlightChanged(int state);
+    void checkBoxChanged(int state);
     void ItemChanged(QStandardItem *item);
 
 private:

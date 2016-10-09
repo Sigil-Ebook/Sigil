@@ -441,13 +441,11 @@ void SpellcheckEditor::SelectRow(int row)
 void SpellcheckEditor::UpdateSuggestions()
 {
     ui.cbChangeAll->clear();
-    QStringList lw{GetSelectedWord().split(',')};
+    QString lw{GetSelectedWord()};
 
     if (!lw.isEmpty()) {
-        QString word = lw.last();
-        QString lang = lw.first();
-        ui.cbChangeAll->addItems(m_SpellCheck->suggest(word,lang));
-        ui.cbChangeAll->setToolTip(ui.cbChangeAll->currentText());
+        ui.cbChangeAll->addItems(m_SpellCheck->suggestML(lw));
+        ui.cbChangeAll->setToolTip("<b>"+ui.cbChangeAll->currentText()+"</b>");
         ui.cbChangeAll->setToolTipDuration(5000);
     }
 }
@@ -635,7 +633,7 @@ void SpellcheckEditor::changeCodeOrAlias(const int row, const int column){
             ui.twLoadedDics->item(row,column)->setText(code);
             m_SpellCheck->removeDictionaryAlias(orig_code);
             m_SpellCheck->setDictionaryAlias(code,ui.twLoadedDics->item(row,1)->text());
-            m_SpellCheck->loadDictionary(code);
+            m_SpellCheck->loadDictionaryForLang(code);
             Refresh();
         }
         return;
@@ -648,7 +646,7 @@ void SpellcheckEditor::changeCodeOrAlias(const int row, const int column){
             QString alias{toDicName(code)};
             m_SpellCheck->unloadDictionary(dic);
             m_SpellCheck->setDictionaryAlias(origCode,alias);
-            m_SpellCheck->loadDictionary(origCode);
+            m_SpellCheck->loadDictionaryForLang(origCode);
             Refresh();
         }
 
@@ -666,7 +664,7 @@ const QString SpellcheckEditor::getSelectedWordLanguage(){
 
 //slots
 void SpellcheckEditor::loadDictionary(const QString lang){
-    m_SpellCheck->loadDictionary(lang);
+    m_SpellCheck->loadDictionaryForLang(lang);
 }
 //returns language code
 const QString SpellcheckEditor::choseDictionary() {
@@ -694,7 +692,7 @@ void SpellcheckEditor::loadDictionary()
 {
    QString c{choseDictionary()};
    if(!c.isEmpty()){
-        m_SpellCheck->loadDictionary(c);
+        m_SpellCheck->loadDictionaryForLang(c);
         setupMultiLanguageUi();
         Refresh();
     }
@@ -734,7 +732,7 @@ void SpellcheckEditor::getDictionary(){
         QString lang(item->text());
         QString l=m_SpellCheck->findDictionary(lang);
         if(!l.isEmpty()){
-            m_SpellCheck->loadDictionary(lang);
+            m_SpellCheck->loadDictionaryForLang(lang);
             Refresh();
             emit SpellingHighlightRefreshRequest();
         }
@@ -762,7 +760,7 @@ void SpellcheckEditor::changeDictionary(){
         QString dic=choseDictionary();
         if(!dic.isEmpty()){
             m_SpellCheck->setDictionaryAlias(code,toDicName(dic));
-            m_SpellCheck->loadDictionary(code);
+            m_SpellCheck->loadDictionaryForLang(code);
             Refresh();
             emit SpellingHighlightRefreshRequest();
         }
@@ -777,7 +775,7 @@ QString SpellcheckEditor::toDicName(QString code){
 
 void SpellcheckEditor::update_cbCAToolTipp(const QString &word){
     //help for words too long for box
-    ui.cbChangeAll->setToolTip(word);
+    ui.cbChangeAll->setToolTip("<b>"+word+"</b>");
 }
 
 //***varlogs multilanguage end

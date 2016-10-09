@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>698</width>
     <height>600</height>
    </rect>
   </property>
@@ -42,12 +42,27 @@
          <verstretch>1</verstretch>
         </sizepolicy>
        </property>
+       <property name="minimumSize">
+        <size>
+         <width>420</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="selectionMode">
         <enum>QAbstractItemView::ExtendedSelection</enum>
+       </property>
+       <property name="indentation">
+        <number>6</number>
        </property>
        <property name="uniformRowHeights">
         <bool>true</bool>
        </property>
+       <attribute name="headerDefaultSectionSize">
+        <number>80</number>
+       </attribute>
+       <attribute name="headerMinimumSectionSize">
+        <number>80</number>
+       </attribute>
       </widget>
      </item>
      <item>
@@ -178,6 +193,12 @@ The selected word does not have to be misspelled.</string>
        </item>
        <item>
         <widget class="QTableWidget" name="twLoadedDics">
+         <property name="minimumSize">
+          <size>
+           <width>250</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="mouseTracking">
           <bool>true</bool>
          </property>

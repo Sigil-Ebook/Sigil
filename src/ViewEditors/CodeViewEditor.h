@@ -526,7 +526,6 @@ private slots:
     void ReformatHTMLCleanAllAction();
     void ReformatHTMLToValidAction();
     void ReformatHTMLToValidAllAction();
-
     void updateLangMap();
 
 private:

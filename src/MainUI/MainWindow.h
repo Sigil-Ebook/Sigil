@@ -67,6 +67,7 @@ class ClipsWindow;
 class SelectCharacter;
 class ViewImage;
 class FlowTab;
+class SpellCheck;
 
 
 /**

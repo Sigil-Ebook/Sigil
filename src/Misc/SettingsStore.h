@@ -113,6 +113,10 @@ public:
      * @return if spell check is enabled
      */
     bool spellCheck();
+    bool setLoadLastSessionDictionaries();
+    bool setUnloadCurrentDIctionaries();
+    bool setLoadMainLanguageDictionary();
+    bool setLoadAllLanguagesDIctionaries();
 
     int viewState();
 
@@ -279,6 +283,11 @@ public slots:
      * @param name The name of the dictionary.
      */
     void setSpellCheck(bool enabled);
+
+    void setLoadLastSessionDictionaries(bool enabled);
+    void setUnloadCurrentDIctionaries(bool enabled);
+    void setLoadMainLanguageDictionary(bool enabled);
+    void setLoadAllLanguagesDIctionaries(bool enabled);
 
     void setViewState(int state);
 

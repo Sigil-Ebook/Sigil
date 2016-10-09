@@ -210,6 +210,11 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
 
 MainWindow::~MainWindow()
 {
+    //This is an ugly hack: as the time of SpellCheck's death, being singleton,
+    //is unknown, it cannot write its settings on exit because, most offen than not,
+    //the infrastructure allowing it is already dead - so we let MW, on exit, do it.
+    //TODO: somethng better
+    SpellCheck::instance()->WriteSettings();
     // Make sure that any modeless windows that are visible are closed first
     // to prevent crashes on Windows.
     if (m_SelectCharacter && m_SelectCharacter->isVisible()) {
@@ -3599,7 +3604,7 @@ void MainWindow::SetNewBook(QSharedPointer<Book> new_book)
     //main language must be set before m_BookBrowser is called
     //because it calls in the end QuickSerialHtmlParser
     SpellCheck *sc = SpellCheck::instance();
-    sc->setMainDCLanguage(m_Book->getBookMainDCLanguageCodes().first().toString());
+    sc->setDCLanguages(m_Book->getBookMainDCLanguageCodes());
     sc->clearIgnoredWords();
     m_BookBrowser->SetBook(m_Book);
     m_TableOfContents->SetBook(m_Book);
@@ -4600,7 +4605,6 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/generate-toc_16px.png"));
     ui.actionGenerateTOC->setIcon(icon);
 }
-
 
 void MainWindow::LoadInitialFile(const QString &openfilepath, bool is_internal)
 {

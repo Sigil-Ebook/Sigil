@@ -46,6 +46,7 @@
 #include "Misc/XHTMLHighlighter.h"
 #include "Dialogs/ClipEditor.h"
 #include "Misc/CSSHighlighter.h"
+#include "Misc/Language.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/HTMLSpellCheck.h"
@@ -1161,19 +1162,33 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
 
             // We want to limit the number of suggestions so we don't
             // get a huge context menu.
+            QString lang{selected_word.split(',').first()};
+            QString l{Language::instance()->GetLanguageName(lang)};
+            lang=l.isEmpty()?lang:l;
+
+            QMenu *sub=menu->addMenu(tr("Spelling suggestons: ")+lang);
+            QFont f=sub->menuAction()->font();
+            f.setBold(true);
+            sub->menuAction()->setFont(f);
             for (int i = 0; i < std::min(suggestions.length(), MAX_SPELLING_SUGGESTIONS); ++i) {
                 suggestAction = new QAction(suggestions.at(i), menu);
+                f=suggestAction->font();
+                f.setBold(true);
+                suggestAction->setFont(f);
+
+                sub->addAction(suggestAction);
                 connect(suggestAction, SIGNAL(triggered()), m_spellingMapper, SLOT(map()));
                 m_spellingMapper->setMapping(suggestAction, suggestions.at(i));
 
-                // If the menu is empty we need to append rather than insert our actions.
-                if (!topAction) {
-                    menu->addAction(suggestAction);
-                } else {
-                    menu->insertAction(topAction, suggestAction);
-                }
-            }
+//                // If the menu is empty we need to append rather than insert our actions.
+//                if (!topAction) {
+//                    menu->addAction(suggestAction);
+//                } else {
+//                    menu->insertAction(topAction, suggestAction);
+//                }
 
+            }
+            if(topAction) menu->insertMenu(topAction,sub);
             // Add a separator to keep our spelling actions differentiated from
             // the default menu actions.
             if (!suggestions.isEmpty() && topAction) {
@@ -1230,7 +1245,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
 QString CodeViewEditor::GetCurrentWordAtCaret(bool select_word)
 {
     QTextCursor c = textCursor();
-    QString lang=m_QSHParser->getLanguage(c.position());
+    QString lang=m_QSHParser->getLanguage(c.anchor());
     // See if we are close to or inside of a misspelled word. If so select it.
     if (!c.hasSelection()) {
         // We cannot use QTextCursor::charFormat because the format is not set directly in
@@ -1247,7 +1262,7 @@ QString CodeViewEditor::GetCurrentWordAtCaret(bool select_word)
                     QString lword=(lang.isNull())?c.selectedText():lang+QChar(',')+c.selectedText();
                     return lword;
                 } else {
-                    return toPlainText().mid(c.block().position() + r.start, r.length);
+                    return lang+QChar(',')+toPlainText().mid(c.block().position() + r.start, r.length);
                 }
             }
         }
@@ -1865,6 +1880,7 @@ void CodeViewEditor::RehighlightDocument()
         // because we do not want the contentsChanged() signal to be fired
         // which would mark the underlying resource as needing saving.
         document()->blockSignals(true);
+        updateLangMap();
         m_Highlighter->rehighlight();
         document()->blockSignals(false);
     }
