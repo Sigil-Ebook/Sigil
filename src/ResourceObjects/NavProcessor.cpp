@@ -525,15 +525,12 @@ QString NavProcessor::GetLandmarkCodeForResource(const Resource *resource)
 
 QString NavProcessor::GetLandmarkNameForResource(const Resource *resource)
 {
-    const QList<NavLandmarkEntry> landlist = GetLandmarks();
-    QReadLocker locker(&m_NavResource->GetLock());
-    int pos = GetResourceLandmarkPos(resource, landlist);
-    QString etitle;
-    if (pos > -1) {
-        NavLandmarkEntry le = landlist.at(pos);
-        etitle = le.title;
+    QString name;
+    QString etype = GetLandmarkCodeForResource(resource);
+    if (!etype.isEmpty()) {
+        name = Landmarks::instance()->GetName(etype);
     }
-    return etitle;
+    return name;
 }
 
 QHash <QString, QString> NavProcessor::GetLandmarkNameForPaths()
@@ -544,8 +541,8 @@ QHash <QString, QString> NavProcessor::GetLandmarkNameForPaths()
     foreach(NavLandmarkEntry le, landlist) {
         QString href = ConvertHREFToOEBPSRelative(le.href);
         QStringList parts = href.split('#', QString::KeepEmptyParts);
-        QString title = le.title;
-        semantic_types[parts.at(0)] = title;
+        QString etype = le.etype;
+        semantic_types[parts.at(0)] = Landmarks::instance()->GetName(etype);
     }
     return semantic_types;
 }
