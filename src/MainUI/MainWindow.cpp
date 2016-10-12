@@ -2407,22 +2407,29 @@ void MainWindow::CreateHTMLTOC()
     }
 
     HTMLResource *tocResource = NULL;
+    HTMLResource *navResource = m_Book->GetOPF()->GetNavResource();
     QList<HTMLResource *> htmlResources;
 
     // Turn the list of Resources that are really HTMLResources to a real list
     // of HTMLResources.
     QList<Resource *> resources = GetAllHTMLResources();
     foreach(Resource * resource, resources) {
+
         HTMLResource *htmlResource = qobject_cast<HTMLResource *>(resource);
 
         if (htmlResource) {
-            htmlResources.append(htmlResource);
 
-            // Check if this is an existing toc file.
-            if (m_Book->GetOPF()->GetGuideSemanticCodeForResource(htmlResource) == "toc") {
-                tocResource = htmlResource;
-            } else if (resource->Filename() == HTML_TOC_FILE && tocResource == NULL) {
-                tocResource = htmlResource;
+            // prevent the nav resource from being chosen or used
+            if (htmlResource != navResource) {
+
+                htmlResources.append(htmlResource);
+
+                // Check if this is an existing toc file.
+                if (m_Book->GetOPF()->GetGuideSemanticCodeForResource(htmlResource) == "toc") {
+                    tocResource = htmlResource;
+                } else if (resource->Filename() == HTML_TOC_FILE && tocResource == NULL) {
+                    tocResource = htmlResource;
+                }
             }
         }
     }

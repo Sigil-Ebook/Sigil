@@ -16,6 +16,7 @@ preSigil-0.9.7
     - Fix bug that caused text highlighting to get lost on some systems when doing a CSS Find & Replace.
     - Fix bug in plugin interface basename_to_id to recognize .htm extensions
     - Fix bug in epub3 semantic popups to always refect the local name of epub:type setting
+    - Fix bug where creation on an HTMLTOC could overwrite an existing Nav under epub3
 
   New Features
     - Extend validation plugin interface with add_extended_result() method to allow better cursor positioning
