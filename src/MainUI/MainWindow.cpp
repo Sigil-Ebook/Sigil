@@ -1030,15 +1030,15 @@ void MainWindow::clearMemoryCaches()
 
 bool MainWindow::ProceedWithUndefinedUrlFragments()
 {
-    std::tuple<bool, QString, QString, QString, QString> result = m_Book->HasUndefinedURLFragments();
+    std::tuple<bool, QString, QString> result = m_Book->HasUndefinedURLFragments();
     if (std::get<0>(result)) {
         QMessageBox::StandardButton button_pressed;
-        const QString &msg = tr("<html><p>The url fragment <b>%1</b> in the href <b>%2</b> (found in <b>%3</b>) does not exist in the target file (<b>%4</b>) "
-                                "(and there may be more). Splitting or merging under these conditions can result in broken links.</p>"
+        const QString &msg = tr("<html><p>The href <b>%1</b> found in <b>%2</b> does not exist (and there may be more)."
+                                " Splitting or merging under these conditions can result in broken links.</p>"
                                 "<p>Do you still wish to continue?</p></html>");
 
         button_pressed = QMessageBox::warning(this, tr("Sigil"),
-                                msg.arg(std::get<1>(result), std::get<2>(result), std::get<3>(result), std::get<4>(result)),
+                                msg.arg(std::get<1>(result), std::get<2>(result)),
                                 QMessageBox::Yes | QMessageBox::No);
         if (button_pressed != QMessageBox::Yes) {
             return false;

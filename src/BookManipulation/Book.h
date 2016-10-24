@@ -307,9 +307,9 @@ public:
     QList<HTMLResource *> GetHTMLResources();
 
     /** Check for undefined url fragments in all HTMLResources.
-     * Return a tuple result (undefined fragments exist?, fragment, href, source-file, target-file)
+     * Return a tuple result (undefined fragments exist?, href, source-file)
      */
-    std::tuple<bool, QString, QString, QString, QString> HasUndefinedURLFragments();
+    std::tuple<bool, QString, QString> HasUndefinedURLFragments();
 
     /**
      * Get all href values in all relative links from supplied HTMLResources

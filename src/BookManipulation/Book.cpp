@@ -1155,7 +1155,7 @@ void Book::SetModified(bool modified)
     }
 }
 
-std::tuple<bool, QString, QString, QString, QString> Book::HasUndefinedURLFragments()
+std::tuple<bool, QString, QString> Book::HasUndefinedURLFragments()
 {
     QList<HTMLResource *> html_resources = GetHTMLResources();
     QStringList html_filenames;
@@ -1200,7 +1200,7 @@ std::tuple<bool, QString, QString, QString, QString> Book::HasUndefinedURLFragme
             break;
         }
     }
-    return std::make_tuple(hasUndefinedUrlFrags, href_id, href, filename, file);
+    return std::make_tuple(hasUndefinedUrlFrags, href, filename);
 }
 
 QHash<QString, QStringList> Book::GetRelLinksInAllFiles(const QList<HTMLResource *> &html_resources)
