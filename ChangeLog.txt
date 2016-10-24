@@ -1,4 +1,4 @@
-preSigil-0.9.7
+Sigil-0.9.7
    Bug Fixes
     - Allow tags in the svg and mathml namespace to automtically self-close if empty to help work around
          a bug in Kindlegen that will not seem to accept a closing svg image tag even though image is non-void
@@ -16,7 +16,7 @@ preSigil-0.9.7
     - Fix bug that caused text highlighting to get lost on some systems when doing a CSS Find & Replace.
     - Fix bug in plugin interface basename_to_id to recognize .htm extensions
     - Fix bug in epub3 semantic popups to always refect the local name of epub:type setting
-    - Fix bug where creation on an HTMLTOC could overwrite an existing Nav under epub3
+    - Fix bug where creation on an HTML TOC could overwrite an existing Nav under epub3
 
   New Features
     - Extend validation plugin interface with add_extended_result() method to allow better cursor positioning
