@@ -1373,102 +1373,102 @@ Haluatko tallentaa muutokset?</translation>
         <translation>Tässä kohdassa ei ole mitään sulkematonta elementtiä.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1165"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1175"/>
         <source>Add To Default Dictionary</source>
         <translation>Lisää oletussanakirjaan</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1178"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1188"/>
         <source>Add To Dictionary</source>
         <translation>Lisää sanakirjaan</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1195"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1205"/>
         <source>Ignore</source>
         <translation>Jätä huomiotta</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1257"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1267"/>
         <source>Reformat CSS</source>
         <translation>Muotoile CSS uudelleen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1258"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1268"/>
         <source>Multiple Lines Per Style</source>
         <translation>Useita rivejä tyyliä kohti</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1259"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1269"/>
         <source>Single Line Per Style</source>
         <translation>Yksi rivi tyyliä kohti</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1284"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1294"/>
         <source>Reformat HTML</source>
         <translation>Muotoile HTML uudelleen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1285"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1295"/>
         <source>Mend and Prettify Code</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1286"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1296"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1287"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1297"/>
         <source>Mend Code</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1288"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1298"/>
         <source>Mend Code - All HTML Files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1318"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1328"/>
         <source>Go To Link Or Style</source>
         <translation>Siirry linkkiin tai tyyliin</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1341"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1351"/>
         <source>View Image</source>
         <translation>Näytä kuva</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1342"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1352"/>
         <source>Open Tab For Image</source>
         <translation>Avaa välilehti kuvaa varten</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1368"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1378"/>
         <source>Mark Selected Text</source>
         <translation>Merkitse valittu teksti</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1370"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1380"/>
         <source>Unmark Marked Text</source>
         <translation>Poista merkityn tekstin merkintä</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1396"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1406"/>
         <source>Clips</source>
         <translation>Leikkeet</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1406"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1416"/>
         <source>Add To Clips</source>
         <translation>Lisää leikkeisiin</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1532"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1542"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Sinun on oltava HTML-alkutagissa voidaksesi käyttää tätä piirrettä.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1542"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1552"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Sinun on oltava HTML-alkutagin sisällä voidaksesi käyttää tätä piirrettä.</translation>
     </message>
@@ -1971,7 +1971,7 @@ jatkamaan etsintää.</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1141"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="1146"/>
         <source>Print %1</source>
         <translation>Tulosta %1</translation>
     </message>
@@ -6662,13 +6662,13 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="367"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="511"/>
         <source>File</source>
         <translation>Tiedosto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="382"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="269"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="273"/>
         <source>Edit</source>
         <translation>Muokkaa</translation>
     </message>
@@ -8651,70 +8651,71 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="257"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="261"/>
         <source>Input</source>
         <translation>Syöte</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="267"/>
         <source>Output</source>
         <translation>Tuloste</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="275"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="279"/>
         <source>Validation</source>
         <translation>Validointi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="399"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="402"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>Navigointi peruutettu, koska kohdetta ei enää ole.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="415"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="418"/>
         <source>Location bookmarked.</source>
         <translation>Kohde lisätty kirjanmerkkeihin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="462"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="694"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="891"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1464"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1519"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1527"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1544"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1556"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1659"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1667"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1681"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1686"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1699"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1707"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="465"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="697"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1040"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1506"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1561"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1586"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1598"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1701"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1709"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1735"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1745"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1750"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1989"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1996"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2010"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2015"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2030"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1728"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1741"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1749"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1760"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1777"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1792"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2037"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2044"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2058"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3291"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3297"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3337"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3343"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3349"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3692"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3892"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2063"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2083"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2111"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3369"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3375"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3417"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3429"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3579"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3786"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3986"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="462"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="465"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -8723,385 +8724,405 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="511"/>
         <source>was updated</source>
         <translation>päivitettiin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="515"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="518"/>
         <source>Warning</source>
         <translation>Varoitus</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="515"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="518"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>Tiedosto ei ollut oikeamuotoinen ja voi olla vahingoittunut.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="546"/>
         <source>Opening this EPUB generated warnings.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="545"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="548"/>
         <source>Select Show Details for more information.</source>
         <translation>Valitse ”Näytä yksityiskohdat” saadaksesi lisää tietoa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="585"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="588"/>
         <source>Sigil is closing...</source>
         <translation>Sigil suljetaan...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="635"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="638"/>
         <source>New file created.</source>
         <translation>Uusi tiedosto luotu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="656"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="659"/>
         <source>Open File</source>
         <translation>Avaa tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="693"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="696"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>Tätä tiedostoa ei enää ole. Napsauta OK-painiketta poistaaksesi sen valikosta.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="766"/>
         <source>Save File</source>
         <translation>Tallenna tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="812"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="815"/>
         <source>Save a Copy</source>
         <translation>Tallenna kopio</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="868"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="871"/>
         <source>Go To Line</source>
         <translation>Siirry riville</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="868"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="871"/>
         <source>Line #</source>
         <translation>Rivi nro</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="891"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="894"/>
         <source>Image does not exist: </source>
         <translation>Kuvaa ei ole:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="961"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="964"/>
         <source>No CSS styles named</source>
         <translation>Ei nimettyjä CSS-tyylejä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1034"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1036"/>
+        <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1058"/>
         <source>Add Cover</source>
         <translation>Lisää kansi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1126"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1150"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Odottamaton virhe. Kantta varten voidaan käyttää vain kuvatiedostoja.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1143"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1167"/>
         <source>Cover added.</source>
         <translation>Kansi lisätty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1152"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1169"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1193"/>
         <source>Not Available for epub2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1160"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1184"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1186"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1240"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1210"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1264"/>
         <source>NCX generation failed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1235"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1259"/>
         <source>NCX generated.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1367"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1409"/>
         <source>Styles deleted.</source>
         <translation>Tyylit poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1419"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Raporttien tuottaminen peruutettiin, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1464"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1506"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Käyttämättömien mediatiedostojen poisto peruuntui, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1517"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1559"/>
         <source>Unused media files deleted.</source>
         <translation>Käyttämättömät mediatiedostot poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1519"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1561"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Ei ole käyttämättömiä kuva-, video- tai audiotiedostoja poistettavaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1527"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1569"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Käyttämättömien tyylien poisto peruuntui, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1544"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1586"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation>Tyyliohjeissa ei ole käyttämättömiä luokkia poistettavaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1556"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1598"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Et voi liittää tiedostoa tähän kohtaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1563"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1605"/>
         <source>Insert File</source>
         <translation>Lisää tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1608"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1650"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Tiedostoa &quot;%1&quot; ei ole.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1659"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1686"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1701"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1728"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Et voi lisätä tähän paikkaan tunnistetta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1667"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1709"/>
         <source>You must select text before inserting a new id.</source>
         <translation>Valitse teksti ennen uuden tunnisteen määrittelemistä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1681"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>Tunniste on virheellinen. Tunnisteen pitää alkaa kirjaimella, ja siinä saa olla kirjaimia, numeroita ja merkkejä ”_:-.”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1699"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1741"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1765"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Tähän kohtaan ei voi lisätä linkkiä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1707"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1749"/>
         <source>You must select text before inserting a new link.</source>
         <translation>Valitse teksti ennen uuden linkin luomista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1760"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Linkki on virheellinen – ei voi sisältää merkkiä ”&lt;” tai ”&gt;”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1735"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1777"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Et voi tehdä hakemistomerkintää tähän kohtaan tai valitsematta tekstiä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1745"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1787"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Kohta on virheellinen – ei voi sisältää merkkiä ”&lt;” tai ”&gt;”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1750"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1792"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Et voi tehdä hakemistomerkintää tähän kohtaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1824"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1835"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1950"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1872"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1883"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1998"/>
         <source>Select the destination to paste into first.</source>
         <translation>Valitse ensin kohde, johon liitetään.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1843"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1891"/>
         <source>Pasted clip entry %1.</source>
         <translation>Liitettiin leike %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1989"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2037"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Yksi resurssi on valittuna eikä sitä ennen ole resurssia, johon sen voisi yhdistää.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1996"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2044"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Oletko varma, että haluat yhdistää valitut tiedostot?
 Tätä toimenpidettä ei voi peruuttaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2010"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2058"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
         <translation>Yhdistäminen peruutettu: %1, XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2015"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2063"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>Yhdistäminen peruutettu, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2030"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2083"/>
         <source>Cannot merge file %1</source>
         <translation>Ei voi yhdistää tiedostoa %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2040"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2093"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Yhdistäminen tehty. Sisällysluettelon uudelleen luominen tai muokkaaminen voi olla tarpeellista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2058"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2111"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Tyyliohjeiden linkitys peruutettiin: %1, XML ei ole oikeamuotoista</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2189"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2242"/>
         <source>Word updated.</source>
         <translation>Sana päivitetty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2262"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2315"/>
         <source>File(s) deleted.</source>
         <translation>Tiedosto(ja) poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2273"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2326"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Sisällysluettelon muokkaus peruutettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2278"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2331"/>
         <source>Table Of Contents edited.</source>
         <translation>Sisällysluetteloa muokattu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2296"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2349"/>
         <source>Generate TOC cancelled.</source>
         <translation>Sisällysluettelon luonti peruutettiin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2320"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2373"/>
         <source>Table Of Contents generated.</source>
         <translation>Sisällysluettelo luotu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2322"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2375"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Sisällysluetteloon ei tarvittu muutoksia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2451"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2511"/>
         <source>Text selection marked.</source>
         <translation>Valittu teksti merkitty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2453"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2471"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2513"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2531"/>
         <source>Text selection unmarked.</source>
         <translation>Valitun tekstin merkitseminen poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2559"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2619"/>
         <source>Metadata Editor cancelled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2562"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2622"/>
         <source>Metadata edited.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2653"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2702"/>
+        <source>RunPlugin1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2703"/>
+        <source>RunPlugin2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2704"/>
+        <source>RunPlugin3</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2731"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Tämä kirja ei sisällä CSS-tyyliohjeita tarkistettavaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3192"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3270"/>
         <source>Line: %1, Col: %2</source>
         <translation>Rivi: %1, sarake: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3291"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3369"/>
         <source>File cannot be split at this position.</source>
         <translation>Tiedostoa ei voida jakaa tästä kohdasta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3297"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3375"/>
         <source>The Nav file cannot be split.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3314"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3392"/>
         <source>Split completed.</source>
         <translation>Jako suoritettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3337"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3417"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Ei voi jakaa, koska ainakin yksi tiedoista ei ole HTML-tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3343"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Ei voi jakaa: %1 XML ei ole oikeamuotoista</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3349"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3429"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Ei voi jakaa, koska ainakin yksi tiedoista ei ehkä ole HTML-tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3368"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3462"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Jako tehty. Sisällysluettelon uudelleen luominen voi olla tarpeellista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3377"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3471"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Jakokohtamerkintöjä ei löytynyt. Käytä komentoa Lisää → Jakokohta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3580"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Dokumenttia on muutettu.
 Haluatko tallentaa muutoksesi?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3566"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3660"/>
         <source>No importer for file type: %1</source>
         <translation>Ei tuontiohjelmaa tyyppiä ”%1” olevalle tiedostolle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3573"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3667"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -9110,113 +9131,113 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3578"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3672"/>
         <source>Loading file...</source>
         <translation>Ladataan tiedostoa...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3592"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3686"/>
         <source>File loaded.</source>
         <translation>Tiedosto ladattu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3713"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Tämän tiedoston tuottaja on salannut sen DRM:llä. Sigil ei voi avata sellaisia tiedostoja.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3626"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3720"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Kirjaa ei voi ladaya: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3630"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3724"/>
         <source>Cannot load file %1: %2</source>
         <translation>Ei voi ladata tiedostoa %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3659"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3753"/>
         <source>Saving EPUB...</source>
         <translation>Kirjaa tallennetaan...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3668"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3762"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil ei voi tallentaa tyyppiä ”%1” olevia tiedostoja.
 Valitse toinen muoto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3693"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3787"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in data loss.
 
 Do you want to automatically mend the files before saving?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3724"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3818"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>Kirja on tallennettu, mutta kaikki HTML-tiedostot eivät ole oikeamuotoisia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3726"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3820"/>
         <source>EPUB saved.</source>
         <translation>Kirja tallennettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3732"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3826"/>
         <source>Cannot save file %1: %2</source>
         <translation>Ei voi tallentaa tiedostoa %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3867"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3961"/>
         <source>EPUB files (*.epub)</source>
         <translation>Epub-tiedostot (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3868"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3869"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3870"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3962"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3963"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3964"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML-tiedostot (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3871"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3965"/>
         <source>Text files (*.txt)</source>
         <translation>Tekstitiedostot (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3872"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3966"/>
         <source>All files (*.*)</source>
         <translation>Kaikki tiedostot (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3880"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3974"/>
         <source>EPUB file (*.epub)</source>
         <translation>Epub-tiedosto (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3892"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3986"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3963"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4057"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Säilytä olemassaolevat otsikoiden määritteet on nyt:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3964"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4058"/>
         <source>ON</source>
         <translation>käytössä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3964"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4058"/>
         <source>OFF</source>
         <translation>ei käytössä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3989"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4083"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -12656,7 +12677,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="139"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="445"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="448"/>
         <source>Status: </source>
         <translation>Tila:</translation>
     </message>
@@ -12701,120 +12722,120 @@ Do you want to automatically mend the files before saving?</source>
         <translation>Tila: valmis</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="209"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="212"/>
         <source>Error: plugin can not start</source>
         <translation>Virhe: lisäosa ei pysty käynnistymään</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="278"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="281"/>
         <source>Launcher process crashed</source>
         <translation>Käynnistysprosessi päättyi epänormaalisti</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="289"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="292"/>
         <source>Status: finished</source>
         <translation>Tila: päättynyt</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="296"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="299"/>
         <source>Status: failed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="302"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="311"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="305"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="314"/>
         <source>Status: No Changes Made</source>
         <translation>Tila: muutoksia ei tehty</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="310"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="313"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation>Virhe: Lisäosa yritti poistaa viimeisen XHTML-tiedoston – muutokset hylätään</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="401"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="404"/>
         <source>Plugin failed to start</source>
         <translation>Lisäosa ei käynnistynyt</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="409"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="412"/>
         <source>Status: error</source>
         <translation>Tila: virhe</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="426"/>
         <source>Plugin cancelled</source>
         <translation>Lisäosan suoritus peruutettiin</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="424"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="427"/>
         <source>Status: cancelled</source>
         <translation>Tila: peruutettu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="506"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="518"/>
         <source>Error Parsing Result XML:  </source>
         <translation>Virhe XML-koodin jäsennyksessä:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="567"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
         <source>Incorrect XHTML: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="567"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
         <source> Line/Col </source>
         <translation>Rivi/sarake</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="594"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="606"/>
         <source>Check Report</source>
         <translation>Tarkista raportti</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="595"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="607"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>Virheellistä XHTML:ää tai XML:ää havaittu.
 Oletko varma, että haluat jatkaa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="613"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="625"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>Tila: siivotaan – poistetaan tiedostoja</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="633"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="645"/>
         <source>Status: deleting </source>
         <translation>Tila: poistetaan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="663"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="675"/>
         <source>Status: Loading </source>
         <translation>Tila: Ladataan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="674"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="686"/>
         <source>Input Plugin</source>
         <translation>Syötön lisäosa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="675"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="687"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>Nykyinen kirjasi korvautuu kokonaan, jolloin kaikki tallentamattomat muutokset häviävät. Oletko varma, että haluat jatkaa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="701"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="713"/>
         <source>Status: adding </source>
         <translation>Tila: lisätään</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="738"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="750"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>Tila: siivotaan – muutetaan tiedostoja</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="767"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="779"/>
         <source>Status: modifying </source>
         <translation>Tila: muutetaan</translation>
     </message>
@@ -12823,7 +12844,7 @@ Oletko varma, että haluat jatkaa.</translation>
     <name>PluginWidget</name>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="14"/>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="182"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="167"/>
         <source>Plugins</source>
         <translation>Lisäosat</translation>
     </message>
@@ -12864,120 +12885,106 @@ Oletko varma, että haluat jatkaa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="128"/>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="153"/>
         <source>Auto</source>
         <translation>Autom.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="135"/>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="160"/>
         <source>Set</source>
         <translation>Valitse</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="189"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="174"/>
         <source>Add Plugin</source>
         <translation>Lisää lisäosa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="196"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="181"/>
         <source>Remove All</source>
         <translation>Poista kaikki</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="203"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="188"/>
         <source>Remove Plugin</source>
         <translation>Poista lisäosa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="230"/>
-        <source>Interpreters:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="243"/>
-        <source>≥Python2.7:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="259"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="214"/>
         <source>Path to Interpreter Executable</source>
         <translation>Tulkin .exe-tiedoston polku</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="269"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="224"/>
         <source>Should the bundled Python interpreter be used if present?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="272"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="227"/>
         <source>Use Bundled Python</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="279"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="234"/>
         <source>Assign as Plugin 2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="286"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="241"/>
         <source>Assign as Plugin 3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="162"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="172"/>
         <source>Select Plugin Zip Archive</source>
         <translation>Valitse lisäosien zip-arkisto</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="162"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="172"/>
         <source>Plugin Files (*.zip)</source>
         <translation>Lisäosatiedostot (*.zip)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="178"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="188"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="181"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="191"/>
         <source>Warning: A plugin by that name already exists</source>
         <translation>Varoitus: Annetun niminen lisäosa on jo olemassa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="184"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="194"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
         <translation>Virhe: Lisäosaa ei voitu purkaa zip-paketista</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="187"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="197"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
         <translation>Virhe: Lisäosa ei ole kelvollinen Sigilin lisäosaksi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="223"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="235"/>
         <source>Nothing is Selected.</source>
         <translation>Mitään ei ole valittu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="265"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="283"/>
         <source>Remove All Plugins</source>
         <translation>Poista kaikki lisäosat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="266"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="284"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
         <translation>Oletko varma, että haluat poistaa kaikki lisäosat?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="328"/>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="338"/>
         <source>Select Interpreter</source>
         <translation>Valitse tulkki</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="363"/>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="379"/>
         <source>Incorrect Interpreter Path selected</source>
         <translation>Virheellinen tulkin polku valittu</translation>
     </message>
@@ -13198,12 +13205,12 @@ Rivi: %1 Sarake %2 - %3</translation>
         <translation>Lisätään valmiita tiedostoja...</translation>
     </message>
     <message>
-        <location filename="../../Misc/OpenExternally.cpp" line="179"/>
+        <location filename="../../Misc/OpenExternally.cpp" line="183"/>
         <source>Applications</source>
         <translation>Sovellukset</translation>
     </message>
     <message>
-        <location filename="../../Misc/OpenExternally.cpp" line="189"/>
+        <location filename="../../Misc/OpenExternally.cpp" line="193"/>
         <source>Open With</source>
         <translation>Avaa ohjelmalla</translation>
     </message>
@@ -13233,19 +13240,19 @@ Rivi: %1 Sarake %2 - %3</translation>
         <translation>&lt;p&gt;Sigilistä on saatavilla uudempi versio, versio &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Haluaisitko siirtyä lataussivulle?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="380"/>
+        <location filename="../../Misc/Utility.cpp" line="416"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Ei voi lukea tiedostoa %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="495"/>
+        <location filename="../../Misc/Utility.cpp" line="531"/>
         <source>Sigil has encountered a problem.</source>
         <translation>Sigil on kohdannut ongelman.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="496"/>
+        <location filename="../../Misc/Utility.cpp" line="532"/>
         <source>Sigil cannot continue and will now close</source>
         <translation>Sigil ei voi jatkaa, ja se sulkeutuu nyt.</translation>
     </message>
@@ -13256,17 +13263,17 @@ Rivi: %1 Sarake %2 - %3</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="207"/>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="271"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="273"/>
         <source>Invalid HTML file: %1</source>
         <translation>Virheellinen HTML-tiedosto: %1</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="313"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="316"/>
         <source>Invalid OPF file: %1</source>
         <translation>Virheellinen OPF-tiedosto: %1</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="338"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="341"/>
         <source>Invalid NCX file: %1</source>
         <translation>Virheellinen OPF-tiedosto: %1</translation>
     </message>
@@ -14325,7 +14332,7 @@ aikaa, kun oikeinkirjoituksen tarkistus on avoinna.</translation>
 <context>
     <name>TextTab</name>
     <message>
-        <location filename="../../Tabs/TextTab.cpp" line="293"/>
+        <location filename="../../Tabs/TextTab.cpp" line="309"/>
         <source>Print %1</source>
         <translation>Tulosta %1</translation>
     </message>
@@ -14333,12 +14340,12 @@ aikaa, kun oikeinkirjoituksen tarkistus on avoinna.</translation>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="608"/>
+        <location filename="../../Misc/Utility.cpp" line="644"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="609"/>
+        <location filename="../../Misc/Utility.cpp" line="645"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
@@ -14355,30 +14362,36 @@ Haluatko jatkaa käyttäen antamaasi tiedostonimeä?</translation>
         <translation>Tarkistuksen tulokset</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="218"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="227"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="231"/>
         <source>N/A</source>
         <translation>.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="240"/>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="256"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="254"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>Message</source>
         <translation>Ilmoitus</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="241"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="255"/>
         <source>No problems found!</source>
         <translation>Ongelmia ei löytynyt.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="256"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>File</source>
         <translation>Tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="256"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>Line</source>
         <translation>Rivi</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
+        <source>Offset</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
