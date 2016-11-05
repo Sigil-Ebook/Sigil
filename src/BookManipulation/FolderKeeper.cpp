@@ -231,7 +231,7 @@ QString FolderKeeper::GetUniqueFilenameVersion(const QString &filename) const
 {
     const QStringList &filenames = GetAllFilenames();
 
-    if (!filenames.contains(filename)) {
+    if (!filenames.contains(filename, Qt::CaseInsensitive)) {
         return filename;
     }
 
@@ -244,7 +244,9 @@ QString FolderKeeper::GetUniqueFilenameVersion(const QString &filename) const
                             "(\\d*)" +
                             (!extension.isEmpty() ? ("\\." + QRegularExpression::escape(extension)) : QString()) +
                             "$";
+
     QRegularExpression filename_search(search_string);
+    filename_search.setPatternOptions(QRegularExpression::CaseInsensitiveOption);
     int max_num_length = -1;
     int max_num = -1;
     foreach(QString existing_file, filenames) {
@@ -255,7 +257,7 @@ QString FolderKeeper::GetUniqueFilenameVersion(const QString &filename) const
 
         bool conversion_successful = false;
         int number_suffix = match.captured(1).toInt(&conversion_successful);
-
+        
         if (conversion_successful && number_suffix > max_num) {
             max_num = number_suffix;
             max_num_length = match.capturedLength(1);
