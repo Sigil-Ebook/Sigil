@@ -5,6 +5,7 @@
 [Setup]
 AppName=Sigil
 AppVerName=Sigil ${SIGIL_FULL_VERSION}
+VersionInfoVersion=${SIGIL_FULL_VERSION}
 DefaultDirName={pf}\Sigil
 DefaultGroupName=Sigil
 UninstallDisplayIcon={app}\Sigil.exe
@@ -68,61 +69,138 @@ Components: dicon\user; Name: "{userdesktop}\Sigil"; Filename: "{app}\Sigil.exe"
 
 [Run]
 ; The following command detects whether or not the c++ runtime need to be installed.
-Filename: {tmp}\vcredist2015.exe; Check: VCRedistNeeds2015Install; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2015.msi"" "; StatusMsg: Checking for VS 2015 RunTime ...
+Filename: {tmp}\vcredist2015.exe; Check: NeedsVC2015RedistInstall; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2015.msi"" "; StatusMsg: Checking for VS 2015 RunTime ...
 
 [Code]
-#IFDEF UNICODE
-  #DEFINE AW "W"
-#ELSE
-  #DEFINE AW "A"
-#ENDIF
-type
-  INSTALLSTATE = Longint;
-const
-  INSTALLSTATE_INVALIDARG = -2;  // An invalid parameter was passed to the function.
-  INSTALLSTATE_UNKNOWN = -1;     // The product is neither advertised or installed.
-  INSTALLSTATE_ADVERTISED = 1;   // The product is advertised but not installed.
-  INSTALLSTATE_ABSENT = 2;       // The product is installed for a different user.
-  INSTALLSTATE_DEFAULT = 5;      // The product is installed for the current user.
 
-  // Visual C++ 2010 Redistributable
-  VC_2010_REDIST_X86 = '{196BB40D-1578-3D01-B289-BEFC77A11A1E}';
-  VC_2010_REDIST_X64 = '{DA5E371C-6333-3D8A-93A4-6FD5B20BCC6E}';
-  VC_2010_SP1_REDIST_X86 = '{F0C3E5D1-1ADE-321E-8167-68EF0DE699A5}';
-  VC_2010_SP1_REDIST_X64 = '{1D8E6291-B0D5-35EC-8441-6616F567A0F7}';
-
-  // Visual C++ 2013 Redistributable 12.0.21005
-  VC_2013_REDIST_X86_MIN = '{13A4EE12-23EA-3371-91EE-EFB36DDFFF3E}';
-  VC_2013_REDIST_X64_MIN = '{A749D8E6-B613-3BE3-8F5F-045C84EBA29B}';
-  // Microsoft Visual C++ 2013 Additional Runtime - 11.0.61030.0
-  VC_2013_REDIST_X86_ADD = '{F8CFEB22-A2E7-3971-9EDA-4B11EDEFC185}';
-  VC_2013_REDIST_X64_ADD = '{929FBD26-9020-399B-9A7A-751D61F0B942}';
-
-  // Visual C++ 2015 Redistributable 14.0.24210
-  VC_2015_REDIST_X86_MIN = '{8FD71E98-EE44-3844-9DAD-9CB0BBBC603C}';
-  VC_2015_REDIST_X64_MIN = '{C0B2C673-ECAA-372D-94E5-E89440D087AD}';
-  // Microsoft Visual C++ 2015 Additional Runtime - 11.0.61030.0
-  VC_2015_REDIST_X86_ADD = '{BE960C1C-7BAD-3DE6-8B1A-2616FE532845}';
-  VC_2015_REDIST_X64_ADD = '{BC958BD2-5DAC-3862-BB1A-C1BE0790438D}';
-
-function MsiQueryProductState(szProduct: string): INSTALLSTATE;
-  external 'MsiQueryProductState{#AW}@msi.dll stdcall';
-
-function VCVersionInstalled(const ProductID: string): Boolean;
+function IsWindowsVersion(Major, Minor: Integer): Boolean;
+// Check the major and minor versions of Windows version numbers
+var
+  Version: TWindowsVersion;
 begin
-  Result := MsiQueryProductState(ProductID) = INSTALLSTATE_DEFAULT;
+  GetWindowsVersionEx(Version);
+  Result := ((Version.Major = Major) and (Version.Minor = Minor));
 end;
 
-function VCRedistNeeds2015Install: Boolean;
+function IsSPLevelOrMore(SPMajor: Integer): Boolean;
+// Version agnostic Service Pack check
+var
+  Version: TWindowsVersion;
 begin
-  // here the Result must be True when you need to install your VCRedist
-  // or False when you don't need to, so now it's upon you how you build
-  // this statement, the following won't install your VC redist only when
-  // the Visual C++ 2015 Redist are installed for the current user
+  GetWindowsVersionEx(Version);
+  Result := (Version.ServicePackMajor >= SPMajor);
+end;
 
-   // Checking to see if VC++ 2015 redistributable is installed
-  if Is64BitInstallMode then
-    Result := not (VCVersionInstalled(VC_2015_REDIST_X64_MIN))
+
+// Windows version checks
+function IsWindows7: Boolean;
+begin
+  Result := IsWindowsVersion(6, 1);
+end;
+
+function IsWindowsVista: Boolean;
+begin
+  Result := IsWindowsVersion(6, 0);
+end;
+
+
+function CompareVersion(V1, V2: string): Integer;
+// Compare version strings
+// Returns 0, if the versions are equal.
+// Returns -1, if the V1 is older than the V2.
+// Returns 1, if the V1 is newer than the V2.
+var
+  P, N1, N2: Integer;
+begin
+  Result := 0;
+  while (Result = 0) and ((V1 <> '') or (V2 <> '')) do
+  begin
+    P := Pos('.', V1);
+    if P > 0 then
+    begin
+      N1 := StrToInt(Copy(V1, 1, P - 1));
+      Delete(V1, 1, P);
+    end
+      else
+    if V1 <> '' then
+    begin
+      N1 := StrToInt(V1);
+      V1 := '';
+    end
+      else
+    begin
+      N1 := 0;
+    end;
+
+    P := Pos('.', V2);
+    if P > 0 then
+    begin
+      N2 := StrToInt(Copy(V2, 1, P - 1));
+      Delete(V2, 1, P);
+    end
+      else
+    if V2 <> '' then
+    begin
+      N2 := StrToInt(V2);
+      V2 := '';
+    end
+      else
+    begin
+      N2 := 0;
+    end;
+
+    if N1 < N2 then Result := -1
+      else
+    if N1 > N2 then Result := 1;
+  end;
+end;
+
+
+function NeedsVC2015RedistInstall: Boolean;
+// Return True if VC 2015 redist included
+// with Sigil Installer needs to be run.
+var
+  reg_key, installed_ver, sigil_ver: String;
+  R: Integer;
+begin
+  Result := True;
+  // version of the VC++ Redistributable included with Sigil Installer
+  sigil_ver := '14.0.24210';
+  if IsWin64 and not Is64BitInstallMode then
+    // 32-bit version being installed on 64-bit machine
+    reg_key := 'SOFTWARE\WoW6432Node\Microsoft\DevDiv\vc\servicing\14.0\RuntimeMinimum'
   else
-    Result := not (VCVersionInstalled(VC_2015_REDIST_X86_MIN));
+    reg_key := 'SOFTWARE\Microsoft\DevDiv\vc\servicing\14.0\RuntimeMinimum';
+
+  if RegQueryStringValue(HKEY_LOCAL_MACHINE, reg_key, 'Version', installed_ver) then
+  begin
+     //MsgBox('Registry key: ' + reg_key, mbInformation, MB_OK);
+     //MsgBox('Version: ' + installed_ver, mbInformation, MB_OK);
+     R := CompareVersion(installed_ver, sigil_ver);
+     // If installed VC++ 2015 runtime version is equal or newer than
+     // the one included with the Sigil installer, then skip
+     // executing the VC++ redistributable installer
+     if R >= 0 then
+       Result := False;
+  end
+end;
+
+
+function InitializeSetup(): Boolean;
+// Make sure Windows 7 is at least at SP1 and that
+// Vista is at least at SP2 before setup starts.
+begin
+  Result := True;
+
+  if IsWindowsVista and not IsSPLevelOrMore(2) then
+  begin
+    MsgBox('The Sigil installer requires SP2 on this version of Windows.', mbCriticalError, MB_OK);
+    Result := False;
+  end;
+
+  if IsWindows7 and not IsSPLevelOrMore(1) then
+  begin
+      MsgBox('The Sigil installer requires SP1 on this version of Windows.', mbCriticalError, MB_OK);
+      Result := False;
+  end;
 end;
