@@ -3,6 +3,7 @@ preSigil-0.9.8
     - Make sure when new empty epub3's are created that the toc does not use a doctype (Issue # 250)
     - Make GetUniqueFilenameVersion work even on Case-Insensitive filesystems (Issue #247)
     - Properly urlencode/decode all hrefs in plugin's ResultXML in launcher/PluginRunner to prevent parse errors
+    - Enable Basic Cut Copy Paste Icons/Actions in OPF, NCX, XML, SVG, and other Misc Text Tabs 
 
 Sigil-0.9.7
    Bug Fixes

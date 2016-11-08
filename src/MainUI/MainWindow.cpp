@@ -4924,6 +4924,16 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
                 this,  SLOT(ClipEditorDialog(ClipEditorModel::clipEntry *)));
     }
 
+    // Allow Cut, Copy, Paste to work in other TextTabs to enable basic edit icons
+    if (rType == Resource::MiscTextResourceType ||
+        rType == Resource::OPFResourceType ||
+        rType == Resource::NCXResourceType ||
+        rType == Resource::SVGResourceType ||
+        rType == Resource::TextResourceType ||
+        rType == Resource::XMLResourceType) {
+        connect(tab,   SIGNAL(SelectionChanged()),           this,          SLOT(UpdateUIOnTabChanges()));
+    }
+
     if (rType == Resource::HTMLResourceType ||
         rType == Resource::ImageResourceType ||
         rType == Resource::SVGResourceType) {
