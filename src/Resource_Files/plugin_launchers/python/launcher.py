@@ -28,7 +28,7 @@
 from __future__ import unicode_literals, division, absolute_import, print_function
 
 from compatibility_utils import PY3, text_type, utf8_str, unicode_str, unescapeit
-from compatibility_utils import unicode_argv, add_cp65001_codec
+from compatibility_utils import unicode_argv, add_cp65001_codec, quoteurl
 
 # Sigil Python Script Launcher
 #
@@ -163,7 +163,7 @@ class ProcessScript(object):
                     bookhref = id
                     id = ""
                     mime = container._w.getmime(bookhref)
-                self.wrapout.append('<deleted href="%s" id="%s" media-type="%s" />\n' % (bookhref, id, mime))
+                self.wrapout.append('<deleted href="%s" id="%s" media-type="%s" />\n' % (quoteurl(bookhref), id, mime))
         if script_type in ['input', 'edit']:
             for id in container._w.added:
                 if id in container._w.id_to_href:
@@ -174,7 +174,7 @@ class ProcessScript(object):
                     bookhref = id
                     id = ""
                     mime = container._w.getmime(bookhref)
-                self.wrapout.append('<added href="%s" id="%s" media-type="%s" />\n' % (bookhref, id, mime))
+                self.wrapout.append('<added href="%s" id="%s" media-type="%s" />\n' % (quoteurl(bookhref), id, mime))
         if script_type == 'edit':
             for id in container._w.modified:
                 if id in container._w.id_to_href:
@@ -185,7 +185,7 @@ class ProcessScript(object):
                     bookhref = id
                     id = ""
                     mime = container._w.getmime(bookhref)
-                self.wrapout.append('<modified href="%s" id="%s" media-type="%s" />\n' % (bookhref, id, mime))
+                self.wrapout.append('<modified href="%s" id="%s" media-type="%s" />\n' % (quoteurl(bookhref), id, mime))
         if script_type == 'validation':
             for vres in container.results:
                 self.wrapout.append('<validationresult type="%s" filename="%s" linenumber="%s" charoffset="%s" message="%s" />\n' % (vres.restype, vres.filename, vres.linenumber, vres.charoffset, vres.message))

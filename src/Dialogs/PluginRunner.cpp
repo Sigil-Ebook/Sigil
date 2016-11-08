@@ -455,7 +455,7 @@ bool PluginRunner::processResultXML()
                 QString id;
                 QString mime;
                 QXmlStreamAttributes attr = reader.attributes();
-                href = attr.value("href").toString();
+                href = Utility::URLDecodePath(attr.value("href").toString());
                 id = attr.value("id").toString();
                 mime =  attr.value("media-type").toString();
                 info << href << id << mime;
