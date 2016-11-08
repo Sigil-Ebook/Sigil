@@ -322,6 +322,16 @@ void MainWindow::unloadPluginsMenu()
 void MainWindow::runPlugin(QAction *action)
 {
     QString pname = action->text();
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+    // Workaround for a bug in the KDE Qt5 plugin that injects accelerator shortcuts
+    // into QAction->text(). So return the toolTip() text in those cases where it
+    // differs from text(). Everybody else uses text().
+    // https://bugs.kde.org/show_bug.cgi?format=multiple&id=345023
+    QString altname = action->toolTip();
+    if (pname != altname && !altname.isEmpty()) {
+        pname = altname;
+    }
+#endif
     PluginRunner prunner(m_TabManager, this);
     prunner.exec(pname);
 }
