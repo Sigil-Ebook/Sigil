@@ -38,6 +38,7 @@
 #include "ResourceObjects/VideoResource.h"
 #include "Misc/Utility.h"
 #include "Misc/OpenExternally.h"
+#include "Misc/SettingsStore.h"
 
 const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
                                      << "gif"   << "tif"   << "tiff"
@@ -491,9 +492,13 @@ void FolderKeeper::CreateFolderStructure()
 
 void FolderKeeper::CreateInfrastructureFiles()
 {
+    SettingsStore ss;
+    QString version = ss.defaultVersion();
     m_OPF = new OPFResource(m_FullPathToMainFolder, m_FullPathToOEBPSFolder + "/" + OPF_FILE_NAME, this);
+    m_OPF->SetEpubVersion(version);
     m_NCX = new NCXResource(m_FullPathToMainFolder, m_FullPathToOEBPSFolder + "/" + NCX_FILE_NAME, this);
     m_NCX->SetMainID(m_OPF->GetMainIdentifierValue());
+    m_NCX->SetEpubVersion(version);
     m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
     // TODO: change from Resource* to const Resource&

@@ -28,6 +28,7 @@
 #include "BookManipulation/CleanSource.h"
 #include "Exporters/NCXWriter.h"
 #include "ResourceObjects/NCXResource.h"
+#include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
 
 static const QString TEMPLATE_TEXT =
@@ -152,7 +153,8 @@ void NCXResource::GenerateNCXFromTOCEntries(const Book *book, TOCModel::TOCEntry
 
 void NCXResource::FillWithDefaultText()
 {
-    QString version = GetEpubVersion();
+    SettingsStore ss;
+    QString version = ss.defaultVersion();
     if (version.startsWith('2')) {
         SetText(TEMPLATE_TEXT.arg(tr("Start")).arg(FIRST_SECTION_NAME));
       } else {
