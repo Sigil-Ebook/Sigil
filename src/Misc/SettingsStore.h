@@ -193,6 +193,11 @@ public:
 
 
     /**
+     * The preferred tab for the appearance prefs widget.
+     */
+    int appearancePrefsTabIndex();
+
+    /**
      * The default font to use for rendering Book View/Preview.
      */
     BookViewAppearance bookViewAppearance();
@@ -206,6 +211,11 @@ public:
      * The appearance settings to use for editing in Code View.
      */
     SpecialCharacterAppearance specialCharacterAppearance();
+
+    /**
+     * The icon size to use for the main menu.
+     */
+    double mainMenuIconSize();
 
     /**
      * Clear all Book View, Code View and Special Characters settings back to their defaults.
@@ -305,6 +315,11 @@ public slots:
     void setDefaultVersion(const QString &version);
 
     /**
+     * Set the preferred tab for the appearance prefs widget.
+     */
+    void setAppearancePrefsTabIndex(int index);
+
+    /**
      * Set the default font settings to use for rendering Book View/Preview
      */
     void setBookViewAppearance(const BookViewAppearance &book_view_appearance);
@@ -316,6 +331,11 @@ public slots:
     * Set the default font settings to use for Special Characters popup window
     */
     void setSpecialCharacterAppearance(const SpecialCharacterAppearance &special_character_appearance);
+
+    /**
+     * Set the icon size to use for the main menu.
+     */
+    void setMainMenuIconSize(double icon_size);
 
 private:
     /**

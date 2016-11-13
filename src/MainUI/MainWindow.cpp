@@ -4112,6 +4112,17 @@ void MainWindow::UpdateRecentFileActions()
     }
 }
 
+void MainWindow::sizeMenuIcons() {
+    // attempt to grow icons for high dpi displays on Windows and Linux
+    SettingsStore settings;
+    double iconscalefactor = settings.mainMenuIconSize();
+    int iconsize = QFontMetrics(QFont()).lineSpacing() * iconscalefactor;
+    if (iconsize < 12) iconsize = 12;
+    QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();
+    foreach(QToolBar * toolbar, all_toolbars) {
+        toolbar->setIconSize(QSize(iconsize,iconsize));
+    }
+}
 
 void MainWindow::PlatformSpecificTweaks()
 {
@@ -4120,27 +4131,7 @@ void MainWindow::PlatformSpecificTweaks()
 #ifndef Q_OS_MAC
     ui.actionClose->setEnabled(false);
     ui.actionClose->setVisible(false);
-    // attempt to grow icons for high dpi displays on Windows and Linux
-    QString envvar = Utility::GetEnvironmentVar("SIGIL_ICON_SCALE_FACTOR");
-#ifdef Q_OS_WIN32
-    double defaultmultiplier = 2;
-#else
-    double defaultmultiplier = 1.8;
-#endif
-    double iconscalefactor = defaultmultiplier;
-    if (!envvar.isEmpty()) {
-        bool ok;
-        iconscalefactor = envvar.toDouble(&ok);
-        if (!ok || iconscalefactor > 3 || iconscalefactor < 1) {
-            iconscalefactor = defaultmultiplier;
-        }
-    }
-    int iconsize = QFontMetrics(QFont()).lineSpacing() * iconscalefactor;
-    if (iconsize < 12) iconsize = 12;
-    QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();
-    foreach(QToolBar * toolbar, all_toolbars) {
-        toolbar->setIconSize(QSize(iconsize,iconsize));
-    }
+    sizeMenuIcons();
 #else
     // Macs also use bigger icons but scale them automatically for high dpi displays
     QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();

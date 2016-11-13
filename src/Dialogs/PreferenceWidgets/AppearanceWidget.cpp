@@ -29,6 +29,7 @@
 
 #include "AppearanceWidget.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 
 class ColorSwatchDelegate : public QStyledItemDelegate
 {
@@ -80,11 +81,15 @@ AppearanceWidget::AppearanceWidget()
     m_codeViewAppearance = readSettings();
     loadCodeViewColorsList(m_codeViewAppearance);
     connectSignalsToSlots();
+#ifdef Q_OS_MAC
+    ui.iconSizeSlider->setEnabled(false);
+#endif
 }
 
 PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
 {
     SettingsStore settings;
+    settings.setAppearancePrefsTabIndex(ui.tabAppearance->currentIndex());
     SettingsStore::BookViewAppearance bookViewAppearance;
     bookViewAppearance.font_family_standard     = ui.cbBookViewFontStandard->currentText();
     bookViewAppearance.font_family_serif        = ui.cbBookViewFontSerif->currentText();
@@ -121,6 +126,7 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
     specialCharacterAppearance.font_family = ui.cbSpecialCharacterFont->currentText();
     specialCharacterAppearance.font_size   = ui.specialCharacterFontSizeSpin->value();
     settings.setSpecialCharacterAppearance(specialCharacterAppearance);
+    settings.setMainMenuIconSize(double(ui.iconSizeSlider->value())/10);
     // BV/PV settings can be globally changed and will take effect immediately
     QWebSettings *web_settings = QWebSettings::globalSettings();
     web_settings->setFontSize(QWebSettings::DefaultFontSize, bookViewAppearance.font_size);
@@ -163,6 +169,7 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
 SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
 {
     SettingsStore settings;
+    ui.tabAppearance->setCurrentIndex(settings.appearancePrefsTabIndex());
     SettingsStore::BookViewAppearance bookViewAppearance = settings.bookViewAppearance();
     SettingsStore::CodeViewAppearance codeViewAppearance = settings.codeViewAppearance();
     SettingsStore::SpecialCharacterAppearance specialCharacterAppearance = settings.specialCharacterAppearance();
@@ -175,6 +182,7 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     ui.codeViewFontSizeSpin->setValue(codeViewAppearance.font_size);
     ui.specialCharacterFontSizeSpin->setValue(specialCharacterAppearance.font_size);
     codeViewAppearance.font_family = ui.cbCodeViewFont->currentText();
+    ui.iconSizeSlider->setValue(int(settings.mainMenuIconSize()*10));
     return codeViewAppearance;
 }
 
@@ -261,8 +269,18 @@ void AppearanceWidget::resetAllButtonClicked()
     ui.codeViewColorsList->blockSignals(false);
 }
 
+void AppearanceWidget::newSliderValue(int value) {
+    SettingsStore settings;
+    settings.setMainMenuIconSize(double(ui.iconSizeSlider->value())/10);
+
+    QWidget *mainWindow_w = Utility::GetMainWindow();
+    MainWindow *mainWindow = dynamic_cast<MainWindow *>(mainWindow_w);
+    mainWindow->sizeMenuIcons();
+}
+
 void AppearanceWidget::connectSignalsToSlots()
 {
     connect(ui.customColorButton, SIGNAL(clicked()), this, SLOT(customColorButtonClicked()));
     connect(ui.resetAllButton,    SIGNAL(clicked()), this, SLOT(resetAllButtonClicked()));
+    connect(ui.iconSizeSlider,    SIGNAL(valueChanged(int)), this, SLOT(newSliderValue(int)));
 }
