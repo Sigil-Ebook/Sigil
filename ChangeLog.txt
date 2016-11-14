@@ -7,6 +7,9 @@ preSigil-0.9.8
     - Add proper detection for minimum service pack requirements in Windows installer
     - Include workaround for bug in KDE Qt5 plugin on Linux that keep plugins from launching from menu
 
+   New Features
+    - New preference setting (Appearance section) which allows user to adjust the size of the main menu icons
+
 Sigil-0.9.7
    Bug Fixes
     - Allow tags in the svg and mathml namespace to automtically self-close if empty to help work around

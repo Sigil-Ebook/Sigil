@@ -81,9 +81,6 @@ AppearanceWidget::AppearanceWidget()
     m_codeViewAppearance = readSettings();
     loadCodeViewColorsList(m_codeViewAppearance);
     connectSignalsToSlots();
-#ifdef Q_OS_MAC
-    ui.iconSizeSlider->setEnabled(false);
-#endif
 }
 
 PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
