@@ -61,6 +61,7 @@ static QString KEY_CSS_EPUB3_VALIDATION_SPEC = SETTINGS_GROUP + "/" + "css_epub3
 
 static QString KEY_TEMP_FOLDER = SETTINGS_GROUP + "/" + "temp_folder_path";
 
+static QString KEY_APPEARANCE_PREFS_TAB_INDEX = SETTINGS_GROUP + "/" + "appearance_prefs_tab_index";
 static QString KEY_BOOK_VIEW_FONT_FAMILY_STANDARD = SETTINGS_GROUP + "/" + "book_view_font_family_standard";
 static QString KEY_BOOK_VIEW_FONT_FAMILY_SERIF = SETTINGS_GROUP + "/" + "book_view_font_family_serif";
 static QString KEY_BOOK_VIEW_FONT_FAMILY_SANS_SERIF = SETTINGS_GROUP + "/" + "book_view_font_family_sans_serif";
@@ -92,7 +93,7 @@ static QString KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR = SETTINGS_GROUP + "/" + "
 
 static QString KEY_SPECIAL_CHARACTER_FONT_FAMILY = SETTINGS_GROUP + "/" + "special_character_font_family";
 static QString KEY_SPECIAL_CHARACTER_FONT_SIZE = SETTINGS_GROUP + "/" + "special_character_font_size";
-
+static QString KEY_MAIN_MENU_ICON_SIZE = SETTINGS_GROUP + "/" + "main_menu_icon_size";
 
 SettingsStore::SettingsStore()
     : QSettings(Utility::DefinePrefsDir() + "/sigil.ini", QSettings::IniFormat)
@@ -263,6 +264,11 @@ QString SettingsStore::tempFolderHome()
     return value(KEY_TEMP_FOLDER, QDir::tempPath()).toString();
 }
 
+int SettingsStore::appearancePrefsTabIndex() {
+    clearSettingsGroup();
+    return value(KEY_APPEARANCE_PREFS_TAB_INDEX, 0).toInt();
+}
+
 SettingsStore::BookViewAppearance SettingsStore::bookViewAppearance()
 {
     clearSettingsGroup();
@@ -312,6 +318,12 @@ SettingsStore::SpecialCharacterAppearance SettingsStore::specialCharacterAppeara
     appearance.font_family = value(KEY_SPECIAL_CHARACTER_FONT_FAMILY, "Arial").toString();
     appearance.font_size = value(KEY_SPECIAL_CHARACTER_FONT_SIZE, 14).toInt();
     return appearance;
+}
+
+double SettingsStore::mainMenuIconSize()
+{
+    clearSettingsGroup();
+    return value(KEY_MAIN_MENU_ICON_SIZE, 1.8).toDouble();
 }
 
 void SettingsStore::setDefaultMetadataLang(const QString &lang)
@@ -465,6 +477,11 @@ void SettingsStore::setTempFolderHome(const QString &path)
     setValue(KEY_TEMP_FOLDER, path);
 }
 
+void SettingsStore::setAppearancePrefsTabIndex(int index) {
+    clearSettingsGroup();
+    setValue(KEY_APPEARANCE_PREFS_TAB_INDEX, index);
+}
+
 void SettingsStore::setBookViewAppearance(const SettingsStore::BookViewAppearance &book_view_appearance)
 {
     clearSettingsGroup();
@@ -509,6 +526,12 @@ void SettingsStore::setSpecialCharacterAppearance(const SettingsStore::SpecialCh
     setValue(KEY_SPECIAL_CHARACTER_FONT_SIZE, special_character_appearance.font_size);
 }
 
+void SettingsStore::setMainMenuIconSize(double icon_size)
+{
+    clearSettingsGroup();
+    setValue(KEY_MAIN_MENU_ICON_SIZE, icon_size);
+}
+
 void SettingsStore::clearAppearanceSettings()
 {
     clearSettingsGroup();
@@ -541,6 +564,7 @@ void SettingsStore::clearAppearanceSettings()
     remove(KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR);
     remove(KEY_SPECIAL_CHARACTER_FONT_FAMILY);
     remove(KEY_SPECIAL_CHARACTER_FONT_SIZE);
+    remove(KEY_MAIN_MENU_ICON_SIZE);
 }
 
 void SettingsStore::clearSettingsGroup()

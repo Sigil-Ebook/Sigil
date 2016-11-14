@@ -4112,6 +4112,20 @@ void MainWindow::UpdateRecentFileActions()
     }
 }
 
+void MainWindow::sizeMenuIcons() {
+    // Size icons based on Qfont line-spacing and a
+    // user-preference tweakable scale-factor.
+    SettingsStore settings;
+    double iconscalefactor = settings.mainMenuIconSize();
+    int iconsize = QFontMetrics(QFont()).lineSpacing() * iconscalefactor;
+    if (iconsize < 12) iconsize = 12;
+    if (iconsize > 48) iconsize = 48;
+
+    QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();
+    foreach(QToolBar * toolbar, all_toolbars) {
+        toolbar->setIconSize(QSize(iconsize,iconsize));
+    }
+}
 
 void MainWindow::PlatformSpecificTweaks()
 {
@@ -4120,37 +4134,17 @@ void MainWindow::PlatformSpecificTweaks()
 #ifndef Q_OS_MAC
     ui.actionClose->setEnabled(false);
     ui.actionClose->setVisible(false);
-    // attempt to grow icons for high dpi displays on Windows and Linux
-    QString envvar = Utility::GetEnvironmentVar("SIGIL_ICON_SCALE_FACTOR");
-#ifdef Q_OS_WIN32
-    double defaultmultiplier = 2;
-#else
-    double defaultmultiplier = 1.8;
-#endif
-    double iconscalefactor = defaultmultiplier;
-    if (!envvar.isEmpty()) {
-        bool ok;
-        iconscalefactor = envvar.toDouble(&ok);
-        if (!ok || iconscalefactor > 3 || iconscalefactor < 1) {
-            iconscalefactor = defaultmultiplier;
-        }
-    }
-    int iconsize = QFontMetrics(QFont()).lineSpacing() * iconscalefactor;
-    if (iconsize < 12) iconsize = 12;
-    QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();
-    foreach(QToolBar * toolbar, all_toolbars) {
-        toolbar->setIconSize(QSize(iconsize,iconsize));
-    }
 #else
     // Macs also use bigger icons but scale them automatically for high dpi displays
-    QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();
-    foreach(QToolBar * toolbar, all_toolbars) {
-        toolbar->setIconSize(QSize(32, 32));
-    }
+    //QList<QToolBar *> all_toolbars = findChildren<QToolBar *>();
+    //foreach(QToolBar * toolbar, all_toolbars) {
+    //    toolbar->setIconSize(QSize(32, 32));
+    //}
     // Set the action because they are not automatically put in the right place as of Qt 5.1.
     ui.actionAbout->setMenuRole(QAction::AboutRole);
     ui.actionPreferences->setMenuRole(QAction::PreferencesRole);
 #endif
+    sizeMenuIcons();
 }
 
 

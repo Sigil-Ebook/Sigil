@@ -205,6 +205,8 @@ public:
      */
     bool ProceedWithUndefinedUrlFragments();
 
+    void sizeMenuIcons();
+
 public slots:
     void AnyCodeView();
 

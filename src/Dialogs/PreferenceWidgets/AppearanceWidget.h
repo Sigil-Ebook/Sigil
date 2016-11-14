@@ -24,6 +24,7 @@
 #ifndef APPEARANCEWIDGET_H
 #define APPEARANCEWIDGET_H
 
+#include "MainUI/MainWindow.h"
 #include "Misc/SettingsStore.h"
 #include "PreferencesWidget.h"
 #include "ui_PAppearanceWidget.h"
@@ -42,6 +43,7 @@ public:
 private slots:
     void customColorButtonClicked();
     void resetAllButtonClicked();
+    void newSliderValue(int value);
 
 private:
     SettingsStore::CodeViewAppearance readSettings();
