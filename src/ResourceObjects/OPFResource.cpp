@@ -807,9 +807,9 @@ void OPFResource::ResourceRenamed(const Resource *resource, QString old_full_pat
             QString old_href = me.m_href;
             me.m_href = resource->GetRelativePathToOEBPS();
             old_id = me.m_id;
+            p.m_idpos.remove(old_id);
             new_id = GetUniqueID(GetValidID(resource->Filename()),p);
             me.m_id = new_id;
-            p.m_idpos.remove(old_id);
             p.m_idpos[new_id] = i;
             p.m_hrefpos.remove(old_href);
             p.m_hrefpos[me.m_href] = i;
