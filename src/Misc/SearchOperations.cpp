@@ -202,30 +202,30 @@ std::tuple<QString, int> SearchOperations::PerformGlobalReplace(const QString &t
 }
 
 
-std::tuple<QString, int> SearchOperations::PerformHTMLSpellCheckReplace(const QString &text,
-        const QString &search_regex,
-        const QString &replacement)
-{
-    QString new_text = text;
-    int count = 0;
-    int offset = 0;
-    SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
-    QList<HTMLSpellCheck::MisspelledWord> check_spelling = HTMLSpellCheck::GetMisspelledWords(text, 0, text.count(), search_regex);
-    foreach(HTMLSpellCheck::MisspelledWord misspelled_word, check_spelling) {
-        SPCRE::MatchInfo match_info = spcre->getFirstMatchInfo(misspelled_word.text);
+//std::tuple<QString, int> SearchOperations::PerformHTMLSpellCheckReplace(const QString &text,
+//        const QString &search_regex,
+//        const QString &replacement)
+//{
+//    QString new_text = text;
+//    int count = 0;
+//    int offset = 0;
+//    SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
+//    QList<HTMLSpellCheck::MisspelledWord> check_spelling = HTMLSpellCheck::GetMisspelledWords(text, 0, text.count(), search_regex);
+//    foreach(HTMLSpellCheck::MisspelledWord misspelled_word, check_spelling) {
+//        SPCRE::MatchInfo match_info = spcre->getFirstMatchInfo(misspelled_word.text);
 
-        if (match_info.offset.first != -1) {
-            QString replacement_text;
+//        if (match_info.offset.first != -1) {
+//            QString replacement_text;
 
-            if (spcre->replaceText(Utility::Substring(match_info.offset.first, match_info.offset.second, misspelled_word.text), match_info.capture_groups_offsets, replacement, replacement_text)) {
-                new_text.replace(offset + misspelled_word.offset + match_info.offset.first, match_info.offset.second - match_info.offset.first, replacement_text);
-                offset += replacement_text.length() - (match_info.offset.second - match_info.offset.first);
-                count++;
-            }
-        }
-    }
-    return std::make_tuple(new_text, count);
-}
+//            if (spcre->replaceText(Utility::Substring(match_info.offset.first, match_info.offset.second, misspelled_word.text), match_info.capture_groups_offsets, replacement, replacement_text)) {
+//                new_text.replace(offset + misspelled_word.offset + match_info.offset.first, match_info.offset.second - match_info.offset.first, replacement_text);
+//                offset += replacement_text.length() - (match_info.offset.second - match_info.offset.first);
+//                count++;
+//            }
+//        }
+//    }
+//    return std::make_tuple(new_text, count);
+//}
 
 
 void SearchOperations::Accumulate(int &first, const int &second)

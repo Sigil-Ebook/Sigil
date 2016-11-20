@@ -57,15 +57,25 @@ private slots:
     void dictionariesCurrentIndexChanged(int index);
     void checkBoxChanged(int state);
     void ItemChanged(QStandardItem *item);
+    void tabChanged(int tab);
 
 private:
     void setUpTable();
     void setDefaultUserDictionary(QString dict_name = QString());
-    bool createUserDict(QString dict_name);
+    bool createUserDict(const QStringList dict_name);
+    bool copyDicWithSubdics(const QString &source, const QStringList &destination);
 
     QStringList EnabledDictionaries();
 
     void addNewItem(bool enabled, QString dict_name);
+    void addNewMLItem(bool enabled, QStringList dicts);
+
+    QStandardItem * getParent(const QModelIndex selected);
+    QStandardItem * getSelected(const QModelIndex selected);
+    QString getSelectedDictName(const QModelIndex selected);
+    QString getSelectedParentDic(const QModelIndex selected);
+    QStringList getChildrenDics(const QModelIndex selected);
+    void dictionaryDirty(const QString userDict, const bool force=false);
 
     void readSettings();
     void connectSignalsToSlots();
@@ -73,7 +83,10 @@ private:
     Ui::SpellCheckWidget ui;
     bool m_isDirty;
 
-    QStandardItemModel m_Model;
+    QByteArray m_hash;
+    QStringList m_dirtyDicts;
+    QStandardItemModel *m_Model;
 };
+
 
 #endif // SPELLCHECKWIDGET_H

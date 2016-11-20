@@ -89,9 +89,9 @@ private:
             const QString &search_regex,
             const QString &replacement);
 
-    static std::tuple<QString, int> PerformHTMLSpellCheckReplace(const QString &text,
-            const QString &search_regex,
-            const QString &replacement);
+//    static std::tuple<QString, int> PerformHTMLSpellCheckReplace(const QString &text,
+//            const QString &search_regex,
+//            const QString &replacement);
 
     static void Accumulate(int &first, const int &second);
 };

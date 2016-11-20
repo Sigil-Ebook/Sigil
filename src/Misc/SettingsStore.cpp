@@ -185,7 +185,7 @@ bool SettingsStore::setLoadMainLanguageDictionary()
     return static_cast<bool>(value(KEY_LOAD_MAIN_LANG_DICT, true).toBool());
 }
 
-bool SettingsStore::setLoadAllLanguagesDIctionaries()
+bool SettingsStore::setLoadAllLanguagesDictionaries()
 {
     clearSettingsGroup();
     return static_cast<bool>(value(KEY_LOAD_ALL_LANG_DICTS, true).toBool());
@@ -419,7 +419,7 @@ void SettingsStore::setLoadMainLanguageDictionary(bool enabled)
     setValue(KEY_LOAD_MAIN_LANG_DICT, enabled);
 }
 
-void SettingsStore::setLoadAllLanguagesDIctionaries(bool enabled)
+void SettingsStore::setLoadAllLanguagesDictionaries(bool enabled)
 {
     clearSettingsGroup();
     setValue(KEY_LOAD_ALL_LANG_DICTS, enabled);

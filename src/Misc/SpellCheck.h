@@ -43,33 +43,26 @@ public:
     static SpellCheck *instance();
     ~SpellCheck();
 
-    struct HunDictionary{
-        Hunspell *hunspell{nullptr};
-        QTextCodec *codec{nullptr};
-        QString wordchars{""};
-    };
+
 
     QStringList userDictionaries();
     QStringList dictionaries();
-    QString currentDictionary() const;
-    bool spell(const QString &word);
-    QStringList suggest(const QString &word);
-    QStringList suggest(const QString &word,const QString languageCode);
+
     QStringList suggestML(const QString &lword);
-    void clearIgnoredWords();
-    void ignoreWord(const QString &word);
-    const bool ignoreWord(const QString &word, const QString &langCode);
-    void ignoreWordInDictionary(const QString &word);
-    const bool ignoreWordInDictionary(const QString &word, const QString &langCode);
 
-    QString getWordChars();
-    const QString getWordChars(const QString lang);
+    void clearMLIgnoredWords(const QString dicName);
+    void clearAllMLIgnoredWords();
 
-    void setDictionary(const QString &name, bool forceReplace = false);
-    void reloadDictionary();
+    const bool ignoreMLWord(const QString lword);
+    const bool ignoreMLWordInDictionary(const QString lword);
 
-    void addToUserDictionary(const QString &word, QString dict_name = "");
-    QStringList allUserDictionaryWords();
+    const QString getMLWordChars(const QString lang);
+
+    void reloadMLDictionary(const QString lang);
+
+    void addToUserDictionary(const QString lword, const QString dictName="");
+
+    QStringList allUserMLDictionaryWords(const QString alias);
     QStringList userDictionaryWords(QString dict_name);
 
 
@@ -78,46 +71,59 @@ public:
      */
     static QString dictionaryDirectory();
     static QString userDictionaryDirectory();
-    static QString currentUserDictionaryFile();
-    static QString userDictionaryFile(QString dict_name);
 
-    void loadDictionaryNames();
 
-    /**
-     * varlog's multilanguage;
-     */
+     bool createUserDictionary(const QString userDictName);
      const QString findDictionary(const QString languageCode);
      void loadDictionaryForLang(const QString languageCode);
-     void unloadDictionary(const QString name);
+     void loadDictionary(const QString dictName);
+     void unloadDictionary(const QString dictName);
+     void reloadAllDictionaries();
      const QStringList alreadyLoadedDics();
+
      void setDCLanguages(const QList<QVariant> dclangs);
-     QString getMainDCLanguage();
+     const QString getMainDCLanguage();
+
      const QString codeToAlias(const QString languageCode);
-     const QStringList aliasToCode(const QString dic);
-     const bool isLoaded(const QString code);
-     void setDictionaryAlias(const QString lang, const QString dic);
+     const QStringList aliasToCode(const QString dictName);
+
+     void setDictionaryAlias(const QString lang, const QString dictName);
      void removeDictionaryAlias(const QString lang);
+
      void WriteSettings();
-     bool spell(const QString word, const QString languageCode);
+
+     bool spellML(const QString word, const QString languageCode);
+
+     const bool isLoaded(const QString code);
+     bool isSpellable(const QString lang);
+
+     const QStringList userDictLaunguages(const QString userDictName);
+
 private:
-     void loadDictionary(const QString dicName);
+
+     struct HunDictionary{
+         Hunspell *hunspell{nullptr};
+         QTextCodec *codec{nullptr};
+         QString wordchars{""};
+     };
+
+     void loadDictionaryNames();
+     const QString currentUserDictionaryFile();
+     const QString userDictionaryFile(const QString dict_name);
+     const bool _ignoreMLWordInDictionary(const QString word, const QString dictName);
+     void _addToUserDictionary(const QString word, const QString dictCode, QString dictName = "");
+     const bool _ignoreMLWord(const QString word, const QString langCode);
+
      void ReadSettings();
      void setUpSpellCheck();
      const QString getCode(const QString dicName);
      void setUpNewBook();
 
-     //end varlog
 
-private:
     SpellCheck();
 
-    Hunspell *m_hunspell;
-    QTextCodec *m_codec;
-    QString m_wordchars;
-    QString m_dictionaryName;
-    //
     QHash<QString, QString> m_dictionaries;
-    QStringList m_ignoredWords;
+    QMap <QString,QStringList> m_ignoredMLWords;
 
     static std::unique_ptr<SpellCheck> m_instance;
 
@@ -125,7 +131,7 @@ private:
     QMap<QString,QString> m_dicAliasTable;
     QStringList m_DCLanguages;
     QString m_mainDCLanguage;
-    QStringList m_lastSessionDics;
+    QStringList m_lastSessionDicts;
 
 };
 

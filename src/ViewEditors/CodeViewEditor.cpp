@@ -2000,7 +2000,7 @@ void CodeViewEditor::addToDefaultDictionary(const QString &text)
 void CodeViewEditor::ignoreWord(const QString &text)
 {
     SpellCheck *sc = SpellCheck::instance();
-    sc->ignoreWord(text);
+    sc->ignoreMLWord(text);
     emit SpellingHighlightRefreshRequest();
 }
 

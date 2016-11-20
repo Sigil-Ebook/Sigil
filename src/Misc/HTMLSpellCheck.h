@@ -75,7 +75,6 @@ public:
 
     static int WordPosition(QString text, QString word, int start_pos);
 
- //***varlogs
     static int WordPosition(QString text, QString word, QString lang, int start_pos);
     static QList<MisspelledWord> GetMLMisspelledWords(const QString &text,
             int start_offset,

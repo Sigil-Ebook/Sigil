@@ -286,13 +286,22 @@ You cannot remove the last dictionary.</string>
                </layout>
               </item>
               <item>
-               <widget class="QTableView" name="userDictList">
+               <widget class="QTreeView" name="userDictList">
+                <property name="mouseTracking">
+                 <bool>true</bool>
+                </property>
                 <property name="toolTip">
                  <string>Mark which dictionaries are enabled for
 spell checking.
 
 Select a dictionary to display its words,
 and to make it the default dictionary.</string>
+                </property>
+                <property name="uniformRowHeights">
+                 <bool>true</bool>
+                </property>
+                <property name="animated">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>

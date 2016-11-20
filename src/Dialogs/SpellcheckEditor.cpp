@@ -170,7 +170,7 @@ void SpellcheckEditor::Ignore()
     foreach (QStandardItem *item, GetSelectedItems(0)) {       
         int r{item->row()};
         QString lang{m_SpellcheckEditorModel->item(r,1)->text()};
-        if(m_SpellCheck->ignoreWord(item->text(),lang)){
+        if(m_SpellCheck->ignoreMLWord(lang+ QChar(',')+item->text())){
             MarkSpelledOkay(item->row());
         }
     }
@@ -197,12 +197,12 @@ void SpellcheckEditor::Add()
 
     m_MultipleSelection = SelectedRowsCount() > 1;
 
-    SpellCheck *sc = SpellCheck::instance();
     SettingsStore settings;
     QStringList enabled_dicts = settings.enabledUserDictionaries();
     bool enabled = false;
     foreach (QStandardItem *item, GetSelectedItems(0)) {
-        sc->addToUserDictionary(item->text(), dict_name);
+        QString lang{m_SpellcheckEditorModel->item(item->row(),1)->text()};
+        m_SpellCheck->addToUserDictionary(lang+QChar(',')+item->text(), dict_name);
         if (enabled_dicts.contains(dict_name)) {
             enabled = true;
             MarkSpelledOkay(item->row());
@@ -286,7 +286,7 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
         int count = unique_words.value(i.key());
         wc+=count-1;
 
-        bool misspelled = !m_SpellCheck->spell(word,lang);
+        bool misspelled = !m_SpellCheck->spellML(word,lang);
         if (misspelled) {
             total_misspelled_words++;
         }
@@ -323,9 +323,10 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
         } else {
             misspelled_item->setText(tr("No"));
         }
-        if(lang.isEmpty()||
+        if((lang.isEmpty()||
                 //somebody could have defined dectionary for "" TODO?
-                 !m_SpellCheck->alreadyLoadedDics().contains(m_SpellCheck->codeToAlias(lang)))
+                 !m_SpellCheck->alreadyLoadedDics().contains(m_SpellCheck->codeToAlias(lang))) &&
+                  m_SpellCheck->isSpellable(lang))
                     misspelled_item->setText("?");
         row_items << misspelled_item ;
         ui.le_wordc->setText(QString::number((wc))+
@@ -348,6 +349,7 @@ void SpellcheckEditor::Refresh(int sort_column, Qt::SortOrder sort_order)
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     WriteSettings();
+    ui.le_wordc->clear();
     setupMultiLanguageUi(); //must be before CreateModel
     CreateModel(sort_column, sort_order);
     UpdateDictionaries();
@@ -366,8 +368,7 @@ void SpellcheckEditor::Refresh(int sort_column, Qt::SortOrder sort_order)
 void SpellcheckEditor::UpdateDictionaries()
 {
     ui.Dictionaries->clear();
-    SpellCheck *sc = SpellCheck::instance();
-    QStringList dicts = sc->userDictionaries();
+    QStringList dicts = m_SpellCheck->userDictionaries();
     if (dicts.count() > 0) {
         ui.Dictionaries->addItems(dicts);
     }
@@ -568,15 +569,6 @@ void SpellcheckEditor::WriteSettings()
 
 void SpellcheckEditor::setupMultiLanguageUi()
 {
-
-//   QStringList haveAlready(m_SpellCheck->alreadyLoadedDics());
-//    QStringList langs{};
-//    foreach (QString l, haveAlready) {
-//       QString ln=Language::instance()->GetLanguageName(toCodeName(l));
-//       if (ln.isEmpty()) ln=toCodeName(l);
-//       langs.append(ln);
-//    }
-
       populateLoadedDicsTable();
 }
 
@@ -642,9 +634,8 @@ void SpellcheckEditor::changeCodeOrAlias(const int row, const int column){
         QString origCode{ui.twLoadedDics->item(row,0)->text()};
         QString code{choseDictionary()};
         if(!code.isEmpty() && !code.isNull()){
-            QString dic{origCode};
             QString alias{toDicName(code)};
-            m_SpellCheck->unloadDictionary(dic);
+            m_SpellCheck->unloadDictionary(origCode);
             m_SpellCheck->setDictionaryAlias(origCode,alias);
             m_SpellCheck->loadDictionaryForLang(origCode);
             Refresh();
@@ -778,6 +769,32 @@ void SpellcheckEditor::update_cbCAToolTipp(const QString &word){
     ui.cbChangeAll->setToolTip("<b>"+word+"</b>");
 }
 
+void SpellcheckEditor::IgnoreML()
+{
+    if (SelectedRowsCount() < 1) {
+        emit ShowStatusMessageRequest(tr("No words selected."));
+        return;
+    }
+
+    m_MultipleSelection = SelectedRowsCount() > 1;
+
+    foreach (QStandardItem *item, GetSelectedItems(0)) {
+        int r{item->row()};
+        QString lang{m_SpellcheckEditorModel->item(r,1)->text()};
+        if(m_SpellCheck->ignoreMLWord(lang+QChar(',')+ item->text())){
+            MarkSpelledOkay(item->row());
+        }
+    }
+
+    if (m_MultipleSelection) {
+        m_MultipleSelection = false;
+        FindSelectedWord();
+    }
+    emit ShowStatusMessageRequest(tr("Ignored word(s)."));
+    emit SpellingHighlightRefreshRequest();
+}
+
+
 //***varlogs multilanguage end
 
 void SpellcheckEditor::CreateContextMenuActions()
@@ -876,3 +893,4 @@ void SpellcheckEditor::ConnectSignalsSlots()
     connect(ui.cbChangeAll, SIGNAL(currentTextChanged(QString)),this,SLOT(update_cbCAToolTipp(QString)));
     connect(ui.twLoadedDics,SIGNAL(cellDoubleClicked(int,int)),this,SLOT(changeCodeOrAlias(int,int)));
 }
+

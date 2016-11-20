@@ -116,7 +116,7 @@ public:
     bool setLoadLastSessionDictionaries();
     bool setUnloadCurrentDIctionaries();
     bool setLoadMainLanguageDictionary();
-    bool setLoadAllLanguagesDIctionaries();
+    bool setLoadAllLanguagesDictionaries();
 
     int viewState();
 
@@ -287,7 +287,7 @@ public slots:
     void setLoadLastSessionDictionaries(bool enabled);
     void setUnloadCurrentDIctionaries(bool enabled);
     void setLoadMainLanguageDictionary(bool enabled);
-    void setLoadAllLanguagesDIctionaries(bool enabled);
+    void setLoadAllLanguagesDictionaries(bool enabled);
 
     void setViewState(int state);
 

@@ -3341,10 +3341,10 @@ void MainWindow::MendHTML()
 
 void MainWindow::ClearIgnoredWords()
 {
-    QApplication::setOverrideCursor(Qt::WaitCursor);
     SpellCheck *sc = SpellCheck::instance();
-    sc->clearIgnoredWords();
+    sc->clearAllMLIgnoredWords();
     // Need to reload any tabs to force spelling to be run again in CodeView
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     RefreshSpellingHighlighting();
     QApplication::restoreOverrideCursor();
 }
@@ -3605,7 +3605,7 @@ void MainWindow::SetNewBook(QSharedPointer<Book> new_book)
     //because it calls in the end QuickSerialHtmlParser
     SpellCheck *sc = SpellCheck::instance();
     sc->setDCLanguages(m_Book->getBookMainDCLanguageCodes());
-    sc->clearIgnoredWords();
+    sc->clearAllMLIgnoredWords();
     m_BookBrowser->SetBook(m_Book);
     m_TableOfContents->SetBook(m_Book);
     m_ValidationResultsView->SetBook(m_Book);

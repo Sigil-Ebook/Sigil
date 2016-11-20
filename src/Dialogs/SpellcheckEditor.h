@@ -92,6 +92,7 @@ private slots:
     void Sort(int logicalindex, Qt::SortOrder order);
 
 //******varlogs
+    void IgnoreML();
     const QString choseDictionary();
     void loadDictionary();
     void loadDictionary(const QString lang);
