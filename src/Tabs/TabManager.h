@@ -85,6 +85,12 @@ public:
 
     void UpdateTabDisplay();
 
+    /**
+     * Close the OPF tab if it's currently open.
+     * Returns true if the OPF had to be closed.
+     */
+    bool CloseOPFTabIfOpen();
+
 public slots:
 
     /**

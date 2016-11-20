@@ -122,7 +122,8 @@ bool TabManager::IsAllTabDataWellFormed()
         int index = ResourceTabIndex(resource);
         WellFormedContent *content = dynamic_cast<WellFormedContent *>(widget(index));
 
-        if (content) {
+        // Only check Xhtml for now.
+        if (content && resource->Type() == Resource::HTMLResourceType) {
             if (!content->IsDataWellFormed()) {
                 return false;
             }
@@ -550,4 +551,17 @@ void TabManager::UpdateTabDisplay()
             tab->UpdateDisplay();
         }
     }
+}
+
+bool TabManager::CloseOPFTabIfOpen()
+{
+    QList<Resource *> resources = GetTabResources();
+    foreach(Resource *resource, resources) {
+        int index = ResourceTabIndex(resource);
+        if (resource->Type() == Resource::OPFResourceType) {
+            CloseTab(index);
+            return true;
+        }
+    }
+    return false;
 }

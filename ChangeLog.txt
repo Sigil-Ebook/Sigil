@@ -7,6 +7,7 @@ preSigil-0.9.8
     - Add proper detection for minimum service pack requirements in Windows installer
     - Include workaround for bug in KDE Qt5 plugin on Linux that keep plugins from launching from menu
     - Change it so splitting Section0001.xhtml (Split at Cursor) doesn't automatically rewrite the file's id with a uuid
+    - Fix issue where merging files when non-xhtml tabs were open was causing Python errors or crashes
 
    New Features
     - New preference setting (Appearance section) which allows user to adjust the size of the main menu icons
