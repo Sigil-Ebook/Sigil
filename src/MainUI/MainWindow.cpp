@@ -2084,6 +2084,10 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     foreach(Resource *resource, resources) {
         m_TabManager->CloseTabForResource(resource);
     }
+
+    // Close the OPF tab
+    bool opf_was_open = m_TabManager->CloseOPFTabIfOpen();
+
     // Display progress dialog
     Resource *resource_to_open = resources.first();
     Resource *failed_resource = m_Book->MergeResources(resources);
@@ -2097,6 +2101,10 @@ void MainWindow::MergeResources(QList <Resource *> resources)
         m_BookBrowser->Refresh();
     }
 
+    // Reopen OPF tab if it got closed
+    if (opf_was_open) {
+        OpenResource(m_Book->GetOPF());
+    }
     OpenResource(resource_to_open);
     UpdateBrowserSelectionToTab();
     QApplication::restoreOverrideCursor();
