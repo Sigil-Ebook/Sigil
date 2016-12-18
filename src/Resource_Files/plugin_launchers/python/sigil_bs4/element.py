@@ -1476,8 +1476,10 @@ class Tag(PageElement):
                 attribs.append(decoded)
             atts = " " + " ".join(attribs)
 
+
         # get tag content
         contents=""
+        is_void_tag = self.name in VOID_TAGS
         if not is_void_tag:
             if is_structural:
                 contents = self.prettyprint_xhtml_contents(indent_level+1, eventual_encoding, formatter, indent_chars)
