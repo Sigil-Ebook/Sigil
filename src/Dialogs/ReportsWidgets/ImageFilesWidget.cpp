@@ -398,8 +398,16 @@ void ImageFilesWidget::Delete()
             files_to_delete.append(m_ItemModel->itemFromIndex(index)->text());
         }
     }
-
+    // remove the to be deleted resourcs from the list of all image resources
+    if (files_to_delete.count() <= 0) {
+      return;
+    }
+    foreach(QString filename, files_to_delete) {
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+        if (resource) m_AllImageResources.removeOne(resource);
+    }
     emit DeleteFilesRequest(files_to_delete);
+    SetupTable();
 }
 
 
