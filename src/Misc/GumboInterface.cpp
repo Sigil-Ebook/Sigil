@@ -977,12 +977,17 @@ std::string GumboInterface::serialize_contents(GumboNode* node, enum UpdateTypes
         GumboNode* child = static_cast<GumboNode*> (children->data[i]);
 
         if (child->type == GUMBO_NODE_TEXT) {
-            inject_newline = false;
+            std::string text;
             if (no_entity_substitution) {
-                contents.append(std::string(child->v.text.text));
+                text = std::string(child->v.text.text);
+                // contents.append(std::string(child->v.text.text));
             } else {
-                contents.append(substitute_xml_entities_into_text(std::string(child->v.text.text)));
+                text = substitute_xml_entities_into_text(std::string(child->v.text.text));
+                // contents.append(substitute_xml_entities_into_text(std::string(child->v.text.text)));
             }
+            if (inject_newline) ltrimnewlines(text);
+            inject_newline = false;
+            contents.append(text);
 
         } else if (child->type == GUMBO_NODE_ELEMENT || child->type == GUMBO_NODE_TEMPLATE) {
             contents.append(serialize(child, doupdates));
