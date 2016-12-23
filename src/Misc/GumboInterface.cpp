@@ -980,12 +980,10 @@ std::string GumboInterface::serialize_contents(GumboNode* node, enum UpdateTypes
             std::string text;
             if (no_entity_substitution) {
                 text = std::string(child->v.text.text);
-                // contents.append(std::string(child->v.text.text));
             } else {
                 text = substitute_xml_entities_into_text(std::string(child->v.text.text));
-                // contents.append(substitute_xml_entities_into_text(std::string(child->v.text.text)));
             }
-            if (inject_newline) ltrimnewlines(text);
+            if (inject_newline && !text.empty() && (text.at(0) == '\n')) text.erase(0,1);
             inject_newline = false;
             contents.append(text);
 
