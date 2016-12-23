@@ -23,26 +23,25 @@ export MYQTSRC=`pwd`
 # clone qtwebkit from git::/code.qt.io/qt/qtwebkit.git
 git clone git://code.qt.io/qt.qtwebkit.git
 
-# download qt-everywhere-opensource-src-5.6.1-1.tar.gz directly from Qt
-# From:  http://download.qt.io/archive/qt/5.6/5.6.1-1/single/
+# download qt-everywhere-opensource-src-5.6.2.tar.gz directly from Qt
+# From:  http://download.qt.io/archive/qt/5.6/5.6.2/single/
 
 # and then unpack it
-tar -zxvf qt-everywhere-opensource-src-5.6.1-1.tar.gz
+tar -zxvf qt-everywhere-opensource-src-5.6.2.tar.gz
 
 # copy the qtwebkit directory into qt-everywhere-opensource-src-5.6.1 to sit beside qtbase, etc
-cd qt-everywhere-opensource-src-5.6.1
+cd qt-everywhere-opensource-src-5.6.2
 mkdir qtwebkit
 cp -R ../qtwebkit/ ./qtwebkit
 
-# next on Mac OS X there is a build fix needed for Qt-5.6.1-1 that needs to be added
-# grab the patch file from the git Sigil-Ebook/Sigil/docs
-patch -p0 <  qt_561_osx.patch
-
 # set the correct module version inside of the newly added qtwebkit directory
 # edit qtwebkit/.qmake.conf and change this line 
+
 # MODULE_VERSION = 5.7
+
 # to
-# MODULE_VERSION = 5.6.1
+
+# MODULE_VERSION = 5.6.2
 
 # Create a destination directory to house your complete Qt binary in your home directory
 # to match how stock Qt does it
@@ -53,7 +52,7 @@ mkdir Qt56
 cd ${MYQTSRC}
 mkdir buildqt
 cd buildqt
-../qt-everywhere-opensource-src-5.6.1/configure --prefix=/Users/${USER}/Qt56 -opensource -nomake examples -nomake tests
+../qt-everywhere-opensource-src-5.6.2/configure --prefix=/Users/${USER}/Qt56 -opensource -nomake examples -nomake tests
 # note the build itself can take a couple of hours depending on memory available, disk and cpus used
 make -j4
 make install
