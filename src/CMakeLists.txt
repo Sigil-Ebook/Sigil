@@ -841,8 +841,6 @@ elseif (MSVC)
 
     # Create python virtual environment
     if ( PKG_SYSTEM_PYTHON )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E make_directory ${PYTHON_DEST_DIR} )
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
                         COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_BINARY_DIR}/windows_python_gather.py )
     endif()

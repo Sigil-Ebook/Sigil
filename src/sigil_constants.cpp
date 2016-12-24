@@ -9,7 +9,7 @@
 const QString SIGIL_PREFS_DIR = QProcessEnvironment::systemEnvironment().value("SIGIL_PREFS_DIR", "").trimmed();
 
 const QString PATH_LIST_DELIM = ";";
-const QString PYTHON_MAIN_PATH = "/Python3";
+const QString PYTHON_MAIN_PATH = "";  // Bundled Python interpreter is in same dir as Sigil exe now
 const QStringList PYTHON_SYS_PATHS = QStringList() << "/Lib" << "/DLLs" << "/Lib/site-packages";
 #else
 const QString SIGIL_PREFS_DIR = QString(getenv("SIGIL_PREFS_DIR"));

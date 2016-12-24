@@ -83,7 +83,7 @@ QString PluginDB::buildBundledInterpPath()
   execdir.cdUp();
   bundled_python3_path = execdir.absolutePath() + PYTHON_MAIN_BIN_PATH;
 #elif defined(Q_OS_WIN32)
-  bundled_python3_path = QCoreApplication::applicationDirPath() + "/python3/sigil-python3.exe";
+  bundled_python3_path = QCoreApplication::applicationDirPath() + "/sigil-python3.exe";
 #else
   bundled_python3_path = QCoreApplication::applicationDirPath() + "/python3/bin/sigil-python3";
 #endif
