@@ -73,7 +73,7 @@ Repeat for the next six modules
 etc...
 
 
-The last Python module to install is lxml. It's apparently too cool to be installed easily with pip on Windows, so follow lxml's own advice and download one of [Christoph Gohlke's precompiled Windows binaries](http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml) instead.
+The next Python module to install is lxml. It's apparently too cool to be installed easily with pip on Windows, so follow lxml's own advice and download one of [Christoph Gohlke's precompiled Windows binaries](http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml) instead.
 
 Getting the right one can be fiddly, so be careful and choose the correct one. The downloads are in the form of "wheel" files (.whl)--installable with pip after downloading.
 
@@ -91,6 +91,43 @@ or
 
 If you're building a 32-bit version of Sigil and thus have the 32-bit version of Python 3.5 installed.
 
+The last Python module to install is PyQt5. You can't install this one with pip either. The PyPi version is based on Qt5.7 instead of the version of Qt Sigil uses so you'll need to build PyQt5 manually.
+(**You can install a [binary version of PyQt5-5.6](https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/) if you like, but it won't have the python bindings to QtWebKit. If you can live with that, have at it. Just make sure you install the correct one for your Sigil build -- x32 or x64**).
+
+
+PyQt5 depends on sip which you can install with pip
+
+>`pip install sip`
+
+Brush up on the PyQt build instructions from the [PyQt website](http://pyqt.sourceforge.net/Docs/PyQt5/installation.html).
+
+Download [the source](https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.zip/download) for PyQt5 v5.6 and extract it somewhere on your hard drive.
+
+Using the shortcut to the proper VS2015 command-prompt created in [step 1](#vs2015), cd to where you extracted the PyQt5 source and configure the source with a command like:
+
+>`python configure.py --no-designer-plugin --no-qml-plugin --no-qsci-api --no-sip-files --no-stubs --no-tools --disable QtNfc --disable QtBluetooth --disable QtWinExtras --disable QtLocation --disable QtXml --disable QtXmlPatterns --disable QtWebSockets --disable QtHelp --disable QtTest --disable QtDBus --disable QtDesigner --no-docstrings --confirm-license --destdir C:\Users\<username>\AppData\Local\Programs\Python\Python35\Lib\site-packages`
+
+If you're building a 32-bit version of Sigil, use:
+
+>`python configure.py --no-designer-plugin --no-qml-plugin --no-qsci-api --no-sip-files --no-stubs --no-tools --disable QtNfc --disable QtBluetooth --disable QtWinExtras --disable QtLocation --disable QtXml --disable QtXmlPatterns --disable QtWebSockets --disable QtHelp --disable QtTest --disable QtDBus --disable QtDesigner --no-docstrings --confirm-license --destdir C:\Users\<username>\AppData\Local\Programs\Python\Python35-32\Lib\site-packages`
+
+Change the --destdir path if to match where your Python was installed. If everything goes according to plan, you can build PyQt with the command:
+
+>`nmake`
+
+If something breaks while building QPicture then change line 649 in QtGui/sipQtGuiQPicture.cpp from:
+
+>`return new QPicture[sipNrElem];`
+
+to:
+
+>`return NULL;`
+
+and issue nmake again.
+
+Once it completes building, install with:
+
+>`nmake install`
 
 
 ##<a name="sigil"/>Getting Sigil's Source Code
