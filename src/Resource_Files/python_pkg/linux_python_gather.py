@@ -49,7 +49,10 @@ site_packages = [ ('lxml', 'd'),
                   ('cssselect', 'd'),
                   ('encutils', 'd'),
                   ('cssutils', 'd'),
-                  ('chardet', 'd')]
+                  ('webencodings', 'd'),
+                  ('chardet', 'd'),
+                  ('sip.pyd', 'f'),
+                  ('PyQt5', 'd')]
 
 
 def copy_site_packages(packages, dest):
@@ -62,7 +65,10 @@ def copy_site_packages(packages, dest):
                 for entry in os.listdir(path):
                     if entry == pkg:
                         if typ == 'd' and os.path.isdir(os.path.join(path, entry)):
-                            shutil.copytree(os.path.join(path, entry), os.path.join(site_dest, entry), ignore=ignore_in_dirs)
+                            if pkg == 'PyQt5':
+                                shutil.copytree(os.path.join(path, entry), os.path.join(site_dest, entry), ignore=ignore_in_pyqt5_dirs)
+                            else:
+                                shutil.copytree(os.path.join(path, entry), os.path.join(site_dest, entry), ignore=ignore_in_dirs)
                             found = True
                             break
                         else:
@@ -72,6 +78,21 @@ def copy_site_packages(packages, dest):
                                 break
             else:
                 break
+
+def ignore_in_pyqt5_dirs(base, items, ignored_dirs=None):
+    ans = []
+    if ignored_dirs is None:
+        ignored_dirs = {'.svn', '.bzr', '.git', 'doc', 'examples', 'includes', 'mkspecs',
+                       'plugins', 'qml', 'qsci', 'qt', 'sip', 'translations', 'uic', '__pycache__'}
+    for name in items:
+        path = os.path.join(base, name)
+        if os.path.isdir(path):
+            if name in ignored_dirs or not os.path.exists(os.path.join(path, '__init__.py')):
+                ans.append(name)
+        else:
+            if name.rpartition('.')[-1] not in ('so', 'py'):
+                ans.append(name)
+    return ans
 
 def ignore_in_dirs(base, items, ignored_dirs=None):
     ans = []
