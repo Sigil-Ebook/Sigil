@@ -13,8 +13,8 @@ pybase = os.path.dirname(srcdir)
 
 
 # Where we're going to copy stuff
-lib_dir = os.path.join(py_dest, 'Lib')
-dll_dir = os.path.join(py_dest, 'DLLs')
+lib_dir = os.path.join(tmp_prefix, 'Lib')
+dll_dir = os.path.join(tmp_prefix, 'DLLs')
 site_dest = os.path.join(lib_dir, 'site-packages')
 
 
@@ -31,7 +31,9 @@ site_packages = [ ('lxml', 'd'),
                   ('encutils', 'd'),
                   ('cssutils', 'd'),
                   ('webencodings', 'd'), # needed by html5lib
-                  ('chardet', 'd')]
+                  ('chardet', 'd'),
+                  ('sip.pyd', 'f'),
+                  ('PyQt5', 'd')]
 
 
 def copy_site_packages():
@@ -42,7 +44,10 @@ def copy_site_packages():
                 for entry in os.listdir(path):
                     if entry == pkg:
                         if typ == 'd' and os.path.isdir(os.path.join(path, entry)):
-                            shutil.copytree(os.path.join(path, entry), os.path.join(site_dest, entry), ignore=ignore_in_dirs)
+                            if pkg == 'PyQt5':
+                                shutil.copytree(os.path.join(path, entry), os.path.join(site_dest, entry), ignore=ignore_in_pyqt5_dirs)
+                            else:
+                                shutil.copytree(os.path.join(path, entry), os.path.join(site_dest, entry), ignore=ignore_in_dirs)
                             found = True
                             break
                         else:
@@ -52,6 +57,21 @@ def copy_site_packages():
                                 break
             else:
                 break
+
+def ignore_in_pyqt5_dirs(base, items, ignored_dirs=None):
+    ans = []
+    if ignored_dirs is None:
+        ignored_dirs = {'.svn', '.bzr', '.git', 'doc', 'examples', 'includes', 'mkspecs',
+                       'plugins', 'qml', 'qsci', 'qt', 'sip', 'translations', 'uic', '__pycache__'}
+    for name in items:
+        path = os.path.join(base, name)
+        if os.path.isdir(path):
+            if name in ignored_dirs or not os.path.exists(os.path.join(path, '__init__.py')):
+                ans.append(name)
+        else:
+            if name.rpartition('.')[-1] not in ('py', 'pyd'):
+                ans.append(name)
+    return ans
 
 def ignore_in_dirs(base, items, ignored_dirs=None):
     ans = []
@@ -71,14 +91,6 @@ def dll_walk():
     shutil.copytree(os.path.join(pybase, "DLLs"), dll_dir,
                 ignore=shutil.ignore_patterns('msvc*.dll', 'Microsoft.*'))
 
-    '''for dirpath, dirnames, filenames in os.walk(r'C:\Python%s\Lib'%py_ver):
-        if os.path.basename(dirpath) == 'pythonwin':
-            continue
-        for f in filenames:
-            if f.lower().endswith('.dll'):
-                f = os.path.join(dirpath, f)
-                shutil.copy2(f, dll_dir)'''
-
 def copy_tk_tcl():
     def ignore_lib(root, items):
             ans = []
@@ -96,25 +108,21 @@ def copy_tk_tcl():
                 shutil.copytree(os.path.join(src, entry), os.path.join(lib_dir, entry), ignore=ignore_lib)
 
 def copy_pylib():
-    #shutil.copy2(py_lib, py_dest)
     fldrs = (pybase, sys_dlls)
     dll_found = False
     for fldr in fldrs:
         if os.path.exists(os.path.join(fldr, 'python%s.dll'%py_ver)):
-            shutil.copy2(os.path.join(fldr, 'python%s.dll'%py_ver), py_dest)
             shutil.copy2(os.path.join(fldr, 'python%s.dll'%py_ver), tmp_prefix)
             dll_found = True
+            try:
+                shutil.copy2(os.path.join(fldr, 'python3.dll'), tmp_prefix)
+            except:
+                pass
             break
     if not dll_found:
         print ('Couldn\'t find the Python%s.dll file.'%py_ver)
         exit
-    try:
-        shutil.copy2(os.path.join(sys_dlls, 'pywintypes%s.dll'%py_ver), py_dest)
-        shutil.copy2(os.path.join(sys_dlls, 'pythoncom%s.dll'%py_ver), py_dest)
-    except:
-        pass
-    shutil.copy2(py_exe, os.path.join(py_dest, "sigil-python3.exe"))
-
+    shutil.copy2(py_exe, os.path.join(tmp_prefix, "sigil-python3.exe"))
 
 def copy_python():
     def ignore_lib(root, items):
@@ -128,7 +136,6 @@ def copy_python():
 
     shutil.copytree(os.path.join(pybase, "Lib"), lib_dir,
                 ignore=ignore_lib)
-    
 
 def compile_libs():
     for x in os.walk(lib_dir):
@@ -189,11 +196,19 @@ def create_site_py():
             '''), 'UTF-8'))
 
 def create_pyvenv():
-    with open(os.path.join(py_dest, 'pyvenv.cfg'), 'wb') as f:
+    with open(os.path.join(tmp_prefix, 'pyvenv.cfg'), 'wb') as f:
         f.write(bytes(textwrap.dedent('''\
         applocal = true
         '''), 'UTF-8'))
 
+def create_qt_conf():
+    with open(os.path.join(tmp_prefix, 'qt.conf'), 'wb') as f:
+        f.write(bytes(textwrap.dedent('''\
+        [Paths]
+        Prefix = .
+        Plugins = .
+        Binaries = .
+        '''), 'ascii'))
 
 if __name__ == '__main__':
     dll_walk()
@@ -201,6 +216,7 @@ if __name__ == '__main__':
     copy_python()
     copy_site_packages()
     create_site_py()
-    create_pyvenv()
+    # create_pyvenv()
+    # create_qt_conf()
     copy_tk_tcl()
     compile_libs()

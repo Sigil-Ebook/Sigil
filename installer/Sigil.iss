@@ -67,6 +67,12 @@ Name: "{group}\Uninstall Sigil"; Filename: "{uninstallexe}"
 Components: dicon\common; Name: "{commondesktop}\Sigil"; Filename: "{app}\Sigil.exe"
 Components: dicon\user; Name: "{userdesktop}\Sigil"; Filename: "{app}\Sigil.exe"
 
+[InstallDelete]
+; Restructuring done in 0.9.8 makes this folder residual
+Type: filesandordirs; Name: "{app}\python3"
+; Might be moving to precompiled python files in near future
+Type: filesandordirs; Name: "{app}\plugin_launchers\python"
+
 [Run]
 ; The following command detects whether or not the c++ runtime need to be installed.
 Filename: {tmp}\vcredist2015.exe; Check: NeedsVC2015RedistInstall; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2015.msi"" "; StatusMsg: Checking for VS 2015 RunTime ...

@@ -21,9 +21,11 @@
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Dialogs/PluginRunner.h"
+#include "sigil_constants.h"
 
-const QString ADOBE_FONT_ALGO_ID         = "http://ns.adobe.com/pdf/enc#RC";
-const QString IDPF_FONT_ALGO_ID          = "http://www.idpf.org/2008/embedding";
+// These are defined in Importers/ImportEPUB.cpp and can be made available by including sigil_constants.h
+//const QString ADOBE_FONT_ALGO_ID         = "http://ns.adobe.com/pdf/enc#RC";
+//const QString IDPF_FONT_ALGO_ID          = "http://www.idpf.org/2008/embedding";
 
 const QString PluginRunner::SEP = QString(QChar(31));
 const QString PluginRunner::OPFFILEINFO = "OEBPS/content.opf" + SEP + SEP + "application/oebps-package+xml";
@@ -236,7 +238,7 @@ void PluginRunner::startPlugin()
 #ifdef Q_OS_MAC
         args.append(QString("-Eu"));
 #elif defined(Q_OS_WIN32)
-        args.append(QString("-EOBu"));
+        args.append(QString("-OBu"));
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
         args.append(QString("-EOBu"));
 #endif
@@ -258,6 +260,42 @@ void PluginRunner::startPlugin()
     // so that python getpreferredencoding() and stdout/stderr/stdin encodings to get properly set
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     m_process.setProcessEnvironment(env);
+#elif defined(Q_OS_WIN32)
+    if (settings.useBundledInterp()) {
+        // Start with system environment.
+        QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+
+        // Set Python env variables to control how the bundled interpreter finds it's various pieces
+        // (and to isolate the bundled interpreter from any system Python).
+        // Relative to the interpreter binary to make it easier to relocate the bundled Python.
+        env.insert("PYTHONHOME", QDir::toNativeSeparators(QFileInfo(m_enginePath).absolutePath()));
+        env.insert("PYTHONIOENCODING", "UTF-8");
+
+        // Remove all other Python environment variables to avoid potential system Python interference.
+        QStringList vars_to_unset;
+        vars_to_unset << "PYTHONPATH" << "PYTHONOPTIMIZE" << "PYTHONDEBUG" << "PYTHONDEBUG"
+                      << "PYTHONINSPECT" << "PYTHONUNBUFFERED" << "PYTHONVERBOSE" << "PYTHONCASEOK"
+                      << "PYTHONDONTWRITEBYTECODE" << "PYTHONHASHSEED" << "PYTHONNOUSERSITE" << "PYTHONUSERBASE"
+                      << "PYTHONWARNINGS" << "PYTHONFAULTHANDLER" << "PYTHONTRACEMALLOC" << "PYTHONASYNCIODEBUG";
+        foreach(QString envvar, vars_to_unset) {
+            env.remove(envvar);
+        }
+
+        // Replace Qt environment variable with our own (for bundled PyQt5)
+        env.insert("QT_QPA_PLATFORM_PLUGIN_PATH", QDir::toNativeSeparators(QCoreApplication::applicationDirPath() + "/platforms"));
+        env.insert("QT_PLUGIN_PATH", QDir::toNativeSeparators(QCoreApplication::applicationDirPath()));
+
+        // Prepend Sigil program directory to PATH so the bundled interpreter
+        // can find the correct Qt libs (for PyQt5) and the Python dll.
+        env.insert("PATH", QDir::toNativeSeparators(QCoreApplication::applicationDirPath() + PATH_LIST_DELIM + env.value("PATH")));
+
+        // Set bundled Python environment.
+        m_process.setProcessEnvironment(env);
+
+        // If launched by another program, the new working directory could mess with how the
+        // bundled interpreter finds/loads PyQt5. So set it manually to the bundled interpreter's directory.
+        m_process.setWorkingDirectory(QDir::toNativeSeparators(QFileInfo(m_enginePath).absolutePath()));
+    }
 #endif
 
     m_process.start(executable, args);
