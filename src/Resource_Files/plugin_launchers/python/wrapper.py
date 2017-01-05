@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20161218
+_launcher_version=20170105
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
@@ -221,6 +221,7 @@ class Wrapper(object):
     # utility routine to get mime from href
     def getmime(self,  href):
         href = unicode_str(href)
+        href = unquoteurl(href)
         filename = os.path.basename(href)
         ext = os.path.splitext(filename)[1]
         ext = ext.lower()
@@ -460,6 +461,7 @@ class Wrapper(object):
             type = unicode_str(type)
             title = unicode_str(title)
             href = unicode_str(href)
+            href = unquoteurl(href)
             if type not in _guide_types:
                 type = "other." + type
             if title is None:
@@ -651,6 +653,7 @@ class Wrapper(object):
 
     def map_href_to_id(self, href, ow):
         href = unicode_str(href)
+        href = unquoteurl(href)
         return self.href_to_id.get(href,ow)
 
     def map_basename_to_id(self, basename, ow):
@@ -692,9 +695,11 @@ class Wrapper(object):
 
 
     # routines to work on ebook files that are not part of an opf manifest
+    # their "id" is actually their unique relative path from book root
 
     def readotherfile(self, book_href):
         id = unicode_str(book_href)
+        id = unquoteurl(id)
         if id in self.id_to_href:
             raise WrapperException('Incorrect interface routine - use readfile')
         # handle special case of trying to read the opf after it has been modified
@@ -723,6 +728,7 @@ class Wrapper(object):
 
     def writeotherfile(self, book_href, data):
         id = unicode_str(book_href)
+        id = unquoteurl(id)
         if id in self.id_to_href:
             raise WrapperException('Incorrect interface routine - use writefile')
         filepath = self.id_to_filepath.get(id, None)
@@ -742,6 +748,7 @@ class Wrapper(object):
 
     def addotherfile(self, book_href, data) :
         id = unicode_str(book_href)
+        id = unquoteurl(id)
         if id in self.other:
             raise WrapperException('book href must be unquie')
         desired_path = id.replace("/",os.sep)
@@ -761,6 +768,7 @@ class Wrapper(object):
 
     def deleteotherfile(self, book_href):
         id = unicode_str(book_href)
+        id = unquoteurl(id)
         if id in self.id_to_href:
             raise WrapperException('Incorrect interface routine - use deletefile')
         filepath = self.id_to_filepath.get(id, None)
