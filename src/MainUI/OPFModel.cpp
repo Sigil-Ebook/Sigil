@@ -386,9 +386,11 @@ void OPFModel::InitializeModel()
     QHash <Resource *, int> reading_order_all = m_Book->GetOPF()->GetReadingOrderAll(resources);
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
     QHash <QString, QString> semantic_type_all;
+    QHash <QString, QString> manifest_properties_all;
     if (version.startsWith('3')) {
         NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
         semantic_type_all = navproc.GetLandmarkNameForPaths();
+        manifest_properties_all = m_Book->GetOPF()->GetManifestPropertiesForPaths();
     } else { 
         semantic_type_all = m_Book->GetOPF()->GetGuideSemanticNameForPaths();
     }
@@ -402,6 +404,9 @@ void OPFModel::InitializeModel()
 
         if (semantic_type_all.contains(path)) {
             tooltip += " (" + semantic_type_all[path] + ")";
+        }
+        if (manifest_properties_all.contains(path)) {
+            tooltip += " [" + manifest_properties_all[path] + "]";
         }
         item->setToolTip(tooltip);
 

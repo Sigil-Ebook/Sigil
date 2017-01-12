@@ -150,6 +150,8 @@ public slots:
 
     QString GetManifestPropertiesForResource(const Resource * resource);
 
+    QHash <QString, QString> GetManifestPropertiesForPaths();
+
 private:
 
     /**

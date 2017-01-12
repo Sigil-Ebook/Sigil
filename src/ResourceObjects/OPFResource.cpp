@@ -1209,7 +1209,7 @@ QString OPFResource::GetManifestPropertiesForResource(const Resource * resource)
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
-    if (p.m_package.m_version.startsWith("2")) {
+    if (!p.m_package.m_version.startsWith("3")) {
         return properties;
     }
     QString href = resource->GetRelativePathToOEBPS();
@@ -1219,6 +1219,28 @@ QString OPFResource::GetManifestPropertiesForResource(const Resource * resource)
         properties = me.m_atts.value("properties","");
     }
     return properties;
+}
+
+
+QHash <QString, QString>  OPFResource::GetManifestPropertiesForPaths()
+{
+    QHash <QString, QString> manifest_properties_all;
+    QString version = GetEpubVersion();
+    if (!version.startsWith('3')) {
+        return manifest_properties_all;
+    }
+    QReadLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    foreach(ManifestEntry me, p.m_manifest) {
+        QString href = me.m_href;
+        if (me.m_atts.contains("properties")){
+            QString properties = me.m_atts["properties"];
+            manifest_properties_all[href] = properties;
+        }
+    }
+    return manifest_properties_all;
 }
 
 
