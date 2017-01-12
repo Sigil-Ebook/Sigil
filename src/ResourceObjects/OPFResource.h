@@ -148,6 +148,8 @@ public slots:
 
     void UpdateManifestProperties(const QList<Resource *> resources);
 
+    QString GetManifestPropertiesForResource(const Resource * resource);
+
 private:
 
     /**

@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2017 Kevin B. Hendricks, Stratford, Ontario
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012, 2013 Dave Heiland
 **
@@ -60,6 +61,7 @@ void AllFilesWidget::CreateReport(QSharedPointer<Book> book)
 
 void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 {
+    QString version = m_Book->GetOPF()->GetEpubVersion();
     m_ItemModel->clear();
     QStringList header;
     header.append(tr("Directory"));
@@ -67,13 +69,15 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     header.append(tr("File Size (KB)"));
     header.append(tr("Type"));
     header.append(tr("Semantics"));
+    if (version.startsWith("3")) {
+        header.append(tr("Properties"));
+    }
     m_ItemModel->setHorizontalHeaderLabels(header);
     ui.fileTree->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui.fileTree->setModel(m_ItemModel);
     ui.fileTree->header()->setSortIndicatorShown(true);
     double total_size = 0;
     QString main_folder = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
-    QString version = m_Book->GetOPF()->GetEpubVersion();
     foreach(Resource *resource, m_AllResources) {
         QString fullpath = resource->GetFullPath();
         QString filepath = resource->GetRelativePath();
@@ -110,7 +114,12 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
             item->setText(m_Book->GetOPF()->GetGuideSemanticNameForResource(resource));
         }
         rowItems << item;
-
+        // Manifest Properties
+        if (version.startsWith('3')) {
+            item = new QStandardItem();
+            item->setText(m_Book->GetOPF()->GetManifestPropertiesForResource(resource));
+            rowItems << item;
+        }
         // Add item to table
         m_ItemModel->appendRow(rowItems);
         for (int i = 0; i < rowItems.count(); i++) {

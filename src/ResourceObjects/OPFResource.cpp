@@ -1201,6 +1201,27 @@ void OPFResource::UpdateManifestProperties(const QList<Resource*> resources)
 }
 
 
+QString OPFResource::GetManifestPropertiesForResource(const Resource * resource)
+{
+    QString properties;
+    if (!resource) return properties;
+    QReadLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    if (p.m_package.m_version.startsWith("2")) {
+        return properties;
+    }
+    QString href = resource->GetRelativePathToOEBPS();
+    int pos = p.m_hrefpos.value(href, -1);
+    if ((pos >= 0) && (pos < p.m_manifest.count())) {
+        ManifestEntry me = p.m_manifest.at(pos);
+        properties = me.m_atts.value("properties","");
+    }
+    return properties;
+}
+
+
 HTMLResource * OPFResource::GetNavResource()const
 {
     return m_NavResource;
