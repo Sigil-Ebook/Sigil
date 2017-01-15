@@ -78,7 +78,8 @@ const QStringList AUDIO_MIMETYPES    = QStringList() << "audio/mpeg" << "audio/m
 const QStringList VIDEO_MIMETYPES    = QStringList() << "video/mp4" << "video/ogg" << "video/webm" << 
                                                         "text/vtt" << "application/ttml+xml" ;
 const QStringList MISC_XML_MIMETYPES = QStringList() << "application/oebps-page-map+xml" <<  "application/smil+xml" <<
-                                                        "application/adobe-page-template+xml" << "application/pls+xml";
+                                                        "application/adobe-page-template+xml" <<
+                                                        "application/vnd.adobe-page-template+xml" << "application/pls+xml";
 
 static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                                      "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"

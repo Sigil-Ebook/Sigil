@@ -167,8 +167,8 @@ std::tuple <QHash<QString, QString>,
         if (FONT_EXTENSIONS.contains(extension)) {
             css_updates[ key_path ] = html_updates.value(key_path);
             // html_updates.remove(key_path);
-        } else if (extension == "css") {
-            // Needed for CSS updates because of @import rules
+        } else if (extension == "css" || extension == "xpgt") {
+            // Needed for CSS/XGPT updates because of @import rules
             css_updates[ key_path ] = html_updates.value(key_path);
         } else if (IMAGE_EXTENSIONS.contains(extension)) {
             // Needed for CSS updates because of background-image rules

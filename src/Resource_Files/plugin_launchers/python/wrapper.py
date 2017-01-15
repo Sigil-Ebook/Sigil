@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20170105
+_launcher_version=20170115
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
@@ -78,27 +78,28 @@ ext_mime_map = {
                 }
 
 mime_base_map = {
-                'image/jpeg'                           : 'Images',
-                'image/png'                            : 'Images',
-                'image/gif'                            : 'Images',
-                'image/svg+xml'                        : 'Images',
-                'application/xhtml+xml'                : 'Text',
-                'application/x-font-ttf'               : 'Fonts',
-                'application/x-font-opentype'          : 'Fonts',
-                'application/vnd.ms-opentype'          : 'Fonts',
-                'application/font-woff'                : 'Fonts',
-                'audio/mpeg'                           : 'Audio',
-                'audio/mp3'                            : 'Audio',
-                'audio/mp4'                            : 'Audio',
-                'video/mp4'                            : 'Video',
-                'text/css'                             : 'Styles',
-                'application/x-dtbncx+xml'             : '',
-                'application/oebps-package+xml'        : '',
-                'application/oebs-page-map+xml'        : 'Misc',
-                'application/smil+xml'                 : 'Misc',
-                'application/adobe-page-template+xml'  : 'Misc',
-                'text/javascript'                      : 'Misc',
-                'application/pls+xml'                  : 'Misc',
+                'image/jpeg'                              : 'Images',
+                'image/png'                               : 'Images',
+                'image/gif'                               : 'Images',
+                'image/svg+xml'                           : 'Images',
+                'application/xhtml+xml'                   : 'Text',
+                'application/x-font-ttf'                  : 'Fonts',
+                'application/x-font-opentype'             : 'Fonts',
+                'application/vnd.ms-opentype'             : 'Fonts',
+                'application/font-woff'                   : 'Fonts',
+                'audio/mpeg'                              : 'Audio',
+                'audio/mp3'                               : 'Audio',
+                'audio/mp4'                               : 'Audio',
+                'video/mp4'                               : 'Video',
+                'text/css'                                : 'Styles',
+                'application/x-dtbncx+xml'                : '',
+                'application/oebps-package+xml'           : '',
+                'application/oebs-page-map+xml'           : 'Misc',
+                'application/smil+xml'                    : 'Misc',
+                'application/adobe-page-template+xml'     : 'Misc',
+                'application/vnd.adobe-page-template+xml' : 'Misc',
+                'text/javascript'                         : 'Misc',
+                'application/pls+xml'                     : 'Misc',
                 }
 
 
@@ -117,6 +118,7 @@ TEXT_MIMETYPES = [
                 'application/oebs-page-map+xml',
                 'application/smil+xml',
                 'application/adobe-page-template+xml',
+                'application/vnd.adobe-page-template+xml',
                 'text/javascript',
                 'application/pls+xml'
 ]

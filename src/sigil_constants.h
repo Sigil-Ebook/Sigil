@@ -68,6 +68,7 @@ extern const QStringList JPG_EXTENSIONS;
 extern const QStringList TIFF_EXTENSIONS;
 extern const QStringList VIDEO_EXTENSIONS;
 extern const QStringList AUDIO_EXTENSIONS;
+extern const QStringList MISC_XML_MIMETYPES;
 extern const QString ENCODING_ATTRIBUTE;
 extern const QString STANDALONE_ATTRIBUTE;
 extern const QString VERSION_ATTRIBUTE;

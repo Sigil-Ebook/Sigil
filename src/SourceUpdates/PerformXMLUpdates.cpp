@@ -26,6 +26,7 @@
 #include <QStringList>
 #include "Misc/Utility.h"
 #include "SourceUpdates/PerformXMLUpdates.h"
+#include "sigil_constants.h"
 
 
 
@@ -67,10 +68,18 @@ QString PerformXMLUpdates::operator()()
 
     QString routine;
 
-    if (m_MediaType == "application/smil+xml") {
-        routine = "performSMILUpdates";
-    } else if (m_MediaType == "application/oebps-page-map+xml")  {
-        routine = "performPageMapUpdates";
+    // MISC_XML_MIMETYPES is defined in BookManipulation/FolderKeeper.cpp and sigil_constants.h
+    if (MISC_XML_MIMETYPES.contains(m_MediaType)) {
+        if (m_MediaType == "application/smil+xml") {
+            routine = "performSMILUpdates";
+        } else if (m_MediaType == "application/oebps-page-map+xml")  {
+            routine = "performPageMapUpdates";
+        } else {
+            // We allow editing, but currently have no python parsing/repair/link-updating routines. Make no changes.
+            // application/adobe-page-template+xml, application/vnd.adobe-page-template+xml, "application/pls+xml"
+            return newsource;
+        }
+    // Utterly unsupported XML mimetypes
     } else {
         Utility::DisplayStdWarningDialog(QString("Unsupported XML media-type: ") + m_MediaType); 
         // make no changes
