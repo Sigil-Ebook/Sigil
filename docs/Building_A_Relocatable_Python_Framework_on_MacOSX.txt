@@ -1,22 +1,25 @@
 # Pre-Build requirements for El Captian and later users:
 #
-#  XCode 7 users with El Capitan or Later need to download XCode 6 and copy the MacOSX10.10sdk out of it
-#     and put it into the right place inside XCode.app in order to get the now missing openssl headers
-#
-#     Or extract the /usr/include/openssl directory and contents from the MacOSX101.10.sdk and 
-#       install it into /usr/local/include 
-#
-#     Or download and build and install openssl-1.0.2h (or later) and install it into /usr/local and be sure it is found first
-#     as this version is incompatible with the openssl dylib that is still installed even on Mac OS X 10.11
-#     You will then need to include your openssl dylibs with your build of Sigil
-#
-#  FYI: A working openssl with headers is required for python's pip3 to work properly as a package installer
+#     First make sure you are using the latest XCode for your version of Mac OSX
+#     Then make sure you have the command line tools (CLT) installed (via xcode-select --install)
 
+#     XCode 7 and 8 users with El Capitan or Later need to download XCode 6 and copy the MacOSX10.10sdk out of it
+#     and extract the /usr/include/openssl directory and its contents into /usr/local/include/
+#     The openssl library is still shipped with Mac OSX to prevent breakage but its headers have been removed.
+#     FYI: A working openssl with headers is required for python's pip3 to work properly as a package installer
+
+#     Also you need to install the latest free community edition of ActiveState's ActiveTCL 8.6.X or later.
+#     See: http://www.activestate.com/activetcl/downloads
+#
+#     OR 
+#
+#     Build and install the latest 8.6.X versions of Tcl and Tk Frameworks on Mac OSX 
+#     Source archives are Available from the Tcl/Tk sourceforge site (latest current version is 8.6.6)
+#     https://www.tcl.tk/software/tcltk/download.html
+#     https://www.tcl.tk/doc/howto/compile.html  (use --enable-framework --enable-aqua --enable-threads during configure)
 
 # Before building remember to rename any /Applications/Python 3.5.app to save it and replace it afterwards
 # as the damn python installation from source always overwrites it no matter the configure prefix used
-
-# Also make sure you have the latest XCode and Command Line Tools Installed
 
 # Download Python-3.5.2.tgz from www.python.org
 
@@ -30,12 +33,12 @@ export MYDEST=/Users/${USER}/devtools/Frameworks
 
 # now build Python 3.5.2 as a framework
 # Need to patch Python-3.5.2 to allow it to build Mac OS X 10.9 compliant 
-# build under Mac OS X 10.10 (see our github site https://github.com/Sigil-Ebook/Sigil
-# and look in "docs" to get the required patch "python_3.5_configure_fix.patch"
+# and for it to find and use the latest Tk and Tcl frameworks
+# Look in Sigil's "docs" to get the required patch "python_3.5_fixes.patch"
 
 tar -zxvf Python-3.5.2.tgz
 cd Python-3.5.2
-patch -p0 < python_3.5_configure_fix.patch
+patch -p0 < python_3.5_fixes.patch
 
 ./configure --prefix=${MYDEST} --enable-framework=${MYDEST} --with-ensurepip MACOSX_DEPLOYMENT_TARGET=10.9
 make
@@ -92,6 +95,6 @@ cd ${MYDEST}/Python.framework/Versions/3.5/Resources/Python.app/Contents/MacOS
 sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.5/Python @rpath/Python ./Python
 sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
 
-# We should now have a fully relocatable Python.framework ready to use to build and 
+# We should now have a fully relocatable Python.framework with up-to-date Tk 8.6.X ready to use to build and 
 # bundle into Sigil
 
