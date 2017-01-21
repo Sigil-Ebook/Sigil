@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Sigil
-Comment=ePUB file editor
+Comment=EPUB file editor
 Exec=sigil %F
 Icon=sigil
 Categories=Office;FileTools;Qt;Viewer;TextTools;TextEditor;Utility;
