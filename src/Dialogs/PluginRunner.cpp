@@ -240,7 +240,7 @@ void PluginRunner::startPlugin()
 #elif defined(Q_OS_WIN32)
         args.append(QString("-OBu"));
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-        args.append(QString("-EOBu"));
+        args.append(QString("-OBu"));
 #endif
     }
     else {
@@ -264,13 +264,11 @@ void PluginRunner::startPlugin()
     if (settings.useBundledInterp()) {
         // Start with system environment.
         QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-
         // Set Python env variables to control how the bundled interpreter finds it's various pieces
         // (and to isolate the bundled interpreter from any system Python).
         // Relative to the interpreter binary to make it easier to relocate the bundled Python.
         env.insert("PYTHONHOME", QDir::toNativeSeparators(QFileInfo(m_enginePath).absolutePath()));
         env.insert("PYTHONIOENCODING", "UTF-8");
-
         // Remove all other Python environment variables to avoid potential system Python interference.
         QStringList vars_to_unset;
         vars_to_unset << "PYTHONPATH" << "PYTHONOPTIMIZE" << "PYTHONDEBUG" << "PYTHONDEBUG"
@@ -280,21 +278,74 @@ void PluginRunner::startPlugin()
         foreach(QString envvar, vars_to_unset) {
             env.remove(envvar);
         }
-
+        // Qt5.7+ variable that may interfere in the future.
+        env.remove("QT_QPA_PLATFORMTHEME");
         // Replace Qt environment variable with our own (for bundled PyQt5)
         env.insert("QT_QPA_PLATFORM_PLUGIN_PATH", QDir::toNativeSeparators(QCoreApplication::applicationDirPath() + "/platforms"));
         env.insert("QT_PLUGIN_PATH", QDir::toNativeSeparators(QCoreApplication::applicationDirPath()));
-
         // Prepend Sigil program directory to PATH so the bundled interpreter
         // can find the correct Qt libs (for PyQt5) and the Python dll.
         env.insert("PATH", QDir::toNativeSeparators(QCoreApplication::applicationDirPath() + PATH_LIST_DELIM + env.value("PATH")));
-
         // Set bundled Python environment.
         m_process.setProcessEnvironment(env);
-
         // If launched by another program, the new working directory could mess with how the
         // bundled interpreter finds/loads PyQt5. So set it manually to the bundled interpreter's directory.
         m_process.setWorkingDirectory(QDir::toNativeSeparators(QFileInfo(m_enginePath).absolutePath()));
+    }
+#elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+    QString appdir = QCoreApplication::applicationDirPath();
+    if (settings.useBundledInterp()) {  // Linux bundled Python settings
+        // Start with system environment.
+        QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+        // Set Python env variables to control how the bundled interpreter finds it's various pieces
+        // (and to isolate the bundled interpreter from any system Python).
+        // Relative to the interpreter binary to make it easier to relocate the bundled Python.
+        QString pythonhome = QDir::toNativeSeparators(appdir + "/python3");
+        env.insert("PYTHONHOME", pythonhome);
+        env.insert("PYTHONIOENCODING", "UTF-8");
+        // Remove all other Python environment variables to avoid potential system Python interference.
+        QStringList vars_to_unset;
+        vars_to_unset << "PYTHONPATH" << "PYTHONOPTIMIZE" << "PYTHONDEBUG" << "PYTHONDEBUG"
+                      << "PYTHONINSPECT" << "PYTHONUNBUFFERED" << "PYTHONVERBOSE" << "PYTHONCASEOK"
+                      << "PYTHONDONTWRITEBYTECODE" << "PYTHONHASHSEED" << "PYTHONNOUSERSITE" << "PYTHONUSERBASE"
+                      << "PYTHONWARNINGS" << "PYTHONFAULTHANDLER" << "PYTHONTRACEMALLOC" << "PYTHONASYNCIODEBUG";
+        foreach(QString envvar, vars_to_unset) {
+            env.remove(envvar);
+        }
+        // Qt5.7+ variable that may interfere in the future.
+        env.remove("QT_QPA_PLATFORMTHEME");
+        // Replace Qt environment variables with our own (for bundled PyQt5)
+        env.insert("QT_QPA_PLATFORM_PLUGIN_PATH", QDir::toNativeSeparators(appdir + "/platforms"));
+        env.insert("QT_PLUGIN_PATH", appdir);
+        // Prepend Sigil program directory to LD_LIBRARY_PATH so the bundled interpreter
+        // can find the included Qt libs (for PyQt5) and the Python dll.
+        QStringList ld = env.value("LD_LIBRARY_PATH", "").split(PATH_LIST_DELIM);
+        // Make sure Sigil's appdir appears only once ... and first.
+        ld.removeAll(appdir);
+        ld.prepend(appdir);
+        // Reset modified LD_LIBRARY_PATH
+        env.insert("LD_LIBRARY_PATH", ld.join(PATH_LIST_DELIM));
+        // Set bundled Linux Python interpreter environment.
+        m_process.setProcessEnvironment(env);
+        // If launched by another program (calibre), the new working directory could mess with how the
+        // bundled interpreter finds/loads PyQt5. So set it manually to the bundled interpreter's directory.
+        m_process.setWorkingDirectory(QDir::toNativeSeparators(QFileInfo(m_enginePath).absolutePath()));
+    }
+    else {  // Linux native Python settings
+        // Start with system environment.
+        QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+        // Remove Sigil's appdir from LD_LIBRARY_PATH if it exists in environment so system Python can run unimpeded.
+        QStringList ld = env.value("LD_LIBRARY_PATH", "").split(PATH_LIST_DELIM);
+        ld.removeAll(appdir);
+        // Reset modified LD_LIBRARY_PATH or unset if empty
+        if (!ld.count()==0) {
+            env.insert("LD_LIBRARY_PATH", ld.join(PATH_LIST_DELIM));
+        }
+        else {
+            env.remove("LD_LIBRARY_PATH");
+        }
+        // Set native Linux Python interpreter environment.
+        m_process.setProcessEnvironment(env);
     }
 #endif
 

@@ -949,22 +949,7 @@ if( UNIX AND NOT APPLE )
     # Configure Linux launch script
     configure_file( ${LINUX_LAUNCH_INSTALL_SCRIPT} ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} )
 
-    # Experimental installer creation -- currently unsupported.
-    add_custom_target( makeinstaller
-            COMMENT "Creating Self Extracting Installer..."
-            COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_BINARY_DIR}/linux_python_gather.py
-            DEPENDS ${PROJECT_NAME} )
-
-    # Stub out a framework for future external packaging scripts -- currently unsupported.
-    if ( PKG_SYSTEM_PYTHON )
-        if ( 64_BIT_PLATFORM )
-            set( PKG_NAME_PREFIX Sigil-${SIGIL_FULL_VERSION}-Linux-x86_64 )
-        else()
-            set( PKG_NAME_PREFIX Sigil-${SIGIL_FULL_VERSION}-Linux-x86 )
-        endif()
-        configure_file( Resource_Files/python_pkg/python_paths.py ${CMAKE_BINARY_DIR}/python_paths.py )
-        configure_file( Resource_Files/python_pkg/linux_python_gather.py ${CMAKE_BINARY_DIR}/linux_python_gather.py COPYONLY)
-    endif()
+    # Experimental linux installer creation -- removed 1/28/2017.
 
     if ( CMAKE_BUILD_TYPE STREQUAL "Debug")
         set( HUNSPELL_NAME ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libhunspelld.so )
