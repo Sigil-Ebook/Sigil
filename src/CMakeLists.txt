@@ -950,6 +950,8 @@ if( UNIX AND NOT APPLE )
     configure_file( ${LINUX_LAUNCH_INSTALL_SCRIPT} ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} )
 
     # Experimental linux installer creation -- removed 1/28/2017.
+    # All experimental stand-alone Sigil linux packaging is now taking place entirely externally
+    # (via docker containers/images) at https://github.com/dougmassay/pkg-sigil
 
     if ( CMAKE_BUILD_TYPE STREQUAL "Debug")
         set( HUNSPELL_NAME ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libhunspelld.so )
