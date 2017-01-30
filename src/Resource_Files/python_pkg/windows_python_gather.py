@@ -11,12 +11,14 @@ from python_paths import py_ver, py_lib, sys_dlls, py_exe, py_inc, py_dest, tmp_
 srcdir = os.path.dirname(inspect.getfile(os))
 pybase = os.path.dirname(srcdir)
 
-
 # Where we're going to copy stuff
 lib_dir = os.path.join(tmp_prefix, 'Lib')
 dll_dir = os.path.join(tmp_prefix, 'DLLs')
 site_dest = os.path.join(lib_dir, 'site-packages')
 
+PYQT_MODULES = ['%s.pyd' % x for x in (
+    'Qt', 'QtCore', 'QtGui', 'QtNetwork', 'QtPrintSupport', 'QtSvg', 'QtWidgets'
+    )]
 
 # Cherry-picked additional and/or modified site modules
 site_packages = [ ('lxml', 'd'), 
@@ -58,6 +60,7 @@ def copy_site_packages():
             else:
                 break
 
+
 def ignore_in_pyqt5_dirs(base, items, ignored_dirs=None):
     ans = []
     if ignored_dirs is None:
@@ -71,7 +74,10 @@ def ignore_in_pyqt5_dirs(base, items, ignored_dirs=None):
         else:
             if name.rpartition('.')[-1] not in ('py', 'pyd'):
                 ans.append(name)
+            if name.rpartition('.')[-1] == 'pyd' and name not in PYQT_MODULES:
+                ans.append(name)
     return ans
+
 
 def ignore_in_dirs(base, items, ignored_dirs=None):
     ans = []
@@ -87,9 +93,11 @@ def ignore_in_dirs(base, items, ignored_dirs=None):
         #        ans.append(name)
     return ans
 
+
 def dll_walk():
     shutil.copytree(os.path.join(pybase, "DLLs"), dll_dir,
                 ignore=shutil.ignore_patterns('msvc*.dll', 'Microsoft.*'))
+
 
 def copy_tk_tcl():
     def ignore_lib(root, items):
@@ -101,11 +109,13 @@ def copy_tk_tcl():
                     ans.append(x)
             return ans
 
+
     src = os.path.join(pybase, "tcl")
     for entry in os.listdir(src):
         if entry in ('tk8.6', 'tcl8.6'):
             if os.path.isdir(os.path.join(src, entry)):
                 shutil.copytree(os.path.join(src, entry), os.path.join(lib_dir, entry), ignore=ignore_lib)
+
 
 def copy_pylib():
     fldrs = (pybase, sys_dlls)
@@ -122,7 +132,8 @@ def copy_pylib():
     if not dll_found:
         print ('Couldn\'t find the Python%s.dll file.'%py_ver)
         exit
-    shutil.copy2(py_exe, os.path.join(tmp_prefix, "sigil-python3.exe"))
+    shutil.copy2(py_exe, os.path.join(tmp_prefix, "python3.exe"))
+
 
 def copy_python():
     def ignore_lib(root, items):
@@ -136,6 +147,7 @@ def copy_python():
 
     shutil.copytree(os.path.join(pybase, "Lib"), lib_dir,
                 ignore=ignore_lib)
+
 
 def compile_libs():
     for x in os.walk(lib_dir):
@@ -151,6 +163,7 @@ def compile_libs():
                         os.remove(z)
                 except:
                     print ('Failed to byte-compile', y)
+
 
 def create_site_py():
     with open(os.path.join(lib_dir, 'site.py'), 'wb') as f:
@@ -195,11 +208,13 @@ def create_site_py():
             main()
             '''), 'UTF-8'))
 
+
 def create_pyvenv():
     with open(os.path.join(tmp_prefix, 'pyvenv.cfg'), 'wb') as f:
         f.write(bytes(textwrap.dedent('''\
         applocal = true
         '''), 'UTF-8'))
+
 
 def create_qt_conf():
     with open(os.path.join(tmp_prefix, 'qt.conf'), 'wb') as f:
@@ -209,6 +224,7 @@ def create_qt_conf():
         Plugins = .
         Binaries = .
         '''), 'ascii'))
+
 
 if __name__ == '__main__':
     dll_walk()
