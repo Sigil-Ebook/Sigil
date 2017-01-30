@@ -68,10 +68,18 @@ Components: dicon\common; Name: "{commondesktop}\Sigil"; Filename: "{app}\Sigil.
 Components: dicon\user; Name: "{userdesktop}\Sigil"; Filename: "{app}\Sigil.exe"
 
 [InstallDelete]
-; Restructuring done in 0.9.8 makes this folder residual
+; Restructuring done in 0.9.8 makes this folder residual.
 Type: filesandordirs; Name: "{app}\python3"
-; Might be moving to precompiled python files in near future
+; Might be moving to precompiled python files in future.
+; and to keep install directory clean for future enhancement possibilities
 Type: filesandordirs; Name: "{app}\plugin_launchers\python"
+Type: filesandordirs; Name: "{app}\python3lib"
+Type: filesandordirs; Name: "{app}\Lib"
+Type: filesandordirs; Name: "{app}\DLLs"
+Type: filesandordirs; Name: "{app}\Scripts"
+; Moving to standard naming of python interpreter. 
+; So remove the old name if present.
+Type: files; Name: "{app}\sigil-python3.exe"
 
 [Run]
 ; The following command detects whether or not the c++ runtime need to be installed.
