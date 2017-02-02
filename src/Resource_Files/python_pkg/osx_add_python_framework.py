@@ -32,18 +32,10 @@ fwk_struct = ['Python.framework/Versions/' + pversion + '/lib/' + stdlib_name + 
               'Python.framework/Versions/' + pversion + '/bin'
 ]
 
+# minimal set of PyQt modules to support the plugin gui
+PYQT_MODULES = ['%s.so' % x for x in ('Qt', 'QtCore', 'QtGui', 'QtNetwork', 'QtPrintSupport', 'QtSvg', 'QtWidgets')]
 
-def copy_python_stdlibrary(src_dir, dest_dir):
-    for x in os.listdir(src_dir):
-        y = os.path.join(src_dir, x)
-        ext = os.path.splitext(x)[1]
-        if os.path.isdir(y) and x not in ('test', 'hotshot', 'distutils',
-                'site-packages', 'idlelib', 'lib2to3', 'dist-packages', '__pycache__'):
-            shutil.copytree(y, os.path.join(dest_dir, x),
-                    ignore=ignore_in_dirs)
-        if os.path.isfile(y) and ext in ('.py', '.so'):
-            shutil.copy2(y, dest_dir)
-
+# additional external python modules/packages that need to be included
 site_packages = [ ('lxml', 'd'), 
                   ('six.py', 'f'), 
                   ('html5lib','d'), 
@@ -57,7 +49,21 @@ site_packages = [ ('lxml', 'd'),
                   ('encutils', 'd'),
                   ('cssutils', 'd'),
                   ('webencodings', 'd'), # needed by html5lib
-                  ('chardet', 'd')]
+                  ('chardet', 'd'),
+                  ('sip.so', 'f'),
+                  ('PyQt5', 'd')]
+
+
+def copy_python_stdlibrary(src_dir, dest_dir):
+    for x in os.listdir(src_dir):
+        y = os.path.join(src_dir, x)
+        ext = os.path.splitext(x)[1]
+        if os.path.isdir(y) and x not in ('test', 'hotshot', 'distutils',
+                'site-packages', 'idlelib', 'lib2to3', 'dist-packages', '__pycache__'):
+            shutil.copytree(y, os.path.join(dest_dir, x),
+                    ignore=ignore_in_dirs)
+        if os.path.isfile(y) and ext in ('.py', '.so'):
+            shutil.copy2(y, dest_dir)
 
 
 def copy_site_packages(packages, site_dest):
@@ -69,7 +75,12 @@ def copy_site_packages(packages, site_dest):
                 for entry in os.listdir(apath):
                     if entry == pkg:
                         if typ == 'd' and os.path.isdir(os.path.join(apath, entry)):
-                            shutil.copytree(os.path.join(apath, entry), os.path.join(site_dest, entry), ignore=ignore_in_dirs)
+                            if pkg == 'PyQt5':
+                                shutil.copytree(os.path.join(apath, entry), 
+                                                os.path.join(site_dest, entry), ignore=ignore_in_pyqt5_dirs)
+                            else:
+                                shutil.copytree(os.path.join(apath, entry), 
+                                                os.path.join(site_dest, entry), ignore=ignore_in_dirs)
                             found = True
                             break
                         else:
@@ -79,6 +90,7 @@ def copy_site_packages(packages, site_dest):
                                 break
             else:
                 break
+
 
 def ignore_in_dirs(base, items, ignored_dirs=None):
     ans = []
@@ -94,6 +106,27 @@ def ignore_in_dirs(base, items, ignored_dirs=None):
             if name.rpartition('.')[-1] not in ('so', 'py', 'dylib'):
                 ans.append(name)
     return ans
+
+
+def ignore_in_pyqt5_dirs(base, items, ignored_dirs=None):
+    ans = []
+    if ignored_dirs is None:
+        ignored_dirs = {'.svn', '.bzr', '.git', 'test', 'doc', 'tests', 
+                        'examples', 'includes', 'mkspecs', 'plugins', 'qml',
+                        'qsci', 'qt', 'sip', 'translations', 'uic', 'testing', '__pycache__'}
+    for name in items:
+        path = os.path.join(base, name)
+        if os.path.isdir(path):
+            # Note: PIL has a .dylibs directory that has no __init__.py in it but does contain *.dylib files
+            if name in ignored_dirs: # or not os.path.exists(os.path.join(path, '__init__.py')):
+                ans.append(name)
+        else:
+            if name.rpartition('.')[-1] not in ('so', 'py', 'dylib'):
+                ans.append(name)
+            if name.rpartition('.')[-1] == 'so' and name not in PYQT_MODULES:
+                ans.append(name)
+    return ans
+
 
 def get_rpaths(path_to_executable):
     rpaths = []
@@ -112,6 +145,7 @@ def get_rpaths(path_to_executable):
                 rpaths.append(rpath)
                 found_rpath = False
     return rpaths
+
 
 def main():
     # create the location inside Sigil.app for Frameworks
@@ -158,13 +192,24 @@ def main():
     dylibname = 'libpython' + pversion + 'm.dylib'
     os.symlink('../Python', dylibname)
 
-    # finally change any Python.framework rpaths in the Sigil executable to point to the new local Python.framework
+    # Change any Python.framework rpaths in the Sigil executable to point to the new local Python.framework
     sigil_executable_path = os.path.abspath(os.path.join(app_dir,'..','MacOS','Sigil'))
     rpaths = get_rpaths(sigil_executable_path)
     for rpath in rpaths:
         if 'Python.framework' in rpath:
             new_rpath = '@executable_path/../Frameworks/Python.framework/Versions/' + pversion
             subprocess.check_call(['install_name_tool', '-rpath', rpath, new_rpath, sigil_executable_path])
+
+    # Change any PyQt5 modules rpaths to point to the local Frameworks (app_dir) directory for Qt
+    for module_name in PYQT_MODULES:
+        if module_name not in ['Qt.so']:
+            module_path = os.path.abspath(os.path.join(app_dir,'Python.framework','Versions',
+                             pversion,'lib',stdlib_name,'site-packages','PyQt5',module_name))
+            rpaths = get_rpaths(module_path)
+            for rpath in rpaths:
+                new_rpath = '@loader_path/../../../../../../..'
+                subprocess.check_call(['install_name_tool', '-rpath', rpath, new_rpath, module_path])
+
 
 if __name__ == '__main__':
     sys.exit(main())
