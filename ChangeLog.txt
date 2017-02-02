@@ -10,9 +10,16 @@ preSigil-0.9.8
     - Fix issue where merging files when non-xhtml tabs were open was causing Python errors or crashes
     - Fix segfault in Image Reports when deleting unused image files
     - Fix bug in prettyprint_xhtml in sigil_bs4
+    - Fix gumbo serialize to better handle injected newlines
+    - Harden bundled Python isolation on Windows and add subset of PyQt5 to bundled modules
+    - Harden plugin interface code to unquote quoted hrefs
+    - Stop Sigil from nagging about unsupported mimetypes when epubs with Adobe xpgt page-templates are opened
+    - Fix Book Browser highlighting issue when editable XML files from the "Misc" folder are opened
+
 
    New Features
     - New preference setting (Appearance section) which allows user to adjust the size of the main menu icons
+    - Add manifest Properties to Book Browser tooltips and to All Files Reports Widget for epub3
 
 Sigil-0.9.7
    Bug Fixes
