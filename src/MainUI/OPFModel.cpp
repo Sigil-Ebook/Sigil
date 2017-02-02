@@ -185,7 +185,8 @@ QModelIndex OPFModel::GetModelItemIndex(Resource *resource, IndexChoice indexCho
                 (child == m_StylesFolderItem &&
                  (resourceType == Resource::CSSResourceType)) ||
                 (child == m_FontsFolderItem && resourceType == Resource::FontResourceType) ||
-                (child == m_MiscFolderItem && resourceType == Resource::GenericResourceType) ||
+                (child == m_MiscFolderItem &&
+                 (resourceType == Resource::GenericResourceType || resourceType == Resource::XMLResourceType)) ||
                 (child == m_AudioFolderItem && resourceType == Resource::AudioResourceType) ||
                 (child == m_VideoFolderItem && resourceType == Resource::VideoResourceType)
                ) {
