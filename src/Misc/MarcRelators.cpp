@@ -234,7 +234,7 @@ void MarcRelators::SetRelatorsMap()
          tr("Host institution") << "his" << tr("An organization hosting the event, exhibit, conference, etc., which gave rise to a resource, but having little or no responsibility for the content of the resource.") <<
          tr("Illuminator") << "ilu" << tr("Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.") <<
          tr("Illustrator") << "ill" << tr("Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.") <<
-         tr("Inscriber") << "ins" << tr("Use for a person who signs a presentation statement.") <<
+         tr("Inscriber") << "ins" << tr("Use for a person who has written a statement of dedication or gift.") <<
          tr("Instrumentalist") << "itr" << tr("Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.") <<
          tr("Interviewee") << "ive" << tr("Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.") <<
          tr("Interviewer") << "ivr" << tr("Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.") <<
