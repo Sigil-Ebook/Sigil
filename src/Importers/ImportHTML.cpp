@@ -27,6 +27,7 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QFutureSynchronizer>
 #include <QtConcurrent/QtConcurrent>
+#include <QDebug>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -110,12 +111,11 @@ QString ImportHTML::LoadSource()
 
         m_CachedSource = HTMLEncodingResolver::ReadHTMLFile(m_FullFilePath);
         m_CachedSource = CleanSource::CharToEntity(m_CachedSource);
-
         if (ss.cleanOn() & CLEANON_OPEN) {
-          m_CachedSource = CleanSource::Mend(XhtmlDoc::ResolveCustomEntities(m_CachedSource), m_EpubVersion);
+            m_CachedSource = XhtmlDoc::ResolveCustomEntities(m_CachedSource);
+            m_CachedSource = CleanSource::Mend(m_CachedSource, m_EpubVersion);
         }
     }
-
     return m_CachedSource;
 }
 
