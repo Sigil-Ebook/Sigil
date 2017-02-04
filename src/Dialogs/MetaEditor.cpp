@@ -577,7 +577,7 @@ void MetaEditor::loadMetadataProperties()
          tr("Title Type: main") << "title-type:main" << tr("Indicates the associated title is the main title of the publication.  Only one main title should exist.") <<
          tr("Title Type: subtitle") << "title-type:subtitle" << tr("Indicates that the associated title is a subtitle of the publication if one exists..") <<
          tr("Title Type: short") << "title-type:short" << tr("Indicates that the associated title is a shortened title of the publication if one exists.") <<
-         tr("Title Type: collection") << "title-type:collection" << tr("Indicates that the associated title is the title of a Tcollection that includes this publication belongs to if one exists.") <<
+         tr("Title Type: collection") << "title-type:collection" << tr("Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.") <<
          tr("Title Type: edition") << "title-type:edition" << tr("Indicates that the associated title is an edition title for this publications if one exists.") <<
          tr("Title Type: expanded") << "title-type:expanded" << tr("Indicates that the associated title is an expanded title for this publication if one exists.") <<
          tr("Alternate Script") << "alternate-script" << tr("Provides an alternate expression of the associated property value in a language and script identified by an alternate-language attribute.") <<
