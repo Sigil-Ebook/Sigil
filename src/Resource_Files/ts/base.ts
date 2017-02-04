@@ -1970,18 +1970,18 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="20"/>
-        <source>Choose which version of Epub to use
-when creating new or empty Epubs in Sigil.</source>
+        <source>Choose which version of EPUB to use
+when creating new or empty EPUBs in Sigil.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="24"/>
-        <source>Create New or Empty Epubs as:</source>
+        <source>Create New or Empty EPUBs as:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="30"/>
-        <source>Epub Version 2.</source>
+        <source>EPUB Version 2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1991,7 +1991,7 @@ when creating new or empty Epubs in Sigil.</source>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="43"/>
-        <source>Epub Version 3.</source>
+        <source>EPUB Version 3.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2012,7 +2012,7 @@ mended.</source>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="69"/>
-        <source>Mend when opening an Epub or HTML file, 
+        <source>Mend when opening an EPUB or HTML file, 
 and when switching from Book View to Code View.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2023,7 +2023,7 @@ and when switching from Book View to Code View.</source>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="80"/>
-        <source>Mend when saving an Epub.</source>
+        <source>Mend when saving an EPUB.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2033,22 +2033,22 @@ and when switching from Book View to Code View.</source>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="93"/>
-        <source>Determine if Epubs are allowed to access non-multimedia remote resources.</source>
+        <source>Determine if EPUBs are allowed to access non-multimedia remote resources.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="96"/>
-        <source> Control Access by Epubs to non-multimedia remote resources.</source>
+        <source> Control Access by EPUBs to non-multimedia remote resources.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="105"/>
-        <source>Check to allow Epubs to access non-multimedia remote resources.</source>
+        <source>Check to allow EPUBs to access non-multimedia remote resources.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="108"/>
-        <source>Epubs may access all remote resources types.</source>
+        <source>EPUBs may access all remote resources types.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6623,7 +6623,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="324"/>
-        <source>Epub&amp;3 Tools</source>
+        <source>EPUB&amp;3 Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7597,7 +7597,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1533"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant EPUB standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8663,7 +8663,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1176"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1193"/>
-        <source>Not Available for epub2.</source>
+        <source>Not Available for EPUB2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11793,12 +11793,12 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="148"/>
-        <source>Minimum epub metadata should include the main language, title, and at least one creator.</source>
+        <source>Minimum EPUB metadata should include the main language, title, and at least one creator.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="172"/>
-        <source>Use OK to commit your metdata changes to the epub, otherwise use Cancel.</source>
+        <source>Use OK to commit your metdata changes to the EPUB, otherwise use Cancel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
