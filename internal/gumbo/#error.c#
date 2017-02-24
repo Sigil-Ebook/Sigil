@@ -106,6 +106,9 @@ static void handle_parser_error(
     case GUMBO_TOKEN_CDATA:
     case GUMBO_TOKEN_WHITESPACE:
     case GUMBO_TOKEN_CHARACTER:
+      +  // if the error location itself is a newline then start searching for 
+      +  // the preceding newline one character earlier
+      +  if (*error_location == '\n') --c;
       print_message(output, "Character tokens aren't legal here");
       return;
     case GUMBO_TOKEN_NULL:
@@ -135,9 +138,7 @@ static const char* find_last_newline(
     const char* original_text, const char* error_location) {
   assert(error_location >= original_text);
   const char* c = error_location;
-  // if the error location itself is a newline then start searching for 
-  // the preceding newline one character earlier
-  if (*error_location == '\n') --c;
+
   for (; c != original_text && *c != '\n'; --c) {
     // There may be an error at EOF, which would be a nul byte.
     assert(*c || c == error_location);

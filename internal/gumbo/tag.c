@@ -58,9 +58,12 @@ void gumbo_tag_from_original_text(GumboStringPiece* text) {
     text->data += 1;    // Move past <
     text->length -= 2;
     // strnchr is apparently not a standard C library function, so I loop
-    // explicitly looking for whitespace or other illegal tag characters.
+    // explicitly looking for whitespace or other illegal tag characters - as
+    // accepted by the Tag Name State
     for (const char* c = text->data; c != text->data + text->length; ++c) {
-      if (isspace(*c) || *c == '/') {
+      if (*c == '\t' || *c == '\n' || *c == '\f' || *c == ' ' || *c == '/') {
+        // was: if (isspace(*c) || *c == '/') {
+        // see https://github.com/google/gumbo-parser/pull/375/
         text->length = c - text->data;
         break;
       }
