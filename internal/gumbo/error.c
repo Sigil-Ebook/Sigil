@@ -136,8 +136,8 @@ static const char* find_last_newline(
   assert(error_location >= original_text);
   const char* c = error_location;
   // if the error location itself is a newline then start searching for 
-  // the preceding newline one character earlier
-  if (*error_location == '\n') --c;
+  // the preceding newline one character earlier (if possible)
+  if ((*c == '\n') && (c != original_text)) --c;
   for (; c != original_text && *c != '\n'; --c) {
     // There may be an error at EOF, which would be a nul byte.
     assert(*c || c == error_location);
