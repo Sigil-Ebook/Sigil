@@ -194,10 +194,13 @@ void PluginRunner::showConsole()
 void PluginRunner::writeSigilCFG()
 {
     QStringList cfg = QStringList() << QCoreApplication::applicationDirPath();
+    SettingsStore settings;
     cfg << Utility::DefinePrefsDir();
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     cfg << Utility::LinuxHunspellDictionaryDirs().join(":");
 #endif
+    cfg << settings.uiLanguage();
+    cfg << settings.dictionary();
     QList <Resource *> selected_resources = m_bookBrowser->AllSelectedResources();
     foreach(Resource * resource, selected_resources) {
         cfg << resource->GetRelativePathToRoot();

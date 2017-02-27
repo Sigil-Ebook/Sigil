@@ -56,6 +56,18 @@ class InputContainer(object):
     def launcher_version(self):
         return self._w.getversion()
 
+    @property
+    def sigil_ui_lang(self):
+        if self._w.sigil_ui_lang is None:
+            return 'en'
+        return self._w.sigil_ui_lang
+
+    @property
+    def sigil_spellcheck_lang(self):
+        if self._w.sigil_spellcheck_lang is None:
+            return 'en_US'
+        return self._w.sigil_spellcheck_lang
+
     def addotherfile(self, book_href, data):
         # creates a new file not in manifest with desired ebook root relative href
         self._w.addotherfile(book_href, data)

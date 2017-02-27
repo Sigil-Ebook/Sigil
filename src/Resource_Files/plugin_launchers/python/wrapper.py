@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20170115
+_launcher_version=20170227
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
@@ -139,7 +139,13 @@ class Wrapper(object):
         # initialize the sigil cofiguration info passed in outdir with sigil.cfg
         self.appdir = None
         self.usrsupdir = None
+        # Location of directory containing hunspell dictionaries on Linux
         self.linux_hunspell_dict_dirs = []
+        # Sigil interface language code
+        self.sigil_ui_lang = None
+        # Default Sigil spell check dictionary
+        self.sigil_spellcheck_lang = None
+        # File selected in Sigil's Book Browser
         self.selected = []
         cfg = ''
         with open(os.path.join(self.outdir, 'sigil.cfg'), 'rb') as f:
@@ -151,6 +157,8 @@ class Wrapper(object):
             self.usrsupdir = cfg_lst.pop(0)
             if not sys.platform.startswith('darwin') and not sys.platform.startswith('win'):
                 self.linux_hunspell_dict_dirs = cfg_lst.pop(0).split(":")
+            self.sigil_ui_lang = cfg_lst.pop(0)
+            self.sigil_spellcheck_lang = cfg_lst.pop(0)
             self.selected = cfg_lst
         os.environ['SigilGumboLibPath'] = self.get_gumbo_path()
 

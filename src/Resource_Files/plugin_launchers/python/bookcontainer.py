@@ -59,6 +59,18 @@ class BookContainer(object):
     def epub_version(self):
         return self._w.getepubversion()
 
+    @property    
+    def sigil_ui_lang(self):
+        if self._w.sigil_ui_lang is None:
+            return 'en'
+        return self._w.sigil_ui_lang
+
+    @property
+    def sigil_spellcheck_lang(self):
+        if self._w.sigil_spellcheck_lang is None:
+            return 'en_US'
+        return self._w.sigil_spellcheck_lang
+
 # OPF Acess and Manipulation Routines
 
 # toc and pagemap access routines
