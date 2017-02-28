@@ -15,11 +15,13 @@ preSigil-0.9.8
     - Harden plugin interface code to unquote quoted hrefs
     - Stop Sigil from nagging about unsupported mimetypes when epubs with Adobe xpgt page-templates are opened
     - Fix Book Browser highlighting issue when editable XML files from the "Misc" folder are opened
-
+    - Pull upstream bug fixes from google's gumbo parser for Sigil
 
    New Features
     - New preference setting (Appearance section) which allows user to adjust the size of the main menu icons
     - Add manifest Properties to Book Browser tooltips and to All Files Reports Widget for epub3
+    - Add support for PyQt5 for plugin gui widgets
+
 
 Sigil-0.9.7
    Bug Fixes

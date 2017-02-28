@@ -4,6 +4,9 @@
 # Lock files used by the Emacs editor.
 .\#*
 
+# emacs auto recovery files from aborted edits
+\#*\#
+
 #use ful for stashing files
 *.orig
 *.keep
