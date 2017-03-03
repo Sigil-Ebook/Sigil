@@ -398,7 +398,7 @@
 	};
 
 	// Integrate Internet Explorer Code
-	if ($.browser.msie) {
+	if (false) {
 		
 		$.extend($.fn.range, {
 			ClearAllRanges: function(){
