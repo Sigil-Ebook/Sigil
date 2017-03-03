@@ -198,6 +198,8 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
     BookViewPreview::CustomSetDocument(m_path, html);
     page()->setContentEditable(true);
     SetWebPageModified(false);
+    // Formatting buttons in Book View will generate styled spans. Ensures spec compliance.
+    ExecCommand("styleWithCSS", "true");
     emit PageOpened();
 }
 
