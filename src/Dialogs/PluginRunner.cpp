@@ -241,9 +241,9 @@ void PluginRunner::startPlugin()
 #ifdef Q_OS_MAC
         args.append(QString("-Eu"));
 #elif defined(Q_OS_WIN32)
-        args.append(QString("-OBu"));
+        args.append(QString("-Ou"));
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-        args.append(QString("-OBu"));
+        args.append(QString("-Ou"));
 #endif
     }
     else {
@@ -273,11 +273,13 @@ void PluginRunner::startPlugin()
         env.insert("PYTHONHOME", QDir::toNativeSeparators(QFileInfo(m_enginePath).absolutePath()));
         env.insert("PYTHONIOENCODING", "UTF-8");
         // Remove all other Python environment variables to avoid potential system Python interference.
+        // (Windows relevant Python env vars from v3.4 thru v3.6 (no debug build vars))
         QStringList vars_to_unset;
-        vars_to_unset << "PYTHONPATH" << "PYTHONOPTIMIZE" << "PYTHONDEBUG" << "PYTHONDEBUG"
+        vars_to_unset << "PYTHONPATH" << "PYTHONOPTIMIZE" << "PYTHONDEBUG" << "PYTHONSTARTUP"
                       << "PYTHONINSPECT" << "PYTHONUNBUFFERED" << "PYTHONVERBOSE" << "PYTHONCASEOK"
                       << "PYTHONDONTWRITEBYTECODE" << "PYTHONHASHSEED" << "PYTHONNOUSERSITE" << "PYTHONUSERBASE"
-                      << "PYTHONWARNINGS" << "PYTHONFAULTHANDLER" << "PYTHONTRACEMALLOC" << "PYTHONASYNCIODEBUG";
+                      << "PYTHONWARNINGS" << "PYTHONFAULTHANDLER" << "PYTHONTRACEMALLOC" << "PYTHONASYNCIODEBUG"
+                      << "PYTHONMALLOC", "PYTHONMALLOCSTATS", "PYTHONLEGACYWINDOWSFSENCODING", "PYTHONLEGACYWINDOWSIOENCODING";
         foreach(QString envvar, vars_to_unset) {
             env.remove(envvar);
         }
@@ -307,11 +309,13 @@ void PluginRunner::startPlugin()
         env.insert("PYTHONHOME", pythonhome);
         env.insert("PYTHONIOENCODING", "UTF-8");
         // Remove all other Python environment variables to avoid potential system Python interference.
+        // (Linux relevant Python env vars from v3.4 thru v3.6 (no debug build vars))
         QStringList vars_to_unset;
-        vars_to_unset << "PYTHONPATH" << "PYTHONOPTIMIZE" << "PYTHONDEBUG" << "PYTHONDEBUG"
+        vars_to_unset << "PYTHONPATH" << "PYTHONOPTIMIZE" << "PYTHONDEBUG" << "PYTHONSTARTUP"
                       << "PYTHONINSPECT" << "PYTHONUNBUFFERED" << "PYTHONVERBOSE" << "PYTHONCASEOK"
                       << "PYTHONDONTWRITEBYTECODE" << "PYTHONHASHSEED" << "PYTHONNOUSERSITE" << "PYTHONUSERBASE"
-                      << "PYTHONWARNINGS" << "PYTHONFAULTHANDLER" << "PYTHONTRACEMALLOC" << "PYTHONASYNCIODEBUG";
+                      << "PYTHONWARNINGS" << "PYTHONFAULTHANDLER" << "PYTHONTRACEMALLOC" << "PYTHONASYNCIODEBUG"
+                      << "PYTHONMALLOC", "PYTHONMALLOCSTATS";
         foreach(QString envvar, vars_to_unset) {
             env.remove(envvar);
         }
