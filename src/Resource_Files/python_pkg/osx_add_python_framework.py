@@ -35,6 +35,11 @@ fwk_struct = ['Python.framework/Versions/' + pversion + '/lib/' + stdlib_name + 
 # minimal set of PyQt modules to support the plugin gui
 PYQT_MODULES = ['%s.so' % x for x in ('Qt', 'QtCore', 'QtGui', 'QtNetwork', 'QtPrintSupport', 'QtSvg', 'QtWidgets')]
 
+EXCLUDED_UIC_WIDGET_PLUGINS = ['%s.py' % x for x in ('qaxcontainer', 
+                                                     'qscintilla', 'qtcharts', 'qtquickwidgets', 
+                                                     'qtwebenginewidgets', 'qtwebkit')
+]
+
 # additional external python modules/packages that need to be included
 site_packages = [ ('lxml', 'd'), 
                   ('six.py', 'f'), 
@@ -113,17 +118,18 @@ def ignore_in_pyqt5_dirs(base, items, ignored_dirs=None):
     if ignored_dirs is None:
         ignored_dirs = {'.svn', '.bzr', '.git', 'test', 'doc', 'tests', 
                         'examples', 'includes', 'mkspecs', 'plugins', 'qml',
-                        'qsci', 'qt', 'sip', 'translations', 'uic', 'testing', '__pycache__'}
+                        'qsci', 'qt', 'sip', 'translations', 'port_v2', 'testing', '__pycache__'}
     for name in items:
         path = os.path.join(base, name)
         if os.path.isdir(path):
-            # Note: PIL has a .dylibs directory that has no __init__.py in it but does contain *.dylib files
             if name in ignored_dirs: # or not os.path.exists(os.path.join(path, '__init__.py')):
                 ans.append(name)
         else:
             if name.rpartition('.')[-1] not in ('so', 'py', 'dylib'):
                 ans.append(name)
             if name.rpartition('.')[-1] == 'so' and name not in PYQT_MODULES:
+                ans.append(name)
+            if name.rpartition('.')[-1] == 'py' and name in EXCLUDED_UIC_WIDGET_PLUGINS:
                 ans.append(name)
     return ans
 
