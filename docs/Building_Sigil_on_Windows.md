@@ -73,7 +73,9 @@ Repeat for the next six modules
 etc...
 
 
-The next Python module to install is lxml. It's apparently too cool to be installed easily with pip on Windows, so follow lxml's own advice and download one of [Christoph Gohlke's precompiled Windows binaries](http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml) instead.
+####The next Python module to install is lxml.
+
+It's apparently too cool to be installed easily with pip on Windows, so follow lxml's own advice and download one of [Christoph Gohlke's precompiled Windows binaries](http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml) instead.
 
 Getting the right one can be fiddly, so be careful and choose the correct one. The downloads are in the form of "wheel" files (.whl)--installable with pip after downloading.
 
@@ -91,15 +93,27 @@ or
 
 If you're building a 32-bit version of Sigil and thus have the 32-bit version of Python 3.5 installed.
 
-The last Python module to install is PyQt5. You can't install this one with pip either. The PyPi version is based on Qt5.7 instead of the version of Qt Sigil uses so you'll need to build PyQt5 manually.
-(**You can install a [binary version of PyQt5-5.6](https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/) if you like, but it won't have the python bindings to QtWebKit. If you can live with that, have at it. Just make sure you install the correct one for your Sigil build -- x32 or x64**).
+####The last Python module to install is PyQt5.
 
+You can't install this one with pip either. The PyPi version is based on Qt5.7 instead of the version of Qt Sigil uses so you'll need to build PyQt5 manually.
+(**You can install a [binary version of PyQt5-5.6](https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/) if you like, but it won't have the python bindings to QtWebKit. If you can live with that, have at it. Just make sure you install the correct one for your Sigil build -- x32 or x64**). Otherwise, continue on to build PyQt5 yourself.
 
-PyQt5 depends on sip which you can install with pip
+#####Installing the Sip 4.18.1 prerequisite for PyQt5
+PyQt5 depends on Sip which you'll need to build. Sip 4.19 depends on Qt5.7 or higher, So you'll want to use Sip 4.18.1 Download [the source](https://sourceforge.net/projects/pyqt/files/sip/sip-4.18.1/sip-4.18.1.zip/download) for Sip 4.18.1 and extract it somewhere on your hard drive.
 
->`pip install sip`
+Using the shortcut to the proper VS2015 command-prompt created in [step 1](#vs2015), cd to where you extracted the sip source and configure the source with the following command (full installation instructions can be found in the "doc" folder of the source):
 
-Brush up on the PyQt build instructions from the [PyQt website](http://pyqt.sourceforge.net/Docs/PyQt5/installation.html).
+>`python configure.py --no-pyi`
+
+Once complete, build with:
+
+>`nmake`
+
+The install with:
+
+>`nmake install`
+
+#####Now to build/install PyQt5 intself:
 
 Download [the source](https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.zip/download) for PyQt5 v5.6 and extract it somewhere on your hard drive.
 

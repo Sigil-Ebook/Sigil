@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="generator" content="ReText 6.0.1">
+<meta name="generator" content="ReText 7.0.0">
 <title>Building_on_cutting_edge_Linux</title>
 </head>
 <body>
@@ -60,6 +60,7 @@
 <li>python3-dev</li>
 <li>python3-pip</li>
 <li>python3-tk</li>
+<li>python3-pyqt5</li>
 <li>python3-lxml</li>
 <li>python3-six</li>
 </ul>
@@ -118,7 +119,7 @@
 <h2><a name="testing"/>Testing Sigil's Python plugin framework</h2>
 <p>To test if Sigil's Python 3.4+ plugin framework is fully functional, you can do the following:</p>
 <ol>
-<li>download testplugin_v013.zip from <a href="https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v013.zip">https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v013.zip</a></li>
+<li>download testplugin_v013.zip from <a href="https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v014.zip">https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v014.zip</a></li>
 <li>open Sigil to the normal nearly blank template epub it generates when opened</li>
 <li>use Plugins-&gt;Manage Plugins menu and make sure you have a Python 3.4+ interpreter configured </li>
 <li>use the "Add Plugin" button to navigate to and add testplugin_vXXX.zip and then hit "Okay" to exit the Manage Plugins Dialog</li>
@@ -145,7 +146,7 @@
 <p>SIGIL_PREFS_DIR - Changes where sigil looks for and updates its user preference data. Needs to specify a full path in a directory where the user has write privileges.</p>
 <p>SIGIL_EXTRA_ROOT - Handy for relocating the Sigil support files. For instance you can move the <code>&lt;CMAKE_SHARE_PREFIX&gt;/share/sigil</code> directory anywhere you like. You just have to set SIGIL_EXTRA_ROOT to the path where you moved <code>&lt;CMAKE_SHARE_PREFIX&gt;/share/sigil</code> to.</p>
 <p>SIGIL_DICTIONARIES - Used to tell Sigil what directories are to be searched for Hunspell dictionary files. Multiple directories can be specified by separating the paths with a colon. i.e. SIGIL_DICTIONARIES="/usr/share/hunspell" or SIGIL_DICTIONARIES="/usr/share/hunspell:/usr/share/hunspellextra" Setting this variable at run time will override all compile-time dictionary search paths (except for any user-supplied dictionaries manually added to their preference directory's hunspell_dictionary location).</p>
-<p>SIGIL_ICON_SCALE_FACTOR - Valid values: 1.0 to 3.0. The default value (with no variable set) is 1.8. Sigil scales its menu icons based on font-size. This can sometimes result in icons being a bit too large (or too small) depending on the system Qt theme. Use this variable to tweak the icon size if deemed necessary.</p>
+<p>SIGIL_ICON_SCALE_FACTOR - Valid values: 1.0 to 3.0. The default value (with no variable set) is 1.8. Sigil scales its menu icons based on font-size. This can sometimes result in icons being a bit too large (or too small) depending on the system Qt theme. Use this variable to tweak the icon size if deemed necessary. (Only works with Sigil v0.9.7 and earlier; v0.9.8 has a preference setting to adjust icons)</p>
 <p>The Sigil launch script also sets a SIGIL_SHARE_PREFIX environment variable, but it is automatically set to be the same as the cmake SHARE_INSTALL_PREFIX build-time option. It would be unwise to change this environment variable. Use the SIGIL_EXTRA_ROOT environment variable instead, if you need to alter the location of Sigil's support files after building Sigil.</p>
 </body>
 </html>

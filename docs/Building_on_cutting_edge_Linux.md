@@ -61,6 +61,7 @@ On Ubuntu/Debian `sudo apt-get install` (at a minimum) the following packages:
 + python3-dev
 + python3-pip
 + python3-tk
++ python3-pyqt5
 + python3-lxml
 + python3-six
 
@@ -134,7 +135,7 @@ If you configured with the default install prefix, you can launch by entering "s
 
 To test if Sigil's Python 3.4+ plugin framework is fully functional, you can do the following:
 
-1. download testplugin_v013.zip from [https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v013.zip](https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v013.zip)
+1. download testplugin_v013.zip from [https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v014.zip](https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v014.zip)
 2. open Sigil to the normal nearly blank template epub it generates when opened
 3. use Plugins->Manage Plugins menu and make sure you have a Python 3.4+ interpreter configured 
 4. use the "Add Plugin" button to navigate to and add testplugin_vXXX.zip and then hit "Okay" to exit the Manage Plugins Dialog
@@ -181,6 +182,6 @@ SIGIL_EXTRA_ROOT - Handy for relocating the Sigil support files. For instance yo
 
 SIGIL_DICTIONARIES - Used to tell Sigil what directories are to be searched for Hunspell dictionary files. Multiple directories can be specified by separating the paths with a colon. i.e. SIGIL_DICTIONARIES="/usr/share/hunspell" or SIGIL_DICTIONARIES="/usr/share/hunspell:/usr/share/hunspellextra" Setting this variable at run time will override all compile-time dictionary search paths (except for any user-supplied dictionaries manually added to their preference directory's hunspell_dictionary location).
 
-SIGIL_ICON_SCALE_FACTOR - Valid values: 1.0 to 3.0. The default value (with no variable set) is 1.8. Sigil scales its menu icons based on font-size. This can sometimes result in icons being a bit too large (or too small) depending on the system Qt theme. Use this variable to tweak the icon size if deemed necessary.
+SIGIL_ICON_SCALE_FACTOR - Valid values: 1.0 to 3.0. The default value (with no variable set) is 1.8. Sigil scales its menu icons based on font-size. This can sometimes result in icons being a bit too large (or too small) depending on the system Qt theme. Use this variable to tweak the icon size if deemed necessary. (Only works with Sigil v0.9.7 and earlier; v0.9.8 has a preference setting to adjust icons)
 
 The Sigil launch script also sets a SIGIL_SHARE_PREFIX environment variable, but it is automatically set to be the same as the cmake SHARE_INSTALL_PREFIX build-time option. It would be unwise to change this environment variable. Use the SIGIL_EXTRA_ROOT environment variable instead, if you need to alter the location of Sigil's support files after building Sigil.

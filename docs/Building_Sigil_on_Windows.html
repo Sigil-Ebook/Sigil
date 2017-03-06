@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="generator" content="ReText 6.0.2">
+<meta name="generator" content="ReText 7.0.0">
 <title>Building_Sigil_on_Windows</title>
 </head>
 <body>
@@ -61,7 +61,8 @@
 <p><code>pip install html5lib</code></p>
 </blockquote>
 <p>etc...</p>
-<p>The next Python module to install is lxml. It's apparently too cool to be installed easily with pip on Windows, so follow lxml's own advice and download one of <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml">Christoph Gohlke's precompiled Windows binaries</a> instead.</p>
+<h4>The next Python module to install is lxml.</h4>
+<p>It's apparently too cool to be installed easily with pip on Windows, so follow lxml's own advice and download one of <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml">Christoph Gohlke's precompiled Windows binaries</a> instead.</p>
 <p>Getting the right one can be fiddly, so be careful and choose the correct one. The downloads are in the form of "wheel" files (.whl)--installable with pip after downloading.</p>
 <p>At the time of this writing, the latest version of lxml was 3.7.0. So we're looking for the file that starts with "lxml-3.7.0". We need the one for Python 3.5, so the next portion of the file name will be cp35-cp35m (the "cp" is for CPython). The last portion of the filename is for 32- or 64-bit. This needs to match the version of Python you installed. So for 64-bit it's "win_amd64" and for 32-bit, it's win32.</p>
 <p>Thus for lxml-3.7.0, the file we want is "lxml-3.7.0-cp35-cp35m-win_amd64.whl". Download it somewhere, <strong>but DO NOT rename it</strong>. The filename is relevant for the install.</p>
@@ -74,13 +75,24 @@
 <p><code>pip install lxml-3.7.0-cp35-cp35m-win32.whl</code></p>
 </blockquote>
 <p>If you're building a 32-bit version of Sigil and thus have the 32-bit version of Python 3.5 installed.</p>
-<p>The last Python module to install is PyQt5. You can't install this one with pip either. The PyPi version is based on Qt5.7 instead of the version of Qt Sigil uses so you'll need to build PyQt5 manually.
-(<strong>You can install a <a href="https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/">binary version of PyQt5-5.6</a> if you like, but it won't have the python bindings to QtWebKit. If you can live with that, have at it. Just make sure you install the correct one for your Sigil build -- x32 or x64</strong>).</p>
-<p>PyQt5 depends on sip which you can install with pip</p>
+<h4>The last Python module to install is PyQt5.</h4>
+<p>You can't install this one with pip either. The PyPi version is based on Qt5.7 instead of the version of Qt Sigil uses so you'll need to build PyQt5 manually.
+(<strong>You can install a <a href="https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/">binary version of PyQt5-5.6</a> if you like, but it won't have the python bindings to QtWebKit. If you can live with that, have at it. Just make sure you install the correct one for your Sigil build -- x32 or x64</strong>). Otherwise, continue on to build PyQt5 yourself.</p>
+<h5>Installing the Sip 4.18.1 prerequisite for PyQt5</h5>
+<p>PyQt5 depends on Sip which you'll need to build. Sip 4.19 depends on Qt5.7 or higher, So you'll want to use Sip 4.18.1 Download <a href="https://sourceforge.net/projects/pyqt/files/sip/sip-4.18.1/sip-4.18.1.zip/download">the source</a> for Sip 4.18.1 and extract it somewhere on your hard drive.</p>
+<p>Using the shortcut to the proper VS2015 command-prompt created in <a href="#vs2015">step 1</a>, cd to where you extracted the sip source and configure the source with the following command (full installation instructions can be found in the "doc" folder of the source):</p>
 <blockquote>
-<p><code>pip install sip</code></p>
+<p><code>python configure.py --no-pyi</code></p>
 </blockquote>
-<p>Brush up on the PyQt build instructions from the <a href="http://pyqt.sourceforge.net/Docs/PyQt5/installation.html">PyQt website</a>.</p>
+<p>Once complete, build with:</p>
+<blockquote>
+<p><code>nmake</code></p>
+</blockquote>
+<p>The install with:</p>
+<blockquote>
+<p><code>nmake install</code></p>
+</blockquote>
+<h5>Now to build/install PyQt5 intself:</h5>
 <p>Download <a href="https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.zip/download">the source</a> for PyQt5 v5.6 and extract it somewhere on your hard drive.</p>
 <p>Using the shortcut to the proper VS2015 command-prompt created in <a href="#vs2015">step 1</a>, cd to where you extracted the PyQt5 source and configure the source with a command like:</p>
 <blockquote>
