@@ -1,10 +1,6 @@
 # Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX
 
-# IMPORTANT - Instead of building Qt from source as outlined here you can instead
-# use stock Qt 5.4.2 or Qt 5.5.1 that you can download a binary installer for
-# and install from Qt directly.
-
-# But in order to use the very latest versions of Qt you will need to add QtWebkit back
+# In order to use offical Qt 5.6 or later versions of Qt you will need to add QtWebkit back
 # and build from source.  This is what Linux distributions are doing too.
 
 # FIRST:  make sure you have XCode 6 or XCode 7 installed and the Command Line Tools
@@ -15,6 +11,9 @@
 # Qt distribution.
 
 # Here are the steps to building Qt from source with QtWebkit added back
+
+# We highly recommend you use the same Qt versions as official Sigil builds on Mac OS X.
+# which is Qt 5.6.2
 
 # cd to a location to store your src tree then do
 
@@ -58,4 +57,4 @@ make -j4
 make install
 
 # After the install phase completes your newly built Qt should exist in ~/Qt56 ready to be
-# Used to build Sigil with
+# Used to build Sigil with and for use with the PyQt5 Module iwth Python

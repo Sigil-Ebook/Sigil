@@ -1,18 +1,13 @@
-# FIRST:  See Building_A_Relocatable_Python_Framework_on_MacOSX.txt
+# FIRST:  See Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt
 #
-# SECOND: See Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt
+# SECOND: See Building_A_Relocatable_Python_Framework_on_MacOSX.txt
 #
+
 #         Also make sure you have the latest XCode and ** Command Line tools** Installed
 #         via: xcode-select --install
 #
 #         You will need to have CMake 3.0 or later installed and in your path
-#
-#         If you want to use official stock Qt then Make sure you have installed Qt 5.4.2 
-#         or Qt 5.5.1 as you can not use stock Qt 5.6 as Qt has removed QtWebkit in Qt 5.6.
-#
-#         Alternatively, you can follow the Qt build instructions to add QtWebKit back 
-#         to Qt 5.6.X and build Qt yourself directly from source.  This is what the official
-#         Sigil builds now do.
+
 
 # XCode 7 and later users may want to install the openssl headers into /usr/local/include from 
 # the MacOSX 10.10sdk from XCode 6.3 as XCode 7 and later have removed the openssl headers.
@@ -29,10 +24,6 @@ export MACOSX_DEPLOYMENT_TARGET=10.9
 export MYDEST=/Users/$USER/devtools/Frameworks
 
 # Set the location of where Qt is installed
-
-# if you are using stock Qt 5.4.2 build use the next line instead
-# export MYQTHOME=~/Qt/5.4/clang_64
-
 export MYQTHOME=~/Qt56
 
 # Set the location of where you want your Sigil repo to be stored
@@ -88,7 +79,7 @@ make addframeworks
 
 # To test if the newly bundled python 3 version of Sigil is working properly ypou can do the following:
 
-1. download testplugin_v013.zip from https://github.com/Sigil-Ebook/Sigil/tree/master/docs
+1. download testplugin_v014.zip from https://github.com/Sigil-Ebook/Sigil/tree/master/docs
 2. open Sigil.app to the normal nearly blank template epub it generates when opened
 3. use Plugins->Manage Plugins menu and make sure the "Use Bundled Python" checkbox is checked
 4. use the "Add Plugin" button to navigate to and add testplugin.zip and then hit "Okay" to exit the Manage Plugins Dialog
