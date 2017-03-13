@@ -261,7 +261,11 @@ QString SettingsStore::cssEpub3ValidationSpec()
 QString SettingsStore::tempFolderHome()
 {
     clearSettingsGroup();
-    return value(KEY_TEMP_FOLDER, QDir::tempPath()).toString();
+    QString temp_path = value(KEY_TEMP_FOLDER, QDir::tempPath()).toString();
+    if (QDir(temp_path).exists()) {
+        return temp_path;
+    }
+    return QDir::tempPath();
 }
 
 int SettingsStore::appearancePrefsTabIndex() {
@@ -474,7 +478,11 @@ void SettingsStore::setCssEpub3ValidationSpec(const QString &spec)
 void SettingsStore::setTempFolderHome(const QString &path)
 {
     clearSettingsGroup();
-    setValue(KEY_TEMP_FOLDER, path);
+    if (QDir(path).exists()) {
+        setValue(KEY_TEMP_FOLDER, path);
+    } else {
+        setValue(KEY_TEMP_FOLDER, QDir::tempPath());
+    }
 }
 
 void SettingsStore::setAppearancePrefsTabIndex(int index) {
