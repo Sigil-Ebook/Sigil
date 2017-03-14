@@ -261,11 +261,14 @@ QString SettingsStore::cssEpub3ValidationSpec()
 QString SettingsStore::tempFolderHome()
 {
     clearSettingsGroup();
-    QString temp_path = value(KEY_TEMP_FOLDER, QDir::tempPath()).toString();
-    if (QDir(temp_path).exists()) {
-        return temp_path;
+    QString temp_path = value(KEY_TEMP_FOLDER, "<SIGIL_DEFAULT_TEMP_HOME>").toString();
+    if (temp_path != "<SIGIL_DEFAULT_TEMP_HOME>") {
+        QDir tdir = QDir(temp_path);
+        if ( !tdir.exists() || !tdir.isReadable()) {
+            temp_path = "<SIGIL_DEFAULT_TEMP_HOME>";
+        }
     }
-    return QDir::tempPath();
+    return temp_path;
 }
 
 int SettingsStore::appearancePrefsTabIndex() {
@@ -481,7 +484,7 @@ void SettingsStore::setTempFolderHome(const QString &path)
     if (QDir(path).exists()) {
         setValue(KEY_TEMP_FOLDER, path);
     } else {
-        setValue(KEY_TEMP_FOLDER, QDir::tempPath());
+        setValue(KEY_TEMP_FOLDER, "<SIGIL_DEFAULT_TEMP_HOME>" );
     }
 }
 

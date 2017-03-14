@@ -27,7 +27,6 @@
 #include <QDir>
 #include <QFileDialog>
 #include <QFileInfo>
-#include <QDebug>
 #include "Misc/Utility.h"
 
 GeneralSettingsWidget::GeneralSettingsWidget()
@@ -75,7 +74,7 @@ PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
         new_remote_on_level = 1;
     }
 
-    QString new_temp_folder_home = QDir::tempPath();
+    QString new_temp_folder_home = "<SIGIL_DEFAULT_TEMP_HOME>";
     if (!ui.lineEdit->text().isEmpty()) {
          new_temp_folder_home = ui.lineEdit->text();
     }
@@ -114,14 +113,11 @@ void GeneralSettingsWidget::readSettings()
 
 void GeneralSettingsWidget::autoTempFolder()
 {
-    qDebug() << "In autoTempFolder";
-    QString system_temp_folder = QDir::tempPath();
-    ui.lineEdit->setText(system_temp_folder);
+    ui.lineEdit->setText("<SIGIL_DEFAULT_TEMP_HOME>");
 }
 
 void GeneralSettingsWidget::setTempFolder()
 {
-    qDebug() << "In setTempFolder";
     QString name = QFileDialog::getExistingDirectory(this, tr("Select Folder for Temporary Files"));
     if (name.isEmpty()) {
         return;
@@ -131,7 +127,6 @@ void GeneralSettingsWidget::setTempFolder()
 
 void GeneralSettingsWidget::tempFolderPathChanged()
 {
-    qDebug() << "In tempFolderPathChanged()";
     // make sure typed in path actually exists and is writeable
     QString tempfolderpath = ui.lineEdit->text();
     if (!tempfolderpath.isEmpty()) {
@@ -139,7 +134,7 @@ void GeneralSettingsWidget::tempFolderPathChanged()
         if (!tempinfo.exists() || !tempinfo.isDir() || !tempinfo.isReadable() || !tempinfo.isWritable() ) {
             disconnect(ui.lineEdit, SIGNAL(editingFinished()), this, SLOT(tempFolderPathChanged()));
             Utility::DisplayStdWarningDialog(tr("Incorrect Folder for Temporary Files selected"));
-            ui.lineEdit->setText("");
+            ui.lineEdit->setText("<SIGIL_DEFAULT_TEMP_HOME>");
             connect(ui.lineEdit, SIGNAL(editingFinished()), this, SLOT(tempFolderPathChanged()));
         }
     }

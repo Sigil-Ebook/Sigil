@@ -19,8 +19,8 @@
 **
 *************************************************************************/
 
-#include <QtCore/QDir>
-#include <QtConcurrent/QtConcurrent>
+#include <QDir>
+#include <QtConcurrent>
 #include <QDebug>
 
 #include "Misc/TempFolder.h"
@@ -31,7 +31,7 @@ TempFolder::TempFolder()
 {
     // verify m_tempDir was properly created
     if (!m_tempDir.isValid()) {
-        qDebug() << "Invalid m_tempDir" << m_tempDir.path();
+        qDebug() << "Error: Invalid m_tempDir" << m_tempDir.path();
     }
 
     // will be cleaned manually in the destructor
@@ -57,20 +57,28 @@ QString TempFolder::GetPath()
 QString TempFolder::GetPathToSigilScratchpad()
 {
     SettingsStore ss;
-    if (!QDir(ss.tempFolderHome()).exists()) {
+    QString temp_path = ss.tempFolderHome();
+    if (temp_path == "<SIGIL_DEFAULT_TEMP_HOME>") {
         return QDir::tempPath();
     }
-    return ss.tempFolderHome();
+    if (!QDir(temp_path).exists()) {
+        return QDir::tempPath();
+    }
+    return temp_path;
 }
 
 
 QString TempFolder::GetNewTempFolderTemplate()
 {
     SettingsStore ss;
-    if (!QDir(ss.tempFolderHome()).exists()) {
-        return QDir::tempPath() + "/Sigil-XXXXXX";
+    QString temp_path = ss.tempFolderHome();
+    if (temp_path == "<SIGIL_DEFAULT_TEMP_HOME>") {
+        return QDir::tempPath() + "/Sigil-XXXXXX";;
     }
-    return ss.tempFolderHome() + "/Sigil-XXXXXX"; 
+    if (!QDir(temp_path).exists()) {
+        return QDir::tempPath() + "/Sigil-XXXXXX";;
+    }
+    return temp_path + "/Sigil-XXXXXX"; 
 }
 
 
