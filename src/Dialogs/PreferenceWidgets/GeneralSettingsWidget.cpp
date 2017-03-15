@@ -129,7 +129,7 @@ void GeneralSettingsWidget::tempFolderPathChanged()
 {
     // make sure typed in path actually exists and is writeable
     QString tempfolderpath = ui.lineEdit->text();
-    if (!tempfolderpath.isEmpty()) {
+    if (!tempfolderpath.isEmpty() && (tempfolderpath != "<SIGIL_DEFAULT_TEMP_HOME>")) {
         QFileInfo tempinfo(tempfolderpath);
         if (!tempinfo.exists() || !tempinfo.isDir() || !tempinfo.isReadable() || !tempinfo.isWritable() ) {
             disconnect(ui.lineEdit, SIGNAL(editingFinished()), this, SLOT(tempFolderPathChanged()));
