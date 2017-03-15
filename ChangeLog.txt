@@ -1,4 +1,4 @@
-preSigil-0.9.8
+Sigil-0.9.8
    Bug Fixes
     - Make sure when new empty epub3's are created that the toc does not use a doctype (Issue # 250)
     - Make GetUniqueFilenameVersion work even on Case-Insensitive filesystems (Issue #247)
@@ -6,21 +6,29 @@ preSigil-0.9.8
     - Enable Basic Cut Copy Paste Icons/Actions in OPF, NCX, XML, SVG, and other Misc Text Tabs 
     - Add proper detection for minimum service pack requirements in Windows installer
     - Include workaround for bug in KDE Qt5 plugin on Linux that keep plugins from launching from menu
-    - Change it so splitting Section0001.xhtml (Split at Cursor) doesn't automatically rewrite the file's id with a uuid
+    - Prevent splitting Section0001.xhtml (Split at Cursor) needlessly rewrite the file's manifest id with a uuid
     - Fix issue where merging files when non-xhtml tabs were open was causing Python errors or crashes
     - Fix segfault in Image Reports when deleting unused image files
-    - Fix bug in prettyprint_xhtml in sigil_bs4
+    - Fix bug in prettyprint_xhtml in sigil_bs4 (put back inadvertently dropped is_void_tag routine)
     - Fix gumbo serialize to better handle injected newlines
     - Harden bundled Python isolation on Windows and add subset of PyQt5 to bundled modules
-    - Harden plugin interface code to unquote quoted hrefs
+    - Harden plugin interface code to properly unquote/quote hrefs
     - Stop Sigil from nagging about unsupported mimetypes when epubs with Adobe xpgt page-templates are opened
     - Fix Book Browser highlighting issue when editable XML files from the "Misc" folder are opened
     - Pull upstream bug fixes from google's gumbo parser for Sigil
+    - Force formatting buttons in BookView to generate inline-styled spans instead of "strike", "b", etc
+    - Fix bug from deprecated use of jquery $.browser.msie introduced when jQuery was updated
+    - Fix temp folder specification on Windows systems that delete the system temp folder for every login (Issue #285)
+    - Fix typos in metadata descriptions to allow better translations
 
    New Features
     - New preference setting (Appearance section) which allows user to adjust the size of the main menu icons
-    - Add manifest Properties to Book Browser tooltips and to All Files Reports Widget for epub3
+    - Add manifest properties to Book Browser tooltips and to All Files Reports Widget for epub3
+    - Make Sigil's UI and spellchecker language settings available to plugins
     - Add support for PyQt5 for plugin gui widgets
+    - Internal builds now use Qt 5.6.2 with Webkit added back
+    - Major compiler tool change and update for Windows build to sync Qt/Python/Sigil on Windows
+    - Update all build it yourself from source documentation for new requirements
 
 
 Sigil-0.9.7
