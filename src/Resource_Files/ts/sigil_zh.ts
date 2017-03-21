@@ -1,90 +1,90 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="he" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh" version="2.1">
 <context>
     <name>About</name>
     <message>
         <location filename="../../Form_Files/About.ui" line="14"/>
         <source>About</source>
-        <translation>אודות</translation>
+        <translation>关于</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
         <source>The EPUB Editor</source>
-        <translation>עורך EPUB</translation>
+        <translation>EPUB编辑器</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="70"/>
         <source>General</source>
-        <translation>כללי</translation>
+        <translation>一般</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="107"/>
         <source>Homepage:</source>
-        <translation>עמוד בית:</translation>
+        <translation>主页:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="143"/>
         <source>Version:</source>
-        <translation>גירסה:</translation>
+        <translation>版本:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="170"/>
         <source>Loaded Qt:</source>
-        <translation>‏Qt טעון:</translation>
+        <translation>装载QT:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="200"/>
         <source>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU 通用公共许可证 v3&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="218"/>
         <source>Build time:</source>
-        <translation>זמן הבנייה:</translation>
+        <translation>构建时间:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="245"/>
         <source>License:</source>
-        <translation>רשיון:</translation>
+        <translation>证书:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="255"/>
         <source>Authors</source>
-        <translation>מחברים</translation>
+        <translation>作者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="41"/>
         <source>GNU General Public License v3</source>
-        <translation type="unfinished"/>
+        <translation>GNU 通用公共许可证 v3</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer(s)</source>
-        <translation type="unfinished"/>
+        <translation>维护者(们)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="56"/>
         <source>Previous Maintainer(s)</source>
-        <translation type="unfinished"/>
+        <translation>以前的维护者(们)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
         <source>Code Contributors</source>
-        <translation>תרומות קוד</translation>
+        <translation>代码贡献者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="68"/>
         <source>Translators</source>
-        <translation>מתרגמים</translation>
+        <translation>翻译器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="70"/>
         <source>Original Creator</source>
-        <translation>יוצר מקורי</translation>
+        <translation>原始创建者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>retired</source>
-        <translation>בדימוס</translation>
+        <translation>退休了的</translation>
     </message>
 </context>
 <context>
@@ -92,12 +92,12 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
         <source>Add metadata property</source>
-        <translation>הוסף מאפיין נתון-מוצמד</translation>
+        <translation>添加元数据属性</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="50"/>
         <source>Metadata description</source>
-        <translation>תיאור נתון-מוצמד</translation>
+        <translation>元数据描述</translation>
     </message>
 </context>
 <context>
@@ -105,12 +105,12 @@
     <message>
         <location filename="../../Form_Files/AddSemantics.ui" line="14"/>
         <source>Add Semantic Property</source>
-        <translation type="unfinished"/>
+        <translation>添加语义属性</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddSemantics.ui" line="56"/>
         <source>Description of Semantic Properties</source>
-        <translation type="unfinished"/>
+        <translation>语义属性的描述</translation>
     </message>
 </context>
 <context>
@@ -118,87 +118,92 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="14"/>
         <source>All Files</source>
-        <translation>כל הקבצים</translation>
+        <translation>添加文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>מנה רק את שמות הקבצים אשר מכילים את הטקסט אותו הזנתי.</translation>
+        <translation>仅列出文件名包含所输入文本的文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>סינון:</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="65"/>
-        <source>Directory</source>
-        <translation>ספרייה</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="66"/>
-        <source>Name</source>
-        <translation>שם</translation>
+        <translation>过滤：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="67"/>
-        <source>File Size (KB)</source>
-        <translation>גודל קובץ (KB)</translation>
+        <source>Directory</source>
+        <translation>目录</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="68"/>
-        <source>Type</source>
-        <translation>טיפוס</translation>
+        <source>Name</source>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="69"/>
+        <source>File Size (KB)</source>
+        <translation>文件大小 (KB)</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="70"/>
+        <source>Type</source>
+        <translation>类型</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="71"/>
         <source>Semantics</source>
-        <translation type="unfinished"/>
+        <translation>语义</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="133"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="73"/>
+        <source>Properties</source>
+        <translation>属性</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="142"/>
         <source> files</source>
-        <translation>קבצים</translation>
+        <translation>文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="246"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="255"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>שמור דיווח בתור קובץ מופרד-פסיק</translation>
+        <translation>将报告保存为都好分割的文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="259"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="268"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="259"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="268"/>
         <source>Cannot save report file.</source>
-        <translation>אין אפשרות לשמור קובץ דיווח.</translation>
+        <translation>无法保存报告文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="284"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="293"/>
         <source>Image</source>
-        <translation>תמונה</translation>
+        <translation>图像</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="289"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="298"/>
         <source>Audio</source>
-        <translation>אודיו</translation>
+        <translation>音频</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="294"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="303"/>
         <source>Video</source>
-        <translation>וידאו</translation>
+        <translation>视频</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="299"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="308"/>
         <source>Font</source>
-        <translation>גופן</translation>
+        <translation>字体</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="326"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="335"/>
         <source>Unknown</source>
-        <translation>לא ידוע</translation>
+        <translation>未知的</translation>
     </message>
 </context>
 <context>
@@ -206,225 +211,249 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="14"/>
         <source>Appearance</source>
-        <translation>הופעה</translation>
+        <translation>外形</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="32"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="24"/>
+        <source>Fonts / Colors</source>
+        <translation>字体/颜色</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="30"/>
         <source>Book View / Preview:</source>
-        <translation>תצוגת ספר / תצוגה מקדימה:</translation>
+        <translation>读书视图/预览</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="41"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="39"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation type="unfinished"/>
+        <translation>如果你页面的CSS没有指定字体，Sigil将使用下面的字体，这些字体不会再你的成书(ebook)中使用。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="61"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="59"/>
         <source>Default font size to be used for Book View and Preview
 if no font-size specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>在读书视图和预览中使用的默认字体
+如果在你的CSS中没有指定字体大小</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="65"/>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="199"/>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="315"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="63"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="197"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="313"/>
         <source>Font Size:</source>
-        <translation>גודל גופן:</translation>
+        <translation>字体大小:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="95"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="93"/>
         <source>Default font family to be used for Book View and Preview
 if no font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>在读书视图和预览中使用默认字体系列
+如果在你的CSS中没有指定字体系列</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="99"/>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="229"/>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="348"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="97"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="227"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="346"/>
         <source>Standard Font:</source>
-        <translation>גופן תקני:</translation>
+        <translation>标准字体:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="109"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="107"/>
         <source>Default font family to be used for Book View and Preview
 if a serif font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>在读书视图和预览中使用默认字体系列
+如果在你的CSS中指定用Serif字体系列</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="113"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="111"/>
         <source>Serif Font:</source>
-        <translation>גופן Serif:</translation>
+        <translation>Serif字体:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="123"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="121"/>
         <source>Default font family to be used for Book View and Preview
 if a sans-serif font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>在读书视图和预览中使用默认字体系列
+如果在你的CSS中指定无衬线字体系列</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="127"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="125"/>
         <source>Sans-Serif Font:</source>
-        <translation>גופן Sans-Serif:</translation>
+        <translation>无衬线字体:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="173"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="171"/>
         <source>CSS / Code View:</source>
-        <translation>‏CSS / תצוגת קוד:</translation>
+        <translation>CSS/代码视图</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="183"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="181"/>
         <source>Item Colors:</source>
-        <translation>צבעי פריט:</translation>
+        <translation>项目颜色</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="196"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="194"/>
         <source>Font size to be used for text in Code View.</source>
-        <translation>גודל גופן לשם שימוש עבור טקסט בתוך תצוגת קוד.</translation>
+        <translation>在代码视图中使用的字体大小</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="226"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="224"/>
         <source>Font family to be used for text in Code View.</source>
-        <translation>משפחת גופן לשם שימוש עבור טקסט בתוך תצוגת קוד.</translation>
+        <translation>在代码视图中使用的字体系列</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="265"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="263"/>
         <source>Select an alternative color for this display item</source>
-        <translation type="unfinished"/>
+        <translation>选择一种替代颜色显示该项</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="268"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="266"/>
         <source>Custom Color...</source>
-        <translation>צבע מותאם...</translation>
+        <translation>自定义颜色</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="298"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="296"/>
         <source>Insert Special Characters:</source>
-        <translation>הכנס תווים מיוחדים:</translation>
+        <translation>插入特殊字符:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="312"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="310"/>
         <source>Font size to be used for Insert Special Characters window</source>
-        <translation>גודל גופן לשם שימוש עבור חלון שיבוץ תווים מיוחדים</translation>
+        <translation>在插入特殊字符窗口中使用的字体大小</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="345"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="343"/>
         <source>Font family to be used for Insert Special Characters window</source>
-        <translation>משפחת גופן לשם שימוש עבור חלון שיבוץ תווים מיוחדים</translation>
+        <translation>在插入特殊字符窗口中使用的字体系列</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="384"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="388"/>
+        <source>Menus</source>
+        <translation>菜单</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="394"/>
+        <source>Main Menu Icon Size</source>
+        <translation>主菜单图标大小</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="400"/>
+        <source>Adjust the size of the icons in the main menu.</source>
+        <translation>调整主菜单中图标大小</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="476"/>
         <source>Reset all fonts and colors to the default values</source>
-        <translation>אפס את כל הגופנים והצבעים אל ערכים משתמטים</translation>
+        <translation>重置所有字体和颜色为默认值</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="387"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="479"/>
         <source>Reset All</source>
-        <translation>אפס הכל</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="199"/>
-        <source>Background</source>
-        <translation>רקע</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="200"/>
-        <source>Foreground</source>
-        <translation>קדמה</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="201"/>
-        <source>CSS Comment</source>
-        <translation>הערת CSS</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="202"/>
-        <source>CSS Property</source>
-        <translation>מאפיין CSS</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="203"/>
-        <source>CSS Quote</source>
-        <translation>ציטטת CSS</translation>
+        <translation>全部重置</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="204"/>
-        <source>CSS Selector</source>
-        <translation>בורר CSS</translation>
+        <source>Background</source>
+        <translation>背景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="205"/>
-        <source>CSS Value</source>
-        <translation>ערך CSS</translation>
+        <source>Foreground</source>
+        <translation>前景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="206"/>
-        <source>Line Highlight</source>
-        <translation>הדגשת שורה</translation>
+        <source>CSS Comment</source>
+        <translation>CSS注释</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="207"/>
-        <source>Line# Background</source>
-        <translation>רקע שורה מס׳</translation>
+        <source>CSS Property</source>
+        <translation>CSS属性</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="208"/>
-        <source>Line# Foreground</source>
-        <translation>קדמת שורה מס׳</translation>
+        <source>CSS Quote</source>
+        <translation>CSS引用</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="209"/>
-        <source>Selection Background</source>
-        <translation>מבחר רקע</translation>
+        <source>CSS Selector</source>
+        <translation>CSS选择器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="210"/>
-        <source>Selection Foreground</source>
-        <translation>מבחר קדמה</translation>
+        <source>CSS Value</source>
+        <translation>CSS值</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="211"/>
-        <source>Spelling Underline</source>
-        <translation>קו תחתון איות</translation>
+        <source>Line Highlight</source>
+        <translation>行突出显示</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="212"/>
-        <source>XHTML Attribute Name</source>
-        <translation type="unfinished"/>
+        <source>Line# Background</source>
+        <translation>行#背景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="213"/>
-        <source>XHTML Attribute Value</source>
-        <translation type="unfinished"/>
+        <source>Line# Foreground</source>
+        <translation>行#前景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="214"/>
-        <source>XHTML CSS</source>
-        <translation type="unfinished"/>
+        <source>Selection Background</source>
+        <translation>选择部分背景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="215"/>
-        <source>XHTML CSS Comment</source>
-        <translation>הערת XHTML CSS</translation>
+        <source>Selection Foreground</source>
+        <translation>选择部分前景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="216"/>
-        <source>XHTML DocType</source>
-        <translation type="unfinished"/>
+        <source>Spelling Underline</source>
+        <translation>拼写下划线</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="217"/>
-        <source>XHTML Entity</source>
-        <translation>ישות XHTML</translation>
+        <source>XHTML Attribute Name</source>
+        <translation>XHTML属性名称</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="218"/>
-        <source>XHTML HTML Tag</source>
-        <translation type="unfinished"/>
+        <source>XHTML Attribute Value</source>
+        <translation>XHTML属性值</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="219"/>
+        <source>XHTML CSS</source>
+        <translation>XHTML CSS</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="220"/>
+        <source>XHTML CSS Comment</source>
+        <translation>XHTML CSS注释</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="221"/>
+        <source>XHTML DocType</source>
+        <translation>XHTML文本类型</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="222"/>
+        <source>XHTML Entity</source>
+        <translation>XHTML实体</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="223"/>
+        <source>XHTML HTML Tag</source>
+        <translation>XHTML HTML标签</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="224"/>
         <source>XHTML HTML Comment</source>
-        <translation>הערת XHTML HTML</translation>
+        <translation>XHTML HTML注释</translation>
     </message>
 </context>
 <context>
@@ -432,7 +461,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="393"/>
         <source>Start</source>
-        <translation type="unfinished"/>
+        <translation>开始</translation>
     </message>
 </context>
 <context>
@@ -440,29 +469,29 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="60"/>
         <source>Book Browser</source>
-        <translation>מעלעל ספר</translation>
+        <translation>书浏览器</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
         <source>Font Obfuscation</source>
-        <translation type="unfinished"/>
+        <translation>字体混淆</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1411"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1511"/>
         <source>Open With</source>
-        <translation>פתח בעזרת</translation>
+        <translation>用...打开</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="124"/>
         <source>file</source>
-        <translation>קובץ</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="126"/>
         <source>files</source>
-        <translation>קבצים</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
@@ -472,330 +501,335 @@ if a sans-serif font-family specified in your CSS</source>
         <location filename="../../MainUI/BookBrowser.cpp" line="789"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="989"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
-        <translation type="unfinished"/>
+        <translation>是否确定将所选文件按照字符顺序排列</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>This action cannot be reversed.</source>
-        <translation type="unfinished"/>
+        <translation>无法逆转这个操作</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="243"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>הקובץ &quot;%1&quot; לא קיים.</translation>
+        <translation>文件&quot;%1&quot;不存在</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="567"/>
         <source>Add Existing Files</source>
-        <translation>הוסף קבצים קיימים</translation>
+        <translation>添加已存在文件</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="600"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>文件不是图像或者无法使用
+
+&quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="609"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
-        <translation>קובץ אינו מולטימדי (תמונה, וידאו, אודיו) ועל כן אין אפשרות לשבצו:
+        <translation>文件不是多媒体（突袭, 视频, 音频）或者无法使用
 
-&quot;%1&quot;.</translation>
+&quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="624"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation>קובץ מולטימדיה &quot;%1&quot; כבר קיים בתוך הספר.
+        <translation>书中以存在该多媒体文件 &quot;%1&quot;。
 
-האם להחליף?</translation>
+确认后替代</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="635"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
-        <translation>לא מסוגל למחוק או להחליף קובץ &quot;%1&quot;.</translation>
+        <translation>无法删除或者替换 &quot;%1&quot; 文件</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="640"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
-        <translation>לא מסוגל לטעון את &quot;%1&quot;
+        <translation>无法加载 &quot;%1&quot;
 
-קובץ עם שם זה כבר קיים בתוך הספר.</translation>
+在书中已经存在该名称的文件</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="690"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
-        <translation type="unfinished"/>
+        <translation>由于无效内容或错误的XML格式，下面文件无法加载:
+
+%1</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="704"/>
         <source>File(s) added.</source>
-        <translation>הוספו קבצים.</translation>
+        <translation>添加的文件.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="739"/>
         <source>Save As File</source>
-        <translation>שמור בתור קובץ</translation>
+        <translation>文件另存为</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="761"/>
         <source>Unable to save the file.</source>
-        <translation>לא מסוגל לשמור את הקובץ.</translation>
+        <translation>无法保存该文件</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="769"/>
         <source>Choose the directory to save the files to</source>
-        <translation type="unfinished"/>
+        <translation>选择将文件保存的目录</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="789"/>
         <source>One or more files already exists.  OK to overwrite?</source>
-        <translation type="unfinished"/>
+        <translation>一个或多个文件已经存在. 确认后覆盖？</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="806"/>
         <source>Unable to save files.  Destination may be a directory.</source>
-        <translation>לא מסוגל לשמור קבצים.  יעד עשוי להיות ספרייה.</translation>
+        <translation>无法保存文件. 目标可能是一个目录.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="814"/>
         <source>Unable to save files.</source>
-        <translation>לא מסוגל לשמור קבצים.</translation>
+        <translation>无法保存文件.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="989"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
-        <translation type="unfinished"/>
+        <translation>因为可能造成文件重名无法重命名文件.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1052"/>
         <source>The Nav document can not be removed.</source>
-        <translation type="unfinished"/>
+        <translation>Nav文旦无法被删除.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1060"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
-        <translation type="unfinished"/>
+        <translation>NCX和OPF都无法删除.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1067"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
-        <translation type="unfinished"/>
+        <translation>无法删除所有的html文件
+至少要有一个.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1207"/>
         <source>Unable to set file as cover image.</source>
-        <translation>לא מסוגל לקבוע קובץ בתור תמונת כריכה.</translation>
+        <translation>无法将文件设置为封面图像.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1392"/>
         <source>Select All</source>
-        <translation>בחר הכל</translation>
+        <translation>选择全部</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1393"/>
         <source>Add Blank HTML File</source>
-        <translation>הוסף קובץ HTML ריק</translation>
+        <translation>添加空白HTML文件</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1394"/>
         <source>Add Blank Stylesheet</source>
-        <translation>הוסף גיליון סגנון ריק</translation>
+        <translation>添加空白的样式表</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1395"/>
         <source>Add Blank SVG Image</source>
-        <translation>הוסף תמונת SVG ריקה</translation>
+        <translation>添加空白的SVG图形</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1396"/>
         <source>Add Existing Files...</source>
-        <translation>הוספת קבצים קיימים...</translation>
+        <translation>添加存在的文件</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1397"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1398"/>
         <source>Add Copy</source>
-        <translation>הוסף עותק</translation>
+        <translation>添加一个复制</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1399"/>
         <source>Rename</source>
-        <translation>שנה שם</translation>
+        <translation>重命名</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1400"/>
         <source>Delete</source>
-        <translation>מחק</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
         <source>Cover Image</source>
-        <translation>תמונת כריכה</translation>
+        <translation>封面图像</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
         <source>Merge</source>
-        <translation>מזג</translation>
+        <translation>合并</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1403"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>无</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1404"/>
         <source>Use Adobe&apos;s Method</source>
-        <translation>השתמש בשיטה של Adobe</translation>
+        <translation>使用Adobe的方法</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
         <source>Use IDPF&apos;s Method</source>
-        <translation>השתמש בשיטה של IDPF</translation>
+        <translation>使用IDPF方法</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1406"/>
         <source>Sort</source>
-        <translation>מיין</translation>
+        <translation>排序</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1407"/>
         <source>Renumber TOC Entries</source>
-        <translation>מספר מחדש ערכי תוכן עניינים</translation>
+        <translation>重命名TOC条目</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1408"/>
         <source>Link Stylesheets...</source>
-        <translation type="unfinished"/>
+        <translation>连接样式表...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
         <source>Add Semantics...</source>
-        <translation type="unfinished"/>
+        <translation>添加语义...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1410"/>
         <source>Validate with W3C</source>
-        <translation>הענק תוקף בעזרת W3C</translation>
+        <translation>用W3C验证</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1412"/>
         <source>Save As</source>
-        <translation>שמור בתור</translation>
+        <translation>保存为</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1517"/>
         <source>Other Application</source>
-        <translation>יישום אחר</translation>
+        <translation>其它应用程序</translation>
     </message>
 </context>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="698"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="700"/>
         <source>Clipboard contains HTML formatting</source>
-        <translation type="unfinished"/>
+        <translation>剪贴板包含HTML格式</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="699"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="701"/>
         <source>Do you want to paste clipboard data as plain text?</source>
-        <translation type="unfinished"/>
+        <translation>是否将剪贴板内容以纯文本粘贴?</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="895"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="897"/>
         <source>Open Tab For</source>
-        <translation>פתח כרטיסייה עבור</translation>
+        <translation>打开标签</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="909"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1082"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="911"/>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1084"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1086"/>
         <source>Open With</source>
-        <translation>פתח בעזרת</translation>
+        <translation>用...打开</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="916"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="918"/>
         <source>Other Application</source>
-        <translation>יישום אחר</translation>
+        <translation>其它应用程序</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="964"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="966"/>
         <source>Clips</source>
-        <translation>קליפים</translation>
+        <translation>剪辑</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="974"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="976"/>
         <source>Add To Clips</source>
-        <translation>הוסף אל קליפים</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1072"/>
-        <source>Insert File</source>
-        <translation>הכנס קובץ</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1073"/>
-        <source>Undo</source>
-        <translation>בטל</translation>
+        <translation>添加到剪辑</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1074"/>
-        <source>Redo</source>
-        <translation>בצע שוב</translation>
+        <source>Insert File</source>
+        <translation>插入文件</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1075"/>
-        <source>Cut</source>
-        <translation>גזור</translation>
+        <source>Undo</source>
+        <translation>撤销</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1076"/>
-        <source>Copy</source>
-        <translation>העתק</translation>
+        <source>Redo</source>
+        <translation>重复</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1077"/>
-        <source>Copy Image</source>
-        <translation>העתק תמונה</translation>
+        <source>Cut</source>
+        <translation>剪切</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1078"/>
-        <source>Paste</source>
-        <translation>הדבק</translation>
+        <source>Copy</source>
+        <translation>复制</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1079"/>
-        <source>Select All</source>
-        <translation>בחר הכל</translation>
+        <source>Copy Image</source>
+        <translation>复制图像</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1080"/>
+        <source>Paste</source>
+        <translation>黏贴</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1081"/>
+        <source>Select All</source>
+        <translation>选择全部</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1082"/>
         <source>Open</source>
-        <translation>פתח</translation>
+        <translation>打开</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1083"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1085"/>
         <source>Save As</source>
-        <translation>שמור בשם</translation>
+        <translation>保存为</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1087"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1089"/>
         <source>Inspect Element</source>
-        <translation>בדוק אלמנט</translation>
+        <translation>检测元素</translation>
     </message>
 </context>
 <context>
@@ -805,27 +839,27 @@ There always has to be at least one.</source>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="332"/>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="338"/>
         <source>Unsupported</source>
-        <translation>לא נתמך</translation>
+        <translation>不支持</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="267"/>
         <source>Spellcheck mode is not supported in Book View at this time.  Switch to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>书视图目前不支持拼写检查模式, 切换到代码视图。</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="332"/>
         <source>Replace is not supported in this view. Switch to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>此视图不支持替换, 切换到代码视图。</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="338"/>
         <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>此视图中不支持替换当前全部文件, 切换到代码视图。</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="754"/>
         <source>Inspect Element</source>
-        <translation>בדוק אלמנט</translation>
+        <translation>检测元素</translation>
     </message>
 </context>
 <context>
@@ -833,62 +867,62 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="14"/>
         <source>CSS Files</source>
-        <translation>קבצי CSS</translation>
+        <translation>CSS文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>מנה רק את שמות הקבצים אשר מכילים את הטקסט אותו הזנתי.</translation>
+        <translation>仅列出文件名包含所输入文本的文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>סינון:</translation>
+        <translation>过滤：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="68"/>
         <source>Name</source>
-        <translation>שם</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="69"/>
         <source>Size (KB)</source>
-        <translation>גודל (KB)</translation>
+        <translation>大小 (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="70"/>
         <source>Times Used</source>
-        <translation>פעמים בשימוש</translation>
+        <translation>使用时间</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="135"/>
         <source> files</source>
-        <translation>קבצים</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="139"/>
         <source>KB</source>
-        <translation type="unfinished"/>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>שמור דיווח בתור קובץ מופרד-פסיק</translation>
+        <translation>将报告保存为都好分割的文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
         <source>Cannot save report file.</source>
-        <translation>אין אפשרות לשמור קובץ דיווח.</translation>
+        <translation>无法保存报告文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="289"/>
         <source>Delete From Book</source>
-        <translation>מחק מתוך ספר</translation>
+        <translation>从书中删除</translation>
     </message>
 </context>
 <context>
@@ -896,17 +930,17 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="99"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil将您的样式表数据发送到&lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt; W3C验证服务&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="100"/>
         <source>This page should disappear once loaded after 3 seconds.</source>
-        <translation type="unfinished"/>
+        <translation>此网页在3秒后载入时会消失.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="101"/>
         <source>If your browser does not have javascript enabled, click on the button below.</source>
-        <translation type="unfinished"/>
+        <translation>如果您的浏览器没有启用javascript, 请点击下面的按钮.</translation>
     </message>
 </context>
 <context>
@@ -914,67 +948,67 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="14"/>
         <source>Characters in HTML Files</source>
-        <translation>תווים בתוך קבצי HTML</translation>
+        <translation>HTML文件中的字符</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>מנה רק את שמות הקבצים אשר מכילים את הטקסט אותו הזנתי.</translation>
+        <translation>仅列出文件名包含所输入文本的文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>סינון:</translation>
+        <translation>过滤：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="76"/>
         <source>Characters:</source>
-        <translation>תווים:</translation>
+        <translation>字符：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="74"/>
         <source>Character</source>
-        <translation>תו</translation>
+        <translation>字符</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="75"/>
         <source>Decimal</source>
-        <translation>עשרוני</translation>
+        <translation>小数</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="76"/>
         <source>Hexadecimal</source>
-        <translation>הקסדצימלי</translation>
+        <translation>16进制数</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="77"/>
         <source>Entity Name</source>
-        <translation>שם ישות</translation>
+        <translation>单元名称</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="78"/>
         <source>Entity Description</source>
-        <translation>תיאור ישות</translation>
+        <translation>单元描述</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="84"/>
         <source>&lt;p&gt;This is a list of the characters used in all HTML files.&lt;p&gt;</source>
-        <translation>&lt;p&gt;זוהי רשימה של תווים בשימוש בתוך כל קובץ HTML.&lt;p&gt;</translation>
+        <translation>&lt;p&gt;这是在HTML文件中使用的所有字符列表. &lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>שמור דיווח בתור קובץ מופרד-פסיק</translation>
+        <translation>将报告保存为都好分割的文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
         <source>Cannot save report file.</source>
-        <translation>אין אפשרות לשמור קובץ דיווח.</translation>
+        <translation>无法保存报告文件</translation>
     </message>
 </context>
 <context>
@@ -982,72 +1016,72 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="14"/>
         <source>Style Classes in HTML Files</source>
-        <translation>מחלקות סכנון בתוך קבצי HTML</translation>
+        <translation>HTML文件中的样式类</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>מנה רק את שמות הקבצים אשר מכילים את הטקסט אותו הזנתי.</translation>
+        <translation>仅列出文件名包含所输入文本的文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>סינון:</translation>
+        <translation>过滤：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="77"/>
         <source>HTML File</source>
-        <translation>קובץ HTML</translation>
+        <translation>HTML文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="78"/>
         <source>Element</source>
-        <translation>אלמנט</translation>
+        <translation>元素</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="79"/>
         <source>Class</source>
-        <translation>מחלקה</translation>
+        <translation>类</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="80"/>
         <source>Matched Selector</source>
-        <translation type="unfinished"/>
+        <translation>匹配选择器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="81"/>
         <source>Found In</source>
-        <translation>נמצא בתוך</translation>
+        <translation>发现于</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
         <source>&lt;p&gt;This is a list of the style classes used in all HTML files and whether or not the style matched a selector in a linked stylesheet.&lt;p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;这是HTML文件中使用的所有样式类，以及该样式是否与链接的样式表相匹配的选择器的列表。&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="88"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
-        <translation>&lt;p&gt;הערה:&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;注释:&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="89"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;由于CSS的复杂性，您必须手动检查代码以确定样式是否被使用。&lt;/ p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="223"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>שמור דיווח בתור קובץ מופרד-פסיק</translation>
+        <translation>将报告保存为都好分割的文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
         <source>Cannot save report file.</source>
-        <translation>אין אפשרות לשמור קובץ דיווח.</translation>
+        <translation>无法保存报告文件</translation>
     </message>
 </context>
 <context>
@@ -1056,49 +1090,49 @@ There always has to be at least one.</source>
         <location filename="../../Form_Files/ClipEditor.ui" line="14"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="503"/>
         <source>Clip Editor</source>
-        <translation>עורך קליפ</translation>
+        <translation>剪切编辑</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation type="unfinished"/>
+        <translation>过滤名称: </translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation type="unfinished"/>
+        <translation>全部过滤: </translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>仅列出包含您输入的文本的条目. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="65"/>
         <source>Paste the selected entry into the active window.</source>
-        <translation type="unfinished"/>
+        <translation>将选定的条目粘贴到活动窗口中. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="68"/>
         <source>Paste Clip</source>
-        <translation>הדבק קליפ</translation>
+        <translation>粘贴剪辑</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="91"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="614"/>
         <source>Add Entry</source>
-        <translation>הוסף ערך</translation>
+        <translation>添加入口</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="98"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="615"/>
         <source>Add Group</source>
-        <translation>הוסף קבוצה</translation>
+        <translation>添加到组</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="123"/>
         <source>Move an entry up one entry in the same group.</source>
-        <translation type="unfinished"/>
+        <translation>将条目向上移动到同一组中的一个条目. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="126"/>
@@ -1106,189 +1140,189 @@ There always has to be at least one.</source>
         <location filename="../../Form_Files/ClipEditor.ui" line="185"/>
         <location filename="../../Form_Files/ClipEditor.ui" line="215"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="153"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation type="unfinished"/>
+        <translation>将条目移动到其父级的级别. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="182"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation type="unfinished"/>
+        <translation>您必须选择组下面的项目才能将其移动到组中. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="212"/>
         <source>Move an entry down one in the group.</source>
-        <translation type="unfinished"/>
+        <translation>将组中的条目向下移动一个. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="72"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation type="unfinished"/>
+        <translation>右键单击一个条目以查看操作的上下文菜单. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
         <source>You can also right click in your document to select an entry.</source>
-        <translation type="unfinished"/>
+        <translation>您也可以在文档中右键单击以选择条目. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="75"/>
         <source>Name</source>
-        <translation>שם</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="75"/>
         <source>Name of your entry or group.</source>
-        <translation type="unfinished"/>
+        <translation>给您的条目或组命名. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Text</source>
-        <translation>טקסט</translation>
+        <translation>文本</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>The text to insert. The text is treated like a Regex replacement expression so \1 can be used to insert the text selected in Code View when you paste the clip.</source>
-        <translation type="unfinished"/>
+        <translation>要插入的文本, 文本被视为正则表达式替换表达式，因此\1可用于在粘贴剪辑时插入在代码视图中选择的文本. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>Save</source>
-        <translation>שמור</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>Save your changes.</source>
-        <translation>שמור את השינויים שלך.</translation>
+        <translation>保存改变的.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>如果有其他Sigil的实例正在运行，它们将自动更新您的更改. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="90"/>
         <source>Cannot save entries.</source>
-        <translation>אין אפשרות לשמור ערכים.</translation>
+        <translation>无法保存条目. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="132"/>
         <source>Clip entries loaded from file.</source>
-        <translation>נטענו ערכי קליפ מתוך קובץ.</translation>
+        <translation>从文件加载的剪辑条目. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="188"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation type="unfinished"/>
+        <translation>您不能选择包含该条目的条目和组。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="270"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation type="unfinished"/>
+        <translation>您不能复制或剪切组 - 请使用拖放。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="336"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="336"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation type="unfinished"/>
+        <translation>您确定要重新载入所有条目吗? 所有更改将被覆盖. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="352"/>
         <source>Import Entries</source>
-        <translation type="unfinished"/>
+        <translation>导入条目</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="425"/>
         <source>Export Selected Entries</source>
-        <translation type="unfinished"/>
+        <translation>导出所选条目</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ClipEditor.cpp" line="503"/>
         <source>CSS entries added: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="616"/>
         <source>Edit</source>
-        <translation>ערוך</translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="617"/>
         <source>Cut</source>
-        <translation>גזור</translation>
+        <translation>剪切</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="618"/>
         <source>Copy</source>
-        <translation>העתק</translation>
+        <translation>复制</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="619"/>
         <source>Paste</source>
-        <translation>הדבק</translation>
+        <translation>黏贴</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="620"/>
         <source>Delete</source>
-        <translation>מחק</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="621"/>
         <source>Import</source>
-        <translation>יבא</translation>
+        <translation>输入</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="622"/>
         <source>Reload</source>
-        <translation>טען מחדש</translation>
+        <translation>重载入</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="623"/>
         <source>Export</source>
-        <translation>יצא</translation>
+        <translation>输出</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="624"/>
         <source>Export All</source>
-        <translation>יצא הכל</translation>
+        <translation>全部输出</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="625"/>
         <source>Collapse All</source>
-        <translation>צמצם הכל</translation>
+        <translation>全部收起</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="626"/>
         <source>Expand All</source>
-        <translation>הרחב הכל</translation>
+        <translation>全部打开</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="627"/>
         <source>Autofill</source>
-        <translation type="unfinished"/>
+        <translation>自动填充</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="707"/>
         <source>Clip entries saved.</source>
-        <translation>נשמרו ערכי קליפ.</translation>
+        <translation>剪辑条目已保存. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="736"/>
         <source>Sigil: Clip Editor</source>
-        <translation>‏Sigil: עורך קליפ</translation>
+        <translation>Sigil：剪辑编辑器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="737"/>
         <source>The Clip entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>יכול להיות כי ערכי קליפ שונו.
-האם ברצונך לשמור את השינויים שלך?</translation>
+        <translation>剪辑条目可能已被修改
+要保存更改吗？</translation>
     </message>
 </context>
 <context>
@@ -1296,17 +1330,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="64"/>
         <source>Name</source>
-        <translation>שם</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="65"/>
         <source>Text</source>
-        <translation>טקסט</translation>
+        <translation>文本</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="681"/>
         <source>Unable to create file %1</source>
-        <translation>לא מסוגל ליצור קובץ %1</translation>
+        <translation>无法创建文件 %1</translation>
     </message>
 </context>
 <context>
@@ -1314,22 +1348,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/ClipboardHistorySelector.ui" line="14"/>
         <source>Select Text to Paste</source>
-        <translation>בחר טקסט לשם העתקה</translation>
+        <translation>粘贴选择的文本</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipboardHistorySelector.ui" line="20"/>
         <source>Recent clipboards:</source>
-        <translation>גזירים אחרונים:</translation>
+        <translation>最近的剪贴板</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="311"/>
         <source>Paste</source>
-        <translation>הדבק</translation>
+        <translation>黏贴</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="313"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
@@ -1337,17 +1371,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="34"/>
         <source>Clips</source>
-        <translation>קליפים</translation>
+        <translation>剪辑</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="99"/>
         <source>Collapse All</source>
-        <translation>צמצם הכל</translation>
+        <translation>全部收起</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="100"/>
         <source>Expand All</source>
-        <translation>הרחב הכל</translation>
+        <translation>全部打开</translation>
     </message>
 </context>
 <context>
@@ -1355,135 +1389,135 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="418"/>
         <source>Cannot insert closing tag at this position.</source>
-        <translation>אין אפשרות לשבץ תג סוגר בעמדה זו.</translation>
+        <translation>无法在此位置插入结束标记. </translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="427"/>
         <source>No open tags found at this position.</source>
-        <translation>לא נמצאו תגיות פתוחות בעמדה זו.</translation>
+        <translation>在此位置找不到打开的标签. </translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1175"/>
         <source>Add To Default Dictionary</source>
-        <translation>הוסף אל מילון ברירת מחדל</translation>
+        <translation>添加到默认字典</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1188"/>
         <source>Add To Dictionary</source>
-        <translation>הוסף אל מילון</translation>
+        <translation>添加到字典</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1205"/>
         <source>Ignore</source>
-        <translation>התעלם</translation>
+        <translation>忽略</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1267"/>
         <source>Reformat CSS</source>
-        <translation type="unfinished"/>
+        <translation>重新CSS格式化</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1268"/>
         <source>Multiple Lines Per Style</source>
-        <translation>שורות מרובות לכל סגנון</translation>
+        <translation>每个格式应用多行</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1269"/>
         <source>Single Line Per Style</source>
-        <translation>שורה בודדת לכל סגנון</translation>
+        <translation>每个格式应用单行</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1294"/>
         <source>Reformat HTML</source>
-        <translation type="unfinished"/>
+        <translation>重新HTML格式化</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1295"/>
         <source>Mend and Prettify Code</source>
-        <translation type="unfinished"/>
+        <translation>修改和优化代码</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1296"/>
         <source>Mend and Prettify Code - All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>修改和预验证码 - 所有HTML文件</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1297"/>
         <source>Mend Code</source>
-        <translation type="unfinished"/>
+        <translation>修改代码</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1298"/>
         <source>Mend Code - All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>修改代码 - 所有HTML文件</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1328"/>
         <source>Go To Link Or Style</source>
-        <translation>עבור אל שורה או סגנון</translation>
+        <translation>转换到链接或样式</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1351"/>
         <source>View Image</source>
-        <translation type="unfinished"/>
+        <translation>看图</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1352"/>
         <source>Open Tab For Image</source>
-        <translation type="unfinished"/>
+        <translation>打开图像的标签</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1378"/>
         <source>Mark Selected Text</source>
-        <translation type="unfinished"/>
+        <translation>标记所选文本</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1380"/>
         <source>Unmark Marked Text</source>
-        <translation type="unfinished"/>
+        <translation>去除所选文本标记</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1406"/>
         <source>Clips</source>
-        <translation>קליפים</translation>
+        <translation>剪辑</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1416"/>
         <source>Add To Clips</source>
-        <translation>הוסף אל קליפים</translation>
+        <translation>添加到剪辑</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1542"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
-        <translation type="unfinished"/>
+        <translation>您必须在HTML开始标记中才能使用此功能. </translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1552"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
-        <translation type="unfinished"/>
+        <translation>您必须在HTML开始标记内使用此功能. </translation>
     </message>
 </context>
 <context>
     <name>ColorSwatchDelegate</name>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="55"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="56"/>
         <source>Background</source>
-        <translation>רקע</translation>
+        <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="57"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="58"/>
         <source>Foreground</source>
-        <translation>קדמה</translation>
+        <translation>前景</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="59"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="60"/>
         <source>Selection Background</source>
-        <translation>מבחר רקע</translation>
+        <translation>选择部分背景</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="61"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="62"/>
         <source>Selection Foreground</source>
-        <translation>מבחר קדמה</translation>
+        <translation>选择部分前景</translation>
     </message>
 </context>
 <context>
@@ -1491,22 +1525,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/DeleteFiles.ui" line="14"/>
         <source>Delete Files</source>
-        <translation>מחק קבצים</translation>
+        <translation>删除文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="66"/>
         <source>Delete Marked Files</source>
-        <translation>מחק קבצים מסומנים</translation>
+        <translation>删除标记的文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="67"/>
         <source>Delete</source>
-        <translation>מחק</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="68"/>
         <source>File</source>
-        <translation>קובץ</translation>
+        <translation>文件</translation>
     </message>
 </context>
 <context>
@@ -1514,27 +1548,27 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/DeleteStyles.ui" line="14"/>
         <source>Delete Styles</source>
-        <translation>מחק עיצובים</translation>
+        <translation>删除样式</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="79"/>
         <source>Delete Marked Styles</source>
-        <translation>מחק עיצובים מסומנים</translation>
+        <translation>删除标记的样式</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="80"/>
         <source>Delete</source>
-        <translation>מחק</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="81"/>
         <source>File</source>
-        <translation>קובץ</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="82"/>
         <source>Style</source>
-        <translation>סגנון</translation>
+        <translation>样式</translation>
     </message>
 </context>
 <context>
@@ -1542,101 +1576,103 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="14"/>
         <source>Edit Table Of Contents</source>
-        <translation>ערוך תוכן עניינים</translation>
+        <translation>编辑目录</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="52"/>
         <source>Insert a blank entry above the currently selected entry.</source>
-        <translation type="unfinished"/>
+        <translation>在当前选定条目上方插入空白条目.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="55"/>
         <source>Add Above</source>
-        <translation>הוסף מעלה</translation>
+        <translation> 在上面加入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="62"/>
         <source>Add a blank entry below the currently selected entry.</source>
-        <translation type="unfinished"/>
+        <translation>在当前选定条目下方插入空白条目.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="65"/>
         <source>Add Below</source>
-        <translation>הוסף מטה</translation>
+        <translation>在下方加入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="72"/>
         <source>Delete the selected TOC entry</source>
-        <translation>מחק ערך תוכן עניינים הנבחר</translation>
+        <translation>删除选中的TOC条目</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="75"/>
         <location filename="../../Dialogs/EditTOC.cpp" line="443"/>
         <source>Delete</source>
-        <translation>מחק</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="82"/>
         <source>Set the destination of the TOC entry from a list of valid targets in the book.</source>
-        <translation>קבע את היעד של ערך תוכן עניינים מתוך רשימה של מטרות מבוססות בתוך הספר.</translation>
+        <translation>从书中有效目标的列表中设置TOC条目的目标.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="85"/>
         <source>Select Target</source>
-        <translation>בחר מטרה</translation>
+        <translation>选择目标</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="110"/>
         <source>Decrease the heading level of the selected entry.
 You can also use the left arrow key.</source>
-        <translation type="unfinished"/>
+        <translation>降低所选条目的标题级别
+您也可以使用左箭头键.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="126"/>
         <location filename="../../Form_Files/EditTOC.ui" line="136"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="148"/>
         <source>Increase the heading level of the selected entry.
 You can also use the right arrow key.</source>
-        <translation type="unfinished"/>
+        <translation>增加所选条目的标题级别
+您也可以使用右箭头键.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="85"/>
         <source>TOC Entry</source>
-        <translation>ערך תוכן עניינים</translation>
+        <translation>TOC条目</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="86"/>
         <source>Target</source>
-        <translation>מטרה</translation>
+        <translation>目标</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="442"/>
         <source>Rename</source>
-        <translation>שנה שם</translation>
+        <translation>重命名</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="450"/>
         <source>Move Up</source>
-        <translation type="unfinished"/>
+        <translation>上移</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="451"/>
         <source>Move Down</source>
-        <translation type="unfinished"/>
+        <translation>下移</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="457"/>
         <source>Expand All</source>
-        <translation>הרחב הכל</translation>
+        <translation>全部打开</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="458"/>
         <source>Collapse All</source>
-        <translation>צמצם הכל</translation>
+        <translation>全部收起</translation>
     </message>
 </context>
 <context>
@@ -1645,7 +1681,7 @@ You can also use the right arrow key.</source>
         <location filename="../../Misc/EmbeddedPython.cpp" line="608"/>
         <location filename="../../Misc/EmbeddedPythonPkg.cpp" line="613"/>
         <source>Embedded Python Error</source>
-        <translation type="unfinished"/>
+        <translation>嵌入式Python错误</translation>
     </message>
 </context>
 <context>
@@ -1653,180 +1689,183 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="20"/>
         <source>Find &amp; Replace</source>
-        <translation>מצא והחלף</translation>
+        <translation>查找&amp;替换</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="55"/>
         <source>Hide Find and Replace</source>
-        <translation>הסתר את מצא והחלף</translation>
+        <translation>隐藏查找&amp;替换</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="61"/>
         <location filename="../../Form_Files/FindReplace.ui" line="109"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="103"/>
         <source>Show/Hide Advanced Options</source>
-        <translation>הצג/הסתר אפשרויות מתקדמות</translation>
+        <translation>显示查找&amp;替换选项</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="152"/>
         <source>Find:</source>
-        <translation>מצא:</translation>
+        <translation>查找: </translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="184"/>
         <source>Find next match.</source>
-        <translation>מצא התאמה באה.</translation>
+        <translation>查找下一个匹配的: </translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="190"/>
         <source>Find</source>
-        <translation>מצא</translation>
+        <translation>找到</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="203"/>
         <source>Replace highlighted match (if any),
 then find the Next match in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>替换突出显示的匹配（如果有）,
+然后在代码视图中找到下一个匹配。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="210"/>
         <source>Replace/Find</source>
-        <translation>החלף/מצא</translation>
+        <translation>替换/查找</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="217"/>
         <source>Replace:</source>
-        <translation>החלפה:</translation>
+        <translation>替换: </translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="249"/>
         <source>Replace highlighted match (if any) in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>替换代码视图中突出显示的匹配项（如果有）.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="255"/>
         <source>Replace</source>
-        <translation>החלף</translation>
+        <translation>替换</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="268"/>
         <source>Replace all matches in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>替换代码视图中匹配项（如果有）.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="274"/>
         <source>Replace All</source>
-        <translation>החלף הכל</translation>
+        <translation>全部替换</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="281"/>
         <source>Options:</source>
-        <translation>אפשרויות:</translation>
+        <translation>选项: </translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="293"/>
         <source>For Regex searches, prefix your search with (?s).</source>
-        <translation type="unfinished"/>
+        <translation>对于正则表达式搜索，使用（？）作为搜索前缀.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="299"/>
         <source>DotAll</source>
-        <translation type="unfinished"/>
+        <translation>全部加点</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="306"/>
         <source>For Regex searches, prefix your search with (?U).</source>
-        <translation type="unfinished"/>
+        <translation>对于正则表达式搜索，使用（?U）作为搜索前缀.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="312"/>
         <source>Minimal Match</source>
-        <translation type="unfinished"/>
+        <translation>最小匹配</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="319"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
-        <translation type="unfinished"/>
+        <translation>对于正则表达式搜索，打开查找时的标记/转义选择。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="325"/>
         <source>Auto-Tokenise</source>
-        <translation type="unfinished"/>
+        <translation>自动标记</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="332"/>
         <source>Search from current position to end of the 
 current file or book, and then wrap to the
 other end to continue searching.</source>
-        <translation type="unfinished"/>
+        <translation>从当前位置搜索到当前
+文件或书的结尾，然后
+换另一端继续搜索。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="337"/>
         <source>Wrap</source>
-        <translation type="unfinished"/>
+        <translation>包</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="371"/>
         <source>Count all matches in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>计数代码视图中的所有匹配项。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="377"/>
         <source>Count All</source>
-        <translation type="unfinished"/>
+        <translation>计数所有</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="384"/>
         <source>Mode:</source>
-        <translation type="unfinished"/>
+        <translation>模式: </translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="178"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1430"/>
         <source>Current File</source>
-        <translation>קובץ נוכחי</translation>
+        <translation>当前文件</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="333"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1253"/>
         <source>Matches found: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="417"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1277"/>
         <source>No replacements made</source>
-        <translation type="unfinished"/>
+        <translation>没有替换</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="419"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1279"/>
         <source>Replacements made: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="620"/>
         <source>No matches found</source>
-        <translation type="unfinished"/>
+        <translation>我发现匹配</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1135"/>
         <source>This tab cannot be searched</source>
-        <translation type="unfinished"/>
+        <translation>无法搜索这个标签</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1167"/>
         <source>Unnamed search loaded</source>
-        <translation type="unfinished"/>
+        <translation>加载了未命名的搜索</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1170"/>
         <source>Loaded</source>
-        <translation type="unfinished"/>
+        <translation>加载</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1179"/>
@@ -1835,108 +1874,108 @@ other end to continue searching.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="1237"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1263"/>
         <source>No searches selected</source>
-        <translation type="unfinished"/>
+        <translation>没有选择搜索</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1420"/>
         <source>What to search for</source>
-        <translation type="unfinished"/>
+        <translation>搜索所什么</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1421"/>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>普通</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1422"/>
         <source>Case in-sensitive search of exactly what you type.</source>
-        <translation type="unfinished"/>
+        <translation>大小写不敏感搜索你所输入的</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
         <source>Case Sensitive</source>
-        <translation type="unfinished"/>
+        <translation>大小写敏感</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1424"/>
         <source>Case sensitive search of exactly what you type.</source>
-        <translation type="unfinished"/>
+        <translation>大小写敏感搜索你所输入的</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Regex</source>
-        <translation type="unfinished"/>
+        <translation>正则表达式</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
-        <translation type="unfinished"/>
+        <translation>使用正则表达式语法搜索.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1429"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1441"/>
         <source>Where to search</source>
-        <translation type="unfinished"/>
+        <translation>在哪里搜索</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1431"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
-        <translation type="unfinished"/>
+        <translation>限制查找或替换在打开的文件中, 按住Ctrl键的同时单击任何搜索按钮，以临时限制搜索在当前文件中。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1432"/>
         <source>All HTML Files</source>
-        <translation>כל קבצי HTML</translation>
+        <translation>所有HTML文件</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1433"/>
         <source>Find or replace in all HTML files in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>在代码视图中的所有HTML文件中查找或替换。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
         <source>Selected Files</source>
-        <translation type="unfinished"/>
+        <translation>选择的文件</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1435"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>在代码视图的书浏览器中, 限制在选择的HTML文件中查找或替换.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1442"/>
         <source>Marked Text</source>
-        <translation>טקסט מסומן</translation>
+        <translation>标记的文本</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1443"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
-        <translation type="unfinished"/>
+        <translation>将查找或替换限制在标记所选文本的文本. 如果您使用撤消，输入文字或更改视图或标签，则清除。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1447"/>
         <source>Up</source>
-        <translation>מעלה</translation>
+        <translation>上</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1448"/>
         <source>Down</source>
-        <translation>מטה</translation>
+        <translation>下</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1449"/>
         <source>Direction to search</source>
-        <translation type="unfinished"/>
+        <translation>搜索的方向</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1451"/>
         <source>Search for the previous match from your current position.</source>
-        <translation type="unfinished"/>
+        <translation>从当前位置搜索上一次的匹配。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
         <source>Search for the next match from your current position.</source>
-        <translation type="unfinished"/>
+        <translation>从当前位置搜索下一个匹配。</translation>
     </message>
 </context>
 <context>
@@ -1944,12 +1983,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="58"/>
         <source>Tokenise Selection</source>
-        <translation type="unfinished"/>
+        <translation>标记选择</translation>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="71"/>
         <source>Save Search</source>
-        <translation>שמור חיפוש</translation>
+        <translation>保存搜索</translation>
     </message>
 </context>
 <context>
@@ -1957,7 +1996,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Tabs/FlowTab.cpp" line="1146"/>
         <source>Print %1</source>
-        <translation>הדפס %1</translation>
+        <translation>打印%1</translation>
     </message>
 </context>
 <context>
@@ -1965,183 +2004,187 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="14"/>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>常规设置</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="20"/>
         <source>Choose which version of Epub to use
 when creating new or empty Epubs in Sigil.</source>
-        <translation type="unfinished"/>
+        <translation>当在Sigil创建新的或空的Epubs时
+选择要使用的Epub版本
+</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="24"/>
         <source>Create New or Empty Epubs as:</source>
-        <translation type="unfinished"/>
+        <translation>创建新的或空的Epubs为:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="30"/>
         <source>Epub Version 2.</source>
-        <translation type="unfinished"/>
+        <translation>Epub版本2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="33"/>
         <source>Version 2</source>
-        <translation type="unfinished"/>
+        <translation>版本2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="43"/>
         <source>Epub Version 3.</source>
-        <translation type="unfinished"/>
+        <translation>Epub版本3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="46"/>
         <source>Version 3</source>
-        <translation type="unfinished"/>
+        <translation>版本3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="59"/>
         <source>Choose when your HTML code is automatically 
 mended.</source>
-        <translation type="unfinished"/>
+        <translation>选择HTML代码何时自动
+修补.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="63"/>
         <source>Mend XHTML Source Code On:</source>
-        <translation type="unfinished"/>
+        <translation>修复XHTML源代码于：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="69"/>
         <source>Mend when opening an Epub or HTML file, 
 and when switching from Book View to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>打开Epub或HTML文件时，
+和从书视图切换到代码视图时修复.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="73"/>
         <source>Open</source>
-        <translation type="unfinished"/>
+        <translation>打开</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="80"/>
         <source>Mend when saving an Epub.</source>
-        <translation type="unfinished"/>
+        <translation>当保存一个Epub是修复</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="83"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>保存</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="93"/>
         <source>Determine if Epubs are allowed to access non-multimedia remote resources.</source>
-        <translation type="unfinished"/>
+        <translation>确定是否允许Epubs访问非多媒体远程资源.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="96"/>
         <source> Control Access by Epubs to non-multimedia remote resources.</source>
-        <translation type="unfinished"/>
+        <translation>控制Epubs对非多媒体远程资源的访问.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="105"/>
         <source>Check to allow Epubs to access non-multimedia remote resources.</source>
-        <translation type="unfinished"/>
+        <translation>选中此复选框以允许Epubs访问非多媒体远程资源.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="108"/>
         <source>Epubs may access all remote resources types.</source>
-        <translation type="unfinished"/>
+        <translation>准许Epub访问所有远程资源类型</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="127"/>
         <source>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</source>
-        <translation type="unfinished"/>
+        <translation>为W3C样式表验证工具（EPUB2）指定的CSS级别</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="130"/>
         <source>EPUB2 W3C Stylesheet Validation Level:</source>
-        <translation type="unfinished"/>
+        <translation>EPUB2的W3C样式表验证工具级别: </translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="139"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB2</source>
-        <translation type="unfinished"/>
+        <translation>W3C样式表验证器将对EPUB2使用CSS级别2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="142"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="199"/>
         <source>CSS Level 2</source>
-        <translation type="unfinished"/>
+        <translation>CSS级别2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="149"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB2</source>
-        <translation type="unfinished"/>
+        <translation>W3C样式表验证器将对EPUB2使用CSS级别2.1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="152"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="209"/>
         <source>CSS Level 2.1</source>
-        <translation type="unfinished"/>
+        <translation>CSS级别2.1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="162"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB2</source>
-        <translation type="unfinished"/>
+        <translation>W3C样式表验证器将对EPUB2使用CSS级别3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="165"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="222"/>
         <source>CSS Level 3</source>
-        <translation type="unfinished"/>
+        <translation>CSS级别3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="184"/>
         <source>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</source>
-        <translation type="unfinished"/>
+        <translation>为W3C样式表验证工具（EPUB3）指定的CSS级别</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="187"/>
         <source>EPUB3 W3C Stylesheet Validation Level:</source>
-        <translation type="unfinished"/>
+        <translation>EPUB3的W3C样式表验证工具级别: </translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="196"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB3</source>
-        <translation type="unfinished"/>
+        <translation>W3C样式表验证器将对EPUB3使用CSS级别2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="206"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB3</source>
-        <translation type="unfinished"/>
+        <translation>W3C样式表验证器将对EPUB3使用CSS级别2.1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="219"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB3</source>
-        <translation type="unfinished"/>
+        <translation>W3C样式表验证器将对EPUB3使用CSS级别3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="235"/>
         <source>Set Folder where temporary files should be created</source>
-        <translation type="unfinished"/>
+        <translation>设置临时文件所使用的文件夹</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="246"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>自动</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="253"/>
         <source>Browse</source>
-        <translation type="unfinished"/>
+        <translation>浏览</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="125"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="121"/>
         <source>Select Folder for Temporary Files</source>
-        <translation type="unfinished"/>
+        <translation>设置临时文件文件夹</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="141"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="136"/>
         <source>Incorrect Folder for Temporary Files selected</source>
-        <translation type="unfinished"/>
+        <translation>临时文件文件夹不对</translation>
     </message>
 </context>
 <context>
@@ -2149,172 +2192,172 @@ and when switching from Book View to Code View.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="110"/>
         <source>Acknowledgements</source>
-        <translation type="unfinished"/>
+        <translation>致谢</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="110"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
-        <translation type="unfinished"/>
+        <translation>包含对参与实际工作的致谢段落。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="111"/>
         <source>Bibliography</source>
-        <translation type="unfinished"/>
+        <translation>参考书目</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="111"/>
         <source>A list of works cited.</source>
-        <translation type="unfinished"/>
+        <translation>引用作品的列表</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="112"/>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>文本</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="112"/>
         <source>The start of the main text content of a publication.</source>
-        <translation type="unfinished"/>
+        <translation>主要发行文本内容的开始.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="113"/>
         <source>Colophon</source>
-        <translation type="unfinished"/>
+        <translation>Colophon</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="113"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
-        <translation type="unfinished"/>
+        <translation>位于出版物末尾的简要说明，通常描述与该版本相关的出版说明。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="114"/>
         <source>Copyright Page</source>
-        <translation type="unfinished"/>
+        <translation>版权页</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="114"/>
         <source>The copyright page of the work.</source>
-        <translation type="unfinished"/>
+        <translation>作品的版权页.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="115"/>
         <source>Cover</source>
-        <translation type="unfinished"/>
+        <translation>封面</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="115"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation type="unfinished"/>
+        <translation>出版物封面和封套等信息.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="116"/>
         <source>Dedication</source>
-        <translation type="unfinished"/>
+        <translation>题词</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="116"/>
         <source>An inscription addressed to one or several particular person(s).</source>
-        <translation type="unfinished"/>
+        <translation>给一个或几个特定人的题词.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="117"/>
         <source>Epigraph</source>
-        <translation type="unfinished"/>
+        <translation>书法</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="117"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation type="unfinished"/>
+        <translation>引文是相关的, 但不是文本的组成部分.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="118"/>
         <source>Foreword</source>
-        <translation type="unfinished"/>
+        <translation>前言</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="118"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation type="unfinished"/>
+        <translation>在作品之前的介绍部分，通常不是作品的作者写的。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="119"/>
         <source>Glossary</source>
-        <translation type="unfinished"/>
+        <translation>词汇表</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="119"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
-        <translation type="unfinished"/>
+        <translation>按字母顺序排列的特定知识领域中术语的列表, 以及这些术语的定义.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="120"/>
         <source>Index</source>
-        <translation type="unfinished"/>
+        <translation>索引</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="120"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
-        <translation type="unfinished"/>
+        <translation>通常按字母顺序排列的出版物中特定信息的详细列表.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="121"/>
         <source>List of Illustrations</source>
-        <translation type="unfinished"/>
+        <translation>插图列表</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="121"/>
         <source>A listing of illustrations included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>作品中包括的插图列表.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="122"/>
         <source>List of Tables</source>
-        <translation type="unfinished"/>
+        <translation>表列表</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="122"/>
         <source>A listing of tables included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>包含在作品中的表的列表。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="123"/>
         <source>Notes</source>
-        <translation type="unfinished"/>
+        <translation>笔记</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="123"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
-        <translation type="unfinished"/>
+        <translation>笔记的集合, 当不需要旧的命名约定时，它可以用于识别脚注, 后注, 边注, 内联注释等。 状态：已弃用 - 替换者：&apos;脚注&apos;，&apos;后注&apos;</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="124"/>
         <source>Preface</source>
-        <translation type="unfinished"/>
+        <translation>前言</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="124"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation type="unfinished"/>
+        <translation>在作品之前的介绍部分，通常由作品的作者书写。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="125"/>
         <source>Title Page</source>
-        <translation type="unfinished"/>
+        <translation>标题页</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="125"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
-        <translation type="unfinished"/>
+        <translation>书籍开头的页面，标题，作者，出版商和其他出版物信息。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="126"/>
         <source>Table of Content</source>
-        <translation type="unfinished"/>
+        <translation>目录</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="126"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
-        <translation type="unfinished"/>
+        <translation>内容表是书或文档的标题或部分的书内容列表，按照出现的顺序排序, 通常出现在工作的前端或在节的开头。</translation>
     </message>
 </context>
 <context>
@@ -2322,97 +2365,97 @@ and when switching from Book View to Code View.</source>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="14"/>
         <source>HTML Files</source>
-        <translation>קבצי HTML</translation>
+        <translation>HTML文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>מנה רק את שמות הקבצים אשר מכילים את הטקסט אותו הזנתי.</translation>
+        <translation>仅列出文件名包含所输入文本的文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>סינון:</translation>
+        <translation>过滤：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="67"/>
         <source>Name</source>
-        <translation>שם</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="68"/>
         <source>File Size (KB)</source>
-        <translation>גודל קובץ (KB)</translation>
+        <translation>文件大小 (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="69"/>
         <source>All Words</source>
-        <translation>כל המילים</translation>
+        <translation>所有词语</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="70"/>
         <source>Misspelled Words</source>
-        <translation>מילים לא מאויתות כהלכה</translation>
+        <translation>错别字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="71"/>
         <source>Images</source>
-        <translation>תמונות</translation>
+        <translation>图像</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="72"/>
         <source>Video</source>
-        <translation>וידאו</translation>
+        <translation>视频</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="73"/>
         <source>Audio</source>
-        <translation>אודיו</translation>
+        <translation>音频</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="74"/>
         <source>Stylesheets</source>
-        <translation>גיליונות סגנון</translation>
+        <translation>样式表</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="75"/>
         <source>Well Formed</source>
-        <translation>מובנה היטב</translation>
+        <translation>良好构成</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="164"/>
         <source>Yes</source>
-        <translation>כן</translation>
+        <translation>是</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="164"/>
         <source>No</source>
-        <translation>לא</translation>
+        <translation>否</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="183"/>
         <source> files</source>
-        <translation>קבצים</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="324"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>שמור דיווח בתור קובץ מופרד-פסיק</translation>
+        <translation>将报告保存为都好分割的文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
         <source>Cannot save report file.</source>
-        <translation>אין אפשרות לשמור קובץ דיווח.</translation>
+        <translation>无法保存报告文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="360"/>
         <source>Delete From Book</source>
-        <translation>מחק מתוך ספר</translation>
+        <translation>从书中删除</translation>
     </message>
 </context>
 <context>
@@ -2420,98 +2463,105 @@ and when switching from Book View to Code View.</source>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="14"/>
         <source>Generate Table Of Contents</source>
-        <translation>צור תוכן עניינים</translation>
+        <translation>生成目录</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="52"/>
         <source>Change the name of the entry in the TOC.
 The heading&apos;s title attribute will be updated in the document.</source>
-        <translation type="unfinished"/>
+        <translation>更改TOC中条目的名称
+标题的台头属性将在文档中更新。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="975"/>
         <source>Rename</source>
-        <translation>שנה שם</translation>
+        <translation>重命名</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="81"/>
         <source>Decrease the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
 You can also use the left arrow key.</source>
-        <translation type="unfinished"/>
+        <translation>减小所选条目的标题1个级别
+标题的标签将在文档中更新
+您也可以使用左箭头键。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="96"/>
         <source>Increase the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
 You can also use the right arrow key.</source>
-        <translation type="unfinished"/>
+        <translation>增加所选条目的标题1个级别
+标题的标签将在文档中更新
+您也可以使用右箭头键。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="130"/>
         <source>Only display the items that will be added to the Table Of Contents.
 Check or uncheck an entry to determine if it will be added to the TOC.</source>
-        <translation type="unfinished"/>
+        <translation>仅显示将添加到目录中的项目
+选中或取消选中条目以确定是否将其添加到TOC中.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="134"/>
         <source>Show TOC items only</source>
-        <translation>הצג פרטי תוכן עניינים בלבד</translation>
+        <translation>仅显示TOC的项目</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="153"/>
         <source>Quickly mark which headings are included in the TOC.
 You can then check or uncheck individual headings in the list above.</source>
-        <translation type="unfinished"/>
+        <translation>快速标记TOC中包括哪些标题
+然后, 您可以在上面的列表中选中或取消选中某个标题。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="618"/>
         <source>Level</source>
-        <translation>רמה</translation>
+        <translation>级别</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <source>Included</source>
-        <translation>כלול</translation>
+        <translation>包含</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <source>Hidden</source>
-        <translation>מוסתר</translation>
+        <translation>隐藏</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="617"/>
         <source>TOC Entry / Heading Title</source>
-        <translation type="unfinished"/>
+        <translation>TOC条目/标题</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="619"/>
         <source>Include</source>
-        <translation type="unfinished"/>
+        <translation>包含</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="838"/>
         <source>Up to level</source>
-        <translation type="unfinished"/>
+        <translation>升级</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="840"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
-        <translation>&lt;בחר כותרות לשם הכללה בתוך תוכן עניינים&gt;</translation>
+        <translation>&lt;选择要包括在TOC中的标题&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="843"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="904"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>无</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="849"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="902"/>
         <source>All</source>
-        <translation>הכל</translation>
+        <translation>所有</translation>
     </message>
 </context>
 <context>
@@ -2519,92 +2569,92 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="14"/>
         <source>Image Files</source>
-        <translation>קבצי תמונה</translation>
+        <translation>图像文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>מנה רק את שמות הקבצים אשר מכילים את הטקסט אותו הזנתי.</translation>
+        <translation>仅列出文件名包含所输入文本的文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>סינון:</translation>
+        <translation>过滤：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="76"/>
         <source>Thumbnail size:</source>
-        <translation>גודל תמונה ממוזערת:</translation>
+        <translation>缩略图大小: </translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="79"/>
         <source>Name</source>
-        <translation>שם</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="80"/>
         <source>File Size (KB)</source>
-        <translation>גודל קובץ (KB)</translation>
+        <translation>文件大小 (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="81"/>
         <source>Times Used</source>
-        <translation>פעמים בשימוש</translation>
+        <translation>使用时间</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="82"/>
         <source>Width</source>
-        <translation>רוחב</translation>
+        <translation>宽度</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="83"/>
         <source>Height</source>
-        <translation>גובה</translation>
+        <translation>高度</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="84"/>
         <source>Pixels</source>
-        <translation>פיקסלים</translation>
+        <translation>像素数</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="85"/>
         <source>Color</source>
-        <translation>צבע</translation>
+        <translation>颜色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="88"/>
         <source>Image</source>
-        <translation>תמונה</translation>
+        <translation>图像</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="175"/>
         <source> files</source>
-        <translation>קבצים</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="179"/>
         <source>KB</source>
-        <translation type="unfinished"/>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="323"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>שמור דיווח בתור קובץ מופרד-פסיק</translation>
+        <translation>将报告保存为都好分割的文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Cannot save report file.</source>
-        <translation>אין אפשרות לשמור קובץ דיווח.</translation>
+        <translation>无法保存报告文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="408"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="416"/>
         <source>Delete From Book</source>
-        <translation>מחק מתוך ספר</translation>
+        <translation>从书中删除</translation>
     </message>
 </context>
 <context>
@@ -2612,49 +2662,49 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="155"/>
         <source>shades</source>
-        <translation type="unfinished"/>
+        <translation>色彩</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="155"/>
         <source>colors</source>
-        <translation>צבעים</translation>
+        <translation>颜色</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="156"/>
         <source>Grayscale</source>
-        <translation type="unfinished"/>
+        <translation>灰度</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="156"/>
         <source>Color</source>
-        <translation>צבע</translation>
+        <translation>色彩</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="246"/>
         <location filename="../../Tabs/ImageTab.cpp" line="271"/>
         <location filename="../../Tabs/ImageTab.cpp" line="274"/>
         <source>Open With</source>
-        <translation>פתח בעזרת</translation>
+        <translation>用...打开</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="253"/>
         <source>Other Application</source>
-        <translation>יישום אחר</translation>
+        <translation>其它应用程序</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="272"/>
         <source>Save As</source>
-        <translation>שמור בתור</translation>
+        <translation>保存为</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="273"/>
         <source>Copy Image</source>
-        <translation>העתק תמונה</translation>
+        <translation>复制图像</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="307"/>
         <source>Print %1</source>
-        <translation>הדפס %1</translation>
+        <translation>打印%1</translation>
     </message>
 </context>
 <context>
@@ -2662,21 +2712,20 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="165"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="166"/>
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in data loss.
 
 Do you want to automatically fix the files?</source>
-        <translation>‏EPUB זה מכיל קבצי HTML אשר לא מובנים היטב. Sigil יכול לנסות לתקן את קבצים אלה אוטומטית, אף על פי שזה יכול לגרום לאיבוד מידע.
-
-האם ברצונך לתקן אוטומטית את קבצים אלה?</translation>
+        <translation>此EPUB包含的HTML文件格式不正确, Sigil可以尝试自动修复这些文件，但这可能会导致数据丢失.
+您要自动修复这些文件吗？</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="500"/>
-        <source>Missing and no OPF in archive.</source>
-        <translation type="unfinished"/>
+        <source>Epub has missing or improperly specified OPF.</source>
+        <translation>Epub丢失或者不正确的OPF</translation>
     </message>
 </context>
 <context>
@@ -2685,174 +2734,175 @@ Do you want to automatically fix the files?</source>
         <location filename="../../Form_Files/IndexEditor.ui" line="14"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Index Editor</source>
-        <translation>עורך אינדקס</translation>
+        <translation>索引编辑器</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation>סינון:</translation>
+        <translation>过滤：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>仅列出包含您输入的文本的条目. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="55"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="421"/>
         <source>Add Entry</source>
-        <translation>הוסף ערך</translation>
+        <translation>添加入口</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="66"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation type="unfinished"/>
+        <translation>右键单击一个条目以查看操作的上下文菜单. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
         <source>You can also right click in your document to add selected text to the Index.</source>
-        <translation type="unfinished"/>
+        <translation>您还可以在文档中右键单击以将所选文本添加到索引.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>Text to Include</source>
-        <translation>טקסט לשם הכללה</translation>
+        <translation>要包含的文本</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>The pattern to match in your document, e.g. &quot;Gutenberg&quot;. This is a regex pattern so &quot;(?i)Gutenberg&quot; ignores case when matching.</source>
-        <translation type="unfinished"/>
+        <translation>文档中匹配的模式，例如 “古登堡”, 这是一个正则表达式模式, 所以“(？i)古登堡”忽略匹配时的情况。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>Index Entries</source>
-        <translation>ערכי אינדקס</translation>
+        <translation>索引入口</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using &apos;/&apos; after a level name, e.g. &quot;Books/Fantasy/Alice in Wonderland&quot; or &quot;Books/Fantasy/&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>要在索引中创建条目, 按原样使用文本并留空或输入要显示的文本. 通过在级别名称后使用“/”符号创建多级条目，例如 “书/幻想/爱丽丝梦游仙境”或“书/幻想/”。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save</source>
-        <translation>שמור</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save your changes.</source>
-        <translation>שמור את השינויים שלך.</translation>
+        <translation>保存改变的.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>如果有其他Sigil的实例正在运行，它们将自动更新您的更改. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="84"/>
         <source>Cannot save entries.</source>
-        <translation>אין אפשרות לשמור ערכים.</translation>
+        <translation>无法保存条目. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="126"/>
         <source>Index entries loaded from file.</source>
-        <translation type="unfinished"/>
+        <translation>从文件加载的索引条目.</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Entries added: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="293"/>
         <source>Index files: *.ini *.txt (*.ini *.txt)</source>
-        <translation type="unfinished"/>
+        <translation>索引文件: *.ini *.txt (*.ini *.txt)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="295"/>
         <source>Load Entries From File</source>
-        <translation type="unfinished"/>
+        <translation>从文件加载条目</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation type="unfinished"/>
+        <translation>您确定要重新载入所有条目吗? 所有更改将被覆盖. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="329"/>
         <source>Save Entries to File</source>
-        <translation>שמור ערכים אל קובץ</translation>
+        <translation>将条目保存到文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="422"/>
         <source>Edit</source>
-        <translation>ערוך</translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="423"/>
         <source>Cut</source>
-        <translation>גזור</translation>
+        <translation>剪切</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="424"/>
         <source>Copy</source>
-        <translation>העתק</translation>
+        <translation>复制</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="425"/>
         <source>Paste</source>
-        <translation>הדבק</translation>
+        <translation>黏贴</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="426"/>
         <source>Delete</source>
-        <translation>מחק</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
         <source>Autofill</source>
-        <translation type="unfinished"/>
+        <translation>自动填充</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
         <source>Open</source>
-        <translation>פתח</translation>
+        <translation>打开</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="429"/>
         <source>Reload</source>
-        <translation>טען מחדש</translation>
+        <translation>重载入</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
         <source>Save As</source>
-        <translation>שמור בתור</translation>
+        <translation>保存为</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
         <source>Select All</source>
-        <translation>בחר הכל</translation>
+        <translation>选择全部</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="506"/>
         <source>Index entries saved.</source>
-        <translation type="unfinished"/>
+        <translation>索引条目已保存.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="535"/>
         <source>Sigil: Index Editor</source>
-        <translation>‏Sigil: עורך אינדקס</translation>
+        <translation>Sigil: 索引编辑器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="536"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
-        <translation type="unfinished"/>
+        <translation>索引条目可能已被修改
+要保存更改吗？</translation>
     </message>
 </context>
 <context>
@@ -2860,17 +2910,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="60"/>
         <source>Text to Include</source>
-        <translation>טקסט לשם הכללה</translation>
+        <translation>要包含的文本</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="61"/>
         <source>Index Entries</source>
-        <translation>ערכי אינדקס</translation>
+        <translation>索引入口</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="342"/>
         <source>Unable to create file %1</source>
-        <translation>לא מסוגל ליצור קובץ %1</translation>
+        <translation>无法创建文件 %1</translation>
     </message>
 </context>
 <context>
@@ -2878,78 +2928,78 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="14"/>
         <source>Keyboard Shortcuts</source>
-        <translation>קיצורי דרך מקלדת</translation>
+        <translation>键盘快捷键</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="34"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>仅列出包含您输入的文本的条目. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="37"/>
         <source>Filter: </source>
-        <translation>סינון:</translation>
+        <translation>过滤器:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="62"/>
         <source>Name</source>
-        <translation>שם</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="67"/>
         <source>Shortcut</source>
-        <translation>קיצור דרך</translation>
+        <translation>快捷方式</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="72"/>
         <source>Description</source>
-        <translation>תיאור</translation>
+        <translation>描述</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="82"/>
         <source>Reset all to default</source>
-        <translation>אפס הכל אל ברירת מחדל</translation>
+        <translation>重置所有为默认值</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="85"/>
         <source>Reset All</source>
-        <translation>אפס הכל</translation>
+        <translation>全部重置</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="115"/>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="125"/>
         <source>Press the key combination you want to use.</source>
-        <translation type="unfinished"/>
+        <translation>按您要使用的组合键.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="118"/>
         <source>Shortcut:</source>
-        <translation>קיצור דרך:</translation>
+        <translation>快捷方式: </translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="141"/>
         <source>Assign this keyboard shortcut, overriding any conflicting usages.</source>
-        <translation type="unfinished"/>
+        <translation>指定此键盘快捷键并覆盖任何其它的冲突。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="144"/>
         <source>Assign</source>
-        <translation type="unfinished"/>
+        <translation>分派</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="160"/>
         <source>Remove this keyboard shortcut.</source>
-        <translation type="unfinished"/>
+        <translation>删除键盘组合键</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="163"/>
         <source>Remove</source>
-        <translation>הסר</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="343"/>
         <source>Conflicts with: &lt;b&gt;</source>
-        <translation>מתנגש עם: &lt;b&gt;</translation>
+        <translation>与: &lt;b&gt;冲突</translation>
     </message>
 </context>
 <context>
@@ -2957,482 +3007,482 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="117"/>
         <source>Acknowledgments</source>
-        <translation type="unfinished"/>
+        <translation>致谢</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="117"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
-        <translation type="unfinished"/>
+        <translation>包含对参与实际工作的致谢段落。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="118"/>
         <source>Afterword</source>
-        <translation type="unfinished"/>
+        <translation>后话</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="118"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation type="unfinished"/>
+        <translation>来自作者或对故事重要人物的结束陈述，通常提供洞察故事如何写、其意义或自其时间表以来发生的相关事件。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="119"/>
         <source>Annotation</source>
-        <translation type="unfinished"/>
+        <translation>注解</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="119"/>
         <source>Explanatory information about passages in the work. Status: Deprecated</source>
-        <translation type="unfinished"/>
+        <translation>关于作品中的段落的解释性信息. 状态：已弃用</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="120"/>
         <source>Appendix</source>
-        <translation type="unfinished"/>
+        <translation>附录</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="120"/>
         <source>Supplemental information.</source>
-        <translation type="unfinished"/>
+        <translation>补充信息.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="121"/>
         <source>Assessment</source>
-        <translation type="unfinished"/>
+        <translation>评语</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="121"/>
         <source>A test, quiz, or other activity that helps measure a student&apos;s understanding of what is being taught.</source>
-        <translation type="unfinished"/>
+        <translation>测试、测验或其他有助于衡量学生对正在教授内容的理解.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="122"/>
         <source>Back Matter</source>
-        <translation type="unfinished"/>
+        <translation>返回事项</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="122"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
-        <translation type="unfinished"/>
+        <translation>出现在出版物的主要内容（如索引，附录等）之后的补充材料.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="123"/>
         <source>Bibliography</source>
-        <translation type="unfinished"/>
+        <translation>参考书目</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="123"/>
         <source>A list of works cited.</source>
-        <translation type="unfinished"/>
+        <translation>引用作品的列表</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="124"/>
         <source>Body Matter</source>
-        <translation type="unfinished"/>
+        <translation>主体详情</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="124"/>
         <source>The main content of a publication.</source>
-        <translation type="unfinished"/>
+        <translation>出版物的主要内容.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="125"/>
         <source>Chapter</source>
-        <translation type="unfinished"/>
+        <translation>章</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="125"/>
         <source>A major structural division of a piece of writing.</source>
-        <translation type="unfinished"/>
+        <translation>一个写作的主要结构分割.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="126"/>
         <source>Colophon</source>
-        <translation type="unfinished"/>
+        <translation>Colophon</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="126"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
-        <translation type="unfinished"/>
+        <translation>位于出版物末尾的简要说明，通常描述与该版本相关的出版说明。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="127"/>
         <source>Conclusion</source>
-        <translation type="unfinished"/>
+        <translation>结论</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="127"/>
         <source>An ending section that typically wraps up the work.</source>
-        <translation type="unfinished"/>
+        <translation>结束章节, 通常对全书的总结.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="128"/>
         <source>Contributors</source>
-        <translation type="unfinished"/>
+        <translation>贡献者</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="128"/>
         <source>A list of contributors to the work.</source>
-        <translation type="unfinished"/>
+        <translation>作品的贡献者列表。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="129"/>
         <source>Copyright Page</source>
-        <translation type="unfinished"/>
+        <translation>版权页</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="129"/>
         <source>The copyright page of the work.</source>
-        <translation type="unfinished"/>
+        <translation>作品的版权页.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="130"/>
         <source>Cover</source>
-        <translation type="unfinished"/>
+        <translation>封面</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="130"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation type="unfinished"/>
+        <translation>出版物封面和封套等信息.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="131"/>
         <source>Dedication</source>
-        <translation type="unfinished"/>
+        <translation>题词</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="131"/>
         <source>An inscription addressed to one or several particular person(s).</source>
-        <translation type="unfinished"/>
+        <translation>给一个或几个特定人的题词.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="132"/>
         <source>Division</source>
-        <translation type="unfinished"/>
+        <translation>分隔</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="132"/>
         <source>A major structural division that may also appear as a substructure of a part (esp. in legislation).</source>
-        <translation type="unfinished"/>
+        <translation>一个主要的结构分割, 也可以作为一个部分的子结构(特别是在立法中).</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="133"/>
         <source>Epigraph</source>
-        <translation type="unfinished"/>
+        <translation>书法</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="133"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation type="unfinished"/>
+        <translation>引文是相关的, 但不是文本的组成部分.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="134"/>
         <source>Epilogue</source>
-        <translation type="unfinished"/>
+        <translation>结语</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="134"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>结论章节，通常在比主故事稍晚的时候完成，虽然仍然是叙事的一部分。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="135"/>
         <source>Errata</source>
-        <translation type="unfinished"/>
+        <translation>勘误表</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="135"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
-        <translation type="unfinished"/>
+        <translation>出版物勘误表,在印刷品中通常是手工插入的纸; 有时是包含工作中错误更正的绑定纸.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="136"/>
         <source>Footnotes</source>
-        <translation type="unfinished"/>
+        <translation>注脚</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="136"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
-        <translation type="unfinished"/>
+        <translation>出现在页面底部的注释集合.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="137"/>
         <source>Foreword</source>
-        <translation type="unfinished"/>
+        <translation>前言</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="137"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation type="unfinished"/>
+        <translation>在作品之前的介绍部分，通常不是作品的作者写的。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="138"/>
         <source>Front Matter</source>
-        <translation type="unfinished"/>
+        <translation>前面的事</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="138"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
-        <translation type="unfinished"/>
+        <translation>出版物主要内容的初步材料, 如目录, 奉献等.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="139"/>
         <source>Glossary</source>
-        <translation type="unfinished"/>
+        <translation>词汇表</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="139"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
-        <translation type="unfinished"/>
+        <translation>按字母顺序排列的特定知识领域中术语的列表, 以及这些术语的定义.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="140"/>
         <source>Half Title Page</source>
-        <translation type="unfinished"/>
+        <translation>半标题页</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="140"/>
         <source>The half title page of the work which carries just the title itself.</source>
-        <translation type="unfinished"/>
+        <translation>作品的半标题页只带有标题本身.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="141"/>
         <source>Imprimatur</source>
-        <translation type="unfinished"/>
+        <translation>出版许可</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="141"/>
         <source>A formal statement authorizing the publication of the work.</source>
-        <translation type="unfinished"/>
+        <translation>授权发布作品的正式声明。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="142"/>
         <source>Imprint</source>
-        <translation type="unfinished"/>
+        <translation>版本说明</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="142"/>
         <source>Information relating to the publication or distribution of the work.</source>
-        <translation type="unfinished"/>
+        <translation>与作品的出版或分发有关的信息.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="143"/>
         <source>Index</source>
-        <translation type="unfinished"/>
+        <translation>索引</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="143"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
-        <translation type="unfinished"/>
+        <translation>通常按字母顺序排列的出版物中特定信息的详细列表.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="144"/>
         <source>Introduction</source>
-        <translation type="unfinished"/>
+        <translation>引言</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="144"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
-        <translation type="unfinished"/>
+        <translation>作品的开始部分，通常向读者介绍作品内容的范围或性质.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="145"/>
         <source>Landmarks</source>
-        <translation type="unfinished"/>
+        <translation>里程碑</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="145"/>
         <source>A collection of references to well-known/recurring components within the publication</source>
-        <translation type="unfinished"/>
+        <translation>出版物中对知名/反复出现的组件的引用集合</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="146"/>
         <source>List of Audio Clips</source>
-        <translation type="unfinished"/>
+        <translation>音频剪辑列表</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="146"/>
         <source>A listing of audio clips included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>包含在作品中的音频剪辑的列表</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="147"/>
         <source>List of Illustrations</source>
-        <translation type="unfinished"/>
+        <translation>插图列表</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="147"/>
         <source>A listing of illustrations included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>作品中包括的插图列表.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="148"/>
         <source>List of Tables</source>
-        <translation type="unfinished"/>
+        <translation>表列表</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="148"/>
         <source>A listing of tables included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>包含在作品中的表的列表。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="149"/>
         <source>List of Video Clips</source>
-        <translation type="unfinished"/>
+        <translation>视频剪辑列表</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="149"/>
         <source>A listing of video clips included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>包含在作品中的视频剪辑的列表</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="150"/>
         <source>Notice</source>
-        <translation type="unfinished"/>
+        <translation>须知</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="150"/>
         <source>Information that requires special attention, and that must not be skipped or suppressed. Examples include: alert, warning, caution, danger, important.</source>
-        <translation type="unfinished"/>
+        <translation>需要特别注意的信息, 不得跳过或删掉的, 比如包括: 警报, 警告, 警告, 危险, 版本说明。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="151"/>
         <source>Other Credits</source>
-        <translation type="unfinished"/>
+        <translation>其他感谢</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="151"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
-        <translation type="unfinished"/>
+        <translation>致谢以前发布的部分的作品, 插图信用和版权材料的报价许可.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="152"/>
         <source>Page List</source>
-        <translation type="unfinished"/>
+        <translation>页列表</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="152"/>
         <source>A list of references to pagebreaks (start locations) from a print version of the ebook</source>
-        <translation type="unfinished"/>
+        <translation>从电子书的打印版本引用分页符（起始位置）的列表</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="153"/>
         <source>Part</source>
-        <translation type="unfinished"/>
+        <translation>局部</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="153"/>
         <source>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</source>
-        <translation type="unfinished"/>
+        <translation>一段写作的主要结构部分, 通常封装一组相关的章节.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>Preamble</source>
-        <translation type="unfinished"/>
+        <translation>前言</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
-        <translation type="unfinished"/>
+        <translation>作品开头的部分，通常包含关于作品内容的范围或性质的介绍性和/或说明性的内容</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>Preface</source>
-        <translation type="unfinished"/>
+        <translation>前言</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation type="unfinished"/>
+        <translation>在作品之前的介绍部分，通常由作品的作者书写。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>Prologue</source>
-        <translation type="unfinished"/>
+        <translation>开场白</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>介绍部分,设置故事的背景, 通常是叙事的一部分.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>Questions and Answers</source>
-        <translation type="unfinished"/>
+        <translation>问题与解答</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>A question and answer section.</source>
-        <translation type="unfinished"/>
+        <translation>问题与解答章节</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>Rear Notes</source>
-        <translation type="unfinished"/>
+        <translation>后面的札记</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
-        <translation type="unfinished"/>
+        <translation>出现在作品后部或章节的.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>Revision History</source>
-        <translation type="unfinished"/>
+        <translation>修订记录</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>A record of changes made to a work.</source>
-        <translation type="unfinished"/>
+        <translation>对作品所做更改的记录.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>Subchapter</source>
-        <translation type="unfinished"/>
+        <translation>子章节</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>A major sub-division of a chapter.</source>
-        <translation type="unfinished"/>
+        <translation>一章的主要子部分.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>Title Page</source>
-        <translation type="unfinished"/>
+        <translation>标题页</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
-        <translation type="unfinished"/>
+        <translation>书籍开头的页面，标题，作者，出版商和其他出版物信息。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>Table of Contents</source>
-        <translation type="unfinished"/>
+        <translation>目录</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
-        <translation type="unfinished"/>
+        <translation>内容表是书或文档的标题或部分的书内容列表, 按照出现的顺序排序, 通常出现在工作的前端或在节的开头.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>Volume</source>
-        <translation type="unfinished"/>
+        <translation>卷</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>A component of a collection.</source>
-        <translation type="unfinished"/>
+        <translation>作品集一个部分</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>Warning</source>
-        <translation type="unfinished"/>
+        <translation>警示</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>特定材料的警告或警告.  状态：已弃用 - 替换为“通知”</translation>
     </message>
 </context>
 <context>
@@ -3440,32 +3490,32 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="85"/>
         <source>Abkhazian</source>
-        <translation type="unfinished"/>
+        <translation>阿布哈西亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="86"/>
         <source>Afar</source>
-        <translation type="unfinished"/>
+        <translation>阿法尔</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="87"/>
         <source>Afrikaans</source>
-        <translation type="unfinished"/>
+        <translation>南非荷兰语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="88"/>
         <source>Akan</source>
-        <translation type="unfinished"/>
+        <translation>库阿语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="89"/>
         <source>Albanian</source>
-        <translation type="unfinished"/>
+        <translation>阿尔巴尼亚语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="90"/>
         <source>Amharic</source>
-        <translation type="unfinished"/>
+        <translation>阿比西尼亚官话</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="91"/>
@@ -3485,205 +3535,205 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Arabic</source>
-        <translation>ערבית</translation>
+        <translation>阿拉伯语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="92"/>
         <source>Algeria</source>
-        <translation type="unfinished"/>
+        <translation>阿尔及利亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="93"/>
         <source>Bahrain</source>
-        <translation type="unfinished"/>
+        <translation>巴林</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="94"/>
         <source>Egypt</source>
-        <translation>מצרים</translation>
+        <translation>埃及</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="95"/>
         <source>Iraq</source>
-        <translation>עיראק</translation>
+        <translation>伊拉克</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="96"/>
         <source>Jordan</source>
-        <translation>ירדן</translation>
+        <translation>约旦</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="97"/>
         <source>Kuwait</source>
-        <translation type="unfinished"/>
+        <translation>科威特</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="98"/>
         <source>Lebanon</source>
-        <translation>לבנון</translation>
+        <translation>黎巴嫩</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="99"/>
         <source>Libya</source>
-        <translation>לוב</translation>
+        <translation>利比亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="100"/>
         <source>Morocco</source>
-        <translation type="unfinished"/>
+        <translation>摩洛哥</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="101"/>
         <source>Oman</source>
-        <translation type="unfinished"/>
+        <translation>阿曼</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="102"/>
         <source>Qatar</source>
-        <translation type="unfinished"/>
+        <translation>卡塔尔</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="103"/>
         <source>Syria</source>
-        <translation>סוריה</translation>
+        <translation>叙利亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="104"/>
         <source>Tunisia</source>
-        <translation type="unfinished"/>
+        <translation>突尼斯</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <source>United Arab Emirates</source>
-        <translation type="unfinished"/>
+        <translation>阿拉伯联合酋长国</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Yemen</source>
-        <translation>תימן</translation>
+        <translation>也门</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="107"/>
         <source>Aragonese</source>
-        <translation type="unfinished"/>
+        <translation>阿拉贡</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Armenian</source>
-        <translation type="unfinished"/>
+        <translation>亚美尼亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="109"/>
         <source>Assamese</source>
-        <translation type="unfinished"/>
+        <translation>阿萨姆语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="110"/>
         <source>Avaric</source>
-        <translation type="unfinished"/>
+        <translation>阿瓦尔</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="111"/>
         <source>Avestan</source>
-        <translation type="unfinished"/>
+        <translation>阿维斯坦</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="112"/>
         <source>Aymara</source>
-        <translation type="unfinished"/>
+        <translation>艾马拉人</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="113"/>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Azerbaijani</source>
-        <translation type="unfinished"/>
+        <translation>阿塞拜疆语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Azerbaijan</source>
-        <translation type="unfinished"/>
+        <translation>阿塞拜疆</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="115"/>
         <source>Bambara</source>
-        <translation type="unfinished"/>
+        <translation>班巴拉</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="116"/>
         <source>Bashkir</source>
-        <translation type="unfinished"/>
+        <translation>巴什基尔</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="117"/>
         <source>Basque</source>
-        <translation type="unfinished"/>
+        <translation>巴斯克</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="118"/>
         <source>Belarusian</source>
-        <translation type="unfinished"/>
+        <translation>白俄罗斯语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="119"/>
         <source>Bengali</source>
-        <translation type="unfinished"/>
+        <translation>孟加拉</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="120"/>
         <source>Bihari</source>
-        <translation type="unfinished"/>
+        <translation>比尔哈语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="121"/>
         <source>Bislama</source>
-        <translation type="unfinished"/>
+        <translation>比斯拉玛</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Bosnian</source>
-        <translation type="unfinished"/>
+        <translation>波斯尼亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="123"/>
         <source>Breton</source>
-        <translation type="unfinished"/>
+        <translation>布列塔尼</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Bulgarian</source>
-        <translation>בולגרית</translation>
+        <translation>保加利亚语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="125"/>
         <source>Burmese</source>
-        <translation type="unfinished"/>
+        <translation>缅甸语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="126"/>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Catalan</source>
-        <translation type="unfinished"/>
+        <translation>加泰罗尼亚语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <location filename="../../Misc/Language.cpp" line="312"/>
         <source>Spain</source>
-        <translation>ספרד</translation>
+        <translation>西班牙</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Central Khmer</source>
-        <translation type="unfinished"/>
+        <translation>中央高棉</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="129"/>
         <source>Chamorro</source>
-        <translation type="unfinished"/>
+        <translation>夏莫罗</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Chechen</source>
-        <translation type="unfinished"/>
+        <translation>车臣</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="131"/>
@@ -3693,106 +3743,106 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Chinese</source>
-        <translation>סינית</translation>
+        <translation>中文</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="132"/>
         <source>China</source>
-        <translation>סין</translation>
+        <translation>中国</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="133"/>
         <source>Hong Kong</source>
-        <translation>הונג קונג</translation>
+        <translation>香港</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Macau</source>
-        <translation type="unfinished"/>
+        <translation>澳门</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Singapore</source>
-        <translation type="unfinished"/>
+        <translation>新加坡</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Taiwan</source>
-        <translation type="unfinished"/>
+        <translation>台湾</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Church Slavic</source>
-        <translation type="unfinished"/>
+        <translation>教会斯拉夫语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="138"/>
         <source>Chuvash</source>
-        <translation type="unfinished"/>
+        <translation>楚瓦什</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Cornish</source>
-        <translation type="unfinished"/>
+        <translation>康沃尔</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Corsican</source>
-        <translation type="unfinished"/>
+        <translation>科西嘉</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="141"/>
         <source>Cree</source>
-        <translation type="unfinished"/>
+        <translation>克里</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="142"/>
         <source>Croatian</source>
-        <translation type="unfinished"/>
+        <translation>克罗地亚语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Czech</source>
-        <translation type="unfinished"/>
+        <translation>捷克语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="144"/>
         <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>丹麦语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Denmark</source>
-        <translation>דנמרק</translation>
+        <translation>丹麦</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Dhivehi</source>
-        <translation type="unfinished"/>
+        <translation>地维西</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="147"/>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Dutch</source>
-        <translation type="unfinished"/>
+        <translation>荷兰语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <source>Belgium</source>
-        <translation>בלגיה</translation>
+        <translation>比利时</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Netherlands</source>
-        <translation type="unfinished"/>
+        <translation>荷兰</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Dzongkha</source>
-        <translation type="unfinished"/>
+        <translation>Dzongkha</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="151"/>
@@ -3809,99 +3859,99 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>English</source>
-        <translation>אנגלית</translation>
+        <translation>英语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="152"/>
         <source>Australia</source>
-        <translation>אוסטרליה</translation>
+        <translation>澳大利亚语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Belize</source>
-        <translation type="unfinished"/>
+        <translation>伯利兹</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="154"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Canada</source>
-        <translation>קנדה</translation>
+        <translation>加拿大</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Caribbean</source>
-        <translation type="unfinished"/>
+        <translation>加勒比</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="156"/>
         <source>Great Britain</source>
-        <translation>בריטניה הגדולה</translation>
+        <translation>英国</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="157"/>
         <source>India</source>
-        <translation>הודו</translation>
+        <translation>印度</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="158"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Ireland</source>
-        <translation>אירלנד</translation>
+        <translation>爱尔兰</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Jamaica</source>
-        <translation type="unfinished"/>
+        <translation>牙买加</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Phillippines</source>
-        <translation type="unfinished"/>
+        <translation>菲律宾</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="161"/>
         <source>Trinidad</source>
-        <translation type="unfinished"/>
+        <translation>特立尼达</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <source>South Africa</source>
-        <translation>דרום אפריקה</translation>
+        <translation>南非</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>United States</source>
-        <translation>ארצות הברית</translation>
+        <translation>美国</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="164"/>
         <source>Esperanto</source>
-        <translation>אספרנטו</translation>
+        <translation>世界语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Estonian</source>
-        <translation type="unfinished"/>
+        <translation>爱沙尼亚语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="166"/>
         <source>Ewe</source>
-        <translation type="unfinished"/>
+        <translation>埃维语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="167"/>
         <source>Faroese</source>
-        <translation type="unfinished"/>
+        <translation>法罗群岛语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="168"/>
         <source>Fijian</source>
-        <translation type="unfinished"/>
+        <translation>斐济群岛语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="169"/>
         <source>Finnish</source>
-        <translation type="unfinished"/>
+        <translation>芬兰</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="170"/>
@@ -3911,56 +3961,56 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <source>French</source>
-        <translation>צרפתית</translation>
+        <translation>法语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="173"/>
         <source>France</source>
-        <translation>צרפת</translation>
+        <translation>法国</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Luxembourg</source>
-        <translation>לוקסמבורג</translation>
+        <translation>卢森堡</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Switzerland</source>
-        <translation>שוויץ</translation>
+        <translation>瑞士</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="176"/>
         <source>Fulah</source>
-        <translation type="unfinished"/>
+        <translation>Fulah</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Gaelic</source>
-        <translation type="unfinished"/>
+        <translation>盖尔语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <source>Scotland</source>
-        <translation type="unfinished"/>
+        <translation>苏格兰</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Galician</source>
-        <translation type="unfinished"/>
+        <translation>加利西亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="180"/>
         <source>Ganda</source>
-        <translation>גאנדה</translation>
+        <translation>甘达</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="181"/>
         <source>Georgian</source>
-        <translation>גרוזינית</translation>
+        <translation>格鲁吉亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="182"/>
@@ -3970,568 +4020,568 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <source>German</source>
-        <translation>גרמנית</translation>
+        <translation>德国</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="183"/>
         <source>Austria</source>
-        <translation>אוסטריה</translation>
+        <translation>澳大利亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="184"/>
         <source>Germany</source>
-        <translation>גרמניה</translation>
+        <translation>德语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="185"/>
         <source>Liechtenstein</source>
-        <translation type="unfinished"/>
+        <translation>列支敦士登</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Greek, Modern</source>
-        <translation>יוונית, מודרני</translation>
+        <translation>希腊语, 现代</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="189"/>
         <source>Greek</source>
-        <translation>יוונית</translation>
+        <translation>希腊语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="190"/>
         <source>Guarani</source>
-        <translation type="unfinished"/>
+        <translation>瓜拉尼</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="191"/>
         <source>Gujarati</source>
-        <translation type="unfinished"/>
+        <translation>古吉拉特</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="192"/>
         <source>Haitian</source>
-        <translation type="unfinished"/>
+        <translation>海地</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Hausa</source>
-        <translation type="unfinished"/>
+        <translation>豪萨</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Hebrew</source>
-        <translation>עברית</translation>
+        <translation>希伯来语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="195"/>
         <source>Herero</source>
-        <translation type="unfinished"/>
+        <translation>赫勒娄</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="196"/>
         <source>Hindi</source>
-        <translation type="unfinished"/>
+        <translation>印地语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="197"/>
         <source>Hiri Motu</source>
-        <translation type="unfinished"/>
+        <translation>希里摩图语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="198"/>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Hungarian</source>
-        <translation>הונגרית</translation>
+        <translation>匈牙利</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Hungary</source>
-        <translation>הונגריה</translation>
+        <translation>匈牙利</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Icelandic</source>
-        <translation>איסלנדית</translation>
+        <translation>冰岛语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="201"/>
         <source>Ido</source>
-        <translation type="unfinished"/>
+        <translation>伊多语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="202"/>
         <source>Igbo</source>
-        <translation type="unfinished"/>
+        <translation>伊博语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Indonesian</source>
-        <translation type="unfinished"/>
+        <translation>印尼语群</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="204"/>
         <source>Indonesian - Indonesia</source>
-        <translation type="unfinished"/>
+        <translation>印尼语 - 印度尼西亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="205"/>
         <source>Interlingua</source>
-        <translation type="unfinished"/>
+        <translation>国际语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Interlingue</source>
-        <translation type="unfinished"/>
+        <translation>国际语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="207"/>
         <source>Inuktitut</source>
-        <translation type="unfinished"/>
+        <translation>伊努伊特语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="208"/>
         <source>Inupiaq</source>
-        <translation type="unfinished"/>
+        <translation>因纽皮雅特语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Irish</source>
-        <translation>אירית</translation>
+        <translation>爱尔兰语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="210"/>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Italian</source>
-        <translation>איטלקית</translation>
+        <translation>意大利语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Italy</source>
-        <translation>איטליה</translation>
+        <translation>意大利</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Japanese</source>
-        <translation>יפנית</translation>
+        <translation>日语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Javanese</source>
-        <translation type="unfinished"/>
+        <translation>爪哇语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="215"/>
         <source>Kalaallisut</source>
-        <translation type="unfinished"/>
+        <translation>格陵兰语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="216"/>
         <source>Kannada</source>
-        <translation type="unfinished"/>
+        <translation>&lt;印&gt; 埃纳德语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="217"/>
         <source>Kanuri</source>
-        <translation type="unfinished"/>
+        <translation>(尼日利亚北部)卡努里语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Kashmiri</source>
-        <translation type="unfinished"/>
+        <translation>克什米尔语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Kazakh</source>
-        <translation type="unfinished"/>
+        <translation>哈萨克</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="220"/>
         <source>Kikuyu</source>
-        <translation type="unfinished"/>
+        <translation>基库尤语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Kinyarwanda</source>
-        <translation type="unfinished"/>
+        <translation>卢旺达语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Kirghiz</source>
-        <translation type="unfinished"/>
+        <translation>吉尔吉斯语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Komi</source>
-        <translation type="unfinished"/>
+        <translation>科米语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="224"/>
         <source>Kongo</source>
-        <translation>קונגו</translation>
+        <translation>刚果语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Korean</source>
-        <translation type="unfinished"/>
+        <translation>韩语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Kuanyama</source>
-        <translation type="unfinished"/>
+        <translation>卡尼亚马</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Kurdish</source>
-        <translation type="unfinished"/>
+        <translation>库尔德语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Lao</source>
-        <translation type="unfinished"/>
+        <translation>老挝</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Latin</source>
-        <translation>לטינית</translation>
+        <translation>拉丁</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="230"/>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Latvian</source>
-        <translation type="unfinished"/>
+        <translation>拉脱维亚语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Latvia</source>
-        <translation type="unfinished"/>
+        <translation>拉脱维亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Limburgan</source>
-        <translation type="unfinished"/>
+        <translation>林堡语 </translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="233"/>
         <source>Lingala</source>
-        <translation type="unfinished"/>
+        <translation>林加拉语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="234"/>
         <source>Lithuanian</source>
-        <translation type="unfinished"/>
+        <translation>立陶宛语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="235"/>
         <source>Luba-Katanga</source>
-        <translation type="unfinished"/>
+        <translation>卢巴-加丹加语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Luxembourgish</source>
-        <translation type="unfinished"/>
+        <translation>卢森堡语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Macedonian</source>
-        <translation type="unfinished"/>
+        <translation>马其顿语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Malagasy</source>
-        <translation type="unfinished"/>
+        <translation>马尔加什语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="239"/>
         <source>Malayalam</source>
-        <translation type="unfinished"/>
+        <translation>马拉雅拉姆语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="240"/>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Malay</source>
-        <translation type="unfinished"/>
+        <translation>马来语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Brunei</source>
-        <translation type="unfinished"/>
+        <translation>文莱</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Malaysia</source>
-        <translation type="unfinished"/>
+        <translation>马来西亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Maltese</source>
-        <translation type="unfinished"/>
+        <translation>马尔他语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Manx</source>
-        <translation type="unfinished"/>
+        <translation>曼岛语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="245"/>
         <source>Maori</source>
-        <translation type="unfinished"/>
+        <translation>毛利语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="246"/>
         <source>Marathi</source>
-        <translation type="unfinished"/>
+        <translation>马拉地语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Marshallese</source>
-        <translation type="unfinished"/>
+        <translation>马绍尔语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Mongolian</source>
-        <translation type="unfinished"/>
+        <translation>蒙古语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Nauru</source>
-        <translation type="unfinished"/>
+        <translation>瑙鲁</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="250"/>
         <source>Navajo</source>
-        <translation type="unfinished"/>
+        <translation>纳瓦霍语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Ndebele</source>
-        <translation type="unfinished"/>
+        <translation>恩德贝勒语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <source>North</source>
-        <translation type="unfinished"/>
+        <translation>北方的</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>South</source>
-        <translation type="unfinished"/>
+        <translation>南方的</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Ndonga</source>
-        <translation type="unfinished"/>
+        <translation>恩敦加语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Nepali</source>
-        <translation type="unfinished"/>
+        <translation>尼泊尔语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Northern, Sami</source>
-        <translation type="unfinished"/>
+        <translation>北部, 萨米人</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="256"/>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Norwegian</source>
-        <translation type="unfinished"/>
+        <translation>挪威语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Bokmal</source>
-        <translation type="unfinished"/>
+        <translation>博克马尔语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Nynorsk</source>
-        <translation type="unfinished"/>
+        <translation>尼诺斯克语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="259"/>
         <source>Nyanja</source>
-        <translation type="unfinished"/>
+        <translation>尼扬贾人</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="260"/>
         <source>Occitan</source>
-        <translation type="unfinished"/>
+        <translation>奥克西坦人</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="261"/>
         <source>Ojibwa</source>
-        <translation type="unfinished"/>
+        <translation>奥吉布瓦语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Oriya</source>
-        <translation type="unfinished"/>
+        <translation>奥里雅语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="263"/>
         <source>Oromo</source>
-        <translation type="unfinished"/>
+        <translation>奥罗莫语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="264"/>
         <source>Ossetian</source>
-        <translation type="unfinished"/>
+        <translation>奥塞梯人</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Pali</source>
-        <translation type="unfinished"/>
+        <translation>巴利语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="266"/>
         <source>Panjabi</source>
-        <translation type="unfinished"/>
+        <translation>旁遮普语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Persian</source>
-        <translation>פרסית</translation>
+        <translation>波斯语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="268"/>
         <source>Polish</source>
-        <translation>פולנית</translation>
+        <translation>波兰语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Portuguese</source>
-        <translation>פורטוגזית</translation>
+        <translation>葡萄牙语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Brazil</source>
-        <translation>ברזיל</translation>
+        <translation>巴西</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Portugal</source>
-        <translation type="unfinished"/>
+        <translation>Portugal</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Pushto</source>
-        <translation type="unfinished"/>
+        <translation>普什图语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="273"/>
         <source>Quechua</source>
-        <translation type="unfinished"/>
+        <translation>盖丘亚语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="274"/>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Romanian</source>
-        <translation>רומנית</translation>
+        <translation>Romanian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Moldova</source>
-        <translation type="unfinished"/>
+        <translation>Moldova</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Romania</source>
-        <translation>רומניה</translation>
+        <translation>罗马尼亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Romansh</source>
-        <translation type="unfinished"/>
+        <translation>罗曼什语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Rundi</source>
-        <translation type="unfinished"/>
+        <translation>基隆迪语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="279"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Russian</source>
-        <translation>רוסית</translation>
+        <translation>俄语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Samoan</source>
-        <translation type="unfinished"/>
+        <translation>萨摩亚语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="282"/>
         <source>Sango</source>
-        <translation type="unfinished"/>
+        <translation>桑戈语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="283"/>
         <source>Sanskrit</source>
-        <translation type="unfinished"/>
+        <translation>梵文</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="284"/>
         <source>Sardinian</source>
-        <translation type="unfinished"/>
+        <translation>撒丁岛语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="285"/>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Serbian</source>
-        <translation>סרבית</translation>
+        <translation>塞尔维亚语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Serbia</source>
-        <translation>סרביה</translation>
+        <translation>塞尔维亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Shona</source>
-        <translation type="unfinished"/>
+        <translation>修纳语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Sichuan Yi</source>
-        <translation type="unfinished"/>
+        <translation>四川彝族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="289"/>
         <source>Sindhi</source>
-        <translation type="unfinished"/>
+        <translation>信德语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Sinhala</source>
-        <translation type="unfinished"/>
+        <translation>僧伽罗语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Slovak</source>
-        <translation type="unfinished"/>
+        <translation>斯洛伐克语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Slovenian</source>
-        <translation type="unfinished"/>
+        <translation>斯洛文尼亚语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Somali</source>
-        <translation type="unfinished"/>
+        <translation>索马里</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="294"/>
         <source>Sotho, Southern</source>
-        <translation type="unfinished"/>
+        <translation>南部梭托</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="295"/>
@@ -4555,1807 +4605,1810 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>西班牙语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Argentina</source>
-        <translation type="unfinished"/>
+        <translation>阿根廷</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="297"/>
         <source>Bolivia</source>
-        <translation type="unfinished"/>
+        <translation>玻利维亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Chile</source>
-        <translation type="unfinished"/>
+        <translation>智利</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Columbia</source>
-        <translation type="unfinished"/>
+        <translation>哥伦比亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Costa Rica</source>
-        <translation type="unfinished"/>
+        <translation>哥斯达黎加</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Dominican Republic</source>
-        <translation type="unfinished"/>
+        <translation>多米尼加共和国</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Ecuador</source>
-        <translation type="unfinished"/>
+        <translation>Ecuador</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="303"/>
         <source>El Salvador</source>
-        <translation type="unfinished"/>
+        <translation>萨尔瓦多</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="304"/>
         <source>Guatemala</source>
-        <translation type="unfinished"/>
+        <translation>危地马拉</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="305"/>
         <source>Honduras</source>
-        <translation type="unfinished"/>
+        <translation>洪都拉斯</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Mexico</source>
-        <translation>מקסיקו</translation>
+        <translation>墨西哥</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="307"/>
         <source>Nicaragua</source>
-        <translation type="unfinished"/>
+        <translation>尼加拉瓜</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Panama</source>
-        <translation type="unfinished"/>
+        <translation>Panama</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Paraguay</source>
-        <translation type="unfinished"/>
+        <translation>巴拉圭</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Peru</source>
-        <translation>פרו</translation>
+        <translation>秘鲁</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="311"/>
         <source>Puerto Rico</source>
-        <translation type="unfinished"/>
+        <translation>波多黎各</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <source>Uruguay</source>
-        <translation type="unfinished"/>
+        <translation>乌拉圭</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Venezuela</source>
-        <translation type="unfinished"/>
+        <translation>Venezuela</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="315"/>
         <source>Sundanese</source>
-        <translation type="unfinished"/>
+        <translation>巽他语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Swahili</source>
-        <translation type="unfinished"/>
+        <translation>Swahili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Swati</source>
-        <translation type="unfinished"/>
+        <translation>斯特瓦</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="318"/>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Swedish</source>
-        <translation>שבדית</translation>
+        <translation>瑞典语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Finland</source>
-        <translation>פינלנד</translation>
+        <translation>芬兰</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Sweden</source>
-        <translation>שבדיה</translation>
+        <translation>瑞典</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Tagalog</source>
-        <translation type="unfinished"/>
+        <translation>塔加拉语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Tahitian</source>
-        <translation type="unfinished"/>
+        <translation>Tahitian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Tajik</source>
-        <translation type="unfinished"/>
+        <translation>Tajik</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Tamil</source>
-        <translation type="unfinished"/>
+        <translation>Tamil</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Tatar</source>
-        <translation type="unfinished"/>
+        <translation>鞑靼语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Telugu</source>
-        <translation type="unfinished"/>
+        <translation>泰卢固语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="327"/>
         <source>Thai</source>
-        <translation type="unfinished"/>
+        <translation>泰国</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Tibetan</source>
-        <translation type="unfinished"/>
+        <translation>藏族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Tigrinya</source>
-        <translation type="unfinished"/>
+        <translation>提格里尼亚语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Tonga</source>
-        <translation type="unfinished"/>
+        <translation>汤加</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Tsonga</source>
-        <translation type="unfinished"/>
+        <translation>尚加纳族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="332"/>
         <source>Tswana</source>
-        <translation type="unfinished"/>
+        <translation>茨瓦纳语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Turkish</source>
-        <translation>טורקית</translation>
+        <translation>土耳其语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Turkey</source>
-        <translation>טורקייה</translation>
+        <translation>土耳其</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="335"/>
         <source>Turkmen</source>
-        <translation type="unfinished"/>
+        <translation>土库曼语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Twi</source>
-        <translation type="unfinished"/>
+        <translation>契维语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Uighur</source>
-        <translation type="unfinished"/>
+        <translation>维吾尔语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="338"/>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Ukrainian</source>
-        <translation type="unfinished"/>
+        <translation>乌克兰语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Ukraine</source>
-        <translation type="unfinished"/>
+        <translation>乌克兰</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Urdu</source>
-        <translation type="unfinished"/>
+        <translation>乌尔都语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="341"/>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Uzbek</source>
-        <translation type="unfinished"/>
+        <translation>乌兹别克</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Uzbekistan</source>
-        <translation type="unfinished"/>
+        <translation>乌兹别克语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="343"/>
         <source>Venda</source>
-        <translation type="unfinished"/>
+        <translation>venda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Vietnamese</source>
-        <translation type="unfinished"/>
+        <translation>越南语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Volapuk</source>
-        <translation type="unfinished"/>
+        <translation>沃拉普克语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Walloon</source>
-        <translation type="unfinished"/>
+        <translation>瓦隆语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="347"/>
         <source>Welsh</source>
-        <translation type="unfinished"/>
+        <translation>威尔士语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="348"/>
         <source>Western Frisian</source>
-        <translation type="unfinished"/>
+        <translation>西弗里西语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="349"/>
         <source>Wolof</source>
-        <translation type="unfinished"/>
+        <translation>
+沃洛夫语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="350"/>
         <source>Xhosa</source>
-        <translation type="unfinished"/>
+        <translation>科萨语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="351"/>
         <source>Yiddish</source>
-        <translation>יידיש</translation>
+        <translation>意第绪语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Yoruba</source>
-        <translation type="unfinished"/>
+        <translation>约鲁巴语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="353"/>
         <source>Zhuang</source>
-        <translation type="unfinished"/>
+        <translation>壮语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Zulu</source>
-        <translation>זולו</translation>
+        <translation>祖鲁语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="355"/>
         <source>Achinese</source>
-        <translation type="unfinished"/>
+        <translation>亚齐语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="356"/>
         <source>Acoli</source>
-        <translation type="unfinished"/>
+        <translation>亚齐</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="357"/>
         <source>Adangme</source>
-        <translation type="unfinished"/>
+        <translation>阿当梅语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="358"/>
         <source>Adygei, Adyghe</source>
-        <translation type="unfinished"/>
+        <translation>安迪吉, 阿迪格语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="359"/>
         <source>Afrihili</source>
-        <translation type="unfinished"/>
+        <translation>Afrihili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="360"/>
         <source>Afro-Asiatic languages</source>
-        <translation type="unfinished"/>
+        <translation>非洲-亚洲语系</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="361"/>
         <source>Ainu</source>
-        <translation type="unfinished"/>
+        <translation>阿伊努语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Akkadian</source>
-        <translation type="unfinished"/>
+        <translation>阿卡德语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="363"/>
         <source>Aleut</source>
-        <translation type="unfinished"/>
+        <translation>阿留申语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="364"/>
         <source>Algonquian languages</source>
-        <translation type="unfinished"/>
+        <translation>阿尔冈昆语族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="365"/>
         <source>Altaic languages</source>
-        <translation type="unfinished"/>
+        <translation>阿尔泰语系</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="366"/>
         <source>Angika</source>
-        <translation type="unfinished"/>
+        <translation>昂加语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="367"/>
         <source>Apache languages</source>
-        <translation type="unfinished"/>
+        <translation>阿巴契语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="368"/>
         <source>Arapaho</source>
-        <translation type="unfinished"/>
+        <translation>阿帕霍语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="369"/>
         <source>Arawak</source>
-        <translation type="unfinished"/>
+        <translation>阿拉瓦语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="370"/>
         <source>Aromanian, Arumanian, Macedo-Romanian</source>
-        <translation type="unfinished"/>
+        <translation>阿罗马尼亚语, 阿鲁马尼语, 希腊、阿尔巴尼亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="371"/>
         <source>Artificial languages</source>
-        <translation type="unfinished"/>
+        <translation>人造语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="372"/>
         <source>Asturian, Asturleonese, Bable, Leonese</source>
-        <translation type="unfinished"/>
+        <translation>阿斯图里亚斯, </translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="373"/>
         <source>Athapascan languages</source>
-        <translation type="unfinished"/>
+        <translation>阿萨巴斯卡语系</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="374"/>
         <source>Australian languages</source>
-        <translation type="unfinished"/>
+        <translation>澳大利亚语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="375"/>
         <source>Austronesian languages</source>
-        <translation type="unfinished"/>
+        <translation>南岛语系</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="376"/>
         <source>Awadhi</source>
-        <translation type="unfinished"/>
+        <translation>阿瓦迪</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="377"/>
         <source>Balinese</source>
-        <translation type="unfinished"/>
+        <translation>巴里语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="378"/>
         <source>Baltic languages</source>
-        <translation type="unfinished"/>
+        <translation>波罗的诸语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="379"/>
         <source>Baluchi</source>
-        <translation type="unfinished"/>
+        <translation>俾路支</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="380"/>
         <source>Bamileke languages</source>
-        <translation type="unfinished"/>
+        <translation>巴米累克语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="381"/>
         <source>Banda languages</source>
-        <translation type="unfinished"/>
+        <translation>班达语系</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="382"/>
         <source>Bantu languages</source>
-        <translation type="unfinished"/>
+        <translation>班图语系</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="383"/>
         <source>Basa</source>
-        <translation type="unfinished"/>
+        <translation>巴萨</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="384"/>
         <source>Batak languages</source>
-        <translation type="unfinished"/>
+        <translation>巴塔克语系</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="385"/>
         <source>Bedawiyet, Beja</source>
-        <translation type="unfinished"/>
+        <translation>贝达维耶特, 贝沙族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="386"/>
         <source>Bemba</source>
-        <translation type="unfinished"/>
+        <translation>本巴语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="387"/>
         <source>Berber languages</source>
-        <translation type="unfinished"/>
+        <translation>柏柏尔语系</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="388"/>
         <source>Bhojpuri</source>
-        <translation type="unfinished"/>
+        <translation>比哈尔方言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="389"/>
         <source>Bikol</source>
-        <translation type="unfinished"/>
+        <translation>比科尔人</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="390"/>
         <source>Bilin, Blin</source>
-        <translation type="unfinished"/>
+        <translation>彼林, 布林</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="391"/>
         <source>Bini, Edo</source>
-        <translation type="unfinished"/>
+        <translation>毕尼, 艾斗</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="392"/>
         <source>Bliss, Blissymbols, Blissymbolics</source>
-        <translation type="unfinished"/>
+        <translation>布利斯, 布利斯符号, 布利斯符号体系</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="393"/>
         <source>Braj</source>
-        <translation type="unfinished"/>
+        <translation>布拉示</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="394"/>
         <source>Buginese</source>
-        <translation type="unfinished"/>
+        <translation>布吉语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="395"/>
         <source>Buriat</source>
-        <translation type="unfinished"/>
+        <translation>布里亚特语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="396"/>
         <source>Caddo</source>
-        <translation type="unfinished"/>
+        <translation>卡多</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="397"/>
         <source>Caucasian languages</source>
-        <translation type="unfinished"/>
+        <translation>高加索语系</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="398"/>
         <source>Cebuano</source>
-        <translation type="unfinished"/>
+        <translation>宿雾族语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="399"/>
         <source>Celtic languages</source>
-        <translation type="unfinished"/>
+        <translation>凯尔特语族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="400"/>
         <source>Central American Indian languages</source>
-        <translation type="unfinished"/>
+        <translation>中美洲印第安语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="401"/>
         <source>Chagatai</source>
-        <translation type="unfinished"/>
+        <translation>
+察合台</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="402"/>
         <source>Chamic languages</source>
-        <translation type="unfinished"/>
+        <translation>占语诸语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="403"/>
         <source>Cherokee</source>
-        <translation type="unfinished"/>
+        <translation>切罗基语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="404"/>
         <source>Cheyenne</source>
-        <translation type="unfinished"/>
+        <translation>夏安族语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="405"/>
         <source>Chibcha</source>
-        <translation type="unfinished"/>
+        <translation>奇布查语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="406"/>
         <source>Chinook jargon</source>
-        <translation type="unfinished"/>
+        <translation>奇诺克行话</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="407"/>
         <source>Chipewyan, Dene Suline</source>
-        <translation type="unfinished"/>
+        <translation>奇帕维安族, 奇标扬语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="408"/>
         <source>Choctaw</source>
-        <translation type="unfinished"/>
+        <translation>乔克托语 </translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="409"/>
         <source>Chuukese</source>
-        <translation type="unfinished"/>
+        <translation>
+楚克语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="410"/>
         <source>Classical Nepal Bhasa/Newari, Old Newari</source>
-        <translation type="unfinished"/>
+        <translation>传统尼泊尔语, 古尼瓦尔语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="411"/>
         <source>Classical Syriac</source>
-        <translation type="unfinished"/>
+        <translation>传统叙利亚语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="412"/>
         <source>Coptic</source>
-        <translation type="unfinished"/>
+        <translation>科普特语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="413"/>
         <source>Creek</source>
-        <translation type="unfinished"/>
+        <translation>克里克语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="414"/>
         <source>Creoles and pidgins</source>
-        <translation type="unfinished"/>
+        <translation>克里奥尔语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="415"/>
         <source>Creoles and pidgins- English based</source>
-        <translation type="unfinished"/>
+        <translation>英语克里奥尔混合语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="416"/>
         <source>Creoles and pidgins- French-based</source>
-        <translation type="unfinished"/>
+        <translation>法语克里奥尔混合语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="417"/>
         <source>Creoles and pidgins- Portuguese-based</source>
-        <translation type="unfinished"/>
+        <translation>葡萄牙语克里奥尔混合语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="418"/>
         <source>Crimean Tatar/Turkish</source>
-        <translation type="unfinished"/>
+        <translation>克里米亚鞑靼语/土耳其语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="419"/>
         <source>Cushitic languages</source>
-        <translation type="unfinished"/>
+        <translation>库希特语族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="420"/>
         <source>Dakota</source>
-        <translation type="unfinished"/>
+        <translation>达科塔语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="421"/>
         <source>Dargwa</source>
-        <translation type="unfinished"/>
+        <translation>达尔格瓦语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="422"/>
         <source>Delaware</source>
-        <translation type="unfinished"/>
+        <translation>特拉华</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="423"/>
         <source>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</source>
-        <translation type="unfinished"/>
+        <translation>狄米丽, 狄木丽, 扎扎, 扎扎其, 北扎扎其, 北扎扎其语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="424"/>
         <source>Dinka</source>
-        <translation type="unfinished"/>
+        <translation>丁卡语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="425"/>
         <source>Dogri</source>
-        <translation type="unfinished"/>
+        <translation>多格拉人</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="426"/>
         <source>Dogrib</source>
-        <translation type="unfinished"/>
+        <translation>多格里布语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="427"/>
         <source>Dravidian languages</source>
-        <translation type="unfinished"/>
+        <translation>Dravidian语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="428"/>
         <source>Duala</source>
-        <translation type="unfinished"/>
+        <translation>杜亚拉语 </translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="429"/>
         <source>Dutch- Middle (ca.1050-1350)</source>
-        <translation type="unfinished"/>
+        <translation>荷兰-中世纪(ca.1050-1350)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="430"/>
         <source>Dyula</source>
-        <translation type="unfinished"/>
+        <translation>朱拉语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="431"/>
         <source>Eastern Frisian</source>
-        <translation type="unfinished"/>
+        <translation>东部弗里斯兰语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="432"/>
         <source>Efik</source>
-        <translation type="unfinished"/>
+        <translation>埃菲克语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="433"/>
         <source>Egyptian (Ancient)</source>
-        <translation type="unfinished"/>
+        <translation>埃及语(古)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="434"/>
         <source>Ekajuk</source>
-        <translation type="unfinished"/>
+        <translation> 埃克丘克语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="435"/>
         <source>Elamite</source>
-        <translation type="unfinished"/>
+        <translation>埃兰语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="436"/>
         <source>English- Middle (1100-1500)</source>
-        <translation type="unfinished"/>
+        <translation>英语-中世纪(1100-1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="437"/>
         <source>English- Old (ca.450-1100)</source>
-        <translation type="unfinished"/>
+        <translation>英语-古代(ca.450-1100)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="438"/>
         <source>Erzya</source>
-        <translation type="unfinished"/>
+        <translation>厄尔兹亚语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="439"/>
         <source>Ewondo</source>
-        <translation type="unfinished"/>
+        <translation>埃翁多语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="440"/>
         <source>Fang</source>
-        <translation type="unfinished"/>
+        <translation>芳语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="441"/>
         <source>Fanti</source>
-        <translation type="unfinished"/>
+        <translation>芳蒂语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="442"/>
         <source>Filipino, Pilipino</source>
-        <translation type="unfinished"/>
+        <translation>菲律宾</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="443"/>
         <source>Finno-Ugrian languages</source>
-        <translation type="unfinished"/>
+        <translation>芬兰 - 乌干达语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="444"/>
         <source>Fon</source>
-        <translation type="unfinished"/>
+        <translation>Fon语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="445"/>
         <source>French- Middle (ca.1400-1600)</source>
-        <translation type="unfinished"/>
+        <translation>法语-中世纪(ca.1400-1600)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="446"/>
         <source>French- Old (842-ca.1400)</source>
-        <translation type="unfinished"/>
+        <translation>法语-古代(842-ca.1400)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="447"/>
         <source>Friulian</source>
-        <translation type="unfinished"/>
+        <translation>Friulian语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="448"/>
         <source>Ga</source>
-        <translation type="unfinished"/>
+        <translation>Ga语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="449"/>
         <source>Galibi Carib</source>
-        <translation type="unfinished"/>
+        <translation>Galibi加勒比语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="450"/>
         <source>Gayo</source>
-        <translation type="unfinished"/>
+        <translation>Gayo语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="451"/>
         <source>Gbaya</source>
-        <translation type="unfinished"/>
+        <translation>Gbaya语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="452"/>
         <source>Geez</source>
-        <translation type="unfinished"/>
+        <translation>Geez语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="453"/>
         <source>German- Middle High (ca.1050-1500)</source>
-        <translation type="unfinished"/>
+        <translation>德语-中晚期(ca.1050-1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="454"/>
         <source>German- Old High (ca.750-1050)</source>
-        <translation type="unfinished"/>
+        <translation>德语-古晚期(ca.750-1050)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="455"/>
         <source>Germanic languages</source>
-        <translation type="unfinished"/>
+        <translation>日耳曼语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="456"/>
         <source>Gilbertese</source>
-        <translation type="unfinished"/>
+        <translation>吉尔伯特语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="457"/>
         <source>Gondi</source>
-        <translation type="unfinished"/>
+        <translation>Gondi语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="458"/>
         <source>Gorontalo</source>
-        <translation type="unfinished"/>
+        <translation>Gorontalo语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="459"/>
         <source>Gothic</source>
-        <translation type="unfinished"/>
+        <translation>哥特语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="460"/>
         <source>Grebo</source>
-        <translation type="unfinished"/>
+        <translation>Grebo语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="461"/>
         <source>Greek- Ancient (to 1453)</source>
-        <translation type="unfinished"/>
+        <translation>古希腊语(到1453)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="462"/>
         <source>Gwich&apos;in</source>
-        <translation type="unfinished"/>
+        <translation>Gwich&apos;in语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="463"/>
         <source>Haida</source>
-        <translation type="unfinished"/>
+        <translation>海达语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="464"/>
         <source>Hawaiian</source>
-        <translation type="unfinished"/>
+        <translation>夏威夷</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="465"/>
         <source>Hiligaynon</source>
-        <translation type="unfinished"/>
+        <translation>Hiligaynon语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="466"/>
         <source>Himachali, Western Pahari languages</source>
-        <translation type="unfinished"/>
+        <translation>Himachali，西帕哈里语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="467"/>
         <source>Hittite</source>
-        <translation type="unfinished"/>
+        <translation>赫梯</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="468"/>
         <source>Hmong, Mong</source>
-        <translation type="unfinished"/>
+        <translation>Hmong, Mong语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="469"/>
         <source>Hupa</source>
-        <translation type="unfinished"/>
+        <translation>Hupa语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="470"/>
         <source>Iban</source>
-        <translation type="unfinished"/>
+        <translation>伊班语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="471"/>
         <source>Ijo languages</source>
-        <translation type="unfinished"/>
+        <translation>Ijo语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="472"/>
         <source>Iloko</source>
-        <translation type="unfinished"/>
+        <translation>Iloko语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="473"/>
         <source>Inari Sami</source>
-        <translation type="unfinished"/>
+        <translation>Inari Sami语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="474"/>
         <source>Indic languages</source>
-        <translation type="unfinished"/>
+        <translation>印度语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="475"/>
         <source>Indo-European languages</source>
-        <translation type="unfinished"/>
+        <translation>印欧语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="476"/>
         <source>Ingush</source>
-        <translation type="unfinished"/>
+        <translation>Ingush语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="477"/>
         <source>Iranian languages</source>
-        <translation>שפות אירניות</translation>
+        <translation>伊朗语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="478"/>
         <source>Irish- Middle (900-1200)</source>
-        <translation>אירית- תיכון (900-1200)</translation>
+        <translation>爱尔兰-中世纪(900-1200)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="479"/>
         <source>Irish- Old (to 900)</source>
-        <translation>אירית- ישן (עד 900)</translation>
+        <translation>爱尔兰-古(到900)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="480"/>
         <source>Iroquoian languages</source>
-        <translation type="unfinished"/>
+        <translation>Iroquoian语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="481"/>
         <source>Jingpho, Kachin</source>
-        <translation type="unfinished"/>
+        <translation>Jingpho，Kachin</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="482"/>
         <source>Judeo-Arabic</source>
-        <translation type="unfinished"/>
+        <translation>犹太 - 阿拉伯语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="483"/>
         <source>Judeo-Persian</source>
-        <translation type="unfinished"/>
+        <translation>犹太-波斯</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="484"/>
         <source>Kabardian</source>
-        <translation type="unfinished"/>
+        <translation>卡巴尔迪</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="485"/>
         <source>Kabyle</source>
-        <translation type="unfinished"/>
+        <translation>Kabyle语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="486"/>
         <source>Kalmyk, Oirat</source>
-        <translation type="unfinished"/>
+        <translation>卡尔梅克, 奥拉特</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="487"/>
         <source>Kamba</source>
-        <translation type="unfinished"/>
+        <translation>Kamba语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="488"/>
         <source>Kapampangan, Pampanga</source>
-        <translation type="unfinished"/>
+        <translation>Kapampangan, Pampanga</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="489"/>
         <source>Kara-Kalpak</source>
-        <translation type="unfinished"/>
+        <translation>Kara-Kalpak</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="490"/>
         <source>Karachay-Balkar</source>
-        <translation type="unfinished"/>
+        <translation>Karachay-Balkar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="491"/>
         <source>Karelian</source>
-        <translation type="unfinished"/>
+        <translation>Karelian语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="492"/>
         <source>Karen languages</source>
-        <translation type="unfinished"/>
+        <translation>韩语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="493"/>
         <source>Kashubian</source>
-        <translation type="unfinished"/>
+        <translation>Kashubian语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="494"/>
         <source>Kawi</source>
-        <translation type="unfinished"/>
+        <translation>Kawi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="495"/>
         <source>Khasi</source>
-        <translation type="unfinished"/>
+        <translation>Khasi语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="496"/>
         <source>Khoisan languages</source>
-        <translation type="unfinished"/>
+        <translation>Khoisan语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="497"/>
         <source>Khotanese, Sakan</source>
-        <translation type="unfinished"/>
+        <translation>Khotanese, Sakan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="498"/>
         <source>Kimbundu</source>
-        <translation type="unfinished"/>
+        <translation>Kimbundu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="499"/>
         <source>Klingon, tlhIngan-Hol</source>
-        <translation type="unfinished"/>
+        <translation>Klingon, tlhIngan-Hol</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="500"/>
         <source>Konkani</source>
-        <translation type="unfinished"/>
+        <translation>Konkani</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="501"/>
         <source>Kosraean</source>
-        <translation type="unfinished"/>
+        <translation>Kosraean</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="502"/>
         <source>Kpelle</source>
-        <translation type="unfinished"/>
+        <translation>Kpelle</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="503"/>
         <source>Kru languages</source>
-        <translation type="unfinished"/>
+        <translation>Kru语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="504"/>
         <source>Kumyk</source>
-        <translation type="unfinished"/>
+        <translation>Kumyk语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="505"/>
         <source>Kurukh</source>
-        <translation type="unfinished"/>
+        <translation>Kurukh</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="506"/>
         <source>Kutenai</source>
-        <translation type="unfinished"/>
+        <translation>Kutenai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="507"/>
         <source>Ladino</source>
-        <translation type="unfinished"/>
+        <translation>Ladino</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="508"/>
         <source>Lahnda</source>
-        <translation type="unfinished"/>
+        <translation>Lahnda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="509"/>
         <source>Lamba</source>
-        <translation type="unfinished"/>
+        <translation>兰巴语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="510"/>
         <source>Land Dayak languages</source>
-        <translation type="unfinished"/>
+        <translation>土地达雅克语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="511"/>
         <source>Lezghian</source>
-        <translation type="unfinished"/>
+        <translation>Lezghian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="512"/>
         <source>Lojban</source>
-        <translation type="unfinished"/>
+        <translation>Lojban</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="513"/>
         <source>German-Low, Low Saxon</source>
-        <translation type="unfinished"/>
+        <translation>德语-低, 低撒克逊语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="514"/>
         <source>Lower Sorbian</source>
-        <translation type="unfinished"/>
+        <translation>下索布族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="515"/>
         <source>Lozi</source>
-        <translation type="unfinished"/>
+        <translation>Lozi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="516"/>
         <source>Luba-Lulua</source>
-        <translation type="unfinished"/>
+        <translation>卢巴卢卢</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="517"/>
         <source>Luiseno</source>
-        <translation type="unfinished"/>
+        <translation>路易斯诺</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="518"/>
         <source>Lule Sami</source>
-        <translation type="unfinished"/>
+        <translation>Lule Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="519"/>
         <source>Lunda</source>
-        <translation type="unfinished"/>
+        <translation>Lunda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="520"/>
         <source>Luo (Kenya and Tanzania)</source>
-        <translation type="unfinished"/>
+        <translation>Luo(肯尼亚和坦桑尼亚)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="521"/>
         <source>Lushai</source>
-        <translation type="unfinished"/>
+        <translation>Lushai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="522"/>
         <source>Madurese</source>
-        <translation type="unfinished"/>
+        <translation>Madurese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="523"/>
         <source>Magahi</source>
-        <translation type="unfinished"/>
+        <translation>Magahi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="524"/>
         <source>Maithili</source>
-        <translation type="unfinished"/>
+        <translation>Maithili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="525"/>
         <source>Makasar</source>
-        <translation type="unfinished"/>
+        <translation>Makasar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="526"/>
         <source>Manchu</source>
-        <translation type="unfinished"/>
+        <translation>Manchu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="527"/>
         <source>Mandar</source>
-        <translation type="unfinished"/>
+        <translation>Mandar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="528"/>
         <source>Mandingo</source>
-        <translation type="unfinished"/>
+        <translation>Mandingo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="529"/>
         <source>Manipuri</source>
-        <translation type="unfinished"/>
+        <translation>Manipuri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="530"/>
         <source>Manobo languages</source>
-        <translation type="unfinished"/>
+        <translation>Manobo语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="531"/>
         <source>Mapuche/Mapudungun</source>
-        <translation type="unfinished"/>
+        <translation>Mapuche/Mapudungun</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="532"/>
         <source>Mari</source>
-        <translation type="unfinished"/>
+        <translation>马里</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="533"/>
         <source>Marwari</source>
-        <translation type="unfinished"/>
+        <translation>Marwari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="534"/>
         <source>Masai</source>
-        <translation type="unfinished"/>
+        <translation>Masai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="535"/>
         <source>Mayan languages</source>
-        <translation type="unfinished"/>
+        <translation>Mayan语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="536"/>
         <source>Mende</source>
-        <translation type="unfinished"/>
+        <translation>门德</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="537"/>
         <source>Mi&apos;kmaq, Micmac</source>
-        <translation type="unfinished"/>
+        <translation>Mi&apos;kmaq, Micmac</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="538"/>
         <source>Minangkabau</source>
-        <translation type="unfinished"/>
+        <translation>Minangkabau</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="539"/>
         <source>Mirandese</source>
-        <translation type="unfinished"/>
+        <translation>Mirandese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Mohawk</source>
-        <translation type="unfinished"/>
+        <translation>Mohawk</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="541"/>
         <source>Moksha</source>
-        <translation type="unfinished"/>
+        <translation>Moksha</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Mon-Khmer languages</source>
-        <translation type="unfinished"/>
+        <translation>Mon-Khmer语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="543"/>
         <source>Mongo</source>
-        <translation type="unfinished"/>
+        <translation>蒙语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Mossi</source>
-        <translation type="unfinished"/>
+        <translation>Mossi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Multiple languages</source>
-        <translation type="unfinished"/>
+        <translation>多语种</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="546"/>
         <source>Munda languages</source>
-        <translation type="unfinished"/>
+        <translation>Munda语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="547"/>
         <source>N&apos;Ko</source>
-        <translation type="unfinished"/>
+        <translation>N&apos;Ko</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Nahuatl languages</source>
-        <translation type="unfinished"/>
+        <translation>Nahuatl语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="549"/>
         <source>Neapolitan</source>
-        <translation type="unfinished"/>
+        <translation>那不勒斯语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Nepal Bhasa/Newari</source>
-        <translation type="unfinished"/>
+        <translation>尼泊尔Bhasa / Newari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Nias</source>
-        <translation type="unfinished"/>
+        <translation>Nias</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Niger-Kordofanian languages</source>
-        <translation type="unfinished"/>
+        <translation>尼日尔 - 科尔多瓦语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Nilo-Saharan languages</source>
-        <translation type="unfinished"/>
+        <translation>尼罗 - 撒哈拉语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Niuean</source>
-        <translation type="unfinished"/>
+        <translation>Niuean</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="555"/>
         <source>No linguistic content/Not applicable</source>
-        <translation type="unfinished"/>
+        <translation>无语言内容/不适用</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Nogai</source>
-        <translation type="unfinished"/>
+        <translation>Nogai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="557"/>
         <source>Norse- Old</source>
-        <translation type="unfinished"/>
+        <translation>诺尔斯-古代</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="558"/>
         <source>North American Indian languages</source>
-        <translation type="unfinished"/>
+        <translation>北美印第安语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Northern Frisian</source>
-        <translation type="unfinished"/>
+        <translation>北弗里斯兰语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
-        <translation type="unfinished"/>
+        <translation>北Sotho，Sepedi，Pedi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Nubian languages</source>
-        <translation type="unfinished"/>
+        <translation>Nubian语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Nyamwezi</source>
-        <translation type="unfinished"/>
+        <translation>Nyamwezi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Nyankole</source>
-        <translation type="unfinished"/>
+        <translation>Nyankole</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Nyoro</source>
-        <translation type="unfinished"/>
+        <translation>Nyoro</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="565"/>
         <source>Nzima</source>
-        <translation type="unfinished"/>
+        <translation>Nzima</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
-        <translation type="unfinished"/>
+        <translation>奥克西特/普罗旺斯-古代(至1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
-        <translation type="unfinished"/>
+        <translation>官方/帝国亚拉姆语(700-300 BCE)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="568"/>
         <source>Osage</source>
-        <translation type="unfinished"/>
+        <translation>Osage</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Otomian languages</source>
-        <translation type="unfinished"/>
+        <translation>Otomian语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Pahlavi</source>
-        <translation type="unfinished"/>
+        <translation>Otomian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Palauan</source>
-        <translation type="unfinished"/>
+        <translation>Palauan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Pangasinan</source>
-        <translation type="unfinished"/>
+        <translation>Pangasinan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Papiamento</source>
-        <translation type="unfinished"/>
+        <translation>Papiamento</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Papuan languages</source>
-        <translation type="unfinished"/>
+        <translation>Papuan语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
-        <translation type="unfinished"/>
+        <translation>波斯语-古代(ca.600-400 B.C.)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Philippine languages</source>
-        <translation type="unfinished"/>
+        <translation>菲律宾语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Phoenician</source>
-        <translation type="unfinished"/>
+        <translation>腓尼基</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Pohnpeian</source>
-        <translation type="unfinished"/>
+        <translation>Pohnpeian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Prakrit languages</source>
-        <translation type="unfinished"/>
+        <translation>Prakrit语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Rajasthani</source>
-        <translation type="unfinished"/>
+        <translation>Rajasthani</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Rapanui</source>
-        <translation type="unfinished"/>
+        <translation>Rapanui</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Rarotongan, Cook Islands Maori</source>
-        <translation type="unfinished"/>
+        <translation>拉罗汤根，库克群岛毛利人</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Reserved for local use</source>
-        <translation type="unfinished"/>
+        <translation>保留供本地使用</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Romance languages</source>
-        <translation type="unfinished"/>
+        <translation>Romance语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Romany</source>
-        <translation type="unfinished"/>
+        <translation>罗马书</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Salishan languages</source>
-        <translation type="unfinished"/>
+        <translation>Salishan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Samaritan Aramaic</source>
-        <translation type="unfinished"/>
+        <translation>撒玛利亚人阿拉姆语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Sami languages</source>
-        <translation type="unfinished"/>
+        <translation>Sami语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Sandawe</source>
-        <translation type="unfinished"/>
+        <translation>Sandawe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Santali</source>
-        <translation type="unfinished"/>
+        <translation>Santali</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Sasak</source>
-        <translation type="unfinished"/>
+        <translation>Sasak</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Scots</source>
-        <translation type="unfinished"/>
+        <translation>Scots</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Selkup</source>
-        <translation type="unfinished"/>
+        <translation>Selkup</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Semitic languages</source>
-        <translation type="unfinished"/>
+        <translation>Semitic语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Serer</source>
-        <translation type="unfinished"/>
+        <translation>Serer</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Shan</source>
-        <translation type="unfinished"/>
+        <translation>Shan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Sicilian</source>
-        <translation type="unfinished"/>
+        <translation>西西里人</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Sidamo</source>
-        <translation type="unfinished"/>
+        <translation>Sidamo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Sign Languages</source>
-        <translation type="unfinished"/>
+        <translation>标志语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Siksika</source>
-        <translation type="unfinished"/>
+        <translation>Siksika</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Sino-Tibetan languages</source>
-        <translation type="unfinished"/>
+        <translation>中藏语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Siouan languages</source>
-        <translation type="unfinished"/>
+        <translation>Siouan语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Skolt Sami</source>
-        <translation type="unfinished"/>
+        <translation>Skolt Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Slave (Athapascan)</source>
-        <translation type="unfinished"/>
+        <translation>Slave (Athapascan)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Slavic languages</source>
-        <translation type="unfinished"/>
+        <translation>斯拉夫语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Sogdian</source>
-        <translation type="unfinished"/>
+        <translation>Sogdian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Songhai languages</source>
-        <translation type="unfinished"/>
+        <translation>宋海语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Soninke</source>
-        <translation type="unfinished"/>
+        <translation>Soninke</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Sorbian languages</source>
-        <translation type="unfinished"/>
+        <translation>索布族语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="610"/>
         <source>South American Indian languages</source>
-        <translation type="unfinished"/>
+        <translation>南美印第安语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="611"/>
         <source>Southern Altai</source>
-        <translation type="unfinished"/>
+        <translation>南阿尔泰</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Southern Sami</source>
-        <translation type="unfinished"/>
+        <translation>南Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Sranan Tongo</source>
-        <translation type="unfinished"/>
+        <translation>Sranan Tongo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Sukuma</source>
-        <translation type="unfinished"/>
+        <translation>Sukuma</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Sumerian</source>
-        <translation type="unfinished"/>
+        <translation>苏美尔人</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Susu</source>
-        <translation type="unfinished"/>
+        <translation>Susu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Alsatian, Swiss German, Alemannic</source>
-        <translation type="unfinished"/>
+        <translation>阿尔萨斯, 瑞士德语, Alemannic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Syriac</source>
-        <translation type="unfinished"/>
+        <translation>叙利亚</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Tai languages</source>
-        <translation type="unfinished"/>
+        <translation>泰语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Tamashek</source>
-        <translation type="unfinished"/>
+        <translation>Tamashek</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Tereno</source>
-        <translation type="unfinished"/>
+        <translation>Tereno</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Tetum</source>
-        <translation type="unfinished"/>
+        <translation>Tetum</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Tigre</source>
-        <translation type="unfinished"/>
+        <translation>Tigre</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Timne</source>
-        <translation type="unfinished"/>
+        <translation>Timne</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Tiv</source>
-        <translation type="unfinished"/>
+        <translation>Tiv</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Tlingit</source>
-        <translation type="unfinished"/>
+        <translation>Tlingit</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Tok Pisin</source>
-        <translation type="unfinished"/>
+        <translation>Tok Pisin</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Tokelau</source>
-        <translation type="unfinished"/>
+        <translation>Tokelau</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Tonga (Nyasa)</source>
-        <translation type="unfinished"/>
+        <translation>汤加(Nyasa)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Tsimshian</source>
-        <translation type="unfinished"/>
+        <translation>Tsimshian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Tumbuka</source>
-        <translation type="unfinished"/>
+        <translation>Tumbuka</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Tupi languages</source>
-        <translation type="unfinished"/>
+        <translation>Tupi语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Turkish- Ottoman (1500-1928)</source>
-        <translation type="unfinished"/>
+        <translation>土耳其 - 奥斯曼(1500-1928)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Tuvalu</source>
-        <translation type="unfinished"/>
+        <translation>Tuvalu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Tuvinian</source>
-        <translation type="unfinished"/>
+        <translation>Tuvinian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Udmurt</source>
-        <translation type="unfinished"/>
+        <translation>Udmurt</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Ugaritic</source>
-        <translation type="unfinished"/>
+        <translation>Ugaritic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Umbundu</source>
-        <translation type="unfinished"/>
+        <translation>Umbundu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Uncoded languages</source>
-        <translation type="unfinished"/>
+        <translation>未编码的语言</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Undetermined</source>
-        <translation type="unfinished"/>
+        <translation>未确定</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Upper Sorbian</source>
-        <translation type="unfinished"/>
+        <translation>上索布族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Vai</source>
-        <translation type="unfinished"/>
+        <translation>Vai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Votic</source>
-        <translation type="unfinished"/>
+        <translation>Votic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Wakashan languages</source>
-        <translation type="unfinished"/>
+        <translation>Wakashan语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="645"/>
         <source>Waray</source>
-        <translation type="unfinished"/>
+        <translation>Waray</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="646"/>
         <source>Washo</source>
-        <translation type="unfinished"/>
+        <translation>Washo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="647"/>
         <source>Wolaitta, Wolaytta</source>
-        <translation type="unfinished"/>
+        <translation>Wolaitta, Wolaytta</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="648"/>
         <source>Yakut</source>
-        <translation type="unfinished"/>
+        <translation>Yakut</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="649"/>
         <source>Yao</source>
-        <translation type="unfinished"/>
+        <translation>Yao</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="650"/>
         <source>Yapese</source>
-        <translation type="unfinished"/>
+        <translation>Yapese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="651"/>
         <source>Yupik languages</source>
-        <translation type="unfinished"/>
+        <translation>Yupik语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="652"/>
         <source>Zande languages</source>
-        <translation type="unfinished"/>
+        <translation>Zande语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="653"/>
         <source>Zapotec</source>
-        <translation type="unfinished"/>
+        <translation>Zapotec</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="654"/>
         <source>Zenaga</source>
-        <translation type="unfinished"/>
+        <translation>Zenaga</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="655"/>
         <source>Zuni</source>
-        <translation type="unfinished"/>
+        <translation>Zuni</translation>
     </message>
 </context>
 <context>
@@ -6363,7 +6416,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="14"/>
         <source>Language</source>
-        <translation>שפה</translation>
+        <translation>语言</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="36"/>
@@ -6372,22 +6425,24 @@ Do you want to save your changes?</source>
 If a translation for specific word or phrase is not available it will be displayed in English.
 
 Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>在更改用户界面语言后您必须重新启动Sigil.
+如果特定词语或短语的翻译不可用，它将以英语显示.
+使用首选项 - &gt;拼写检查字典设置拼写检查字典.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="43"/>
         <source>User Interface Language:</source>
-        <translation>שפת ממשק משתמש:</translation>
+        <translation>用户界面语言</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="53"/>
         <source>Set the default language used by the Metadata Editor for new books.</source>
-        <translation>קבע את השפה השגרתית בשימוש על ידי עורך נתונים-מוצמדים עבור ספרים חדשים.</translation>
+        <translation>设置新图书的元数据编辑器的默认语言。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="56"/>
         <source>Default Language For Metadata:</source>
-        <translation>שפת ברירת מחדל עבור נתון-מוצמד:</translation>
+        <translation>元数据的默认语言</translation>
     </message>
 </context>
 <context>
@@ -6395,39 +6450,40 @@ Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</s
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="14"/>
         <source>Link StyleSheets</source>
-        <translation type="unfinished"/>
+        <translation>样式表链接</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="43"/>
         <source>Move the selected stylesheets up in priority.
 
 Stylesheets that are listed first take precedence over later stylesheets.</source>
-        <translation type="unfinished"/>
+        <translation>将所选样式表优先向上移动
+首先列出的样式表优先于较后的样式表。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="48"/>
         <source>Up</source>
-        <translation>מעלה</translation>
+        <translation>上</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="58"/>
         <source>Move the selected stylesheets down in priority.</source>
-        <translation type="unfinished"/>
+        <translation>优先移动所选样式表。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="61"/>
         <source>Down</source>
-        <translation>מטה</translation>
+        <translation>下</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="60"/>
         <source>Include</source>
-        <translation type="unfinished"/>
+        <translation>包含</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="61"/>
         <source>Stylesheet</source>
-        <translation type="unfinished"/>
+        <translation>样式表</translation>
     </message>
 </context>
 <context>
@@ -6435,87 +6491,87 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="14"/>
         <source>Links</source>
-        <translation>קישורים</translation>
+        <translation>链接</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>מנה רק את שמות הקבצים אשר מכילים את הטקסט אותו הזנתי.</translation>
+        <translation>仅列出文件名包含所输入文本的文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>סינון:</translation>
+        <translation>过滤：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="65"/>
         <source>File</source>
-        <translation>קובץ</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="66"/>
         <source>ID</source>
-        <translation>מזהה</translation>
+        <translation>ID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="67"/>
         <source>Text</source>
-        <translation>טקסט</translation>
+        <translation>文本</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="68"/>
         <source>Target File</source>
-        <translation>קובץ מטרה</translation>
+        <translation>目标文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="69"/>
         <source>Target ID</source>
-        <translation>מזהה מטרה</translation>
+        <translation>目标ID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="70"/>
         <source>Target Exists?</source>
-        <translation>מטרה קיימת?</translation>
+        <translation>目标存在?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="71"/>
         <source>Target Text</source>
-        <translation>טקסט מטרה</translation>
+        <translation>目标文本</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="72"/>
         <source>Target&apos;s Target File</source>
-        <translation>קובץ מטרה של מטרה</translation>
+        <translation>目标的目标文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="73"/>
         <source>Target&apos;s Target ID</source>
-        <translation>מזהה מטרה של מטרה</translation>
+        <translation>目标的目标ID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="74"/>
         <source>Match?</source>
-        <translation type="unfinished"/>
+        <translation>匹配?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="80"/>
         <source>Report shows all source and target links using the anchor tag &quot;a&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>报告显示所有使用锚标签“a”源链接和目标链接。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="327"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>שמור דיווח בתור קובץ מופרד-פסיק</translation>
+        <translation>将报告保存为都好分割的文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="340"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="340"/>
         <source>Cannot save report file.</source>
-        <translation>אין אפשרות לשמור קובץ דיווח.</translation>
+        <translation>无法保存报告文件</translation>
     </message>
 </context>
 <context>
@@ -6523,645 +6579,651 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
         <source>untitled.epub[*] - Sigil</source>
-        <translation>‎ללא_כותרת.epub[*] - Sigil</translation>
+        <translation>未命名.epub[*]-Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="58"/>
         <source>&amp;File</source>
-        <translation>&amp;קובץ</translation>
+        <translation>&amp;F文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="62"/>
         <source>A&amp;dd</source>
-        <translation>הוס&amp;ף</translation>
+        <translation>&amp;d添加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="88"/>
         <source>&amp;Edit</source>
-        <translation>ע&amp;ריכה</translation>
+        <translation>&amp;E编辑</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="92"/>
         <source>C&amp;hange Case</source>
-        <translation type="unfinished"/>
+        <translation>&amp;h更改大小写</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="117"/>
         <source>&amp;Insert</source>
-        <translation>ה&amp;כנס</translation>
+        <translation>&amp;I插入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="121"/>
         <source>Cli&amp;p</source>
-        <translation>קלי&amp;פ</translation>
+        <translation>&amp;p剪辑视频</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="158"/>
         <source>&amp;Help</source>
-        <translation>&amp;עזרה</translation>
+        <translation>&amp;H帮助</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="168"/>
         <source>For&amp;mat</source>
-        <translation>פור&amp;מט</translation>
+        <translation>&amp;m格式化</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="172"/>
         <source>&amp;Heading</source>
-        <translation>&amp;כותרת</translation>
+        <translation>&amp;H标标题</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="213"/>
         <source>&amp;View</source>
-        <translation>&amp;תצוגה</translation>
+        <translation>&amp;V视图</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="217"/>
         <source>&amp;Toolbars</source>
-        <translation>סרגלי &amp;כלים</translation>
+        <translation>&amp;T工具栏</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="232"/>
         <source>&amp;Search</source>
-        <translation>&amp;חיפוש</translation>
+        <translation>&amp;S搜索</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="236"/>
         <source>Current Fil&amp;e</source>
-        <translation>קובץ &amp;נוכחי</translation>
+        <translation>&amp;e当前文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="268"/>
         <source>&amp;Window</source>
-        <translation>ח&amp;לון</translation>
+        <translation>&amp;W窗口</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="280"/>
         <source>&amp;Tools</source>
-        <translation>&amp;כלים</translation>
+        <translation>&amp;T工具</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="284"/>
         <source>&amp;Table Of Contents</source>
-        <translation>&amp;תוכן עניינים</translation>
+        <translation>&amp;T目录</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="292"/>
         <source>Spe&amp;llcheck</source>
-        <translation type="unfinished"/>
+        <translation>&amp;l拼写检查</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="306"/>
         <source>&amp;Index</source>
-        <translation>&amp;אינדקס</translation>
+        <translation>&amp;I索引</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="317"/>
         <source>Re&amp;format HTML</source>
-        <translation type="unfinished"/>
+        <translation>&amp;f重新格式化HTML</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="324"/>
         <source>Epub&amp;3 Tools</source>
-        <translation type="unfinished"/>
+        <translation>Epub&amp;3工具</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="349"/>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>插件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="367"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="511"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="521"/>
         <source>File</source>
-        <translation>קובץ</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="382"/>
         <location filename="../../MainUI/MainWindow.cpp" line="273"/>
         <source>Edit</source>
-        <translation>ערוך</translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="401"/>
         <source>View</source>
-        <translation>תצוגה</translation>
+        <translation>观察</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="414"/>
         <source>Insert</source>
-        <translation>הוסף</translation>
+        <translation>插入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="431"/>
         <source>Back</source>
-        <translation>אחורה</translation>
+        <translation>回退</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="443"/>
         <source>Donate</source>
-        <translation>תרום</translation>
+        <translation>捐款</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="455"/>
         <source>Tools</source>
-        <translation>כלים</translation>
+        <translation>工具</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="475"/>
         <source>Heading</source>
-        <translation>כותרת</translation>
+        <translation>标题</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="493"/>
         <source>Format</source>
-        <translation>פורמט</translation>
+        <translation>格式</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="510"/>
         <source>Align</source>
-        <translation>יישר</translation>
+        <translation>对齐</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="525"/>
         <source>List</source>
-        <translation>רשימה</translation>
+        <translation>列表</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="538"/>
         <source>Indent</source>
-        <translation>הזח</translation>
+        <translation>缩进</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="551"/>
         <source>Change Case</source>
-        <translation type="unfinished"/>
+        <translation>变大小写</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="566"/>
         <source>Text Direction</source>
-        <translation>כיוון טקסט</translation>
+        <translation>文字方向</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="580"/>
         <source>Clip Bar</source>
-        <translation>שורת קליפ</translation>
+        <translation>剪辑条</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="615"/>
         <source>&amp;New</source>
-        <translation>&amp;חדש</translation>
+        <translation>&amp;新建</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="618"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;חדש&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;新建&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;יצירת ספר חדש.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;创建一本新书.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="623"/>
         <source>Ctrl+N</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+N</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="632"/>
         <source>&amp;Save</source>
-        <translation>&amp;שמור</translation>
+        <translation>&amp;S保存</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="635"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;שמור&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;保存&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;שמירת הספר הנוכחי.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;保存当前的书.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="640"/>
         <source>Ctrl+S</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+S</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="645"/>
         <source>Save &amp;As...</source>
-        <translation>שמירה &amp;בתור...</translation>
+        <translation>&amp;A另存为</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="648"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;שמירה בתור&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;另存为/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;שמירת הספר הנוכחי עם שם קובץ שונה.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;使用不同的文件名保存当前图书.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="653"/>
         <source>Ctrl+Shift+S</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Shift+S</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="658"/>
         <source>Save A &amp;Copy...</source>
-        <translation>שמירת &amp;עותק...</translation>
+        <translation>&amp;C保存为副本</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="661"/>
         <source>Save a copy of your book to another file name.</source>
-        <translation>שמור עותק של ספרך אל שם קובץ אחר.</translation>
+        <translation>将你的书籍保存为另一个文件名</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="670"/>
         <source>Cu&amp;t</source>
-        <translation>&amp;גזור</translation>
+        <translation>&amp;t剪切</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="673"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;גזור&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;剪切&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;גזירת הטקסט הנבחר מתוך המסמך והשמתו על לוח הגזירה.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;剪切文档中选定的文本并将其放在剪贴板中.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="684"/>
         <source>&amp;Paste</source>
-        <translation>ה&amp;דבק</translation>
+        <translation>&amp;P粘贴</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="687"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;הדבק&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;粘贴&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;הדבקת התוכן מתוך לוח הגזירה לתוך הספר.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将剪贴板中的内容粘贴到书中.&lt;/ p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="694"/>
         <source>&amp;Closing Tag</source>
-        <translation>תג &amp;סוגר</translation>
+        <translation>&amp;C关闭标签</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="697"/>
         <source>Insert a closing tag in Code View.</source>
-        <translation>הכנס תג סוגר בתוך תצוגת קוד.</translation>
+        <translation>在代码视图中插入结束标记.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="700"/>
         <source>Ctrl+.</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="709"/>
         <source>&amp;Undo</source>
-        <translation>&amp;בטל</translation>
+        <translation>&amp;U撤消</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="712"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;בטל&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;撤销&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;הפיכת השינויים של הפעולה הקודמת.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;回复上一个操作的更改.&lt;/ p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="717"/>
         <source>Ctrl+Z</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Z</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="726"/>
         <source>&amp;Redo</source>
-        <translation>בצ&amp;ע שוב</translation>
+        <translation>&amp;R重做</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="729"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;בצע שוב&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;重做&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;שחזור השינויים שנהפכו על ידי פעולת בטל הקודמת.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;恢复上一次撤消操作的变更.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="734"/>
         <source>Ctrl+Y</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Y</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="743"/>
         <source>&amp;Copy</source>
-        <translation>ה&amp;עתק</translation>
+        <translation>&amp;C复制</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="746"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;העתר&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;复制&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;העתקת הטקסט הנבחר והשמתו על לוח הגזירה.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;复制所选文本并将其放在剪贴板中.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="760"/>
         <source>Align &amp;Left</source>
-        <translation>יישר &amp;שמאלה</translation>
+        <translation>&amp;L左对齐</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="763"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;左对齐&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将该段对齐到左边.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="777"/>
         <source>Align &amp;Right</source>
-        <translation>יישר &amp;ימינה</translation>
+        <translation>&amp;R右对齐</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="780"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;右对齐&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将该段对齐到右边.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="794"/>
         <source>&amp;Center</source>
-        <translation>&amp;מרכז</translation>
+        <translation>&amp;居中</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="797"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;מרכז&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;居中&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;מרכז את הפסקה.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将该段居中.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="802"/>
         <source>Ctrl+E</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+E</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="814"/>
         <source>&amp;Justify</source>
-        <translation>&amp;אזן</translation>
+        <translation>&amp;J对齐</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="817"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;אזן&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;调整&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;יישר את הפסקה לשני השוליים הן השמאליות והן הימניות.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落对齐到左边距和右边距.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="822"/>
         <source>Ctrl+J</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+J</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="834"/>
         <source>&amp;Bold</source>
-        <translation>&amp;בולט</translation>
+        <translation>&amp;B加粗</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="837"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;בולט&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;加粗&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;הפיכת הטקסט הנבחר לבולט.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;使所选文本加粗.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="842"/>
         <source>Ctrl+B</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+B</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="854"/>
         <source>&amp;Italic</source>
-        <translation>&amp;נטוי</translation>
+        <translation>&amp;I斜体</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="857"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;נטוי&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;斜体&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;הפיכת הטקסט הנבחר לנטוי.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将所选文本设为斜体.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="862"/>
         <source>Ctrl+I</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+I</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="871"/>
         <source>&amp;Open...</source>
-        <translation>&amp;פתיחה...</translation>
+        <translation>&amp;O打开</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="874"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;פתח&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;打开&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;פתיחת ספר מתוך כונן.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;从磁盘打开一本书k.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="879"/>
         <source>Ctrl+O</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+O</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="891"/>
         <source>&amp;Underline</source>
-        <translation>&amp;קו תחתון</translation>
+        <translation>&amp;U加下划线</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="894"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;קו תחתון&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;加下划线&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;השמת קו תחתון בטקסט הנבחר.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将所选文本加下划线.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="899"/>
         <source>Ctrl+U</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+U</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="908"/>
         <source>&amp;Quit</source>
-        <translation>י&amp;ציאה</translation>
+        <translation>&amp;Q退出</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="911"/>
         <source>Exit</source>
-        <translation>יציאה</translation>
+        <translation>退出</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="914"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="923"/>
         <source>&amp;About...</source>
-        <translation>&amp;אודות...</translation>
+        <translation>&amp;A关于</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="926"/>
         <source>Show information about Sigil.</source>
-        <translation>הצג מידע אודות Sigil.</translation>
+        <translation>显示Sigil的信息.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="931"/>
         <source>Add &amp;Cover...</source>
-        <translation>הוספת &amp;כריכה...</translation>
+        <translation>&amp;C添加封面...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="934"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;הוסף כריכה&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;添加封面&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;הוספת כריכה.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;添加封面.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="945"/>
         <source>&amp;Metadata Editor...</source>
-        <translation>עורך &amp;נתונים-מוצמדים...</translation>
+        <translation>&amp;M元数据编辑器...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="948"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;עורך נתונים-מוצמדים&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;元数据编辑器&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;עריכת והצגת מידע אודות ספרך כולל המחבר והכותרת.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;编辑并显示您的书籍相关资讯，包括作者和书名.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="953"/>
         <source>F8</source>
-        <translation type="unfinished"/>
+        <translation>F8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="962"/>
         <source>&amp;Generate Table Of Contents...</source>
-        <translation>יצי&amp;רת תוכן עניינים...</translation>
+        <translation>&amp;G生成目录</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="965"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;צור תוכן עניינים&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;生成目录&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;יצירת תוכן עניינים מן כותרות בתוך ספרך.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;从书中的标题生成一个新的目录.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="970"/>
         <source>Ctrl+T</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+T</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="975"/>
         <source>&amp;Edit Table Of Contents...</source>
-        <translation>&amp;עריכת תוכן עניינים...</translation>
+        <translation>&amp;E编辑目录</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="978"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;ערוך תוכן עניינים&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;编辑目录&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;עריכה מיידית של התוכן עניינים הקיים.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;直接编辑存在的目录.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="992"/>
         <source>&amp;Book View</source>
-        <translation>תצוגת &amp;ספר</translation>
+        <translation>&amp;B书视图</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="995"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;תצוגת ספר&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;书视图&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;עריכת והצגת הקבצים שבתוך ספרך כפי שהם ייראו לקוראים.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;编辑并显示图书中的文件，让读者看到.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1009"/>
         <source>&amp;Code View</source>
-        <translation>תצוגת &amp;קוד</translation>
+        <translation>&amp;C代码视图</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1012"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;תצוגת קוד&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;代码视图&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;עריכת והצגת התכנים הממשיים של הקבצין שבתוך ספרך, כולל קוד עיצוב אשר אחראי על איך ספרך ייראה לקוראים.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;编辑并显示图书中文件的实际内容，包括控制图书向读者显示的格式代码.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1019"/>
         <source>&amp;Toggle View State</source>
-        <translation type="unfinished"/>
+        <translation>&amp;T切换视图状态</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1022"/>
         <source>Toggle Book View to Code View or Code View to Book View</source>
-        <translation>החלף תצוגת ספר אל תצוגת קוד או תצוגת קוד אל תצוגת ספר</translation>
+        <translation>切换书视图到代码视图或者代码视图到书视图。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1025"/>
         <source>F2</source>
-        <translation type="unfinished"/>
+        <translation>F2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1034"/>
         <source>&amp;Split At Cursor</source>
-        <translation type="unfinished"/>
+        <translation>&amp;S在光标处切分</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1037"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;在光标处切分&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;使用光标位置作为分割点将当前文件分割为两个文件.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1042"/>
         <source>Ctrl+Return</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+回车</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1051"/>
         <source>&amp;File...</source>
-        <translation>&amp;קובץ...</translation>
+        <translation>&amp;F文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1054"/>
@@ -7170,267 +7232,277 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can add files to your book by using the menu File - Add - Existing Files.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;הכנס קובץ&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;插入文件&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;בחירת קבצי תמונה, וידאו או אודיו מתוך ספרך לשם שיבוצו לתוך הטקסט.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;从书中选择要插入文字的图片，视频或音频文件.&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;ביכולתך להוסיף קבצים אל ספרך על ידי שימוש בתפריט קובץ - הוסף - קבצים קיימים.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;您可以使用文件 - 添加 - 现有文件菜单将文件添加到您的书.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1061"/>
         <source>Ctrl+Shift+I</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Shift+I</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1070"/>
         <source>&amp;Special Character...</source>
-        <translation>&amp;תו מיוחד...</translation>
+        <translation>&amp;S特殊字符</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1073"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;הכנס תו מיוחד&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;插入特殊字符&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;בחירת תו לשם שיבוץ לתוך הטקסט שלך.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;选择一个字符插入到文本中.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1084"/>
         <source>I&amp;D...</source>
-        <translation>&amp;מזהה...</translation>
+        <translation>I&amp;D</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1087"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;הכנס מזהה&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;插入ID&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;שיבוץ או עריכת עוגן עם שם מזהה לשם שימוש בתור קישור מטרה.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;插入或编辑具有ID名称的锚点以用作链接目标.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1098"/>
         <source>&amp;Link...</source>
-        <translation>&amp;קישור...</translation>
+        <translation>&amp;L链接</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1101"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;הכנס קישור&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;插入链接&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;שיבוץ או עריכת עוגן עם היפר-קישור אל מטרה.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;插入或编辑具有到目标的超链接的锚点.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1115"/>
         <source>&amp;Numbered List</source>
-        <translation>רשימה &amp;ממוספרת</translation>
+        <translation>&amp;N编号列表</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1118"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;מספור&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;编号&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;יצירת רשימה ממוספרת.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;生成编号列表.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1132"/>
         <source>Bulle&amp;ted List</source>
-        <translation>רשימה &amp;מתובלטת</translation>
+        <translation>&amp;t符号列表</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1135"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;תבליטים&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;符号&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;יצירת רשימה מתובלטת.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;生成符号列表.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1140"/>
         <source>Ctrl+Shift+L</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Shift+L</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1152"/>
         <source>Stri&amp;kethrough</source>
-        <translation>קו &amp;חוצה</translation>
+        <translation>删除线</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1155"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;קו חוצה&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;删除线&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;ציור קו בתוך הטקסט הנבחר.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;在所选文本中画一条线.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1169"/>
         <source>&amp;Subscript</source>
-        <translation>כתב &amp;תחתי</translation>
+        <translation>&amp;S下标</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1172"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;下标&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将所选文本设置为略小于法线的下方.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1186"/>
         <source>Su&amp;perscript</source>
-        <translation>כתב &amp;עילי</translation>
+        <translation>&amp;p上标</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1189"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;上标&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将所选文本设置为略小于法线的上方.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1200"/>
         <source>&amp;Print...</source>
-        <translation>&amp;הדפסה...</translation>
+        <translation>&amp;P打印</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1203"/>
         <source>Print</source>
-        <translation>הדפס</translation>
+        <translation>打印</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1206"/>
         <source>Ctrl+P</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+P</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1215"/>
         <source>Print Pre&amp;view...</source>
-        <translation>ת&amp;צוגת הדפסה...</translation>
+        <translation>&amp;v打印预览</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1218"/>
         <source>Print Preview</source>
-        <translation>תצוגת הדפסה</translation>
+        <translation>打印预览</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1223"/>
         <location filename="../../Form_Files/main.ui" line="1226"/>
         <source>Close</source>
-        <translation>סגור</translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1229"/>
         <source>Ctrl+Shift+W</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Shift+W</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1238"/>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished"/>
+        <translation>&amp;I放大</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1241"/>
         <source>Zoom In</source>
-        <translation type="unfinished"/>
+        <translation>放大</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1244"/>
         <source>Ctrl+=</source>
-        <translation type="unfinished"/>
+        <translation>Ctr;+=</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1253"/>
         <source>Zoom &amp;Out</source>
-        <translation type="unfinished"/>
+        <translation>缩小</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1256"/>
         <source>Zoom Out</source>
-        <translation type="unfinished"/>
+        <translation>缩小</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1259"/>
         <source>Ctrl+-</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+-</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1264"/>
         <source>Sho&amp;w Tag</source>
-        <translation>ה&amp;צג תג</translation>
+        <translation>&amp;w显示标签</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1267"/>
         <source>Show the enclosing tag HTML for the cursor position in Book View.</source>
-        <translation type="unfinished"/>
+        <translation>在“书本视图”中显示光标位置的HTML封闭标记.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1270"/>
         <source>Ctrl+Alt+T</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+T</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1279"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
-        <translation>&amp;מצא והחלף...</translation>
+        <translation>&amp;F搜索和替换</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1282"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;搜索 &amp;amp; 替换&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;在文档中查找和替换文本.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1287"/>
         <source>Ctrl+F</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+F</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1296"/>
         <source>Incre&amp;ase Indent</source>
-        <translation type="unfinished"/>
+        <translation>&amp;a增加缩进</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1299"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;增加缩进&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;增加段落的缩进级别.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1304"/>
         <source>Ctrl+Alt+M</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+M</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1313"/>
         <source>&amp;Decrease Indent</source>
-        <translation type="unfinished"/>
+        <translation>&amp;D降低缩进</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1316"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;降低缩进&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;降低段落的缩进级别.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1321"/>
         <location filename="../../Form_Files/main.ui" line="1732"/>
         <source>Ctrl+Shift+M</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Shift+M</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1330"/>
         <source>Te&amp;xt Direction LTR</source>
-        <translation>כיוון ט&amp;קסט LTR</translation>
+        <translation>&amp;x文本左向右方向</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1333"/>
@@ -7439,12 +7511,15 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction left to right.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;左向右&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落方向从左向右设置.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1346"/>
         <source>T&amp;ext Direction RTL</source>
-        <translation>כיוון טקס&amp;ט RTL</translation>
+        <translation>&amp;x文本右向左方向</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1349"/>
@@ -7453,12 +7528,15 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction right to left.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;右向左&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落方向从右向左设置.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1362"/>
         <source>Text Directi&amp;on Default</source>
-        <translation>כיוון טקסט &amp;שגרתי</translation>
+        <translation>&amp;o默认文字方向</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1365"/>
@@ -7467,22 +7545,25 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction to inherit from default.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;默认&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落方向设置为继承默认值.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1374"/>
         <source>Remove &amp;Formatting</source>
-        <translation>הסר &amp;עיצוב</translation>
+        <translation>&amp;F移除格式</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1377"/>
         <source>Ctrl+Space</source>
-        <translation>Ctrl+רווח</translation>
+        <translation>Ctrl+空格</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1386"/>
         <source>&amp;Lowercase</source>
-        <translation type="unfinished"/>
+        <translation>&amp;L小写</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1389"/>
@@ -7491,17 +7572,20 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to lowercase.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;小写&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将选中文本变为小写.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1396"/>
         <source>Alt+L</source>
-        <translation type="unfinished"/>
+        <translation>Alt+L</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1405"/>
         <source>&amp;Uppercase</source>
-        <translation type="unfinished"/>
+        <translation>&amp;U大写</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1408"/>
@@ -7510,17 +7594,20 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to uppercase.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;大写&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将选中文本变为大写.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1415"/>
         <source>Alt+U</source>
-        <translation type="unfinished"/>
+        <translation>Alt+U</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1424"/>
         <source>&amp;Titlecase</source>
-        <translation type="unfinished"/>
+        <translation>&amp;T首字母大写</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1427"/>
@@ -7529,12 +7616,14 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize the first letter of each word selected.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;首字母大写&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;大写所选每个字词的第一个字母.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1440"/>
         <source>&amp;Capitalize</source>
-        <translation type="unfinished"/>
+        <translation>&amp;C大写</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1443"/>
@@ -7543,127 +7632,130 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize only the first word of the selected text.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;大写&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;仅使选定文本的第一个单词大写.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1452"/>
         <source>Sigil Website...</source>
-        <translation type="unfinished"/>
+        <translation>Sigil网页</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1457"/>
         <source>&amp;Next Tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;N新标签</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1460"/>
         <source>Ctrl+PgUp</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+PgUp</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1465"/>
         <source>&amp;Previous Tab</source>
-        <translation type="unfinished"/>
+        <translation>&amp;P前一个标签</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1468"/>
         <source>Ctrl+PgDown</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+PgDown</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1473"/>
         <source>&amp;Close Tab</source>
-        <translation>&amp;סגור כרטיסייה</translation>
+        <translation>&amp;C关闭标签</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1476"/>
         <source>Ctrl+W</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1481"/>
         <source>Split At &amp;Markers</source>
-        <translation type="unfinished"/>
+        <translation>&amp;M在标记处切分</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1484"/>
         <source>Split At Sigil split file markers</source>
-        <translation type="unfinished"/>
+        <translation>&amp;M在Sigil切分标记处切分</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1487"/>
         <source>F6</source>
-        <translation type="unfinished"/>
+        <translation>F6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1492"/>
         <source>Split &amp;Marker</source>
-        <translation>סמן &amp;פיצול</translation>
+        <translation>&amp;M切分标记</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1495"/>
         <source>Insert Sigil split file marker</source>
-        <translation>הכנס סמן מפצל קובץ Sigil</translation>
+        <translation>插入Sigil切分标记</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1498"/>
         <source>Ctrl+Shift+Return</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Shift+Return</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1503"/>
         <source>User &amp;Guide...</source>
-        <translation>מ&amp;דריך משתמש...</translation>
+        <translation>&amp;G用户指南</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1506"/>
         <source>User Guide</source>
-        <translation>מדריך משתמש</translation>
+        <translation>用户指南</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1509"/>
         <source>F1</source>
-        <translation type="unfinished"/>
+        <translation>F1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1514"/>
         <source>&amp;Frequently Asked Questions...</source>
-        <translation>&amp;שאלות נפוצות...</translation>
+        <translation>&amp;F经常问的问题</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1517"/>
         <source>Frequently Asked Questions</source>
-        <translation>שאלות נפוצות</translation>
+        <translation>经常问的问题</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1522"/>
         <source>&amp;Tutorials...</source>
-        <translation>&amp;שיעורים...</translation>
+        <translation>&amp;T教程</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1525"/>
         <source>Tutorials</source>
-        <translation>שיעורים</translation>
+        <translation>教程</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1530"/>
         <source>Well-Formed Check &amp;EPUB</source>
-        <translation type="unfinished"/>
+        <translation>EPUB格式良好性检查</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1533"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EPUB格式良好性检查&lt;/span&gt;&lt;/p&gt;&lt;p&gt;验证您的文档是否符合需要成功解析的最低要求. 这并不表示符合相关的epub标准.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1536"/>
         <source>F7</source>
-        <translation type="unfinished"/>
+        <translation>F7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1541"/>
         <source>Validate Stylesheets With &amp;W3C</source>
-        <translation>הענק תוקף לגיליונות סגנון בעזרת &amp;W3C</translation>
+        <translation>&amp;W使用W3C验证样式表W</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1544"/>
@@ -7673,119 +7765,118 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your CSS stylesheets comply with W3C standards using the online W3C CSS Validation Service.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;הענק תוקף לגיליונות סגנון בעזרת W3C&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;使用W3C验证样式表&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;אמת כי גיליונות סגנון CSS תואמים את תקני W3C באמצעות השירות המקוון W3C CSS Validation Service.&lt;/p&gt;
-    </translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;使用在线W3C CSS验证服务验证您的CSS样式表是否符合W3C标准.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1557"/>
         <source>&amp;Spellcheck...</source>
-        <translation>&amp;בדיקת איות...</translation>
+        <translation>&amp;S拼写检查</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1560"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;בדיקת איות&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;拼写检查k&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;מציאת את כל המילים אשר לא מאויתות כהלכה והוספתן אל מילון או התעלמות מהן.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;查找所有拼写错误的单词，并允许您将其添加到字典或忽略它们.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1565"/>
         <source>Alt+Q</source>
-        <translation type="unfinished"/>
+        <translation>Alt+Q</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1573"/>
         <source>&amp;Highlight Misspelled Words</source>
-        <translation>ה&amp;דגש מילים לא מאויתות כהלכה</translation>
+        <translation>&amp;H突出拼写错字</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1576"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
-        <translation>אפשר או נטרל הדגשה של מילים לא מאויתות כהלכה.</translation>
+        <translation>在代码视图中启用或禁用突出显示拼写错误的字词.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1581"/>
         <source>&amp;Next Misspelled Word</source>
-        <translation>מילה &amp;באה לא מאויתת כהלכה</translation>
+        <translation>&amp;N下一个拼写错误</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1584"/>
         <source>Find the next misspelled word in the book.</source>
-        <translation>מצא את המילה הבאה שלא מאויתת כהלכה בתוך הספר.</translation>
+        <translation>在书中找到下一个拼写错误的单词.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1587"/>
         <source>F4</source>
-        <translation type="unfinished"/>
+        <translation>F4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1592"/>
         <source>&amp;Add Misspelled Word</source>
-        <translation>הוס&amp;ף מילה לא מאויתת כהלכה</translation>
+        <translation>&amp;A添加错别字</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1595"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
-        <translation>הוסף את המילה הנוכחית אשר לא מאויתת כהלכה תחת הקארה אל מילון משתמש ברירת מחדל.</translation>
+        <translation>将插入符下的当前拼写错误的单词添加到默认用户字典</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1600"/>
         <source>&amp;Ignore Misspelled Word</source>
-        <translation>הת&amp;עלם מן מילה לא מאויתות כהלכה</translation>
+        <translation>&amp;I忽略拼写错误的字</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1603"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
-        <translation>התעלם מן המילה הנוכחית אשר לא מאויתת כהלכה תחת הקארה עד אשר Sigil הינו מאותחל.</translation>
+        <translation>忽略插入符号下的当前拼写错误的单词，直到Sigil重新启动.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1608"/>
         <source>&amp;Clear Ignored Words</source>
-        <translation>&amp;טהר מילים מנוכרות</translation>
+        <translation>&amp;C清除已忽略的字词</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1611"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
-        <translation>טהר מילים מנוכרות נוכחיות מתוך בדיקת איות בלי לאתחל את Sigil.</translation>
+        <translation>清除当前从Spellcheck忽略的单词，而不必重新启动Sigil。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1616"/>
         <source>&amp;Index Editor...</source>
-        <translation>עורך &amp;אינדקס...</translation>
+        <translation>&amp;I索引编辑器...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1619"/>
         <source>Ctrl+Alt+I</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+I</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1624"/>
         <source>&amp;Delete Unused Media Files...</source>
-        <translation>&amp;מחיקת קבצי מדיה לא משומשים...</translation>
+        <translation>&amp;D删除未使用的媒体文件...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1629"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;U删除未用的样式表类...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1634"/>
         <source>&amp;Reports...</source>
-        <translation>&amp;דיווחים...</translation>
+        <translation>&amp;R报告</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1637"/>
         <source>Ctrl+Shift+R</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+R</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1646"/>
         <source>&amp;Donate...</source>
-        <translation>&amp;תרומה...</translation>
+        <translation>&amp;D捐款</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1649"/>
@@ -7793,712 +7884,710 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
 </source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;תרום&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;捐款&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;תרומה לשם תמיכה במיזם Sigil.&lt;/p&gt;
-</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;捐款支持Sigil.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1657"/>
         <source>Close &amp;Other Tabs</source>
-        <translation>סגור כרטיסיות &amp;אחרות</translation>
+        <translation>&amp;O关闭其它标签</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1660"/>
         <source>Ctrl+Alt+W</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1665"/>
         <source>Go To &amp;Line...</source>
-        <translation>עבור אל &amp;שורה...</translation>
+        <translation>&amp;L转移到行...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1668"/>
         <source>Ctrl+/</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+/</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1673"/>
         <source>Find &amp;Next</source>
-        <translation>מצא את ה&amp;בא</translation>
+        <translation>&amp;N查找下一个</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1676"/>
         <source>Ctrl+G</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+G</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1681"/>
         <source>Find &amp;Previous</source>
-        <translation>מצא את ה&amp;קודם</translation>
+        <translation>&amp;P查找前一个</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1684"/>
         <source>Ctrl+Shift+G</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Shift+G</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1689"/>
         <source>Replace</source>
-        <translation>החלף</translation>
+        <translation>替换</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1692"/>
         <source>Ctrl+R</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+R</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1697"/>
         <source>&amp;Replace/Find Next</source>
-        <translation type="unfinished"/>
+        <translation>&amp;R替换/查找下一个</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1700"/>
         <source>Ctrl+]</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+J</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1705"/>
         <source>R&amp;eplace/Find Previous</source>
-        <translation type="unfinished"/>
+        <translation>&amp;e替换/查找前一个</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1708"/>
         <source>Ctrl+[</source>
-        <translation type="unfinished"/>
+        <translation>Ctr;+[</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1713"/>
         <source>Replace &amp;All</source>
-        <translation>החלף ה&amp;כל</translation>
+        <translation>&amp;A全部替换</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1716"/>
         <source>Alt+A</source>
-        <translation type="unfinished"/>
+        <translation>Alt+A</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1721"/>
         <source>&amp;Count All</source>
-        <translation type="unfinished"/>
+        <translation>&amp;C全部计算</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1724"/>
         <source>Alt+C</source>
-        <translation type="unfinished"/>
+        <translation>Alt+C</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1729"/>
         <source>Mar&amp;k Selected Text</source>
-        <translation>ס&amp;מן טקסט נבחר</translation>
+        <translation>&amp;k给选中的文本做标记</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1737"/>
         <source>Find &amp;Next In File</source>
-        <translation type="unfinished"/>
+        <translation>&amp;N在文件中查找先一个</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1742"/>
         <source>&amp;Replace Next In File</source>
-        <translation type="unfinished"/>
+        <translation>&amp;N在文件中替换先一个</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1747"/>
         <source>Replace &amp;All In File</source>
-        <translation type="unfinished"/>
+        <translation>&amp;N在文件中查替换全部</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1752"/>
         <source>&amp;Count All In File</source>
-        <translation type="unfinished"/>
+        <translation>&amp;C在文件中计数所有</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1757"/>
         <source>&amp;Saved Searches...</source>
-        <translation>&amp;חיפושים שמורים...</translation>
+        <translation>&amp;S保存的搜索</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1760"/>
         <source>Ctrl+Alt+F</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1765"/>
         <source>&amp;Clip Editor...</source>
-        <translation>עורך &amp;קליפ...</translation>
+        <translation>&amp;C剪辑编辑器...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1768"/>
         <source>Open the Clip Editor.</source>
-        <translation>פתח עורך קליפ.</translation>
+        <translation>打开剪辑编辑器.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1771"/>
         <source>Ctrl+Alt+C</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1776"/>
         <source>Clip &amp;1</source>
-        <translation>קליפ &amp;1</translation>
+        <translation>剪辑 &amp;1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1779"/>
         <source>Insert Clip 1</source>
-        <translation>הכנס קליפ 1</translation>
+        <translation>插入剪辑1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1782"/>
         <source>Ctrl+Alt+1</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1787"/>
         <source>Clip &amp;2</source>
-        <translation type="unfinished"/>
+        <translation>剪辑 &amp;2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1790"/>
         <source>Insert Clip 2</source>
-        <translation>הכנס קליפ 2</translation>
+        <translation>插入剪辑2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1793"/>
         <source>Ctrl+Alt+2</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1798"/>
         <source>Clip &amp;3</source>
-        <translation>קליפ &amp;3</translation>
+        <translation>剪辑 &amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1801"/>
         <source>Insert Clip 3</source>
-        <translation>הכנס קליפ 3</translation>
+        <translation>插入剪辑3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1804"/>
         <source>Ctrl+Alt+3</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1809"/>
         <source>Clip &amp;4</source>
-        <translation>קליפ &amp;4</translation>
+        <translation>剪辑 &amp;4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1812"/>
         <source>Insert Clip 4</source>
-        <translation>הכנס קליפ 4</translation>
+        <translation>插入剪辑4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1815"/>
         <source>Ctrl+Alt+4</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1820"/>
         <source>Clip &amp;5</source>
-        <translation>קליפ &amp;5</translation>
+        <translation>剪辑 &amp;5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1823"/>
         <source>Insert Clip 5</source>
-        <translation>הכנס קליפ 5</translation>
+        <translation>插入剪辑5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1826"/>
         <source>Ctrl+Alt+5</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1831"/>
         <source>Clip &amp;6</source>
-        <translation>קליפ &amp;6</translation>
+        <translation>剪辑 &amp;6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1834"/>
         <source>Insert Clip 6</source>
-        <translation>הכנס קליפ 6</translation>
+        <translation>插入剪辑6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1837"/>
         <source>Ctrl+Alt+6</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1842"/>
         <source>Clip &amp;7</source>
-        <translation>קליפ &amp;7</translation>
+        <translation>剪辑 &amp;7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1845"/>
         <source>Insert Clip 7</source>
-        <translation>הכנס קליפ 7</translation>
+        <translation>插入剪辑7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1848"/>
         <source>Ctrl+Alt+7</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1853"/>
         <source>Clip &amp;8</source>
-        <translation>קליפ &amp;8</translation>
+        <translation>剪辑 &amp;8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1856"/>
         <source>Insert Clip 8</source>
-        <translation>הכנס קליפ 8</translation>
+        <translation>插入剪辑8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1859"/>
         <source>Ctrl+Alt+8</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1864"/>
         <source>Clip &amp;9</source>
-        <translation>קליפ &amp;9</translation>
+        <translation>剪辑 &amp;9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1867"/>
         <source>Insert Clip 9</source>
-        <translation>הכנס קליפ 9</translation>
+        <translation>插入剪辑9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1870"/>
         <source>Ctrl+Alt+9</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1875"/>
         <source>Clip 1&amp;0</source>
-        <translation>קליפ 1&amp;0</translation>
+        <translation>剪辑 1&amp;0</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1878"/>
         <source>Insert Clip 10</source>
-        <translation>הכנס קליפ 10</translation>
+        <translation>插入剪辑10</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1881"/>
         <source>Ctrl+Alt+0</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+0</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1886"/>
         <source>Clip 11</source>
-        <translation>קליפ 11</translation>
+        <translation>剪辑 11</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1889"/>
         <source>Insert Clip 11</source>
-        <translation>הכנס קליפ 11</translation>
+        <translation>插入剪辑11</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1894"/>
         <source>Clip 12</source>
-        <translation>קליפ 12</translation>
+        <translation>剪辑 12</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1897"/>
         <source>Insert Clip 12</source>
-        <translation>הכנס קליפ 12</translation>
+        <translation>插入剪辑12</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1902"/>
         <source>Clip 13</source>
-        <translation>קליפ 13</translation>
+        <translation>剪辑 13</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1905"/>
         <source>Insert Clip 13</source>
-        <translation>הכנס קליפ 13</translation>
+        <translation>插入剪辑13</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1910"/>
         <source>Clip 14</source>
-        <translation>קליפ 14</translation>
+        <translation>剪辑 14</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1913"/>
         <source>Insert Clip 14</source>
-        <translation>הכנס קליפ 14</translation>
+        <translation>插入剪辑14</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1918"/>
         <source>Clip 15</source>
-        <translation>קליפ 15</translation>
+        <translation>剪辑 15</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1921"/>
         <source>Insert Clip 15</source>
-        <translation>הכנס קליפ 15</translation>
+        <translation>插入剪辑15</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1926"/>
         <source>Clip 16</source>
-        <translation>קליפ 16</translation>
+        <translation>剪辑 16</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1929"/>
         <source>Insert Clip 16</source>
-        <translation>הכנס קליפ 16</translation>
+        <translation>插入剪辑16</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1934"/>
         <source>Clip 17</source>
-        <translation>קליפ 17</translation>
+        <translation>剪辑 17</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1937"/>
         <source>Insert Clip 17</source>
-        <translation>הכנס קליפ 17</translation>
+        <translation>插入剪辑17</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1942"/>
         <source>Clip 18</source>
-        <translation>קליפ 18</translation>
+        <translation>剪辑 18</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1945"/>
         <source>Insert Clip 18</source>
-        <translation>הכנס קליפ 18</translation>
+        <translation>插入剪辑18</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1950"/>
         <source>Clip 19</source>
-        <translation>קליפ 19</translation>
+        <translation>剪辑 19</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1953"/>
         <source>Insert Clip 19</source>
-        <translation>הכנס קליפ 19</translation>
+        <translation>插入剪辑19</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1958"/>
         <source>Clip 20</source>
-        <translation>קליפ 20</translation>
+        <translation>剪辑 20</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1961"/>
         <source>Insert Clip 20</source>
-        <translation>הכנס קליפ 20</translation>
+        <translation>插入剪辑20</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1966"/>
         <source>&amp;Preferences...</source>
-        <translation>&amp;העדפות...</translation>
+        <translation>&amp;P配置</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1969"/>
         <source>F5</source>
-        <translation type="unfinished"/>
+        <translation>F5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1974"/>
         <source>&amp;Zoom Reset</source>
-        <translation>אפס &amp;זום</translation>
+        <translation>&amp;Z重置缩放</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1977"/>
         <source>Zoom Reset</source>
-        <translation type="unfinished"/>
+        <translation>重置缩放</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1980"/>
         <source>Ctrl+0</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+0</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1992"/>
         <source>Heading &amp;1</source>
-        <translation>כותרת &amp;1</translation>
+        <translation>标题 &amp;1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1995"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;כותרת 1&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;标题 1&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;עצב פסקה בתור כותרת רמה 1.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为1级标题.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2000"/>
         <source>Ctrl+1</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2012"/>
         <source>Heading &amp;2</source>
-        <translation>כותרת &amp;2</translation>
+        <translation>标题 &amp;2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2015"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;כותרת 2&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;标题 2&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;עצב פסקה בתור כותרת רמה 2.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为2级标题.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2020"/>
         <source>Ctrl+2</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2032"/>
         <source>Heading &amp;3</source>
-        <translation>כותרת &amp;3</translation>
+        <translation>标题 &amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2035"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;כותרת 3&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;标题 3&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;עצב פסקה בתור כותרת רמה 3.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为3级标题.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2040"/>
         <source>Ctrl+3</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2052"/>
         <source>Heading &amp;4</source>
-        <translation>כותרת &amp;4</translation>
+        <translation>标题 &amp;4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2055"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;כותרת 4&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;标题 4&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;עצב פסקה בתור כותרת רמה 4.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为4级标题.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2060"/>
         <source>Ctrl+4</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2072"/>
         <source>Heading &amp;5</source>
-        <translation>כותרת &amp;5</translation>
+        <translation>标题 &amp;5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2075"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;כותרת 5&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;标题 5&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;עצב פסקה בתור כותרת רמה 5.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为5级标题.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2080"/>
         <source>Ctrl+5</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2092"/>
         <source>Heading &amp;6</source>
-        <translation>כותרת &amp;6</translation>
+        <translation>标题 &amp;6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2095"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;כותרת 6&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;标题 6&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;עצב פסקה בתור כותרת רמה 6.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为6级标题.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2100"/>
         <source>Ctrl+6</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2112"/>
         <source>&amp;Normal</source>
-        <translation>&amp;רגיל</translation>
+        <translation>&amp;N正常</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2115"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;פסקה&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;段落&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;עיצוב פסקה בתור פסקה רגילה.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为正常段落.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2120"/>
         <source>Ctrl+7</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2128"/>
         <source>&amp;Preserve Existing Attributes</source>
-        <translation type="unfinished"/>
+        <translation>&amp;P保留现有属性</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2131"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
-        <translation type="unfinished"/>
+        <translation>应用此样式时，保留标记上的所有现有属性</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2136"/>
         <source>Blank HTML File</source>
-        <translation>קובץ HTML ריק</translation>
+        <translation>空白HTML文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2139"/>
         <source>Add a new blank HTML file to the book.</source>
-        <translation>הוסף קובץ HTML ריק חדש אל הספר.</translation>
+        <translation>添加空白HTML文件到书中</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2148"/>
         <source>Existing Files...</source>
-        <translation>קבצים קיימים...</translation>
+        <translation>已存在文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2151"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;הוסף קבצים קיימים&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;הוספת קבצים מתוך מחשבך אל הספר.&lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;添加已存在文件&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;从你的电脑中添加文件到书中.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2158"/>
         <source>Blank Stylesheet</source>
-        <translation>גיליון סגנון ריק</translation>
+        <translation>空白的样式表</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2161"/>
         <source>Add a new blank stylesheet to the book.</source>
-        <translation>הוסף גיליון סגנון ריק חדש אל הספר.</translation>
+        <translation>添加空白的样式表到书中</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2166"/>
         <source>Blank SVG Image</source>
-        <translation>תמונת SVG ריקה</translation>
+        <translation>空白的SVG图形</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2169"/>
         <source>Add a new blank svg image file to the book.</source>
-        <translation>הוסף תמונת svg ריקה חדשה אל הספר.</translation>
+        <translation>添加空白svg图形文件到书中</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2174"/>
         <source>Pre&amp;vious File</source>
-        <translation>קובץ קו&amp;דם</translation>
+        <translation>&amp;v上一个文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2177"/>
         <source>Open previous file of the same type.</source>
-        <translation>פתח קובץ קודם מאותו הטיפוס.</translation>
+        <translation>打开上一个同类型文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2180"/>
         <source>Alt+PgUp</source>
-        <translation type="unfinished"/>
+        <translation>Alt+PgUp</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2185"/>
         <source>Next &amp;File</source>
-        <translation>&amp;קובץ בא</translation>
+        <translation>&amp;F下一个文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2188"/>
         <source>Open next file of the same type.</source>
-        <translation>פתח קובץ בא מאותו הטיפוס.</translation>
+        <translation>打开下一个同类型文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2191"/>
         <source>Alt+PgDown</source>
-        <translation type="unfinished"/>
+        <translation>Alt+PgDown</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2196"/>
         <source>&amp;Add To Index Editor</source>
-        <translation>&amp;הוסף אל עורך אינדקס</translation>
+        <translation>&amp;A添加到索引编辑器</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2199"/>
         <source>Add the selected text to the Index Editor.</source>
-        <translation>הוסף את הטקסט הנבחר אל עורך אינדקס.</translation>
+        <translation>将选中的文本添加到索引编辑器</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2204"/>
         <source>&amp;Mark For Index</source>
-        <translation type="unfinished"/>
+        <translation>&amp;M标记为索引</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2207"/>
         <source>Mark the selected text for inclusion in the Index.</source>
-        <translation type="unfinished"/>
+        <translation>将所选文本标记为包含在索引中</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2210"/>
         <source>Ctrl+Shift+X</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Shift+X</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2215"/>
         <source>&amp;Create Index</source>
-        <translation>&amp;צור אינדקס</translation>
+        <translation>&amp;C生成索引</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2218"/>
         <source>Generate a new Index HTML file.</source>
-        <translation>חולל קובץ אינדקס HTML חדש.</translation>
+        <translation>生成新的HTML文件索引</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2223"/>
         <source>&amp;Create HTML Table Of Contents</source>
-        <translation type="unfinished"/>
+        <translation>&amp;C创建HTML目录</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2226"/>
         <source>Create a new HTML file using the current TOC.</source>
-        <translation>צור קובץ HTML חדש באמצעות התוכן עניינים הנוכחי.</translation>
+        <translation>使用当前TOC创建一个新的HTML文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2231"/>
         <source>Book&amp;mark Location</source>
-        <translation>ס&amp;מן מיקום</translation>
+        <translation>&amp;m书签的位置</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2234"/>
         <source>Ctrl+Alt+B</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2239"/>
         <source>&amp;Go To Link Or Style</source>
-        <translation type="unfinished"/>
+        <translation>转移到链接或样式</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2242"/>
         <source>F3</source>
-        <translation type="unfinished"/>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2251"/>
         <source>&amp;Back</source>
-        <translation>א&amp;חורה</translation>
+        <translation>&amp;B后退</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2254"/>
@@ -8506,665 +8595,669 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
     </source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;אחורה&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;חזרה לאן שבאחרונה הלכת לקישור או סגנון, או סימנת את מיקומך.&lt;/p&gt;
-    </translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;后退&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;返回您上次访问的链接或样式，或将您的位置添加到书签.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2260"/>
         <source>Ctrl+\</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+\</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2265"/>
         <source>Edit/Paste From Clipboard &amp;History...</source>
-        <translation type="unfinished"/>
+        <translation>从剪贴板历史中编辑或粘贴...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2268"/>
         <source>Ctrl+Alt+V</source>
-        <translation type="unfinished"/>
+        <translation>
+根李连杰的面向一样，双眼突出，满脸皱褶，是不是吃了同一种返老还童药？
+</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2273"/>
         <source>&amp;Delete Line</source>
-        <translation>&amp;מחק שורה</translation>
+        <translation>&amp;D删除行</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2276"/>
         <source>Ctrl+D</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2281"/>
         <source>Manage Plugins</source>
-        <translation type="unfinished"/>
+        <translation>管理插件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2290"/>
         <source>Run Plugin 1</source>
-        <translation type="unfinished"/>
+        <translation>运行插件1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2299"/>
         <source>Run Plugin 2</source>
-        <translation type="unfinished"/>
+        <translation>运行插件2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2308"/>
         <source>Run Plugin 3</source>
-        <translation type="unfinished"/>
+        <translation>运行插件3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2313"/>
         <source>Mend and &amp;Prettify All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>修改和预处理所有HTML文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2318"/>
         <source>&amp;Mend All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>&amp;M修改所有HTML文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2323"/>
         <source>&amp;Update Manifest Properties</source>
-        <translation type="unfinished"/>
+        <translation>&amp;U更新清单属性</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2328"/>
         <source>Generate NC&amp;X from Nav</source>
-        <translation type="unfinished"/>
+        <translation>&amp;x从Nav生成NCX</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="261"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>输入</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="267"/>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>输出</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="279"/>
         <source>Validation</source>
-        <translation type="unfinished"/>
+        <translation>验证</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="402"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="412"/>
         <source>Navigation cancelled as location no longer exists.</source>
-        <translation>בוטל ניווט מאחר ומיקום לא קיים עוד.</translation>
+        <translation>因为位置已不存在导航已取消。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="418"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="428"/>
         <source>Location bookmarked.</source>
-        <translation>סומן מיקום.</translation>
+        <translation>加入书签的位置</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="465"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="697"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="894"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1040"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1419"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1506"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1561"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1569"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1586"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1598"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1701"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1709"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1728"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1741"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1749"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1760"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1765"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1777"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="707"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="904"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1050"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1429"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1516"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1571"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1579"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1596"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1608"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1711"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1719"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1733"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1759"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1770"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1775"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1787"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1792"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2037"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2044"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2058"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2063"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2083"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2111"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3369"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3375"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3417"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3429"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3579"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3786"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3986"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1797"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2047"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2054"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2068"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2073"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2097"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2129"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3387"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3435"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3441"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3447"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3597"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3804"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4004"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="465"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="475"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
-        <translation>האם אתה בטוח כי ברצונך לפתוח את קישור חיצוני זה?
+        <translation>您确定要打开此外部链接?
 
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="511"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="521"/>
         <source>was updated</source>
-        <translation type="unfinished"/>
+        <translation>已经更新</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="528"/>
         <source>Warning</source>
-        <translation>אזהרה</translation>
+        <translation>警示</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="528"/>
         <source>The file was NOT well formed and may be corrupted.</source>
-        <translation type="unfinished"/>
+        <translation>该文件没有正确形成并可能已损坏.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="546"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="556"/>
         <source>Opening this EPUB generated warnings.</source>
-        <translation type="unfinished"/>
+        <translation>打开此EPUB产生的警告。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="548"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="558"/>
         <source>Select Show Details for more information.</source>
-        <translation type="unfinished"/>
+        <translation>有关详细信息，请选择显示详细信息</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="588"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="598"/>
         <source>Sigil is closing...</source>
-        <translation>‏Sigil מצוי כעת בשלבי סגירה...</translation>
+        <translation>Sigil正在关闭中...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="638"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="648"/>
         <source>New file created.</source>
-        <translation>נוצר קובץ חדש.</translation>
+        <translation>新文件生成了</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="659"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="669"/>
         <source>Open File</source>
-        <translation>פתח קובץ</translation>
+        <translation>打开文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="696"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="706"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
-        <translation type="unfinished"/>
+        <translation>此文件已不存在. 单击“确定”将其从菜单中删除.
+%1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="766"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="776"/>
         <source>Save File</source>
-        <translation>שמור קובץ</translation>
+        <translation>保存文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="815"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="825"/>
         <source>Save a Copy</source>
-        <translation>שמור עותק</translation>
+        <translation>保存为副本</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="871"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="881"/>
         <source>Go To Line</source>
-        <translation>עבור אל שורה</translation>
+        <translation>转移到行</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="871"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="881"/>
         <source>Line #</source>
-        <translation>שורה מס׳</translation>
+        <translation>行 #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="904"/>
         <source>Image does not exist: </source>
-        <translation>תמונה לא קיימת: </translation>
+        <translation>图形不存在: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="964"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="974"/>
         <source>No CSS styles named</source>
-        <translation type="unfinished"/>
+        <translation>没有CSS样式命名</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1036"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1046"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;p&gt;在&lt;b&gt;%2&lt;/b&gt;中的href&lt;b&gt;%1&lt;/b&gt;不存在 (并且可能有更多).  在这些条件下分裂或合并可能导致链接断开.&lt;/p&gt;&lt;p&gt;你希望继续吗?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1058"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1068"/>
         <source>Add Cover</source>
-        <translation>הוסף כריכה</translation>
+        <translation>添加封面</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1150"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1160"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
-        <translation type="unfinished"/>
+        <translation>意外的错误. 只有图像文件可用于封面.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1167"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1177"/>
         <source>Cover added.</source>
-        <translation>התווספה כריכה.</translation>
+        <translation>封面添加完毕.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1176"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1193"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1186"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1203"/>
         <source>Not Available for epub2.</source>
-        <translation type="unfinished"/>
+        <translation>不适用于epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1194"/>
         <source>OPF Manifest Properties Updated.</source>
-        <translation type="unfinished"/>
+        <translation>OPF清单属性已更新.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1210"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1264"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1220"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1274"/>
         <source>NCX generation failed.</source>
-        <translation type="unfinished"/>
+        <translation>NCX生成失败.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1259"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1269"/>
         <source>NCX generated.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1409"/>
-        <source>Styles deleted.</source>
-        <translation>נמחקו סגנונן.</translation>
+        <translation>NCX已生成.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1419"/>
+        <source>Styles deleted.</source>
+        <translation>样式已删除.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1429"/>
         <source>Reports cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>由于XML格式不正确而取消的报告.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1506"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1516"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1559"/>
-        <source>Unused media files deleted.</source>
-        <translation>נמחקו קבצי מדיה לא משומשים.</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1561"/>
-        <source>There are no unused image, video or audio files to delete.</source>
-        <translation>אין קבצי תמונה, וידאו או אודיו לא משומשים לשם מחיקה.</translation>
+        <translation>删除由于XML格式不正确而取消的未使用的媒体文件.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1569"/>
+        <source>Unused media files deleted.</source>
+        <translation>未使用的媒体文件已删除.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1571"/>
+        <source>There are no unused image, video or audio files to delete.</source>
+        <translation>没有未使用的图像、视频或音频文件需要删除。</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1579"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>删除由于XML格式不正确而取消的未使用的样式。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1586"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1596"/>
         <source>There are no unused stylesheet classes to delete.</source>
-        <translation type="unfinished"/>
+        <translation>没有未使用的样式表需要删除</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1598"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1608"/>
         <source>You cannot insert a file at this position.</source>
-        <translation>אין ביכולתך לשבץ קובץ בעמדה זו.</translation>
+        <translation>无法再当前位置插入文件.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1605"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1615"/>
         <source>Insert File</source>
-        <translation>הכנס קובץ</translation>
+        <translation>插入文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1650"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1660"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>הקובץ &quot;%1&quot; לא קיים.</translation>
+        <translation>文件&quot;%1&quot;不存在</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1701"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1728"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1711"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1738"/>
         <source>You cannot insert an id at this position.</source>
-        <translation>אין ביכולתך להכניס מזהה בעמדה זו.</translation>
+        <translation>无法再当前位置插入ID标识.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1709"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1719"/>
         <source>You must select text before inserting a new id.</source>
-        <translation>עליך לבחור טקסט טרם שיבוץ מזהה חדש.</translation>
+        <translation>在插入新的ID之前，您必须先选择文字。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1733"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
-        <translation type="unfinished"/>
+        <translation>ID无效 - 必须以字母开头，后可跟字母数字以及“_”“:”“-” 或“.”</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1741"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1775"/>
         <source>You cannot insert a link at this position.</source>
-        <translation>אין ביכולתך לשבץ קישור בעמדה זו.</translation>
+        <translation>无法再当前位置插入连接.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1749"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1759"/>
         <source>You must select text before inserting a new link.</source>
-        <translation>עליך לבחור טקסט טרם שיבוץ קישור חדש.</translation>
+        <translation>在插入新的连接之前，您必须先选择文字。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1760"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1770"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1777"/>
-        <source>You cannot mark an index at this position or without selecting text.</source>
-        <translation>אין ביכולתך לסמן אינדקס בעמדה זו או בלי לבחור טקסט.</translation>
+        <translation>链接无效 - 不能包含 &apos;&lt;&apos; 或 &apos;&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1787"/>
+        <source>You cannot mark an index at this position or without selecting text.</source>
+        <translation>您不能在此位置标记索引或不选择文本.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1797"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation type="unfinished"/>
+        <translation>条目无效 - 不能包含“&lt;”或“&gt;”</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1792"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1802"/>
         <source>You cannot mark an index at this position.</source>
-        <translation>אין ביכולתך לסמן אינדקס בעמדה זו.</translation>
+        <translation>您不能在此位置标记索引.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1872"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1883"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1998"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1882"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1893"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2008"/>
         <source>Select the destination to paste into first.</source>
-        <translation>בחר את היעד להדביק אליו תחילה.</translation>
+        <translation>选择要粘贴到的目标位置.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1891"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1901"/>
         <source>Pasted clip entry %1.</source>
-        <translation>ערך קליפ מודבק %1.</translation>
+        <translation>已粘贴剪辑项%1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2037"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2047"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
-        <translation type="unfinished"/>
+        <translation>选择了一个资源, 没有要合并到的以前的资源.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2044"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2054"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
-        <translation>האם אתה בטוח כי ברצונך למזג את הקבצים הנבחרים?
-פעולה זו הינה בלתי הפיכה.</translation>
+        <translation>您确定要合并所选的文件吗？
+此操作无法撤消.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2058"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2068"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
-        <translation>מיזוג בוטל: %1, XML אינו מובנה היטב.</translation>
+        <translation>合并取消: %1, XML格式不正确.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2063"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2073"/>
         <source>Merge cancelled due to XML not well formed.</source>
-        <translation>בוטל מיזוג משום XML לא מובנה היטב.</translation>
+        <translation>由于XML格式不正确, 因此合并已取消.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2083"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2097"/>
         <source>Cannot merge file %1</source>
-        <translation>אין אפשרות למזג קובץ %1</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2093"/>
-        <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
-        <translation>הושלם מיזוג. אפשרי כי יהיה עליך לחולל מחדש או לערוך את התוכן עניינים.</translation>
+        <translation>无法合并文件%1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2111"/>
+        <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
+        <translation>合并完成. 您可能需要重新生成或编辑您的目录.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2129"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
-        <translation>בוטל קישור גיליונות סגנון: %1, XML לא מובנה היטב.</translation>
+        <translation>已取消链接样式表: %1, XML格式不正确.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2242"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2260"/>
         <source>Word updated.</source>
-        <translation>עודכנה מילה.</translation>
+        <translation>词以更新.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2315"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2333"/>
         <source>File(s) deleted.</source>
-        <translation>נמחקו קבצים.</translation>
+        <translation>文件已删除.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2326"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2344"/>
         <source>Edit Table of Contents cancelled.</source>
-        <translation>בוטלה עריכת תוכן עניינים.</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2331"/>
-        <source>Table Of Contents edited.</source>
-        <translation>נערך תוכן עניינים.</translation>
+        <translation>编辑目录已取消.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2349"/>
+        <source>Table Of Contents edited.</source>
+        <translation>编辑目录已编辑。</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2367"/>
         <source>Generate TOC cancelled.</source>
-        <translation>בוטלה יצירת תוכן עניינים.</translation>
+        <translation>生成的TOC取消.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2373"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2391"/>
         <source>Table Of Contents generated.</source>
-        <translation>התחולל תוכן עניינים.</translation>
+        <translation>目录一生成.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2375"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2393"/>
         <source>No Table Of Contents changes were necessary.</source>
-        <translation>אין צורך לקיים שינויים של תוכן עניינים.</translation>
+        <translation>无需改变目录.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2511"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2529"/>
         <source>Text selection marked.</source>
-        <translation>סומן טקסט נבחר.</translation>
+        <translation>已标记文本选择.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2513"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2531"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2549"/>
         <source>Text selection unmarked.</source>
-        <translation>אויין סימון טקסט נבחר.</translation>
+        <translation>取消选择文本的标记</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2637"/>
         <source>Metadata Editor cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>元数据编辑器已取消.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2622"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2640"/>
         <source>Metadata edited.</source>
-        <translation type="unfinished"/>
+        <translation>元数据已编辑</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2702"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2720"/>
         <source>RunPlugin1</source>
-        <translation type="unfinished"/>
+        <translation>运行插件1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2703"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2721"/>
         <source>RunPlugin2</source>
-        <translation type="unfinished"/>
+        <translation>运行插件2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2704"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2722"/>
         <source>RunPlugin3</source>
-        <translation type="unfinished"/>
+        <translation>运行插件3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2731"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2749"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
-        <translation>מסמך EPUB זה לא מכיל שום גיליונות סגנון CSS לשם נתינת תוקף.</translation>
+        <translation>此EPUB不包含任何需要验证的CSS样式表.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3270"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3288"/>
         <source>Line: %1, Col: %2</source>
-        <translation>שורה: %1, טור: %2</translation>
+        <translation>行: %1, 列: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3369"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3387"/>
         <source>File cannot be split at this position.</source>
-        <translation>קובץ לא יכול להתפצל בעמדה זו.</translation>
+        <translation>文件不能在此位置分割.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3375"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
         <source>The Nav file cannot be split.</source>
-        <translation type="unfinished"/>
+        <translation>Nav文件不能分割.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3392"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
         <source>Split completed.</source>
-        <translation>הושלם פיצול.</translation>
+        <translation>分割结束.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3417"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3435"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
-        <translation type="unfinished"/>
+        <translation>由于至少有一个文件不是HTML文件, 因此无法拆分.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3441"/>
         <source>Cannot split: %1 XML is not well formed</source>
-        <translation>אין אפשרות לפצל: %1 XML אינו מובנה היטב</translation>
+        <translation>无法拆分: ％1 XML格式不正确.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3429"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3447"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
-        <translation>אין אפשרות לפצל מאחר שלפחות קובץ אחד עלול שלא להיות קובץ HTML.</translation>
+        <translation>无法拆分, 因为至少有一个文件可能不是HTML文件.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3462"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
-        <translation>הושלם פיצול. אפשרי כי יהיה עליך לעדכן את התוכן עניינים.</translation>
+        <translation>拆分完成, 您可能需要更新目录.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3471"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3489"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
-        <translation>לא נמצא מסמני פיצול קובץ. השתמש בתפריט הכנס-&gt;סמן פיצול.</translation>
+        <translation>未找到拆分文件标记. 使用插入-&gt;拆分标记.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3580"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3598"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
-        <translation>המסמך עבר שינוי.
-האם ברצונך לשמור את השינויים שלך?</translation>
+        <translation>文档已修改.
+要保存更改吗?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3660"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3678"/>
         <source>No importer for file type: %1</source>
-        <translation type="unfinished"/>
+        <translation>没有文件类型的导入器: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3667"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3685"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
 
 Try setting the Clean Source preference to Mend XHTML Source Code on Open and reloading the file.</source>
-        <translation type="unfinished"/>
+        <translation>以下文件由于无效的内容或格式不正确的XML而未加载:
+％1(行％2：％3)
+尝试打开时将“清除源”首选项设置为“修改XHTML源代码”, 然后重新加载文件.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3672"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3690"/>
         <source>Loading file...</source>
-        <translation>כעת טוען קובץ...</translation>
+        <translation>加载文件中...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3686"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3704"/>
         <source>File loaded.</source>
-        <translation>נטען קובץ.</translation>
+        <translation>文件已加载.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3713"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3731"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
-        <translation>היוצר של קובץ זה הצפינו בעזרת DRM. ‏Sigil לא מסוגל לפתוח קבצים שכאלו.</translation>
+        <translation>此文件的创建者已使用DRM加密. Sigil无法打开这样的文件.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3720"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3738"/>
         <source>Cannot load EPUB: %1</source>
-        <translation>אין אפשרות לטעון EPUB: %1</translation>
+        <translation>无法加载EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3724"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3742"/>
         <source>Cannot load file %1: %2</source>
-        <translation>אין אפשרות לטעון קובץ %1: %2</translation>
+        <translation>无法加载%1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3753"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3771"/>
         <source>Saving EPUB...</source>
-        <translation>כעת שומר EPUB...</translation>
+        <translation>正在保存EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3762"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3780"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
-        <translation>‏Sigil לא יכול לשמור קבצים מן טיפוס &quot;%1&quot;.
-אנא בחר פורמט שונה.</translation>
+        <translation>Sigil无法保存类型“%1”的文件.
+请选择其他格式.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3805"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in data loss.
 
 Do you want to automatically mend the files before saving?</source>
-        <translation type="unfinished"/>
+        <translation>此EPUB包含的HTML文件格式不正确, 您当前的“清洁来源”首选项设置为自动修改保存. 保存不正确的文件将导致它被自动修复, 这很少会导致数据丢失.
+您要在保存之前自动修复文件吗?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3836"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
-        <translation>‏EPUB נשמר, אך לא כל קבצי ה-HTML מובנים היטב.</translation>
+        <translation>EPUB已保存, 但并非所有HTML文件格式正确.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3820"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
         <source>EPUB saved.</source>
-        <translation>נשמר EPUB.</translation>
+        <translation>EPUB已保存.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3844"/>
         <source>Cannot save file %1: %2</source>
-        <translation>אין אפשרות לשמור קובץ %1: %2</translation>
+        <translation>无法保存文件 %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3961"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3979"/>
         <source>EPUB files (*.epub)</source>
-        <translation>קבצי EPUB ‏(epub.*)</translation>
+        <translation>EPUB文件(*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3962"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3963"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3964"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3980"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3981"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3982"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
-        <translation>קבציHTML ‏(xhtml *.html *.htm.*)</translation>
+        <translation>HTML文件(*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3965"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3983"/>
         <source>Text files (*.txt)</source>
-        <translation>קבצי טקסט (txt.*)</translation>
+        <translation>文本文件(*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3966"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3984"/>
         <source>All files (*.*)</source>
-        <translation>כל הקבצים (*.*)</translation>
+        <translation>所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3974"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3992"/>
         <source>EPUB file (*.epub)</source>
-        <translation>קובץ EPUB ‏(epub.*)</translation>
+        <translation>EPUB文件(*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3986"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4004"/>
         <source>%1[*] - epub%2 - %3</source>
-        <translation type="unfinished"/>
+        <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4057"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4075"/>
         <source>Preserve existing heading attributes is now:</source>
-        <translation type="unfinished"/>
+        <translation>保留现有标题属性是: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4058"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4076"/>
         <source>ON</source>
-        <translation type="unfinished"/>
+        <translation>开</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4058"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4076"/>
         <source>OFF</source>
-        <translation type="unfinished"/>
+        <translation>关</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4083"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4101"/>
         <source>&amp;%1 %2</source>
-        <translation type="unfinished"/>
+        <translation>&amp;%1 %2</translation>
     </message>
 </context>
 <context>
@@ -9172,2118 +9265,2119 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>Abridger</source>
-        <translation type="unfinished"/>
+        <translation>删节</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>A person, family, or organization contributing to a resource by shortening or condensing the original work but leaving the nature and content of the original work substantially unchanged. For substantial modifications that result in the creation of a new work, see Author.</source>
-        <translation type="unfinished"/>
+        <translation>通过缩短或缩小原作品, 但原始作品的性质和内容基本不变，为资源做出贡献的人, 家庭或组织. 对于导致创建新工作的实质性修改, 请参阅作者.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Actor</source>
-        <translation type="unfinished"/>
+        <translation>角色</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>用于主要在音乐或戏剧演出或娱乐中表演演出技巧的人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Adapter</source>
-        <translation type="unfinished"/>
+        <translation>改编者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
-        <translation type="unfinished"/>
+        <translation>用于1) 为通常为不同媒体播放音乐作品的人或组织, 或2) 重写电影或其他视听媒体的小说或故事.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Analyst</source>
-        <translation type="unfinished"/>
+        <translation>分析师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
-        <translation type="unfinished"/>
+        <translation>用于审查, 检查和解释特定区域中的数据或信息的人员或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Animator</source>
-        <translation type="unfinished"/>
+        <translation>动画师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
-        <translation type="unfinished"/>
+        <translation>用于绘制二维图形的人或组织, 操纵三维物体和/或还对计算机编程以移动物体和图像以用于动画胶片处理的目的. 动画相机, 支架, 赛璐id屏幕, 幻灯片和墨水是动画师的一些工具.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Annotator</source>
-        <translation type="unfinished"/>
+        <translation>注释</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
-        <translation type="unfinished"/>
+        <translation>用于在打印项目上书写原稿注释的人.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>Appellant</source>
-        <translation type="unfinished"/>
+        <translation>上诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>A person or organization who appeals a lower court&apos;s decision.</source>
-        <translation type="unfinished"/>
+        <translation>提出下级法院裁决的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>Appellee</source>
-        <translation type="unfinished"/>
+        <translation>被上诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>A person or organization against whom an appeal is taken.</source>
-        <translation type="unfinished"/>
+        <translation>提出上诉的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Applicant</source>
-        <translation type="unfinished"/>
+        <translation>申请人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
-        <translation type="unfinished"/>
+        <translation>用于负责提交申请或被命名为符合申请处理结果 (例如授予权利, 奖励, 所有权, 职位) 的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Architect</source>
-        <translation type="unfinished"/>
+        <translation>设计师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
-        <translation type="unfinished"/>
+        <translation>用于设计结构或监督其构造的人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Arranger</source>
-        <translation type="unfinished"/>
+        <translation>组织者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
-        <translation type="unfinished"/>
+        <translation>用于转录音乐作品的人或组织，通常用于与原作不同的媒介; 在一种布置中, 音乐物质基本上保持不变.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Art copyist</source>
-        <translation type="unfinished"/>
+        <translation>艺术复制</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
-        <translation type="unfinished"/>
+        <translation>用于制作视觉艺术作品副本的人 (例如画家或雕塑家).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>Art director</source>
-        <translation type="unfinished"/>
+        <translation>艺术指导</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>A person contributing to a motion picture or television production by overseeing the artists and craftspeople who build the sets.</source>
-        <translation type="unfinished"/>
+        <translation>通过监督构建集合的艺术家和手工艺者来贡献电影或电视制作的人.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Artist</source>
-        <translation type="unfinished"/>
+        <translation>艺术家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
-        <translation type="unfinished"/>
+        <translation>如果不需要特定代码 (例如，[egr]，[etr]), 则用于构思并且也许实现原始平面设计或艺术作品的人 (例如画家)或组织. 对于书插画, 喜欢Illustrator [ill].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Artistic director</source>
-        <translation type="unfinished"/>
+        <translation>艺术总监</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责控制整个生产的艺术风格的发展的人, 包括要呈现的作品的选择和高级生产人员的选择.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Assignee</source>
-        <translation type="unfinished"/>
+        <translation>受让人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
-        <translation type="unfinished"/>
+        <translation>用于已转让打印或出版许可的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Associated name</source>
-        <translation type="unfinished"/>
+        <translation>关联名</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
-        <translation type="unfinished"/>
+        <translation>用于与项目或集合相关联或找到的人员或组织, 不能被确定为前所有者[fmo]或其他指定来源的指定关系者.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Attributed name</source>
-        <translation type="unfinished"/>
+        <translation>属性名称</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
-        <translation type="unfinished"/>
+        <translation>用于作者, 艺术家等, 将他/她与某一作品相关联, 该作品对于该作品具有或曾经具有指定该作者作为作品的作者, 创作者等的实质权限.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Auctioneer</source>
-        <translation type="unfinished"/>
+        <translation>拍卖人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责货物估计和公开拍卖的个人或组织, 特别是书籍, 艺术作品等.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
-        <translation type="unfinished"/>
+        <translation>用于主要负责作品的知识或艺术内容的人或组织, 通常是印刷文本. 当多于一个的人或机构承担这种责任时, 也可以使用该术语.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Author in quotations or text extracts</source>
-        <translation type="unfinished"/>
+        <translation>作者在报价或文本提取</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
-        <translation type="unfinished"/>
+        <translation>用于工作主要是在他或她没有直接贡献的作品中引用或提取的人或组织. 这种报价特别在展览目录, 照片集等中找到.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Author of afterword, colophon, etc.</source>
-        <translation type="unfinished"/>
+        <translation>作者的后话和书籍的末页等</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责后记, 后台, 版权等的人或组织, 但不是作品的主要作者.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Author of dialog</source>
-        <translation type="unfinished"/>
+        <translation>作者的对话</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责对话或口头评论的人或组织进行剧本或录音.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Author of introduction, etc.</source>
-        <translation type="unfinished"/>
+        <translation>作者简介等</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责介绍, 序言, 前言或其他关键介绍性事项, 但不是主要作者的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Author of screenplay, etc.</source>
-        <translation type="unfinished"/>
+        <translation>作者剧本等.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责电影剧本, 对话, 口头评论等的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>Autographer</source>
-        <translation type="unfinished"/>
+        <translation>亲笔签名</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>A person whose manuscript signature appears on an item.</source>
-        <translation type="unfinished"/>
+        <translation>稿件签名出现在项目上的人.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Bibliographic antecedent</source>
-        <translation type="unfinished"/>
+        <translation>参考书目前提</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
-        <translation type="unfinished"/>
+        <translation>用于由负责基于目录记录工作的个人或组织, 这可能适合于适应、续集、延续、索引等.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Binder</source>
-        <translation type="unfinished"/>
+        <translation>活页封面</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责印刷或手稿材料装订的个人或组织。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Binding designer</source>
-        <translation type="unfinished"/>
+        <translation>封皮设计师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
-        <translation type="unfinished"/>
+        <translation>用于负责书籍装订设计的个人或组织, 包括装订类型, 所使用材料以及任何装饰装订的部分.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>Blurb writer</source>
-        <translation type="unfinished"/>
+        <translation>推荐者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>A person or organization responsible for writing a commendation or testimonial for a work, which appears on or within the publication itself, frequently on the back or dust jacket of print publications or on advertising material for all media.</source>
-        <translation type="unfinished"/>
+        <translation>负责为出版物本身或出版物内部出现的作品作出表扬或推荐的人或组织，经常出现在印刷出版物的背面或防尘套上或媒体的广告材料上。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Book designer</source>
-        <translation type="unfinished"/>
+        <translation>书籍设计者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
-        <translation type="unfinished"/>
+        <translation>用于负责书籍整个图形设计的个人或组织, 包括类型和插图的排列, 材料的选择和使用的过程.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Book producer</source>
-        <translation type="unfinished"/>
+        <translation>图书制作人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
-        <translation type="unfinished"/>
+        <translation>如果不需要特定代码 (例如[bkd], [egr], [tyd], [prt] ),则用于负责生成图书和其他打印介质的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Bookjacket designer</source>
-        <translation type="unfinished"/>
+        <translation>书皮设计师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
-        <translation type="unfinished"/>
+        <translation>用于负责设计或出版书籍的柔性封皮设计的个人或组织, 包括所使用的材料类型和书套的任何装饰方面.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Bookplate designer</source>
-        <translation type="unfinished"/>
+        <translation>书板设计师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
-        <translation type="unfinished"/>
+        <translation>用于负责设计书籍所有者识别标签的个人或组织, 最常见的是粘贴到书籍内封面.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Bookseller</source>
-        <translation type="unfinished"/>
+        <translation>书商</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
-        <translation type="unfinished"/>
+        <translation>用于使书籍和其他书目资料可供购买的个人或组织. 对材料的兴趣主要是利润丰厚. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>Braille embosser</source>
-        <translation type="unfinished"/>
+        <translation>盲文压花机</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>A person, family, or organization involved in manufacturing a resource by embossing Braille cells using a stylus, special embossing printer, or other device.</source>
-        <translation type="unfinished"/>
+        <translation>通过使用触针, 特殊压印打印机或其他装置压印盲文单元来参与制造资源的人, 家庭或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>Broadcaster</source>
-        <translation type="unfinished"/>
+        <translation>广播电台</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>A person, family, or organization involved in broadcasting a resource to an audience via radio, television, webcast, etc.</source>
-        <translation type="unfinished"/>
+        <translation>涉及通过广播, 电视, 网络广播等向观众广播资源的个人, 家庭或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Calligrapher</source>
-        <translation type="unfinished"/>
+        <translation>书法家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
-        <translation type="unfinished"/>
+        <translation>用于在艺术手中写作的人或组织, 通常作为抄写员和/或工作者.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Cartographer</source>
-        <translation type="unfinished"/>
+        <translation>制图师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责创建地图和其他制图资料的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>Caster</source>
-        <translation type="unfinished"/>
+        <translation>铸字者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>A person, family, or organization involved in manufacturing a resource by pouring a liquid or molten substance into a mold and leaving it to solidify to take the shape of the mold.</source>
-        <translation type="unfinished"/>
+        <translation>通过将液体或熔融物质倾注到模具中并使其固化以采取模具的形状而涉及制造资源的人, 家庭或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Censor</source>
-        <translation type="unfinished"/>
+        <translation>检查员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
-        <translation type="unfinished"/>
+        <translation>用于官方或私人的检查员, 删改, 修订等。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Choreographer</source>
-        <translation type="unfinished"/>
+        <translation>编舞者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>用于组成或安排舞蹈或其他动作 (例如“剑之主人”) 的人或组织进行音乐或戏剧性演示或娱乐.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Cinematographer</source>
-        <translation type="unfinished"/>
+        <translation>摄影技师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责为电影胶片拍摄的图像的个人或组织. 电影摄影师在导演的监督下工作, 也可被称为摄影导演. 不要与摄像师混淆.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Client</source>
-        <translation type="unfinished"/>
+        <translation>当事人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
-        <translation type="unfinished"/>
+        <translation>用于其他人或组织代表的人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>Collection registrar</source>
-        <translation type="unfinished"/>
+        <translation>集合注册商</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>A curator who lists or inventories the items in an aggregate work such as a collection of items or works.</source>
-        <translation type="unfinished"/>
+        <translation>列出或存储合计作品中的项目, 如项目或作品集合,的策展人.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Collector</source>
-        <translation type="unfinished"/>
+        <translation>收集家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
-        <translation type="unfinished"/>
+        <translation>用于从已经安排, 描述和编目为集合的各种来源收集材料的个人或组织. 收藏家既不是材料的创造者, 也不是收藏中的抄本可能被处理的人.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Collotyper</source>
-        <translation type="unfinished"/>
+        <translation>胶板制版</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责从具有接受油墨和防油墨表面的胶片或其他胶体生产照相印刷品的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>Colorist</source>
-        <translation type="unfinished"/>
+        <translation>彩妆师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>A person or organization responsible for applying color to drawings, prints, photographs, maps, moving images, etc.</source>
-        <translation type="unfinished"/>
+        <translation>负责为图纸, 印刷品, 照片, 地图, 动态图像等应用颜色的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Commentator</source>
-        <translation type="unfinished"/>
+        <translation>评论员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
-        <translation type="unfinished"/>
+        <translation>用于在录音, 电影或其他视听媒体上提供主题解释, 分析或讨论的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Commentator for written text</source>
-        <translation type="unfinished"/>
+        <translation>书面文本评论员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
-        <translation type="unfinished"/>
+        <translation>用于负责评论或文本说明注释的个人或组织. 对于在打印的书中的手稿注释的作者，使用注释[ann].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Compiler</source>
-        <translation type="unfinished"/>
+        <translation>编辑者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
-        <translation type="unfinished"/>
+        <translation>用于通过从各种人或机构的作品中选择和整理材料来制作作品或出版物的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Complainant</source>
-        <translation type="unfinished"/>
+        <translation>投诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>用于通常在股权诉讼中向法院申请补救的一方.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Complainant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>投诉人-上诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>用于投诉人, 其从一个法院或管辖区向另一个法院或管辖区提出上诉, 以通过股权程序撤销判决.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Complainant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>投诉人-被上诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>用于申诉人, 从一个法院或管辖区向另一个法院或管辖区提出上诉, 以通过股权程序来推翻判决.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Composer</source>
-        <translation type="unfinished"/>
+        <translation>作曲家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
-        <translation type="unfinished"/>
+        <translation>用于创建音乐作品的人或组织, 通常是手稿或印刷形式的音乐片段.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Compositor</source>
-        <translation type="unfinished"/>
+        <translation>作曲家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
-        <translation type="unfinished"/>
+        <translation>用于负责创建金属块的人或组织或用于生产印刷品中的文本和图像的由其他材料制成的模具.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Conceptor</source>
-        <translation type="unfinished"/>
+        <translation>概念</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责工作所基于的原始想法的个人或组织, 包括视听项目的科学作者和广告的概念者.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Conductor</source>
-        <translation type="unfinished"/>
+        <translation>指挥</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>用于指挥表演团体 (乐团，合唱，歌剧等) 在音乐或戏剧性演示或娱乐中的人.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>Conservator</source>
-        <translation type="unfinished"/>
+        <translation>保守者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>A person or organization responsible for documenting, preserving, or treating printed or manuscript material, works of art, artifacts, or other media.</source>
-        <translation type="unfinished"/>
+        <translation>负责记录, 保存或处理印刷或手稿材料, 艺术作品, 工件或其他媒体的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Consultant</source>
-        <translation type="unfinished"/>
+        <translation>顾问</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
-        <translation type="unfinished"/>
+        <translation>用于与资源相关的个人或组织, 在专门的知识或培训领域被要求提供专业建议或服务.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Consultant to a project</source>
-        <translation type="unfinished"/>
+        <translation>项目顾问</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
-        <translation type="unfinished"/>
+        <translation>用于与资源相关的人员或组织, 他们专门从事战略或操作任务的智力概述以及分析, 规范或指导, 以创建或提出具有成本效益的行动或解决方案.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Contestant</source>
-        <translation type="unfinished"/>
+        <translation>竞争者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
-        <translation type="unfinished"/>
+        <translation>用于在法院, 索赔, 决定, 结果等中反对, 抵抗或争议的一方.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Contestant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>参赛者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>用于从一个法律或管辖区向另一个法院提出上诉的参赛者, 以撤销判决.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Contestant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>参赛者 - 被上诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>用于从一个法律或管辖区向另一个法院提出上诉的参赛者, 以撤销该判决.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Contestee</source>
-        <translation type="unfinished"/>
+        <translation>参赛者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
-        <translation type="unfinished"/>
+        <translation>用于捍卫索赔, 决定, 结果等在法庭上遭到反对, 抵抗或争议的一方.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Contestee-appellant</source>
-        <translation type="unfinished"/>
+        <translation>参赛者-上诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>用于从一个管辖法院向另一个法院提出上诉的比赛, 以扭转判决.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Contestee-appellee</source>
-        <translation type="unfinished"/>
+        <translation>参赛者-被上诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>用于有争议的人, 从一个管辖法院向另一个法院提出上诉, 以推翻该判决.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Contractor</source>
-        <translation type="unfinished"/>
+        <translation>承包商</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
-        <translation type="unfinished"/>
+        <translation>用于与资源相关的个人或组织, 他们与另一个人或组织签订合同以执行特定任务.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Contributor</source>
-        <translation type="unfinished"/>
+        <translation>捐助者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
-        <translation type="unfinished"/>
+        <translation>用于个人或组织, 他们的工作已经贡献给更大的工作, 例如选集, 连续出版物或其他个别作品的汇编. 如果与作品有关的唯一功能是作者, 编辑, 编译器或翻译者, 请不要使用.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Copyright claimant</source>
-        <translation type="unfinished"/>
+        <translation>版权声明人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
-        <translation type="unfinished"/>
+        <translation>用于在注册时列为版权所有者的个人或组织. 版权可以授予或以后转移给另一个人或组织, 在此时, 索赔人成为版权所有者.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Copyright holder</source>
-        <translation type="unfinished"/>
+        <translation>版权所有者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
-        <translation type="unfinished"/>
+        <translation>用于被授予或转让作品的知识内容的复制和法律权利的个人或组织. 版权所有者虽然不一定是作品的创作者, 但通常拥有从销售和使用相关版权保护适用的作品中获得经济利益的专有权利.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Corrector</source>
-        <translation type="unfinished"/>
+        <translation>校正者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
-        <translation type="unfinished"/>
+        <translation>用于作为手稿校正者的人或组织, 例如修改抄写员工作的脚本官员. 对于印刷品, 请使用校对.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Correspondent</source>
-        <translation type="unfinished"/>
+        <translation>通信者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
-        <translation type="unfinished"/>
+        <translation>用于作为信件或其他通信的作者或收件人的个人或组织。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Costume designer</source>
-        <translation type="unfinished"/>
+        <translation>服装设计师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>用于设计或制作服装，固定头发等的人或组织进行音乐或戏剧性演示或娱乐.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>Court governed</source>
-        <translation type="unfinished"/>
+        <translation>法院管制</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>A court governed by court rules, regardless of their official nature (e.g., laws, administrative regulations.)</source>
-        <translation type="unfinished"/>
+        <translation>受法院规则管辖的法院，不论其官方性质 (例如法律, 行政法规).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>Court reporter</source>
-        <translation type="unfinished"/>
+        <translation>法院书记官</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>A person, family, or organization contributing to a resource by preparing a court&apos;s opinions for publication.</source>
-        <translation type="unfinished"/>
+        <translation>对资源的贡献准备法院发表意见的人，家庭或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Cover designer</source>
-        <translation type="unfinished"/>
+        <translation>封面设计</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责图书封面, 专辑封面, 书套, 盒子, 容器等图形设计的个人或组织. 对于负责整本图书设计的个人或组织, 请使用图书设计师; 为书夹克, 使用Bookjacket设计师.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Creator</source>
-        <translation type="unfinished"/>
+        <translation>艺术创作</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责作品的智力或艺术内容的个人或组织。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Curator of an exhibition</source>
-        <translation type="unfinished"/>
+        <translation>展览策展人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责构思和组织展览的个人或组织。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Dancer</source>
-        <translation type="unfinished"/>
+        <translation>舞蹈演员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>用于主要在音乐或戏剧演出或娱乐中展示舞蹈技能的人或组织。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Data contributor</source>
-        <translation type="unfinished"/>
+        <translation>数据贡献者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
-        <translation type="unfinished"/>
+        <translation>用于提交数据以包含在数据库或其他数据收集中的个人或组织。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Data manager</source>
-        <translation type="unfinished"/>
+        <translation>数据经理</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责管理数据库或其他数据源的个人或组织。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Dedicatee</source>
-        <translation type="unfinished"/>
+        <translation>受捐赠者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
-        <translation type="unfinished"/>
+        <translation>用于书，手稿等专用的人或组织（不是礼物的收件人）。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Dedicator</source>
-        <translation type="unfinished"/>
+        <translation>捐赠者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
-        <translation type="unfinished"/>
+        <translation>使用作者的奉献，这可能是一个正式的声明或以片段或诗歌的形式。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Defendant</source>
-        <translation type="unfinished"/>
+        <translation>被告</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>用于捍卫或拒绝在诉讼中提出的指控，并在法院寻求救济或恢复的一方，通常是法律诉讼。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Defendant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>被告-上诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>用于被告人从一个法院或管辖区向另一个法院或管辖区提出上诉，以通过法律诉讼来推翻判决。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Defendant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>被告</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>用于被告人，从一个管辖法院向另一个法院提出上诉，以通过法律诉讼撤销判决.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Degree grantor</source>
-        <translation type="unfinished"/>
+        <translation>学位设保人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
-        <translation type="unfinished"/>
+        <translation>用于授予所描述的论文或论文的学位的组织。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Delineator</source>
-        <translation type="unfinished"/>
+        <translation>描绘画</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
-        <translation type="unfinished"/>
+        <translation>用于从其他人的设计执行技术图纸的个人或组织。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Depicted</source>
-        <translation type="unfinished"/>
+        <translation>描绘</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
-        <translation type="unfinished"/>
+        <translation>用于在工作中描绘或描绘的实体，特别是在艺术作品中.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Depositor</source>
-        <translation type="unfinished"/>
+        <translation>寄存者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
-        <translation type="unfinished"/>
+        <translation>用于将资料放置在图书馆或知识库的实际保管之下的人或组织，而不转移法定所有权。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Designer</source>
-        <translation type="unfinished"/>
+        <translation>设计者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
-        <translation type="unfinished"/>
+        <translation>如果不需要更多特定代码（例如[bkd]，[tyd]），请使用负责设计的人员或组织。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Director</source>
-        <translation type="unfinished"/>
+        <translation>导演</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责工作的一般管理或负责监督舞台，屏幕或录音演出的制作的个人或组织。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Dissertant</source>
-        <translation type="unfinished"/>
+        <translation>论文</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
-        <translation type="unfinished"/>
+        <translation>用于为大学或高等教育学位提交论文的人。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>Distribution place</source>
-        <translation type="unfinished"/>
+        <translation>分发地点</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>A place from which a resource, e.g., a serial, is distributed.</source>
-        <translation type="unfinished"/>
+        <translation>从其分发资源（例如，串行）的地方。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Distributor</source>
-        <translation type="unfinished"/>
+        <translation>分销商</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
-        <translation type="unfinished"/>
+        <translation>适用于对项目拥有独家或共享营销权利的个人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Donor</source>
-        <translation type="unfinished"/>
+        <translation>捐赠者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
-        <translation type="unfinished"/>
+        <translation>用于作为书籍，手稿等捐赠者的个人或组织给其当前所有者.  对以前业主的捐赠者被指定为前所有者[fmo]或用户 [ins]</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Draftsman</source>
-        <translation type="unfinished"/>
+        <translation>起草人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
-        <translation type="unfinished"/>
+        <translation>用于准备艺术或技术图纸的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Dubious author</source>
-        <translation type="unfinished"/>
+        <translation>可疑作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
-        <translation type="unfinished"/>
+        <translation>用于作者被怀疑或不正确归属的个人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Editor</source>
-        <translation type="unfinished"/>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
-        <translation type="unfinished"/>
+        <translation>用于准备出版不是他/她自己的作品的人或组织，例如通过阐明文本, 添加介绍性或其他关键事项, 或技术指导编辑人员.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>Editor of compilation</source>
-        <translation type="unfinished"/>
+        <translation>汇编编辑</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>A person, family, or organization contributing to a collective or aggregate work by selecting and putting together works, or parts of works, by one or more creators. For compilations of data, information, etc., that result in new works, see compiler.</source>
-        <translation type="unfinished"/>
+        <translation>通过选择由一个或多个创作者和组合作品或作品的一部分来为集体或集体作品做出贡献的人，家庭或组织。 对于导致新工作的数据，信息等的编译，请参阅编译器。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>Editor of moving image work</source>
-        <translation type="unfinished"/>
+        <translation>运动图像编辑</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>A person, family, or organization responsible for assembling, arranging, and trimming film, video, or other moving image formats, including both visual and audio aspects.</source>
-        <translation type="unfinished"/>
+        <translation>负责组装, 安排和修整电影, 视频或其他运动图像格式（包括视觉和音频方面）的个人, 家庭或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Electrician</source>
-        <translation type="unfinished"/>
+        <translation>电工</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责设置照明装置并将灯聚焦于生产以及在演出时运行照明装置的人员。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Electrotyper</source>
-        <translation type="unfinished"/>
+        <translation>电版技师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
-        <translation type="unfinished"/>
+        <translation>用于通过压力成型和电沉积金属，然后用铅印刷的铅笔来创建复印表面的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Engineer</source>
-        <translation type="unfinished"/>
+        <translation>工程师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责技术规划和设计, 特别是建筑施工的人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Engraver</source>
-        <translation type="unfinished"/>
+        <translation>Engraver</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
-        <translation type="unfinished"/>
+        <translation>用于在表面 (例如木制或金属板) 上切刻字母, 数字等以进行打印的人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Etcher</source>
-        <translation type="unfinished"/>
+        <translation>etcher</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
-        <translation type="unfinished"/>
+        <translation>用于通过使金属, 玻璃或其他表面经受酸或某些其他物质的腐蚀作用而用于印刷的文本或图像的人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>Event place</source>
-        <translation type="unfinished"/>
+        <translation>活动场所</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>A place where an event such as a conference or a concert took place.</source>
-        <translation type="unfinished"/>
+        <translation>举办会议或音乐会等活动的地方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Expert</source>
-        <translation type="unfinished"/>
+        <translation>专家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
-        <translation type="unfinished"/>
+        <translation>用于负责描述和评估商品价值的个人或组织, 特别是稀有物品，艺术品等.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Facsimilist</source>
-        <translation type="unfinished"/>
+        <translation>传真电报员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Use for a person or organization that executed the facsimile.</source>
-        <translation type="unfinished"/>
+        <translation>用于执行传真的人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Field director</source>
-        <translation type="unfinished"/>
+        <translation>现场总监</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
-        <translation type="unfinished"/>
+        <translation>用于管理或监督收集原始数据或在实际环境或环境中进行研究的人员或组织 (通常适用于自然和社会科学).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>Film director</source>
-        <translation type="unfinished"/>
+        <translation>制片导演</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>A director responsible for the general management and supervision of a filmed performance.</source>
-        <translation type="unfinished"/>
+        <translation>负责拍摄表演的一般管理和监督的导演.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>Film distributor</source>
-        <translation type="unfinished"/>
+        <translation>影片发行</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>A person, family, or organization involved in distributing a moving image resource to theatres or other distribution channels.</source>
-        <translation type="unfinished"/>
+        <translation>涉及将运动图像资源分发到剧院或其他分发渠道的个人, 家庭或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Film editor</source>
-        <translation type="unfinished"/>
+        <translation>影片剪辑员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
-        <translation type="unfinished"/>
+        <translation>用于作为电影胶片编辑的人或组织. 该术语的使用与生成或制造运动图像的介质无关 (例如，醋酸薄膜，录像带).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>Film producer</source>
-        <translation type="unfinished"/>
+        <translation>制片人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>A producer responsible for most of the business aspects of a film.</source>
-        <translation type="unfinished"/>
+        <translation>一个负责电影大部分业务方面的制片人.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>Filmmaker</source>
-        <translation type="unfinished"/>
+        <translation>电影摄像</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>A person, family or organization responsible for creating an independent or personal film. A filmmaker is individually responsible for the conception and execution of all aspects of the film.</source>
-        <translation type="unfinished"/>
+        <translation>负责创建独立或个人电影的个人, 家庭或组织. 电影制作人单独负责电影的所有方面的概念和执行.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>First party</source>
-        <translation type="unfinished"/>
+        <translation>甲方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
-        <translation type="unfinished"/>
+        <translation>用于被认定为唯一一方或首要一方的个人或组织. 在转让权利的情况下，这是转让人, 转让人, 许可人, 设保人等. 多方可以共同命名为第一方.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Forger</source>
-        <translation type="unfinished"/>
+        <translation>伪造者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
-        <translation type="unfinished"/>
+        <translation>用于制造或模仿有价值或重要性的人或组织, 尤其是意图欺诈的人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Former owner</source>
-        <translation type="unfinished"/>
+        <translation>前所有者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
-        <translation type="unfinished"/>
+        <translation>用于过去任何时间拥有项目的个人或组织. 包括那些曾经呈现材料的人. 将该项目给予现有所有者的个人或组织被指定为捐赠人 [dnr].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Funder</source>
-        <translation type="unfinished"/>
+        <translation>投资人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
-        <translation type="unfinished"/>
+        <translation>用于为生产工作提供财务支持的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Geographic information specialist</source>
-        <translation type="unfinished"/>
+        <translation>地理信息专家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责地理信息系统 (GIS) 开发和与全球定位系统数据集成的人员.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Honoree</source>
-        <translation type="unfinished"/>
+        <translation>获奖人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </source>
-        <translation type="unfinished"/>
+        <translation>用于捐赠书, 手稿等的记忆或荣誉的个人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>主持人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
-        <translation type="unfinished"/>
+        <translation>用于受邀或定期带领包含其他邀请对象，表演者等的节目 (通常为广播) 的人 (例如，聊天节目主持人).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>Host institution</source>
-        <translation type="unfinished"/>
+        <translation>主办方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>An organization hosting the event, exhibit, conference, etc., which gave rise to a resource, but having little or no responsibility for the content of the resource.</source>
-        <translation type="unfinished"/>
+        <translation>举办活动，展览，会议等的组织，这产生了资源，但对资源的内容几乎没有或没有责任</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Illuminator</source>
-        <translation type="unfinished"/>
+        <translation>展现</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责装饰具有贵金属或颜色的作品 (特别是手稿材料) 的人或组织, 通常具有精心设计和图案.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Illustrator</source>
-        <translation type="unfinished"/>
+        <translation>插图画家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
-        <translation type="unfinished"/>
+        <translation>用于构思和实现一个设计或插图，通常伴随着一个书面文本一个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Inscriber</source>
-        <translation type="unfinished"/>
+        <translation>登记员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
-        <source>Use for a person who signs a presentation statement.</source>
-        <translation type="unfinished"/>
+        <source>Use for a person who has written a statement of dedication or gift.</source>
+        <translation>用于写有奉献或礼物字句的人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Instrumentalist</source>
-        <translation type="unfinished"/>
+        <translation>乐器演奏家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>用于主要在音乐或戏剧演出或娱乐中演奏乐器的人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Interviewee</source>
-        <translation type="unfinished"/>
+        <translation>被采访者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
-        <translation type="unfinished"/>
+        <translation>用于在磋商或会议中接受采访的个人或组织，通常由记者，调查员或一些其他信息收集代理</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Interviewer</source>
-        <translation type="unfinished"/>
+        <translation>采访者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
-        <translation type="unfinished"/>
+        <translation>用于在涉及一个或多个个人的磋商或会议中担任记者，调查员或其他信息收集代理人的个人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Inventor</source>
-        <translation type="unfinished"/>
+        <translation>Inventor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
-        <translation type="unfinished"/>
+        <translation>用于首先生产特定有用项目的个人或组织，或开发用于获取已知项目或结果的新过程</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>Issuing body</source>
-        <translation type="unfinished"/>
+        <translation>发行体</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>A person, family or organization issuing a work, such as an official organ of the body.</source>
-        <translation type="unfinished"/>
+        <translation>发出工作的人，家庭或组织，如官方机关</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>Judge</source>
-        <translation type="unfinished"/>
+        <translation>法官</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>A person who hears and decides on legal matters in court.</source>
-        <translation type="unfinished"/>
+        <translation>在法庭上听取和决定法律事务的人.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>Jurisdiction governed</source>
-        <translation type="unfinished"/>
+        <translation>管辖权</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>A jurisdiction governed by a law, regulation, etc., that was enacted by another jurisdiction.</source>
-        <translation type="unfinished"/>
+        <translation>由另一个司法管辖区颁布的法律，法规等管辖的管辖区</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Laboratory</source>
-        <translation type="unfinished"/>
+        <translation>实验室</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Use for an institution that provides scientific analyses of material samples.</source>
-        <translation type="unfinished"/>
+        <translation>用于提供材料样品的科学分析的机构</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Laboratory director</source>
-        <translation type="unfinished"/>
+        <translation>实验室经理</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
-        <translation type="unfinished"/>
+        <translation>用于管理或监督在受控环境或环境中完成的工作的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Landscape architect</source>
-        <translation type="unfinished"/>
+        <translation>园艺师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
-        <translation type="unfinished"/>
+        <translation>用于一个人或组织, 其工作涉及协调现有和拟议的土地特征和结构的安排</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Lead</source>
-        <translation type="unfinished"/>
+        <translation>领导</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
-        <translation type="unfinished"/>
+        <translation>用于表示个人或组织对特定活动或努力负主要责任. 与其他关系者术语或代码一起使用，以表明此人或组织对该特定角色的重要性. 如果还有多个相关头衔, 则只有在适用于所有头衔时才使用在开始.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Lender</source>
-        <translation type="unfinished"/>
+        <translation>贷方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
-        <translation type="unfinished"/>
+        <translation>用于允许临时使用书籍手稿等的人员或组织, 例如用于复印或微缩胶片.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Libelant</source>
-        <translation type="unfinished"/>
+        <translation>原告</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
-        <translation type="unfinished"/>
+        <translation>用于在教会或海事案件中提出诉讼的一方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Libelant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>原告-上诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>用于一个原告为了扭转判决结果而从一个教会法院或海事法庭上诉另一个人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Libelant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>原告-被上诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>用于从一个教会法院或海事法庭向另一个教会法院提出上诉以撤销判决的原告人.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Libelee</source>
-        <translation type="unfinished"/>
+        <translation>被告</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
-        <translation type="unfinished"/>
+        <translation>用于在教会法院或海事法庭中被提出控告的一方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Libelee-appellant</source>
-        <translation type="unfinished"/>
+        <translation>被告-上诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>用于从一个教会法院或海事法庭到另一个人的反对判决的原告</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Libelee-appellee</source>
-        <translation type="unfinished"/>
+        <translation>被告-被上诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>用于从一个教会法院或海事法庭到另一个人的反对人的反对的告诉</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Librettist</source>
-        <translation type="unfinished"/>
+        <translation>剧本作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
-        <translation type="unfinished"/>
+        <translation>用于作为歌剧，赞美剧等文本作者的人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Licensee</source>
-        <translation type="unfinished"/>
+        <translation>执照持有者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
-        <translation type="unfinished"/>
+        <translation>用于作为打印或发布权利的原始收件人的个人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Licensor</source>
-        <translation type="unfinished"/>
+        <translation>许可人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
-        <translation type="unfinished"/>
+        <translation>用于作为许可证批准, 签发的个人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Lighting designer</source>
-        <translation type="unfinished"/>
+        <translation>照明设计师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
-        <translation type="unfinished"/>
+        <translation>用于为剧院演示，娱乐，电影等设计照明方案的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Lithographer</source>
-        <translation type="unfinished"/>
+        <translation>石版家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
-        <translation type="unfinished"/>
+        <translation>用于准备用于平版印刷的石或板的人或组织，包括直接在表面上创建直接在其上进行印刷的图案的图形艺术家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Lyricist</source>
-        <translation type="unfinished"/>
+        <translation>歌词作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
-        <translation type="unfinished"/>
+        <translation>用于作为歌曲文本作者的人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>Manufacture place</source>
-        <translation type="unfinished"/>
+        <translation>制造地点</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>The place of manufacture (e.g., printing, duplicating, casting, etc.) of a resource in a published form.</source>
-        <translation type="unfinished"/>
+        <translation>以公开形式的资源的制造地点 (例如，打印，复制，铸造等)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Manufacturer</source>
-        <translation type="unfinished"/>
+        <translation>制造商</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
-        <translation type="unfinished"/>
+        <translation>用于进行人为工作的个人或组织 (由一个或多个人制作或修改的对象). 人工作品的例子包括花瓶, 大炮或家具.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>Marbler</source>
-        <translation type="unfinished"/>
+        <translation>大理石工匠</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>The entity responsible for marbling paper, cloth, leather, etc. used in construction of a resource.</source>
-        <translation type="unfinished"/>
+        <translation>负责在建筑资源中使用的大理石纸，布，皮革等的实体</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Markup editor</source>
-        <translation type="unfinished"/>
+        <translation>标记编辑</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
-        <translation type="unfinished"/>
+        <translation>用于执行元数据，文本等的SGML，HTML或XML标记编码的人员或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>巫师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>A person held to be a channel of communication between the earthly world and a different world.</source>
-        <translation type="unfinished"/>
+        <translation>一个被认为是地球世界和另一个世界之间的沟通渠道的人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Metadata contact</source>
-        <translation type="unfinished"/>
+        <translation>元数据联系人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
-        <translation type="unfinished"/>
+        <translation>用于主要负责编辑和维护元数据集的原始描述 (例如，地理空间元数据集) 的人员或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Metal-engraver</source>
-        <translation type="unfinished"/>
+        <translation>金属雕刻</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
-        <translation type="unfinished"/>
+        <translation>用于在金属表面上切割以进行打印或装饰的负责装饰，插图，信件等的人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>Minute taker</source>
-        <translation type="unfinished"/>
+        <translation>会议书记员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>A person, family, or organization responsible for recording the minutes of a meeting.</source>
-        <translation type="unfinished"/>
+        <translation>负责记录会议记录的人，家人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Moderator</source>
-        <translation type="unfinished"/>
+        <translation>协调人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation type="unfinished"/>
+        <translation>用于领导讨论主题的节目 (通常是广播) 的人, 通常由与讨论相关领域的专家参与</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Monitor</source>
-        <translation type="unfinished"/>
+        <translation>督导员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
-        <translation type="unfinished"/>
+        <translation>用于监督合同合规并对报告负责并控制其分发的个人或组织。 有时称为受让人或控制机构</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Music copyist</source>
-        <translation type="unfinished"/>
+        <translation>音乐誊写员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Use for a person who transcribes or copies musical notation</source>
-        <translation type="unfinished"/>
+        <translation>用于转录或复制音乐符号的人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Musical director</source>
-        <translation type="unfinished"/>
+        <translation>音乐总监</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责制作的基本音乐决策的人员，包括协调作曲家，声音编辑和混音师的工作，选择音乐家，组织和/或演奏排练和表演的声音</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Musician</source>
-        <translation type="unfinished"/>
+        <translation>音乐家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
-        <translation type="unfinished"/>
+        <translation>用于在不可能或不可能更精确地识别功能时执行音乐或贡献作品的音乐内容的人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Narrator</source>
-        <translation type="unfinished"/>
+        <translation>讲解员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
-        <translation type="unfinished"/>
+        <translation>用于作为与事件，事件或事件过程的细节相关的发言人的人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>Onscreen presenter</source>
-        <translation type="unfinished"/>
+        <translation>屏幕演示者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>A performer contributing to an expression of a work by appearing on screen in nonfiction moving image materials or introductions to fiction moving image materials to provide contextual or background information. Use when another term (e.g., Narrator, Host) is either not applicable or not desired.</source>
-        <translation type="unfinished"/>
+        <translation>通过出现在非小说移动图像资料的屏幕上或介绍小说移动图像资料以提供上下文或背景信息来对作品表达做出贡献的表演者。 当其他术语 (例如，旁白，主机) 不适用或不需要时使用.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Opponent</source>
-        <translation type="unfinished"/>
+        <translation>对手</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责反对论文或论文的个人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Organizer of meeting</source>
-        <translation type="unfinished"/>
+        <translation>会议主办方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责组织一个项目是报告或诉讼的会议的个人或组织。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Originator</source>
-        <translation type="unfinished"/>
+        <translation>创始人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
-        <translation type="unfinished"/>
+        <translation>用于执行工作的个人或组织，即与工作的知识内容相关联的人员或组织的名称. 此类别不包括出版商或个人联盟或赞助商，除非它也是公司作者.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Other</source>
-        <translation type="unfinished"/>
+        <translation>其它</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
-        <translation type="unfinished"/>
+        <translation>用于在MARC列表中没有等效项的其他列表中的relator代码或未分配代码的项</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Owner</source>
-        <translation type="unfinished"/>
+        <translation>所有者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
-        <translation type="unfinished"/>
+        <translation>用于当前拥有项目或集合的个人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>Panelist</source>
-        <translation type="unfinished"/>
+        <translation>专家小组成员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source> performer contributing to a resource by participating in a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation type="unfinished"/>
+        <translation>通过参与讨论主题的程序 (通常是广播) 来促进资源的执行者，通常由与讨论相关领域的专家参与</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Papermaker</source>
-        <translation type="unfinished"/>
+        <translation>papermaker</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责生产纸张的人员或组织，通常来自木材，布料或其他纤维材料.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Patent applicant</source>
-        <translation type="unfinished"/>
+        <translation>专利申请人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Use for a person or organization that applied for a patent.</source>
-        <translation type="unfinished"/>
+        <translation>用于申请专利的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Patent holder</source>
-        <translation type="unfinished"/>
+        <translation>专利持有者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Use for a person or organization that was granted the patent referred to by the item. </source>
-        <translation type="unfinished"/>
+        <translation>用于被授予该项目提及的专利的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Patron</source>
-        <translation type="unfinished"/>
+        <translation>赞助人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责调试工作的个人或组织。 通常，顾客使用他或她的手段或影响来支持艺术家，作家等的工作. 这包括那些谁委托和支付个别作品.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Performer</source>
-        <translation type="unfinished"/>
+        <translation>表演者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
-        <translation type="unfinished"/>
+        <translation>如果没有使用这些功能的特定代码 ([act]，[dnc]，[itr]，[voc]等) ，则用于在音乐或戏剧性演示或娱乐中表现音乐或表演技巧的个人或组织. 如果使用特定代码，[prf]用于主要技能未知或未指定的人员.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Permitting agency</source>
-        <translation type="unfinished"/>
+        <translation>许可代理</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
-        <translation type="unfinished"/>
+        <translation>用于发放工作完成的许可证的机构 (通常是政府机构).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Photographer</source>
-        <translation type="unfinished"/>
+        <translation>摄影师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责拍摄照片的个人或组织，无论他们是以原始形式使用还是作为复制品.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Plaintiff</source>
-        <translation type="unfinished"/>
+        <translation>原告</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>用于通过个人诉讼（通常是法律程序）在法庭上投诉或起诉的一方.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Plaintiff-appellant</source>
-        <translation type="unfinished"/>
+        <translation>原告上诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>用于原告人从一个法院或管辖区向另一个法院或管辖区提出上诉，以通过法律程序进行判决.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Plaintiff-appellee</source>
-        <translation type="unfinished"/>
+        <translation>原告被上诉人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>用于被原告人从一个法院或管辖区向另一个法院或管辖区提出上诉的人，通常是在法律程序中推翻该判决.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Platemaker</source>
-        <translation type="unfinished"/>
+        <translation>制版商</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责生产印版的个人或组织，通常用于生产印刷图像和/或文本.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>Praeses</source>
-        <translation type="unfinished"/>
+        <translation>之前的</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>A person who is the faculty moderator of an academic disputation, normally proposing a thesis and participating in the ensuing disputation.</source>
-        <translation type="unfinished"/>
+        <translation>一个人是学术争议的教师主持人，通常提出论文并参与随后的争议.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>Presenter</source>
-        <translation type="unfinished"/>
+        <translation>演说者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>A person or organization mentioned in an &apos;X presents&apos; credit for moving image materials and who is associated with production, finance, or distribution in some way. A vanity credit; in early years, normally the head of a studio.</source>
-        <translation type="unfinished"/>
+        <translation>在“某演讲”中提到的个人或组织表示对运动图像材料的信用，并且以某种方式与生产，财务或分配相关联。 虚荣信用; 在早年，通常一个工作室的头。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Printer</source>
-        <translation type="unfinished"/>
+        <translation>打印者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
-        <translation type="unfinished"/>
+        <translation>用于打印文本的个人或组织，无论是从类型还是从版面</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Printer of plates</source>
-        <translation type="unfinished"/>
+        <translation>制版打印</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
-        <translation type="unfinished"/>
+        <translation>用于打印插图的人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Printmaker</source>
-        <translation type="unfinished"/>
+        <translation>版画复制</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
-        <translation type="unfinished"/>
+        <translation>用于制作浮雕，凹版或平版印刷表面的人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Process contact</source>
-        <translation type="unfinished"/>
+        <translation>过程联系人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
-        <translation type="unfinished"/>
+        <translation>用于主要负责执行或启动流程的人员或组织，例如对元数据集合的收集.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Producer</source>
-        <translation type="unfinished"/>
+        <translation>生产者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责制作电影的个人或组织，包括业务方面，制作的管理以及工作的商业成功</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>Production company</source>
-        <translation type="unfinished"/>
+        <translation>制作公司</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc.</source>
-        <translation type="unfinished"/>
+        <translation>负责舞台，屏幕，录音，电视，网播等产品的财务，技术和组织管理的组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>Production designer</source>
-        <translation type="unfinished"/>
+        <translation>产品设计师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>A person or organization responsible for designing the overall visual appearance of a moving image production.</source>
-        <translation type="unfinished"/>
+        <translation>负责设计运动图像制作的整体视觉外观的个人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Production manager</source>
-        <translation type="unfinished"/>
+        <translation>产品经理</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责生产中的所有技术和业务问题的人员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Production personnel</source>
-        <translation type="unfinished"/>
+        <translation>生产人员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>用于与音乐或戏剧演出或娱乐的制作 (道具，灯光，特效等)
+ 相关的人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>Production place</source>
-        <translation type="unfinished"/>
+        <translation>生产地点</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>The place of production (e.g., inscription, fabrication, construction, etc.) of a resource in an unpublished form.</source>
-        <translation type="unfinished"/>
+        <translation>原材料未出版形式的生产地 (例如，铭文，制作，建造等).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Programmer</source>
-        <translation type="unfinished"/>
+        <translation>程序员</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
-        <translation type="unfinished"/>
+        <translation>用于负责创建和/或维护计算机程序设计文档，源代码和机器可执行数字文件和支持文档的人员或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Project director</source>
-        <translation type="unfinished"/>
+        <translation>项目总监</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
-        <translation type="unfinished"/>
+        <translation>用于对项目所有重要方面负主要责任的人员或组织，或管理需要高级职责的大型项目，或负责管理项目的全面责任，或向项目经理提供整体指导。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Proofreader</source>
-        <translation type="unfinished"/>
+        <translation>校对</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
-        <translation type="unfinished"/>
+        <translation>用于纠正印刷品的人. 对于手稿，请使用Corrector [crr].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>Provider</source>
-        <translation type="unfinished"/>
+        <translation>供应者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>A person or organization who produces, publishes, manufactures, or distributes a resource if specific codes are not desired (e.g. [mfr], [pbl].)</source>
-        <translation type="unfinished"/>
+        <translation>如果不需要特定代码 (例如[mfr], [pbl]), 则指生产，出版，制造或分发资源的个人或组织。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>Publication place </source>
-        <translation type="unfinished"/>
+        <translation>出版地</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>The place where a resource is published.</source>
-        <translation type="unfinished"/>
+        <translation>源版出版的地方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Publisher</source>
-        <translation type="unfinished"/>
+        <translation>出版商</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
-        <translation type="unfinished"/>
+        <translation>用于制作印刷品的人或组织，通常是文字，也可以向公众提供印刷的音乐，艺术品等.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Publishing director</source>
-        <translation type="unfinished"/>
+        <translation>出版总监</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
-        <translation type="unfinished"/>
+        <translation>用于主持编写集体工作以确保其一致性或连续性的个人或组织. 这包括主编, 文学编辑, 系列编辑等.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Puppeteer</source>
-        <translation type="unfinished"/>
+        <translation>拉线木偶表演者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>用于在音乐或戏剧性演示或娱乐中操纵，控制或指导木偶或牵线木偶的人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>Radio director</source>
-        <translation type="unfinished"/>
+        <translation>广播导演</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>A director responsible for the general management and supervision of a radio program.</source>
-        <translation type="unfinished"/>
+        <translation>负责广播节目总体管理和监督的主任。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>Radio producer</source>
-        <translation type="unfinished"/>
+        <translation>无线电制作人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>A producer responsible for most of the business aspects of a radio program.</source>
-        <translation type="unfinished"/>
+        <translation>负责无线电节目的大部分业务方面的生产者。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Recipient</source>
-        <translation type="unfinished"/>
+        <translation>收信人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
-        <translation type="unfinished"/>
+        <translation>用于通信对象的个人或组织。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>Recording engineer</source>
-        <translation type="unfinished"/>
+        <translation>录音工程师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
-        <translation type="unfinished"/>
+        <translation>用于监督声音或录像会话的技术方面的个人或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>A person contributing to a resource by supervising the technical aspects of a sound or video recording session.</source>
-        <translation type="unfinished"/>
+        <translation>通过监督声音或视频记录会话的技术方面来贡献资源的人员.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Redactor</source>
-        <translation type="unfinished"/>
+        <translation>编辑者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
-        <translation type="unfinished"/>
+        <translation>用于为物品编写或开发框架而不对其内容负责的人员或组织.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Renderer</source>
-        <translation type="unfinished"/>
+        <translation>渲染师</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
-        <translation type="unfinished"/>
+        <translation>用于以准确的，代表性的角度准备建筑设计图 (即渲染) 的人员或组织，以显示项目在完成时的外观.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Reporter</source>
-        <translation type="unfinished"/>
+        <translation>记着</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Use for a person or organization who writes or presents reports of news or current events on air or in print.</source>
-        <translation type="unfinished"/>
+        <translation>用于在空中或印刷品上写入或呈现新闻或当前活动的报告的个人或组织</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Repository</source>
-        <translation type="unfinished"/>
+        <translation>仓库</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
-        <translation type="unfinished"/>
+        <translation>用于托管数据或材料文化对象的代理机构，并提供服务以促进对这些数据或对象的长期，一致和共享的使用</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="323"/>
@@ -11851,7 +11945,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="65"/>
         <source>Remove</source>
-        <translation>הסר</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="72"/>
@@ -11872,7 +11966,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Form_Files/MetaEditor.ui" line="100"/>
         <location filename="../../Form_Files/MetaEditor.ui" line="113"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="110"/>
@@ -11892,18 +11986,18 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
         <source>Name</source>
-        <translation>שם</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
         <source>Value</source>
-        <translation>ערך</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="522"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="624"/>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>作者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="522"/>
@@ -11927,7 +12021,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="524"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="629"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>描述</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="524"/>
@@ -11939,7 +12033,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="525"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="630"/>
         <source>Publisher</source>
-        <translation type="unfinished"/>
+        <translation>出版商</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="525"/>
@@ -11993,7 +12087,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="530"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="634"/>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>类型</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="530"/>
@@ -12004,7 +12098,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="635"/>
         <source>Format</source>
-        <translation type="unfinished"/>
+        <translation>格式</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
@@ -12027,7 +12121,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="533"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="637"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>语言</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="533"/>
@@ -12068,29 +12162,29 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="536"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="640"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
-        <translation type="unfinished"/>
+        <translation>关于出版物中所拥有权利的信息, 权利信息通常包括知识产权（IPR），版权和各种产权。 如果权利要素不存在，则不得对该出版物中或在出版物上持有的任何权利做出假设。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="537"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="626"/>
         <source>Creator</source>
-        <translation type="unfinished"/>
+        <translation>Creator</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="537"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation type="unfinished"/>
+        <translation>表示负责创建EPUB出版物内容的人员和组织等的名称。 role属性可以附加到元素以指示创建者在创建内容时播放的功能。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="538"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="627"/>
         <source>Contributor</source>
-        <translation type="unfinished"/>
+        <translation>捐助者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="538"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation type="unfinished"/>
+        <translation>表示在EPUB出版物的内容创建中起次要作用的人员和组织等的名称。 role属性可以附加到元素以指示创建者在创建内容时播放的功能。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="539"/>
@@ -12244,7 +12338,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="580"/>
-        <source>Indicates that the associated title is the title of a Tcollection that includes this publication belongs to if one exists.</source>
+        <source>Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -12304,7 +12398,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="586"/>
-        <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for asequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
+        <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -12390,7 +12484,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="594"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
-        <translation type="unfinished"/>
+        <translation>表示在EPUB出版物的给定Rendition中保留的已修改源资源的唯一方面. 此规范定义分页值, 以指示引用的源元素是内容中定义的分页属性的来源. 每当包括分页并且已知打印源时，应设置此值. 有效值: 分页.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="595"/>
@@ -12410,7 +12504,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="626"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation type="unfinished"/>
+        <translation>表示负责创建EPUB出版物内容的人员，组织等的名称. 属性opf: role, opf: scheme和opf: file-as可以附加到元素以指示创建者在创建内容时播放的功能.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="627"/>
@@ -12509,26 +12603,26 @@ Do you want to automatically mend the files before saving?</source>
 <context>
     <name>NCXResource</name>
     <message>
-        <location filename="../../ResourceObjects/NCXResource.cpp" line="157"/>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="159"/>
+        <location filename="../../ResourceObjects/NCXResource.cpp" line="161"/>
         <source>Start</source>
-        <translation>התחל</translation>
+        <translation>开始</translation>
     </message>
 </context>
 <context>
     <name>OPFModel</name>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="585"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="591"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="596"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="602"/>
         <source>The filename cannot be empty.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="603"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="609"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
         <translation type="unfinished"/>
@@ -12549,17 +12643,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="48"/>
         <source>Filename:</source>
-        <translation>שם קובץ:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="55"/>
         <source>Menu Name:</source>
-        <translation>שם תפריט:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="62"/>
         <source>No File</source>
-        <translation>אין קובץ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -12577,12 +12671,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="48"/>
         <source>Start</source>
-        <translation>התחל</translation>
+        <translation>开始</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="61"/>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="90"/>
@@ -12601,164 +12695,164 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="139"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="448"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="544"/>
         <source>Status: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="102"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="104"/>
         <source>Error: A plugin by that name does not exist</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="133"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="135"/>
         <source>Error: Interpreter </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="133"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="135"/>
         <source> has no path set</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="146"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="148"/>
         <source>Installation Error: plugin launcher </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="147"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="149"/>
         <source> does not exist</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="152"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="154"/>
         <source>Error: plugin engine </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="153"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="155"/>
         <source> is not supported (yet!)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="159"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="161"/>
         <source>Status: ready</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="212"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="217"/>
         <source>Error: plugin can not start</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="281"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="377"/>
         <source>Launcher process crashed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="292"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="388"/>
         <source>Status: finished</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="299"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="395"/>
         <source>Status: failed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="305"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="314"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="401"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="410"/>
         <source>Status: No Changes Made</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="313"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="409"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="404"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="500"/>
         <source>Plugin failed to start</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="412"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="508"/>
         <source>Status: error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="426"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="522"/>
         <source>Plugin cancelled</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="427"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="523"/>
         <source>Status: cancelled</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="518"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="614"/>
         <source>Error Parsing Result XML:  </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="675"/>
         <source>Incorrect XHTML: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="675"/>
         <source> Line/Col </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="606"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="702"/>
         <source>Check Report</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="607"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="703"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="625"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="721"/>
         <source>Status: cleaning up - deleting files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="645"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="741"/>
         <source>Status: deleting </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="675"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="771"/>
         <source>Status: Loading </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="686"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="782"/>
         <source>Input Plugin</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="687"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="783"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="713"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="809"/>
         <source>Status: adding </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="750"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="846"/>
         <source>Status: cleaning up - modifying files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="779"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="875"/>
         <source>Status: modifying </source>
         <translation type="unfinished"/>
     </message>
@@ -12769,7 +12863,7 @@ Are you Sure You Want to Continue?</source>
         <location filename="../../Form_Files/PPluginWidget.ui" line="14"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="167"/>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>插件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="28"/>
@@ -12779,7 +12873,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="75"/>
         <source>Name</source>
-        <translation>שם</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="80"/>
@@ -12789,12 +12883,12 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="85"/>
         <source>Author</source>
-        <translation>מחבר</translation>
+        <translation>作者</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="90"/>
         <source>Type</source>
-        <translation>טיפוס</translation>
+        <translation>类型</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="95"/>
@@ -12809,7 +12903,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="128"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>自动</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="135"/>
@@ -12824,7 +12918,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="181"/>
         <source>Remove All</source>
-        <translation>הסר הכל</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="188"/>
@@ -12917,12 +13011,12 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/Preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>העדפות</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="99"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="99"/>
@@ -12956,17 +13050,17 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="51"/>
         <source>Add</source>
-        <translation>הוסף</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="58"/>
         <source>Remove</source>
-        <translation>הסר</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="65"/>
         <source>Remove All</source>
-        <translation>הסר הכל</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
@@ -12984,7 +13078,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="42"/>
         <source>Preview</source>
-        <translation>תצוגה מקדימה</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -12992,7 +13086,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="1043"/>
         <source>Merging Files..</source>
-        <translation>כעת ממזג קבצים..</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/BookReports.cpp" line="53"/>
@@ -13001,29 +13095,29 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="271"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="287"/>
         <source>Cleaning...</source>
-        <translation>כעת מנקה...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Creating Index...</source>
-        <translation>כעת יוצר אינדקס...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Cancel</source>
-        <translation>ביטול</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/Reports.cpp" line="114"/>
         <source>Creating reports...</source>
-        <translation>כעת יוצר דיווחים...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="111"/>
         <source>Cannot read EPUB: %1</source>
-        <translation>אין אפשרות לקרוא EPUB: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="221"/>
@@ -13121,17 +13215,17 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="582"/>
         <source>Adding Existing Files..</source>
-        <translation>כעת מוסיף קבצים קיימים..</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="183"/>
         <source>Applications</source>
-        <translation>יישומים</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="193"/>
         <source>Open With</source>
-        <translation>פתח בעזרת</translation>
+        <translation>用...打开</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="44"/>
@@ -13146,12 +13240,12 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Misc/TOCHTMLWriter.cpp" line="105"/>
         <source>Table of Contents</source>
-        <translation>תוכן עניינים</translation>
+        <translation>目录</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="97"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="98"/>
@@ -13159,26 +13253,25 @@ Line: %1 Column %2 - %3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="416"/>
+        <location filename="../../Misc/Utility.cpp" line="420"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation>אין אפשרות לקרוא קובץ %1:
-%2.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="531"/>
+        <location filename="../../Misc/Utility.cpp" line="535"/>
         <source>Sigil has encountered a problem.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="532"/>
+        <location filename="../../Misc/Utility.cpp" line="536"/>
         <source>Sigil cannot continue and will now close</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="70"/>
         <source>Index</source>
-        <translation>אינדקס</translation>
+        <translation>索引</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="207"/>
@@ -13221,7 +13314,21 @@ current extensions will be kept.  If you just provide a file extension (e.g. .xh
 then only file extensions will be updated.  Be careful that any extension you use is 
 valid for all selected files.
 </source>
-        <translation type="unfinished"/>
+        <translation>输入用于重命名所有选定文件的起始名称，例如:
+
+filename001
+filename08.xhtml
+.html
+
+您输入的文件名的结尾中的所有数字将按顺序替换
+从提供的号码开始 (如果没有提供号码,则默认为1)，
+带有前导0被添加以匹配使用的位数
+
+如果您提供的文件扩展名将用于所有文件，否则
+目前的扩展将被保留。 如果您只提供文件扩展名 (例如.xhtml)
+那么只有文件扩展名将被更新. 请注意, 您使用的任何扩名都是
+对所有选定的文件有效.
+</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="45"/>
@@ -13239,12 +13346,12 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/Reports.ui" line="14"/>
         <source>Reports</source>
-        <translation>דיווחים</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/Reports.ui" line="51"/>
         <source>Refresh</source>
-        <translation>רענן</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -13252,22 +13359,22 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="14"/>
         <source>Saved Searches</source>
-        <translation>חיפושים שמורים</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation type="unfinished"/>
+        <translation>过滤名称: </translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation type="unfinished"/>
+        <translation>全部过滤: </translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>仅列出包含您输入的文本的条目. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="65"/>
@@ -13290,7 +13397,7 @@ then if not found look for the second entry in the list, etc.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Find</source>
-        <translation>מצא</translation>
+        <translation>找到</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="103"/>
@@ -13303,7 +13410,7 @@ and stop at the first successful replace.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>Replace</source>
-        <translation>החלף</translation>
+        <translation>替换</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="131"/>
@@ -13315,7 +13422,7 @@ and stop at the first successful replace/find.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="136"/>
         <source>Replace/Find</source>
-        <translation>החלף/מצא</translation>
+        <translation>替换/查找</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="143"/>
@@ -13326,7 +13433,7 @@ Select a group to replace all entries in the group in order.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="147"/>
         <source>Replace All</source>
-        <translation>החלף הכל</translation>
+        <translation>全部替换</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="170"/>
@@ -13337,7 +13444,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
         <source>Count All</source>
-        <translation type="unfinished"/>
+        <translation>计数所有</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="199"/>
@@ -13350,17 +13457,17 @@ including entries in selected groups.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="261"/>
         <location filename="../../Form_Files/SearchEditor.ui" line="291"/>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="229"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation type="unfinished"/>
+        <translation>将条目移动到其父级的级别. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="258"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation type="unfinished"/>
+        <translation>您必须选择组下面的项目才能将其移动到组中. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="288"/>
@@ -13385,7 +13492,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="63"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation type="unfinished"/>
+        <translation>右键单击一个条目以查看操作的上下文菜单. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="64"/>
@@ -13395,12 +13502,12 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="66"/>
         <source>Name</source>
-        <translation>שם</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="66"/>
         <source>Name of your entry or group.</source>
-        <translation type="unfinished"/>
+        <translation>给您的条目或组命名. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
@@ -13415,22 +13522,22 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>Save</source>
-        <translation>שמור</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>Save your changes.</source>
-        <translation>שמור את השינויים שלך.</translation>
+        <translation>保存改变的.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>如果有其他Sigil的实例正在运行，它们将自动更新您的更改. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="89"/>
         <source>Cannot save entries.</source>
-        <translation>אין אפשרות לשמור ערכים.</translation>
+        <translation>无法保存条目. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="163"/>
@@ -13450,22 +13557,22 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="245"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation type="unfinished"/>
+        <translation>您不能选择包含该条目的条目和组。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="328"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation type="unfinished"/>
+        <translation>您不能复制或剪切组 - 请使用拖放。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="395"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="395"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation type="unfinished"/>
+        <translation>您确定要重新载入所有条目吗? 所有更改将被覆盖. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="411"/>
@@ -13480,67 +13587,67 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="649"/>
         <source>Add Entry</source>
-        <translation>הוסף ערך</translation>
+        <translation>添加入口</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="650"/>
         <source>Add Group</source>
-        <translation>הוסף קבוצה</translation>
+        <translation>添加到组</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="651"/>
         <source>Edit</source>
-        <translation>ערוך</translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="652"/>
         <source>Cut</source>
-        <translation>גזור</translation>
+        <translation>剪切</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="653"/>
         <source>Copy</source>
-        <translation>העתק</translation>
+        <translation>复制</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="654"/>
         <source>Paste</source>
-        <translation>הדבק</translation>
+        <translation>黏贴</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="655"/>
         <source>Delete</source>
-        <translation>מחק</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="656"/>
         <source>Import</source>
-        <translation>יבא</translation>
+        <translation>输入</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="657"/>
         <source>Reload</source>
-        <translation>טען מחדש</translation>
+        <translation>重载入</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="658"/>
         <source>Export</source>
-        <translation>יצא</translation>
+        <translation>输出</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="659"/>
         <source>Export All</source>
-        <translation>יצא הכל</translation>
+        <translation>全部输出</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="660"/>
         <source>Collapse All</source>
-        <translation>צמצם הכל</translation>
+        <translation>全部收起</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="661"/>
         <source>Expand All</source>
-        <translation>הרחב הכל</translation>
+        <translation>全部打开</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="738"/>
@@ -13564,22 +13671,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="65"/>
         <source>Name</source>
-        <translation>שם</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
         <source>Find</source>
-        <translation>מצא</translation>
+        <translation>找到</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="67"/>
         <source>Replace</source>
-        <translation>החלף</translation>
+        <translation>替换</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="604"/>
         <source>Unable to create file %1</source>
-        <translation>לא מסוגל ליצור קובץ %1</translation>
+        <translation>无法创建文件 %1</translation>
     </message>
 </context>
 <context>
@@ -13587,7 +13694,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectCharacter.ui" line="14"/>
         <source>Insert Special Character</source>
-        <translation>הכנס תו מיוחד</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -13595,84 +13702,83 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="14"/>
         <source>Insert File</source>
-        <translation>הכנס קובץ</translation>
+        <translation>插入文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="46"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>מנה רק את שמות הקבצים אשר מכילים את הטקסט אותו הזנתי.</translation>
+        <translation>仅列出文件名包含所输入文本的文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="49"/>
         <source>Filter:</source>
-        <translation>סינון:</translation>
+        <translation>过滤：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="59"/>
         <source>Choose which image, video, or audio files from your computer to add to
 your book and automatically insert into your document.</source>
-        <translation>בחר אילו קבצי תמונה, וידאו או אודיו מתוך מחשבך להוסיף אל
-ספרך ולהכניסו אוטומטית לתוך המסמך שלך.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="63"/>
         <source>Other Files...</source>
-        <translation>קבצים אחרים...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="129"/>
         <source>Thumbnail size:</source>
-        <translation>גודל תמונה ממוזערת:</translation>
+        <translation>缩略图大小: </translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
         <source>All</source>
-        <translation>הכל</translation>
+        <translation>所有</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="76"/>
         <source>Images</source>
-        <translation>תמונות</translation>
+        <translation>图像</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="77"/>
         <source>Video</source>
-        <translation>וידאו</translation>
+        <translation>视频</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="78"/>
         <source>Audio</source>
-        <translation>אודיו</translation>
+        <translation>音频</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="120"/>
         <source>Files In the Book</source>
-        <translation>קבצים בתוך הספר</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="123"/>
         <source>Thumbnails</source>
-        <translation>תמונות ממוזערות</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>shades</source>
-        <translation type="unfinished"/>
+        <translation>色彩</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>colors</source>
-        <translation>צבעים</translation>
+        <translation>颜色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="278"/>
         <source>Grayscale</source>
-        <translation type="unfinished"/>
+        <translation>灰度</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="278"/>
         <source>Color</source>
-        <translation>צבע</translation>
+        <translation>色彩</translation>
     </message>
 </context>
 <context>
@@ -13680,7 +13786,7 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="14"/>
         <source>Select Target</source>
-        <translation>בחר מטרה</translation>
+        <translation>选择目标</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="22"/>
@@ -13690,7 +13796,7 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="25"/>
         <source>Filter:</source>
-        <translation>סינון:</translation>
+        <translation>过滤：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="58"/>
@@ -13701,12 +13807,12 @@ double click on existing destinations in your book from the list above.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="62"/>
         <source>Target:</source>
-        <translation>מטרה:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectHyperlink.cpp" line="61"/>
         <source>Targets in the Book</source>
-        <translation>מטרה בתוך הספר</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -13714,7 +13820,7 @@ double click on existing destinations in your book from the list above.</source>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="14"/>
         <source>Insert ID </source>
-        <translation>הכנס מזהה </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="22"/>
@@ -13728,7 +13834,7 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="29"/>
         <source>ID:</source>
-        <translation>מזהה:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -13746,7 +13852,7 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="25"/>
         <source>Index Entry:</source>
-        <translation>ערך אינדקס:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -13754,50 +13860,50 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="14"/>
         <source>Spellcheck Dictionaries</source>
-        <translation>מילוני בדיקת איות</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="34"/>
         <source>Dictionary:</source>
-        <translation>מילון:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="64"/>
         <source>Highlight misspelled words in Code View.</source>
-        <translation>הדגש מילים לא מאויתות כהלכה בתוך תצוגת קוד.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="67"/>
         <source>Highlight Misspelled Words</source>
-        <translation>הדגש מילים לא מאויתות כהלכה</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="120"/>
         <source>User Dictionaries</source>
-        <translation>מילוני משתמש</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="128"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="212"/>
         <source>Add</source>
-        <translation>הוסף</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="135"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="211"/>
         <source>Rename</source>
-        <translation>שנה שם</translation>
+        <translation>重命名</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="142"/>
         <source>Copy</source>
-        <translation>העתק</translation>
+        <translation>复制</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="149"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="226"/>
         <source>Remove</source>
-        <translation>הסר</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="152"/>
@@ -13829,12 +13935,12 @@ Words can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="219"/>
         <source>Edit</source>
-        <translation>ערוך</translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="233"/>
         <source>Remove All</source>
-        <translation>הסר הכל</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="262"/>
@@ -13845,7 +13951,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="266"/>
         <source>Default Dictionary:</source>
-        <translation>מילון ברירת מחדל:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="273"/>
@@ -13855,23 +13961,23 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="52"/>
         <source>Enable</source>
-        <translation>אפשר</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="53"/>
         <source>Dictionary</source>
-        <translation>מילון</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <source>Add Dictionary</source>
-        <translation>הוסף מילון</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="211"/>
         <source>Name:</source>
-        <translation>שם:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="122"/>
@@ -13880,38 +13986,38 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="232"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="251"/>
         <source>Error</source>
-        <translation>שגיאה</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="122"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="224"/>
         <source>A user dictionary already exists with this name!</source>
-        <translation>מילון משתמש כבר קיים עם שם זה!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
         <source>Add Words</source>
-        <translation>הוסף מילים</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
         <source>Words:</source>
-        <translation>מילים:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="162"/>
         <source>Could not create file!</source>
-        <translation>לא היתה אפשרות ליצור קובץ!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="232"/>
         <source>Could not rename file!</source>
-        <translation>לא היתה אפשרות לשנות שם קובץ!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="251"/>
         <source>You cannot delete the last dictionary.</source>
-        <translation>אתה לא יכול למחוק את המילון האחרון.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -13919,17 +14025,17 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="14"/>
         <source>Spellcheck</source>
-        <translation>בדיקת איות</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation>סינון:</translation>
+        <translation>过滤：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>仅列出包含您输入的文本的条目. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="58"/>
@@ -13941,7 +14047,7 @@ is restarted or a new book is opened.</source>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="532"/>
         <source>Ignore</source>
-        <translation>התעלם</translation>
+        <translation>忽略</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="91"/>
@@ -13952,7 +14058,7 @@ dictionary selected below.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="95"/>
         <source>Add To Dictionary:</source>
-        <translation>הוסף אל מילון:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="134"/>
@@ -13969,7 +14075,7 @@ The selected word does not have to be misspelled.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="181"/>
         <source>Show All Words</source>
-        <translation>הצג את כל המילים</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="188"/>
@@ -13990,7 +14096,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="219"/>
         <source>Refresh</source>
-        <translation>רענן</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="53"/>
@@ -14021,38 +14127,38 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="177"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="216"/>
         <source>No words selected.</source>
-        <translation>לא נבחרו מילים.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="170"/>
         <source>Ignored word(s).</source>
-        <translation>מילים מנוכרות.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="205"/>
         <source>Added word(s) to dictionary.</source>
-        <translation>מילים מוספות אל מילון.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="207"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
-        <translation>מילים מוספות אל מילון. המילון אינו מאופשר בתוך העדפות.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="222"/>
         <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
-        <translation>אין אפשרות כי המילה החדשה תכיל &quot;&lt;&quot;, &quot;&gt;&quot;, או &quot;&amp;&quot;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="233"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="301"/>
         <source>No</source>
-        <translation>לא</translation>
+        <translation>否</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="252"/>
         <source>Word</source>
-        <translation>מילה</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="253"/>
@@ -14062,17 +14168,17 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="254"/>
         <source>Misspelled?</source>
-        <translation>לא מאויתת כהלכה?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="299"/>
         <source>Yes</source>
-        <translation>כן</translation>
+        <translation>是</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="314"/>
         <source>Misspelled Words</source>
-        <translation>מילים לא מאויתות כהלכה</translation>
+        <translation>错别字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="314"/>
@@ -14082,17 +14188,17 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="533"/>
         <source>Add to Dictionary</source>
-        <translation>הוסף אל מילון</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="534"/>
         <source>Find in Text</source>
-        <translation>מצא בתוך טקסט</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="535"/>
         <source>Select All</source>
-        <translation>בחר הכל</translation>
+        <translation>选择全部</translation>
     </message>
 </context>
 <context>
@@ -14105,17 +14211,17 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>מנה רק את שמות הקבצים אשר מכילים את הטקסט אותו הזנתי.</translation>
+        <translation>仅列出文件名包含所输入文本的文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>סינון:</translation>
+        <translation>过滤：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="80"/>
         <source>CSS File</source>
-        <translation>קובץ CSS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="81"/>
@@ -14135,27 +14241,27 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="89"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
-        <translation>&lt;p&gt;הערה:&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;注释:&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="90"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;由于CSS的复杂性，您必须手动检查代码以确定样式是否被使用。&lt;/ p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="246"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>שמור דיווח בתור קובץ מופרד-פסיק</translation>
+        <translation>将报告保存为都好分割的文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
         <source>Cannot save report file.</source>
-        <translation>אין אפשרות לשמור קובץ דיווח.</translation>
+        <translation>无法保存报告文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="270"/>
@@ -14168,15 +14274,15 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Tabs/TabBar.cpp" line="67"/>
         <source>Close Other Tabs</source>
-        <translation>סגור כרטיסיות אחרות</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TabManager</name>
     <message>
-        <location filename="../../Tabs/TabManager.cpp" line="215"/>
+        <location filename="../../Tabs/TabManager.cpp" line="216"/>
         <source>Cannot edit file</source>
-        <translation>אין אפשרות לערוך קובץ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -14184,22 +14290,22 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="42"/>
         <source>Table Of Contents</source>
-        <translation>תוכן עניינים</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="123"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>הקובץ &quot;%1&quot; לא קיים.</translation>
+        <translation>文件&quot;%1&quot;不存在</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="154"/>
         <source>Collapse All</source>
-        <translation>צמצם הכל</translation>
+        <translation>全部收起</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="155"/>
         <source>Expand All</source>
-        <translation>הרחב הכל</translation>
+        <translation>全部打开</translation>
     </message>
 </context>
 <context>
@@ -14207,18 +14313,18 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Tabs/TextTab.cpp" line="309"/>
         <source>Print %1</source>
-        <translation>הדפס %1</translation>
+        <translation>打印%1</translation>
     </message>
 </context>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="644"/>
+        <location filename="../../Misc/Utility.cpp" line="648"/>
         <source>Sigil</source>
-        <translation type="unfinished"/>
+        <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="645"/>
+        <location filename="../../Misc/Utility.cpp" line="649"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
@@ -14247,17 +14353,17 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="255"/>
         <source>No problems found!</source>
-        <translation>לא נמצאו בעיות!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>File</source>
-        <translation>קובץ</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>Line</source>
-        <translation>שורה</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
@@ -14270,7 +14376,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="20"/>
         <source>View Image</source>
-        <translation type="unfinished"/>
+        <translation>看图</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="33"/>
@@ -14283,7 +14389,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="42"/>
         <source>&lt;p&gt;The operation you requested cannot be performed because &lt;b&gt;%1&lt;/b&gt; is not a well-formed XML document.&lt;/p&gt;&lt;p&gt;An error was found &lt;b&gt;at or above line %2: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Manually&lt;/i&gt; option will let you fix the problem by hand.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;您所请求的操作无法执行，因为&lt;b&gt;%1 &lt;/ b&gt;不是一个格式正确的XML文档。&lt;/ p&gt; &lt;p&gt;发现错误&lt;b&gt;在第%2行以上%3。&lt;/ b&gt; &lt;/ p&gt; &lt;p&gt; &lt;i&gt;手动修复&lt;/ i&gt;可让您手动修复问题。&lt;/ p&gt;</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="47"/>
@@ -14306,7 +14412,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>quotation mark</source>
-        <translation>ציון מרכאה</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="98"/>
@@ -14316,17 +14422,17 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="99"/>
         <source>apostrophe</source>
-        <translation>גרש</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="100"/>
         <source>less-than sign</source>
-        <translation>סימן פחות-מן</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="101"/>
         <source>greater-than sign</source>
-        <translation>סימן גדול-יותר-מן</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="102"/>
@@ -14336,27 +14442,27 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="103"/>
         <source>inverted exclamation mark</source>
-        <translation>סימן קריאה מהופך</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="104"/>
         <source>cent sign</source>
-        <translation>סימן סנט</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="105"/>
         <source>pound sign</source>
-        <translation>סימן פאונד</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="106"/>
         <source>currency sign</source>
-        <translation>סימן מטבע</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="107"/>
         <source>yen sign</source>
-        <translation>סימן ין</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="108"/>
@@ -14376,7 +14482,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>copyright symbol</source>
-        <translation>סמל זכויות יוצרים</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="112"/>
@@ -14486,7 +14592,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="133"/>
         <source>inverted question mark</source>
-        <translation>סימן שאלה מהופך</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="134"/>
@@ -14506,7 +14612,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="137"/>
         <source>Latin capital letter A with tilde</source>
-        <translation>אות לטינית גדולה A עם טילדה</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="138"/>
@@ -14576,7 +14682,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="151"/>
         <source>Latin capital letter N with tilde</source>
-        <translation>אות לטינית גדולה N עם טילדה</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="152"/>
@@ -14596,7 +14702,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="155"/>
         <source>Latin capital letter O with tilde</source>
-        <translation>אות לטינית גדולה O עם טילדה</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="156"/>
@@ -14666,7 +14772,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="169"/>
         <source>Latin small letter a with tilde</source>
-        <translation>אות לטינית קטנה a עם טילדה</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="170"/>
@@ -14736,7 +14842,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="183"/>
         <source>Latin small letter n with tilde</source>
-        <translation>אות לטינית קטנה n עם טילדה</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="184"/>
@@ -14756,7 +14862,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="187"/>
         <source>Latin small letter o with tilde</source>
-        <translation>אות לטינית קטנה o עם טילדה</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="188"/>
@@ -14846,7 +14952,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="205"/>
         <source>small tilde</source>
-        <translation>טילדה קטן</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="206"/>
@@ -15136,12 +15242,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="263"/>
         <source>left-to-right mark</source>
-        <translation>ציון שמאל-אל-ימין</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="264"/>
         <source>right-to-left mark</source>
-        <translation>ציון ימין-אל-שמאל</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="265"/>
@@ -15156,12 +15262,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="267"/>
         <source>left single quotation mark</source>
-        <translation>ציון מרכאה בודדת שמאלי</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="268"/>
         <source>right single quotation mark</source>
-        <translation>ציון מרכאה בודדת ימני</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="269"/>
@@ -15171,12 +15277,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="270"/>
         <source>left double quotation mark</source>
-        <translation>ציון מרכאה כפול שמאלי</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="271"/>
         <source>right double quotation mark</source>
-        <translation>ציון מרכאה כפול ימני</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="272"/>
@@ -15196,7 +15302,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="275"/>
         <source>bullet</source>
-        <translation>תבליט</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="276"/>
@@ -15231,7 +15337,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="282"/>
         <source>overline</source>
-        <translation>קו עליון</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="283"/>
@@ -15241,7 +15347,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="284"/>
         <source>euro sign</source>
-        <translation>סימן יורו</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="285"/>
@@ -15261,12 +15367,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="288"/>
         <source>trademark symbol</source>
-        <translation>סמל סימן מסחר</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="289"/>
         <source>alef symbol</source>
-        <translation>סמל אל״ף</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="290"/>
@@ -15396,22 +15502,22 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="315"/>
         <source>infinity</source>
-        <translation>אינסופי</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="316"/>
         <source>angle</source>
-        <translation>זווית</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="317"/>
         <source>logical and</source>
-        <translation>לוגי וגם</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="318"/>
         <source>logical or</source>
-        <translation>לוגי או</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="319"/>
@@ -15426,7 +15532,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="321"/>
         <source>integral</source>
-        <translation>אינטגרל</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="322"/>
@@ -15446,27 +15552,27 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="325"/>
         <source>almost equal to</source>
-        <translation>כמעט שווה את</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="326"/>
         <source>not equal to</source>
-        <translation>לא שווה את</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="327"/>
         <source>identical to</source>
-        <translation>זהה את</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="328"/>
         <source>less-than or equal to</source>
-        <translation>פחות-מן או שווה את</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="329"/>
         <source>greater-than or equal to</source>
-        <translation>גדול-יותר-מן או שווה את</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="330"/>
@@ -15516,22 +15622,22 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="339"/>
         <source>left ceiling</source>
-        <translation>תקרה שמאלית</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="340"/>
         <source>right ceiling</source>
-        <translation>תקרה ימנית</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="341"/>
         <source>left floor</source>
-        <translation>רצפה שמאלית</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="342"/>
         <source>right floor</source>
-        <translation>רצפה ימנית</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="343"/>
@@ -15546,7 +15652,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="345"/>
         <source>lozenge</source>
-        <translation>לכסנית</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="346"/>

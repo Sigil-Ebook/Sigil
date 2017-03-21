@@ -1,35 +1,35 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.1">
 <context>
     <name>About</name>
     <message>
         <location filename="../../Form_Files/About.ui" line="14"/>
         <source>About</source>
-        <translation>O programe</translation>
+        <translation>Hakkında</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
         <source>The EPUB Editor</source>
-        <translation>Editor EPUB</translation>
+        <translation>EPUB Düzenleyici</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="70"/>
         <source>General</source>
-        <translation>Všeobecné</translation>
+        <translation>Genel</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="107"/>
         <source>Homepage:</source>
-        <translation>Domovská stránka:</translation>
+        <translation>Anasayfa:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="143"/>
         <source>Version:</source>
-        <translation>Verzia:</translation>
+        <translation>Versiyon:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="170"/>
         <source>Loaded Qt:</source>
-        <translation>Načítané Qt:</translation>
+        <translation>Yüklü Qt:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="200"/>
@@ -39,52 +39,52 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="218"/>
         <source>Build time:</source>
-        <translation>Čas kompilácie:</translation>
+        <translation>Oluşturma zamanı:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="245"/>
         <source>License:</source>
-        <translation>Licencia:</translation>
+        <translation>Lisans:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="255"/>
         <source>Authors</source>
-        <translation>Autori</translation>
+        <translation>Yazarlar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="41"/>
         <source>GNU General Public License v3</source>
-        <translation type="unfinished"/>
+        <translation>GNU Genel Kamu Lisansı v3</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer(s)</source>
-        <translation type="unfinished"/>
+        <translation>Koruyucu(lar)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="56"/>
         <source>Previous Maintainer(s)</source>
-        <translation type="unfinished"/>
+        <translation>Önceki Koruyucu(lar)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
         <source>Code Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Koda Katkıda Bulunanlar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="68"/>
         <source>Translators</source>
-        <translation type="unfinished"/>
+        <translation>Çevirenler</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="70"/>
         <source>Original Creator</source>
-        <translation type="unfinished"/>
+        <translation>Orijinal Yaratıcı</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>retired</source>
-        <translation type="unfinished"/>
+        <translation>emekli</translation>
     </message>
 </context>
 <context>
@@ -92,12 +92,12 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
         <source>Add metadata property</source>
-        <translation>Pridať atribút metadát</translation>
+        <translation>Metadata özelliği ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="50"/>
         <source>Metadata description</source>
-        <translation>Popis metadát</translation>
+        <translation>Metadata açıklaması</translation>
     </message>
 </context>
 <context>
@@ -105,12 +105,12 @@
     <message>
         <location filename="../../Form_Files/AddSemantics.ui" line="14"/>
         <source>Add Semantic Property</source>
-        <translation type="unfinished"/>
+        <translation>Semantik Özelliği Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddSemantics.ui" line="56"/>
         <source>Description of Semantic Properties</source>
-        <translation type="unfinished"/>
+        <translation>Semantik Özelliklerinin Açıklaması</translation>
     </message>
 </context>
 <context>
@@ -118,87 +118,92 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="14"/>
         <source>All Files</source>
-        <translation type="unfinished"/>
+        <translation>Tüm Dosyalar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Sadece sizin girdiğiniz metindeki dosya isimlerini listele.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="65"/>
-        <source>Directory</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="66"/>
-        <source>Name</source>
-        <translation>Meno</translation>
+        <translation>Filitre:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="67"/>
-        <source>File Size (KB)</source>
-        <translation type="unfinished"/>
+        <source>Directory</source>
+        <translation>Dizin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="68"/>
-        <source>Type</source>
-        <translation>Typ</translation>
+        <source>Name</source>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="69"/>
+        <source>File Size (KB)</source>
+        <translation>Dosya Boyutu (KB)</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="70"/>
+        <source>Type</source>
+        <translation>Tip</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="71"/>
         <source>Semantics</source>
+        <translation>Semantikler</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="73"/>
+        <source>Properties</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="133"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="142"/>
         <source> files</source>
-        <translation type="unfinished"/>
+        <translation>dosyalar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="246"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="255"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="259"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="268"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="259"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="268"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="284"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="293"/>
         <source>Image</source>
-        <translation>Obrázok</translation>
+        <translation>Resim</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="289"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="298"/>
         <source>Audio</source>
-        <translation>Audio</translation>
+        <translation>Ses</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="294"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="303"/>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Görüntü</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="299"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="308"/>
         <source>Font</source>
-        <translation>Písmo</translation>
+        <translation>Yazı Tipi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="326"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="335"/>
         <source>Unknown</source>
-        <translation>Neznámy</translation>
+        <translation>Bilinmeyen</translation>
     </message>
 </context>
 <context>
@@ -206,225 +211,249 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="14"/>
         <source>Appearance</source>
-        <translation>Vzhľad</translation>
+        <translation>Görünüm</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="32"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="24"/>
+        <source>Fonts / Colors</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="30"/>
         <source>Book View / Preview:</source>
-        <translation type="unfinished"/>
+        <translation>Kitap Görünümü / Öngörünüm</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="41"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="39"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation type="unfinished"/>
+        <translation>Eğer CSS dosyanızda yazı tipi belirtilmemişse, aşağıdaki yazı tipi Sigil&apos;de görüntüleme için kullanılacaktır. Bu yazı tipleri sizin asıl e-kitabınızda kullanılmayacaktır.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="61"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="59"/>
         <source>Default font size to be used for Book View and Preview
 if no font-size specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Kitap Görünümünde ve Ön görünümde kullanılacak varsayılan yazı tipi boyutu
+Eğer CSS dosyanızda herhangi bir yazı tipi boyutu belirtilmemişse</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="65"/>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="199"/>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="315"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="63"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="197"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="313"/>
         <source>Font Size:</source>
-        <translation>Veľkosť písma:</translation>
+        <translation>Yazı Tipi Boyutu:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="95"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="93"/>
         <source>Default font family to be used for Book View and Preview
 if no font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Kitap Görünümünde ve Ön görünümde kullanılacak varsayılan yazı tipi boyutu
+Eğer CSS dosyanızda herhangi bir yazı tipi boyutu belirtilmemişse</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="99"/>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="229"/>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="348"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="97"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="227"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="346"/>
         <source>Standard Font:</source>
-        <translation>Štandardné písmo:</translation>
+        <translation>Standart Yazı Tipi:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="109"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="107"/>
         <source>Default font family to be used for Book View and Preview
 if a serif font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Kitap Görünümünde ve Ön görünümde kullanılacak varsayılan yazı tipi boyutu
+Eğer CSS dosyanızda bir serif yazı tipi boyutu belirtilmemişse</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="113"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="111"/>
         <source>Serif Font:</source>
-        <translation>Pätkové písmo:</translation>
+        <translation>Serif Yazı Tipi:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="123"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="121"/>
         <source>Default font family to be used for Book View and Preview
 if a sans-serif font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>Kitap Görünümünde ve Ön görünümde kullanılacak varsayılan yazı tipi boyutu
+Eğer CSS dosyanızda bir sans-serif yazı tipi boyutu belirtilmemişse</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="127"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="125"/>
         <source>Sans-Serif Font:</source>
-        <translation>Bezpätkové písmo:</translation>
+        <translation>Sans-Serif Yazı Tipi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="173"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="171"/>
         <source>CSS / Code View:</source>
-        <translation type="unfinished"/>
+        <translation>CSS / Kod Görünümü:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="183"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="181"/>
         <source>Item Colors:</source>
-        <translation type="unfinished"/>
+        <translation>Öğe Renkleri:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="196"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="194"/>
         <source>Font size to be used for text in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Kod Görünümündeki yazılarda kullanılacak yazı tipi boyutu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="226"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="224"/>
         <source>Font family to be used for text in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Kod Görünümündeki yazılarda kullanılacak yazı tipi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="265"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="263"/>
         <source>Select an alternative color for this display item</source>
-        <translation type="unfinished"/>
+        <translation>Bu görüntü öğesi için alternatif bir renk seçin</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="268"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="266"/>
         <source>Custom Color...</source>
-        <translation>Vlastné farby…</translation>
+        <translation>Özel Renk...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="298"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="296"/>
         <source>Insert Special Characters:</source>
-        <translation type="unfinished"/>
+        <translation>Özel Karakter Ekle:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="312"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="310"/>
         <source>Font size to be used for Insert Special Characters window</source>
-        <translation type="unfinished"/>
+        <translation>Özel Karakter Ekle penceresinde kullanılacak yazı tipi boyutu</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="345"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="343"/>
         <source>Font family to be used for Insert Special Characters window</source>
+        <translation>Özel Karakter Ekle penceresinde kullanılacak yazı tipi</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="388"/>
+        <source>Menus</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="384"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="394"/>
+        <source>Main Menu Icon Size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="400"/>
+        <source>Adjust the size of the icons in the main menu.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="476"/>
         <source>Reset all fonts and colors to the default values</source>
-        <translation type="unfinished"/>
+        <translation>Bütün yazı tiplerini ve renkleri varsayılan değerlerine sıfırla</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="387"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="479"/>
         <source>Reset All</source>
-        <translation>Obnoviť všetko</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="199"/>
-        <source>Background</source>
-        <translation>Pozadie</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="200"/>
-        <source>Foreground</source>
-        <translation>Popredie</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="201"/>
-        <source>CSS Comment</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="202"/>
-        <source>CSS Property</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="203"/>
-        <source>CSS Quote</source>
-        <translation type="unfinished"/>
+        <translation>Tümünü Sıfırla</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="204"/>
-        <source>CSS Selector</source>
-        <translation type="unfinished"/>
+        <source>Background</source>
+        <translation>Arkaplan</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="205"/>
-        <source>CSS Value</source>
-        <translation type="unfinished"/>
+        <source>Foreground</source>
+        <translation>Önplan</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="206"/>
-        <source>Line Highlight</source>
-        <translation type="unfinished"/>
+        <source>CSS Comment</source>
+        <translation>CSS Yorumu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="207"/>
+        <source>CSS Property</source>
+        <translation>CSS Özelliği</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="208"/>
+        <source>CSS Quote</source>
+        <translation>CSS Alıntı</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="209"/>
+        <source>CSS Selector</source>
+        <translation>CSS Seçici</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="210"/>
+        <source>CSS Value</source>
+        <translation>CSS Değeri</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="211"/>
+        <source>Line Highlight</source>
+        <translation>Satır Vurgusu</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="212"/>
         <source>Line# Background</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="208"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="213"/>
         <source>Line# Foreground</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="209"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="214"/>
         <source>Selection Background</source>
-        <translation type="unfinished"/>
+        <translation>Arkaplan Seçimi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="210"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="215"/>
         <source>Selection Foreground</source>
-        <translation type="unfinished"/>
+        <translation>Önplan Seçimi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="211"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="216"/>
         <source>Spelling Underline</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="212"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="217"/>
         <source>XHTML Attribute Name</source>
-        <translation type="unfinished"/>
+        <translation>XHTML Öznitelik Adı</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="213"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="218"/>
         <source>XHTML Attribute Value</source>
-        <translation type="unfinished"/>
+        <translation>XHTML Öznitelik Değeri</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="214"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="219"/>
         <source>XHTML CSS</source>
         <translation>XHTML CSS</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="215"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="220"/>
         <source>XHTML CSS Comment</source>
-        <translation type="unfinished"/>
+        <translation>XHTML CSS Yorumu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="216"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="221"/>
         <source>XHTML DocType</source>
         <translation>XHTML DocType</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="217"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="222"/>
         <source>XHTML Entity</source>
-        <translation type="unfinished"/>
+        <translation>XHTML Girdisi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="218"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="223"/>
         <source>XHTML HTML Tag</source>
-        <translation type="unfinished"/>
+        <translation>XHTML HTML Etiketi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="219"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="224"/>
         <source>XHTML HTML Comment</source>
-        <translation type="unfinished"/>
+        <translation>XHTML HTML Yorumu</translation>
     </message>
 </context>
 <context>
@@ -432,7 +461,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="393"/>
         <source>Start</source>
-        <translation type="unfinished"/>
+        <translation>Başla</translation>
     </message>
 </context>
 <context>
@@ -440,29 +469,29 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="60"/>
         <source>Book Browser</source>
-        <translation>Prehliadač knihy</translation>
+        <translation>Kitap Tarayıcısı</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
         <source>Font Obfuscation</source>
-        <translation>Obfuskácia písma</translation>
+        <translation>Yazı Tipi Muhafazası</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1411"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1511"/>
         <source>Open With</source>
-        <translation>Otvoriť s</translation>
+        <translation>Birlikte Aç</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="124"/>
         <source>file</source>
-        <translation type="unfinished"/>
+        <translation>dosya</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="126"/>
         <source>files</source>
-        <translation type="unfinished"/>
+        <translation>dosyalar</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
@@ -477,321 +506,330 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
-        <translation>Ste si istý, že chcete zoradiť označené súbory alfanumericky?</translation>
+        <translation>Seçili dosyaları alfanumerik olarak sıralamak istediğine emin misin?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>This action cannot be reversed.</source>
-        <translation>Tento krok nie je možné vrátiť späť.</translation>
+        <translation>Bu işlem geri alınamaz</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="243"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Súbor &quot;%1&quot; neexistuje.</translation>
+        <translation>&quot;%1&quot; dosyası bulunamadı.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="567"/>
         <source>Add Existing Files</source>
-        <translation type="unfinished"/>
+        <translation>Varolan Dosyaları Ekle</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="600"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Dosya bir resim değil ve kullanılamaz:
+
+&quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="609"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Dosya multimedya (resim, görüntü, ses) değil ve eklenemez:
+
+&quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="624"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation type="unfinished"/>
+        <translation>Multimedya dosyası &quot;%1&quot; zaten kitabın içinde mevcut.
+
+Değiştirmek için OK?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="635"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
-        <translation>Nie je možné zmazať alebo nahradiť súbor &quot;%1&quot;.</translation>
+        <translation>&quot;%1&quot; dosyası silinemiyor veya değiştirilemiyor.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="640"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
-        <translation>Neporadilo sa načítať súbor &quot;%1&quot;
+        <translation>&quot;%1&quot; yüklenemiyor.
 
-Súbor s rovnakým názvom už existuje v knihe.</translation>
+Bu isimle bir dosya kitapta zaten mevcut.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="690"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
-        <translation type="unfinished"/>
+        <translation>Aşağıdaki dosyalar, yanlış içerik veya iyi düzenlenmemiş XML sebebiyle yüklenemedi:
+
+%1</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="704"/>
         <source>File(s) added.</source>
-        <translation type="unfinished"/>
+        <translation>Dosya(lar) eklendi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="739"/>
         <source>Save As File</source>
-        <translation>Uložiť ako súbor</translation>
+        <translation>Dosya Olarak Kaydet</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="761"/>
         <source>Unable to save the file.</source>
-        <translation type="unfinished"/>
+        <translation>Dosya kaydedilemiyor.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="769"/>
         <source>Choose the directory to save the files to</source>
-        <translation type="unfinished"/>
+        <translation>Dosyaların kaydedileceği dizini seç</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="789"/>
         <source>One or more files already exists.  OK to overwrite?</source>
-        <translation type="unfinished"/>
+        <translation>Bir veya daha fazla dosya zaten mevcut. Üstüne yazmak için OK?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="806"/>
         <source>Unable to save files.  Destination may be a directory.</source>
-        <translation type="unfinished"/>
+        <translation>Dosyalar kaydedilemiyor. Hedef bir dizin olmalıdır.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="814"/>
         <source>Unable to save files.</source>
-        <translation type="unfinished"/>
+        <translation>Dosyalar kaydedilemiyor.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="989"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
-        <translation type="unfinished"/>
+        <translation>Sonucu aynı dosya isimleri olacağı için dosyaları yeniden adlandıramıyor.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1052"/>
         <source>The Nav document can not be removed.</source>
-        <translation type="unfinished"/>
+        <translation>Nav dökümanı dilinemez.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1060"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
-        <translation>Ani NCX ani OPF môžu byť odstránené.</translation>
+        <translation>Ne NCX ne de OPF silinemez.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1067"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
-        <translation>Nemôžte odstrániť všetky html súbory.</translation>
+        <translation>Bütün HTML dosyalarını silemezsiniz.
+Her zaman en az bir tane olmalıdır.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1207"/>
         <source>Unable to set file as cover image.</source>
-        <translation type="unfinished"/>
+        <translation>Dosya kapak resmi olarak ayarlanamıyor.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1392"/>
         <source>Select All</source>
-        <translation>Vybrať všeko</translation>
+        <translation>Hepsini Seç</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1393"/>
         <source>Add Blank HTML File</source>
-        <translation>Pridať nový prázdny HTML súbor</translation>
+        <translation>Boş HTML Dosyası Ekle</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1394"/>
         <source>Add Blank Stylesheet</source>
-        <translation>Pridať prázdny štýl</translation>
+        <translation>Boş Stil Dosyası Ekle</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1395"/>
         <source>Add Blank SVG Image</source>
-        <translation>Pridať prázdny SVG obrázok</translation>
+        <translation>Boş SVG Resim Ekle</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1396"/>
         <source>Add Existing Files...</source>
-        <translation>Pridať existujúce súbory…</translation>
+        <translation>Varolan Dosyaları Ekle...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1397"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1398"/>
         <source>Add Copy</source>
-        <translation>Pridať kópiu</translation>
+        <translation>Kopya Ekle</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1399"/>
         <source>Rename</source>
-        <translation>Premenovať</translation>
+        <translation>Yeniden Adlandır</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1400"/>
         <source>Delete</source>
-        <translation>Zmazať</translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
         <source>Cover Image</source>
-        <translation>Obrázok na prednej strane</translation>
+        <translation>Kapak Resmi</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
         <source>Merge</source>
-        <translation>Zlúčiť</translation>
+        <translation>Birleştir</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1403"/>
         <source>None</source>
-        <translation>Žiadny</translation>
+        <translation>Hiç</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1404"/>
         <source>Use Adobe&apos;s Method</source>
-        <translation>Použiť Adobe metódu</translation>
+        <translation>Adobe&apos;nin Yöntemini Kullan</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
         <source>Use IDPF&apos;s Method</source>
-        <translation>Použiť IDPF metódu</translation>
+        <translation>IDPF&apos;nin Yöntemini Kullan</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1406"/>
         <source>Sort</source>
-        <translation>Triediť</translation>
+        <translation>Sırala</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1407"/>
         <source>Renumber TOC Entries</source>
-        <translation>Prečíslovať položky obsahu</translation>
+        <translation>TOC girdilerini tekrar sırala</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1408"/>
         <source>Link Stylesheets...</source>
-        <translation>Prepojiť štýly…</translation>
+        <translation>Stil Sayfası İşaretle...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
         <source>Add Semantics...</source>
-        <translation type="unfinished"/>
+        <translation>Semantik ekle...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1410"/>
         <source>Validate with W3C</source>
-        <translation type="unfinished"/>
+        <translation>W3C ile Doğrula</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1412"/>
         <source>Save As</source>
-        <translation>Uložiť ako</translation>
+        <translation>Farklı Kaydet</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1517"/>
         <source>Other Application</source>
-        <translation>Iná aplikácia</translation>
+        <translation>Diğer Uygulama</translation>
     </message>
 </context>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="698"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="700"/>
         <source>Clipboard contains HTML formatting</source>
-        <translation type="unfinished"/>
+        <translation>Kopyalama Panosu HTML biçimi içeriyor</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="699"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="701"/>
         <source>Do you want to paste clipboard data as plain text?</source>
-        <translation type="unfinished"/>
+        <translation>Kopyalama panosu verisini düz metin olarak yapıştırmak istiyor musun?</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="895"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="897"/>
         <source>Open Tab For</source>
-        <translation>Otvoriť kartu pre</translation>
+        <translation>Şunun İçin Sekme Aç</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="909"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1082"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="911"/>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1084"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1086"/>
         <source>Open With</source>
-        <translation>Otvoriť s</translation>
+        <translation>Birlikte Aç</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="916"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="918"/>
         <source>Other Application</source>
-        <translation>Iná aplikácia</translation>
+        <translation>Diğer Uygulama</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="964"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="966"/>
         <source>Clips</source>
-        <translation type="unfinished"/>
+        <translation>Klipler</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="974"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="976"/>
         <source>Add To Clips</source>
-        <translation>Pridať do úryvkov</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1072"/>
-        <source>Insert File</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1073"/>
-        <source>Undo</source>
-        <translation>Späť</translation>
+        <translation>Kliplere Ekle</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1074"/>
-        <source>Redo</source>
-        <translation>Znova</translation>
+        <source>Insert File</source>
+        <translation>Dosya Ekle</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1075"/>
-        <source>Cut</source>
-        <translation>Vystrihnúť</translation>
+        <source>Undo</source>
+        <translation>Geri Al</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1076"/>
-        <source>Copy</source>
-        <translation>Kopírovať</translation>
+        <source>Redo</source>
+        <translation>Tekrarla</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1077"/>
-        <source>Copy Image</source>
-        <translation type="unfinished"/>
+        <source>Cut</source>
+        <translation>Kes</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1078"/>
-        <source>Paste</source>
-        <translation>Vložiť</translation>
+        <source>Copy</source>
+        <translation>Kopyala</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1079"/>
-        <source>Select All</source>
-        <translation>Vybrať všeko</translation>
+        <source>Copy Image</source>
+        <translation>Resmi Kopyala</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1080"/>
+        <source>Paste</source>
+        <translation>Yapıştır</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1081"/>
+        <source>Select All</source>
+        <translation>Hepsini Seş</translation>
+    </message>
+    <message>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1082"/>
         <source>Open</source>
-        <translation>Otvoriť</translation>
+        <translation>Aç</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1083"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1085"/>
         <source>Save As</source>
-        <translation>Uložiť ako</translation>
+        <translation>Farklı Kaydet</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1087"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1089"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"/>
+        <translation>Öğeyi İncele</translation>
     </message>
 </context>
 <context>
@@ -801,27 +839,27 @@ There always has to be at least one.</source>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="332"/>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="338"/>
         <source>Unsupported</source>
-        <translation>Nepodporované</translation>
+        <translation>Desteklenmiyor</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="267"/>
         <source>Spellcheck mode is not supported in Book View at this time.  Switch to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Yazım denetimi modu Kitap Görünümünde şu an desteklenmemekte. Kod Görünümüne geçin.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="332"/>
         <source>Replace is not supported in this view. Switch to Code View.</source>
-        <translation>Nahradzovanie je nie podporované v tomto zobrazení. Prepnite na Zobrazenie kódu.</translation>
+        <translation>Değiştir, bu görünümde desteklenmiyor. Kod Görünümüne geçin.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="338"/>
         <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
-        <translation>Nahradiť všetko je nie podporované v tomto zobrazení. Prepnite na Zobrazenie kódu.</translation>
+        <translation>Geçerli dosya için Tümünü Değiştir bu görünümde desteklenmiyor. Kod görünümüne geçin.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="754"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"/>
+        <translation>Öğeyi İncele</translation>
     </message>
 </context>
 <context>
@@ -829,37 +867,37 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="14"/>
         <source>CSS Files</source>
-        <translation>CSS súbory</translation>
+        <translation>CSS Dosyaları</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Zobraziť iba súbory, ktorých názvy obsahujú text, ktorý ste vložili.</translation>
+        <translation>Sadece sizin girdiğiniz metindeki dosya isimlerini listele.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter: </translation>
+        <translation>Filitre:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="68"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="69"/>
         <source>Size (KB)</source>
-        <translation>Veľkosť (KB)</translation>
+        <translation>Boyut (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="70"/>
         <source>Times Used</source>
-        <translation>Použité</translation>
+        <translation>Defa Kullanıldı</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="135"/>
         <source> files</source>
-        <translation>súbory</translation>
+        <translation>dosyalar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="139"/>
@@ -869,7 +907,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
@@ -879,12 +917,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="289"/>
         <source>Delete From Book</source>
-        <translation>Zmazať z knihy</translation>
+        <translation>Kitaptan Sil</translation>
     </message>
 </context>
 <context>
@@ -892,17 +930,17 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="99"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil stilsayfası verinizi &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Doğrulama Servisi&lt;/a&gt;&apos;ne gönderecek.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="100"/>
         <source>This page should disappear once loaded after 3 seconds.</source>
-        <translation type="unfinished"/>
+        <translation>Bu sayfa, 3 saniye sonra yüklendiğinde kaybolur.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="101"/>
         <source>If your browser does not have javascript enabled, click on the button below.</source>
-        <translation type="unfinished"/>
+        <translation>Eğer tarayıcınızda javascript etkinleştirilmemişse, aşağıdaki butona tıklayın.</translation>
     </message>
 </context>
 <context>
@@ -910,57 +948,57 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="14"/>
         <source>Characters in HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>HTML Dosyalarındaki Karakterler</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Sadece sizin girdiğiniz metindeki dosya isimlerini listele.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Filitre:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="76"/>
         <source>Characters:</source>
-        <translation type="unfinished"/>
+        <translation>Karakterler:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="74"/>
         <source>Character</source>
-        <translation type="unfinished"/>
+        <translation>Karakter</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="75"/>
         <source>Decimal</source>
-        <translation type="unfinished"/>
+        <translation>Ondalık</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="76"/>
         <source>Hexadecimal</source>
-        <translation type="unfinished"/>
+        <translation>Onaltılık</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="77"/>
         <source>Entity Name</source>
-        <translation type="unfinished"/>
+        <translation>Girdi Adı</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="78"/>
         <source>Entity Description</source>
-        <translation type="unfinished"/>
+        <translation>Girdi Açıklaması</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="84"/>
         <source>&lt;p&gt;This is a list of the characters used in all HTML files.&lt;p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Bu tüm HTML dosyalarında kullanılmış karakterlerin bir listesidir.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
@@ -970,7 +1008,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
 </context>
 <context>
@@ -978,62 +1016,62 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="14"/>
         <source>Style Classes in HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>HTML Dosyalarındaki Still Sınıfları</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Zobraziť iba súbory, ktorých názvy obsahujú text, ktorý ste vložili.</translation>
+        <translation>Sadece sizin girdiğiniz metindeki dosya isimlerini listele.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter: </translation>
+        <translation>Filitre:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="77"/>
         <source>HTML File</source>
-        <translation>HTML súbor</translation>
+        <translation>HTML Dosyası</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="78"/>
         <source>Element</source>
-        <translation>Prvok</translation>
+        <translation>Öğe</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="79"/>
         <source>Class</source>
-        <translation type="unfinished"/>
+        <translation>Sınıf</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="80"/>
         <source>Matched Selector</source>
-        <translation type="unfinished"/>
+        <translation>Eşleşmiş Seçici</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="81"/>
         <source>Found In</source>
-        <translation>Nájdené v</translation>
+        <translation>Bulundu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
         <source>&lt;p&gt;This is a list of the style classes used in all HTML files and whether or not the style matched a selector in a linked stylesheet.&lt;p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Bu, bütün HTML dosyalarında kullanılan stil sınıflarının, dosyada herhangi bir seçiciyle eşleşmesine ve stilsayfası işaretlenmesine bakılmaksızın listesidir.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="88"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
-        <translation>&lt;p&gt;POZNÁMKA:&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;NOT:&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="89"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;CSS karmaşıklığı sebebiyle, belirli bir stilin kullanılıp kullanılmadığını görmek için kodunuzu manuel olarak kontrol etmelisiniz.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="223"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
@@ -1043,7 +1081,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
 </context>
 <context>
@@ -1052,49 +1090,49 @@ There always has to be at least one.</source>
         <location filename="../../Form_Files/ClipEditor.ui" line="14"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="503"/>
         <source>Clip Editor</source>
-        <translation type="unfinished"/>
+        <translation>Klip Düzenleyici</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation type="unfinished"/>
+        <translation>Filitre Adı:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation type="unfinished"/>
+        <translation>Tümünü Filitrele:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Iba zoznam položiek, ktoré obsahújú text, ktorý ste zadali.</translation>
+        <translation>Sadece girdiğiniz metini içeren girdileri listeleyin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="65"/>
         <source>Paste the selected entry into the active window.</source>
-        <translation type="unfinished"/>
+        <translation>Seçilmiş girdiyi aktif pencereye yapıştır.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="68"/>
         <source>Paste Clip</source>
-        <translation type="unfinished"/>
+        <translation>Klip Yapıştır</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="91"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="614"/>
         <source>Add Entry</source>
-        <translation>Pridať položku</translation>
+        <translation>Girdi Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="98"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="615"/>
         <source>Add Group</source>
-        <translation>Pridať skupinu</translation>
+        <translation>Grup Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="123"/>
         <source>Move an entry up one entry in the same group.</source>
-        <translation type="unfinished"/>
+        <translation>Bir girdiyi aynı grupta bir girdi yukarı taşıyın.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="126"/>
@@ -1107,82 +1145,82 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="153"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation type="unfinished"/>
+        <translation>Bir girdiyi bir üst düzeyine taşıyın.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="182"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation type="unfinished"/>
+        <translation>Gruba taşımak için bir grubun hemen altında bir öğe seçmelisiniz.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="212"/>
         <source>Move an entry down one in the group.</source>
-        <translation type="unfinished"/>
+        <translation>Bir girdiyi grupta bir alta taşıyın.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="72"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation type="unfinished"/>
+        <translation>İşlemlerin bağlam menüsünü görmek için girdiye sağ tıklayın.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
         <source>You can also right click in your document to select an entry.</source>
-        <translation type="unfinished"/>
+        <translation>Bir girdiyi seçmek için belgenize sağ tıklayabilirsiniz.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="75"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="75"/>
         <source>Name of your entry or group.</source>
-        <translation type="unfinished"/>
+        <translation>Girdinizi veya grubunuzu adlandırın.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation>Metin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>The text to insert. The text is treated like a Regex replacement expression so \1 can be used to insert the text selected in Code View when you paste the clip.</source>
-        <translation type="unfinished"/>
+        <translation>Eklenecek Metin. Metne bir Regex değiştirme ifadesi gibi davranılacaktır yani Kod Görünümünde klibi yapıştırırken seçilen metini kullanmak için \1 ifadesi kullanılabilir.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>Save</source>
-        <translation>Uložiť</translation>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>Save your changes.</source>
-        <translation>Uložte svoje zmeny.</translation>
+        <translation>Değişikliklerinizi kaydedin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Eğer başka bir Sigil oturumu çalışıyorsa değişiklikleriniz otomatik olarak onlarda da güncellenecektir.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="90"/>
         <source>Cannot save entries.</source>
-        <translation type="unfinished"/>
+        <translation>Girdiler kaydedilemiyor.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="132"/>
         <source>Clip entries loaded from file.</source>
-        <translation type="unfinished"/>
+        <translation>Klip girdileri dosyadan yüklendi.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="188"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation type="unfinished"/>
+        <translation>Bir girdiyi ve girdiyi içeren grubu seçemezsiniz.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="270"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation type="unfinished"/>
+        <translation>Grupları Koyalayamaz veya Kesemezsiniz - sürükle-bırak kullanın.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="336"/>
@@ -1192,98 +1230,99 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="336"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation type="unfinished"/>
+        <translation>Bütün girdileri tekrar yüklemek istediğinize emin misiniz? Bu, kaydedilmemiş bütün değişikliklerinizin üstüne yazacaktır.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="352"/>
         <source>Import Entries</source>
-        <translation type="unfinished"/>
+        <translation>Girdileri İçe Aktar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="425"/>
         <source>Export Selected Entries</source>
-        <translation type="unfinished"/>
+        <translation>Seçili Girdileri Dışa Aktar</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ClipEditor.cpp" line="503"/>
         <source>CSS entries added: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="616"/>
         <source>Edit</source>
-        <translation>Upraviť</translation>
+        <translation>Düzenle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="617"/>
         <source>Cut</source>
-        <translation>Vystrihnúť</translation>
+        <translation>Kes</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="618"/>
         <source>Copy</source>
-        <translation>Kopírovať</translation>
+        <translation>Kopyala</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="619"/>
         <source>Paste</source>
-        <translation>Vložiť</translation>
+        <translation>Yapıştır</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="620"/>
         <source>Delete</source>
-        <translation>Zmazať</translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="621"/>
         <source>Import</source>
-        <translation>Importovať</translation>
+        <translation>İçe Aktar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="622"/>
         <source>Reload</source>
-        <translation>Znovu načítať</translation>
+        <translation>Tekrar Yükle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="623"/>
         <source>Export</source>
-        <translation type="unfinished"/>
+        <translation>Dışa Aktar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="624"/>
         <source>Export All</source>
-        <translation type="unfinished"/>
+        <translation>Tümünü Dışa Aktar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="625"/>
         <source>Collapse All</source>
-        <translation>Zložiť všetko</translation>
+        <translation>Tümünü Daralt</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="626"/>
         <source>Expand All</source>
-        <translation>Rozbaliť všetko</translation>
+        <translation>Hepsini Genişlet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="627"/>
         <source>Autofill</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik Doldur</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="707"/>
         <source>Clip entries saved.</source>
-        <translation type="unfinished"/>
+        <translation>Klip girdileri kaydedildi.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="736"/>
         <source>Sigil: Clip Editor</source>
-        <translation type="unfinished"/>
+        <translation>Sigil: Klip Düzenleyici</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="737"/>
         <source>The Clip entries may have been modified.
 Do you want to save your changes?</source>
-        <translation type="unfinished"/>
+        <translation>Klip girişleri değiştirilmiş olabilir.
+Değişikliklerinizi kaydetmek istiyor musunuz?</translation>
     </message>
 </context>
 <context>
@@ -1291,17 +1330,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="64"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="65"/>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation>Metin</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="681"/>
         <source>Unable to create file %1</source>
-        <translation>Nepodarilo sa vytvoriť súbor %1</translation>
+        <translation>%1 dosyası oluşturulamıyor</translation>
     </message>
 </context>
 <context>
@@ -1309,22 +1348,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/ClipboardHistorySelector.ui" line="14"/>
         <source>Select Text to Paste</source>
-        <translation type="unfinished"/>
+        <translation>Yapıştırılacak Metni Seçin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipboardHistorySelector.ui" line="20"/>
         <source>Recent clipboards:</source>
-        <translation type="unfinished"/>
+        <translation>Son Kopyalama Panosu:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="311"/>
         <source>Paste</source>
-        <translation>Vložiť</translation>
+        <translation>Yapıştır</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="313"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Kaydet</translation>
     </message>
 </context>
 <context>
@@ -1332,17 +1371,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="34"/>
         <source>Clips</source>
-        <translation type="unfinished"/>
+        <translation>Klipler</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="99"/>
         <source>Collapse All</source>
-        <translation type="unfinished"/>
+        <translation>Tümünü Daralt</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="100"/>
         <source>Expand All</source>
-        <translation type="unfinished"/>
+        <translation>Hepsini Genişlet</translation>
     </message>
 </context>
 <context>
@@ -1350,135 +1389,135 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="418"/>
         <source>Cannot insert closing tag at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Bu konuma kapanış etiketi eklenemiyor.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="427"/>
         <source>No open tags found at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Bu konumda açılış etiketleri bulunamadı</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1175"/>
         <source>Add To Default Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Varsayılan Sözlüğe Ekle</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1188"/>
         <source>Add To Dictionary</source>
-        <translation>Pridať do slovníka</translation>
+        <translation>Sözlüğe Ekle</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1205"/>
         <source>Ignore</source>
-        <translation>Ignorovať</translation>
+        <translation>Yok Say</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1267"/>
         <source>Reformat CSS</source>
-        <translation type="unfinished"/>
+        <translation>CSS&apos;i Yeniden Düzenle</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1268"/>
         <source>Multiple Lines Per Style</source>
-        <translation type="unfinished"/>
+        <translation>Stil Başına Çoklu Satır</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1269"/>
         <source>Single Line Per Style</source>
-        <translation type="unfinished"/>
+        <translation>Stil Başına Tek Satır</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1294"/>
         <source>Reformat HTML</source>
-        <translation type="unfinished"/>
+        <translation>HTML&apos;i Yeniden Düzenle</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1295"/>
         <source>Mend and Prettify Code</source>
-        <translation type="unfinished"/>
+        <translation>Kodu Onar ve Güzelleştir</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1296"/>
         <source>Mend and Prettify Code - All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Kodu Onar ve Güzelleştir - Tüm HTML Dosyaları</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1297"/>
         <source>Mend Code</source>
-        <translation type="unfinished"/>
+        <translation>Kodu Onar</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1298"/>
         <source>Mend Code - All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Kodu Onar - Tüm HTML Dosyalar</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1328"/>
         <source>Go To Link Or Style</source>
-        <translation type="unfinished"/>
+        <translation>Bağlantıya veya Stile Git</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1351"/>
         <source>View Image</source>
-        <translation type="unfinished"/>
+        <translation>Resmi Görüntüle</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1352"/>
         <source>Open Tab For Image</source>
-        <translation type="unfinished"/>
+        <translation>Resim için Sekme Aç</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1378"/>
         <source>Mark Selected Text</source>
-        <translation type="unfinished"/>
+        <translation>Seçili Metni İşaretle</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1380"/>
         <source>Unmark Marked Text</source>
-        <translation type="unfinished"/>
+        <translation>İşaretli Metnin İşaretini Kaldır</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1406"/>
         <source>Clips</source>
-        <translation type="unfinished"/>
+        <translation>Klipler</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1416"/>
         <source>Add To Clips</source>
-        <translation>Pridať do úryvkov</translation>
+        <translation>Kliplere Ekle</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1542"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
-        <translation type="unfinished"/>
+        <translation>Bu özelliği kullanmak için bir HTML açılış etiketinde olmanız gerekiyor.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1552"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
-        <translation type="unfinished"/>
+        <translation>Bu özelliği kullanmak için bir HTML açılış etiketinin içinde olmanız gerekiyor.</translation>
     </message>
 </context>
 <context>
     <name>ColorSwatchDelegate</name>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="55"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="56"/>
         <source>Background</source>
-        <translation>Pozadie</translation>
+        <translation>Arkaplan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="57"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="58"/>
         <source>Foreground</source>
-        <translation>Popredie</translation>
+        <translation>Önplan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="59"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="60"/>
         <source>Selection Background</source>
-        <translation type="unfinished"/>
+        <translation>Arkaplan Seçimi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="61"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="62"/>
         <source>Selection Foreground</source>
-        <translation type="unfinished"/>
+        <translation>Önplan Seçimi</translation>
     </message>
 </context>
 <context>
@@ -1486,22 +1525,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/DeleteFiles.ui" line="14"/>
         <source>Delete Files</source>
-        <translation type="unfinished"/>
+        <translation>Dosyaları Sil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="66"/>
         <source>Delete Marked Files</source>
-        <translation type="unfinished"/>
+        <translation>İşaretli Dosyaları Sil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="67"/>
         <source>Delete</source>
-        <translation>Zmazať</translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="68"/>
         <source>File</source>
-        <translation>Súbor</translation>
+        <translation>Dosya</translation>
     </message>
 </context>
 <context>
@@ -1509,27 +1548,27 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/DeleteStyles.ui" line="14"/>
         <source>Delete Styles</source>
-        <translation type="unfinished"/>
+        <translation>Stilleri Sil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="79"/>
         <source>Delete Marked Styles</source>
-        <translation type="unfinished"/>
+        <translation>İşaretli Stilleri Sil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="80"/>
         <source>Delete</source>
-        <translation>Zmazať</translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="81"/>
         <source>File</source>
-        <translation>Súbor</translation>
+        <translation>Dosya</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="82"/>
         <source>Style</source>
-        <translation type="unfinished"/>
+        <translation>Stil</translation>
     </message>
 </context>
 <context>
@@ -1537,54 +1576,55 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="14"/>
         <source>Edit Table Of Contents</source>
-        <translation type="unfinished"/>
+        <translation>İçindekiler Tablosunu Düzenle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="52"/>
         <source>Insert a blank entry above the currently selected entry.</source>
-        <translation type="unfinished"/>
+        <translation>Seçili girdinin üstüne boş bir girdi ekleyin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="55"/>
         <source>Add Above</source>
-        <translation type="unfinished"/>
+        <translation>Yukarı Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="62"/>
         <source>Add a blank entry below the currently selected entry.</source>
-        <translation type="unfinished"/>
+        <translation>Seçili girdinin altına boş bir girdi ekleyin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="65"/>
         <source>Add Below</source>
-        <translation type="unfinished"/>
+        <translation>Altına Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="72"/>
         <source>Delete the selected TOC entry</source>
-        <translation type="unfinished"/>
+        <translation>Seçili TOC girdisini silin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="75"/>
         <location filename="../../Dialogs/EditTOC.cpp" line="443"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="82"/>
         <source>Set the destination of the TOC entry from a list of valid targets in the book.</source>
-        <translation type="unfinished"/>
+        <translation>TOC girdisinin hedefini kitaptaki geçerli hedefler listesinden seçin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="85"/>
         <source>Select Target</source>
-        <translation type="unfinished"/>
+        <translation>Hedef Seç</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="110"/>
         <source>Decrease the heading level of the selected entry.
 You can also use the left arrow key.</source>
-        <translation type="unfinished"/>
+        <translation>Seçili girdinin başlık seviyesini düşürün.
+Ayrıca sol ok tuşunu da kullanabilirsiniz.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="126"/>
@@ -1596,42 +1636,43 @@ You can also use the left arrow key.</source>
         <location filename="../../Form_Files/EditTOC.ui" line="148"/>
         <source>Increase the heading level of the selected entry.
 You can also use the right arrow key.</source>
-        <translation type="unfinished"/>
+        <translation>Seçili girdinin başlık seviyesini yükseltin.
+Ayrıca sağ ok tuşunu da kullanabilirsiniz.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="85"/>
         <source>TOC Entry</source>
-        <translation type="unfinished"/>
+        <translation>TOC Girdisi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="86"/>
         <source>Target</source>
-        <translation type="unfinished"/>
+        <translation>Hedef</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="442"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Yeniden Adlandır</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="450"/>
         <source>Move Up</source>
-        <translation type="unfinished"/>
+        <translation>Yukarı Taşı</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="451"/>
         <source>Move Down</source>
-        <translation type="unfinished"/>
+        <translation>Aşağı Taşı</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="457"/>
         <source>Expand All</source>
-        <translation type="unfinished"/>
+        <translation>Hepsini Genişlet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="458"/>
         <source>Collapse All</source>
-        <translation type="unfinished"/>
+        <translation>Tümünü Daralt</translation>
     </message>
 </context>
 <context>
@@ -1640,7 +1681,7 @@ You can also use the right arrow key.</source>
         <location filename="../../Misc/EmbeddedPython.cpp" line="608"/>
         <location filename="../../Misc/EmbeddedPythonPkg.cpp" line="613"/>
         <source>Embedded Python Error</source>
-        <translation type="unfinished"/>
+        <translation>Gömülü Phthon Hatası</translation>
     </message>
 </context>
 <context>
@@ -1648,99 +1689,100 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="20"/>
         <source>Find &amp; Replace</source>
-        <translation>Nájsť a nahradiť</translation>
+        <translation>Bul &amp; Değiştir</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="55"/>
         <source>Hide Find and Replace</source>
-        <translation>Skryť Hľadať a nahradiť</translation>
+        <translation>Bul ve Değiştir&apos;i Sakla</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="61"/>
         <location filename="../../Form_Files/FindReplace.ui" line="109"/>
         <source>...</source>
-        <translation>…</translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="103"/>
         <source>Show/Hide Advanced Options</source>
-        <translation type="unfinished"/>
+        <translation>Gelişmiş Seçenekleri Göster/Gizle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="152"/>
         <source>Find:</source>
-        <translation>Hľadať:</translation>
+        <translation>Bul:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="184"/>
         <source>Find next match.</source>
-        <translation type="unfinished"/>
+        <translation>Sonraki eşleşmeyi bul</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="190"/>
         <source>Find</source>
-        <translation>Hľadať</translation>
+        <translation>Bul</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="203"/>
         <source>Replace highlighted match (if any),
 then find the Next match in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Vurgulanan eşleşmeyi değiştir (eğer varsa),
+sonra Kod Görünümünde sonraki eşleşmeyi bul.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="210"/>
         <source>Replace/Find</source>
-        <translation type="unfinished"/>
+        <translation>Değiştir/Bul</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="217"/>
         <source>Replace:</source>
-        <translation>Nahradiť:</translation>
+        <translation>Değiştir:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="249"/>
         <source>Replace highlighted match (if any) in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Vurgulanan eşleşmeyi (eğer varsa) Kod Görünümünde değiştir.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="255"/>
         <source>Replace</source>
-        <translation>Nahradiť</translation>
+        <translation>Değiştir</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="268"/>
         <source>Replace all matches in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Kod Görünümündeki bütün eşleşmeleri değiştir.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="274"/>
         <source>Replace All</source>
-        <translation>Nahradiť všetko</translation>
+        <translation>Tümünü Değiştir</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="281"/>
         <source>Options:</source>
-        <translation>Možnosti:</translation>
+        <translation>Seçenekler:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="293"/>
         <source>For Regex searches, prefix your search with (?s).</source>
-        <translation type="unfinished"/>
+        <translation>Regex aramaları için, aramanızın başına (?s) ekleyin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="299"/>
         <source>DotAll</source>
-        <translation type="unfinished"/>
+        <translation>Tamamı</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="306"/>
         <source>For Regex searches, prefix your search with (?U).</source>
-        <translation type="unfinished"/>
+        <translation>Regex aramaları için, aramanızın başına (?U) ekleyin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="312"/>
         <source>Minimal Match</source>
-        <translation type="unfinished"/>
+        <translation>Minimum Eşleşme</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="319"/>
@@ -1757,7 +1799,9 @@ then find the Next match in Code View.</source>
         <source>Search from current position to end of the 
 current file or book, and then wrap to the
 other end to continue searching.</source>
-        <translation type="unfinished"/>
+        <translation>Mevcut konumdan geçerli dosyanın veya
+kitabın sonuna kadar arama yapın ve aramaya
+devam etmek için diğer ucuna kaydırın.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="337"/>
@@ -1767,62 +1811,61 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="371"/>
         <source>Count all matches in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Kod Görünümünde tüm eşleşmeleri say.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="377"/>
         <source>Count All</source>
-        <translation>Spočítať všetko</translation>
+        <translation>Tümünü Say</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="384"/>
         <source>Mode:</source>
-        <translation>Režim:</translation>
+        <translation>Mod:</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="178"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1430"/>
         <source>Current File</source>
-        <translation>Aktuálny súbor</translation>
+        <translation>Geçerli Dosya</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="333"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1253"/>
         <source>Matches found: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="417"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1277"/>
         <source>No replacements made</source>
-        <translation>Nahradenie nebolo vykonané</translation>
+        <translation>Hiçbir değişiklik yapılmadı</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="419"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1279"/>
         <source>Replacements made: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="620"/>
         <source>No matches found</source>
-        <translation>
-        </translation>
+        <translation>Hiçbir eşleşme bulunmadı</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1135"/>
         <source>This tab cannot be searched</source>
-        <translation>Túto kartu nie je možné prehľadávať</translation>
+        <translation>Bu sekmede arama yapılamaz.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1167"/>
         <source>Unnamed search loaded</source>
-        <translation type="unfinished"/>
+        <translation>İsimsiz arama yüklendi</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1170"/>
         <source>Loaded</source>
-        <translation>Načítaný</translation>
+        <translation>Yüklendi</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1179"/>
@@ -1831,32 +1874,32 @@ other end to continue searching.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="1237"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1263"/>
         <source>No searches selected</source>
-        <translation type="unfinished"/>
+        <translation>Arama seçilmedi</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1420"/>
         <source>What to search for</source>
-        <translation>Čo hľadať</translation>
+        <translation>Ne aranacak</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1421"/>
         <source>Normal</source>
-        <translation>Normálny</translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1422"/>
         <source>Case in-sensitive search of exactly what you type.</source>
-        <translation type="unfinished"/>
+        <translation>Tam olarak yazdığınızın büyük / küçük harfe duyarlı olmayarak aranması.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
         <source>Case Sensitive</source>
-        <translation>Rozlišovať veľké a malé písmená</translation>
+        <translation>Büyük/Küçük Harf Duyarlı</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1424"/>
         <source>Case sensitive search of exactly what you type.</source>
-        <translation type="unfinished"/>
+        <translation>Tam olarak yazdığınızın büyük / küçük harfe duyarlı olarak aranması.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
@@ -1866,33 +1909,33 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
-        <translation type="unfinished"/>
+        <translation>Regex İfade sözdizimini kullanarak bir desen arayın.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1429"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1441"/>
         <source>Where to search</source>
-        <translation>Kde hľadať</translation>
+        <translation>Nerede aranacak</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1431"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
-        <translation type="unfinished"/>
+        <translation>Bul veya değiştiri açık dosyayla sınırlandırın. Geçici olarak aramayı açık dosyada sınırlandırmak için Ctrl tuşuna basılı tutarken herhangi bir arama butonuna basın.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1432"/>
         <source>All HTML Files</source>
-        <translation>Všetky HTML súbory</translation>
+        <translation>Tüm HTML Dosyaları</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1433"/>
         <source>Find or replace in all HTML files in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Kod Görünümünde bütün HTML dosyalarında bul veya değiştir.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
         <source>Selected Files</source>
-        <translation type="unfinished"/>
+        <translation>Seçilen Dosyalar</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1435"/>
@@ -1902,7 +1945,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1442"/>
         <source>Marked Text</source>
-        <translation type="unfinished"/>
+        <translation>İşaretlenmiş Metin</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1443"/>
@@ -1912,17 +1955,17 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1447"/>
         <source>Up</source>
-        <translation>Hore</translation>
+        <translation>Yukarı</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1448"/>
         <source>Down</source>
-        <translation>Dole</translation>
+        <translation>Aşağı</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1449"/>
         <source>Direction to search</source>
-        <translation>Smer hľadania</translation>
+        <translation>Arama yönü</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1451"/>
@@ -1940,12 +1983,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="58"/>
         <source>Tokenise Selection</source>
-        <translation>Tokenizácia výberu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="71"/>
         <source>Save Search</source>
-        <translation>Uložiť hľadanie</translation>
+        <translation>Aramayı Kaydet</translation>
     </message>
 </context>
 <context>
@@ -1953,7 +1996,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Tabs/FlowTab.cpp" line="1146"/>
         <source>Print %1</source>
-        <translation>Tlačiť %1</translation>
+        <translation>Yazdır %1</translation>
     </message>
 </context>
 <context>
@@ -1961,133 +2004,136 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="14"/>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Genel Ayarlar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="20"/>
         <source>Choose which version of Epub to use
 when creating new or empty Epubs in Sigil.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil&apos;de yeni veya boş Epublar oluştururken
+hangi Epub versiyonu kullanılacağını seçin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="24"/>
         <source>Create New or Empty Epubs as:</source>
-        <translation type="unfinished"/>
+        <translation>Yeni veya Boş Epub&apos;ı olarak oluştur:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="30"/>
         <source>Epub Version 2.</source>
-        <translation type="unfinished"/>
+        <translation>Epub Versiyon 2.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="33"/>
         <source>Version 2</source>
-        <translation type="unfinished"/>
+        <translation>Versiyon 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="43"/>
         <source>Epub Version 3.</source>
-        <translation type="unfinished"/>
+        <translation>Epub Versiyon 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="46"/>
         <source>Version 3</source>
-        <translation type="unfinished"/>
+        <translation>Versiyon 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="59"/>
         <source>Choose when your HTML code is automatically 
 mended.</source>
-        <translation type="unfinished"/>
+        <translation>HTML kodunuzun ne zaman otomatik olarak
+onarılacağını seçin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="63"/>
         <source>Mend XHTML Source Code On:</source>
-        <translation type="unfinished"/>
+        <translation>XHTML Kaynak Kodunu Onar:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="69"/>
         <source>Mend when opening an Epub or HTML file, 
 and when switching from Book View to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Bir Epub veya HTML dosyası açılırken
+ve Kitap Görünümünden Kod Görünümüne geçerken Onar.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="73"/>
         <source>Open</source>
-        <translation type="unfinished"/>
+        <translation>Aç</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="80"/>
         <source>Mend when saving an Epub.</source>
-        <translation type="unfinished"/>
+        <translation>Epub&apos;ı kaydederken onar.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="83"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="93"/>
         <source>Determine if Epubs are allowed to access non-multimedia remote resources.</source>
-        <translation type="unfinished"/>
+        <translation>Epub&apos;ların, multimedya olmayan dış kaynaklara erişme iznini belirleyin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="96"/>
         <source> Control Access by Epubs to non-multimedia remote resources.</source>
-        <translation type="unfinished"/>
+        <translation>Epub&apos;ların multimedya uzak kaynaklarına erişimi denetleyin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="105"/>
         <source>Check to allow Epubs to access non-multimedia remote resources.</source>
-        <translation type="unfinished"/>
+        <translation>Epub&apos;ların multimedya olmayan dış kaynaklara erişmesine izin vermek için işaretleyin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="108"/>
         <source>Epubs may access all remote resources types.</source>
-        <translation type="unfinished"/>
+        <translation>Epub&apos;lar bütün dış kaynak tiplerine erişebilir.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="127"/>
         <source>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</source>
-        <translation type="unfinished"/>
+        <translation>W3C stilsayfası doğrulama aracı için hangi CSS seviyesi kullanılacak (EPUB2)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="130"/>
         <source>EPUB2 W3C Stylesheet Validation Level:</source>
-        <translation type="unfinished"/>
+        <translation>EPUB2 W3C Stildosyası Doğrulama Seviyesi:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="139"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB2</source>
-        <translation type="unfinished"/>
+        <translation>W3C stil sayfası doğrulayıcı EPUB2 için CSS seviye 2 kullanacak</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="142"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="199"/>
         <source>CSS Level 2</source>
-        <translation type="unfinished"/>
+        <translation>CSS Seviye 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="149"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB2</source>
-        <translation type="unfinished"/>
+        <translation>W3C stilsayfası denetleyicisi EPUB2 için CSS seviye 2.1 kullanacak</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="152"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="209"/>
         <source>CSS Level 2.1</source>
-        <translation type="unfinished"/>
+        <translation>CSS Seviye 2.1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="162"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB2</source>
-        <translation type="unfinished"/>
+        <translation>W3C stilsayfası denetleyicisi EPUB2 için CSS seviye 3 kullanacak</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="165"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="222"/>
         <source>CSS Level 3</source>
-        <translation type="unfinished"/>
+        <translation>CSS Seviye 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="184"/>
@@ -2097,47 +2143,47 @@ and when switching from Book View to Code View.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="187"/>
         <source>EPUB3 W3C Stylesheet Validation Level:</source>
-        <translation type="unfinished"/>
+        <translation>EPUB3 W3C Stilsayfası Doğrulama Seviyesi:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="196"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB3</source>
-        <translation type="unfinished"/>
+        <translation>W3C stildosyası doğrulaması EPUB3 için CSS seviye 2&apos;yi kullanacak</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="206"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB3</source>
-        <translation type="unfinished"/>
+        <translation>W3C stildosyası doğrulaması EPUB3 için CSS seviye 2.1&apos;i kullanacak</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="219"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB3</source>
-        <translation type="unfinished"/>
+        <translation>W3C stildosyası doğrulaması EPUB3 için CSS seviye 3&apos;ü kullanacak</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="235"/>
         <source>Set Folder where temporary files should be created</source>
-        <translation type="unfinished"/>
+        <translation>Geçici dosyaların oluşturulacağı klasörü seçin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="246"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="253"/>
         <source>Browse</source>
-        <translation type="unfinished"/>
+        <translation>Ara</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="125"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="121"/>
         <source>Select Folder for Temporary Files</source>
-        <translation type="unfinished"/>
+        <translation>Geçici Dosyalar için Klasör Seçin</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="141"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="136"/>
         <source>Incorrect Folder for Temporary Files selected</source>
-        <translation type="unfinished"/>
+        <translation>Geçici Dosyalar için yanlış klasör seçildi</translation>
     </message>
 </context>
 <context>
@@ -2145,172 +2191,172 @@ and when switching from Book View to Code View.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="110"/>
         <source>Acknowledgements</source>
-        <translation type="unfinished"/>
+        <translation>Teşekkürler</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="110"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
-        <translation type="unfinished"/>
+        <translation>İşin gerçekleştirilmesiyle ilgili kurumlara bildirim içeren bir pasaj.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="111"/>
         <source>Bibliography</source>
-        <translation type="unfinished"/>
+        <translation>Kaynakça</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="111"/>
         <source>A list of works cited.</source>
-        <translation type="unfinished"/>
+        <translation>Gösterilen eserlerin bir listesi.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="112"/>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Metin</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="112"/>
         <source>The start of the main text content of a publication.</source>
-        <translation type="unfinished"/>
+        <translation>Bir yayının ana metin içeriğinin başlangıcı.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="113"/>
         <source>Colophon</source>
-        <translation type="unfinished"/>
+        <translation>Baskı</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="113"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
-        <translation type="unfinished"/>
+        <translation>Genellikle bir yayının sonunda bulunan, baskıyla ilgili üretim notlarını açıklayan kısa bir açıklama.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="114"/>
         <source>Copyright Page</source>
-        <translation type="unfinished"/>
+        <translation>Telif Hakkı Sayfası</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="114"/>
         <source>The copyright page of the work.</source>
-        <translation type="unfinished"/>
+        <translation>İşin telif hakkı sayfası</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="115"/>
         <source>Cover</source>
-        <translation type="unfinished"/>
+        <translation>Kapak</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="115"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Yayınların kapak(lar)ı, ceket bilgileri vb.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="116"/>
         <source>Dedication</source>
-        <translation type="unfinished"/>
+        <translation>İthaf</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="116"/>
         <source>An inscription addressed to one or several particular person(s).</source>
-        <translation type="unfinished"/>
+        <translation>Bir veya birkaç belirli kişi(ler)ye hitap eden bir yazıt.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="117"/>
         <source>Epigraph</source>
-        <translation type="unfinished"/>
+        <translation>Epigrat</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="117"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation type="unfinished"/>
+        <translation>Metne uygun ancak metnin ayrılmaz bir parçası olan bir alıntı.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="118"/>
         <source>Foreword</source>
-        <translation type="unfinished"/>
+        <translation>Önsöz</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="118"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation type="unfinished"/>
+        <translation>Genellikle eserin yazarı tarafından yazılmayan, giriş bölümünden önce gelen bir giriş bölümü.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="119"/>
         <source>Glossary</source>
-        <translation type="unfinished"/>
+        <translation>Sözlük</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="119"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
-        <translation type="unfinished"/>
+        <translation>Belirli bir bilgi alanındaki terimlerin alfabetik bir listesi ve bu terimlerin tanımları.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="120"/>
         <source>Index</source>
-        <translation type="unfinished"/>
+        <translation>İndeks</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="120"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
-        <translation type="unfinished"/>
+        <translation>Bir yayındaki spesifik bilgilerin çoğunlukla alfabetik olarak düzenlenmiş ayrıntılı bir listesi.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="121"/>
         <source>List of Illustrations</source>
-        <translation type="unfinished"/>
+        <translation>İllüstrasyon Listesi</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="121"/>
         <source>A listing of illustrations included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Eserin içerdiği illüstrasyonların bir listesi.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="122"/>
         <source>List of Tables</source>
-        <translation type="unfinished"/>
+        <translation>Tablo Listesi</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="122"/>
         <source>A listing of tables included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Çalışmaya dahil edilen tablolar listesi.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="123"/>
         <source>Notes</source>
-        <translation type="unfinished"/>
+        <translation>Notlar</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="123"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Bir not koleksiyonu. Eski adlandırma kuralları istenmediğinde, dipnotları, arka notları, marjinal notları, satır içi notları ve benzerleri tanımlamak için kullanılabilir. Durum: Kullanımdan Kaldırılmış - Değiştirilen: &apos;dipnotlar&apos;, &apos;arka notlar&apos;</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="124"/>
         <source>Preface</source>
-        <translation type="unfinished"/>
+        <translation>Önsöz (Preface)</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="124"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation type="unfinished"/>
+        <translation>Genelde eserin yazarı tarafından yazılan, giriş bölümünden önce gelen bir giriş bölümü.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="125"/>
         <source>Title Page</source>
-        <translation type="unfinished"/>
+        <translation>Başlık Sayfası</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="125"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
-        <translation type="unfinished"/>
+        <translation>Bir kitabın başında başlığını, yazarlarını, yayıncısını ve diğer yayın bilgilerini veren bir sayfa.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="126"/>
         <source>Table of Content</source>
-        <translation type="unfinished"/>
+        <translation>İçindekiler</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="126"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
-        <translation type="unfinished"/>
+        <translation>Kitabın veya belgenin başlıklar veya bölümlerinin bir listesi olan, içerdikleri sırada düzenlenen bir içindekiler tablosu. Genellikle işin ön kısmında veya bir bölümün başında görünür.</translation>
     </message>
 </context>
 <context>
@@ -2318,57 +2364,57 @@ and when switching from Book View to Code View.</source>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="14"/>
         <source>HTML Files</source>
-        <translation>HTML súbory</translation>
+        <translation>HTML Dosyaları</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Zobraziť iba súbory, ktorých názvy obsahujú text, ktorý ste vložili.</translation>
+        <translation>Sadece sizin girdiğiniz metindeki dosya isimlerini listele.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter: </translation>
+        <translation>Filitre:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="67"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="68"/>
         <source>File Size (KB)</source>
-        <translation>Veľkosť súboru (KB)</translation>
+        <translation>Dosya Boyutu (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="69"/>
         <source>All Words</source>
-        <translation>Všetky slová</translation>
+        <translation>Tüm Kelimeler</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="70"/>
         <source>Misspelled Words</source>
-        <translation>Zle napísané slová</translation>
+        <translation>Yanlış Yazılmış Kelimeler</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="71"/>
         <source>Images</source>
-        <translation>Obrázky</translation>
+        <translation>Resimler</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="72"/>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Görüntü</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="73"/>
         <source>Audio</source>
-        <translation>Audio</translation>
+        <translation>Ses</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="74"/>
         <source>Stylesheets</source>
-        <translation>Štýly</translation>
+        <translation>Stildosyaları</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="75"/>
@@ -2378,22 +2424,22 @@ and when switching from Book View to Code View.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="164"/>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Evet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="164"/>
         <source>No</source>
-        <translation type="unfinished"/>
+        <translation>Hayır</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="183"/>
         <source> files</source>
-        <translation>súbory</translation>
+        <translation>dosyalar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="324"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
@@ -2403,12 +2449,12 @@ and when switching from Book View to Code View.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="360"/>
         <source>Delete From Book</source>
-        <translation>Zmazať z knihy</translation>
+        <translation>Kitaptan Sil</translation>
     </message>
 </context>
 <context>
@@ -2416,19 +2462,19 @@ and when switching from Book View to Code View.</source>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="14"/>
         <source>Generate Table Of Contents</source>
-        <translation>Vygenerovať obsah</translation>
+        <translation>İçindekileri Oluştur</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="52"/>
         <source>Change the name of the entry in the TOC.
 The heading&apos;s title attribute will be updated in the document.</source>
-        <translation>Zmeniť názov záznamu v obsahu. Vlastnosť názvu nadpisu bude v dokumente aktualizovaná.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="975"/>
         <source>Rename</source>
-        <translation>Premenovať</translation>
+        <translation>Yeniden Adlandır</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="81"/>
@@ -2453,7 +2499,7 @@ Check or uncheck an entry to determine if it will be added to the TOC.</source>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="134"/>
         <source>Show TOC items only</source>
-        <translation type="unfinished"/>
+        <translation>Sadece TOC öğelerini göster</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="153"/>
@@ -2465,49 +2511,49 @@ You can then check or uncheck individual headings in the list above.</source>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="618"/>
         <source>Level</source>
-        <translation>Úroveň</translation>
+        <translation>Seviye</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <source>Included</source>
-        <translation type="unfinished"/>
+        <translation>Dahil Edildi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <source>Hidden</source>
-        <translation type="unfinished"/>
+        <translation>Gizli</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="617"/>
         <source>TOC Entry / Heading Title</source>
-        <translation type="unfinished"/>
+        <translation>TOC Girdisi / Başlık</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="619"/>
         <source>Include</source>
-        <translation>Vrátane</translation>
+        <translation>Dahil Et</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="838"/>
         <source>Up to level</source>
-        <translation>Až do úrovne</translation>
+        <translation>Seviyeye kadar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="840"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;İçindekilere eklemek için başlıkları seçin&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="843"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="904"/>
         <source>None</source>
-        <translation>Žiadny</translation>
+        <translation>Hiç</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="849"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="902"/>
         <source>All</source>
-        <translation>Všetko</translation>
+        <translation>Tümü</translation>
     </message>
 </context>
 <context>
@@ -2515,67 +2561,67 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="14"/>
         <source>Image Files</source>
-        <translation>Obrázkové súbory</translation>
+        <translation>Resim Dosyaları</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Zobraziť iba súbory, ktorých názvy obsahujú text, ktorý ste vložili.</translation>
+        <translation>Sadece sizin girdiğiniz metindeki dosya isimlerini listele.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter: </translation>
+        <translation>Filitre:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="76"/>
         <source>Thumbnail size:</source>
-        <translation>Veľkosť náhľadu:</translation>
+        <translation>Küçük resim boyutu:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="79"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="80"/>
         <source>File Size (KB)</source>
-        <translation>Veľkosť súboru (KB)</translation>
+        <translation>Dosya Boyutu (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="81"/>
         <source>Times Used</source>
-        <translation>Použité</translation>
+        <translation>Defa Kullanıldı</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="82"/>
         <source>Width</source>
-        <translation>Šírka</translation>
+        <translation>Genişlik</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="83"/>
         <source>Height</source>
-        <translation>Výška</translation>
+        <translation>Yükseklik</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="84"/>
         <source>Pixels</source>
-        <translation>Pixle</translation>
+        <translation>Pikseller</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="85"/>
         <source>Color</source>
-        <translation>Farebne</translation>
+        <translation>Renk</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="88"/>
         <source>Image</source>
-        <translation>Obrázok</translation>
+        <translation>Resim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="175"/>
         <source> files</source>
-        <translation>súbory</translation>
+        <translation>dosyalar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="179"/>
@@ -2585,7 +2631,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="323"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
@@ -2595,12 +2641,12 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="408"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="416"/>
         <source>Delete From Book</source>
-        <translation>Zmazať z knihy</translation>
+        <translation>Kitaptan Sil</translation>
     </message>
 </context>
 <context>
@@ -2608,49 +2654,49 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="155"/>
         <source>shades</source>
-        <translation>tiene</translation>
+        <translation>gölgeler</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="155"/>
         <source>colors</source>
-        <translation>farby</translation>
+        <translation>renkler</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="156"/>
         <source>Grayscale</source>
-        <translation>Stupne šedej</translation>
+        <translation>Gri tonlamalı</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="156"/>
         <source>Color</source>
-        <translation>Farebne</translation>
+        <translation>Renk</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="246"/>
         <location filename="../../Tabs/ImageTab.cpp" line="271"/>
         <location filename="../../Tabs/ImageTab.cpp" line="274"/>
         <source>Open With</source>
-        <translation>Otvoriť s</translation>
+        <translation>Birlikte Aç</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="253"/>
         <source>Other Application</source>
-        <translation>Iná aplikácia</translation>
+        <translation>Diğer Uygulama</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="272"/>
         <source>Save As</source>
-        <translation>Uložiť ako</translation>
+        <translation>Farklı Kaydet</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="273"/>
         <source>Copy Image</source>
-        <translation type="unfinished"/>
+        <translation>Resmi Kopyala</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="307"/>
         <source>Print %1</source>
-        <translation>Tlačiť %1</translation>
+        <translation>Yazdır %1</translation>
     </message>
 </context>
 <context>
@@ -2669,7 +2715,7 @@ Do you want to automatically fix the files?</source>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="500"/>
-        <source>Missing and no OPF in archive.</source>
+        <source>Epub has missing or improperly specified OPF.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2679,38 +2725,38 @@ Do you want to automatically fix the files?</source>
         <location filename="../../Form_Files/IndexEditor.ui" line="14"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Index Editor</source>
-        <translation>Editor indexu</translation>
+        <translation>Dizin Editörü</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation>Filter: </translation>
+        <translation>Filitre:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Iba zoznam položiek, ktoré obsahújú text, ktorý ste zadali.</translation>
+        <translation>Sadece girdiğiniz metini içeren girdileri listeleyin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="55"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="421"/>
         <source>Add Entry</source>
-        <translation>Pridať položku</translation>
+        <translation>Girdi Ekle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="66"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation type="unfinished"/>
+        <translation>İşlemlerin bağlam menüsünü görmek için girdiye sağ tıklayın.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
         <source>You can also right click in your document to add selected text to the Index.</source>
-        <translation type="unfinished"/>
+        <translation>Seçilen metni Dizine eklemek için belgenize sağ tıklayabilirsiniz.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>Text to Include</source>
-        <translation type="unfinished"/>
+        <translation>Eklenecek Metin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
@@ -2720,7 +2766,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>Index Entries</source>
-        <translation>Položky indexu</translation>
+        <translation>Dizin Girdileri</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
@@ -2730,42 +2776,42 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save</source>
-        <translation>Uložiť</translation>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save your changes.</source>
-        <translation>Uložte svoje zmeny.</translation>
+        <translation>Değişikliklerinizi kaydedin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Eğer başka bir Sigil oturumu çalışıyorsa değişiklikleriniz otomatik olarak onlarda da güncellenecektir.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="84"/>
         <source>Cannot save entries.</source>
-        <translation type="unfinished"/>
+        <translation>Girdiler kaydedilemiyor.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="126"/>
         <source>Index entries loaded from file.</source>
-        <translation type="unfinished"/>
+        <translation>Dizin girdileri dosyadan yüklendi.</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Entries added: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="293"/>
         <source>Index files: *.ini *.txt (*.ini *.txt)</source>
-        <translation type="unfinished"/>
+        <translation>Dizin dosyaları: *.ini *.txt (*.ini *.txt)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="295"/>
         <source>Load Entries From File</source>
-        <translation type="unfinished"/>
+        <translation>Girdileri Dosyadan Yükle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
@@ -2775,78 +2821,79 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation type="unfinished"/>
+        <translation>Bütün girdileri tekrar yüklemek istediğinize emin misiniz? Bu, kaydedilmemiş bütün değişikliklerinizin üstüne yazacaktır.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="329"/>
         <source>Save Entries to File</source>
-        <translation>Uložiť položky do súboru</translation>
+        <translation>Girdileri Dosyaya Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="422"/>
         <source>Edit</source>
-        <translation>Upraviť</translation>
+        <translation>Düzenle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="423"/>
         <source>Cut</source>
-        <translation>Vystrihnúť</translation>
+        <translation>Kes</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="424"/>
         <source>Copy</source>
-        <translation>Kopírovať</translation>
+        <translation>Kopyala</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="425"/>
         <source>Paste</source>
-        <translation>Vložiť</translation>
+        <translation>Yapıştır</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="426"/>
         <source>Delete</source>
-        <translation>Zmazať</translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
         <source>Autofill</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik Doldur</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
         <source>Open</source>
-        <translation>Otvoriť</translation>
+        <translation>Aç</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="429"/>
         <source>Reload</source>
-        <translation>Znovu načítať</translation>
+        <translation>Yeniden Yükle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
         <source>Save As</source>
-        <translation>Uložiť ako</translation>
+        <translation>Farklı Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
         <source>Select All</source>
-        <translation>Vybrať všeko</translation>
+        <translation>Hepsini Seç</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="506"/>
         <source>Index entries saved.</source>
-        <translation type="unfinished"/>
+        <translation>Dizin girdileri kaydedildi.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="535"/>
         <source>Sigil: Index Editor</source>
-        <translation>Sigil: Editor indexu</translation>
+        <translation>Sigil: Dizin Düzenleyici</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="536"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
-        <translation type="unfinished"/>
+        <translation>Dizin girdileri değiştirilmiş olabilir.
+Değişiklikleri kaydetmek istiyor musunuz?</translation>
     </message>
 </context>
 <context>
@@ -2854,17 +2901,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="60"/>
         <source>Text to Include</source>
-        <translation type="unfinished"/>
+        <translation>Eklenecek Metin</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="61"/>
         <source>Index Entries</source>
-        <translation>Položky indexu</translation>
+        <translation>Dizin Girdileri</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="342"/>
         <source>Unable to create file %1</source>
-        <translation>Nepodarilo sa vytvoriť súbor %1</translation>
+        <translation>%1 dosyası oluşturulamıyor</translation>
     </message>
 </context>
 <context>
@@ -2872,73 +2919,73 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="14"/>
         <source>Keyboard Shortcuts</source>
-        <translation>Klávesové skratky</translation>
+        <translation>Klavye Kısayolları</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="34"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Iba zoznam položiek, ktoré obsahújú text, ktorý ste zadali.</translation>
+        <translation>Sadece girdiğiniz metini içeren girdileri listeleyin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="37"/>
         <source>Filter: </source>
-        <translation>Filter: </translation>
+        <translation>Filitre:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="62"/>
         <source>Name</source>
-        <translation>Názov</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="67"/>
         <source>Shortcut</source>
-        <translation>Skratka</translation>
+        <translation>Kısayol</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="72"/>
         <source>Description</source>
-        <translation>Popis</translation>
+        <translation>Açıklama</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="82"/>
         <source>Reset all to default</source>
-        <translation>Obnoviť všetko na štandardné</translation>
+        <translation>Tümünü varsayılana sıfırla</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="85"/>
         <source>Reset All</source>
-        <translation>Obnoviť všetko</translation>
+        <translation>Tümünü Sıfırla</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="115"/>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="125"/>
         <source>Press the key combination you want to use.</source>
-        <translation type="unfinished"/>
+        <translation>Kullanmak istediğiniz tuş kombinasyonuna basın.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="118"/>
         <source>Shortcut:</source>
-        <translation>Skratky:</translation>
+        <translation>Kısayol:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="141"/>
         <source>Assign this keyboard shortcut, overriding any conflicting usages.</source>
-        <translation type="unfinished"/>
+        <translation>Bu klavye kısayolunu, çakışmaların üzerine yazarak atayın.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="144"/>
         <source>Assign</source>
-        <translation>Priradiť</translation>
+        <translation>Ata</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="160"/>
         <source>Remove this keyboard shortcut.</source>
-        <translation>Odstrániť túto klávesovú skratku.</translation>
+        <translation>Bu klavye kısayolunu silin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="163"/>
         <source>Remove</source>
-        <translation>Odstrániť</translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="343"/>
@@ -2951,107 +2998,107 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="117"/>
         <source>Acknowledgments</source>
-        <translation type="unfinished"/>
+        <translation>Teşekkürler</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="117"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
-        <translation type="unfinished"/>
+        <translation>İşin gerçekleştirilmesiyle ilgili kurumlara bildirim içeren bir pasaj.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="118"/>
         <source>Afterword</source>
-        <translation type="unfinished"/>
+        <translation>Ardından</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="118"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation type="unfinished"/>
+        <translation>Yazarın ya da öyküye önem veren bir kişinin kapanış ifadesi, tipik olarak hikayenin nasıl yazıldığına, bunun önemi veya zaman çizelgesinden beri ortaya çıkan olaylara ilişkin bilgi verir.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="119"/>
         <source>Annotation</source>
-        <translation type="unfinished"/>
+        <translation>Ek Açıklama</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="119"/>
         <source>Explanatory information about passages in the work. Status: Deprecated</source>
-        <translation type="unfinished"/>
+        <translation>Çalışmalardaki pasajlarla ilgili açıklayıcı bilgiler. Durum: Kullanımdan kaldırıldı</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="120"/>
         <source>Appendix</source>
-        <translation type="unfinished"/>
+        <translation>Ek</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="120"/>
         <source>Supplemental information.</source>
-        <translation type="unfinished"/>
+        <translation>Ek bilgi.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="121"/>
         <source>Assessment</source>
-        <translation type="unfinished"/>
+        <translation>Değerlendirme</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="121"/>
         <source>A test, quiz, or other activity that helps measure a student&apos;s understanding of what is being taught.</source>
-        <translation type="unfinished"/>
+        <translation>Bir öğrencinin ne öğretildiğini anlamasına yardımcı olan bir test, test veya diğer etkinlikler.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="122"/>
         <source>Back Matter</source>
-        <translation type="unfinished"/>
+        <translation>Arka Kısım</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="122"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Diziner, ekler vb. gibi bir yayının ana içeriğinden sonra ortaya çıkan yardımcı materyal.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="123"/>
         <source>Bibliography</source>
-        <translation type="unfinished"/>
+        <translation>Kaynakça</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="123"/>
         <source>A list of works cited.</source>
-        <translation type="unfinished"/>
+        <translation>Gösterilen eserlerin bir listesi.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="124"/>
         <source>Body Matter</source>
-        <translation type="unfinished"/>
+        <translation>Gövde Kısmı</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="124"/>
         <source>The main content of a publication.</source>
-        <translation type="unfinished"/>
+        <translation>Bir yayının ana içeriği.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="125"/>
         <source>Chapter</source>
-        <translation type="unfinished"/>
+        <translation>Bölüm</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="125"/>
         <source>A major structural division of a piece of writing.</source>
-        <translation type="unfinished"/>
+        <translation>Bir yazının önemli bir yapısal bölünmesi.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="126"/>
         <source>Colophon</source>
-        <translation type="unfinished"/>
+        <translation>Baskı</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="126"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
-        <translation type="unfinished"/>
+        <translation>Genellikle bir yayının sonunda bulunan, baskıyla ilgili üretim notlarını açıklayan kısa bir açıklama.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="127"/>
         <source>Conclusion</source>
-        <translation type="unfinished"/>
+        <translation>Sonuç</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="127"/>
@@ -3061,72 +3108,72 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="128"/>
         <source>Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Katkıda Bulunanlar</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="128"/>
         <source>A list of contributors to the work.</source>
-        <translation type="unfinished"/>
+        <translation>Çalışmaya katkıda bulunanların bir listesi.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="129"/>
         <source>Copyright Page</source>
-        <translation type="unfinished"/>
+        <translation>Telif Hakkı Sayfası</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="129"/>
         <source>The copyright page of the work.</source>
-        <translation type="unfinished"/>
+        <translation>İşin telif hakkı sayfası</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="130"/>
         <source>Cover</source>
-        <translation type="unfinished"/>
+        <translation>Kapak</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="130"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Yayınların kapakları, ceket bilgileri vb.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="131"/>
         <source>Dedication</source>
-        <translation type="unfinished"/>
+        <translation>İthaf</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="131"/>
         <source>An inscription addressed to one or several particular person(s).</source>
-        <translation type="unfinished"/>
+        <translation>Bir veya birkaç belirli kişiye hitap eden bir yazıt.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="132"/>
         <source>Division</source>
-        <translation type="unfinished"/>
+        <translation>Bölünme</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="132"/>
         <source>A major structural division that may also appear as a substructure of a part (esp. in legislation).</source>
-        <translation type="unfinished"/>
+        <translation>Bir bölümün altyapısı olarak da görünebilen önemli bir yapısal bölünme (özellikle yasalar).</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="133"/>
         <source>Epigraph</source>
-        <translation type="unfinished"/>
+        <translation>Epigrat</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="133"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation type="unfinished"/>
+        <translation>Metne uygun ancak metnin ayrılmaz bir parçası olan bir alıntı.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="134"/>
         <source>Epilogue</source>
-        <translation type="unfinished"/>
+        <translation>Son söz - Epilogue</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="134"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>Hikayenin bir parçası olmakla birlikte, ana hikâyeden daha geç bir zaman diliminde yazılmış olan bir sonuç bölümü.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="135"/>
@@ -3141,7 +3188,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="136"/>
         <source>Footnotes</source>
-        <translation type="unfinished"/>
+        <translation>Dipnotlar</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="136"/>
@@ -3151,32 +3198,32 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="137"/>
         <source>Foreword</source>
-        <translation type="unfinished"/>
+        <translation>Önsöz</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="137"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation type="unfinished"/>
+        <translation>Genellikle eserin yazarı tarafından yazılmayan, giriş bölümünden önce gelen bir giriş bölümü.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="138"/>
         <source>Front Matter</source>
-        <translation type="unfinished"/>
+        <translation>Ön Kısım</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="138"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Bir yayının ana içeriğine ilişkin ön bilgi, içindekiler tabloları, ithaflar vs.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="139"/>
         <source>Glossary</source>
-        <translation type="unfinished"/>
+        <translation>Sözlük</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="139"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
-        <translation type="unfinished"/>
+        <translation>Belirli bir bilgi alanındaki terimlerin alfabetik bir listesi ve bu terimlerin tanımları.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="140"/>
@@ -3211,12 +3258,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="143"/>
         <source>Index</source>
-        <translation type="unfinished"/>
+        <translation>İndeks</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="143"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
-        <translation type="unfinished"/>
+        <translation>Bir yayındaki spesifik bilgilerin çoğunlukla alfabetik olarak düzenlenmiş ayrıntılı bir listesi.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="144"/>
@@ -3251,22 +3298,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="147"/>
         <source>List of Illustrations</source>
-        <translation type="unfinished"/>
+        <translation>Resim Listesi</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="147"/>
         <source>A listing of illustrations included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Eserin içerdiği illüstrasyonların bir listesi.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="148"/>
         <source>List of Tables</source>
-        <translation type="unfinished"/>
+        <translation>Tablo Listesi</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="148"/>
         <source>A listing of tables included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Çalışmaya dahil edilen tablolar listesi.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="149"/>
@@ -3301,7 +3348,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="152"/>
         <source>Page List</source>
-        <translation type="unfinished"/>
+        <translation>Sayfa Listesi</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="152"/>
@@ -3331,12 +3378,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>Preface</source>
-        <translation type="unfinished"/>
+        <translation>Önsöz (Preface)</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation type="unfinished"/>
+        <translation>Genelde eserin yazarı tarafından yazılan, giriş bölümünden önce gelen bir giriş bölümü.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="156"/>
@@ -3351,12 +3398,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>Questions and Answers</source>
-        <translation type="unfinished"/>
+        <translation>Sorular ve Cevaplar</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>A question and answer section.</source>
-        <translation type="unfinished"/>
+        <translation>Bir soru ve cevap bölümü.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="158"/>
@@ -3381,7 +3428,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>Subchapter</source>
-        <translation type="unfinished"/>
+        <translation>Alt Bölüm</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="160"/>
@@ -3391,22 +3438,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>Title Page</source>
-        <translation type="unfinished"/>
+        <translation>Başlık Sayfası</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
-        <translation type="unfinished"/>
+        <translation>Bir kitabın başında başlığını, yazarlarını, yayıncısını ve diğer yayın bilgilerini veren bir sayfa.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>Table of Contents</source>
-        <translation type="unfinished"/>
+        <translation>İçindekiler</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
-        <translation type="unfinished"/>
+        <translation>Kitabın veya belgenin başlıklar veya bölümlerinin bir listesi olan, içerdikleri sırada düzenlenen bir içindekiler tablosu. Genellikle işin ön kısmında veya bir bölümün başında görünür.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
@@ -3421,7 +3468,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>Warning</source>
-        <translation type="unfinished"/>
+        <translation>Uyarı</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
@@ -3434,7 +3481,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="85"/>
         <source>Abkhazian</source>
-        <translation>Abcházsky</translation>
+        <translation>Abhazca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="86"/>
@@ -3444,7 +3491,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="87"/>
         <source>Afrikaans</source>
-        <translation>Afrikánsky</translation>
+        <translation>Afrikaans</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="88"/>
@@ -3454,12 +3501,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="89"/>
         <source>Albanian</source>
-        <translation>Albánsky</translation>
+        <translation>Arnavutça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="90"/>
         <source>Amharic</source>
-        <translation>Amharic</translation>
+        <translation>Amharca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="91"/>
@@ -3479,22 +3526,22 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Arabic</source>
-        <translation>Arabsky</translation>
+        <translation>Arapça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="92"/>
         <source>Algeria</source>
-        <translation>Alžírsko</translation>
+        <translation>Cezair</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="93"/>
         <source>Bahrain</source>
-        <translation>Bahrajn</translation>
+        <translation>Bahreyn</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="94"/>
         <source>Egypt</source>
-        <translation>Egypt</translation>
+        <translation>Mısır</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="95"/>
@@ -3504,32 +3551,32 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="96"/>
         <source>Jordan</source>
-        <translation>Jordánsko</translation>
+        <translation>Ürdün</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="97"/>
         <source>Kuwait</source>
-        <translation>Kuvajt</translation>
+        <translation>Kuveyt</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="98"/>
         <source>Lebanon</source>
-        <translation>Libanon</translation>
+        <translation>Lübnan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="99"/>
         <source>Libya</source>
-        <translation>Líbya</translation>
+        <translation>Libya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="100"/>
         <source>Morocco</source>
-        <translation>Maroko</translation>
+        <translation>Fas</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="101"/>
         <source>Oman</source>
-        <translation>Omán</translation>
+        <translation>Umman</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="102"/>
@@ -3539,42 +3586,42 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="103"/>
         <source>Syria</source>
-        <translation>Sýria</translation>
+        <translation>Suriye</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="104"/>
         <source>Tunisia</source>
-        <translation>Tunisko</translation>
+        <translation>Tunus</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <source>United Arab Emirates</source>
-        <translation>Spojené Arabské Emiráty</translation>
+        <translation>Birleşik Arap Emirlikleri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Yemen</source>
-        <translation>Jemen</translation>
+        <translation>Yemen</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="107"/>
         <source>Aragonese</source>
-        <translation>Aragonese</translation>
+        <translation>Aragonca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Armenian</source>
-        <translation>Armémsky</translation>
+        <translation>Ermenice</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="109"/>
         <source>Assamese</source>
-        <translation>Assamese</translation>
+        <translation>Assam</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="110"/>
         <source>Avaric</source>
-        <translation>Avaric</translation>
+        <translation>Avarca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="111"/>
@@ -3590,12 +3637,12 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="113"/>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Azerbaijani</source>
-        <translation>Azerbajdžanský</translation>
+        <translation>Azerice</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Azerbaijan</source>
-        <translation>Azerbajdžan</translation>
+        <translation>Azerbaycan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="115"/>
@@ -3605,22 +3652,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="116"/>
         <source>Bashkir</source>
-        <translation>Bashkir</translation>
+        <translation>Başkır</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="117"/>
         <source>Basque</source>
-        <translation>Baskitský</translation>
+        <translation>Baskça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="118"/>
         <source>Belarusian</source>
-        <translation>Bieloruský</translation>
+        <translation>Belarusça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="119"/>
         <source>Bengali</source>
-        <translation>Bengálsky</translation>
+        <translation>Bengalce</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="120"/>
@@ -3635,39 +3682,39 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Bosnian</source>
-        <translation>Bosnianský</translation>
+        <translation>Boşnakça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="123"/>
         <source>Breton</source>
-        <translation>Breton</translation>
+        <translation>Bretonca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Bulgarian</source>
-        <translation>Bulharský</translation>
+        <translation>Bulgarca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="125"/>
         <source>Burmese</source>
-        <translation>Barmský</translation>
+        <translation>Birmanya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="126"/>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Catalan</source>
-        <translation>Katalánský</translation>
+        <translation>Katalanca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <location filename="../../Misc/Language.cpp" line="312"/>
         <source>Spain</source>
-        <translation>Španielsko</translation>
+        <translation>İspanya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Central Khmer</source>
-        <translation>Stredná kmérčina</translation>
+        <translation>Merkezi Khmer</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="129"/>
@@ -3677,7 +3724,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Chechen</source>
-        <translation>Čečenský</translation>
+        <translation>Çeçence</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="131"/>
@@ -3687,12 +3734,12 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Chinese</source>
-        <translation>Čínsky</translation>
+        <translation>Çince</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="132"/>
         <source>China</source>
-        <translation>Čína</translation>
+        <translation>Çin</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="133"/>
@@ -3702,7 +3749,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Macau</source>
-        <translation>Macao</translation>
+        <translation>Makao</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="135"/>
@@ -3712,27 +3759,27 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Taiwan</source>
-        <translation>Taiwan</translation>
+        <translation>Tayvan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Church Slavic</source>
-        <translation>Staroslovianský</translation>
+        <translation>Kilise Slavcisi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="138"/>
         <source>Chuvash</source>
-        <translation>Chuvash</translation>
+        <translation>Çuvaşistan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Cornish</source>
-        <translation>Cornwallsky</translation>
+        <translation>Keltçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Corsican</source>
-        <translation>Korzický</translation>
+        <translation>Korsikalı</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="141"/>
@@ -3742,51 +3789,51 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="142"/>
         <source>Croatian</source>
-        <translation>Chorvátsky</translation>
+        <translation>Hırvat</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Czech</source>
-        <translation>Český</translation>
+        <translation>Çek</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="144"/>
         <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Danish</source>
-        <translation>Dánsky</translation>
+        <translation>Danimarka Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Denmark</source>
-        <translation>Dánsko</translation>
+        <translation>Danimarka</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Dhivehi</source>
-        <translation>Dhivehi</translation>
+        <translation>Divehi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="147"/>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Dutch</source>
-        <translation>Holandský</translation>
+        <translation>Flemenkçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <source>Belgium</source>
-        <translation>Belgicko</translation>
+        <translation>Belçika</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Netherlands</source>
-        <translation>Holandsko</translation>
+        <translation>Hollanda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Dzongkha</source>
-        <translation>Dzongkha</translation>
+        <translation>Dzongka</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="151"/>
@@ -3803,17 +3850,17 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>English</source>
-        <translation>Angličtina</translation>
+        <translation>İngilizce</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="152"/>
         <source>Australia</source>
-        <translation>Austrália</translation>
+        <translation>Avusturalya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Belize</source>
-        <translation>Belizé</translation>
+        <translation>Belize</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="154"/>
@@ -3824,33 +3871,33 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Caribbean</source>
-        <translation>Karibik</translation>
+        <translation>Karayipler</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="156"/>
         <source>Great Britain</source>
-        <translation>Veľká Británia</translation>
+        <translation>Büyük Britanya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="157"/>
         <source>India</source>
-        <translation>India</translation>
+        <translation>Hindistan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="158"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Ireland</source>
-        <translation>Írsko</translation>
+        <translation>İrlanda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Jamaica</source>
-        <translation>Jamajka</translation>
+        <translation>Jamaika</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Phillippines</source>
-        <translation>Filipíny</translation>
+        <translation>Filipinler</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="161"/>
@@ -3860,12 +3907,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <source>South Africa</source>
-        <translation>Južná Afrika</translation>
+        <translation>Güney Afrika</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>United States</source>
-        <translation>Spojené štáty</translation>
+        <translation>Birleşik Devletler</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="164"/>
@@ -3875,27 +3922,27 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Estonian</source>
-        <translation>Estónsky</translation>
+        <translation>Estonya Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="166"/>
         <source>Ewe</source>
-        <translation>Ewe</translation>
+        <translation>Eve</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="167"/>
         <source>Faroese</source>
-        <translation>Faerský</translation>
+        <translation>Faroe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="168"/>
         <source>Fijian</source>
-        <translation>Fidži</translation>
+        <translation>Fiji Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="169"/>
         <source>Finnish</source>
-        <translation>Fínsky</translation>
+        <translation>Fince</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="170"/>
@@ -3905,25 +3952,25 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <source>French</source>
-        <translation>Francúzsky</translation>
+        <translation>Fransızca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="173"/>
         <source>France</source>
-        <translation>Francúzsko</translation>
+        <translation>Fransa</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Luxembourg</source>
-        <translation>Luxembursko</translation>
+        <translation>Lüksemburg</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Switzerland</source>
-        <translation>Švajčiarsko</translation>
+        <translation>İsviçre</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="176"/>
@@ -3934,17 +3981,17 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Gaelic</source>
-        <translation>Gaeština</translation>
+        <translation>Gael Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <source>Scotland</source>
-        <translation>Škótsko</translation>
+        <translation>İskoçya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Galician</source>
-        <translation>Galicijský</translation>
+        <translation>Galiçyaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="180"/>
@@ -3954,7 +4001,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="181"/>
         <source>Georgian</source>
-        <translation>Gruzínsky</translation>
+        <translation>Gürcüce</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="182"/>
@@ -3964,32 +4011,32 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <source>German</source>
-        <translation>Nemčina</translation>
+        <translation>Almanca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="183"/>
         <source>Austria</source>
-        <translation>Rakúsko</translation>
+        <translation>Avusturya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="184"/>
         <source>Germany</source>
-        <translation>Nemecko</translation>
+        <translation>Almanya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="185"/>
         <source>Liechtenstein</source>
-        <translation>Lichtenštajnsko</translation>
+        <translation>Lihtenştayn</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Greek, Modern</source>
-        <translation>Gréčtina, moderná</translation>
+        <translation>Yunanca, Modern</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="189"/>
         <source>Greek</source>
-        <translation>Grécky</translation>
+        <translation>Yunanca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="190"/>
@@ -4004,7 +4051,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="192"/>
         <source>Haitian</source>
-        <translation>Haitský</translation>
+        <translation>Haitialı</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="193"/>
@@ -4014,7 +4061,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Hebrew</source>
-        <translation>Hebrejský</translation>
+        <translation>İbranice</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="195"/>
@@ -4024,7 +4071,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="196"/>
         <source>Hindi</source>
-        <translation>Hindský</translation>
+        <translation>Hintçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="197"/>
@@ -4035,37 +4082,37 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="198"/>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Hungarian</source>
-        <translation>Maďarský</translation>
+        <translation>Macarca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Hungary</source>
-        <translation type="unfinished"/>
+        <translation>Macaristan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Icelandic</source>
-        <translation>Islandský</translation>
+        <translation>İzlandaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="201"/>
         <source>Ido</source>
-        <translation>Ido</translation>
+        <translation>İdo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="202"/>
         <source>Igbo</source>
-        <translation>Igbo</translation>
+        <translation>İgbo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Indonesian</source>
-        <translation>Indonézsky</translation>
+        <translation>Endonezyaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="204"/>
         <source>Indonesian - Indonesia</source>
-        <translation type="unfinished"/>
+        <translation>Endonezyaca - Endonezya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="205"/>
@@ -4090,29 +4137,29 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Irish</source>
-        <translation>Írsky</translation>
+        <translation>İrlandaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="210"/>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Italian</source>
-        <translation>Taliančina</translation>
+        <translation>İtalyanca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Italy</source>
-        <translation>Taliansko</translation>
+        <translation>İtalya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Japanese</source>
-        <translation>Japonský</translation>
+        <translation>Japonca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Javanese</source>
-        <translation>Jávsky</translation>
+        <translation>Cava Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="215"/>
@@ -4132,12 +4179,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Kashmiri</source>
-        <translation>Kashmiri</translation>
+        <translation>Keşmir</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Kazakh</source>
-        <translation>Kazašsky</translation>
+        <translation>Kazak</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="220"/>
@@ -4152,7 +4199,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Kirghiz</source>
-        <translation>Kirgizský</translation>
+        <translation>Kırgız</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="223"/>
@@ -4167,7 +4214,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Korean</source>
-        <translation>Kórejský</translation>
+        <translation>Korece</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="226"/>
@@ -4177,7 +4224,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Kurdish</source>
-        <translation>Kurdsky</translation>
+        <translation>Kürtçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="228"/>
@@ -4187,23 +4234,23 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Latin</source>
-        <translation>Latinčina</translation>
+        <translation>Latince</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="230"/>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Latvian</source>
-        <translation>Lotyšský</translation>
+        <translation>Letonca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Latvia</source>
-        <translation type="unfinished"/>
+        <translation>Letonya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Limburgan</source>
-        <translation>Limburčina</translation>
+        <translation>Limburgan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="233"/>
@@ -4213,7 +4260,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="234"/>
         <source>Lithuanian</source>
-        <translation>Litovský</translation>
+        <translation>Litvanyaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="235"/>
@@ -4223,17 +4270,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Luxembourgish</source>
-        <translation>Luxemburský</translation>
+        <translation>Lüksemburgca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Macedonian</source>
-        <translation>Macedónsky</translation>
+        <translation>Makedonca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Malagasy</source>
-        <translation>Malgašský</translation>
+        <translation>Madagaskarca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="239"/>
@@ -4245,32 +4292,32 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Malay</source>
-        <translation>Malajzijský</translation>
+        <translation>Malay</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Brunei</source>
-        <translation>Brunej</translation>
+        <translation>Brunei</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Malaysia</source>
-        <translation>Malajzia</translation>
+        <translation>Malezya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Maltese</source>
-        <translation>Maltézsky</translation>
+        <translation>Malta Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Manx</source>
-        <translation>Manský</translation>
+        <translation>Manx</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="245"/>
         <source>Maori</source>
-        <translation>Maorský</translation>
+        <translation>Maori</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="246"/>
@@ -4280,12 +4327,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Marshallese</source>
-        <translation>Maršálsky</translation>
+        <translation>Marshallese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Mongolian</source>
-        <translation>Mongolský</translation>
+        <translation>Moğolca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="249"/>
@@ -4301,17 +4348,17 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Ndebele</source>
-        <translation>Ndebelčina</translation>
+        <translation>Ndebele</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <source>North</source>
-        <translation>Sever</translation>
+        <translation>Kuzey</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>South</source>
-        <translation>Juh</translation>
+        <translation>Güney</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="253"/>
@@ -4321,29 +4368,29 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Nepali</source>
-        <translation>Nepálsky</translation>
+        <translation>Nepalce</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Northern, Sami</source>
-        <translation>Severná sámčina</translation>
+        <translation>Kuzey Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="256"/>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Norwegian</source>
-        <translation>Nórsky</translation>
+        <translation>Norveççe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Bokmal</source>
-        <translation>Bokmål nórčina</translation>
+        <translation>Bokmal</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Nynorsk</source>
-        <translation>Nynorsk nórčina</translation>
+        <translation>Nynorsk</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="259"/>
@@ -4353,7 +4400,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="260"/>
         <source>Occitan</source>
-        <translation>Occitan</translation>
+        <translation>Oksitanca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="261"/>
@@ -4363,7 +4410,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Oriya</source>
-        <translation>Urijština</translation>
+        <translation>Oriya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="263"/>
@@ -4373,7 +4420,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="264"/>
         <source>Ossetian</source>
-        <translation>Osetčina</translation>
+        <translation>Osetçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="265"/>
@@ -4383,83 +4430,83 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="266"/>
         <source>Panjabi</source>
-        <translation>Pandžábsky</translation>
+        <translation>Panjabi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Persian</source>
-        <translation>Perzský</translation>
+        <translation>Farsça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="268"/>
         <source>Polish</source>
-        <translation>Polský</translation>
+        <translation>Lehçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Portuguese</source>
-        <translation>Portugalský</translation>
+        <translation>Portekizce</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Brazil</source>
-        <translation>Brazília</translation>
+        <translation>Brezilya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Portugal</source>
-        <translation>Portugalčina</translation>
+        <translation>Portekiz</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Pushto</source>
-        <translation>Pushto</translation>
+        <translation>Puşto</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="273"/>
         <source>Quechua</source>
-        <translation>Kečuánčina</translation>
+        <translation>Quechua</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="274"/>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Romanian</source>
-        <translation>Rumunský</translation>
+        <translation>Romence</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Moldova</source>
-        <translation>Moldavčina</translation>
+        <translation>Moldova</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Romania</source>
-        <translation type="unfinished"/>
+        <translation>Romanya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Romansh</source>
-        <translation>Rétorománčina</translation>
+        <translation>Romanca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Rundi</source>
-        <translation>Rundčina</translation>
+        <translation>Rundi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="279"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Russian</source>
-        <translation>Ruský</translation>
+        <translation>Rusça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Samoan</source>
-        <translation>Samoánsky</translation>
+        <translation>Samoaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="282"/>
@@ -4469,23 +4516,23 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="283"/>
         <source>Sanskrit</source>
-        <translation>Sanskrit</translation>
+        <translation>Sankritçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="284"/>
         <source>Sardinian</source>
-        <translation>Sardínčina</translation>
+        <translation>Sardunyaca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="285"/>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Serbian</source>
-        <translation>Srbský</translation>
+        <translation>Sırpça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Serbia</source>
-        <translation type="unfinished"/>
+        <translation>Sırbistan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="287"/>
@@ -4510,22 +4557,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Slovak</source>
-        <translation>Slovenský</translation>
+        <translation>Slovak</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Slovenian</source>
-        <translation>Slovinský</translation>
+        <translation>Slovence</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Somali</source>
-        <translation>Somálsky</translation>
+        <translation>Somalice</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="294"/>
         <source>Sotho, Southern</source>
-        <translation>Južná sotčina</translation>
+        <translation>Sotho, Güney</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="295"/>
@@ -4549,47 +4596,47 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Spanish</source>
-        <translation>Španielsky</translation>
+        <translation>İspanyolca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Argentina</source>
-        <translation>Argentína</translation>
+        <translation>Arjantin</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="297"/>
         <source>Bolivia</source>
-        <translation>Bolívia</translation>
+        <translation>Bolivya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Chile</source>
-        <translation>Čile</translation>
+        <translation>Şili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Columbia</source>
-        <translation>Kolumbia</translation>
+        <translation>Kolombiya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Costa Rica</source>
-        <translation>Kostarika</translation>
+        <translation>Kosta Rika</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Dominican Republic</source>
-        <translation>Dominikánska republika</translation>
+        <translation>Dominik Cumhuriyeti</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Ecuador</source>
-        <translation>Ekvádor</translation>
+        <translation>Ekvador</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="303"/>
         <source>El Salvador</source>
-        <translation>Salvádor</translation>
+        <translation>El Salvador</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="304"/>
@@ -4604,7 +4651,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Mexico</source>
-        <translation>Mexiko</translation>
+        <translation>Meksika</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="307"/>
@@ -4619,7 +4666,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Paraguay</source>
-        <translation>Paraguaj</translation>
+        <translation>Paraguay</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="310"/>
@@ -4629,12 +4676,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="311"/>
         <source>Puerto Rico</source>
-        <translation>Portoriko</translation>
+        <translation>Porto Riko</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <source>Uruguay</source>
-        <translation>Uruguaj</translation>
+        <translation>Uruguay</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="314"/>
@@ -4644,12 +4691,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="315"/>
         <source>Sundanese</source>
-        <translation>Sundánčína</translation>
+        <translation>Sunda Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Swahili</source>
-        <translation>Svahilsky</translation>
+        <translation>Swahili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="317"/>
@@ -4661,17 +4708,17 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Swedish</source>
-        <translation>Švédsky</translation>
+        <translation>İsveççe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Finland</source>
-        <translation>Fínsko</translation>
+        <translation>Finlandiya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Sweden</source>
-        <translation>Švédsko</translation>
+        <translation>İsveç</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="321"/>
@@ -4681,42 +4728,42 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Tahitian</source>
-        <translation>Tahitsky</translation>
+        <translation>Tahiti</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Tajik</source>
-        <translation>Tajisky</translation>
+        <translation>Tacikçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Tamil</source>
-        <translation>Tamilčina</translation>
+        <translation>Tamil</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Tatar</source>
-        <translation>Tatárčina</translation>
+        <translation>Tatar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Telugu</source>
-        <translation>Telugčina</translation>
+        <translation>Telugu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="327"/>
         <source>Thai</source>
-        <translation>Thajčina</translation>
+        <translation>Tay Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Tibetan</source>
-        <translation>Tibetčina</translation>
+        <translation>Tibetçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Tigrinya</source>
-        <translation>Tigrinyačina</translation>
+        <translation>Tigrinya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="330"/>
@@ -4737,17 +4784,17 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Turkish</source>
-        <translation>Turecký</translation>
+        <translation>Türkçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Turkey</source>
-        <translation>Turečtina</translation>
+        <translation>Türkiye</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="335"/>
         <source>Turkmen</source>
-        <translation>Turkménčina</translation>
+        <translation>Türkmenistan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="336"/>
@@ -4757,34 +4804,34 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Uighur</source>
-        <translation>Ujgurčina</translation>
+        <translation>Uygurca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="338"/>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Ukrainian</source>
-        <translation>Ukrajinský</translation>
+        <translation>Ukrayna Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Ukraine</source>
-        <translation type="unfinished"/>
+        <translation>Ukrayna</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Urdu</source>
-        <translation>Urudčina</translation>
+        <translation>Urduca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="341"/>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Uzbek</source>
-        <translation>Uzbekčina</translation>
+        <translation>Özbekçe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Uzbekistan</source>
-        <translation>Uzbekistan</translation>
+        <translation>Özbekistan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="343"/>
@@ -4794,27 +4841,27 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Vietnamese</source>
-        <translation>Vietnamský</translation>
+        <translation>Vietnam Dili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Volapuk</source>
-        <translation>Volapuk</translation>
+        <translation>Volapük</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Walloon</source>
-        <translation>Valónsky</translation>
+        <translation>Valonca</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="347"/>
         <source>Welsh</source>
-        <translation>Welština</translation>
+        <translation>Galce</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="348"/>
         <source>Western Frisian</source>
-        <translation>Západná frýština</translation>
+        <translation>Batı Frizcesi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="349"/>
@@ -4829,12 +4876,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="351"/>
         <source>Yiddish</source>
-        <translation>Jidiš</translation>
+        <translation>Yidiş</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Yoruba</source>
-        <translation>Joruba</translation>
+        <translation>Yoruba</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="353"/>
@@ -4844,82 +4891,82 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Zulu</source>
-        <translation>Zulučtina</translation>
+        <translation>Zulu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="355"/>
         <source>Achinese</source>
-        <translation type="unfinished"/>
+        <translation>Achinese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="356"/>
         <source>Acoli</source>
-        <translation type="unfinished"/>
+        <translation>Acoli</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="357"/>
         <source>Adangme</source>
-        <translation type="unfinished"/>
+        <translation>Adangme</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="358"/>
         <source>Adygei, Adyghe</source>
-        <translation type="unfinished"/>
+        <translation>Adigey, Adigey</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="359"/>
         <source>Afrihili</source>
-        <translation type="unfinished"/>
+        <translation>Afrihili</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="360"/>
         <source>Afro-Asiatic languages</source>
-        <translation type="unfinished"/>
+        <translation>Afro-Asya dilleri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="361"/>
         <source>Ainu</source>
-        <translation type="unfinished"/>
+        <translation>Ainu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Akkadian</source>
-        <translation type="unfinished"/>
+        <translation>Akkadça</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="363"/>
         <source>Aleut</source>
-        <translation type="unfinished"/>
+        <translation>Aleut</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="364"/>
         <source>Algonquian languages</source>
-        <translation type="unfinished"/>
+        <translation>Algonquian dilleri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="365"/>
         <source>Altaic languages</source>
-        <translation type="unfinished"/>
+        <translation>Altay dilleri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="366"/>
         <source>Angika</source>
-        <translation type="unfinished"/>
+        <translation>Angika</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="367"/>
         <source>Apache languages</source>
-        <translation type="unfinished"/>
+        <translation>Apache dilleri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="368"/>
         <source>Arapaho</source>
-        <translation type="unfinished"/>
+        <translation>Arapaho</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="369"/>
         <source>Arawak</source>
-        <translation type="unfinished"/>
+        <translation>Arawak</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="370"/>
@@ -4929,7 +4976,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="371"/>
         <source>Artificial languages</source>
-        <translation>Umelé jazyky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="372"/>
@@ -5054,7 +5101,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="396"/>
         <source>Caddo</source>
-        <translation>Kaddočtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="397"/>
@@ -5644,7 +5691,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="514"/>
         <source>Lower Sorbian</source>
-        <translation>Dolnolužická srbština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="515"/>
@@ -6069,7 +6116,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Sign Languages</source>
-        <translation>Znakové jazyky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="600"/>
@@ -6119,7 +6166,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Sorbian languages</source>
-        <translation>Lužická srbština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="610"/>
@@ -6169,187 +6216,187 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Tai languages</source>
-        <translation>Taiské jazyky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Tamashek</source>
-        <translation>Tamašekčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Tereno</source>
-        <translation>Terenčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Tetum</source>
-        <translation>Tetumčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Tigre</source>
-        <translation>Tigreština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Timne</source>
-        <translation>Timneština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Tiv</source>
-        <translation>Tivčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Tlingit</source>
-        <translation>Tlingitčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Tok Pisin</source>
-        <translation>Tok pisinčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Tokelau</source>
-        <translation>Tokelauština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Tonga (Nyasa)</source>
-        <translation>Tongčtina (Nyasa)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Tsimshian</source>
-        <translation>Tsimsijčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Tumbuka</source>
-        <translation>Tumbukčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Tupi languages</source>
-        <translation>Tupijské jazyky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Turkish- Ottoman (1500-1928)</source>
-        <translation>Turečtina - otomančtina (1500-1928)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Tuvalu</source>
-        <translation>Tuvalčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Tuvinian</source>
-        <translation>Tuviančtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Udmurt</source>
-        <translation>Udmurčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Ugaritic</source>
-        <translation>Ugariština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Umbundu</source>
-        <translation>Umbudčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Uncoded languages</source>
-        <translation>Nekódované jazyky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Undetermined</source>
-        <translation>Neidentifikovaný</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Upper Sorbian</source>
-        <translation>Hornolužická srbština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Vai</source>
-        <translation>Vaiština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Votic</source>
-        <translation>Votic</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Wakashan languages</source>
-        <translation>Wakašanské jazyky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="645"/>
         <source>Waray</source>
-        <translation>Warajčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="646"/>
         <source>Washo</source>
-        <translation>Wašoština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="647"/>
         <source>Wolaitta, Wolaytta</source>
-        <translation>Wolajčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="648"/>
         <source>Yakut</source>
-        <translation>Jakuština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="649"/>
         <source>Yao</source>
-        <translation>Yaoština</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="650"/>
         <source>Yapese</source>
-        <translation>Yapčtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="651"/>
         <source>Yupik languages</source>
-        <translation>Sibirské jazyky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="652"/>
         <source>Zande languages</source>
-        <translation>Zandské jazyky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="653"/>
         <source>Zapotec</source>
-        <translation>Zapotečtina</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="654"/>
         <source>Zenaga</source>
-        <translation>Zenaga</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="655"/>
         <source>Zuni</source>
-        <translation>Zuni</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6357,7 +6404,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="14"/>
         <source>Language</source>
-        <translation>Jazyk</translation>
+        <translation>Dil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="36"/>
@@ -6366,22 +6413,28 @@ Do you want to save your changes?</source>
 If a translation for specific word or phrase is not available it will be displayed in English.
 
 Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>Kullanıcı arayüz dilini değiştirdikten sonra Sigil&apos;i yeniden başlatmak zorundasınız.
+
+Eğer belirli kelime veya cümle için çeviri mevcut değilse İngilizce olarak gösterilecektir.
+
+Yazım denetimi sözlüğünü belirlemek için Tercihler-&gt;Yazım Denetimi Sözlükleri&apos;ni kullanın.
+
+</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="43"/>
         <source>User Interface Language:</source>
-        <translation>Jazyk používateľského rozhrania:</translation>
+        <translation>Kullanıcı Arayüz Dili:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="53"/>
         <source>Set the default language used by the Metadata Editor for new books.</source>
-        <translation>Nastaví štandardný jazyk použitý editorom popisných dát pre nové knihy.</translation>
+        <translation>Yeni kitapların Metadata Düzenleyicisi tarafından kullanılacak varsayılan dili seçin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="56"/>
         <source>Default Language For Metadata:</source>
-        <translation>Štandardný jazyk pre popisné dáta:</translation>
+        <translation>Metadata için Varsayılan Dil:</translation>
     </message>
 </context>
 <context>
@@ -6389,41 +6442,39 @@ Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</s
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="14"/>
         <source>Link StyleSheets</source>
-        <translation>Prepojiť štýly</translation>
+        <translation>StilSayfaları İşaretle...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="43"/>
         <source>Move the selected stylesheets up in priority.
 
 Stylesheets that are listed first take precedence over later stylesheets.</source>
-        <translation>Posunúť vybrané štýly podľa priority vyššie.
-
-Štýly, ktoré sú uvedené ako prvé majú prednosť pred nasledujúcimi štýlmi.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="48"/>
         <source>Up</source>
-        <translation>Hore</translation>
+        <translation>Yukarı</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="58"/>
         <source>Move the selected stylesheets down in priority.</source>
-        <translation>Posunúť vybrané štýly podľa priority nižšie.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="61"/>
         <source>Down</source>
-        <translation>Dole</translation>
+        <translation>Aşağı</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="60"/>
         <source>Include</source>
-        <translation>Vrátane</translation>
+        <translation>Dahil Et</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="61"/>
         <source>Stylesheet</source>
-        <translation>Štýl</translation>
+        <translation>Stilsayfası</translation>
     </message>
 </context>
 <context>
@@ -6436,37 +6487,37 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Sadece sizin girdiğiniz metindeki dosya isimlerini listele.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Filitre:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="65"/>
         <source>File</source>
-        <translation>Súbor</translation>
+        <translation>Dosya</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="66"/>
         <source>ID</source>
-        <translation type="unfinished"/>
+        <translation>ID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="67"/>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation>Metin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="68"/>
         <source>Target File</source>
-        <translation type="unfinished"/>
+        <translation>Hedef Dosya</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="69"/>
         <source>Target ID</source>
-        <translation type="unfinished"/>
+        <translation>Hedef ID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="70"/>
@@ -6476,22 +6527,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="71"/>
         <source>Target Text</source>
-        <translation type="unfinished"/>
+        <translation>Hedef Metin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="72"/>
         <source>Target&apos;s Target File</source>
-        <translation type="unfinished"/>
+        <translation>Hedefin Hedef Dosyası</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="73"/>
         <source>Target&apos;s Target ID</source>
-        <translation type="unfinished"/>
+        <translation>Hedefin Hedef ID&apos;si</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="74"/>
         <source>Match?</source>
-        <translation type="unfinished"/>
+        <translation>Eşleşme?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="80"/>
@@ -6501,7 +6552,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="327"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="340"/>
@@ -6511,7 +6562,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="340"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
 </context>
 <context>
@@ -6519,97 +6570,97 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
         <source>untitled.epub[*] - Sigil</source>
-        <translation>nepomenovaný.epub [*] - Sigil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="58"/>
         <source>&amp;File</source>
-        <translation>&amp;Súbor</translation>
+        <translation>&amp;Dosya</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="62"/>
         <source>A&amp;dd</source>
-        <translation>Pri&amp;dať</translation>
+        <translation>&amp;Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="88"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Upraviť</translation>
+        <translation>Dü&amp;zenle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="92"/>
         <source>C&amp;hange Case</source>
-        <translation>Z&amp;meniť veľkosť písmen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="117"/>
         <source>&amp;Insert</source>
-        <translation>&amp;Vložiť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="121"/>
         <source>Cli&amp;p</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Klip</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="158"/>
         <source>&amp;Help</source>
-        <translation>&amp;Pomocník</translation>
+        <translation>&amp;Yardım</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="168"/>
         <source>For&amp;mat</source>
-        <translation>For&amp;mát</translation>
+        <translation>&amp;Biçim</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="172"/>
         <source>&amp;Heading</source>
-        <translation>&amp;Nadpis</translation>
+        <translation>&amp;Başlık</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="213"/>
         <source>&amp;View</source>
-        <translation>&amp;Zobrazenie</translation>
+        <translation>&amp;Görünüm</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="217"/>
         <source>&amp;Toolbars</source>
-        <translation>Ná&amp;strojové panely</translation>
+        <translation>A&amp;raç Çubukları</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="232"/>
         <source>&amp;Search</source>
-        <translation>&amp;Hľadať</translation>
+        <translation>&amp;Ara</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="236"/>
         <source>Current Fil&amp;e</source>
-        <translation>Súčasný &amp;súbor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="268"/>
         <source>&amp;Window</source>
-        <translation>&amp;Okno</translation>
+        <translation>&amp;Pencere</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="280"/>
         <source>&amp;Tools</source>
-        <translation>Nás&amp;troje</translation>
+        <translation>A&amp;raçlar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="284"/>
         <source>&amp;Table Of Contents</source>
-        <translation>&amp;Obsah</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="292"/>
         <source>Spe&amp;llcheck</source>
-        <translation>Kontrola prek&amp;lepov</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="306"/>
         <source>&amp;Index</source>
-        <translation>&amp;Index</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="317"/>
@@ -6624,79 +6675,79 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="349"/>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Eklentiler</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="367"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="511"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="521"/>
         <source>File</source>
-        <translation>Súbor</translation>
+        <translation>Dosya</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="382"/>
         <location filename="../../MainUI/MainWindow.cpp" line="273"/>
         <source>Edit</source>
-        <translation>Upraviť</translation>
+        <translation>Düzenle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="401"/>
         <source>View</source>
-        <translation>Zobraziť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="414"/>
         <source>Insert</source>
-        <translation>Vložiť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="431"/>
         <source>Back</source>
-        <translation>Späť</translation>
+        <translation>Geri</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="443"/>
         <source>Donate</source>
-        <translation>Darovať</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="455"/>
         <source>Tools</source>
-        <translation>Nástroje</translation>
+        <translation>Araçlar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="475"/>
         <source>Heading</source>
-        <translation>Záhlavie</translation>
+        <translation>Başlık</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="493"/>
         <source>Format</source>
-        <translation>Formát</translation>
+        <translation>Biçim</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="510"/>
         <source>Align</source>
-        <translation>Zarovnať</translation>
+        <translation>Hizalama</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="525"/>
         <source>List</source>
-        <translation>Zoznam</translation>
+        <translation>Liste</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="538"/>
         <source>Indent</source>
-        <translation>Odsadenie</translation>
+        <translation>Girinti</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="551"/>
         <source>Change Case</source>
-        <translation>Zmeniť veľkosť písmen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="566"/>
         <source>Text Direction</source>
-        <translation>Smer textu</translation>
+        <translation>Metin Yönü</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="580"/>
@@ -6706,15 +6757,14 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="615"/>
         <source>&amp;New</source>
-        <translation>&amp;Nový</translation>
+        <translation>&amp;Yeni</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="618"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nový&lt;/b&gt;&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvorí novú knihu.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="623"/>
@@ -6724,15 +6774,14 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="632"/>
         <source>&amp;Save</source>
-        <translation>&amp;Uložiť</translation>
+        <translation>&amp;Kaydet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="635"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt; &lt;b&gt;Uložiť&lt;/b&gt;&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Uloží aktuálnu knihu. &lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="640"/>
@@ -6742,36 +6791,34 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="645"/>
         <source>Save &amp;As...</source>
-        <translation>Uložiť &amp;ako…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="648"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uložiť ako&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Uloží aktuálnu knihu pod iným názvom.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="653"/>
         <source>Ctrl+Shift+S</source>
-        <translation>Ctrl+Shift+S</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="658"/>
         <source>Save A &amp;Copy...</source>
-        <translation>Uložiť ako &amp;kópiu…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="661"/>
         <source>Save a copy of your book to another file name.</source>
-        <translation>Uložiť kópiu vašej knihy pod iným súborovým názvom.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="670"/>
         <source>Cu&amp;t</source>
-        <translation>Vys&amp;trihnúť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="673"/>
@@ -6783,16 +6830,14 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="684"/>
         <source>&amp;Paste</source>
-        <translation>&amp;Vložiť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="687"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Vložiť&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vloží obsah schránky do knihy.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="694"/>
@@ -6807,50 +6852,46 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="700"/>
         <source>Ctrl+.</source>
-        <translation>Ctrl+.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="709"/>
         <source>&amp;Undo</source>
-        <translation>&amp;Späť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="712"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Späť&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zruší zmeny predchádzajúcej operácie.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="717"/>
         <source>Ctrl+Z</source>
-        <translation>Ctrl+Z</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="726"/>
         <source>&amp;Redo</source>
-        <translation>&amp;Znovu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="729"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Znovu&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Obnoví zmeny zrušené predchádzajúcou akciou Späť.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="734"/>
         <source>Ctrl+Y</source>
-        <translation>Ctrl+Y</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="743"/>
         <source>&amp;Copy</source>
-        <translation>&amp;Kopírovať</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="746"/>
@@ -6862,7 +6903,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="760"/>
         <source>Align &amp;Left</source>
-        <translation>Zarovnať &amp;vľavo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="763"/>
@@ -6874,7 +6915,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="777"/>
         <source>Align &amp;Right</source>
-        <translation>Zarovnať vp&amp;ravo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="780"/>
@@ -6886,7 +6927,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="794"/>
         <source>&amp;Center</source>
-        <translation>Zarovnať &amp;na stred</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="797"/>
@@ -6898,12 +6939,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="802"/>
         <source>Ctrl+E</source>
-        <translation>Ctrl+E</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="814"/>
         <source>&amp;Justify</source>
-        <translation>&amp;Zarovnať do bloku</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="817"/>
@@ -6915,12 +6956,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="822"/>
         <source>Ctrl+J</source>
-        <translation>Ctrl+J</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="834"/>
         <source>&amp;Bold</source>
-        <translation>&amp;Tučné</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="837"/>
@@ -6932,12 +6973,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="842"/>
         <source>Ctrl+B</source>
-        <translation>Ctrl+B</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="854"/>
         <source>&amp;Italic</source>
-        <translation>&amp;Kurzíva</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="857"/>
@@ -6949,31 +6990,29 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="862"/>
         <source>Ctrl+I</source>
-        <translation>Ctrl+I</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="871"/>
         <source>&amp;Open...</source>
-        <translation>&amp;Otvoriť…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="874"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Otvoriť&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Otvorí knihu z disku.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="879"/>
         <source>Ctrl+O</source>
-        <translation>Ctrl+O</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="891"/>
         <source>&amp;Underline</source>
-        <translation>&amp;Podčiarknuť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="894"/>
@@ -6985,27 +7024,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="899"/>
         <source>Ctrl+U</source>
-        <translation>Ctrl+U</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="908"/>
         <source>&amp;Quit</source>
-        <translation>&amp;Koniec</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="911"/>
         <source>Exit</source>
-        <translation>Koniec</translation>
+        <translation>Çıkış</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="914"/>
         <source>Ctrl+Q</source>
-        <translation>Ctrl+Q</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="923"/>
         <source>&amp;About...</source>
-        <translation>&amp;O…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="926"/>
@@ -7027,7 +7066,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="945"/>
         <source>&amp;Metadata Editor...</source>
-        <translation>&amp;Editor popisných dát...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="948"/>
@@ -7056,7 +7095,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="970"/>
         <source>Ctrl+T</source>
-        <translation>Ctrl+T</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="975"/>
@@ -7073,30 +7112,26 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="992"/>
         <source>&amp;Book View</source>
-        <translation>Zobrazenie kni&amp;hy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="995"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zobrazenie knihy&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Upraviť a zobraziť súbory  vo vašej knihe, tak ako ich bude vidieť čitateľ.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1009"/>
         <source>&amp;Code View</source>
-        <translation>Zobrazenie &amp;kódu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1012"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zobrazenie kódu&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Upraviť a zobraziť aktuálny obsah súborov vo vašej knihe vrátane formátovacieho kódu, ktorý ovplyvňuje, ako bude vaša kniha zobrazená čitateľom.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1019"/>
@@ -7128,7 +7163,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1042"/>
         <source>Ctrl+Return</source>
-        <translation>Ctrl+Return</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1051"/>
@@ -7147,7 +7182,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1061"/>
         <source>Ctrl+Shift+I</source>
-        <translation>Ctrl+Shift+I</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1070"/>
@@ -7164,7 +7199,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1084"/>
         <source>I&amp;D...</source>
-        <translation>I&amp;D…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1087"/>
@@ -7188,16 +7223,14 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1115"/>
         <source>&amp;Numbered List</source>
-        <translation>Číslova&amp;ný zoznam</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1118"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Číslovanie&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvorí číslovaný zoznam.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1132"/>
@@ -7209,14 +7242,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Odrážky&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvorí zoznam s odrážkami.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1140"/>
         <source>Ctrl+Shift+L</source>
-        <translation>Ctrl+Shift+L</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1152"/>
@@ -7257,12 +7288,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1200"/>
         <source>&amp;Print...</source>
-        <translation>&amp;Tlač…</translation>
+        <translation>&amp;Yazdır...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1203"/>
         <source>Print</source>
-        <translation>Tlač</translation>
+        <translation>Yazdır</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1206"/>
@@ -7272,18 +7303,18 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1215"/>
         <source>Print Pre&amp;view...</source>
-        <translation>&amp;Ukážka pre tlačou…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1218"/>
         <source>Print Preview</source>
-        <translation>Ukážka pre tlačou</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1223"/>
         <location filename="../../Form_Files/main.ui" line="1226"/>
         <source>Close</source>
-        <translation>Zavrieť</translation>
+        <translation>Kapat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1229"/>
@@ -7293,12 +7324,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1238"/>
         <source>Zoom &amp;In</source>
-        <translation>Pr&amp;iblížiť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1241"/>
         <source>Zoom In</source>
-        <translation>Priblížiť</translation>
+        <translation>Yakınlaştır</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1244"/>
@@ -7308,17 +7339,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1253"/>
         <source>Zoom &amp;Out</source>
-        <translation>&amp;Oddialiť</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1256"/>
         <source>Zoom Out</source>
-        <translation>Oddialiť</translation>
+        <translation>Uzaklaştır</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1259"/>
         <source>Ctrl+-</source>
-        <translation>Ctrl+-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1264"/>
@@ -7333,20 +7364,19 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1270"/>
         <source>Ctrl+Alt+T</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+T</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1279"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
-        <translation>&amp;Nájsť a nahradiť…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1282"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nájsť a nahradiť&lt;/b&gt;&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Nájsť a nahradiť text v dokumente.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1287"/>
@@ -7363,9 +7393,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zväčšiť odsadenie&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zväčšiť úroveň odsadenia odseku.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1304"/>
@@ -7382,9 +7410,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zmenšiť odsadenie&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Zmenšiť úroveň odsadenia odseku.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1321"/>
@@ -7447,7 +7473,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1386"/>
         <source>&amp;Lowercase</source>
-        <translation>&amp;Malé písmená</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1389"/>
@@ -7466,7 +7492,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1405"/>
         <source>&amp;Uppercase</source>
-        <translation>&amp;Veľké písmená</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1408"/>
@@ -7485,7 +7511,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1424"/>
         <source>&amp;Titlecase</source>
-        <translation>&amp;Prvé písme veľké</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1427"/>
@@ -7499,7 +7525,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1440"/>
         <source>&amp;Capitalize</source>
-        <translation>&amp;Kapitálky</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1443"/>
@@ -7518,7 +7544,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1457"/>
         <source>&amp;Next Tab</source>
-        <translation>Ďa&amp;lšia karta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1460"/>
@@ -7528,7 +7554,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1465"/>
         <source>&amp;Previous Tab</source>
-        <translation>&amp;Predchádzajúca karta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1468"/>
@@ -7538,7 +7564,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1473"/>
         <source>&amp;Close Tab</source>
-        <translation>&amp;Zavrieť kartu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1476"/>
@@ -7578,12 +7604,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1503"/>
         <source>User &amp;Guide...</source>
-        <translation>&amp;Príručka používateľa…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1506"/>
         <source>User Guide</source>
-        <translation>Príručka používateľa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1509"/>
@@ -7593,22 +7619,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1514"/>
         <source>&amp;Frequently Asked Questions...</source>
-        <translation>Čas&amp;to kladené otázky…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1517"/>
         <source>Frequently Asked Questions</source>
-        <translation>Často kladené otázk</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1522"/>
         <source>&amp;Tutorials...</source>
-        <translation>&amp;Návody…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1525"/>
         <source>Tutorials</source>
-        <translation>Návody</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1530"/>
@@ -7654,7 +7680,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1565"/>
         <source>Alt+Q</source>
-        <translation type="unfinished"/>
+        <translation>Alt+Q</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1573"/>
@@ -7684,7 +7710,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1592"/>
         <source>&amp;Add Misspelled Word</source>
-        <translation>&amp;Pridať zle napísané slovo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1595"/>
@@ -7744,7 +7770,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1646"/>
         <source>&amp;Donate...</source>
-        <translation>&amp;Darovať…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1649"/>
@@ -7757,7 +7783,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1657"/>
         <source>Close &amp;Other Tabs</source>
-        <translation>Zavrieť &amp;ostatné karty</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1660"/>
@@ -7767,12 +7793,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1665"/>
         <source>Go To &amp;Line...</source>
-        <translation>Prejsť na &amp;riadok…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1668"/>
         <source>Ctrl+/</source>
-        <translation>Ctrl+/</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1673"/>
@@ -7782,27 +7808,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1676"/>
         <source>Ctrl+G</source>
-        <translation>Ctrl+G</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1681"/>
         <source>Find &amp;Previous</source>
-        <translation>Nájsť &amp;predchádzajúci</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1684"/>
         <source>Ctrl+Shift+G</source>
-        <translation>Ctrl+Shift+G</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1689"/>
         <source>Replace</source>
-        <translation>Nahradiť</translation>
+        <translation>Değiştir</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1692"/>
         <source>Ctrl+R</source>
-        <translation>Ctrl+R</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1697"/>
@@ -7812,37 +7838,37 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1700"/>
         <source>Ctrl+]</source>
-        <translation>Ctrl+]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1705"/>
         <source>R&amp;eplace/Find Previous</source>
-        <translation>Na&amp;hradiť/Nájsť predchádzajúci</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1708"/>
         <source>Ctrl+[</source>
-        <translation>Ctrl+[</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1713"/>
         <source>Replace &amp;All</source>
-        <translation>Nahradiť vš&amp;etko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1716"/>
         <source>Alt+A</source>
-        <translation>Alt+A</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1721"/>
         <source>&amp;Count All</source>
-        <translation>Spočí&amp;tať všetko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1724"/>
         <source>Alt+C</source>
-        <translation>Alt+C</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1729"/>
@@ -7877,7 +7903,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1760"/>
         <source>Ctrl+Alt+F</source>
-        <translation>Ctrl+Alt+F</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1765"/>
@@ -7892,7 +7918,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1771"/>
         <source>Ctrl+Alt+C</source>
-        <translation>Ctrl+Alt+C</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1776"/>
@@ -8147,27 +8173,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1966"/>
         <source>&amp;Preferences...</source>
-        <translation>&amp;Nastavenia…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1969"/>
         <source>F5</source>
-        <translation>F5</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1974"/>
         <source>&amp;Zoom Reset</source>
-        <translation>Vynulovať &amp;zväčšenie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1977"/>
         <source>Zoom Reset</source>
-        <translation>Vynulovať zväčšenie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1980"/>
         <source>Ctrl+0</source>
-        <translation>Ctrl+0</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1992"/>
@@ -8184,7 +8210,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2000"/>
         <source>Ctrl+1</source>
-        <translation>Ctrl+1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2012"/>
@@ -8201,7 +8227,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2020"/>
         <source>Ctrl+2</source>
-        <translation>Ctrl+2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2032"/>
@@ -8218,7 +8244,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2040"/>
         <source>Ctrl+3</source>
-        <translation>Ctrl+3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2052"/>
@@ -8235,7 +8261,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2060"/>
         <source>Ctrl+4</source>
-        <translation>Ctrl+4</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2072"/>
@@ -8252,7 +8278,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2080"/>
         <source>Ctrl+5</source>
-        <translation>Ctrl+5</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2092"/>
@@ -8269,7 +8295,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2100"/>
         <source>Ctrl+6</source>
-        <translation>Ctrl+6</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2112"/>
@@ -8286,7 +8312,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2120"/>
         <source>Ctrl+7</source>
-        <translation>Ctrl+7</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2128"/>
@@ -8306,7 +8332,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2139"/>
         <source>Add a new blank HTML file to the book.</source>
-        <translation>Pridať nový prázdny HTML súbor do knihy.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2148"/>
@@ -8323,12 +8349,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2158"/>
         <source>Blank Stylesheet</source>
-        <translation>Prázdny súbor štýlov</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2161"/>
         <source>Add a new blank stylesheet to the book.</source>
-        <translation>Pridať nový prázdny štýl do knihy.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2166"/>
@@ -8338,7 +8364,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2169"/>
         <source>Add a new blank svg image file to the book.</source>
-        <translation>Pridať nový prázdny SVG obrázok do knihy.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2174"/>
@@ -8348,12 +8374,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2177"/>
         <source>Open previous file of the same type.</source>
-        <translation>Otvoriť predchádzajúci súbor rovnakého typu.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2180"/>
         <source>Alt+PgUp</source>
-        <translation>Alt+PgUp</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2185"/>
@@ -8368,7 +8394,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2191"/>
         <source>Alt+PgDown</source>
-        <translation>Alt+PgDown</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2196"/>
@@ -8393,7 +8419,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2210"/>
         <source>Ctrl+Shift+X</source>
-        <translation>Ctrl+Shift+X</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2215"/>
@@ -8433,7 +8459,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2242"/>
         <source>F3</source>
-        <translation>F3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2251"/>
@@ -8451,7 +8477,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2260"/>
         <source>Ctrl+\</source>
-        <translation>Ctrl+\</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2265"/>
@@ -8461,17 +8487,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2268"/>
         <source>Ctrl+Alt+V</source>
-        <translation>Ctrl+Alt+V</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2273"/>
         <source>&amp;Delete Line</source>
-        <translation>&amp;Zmazať riadok</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2276"/>
         <source>Ctrl+D</source>
-        <translation>Ctrl+D</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2281"/>
@@ -8529,459 +8555,458 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="402"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="412"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="418"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="428"/>
         <source>Location bookmarked.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="465"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="697"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="894"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1040"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1419"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1506"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1561"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1569"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1586"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1598"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1701"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1709"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1728"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1741"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1749"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1760"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1765"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1777"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="707"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="904"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1050"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1429"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1516"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1571"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1579"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1596"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1608"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1711"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1719"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1733"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1759"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1770"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1775"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1787"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1792"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2037"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2044"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2058"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2063"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2083"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2111"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3369"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3375"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3417"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3429"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3579"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3786"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3986"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1797"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2047"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2054"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2068"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2073"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2097"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2129"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3387"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3435"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3441"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3447"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3597"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3804"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4004"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="465"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="475"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="511"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="521"/>
         <source>was updated</source>
-        <translation>bol aktualizovaný</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="528"/>
         <source>Warning</source>
-        <translation>Varovanie</translation>
+        <translation>Uyarı</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="528"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="546"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="556"/>
         <source>Opening this EPUB generated warnings.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="548"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="558"/>
         <source>Select Show Details for more information.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="588"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="598"/>
         <source>Sigil is closing...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="638"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="648"/>
         <source>New file created.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="659"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="669"/>
         <source>Open File</source>
-        <translation>Otvoriť súbor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="696"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="706"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="766"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="776"/>
         <source>Save File</source>
-        <translation>Uložiť súbor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="815"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="825"/>
         <source>Save a Copy</source>
-        <translation>Uložiť kópiu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="871"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="881"/>
         <source>Go To Line</source>
-        <translation>Prejsť na riadok</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="871"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="881"/>
         <source>Line #</source>
-        <translation>Riadok #</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="904"/>
         <source>Image does not exist: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="964"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="974"/>
         <source>No CSS styles named</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1036"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1046"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1058"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1068"/>
         <source>Add Cover</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1150"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1160"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1167"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1177"/>
         <source>Cover added.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1176"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1193"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1186"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1203"/>
         <source>Not Available for epub2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1194"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1210"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1264"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1220"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1274"/>
         <source>NCX generation failed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1259"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1269"/>
         <source>NCX generated.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1409"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1419"/>
         <source>Styles deleted.</source>
-        <translation>Štýly boli zmazané.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1429"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1506"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1516"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1559"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1569"/>
         <source>Unused media files deleted.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1561"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1571"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1579"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1586"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1596"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1598"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1608"/>
         <source>You cannot insert a file at this position.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1605"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1615"/>
         <source>Insert File</source>
-        <translation type="unfinished"/>
+        <translation>Dosya Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1650"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1660"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Súbor &quot;%1&quot; neexistuje.</translation>
+        <translation>&quot;%1&quot; dosyası bulunamadı.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1701"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1728"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1711"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1738"/>
         <source>You cannot insert an id at this position.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1709"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1719"/>
         <source>You must select text before inserting a new id.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1733"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1741"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1775"/>
         <source>You cannot insert a link at this position.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1749"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1759"/>
         <source>You must select text before inserting a new link.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1760"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1770"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1777"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1787"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1797"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1792"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1802"/>
         <source>You cannot mark an index at this position.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1872"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1883"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1998"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1882"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1893"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2008"/>
         <source>Select the destination to paste into first.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1891"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1901"/>
         <source>Pasted clip entry %1.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2037"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2047"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2044"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2054"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2058"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2068"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2063"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2073"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2083"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2097"/>
         <source>Cannot merge file %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2093"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2111"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2111"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2129"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2242"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2260"/>
         <source>Word updated.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2315"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2333"/>
         <source>File(s) deleted.</source>
-        <translation>Súbor bol zmazaný.</translation>
+        <translation>Dosya(lar) silindi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2326"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2344"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2331"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2349"/>
         <source>Table Of Contents edited.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2349"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2367"/>
         <source>Generate TOC cancelled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2373"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2391"/>
         <source>Table Of Contents generated.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2375"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2393"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2511"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2529"/>
         <source>Text selection marked.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2513"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2531"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2549"/>
         <source>Text selection unmarked.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2637"/>
         <source>Metadata Editor cancelled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2622"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2640"/>
         <source>Metadata edited.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2702"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2720"/>
         <source>RunPlugin1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2703"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2721"/>
         <source>RunPlugin2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2704"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2722"/>
         <source>RunPlugin3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2731"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2749"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3270"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3288"/>
         <source>Line: %1, Col: %2</source>
-        <translation>Riadok:%1, stĺpec: %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3369"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3387"/>
         <source>File cannot be split at this position.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3375"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
         <source>The Nav file cannot be split.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3392"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
         <source>Split completed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3417"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3435"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3441"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3429"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3447"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3462"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3471"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3489"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3580"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3598"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
-        <translation>Dokument bol upravený.
-Prajete si uložiť zmeny?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3660"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3678"/>
         <source>No importer for file type: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3667"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3685"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -8990,114 +9015,114 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3672"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3690"/>
         <source>Loading file...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3686"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3704"/>
         <source>File loaded.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3713"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3731"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
-        <translation>Tvorca tohto súboru ho zašifroval s DRM. Sigil nedokáže otvoriť tieto súbory.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3720"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3738"/>
         <source>Cannot load EPUB: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3724"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3742"/>
         <source>Cannot load file %1: %2</source>
-        <translation>Nie je možné načítať súbor %1: %2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3753"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3771"/>
         <source>Saving EPUB...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3762"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3780"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3805"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in data loss.
 
 Do you want to automatically mend the files before saving?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3836"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3820"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
         <source>EPUB saved.</source>
+        <translation>EPUB kaydedildi.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3844"/>
+        <source>Cannot save file %1: %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3826"/>
-        <source>Cannot save file %1: %2</source>
-        <translation>Nie je možné uložiť súbor %1: %2</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3961"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3979"/>
         <source>EPUB files (*.epub)</source>
-        <translation>EPUB súbory (*.EPUB)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3962"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3963"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3964"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3980"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3981"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3982"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
-        <translation>HTML súbory (*.htm *.html *.xhtml)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3965"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3983"/>
         <source>Text files (*.txt)</source>
-        <translation>Textové súbory (*.txt)</translation>
+        <translation>Yazı dosyaları (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3966"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3984"/>
         <source>All files (*.*)</source>
-        <translation>Všetky súbory (*.*)</translation>
+        <translation>Tüm dosyalar (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3974"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3992"/>
         <source>EPUB file (*.epub)</source>
-        <translation>EPUB súbor (*. EPUB)</translation>
+        <translation>EPUB dosyası (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3986"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4004"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4057"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4075"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4058"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4076"/>
         <source>ON</source>
-        <translation type="unfinished"/>
+        <translation>AÇIK</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4058"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4076"/>
         <source>OFF</source>
-        <translation>VYPNUTÉ</translation>
+        <translation>KAPALI</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4083"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4101"/>
         <source>&amp;%1 %2</source>
-        <translation>&amp;%1 %2</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9295,7 +9320,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Yazar</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
@@ -10369,7 +10394,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
-        <source>Use for a person who signs a presentation statement.</source>
+        <source>Use for a person who has written a statement of dedication or gift.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -10735,12 +10760,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Musician</source>
-        <translation type="unfinished"/>
+        <translation>Müzisyen</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
-        <translation type="unfinished"/>
+        <translation>Bir çalışmanın müzik içeriğine katkıda bulunan ya da müzik yapan bir kişi ya da kuruluş için kullanın, bu işlevi daha net tanımlamanın mümkün olmadığı ya da arzulanmadığı durumlarda.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
@@ -11105,7 +11130,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Publisher</source>
-        <translation type="unfinished"/>
+        <translation>Yayımcı</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="311"/>
@@ -11784,7 +11809,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="65"/>
         <source>Remove</source>
-        <translation>Odstrániť</translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="72"/>
@@ -11825,18 +11850,18 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
         <source>Value</source>
-        <translation>Hodnota</translation>
+        <translation>Değer</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="522"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="624"/>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Yazar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="522"/>
@@ -11848,31 +11873,31 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="523"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="628"/>
         <source>Subject</source>
-        <translation type="unfinished"/>
+        <translation>Konu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="523"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="628"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
-        <translation type="unfinished"/>
+        <translation>Söz konusu konuyu açıklayan rasgele bir ifade veya anahtar kelime. Gerekirse birden çok &apos;konu&apos; unsuru kullanın.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="524"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="629"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Açıklama</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="524"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="629"/>
         <source>Description of the publication&apos;s content.</source>
-        <translation type="unfinished"/>
+        <translation>Yayın içeriğinin açıklaması.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="525"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="630"/>
         <source>Publisher</source>
-        <translation type="unfinished"/>
+        <translation>Yayımcı</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="525"/>
@@ -11926,7 +11951,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="530"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="634"/>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Tip</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="530"/>
@@ -11937,7 +11962,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="635"/>
         <source>Format</source>
-        <translation type="unfinished"/>
+        <translation>Biçim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
@@ -11949,23 +11974,23 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="532"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="636"/>
         <source>Source</source>
-        <translation type="unfinished"/>
+        <translation>Kaynak</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="532"/>
         <source>Identifies the related resource(s) from which this EPUB Publication is derived.</source>
-        <translation type="unfinished"/>
+        <translation>Bu EPUB Yayınının türetildiği ilgili kaynak(lar)ı belirtir.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="533"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="637"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Dil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="533"/>
         <source>Specifies the language of the publication. Select from the dropdown menu</source>
-        <translation type="unfinished"/>
+        <translation>Yayın dilini belirtir. Açılır menüden seçim yapın</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="534"/>
@@ -12113,7 +12138,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="574"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
         <source>XML Language</source>
-        <translation type="unfinished"/>
+        <translation>XML Dili</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="574"/>
@@ -12177,7 +12202,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="580"/>
-        <source>Indicates that the associated title is the title of a Tcollection that includes this publication belongs to if one exists.</source>
+        <source>Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -12237,7 +12262,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="586"/>
-        <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for asequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
+        <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -12442,30 +12467,29 @@ Do you want to automatically mend the files before saving?</source>
 <context>
     <name>NCXResource</name>
     <message>
-        <location filename="../../ResourceObjects/NCXResource.cpp" line="157"/>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="159"/>
+        <location filename="../../ResourceObjects/NCXResource.cpp" line="161"/>
         <source>Start</source>
-        <translation>Spustiť</translation>
+        <translation>Başla</translation>
     </message>
 </context>
 <context>
     <name>OPFModel</name>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="585"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="591"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
-        <translation>Názov súboru nesmie obsahuje znak &quot;%1&quot;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="596"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="602"/>
         <source>The filename cannot be empty.</source>
-        <translation>Názov súboru nemôže byť prázdny.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="603"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="609"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
-        <translation>Súboru &quot;%1&quot; sa už používa.
-</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -12473,7 +12497,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="14"/>
         <source>Open With Application Name</source>
-        <translation>Otvoriť s názvom aplikácie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="20"/>
@@ -12483,17 +12507,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="48"/>
         <source>Filename:</source>
-        <translation type="unfinished"/>
+        <translation>Dosya Adı:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="55"/>
         <source>Menu Name:</source>
-        <translation type="unfinished"/>
+        <translation>Menü İsmi:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="62"/>
         <source>No File</source>
-        <translation type="unfinished"/>
+        <translation>Dosya Yok</translation>
     </message>
 </context>
 <context>
@@ -12506,193 +12530,193 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="28"/>
         <source>Plugin:</source>
-        <translation type="unfinished"/>
+        <translation>Eklenti:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="48"/>
         <source>Start</source>
-        <translation>Spustiť</translation>
+        <translation>Başla</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="61"/>
         <source>Cancel</source>
-        <translation>Zrušiť</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="90"/>
         <source>Message</source>
-        <translation>Správa</translation>
+        <translation>Mesaj</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="103"/>
         <source>Details...</source>
-        <translation type="unfinished"/>
+        <translation>Detaylar...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="110"/>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>Tamam</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="139"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="448"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="544"/>
         <source>Status: </source>
-        <translation type="unfinished"/>
+        <translation>Durum:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="102"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="104"/>
         <source>Error: A plugin by that name does not exist</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="133"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="135"/>
         <source>Error: Interpreter </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="133"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="135"/>
         <source> has no path set</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="146"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="148"/>
         <source>Installation Error: plugin launcher </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="147"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="149"/>
         <source> does not exist</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="152"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="154"/>
         <source>Error: plugin engine </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="153"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="155"/>
         <source> is not supported (yet!)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="159"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="161"/>
         <source>Status: ready</source>
-        <translation type="unfinished"/>
+        <translation>Durum: hazır</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="212"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="217"/>
         <source>Error: plugin can not start</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="281"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="377"/>
         <source>Launcher process crashed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="292"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="388"/>
         <source>Status: finished</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="299"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="395"/>
         <source>Status: failed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="305"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="314"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="401"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="410"/>
         <source>Status: No Changes Made</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="313"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="409"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="404"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="500"/>
         <source>Plugin failed to start</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="412"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="508"/>
         <source>Status: error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="426"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="522"/>
         <source>Plugin cancelled</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="427"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="523"/>
         <source>Status: cancelled</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="518"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="614"/>
         <source>Error Parsing Result XML:  </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="675"/>
         <source>Incorrect XHTML: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="675"/>
         <source> Line/Col </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="606"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="702"/>
         <source>Check Report</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="607"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="703"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="625"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="721"/>
         <source>Status: cleaning up - deleting files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="645"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="741"/>
         <source>Status: deleting </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="675"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="771"/>
         <source>Status: Loading </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="686"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="782"/>
         <source>Input Plugin</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="687"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="783"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="713"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="809"/>
         <source>Status: adding </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="750"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="846"/>
         <source>Status: cleaning up - modifying files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="779"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="875"/>
         <source>Status: modifying </source>
         <translation type="unfinished"/>
     </message>
@@ -12703,7 +12727,7 @@ Are you Sure You Want to Continue?</source>
         <location filename="../../Form_Files/PPluginWidget.ui" line="14"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="167"/>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Eklentiler</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="28"/>
@@ -12713,22 +12737,22 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="75"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="80"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versiyon</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="85"/>
         <source>Author</source>
-        <translation>Autor</translation>
+        <translation>Yazar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="90"/>
         <source>Type</source>
-        <translation>Typ</translation>
+        <translation>Tip</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="95"/>
@@ -12743,7 +12767,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="128"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="135"/>
@@ -12753,17 +12777,17 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="174"/>
         <source>Add Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Eklenti Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="181"/>
         <source>Remove All</source>
-        <translation>Odstrániť všetky</translation>
+        <translation>Tümünü Sil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="188"/>
         <source>Remove Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Eklenti Sil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="214"/>
@@ -12828,12 +12852,12 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="283"/>
         <source>Remove All Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Bütün Eklentileri Sil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="284"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
-        <translation type="unfinished"/>
+        <translation>Bütün eklentileriniz silmek istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="338"/>
@@ -12851,7 +12875,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/Preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>Nastavenia</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="99"/>
@@ -12861,12 +12885,12 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="99"/>
         <source>Changes will take effect when you restart Sigil.</source>
-        <translation>Zmena sa prejaví až po reštarte programu.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="166"/>
         <source>Open Preferences Location</source>
-        <translation>Otvoriť umiestnenie nastavení</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -12890,17 +12914,17 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="51"/>
         <source>Add</source>
-        <translation>Pridať</translation>
+        <translation>Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="58"/>
         <source>Remove</source>
-        <translation>Odstrániť</translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="65"/>
         <source>Remove All</source>
-        <translation>Odstrániť všetky</translation>
+        <translation>Tümünü Sil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
@@ -12910,7 +12934,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
         <source>Entities:</source>
-        <translation type="unfinished"/>
+        <translation>Girdiler:</translation>
     </message>
 </context>
 <context>
@@ -12918,7 +12942,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="42"/>
         <source>Preview</source>
-        <translation type="unfinished"/>
+        <translation>Ön İzleme</translation>
     </message>
 </context>
 <context>
@@ -12935,7 +12959,7 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="271"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="287"/>
         <source>Cleaning...</source>
         <translation type="unfinished"/>
     </message>
@@ -12947,7 +12971,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Cancel</source>
-        <translation>Zrušiť</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Reports.cpp" line="114"/>
@@ -13055,32 +13079,32 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="582"/>
         <source>Adding Existing Files..</source>
-        <translation>Pridať existujúce súbory</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="183"/>
         <source>Applications</source>
-        <translation type="unfinished"/>
+        <translation>Uygulamalar</translation>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="193"/>
         <source>Open With</source>
-        <translation>Otvoriť s</translation>
+        <translation>Birlikte Aç</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="44"/>
         <source>Counting occurrences..</source>
-        <translation>Počítanie výskytov…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="64"/>
         <source>Replacing search term...</source>
-        <translation>Nahradzuje sa hľadaný výraz…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/TOCHTMLWriter.cpp" line="105"/>
         <source>Table of Contents</source>
-        <translation type="unfinished"/>
+        <translation>İçindekiler</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="97"/>
@@ -13093,42 +13117,42 @@ Line: %1 Column %2 - %3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="416"/>
+        <location filename="../../Misc/Utility.cpp" line="420"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation>Nemožno čítať súbor %1:
+        <translation>Dosya okunamıyor %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="531"/>
+        <location filename="../../Misc/Utility.cpp" line="535"/>
         <source>Sigil has encountered a problem.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil bir sorunla karşılaştır.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="532"/>
+        <location filename="../../Misc/Utility.cpp" line="536"/>
         <source>Sigil cannot continue and will now close</source>
-        <translation type="unfinished"/>
+        <translation>Sigil devam edemiyor ve şimdi kapanacak</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="70"/>
         <source>Index</source>
-        <translation>Index</translation>
+        <translation>İndeks</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="207"/>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="273"/>
         <source>Invalid HTML file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz HTML dosyası: %1</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="316"/>
         <source>Invalid OPF file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz OPF dosyası: %1</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="341"/>
         <source>Invalid NCX file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz NCX dosyası: %1</translation>
     </message>
 </context>
 <context>
@@ -13136,7 +13160,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="20"/>
         <source>Rename Files</source>
-        <translation>Premenovať súbory</translation>
+        <translation>Dosyaları Yeniden Adlandır</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="28"/>
@@ -13165,7 +13189,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="52"/>
         <source>Section0001</source>
-        <translation>Oddiel0001</translation>
+        <translation>Bolum0001</translation>
     </message>
 </context>
 <context>
@@ -13173,12 +13197,12 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/Reports.ui" line="14"/>
         <source>Reports</source>
-        <translation>Správy</translation>
+        <translation>Raporlar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Reports.ui" line="51"/>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>Yenile</translation>
     </message>
 </context>
 <context>
@@ -13186,22 +13210,22 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="14"/>
         <source>Saved Searches</source>
-        <translation type="unfinished"/>
+        <translation>Kayıtlı Aramalar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation type="unfinished"/>
+        <translation>Filitre Adı:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation type="unfinished"/>
+        <translation>Tümünü Filitrele:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Iba zoznam položiek, ktoré obsahújú text, ktorý ste zadali.</translation>
+        <translation>Sadece girdiğiniz metini içeren girdileri listeleyin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="65"/>
@@ -13211,7 +13235,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="68"/>
         <source>Load Search</source>
-        <translation type="unfinished"/>
+        <translation>Arama Yükle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="91"/>
@@ -13224,7 +13248,7 @@ then if not found look for the second entry in the list, etc.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Find</source>
-        <translation>Hľadať</translation>
+        <translation>Bul</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="103"/>
@@ -13237,7 +13261,7 @@ and stop at the first successful replace.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>Replace</source>
-        <translation>Nahradiť</translation>
+        <translation>Değiştir</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="131"/>
@@ -13249,7 +13273,7 @@ and stop at the first successful replace/find.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="136"/>
         <source>Replace/Find</source>
-        <translation type="unfinished"/>
+        <translation>Değiştir/Bul</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="143"/>
@@ -13260,7 +13284,7 @@ Select a group to replace all entries in the group in order.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="147"/>
         <source>Replace All</source>
-        <translation>Nahradiť všetko</translation>
+        <translation>Tümünü Değiştir</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="170"/>
@@ -13271,7 +13295,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
         <source>Count All</source>
-        <translation>Spočítať všetko</translation>
+        <translation>Tümünü Say</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="199"/>
@@ -13289,12 +13313,12 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="229"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation type="unfinished"/>
+        <translation>Bir girdiyi bir üst düzeyine taşıyın.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="258"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation type="unfinished"/>
+        <translation>Gruba taşımak için bir grubun hemen altında bir öğe seçmelisiniz.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="288"/>
@@ -13319,7 +13343,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="63"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation type="unfinished"/>
+        <translation>İşlemlerin bağlam menüsünü görmek için girdiye sağ tıklayın.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="64"/>
@@ -13329,12 +13353,12 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="66"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="66"/>
         <source>Name of your entry or group.</source>
-        <translation type="unfinished"/>
+        <translation>Girdinizi veya grubunuzu adlandırın.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
@@ -13349,22 +13373,22 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>Save</source>
-        <translation>Uložiť</translation>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>Save your changes.</source>
-        <translation>Uložte svoje zmeny.</translation>
+        <translation>Değişikliklerinizi kaydedin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Eğer başka bir Sigil oturumu çalışıyorsa değişiklikleriniz otomatik olarak onlarda da güncellenecektir.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="89"/>
         <source>Cannot save entries.</source>
-        <translation type="unfinished"/>
+        <translation>Girdiler kaydedilemiyor.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="163"/>
@@ -13384,12 +13408,12 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="245"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation type="unfinished"/>
+        <translation>Bir girdiyi ve girdiyi içeren grubu seçemezsiniz.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="328"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation type="unfinished"/>
+        <translation>Grupları Koyalayamaz veya Kesemezsiniz - sürükle-bırak kullanın.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="395"/>
@@ -13399,7 +13423,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="395"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation type="unfinished"/>
+        <translation>Bütün girdileri tekrar yüklemek istediğinize emin misiniz? Bu, kaydedilmemiş bütün değişikliklerinizin üstüne yazacaktır.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="411"/>
@@ -13414,83 +13438,84 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="649"/>
         <source>Add Entry</source>
-        <translation>Pridať položku</translation>
+        <translation>Girdi Ekle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="650"/>
         <source>Add Group</source>
-        <translation>Pridať knihu</translation>
+        <translation>Grup Ekle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="651"/>
         <source>Edit</source>
-        <translation>Upraviť</translation>
+        <translation>Düzenle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="652"/>
         <source>Cut</source>
-        <translation>Vystrihnúť</translation>
+        <translation>Kes</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="653"/>
         <source>Copy</source>
-        <translation>Kopírovať</translation>
+        <translation>Kopyala</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="654"/>
         <source>Paste</source>
-        <translation>Vložiť</translation>
+        <translation>Yapıştır</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="655"/>
         <source>Delete</source>
-        <translation>Zmazať</translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="656"/>
         <source>Import</source>
-        <translation>Importovať</translation>
+        <translation>İçe Aktar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="657"/>
         <source>Reload</source>
-        <translation>Znovu načítať</translation>
+        <translation>Tekrar Yükle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="658"/>
         <source>Export</source>
-        <translation type="unfinished"/>
+        <translation>Dışa Aktar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="659"/>
         <source>Export All</source>
-        <translation type="unfinished"/>
+        <translation>Tümünü Dışa Aktar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="660"/>
         <source>Collapse All</source>
-        <translation>Zložiť všetko</translation>
+        <translation>Tümünü Daralt</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="661"/>
         <source>Expand All</source>
-        <translation>Rozbaliť všetko</translation>
+        <translation>Hepsini Genişlet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="738"/>
         <source>Search entries saved.</source>
-        <translation type="unfinished"/>
+        <translation>Arama girdisi kaydedildi.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="767"/>
         <source>Sigil: Saved Searches</source>
-        <translation type="unfinished"/>
+        <translation>Sigil: Kayıtlı Aramalar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="768"/>
         <source>The Search entries may have been modified.
 Do you want to save your changes?</source>
-        <translation type="unfinished"/>
+        <translation>Arama girdileri değiştirilmiş olabilir.
+Değişikliklerinizi kaydetmek istiyor musunuz?</translation>
     </message>
 </context>
 <context>
@@ -13498,22 +13523,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="65"/>
         <source>Name</source>
-        <translation>Meno</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
         <source>Find</source>
-        <translation>Hľadať</translation>
+        <translation>Bul</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="67"/>
         <source>Replace</source>
-        <translation>Nahradiť</translation>
+        <translation>Değiştir</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="604"/>
         <source>Unable to create file %1</source>
-        <translation>Nepodarilo sa vytvoriť súbor %1</translation>
+        <translation>%1 dosyası oluşturulamıyor</translation>
     </message>
 </context>
 <context>
@@ -13521,7 +13546,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectCharacter.ui" line="14"/>
         <source>Insert Special Character</source>
-        <translation>Vložiť špeciálny znak</translation>
+        <translation>Özel Karakter Ekle</translation>
     </message>
 </context>
 <context>
@@ -13529,17 +13554,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="14"/>
         <source>Insert File</source>
-        <translation type="unfinished"/>
+        <translation>Dosya Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="46"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Sadece sizin girdiğiniz metindeki dosya isimlerini listele.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="49"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Filitre:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="59"/>
@@ -13550,62 +13575,62 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="63"/>
         <source>Other Files...</source>
-        <translation type="unfinished"/>
+        <translation>Diğer Dosyalar...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="129"/>
         <source>Thumbnail size:</source>
-        <translation type="unfinished"/>
+        <translation>Küçük resim boyutu:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
         <source>All</source>
-        <translation>Všetko</translation>
+        <translation>Tümü</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="76"/>
         <source>Images</source>
-        <translation>Obrázky</translation>
+        <translation>Resimler</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="77"/>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Görüntü</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="78"/>
         <source>Audio</source>
-        <translation>Audio</translation>
+        <translation>Ses</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="120"/>
         <source>Files In the Book</source>
-        <translation type="unfinished"/>
+        <translation>Kitaptaki Dosyalar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="123"/>
         <source>Thumbnails</source>
-        <translation type="unfinished"/>
+        <translation>Küçük Resimler</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>shades</source>
-        <translation type="unfinished"/>
+        <translation>gölgeler</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
         <source>colors</source>
-        <translation type="unfinished"/>
+        <translation>renkler</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="278"/>
         <source>Grayscale</source>
-        <translation type="unfinished"/>
+        <translation>Gri tonlamalı</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="278"/>
         <source>Color</source>
-        <translation>Farebne</translation>
+        <translation>Renk</translation>
     </message>
 </context>
 <context>
@@ -13613,7 +13638,7 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="14"/>
         <source>Select Target</source>
-        <translation type="unfinished"/>
+        <translation>Hedef Seç</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="22"/>
@@ -13623,7 +13648,7 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="25"/>
         <source>Filter:</source>
-        <translation>Filter: </translation>
+        <translation>Filitre:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="58"/>
@@ -13634,12 +13659,12 @@ double click on existing destinations in your book from the list above.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="62"/>
         <source>Target:</source>
-        <translation>Cieľ:</translation>
+        <translation>Hedef:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectHyperlink.cpp" line="61"/>
         <source>Targets in the Book</source>
-        <translation type="unfinished"/>
+        <translation>Kitaptaki Hedefler</translation>
     </message>
 </context>
 <context>
@@ -13647,7 +13672,7 @@ double click on existing destinations in your book from the list above.</source>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="14"/>
         <source>Insert ID </source>
-        <translation>Vložiť ID </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="22"/>
@@ -13661,7 +13686,7 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="29"/>
         <source>ID:</source>
-        <translation>ID:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -13687,50 +13712,50 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="14"/>
         <source>Spellcheck Dictionaries</source>
-        <translation>Slovníky kontroly preklepov</translation>
+        <translation>Yazım Denetimi Sözlükleri</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="34"/>
         <source>Dictionary:</source>
-        <translation>Slovník:</translation>
+        <translation>Sözlük:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="64"/>
         <source>Highlight misspelled words in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Yanlış yazılmış kelimeleri Kod Görünümünde vurgula.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="67"/>
         <source>Highlight Misspelled Words</source>
-        <translation type="unfinished"/>
+        <translation>Yanlış Yazılmış Kelimeleri Vurgula</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="120"/>
         <source>User Dictionaries</source>
-        <translation type="unfinished"/>
+        <translation>Kullanıcı Sözlükleri</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="128"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="212"/>
         <source>Add</source>
-        <translation>Pridať</translation>
+        <translation>Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="135"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="211"/>
         <source>Rename</source>
-        <translation>Premenovať</translation>
+        <translation>Yeniden Adlandır</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="142"/>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>Kopyala</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="149"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="226"/>
         <source>Remove</source>
-        <translation>Odstrániť</translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="152"/>
@@ -13751,7 +13776,7 @@ and to make it the default dictionary.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="193"/>
         <source>User Dictionary Word List</source>
-        <translation>Zoznam slov používateľovho slovníka</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="208"/>
@@ -13762,12 +13787,12 @@ Words can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="219"/>
         <source>Edit</source>
-        <translation>Upraviť</translation>
+        <translation>Düzenle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="233"/>
         <source>Remove All</source>
-        <translation>Odstrániť všetky</translation>
+        <translation>Tümünü Sil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="262"/>
@@ -13778,7 +13803,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="266"/>
         <source>Default Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Varsayılan Sözlük</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="273"/>
@@ -13788,23 +13813,23 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="52"/>
         <source>Enable</source>
-        <translation type="unfinished"/>
+        <translation>Etkinleştir</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="53"/>
         <source>Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Sözlük</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <source>Add Dictionary</source>
-        <translation type="unfinished"/>
+        <translation>Sözlük Ekle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="211"/>
         <source>Name:</source>
-        <translation>Meno:</translation>
+        <translation>İsim</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="122"/>
@@ -13813,38 +13838,38 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="232"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="251"/>
         <source>Error</source>
-        <translation>Chyba</translation>
+        <translation>Hata</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="122"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="224"/>
         <source>A user dictionary already exists with this name!</source>
-        <translation>Používateľský slovník s týmto názvom už existuje!</translation>
+        <translation>Bu isimle bir kullanıcı sözlüğü zaten var!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
         <source>Add Words</source>
-        <translation type="unfinished"/>
+        <translation>Kelime Ekle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
         <source>Words:</source>
-        <translation type="unfinished"/>
+        <translation>Kelimeler:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="162"/>
         <source>Could not create file!</source>
-        <translation>Nepodarilo sa vytvoriť súbor!</translation>
+        <translation>Dosya oluşturulamadı!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="232"/>
         <source>Could not rename file!</source>
-        <translation>Nepodarilo sa premenovať súbor!</translation>
+        <translation>Dosya yeniden adlandırılamadı!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="251"/>
         <source>You cannot delete the last dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>Son sözlüğü silemezsiniz</translation>
     </message>
 </context>
 <context>
@@ -13852,40 +13877,42 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="14"/>
         <source>Spellcheck</source>
-        <translation type="unfinished"/>
+        <translation>Yazım Denetimi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation type="unfinished"/>
+        <translation>Filitre:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Sadece girdiğiniz metini içeren girdileri listeleyin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="58"/>
         <source>Ignore the selected words until Sigil
 is restarted or a new book is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Seçili kelimeleri Sigil yeniden başlatılana
+kadar veya yeni bir kitap açılana kadar yok say.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="532"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
+        <translation>Yok Say</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="91"/>
         <source>Add the selected words to the
 dictionary selected below.</source>
-        <translation type="unfinished"/>
+        <translation>Seçilen kelimeleri aşağıda
+belirtilen sözlüğe ekle.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="95"/>
         <source>Add To Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Sözlüğe Ekle:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="134"/>
@@ -13902,7 +13929,7 @@ The selected word does not have to be misspelled.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="181"/>
         <source>Show All Words</source>
-        <translation type="unfinished"/>
+        <translation>Tüm Kelimeleri Göster</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="188"/>
@@ -13923,31 +13950,31 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="219"/>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>Yenile</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="53"/>
         <source>f</source>
         <comment>Filter</comment>
-        <translation type="unfinished"/>
+        <translation>f</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="54"/>
         <source>s</source>
         <comment>ShowAllWords</comment>
-        <translation type="unfinished"/>
+        <translation>s</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="55"/>
         <source>c</source>
         <comment>Case-InsensitiveSort</comment>
-        <translation type="unfinished"/>
+        <translation>c</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="56"/>
         <source>r</source>
         <comment>Refresh</comment>
-        <translation type="unfinished"/>
+        <translation>r</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="154"/>
@@ -13980,12 +14007,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="233"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="301"/>
         <source>No</source>
-        <translation type="unfinished"/>
+        <translation>Hayır</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="252"/>
         <source>Word</source>
-        <translation type="unfinished"/>
+        <translation>Cümle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="253"/>
@@ -14000,12 +14027,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="299"/>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Evet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="314"/>
         <source>Misspelled Words</source>
-        <translation type="unfinished"/>
+        <translation>Yanlış Yazılmış Kelimeler</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="314"/>
@@ -14025,7 +14052,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="535"/>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Hepsini Seç</translation>
     </message>
 </context>
 <context>
@@ -14038,27 +14065,27 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Zobraziť iba súbory, ktorých názvy obsahujú text, ktorý ste vložili.</translation>
+        <translation>Sadece sizin girdiğiniz metindeki dosya isimlerini listele.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter: </translation>
+        <translation>Filitre:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="80"/>
         <source>CSS File</source>
-        <translation type="unfinished"/>
+        <translation>CSS Dosyası</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="81"/>
         <source>Class Selector</source>
-        <translation type="unfinished"/>
+        <translation>Sınıf Seçici</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="82"/>
         <source>Used In HTML File</source>
-        <translation>Použitý v HTML súbore</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="88"/>
@@ -14068,17 +14095,17 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="89"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
-        <translation>&lt;p&gt;POZNÁMKA:&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;NOT:&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="90"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;CSS karmaşıklığı sebebiyle, belirli bir stilin kullanılıp kullanılmadığını görmek için kodunuzu manuel olarak kontrol etmelisiniz.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="246"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
@@ -14088,7 +14115,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
         <source>Cannot save report file.</source>
-        <translation type="unfinished"/>
+        <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="270"/>
@@ -14101,15 +14128,15 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Tabs/TabBar.cpp" line="67"/>
         <source>Close Other Tabs</source>
-        <translation>Zavrieť ostatné karty</translation>
+        <translation>Diğer Sekmeleri Kapat</translation>
     </message>
 </context>
 <context>
     <name>TabManager</name>
     <message>
-        <location filename="../../Tabs/TabManager.cpp" line="215"/>
+        <location filename="../../Tabs/TabManager.cpp" line="216"/>
         <source>Cannot edit file</source>
-        <translation>Nie je možné upraviť súbor</translation>
+        <translation>Dosya düzenlenemiyor.</translation>
     </message>
 </context>
 <context>
@@ -14117,22 +14144,22 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="42"/>
         <source>Table Of Contents</source>
-        <translation>Obsah</translation>
+        <translation>İçindekiler</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="123"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Súbor &quot;%1&quot; neexistuje.</translation>
+        <translation>&quot;%1&quot; dosyası bulunamadı.</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="154"/>
         <source>Collapse All</source>
-        <translation>Zložiť všetko</translation>
+        <translation>Tümünü Daralt</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="155"/>
         <source>Expand All</source>
-        <translation>Rozbaliť všetko</translation>
+        <translation>Hepsini Genişlet</translation>
     </message>
 </context>
 <context>
@@ -14140,18 +14167,18 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Tabs/TextTab.cpp" line="309"/>
         <source>Print %1</source>
-        <translation>Tlačiť %1</translation>
+        <translation>Yazdır %1</translation>
     </message>
 </context>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="644"/>
+        <location filename="../../Misc/Utility.cpp" line="648"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="645"/>
+        <location filename="../../Misc/Utility.cpp" line="649"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
@@ -14163,34 +14190,34 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="44"/>
         <source>Validation Results</source>
-        <translation>Výsledky validácie</translation>
+        <translation>Doğrulama Sonuçları</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="227"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="231"/>
         <source>N/A</source>
-        <translation>Nedostupné</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="254"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>Message</source>
-        <translation>Správa</translation>
+        <translation>Mesaj</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="255"/>
         <source>No problems found!</source>
-        <translation>Žiadne problémy neboli nájdené!</translation>
+        <translation>Sorun bulunamadı!</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>File</source>
-        <translation>Súbor</translation>
+        <translation>Dosya</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>Line</source>
-        <translation>Riadok</translation>
+        <translation>Satır</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
@@ -14203,12 +14230,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="20"/>
         <source>View Image</source>
-        <translation type="unfinished"/>
+        <translation>Resmi Görüntüle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="33"/>
         <source>about:blank</source>
-        <translation>about: blank</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -14226,12 +14253,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="54"/>
         <source>Fix &amp;Automatically</source>
-        <translation>Opraviť &amp;automaticky </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="56"/>
         <source>Fix &amp;Manually</source>
-        <translation>Opraviť &amp;manuálne</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -15284,12 +15311,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="306"/>
         <source>element of</source>
-        <translation type="unfinished"/>
+        <translation>öğesi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="307"/>
         <source>not an element of</source>
-        <translation type="unfinished"/>
+        <translation>öğesi değil</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="308"/>
@@ -15329,7 +15356,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="315"/>
         <source>infinity</source>
-        <translation type="unfinished"/>
+        <translation>sonsuz</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="316"/>
