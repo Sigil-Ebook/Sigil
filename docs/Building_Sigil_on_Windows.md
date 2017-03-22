@@ -47,7 +47,7 @@ Once you have a version of Qt5.6.2 (with QtWebKit enabled) built with VS2015 and
 
 The official Windows Sigil installer uses Python 3.5 from [Python.org](http://www.python.org) (3.5.2 at the time of this writing). Other flavors of Python may work, but you're on your own if they don't. Download it and install it. If you install somewhere that requires special privileges to add/remove files, you may need to use an administator command prompt to install Sigil's extra Python module dependencies. **I recommend installing Python to the default location ($USER/appdata) to avoid that problem. I also recommend allowing the Python installer to add Python to your PATH**. This will make it easier for Sigil to locate the necessary Python pieces it needs, and will make it easy to install the extra Python modules using Pythons "pip" tool. I'm going to assume you've done so for the rest of these instructions.
 
-###Getting the extra Python module dependencies
+### Getting the extra Python module dependencies
 After installing Python 3.5, I recommend making sure Python's pip/setuptools is updated to the latest version. The easiest way to do this is to open a command prompt (the shortcut to the VS2015 command prompt you made on your desktop [in step 1](#vs2015) will work fine) and type:
 
 >`python -m pip install -U pip`
