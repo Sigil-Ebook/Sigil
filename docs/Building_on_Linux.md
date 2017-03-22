@@ -1,10 +1,10 @@
-#<center>Building Sigil on Linux</centers>
+# <center>Building Sigil on Linux</centers>
 
 If your system's software repositories provide Qt5.4.x or higher and Python 3.4.x or higher, you may be able to compile Sigil using almost entirely repo-provided dependencies. These systems will likely be Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable. If your system qualifies, check out the [Building on cutting-edge Linux](./Building_on_cutting_edge_Linux.md) documentation.
 
 Otherwise, continue on ...
 
-##General Overview
+## General Overview
 
 To build Sigil on Linux, you need to get/do the following things:
 
@@ -34,16 +34,16 @@ to get pretty-much everything you need to configure/compile/install C++ projects
 
 at a command prompt to see if your version is sufficient. I've seen some later versions of 4.7.x that worked, but it's fringe at best.
 
-##<a name="cmake"/>Getting CMake
+## <a name="cmake"/>Getting CMake
 Once again: `sudo apt-get install cmake` will get you what you need on Debian type systems. If your favorite software repositories can't supply CMake 3.0 or better, you'll need to download the source from [cmake.org](http://www.cmake.org) and build it it yourself. I've done it myself and their instructions are pretty good. You can either build it with an older version of CMake, or there's a boot-strap method if all you have is gcc/make.
 
-##<a name="qt5"/>Getting Qt5
+## <a name="qt5"/>Getting Qt5
  <center>***NOTE: Do NOT use any of the official precompiled Qt binaries higher than Qt5.5.1 at this time. 5.6.x and higher are missing a component Sigil needs.***</center>
 
 Download a binary installer from the [official Qt website](http://download.qt.io/archive/qt/). Sigil requires Qt5.4.0 - Qt5.5.1. Note: the official binary releases of Qt5 are incompatible with Sigil starting with Qt5.6 (a result of QtWebkit being dropped from their installers). Look for the version that's appropriate for your architecture (qt-opensource-linux-***x86***-5.4.x.run or qt-opensource-linux-***x64***-5.4.x.run). Make sure its executable bit is set and launch it with administrative privileges to install it in its default location of /opt/Qt5.4.x (which is what I recommend). Or install it wherever you like--but just note that my command line examples later are going to assume the location of /opt/Qt5.4.x. Adjust accordingly if you choose different location.
 
 
-##<a name="python"/>Getting Python 3.4
+## <a name="python"/>Getting Python 3.4
 If your software repos provide Python 3.4.0 or higher, by all means use them to get the correct pieces installed. On Ubuntu/Debian I recommend (at a minimum) to `sudo apt-get install` the following packages (might need to be `python3.4-<module name>` on some systems):
 
 + python3
@@ -81,7 +81,7 @@ Note that to install the Pillow module, you'll need the libjpeg and zlib librari
 
 
 
-##<a name="sigil"/>Getting Sigil's Source Code
+## <a name="sigil"/>Getting Sigil's Source Code
 
 You can clone the Sigil Github repository:
 
@@ -93,7 +93,7 @@ I recommend the latter method, as the github repository version might not always
 
 Unzip/untar the source code. Rename the uppermost directory ("Sigil-0.X.X" if you've download the Sigil-0.X.X-Code.zip file ) to something useful like "sigil-src". Unless you like typing mixed-case stuff in a terminal.
 
-##<a name="build"/>Building Sigil
+## <a name="build"/>Building Sigil
 
 First off ... you don't build IN the Sigil source directory. You do all the building in a separate "build" directory. So at the same directory level as the Sigil source code directory, create a new directory called "sigil-build". The rest of the instructions will assume that both your Sigil source directory (I renamed it "sigil-src" in the previous step; adjust accordingly if you didn't) and your Sigil build directory ("sigil-build) are at the root of your user's home (~) directory. I'm also assuming that you installed Qt5 into /opt/Qt5.4.2 (adjust accordingly for different versions and/or different locations)
 
@@ -129,10 +129,9 @@ Once the cmake configure command finishes with no errors, build Sigil with:
 
 >`make (or make -j4 if you have plenty of processor cores)`
 
-###Common compilation failures/Errors.
+### Common compilation failures/Errors.
 
-If you get an error that mentions qopengl.h, or you get a "`fatal error: GL/gl.h: No such file or directory
- #  include <GL/gl.h>`" error message, this usually implies that the OpenGL development headers for your system's video driver are missing or outdated. This can usually be remedied by installing the mesa-common-dev meta-package:
+If you get an error that mentions qopengl.h, or you get a "`fatal error: GL/gl.h: No such file or directory #include <GL/gl.h>`" error message, this usually implies that the OpenGL development headers for your system's video driver are missing or outdated. This can usually be remedied by installing the mesa-common-dev meta-package:
 
 > `sudo apt-get install mesa-common-dev`
 
@@ -146,7 +145,7 @@ Also note that building Sigil with precompiled versions of Qt5.4.2/5.5.x downloa
 
 > `sudo apt-get install libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev`
 
-###Installing Sigil
+### Installing Sigil
 If all goes well, install Sigil with:
 
 >`sudo make install`
@@ -161,7 +160,7 @@ will suffice.
 
 If you configured with the default install prefix, you can launch by entering "sigil" (no quotes) at a terminal. If you configured to install somewhere else, you may need to create a link to the sigil launch script (`<CMAKE_INSTALL_PREFIX>/bin/sigil`) in a directory that is on your path. There's also a .desktop file in `<SIGIL_SHARE_PREFIX>/share/applications` that you can create a link to on your desktop. Sigil should also appear in your Desktop Environment's menu system (under Office and/or Accessories). You may need to logout and back in for the menu entries to be visible after installing (you can also force your menus to update if you have the xdg-utils package installed by issuing the "xdg-desktop-menu forceupdate" command from a terminal)
 
-##<a name="testing"/>Testing Sigil's Python plugin framework
+## <a name="testing"/>Testing Sigil's Python plugin framework
 
 To test if Sigil's Python 3.4 plugin framework is fully functional, you can do the following:
 
@@ -174,7 +173,7 @@ To test if Sigil's Python 3.4 plugin framework is fully functional, you can do t
 
 Install any missing Python modules with your system's package management system or Python's pip3.
 
-##<a name="advanced"/>Advanced Stuff
+## <a name="advanced"/>Advanced Stuff
 
 There are several configuration and environment variable options that can tailor how Sigil is built and/or run. I've talked about a few of the cmake options already, but I'll mention them here again along with the rest--with a brief explanation of their purposes.
 

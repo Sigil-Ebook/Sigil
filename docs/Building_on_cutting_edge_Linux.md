@@ -1,9 +1,9 @@
-#<center>Building Sigil on Cutting-Edge Linux</center>
-##<center>Systems like Ubuntu 16.04 (and its derivitives) or newer</center>
+# <center>Building Sigil on Cutting-Edge Linux</center>
+## <center>Systems like Ubuntu 16.04 (and its derivitives) or newer</center>
 
 If you're looking for instructions on how to build on systems older than Ubuntu 16.04 (systems whose repo version of Qt5 is less than 5.4.2), you should look at the [Building_on_Linux](./Building_on_Linux.md) documentation.
 
-##General Overview
+## General Overview
 
 The requirements for building Sigil on cutting edge Linux systems like Ubuntu 16.04, Mint 18, Arch Linux, etc., should be able to be installed almost entirely from your system's software repositories.
 
@@ -32,10 +32,10 @@ On Ubuntu-type systems you can use:
 
 to get pretty-much everything you need to configure/compile/install C++ projects. On other flavors of Linux you need to basically make sure that you have gcc/g++ and "make" installed.
 
-##<a name="cmake"/>Getting CMake
+## <a name="cmake"/>Getting CMake
 Once again: `sudo apt-get install cmake` will get you what you need on Ubuntu-type systems.
 
-##<a name="qt5"/>Getting Qt5
+## <a name="qt5"/>Getting Qt5
 <center>**If your repos don't provide at lease Qt5.4.2, use the [Building_on_Linux](./Building_on_Linux.md) documentation**</center>
 
 To get Sigil's Qt5 requirements, `sudo apt-get install` the following packages:
@@ -46,7 +46,7 @@ To get Sigil's Qt5 requirements, `sudo apt-get install` the following packages:
 + libqt5svg5-dev
 + libqt5xmlpatterns5-dev
 
-##<a name="thirdparty"/>3rd-Party Dependencies (optional step)
+## <a name="thirdparty"/>3rd-Party Dependencies (optional step)
 Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them, `sudo apt-get install` the following packages.
 
 + libhunspell-dev
@@ -55,7 +55,7 @@ Sigil will provide the extra third-party libs if you do nothing, but most (if no
 
 If you do install them, remember to use use the -DUSE_SYSTEM_LIBS=1 option when configuring Sigil with cmake later on. Otherwise, the build process will ignore them and provide/build its own.
 
-##<a name="python"/>Getting Python 3.4 (or higher)
+## <a name="python"/>Getting Python 3.4 (or higher)
 On Ubuntu/Debian `sudo apt-get install` (at a minimum) the following packages:
 
 + python3-dev
@@ -76,7 +76,7 @@ That's all the Python 3.4 (or higher) stuff you will need to get Sigil "up and r
 
 If you run into any that won't install with `sudo apt-get install` you can still use pip3 to install them.
 
-##<a name="sigil"/>Getting Sigil's Source Code
+## <a name="sigil"/>Getting Sigil's Source Code
 
 You can clone the Sigil Github repository:
 
@@ -88,7 +88,7 @@ I recommend the latter method, as the github repository version might not always
 
 Unzip/untar the source code. Rename the uppermost directory ("Sigil-0.X.X" if you've download the Sigil-0.X.X-Code.zip file ) to something useful like "sigil-src". Unless you like typing mixed-case stuff in a terminal.
 
-##<a name="build"/>Building Sigil
+## <a name="build"/>Building Sigil
 
 First off ... you don't build IN the Sigil source directory. You do all the building in a separate "build" directory. So at the same directory level as the Sigil source code directory, create a new directory called "sigil-build". The rest of the instructions will assume that both your Sigil source directory (I renamed it "sigil-src" in the previous step; adjust accordingly if you didn't) and your Sigil build directory ("sigil-build) are at the root of your user's home (~) directory.
 
@@ -120,18 +120,18 @@ Once the cmake configure command finishes with no errors, build Sigil with:
 
 >`make (or make -j4 if you have plenty of processor cores)`
 
-###Common compilation failures/Errors.
+### Common compilation failures/Errors.
 
 To be determined.
 
-###Installing Sigil
+### Installing Sigil
 If all goes well, install Sigil with:
 
 >`sudo make install`
 
 If you configured with the default install prefix, you can launch by entering "sigil" (no quotes) at a terminal. If you configured to install somewhere else, you may need to create a link to the sigil launch script (`<CMAKE_INSTALL_PREFIX>/bin/sigil`) in a directory that is on your path. There's also a .desktop file in `<SIGIL_SHARE_PREFIX>/share/applications` that you can create a link to on your desktop. Sigil should also appear in your Desktop Environment's menu system (under Office and/or Accessories). You may need to logout and back in for the menu entries to be visible after installing (you can also force your menus to update if you have the xdg-utils package installed by issuing the "xdg-desktop-menu forceupdate" command from a terminal)
 
-##<a name="testing"/>Testing Sigil's Python plugin framework
+## <a name="testing"/>Testing Sigil's Python plugin framework
 
 To test if Sigil's Python 3.4+ plugin framework is fully functional, you can do the following:
 
@@ -144,7 +144,7 @@ To test if Sigil's Python 3.4+ plugin framework is fully functional, you can do 
 
 Install any missing Python modules with your system's package management system or Python's pip3.
 
-##<a name="advanced"/>Advanced Stuff
+## <a name="advanced"/>Advanced Stuff
 
 There are several configuration and environment variable options that can tailor how Sigil is built and/or run. I've talked about a few of the cmake options already, but I'll mention them here again along with the rest--with a brief explanation of their purposes.
 
