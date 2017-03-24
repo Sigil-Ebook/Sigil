@@ -37,13 +37,19 @@ export MYDEST=/Users/${USER}/devtools/Frameworks
 # now build Python 3.5.2 as a framework
 # Need to patch Python-3.5.2 to allow it to build Mac OS X 10.9 compliant 
 # and for it to find and use the latest Tk and Tcl frameworks
-# Look in Sigil's "docs" to get the required patch "python_3.5_fixes.patch"
+# Look in Sigil's "docs" to get the required patch "python_3.5_fixes3.patch"
 
 tar -zxvf Python-3.5.2.tgz
 cd Python-3.5.2
-patch -p0 < python_3.5_fixes.patch
+patch -p0 < python_3.5_fixes3.patch
 
-./configure --prefix=${MYDEST} --enable-framework=${MYDEST} --with-ensurepip MACOSX_DEPLOYMENT_TARGET=10.9
+
+LDFLAGS="-Wl,-macosx_version_min,10.9" CFLAGS="-mmacosx-version-min=10.9 -Werror=partial-availability" ./configure --prefix=${MYDEST} --enable-framework=${MYDEST} --with-ensurepip
+
+or
+
+./configure --prefix=${MYDEST} --enable-framework=${MYDEST} --with-ensurepip
+
 make
 sudo make frameworkinstall
 
@@ -153,4 +159,3 @@ sudo make install
 
 # Once complete you will have properly built a Python 3.5 interpreter to be embedded inside
 # of Sigil
-
