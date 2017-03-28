@@ -256,6 +256,16 @@ int main(int argc, char *argv[])
             app.setStyleSheet(qtstyles);
         }
 
+        // Qt's setCursorFlashTime(msecs) (or the docs) are broken
+        // According to the docs, setting a negative value should disable cursor blinking 
+        // but instead just forces it to look for PlatformSpecific Themeable Hints to get 
+        // a value which for Mac OS X is hardcoded to 1000 ms
+        // This was the only way I could get Qt to disable cursor blinking on a Mac if desired
+        if (qEnvironmentVariableIsSet("SIGIL_DISABLE_CURSOR_BLINK")) {
+            // qDebug() << "trying to disable text cursor blinking";
+            app.setCursorFlashTime(0);
+            // qDebug() << "cursorFlashTime: " << app.cursorFlashTime();
+        }
         // We set the window icon explicitly on Linux.
         // On Windows this is handled by the RC file,
         // and on Mac by the ICNS file.
