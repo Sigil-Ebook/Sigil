@@ -1,3 +1,11 @@
+preSigil-0.9.9
+   Bug Fixes
+    - add python_3.5_fixes3.patch to Python build and update build docs on OSX to fix missing symbols
+
+   New Features
+    - add SIGIL_DISABLE_CURSOR_BLINK environment variable to disable text cursor to aid Accessibility on OSX
+
+ 
 Sigil-0.9.8
    Bug Fixes
     - Make sure when new empty epub3's are created that the toc does not use a doctype (Issue # 250)
