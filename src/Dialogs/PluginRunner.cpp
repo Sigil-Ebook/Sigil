@@ -239,7 +239,7 @@ void PluginRunner::startPlugin()
         // -B Don't write bytecode
         // -u sets python for unbuffered io
 #ifdef Q_OS_MAC
-        args.append(QString("-Eu"));
+        args.append(QString("-BEu"));
 #elif defined(Q_OS_WIN32)
         args.append(QString("-Ou"));
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)

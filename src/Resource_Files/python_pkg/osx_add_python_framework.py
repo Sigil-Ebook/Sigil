@@ -4,7 +4,7 @@
 from __future__ import (unicode_literals, division, absolute_import,
                         print_function)
 
-import sys, os, inspect, shutil, platform, site, subprocess
+import sys, os, inspect, shutil, platform, site, subprocess, py_compile
 
 # the destination directory inside Sigil.app
 app_dir = os.path.dirname(os.path.realpath(__file__))
@@ -168,6 +168,22 @@ def main():
     # now handle the site-packages separately
     dest_dir = os.path.join(app_dir,'Python.framework','Versions', pversion, 'lib', stdlib_name, 'site-packages')
     copy_site_packages(site_packages, dest_dir)
+
+    # now pre-compile all of the .py code and replace it by .pyc
+    dest_dir = os.path.join(app_dir,'Python.framework','Versions', pversion, 'lib', stdlib_name)
+    for x in os.walk(dest_dir):
+        for f in x[-1]:
+            if f.endswith('.py'):
+                y = os.path.join(x[0], f)
+                rel = os.path.relpath(y, dest_dir)
+                try:
+                    py_compile.compile(y, cfile=y+'c',dfile=rel, doraise=True, optimize=-1)
+                    os.remove(y)
+                    # z = y+'c'
+                    # if os.path.exists(z):
+                    #     os.remove(z)
+                except:
+                    print ('Failed to byte-compile', y)
 
     # next copy the bin
     src_file = os.path.join(build_fwk, 'bin', 'python3')
