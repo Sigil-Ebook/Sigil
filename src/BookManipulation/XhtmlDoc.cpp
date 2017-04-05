@@ -617,6 +617,7 @@ QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const QString & source, 
 XhtmlDoc::XMLElement XhtmlDoc::CreateXMLElement(QXmlStreamReader &reader)
 {
     XMLElement element;
+    element.lineno = reader.lineNumber();
     foreach(QXmlStreamAttribute attribute, reader.attributes()) {
         QString attribute_name = attribute.name().toString();
 

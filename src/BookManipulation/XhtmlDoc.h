@@ -50,6 +50,9 @@ public:
         // The text of the element
         QString text;
 
+        // The line number of the source
+        int lineno;
+
         // The attributes of the element;
         // the keys are the attribute names,
         // the values are the attribute values

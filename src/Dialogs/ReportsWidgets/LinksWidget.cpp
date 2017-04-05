@@ -63,6 +63,7 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     m_ItemModel->clear();
     QStringList header;
     header.append(tr("File"));
+    header.append(tr("Line"));
     header.append(tr("ID"));
     header.append(tr("Text"));
     header.append(tr("Target File"));
@@ -99,6 +100,13 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
             QStandardItem *item = new QStandardItem();
             QString source_file = filename;
             item->setText(source_file);
+            item->setToolTip(filepath);
+            rowItems << item;
+
+            // Source Line Number
+            item = new QStandardItem();
+            QString lineno = QString::number(element.lineno);
+            item->setText(lineno);
             item->setToolTip(filepath);
             rowItems << item;
 
@@ -243,11 +251,11 @@ void LinksWidget::FilterEditTextChangedSlot(const QString &text)
 
     for (int row = 0; row < root_item->rowCount(); row++) {
         if (text.isEmpty() || root_item->child(row, 0)->text().toLower().contains(lowercaseText) ||
-            root_item->child(row, 1)->text().toLower().contains(lowercaseText) ||
             root_item->child(row, 2)->text().toLower().contains(lowercaseText) ||
             root_item->child(row, 3)->text().toLower().contains(lowercaseText) ||
             root_item->child(row, 4)->text().toLower().contains(lowercaseText) ||
-            root_item->child(row, 5)->text().toLower().contains(lowercaseText)) {
+            root_item->child(row, 5)->text().toLower().contains(lowercaseText) ||
+            root_item->child(row, 6)->text().toLower().contains(lowercaseText)) {
             ui.fileTree->setRowHidden(row, parent_index, false);
 
             if (first_visible_row == -1) {
@@ -270,10 +278,12 @@ void LinksWidget::FilterEditTextChangedSlot(const QString &text)
 void LinksWidget::DoubleClick()
 {
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
-
     if (index.row() != m_ItemModel->rowCount() - 1) {
-        QString filename = m_ItemModel->itemFromIndex(index)->text();
-        emit OpenFileRequest(filename, 1);
+        // IMPORTANT:  file name is in column 0, and line number is in column 1
+        // This should match order of header above
+        QString filename = m_ItemModel->item(index.row(), 0)->text();
+        QString lineno = m_ItemModel->item(index.row(), 1)->text();
+        emit OpenFileRequest(filename, lineno.toInt());
     }
 }
 
