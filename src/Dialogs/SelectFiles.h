@@ -59,14 +59,13 @@ public slots:
      */
     void SetImages();
 protected:
-
     void resizeEvent(QResizeEvent *event);
 
 private slots:
     /**
      * Displays a given image in the list in the preview area.
      */
-
+	void PreviewLoadComplete(bool);
     void IncreaseThumbnailSize();
     void DecreaseThumbnailSize();
     void ReloadPreview();
@@ -86,6 +85,8 @@ private slots:
     void SplitterMoved(int pos, int index);
 
 private:
+    bool IsPreviewLoaded();
+    
     void ReadSettings();
     void connectSignalsSlots();
 
@@ -98,7 +99,9 @@ private:
     QStandardItem *GetLastSelectedImageItem();
     QString GetLastSelectedImageName();
 
+    bool m_PreviewReady;
     bool m_PreviewLoaded;
+    
 
     QString m_DefaultSelectedImage;
 

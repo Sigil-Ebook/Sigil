@@ -20,10 +20,14 @@
 **
 *************************************************************************/
 
+#include <QApplication>
 #include <QtCore/QFileInfo>
+#include <QImage>
+#include <QPixmap>
 #include <QtWidgets/QLayout>
 #include <QtWebKitWidgets/QWebFrame>
 #include <QtWebKitWidgets/QWebView>
+// #include <QDebug>
 
 #include "MainUI/MainWindow.h"
 #include "Dialogs/SelectFiles.h"
@@ -54,6 +58,7 @@ SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QStri
     QDialog(parent),
     m_MediaResources(media_resources),
     m_SelectFilesModel(new QStandardItemModel),
+    m_PreviewReady(false),
     m_PreviewLoaded(false),
     m_DefaultSelectedImage(default_selected_image),
     m_ThumbnailSize(THUMBNAIL_SIZE),
@@ -82,6 +87,8 @@ SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QStri
     SetImages();
 
     connectSignalsSlots();
+
+    SetPreviewImage();
 }
 
 SelectFiles::~SelectFiles()
@@ -152,12 +159,12 @@ void SelectFiles::SetImages()
 
         // Do not show thumbnail if file is not an image
         if ((type == Resource::ImageResourceType || type == Resource::SVGResourceType) && m_ThumbnailSize) {
-            QPixmap pixmap(resource->GetFullPath());
+            // qDebug() << "creating thumbnail for " << resource->GetFullPath();            
+            QPixmap pixmap(QPixmap::fromImage(QImage(resource->GetFullPath())));
 
             if (pixmap.height() > m_ThumbnailSize || pixmap.width() > m_ThumbnailSize) {
                 pixmap = pixmap.scaled(QSize(m_ThumbnailSize, m_ThumbnailSize), Qt::KeepAspectRatio);
             }
-
             QStandardItem *icon_item = new QStandardItem();
             icon_item->setIcon(QIcon(pixmap));
             icon_item->setEditable(false);
@@ -198,8 +205,8 @@ void SelectFiles::SelectDefaultImage()
             break;
         }
     }
-    SetPreviewImage();
 }
+
 void SelectFiles::IncreaseThumbnailSize()
 {
     m_ThumbnailSize += THUMBNAIL_SIZE_INCREMENT;
@@ -224,37 +231,38 @@ void SelectFiles::DecreaseThumbnailSize()
 void SelectFiles::ReloadPreview()
 {
     // Make sure we don't load when initial painting is resizing
-    if (m_PreviewLoaded) {
+    if (m_PreviewReady) {
         SetPreviewImage();
     }
 }
 
 void SelectFiles::SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
-    SetPreviewImage();
+    ReloadPreview();
 }
 
 void SelectFiles::SplitterMoved(int pos, int index)
 {
-    SetPreviewImage();
+    ReloadPreview();
 }
 
 void SelectFiles::resizeEvent(QResizeEvent *event)
 {
-    SetPreviewImage();
+    ReloadPreview();
 }
 
 void SelectFiles::SetPreviewImage()
 {
+    m_PreviewReady = false;
     QPixmap(pixmap);
     QString details = "";
     QStandardItem *item = GetLastSelectedImageItem();
-
+    
     ui.Details->clear();
     m_WebView->setHtml("", QUrl());
 
     if (!item || item->text().isEmpty()) {
-        m_PreviewLoaded = true;
+        m_PreviewReady = true;
         return;
     }
 
@@ -268,6 +276,8 @@ void SelectFiles::SetPreviewImage()
     const double ffmbsize = ffsize / 1024.0;
     const QString fmbsize = QLocale().toString(ffmbsize, 'f', 2);
 
+    bool loading_resources = false;
+    
     // Images
     if (resource_type == Resource::ImageResourceType || resource_type == Resource::SVGResourceType) {
 
@@ -290,7 +300,9 @@ void SelectFiles::SetPreviewImage()
         MainWindow::clearMemoryCaches();
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
         QString html = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
+        m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
+        loading_resources = true;
     }
 
     if (resource_type == Resource::VideoResourceType) {
@@ -298,20 +310,43 @@ void SelectFiles::SetPreviewImage()
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
         MainWindow::clearMemoryCaches();
         html = VIDEO_HTML_BASE.arg(resourceUrl.toString());
+        m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
+        loading_resources = true;
         details = QString("%1 MB").arg(fmbsize);
     } else if (resource_type == Resource::AudioResourceType) {
         QString html;
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
         MainWindow::clearMemoryCaches();
         html = AUDIO_HTML_BASE.arg(resourceUrl.toString());
+        m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
+        loading_resources = true;
         details = QString("%1 MB").arg(fmbsize);
     }
 
+    // Technically, we need to wait until Preview is actually loaded
+    // because setHtml loads external resources asynchronously
+    if (loading_resources) {
+        while(!IsPreviewLoaded()) {
+            qApp->processEvents();
+        }
+    }
     ui.Details->setText(details);
+    m_PreviewReady = true;
+}
 
-    m_PreviewLoaded = true;
+void SelectFiles::PreviewLoadComplete(bool okay) 
+{
+	if (!okay) {
+	    m_WebView->stop();
+	}
+	m_PreviewLoaded = true;
+}
+
+bool SelectFiles::IsPreviewLoaded()
+{
+    return m_PreviewLoaded;
 }
 
 void SelectFiles::FilterEditTextChangedSlot(const QString &text)
@@ -430,6 +465,6 @@ void SelectFiles::connectSignalsSlots()
     connect(ui.ThumbnailDecrease, SIGNAL(clicked()), this, SLOT(DecreaseThumbnailSize()));
     connect(ui.InsertFromDisk,  SIGNAL(clicked()), this, SLOT(InsertFromDisk()));
     connect(ui.FileTypes,       SIGNAL(itemSelectionChanged()), this, SLOT(SetImages()));
-
+    connect(m_WebView,          SIGNAL(loadFinished(bool)), this, SLOT(PreviewLoadComplete(bool)));
     connect(ui.splitter,    SIGNAL(splitterMoved(int, int)), this, SLOT(SplitterMoved(int, int)));
 }
