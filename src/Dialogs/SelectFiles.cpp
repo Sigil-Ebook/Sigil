@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2017       Kevin B, Hendricks, Stratford, ON Canada
 **  Copyright (C) 2012, 2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012, 2013 Dave Heiland
 **
@@ -27,7 +28,6 @@
 #include <QtWidgets/QLayout>
 #include <QtWebKitWidgets/QWebFrame>
 #include <QtWebKitWidgets/QWebView>
-// #include <QDebug>
 
 #include "MainUI/MainWindow.h"
 #include "Dialogs/SelectFiles.h"
@@ -159,8 +159,7 @@ void SelectFiles::SetImages()
 
         // Do not show thumbnail if file is not an image
         if ((type == Resource::ImageResourceType || type == Resource::SVGResourceType) && m_ThumbnailSize) {
-            // qDebug() << "creating thumbnail for " << resource->GetFullPath();            
-            QPixmap pixmap(QPixmap::fromImage(QImage(resource->GetFullPath())));
+              QPixmap pixmap(resource->GetFullPath());
 
             if (pixmap.height() > m_ThumbnailSize || pixmap.width() > m_ThumbnailSize) {
                 pixmap = pixmap.scaled(QSize(m_ThumbnailSize, m_ThumbnailSize), Qt::KeepAspectRatio);
