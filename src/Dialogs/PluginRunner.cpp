@@ -239,7 +239,7 @@ void PluginRunner::startPlugin()
         // -B Don't write bytecode
         // -u sets python for unbuffered io
 #ifdef Q_OS_MAC
-        args.append(QString("-BEu"));
+        args.append(QString("-Bu"));
 #elif defined(Q_OS_WIN32)
         args.append(QString("-Ou"));
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
@@ -262,6 +262,8 @@ void PluginRunner::startPlugin()
     // So we simply read the system environment and set it for QProcess manually
     // so that python getpreferredencoding() and stdout/stderr/stdin encodings to get properly set
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("QT_PLUGIN_PATH", QDir(QCoreApplication::applicationDirPath() + "/../PlugIns").absolutePath());
+    env.insert("QT_QPA_PLATFORM_PLUGIN_PATH", QDir(QCoreApplication::applicationDirPath() + "/../PlugIns/platforms").absolutePath());
     m_process.setProcessEnvironment(env);
 #elif defined(Q_OS_WIN32)
     if (settings.useBundledInterp()) {
