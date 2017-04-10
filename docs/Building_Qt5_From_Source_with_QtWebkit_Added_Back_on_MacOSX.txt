@@ -3,7 +3,7 @@
 # In order to use offical Qt 5.6 or later versions of Qt you will need to add QtWebkit back
 # and build from source.  This is what Linux distributions are doing too.
 
-# FIRST:  make sure you have XCode 6 or XCode 7 installed and the Command Line Tools
+# FIRST:  make sure you have XCode 6, XCode 7 or XCode8 installed and the Command Line Tools
 
 # As of Qt 5.6, QtWebkit was removed from the stock Qt releases.  Sigil depends on this 
 # module for both its BookView and Preview windows.  We are following the examples of
@@ -15,8 +15,10 @@
 # We highly recommend you use the same Qt versions as official Sigil builds on Mac OS X.
 # which is Qt 5.6.2
 
-# cd to a location to store your src tree then do
+# set the delpoyment target
+export MACOSX_DEPLOYMENT_TARGET=10.9
 
+# cd to a location to store your src tree then do
 export MYQTSRC=`pwd`
 
 # clone qtwebkit from git::/code.qt.io/qt/qtwebkit.git
