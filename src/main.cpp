@@ -203,7 +203,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
     if (qEnvironmentVariableIsSet("WINDOWS_SIGIL_DEBUG_LOGFILE") && !qEnvironmentVariableIsEmpty("WINDOWS_SIGIL_DEBUG_LOGFILE")) {
         QString sigil_log_file;
         sigil_log_file = QProcessEnvironment::systemEnvironment().value("WINDOWS_SIGIL_DEBUG_LOGFILE", "").trimmed();
-        QFile outFile(SIGIL_LOG_FILE);
+        QFile outFile(sigil_log_file);
         outFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
         QTextStream ts(&outFile);
         ts << win_debug_message << endl;
