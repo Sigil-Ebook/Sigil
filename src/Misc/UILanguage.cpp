@@ -61,13 +61,14 @@ QStringList UILanguage::GetPossibleTranslationPaths()
 QStringList UILanguage::GetUILanguages()
 {
     QStringList ui_languages;
+    QStringList checked_dirs;
     foreach(QString path, GetPossibleTranslationPaths()) {
         // Find all translation files and add them to the avaliable list.
         QDir translationDir(path);
 
-        if (translationDir.exists()) {
+        if (translationDir.exists() && !checked_dirs.contains(translationDir.absolutePath())) {
             QStringList filters;
-            // Look for all .qm files.
+            // Look for all sigil_*.qm files.
             filters << TRANSLATION_FILE_PREFIX % "*" % TRANSLATION_FILE_SUFFIX;
             translationDir.setNameFilters(filters);
             QStringList translation_files = translationDir.entryList();
@@ -77,6 +78,7 @@ QStringList UILanguage::GetUILanguages()
                 QString language = basename.right(basename.length() - TRANSLATION_FILE_PREFIX.length());
                 ui_languages.append(language);
             }
+            checked_dirs.append(translationDir.absolutePath());
         }
     }
     return ui_languages;
