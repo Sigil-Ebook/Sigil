@@ -331,7 +331,7 @@ int main(int argc, char *argv[])
             widget->show();
             return app.exec();
         }
-    } catch (std::exception e) {
+    } catch (std::exception &e) {
         Utility::DisplayExceptionErrorDialog(e.what());
         return 1;
     }
