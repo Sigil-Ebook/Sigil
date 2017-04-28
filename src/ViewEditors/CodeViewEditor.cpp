@@ -2266,6 +2266,9 @@ std::tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<Vie
     gi.parse();
     QString webpath = ConvertHierarchyToQWebPath(hierarchy);
     GumboNode* end_node = gi.get_node_from_qwebpath(webpath);
+    if (!end_node) {
+      return std::make_tuple(0, 0);
+    }
     unsigned int line = 0;
     unsigned int col = 0;
     if ((end_node->type == GUMBO_NODE_TEXT) || (end_node->type == GUMBO_NODE_WHITESPACE) || 
@@ -2277,11 +2280,8 @@ std::tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<Vie
         col = end_node->v.element.start_pos.column;
     }
     QTextCursor cursor(document());
-    if (end_node)
-        return std::make_tuple(line - cursor.blockNumber(), col);
-    else {
-        return std::make_tuple(0, 0);
-    }
+    return std::make_tuple(line - cursor.blockNumber(), col);
+
 }
 
 
