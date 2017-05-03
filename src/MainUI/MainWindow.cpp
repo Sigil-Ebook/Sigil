@@ -1300,29 +1300,37 @@ void MainWindow::CreateIndex()
         }
     }
 
+    // get semantic (guide/landmark) information for all resources
+    QHash <QString, QString> semantic_types = m_Book->GetOPF()->GetSemanticCodeForPaths();
+    QStringList allow_index;
+    allow_index  << "bodymatter" << "chapter" << "conclusion" << "division" << "epilogue" << 
+                    "introduction" << "part" << "preamble" << "prologue" << "subchapter" <<  
+                    "text" << "volume"; 
+
     HTMLResource *index_resource = NULL;
     QList<HTMLResource *> html_resources;
+
     // Turn the list of Resources that are really HTMLResources to a real list
-    // of HTMLResources.
+    // of HTMLResources stripping out any front or back matter
     QList<Resource *> resources = GetAllHTMLResources();
-    HTMLResource *toc_resource = NULL;
     foreach(Resource * resource, resources) {
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
 
         if (html_resource) {
-            html_resources.append(html_resource);
+            QString resource_path = html_resource->GetRelativePathToOEBPS();
+            QString semantic_code;
+            if (semantic_types.contains(resource_path)) {
+                semantic_code = semantic_types[resource_path];
+            }
+            if (semantic_code.isEmpty() || allow_index.contains(semantic_code)) {
+                html_resources.append(html_resource);
+            }
 
             // Check if this is an existing index file.
-            QString guide_semantic = m_Book->GetOPF()->GetGuideSemanticCodeForResource(html_resource);
-
-            if (guide_semantic == "index") {
+            if (semantic_code == "index") {
                 index_resource = html_resource;
             } else if (resource->Filename() == HTML_INDEX_FILE && html_resource == NULL) {
                 index_resource = html_resource;
-            }
-            // determine any epub2 toc resource to skip it when indexing
-            if (guide_semantic == "toc") {
-                toc_resource = html_resource;
             }
         }
     }
@@ -1341,18 +1349,13 @@ void MainWindow::CreateIndex()
         m_Book->GetOPF()->UpdateSpineOrder(html_resources);
     }
 
-    // Skip indexing the index page itself
+    // Make sure you not indexing the index page itself
     html_resources.removeOne(index_resource);
 
     // Skip indexing any epub3 nav document
     HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
     if (nav_resource) {
         html_resources.removeOne(nav_resource);
-    }
-
-    // Skip indexing any epub2 toc document
-    if (toc_resource) {
-        html_resources.removeOne(toc_resource);
     }
 
     // Scan the book, add ids for any tag containing at least one index entry and store the

@@ -4,6 +4,7 @@ preSigil-0.9.9
 
    New Features
     - add SIGIL_DISABLE_CURSOR_BLINK environment variable to disable text cursor to aid Accessibility on OSX
+    - better use semantic information (guide types and Landmarks) to allow the user finer control of index generation
 
  
 Sigil-0.9.8

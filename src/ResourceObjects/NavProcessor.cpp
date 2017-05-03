@@ -547,6 +547,20 @@ QHash <QString, QString> NavProcessor::GetLandmarkNameForPaths()
     return semantic_types;
 }
 
+QHash <QString, QString> NavProcessor::GetLandmarkCodeForPaths()
+{
+  const QList<NavLandmarkEntry> landlist = GetLandmarks();
+  QReadLocker locker(&m_NavResource->GetLock());
+  QHash <QString, QString> semantic_types;
+  foreach(NavLandmarkEntry le, landlist) {
+    QString href = ConvertHREFToOEBPSRelative(le.href);
+    QStringList parts = href.split('#', QString::KeepEmptyParts);
+    QString etype = le.etype;
+    semantic_types[parts.at(0)] = etype;
+  }
+  return semantic_types;
+}
+
 
 // Interface to Set the Nav TOC directly from Book Contents (Headings)
 // Get the Book headings and Make a Tree out of them and then convert

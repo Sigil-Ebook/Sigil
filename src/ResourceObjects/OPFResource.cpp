@@ -703,6 +703,29 @@ QString OPFResource::GetGuideSemanticNameForResource(Resource *resource)
 }
 
 
+QHash <QString, QString>  OPFResource::GetSemanticCodeForPaths()
+{
+  QString version = GetEpubVersion();
+  if (version.startsWith('3')) {
+    NavProcessor navproc(GetNavResource());
+    return navproc.GetLandmarkCodeForPaths();
+  }
+
+  QReadLocker locker(&GetLock());
+  QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+  OPFParser p;
+  p.parse(source);
+
+  QHash <QString, QString> semantic_types;
+  foreach(GuideEntry ge, p.m_guide) {
+    QString href = ge.m_href;
+    QStringList parts = href.split('#', QString::KeepEmptyParts);
+    QString gtype = ge.m_type;
+    semantic_types[parts.at(0)] = gtype;
+  }
+  return semantic_types;
+}
+
 QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
 {
     QString version = GetEpubVersion();

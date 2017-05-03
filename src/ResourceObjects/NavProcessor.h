@@ -72,6 +72,7 @@ public:
     void RemoveLandmarkForResource(const Resource * resource);
     QString GetLandmarkCodeForResource(const Resource * resource);
     QString GetLandmarkNameForResource(const Resource * resource);
+    QHash<QString, QString> GetLandmarkCodeForPaths();
     QHash<QString, QString> GetLandmarkNameForPaths();
 
 
