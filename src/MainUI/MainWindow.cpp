@@ -797,6 +797,8 @@ bool MainWindow::SaveAs()
 
     // Store the folder the user saved to
     m_LastFolderOpen = QFileInfo(filename).absolutePath();
+    //store new file name
+    m_CurrentFileName=QFileInfo(filename).fileName();
     bool save_result = SaveFile(filename);
 
     if (!save_result) {
@@ -3662,6 +3664,7 @@ void MainWindow::CreateNewBook()
     SetNewBook(new_book);
     new_book->SetModified(false);
     m_SaveACopyFilename = "";
+    m_CurrentFileName.clear();
     UpdateUiWithCurrentFile("");
 }
 
@@ -3713,6 +3716,9 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
             if (!m_IsInitialLoad) {
                 ShowLastOpenFileWarnings();
             }
+
+            //preserve file name
+            m_CurrentFileName=QFileInfo(fullfilepath).fileName();
 
             if (!is_internal) {
                 // Store the folder the user opened from
@@ -4000,7 +4006,9 @@ const QMap<QString, QString> MainWindow::GetSaveFiltersMap()
 void MainWindow::UpdateUiWithCurrentFile(const QString &fullfilepath)
 {
     m_CurrentFilePath = fullfilepath;
-    m_CurrentFileName = m_CurrentFilePath.isEmpty() ? DEFAULT_FILENAME : QFileInfo(m_CurrentFilePath).fileName();
+    //m_CurrentFileName = m_CurrentFilePath.isEmpty() ? DEFAULT_FILENAME : QFileInfo(m_CurrentFilePath).fileName();
+    if (m_CurrentFilePath.isEmpty() && m_CurrentFileName.isEmpty()) m_CurrentFileName = DEFAULT_FILENAME;
+
     QString epubversion = m_Book->GetConstOPF()->GetEpubVersion();
 
     // Update the titlebar
