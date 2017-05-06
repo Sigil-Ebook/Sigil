@@ -3733,7 +3733,7 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
         Utility::DisplayStdErrorDialog(
             tr("The creator of this file has encrypted it with DRM. "
                "Sigil cannot open such files."));
-    } catch (EPUBLoadParseError epub_load_error) {
+    } catch (EPUBLoadParseError &epub_load_error) {
         ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
         const QString errors = QString(epub_load_error.what());
@@ -3841,7 +3841,7 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
             ShowMessageOnStatusBar(tr("EPUB saved."));
         }
         QApplication::restoreOverrideCursor();
-    } catch (std::runtime_error e) {
+    } catch (std::runtime_error &e) {
         ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
         Utility::DisplayExceptionErrorDialog(tr("Cannot save file %1: %2").arg(fullfilepath).arg(e.what()));
