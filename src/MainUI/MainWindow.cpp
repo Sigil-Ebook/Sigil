@@ -2330,6 +2330,15 @@ void MainWindow::RemoveResources(QList<Resource *> resources)
     } else {
         m_BookBrowser->RemoveSelection(m_TabManager->GetTabResources());
     }
+
+    // check if user deleted the html resource last shown in Preview 
+    // and if removed update Preview's cache resource, text, and location
+    QList<Resource *> current_resources = m_Book->GetFolderKeeper()->GetResourceListByType(Resource::HTMLResourceType);
+    if (!current_resources.contains(m_PreviousHTMLResource)) {
+        m_PreviousHTMLResource = NULL;
+        m_PreviousHTMLText = "";
+        m_PreviousHTMLLocation = QList<ViewEditor::ElementIndex>();
+    }
     if ((pw_showing) && !m_PreviewWindow->IsVisible()) {
         m_PreviewWindow->show();
     }
@@ -3241,8 +3250,10 @@ void MainWindow::UpdatePreview()
             tab->SaveTabContent();
         }
 
-        html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());
+        // handles all cases of non-html resource in front tab
         if (!html_resource) {
+            // note: must handle case of m_PreviousHTMLResource being deleted by user
+            // see RemoveResources()
             html_resource = m_PreviousHTMLResource;
         } else {
             m_PreviousHTMLResource = NULL;
