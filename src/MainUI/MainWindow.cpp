@@ -3250,6 +3250,8 @@ void MainWindow::UpdatePreview()
             tab->SaveTabContent();
         }
 
+        html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());
+
         // handles all cases of non-html resource in front tab
         if (!html_resource) {
             // note: must handle case of m_PreviousHTMLResource being deleted by user
