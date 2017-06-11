@@ -293,6 +293,9 @@ void OPFModel::RowsRemovedHandler(const QModelIndex &parent, int start, int end)
     }
 
     UpdateHTMLReadingOrders();
+    // File icons disappear on some platforms when re-ordering html files via
+    // drag and drop in the Book Browser TreeView without this extra refresh.
+    Refresh();
 }
 
 
