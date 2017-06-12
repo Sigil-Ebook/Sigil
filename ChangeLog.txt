@@ -2,6 +2,7 @@ preSigil-0.9.9
    Bug Fixes
     - add python_3.5_fixes3.patch to Python build and update build docs on OSX to fix missing symbols
     - fix crash caused by Preview holding pointer to user removed resource when front tab is non-html resource
+    - fix issue with file icons disappearing when reordering in Book Browser (commit ecb56b1f)
 
    New Features
     - add SIGIL_DISABLE_CURSOR_BLINK environment variable to disable text cursor to aid Accessibility on OSX
