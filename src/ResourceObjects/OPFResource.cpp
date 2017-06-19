@@ -1107,9 +1107,9 @@ QString OPFResource::GetOPFDefaultText(const QString &version)
     SettingsStore ss;
     QString defaultLanguage = ss.defaultMetadataLang();
     if (version.startsWith('2')) {
-      return TEMPLATE_TEXT.arg(Utility::CreateUUID()).arg(defaultLanguage).arg(tr("[Double-click to enter your title]"));
+      return TEMPLATE_TEXT.arg(Utility::CreateUUID()).arg(defaultLanguage).arg(tr("[Title here]"));
     }
-    return TEMPLATE3_TEXT.arg(Utility::CreateUUID()).arg(defaultLanguage).arg(tr("[Double-click to enter your title]"));
+    return TEMPLATE3_TEXT.arg(Utility::CreateUUID()).arg(defaultLanguage).arg(tr("[Main title here]"));
 }
 
 
