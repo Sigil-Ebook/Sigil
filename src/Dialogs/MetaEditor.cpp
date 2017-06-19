@@ -168,19 +168,19 @@ void MetaEditor::selectElement()
             }
             insertRow(code, lang);
         } else if (code == "dc:identifier-isbn") {
-            QString content = "urn:isbn:[No data]";
+            QString content = "urn:isbn:" + tr("[Double-click to set ISBN]");
             code = "dc:identifier";
             insertRow(code, content);
         } else if (code == "dc:identifier-issn") {
-            QString content = "urn:issn:[No data]";
+            QString content = "urn:issn:" + tr("[Double-click to set ISSN]");
             code = "dc:identifier";
             insertRow(code, content);
         } else if (code == "dc:identifier-doi") {
-            QString content = "urn:doi:[No data]";
+            QString content = "urn:doi:" + tr("[Double-click to set DOI]");
             code = "dc:identifier";
             insertRow(code, content);
         } else if (code == "dc:identifier-uuid") {
-            QString content = "urn:uuid:[No data]";
+            QString content = "urn:uuid:" + tr("[Double-click to set UUID]");
             code = "dc:identifier";
             insertRow(code, content);
         } else if ((code == "dc:date") || (code == "dcterms:issued") || (code == "dcterms:created")) {
@@ -191,9 +191,18 @@ void MetaEditor::selectElement()
             insertRow(code, content);
         } else if (code == "dc:creator-aut") {
             code = "dc:creator";
-            insertRow(code);
+            QString content = tr("[Double-click to set author name]");
+            insertRow(code, content);
             insertChild(QString("role"),QString("aut"));
             insertChild(QString("scheme"),QString("marc:relators"));
+        } else if (code == "dc:creator") {
+            code = "dc:creator";
+            QString content = tr("[Double-click to set creator name]");
+            insertRow(code, content);
+        } else if (code == "dc:contributor") {
+            code = "dc:contributor";
+            QString content = tr("[Double-click to set contributor name]");
+            insertRow(code, content);
         } else {
             insertRow(code);
         }
@@ -222,27 +231,27 @@ void MetaEditor::selectE2Element()
             }
             insertRow(code, lang);
         } else if (code == "dc:identifier-isbn") {
-            QString content = "[No data]";
+            QString content = tr("[Double-click to set ISBN]");
             code = "dc:identifier";
             insertRow(code, content);
             insertChild(QString("opf:scheme"), QString("ISBN"));
         } else if (code == "dc:identifier-issn") {
-            QString content = "[No Data]";
+            QString content = tr("[Double-click to set ISSN]");
             code = "dc:identifier";
             insertRow(code, content);
             insertChild(QString("opf:scheme"), QString("ISSN"));
         } else if (code == "dc:identifier-doi") {
-            QString content = "[No data]";
+            QString content = tr("[Double-click to set DOI]");
             code = "dc:identifier";
             insertRow(code, content);
             insertChild(QString("opf:scheme"), QString("DOI"));
         } else if (code == "dc:identifier-uuid") {
-            QString content = "[No data]";
+            QString content = tr("[Double-click to set UUID]");
             code = "dc:identifier";
             insertRow(code, content);
             insertChild(QString("opf:scheme"), QString("UUID"));
         } else if (code == "dc:identifier-custom") {
-            QString content = "[No data]";
+            QString content = tr("[Double-click to set this value]");
             code = "dc:identifier";
             insertRow(code, content);
             insertChild(QString("opf:scheme"));
@@ -255,8 +264,17 @@ void MetaEditor::selectE2Element()
             insertChild(QString("opf:event"),dc_event);
         } else if (code == "dc:creator-aut") {
             code = "dc:creator";
-            insertRow(code);
+            QString content = tr("[Double-click to set author name]");
+            insertRow(code, content);
             insertChild(QString("opf:role"),QString("aut"));
+        } else if (code == "dc:creator") {
+            code = "dc:creator";
+            QString content = tr("[Double-click to set creator name]");
+            insertRow(code, content);
+        } else if (code == "dc:contributor") {
+            code = "dc:contributor";
+            QString content = tr("[Double-click to set contributor name]");
+            insertRow(code, content);
         } else {
             insertRow(code);
         }
@@ -420,7 +438,7 @@ void MetaEditor::insertChild(QString code, QString contents)
         if (!contents.isEmpty()) {
             model->setData(child, QVariant(contents), Qt::EditRole);
         } else {
-            model->setData(child, QVariant("[No data]"), Qt::EditRole);
+            model->setData(child, QVariant(tr("[Double-click to set this value]")), Qt::EditRole);
         }
         if (!model->headerData(column, Qt::Horizontal).isValid())
             model->setHeaderData(column, Qt::Horizontal, QVariant("[No header]"), Qt::EditRole);
@@ -455,7 +473,7 @@ void MetaEditor::insertRow(QString code, QString contents)
         if (!contents.isEmpty()) {
             model->setData(nchild, QVariant(contents), Qt::EditRole);
         } else {
-            model->setData(nchild, QVariant("[No data]"), Qt::EditRole);
+            model->setData(nchild, QVariant(tr("[Double-click to set this value]")), Qt::EditRole);
         }
     }
 
@@ -543,7 +561,7 @@ void MetaEditor::loadMetadataElements()
          tr("Identifier: ISSN") << "dc:identifier-issn" << tr("International Standard Serial Number associated with the given EPUB publication.") <<
          tr("Identifier: UUID") << "dc:identifier-uuid" << tr("A Universally Unique Idenitifier generated for this EPUB publication.") <<
          // tr("Identifier: Custom") << "dc:identifier-custom" << tr("A custom identifier based on a specified scheme") <<
-         tr("Custom Element") << "[No data]" << tr("An empty metadata element you can modify.");
+         tr("Custom Element") << tr("[Double-click to create a custom metadata element]") << tr("An empty metadata element you can modify.");
 
     for (int i = 0; i < data.count(); i++) {
         QString name = data.at(i++);
@@ -592,7 +610,7 @@ void MetaEditor::loadMetadataProperties()
          tr("Role") << "role" << tr("Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.") <<
          tr("Scheme") << "scheme" << tr("This attribute is typically added to dc:identifier, dc:source: dc:creator, or dc:contributor to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.") <<
          tr("Source of Pagination") << "source-of" << tr("Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.") <<
-         tr("Custom Property") << "[No data]" << tr("An empty metadata property or attribute you can modify.");
+        tr("Custom Property") << tr("[Double-click to set a custom metadata property/attribute]") << tr("An empty metadata property or attribute you can modify.");
 
     for (int i = 0; i < data.count(); i++) {
         QString name = data.at(i++);
@@ -643,7 +661,7 @@ void MetaEditor::loadE2MetadataElements()
          tr("Identifier") + ": ISSN"  << "dc:identifier-issn" << tr("International Standard Serial Number") <<
          tr("Identifier") + ": UUID"  << "dc:identifier-uuid" << tr("Universally Unique Identifier") <<
          tr("Identifier: Custom") << "dc:identifier-custom" << tr("A custom identifier based on a specified scheme") <<
-         tr("Custom Element") << "[No data]" << tr("An empty metadata element for you to modify");
+         tr("Custom Element") << tr("[Double-click to set a custom metadata element]") << tr("An empty metadata element for you to modify");
 
     for (int i = 0; i < data.count(); i++) {
         QString name = data.at(i++);
@@ -676,7 +694,7 @@ void MetaEditor::loadE2MetadataProperties()
          tr("Role") << "opf:role" << tr("Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.") <<
          tr("Scheme") << "opf:scheme" << tr("This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, or UUID.") <<
          tr("Event") << "opf:event" << tr("This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.") <<
-         tr("Custom Attribute") << "[No data]" << tr("An empty metadata attribute you can modify.");
+         tr("Custom Attribute") << tr("[Double-click to set a custom metadata property/attribute]") << tr("An empty metadata attribute you can modify.");
 
     for (int i = 0; i < data.count(); i++) {
         QString name = data.at(i++);

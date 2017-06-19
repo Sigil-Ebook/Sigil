@@ -64,7 +64,7 @@ static const QString TEMPLATE_TEXT =
     "  <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:opf=\"http://www.idpf.org/2007/opf\">\n"
     "    <dc:identifier opf:scheme=\"UUID\" id=\"BookId\">urn:uuid:%1</dc:identifier>\n"
     "    <dc:language>%2</dc:language>\n"
-    "    <dc:title>[No data]</dc:title>\n"
+    "    <dc:title>%3</dc:title>\n"
     "  </metadata>\n\n"
     "  <manifest>\n"
     "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
@@ -110,7 +110,7 @@ static const QString TEMPLATE3_TEXT =
     "  <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n"
     "    <dc:identifier id=\"BookId\">urn:uuid:%1</dc:identifier>\n"
     "    <dc:language>%2</dc:language>\n"
-    "    <dc:title>[No data]</dc:title>\n"
+    "    <dc:title>%3</dc:title>\n"
     "  </metadata>\n\n"
     "  <manifest>\n"
     "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
@@ -1107,9 +1107,9 @@ QString OPFResource::GetOPFDefaultText(const QString &version)
     SettingsStore ss;
     QString defaultLanguage = ss.defaultMetadataLang();
     if (version.startsWith('2')) {
-        return TEMPLATE_TEXT.arg(Utility::CreateUUID()).arg(defaultLanguage);
+      return TEMPLATE_TEXT.arg(Utility::CreateUUID()).arg(defaultLanguage).arg(tr("[Double-click to enter your title]"));
     }
-    return TEMPLATE3_TEXT.arg(Utility::CreateUUID()).arg(defaultLanguage);
+    return TEMPLATE3_TEXT.arg(Utility::CreateUUID()).arg(defaultLanguage).arg(tr("[Double-click to enter your title]"));
 }
 
 
