@@ -135,8 +135,6 @@ public slots:
 
     void AddResource(const Resource *resource);
 
-    void AddCoverMetaForImage(const Resource *resource, OPFParser &p);
-
     void RemoveResource(const Resource *resource);
 
     void AddGuideSemanticCode(HTMLResource *html_resource, QString code, bool toggle = true);
@@ -164,7 +162,14 @@ private:
 
     bool IsCoverImageCheck(QString resource_id, const OPFParser& p) const;
 
+    void AddCoverImageProperty(QString& resource_id, OPFParser& p);
+
+    void RemoveCoverImageProperty(QString& resource_id, OPFParser& p);
+
+    void AddCoverMetaForImage(const Resource *resource, OPFParser &p);
+
     void RemoveCoverMetaForImage(const Resource *resource, OPFParser &p);
+
 
     // static void AppendToSpine(const QString &id);
 

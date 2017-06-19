@@ -509,6 +509,47 @@ void OPFResource::AddResource(const Resource *resource)
     UpdateText(p);
 }
 
+void OPFResource::RemoveCoverImageProperty(QString& resource_id, OPFParser& p)
+{
+    // remove the cover image property from manifest with resource_id
+    if (!resource_id.isEmpty()) {
+        int pos = p.m_idpos.value(resource_id, -1);
+        if (pos >= 0 ) {
+            ManifestEntry me = p.m_manifest.at(p.m_idpos[resource_id]);
+            QString properties = me.m_atts.value("properties", "");
+            if (properties.contains("cover-image")) {
+                properties = properties.remove("cover-image");
+                properties = properties.simplified();
+            }
+            me.m_atts.remove("properties");
+            if (!properties.isEmpty()) {
+                me.m_atts["properties"] = properties;
+            }
+            p.m_manifest.replace(pos, me);
+        }
+    }
+}
+
+
+void OPFResource::AddCoverImageProperty(QString& resource_id, OPFParser& p)
+{
+    // add the cover image property from manifest with resource_id
+    if (!resource_id.isEmpty()) {
+        int pos = p.m_idpos.value(resource_id, -1);
+        if (pos >= 0 ) {
+            ManifestEntry me = p.m_manifest.at(p.m_idpos[resource_id]);
+            QString properties = me.m_atts.value("properties", "cover-image");
+            if (!properties.contains("cover-image")) {
+                properties = properties.append(" cover-image");
+            }
+            me.m_atts.remove("properties");
+            me.m_atts["properties"] = properties;
+            p.m_manifest.replace(pos, me);
+        }
+    }
+}
+
+
 void OPFResource::RemoveCoverMetaForImage(const Resource *resource, OPFParser& p)
 {
     int pos = GetCoverMeta(p);
@@ -769,8 +810,14 @@ void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
     QString resource_id = GetResourceManifestID(image_resource, p);
     if (IsCoverImageCheck(resource_id, p)) {
         RemoveCoverMetaForImage(image_resource, p);
+        if (p.m_package.m_version.startsWith("3")) {
+            RemoveCoverImageProperty(resource_id, p);
+        }
     } else {
         AddCoverMetaForImage(image_resource, p);
+        if (p.m_package.m_version.startsWith("3")) {
+            AddCoverImageProperty(resource_id, p);
+        }
     }
     UpdateText(p);
 }
