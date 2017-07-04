@@ -36,11 +36,10 @@ site_packages = [ ('lxml', 'd'),
                   ('encutils', 'd'),
                   ('cssutils', 'd'),
                   ('webencodings', 'd'), # needed by html5lib
-                  ('chardet', 'd'),
-                  ('sip.pyd', 'f')]
+                  ('chardet', 'd')]
 
 if include_pyqt5:
-    site_packages.append( ('PyQt5', 'd') )
+    site_packages.extend([('sip.pyd', 'f'), ('PyQt5', 'd')])
 
 
 
