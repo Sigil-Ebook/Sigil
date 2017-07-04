@@ -19,3 +19,4 @@ py_dest = '${PYTHON_DEST_DIR}'
 tmp_prefix = '${MAIN_PACKAGE_DIR}'
 proj_name = '${PROJECT_NAME}'
 cmake_build_root = '${CMAKE_BINARY_DIR}'
+include_pyqt5 = bool(${PACKAGE_PYQT5})
