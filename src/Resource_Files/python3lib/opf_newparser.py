@@ -256,7 +256,8 @@ class Opf_Parser(object):
                     qt = s[p:p+1]
                     p = p + 1
                     b = p
-                    while p < n and s[p:p+1] != qt: p += 1
+                    # try to work around missing end quotes
+                    while p < n and s[p:p+1] not in ['>', '<', qt] : p += 1
                     val = s[b:p]
                     p += 1
                 else :
@@ -378,10 +379,11 @@ class Opf_Parser(object):
         xmlres = []
         attr = self.spine_attr
         xmlres.append('  <spine')
-        for key in attr:
-            val= attr[key]
-            val= xmlencode(val)
-            xmlres.append(' %s="%s"' % (key, val))
+        if attr is not None:
+            for key in attr:
+                val= attr[key]
+                val= xmlencode(val)
+                xmlres.append(' %s="%s"' % (key, val))
         xmlres.append('>\n')
         return "".join(xmlres)
 
@@ -389,10 +391,11 @@ class Opf_Parser(object):
         xmlres=[]
         for (idref, attr) in self.spine:
             xmlres.append('    <itemref idref="%s"' % idref)
-            for key in attr:
-                val= attr[key]
-                val= xmlencode(val)
-                xmlres.append(' %s="%s"' % (key, val))
+            if attr is not None:
+                for key in attr:
+                    val= attr[key]
+                    val= xmlencode(val)
+                    xmlres.append(' %s="%s"' % (key, val))
             xmlres.append('/>\n')
         return "".join(xmlres)
     
