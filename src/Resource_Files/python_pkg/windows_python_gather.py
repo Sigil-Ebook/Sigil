@@ -5,7 +5,7 @@ from __future__ import (unicode_literals, division, absolute_import,
                         print_function)
 
 import sys, os, inspect, shutil, platform, textwrap, py_compile, site
-from python_paths import py_ver, py_lib, sys_dlls, py_exe, py_inc, py_dest, tmp_prefix, proj_name
+from python_paths import py_ver, py_lib, sys_dlls, py_exe, py_inc, py_dest, tmp_prefix, proj_name, include_pyqt5
 
 # Python standard modules location
 srcdir = os.path.dirname(inspect.getfile(os))
@@ -36,9 +36,11 @@ site_packages = [ ('lxml', 'd'),
                   ('encutils', 'd'),
                   ('cssutils', 'd'),
                   ('webencodings', 'd'), # needed by html5lib
-                  ('chardet', 'd'),
-                  ('sip.pyd', 'f'),
-                  ('PyQt5', 'd')]
+                  ('chardet', 'd')]
+
+if include_pyqt5:
+    site_packages.extend([('sip.pyd', 'f'), ('PyQt5', 'd')])
+
 
 
 def copy_site_packages():

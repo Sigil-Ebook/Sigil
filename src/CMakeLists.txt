@@ -791,8 +791,13 @@ elseif (MSVC)
     configure_file( ${ISS_MAIN_LOCATION} ${ISS_CONFIGURED_LOCATION} )
 
     if ( PKG_SYSTEM_PYTHON )
+        # Include PyQt5 with the bundled Python by default.
+        # Pass -DPACKAGE_PYQT5=0 to initial cmake command to disable.
+        if ( NOT DEFINED PACKAGE_PYQT5 )
+            set( PACKAGE_PYQT5 1 )
+        endif()
         configure_file( Resource_Files/python_pkg/python_paths.py ${CMAKE_BINARY_DIR}/python_paths.py )
-        configure_file( Resource_Files/python_pkg/windows_python_gather.py ${CMAKE_BINARY_DIR}/windows_python_gather.py )
+        configure_file( Resource_Files/python_pkg/windows_python_gather.py ${CMAKE_BINARY_DIR}/windows_python_gather.py COPYONLY )
     endif()
 
     # Run Inno Setup's iscc compiler (*AFTER* all the PRE_BUILD custom commands execute)
@@ -814,7 +819,7 @@ elseif (MSVC)
 
     # windeployqt
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND
-	    windeployqt.exe --release --webkit2 --no-translations --no-compiler-runtime --dir ${MAIN_PACKAGE_DIR} --libdir ${MAIN_PACKAGE_DIR} ${MAIN_PACKAGE_DIR}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
+	    windeployqt.exe --release --no-webkit2 --no-translations --no-compiler-runtime --dir ${MAIN_PACKAGE_DIR} --libdir ${MAIN_PACKAGE_DIR} ${MAIN_PACKAGE_DIR}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
 
     # Copy the translation qm files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/translations/ )
