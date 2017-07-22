@@ -88,6 +88,15 @@ PreviewWindow::~PreviewWindow()
     }
 }
 
+
+void PreviewWindow::resizeEvent(QResizeEvent *event)
+{
+    // Update self normally
+    QDockWidget::resizeEvent(event);
+    UpdateWindowTitle();
+}
+
+
 void PreviewWindow::hideEvent(QHideEvent * event)
 {
     if (m_Inspector) {
@@ -230,6 +239,16 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList<ViewEditor:
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();
     m_Preview->InspectElement();
+    UpdateWindowTitle();
+}
+
+void PreviewWindow::UpdateWindowTitle()
+{
+    if ((m_Preview) && m_Preview->isVisible()) {
+        int height = m_Preview->height();
+        int width = m_Preview->width();
+        setWindowTitle(tr("Preview") + " h:" + QString::number(height) + " w: " + QString::number(width));
+    }
 }
 
 QList<ViewEditor::ElementIndex> PreviewWindow::GetCaretLocation()
@@ -250,6 +269,7 @@ void PreviewWindow::SplitterMoved(int pos, int index)
     settings.beginGroup(SETTINGS_GROUP);
     settings.setValue("splitter", m_Splitter->saveState());
     settings.endGroup();
+    UpdateWindowTitle();
 }
 
 void PreviewWindow::LoadSettings()

@@ -57,11 +57,13 @@ signals:
 protected:
     virtual void hideEvent(QHideEvent* event);
     virtual void showEvent(QShowEvent* event);
+    void resizeEvent(QResizeEvent * event);
 
 private:
     void SetupView();
     void LoadSettings();
     void ConnectSignalsToSlots();
+    void UpdateWindowTitle();
 
     QWidget *m_MainWidget;
     QVBoxLayout *m_Layout;
