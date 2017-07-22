@@ -784,8 +784,13 @@ bool MainWindow::SaveAs()
 #endif
                                                    );
 
+    // QFileDialog cancelled
     if (filename.isEmpty()) {
-        m_CurrentFilePath.clear();
+        // The only time m_CurrentFilePath should be cleared after the SaveAs dialog is
+        // cancelled, is when it's populated with the "untitled.epub" default filename.
+        if (m_CurrentFilePath == DEFAULT_FILENAME) {
+            m_CurrentFilePath.clear();
+        }
         return false;
     }
 
@@ -833,7 +838,13 @@ bool MainWindow::SaveACopy()
 #endif
                                                    );
 
+    // QFileDialog cancelled
     if (filename.isEmpty()) {
+        // The only time m_CurrentFilePath should be cleared after the SaveAs dialog is
+        // cancelled, is when it's populated with the "untitled.epub" default filename.
+        if (m_CurrentFilePath == DEFAULT_FILENAME) {
+            m_CurrentFilePath.clear();
+        }
         return false;
     }
 
