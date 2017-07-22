@@ -2167,13 +2167,13 @@ static bool handle_in_head(GumboParser* parser, GumboToken* token) {
     // XHTML5 Parser support for cdata and rcdata in head to fix <title/> and etc
   } else if (parser->_options->use_xhtml_rules  && token->v.start_tag.is_self_closing &&
              tag_in(token, kStartTag, (gumbo_tagset) { TAG(IFRAME), TAG(NOEMBED), 
-                   TAG(NOFRAMES), TAG(NOSCRIPT), TAG(SCRIPT), TAG(STYLE), 
+                   TAG(NOFRAMES), TAG(STYLE), 
                    TAG(TEXTAREA), TAG(TITLE), TAG(XMP) })) {
     insert_element_from_token(parser, token);
     return true;
   } else if (parser->_options->use_xhtml_rules  && 
              tag_in(token, kEndTag,(gumbo_tagset) { TAG(IFRAME), TAG(NOEMBED), 
-                   TAG(NOFRAMES), TAG(NOSCRIPT), TAG(SCRIPT), TAG(STYLE), 
+                   TAG(NOFRAMES), TAG(STYLE), 
                    TAG(TEXTAREA), TAG(TITLE), TAG(XMP) })) {
     pop_current_node(parser);
     return true;
