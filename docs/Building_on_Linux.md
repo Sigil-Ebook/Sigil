@@ -26,7 +26,7 @@ from here on out. You'll have to forgive me for not knowing all the yum/pacman/e
 ## <a name="gcc"/>Linux Build Environment
 On Debian/Ubuntu systems you can use:
 
->`sudo apt-get install build-essential`
+>`sudo apt-get install build-essential git`
 
 to get pretty-much everything you need to configure/compile/install C++ projects. On other flavors of Linux you need to basically make sure that you have gcc/g++ and "make" installed. If your software repositories don't provide you with gcc/g++ 4.8 or higher, you may need to look at manually installing a newer version. [You're own your own, there.](https://gcc.gnu.org/install/index.html) Sorry. Try typing: 
 
@@ -55,6 +55,10 @@ If your software repos provide Python 3.4.0 or higher, by all means use them to 
 + python3-pyqt5
 + python3-lxml
 + python3-six
+
+The folllowing command can be copied and pasted for convenience:
+
+`sudo apt-get install python3 python3-dev libpython3 libpython3-dev python3-pip python3-tk python3-pyqt5 python3-lxml python3-six`
 
 If your repos don't include Python 3.4.x or higher, truck on over to [Python.org](http://www.python.org) and start reading how to build/install it from source. Whatever else you do, make sure you configure it with the `--enable-shared` option. You'll need the libpython3.4m.so library to build Sigil.
 
