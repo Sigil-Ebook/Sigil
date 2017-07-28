@@ -18,7 +18,6 @@
 #include "util.h"
 
 #include <assert.h>
-#include <ctype.h>
 #include <stdint.h>
 #include <strings.h>    // For strcasecmp.
 #include <string.h>    // For strcasecmp.

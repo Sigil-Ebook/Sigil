@@ -48,6 +48,28 @@ void gumbo_memory_set_free(void (*free_p)(void *))
   gumbo_user_free = free_p ? free_p : free;
 }
 
+bool gumbo_isspace(unsigned char ch) 
+{
+  switch(ch) {
+    case ' ':
+    case '\f':
+    case '\r':
+    case '\n':
+    case '\t':
+      return true;
+    default:
+      return false;
+  }
+}
+
+bool gumbo_isalnum(unsigned char ch) 
+{
+  if ('a' <= ch && ch <= 'z') return true;
+  if ('A' <= ch && ch <= 'Z') return true;
+  if ('0' <= ch && ch <= '9') return true;
+  return false;
+}
+
 // Debug function to trace operation of the parser.  Pass --copts=-DGUMBO_DEBUG
 // to use.
 void gumbo_debug(const char* format, ...) {

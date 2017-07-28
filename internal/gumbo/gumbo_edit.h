@@ -1,4 +1,4 @@
-// Copyright 2015 Kevin B. Hendricks, Stratford Ontario  All Rights Reserved.
+// Copyright 2015-2016 Kevin B. Hendricks, Stratford Ontario  All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.

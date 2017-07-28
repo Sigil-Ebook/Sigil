@@ -15,7 +15,6 @@
 // Author: jdtang@google.com (Jonathan Tang)
 
 #include <assert.h>
-#include <ctype.h>
 #include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
@@ -57,7 +56,7 @@ const GumboOptions kGumboDefaultOptions = {
   4,
   true,
   false,
-  -1,
+  50,
 };
 
 static const GumboStringPiece kDoctypeHtml = GUMBO_STRING("html");
@@ -2327,39 +2326,49 @@ static bool handle_after_head(GumboParser* parser, GumboToken* token) {
   }
 }
 
-static void free_node(GumboNode* node) {
-  switch (node->type) {
-    case GUMBO_NODE_DOCUMENT:
-      {
-        GumboDocument* doc = &node->v.document;
-        for (unsigned int i = 0; i < doc->children.length; ++i) {
-          free_node(doc->children.data[i]);
+static void free_node(GumboNode* node_to_free) {
+  GumboVector nodestack = kGumboEmptyVector; 
+  gumbo_vector_init(10,&nodestack);
+  gumbo_vector_add(&nodestack, (void *)node_to_free);
+  GumboNode* node = (GumboNode*) gumbo_vector_pop(&nodestack);
+  while(node != NULL) {
+    switch (node->type) {
+      case GUMBO_NODE_DOCUMENT:
+        {
+          GumboDocument* doc = &node->v.document;
+          for (unsigned int i = 0; i < doc->children.length; ++i) {
+            gumbo_vector_add(&nodestack,(void*)(doc->children.data[i]));
+          }
+          gumbo_free((void*) doc->children.data);
+          gumbo_free((void*) doc->name);
+          gumbo_free((void*) doc->public_identifier);
+          gumbo_free((void*) doc->system_identifier);
         }
-        gumbo_free((void*) doc->children.data);
-        gumbo_free((void*) doc->name);
-        gumbo_free((void*) doc->public_identifier);
-        gumbo_free((void*) doc->system_identifier);
-      }
-      break;
-    case GUMBO_NODE_TEMPLATE:
-    case GUMBO_NODE_ELEMENT:
-      for (unsigned int i = 0; i < node->v.element.attributes.length; ++i) {
-        gumbo_destroy_attribute(node->v.element.attributes.data[i]);
-      }
-      for (unsigned int i = 0; i < node->v.element.children.length; ++i) {
-        free_node(node->v.element.children.data[i]);
-      }
-      gumbo_free(node->v.element.attributes.data);
-      gumbo_free(node->v.element.children.data);
-      break;
-    case GUMBO_NODE_TEXT:
-    case GUMBO_NODE_CDATA:
-    case GUMBO_NODE_COMMENT:
-    case GUMBO_NODE_WHITESPACE:
-      gumbo_free((void*) node->v.text.text);
-      break;
+        break;
+      case GUMBO_NODE_TEMPLATE:
+      case GUMBO_NODE_ELEMENT:
+        {
+          for (unsigned int i = 0; i < node->v.element.attributes.length; ++i) {
+            gumbo_destroy_attribute(node->v.element.attributes.data[i]);
+          }
+          for (unsigned int i = 0; i < node->v.element.children.length; ++i) {
+            gumbo_vector_add(&nodestack,(void*)(node->v.element.children.data[i]));
+          }
+          gumbo_free(node->v.element.attributes.data);
+          gumbo_free(node->v.element.children.data);
+        }
+        break;
+      case GUMBO_NODE_TEXT:
+      case GUMBO_NODE_CDATA:
+      case GUMBO_NODE_COMMENT:
+      case GUMBO_NODE_WHITESPACE:
+        gumbo_free((void*) node->v.text.text);
+        break;
+    }
+    gumbo_free(node);
+    node = (GumboNode*) gumbo_vector_pop(&nodestack);
   }
-  gumbo_free(node);
+  gumbo_vector_destroy(&nodestack);
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/complete/tokenization.html#parsing-main-inbody
@@ -3159,7 +3168,7 @@ static bool handle_in_table_text(GumboParser* parser, GumboToken* token) {
     // of any one byte that is not whitespace means we flip the flag, so this
     // loop is still valid.
     for (unsigned int i = 0; i < buffer->length; ++i) {
-      if (!isspace((unsigned char)buffer->data[i]) || buffer->data[i] == '\v') {
+      if (!gumbo_isspace((unsigned char)buffer->data[i]) || buffer->data[i] == '\v') {
         state->_foster_parent_insertions = true;
         reconstruct_active_formatting_elements(parser);
         break;

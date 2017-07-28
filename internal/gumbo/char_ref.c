@@ -27,7 +27,6 @@
 #include "char_ref.h"
 
 #include <assert.h>
-#include <ctype.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <string.h>     // Only for debug assertions at present.
@@ -13960,8 +13959,10 @@ static const short _char_ref_eof_trans[] = {
 };
 
 static const int char_ref_start = 7623;
+// static const int char_ref_first_final = 7623;
+// static const int char_ref_error = 0;
 
-static const int char_ref_en_valid_named_ref = 7623;
+// static const int char_ref_en_valid_named_ref = 7623;
 
 
 #line 2468 "char_ref.rl"
@@ -13990,7 +13991,6 @@ static bool consume_named_ref(
   // Avoid unused variable warnings.
   (void) act;
   (void) ts;
-  (void) char_ref_en_valid_named_ref;
 
   start = p;
   
@@ -23042,7 +23042,7 @@ _again:
       bool matched = utf8iterator_maybe_consume_match(input, start, len, true);
       assert(matched);
       return true;
-    } else if (is_in_attribute && (*te == '=' || isalnum(*te))) {
+    } else if (is_in_attribute && (*te == '=' || gumbo_isalnum(*te))) {
       output->first = kGumboNoChar;
       output->second = kGumboNoChar;
       utf8iterator_reset(input);
