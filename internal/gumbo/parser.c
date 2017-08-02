@@ -2329,7 +2329,7 @@ static bool handle_after_head(GumboParser* parser, GumboToken* token) {
 static void free_node(GumboNode* node_to_free) {
   GumboVector nodestack = kGumboEmptyVector; 
   gumbo_vector_init(10,&nodestack);
-  gumbo_vector_add(&nodestack, (void *)node_to_free);
+  gumbo_vector_add((void *)node_to_free, &nodestack);
   GumboNode* node = (GumboNode*) gumbo_vector_pop(&nodestack);
   while(node != NULL) {
     switch (node->type) {
@@ -2337,7 +2337,7 @@ static void free_node(GumboNode* node_to_free) {
         {
           GumboDocument* doc = &node->v.document;
           for (unsigned int i = 0; i < doc->children.length; ++i) {
-            gumbo_vector_add(&nodestack,(void*)(doc->children.data[i]));
+            gumbo_vector_add((void*)(doc->children.data[i]), &nodestack);
           }
           gumbo_free((void*) doc->children.data);
           gumbo_free((void*) doc->name);
@@ -2352,7 +2352,7 @@ static void free_node(GumboNode* node_to_free) {
             gumbo_destroy_attribute(node->v.element.attributes.data[i]);
           }
           for (unsigned int i = 0; i < node->v.element.children.length; ++i) {
-            gumbo_vector_add(&nodestack,(void*)(node->v.element.children.data[i]));
+            gumbo_vector_add((void*)(node->v.element.children.data[i]), &nodestack);
           }
           gumbo_free(node->v.element.attributes.data);
           gumbo_free(node->v.element.children.data);
