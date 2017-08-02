@@ -85,9 +85,14 @@ def _add_document(soup, element):
     if not element.has_doctype:
         # Mimic html5lib behavior: if no doctype token, no doctype node.
         return
+    pub_id = _fromutf8(element.public_identifier)
+    sys_id = _fromutf8(element.system_identifier)
+    if pub_id == '':
+        pub_id = None
+    if sys_id == '':
+        sys_id = None
     doctype = sigil_bs4.element.Doctype.for_name_and_ids(_fromutf8(element.name),
-                                                   _fromutf8(element.public_identifier),
-                                                   _fromutf8(element.system_identifier))
+                                                   pub_id, sys_id)
     soup.object_was_parsed(doctype)
 
 
