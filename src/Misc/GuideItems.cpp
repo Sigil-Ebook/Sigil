@@ -123,7 +123,7 @@ void GuideItems::SetGuideItemsMap()
         tr("Notes") << "notes" << tr("A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: 'footnotes', 'rearnotes'") <<
         tr("Preface") << "preface" << tr("An introductory section that precedes the work, typically written by the work's author.") <<
         tr("Title Page") << "title-page" << tr("A page at the beginning of a book giving its title, authors, publisher and other publication information.") <<
-        tr("Table of Content") << "toc" << tr("A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work's frontmatter, or at the beginning of a section.");
+        tr("Table of Contents") << "toc" << tr("A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work's frontmatter, or at the beginning of a section.");
 
     for (int i = 0; i < data.count(); i++) {
         QString name = data.at(i++);
