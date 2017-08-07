@@ -216,6 +216,14 @@ public:
      * The icon size to use for the main menu.
      */
     double mainMenuIconSize();
+    
+    /**
+     * How many clipboard history items to save.
+     * -1 default
+     *  0 disable clipboard history saving
+     *  1+ limit saved entries to this number
+     */
+    int clipboardHistoryLimit();
 
     /**
      * Clear all Book View, Code View and Special Characters settings back to their defaults.
@@ -336,6 +344,11 @@ public slots:
      * Set the icon size to use for the main menu.
      */
     void setMainMenuIconSize(double icon_size);
+
+    /**
+     * Set the number of clipboard history items to retain
+     */
+    void setClipboardHistoryLimit(int limit);
 
 private:
     /**

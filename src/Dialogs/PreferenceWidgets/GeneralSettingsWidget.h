@@ -43,8 +43,10 @@ private slots:
     void autoTempFolder();
     void setTempFolder();
     void tempFolderPathChanged();
+    void clipLimitSliderValueChanged(int value);
 
 private:
+    bool m_refreshClipboardHistoryLimit;
     void readSettings();
     void connectSignalsToSlots();
 

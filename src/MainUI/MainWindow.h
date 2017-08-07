@@ -988,6 +988,7 @@ private:
     LocationBookmark *m_LinkOrStyleBookmark;
 
     ClipboardHistorySelector *m_ClipboardHistorySelector;
+    int m_ClipboardHistoryLimit;
 
     /**
      * The last widget in this window that had focus that inherited PasteTarget.

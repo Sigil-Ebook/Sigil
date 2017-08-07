@@ -65,6 +65,10 @@ public:
      * Check this after dialog closes to determine if Sigil needs restarting.
      */
     bool isRestartRequired();
+    /**
+     * Check this after dialog closes to determine if clipboard history saving limit needs updated.
+     */
+    bool isRefreshClipHistoryLimitRequired();
 
     void makeActive(int);
 
@@ -110,6 +114,7 @@ private:
     bool m_refreshSpellingHighlighting;
     bool m_reloadTabs;
     bool m_restartSigil;
+    bool m_refreshClipHistoryLimit;
 
     Ui::Preferences ui;
 };

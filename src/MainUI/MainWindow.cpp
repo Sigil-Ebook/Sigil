@@ -170,6 +170,7 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_preserveHeadingAttributes(true),
     m_LinkOrStyleBookmark(new LocationBookmark()),
     m_ClipboardHistorySelector(new ClipboardHistorySelector(this)),
+    m_ClipboardHistoryLimit(-1),
     m_LastPasteTarget(NULL),
     m_ZoomPreview(false),
     m_LastWindowSize(QByteArray()),
@@ -2702,6 +2703,10 @@ void MainWindow::PreferencesDialog()
         SettingsStore settings;
         ui.actionAutoSpellCheck->setChecked(settings.spellCheck());
     }
+    if (preferences.isRefreshClipHistoryLimitRequired()) {
+        SettingsStore settings;
+        m_ClipboardHistoryLimit = settings.clipboardHistoryLimit();
+    }
 
     if (m_SelectCharacter->isVisible()) {
         // To ensure any font size changes are immediately applied.
@@ -2726,6 +2731,10 @@ void MainWindow::ManagePluginsDialog()
         // Make sure menu state is set
         SettingsStore settings;
         ui.actionAutoSpellCheck->setChecked(settings.spellCheck());
+    }
+    if (preferences.isRefreshClipHistoryLimitRequired()) {
+        SettingsStore settings;
+        m_ClipboardHistoryLimit = settings.clipboardHistoryLimit();
     }
 
     if (m_SelectCharacter->isVisible()) {
@@ -3576,6 +3585,7 @@ void MainWindow::ReadSettings()
     const QStringList clipboardHistory = settings.value("clipboardringhistory").toStringList();
     m_ClipboardHistorySelector->LoadClipboardHistory(clipboardHistory);
     settings.endGroup();
+    m_ClipboardHistoryLimit = settings.clipboardHistoryLimit();
     // Our default fonts for book view/web preview
     SettingsStore::BookViewAppearance bookViewAppearance = settings.bookViewAppearance();
     QWebSettings *web_settings = QWebSettings::globalSettings();
@@ -3604,7 +3614,7 @@ void MainWindow::WriteSettings()
     // The list of recent files
     settings.setValue("recentfiles", s_RecentFiles);
     settings.setValue("preserveheadingattributes", m_preserveHeadingAttributes);
-    settings.setValue("clipboardringhistory", m_ClipboardHistorySelector->GetClipboardHistory());
+    settings.setValue("clipboardringhistory", m_ClipboardHistorySelector->GetClipboardHistory(m_ClipboardHistoryLimit));
     KeyboardShortcutManager::instance()->writeSettings();
     settings.endGroup();
     settings.setViewState(m_ViewState);

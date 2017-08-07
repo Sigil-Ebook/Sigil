@@ -94,6 +94,7 @@ static QString KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR = SETTINGS_GROUP + "/" + "
 static QString KEY_SPECIAL_CHARACTER_FONT_FAMILY = SETTINGS_GROUP + "/" + "special_character_font_family";
 static QString KEY_SPECIAL_CHARACTER_FONT_SIZE = SETTINGS_GROUP + "/" + "special_character_font_size";
 static QString KEY_MAIN_MENU_ICON_SIZE = SETTINGS_GROUP + "/" + "main_menu_icon_size";
+static QString KEY_CLIPBOARD_HISTORY_LIMIT = SETTINGS_GROUP + "/" + "clipboard_history_limit";
 
 SettingsStore::SettingsStore()
     : QSettings(Utility::DefinePrefsDir() + "/sigil.ini", QSettings::IniFormat)
@@ -333,6 +334,12 @@ double SettingsStore::mainMenuIconSize()
     return value(KEY_MAIN_MENU_ICON_SIZE, 1.8).toDouble();
 }
 
+int SettingsStore::clipboardHistoryLimit()
+{
+    clearSettingsGroup();
+    return value(KEY_CLIPBOARD_HISTORY_LIMIT, -1).toInt();
+}
+
 void SettingsStore::setDefaultMetadataLang(const QString &lang)
 {
     clearSettingsGroup();
@@ -541,6 +548,12 @@ void SettingsStore::setMainMenuIconSize(double icon_size)
 {
     clearSettingsGroup();
     setValue(KEY_MAIN_MENU_ICON_SIZE, icon_size);
+}
+
+void SettingsStore::setClipboardHistoryLimit(int limit)
+{
+    clearSettingsGroup();
+    setValue(KEY_CLIPBOARD_HISTORY_LIMIT, limit);
 }
 
 void SettingsStore::clearAppearanceSettings()

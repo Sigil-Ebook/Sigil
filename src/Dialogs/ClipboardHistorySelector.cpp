@@ -82,10 +82,16 @@ void ClipboardHistorySelector::LoadClipboardHistory(const QStringList &clipboard
     m_ClipboardHistoryItems->append(clipboardHistoryItems);
 }
 
-QStringList ClipboardHistorySelector::GetClipboardHistory() const
+QStringList ClipboardHistorySelector::GetClipboardHistory(int limit) const
 {
     QStringList clipboardHistoryItems;
     clipboardHistoryItems.append(*m_ClipboardHistoryItems);
+    // Reduce the history to comply with user limits
+    if (limit >= 0) {
+        while (clipboardHistoryItems.size() > limit) {
+            clipboardHistoryItems.removeLast();
+        }
+    }
     return clipboardHistoryItems;
 }
 

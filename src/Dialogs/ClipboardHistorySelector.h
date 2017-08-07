@@ -43,7 +43,7 @@ public:
     ClipboardHistorySelector(QWidget *parent);
 
     void LoadClipboardHistory(const QStringList &clipboardHistory);
-    QStringList GetClipboardHistory() const;
+    QStringList GetClipboardHistory(int limit) const;
 
 public slots:
     void SaveClipboardState();

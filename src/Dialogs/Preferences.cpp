@@ -42,7 +42,8 @@ Preferences::Preferences(QWidget *parent) :
     QDialog(parent),
     m_refreshSpellingHighlighting(false),
     m_reloadTabs(false),
-    m_restartSigil(false)
+    m_restartSigil(false),
+    m_refreshClipHistoryLimit(false)
 {
     ui.setupUi(this);
     extendUI();
@@ -88,6 +89,8 @@ void Preferences::saveSettings()
                 m_reloadTabs = true;
             } else if (widgetResult == PreferencesWidget::ResultAction_RestartSigil) {
                 m_restartSigil = true;
+            } else if (widgetResult == PreferencesWidget::ResultAction_RefreshClipHistoryLimit) {
+                m_refreshClipHistoryLimit = true;
             }
         }
     }
@@ -152,6 +155,11 @@ bool Preferences::isReloadTabsRequired()
 bool Preferences::isRestartRequired()
 {
     return m_restartSigil;
+}
+
+bool Preferences::isRefreshClipHistoryLimitRequired()
+{
+    return m_refreshClipHistoryLimit;
 }
 
 void Preferences::openPreferencesLocation()

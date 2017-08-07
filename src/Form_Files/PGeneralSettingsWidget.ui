@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>652</width>
-    <height>429</height>
+    <height>620</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -230,6 +230,50 @@ and when switching from Book View to Code View.</string>
     </widget>
    </item>
    <item>
+    <widget class="QGroupBox" name="groupBoxClipLimit">
+     <property name="title">
+      <string>Clipboard History</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QLabel" name="labelCLipLimit">
+        <property name="text">
+         <string>Number of Entries to Maintain (-1 Sigil decides / 0 to disable)</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="clipLimitSlider">
+        <property name="minimum">
+         <number>-1</number>
+        </property>
+        <property name="maximum">
+         <number>19</number>
+        </property>
+        <property name="value">
+         <number>-1</number>
+        </property>
+        <property name="sliderPosition">
+         <number>-1</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::TicksBothSides</enum>
+        </property>
+        <property name="tickInterval">
+         <number>1</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <widget class="QGroupBox" name="groupBox_6">
      <property name="title">
       <string>Set Folder where temporary files should be created</string>
@@ -258,6 +302,19 @@ and when switching from Book View to Code View.</string>
       </item>
      </layout>
     </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>11</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>
