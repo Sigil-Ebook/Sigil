@@ -3424,6 +3424,12 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource *origina
         return;
     }
 
+    // XXX: This should be using the mime type not the extension.
+    if (!TEXT_EXTENSIONS.contains(QFileInfo(originating_resource->Filename()).suffix().toLower())) {
+        QMessageBox::warning(this, tr("Sigil"), tr("Cannot split since it may not be an HTML file."));
+        return;
+    }
+
     HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
     if (nav_resource && nav_resource == originating_resource) {
         QMessageBox::warning(this, tr("Sigil"), tr("The Nav file cannot be split."));
