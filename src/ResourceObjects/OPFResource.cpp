@@ -808,16 +808,26 @@ void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
     OPFParser p;
     p.parse(source);
     QString resource_id = GetResourceManifestID(image_resource, p);
-    if (IsCoverImageCheck(resource_id, p)) {
-        RemoveCoverMetaForImage(image_resource, p);
+
+    // First deal with any previous covers by removing 
+    // related metadata and manifest properties
+    QString old_cover_resource_id;
+    int pos = GetCoverMeta(p);
+    if (pos > -1) {
+        MetaEntry me = p.m_metadata.at(pos);
+        old_cover_resource_id = me.m_atts.value(QString("content"),QString(""));
+        p.m_metadata.removeAt(pos);
+    }
+    if (!old_cover_resource_id.isEmpty()) {
         if (p.m_package.m_version.startsWith("3")) {
-            RemoveCoverImageProperty(resource_id, p);
+            RemoveCoverImageProperty(old_cover_resource_id, p);
         }
-    } else {
-        AddCoverMetaForImage(image_resource, p);
-        if (p.m_package.m_version.startsWith("3")) {
-            AddCoverImageProperty(resource_id, p);
-        }
+    }
+
+    // Now add in new metadata and manifest properties
+    AddCoverMetaForImage(image_resource, p);
+    if (p.m_package.m_version.startsWith("3")) {
+        AddCoverImageProperty(resource_id, p);
     }
     UpdateText(p);
 }
