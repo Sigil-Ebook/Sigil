@@ -32,6 +32,8 @@
 #include "MainUI/MainApplication.h"
 #include "Misc/Utility.h"
 
+#include "sigil_constants.h"
+
 static const QString SETTINGS_GROUP = "clipboard_history";
 static const QString KEY_SELECTORS = "0123456789abcdefghij";
 const int MAX_DISPLAY_LENGTH = 500;
@@ -87,10 +89,8 @@ QStringList ClipboardHistorySelector::GetClipboardHistory(int limit) const
     QStringList clipboardHistoryItems;
     clipboardHistoryItems.append(*m_ClipboardHistoryItems);
     // Reduce the history to comply with user limits
-    if (limit >= 0) {
-        while (clipboardHistoryItems.size() > limit) {
-            clipboardHistoryItems.removeLast();
-        }
+    while (clipboardHistoryItems.size() > limit) {
+        clipboardHistoryItems.removeLast();
     }
     return clipboardHistoryItems;
 }
@@ -192,7 +192,7 @@ void ClipboardHistorySelector::ClipboardChanged()
     } else if (existing_index < 0) {
         m_ClipboardHistoryItems->insert(0, text);
 
-        while (m_ClipboardHistoryItems->size() > 20) {
+        while (m_ClipboardHistoryItems->size() > CLIPBOARD_HISTORY_MAX) {
             m_ClipboardHistoryItems->removeLast();
         }
     }

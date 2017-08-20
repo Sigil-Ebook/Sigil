@@ -129,6 +129,9 @@ static const QString HTML_TOC_FILE = "TOC.xhtml";
 static const QString HTML_INDEX_FILE = "Index.xhtml";
 const QString HTML_COVER_FILENAME = "cover.xhtml";
 
+// External constant (sigil_contants.h) used to consolidate the upper clipboard history limit.
+const int CLIPBOARD_HISTORY_MAX = 20;
+
 static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub";
 
 static const QString DEFAULT_FILENAME = "untitled.epub";
@@ -170,7 +173,7 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_preserveHeadingAttributes(true),
     m_LinkOrStyleBookmark(new LocationBookmark()),
     m_ClipboardHistorySelector(new ClipboardHistorySelector(this)),
-    m_ClipboardHistoryLimit(-1),
+    m_ClipboardHistoryLimit(CLIPBOARD_HISTORY_MAX),
     m_LastPasteTarget(NULL),
     m_ZoomPreview(false),
     m_LastWindowSize(QByteArray()),
@@ -3623,6 +3626,7 @@ void MainWindow::WriteSettings()
     settings.setValue("clipboardringhistory", m_ClipboardHistorySelector->GetClipboardHistory(m_ClipboardHistoryLimit));
     KeyboardShortcutManager::instance()->writeSettings();
     settings.endGroup();
+    settings.setClipboardHistoryLimit(m_ClipboardHistoryLimit);
     settings.setViewState(m_ViewState);
 }
 

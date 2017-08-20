@@ -337,7 +337,10 @@ double SettingsStore::mainMenuIconSize()
 int SettingsStore::clipboardHistoryLimit()
 {
     clearSettingsGroup();
-    return value(KEY_CLIPBOARD_HISTORY_LIMIT, -1).toInt();
+    int tmpLimit = value(KEY_CLIPBOARD_HISTORY_LIMIT, CLIPBOARD_HISTORY_MAX).toInt();
+    // Ensure that any clipboard history limit gleaned from the ini file is between 0 and CLIPBOARD_HISTORY_MAX
+    return ((tmpLimit >= 0 && tmpLimit <= CLIPBOARD_HISTORY_MAX) ? tmpLimit : CLIPBOARD_HISTORY_MAX);
+    //return value(KEY_CLIPBOARD_HISTORY_LIMIT, CLIPBOARD_HISTORY_MAX).toInt();
 }
 
 void SettingsStore::setDefaultMetadataLang(const QString &lang)

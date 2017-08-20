@@ -43,11 +43,12 @@ private slots:
     void autoTempFolder();
     void setTempFolder();
     void tempFolderPathChanged();
-    void clipLimitSliderValueChanged(int value);
+    void clipLimitValueChanged();
 
 private:
     bool m_refreshClipboardHistoryLimit;
     void readSettings();
+    void ExtendUI();
     void connectSignalsToSlots();
 
     Ui::GeneralSettingsWidget ui;

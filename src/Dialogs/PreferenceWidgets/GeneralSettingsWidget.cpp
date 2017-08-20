@@ -29,12 +29,15 @@
 #include <QFileInfo>
 #include "Misc/Utility.h"
 
+#include "sigil_constants.h"
+
 GeneralSettingsWidget::GeneralSettingsWidget()
     :
     m_refreshClipboardHistoryLimit(false)
 {
     ui.setupUi(this);
     readSettings();
+    ExtendUI();
     connectSignalsToSlots();
 }
 
@@ -86,7 +89,7 @@ PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
     settings.setCssEpub2ValidationSpec(css_epub2_spec);
     settings.setCssEpub3ValidationSpec(css_epub3_spec);
     settings.setRemoteOn(new_remote_on_level);
-    settings.setClipboardHistoryLimit(int(ui.clipLimitSlider->value()));
+    settings.setClipboardHistoryLimit(int(ui.clipLimitSpin->value()));
     settings.setTempFolderHome(new_temp_folder_home);
 
     if (!m_refreshClipboardHistoryLimit) {
@@ -114,9 +117,7 @@ void GeneralSettingsWidget::readSettings()
     ui.MendOnSave->setChecked(cleanOn & CLEANON_SAVE);
     int remoteOn = settings.remoteOn();
     ui.AllowRemote->setChecked(remoteOn);
-    int cb_limit = int(settings.clipboardHistoryLimit());
-    ui.clipLimitSlider->setValue(cb_limit);
-    ui.clipLimitSlider->setToolTip(QString::number(cb_limit));
+    ui.clipLimitSpin->setValue(int(settings.clipboardHistoryLimit()));
     QString temp_folder_home = settings.tempFolderHome();
     ui.lineEdit->setText(temp_folder_home);
 }
@@ -150,9 +151,14 @@ void GeneralSettingsWidget::tempFolderPathChanged()
     }
 }
 
-void GeneralSettingsWidget::clipLimitSliderValueChanged(int value) {
-    ui.clipLimitSlider->setToolTip(QString::number(value));
+void GeneralSettingsWidget::clipLimitValueChanged() {
     m_refreshClipboardHistoryLimit = true;
+}
+
+void GeneralSettingsWidget::ExtendUI() {
+    // Make sure no one can enter anything other than 0 - CLIPBOARD_HISTORY_MAX
+    ui.clipLimitSpin->setMinimum(0);
+    ui.clipLimitSpin->setMaximum(CLIPBOARD_HISTORY_MAX);
 }
 
 void GeneralSettingsWidget::connectSignalsToSlots()
@@ -160,5 +166,5 @@ void GeneralSettingsWidget::connectSignalsToSlots()
     connect(ui.autoButton, SIGNAL(clicked()), this, SLOT(autoTempFolder()));
     connect(ui.browseButton, SIGNAL(clicked()), this, SLOT(setTempFolder()));
     connect(ui.lineEdit, SIGNAL(editingFinished()), this, SLOT(tempFolderPathChanged()));
-    connect(ui.clipLimitSlider, SIGNAL(valueChanged(int)), this, SLOT(clipLimitSliderValueChanged(int)));
+    connect(ui.clipLimitSpin, SIGNAL(valueChanged(int)), this, SLOT(clipLimitValueChanged()));
 }
