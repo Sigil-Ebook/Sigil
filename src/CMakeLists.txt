@@ -821,6 +821,16 @@ elseif (MSVC)
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND
 	    windeployqt.exe --release --no-webkit2 --no-translations --no-compiler-runtime --dir ${MAIN_PACKAGE_DIR} --libdir ${MAIN_PACKAGE_DIR} ${MAIN_PACKAGE_DIR}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
 
+    set( LIBXML2 ${QT_INSTALL_BINS}/libxml2.dll )
+    if ( EXISTS ${LIBXML2} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${LIBXML2} ${MAIN_PACKAGE_DIR} )
+    endif()
+
+    set( LIBXSLT ${QT_INSTALL_BINS}/libxslt.dll )
+    if ( EXISTS ${LIBXSLT} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${LIBXSLT} ${MAIN_PACKAGE_DIR} )
+    endif()
+
     # Copy the translation qm files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/translations/ )
     foreach( QM ${QM_FILES} )
