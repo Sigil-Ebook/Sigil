@@ -639,14 +639,16 @@ void Book::CreateNewSections(const QStringList &new_sections, HTMLResource *orig
 
 bool Book::IsDataWellFormed(HTMLResource *html_resource)
 {
-    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(html_resource->GetText());
+    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(html_resource->GetText(), 
+                                                                         html_resource->GetEpubVersion());
     return error.line == -1;
 }
 
 
 bool Book::IsDataOnDiskWellFormed(HTMLResource *html_resource)
 {
-    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(Utility::ReadUnicodeTextFile(html_resource->GetFullPath()));
+    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(Utility::ReadUnicodeTextFile(html_resource->GetFullPath()), 
+                                                                       html_resource->GetEpubVersion());
     return error.line == -1;
 }
 
@@ -955,7 +957,7 @@ QList<HTMLResource *> Book::GetNonWellFormedHTMLFiles()
     QList<HTMLResource *> malformed_resources;
 
     foreach (HTMLResource *h, m_Mainfolder->GetResourceTypeList<HTMLResource>(false)) {
-        if (!IsDataWellFormed(h)) {
+      if (!IsDataWellFormed(h)) {
             malformed_resources << h;
         }
     }

@@ -853,6 +853,7 @@ QString FlowTab::GetFilename()
 bool FlowTab::IsDataWellFormed()
 {
     // The content has been changed or was in a not well formed state when last checked.
+    QString version = m_HTMLResource->GetEpubVersion();
     if (m_ViewState == MainWindow::ViewState_BookView) {
         // If we are in BookView, then we know the data must be well formed, as even if edits have
         // taken place QWebView will have retained the XHTML integrity.
@@ -864,8 +865,8 @@ bool FlowTab::IsDataWellFormed()
         // We are doing a well formed check, but we can only do it on the CV text if CV has been loaded.
         // So lets play safe and have a fallback to use the resource text if CV is not loaded yet.
         XhtmlDoc::WellFormedError error = (m_wCodeView != NULL)
-                                          ? XhtmlDoc::WellFormedErrorForSource(m_wCodeView->toPlainText())
-                                          : XhtmlDoc::WellFormedErrorForSource(m_HTMLResource->GetText());
+          ? XhtmlDoc::WellFormedErrorForSource(m_wCodeView->toPlainText(),version)
+          : XhtmlDoc::WellFormedErrorForSource(m_HTMLResource->GetText(),version);
         m_safeToLoad = error.line == -1;
 
         if (!m_safeToLoad) {

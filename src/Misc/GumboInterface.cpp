@@ -26,6 +26,7 @@
 #include <QDir>
 #include <QUrl>
 #include <QFileInfo>
+// #include <QDebug>
 
 #include "Misc/Utility.h"
 #include "GumboInterface.h"
@@ -494,13 +495,18 @@ QList<GumboWellFormedError> GumboInterface::error_check()
             m_utf8src.erase(0,end);
             line_offset++;
         }
-        // add in doctype if missing
+        // add in epub version specific doctype if missing
         if ((m_utf8src.compare(0,9,"<!DOCTYPE") != 0) && (m_utf8src.compare(0,9,"<!doctype") != 0)) {
-            m_utf8src.insert(0,"<!DOCTYPE html>\n");
+            if (m_version.startsWith('3')) {
+                m_utf8src.insert(0,"<!DOCTYPE html>\n");
+            } else {
+                m_utf8src.insert(0, "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n\n");
+            }
             line_offset--;
         }
         m_output = gumbo_parse_with_options(&myoptions, m_utf8src.data(), m_utf8src.length());
     }
+    // qDebug() << QString::fromStdString(m_utf8src);
     const GumboVector* errors  = &m_output->errors;
     for (unsigned int i=0; i< errors->length; ++i) {
         GumboError* er = static_cast<GumboError*>(errors->data[i]);
@@ -513,6 +519,7 @@ QList<GumboWellFormedError> GumboInterface::error_check()
         gumbo_error_to_string(er, &text);
         std::string errmsg(text.data, text.length);
         gperror.message = QString::fromStdString(errmsg);
+        // qDebug() << gperror.message;
         gumbo_string_buffer_destroy(&text);
         errlist.append(gperror);
     }

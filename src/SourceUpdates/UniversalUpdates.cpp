@@ -253,7 +253,7 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         }
         // Even though well formed checks might have already run we need to double check because cleaning might
         // have tried to fix and may have failed or the user may have said to skip cleanning.
-        if (!XhtmlDoc::IsDataWellFormed(source)) {
+        if (!XhtmlDoc::IsDataWellFormed(source, version)) {
             throw QObject::tr(NON_WELL_FORMED_MESSAGE);
         }
 

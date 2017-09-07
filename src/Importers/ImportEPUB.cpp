@@ -153,7 +153,7 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
                 }
             }
             if (ss.cleanOn() & CLEANON_OPEN) {
-              if (!XhtmlDoc::IsDataWellFormed(hresource->GetText())) {
+              if (!XhtmlDoc::IsDataWellFormed(hresource->GetText(),hresource->GetEpubVersion())) {
                     non_well_formed << hresource;
                 }
             }

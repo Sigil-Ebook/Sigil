@@ -261,9 +261,8 @@ QList<QString> XhtmlDoc::GetAllDescendantHrefs(const QString & source)
 }
 
 
-XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &source)
+XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &source, QString version)
 {
-    QString version = "any_version";
     GumboInterface gi = GumboInterface(source, version);
     QList<GumboWellFormedError> results = gi.error_check();
     if (!results.isEmpty()) {
@@ -277,9 +276,9 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &sour
 }
 
 
-bool XhtmlDoc::IsDataWellFormed(const QString &data)
+bool XhtmlDoc::IsDataWellFormed(const QString &data, QString version)
 {
-    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(data);
+  XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(data, version);
     return error.line == -1;
 }
 
