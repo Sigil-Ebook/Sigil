@@ -8,6 +8,7 @@ preSigil-0.9.9
     - fix assertion error in sigil-gumbo when handling extraneous script end tags
     - fix segfault in Split at Cursor when not an html file
     - make sure Add Cover tool properly handles existing manifest cover properties in EPUB3s
+    - Correct error dialog to say "Sigil may need to close."
 
    New Features
     - add SIGIL_DISABLE_CURSOR_BLINK environment variable to disable text cursor to aid Accessibility on OSX

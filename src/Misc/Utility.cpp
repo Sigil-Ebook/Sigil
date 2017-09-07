@@ -533,7 +533,7 @@ void Utility::DisplayExceptionErrorDialog(const QString &error_info)
     message_box.setWindowTitle("Sigil");
     // Spaces are added to the end because otherwise the dialog is too small.
     message_box.setText(QObject::tr("Sigil has encountered a problem.") % "                                                                                                       ");
-    message_box.setInformativeText(QObject::tr("Sigil cannot continue and will now close"));
+    message_box.setInformativeText(QObject::tr("Sigil may need to close."));
     message_box.setStandardButtons(QMessageBox::Close);
     QStringList detailed_text;
     detailed_text << "Error info: "    + error_info
