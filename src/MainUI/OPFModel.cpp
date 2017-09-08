@@ -433,6 +433,7 @@ void OPFModel::InitializeModel()
         } else if (resource->Type() == Resource::ImageResourceType ||
                    resource->Type() == Resource::SVGResourceType
                   ) {
+            item->setDragEnabled(false);
             m_ImagesFolderItem->appendRow(item);
         } else if (resource->Type() == Resource::FontResourceType) {
             item->setDragEnabled(false);
@@ -449,6 +450,7 @@ void OPFModel::InitializeModel()
             item->setDragEnabled(false);
             appendRow(item);
         } else {
+            item->setDragEnabled(false);
             m_MiscFolderItem->appendRow(item);
         }
     }
