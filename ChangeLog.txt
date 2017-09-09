@@ -9,6 +9,7 @@ preSigil-0.9.9
     - fix segfault in Split at Cursor when not an html file
     - make sure Add Cover tool properly handles existing manifest cover properties in EPUB3s
     - Correct error dialog to say "Sigil may need to close."
+    - Prevent Images and Misc items from being dragged to the Text folder in Book Browser (commit 30bb96d)
 
    New Features
     - add SIGIL_DISABLE_CURSOR_BLINK environment variable to disable text cursor to aid Accessibility on OSX
