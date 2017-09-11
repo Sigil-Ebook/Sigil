@@ -51,30 +51,55 @@ QString PerformCSSUpdates::operator()()
     // Now parse the text once looking for keys and replacing them where needed
     QRegularExpression reference(
         "(?:(?:src|background|background-image|list-style|list-style-image|border-image|border-image-source|content)\\s*:|@import)\\s*"
-        "[^;\\}\\(\"']*"
+        "("
+        "[^;\\}]*"
+        ")"
+        "(?:;|\\})");
+
+    QRegularExpression urls(
         "(?:"
         "url\\([\"']?([^\\(\\)\"']*)[\"']?\\)"
         "|"
         "[\"']([^\\(\\)\"']*)[\"']"
-        ")"
-        "[^;\\}]*"
-        "(?:;|\\})");
+        ")");
+
     int start_index = 0;
     QRegularExpressionMatch mo = reference.match(result, start_index);
     do {
-        for (int i = 1; i < reference.captureCount(); ++i) {
+        bool changes_made = false;
+        for (int i = 1; i <= reference.captureCount(); ++i) {
             if (mo.captured(i).trimmed().isEmpty()) {
                 continue;
             }
-            QString apath = Utility::URLDecodePath(mo.captured(i));
-            QString search_key = QDir::cleanPath(origDir + FORWARD_SLASH + apath);
-            QString new_href;
-            if (m_CSSUpdates.contains(search_key)) {
-                new_href = m_CSSUpdates.value(search_key);
-            }
-            if (!new_href.isEmpty()) {
-                new_href = Utility::URLEncodePath(new_href);
-                result.replace(mo.capturedStart(i), mo.capturedLength(i), new_href);
+            // Check the captured property attribute string fragment for multiple urls
+            int frag_start_index = 0;
+            QString fragment = mo.captured(i);
+            QRegularExpressionMatch frag_mo = urls.match(fragment, frag_start_index);
+            do {
+                for (int j = 1; j <= urls.captureCount(); ++j) {
+                    if (frag_mo.captured(j).trimmed().isEmpty()) {
+                        continue;
+                    }
+                    QString apath = Utility::URLDecodePath(frag_mo.captured(j));
+                    QString search_key = QDir::cleanPath(origDir + FORWARD_SLASH + apath);
+                    QString new_href;
+                    if (m_CSSUpdates.contains(search_key)) {
+                        new_href = m_CSSUpdates.value(search_key);
+                    }
+                    if (!new_href.isEmpty()) {
+                        new_href = Utility::URLEncodePath(new_href);
+                        // Replace the old url with the new one
+                        fragment.replace(frag_mo.capturedStart(j), frag_mo.capturedLength(j), new_href);
+                        changes_made = true;
+                    }
+    
+                }
+                frag_start_index += frag_mo.capturedLength();
+                frag_mo = urls.match(fragment, frag_start_index);
+            } while (frag_mo.hasMatch());
+            // Replace the original attribute string fragment with the new one
+            if (changes_made) {
+                result.replace(mo.capturedStart(i), mo.capturedLength(i), fragment);
             }
 
         }
