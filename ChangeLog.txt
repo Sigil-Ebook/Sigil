@@ -17,6 +17,7 @@ preSigil-0.9.9
     - attempt to improve Metadata Editor placeholder text to help beginners
     - Preview Window Title bar will now show height and width of the Preview Window
     - allow users to limit/disable clipboard history saving via General Preferences
+    - convert br tags in header text to linebreaks for toc/ncx/nav generation routines
 
  
 Sigil-0.9.8
