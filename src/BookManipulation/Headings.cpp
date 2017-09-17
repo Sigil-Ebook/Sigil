@@ -111,9 +111,9 @@ QList<Headings::Heading> Headings::GetHeadingListForOneFile(HTMLResource *html_r
         }
 
         if (!heading.title.isEmpty()) {
-            heading.text = heading.title;
+            heading.text = heading.title.simplified();
         } else {
-            heading.text = gi.get_local_text_of_node(node);
+            heading.text = gi.get_local_text_of_node(node).simplified();
         }
         heading.level = QString( QString::fromStdString(gi.get_tag_name(node)).at(1) ).toInt();
         heading.orig_level     = heading.level;
