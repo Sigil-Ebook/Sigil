@@ -612,6 +612,12 @@ QString GumboInterface::get_local_text_of_node(GumboNode* node)
     if (node->type != GUMBO_NODE_ELEMENT) {
         return node_text;
     }
+    // handle br tag as special case element tag with a text value
+    GumboTag tag = node->v.element.tag;
+    if (tag == GUMBO_TAG_BR) {
+        node_text = "\n";
+        return node_text;
+    }
     GumboVector* children = &node->v.element.children;
     for (unsigned int i = 0; i < children->length; ++i) {
         GumboNode* child = static_cast<GumboNode*> (children->data[i]);
