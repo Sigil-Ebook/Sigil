@@ -26,6 +26,7 @@
 #define CLIPBOARDHISTORYSELECTOR_H
 
 #include <QClipboard>
+#include <QMimeData>
 #include <QtWidgets/QDialog>
 
 #include "Misc/SettingsStore.h"
@@ -70,7 +71,7 @@ private slots:
 
 private:
     void SetupClipboardHistoryTable();
-
+    QMimeData *copyMimeData(const QMimeData *mimeReference);
     void ReadSettings();
     void WriteSettings();
 
@@ -80,7 +81,7 @@ private:
     QStringList *m_ClipboardHistoryItems;
     QStringList *m_PreviousClipboardHistoryItems;
 
-    QString m_lastclip;
+    const QMimeData *m_lastclip;
 
     bool m_savedHistory;
     Ui::ClipboardHistorySelector ui;

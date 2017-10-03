@@ -24,6 +24,7 @@
 #include <QtWidgets/QApplication>
 #include <QtGui/QClipboard>
 #include <QtGui/QKeyEvent>
+#include <QMimeData>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidgetItem>
 #include <QTimer>
@@ -164,7 +165,27 @@ void ClipboardHistorySelector::SetupClipboardHistoryTable()
 // See:  https://bugreports.qt.io/browse/QTBUG-44849
 void ClipboardHistorySelector::TakeOwnershipOfClip()
 {
-    QApplication::clipboard()->setText(m_lastclip);
+    QApplication::clipboard()->setMimeData(copyMimeData(m_lastclip), QClipboard::Clipboard);
+}
+
+// This is only needed for Linux
+// See:  https://bugreports.qt.io/browse/QTBUG-44849
+QMimeData *ClipboardHistorySelector::copyMimeData(const QMimeData *mimeReference)
+{
+    QMimeData *mimeCopy = new QMimeData();
+    foreach(QString format, mimeReference->formats()) {
+        // Retrieving data
+        QByteArray data = mimeReference->data(format);
+        // Checking for custom MIME types
+        if(format.startsWith("application/x-qt")) {
+            // Retrieving true format name
+            int indexBegin = format.indexOf('"') + 1;
+            int indexEnd = format.indexOf('"', indexBegin);
+            format = format.mid(indexBegin, indexEnd - indexBegin);
+        }
+        mimeCopy->setData(format, data);
+    }
+    return mimeCopy;
 }
 
 void ClipboardHistorySelector::ClipboardChanged()
@@ -180,8 +201,8 @@ void ClipboardHistorySelector::ClipboardChanged()
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // if there is something on the clipboard make sure we own it
     if (!QApplication::clipboard()->ownsClipboard()) {
-        m_lastclip = text;
-	     QTimer::singleShot(50, this, SLOT(TakeOwnershipOfClip()));
+        m_lastclip = QApplication::clipboard()->mimeData(QClipboard::Clipboard);
+        QTimer::singleShot(50, this, SLOT(TakeOwnershipOfClip()));
     }
 #endif
 
