@@ -1432,7 +1432,7 @@ void FindReplace::ExtendUI()
     ui.cbLookWhere->addItem(tr("All HTML Files"), FindReplace::LookWhere_AllHTMLFiles);
     look_tooltip += "<dt><b>All HTML Files</b><dd>" + tr("Find or replace in all HTML files in Code View.") + "</dd>";
     ui.cbLookWhere->addItem(tr("Selected HTML Files"), FindReplace::LookWhere_SelectedHTMLFiles);
-    look_tooltip += "<dt><b>Selected Files</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser in Code View.") + "</dd>";
+    look_tooltip += "<dt><b>Selected HTML Files</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser in Code View.") + "</dd>";
     look_tooltip += "</dl>";
     look_tooltip += "<p>To restrict search to selected text, use Search&rarr;Mark Selected Text.</p>";
     ui.cbLookWhere->setToolTip(look_tooltip);
