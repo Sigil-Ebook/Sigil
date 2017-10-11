@@ -15,7 +15,7 @@ Links
 * Translations are located at https://www.transifex.com/projects/p/sigil/
 
 * Support forums are located at http://www.mobileread.com/forums
-    Select Sigil form the list of main forums
+    Select Sigil from the list of main forums
 
 * Sigil Plugin Index (hosted by www.mobileread.com) at 
     http://www.mobileread.com/forums/showthread.php?t=247431
@@ -30,11 +30,6 @@ All questions should be directed there.
 
 Issue tracking is intended for discussion around issues with the code. 
 It is also intended for actual bug tracking and for tracking feature requests.
-
-At one point in time issue tracking was disabled because it had become
-unhelpful. The majority of issues where requests or abusive comments related
-to Sigil not running on older OS's whose own manufacturer had declared
-end of life.
 
 Feature requests opened on the issue tracker will be closed if there isn't
 anyone willing to implement the requested feature. Only items being worked
