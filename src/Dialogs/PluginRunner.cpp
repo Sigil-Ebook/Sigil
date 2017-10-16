@@ -751,6 +751,15 @@ bool PluginRunner::deleteFiles(const QStringList &files)
             m_book->GetFolderKeeper()->RemoveResource(resource);
             resource->Delete();
             changes_made = true;
+        } else {
+           // try to remove non-manifested, non-resource files inside book folder
+           // force it to be inside book root for safety
+           QString fullpath = "/" + href;
+           fullpath.replace("/../","/");
+           fullpath = m_bookRoot + fullpath;
+           if (Utility::SDeleteFile(fullpath)) {
+               changes_made = true;
+           }
         }
     }
     if (changes_made) {
