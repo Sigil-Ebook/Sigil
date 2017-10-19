@@ -199,6 +199,7 @@ class Wrapper(object):
             self.metadataxml = op.get_metadataxml()
         self.other = []  # non-manifest file information
         self.id_to_filepath = {}
+        self.book_href_to_filepath = {}
         self.modified = {}
         self.added = []
         self.deleted = []
@@ -217,7 +218,7 @@ class Wrapper(object):
                 id = self.href_to_id.get(href,None)
             if id is None:
                 self.other.append(book_href)
-                self.id_to_filepath[book_href] = filepath
+                self.book_href_to_filepath[book_href] = filepath
             else:
                 self.id_to_filepath[id] = filepath
 
@@ -710,15 +711,17 @@ class Wrapper(object):
     def readotherfile(self, book_href):
         id = unicode_str(book_href)
         id = unquoteurl(id)
-        if id in self.id_to_href:
+        if id is None:
+            raise WrapperException('None is not a valid book href')
+        if id not in self.other and id in self.id_to_href:
             raise WrapperException('Incorrect interface routine - use readfile')
         # handle special case of trying to read the opf after it has been modified
-        if id is not None and id == "OEBPS/content.opf":
+        if id == "OEBPS/content.opf":
             if id in self.modified:
                 return self.build_opf()
-        filepath = self.id_to_filepath.get(id, None)
+        filepath = self.book_href_to_filepath.get(id, None)
         if filepath is None:
-            raise WrapperException('book href does not exist')
+            raise WrapperException('Book href does not exist')
         basedir = self.ebook_root
         if id in self.added or id in self.modified:
             basedir = self.outdir
@@ -739,11 +742,13 @@ class Wrapper(object):
     def writeotherfile(self, book_href, data):
         id = unicode_str(book_href)
         id = unquoteurl(id)
-        if id in self.id_to_href:
+        if id is None:
+            raise WrapperException('None is not a valid book href')
+        if id not in self.other and id in self.id_to_href:
             raise WrapperException('Incorrect interface routine - use writefile')
-        filepath = self.id_to_filepath.get(id, None)
+        filepath = self.book_href_to_filepath.get(id, None)
         if filepath is None:
-            raise WrapperException('book href does not exist')
+            raise WrapperException('Book href does not exist')
         if id in PROTECTED_FILES:
             raise WrapperException('Attempt to modify protected file')
         filepath = os.path.join(self.outdir, filepath)
@@ -759,12 +764,14 @@ class Wrapper(object):
     def addotherfile(self, book_href, data) :
         id = unicode_str(book_href)
         id = unquoteurl(id)
+        if id is None:
+            raise WrapperException('None is not a valid book href')
         if id in self.other:
-            raise WrapperException('book href must be unquie')
+            raise WrapperException('Book href must be unique')
         desired_path = id.replace("/",os.sep)
         filepath = os.path.join(self.outdir,desired_path)
         if unipath.isfile(filepath):
-            raise WrapperException('desired path already exists')
+            raise WrapperException('Desired path already exists')
         base = os.path.dirname(filepath)
         if not unipath.exists(base):
             os.makedirs(pathof(base))
@@ -774,18 +781,18 @@ class Wrapper(object):
             fp.write(data)
         self.other.append(id)
         self.added.append(id)
-        self.id_to_filepath[id] = desired_path
+        self.book_href_to_filepath[id] = desired_path
 
     def deleteotherfile(self, book_href):
         id = unicode_str(book_href)
         id = unquoteurl(id)
         if id is None:
-            raise WrapperException('book href does not exist')
-        filepath = self.id_to_filepath.get(id, None)
+            raise WrapperException('None is not a valid book hrefbook href')
+        if id not in self.other and id in self.id_to_href:
+            raise WrapperException('Incorrect interface routine - use deletefile')
+        filepath = self.book_href_to_filepath.get(id, None)
         if filepath is None:
-            if id in self.id_to_href:
-                raise WrapperException('Incorrect interface routine - use deletefile')
-            raise WrapperException('book href does not exist')
+            raise WrapperException('Book href does not exist')
         if id in PROTECTED_FILES:
             raise WrapperException('attempt to delete protected file')
         add_to_deleted = True
@@ -803,7 +810,7 @@ class Wrapper(object):
                 del self.modified[id]
         if add_to_deleted:
             self.deleted.append(('other', id, book_href))
-        del self.id_to_filepath[id]
+        del self.book_href_to_filepath[id]
 
 
     # utility routine to copy entire ebook to a destination directory
@@ -816,10 +823,18 @@ class Wrapper(object):
         for id in self.id_to_filepath:
             rpath = self.id_to_filepath[id]
             in_manifest = id in self.id_to_mime
-            if in_manifest:
-                data = self.readfile(id)
-            else:
-                data = self.readotherfile(id)
+            data = self.readfile(id)
+            filepath = os.path.join(destdir,rpath)
+            base = os.path.dirname(filepath)
+            if not unipath.exists(base):
+                os.makedirs(base)
+            if isinstance(data,text_type):
+                data = utf8_str(data)
+            with open(pathof(filepath),'wb') as fp:
+                fp.write(data)
+        for id in self.book_href_to_filepath:
+            rpath = self.book_href_to_filepath[id]
+            data = self.readotherfile(id)
             filepath = os.path.join(destdir,rpath)
             base = os.path.dirname(filepath)
             if not unipath.exists(base):
