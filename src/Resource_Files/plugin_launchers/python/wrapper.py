@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20170227
+_launcher_version=20171019
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
@@ -779,10 +779,12 @@ class Wrapper(object):
     def deleteotherfile(self, book_href):
         id = unicode_str(book_href)
         id = unquoteurl(id)
-        if id in self.id_to_href:
-            raise WrapperException('Incorrect interface routine - use deletefile')
-        filepath = self.id_to_filepath.get(id, None)
         if id is None:
+            raise WrapperException('book href does not exist')
+        filepath = self.id_to_filepath.get(id, None)
+        if filepath is None:
+            if id in self.id_to_href:
+                raise WrapperException('Incorrect interface routine - use deletefile')
             raise WrapperException('book href does not exist')
         if id in PROTECTED_FILES:
             raise WrapperException('attempt to delete protected file')

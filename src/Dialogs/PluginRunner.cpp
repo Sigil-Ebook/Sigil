@@ -564,8 +564,10 @@ bool PluginRunner::processResultXML()
                 if (reader.name() == "deleted") {
                     m_filesToDelete.append(fileinfo);
                     if (mime == "application/xhtml+xml") {
-                        m_xhtml_net_change--;
+		        // only count deleting xhtml files that are 
+		        // currently resources (skip unmanifested files)
                         if (m_xhtmlFiles.contains(href)) {
+                            m_xhtml_net_change--;
                             m_xhtmlFiles.remove(href);
                         }
                     }
@@ -729,12 +731,17 @@ bool PluginRunner::deleteFiles(const QStringList &files)
         QString href = fdata[ hrefField ];
         QString id   = fdata[ idField   ];
         QString mime = fdata[ mimeField ];
-        // content.opf and toc.ncx can not be added or deleted
+        // opf and ncx files can not be added or deleted
+	// if they are current resources
         if (mime == "application/oebps-package+xml") {
-            continue;
+	    if (m_hrefToRes.contains(href)) {
+                continue;
+	    }
         }
         if (mime == "application/x-dtbncx+xml") {
-            continue;
+	    if (m_hrefToRes.contains(href)) {
+                continue;
+	    }
         }
         // under epub3 the nav can not be deleted either
         Resource * nav_resource = m_book->GetConstOPF()->GetNavResource();
