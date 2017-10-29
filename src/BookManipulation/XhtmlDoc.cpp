@@ -58,7 +58,7 @@ const QStringList ID_TAGS = QStringList() << BLOCK_LEVEL_TAGS <<
                             "dd" << "dt" << "li" << "tbody" << "td" << "tfoot" <<
                             "th" << "thead" << "tr" << "a" << "abbr" <<
                             "acronym" << "address" << "b" << "big" <<
-                            "caption" << "center" << "cite" << "code" << "font" <<
+                            "caption" << "center" << "cite" << "code" << "em" << "font" <<
                             "label" << "i" << "pre" << "small" << "span" <<
                             "strike" << "strong" << "sub" << "sup" << "u";
 const QStringList ANCHOR_TAGS = QStringList() << "a";
