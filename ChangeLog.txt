@@ -11,6 +11,7 @@ preSigil-0.9.9
     - Correct error dialog to say "Sigil may need to close."
     - Prevent Images and Misc items from being dragged to the Text folder in Book Browser (commit 30bb96d)
     - Fix Linux bug that prevents rich text from other programs being pasted into Book View (issue #320)
+    - Fix bug where index entries inside em tags were ignored during index generation
 
    New Features
     - add SIGIL_DISABLE_CURSOR_BLINK environment variable to disable text cursor to aid Accessibility on OSX
