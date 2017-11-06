@@ -41,9 +41,10 @@ typedef char gumbo_tagset[GUMBO_TAG_LAST];
 #define TAG_SVG(tag) [GUMBO_TAG_##tag] = (1 << GUMBO_NAMESPACE_SVG)
 #define TAG_MATHML(tag) [GUMBO_TAG_##tag] = (1 << GUMBO_NAMESPACE_MATHML)
 
-#define TAGSET_INCLUDES(tagset, namespace, tag) \
-  (tag < GUMBO_TAG_LAST && \
-   tagset[(int)tag] == (1 << (int)namespace))
+#define TAGSET_INCLUDES(tagset, ns, tag) ( \
+   tag < GUMBO_TAG_LAST \
+   && (tagset[(int) tag] & (1 << (int) ns)) \
+)
 
 // selected forward declarations as it is getting hard to find
 // an appropriate order
@@ -1558,13 +1559,23 @@ static bool is_special_node(const GumboNode* node) {
         TAG(NOFRAMES), TAG(NOSCRIPT), TAG(OBJECT), TAG(OL), TAG(P), TAG(PARAM),
         TAG(PLAINTEXT), TAG(PRE), TAG(SCRIPT), TAG(SECTION), TAG(SELECT), TAG(STYLE),
         TAG(SUMMARY), TAG(TABLE), TAG(TBODY), TAG(TD), TAG(TEMPLATE), TAG(TEXTAREA),
-        TAG(TFOOT), TAG(TH), TAG(THEAD), TAG(TITLE), TAG(TR), TAG(UL), TAG(WBR), TAG(XMP),
+        TAG(TFOOT), TAG(TH), TAG(THEAD), TAG(TR), TAG(UL), TAG(WBR), TAG(XMP),
 
         TAG_MATHML(MI), TAG_MATHML(MO), TAG_MATHML(MN), TAG_MATHML(MS),
         TAG_MATHML(MTEXT), TAG_MATHML(ANNOTATION_XML),
 
-        TAG_SVG(FOREIGNOBJECT), TAG_SVG(DESC) });
+        TAG_SVG(FOREIGNOBJECT), TAG_SVG(DESC),
+        // This TagSet needs to include the "title" element in both the
+        // HTML and SVG namespaces. Using both TAG(TITLE) and TAG_SVG(TITLE)
+        // won't work, due to the simplistic way in which the TAG macros are
+        // implemented, so we do it like this instead:
+        [GUMBO_TAG_TITLE] =
+             (1 << GUMBO_NAMESPACE_HTML) |
+             (1 << GUMBO_NAMESPACE_SVG)
+        }
+    );
 }
+
 
 // Implicitly closes currently open elements until it reaches an element with the
 // specified qualified name.  If the elements closed are in the set handled by
