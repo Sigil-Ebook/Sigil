@@ -112,6 +112,12 @@ FlowTab::~FlowTab()
     // No idea how that's possible but this prevents a segfault...
 
     disconnect(this, 0, 0, 0);
+
+    // or at least it used to, as this signal Modified still fires so try an explicit
+    // disconnect
+
+    disconnect(m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+
     m_WellFormedCheckComponent->deleteLater();
 
     if (m_wBookView) {
