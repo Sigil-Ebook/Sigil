@@ -21,6 +21,7 @@ preSigil-0.9.9
     - Preview Window Title bar will now show height and width of the Preview Window
     - allow users to limit/disable clipboard history saving via General Preferences
     - convert br tags in header text to linebreaks for toc/ncx/nav generation routines
+    - support spell checking of words with numbers controlled by Preference settings
 
  
 Sigil-0.9.8

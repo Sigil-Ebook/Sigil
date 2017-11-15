@@ -42,6 +42,7 @@ static QString KEY_RENAME_TEMPLATE = SETTINGS_GROUP + "/" + "rename_template";
 static QString KEY_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "dictionary_name";
 static QString KEY_VIEW_STATE = SETTINGS_GROUP + "/" + "view_state";
 static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
+static QString KEY_SPELL_CHECK_NUMBERS = SETTINGS_GROUP + "/" + "spell_check_numbers";
 static QString KEY_DEFAULT_USER_DICTIONARY = SETTINGS_GROUP + "/" + "user_dictionary_name";
 static QString KEY_ENABLED_USER_DICTIONARIES = SETTINGS_GROUP + "/" + "enabled_user_dictionaries";
 static QString KEY_PLUGIN_USER_MAP = SETTINGS_GROUP + "/" + "plugin_user_map";
@@ -164,6 +165,12 @@ bool SettingsStore::spellCheck()
 {
     clearSettingsGroup();
     return static_cast<bool>(value(KEY_SPELL_CHECK, true).toBool());
+}
+
+bool SettingsStore::spellCheckNumbers()
+{
+    clearSettingsGroup();
+    return static_cast<bool>(value(KEY_SPELL_CHECK_NUMBERS, false).toBool());
 }
 
 QString SettingsStore::defaultUserDictionary()
@@ -401,6 +408,12 @@ void SettingsStore::setSpellCheck(bool enabled)
 {
     clearSettingsGroup();
     setValue(KEY_SPELL_CHECK, enabled);
+}
+
+void SettingsStore::setSpellCheckNumbers(bool enabled)
+{
+    clearSettingsGroup();
+    setValue(KEY_SPELL_CHECK_NUMBERS, enabled);
 }
 
 void SettingsStore::setDefaultUserDictionary(const QString &name)

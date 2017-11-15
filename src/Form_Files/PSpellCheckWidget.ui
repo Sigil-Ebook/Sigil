@@ -68,6 +68,16 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QCheckBox" name="CheckNumbers">
+       <property name="toolTip">
+        <string>Check words with numbers in them.</string>
+       </property>
+       <property name="text">
+        <string>Check Numbers</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>

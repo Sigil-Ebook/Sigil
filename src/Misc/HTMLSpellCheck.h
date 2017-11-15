@@ -74,8 +74,8 @@ public:
 
 private:
 
-    static bool IsBoundary(QChar prev_c, QChar c, QChar next_c, const QString & wordChars);
-
+    static bool IsBoundary(QChar prev_c, QChar c, QChar next_c, const QString & wordChars, bool use_nums);
+    static bool IsValidChar(const QChar & c, bool use_nums);
 };
 
 #endif // HTMLSPELLCHECK_H

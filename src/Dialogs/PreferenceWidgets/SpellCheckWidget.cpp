@@ -83,6 +83,7 @@ PreferencesWidget::ResultAction SpellCheckWidget::saveSettings()
     settings.setDefaultUserDictionary(ui.defaultUserDictionary->text());
     settings.setDictionary(ui.dictionaries->itemData(ui.dictionaries->currentIndex()).toString());
     settings.setSpellCheck(ui.HighlightMisspelled->checkState() == Qt::Checked);
+    settings.setSpellCheckNumbers(ui.CheckNumbers->checkState() == Qt::Checked);
 
     SpellCheck *sc = SpellCheck::instance();
     sc->setDictionary(settings.dictionary(), true);
@@ -403,6 +404,7 @@ void SpellCheckWidget::readSettings()
 
     // Set whether mispelled words are highlighted or not
     ui.HighlightMisspelled->setChecked(settings.spellCheck());
+    ui.CheckNumbers->setChecked(settings.spellCheckNumbers());
 
     m_isDirty = false;
 }
@@ -550,6 +552,11 @@ void SpellCheckWidget::highlightChanged(int state)
     m_isDirty = true;
 }
 
+void SpellCheckWidget::checkNumbersChanged(int state)
+{
+    m_isDirty = true;
+}
+
 void SpellCheckWidget::ItemChanged(QStandardItem *item)
 {
     m_isDirty = true;
@@ -571,6 +578,7 @@ void SpellCheckWidget::connectSignalsToSlots()
     connect(ui.removeAll, SIGNAL(clicked()), this, SLOT(removeAll()));
     connect(ui.dictionaries, SIGNAL(currentIndexChanged(int)), this, SLOT(dictionariesCurrentIndexChanged(int)));
     connect(ui.HighlightMisspelled, SIGNAL(stateChanged(int)), this, SLOT(highlightChanged(int)));
+    connect(ui.CheckNumbers, SIGNAL(stateChanged(int)), this, SLOT(checkNumbersChanged(int)));
 
     QItemSelectionModel *selectionModel = ui.userDictList->selectionModel();
     connect(selectionModel,     SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),

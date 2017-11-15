@@ -25,6 +25,7 @@
 
 #include "Misc/HTMLEncodingResolver.h"
 #include "Misc/Utility.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/HTMLSpellCheck.h"
 #include "sigil_constants.h"
@@ -45,6 +46,8 @@ QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetMisspelledWords(const Q
     bool in_invalid_word = false;
     bool in_entity = false;
     int word_start = 0;
+    SettingsStore ss;
+    bool use_nums = ss.spellCheckNumbers();
     QRegularExpression search(search_regex);
     QList<HTMLSpellCheck::MisspelledWord> misspellings;
     // Make sure text has beginning/end boundary markers for easier parsing
@@ -67,7 +70,7 @@ QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetMisspelledWords(const Q
             QChar prev_c = i > 0 ? text.at(i - 1) : QChar(' ');
             QChar next_c = i < text.count() - 1 ? text.at(i + 1) : QChar(' ');
 
-            if (IsBoundary(prev_c, c, next_c, wordChars)) {
+            if (IsBoundary(prev_c, c, next_c, wordChars, use_nums)) {
                 // If we're in an entity and we hit a boundary and it isn't
                 // part of an entity then this is an invalid entity.
                 if (in_entity && c != QChar(';')) {
@@ -138,9 +141,16 @@ QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetMisspelledWords(const Q
     return misspellings;
 }
 
-bool HTMLSpellCheck::IsBoundary(QChar prev_c, QChar c, QChar next_c, const QString & wordChars)
+bool HTMLSpellCheck::IsValidChar(const QChar & c, bool use_nums)
+{ 
+    if (use_nums) return c.isLetterOrNumber();
+    return c.isLetter();
+}
+
+bool HTMLSpellCheck::IsBoundary(QChar prev_c, QChar c, QChar next_c, const QString & wordChars, bool use_nums)
 {
-    if (c.isLetter()) {
+        
+    if (IsValidChar(c,use_nums) ) {
         return false;
     }
 
@@ -152,12 +162,12 @@ bool HTMLSpellCheck::IsBoundary(QChar prev_c, QChar c, QChar next_c, const QStri
                                   c == '\'' || 
                                   c == QChar(0x2019) ||
                                   (!wordChars.isEmpty() && wordChars.contains(c)));
-
-    if (is_potential_boundary && (!prev_c.isLetter() || !next_c.isLetter())) {
+    // and here too
+    // if (is_potential_boundary && (!prev_c.isLetter() || !next_c.isLetter())) {
+    if (is_potential_boundary && (!IsValidChar(prev_c, use_nums) || !IsValidChar(next_c, use_nums))) {
         return true;
     }
-
-    return !(is_potential_boundary && (prev_c.isLetter() || next_c.isLetter()));
+    return !(is_potential_boundary && (IsValidChar(prev_c, use_nums) || IsValidChar(next_c, use_nums)));
 }
 
 

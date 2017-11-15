@@ -114,6 +114,8 @@ public:
      */
     bool spellCheck();
 
+    bool spellCheckNumbers();
+
     int viewState();
 
     /**
@@ -297,6 +299,8 @@ public slots:
      * @param name The name of the dictionary.
      */
     void setSpellCheck(bool enabled);
+    
+    void setSpellCheckNumbers(bool enabled);
 
     void setViewState(int state);
 
