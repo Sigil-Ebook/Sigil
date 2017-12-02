@@ -198,7 +198,8 @@ def build_ncx(doctitle, mainid, maxlvl, pgcnt, toclist, pagelist):
 # the entry points
 def generateNCX(navdata, navname, doctitle, mainid):
     has_error = False
-    if mainid.startswith("urn:uuid:"): mainid = mainid[9:]
+    # main id must exactly match used in the opf
+    # if mainid.startswith("urn:uuid:"): mainid = mainid[9:]
     # try:
     qp = QuickXHTMLParser()
     toclist, pagelist, landmarks, maxlvl, pgcnt = parse_nav(qp, navdata, navname)
