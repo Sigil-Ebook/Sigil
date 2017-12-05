@@ -819,7 +819,7 @@ elseif (MSVC)
 
     # windeployqt
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND
-	    windeployqt.exe --release --no-webkit2 --no-translations --no-compiler-runtime --dir ${MAIN_PACKAGE_DIR} --libdir ${MAIN_PACKAGE_DIR} ${MAIN_PACKAGE_DIR}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
+	    windeployqt.exe --release --no-webkit2 --no-opengl-sw --no-translations --no-compiler-runtime --dir ${MAIN_PACKAGE_DIR} --libdir ${MAIN_PACKAGE_DIR} ${MAIN_PACKAGE_DIR}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
 
     set( LIBXML2 ${QT_INSTALL_BINS}/libxml2.dll )
     if ( EXISTS ${LIBXML2} )
