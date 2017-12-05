@@ -18,9 +18,10 @@ SPECIAL_HANDLING_TAGS = {
     '?xml'     : ('xmlheader', -1), 
     '!--'      : ('comment', -3),
     '!DOCTYPE' : ('doctype', -1),
+    '?'        : ('pi', -1)
 }
 
-SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment']
+SPECIAL_HANDLING_TYPES = ['xmlheader', 'comment', 'doctype', 'pi']
 
 MAX_TAG_LEN = 20
 
@@ -79,7 +80,7 @@ class SanityCheck(object):
         return (self.has_error, self.errors)
 
     # parses string version of tag to identify its name,
-    # its type 'begin', 'end' or 'single',
+    # its type 'begin', 'end' or 'single', or one of the special handling types
     # plus build a hashtable of its atributes
     def parsetag(self, s):
         if self.has_error:
@@ -96,10 +97,17 @@ class SanityCheck(object):
             p += 1
             while s[p:p+1] == ' ' : p += 1
         b = p
-        # handle comment special case as thre may be no spaces to delimit name begin or end 
+        # handle special case of comment as there may be no spaces to delimit name begin or end 
         if s[b:b+3] == "!--":
             p = b+3
             tname = "!--"
+            ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
+            tattr['special'] = s[p:backstep]
+            return tname, ttype, tattr
+        # handle special case of generic xml processing instruction (pi)
+        if tname != "?xml" and s[b:b+1] == "?":
+            p = b+1
+            tname = "?"
             ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
             tattr['special'] = s[p:backstep]
             return tname, ttype, tattr
@@ -113,7 +121,7 @@ class SanityCheck(object):
         tname=s[b:p].lower()
         if tname == '!doctype':
             tname = '!DOCTYPE'
-        # special cases
+        # other special cases
         if tname in SPECIAL_HANDLING_TAGS:
             ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
             tattr['special'] = s[p:backstep]
@@ -328,7 +336,23 @@ def main():
 <body>
 <p>this&nbsp;is&#160;the&#xa0;<b><i>copyright</i></b> symbol "&copy;"</p>
 <p><!--This_is_a_&<>comment--></p>
+<!--This_is_another_&<>comment-->
 <br></br>
+</html>
+'''
+    samp3 = '''
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+</head>
+<body>
+<p>&nbsp;</p>
+<?dp n="241" folio="241" ?>
+</body>
 </html>
 '''
 
@@ -341,6 +365,12 @@ def main():
     p = SanityCheck(samp2)
     has_error, errlist = p.check()
     print(samp2)
+    print(has_error)
+    print(errlist)
+
+    p = SanityCheck(samp3)
+    has_error, errlist = p.check()
+    print(samp3)
     print(has_error)
     print(errlist)
 
