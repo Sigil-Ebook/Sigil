@@ -248,7 +248,7 @@ void MainWindow::loadPluginsMenu()
     m_pluginMapper->setMapping(ui.actionPlugin4, 3);
     connect(ui.actionPlugin5, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
     m_pluginMapper->setMapping(ui.actionPlugin5, 4);
-    connect(m_pluginMapper, SIGNAL(mapped(int i)), this, SLOT(QuickLaunchPlugin(int i)));
+    connect(m_pluginMapper, SIGNAL(mapped(int)), this, SLOT(QuickLaunchPlugin(int)));
 
     updateToolTipsOnPluginIcons();
 
@@ -323,7 +323,7 @@ void MainWindow::unloadPluginsMenu()
         }
     }
     disconnect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
-    disconnect(m_pluginMapper, SIGNAL(mapped(int i)), this, SLOT(QuickLaunchPlugin(int i)));
+    disconnect(m_pluginMapper, SIGNAL(mapped(int)), this, SLOT(QuickLaunchPlugin(int)));
     m_pluginMapper->removeMappings(ui.actionPlugin1);
     m_pluginMapper->removeMappings(ui.actionPlugin2);
     m_pluginMapper->removeMappings(ui.actionPlugin3);
