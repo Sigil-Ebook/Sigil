@@ -39,15 +39,14 @@ will be left open.
 Linux Build and Install
 =======================
 
-For Linux systems whose software repositories do not provide Qt5.4.0 (or higher), the
-detailed instructions for building/installing Sigil can be found in:
+For newer Linux systems like Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable, you should be able to compile Sigil using repo-provided dependencies. Instructions for doing so can be found in:
 
 > [docs/Building_on_Linux.md](./docs/Building_on_Linux.md) ([or .html](./docs/Building_on_Linux.html))
 
-For newer Linux systems like Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable, you may be able to compile Sigil using almost entirely repo-provided dependencies. Instructions for doing so can be found in:
+For older Linux systems whose software repositories do not provide Qt5.4.0 (or higher), the
+detailed instructions for building/installing Sigil can be found in:
 
-> [docs/Building_on_cutting_edge_Linux.md](./docs/Building_on_cutting_edge_Linux.md) ([or .html](./docs/Building_on_cutting_edge_Linux.html))
-
+> [docs/Building_on_older_Linux.md](./docs/Building_on_older_Linux.md) ([or .html](./docs/Building_on_older_Linux.html))
 
 For Building on Mac OS X
 ========================
