@@ -166,9 +166,13 @@
         <file>plugin_22px_1pips.png</file>
         <file>plugin_22px_2pips.png</file>
         <file>plugin_22px_3pips.png</file>
+        <file>plugin_22px_4pips.png</file>
+        <file>plugin_22px_5pips.png</file>
         <file>plugin_48px_1pips.png</file>
         <file>plugin_48px_2pips.png</file>
         <file>plugin_48px_3pips.png</file>
+        <file>plugin_48px_4pips.png</file>
+        <file>plugin_48px_5pips.png</file>
         <file>process-stop_16px.png</file>
         <file>process-stop_22px.png</file>
         <file>process-stop_48px.png</file>

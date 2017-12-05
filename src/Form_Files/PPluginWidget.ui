@@ -242,8 +242,28 @@
        </property>
       </widget>
      </item>
+     <item row="15" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Assign as Plugin 4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Assign as Plugin 5</string>
+       </property>
+      </widget>
+     </item>
      <item row="14" column="2">
       <widget class="QComboBox" name="comboBox_3"/>
+     </item>
+     <item row="15" column="2">
+      <widget class="QComboBox" name="comboBox_4"/>
+     </item>
+     <item row="16" column="2">
+      <widget class="QComboBox" name="comboBox_5"/>
      </item>
     </layout>
    </item>

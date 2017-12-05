@@ -354,11 +354,9 @@ private slots:
     void ApplicationFocusChanged(QWidget *old, QWidget *now);
 
     /** 
-     *  Quick Launch Plugins
+     *  Quick Launch Plugins via icon button
      */
-    void RunPlugin1();
-    void RunPlugin2();
-    void RunPlugin3();
+    void QuickLaunchPlugin(int i);
 
     /**
      * Some controls (CodeView, BookView and combo boxes in F&R) inherit PasteTarget
@@ -961,6 +959,7 @@ private:
      */
     QSignalMapper *m_headingMapper;
     QSignalMapper *m_casingChangeMapper;
+    QSignalMapper *m_pluginMapper;
 
     /**
      * The Search Manager dialog
@@ -1017,9 +1016,7 @@ private:
     QMenu *m_menuPluginsEdit;
     QMenu *m_menuPluginsValidation;
     QAction *m_actionManagePlugins;
-    QAction *m_actionPlugin1;
-    QAction *m_actionPlugin2;
-    QAction *m_actionPlugin3;
+
     QStringList m_pluginList;
     bool m_SaveCSS;
 

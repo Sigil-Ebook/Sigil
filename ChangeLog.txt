@@ -22,6 +22,7 @@ preSigil-0.9.9
     - allow users to limit/disable clipboard history saving via General Preferences
     - convert br tags in header text to linebreaks for toc/ncx/nav generation routines
     - support spell checking of words with numbers controlled by Preference settings
+    - Add two addition Quick Lauch Icons for Plugins
 
  
 Sigil-0.9.8

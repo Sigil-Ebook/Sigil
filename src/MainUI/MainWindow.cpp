@@ -163,6 +163,7 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_ViewState(MainWindow::ViewState_BookView),
     m_headingMapper(new QSignalMapper(this)),
     m_casingChangeMapper(new QSignalMapper(this)),
+    m_pluginMapper(new QSignalMapper(this)),
     m_SearchEditor(new SearchEditor(this)),
     m_ClipEditor(new ClipEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
@@ -184,9 +185,6 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_menuPluginsOutput(NULL),
     m_menuPluginsEdit(NULL),
     m_menuPluginsValidation(NULL),
-    m_actionPlugin1(NULL),
-    m_actionPlugin2(NULL),
-    m_actionPlugin3(NULL),
     m_pluginList(QStringList()),
     m_SaveCSS(false)
 {
@@ -234,16 +232,23 @@ void MainWindow::loadPluginsMenu()
 
     m_menuPlugins = ui.menuPlugins;
     m_actionManagePlugins = ui.actionManage_Plugins;
-    m_actionPlugin1 = ui.actionPlugin1;
-    m_actionPlugin2 = ui.actionPlugin2;
-    m_actionPlugin3 = ui.actionPlugin3;
     
     unloadPluginsMenu();
 
     connect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
-    connect(m_actionPlugin1, SIGNAL(triggered()), this, SLOT(RunPlugin1()));
-    connect(m_actionPlugin2, SIGNAL(triggered()), this, SLOT(RunPlugin2()));
-    connect(m_actionPlugin3, SIGNAL(triggered()), this, SLOT(RunPlugin3()));
+
+    // Setup up for quick launch of plugins
+    connect(ui.actionPlugin1, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
+    m_pluginMapper->setMapping(ui.actionPlugin1, 0);
+    connect(ui.actionPlugin2, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
+    m_pluginMapper->setMapping(ui.actionPlugin2, 1);
+    connect(ui.actionPlugin3, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
+    m_pluginMapper->setMapping(ui.actionPlugin3, 2);
+    connect(ui.actionPlugin4, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
+    m_pluginMapper->setMapping(ui.actionPlugin4, 3);
+    connect(ui.actionPlugin5, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
+    m_pluginMapper->setMapping(ui.actionPlugin5, 4);
+    connect(m_pluginMapper, SIGNAL(mapped(int i)), this, SLOT(QuickLaunchPlugin(int i)));
 
     updateToolTipsOnPluginIcons();
 
@@ -318,9 +323,12 @@ void MainWindow::unloadPluginsMenu()
         }
     }
     disconnect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
-    disconnect(m_actionPlugin1, SIGNAL(triggered()), this, SLOT(RunPlugin1()));
-    disconnect(m_actionPlugin2, SIGNAL(triggered()), this, SLOT(RunPlugin2()));
-    disconnect(m_actionPlugin3, SIGNAL(triggered()), this, SLOT(RunPlugin3()));
+    disconnect(m_pluginMapper, SIGNAL(mapped(int i)), this, SLOT(QuickLaunchPlugin(int i)));
+    m_pluginMapper->removeMappings(ui.actionPlugin1);
+    m_pluginMapper->removeMappings(ui.actionPlugin2);
+    m_pluginMapper->removeMappings(ui.actionPlugin3);
+    m_pluginMapper->removeMappings(ui.actionPlugin4);
+    m_pluginMapper->removeMappings(ui.actionPlugin5);
 }
 
 void MainWindow::runPlugin(QAction *action)
@@ -1855,38 +1863,12 @@ void MainWindow::ApplicationFocusChanged(QWidget *old, QWidget *now)
     }
 }
 
-void MainWindow::RunPlugin1()
+void MainWindow::QuickLaunchPlugin(int i)
 {
     SettingsStore ss;
     QStringList namemap = ss.pluginMap();
-    if (namemap.count() > 0) {
-        QString pname = namemap.at(0);
-        if (m_pluginList.contains(pname)) {
-            PluginRunner prunner(m_TabManager, this);
-            prunner.exec(pname);
-        }
-    }
-}
-
-void MainWindow::RunPlugin2()
-{
-    SettingsStore ss;
-    QStringList namemap = ss.pluginMap();
-    if (namemap.count() > 1) {
-        QString pname = namemap.at(1);
-        if (m_pluginList.contains(pname)) {
-            PluginRunner prunner(m_TabManager, this);
-            prunner.exec(pname);
-        }
-    }
-}
-
-void MainWindow::RunPlugin3()
-{
-    SettingsStore ss;
-    QStringList namemap = ss.pluginMap();
-    if (namemap.count() > 2) {
-        QString pname = namemap.at(2);
+    if ((i >= 0) && (namemap.count() > i)) {
+        QString pname = namemap.at(i);
         if (m_pluginList.contains(pname)) {
             PluginRunner prunner(m_TabManager, this);
             prunner.exec(pname);
@@ -2755,12 +2737,18 @@ void MainWindow::updateToolTipsOnPluginIcons()
     QString pname1 = tr("RunPlugin1");
     QString pname2 = tr("RunPlugin2");
     QString pname3 = tr("RunPlugin3");
+    QString pname4 = tr("RunPlugin4");
+    QString pname5 = tr("RunPlugin5");
     if (namemap.count() > 0) pname1 = namemap.at(0);
     if (namemap.count() > 1) pname2 = namemap.at(1);
     if (namemap.count() > 2) pname3 = namemap.at(2);
-    m_actionPlugin1->setToolTip(pname1);
-    m_actionPlugin2->setToolTip(pname2);
-    m_actionPlugin3->setToolTip(pname3);
+    if (namemap.count() > 3) pname4 = namemap.at(3);
+    if (namemap.count() > 4) pname5 = namemap.at(4);
+    ui.actionPlugin1->setToolTip(pname1);
+    ui.actionPlugin2->setToolTip(pname2);
+    ui.actionPlugin3->setToolTip(pname3);
+    ui.actionPlugin4->setToolTip(pname4);
+    ui.actionPlugin5->setToolTip(pname5);
 }
 
 void MainWindow::WellFormedCheckEpub()

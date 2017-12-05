@@ -469,6 +469,8 @@
    <addaction name="actionPlugin1"/>
    <addaction name="actionPlugin2"/>
    <addaction name="actionPlugin3"/>
+   <addaction name="actionPlugin4"/>
+   <addaction name="actionPlugin5"/>
   </widget>
   <widget class="QToolBar" name="toolBarHeadings">
    <property name="windowTitle">
@@ -2306,6 +2308,24 @@
    </property>
    <property name="text">
     <string>Run Plugin 3</string>
+   </property>
+  </action>
+  <action name="actionPlugin4">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/plugin_48px_4pips.png</normaloff>:/main/plugin_48px_4pips.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run Plugin 4</string>
+   </property>
+  </action>
+  <action name="actionPlugin5">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/plugin_48px_5pips.png</normaloff>:/main/plugin_48px_5pips.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run Plugin 5</string>
    </property>
   </action>
   <action name="actionMendPrettifyHTML">

@@ -200,7 +200,7 @@ int SettingsStore::cleanOn()
 QStringList SettingsStore::pluginMap()
 {
     clearSettingsGroup();
-    QStringList EmptyMap = QStringList() << "" << "" << "";
+    QStringList EmptyMap = QStringList() << "" << "" << "" << "" << "";
     return value(KEY_PLUGIN_USER_MAP, EmptyMap).toStringList();
 }
 
