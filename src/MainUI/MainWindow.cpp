@@ -4453,6 +4453,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionPlugin1, "MainWindow.Plugins.RunPlugin1");
     sm->registerAction(this, ui.actionPlugin2, "MainWindow.Plugins.RunPlugin2");
     sm->registerAction(this, ui.actionPlugin3, "MainWindow.Plugins.RunPlugin3");
+    sm->registerAction(this, ui.actionPlugin4, "MainWindow.Plugins.RunPlugin4");
+    sm->registerAction(this, ui.actionPlugin5, "MainWindow.Plugins.RunPlugin5");
 
     ExtendIconSizes();
     UpdateClipsUI();
