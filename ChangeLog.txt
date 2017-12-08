@@ -14,6 +14,7 @@ preSigil-0.9.9
     - Fix bug where index entries inside em tags were ignored during index generation
     - Fix bug on Windows in spell checking when smart right single quotes are used for apostrophes
     - Fix bug in simple well-formed check to handle generic xml process instructions
+    - Fix bug in epub3 MetaEditor with title-type and collection-type properties
 
    New Features
     - add SIGIL_DISABLE_CURSOR_BLINK environment variable to disable text cursor to aid Accessibility on OSX

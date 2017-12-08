@@ -295,14 +295,17 @@ void MetaEditor::selectProperty()
         if (code.startsWith("title-type:")) {
             QStringList parts = code.split(':');
             QString content = parts.at(1);
+            code = parts.at(0);
             insertChild(code, content);
         } else if (code.startsWith("collection-type:")) {
             QStringList parts = code.split(':');
             QString content = parts.at(1);
+            code = parts.at(0);
             insertChild(code, content);
         } else if (code.startsWith("dir:")) {
             QStringList parts = code.split(':');
             QString content = parts.at(1);
+            code = parts.at(0);
             insertChild(code, content);
         } else if (code == "source-of") {
             QString content = "pagination";
