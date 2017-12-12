@@ -1233,7 +1233,7 @@ There always has to be at least one.</source>
         <location filename="../../Dialogs/ClipEditor.cpp" line="503"/>
         <source>CSS entries added: %n</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -1817,7 +1817,7 @@ other end to continue searching.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="1253"/>
         <source>Matches found: %n</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -1831,7 +1831,7 @@ other end to continue searching.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="1279"/>
         <source>Replacements made: %n</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -2796,7 +2796,7 @@ Do you want to automatically fix the files?</source>
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Entries added: %n</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message>
