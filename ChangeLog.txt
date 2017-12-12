@@ -1,30 +1,36 @@
-preSigil-0.9.9
+Sigil-0.9.9
    Bug Fixes
-    - add python_3.5_fixes3.patch to Python build and update build docs on OSX to fix missing symbols
-    - fix crash caused by Preview holding pointer to user removed resource when front tab is non-html resource
-    - fix issue with file icons disappearing when reordering in Book Browser (commit ecb56b1f)
-    - fix missing epub3 Manifest cover-image property setting/unsetting with BookBrowser
-    - fix issue where cancelling the SaveAs dialog disconnected an existing epub from its saved path
-    - fix assertion error in sigil-gumbo when handling extraneous script end tags
-    - fix segfault in Split at Cursor when not an html file
-    - make sure Add Cover tool properly handles existing manifest cover properties in EPUB3s
+    - Add python_3.5_fixes3.patch to Python build and update build docs on OSX to fix missing symbols
+    - Fix crash caused by Preview holding pointer to user removed resource when front tab is non-html resource
+    - Fix crash in FlowTab destructor due to re-entering flowtab during Syntax Highlighting and signals
+    - Fix issue with file icons disappearing when reordering in Book Browser (commit ecb56b1f)
+    - Fix missing epub3 Manifest cover-image property setting/unsetting with BookBrowser
+    - Fix issue where cancelling the SaveAs dialog disconnected an existing epub from its saved path
+    - Fix assertion error in sigil-gumbo when handling extraneous script end tags
+    - Apply multiple fixes for gumbo from upstream
+    - Fix segfault in Split at Cursor when not an html file
+    - Make sure Add Cover tool properly handles existing manifest cover properties in EPUB3s
     - Correct error dialog to say "Sigil may need to close."
     - Prevent Images and Misc items from being dragged to the Text folder in Book Browser (commit 30bb96d)
     - Fix Linux bug that prevents rich text from other programs being pasted into Book View (issue #320)
-    - Fix bug where index entries inside em tags were ignored during index generation
+    - Fix bug where index entries inside em and dfn tags were ignored during index generation
     - Fix bug on Windows in spell checking when smart right single quotes are used for apostrophes
-    - Fix bug in simple well-formed check to handle generic xml process instructions
+    - Fix bug in simple well-formed check to handle generic xml processing instructions
     - Fix bug in epub3 MetaEditor with title-type and collection-type properties
+    - Fix plugin code to prevent book href vs manifest id clashes
+    - Fix bug in Plugin Runner to allow it to delete non-manifested files properly
+    - Fix bug in SourceUpdates to handle properly handle css properties with multiple urls
+    - Fix bugs in well-formed check to better handle missing doctypes
 
    New Features
-    - add SIGIL_DISABLE_CURSOR_BLINK environment variable to disable text cursor to aid Accessibility on OSX
-    - better use semantic information (guide types and Landmarks) to allow the user finer control of index generation
-    - attempt to improve Metadata Editor placeholder text to help beginners
+    - Add SIGIL_DISABLE_CURSOR_BLINK environment variable to disable text cursor to aid Accessibility on OSX
+    - Better use semantic information (guide types and Landmarks) to allow the user finer control of index generation
+    - Attempt to improve Metadata Editor placeholder text to help beginners
     - Preview Window Title bar will now show height and width of the Preview Window
-    - allow users to limit/disable clipboard history saving via General Preferences
-    - convert br tags in header text to linebreaks for toc/ncx/nav generation routines
-    - support spell checking of words with numbers controlled by Preference settings
-    - Add two addition Quick Lauch Icons for Plugins
+    - Allow users to limit/disable clipboard history saving via General Preferences
+    - Convert br tags in header text to linebreaks for toc/ncx/nav generation routines
+    - Support spell checking of words with numbers controlled by Preference settings
+    - Add two additional Quick Lauch Icons for Plugins
 
  
 Sigil-0.9.8
