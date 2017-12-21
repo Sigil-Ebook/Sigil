@@ -158,7 +158,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="73"/>
         <source>Properties</source>
-        <translation type="unfinished"/>
+        <translation>Својства</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="142"/>
@@ -173,7 +173,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="268"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="268"/>
@@ -216,7 +216,7 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="24"/>
         <source>Fonts / Colors</source>
-        <translation type="unfinished"/>
+        <translation>Фонтови / Боје</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="30"/>
@@ -226,7 +226,7 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="39"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation>Ако CSS за вашу страну не наводи фонт, овај фонт ће да се користи за приказ унутар програма Sigil. Ови фонтови неће бити коришћени у вашим стварним е-књигама.</translation>
+        <translation>Ако CSS за вашу страну не наводи фонт, овај фонт ће да се користи за приказ унутар програма Сигил. Ови фонтови неће бити коришћени у вашим стварним е-књигама.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="59"/>
@@ -328,17 +328,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="388"/>
         <source>Menus</source>
-        <translation type="unfinished"/>
+        <translation>Менији</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="394"/>
         <source>Main Menu Icon Size</source>
-        <translation type="unfinished"/>
+        <translation>Величина иконе главног менија</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="400"/>
         <source>Adjust the size of the icons in the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>Подеси величину икона у главном менију</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="476"/>
@@ -469,7 +469,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="60"/>
         <source>Book Browser</source>
-        <translation>Читач књиге</translation>
+        <translation>Прегледач књиге</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
@@ -501,7 +501,7 @@ if a sans-serif font-family specified in your CSS</source>
         <location filename="../../MainUI/BookBrowser.cpp" line="789"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="989"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
@@ -576,7 +576,7 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="704"/>
         <source>File(s) added.</source>
-        <translation>Фајл(ови) додат.</translation>
+        <translation>Фајл(ови) додат(о).</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="739"/>
@@ -719,7 +719,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
         <source>Add Semantics...</source>
-        <translation>Add Semantics...</translation>
+        <translation>Додај семантику...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1410"/>
@@ -912,7 +912,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
@@ -930,7 +930,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="99"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation>Sigil ће послати податке из ваших описа стилова &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C сервису за проверу исправности&lt;/a&gt;.</translation>
+        <translation>Сигил ће послати податке из ваших описа стилова &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C сервису за проверу исправности&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="100"/>
@@ -1003,7 +1003,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
@@ -1076,7 +1076,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
@@ -1225,7 +1225,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="336"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="336"/>
@@ -1315,7 +1315,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="736"/>
         <source>Sigil: Clip Editor</source>
-        <translation>Sigil: Едитор шаблона</translation>
+        <translation>Сигил: Едитор шаблона</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="737"/>
@@ -1356,14 +1356,14 @@ Do you want to save your changes?</source>
         <translation>Скорашњи клипборди:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="311"/>
+        <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="338"/>
         <source>Paste</source>
         <translation>Налепи</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="313"/>
+        <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="340"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Сачувај</translation>
     </message>
 </context>
 <context>
@@ -1389,7 +1389,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="418"/>
         <source>Cannot insert closing tag at this position.</source>
-        <translation>На ово место не може да се уметне завршна ознака.</translation>
+        <translation>На ово место не може да се уметне затварајућа ознака.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="427"/>
@@ -1494,7 +1494,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1552"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
-        <translation>Морате да се налазите унутар отварајуће HTML ознацке како бисте користили ову могућност.</translation>
+        <translation>Морате да се налазите унутар отварајуће HTML ознаке како бисте користили ову могућност.</translation>
     </message>
 </context>
 <context>
@@ -1689,7 +1689,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="20"/>
         <source>Find &amp; Replace</source>
-        <translation>Пронађи &amp; Замени</translation>
+        <translation>Пронађи и Замени</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="55"/>
@@ -1787,24 +1787,26 @@ then find the Next match in Code View.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="319"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
-        <translation type="unfinished"/>
+        <translation>Код претраживања регуларним изразом, токенизује/ескејпује избор када се отвори Пронађи</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="325"/>
         <source>Auto-Tokenise</source>
-        <translation type="unfinished"/>
+        <translation>Ауто токенизуј</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="332"/>
         <source>Search from current position to end of the 
 current file or book, and then wrap to the
 other end to continue searching.</source>
-        <translation type="unfinished"/>
+        <translation>Претражи почевши од тренутне позиције до краја
+текућег фајла или књиге, и онда се врати на 
+почетак и настави претрагу.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="337"/>
         <source>Wrap</source>
-        <translation type="unfinished"/>
+        <translation>Обухвати све</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="371"/>
@@ -1837,7 +1839,7 @@ other end to continue searching.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="417"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1277"/>
         <source>No replacements made</source>
-        <translation type="unfinished"/>
+        <translation>Ништа није замењено</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="419"/>
@@ -1858,7 +1860,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1167"/>
         <source>Unnamed search loaded</source>
-        <translation type="unfinished"/>
+        <translation>Неименована претрага је учитана</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1170"/>
@@ -1872,12 +1874,12 @@ other end to continue searching.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="1237"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1263"/>
         <source>No searches selected</source>
-        <translation type="unfinished"/>
+        <translation>Није изабрана ниједна претрага</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1420"/>
         <source>What to search for</source>
-        <translation type="unfinished"/>
+        <translation>Шта да се тражи</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1421"/>
@@ -1887,7 +1889,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1422"/>
         <source>Case in-sensitive search of exactly what you type.</source>
-        <translation type="unfinished"/>
+        <translation>Претрага тачно онога што напишете, не водећи рачуна о малим/великим словима.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
@@ -1897,17 +1899,17 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1424"/>
         <source>Case sensitive search of exactly what you type.</source>
-        <translation type="unfinished"/>
+        <translation>Претрага тачно онога што напишете, водећи рачуна о малим/великим словима.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Regex</source>
-        <translation type="unfinished"/>
+        <translation>Регуларни израз</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
-        <translation type="unfinished"/>
+        <translation>Тражи шаблон користећи синтаксу регуларних израза</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1429"/>
@@ -1918,7 +1920,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1431"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
-        <translation type="unfinished"/>
+        <translation>Ограничи претрагу или замену на отворени фајл. Држите притиснут Ctrl тастер док кликћете на било које дугме запретрагу како бисте привремено ограничили претрагу на текући фајл.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1432"/>
@@ -1932,13 +1934,13 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
-        <source>Selected Files</source>
-        <translation>Одабрани фајлови</translation>
+        <source>Selected HTML Files</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1435"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Ограничи претрагу и замену на HTML фајлове изабране у Прегледачу књиге у Приказу кода.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1442"/>
@@ -1948,7 +1950,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1443"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
-        <translation type="unfinished"/>
+        <translation>Ограничи претрагу или замену на текст који је обележила функција Претражи&amp;rarr;Означи изабрани текст. Уклониће се ако користите функцију Опозови, унесете текст или промените погледе или картице.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1447"/>
@@ -1968,12 +1970,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1451"/>
         <source>Search for the previous match from your current position.</source>
-        <translation type="unfinished"/>
+        <translation>Тражи прво подударање испред ваше тренутне позиције.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
         <source>Search for the next match from your current position.</source>
-        <translation type="unfinished"/>
+        <translation>Тражи прво подударање испод ваше тренутне позиције.</translation>
     </message>
 </context>
 <context>
@@ -1981,7 +1983,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="58"/>
         <source>Tokenise Selection</source>
-        <translation type="unfinished"/>
+        <translation>Токенизуј избор.</translation>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="71"/>
@@ -1992,7 +1994,7 @@ other end to continue searching.</source>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1146"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="1153"/>
         <source>Print %1</source>
         <translation>Штампај %1</translation>
     </message>
@@ -2002,183 +2004,196 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="14"/>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Општа подешавања</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="20"/>
         <source>Choose which version of Epub to use
 when creating new or empty Epubs in Sigil.</source>
-        <translation type="unfinished"/>
+        <translation>Изаберите која Epub верзија ће да се користи
+када се креира нов или празан Epub у Сигилу.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="24"/>
         <source>Create New or Empty Epubs as:</source>
-        <translation type="unfinished"/>
+        <translation>Креирај нове или празне Epube као:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="30"/>
         <source>Epub Version 2.</source>
-        <translation type="unfinished"/>
+        <translation>Epub Верзија 2.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="33"/>
         <source>Version 2</source>
-        <translation type="unfinished"/>
+        <translation>Верзија 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="43"/>
         <source>Epub Version 3.</source>
-        <translation type="unfinished"/>
+        <translation>Epub Верзија 3.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="46"/>
         <source>Version 3</source>
-        <translation type="unfinished"/>
+        <translation>Верзија 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="59"/>
         <source>Choose when your HTML code is automatically 
 mended.</source>
-        <translation type="unfinished"/>
+        <translation>Изаберите када се ваш HTML код аутоматски
+поправља.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="63"/>
         <source>Mend XHTML Source Code On:</source>
-        <translation type="unfinished"/>
+        <translation>Поправи XHTML код приликом:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="69"/>
         <source>Mend when opening an Epub or HTML file, 
 and when switching from Book View to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Поправи приликом отварања Epuba или HTML фајла,
+и када се прелази између Погледа књиге и Погледа кода. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="73"/>
         <source>Open</source>
-        <translation type="unfinished"/>
+        <translation>Отварања</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="80"/>
         <source>Mend when saving an Epub.</source>
-        <translation type="unfinished"/>
+        <translation>Поправи приликом чувања Epuba.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="83"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Чувања</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="93"/>
         <source>Determine if Epubs are allowed to access non-multimedia remote resources.</source>
-        <translation type="unfinished"/>
+        <translation>Одредите да ли је Epub-има дозвољено да приступају не-мултимедијалним удаљеним ресурсима.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="96"/>
         <source> Control Access by Epubs to non-multimedia remote resources.</source>
-        <translation type="unfinished"/>
+        <translation>Контрола приступа Epub-има не-мултимедијалним удаљеним ресурсима.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="105"/>
         <source>Check to allow Epubs to access non-multimedia remote resources.</source>
-        <translation type="unfinished"/>
+        <translation>Штиклирајте како бисте Epub-има дозволили приступ не-мултимедијалним удаљеним ресурсима.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="108"/>
         <source>Epubs may access all remote resources types.</source>
-        <translation type="unfinished"/>
+        <translation>Epub-и могу да приступе свим типовима удаљених ресурса.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="127"/>
         <source>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</source>
-        <translation type="unfinished"/>
+        <translation>Који CSS ниво да се наведе W3C алату за валидацију описа стилова (EPUB2)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="130"/>
         <source>EPUB2 W3C Stylesheet Validation Level:</source>
-        <translation type="unfinished"/>
+        <translation>Ниво EPUB2 W3C валидације описа стилова:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="139"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB2</source>
-        <translation type="unfinished"/>
+        <translation>W3C валидатор описа стилова ће да користи CSS ниво 2 за EPUB2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="142"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="199"/>
         <source>CSS Level 2</source>
-        <translation type="unfinished"/>
+        <translation>CSS ниво 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="149"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB2</source>
-        <translation type="unfinished"/>
+        <translation>W3C валидатор описа стилова ће да користи CSS ниво 2.1 за EPUB2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="152"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="209"/>
         <source>CSS Level 2.1</source>
-        <translation type="unfinished"/>
+        <translation>CSS ниво 2.1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="162"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB2</source>
-        <translation type="unfinished"/>
+        <translation>W3C валидатор описа стилова ће да користи CSS ниво 3 за EPUB2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="165"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="222"/>
         <source>CSS Level 3</source>
-        <translation type="unfinished"/>
+        <translation>CSS ниво 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="184"/>
         <source>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</source>
-        <translation type="unfinished"/>
+        <translation>Који CSS ниво да се наведе W3C алату за валидацију описа стилова (EPUB3)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="187"/>
         <source>EPUB3 W3C Stylesheet Validation Level:</source>
-        <translation type="unfinished"/>
+        <translation>Ниво EPUB3 W3C валидације описа стилова:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="196"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB3</source>
-        <translation type="unfinished"/>
+        <translation>W3C валидатор описа стилова ће да користи CSS ниво 2 за EPUB3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="206"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB3</source>
-        <translation type="unfinished"/>
+        <translation>W3C валидатор описа стилова ће да користи CSS ниво 2.1 за EPUB3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="219"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB3</source>
-        <translation type="unfinished"/>
+        <translation>W3C валидатор описа стилова ће да користи CSS ниво 3 за EPUB3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="235"/>
+        <source>Number of clipboard history items to save between sessions (0 disables):</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="247"/>
+        <source>Use to limit (or disable) clipboard history saving between sessions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="279"/>
         <source>Set Folder where temporary files should be created</source>
-        <translation type="unfinished"/>
+        <translation>Подесите фолдер у коме ће бити креирани привремени фајлови</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="246"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="290"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Аутоматски</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="253"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="297"/>
         <source>Browse</source>
-        <translation type="unfinished"/>
+        <translation>Пронађи</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="121"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="132"/>
         <source>Select Folder for Temporary Files</source>
-        <translation type="unfinished"/>
+        <translation>Изаберите фолдер за привремене фајлове</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="136"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="147"/>
         <source>Incorrect Folder for Temporary Files selected</source>
-        <translation type="unfinished"/>
+        <translation>Изабран је неисправан фолдер за привремене фајлове</translation>
     </message>
 </context>
 <context>
@@ -2186,172 +2201,172 @@ and when switching from Book View to Code View.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="110"/>
         <source>Acknowledgements</source>
-        <translation type="unfinished"/>
+        <translation>Признања</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="110"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Пасаж који садржи признања ентитетима укљученим у реализацију дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="111"/>
         <source>Bibliography</source>
-        <translation type="unfinished"/>
+        <translation>Библиографија</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="111"/>
         <source>A list of works cited.</source>
-        <translation type="unfinished"/>
+        <translation>Листа цитираних дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="112"/>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="112"/>
         <source>The start of the main text content of a publication.</source>
-        <translation type="unfinished"/>
+        <translation>Почетак главног текста садржаја публикације</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="113"/>
         <source>Colophon</source>
-        <translation type="unfinished"/>
+        <translation>Колофон</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="113"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
-        <translation type="unfinished"/>
+        <translation>Кратак опис који се обично налази на крају публикацје, описује напомене o изради које се тичу издања.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="114"/>
         <source>Copyright Page</source>
-        <translation type="unfinished"/>
+        <translation>Страна о ауторским правима</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="114"/>
         <source>The copyright page of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Страна о ауторским правима дела </translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="115"/>
         <source>Cover</source>
-        <translation type="unfinished"/>
+        <translation>Корице</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="115"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Корица(е) публикације, информације на омоту, итд. </translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="116"/>
         <source>Dedication</source>
-        <translation type="unfinished"/>
+        <translation>Посвета</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="116"/>
         <source>An inscription addressed to one or several particular person(s).</source>
-        <translation type="unfinished"/>
+        <translation>Натпис упућен једној или више одређених особа</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="117"/>
         <source>Epigraph</source>
-        <translation type="unfinished"/>
+        <translation>Епиграф</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="117"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation type="unfinished"/>
+        <translation>Навод који се тиче текста, али није његов интегрални део.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="118"/>
         <source>Foreword</source>
-        <translation type="unfinished"/>
+        <translation>Уводна реч</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="118"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation type="unfinished"/>
+        <translation>Уводни одељак који претходи делу, обично га није написао сам аутор дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="119"/>
         <source>Glossary</source>
-        <translation type="unfinished"/>
+        <translation>Речник</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="119"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
-        <translation type="unfinished"/>
+        <translation>Азбучна листа израза у одређеном домену знања, са дефиницијама тих израза.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="120"/>
         <source>Index</source>
-        <translation type="unfinished"/>
+        <translation>Индекс</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="120"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
-        <translation type="unfinished"/>
+        <translation>Детаљна листа специфичних информација у публикацији, обично поређана по азбучном реду.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="121"/>
         <source>List of Illustrations</source>
-        <translation type="unfinished"/>
+        <translation>Листа илустрација</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="121"/>
         <source>A listing of illustrations included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Списак илустрација укључених у дело.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="122"/>
         <source>List of Tables</source>
-        <translation type="unfinished"/>
+        <translation>Листа табела</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="122"/>
         <source>A listing of tables included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Списак табела укључених у дело</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="123"/>
         <source>Notes</source>
-        <translation type="unfinished"/>
+        <translation>Белешке</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="123"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Скуп белешки. Може да се користи да идентификује фусноте, белешке на крају, белешке на маргинама, белешке у самом тексту и слично када није пожељно да се користе застареле конвенције именовања. Статус: Застарело - Замењено са: &quot;фусноте&quot;, &quot;белешке на крају&quot;</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="124"/>
         <source>Preface</source>
-        <translation type="unfinished"/>
+        <translation>Предговор</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="124"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation type="unfinished"/>
+        <translation>Уводни одељак који претходи делу, обично га је написао сам аутор дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="125"/>
         <source>Title Page</source>
-        <translation type="unfinished"/>
+        <translation>Насловна страна</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="125"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
-        <translation type="unfinished"/>
+        <translation>Страна на почетку књиге која на којој се наводи њен наслов, аутори, издавач и остале информације о издању. </translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="126"/>
-        <source>Table of Content</source>
-        <translation type="unfinished"/>
+        <source>Table of Contents</source>
+        <translation>Садржај</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="126"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
-        <translation type="unfinished"/>
+        <translation>Садржај, тј. листа наслова или делова књиге или документа, организована у редоследу у којем се појављују. Типично се налази испред главног дела рада, или на почетку одељка.</translation>
     </message>
 </context>
 <context>
@@ -2439,7 +2454,7 @@ and when switching from Book View to Code View.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="337"/>
@@ -2463,7 +2478,8 @@ and when switching from Book View to Code View.</source>
         <location filename="../../Form_Files/HeadingSelector.ui" line="52"/>
         <source>Change the name of the entry in the TOC.
 The heading&apos;s title attribute will be updated in the document.</source>
-        <translation type="unfinished"/>
+        <translation>Мења име ставке у садржају.
+Title атрибут наслова у документу ће бити освежен. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
@@ -2476,20 +2492,25 @@ The heading&apos;s title attribute will be updated in the document.</source>
         <source>Decrease the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
 You can also use the left arrow key.</source>
-        <translation type="unfinished"/>
+        <translation>Умањује ниво наслова изабране ставке за 1.
+Ознака наслова у документу ће бити освежена.
+Можете да користите и тастер леве стрелице.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="96"/>
         <source>Increase the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
 You can also use the right arrow key.</source>
-        <translation type="unfinished"/>
+        <translation>Увећава ниво наслова изабране ставке за 1.
+Ознака наслова у документу ће бити освежена.
+Можете да користите и тастер десне стрелице.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="130"/>
         <source>Only display the items that will be added to the Table Of Contents.
 Check or uncheck an entry to determine if it will be added to the TOC.</source>
-        <translation type="unfinished"/>
+        <translation>Прикажи само ставке које ће бити укључене у садржај.
+Штиклирајте или одштиклирајте ставку како би одредили да ли ће бити укључена у садржај.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="134"/>
@@ -2500,7 +2521,8 @@ Check or uncheck an entry to determine if it will be added to the TOC.</source>
         <location filename="../../Form_Files/HeadingSelector.ui" line="153"/>
         <source>Quickly mark which headings are included in the TOC.
 You can then check or uncheck individual headings in the list above.</source>
-        <translation type="unfinished"/>
+        <translation>Брзо обележи наслове који ће бити укључени у садржај.
+Затим можете да штиклирате или одштиклирате поједине наслове у горњој листи.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
@@ -2521,7 +2543,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="617"/>
         <source>TOC Entry / Heading Title</source>
-        <translation type="unfinished"/>
+        <translation>Ставка садржаја / Наслов</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="619"/>
@@ -2531,12 +2553,12 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="838"/>
         <source>Up to level</source>
-        <translation type="unfinished"/>
+        <translation>Навише до нивоа</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="840"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;Изаберите наслове који улазе у садржај&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="843"/>
@@ -2631,7 +2653,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
@@ -2699,19 +2721,21 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="165"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="166"/>
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in data loss.
 
 Do you want to automatically fix the files?</source>
-        <translation type="unfinished"/>
+        <translation>Ovaj EPUB има HTML фајлове који нису добро обликовани. Сигил може да покуша да аутоматски поправи ове фајлова, мада то може да доведе до губитка података.
+
+Да ли желите да аутоматски поправим ове фајлове?</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="500"/>
         <source>Epub has missing or improperly specified OPF.</source>
-        <translation type="unfinished"/>
+        <translation>Epubu недостаје OPF или је неправилно наведен.</translation>
     </message>
 </context>
 <context>
@@ -2756,7 +2780,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>The pattern to match in your document, e.g. &quot;Gutenberg&quot;. This is a regex pattern so &quot;(?i)Gutenberg&quot; ignores case when matching.</source>
-        <translation type="unfinished"/>
+        <translation>Шаблон који треба да има поклапања у вашем документу, нпр. &quot;Гутенберг&quot;. Ово је шаблон регуларног израза тако да &quot;(?I)Гутенберг&quot; не узима у обзир мала/велика слова приликом подударања.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
@@ -2766,7 +2790,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using &apos;/&apos; after a level name, e.g. &quot;Books/Fantasy/Alice in Wonderland&quot; or &quot;Books/Fantasy/&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Ставка која треба да се креира у Индексу. Оставите празно како би се користио текст онакав какав је, или унесите текст који желите да буде приказан. Користите &apos;/&apos; након имена нивоа да бисте креирали ставке са вишеструким нивоима. Нпр. &quot;Књиге/Фикција/Алиса у Земљи чуда&quot; или &quot;Књиге/Фикција/&quot;.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
@@ -2811,7 +2835,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
@@ -2881,13 +2905,14 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="535"/>
         <source>Sigil: Index Editor</source>
-        <translation>Sigil: Индекс едитор</translation>
+        <translation>Сигил: Едитор индекса</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="536"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
-        <translation type="unfinished"/>
+        <translation>Могуће је да су ставке индекса промењене.
+Да ли желите да сачувате ваше измене?</translation>
     </message>
 </context>
 <context>
@@ -2964,7 +2989,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="141"/>
         <source>Assign this keyboard shortcut, overriding any conflicting usages.</source>
-        <translation type="unfinished"/>
+        <translation>Додели ову пречицу на тастатури, редефинишући могуће конфликтне употребе.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="144"/>
@@ -2992,482 +3017,482 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="117"/>
         <source>Acknowledgments</source>
-        <translation type="unfinished"/>
+        <translation>Признања</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="117"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Пасаж који садржи признања ентитетима укљученим у реализацију дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="118"/>
         <source>Afterword</source>
-        <translation type="unfinished"/>
+        <translation>Поговор</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="118"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation type="unfinished"/>
+        <translation>Завршна изјава аутора или особе од важности за причу, која типично даје увид у то како је прича написана, њену важност, или повезане догађаје који су се догодили од када је почео њен временски ток.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="119"/>
         <source>Annotation</source>
-        <translation type="unfinished"/>
+        <translation>Белешка</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="119"/>
         <source>Explanatory information about passages in the work. Status: Deprecated</source>
-        <translation type="unfinished"/>
+        <translation>Објашњујућа инфорамција о пасажима у делу. Статус: Застарело</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="120"/>
         <source>Appendix</source>
-        <translation type="unfinished"/>
+        <translation>Додатак</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="120"/>
         <source>Supplemental information.</source>
-        <translation type="unfinished"/>
+        <translation>Додатне информације.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="121"/>
         <source>Assessment</source>
-        <translation type="unfinished"/>
+        <translation>Процена</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="121"/>
         <source>A test, quiz, or other activity that helps measure a student&apos;s understanding of what is being taught.</source>
-        <translation type="unfinished"/>
+        <translation>Тест, квиз или нека друга активност која помаже да се оцени учениково разумевање онога што учи.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="122"/>
         <source>Back Matter</source>
-        <translation type="unfinished"/>
+        <translation>Позадинска материја</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="122"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Допунски материјал који се јавља иза главног садржаја публикације, као што су индекси, додаци, итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="123"/>
         <source>Bibliography</source>
-        <translation type="unfinished"/>
+        <translation>Библиографија</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="123"/>
         <source>A list of works cited.</source>
-        <translation type="unfinished"/>
+        <translation>Листа цитираних дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="124"/>
         <source>Body Matter</source>
-        <translation type="unfinished"/>
+        <translation>Главна материја</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="124"/>
         <source>The main content of a publication.</source>
-        <translation type="unfinished"/>
+        <translation>Главни садржај публикације.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="125"/>
         <source>Chapter</source>
-        <translation type="unfinished"/>
+        <translation>Поглавље</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="125"/>
         <source>A major structural division of a piece of writing.</source>
-        <translation type="unfinished"/>
+        <translation>Главна структурална подела писаног дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="126"/>
         <source>Colophon</source>
-        <translation type="unfinished"/>
+        <translation>Колофон</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="126"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
-        <translation type="unfinished"/>
+        <translation>Кратак опис који се обично налази на крају публикацје, описује напомене o изради које се тичу издања.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="127"/>
         <source>Conclusion</source>
-        <translation type="unfinished"/>
+        <translation>Закључак</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="127"/>
         <source>An ending section that typically wraps up the work.</source>
-        <translation type="unfinished"/>
+        <translation>Завршни одељак који типично завршава дело.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="128"/>
         <source>Contributors</source>
-        <translation type="unfinished"/>
+        <translation>Сарадници</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="128"/>
         <source>A list of contributors to the work.</source>
-        <translation type="unfinished"/>
+        <translation>Листа сарадника који су допринели делу.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="129"/>
         <source>Copyright Page</source>
-        <translation type="unfinished"/>
+        <translation>Страна о ауторским правима</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="129"/>
         <source>The copyright page of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Страна о ауторским правима дела </translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="130"/>
         <source>Cover</source>
-        <translation type="unfinished"/>
+        <translation>Корице</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="130"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Насловна(е) страна(е) публикације, информације на омоту, итд. </translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="131"/>
         <source>Dedication</source>
-        <translation type="unfinished"/>
+        <translation>Посвета</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="131"/>
         <source>An inscription addressed to one or several particular person(s).</source>
-        <translation type="unfinished"/>
+        <translation>Натпис упућен једној или више одређених особа</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="132"/>
         <source>Division</source>
-        <translation type="unfinished"/>
+        <translation>Параграф</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="132"/>
         <source>A major structural division that may also appear as a substructure of a part (esp. in legislation).</source>
-        <translation type="unfinished"/>
+        <translation>Главна структурална подела која такође може да се јави и као подструктура једног дела рада (посебно у законодавству).</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="133"/>
         <source>Epigraph</source>
-        <translation type="unfinished"/>
+        <translation>Епиграф</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="133"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation type="unfinished"/>
+        <translation>Навод који се тиче текста, али није његов интегрални део.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="134"/>
         <source>Epilogue</source>
-        <translation type="unfinished"/>
+        <translation>Епилог</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="134"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>Завршни одељак који је типично писан касније него главна прича, иако је и даље део нарације.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="135"/>
         <source>Errata</source>
-        <translation type="unfinished"/>
+        <translation>Ерата</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="135"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Штампарске грешке у публикацији. У штампаном делу, најчешће неувезан лист; понекад и увезана страна која садржи исправке штампарских грешака у делу.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="136"/>
         <source>Footnotes</source>
-        <translation type="unfinished"/>
+        <translation>Фусноте</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="136"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
-        <translation type="unfinished"/>
+        <translation>Колекција белешки која се јавља на дну странице.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="137"/>
         <source>Foreword</source>
-        <translation type="unfinished"/>
+        <translation>Предговор</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="137"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation type="unfinished"/>
+        <translation>Уводни одељак који претходи делу, обично га није написао сам аутор дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="138"/>
         <source>Front Matter</source>
-        <translation type="unfinished"/>
+        <translation>Уводна материја</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="138"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Материјал који претходи главном садржају публикације, као што су садржај, посвете итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="139"/>
         <source>Glossary</source>
-        <translation type="unfinished"/>
+        <translation>Речник</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="139"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
-        <translation type="unfinished"/>
+        <translation>Азбучна листа израза у одређеном домену знања, са дефиницијама тих израза.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="140"/>
         <source>Half Title Page</source>
-        <translation type="unfinished"/>
+        <translation>Полунасловна страна</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="140"/>
         <source>The half title page of the work which carries just the title itself.</source>
-        <translation type="unfinished"/>
+        <translation>Полунасловна страна дела која садржи једино сам наслов.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="141"/>
         <source>Imprimatur</source>
-        <translation type="unfinished"/>
+        <translation>Имприматур</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="141"/>
         <source>A formal statement authorizing the publication of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Формална изјава која ауторизује издање дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="142"/>
         <source>Imprint</source>
-        <translation type="unfinished"/>
+        <translation>Импринт</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="142"/>
         <source>Information relating to the publication or distribution of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Информације које се тичу издавања или дистрибуције дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="143"/>
         <source>Index</source>
-        <translation type="unfinished"/>
+        <translation>Индекс</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="143"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
-        <translation type="unfinished"/>
+        <translation>Детаљна листа специфичних информација у публикацији, обично поређана по азбучном реду.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="144"/>
         <source>Introduction</source>
-        <translation type="unfinished"/>
+        <translation>Увод</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="144"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
-        <translation type="unfinished"/>
+        <translation>Одељак на почетку дела који најчешће уводи читаоца у тему или природу садржаја дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="145"/>
         <source>Landmarks</source>
-        <translation type="unfinished"/>
+        <translation>Оријентири</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="145"/>
         <source>A collection of references to well-known/recurring components within the publication</source>
-        <translation type="unfinished"/>
+        <translation>Колекција референци на општепознате/понављајуће компоненте у публикацији.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="146"/>
         <source>List of Audio Clips</source>
-        <translation type="unfinished"/>
+        <translation>Листа аудио клипова</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="146"/>
         <source>A listing of audio clips included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Списак аудио клипова укључених у дело.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="147"/>
         <source>List of Illustrations</source>
-        <translation type="unfinished"/>
+        <translation>Листа илустрација</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="147"/>
         <source>A listing of illustrations included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Списак илустрација укључених у дело.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="148"/>
         <source>List of Tables</source>
-        <translation type="unfinished"/>
+        <translation>Листа табела</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="148"/>
         <source>A listing of tables included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Списак табела укључених у дело</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="149"/>
         <source>List of Video Clips</source>
-        <translation type="unfinished"/>
+        <translation>Листа видео клипова</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="149"/>
         <source>A listing of video clips included in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Списак видеклипова укључених у дело.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="150"/>
         <source>Notice</source>
-        <translation type="unfinished"/>
+        <translation>Објава</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="150"/>
         <source>Information that requires special attention, and that must not be skipped or suppressed. Examples include: alert, warning, caution, danger, important.</source>
-        <translation type="unfinished"/>
+        <translation>Информација која захтева посебну пажњу и која не сме да се прескочи или скрајне. На пример: опрез, упозорење, узбуна, опасност, важно. </translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="151"/>
         <source>Other Credits</source>
-        <translation type="unfinished"/>
+        <translation>Остале заслуге</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="151"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
-        <translation type="unfinished"/>
+        <translation>Признања претходно објављених делова рада, заслуге за илустрације, и дозволе за навођење материјала заштићеног аутосрким правима.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="152"/>
         <source>Page List</source>
-        <translation type="unfinished"/>
+        <translation>Листа страна</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="152"/>
         <source>A list of references to pagebreaks (start locations) from a print version of the ebook</source>
-        <translation type="unfinished"/>
+        <translation>Листа референци на преломе страна (места почетка) у штампаној верзији е-књиге.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="153"/>
         <source>Part</source>
-        <translation type="unfinished"/>
+        <translation>Део</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="153"/>
         <source>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</source>
-        <translation type="unfinished"/>
+        <translation>Главна структурална подела писаног дела, која обично обухвата скуп повезаних поглавља.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>Preamble</source>
-        <translation type="unfinished"/>
+        <translation>Преамбула</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
-        <translation type="unfinished"/>
+        <translation>Одељак на почетку дела који најчешће садржи уводну и/или објашњујућу прозу која се тиче теме или природе садржаја дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>Preface</source>
-        <translation type="unfinished"/>
+        <translation>Предговор</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation type="unfinished"/>
+        <translation>Уводни одељак који претходи делу, обично га је написао сам аутор дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>Prologue</source>
-        <translation type="unfinished"/>
+        <translation>Пролог</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>Уводни одељак који даје позадину приче, обично је део наратива.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>Questions and Answers</source>
-        <translation type="unfinished"/>
+        <translation>Питања и одговори</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>A question and answer section.</source>
-        <translation type="unfinished"/>
+        <translation>Одељак питања и одговора.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>Rear Notes</source>
-        <translation type="unfinished"/>
+        <translation>Белешке на крају</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
-        <translation type="unfinished"/>
+        <translation>Колекција белешки која се јавља на крају дела (у позадинској материји), или на крају одељка.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>Revision History</source>
-        <translation type="unfinished"/>
+        <translation>Историја ревизија</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>A record of changes made to a work.</source>
-        <translation type="unfinished"/>
+        <translation>Евиденција промена које су урађене на делу.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>Subchapter</source>
-        <translation type="unfinished"/>
+        <translation>Подпоглавље</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>A major sub-division of a chapter.</source>
-        <translation type="unfinished"/>
+        <translation>Главна подподела поглавља.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>Title Page</source>
-        <translation type="unfinished"/>
+        <translation>Насловна страна</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
-        <translation type="unfinished"/>
+        <translation>Страна на почетку књиге која на којој се наводи њен наслов, аутори, издавач и остале информације о издању. </translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>Table of Contents</source>
-        <translation type="unfinished"/>
+        <translation>Садржај</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
-        <translation type="unfinished"/>
+        <translation>Садржај, тј. листа наслова или делова књиге или документа, организована у редоследу у којем се појављују. Типично се налази испред главног дела рада, или на почетку одељка.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>Volume</source>
-        <translation type="unfinished"/>
+        <translation>Том</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>A component of a collection.</source>
-        <translation type="unfinished"/>
+        <translation>Део колекције.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>Warning</source>
-        <translation type="unfinished"/>
+        <translation>Упозорење</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>Упозорење или опрез у вези специфичног материјала. Статус: Превазиђено - Заменити са ’објава’</translation>
     </message>
 </context>
 <context>
@@ -6407,7 +6432,11 @@ Do you want to save your changes?</source>
 If a translation for specific word or phrase is not available it will be displayed in English.
 
 Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</source>
-        <translation type="unfinished"/>
+        <translation>Морате поново да покренете Сигил после промене језика корисничког интерфејса.
+
+Ако превод за поједину реч или фразу није доступан, биће приказан на енглеском.
+
+Користите Подешавања-&gt;Речници за проверу правописа да подесите речник за проверу правописа.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="43"/>
@@ -6437,7 +6466,9 @@ Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</s
         <source>Move the selected stylesheets up in priority.
 
 Stylesheets that are listed first take precedence over later stylesheets.</source>
-        <translation type="unfinished"/>
+        <translation>Померите изабране описе стилова навише по приоритету.
+
+Прво наведени описи стилова имају предност у односу на касније описе стилова.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="48"/>
@@ -6447,7 +6478,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="58"/>
         <source>Move the selected stylesheets down in priority.</source>
-        <translation type="unfinished"/>
+        <translation>Помери изабране описе стилова наниже у приоритету.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="61"/>
@@ -6489,66 +6520,71 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="66"/>
+        <source>Line</source>
+        <translation>Линија</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="67"/>
         <source>ID</source>
         <translation>ID</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="67"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="68"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="68"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="69"/>
         <source>Target File</source>
         <translation>Циљани фајл</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="69"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="70"/>
         <source>Target ID</source>
         <translation>Циљани ИД</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="70"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="71"/>
         <source>Target Exists?</source>
         <translation>Циљ постоји?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="71"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="72"/>
         <source>Target Text</source>
         <translation>Циљани текст</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="72"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="73"/>
         <source>Target&apos;s Target File</source>
         <translation>Циљани фајл</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="73"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="74"/>
         <source>Target&apos;s Target ID</source>
-        <translation type="unfinished"/>
+        <translation>Циљни ИД одредишта.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="74"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="75"/>
         <source>Match?</source>
         <translation>Подударање?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="80"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="81"/>
         <source>Report shows all source and target links using the anchor tag &quot;a&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Извештај приказује све изворне и одредишне везе које користе сидришну ознаку „a”</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="327"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="337"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Сачувај извештај са одвојеним зарезима</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="340"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="350"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="340"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="350"/>
         <source>Cannot save report file.</source>
         <translation>Није могуће сачувати извештај.</translation>
     </message>
@@ -6558,7 +6594,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
         <source>untitled.epub[*] - Sigil</source>
-        <translation>ненасловљено.epub[*] - Sigil</translation>
+        <translation>ненасловљено.epub[*] - Сигил</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="58"/>
@@ -6653,12 +6689,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="317"/>
         <source>Re&amp;format HTML</source>
-        <translation type="unfinished"/>
+        <translation>Пре&amp;обликуј HTML</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="324"/>
         <source>Epub&amp;3 Tools</source>
-        <translation type="unfinished"/>
+        <translation>Epub&amp;3 алати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="349"/>
@@ -6667,13 +6703,13 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="367"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="521"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="533"/>
         <source>File</source>
         <translation>Фајл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="382"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="273"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="282"/>
         <source>Edit</source>
         <translation>Измени</translation>
     </message>
@@ -6703,52 +6739,52 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation>Алати</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="475"/>
+        <location filename="../../Form_Files/main.ui" line="477"/>
         <source>Heading</source>
         <translation>Заглавље</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="493"/>
+        <location filename="../../Form_Files/main.ui" line="495"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="510"/>
+        <location filename="../../Form_Files/main.ui" line="512"/>
         <source>Align</source>
         <translation>Положај</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="525"/>
+        <location filename="../../Form_Files/main.ui" line="527"/>
         <source>List</source>
         <translation>Листа</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="538"/>
+        <location filename="../../Form_Files/main.ui" line="540"/>
         <source>Indent</source>
         <translation>Увлачење</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="551"/>
+        <location filename="../../Form_Files/main.ui" line="553"/>
         <source>Change Case</source>
         <translation>Измени слова</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="566"/>
+        <location filename="../../Form_Files/main.ui" line="568"/>
         <source>Text Direction</source>
-        <translation type="unfinished"/>
+        <translation>Смер текста</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="580"/>
+        <location filename="../../Form_Files/main.ui" line="582"/>
         <source>Clip Bar</source>
         <translation>Трака за шаблоне</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="615"/>
+        <location filename="../../Form_Files/main.ui" line="617"/>
         <source>&amp;New</source>
         <translation>&amp;Ново</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="618"/>
+        <location filename="../../Form_Files/main.ui" line="620"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
@@ -6757,17 +6793,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Креирај нову књигу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="623"/>
+        <location filename="../../Form_Files/main.ui" line="625"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="632"/>
+        <location filename="../../Form_Files/main.ui" line="634"/>
         <source>&amp;Save</source>
         <translation>&amp;Сачувај</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="635"/>
+        <location filename="../../Form_Files/main.ui" line="637"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
@@ -6776,17 +6812,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Сачувај тренутну књигу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="640"/>
+        <location filename="../../Form_Files/main.ui" line="642"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="645"/>
+        <location filename="../../Form_Files/main.ui" line="647"/>
         <source>Save &amp;As...</source>
         <translation>Сачувај &amp;као...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="648"/>
+        <location filename="../../Form_Files/main.ui" line="650"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
@@ -6795,27 +6831,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Сачувај тренутну књигу са различитим именом.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="653"/>
+        <location filename="../../Form_Files/main.ui" line="655"/>
         <source>Ctrl+Shift+S</source>
         <translation>Ctrl+Shift+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="658"/>
+        <location filename="../../Form_Files/main.ui" line="660"/>
         <source>Save A &amp;Copy...</source>
         <translation>Сачува &amp;копију...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="661"/>
+        <location filename="../../Form_Files/main.ui" line="663"/>
         <source>Save a copy of your book to another file name.</source>
         <translation>Сачувај копију књиге у другом имену.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="670"/>
+        <location filename="../../Form_Files/main.ui" line="672"/>
         <source>Cu&amp;t</source>
         <translation>Ис&amp;еци</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="673"/>
+        <location filename="../../Form_Files/main.ui" line="675"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
@@ -6824,12 +6860,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Исеци селектовани текст из документа и стави га у клипборд.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="684"/>
+        <location filename="../../Form_Files/main.ui" line="686"/>
         <source>&amp;Paste</source>
         <translation>&amp;Налепи</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="687"/>
+        <location filename="../../Form_Files/main.ui" line="689"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
@@ -6838,65 +6874,65 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Налепи садржај из клипборда у књигу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="694"/>
+        <location filename="../../Form_Files/main.ui" line="696"/>
         <source>&amp;Closing Tag</source>
         <translation>&amp;Затварајућа ознака</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="697"/>
+        <location filename="../../Form_Files/main.ui" line="699"/>
         <source>Insert a closing tag in Code View.</source>
         <translation>Убаците затварајућу ознаку у Приказ кода</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="700"/>
+        <location filename="../../Form_Files/main.ui" line="702"/>
         <source>Ctrl+.</source>
         <translation>Ctrl+.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="709"/>
+        <location filename="../../Form_Files/main.ui" line="711"/>
         <source>&amp;Undo</source>
-        <translation>&amp;Врати</translation>
+        <translation>&amp;Опозови</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="712"/>
+        <location filename="../../Form_Files/main.ui" line="714"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Врати&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Опозови&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Врати на стање пре претходне операције.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="717"/>
+        <location filename="../../Form_Files/main.ui" line="719"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="726"/>
+        <location filename="../../Form_Files/main.ui" line="728"/>
         <source>&amp;Redo</source>
         <translation>&amp;Претходно</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="729"/>
+        <location filename="../../Form_Files/main.ui" line="731"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Претходно&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Понови&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Поврати измене од претходне  акције Врати.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Понавља измене које је опозвала претходна  акција Опозови.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="734"/>
+        <location filename="../../Form_Files/main.ui" line="736"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="743"/>
+        <location filename="../../Form_Files/main.ui" line="745"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копирај</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="746"/>
+        <location filename="../../Form_Files/main.ui" line="748"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
@@ -6905,12 +6941,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Копирај одабрани текст и стави га у клипборд.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="760"/>
+        <location filename="../../Form_Files/main.ui" line="762"/>
         <source>Align &amp;Left</source>
         <translation>Положај &amp;лево</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="763"/>
+        <location filename="../../Form_Files/main.ui" line="765"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
@@ -6919,12 +6955,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подеси положај лево.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="777"/>
+        <location filename="../../Form_Files/main.ui" line="779"/>
         <source>Align &amp;Right</source>
         <translation>Положај &amp;десно</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="780"/>
+        <location filename="../../Form_Files/main.ui" line="782"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
@@ -6933,12 +6969,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подеси положај десно.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="794"/>
+        <location filename="../../Form_Files/main.ui" line="796"/>
         <source>&amp;Center</source>
         <translation>&amp;Центрирај</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="797"/>
+        <location filename="../../Form_Files/main.ui" line="799"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
@@ -6947,17 +6983,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Центрирај параграф.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="802"/>
+        <location filename="../../Form_Files/main.ui" line="804"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="814"/>
+        <location filename="../../Form_Files/main.ui" line="816"/>
         <source>&amp;Justify</source>
         <translation>&amp;Поравнај обострано</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="817"/>
+        <location filename="../../Form_Files/main.ui" line="819"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
@@ -6966,17 +7002,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подеси положај поравнат на обе стране.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="822"/>
+        <location filename="../../Form_Files/main.ui" line="824"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="834"/>
+        <location filename="../../Form_Files/main.ui" line="836"/>
         <source>&amp;Bold</source>
         <translation>&amp;Подебљано</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="837"/>
+        <location filename="../../Form_Files/main.ui" line="839"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
@@ -6985,17 +7021,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подебљај селектовани текст.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="842"/>
+        <location filename="../../Form_Files/main.ui" line="844"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="854"/>
+        <location filename="../../Form_Files/main.ui" line="856"/>
         <source>&amp;Italic</source>
         <translation>&amp;Искошено</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="857"/>
+        <location filename="../../Form_Files/main.ui" line="859"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
@@ -7004,17 +7040,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Искоси селектовани текст.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="862"/>
+        <location filename="../../Form_Files/main.ui" line="864"/>
         <source>Ctrl+I</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="871"/>
+        <location filename="../../Form_Files/main.ui" line="873"/>
         <source>&amp;Open...</source>
         <translation>&amp;Отвори...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="874"/>
+        <location filename="../../Form_Files/main.ui" line="876"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
@@ -7023,17 +7059,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отвори књигу са диска.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="879"/>
+        <location filename="../../Form_Files/main.ui" line="881"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="891"/>
+        <location filename="../../Form_Files/main.ui" line="893"/>
         <source>&amp;Underline</source>
         <translation>&amp;Подвучено</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="894"/>
+        <location filename="../../Form_Files/main.ui" line="896"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
@@ -7042,42 +7078,42 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подвуци означени текст.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="899"/>
+        <location filename="../../Form_Files/main.ui" line="901"/>
         <source>Ctrl+U</source>
         <translation>Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="908"/>
+        <location filename="../../Form_Files/main.ui" line="910"/>
         <source>&amp;Quit</source>
         <translation>&amp;Напусти</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="911"/>
+        <location filename="../../Form_Files/main.ui" line="913"/>
         <source>Exit</source>
         <translation>Напусти</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="914"/>
+        <location filename="../../Form_Files/main.ui" line="916"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="923"/>
+        <location filename="../../Form_Files/main.ui" line="925"/>
         <source>&amp;About...</source>
         <translation>&amp;О...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="926"/>
+        <location filename="../../Form_Files/main.ui" line="928"/>
         <source>Show information about Sigil.</source>
-        <translation>Прикажи информације о Sigil.</translation>
+        <translation>Прикажи информације о Сигилу.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="931"/>
+        <location filename="../../Form_Files/main.ui" line="933"/>
         <source>Add &amp;Cover...</source>
-        <translation>Додај &amp;омот...</translation>
+        <translation>Додај &amp;корице...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="934"/>
+        <location filename="../../Form_Files/main.ui" line="936"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
@@ -7086,12 +7122,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Додај омот.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="945"/>
+        <location filename="../../Form_Files/main.ui" line="947"/>
         <source>&amp;Metadata Editor...</source>
         <translation>&amp;Едитор метаподатака...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="948"/>
+        <location filename="../../Form_Files/main.ui" line="950"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
@@ -7100,17 +7136,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Измени и прикажи информације о књизи укључујући аутора и наслов.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="953"/>
+        <location filename="../../Form_Files/main.ui" line="955"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="962"/>
+        <location filename="../../Form_Files/main.ui" line="964"/>
         <source>&amp;Generate Table Of Contents...</source>
         <translation>&amp;Генериши садржај...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="965"/>
+        <location filename="../../Form_Files/main.ui" line="967"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
@@ -7119,17 +7155,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Генериши нови садржај из наслова ваше књиге.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="970"/>
+        <location filename="../../Form_Files/main.ui" line="972"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="975"/>
+        <location filename="../../Form_Files/main.ui" line="977"/>
         <source>&amp;Edit Table Of Contents...</source>
         <translation>&amp;Измени садржај...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="978"/>
+        <location filename="../../Form_Files/main.ui" line="980"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
@@ -7138,12 +7174,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Директно измени постојећи садржај.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="992"/>
+        <location filename="../../Form_Files/main.ui" line="994"/>
         <source>&amp;Book View</source>
         <translation>&amp;Приказ књиге</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="995"/>
+        <location filename="../../Form_Files/main.ui" line="997"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
@@ -7152,56 +7188,60 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Измени и прикажи фајлове у вашој књизи да се покажу читаоцима.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1009"/>
+        <location filename="../../Form_Files/main.ui" line="1011"/>
         <source>&amp;Code View</source>
         <translation>&amp;Приказ кода</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1012"/>
+        <location filename="../../Form_Files/main.ui" line="1014"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Приказ кода&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Уређујте и прикажите стварни садржај фајлова у вашој књизи, укључујући кодове обликовања који контролишу како ће уређаји за читање приказати вашу књигу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1019"/>
+        <location filename="../../Form_Files/main.ui" line="1021"/>
         <source>&amp;Toggle View State</source>
         <translation>&amp;Пребаци приказ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1022"/>
+        <location filename="../../Form_Files/main.ui" line="1024"/>
         <source>Toggle Book View to Code View or Code View to Book View</source>
         <translation>Пребаци Приказ књиге у Приказ кода или Приказ кода у Приказ књиге</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1025"/>
+        <location filename="../../Form_Files/main.ui" line="1027"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1034"/>
+        <location filename="../../Form_Files/main.ui" line="1036"/>
         <source>&amp;Split At Cursor</source>
-        <translation>&amp;Додај картицу</translation>
+        <translation>&amp;Раздвој на позицији курсора</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1037"/>
+        <location filename="../../Form_Files/main.ui" line="1039"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Раздвоји на позицији курсора&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Раздваја текући фајл на два фајла користећи позицију вашег курсора као тачку раздвајања.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1042"/>
+        <location filename="../../Form_Files/main.ui" line="1044"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1051"/>
+        <location filename="../../Form_Files/main.ui" line="1053"/>
         <source>&amp;File...</source>
         <translation>&amp;Фајл...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1054"/>
+        <location filename="../../Form_Files/main.ui" line="1056"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
@@ -7214,17 +7254,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Можете додати фајлове у вашу књигу путањом мени Фајл - Додај - Постојећи фајлови.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1061"/>
+        <location filename="../../Form_Files/main.ui" line="1063"/>
         <source>Ctrl+Shift+I</source>
         <translation>Ctrl+Shift+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1070"/>
+        <location filename="../../Form_Files/main.ui" line="1072"/>
         <source>&amp;Special Character...</source>
         <translation>&amp;Посебни карактери...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1073"/>
+        <location filename="../../Form_Files/main.ui" line="1075"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
@@ -7233,36 +7273,40 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Одабери карактере за убацивање у ваш текст.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1084"/>
+        <location filename="../../Form_Files/main.ui" line="1086"/>
         <source>I&amp;D...</source>
         <translation>И&amp;Д...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1087"/>
+        <location filename="../../Form_Files/main.ui" line="1089"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Уметни ИД&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Уметни или уреди са ИД именом које ће се користити као одредиште везе.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1098"/>
+        <location filename="../../Form_Files/main.ui" line="1100"/>
         <source>&amp;Link...</source>
         <translation>&amp;Веза...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1101"/>
+        <location filename="../../Form_Files/main.ui" line="1103"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Уметни везу&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Уметни или уреди сидро са хипервезом на одредиште.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1115"/>
+        <location filename="../../Form_Files/main.ui" line="1117"/>
         <source>&amp;Numbered List</source>
         <translation>&amp;Листа под бројем</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1118"/>
+        <location filename="../../Form_Files/main.ui" line="1120"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
@@ -7271,12 +7315,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Креирајте нумерисану листу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1132"/>
+        <location filename="../../Form_Files/main.ui" line="1134"/>
         <source>Bulle&amp;ted List</source>
         <translation>Лис&amp;та за набрајање</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1135"/>
+        <location filename="../../Form_Files/main.ui" line="1137"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
@@ -7285,17 +7329,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Креирај листу за набрајање.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1140"/>
+        <location filename="../../Form_Files/main.ui" line="1142"/>
         <source>Ctrl+Shift+L</source>
         <translation>Ctrl+Shift+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1152"/>
+        <location filename="../../Form_Files/main.ui" line="1154"/>
         <source>Stri&amp;kethrough</source>
         <translation>Пре&amp;цртано</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1155"/>
+        <location filename="../../Form_Files/main.ui" line="1157"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
@@ -7304,12 +7348,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1169"/>
+        <location filename="../../Form_Files/main.ui" line="1171"/>
         <source>&amp;Subscript</source>
         <translation>&amp;Смањи доле</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1172"/>
+        <location filename="../../Form_Files/main.ui" line="1174"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
@@ -7318,12 +7362,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подеси означени текст смањено на доњу позицију.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1186"/>
+        <location filename="../../Form_Files/main.ui" line="1188"/>
         <source>Su&amp;perscript</source>
         <translation>Сма&amp;њи горе</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1189"/>
+        <location filename="../../Form_Files/main.ui" line="1191"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
@@ -7332,93 +7376,93 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подеси означени текст мањим на горњу позицију.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1200"/>
+        <location filename="../../Form_Files/main.ui" line="1202"/>
         <source>&amp;Print...</source>
         <translation>&amp;Штампај...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1203"/>
+        <location filename="../../Form_Files/main.ui" line="1205"/>
         <source>Print</source>
         <translation>Штампај</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1206"/>
+        <location filename="../../Form_Files/main.ui" line="1208"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1215"/>
+        <location filename="../../Form_Files/main.ui" line="1217"/>
         <source>Print Pre&amp;view...</source>
         <translation>Штампај пре&amp;глед...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1218"/>
+        <location filename="../../Form_Files/main.ui" line="1220"/>
         <source>Print Preview</source>
         <translation>Штампај преглед</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1223"/>
-        <location filename="../../Form_Files/main.ui" line="1226"/>
+        <location filename="../../Form_Files/main.ui" line="1225"/>
+        <location filename="../../Form_Files/main.ui" line="1228"/>
         <source>Close</source>
         <translation>Затвори</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1229"/>
+        <location filename="../../Form_Files/main.ui" line="1231"/>
         <source>Ctrl+Shift+W</source>
         <translation>Ctrl+Shift+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1238"/>
+        <location filename="../../Form_Files/main.ui" line="1240"/>
         <source>Zoom &amp;In</source>
         <translation>Уве&amp;ћај</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1241"/>
+        <location filename="../../Form_Files/main.ui" line="1243"/>
         <source>Zoom In</source>
         <translation>Увећај</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1244"/>
+        <location filename="../../Form_Files/main.ui" line="1246"/>
         <source>Ctrl+=</source>
         <translation>Ctrl+=</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1253"/>
+        <location filename="../../Form_Files/main.ui" line="1255"/>
         <source>Zoom &amp;Out</source>
         <translation>Сма&amp;њи</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1256"/>
+        <location filename="../../Form_Files/main.ui" line="1258"/>
         <source>Zoom Out</source>
         <translation>Смањи</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1259"/>
+        <location filename="../../Form_Files/main.ui" line="1261"/>
         <source>Ctrl+-</source>
         <translation>Ctrl+-</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1264"/>
+        <location filename="../../Form_Files/main.ui" line="1266"/>
         <source>Sho&amp;w Tag</source>
         <translation>При&amp;кажи ознаку</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1267"/>
+        <location filename="../../Form_Files/main.ui" line="1269"/>
         <source>Show the enclosing tag HTML for the cursor position in Book View.</source>
-        <translation type="unfinished"/>
+        <translation>Покажи окружујућу HTML ознаку за позицију курсора у Погледу књиге. </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1270"/>
+        <location filename="../../Form_Files/main.ui" line="1272"/>
         <source>Ctrl+Alt+T</source>
         <translation>Ctrl+Alt+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1279"/>
+        <location filename="../../Form_Files/main.ui" line="1281"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
         <translation>&amp;Пронађи &amp;&amp; Замени...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1282"/>
+        <location filename="../../Form_Files/main.ui" line="1284"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
@@ -7427,17 +7471,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Пронађи и замени текст у документу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1287"/>
+        <location filename="../../Form_Files/main.ui" line="1289"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1296"/>
+        <location filename="../../Form_Files/main.ui" line="1298"/>
         <source>Incre&amp;ase Indent</source>
         <translation>Уву&amp;ци напред</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1299"/>
+        <location filename="../../Form_Files/main.ui" line="1301"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
@@ -7446,17 +7490,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Параграфе помери напред.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1304"/>
+        <location filename="../../Form_Files/main.ui" line="1306"/>
         <source>Ctrl+Alt+M</source>
         <translation>Ctrl+Alt+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1313"/>
+        <location filename="../../Form_Files/main.ui" line="1315"/>
         <source>&amp;Decrease Indent</source>
         <translation>&amp;Увуци назад</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1316"/>
+        <location filename="../../Form_Files/main.ui" line="1318"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
@@ -7465,70 +7509,82 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Параграфе помери назад.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1321"/>
-        <location filename="../../Form_Files/main.ui" line="1732"/>
+        <location filename="../../Form_Files/main.ui" line="1323"/>
+        <location filename="../../Form_Files/main.ui" line="1734"/>
         <source>Ctrl+Shift+M</source>
         <translation>Ctrl+Shift+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1330"/>
+        <location filename="../../Form_Files/main.ui" line="1332"/>
         <source>Te&amp;xt Direction LTR</source>
-        <translation type="unfinished"/>
+        <translation>Сме&amp;р текста ЛУД</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1333"/>
+        <location filename="../../Form_Files/main.ui" line="1335"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction left to right.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Лево-у-Десно&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Поставља смер пасуса са лева у десно.&lt;/p&gt;
+    </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1346"/>
+        <location filename="../../Form_Files/main.ui" line="1348"/>
         <source>T&amp;ext Direction RTL</source>
-        <translation type="unfinished"/>
+        <translation>См&amp;ер текста ДУЛ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1349"/>
+        <location filename="../../Form_Files/main.ui" line="1351"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction right to left.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Десно-у-Лево&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Поставља смер пасуса са десна у лево.&lt;/p&gt;
+    </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1362"/>
+        <location filename="../../Form_Files/main.ui" line="1364"/>
         <source>Text Directi&amp;on Default</source>
-        <translation type="unfinished"/>
+        <translation>Подразуме&amp;вани смер текста</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1365"/>
+        <location filename="../../Form_Files/main.ui" line="1367"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction to inherit from default.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Подразумевано&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подеси смер параграфа тако да наследи подразумевану вредност.&lt;/p&gt;
+    </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1374"/>
+        <location filename="../../Form_Files/main.ui" line="1376"/>
         <source>Remove &amp;Formatting</source>
         <translation>Обриши &amp;форматирање</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1377"/>
+        <location filename="../../Form_Files/main.ui" line="1379"/>
         <source>Ctrl+Space</source>
         <translation>Ctrl+Space</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1386"/>
+        <location filename="../../Form_Files/main.ui" line="1388"/>
         <source>&amp;Lowercase</source>
         <translation>&amp;Мала слова</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1389"/>
+        <location filename="../../Form_Files/main.ui" line="1391"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
@@ -7541,17 +7597,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1396"/>
+        <location filename="../../Form_Files/main.ui" line="1398"/>
         <source>Alt+L</source>
         <translation>Alt+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1405"/>
+        <location filename="../../Form_Files/main.ui" line="1407"/>
         <source>&amp;Uppercase</source>
         <translation>&amp;Велика слова</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1408"/>
+        <location filename="../../Form_Files/main.ui" line="1410"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
@@ -7564,17 +7620,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1415"/>
+        <location filename="../../Form_Files/main.ui" line="1417"/>
         <source>Alt+U</source>
         <translation>Alt+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1424"/>
+        <location filename="../../Form_Files/main.ui" line="1426"/>
         <source>&amp;Titlecase</source>
         <translation>&amp;Почетна слова</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1427"/>
+        <location filename="../../Form_Files/main.ui" line="1429"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
@@ -7587,12 +7643,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1440"/>
+        <location filename="../../Form_Files/main.ui" line="1442"/>
         <source>&amp;Capitalize</source>
         <translation>&amp;Повећање</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1443"/>
+        <location filename="../../Form_Files/main.ui" line="1445"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
@@ -7605,127 +7661,127 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1452"/>
+        <location filename="../../Form_Files/main.ui" line="1454"/>
         <source>Sigil Website...</source>
-        <translation type="unfinished"/>
+        <translation>Сигил вебсајт...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1457"/>
+        <location filename="../../Form_Files/main.ui" line="1459"/>
         <source>&amp;Next Tab</source>
         <translation>&amp;Следећа картица</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1460"/>
+        <location filename="../../Form_Files/main.ui" line="1462"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1465"/>
+        <location filename="../../Form_Files/main.ui" line="1467"/>
         <source>&amp;Previous Tab</source>
         <translation>&amp;Претходна картица</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1468"/>
+        <location filename="../../Form_Files/main.ui" line="1470"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1473"/>
+        <location filename="../../Form_Files/main.ui" line="1475"/>
         <source>&amp;Close Tab</source>
         <translation>&amp;Затвори картицу</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1476"/>
+        <location filename="../../Form_Files/main.ui" line="1478"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1481"/>
+        <location filename="../../Form_Files/main.ui" line="1483"/>
         <source>Split At &amp;Markers</source>
-        <translation>Подели на &amp;маркере</translation>
+        <translation>Раздвоји на &amp;маркерима</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1484"/>
+        <location filename="../../Form_Files/main.ui" line="1486"/>
         <source>Split At Sigil split file markers</source>
-        <translation type="unfinished"/>
+        <translation>Раздвоји на Сигил маркерима за раздвајање фајла</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1487"/>
+        <location filename="../../Form_Files/main.ui" line="1489"/>
         <source>F6</source>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1492"/>
+        <location filename="../../Form_Files/main.ui" line="1494"/>
         <source>Split &amp;Marker</source>
-        <translation>Подели &amp;маркер</translation>
+        <translation>&amp;Маркер за раздвајање фајла</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1495"/>
+        <location filename="../../Form_Files/main.ui" line="1497"/>
         <source>Insert Sigil split file marker</source>
-        <translation type="unfinished"/>
+        <translation>Уметни Сигил маркер за раздвајање фајла</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1498"/>
+        <location filename="../../Form_Files/main.ui" line="1500"/>
         <source>Ctrl+Shift+Return</source>
         <translation>Ctrl+Shift+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1503"/>
+        <location filename="../../Form_Files/main.ui" line="1505"/>
         <source>User &amp;Guide...</source>
         <translation>Корисничко &amp;упутство...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1506"/>
+        <location filename="../../Form_Files/main.ui" line="1508"/>
         <source>User Guide</source>
         <translation>Корисничко упутство</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1509"/>
+        <location filename="../../Form_Files/main.ui" line="1511"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1514"/>
+        <location filename="../../Form_Files/main.ui" line="1516"/>
         <source>&amp;Frequently Asked Questions...</source>
         <translation>&amp;Често постављена питања...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1517"/>
+        <location filename="../../Form_Files/main.ui" line="1519"/>
         <source>Frequently Asked Questions</source>
         <translation>Често постављена питања</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1522"/>
+        <location filename="../../Form_Files/main.ui" line="1524"/>
         <source>&amp;Tutorials...</source>
         <translation>&amp;Упутства...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1525"/>
+        <location filename="../../Form_Files/main.ui" line="1527"/>
         <source>Tutorials</source>
         <translation>Упутства</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1530"/>
+        <location filename="../../Form_Files/main.ui" line="1532"/>
         <source>Well-Formed Check &amp;EPUB</source>
-        <translation type="unfinished"/>
+        <translation>Провера добре обликованости &amp;EPUB</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1533"/>
+        <location filename="../../Form_Files/main.ui" line="1535"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Провера добре обликованости EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Проверава да ли је ваш документ сагласан са минимумом који је потребан да би био успешно рашчлањен. Ово не показује сагласност са релевантним  epub стандардима.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1536"/>
+        <location filename="../../Form_Files/main.ui" line="1538"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1541"/>
+        <location filename="../../Form_Files/main.ui" line="1543"/>
         <source>Validate Stylesheets With &amp;W3C</source>
         <translation>Потврди стилове са &amp;W3C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1544"/>
+        <location filename="../../Form_Files/main.ui" line="1546"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
@@ -7738,12 +7794,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1557"/>
+        <location filename="../../Form_Files/main.ui" line="1559"/>
         <source>&amp;Spellcheck...</source>
         <translation>&amp;Провера правописа...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1560"/>
+        <location filename="../../Form_Files/main.ui" line="1562"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
@@ -7752,533 +7808,533 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Пронађи све неисправне речи и омогући додавање у речник или њихово игнорисање.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1565"/>
+        <location filename="../../Form_Files/main.ui" line="1567"/>
         <source>Alt+Q</source>
         <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1573"/>
+        <location filename="../../Form_Files/main.ui" line="1575"/>
         <source>&amp;Highlight Misspelled Words</source>
         <translation>&amp;Истакнуте неисправне речи</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1576"/>
+        <location filename="../../Form_Files/main.ui" line="1578"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
         <translation>Омогући или онемогући истицање неисправних речи у Приказу кода.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1581"/>
+        <location filename="../../Form_Files/main.ui" line="1583"/>
         <source>&amp;Next Misspelled Word</source>
         <translation>&amp;Следећа неисправна реч</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1584"/>
+        <location filename="../../Form_Files/main.ui" line="1586"/>
         <source>Find the next misspelled word in the book.</source>
         <translation>Пронађи следећу неисправну реч у књизи.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1587"/>
+        <location filename="../../Form_Files/main.ui" line="1589"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1592"/>
+        <location filename="../../Form_Files/main.ui" line="1594"/>
         <source>&amp;Add Misspelled Word</source>
         <translation>&amp;Додај неисправну реч</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1595"/>
+        <location filename="../../Form_Files/main.ui" line="1597"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
         <translation>Додајте тренутно погрешну реч под знак за уметање на подразумевани кориснички речник.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1600"/>
+        <location filename="../../Form_Files/main.ui" line="1602"/>
         <source>&amp;Ignore Misspelled Word</source>
         <translation>&amp;Игнориши неисправну реч</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1603"/>
+        <location filename="../../Form_Files/main.ui" line="1605"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
-        <translation type="unfinished"/>
+        <translation>Игнориши тренутну погрешно написану реч под знаком за уметање све док се Сигил поново не покрене.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1608"/>
+        <location filename="../../Form_Files/main.ui" line="1610"/>
         <source>&amp;Clear Ignored Words</source>
         <translation>&amp;Очисти неисправне речи</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1611"/>
+        <location filename="../../Form_Files/main.ui" line="1613"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
         <translation>Очисти тренутно игорисане речи са провере правописа без поновног покретања програма.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1616"/>
+        <location filename="../../Form_Files/main.ui" line="1618"/>
         <source>&amp;Index Editor...</source>
         <translation>&amp;Едитор индекса...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1619"/>
+        <location filename="../../Form_Files/main.ui" line="1621"/>
         <source>Ctrl+Alt+I</source>
         <translation>Ctrl+Alt+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1624"/>
+        <location filename="../../Form_Files/main.ui" line="1626"/>
         <source>&amp;Delete Unused Media Files...</source>
         <translation>&amp;Уклони некоришћене медија фајлове...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1629"/>
+        <location filename="../../Form_Files/main.ui" line="1631"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
         <translation>Уклони &amp;некоришћене стилове...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1634"/>
+        <location filename="../../Form_Files/main.ui" line="1636"/>
         <source>&amp;Reports...</source>
         <translation>&amp;Извештај...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1637"/>
+        <location filename="../../Form_Files/main.ui" line="1639"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1646"/>
+        <location filename="../../Form_Files/main.ui" line="1648"/>
         <source>&amp;Donate...</source>
         <translation>&amp;Донирајте...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1649"/>
+        <location filename="../../Form_Files/main.ui" line="1651"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
 </source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Донирајте&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Донирајте као подршку за Sigil.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Донирајте као подршку за Сигил.&lt;/p&gt;
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1657"/>
+        <location filename="../../Form_Files/main.ui" line="1659"/>
         <source>Close &amp;Other Tabs</source>
         <translation>Затвори &amp;друге картице</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1660"/>
+        <location filename="../../Form_Files/main.ui" line="1662"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1665"/>
+        <location filename="../../Form_Files/main.ui" line="1667"/>
         <source>Go To &amp;Line...</source>
         <translation>Иди на &amp;линију...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1668"/>
+        <location filename="../../Form_Files/main.ui" line="1670"/>
         <source>Ctrl+/</source>
         <translation>Ctrl+/</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1673"/>
+        <location filename="../../Form_Files/main.ui" line="1675"/>
         <source>Find &amp;Next</source>
         <translation>Пронађи &amp;следеће</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1676"/>
+        <location filename="../../Form_Files/main.ui" line="1678"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1681"/>
+        <location filename="../../Form_Files/main.ui" line="1683"/>
         <source>Find &amp;Previous</source>
         <translation>Пронађи &amp;претходно</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1684"/>
+        <location filename="../../Form_Files/main.ui" line="1686"/>
         <source>Ctrl+Shift+G</source>
         <translation>Ctrl+Shift+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1689"/>
+        <location filename="../../Form_Files/main.ui" line="1691"/>
         <source>Replace</source>
         <translation>Замени</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1692"/>
+        <location filename="../../Form_Files/main.ui" line="1694"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1697"/>
+        <location filename="../../Form_Files/main.ui" line="1699"/>
         <source>&amp;Replace/Find Next</source>
         <translation>&amp;Замени/пронађи следеће</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1700"/>
+        <location filename="../../Form_Files/main.ui" line="1702"/>
         <source>Ctrl+]</source>
         <translation>Ctrl+]</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1705"/>
+        <location filename="../../Form_Files/main.ui" line="1707"/>
         <source>R&amp;eplace/Find Previous</source>
         <translation>З&amp;амени/пронађи претходно</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1708"/>
+        <location filename="../../Form_Files/main.ui" line="1710"/>
         <source>Ctrl+[</source>
         <translation>Ctrl+[</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1713"/>
+        <location filename="../../Form_Files/main.ui" line="1715"/>
         <source>Replace &amp;All</source>
         <translation>Замени &amp;све</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1716"/>
+        <location filename="../../Form_Files/main.ui" line="1718"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1721"/>
+        <location filename="../../Form_Files/main.ui" line="1723"/>
         <source>&amp;Count All</source>
         <translation>&amp;Рачунај све</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1724"/>
+        <location filename="../../Form_Files/main.ui" line="1726"/>
         <source>Alt+C</source>
         <translation>Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1729"/>
+        <location filename="../../Form_Files/main.ui" line="1731"/>
         <source>Mar&amp;k Selected Text</source>
         <translation>Озна&amp;чи селектован текст</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1737"/>
+        <location filename="../../Form_Files/main.ui" line="1739"/>
         <source>Find &amp;Next In File</source>
         <translation>Пронађи &amp;следеће у фајлу</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1742"/>
+        <location filename="../../Form_Files/main.ui" line="1744"/>
         <source>&amp;Replace Next In File</source>
         <translation>&amp;Замени следеће у фајлу</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1747"/>
+        <location filename="../../Form_Files/main.ui" line="1749"/>
         <source>Replace &amp;All In File</source>
         <translation>Замени &amp;све у фајлу</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1752"/>
+        <location filename="../../Form_Files/main.ui" line="1754"/>
         <source>&amp;Count All In File</source>
         <translation>&amp;Рачунај све у фајлу</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1757"/>
+        <location filename="../../Form_Files/main.ui" line="1759"/>
         <source>&amp;Saved Searches...</source>
         <translation>&amp;Сачувана претрага...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1760"/>
+        <location filename="../../Form_Files/main.ui" line="1762"/>
         <source>Ctrl+Alt+F</source>
         <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1765"/>
+        <location filename="../../Form_Files/main.ui" line="1767"/>
         <source>&amp;Clip Editor...</source>
         <translation>&amp;Едитор шаблона...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1768"/>
+        <location filename="../../Form_Files/main.ui" line="1770"/>
         <source>Open the Clip Editor.</source>
         <translation>Отвори едитор шаблона.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1771"/>
+        <location filename="../../Form_Files/main.ui" line="1773"/>
         <source>Ctrl+Alt+C</source>
         <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1776"/>
+        <location filename="../../Form_Files/main.ui" line="1778"/>
         <source>Clip &amp;1</source>
         <translation>Шаблон &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1779"/>
+        <location filename="../../Form_Files/main.ui" line="1781"/>
         <source>Insert Clip 1</source>
         <translation>Убаци шаблон 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1782"/>
+        <location filename="../../Form_Files/main.ui" line="1784"/>
         <source>Ctrl+Alt+1</source>
         <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1787"/>
+        <location filename="../../Form_Files/main.ui" line="1789"/>
         <source>Clip &amp;2</source>
-        <translation type="unfinished"/>
+        <translation>Шаблон 2&amp;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1790"/>
+        <location filename="../../Form_Files/main.ui" line="1792"/>
         <source>Insert Clip 2</source>
         <translation>Убаци шаблон 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1793"/>
+        <location filename="../../Form_Files/main.ui" line="1795"/>
         <source>Ctrl+Alt+2</source>
         <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1798"/>
+        <location filename="../../Form_Files/main.ui" line="1800"/>
         <source>Clip &amp;3</source>
         <translation>Шаблон &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1801"/>
+        <location filename="../../Form_Files/main.ui" line="1803"/>
         <source>Insert Clip 3</source>
         <translation>Убаци шаблон 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1804"/>
+        <location filename="../../Form_Files/main.ui" line="1806"/>
         <source>Ctrl+Alt+3</source>
         <translation>Ctrl+Alt+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1809"/>
+        <location filename="../../Form_Files/main.ui" line="1811"/>
         <source>Clip &amp;4</source>
         <translation>Шаблон &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1812"/>
+        <location filename="../../Form_Files/main.ui" line="1814"/>
         <source>Insert Clip 4</source>
         <translation>Убаци шаблон 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1815"/>
+        <location filename="../../Form_Files/main.ui" line="1817"/>
         <source>Ctrl+Alt+4</source>
         <translation>Ctrl+Alt+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1820"/>
+        <location filename="../../Form_Files/main.ui" line="1822"/>
         <source>Clip &amp;5</source>
         <translation>Шаблон &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1823"/>
+        <location filename="../../Form_Files/main.ui" line="1825"/>
         <source>Insert Clip 5</source>
         <translation>Убаци шаблон 5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1826"/>
+        <location filename="../../Form_Files/main.ui" line="1828"/>
         <source>Ctrl+Alt+5</source>
         <translation>Ctrl+Alt+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1831"/>
+        <location filename="../../Form_Files/main.ui" line="1833"/>
         <source>Clip &amp;6</source>
         <translation>Шаблон &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1834"/>
+        <location filename="../../Form_Files/main.ui" line="1836"/>
         <source>Insert Clip 6</source>
         <translation>Убаци шаблон 6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1837"/>
+        <location filename="../../Form_Files/main.ui" line="1839"/>
         <source>Ctrl+Alt+6</source>
         <translation>Ctrl+Alt+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1842"/>
+        <location filename="../../Form_Files/main.ui" line="1844"/>
         <source>Clip &amp;7</source>
         <translation>Шаблон &amp;7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1845"/>
+        <location filename="../../Form_Files/main.ui" line="1847"/>
         <source>Insert Clip 7</source>
         <translation>Убаци шаблон 7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1848"/>
+        <location filename="../../Form_Files/main.ui" line="1850"/>
         <source>Ctrl+Alt+7</source>
         <translation>Ctrl+Alt+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1853"/>
+        <location filename="../../Form_Files/main.ui" line="1855"/>
         <source>Clip &amp;8</source>
         <translation>Шаблон &amp;8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1856"/>
+        <location filename="../../Form_Files/main.ui" line="1858"/>
         <source>Insert Clip 8</source>
         <translation>Убаци шаблон 8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1859"/>
+        <location filename="../../Form_Files/main.ui" line="1861"/>
         <source>Ctrl+Alt+8</source>
         <translation>Ctrl+Alt+8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1864"/>
+        <location filename="../../Form_Files/main.ui" line="1866"/>
         <source>Clip &amp;9</source>
         <translation>Шаблон &amp;9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1867"/>
+        <location filename="../../Form_Files/main.ui" line="1869"/>
         <source>Insert Clip 9</source>
         <translation>Убаци шаблон 9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1870"/>
+        <location filename="../../Form_Files/main.ui" line="1872"/>
         <source>Ctrl+Alt+9</source>
         <translation>Ctrl+Alt+9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1875"/>
+        <location filename="../../Form_Files/main.ui" line="1877"/>
         <source>Clip 1&amp;0</source>
         <translation>Шаблон 1&amp;0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1878"/>
+        <location filename="../../Form_Files/main.ui" line="1880"/>
         <source>Insert Clip 10</source>
         <translation>Убаци шаблон 10</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1881"/>
+        <location filename="../../Form_Files/main.ui" line="1883"/>
         <source>Ctrl+Alt+0</source>
         <translation>Ctrl+Alt+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1886"/>
+        <location filename="../../Form_Files/main.ui" line="1888"/>
         <source>Clip 11</source>
         <translation>Шаблон 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1889"/>
+        <location filename="../../Form_Files/main.ui" line="1891"/>
         <source>Insert Clip 11</source>
         <translation>Убаци шаблон 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1894"/>
+        <location filename="../../Form_Files/main.ui" line="1896"/>
         <source>Clip 12</source>
         <translation>Шаблон 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1897"/>
+        <location filename="../../Form_Files/main.ui" line="1899"/>
         <source>Insert Clip 12</source>
         <translation>Убаци шаблон 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1902"/>
+        <location filename="../../Form_Files/main.ui" line="1904"/>
         <source>Clip 13</source>
         <translation>Шаблон 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1905"/>
+        <location filename="../../Form_Files/main.ui" line="1907"/>
         <source>Insert Clip 13</source>
         <translation>Убаци шаблон 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1910"/>
+        <location filename="../../Form_Files/main.ui" line="1912"/>
         <source>Clip 14</source>
         <translation>Шаблон 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1913"/>
+        <location filename="../../Form_Files/main.ui" line="1915"/>
         <source>Insert Clip 14</source>
         <translation>Убаци шаблон 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1918"/>
+        <location filename="../../Form_Files/main.ui" line="1920"/>
         <source>Clip 15</source>
         <translation>Шаблон 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1921"/>
+        <location filename="../../Form_Files/main.ui" line="1923"/>
         <source>Insert Clip 15</source>
         <translation>Убаци шаблон 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1926"/>
+        <location filename="../../Form_Files/main.ui" line="1928"/>
         <source>Clip 16</source>
         <translation>Шаблон 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1929"/>
+        <location filename="../../Form_Files/main.ui" line="1931"/>
         <source>Insert Clip 16</source>
         <translation>Убаци шаблон 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1934"/>
+        <location filename="../../Form_Files/main.ui" line="1936"/>
         <source>Clip 17</source>
         <translation>Шаблон 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1937"/>
+        <location filename="../../Form_Files/main.ui" line="1939"/>
         <source>Insert Clip 17</source>
         <translation>Убаци шаблон 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1942"/>
+        <location filename="../../Form_Files/main.ui" line="1944"/>
         <source>Clip 18</source>
         <translation> Шаблон 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1945"/>
+        <location filename="../../Form_Files/main.ui" line="1947"/>
         <source>Insert Clip 18</source>
         <translation>Убаци шаблон 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1950"/>
+        <location filename="../../Form_Files/main.ui" line="1952"/>
         <source>Clip 19</source>
         <translation> Шаблон 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1953"/>
+        <location filename="../../Form_Files/main.ui" line="1955"/>
         <source>Insert Clip 19</source>
         <translation>Убаци шаблон 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1958"/>
+        <location filename="../../Form_Files/main.ui" line="1960"/>
         <source>Clip 20</source>
         <translation>Шаблон 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1961"/>
+        <location filename="../../Form_Files/main.ui" line="1963"/>
         <source>Insert Clip 20</source>
         <translation>Убаци шаблон 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1966"/>
+        <location filename="../../Form_Files/main.ui" line="1968"/>
         <source>&amp;Preferences...</source>
         <translation>&amp;Подешавања...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1969"/>
+        <location filename="../../Form_Files/main.ui" line="1971"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1974"/>
+        <location filename="../../Form_Files/main.ui" line="1976"/>
         <source>&amp;Zoom Reset</source>
         <translation>&amp;Поврати увећање</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1977"/>
+        <location filename="../../Form_Files/main.ui" line="1979"/>
         <source>Zoom Reset</source>
         <translation>Поврати увећање</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1980"/>
+        <location filename="../../Form_Files/main.ui" line="1982"/>
         <source>Ctrl+0</source>
         <translation>Ctrl+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1992"/>
+        <location filename="../../Form_Files/main.ui" line="1994"/>
         <source>Heading &amp;1</source>
         <translation>Наслов &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1995"/>
+        <location filename="../../Form_Files/main.ui" line="1997"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
@@ -8287,17 +8343,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматирај текст као наслов нивоа 1.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2000"/>
+        <location filename="../../Form_Files/main.ui" line="2002"/>
         <source>Ctrl+1</source>
         <translation>Ctrl+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2012"/>
+        <location filename="../../Form_Files/main.ui" line="2014"/>
         <source>Heading &amp;2</source>
         <translation>Наслов &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2015"/>
+        <location filename="../../Form_Files/main.ui" line="2017"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
@@ -8306,17 +8362,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматирај текст као наслов нивоа 2.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2020"/>
+        <location filename="../../Form_Files/main.ui" line="2022"/>
         <source>Ctrl+2</source>
         <translation>Ctrl+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2032"/>
+        <location filename="../../Form_Files/main.ui" line="2034"/>
         <source>Heading &amp;3</source>
         <translation>Наслов &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2035"/>
+        <location filename="../../Form_Files/main.ui" line="2037"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
@@ -8325,17 +8381,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматирај текст као наслов нивоа 3.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2040"/>
+        <location filename="../../Form_Files/main.ui" line="2042"/>
         <source>Ctrl+3</source>
         <translation>Ctrl+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2052"/>
+        <location filename="../../Form_Files/main.ui" line="2054"/>
         <source>Heading &amp;4</source>
         <translation>Наслов &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2055"/>
+        <location filename="../../Form_Files/main.ui" line="2057"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
@@ -8344,17 +8400,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматирај текст као наслов нивоа 4.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2060"/>
+        <location filename="../../Form_Files/main.ui" line="2062"/>
         <source>Ctrl+4</source>
         <translation>Ctrl+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2072"/>
+        <location filename="../../Form_Files/main.ui" line="2074"/>
         <source>Heading &amp;5</source>
         <translation>Наслов &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2075"/>
+        <location filename="../../Form_Files/main.ui" line="2077"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
@@ -8363,17 +8419,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматирај текст као наслов нивоа 5.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2080"/>
+        <location filename="../../Form_Files/main.ui" line="2082"/>
         <source>Ctrl+5</source>
         <translation>Ctrl+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2092"/>
+        <location filename="../../Form_Files/main.ui" line="2094"/>
         <source>Heading &amp;6</source>
         <translation>Наслов &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2095"/>
+        <location filename="../../Form_Files/main.ui" line="2097"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
@@ -8382,17 +8438,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматирај текст као наслов нивоа 6.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2100"/>
+        <location filename="../../Form_Files/main.ui" line="2102"/>
         <source>Ctrl+6</source>
         <translation>Ctrl+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2112"/>
+        <location filename="../../Form_Files/main.ui" line="2114"/>
         <source>&amp;Normal</source>
         <translation>&amp;Нормално</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2115"/>
+        <location filename="../../Form_Files/main.ui" line="2117"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
@@ -8401,37 +8457,37 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматирај параграф као нормалан параграф.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2120"/>
+        <location filename="../../Form_Files/main.ui" line="2122"/>
         <source>Ctrl+7</source>
         <translation>Ctrl+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2128"/>
+        <location filename="../../Form_Files/main.ui" line="2130"/>
         <source>&amp;Preserve Existing Attributes</source>
         <translation>&amp;Сачувај постојеће атрибуте</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2131"/>
+        <location filename="../../Form_Files/main.ui" line="2133"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
-        <translation type="unfinished"/>
+        <translation>Када се примењује овај стил, задржи све постојеће атрибуте ознаке</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2136"/>
+        <location filename="../../Form_Files/main.ui" line="2138"/>
         <source>Blank HTML File</source>
         <translation>Чисти HTML фајл</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2139"/>
+        <location filename="../../Form_Files/main.ui" line="2141"/>
         <source>Add a new blank HTML file to the book.</source>
         <translation>Додај нов празан HTML фајл у књигу.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2148"/>
+        <location filename="../../Form_Files/main.ui" line="2150"/>
         <source>Existing Files...</source>
         <translation>Постојећи фајлови...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2151"/>
+        <location filename="../../Form_Files/main.ui" line="2153"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
@@ -8440,264 +8496,278 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Додај фајлове са компјутера у књигу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2158"/>
+        <location filename="../../Form_Files/main.ui" line="2160"/>
         <source>Blank Stylesheet</source>
         <translation>Празан стил</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2161"/>
+        <location filename="../../Form_Files/main.ui" line="2163"/>
         <source>Add a new blank stylesheet to the book.</source>
         <translation>Додај нов празан стил у књигу.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2166"/>
+        <location filename="../../Form_Files/main.ui" line="2168"/>
         <source>Blank SVG Image</source>
         <translation>Празан векторски фајл</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2169"/>
+        <location filename="../../Form_Files/main.ui" line="2171"/>
         <source>Add a new blank svg image file to the book.</source>
         <translation>Додај нов празан векторски фајл у књигу.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2174"/>
+        <location filename="../../Form_Files/main.ui" line="2176"/>
         <source>Pre&amp;vious File</source>
         <translation>Пре&amp;тходни фајл</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2177"/>
+        <location filename="../../Form_Files/main.ui" line="2179"/>
         <source>Open previous file of the same type.</source>
         <translation>Отвори претходни фајл истог типа.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2180"/>
+        <location filename="../../Form_Files/main.ui" line="2182"/>
         <source>Alt+PgUp</source>
         <translation>Alt+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2185"/>
+        <location filename="../../Form_Files/main.ui" line="2187"/>
         <source>Next &amp;File</source>
         <translation>Следећи &amp;фајл</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2188"/>
+        <location filename="../../Form_Files/main.ui" line="2190"/>
         <source>Open next file of the same type.</source>
         <translation>Отвори следећи фајл истог типа.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2191"/>
+        <location filename="../../Form_Files/main.ui" line="2193"/>
         <source>Alt+PgDown</source>
         <translation>Alt+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2196"/>
+        <location filename="../../Form_Files/main.ui" line="2198"/>
         <source>&amp;Add To Index Editor</source>
         <translation>&amp;Додај у едитор индекса</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2199"/>
+        <location filename="../../Form_Files/main.ui" line="2201"/>
         <source>Add the selected text to the Index Editor.</source>
         <translation>Додај селектовани текст у едитор индекса.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2204"/>
+        <location filename="../../Form_Files/main.ui" line="2206"/>
         <source>&amp;Mark For Index</source>
         <translation>&amp;Означи за индекс</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2207"/>
+        <location filename="../../Form_Files/main.ui" line="2209"/>
         <source>Mark the selected text for inclusion in the Index.</source>
         <translation>Означи селектован текст за укључење у индекс.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2210"/>
+        <location filename="../../Form_Files/main.ui" line="2212"/>
         <source>Ctrl+Shift+X</source>
         <translation>Ctrl+Shift+X</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2215"/>
+        <location filename="../../Form_Files/main.ui" line="2217"/>
         <source>&amp;Create Index</source>
         <translation>&amp;Креирај индекс</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2218"/>
+        <location filename="../../Form_Files/main.ui" line="2220"/>
         <source>Generate a new Index HTML file.</source>
         <translation>Генериши нови индекс HTML фајл.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2223"/>
+        <location filename="../../Form_Files/main.ui" line="2225"/>
         <source>&amp;Create HTML Table Of Contents</source>
         <translation>&amp;Креирај HTML садржаја</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2226"/>
+        <location filename="../../Form_Files/main.ui" line="2228"/>
         <source>Create a new HTML file using the current TOC.</source>
         <translation>Креирај нови HTML фајл користећи тренутни TOC.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2231"/>
+        <location filename="../../Form_Files/main.ui" line="2233"/>
         <source>Book&amp;mark Location</source>
         <translation>Локац&amp;ија забелешки</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2234"/>
+        <location filename="../../Form_Files/main.ui" line="2236"/>
         <source>Ctrl+Alt+B</source>
         <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2239"/>
+        <location filename="../../Form_Files/main.ui" line="2241"/>
         <source>&amp;Go To Link Or Style</source>
         <translation>&amp;Иди на линк или стил</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2242"/>
+        <location filename="../../Form_Files/main.ui" line="2244"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2251"/>
+        <location filename="../../Form_Files/main.ui" line="2253"/>
         <source>&amp;Back</source>
         <translation>&amp;Врати</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2254"/>
+        <location filename="../../Form_Files/main.ui" line="2256"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Назад&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Враћа се назад на место са кога сте последњи пут следили везу или стил, или забележили своју локацију.&lt;/p&gt;
+    </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2260"/>
+        <location filename="../../Form_Files/main.ui" line="2262"/>
         <source>Ctrl+\</source>
         <translation>Ctrl+\</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2265"/>
+        <location filename="../../Form_Files/main.ui" line="2267"/>
         <source>Edit/Paste From Clipboard &amp;History...</source>
-        <translation type="unfinished"/>
+        <translation>Уреди/Налепи из &amp;Историје клипборда...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2268"/>
+        <location filename="../../Form_Files/main.ui" line="2270"/>
         <source>Ctrl+Alt+V</source>
         <translation>Ctrl+Alt+V</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2273"/>
+        <location filename="../../Form_Files/main.ui" line="2275"/>
         <source>&amp;Delete Line</source>
         <translation>&amp;Обриши линију</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2276"/>
+        <location filename="../../Form_Files/main.ui" line="2278"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2281"/>
+        <location filename="../../Form_Files/main.ui" line="2283"/>
         <source>Manage Plugins</source>
         <translation>Управљај додацима</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2290"/>
+        <location filename="../../Form_Files/main.ui" line="2292"/>
         <source>Run Plugin 1</source>
-        <translation type="unfinished"/>
+        <translation>Покрени Додатак 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2299"/>
+        <location filename="../../Form_Files/main.ui" line="2301"/>
         <source>Run Plugin 2</source>
-        <translation type="unfinished"/>
+        <translation>Покрени Додатак 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2308"/>
+        <location filename="../../Form_Files/main.ui" line="2310"/>
         <source>Run Plugin 3</source>
-        <translation type="unfinished"/>
+        <translation>Покрени Додатак 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2313"/>
-        <source>Mend and &amp;Prettify All HTML Files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2318"/>
-        <source>&amp;Mend All HTML Files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2323"/>
-        <source>&amp;Update Manifest Properties</source>
+        <location filename="../../Form_Files/main.ui" line="2319"/>
+        <source>Run Plugin 4</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2328"/>
-        <source>Generate NC&amp;X from Nav</source>
+        <source>Run Plugin 5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="261"/>
+        <location filename="../../Form_Files/main.ui" line="2333"/>
+        <source>Mend and &amp;Prettify All HTML Files</source>
+        <translation>Поправи и &amp;улепшај све HTML фајлове</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2338"/>
+        <source>&amp;Mend All HTML Files</source>
+        <translation>&amp;Поправи све HTML фајлове</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2343"/>
+        <source>&amp;Update Manifest Properties</source>
+        <translation>&amp;Ажурирај својства манифеста</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2348"/>
+        <source>Generate NC&amp;X from Nav</source>
+        <translation>Генериши NC&amp;X од Nav</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="270"/>
         <source>Input</source>
         <translation>Улаз</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="267"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="276"/>
         <source>Output</source>
         <translation>Излаз</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="279"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="288"/>
         <source>Validation</source>
         <translation>Потврђивање</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="412"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="424"/>
         <source>Navigation cancelled as location no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>Навигација је отказана јер локација више не постоји.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="428"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="440"/>
         <source>Location bookmarked.</source>
         <translation>Локација је забележена.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="475"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="707"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="904"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1050"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1429"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1516"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1571"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1579"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1596"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1608"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1711"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1719"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1733"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1738"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="487"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="719"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="927"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1073"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1455"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1542"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1597"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1605"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1622"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1634"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1737"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1745"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1759"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1770"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1775"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1787"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1797"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1764"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1777"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1785"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1796"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1801"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1813"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1823"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1828"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2047"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2054"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2068"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2073"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2097"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2129"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3387"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3435"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3441"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3447"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3597"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3804"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4004"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3420"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3426"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3468"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3474"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3632"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3839"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4039"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="487"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -8706,219 +8776,220 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="521"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="533"/>
         <source>was updated</source>
-        <translation type="unfinished"/>
+        <translation>је ажурирано</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="528"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="540"/>
         <source>Warning</source>
         <translation>Упозорење</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="528"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="540"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>Фајл НИЈЕ добро формиран и може бити оштећен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="556"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="568"/>
         <source>Opening this EPUB generated warnings.</source>
-        <translation type="unfinished"/>
+        <translation>Отварање овог EPUBа је генерисало упозорења.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="558"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="570"/>
         <source>Select Show Details for more information.</source>
         <translation>Одабери Прикажи детаље за више информација.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="598"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="610"/>
         <source>Sigil is closing...</source>
-        <translation>Sigil се затвара...</translation>
+        <translation>Сигил се затвара...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="648"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="660"/>
         <source>New file created.</source>
         <translation>Креиран је нови фајл.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="681"/>
         <source>Open File</source>
         <translation>Отвори фајл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="706"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="718"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
-        <translation type="unfinished"/>
+        <translation>Овај фајл више не постоји. Кликните на ОК да бисте га уклонили из менија.
+%1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="776"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="788"/>
         <source>Save File</source>
         <translation>Сачувај фајл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="825"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="842"/>
         <source>Save a Copy</source>
         <translation>Сачувај копију</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="881"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="904"/>
         <source>Go To Line</source>
         <translation>Иди на ред</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="881"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="904"/>
         <source>Line #</source>
         <translation>Ред #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="904"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="927"/>
         <source>Image does not exist: </source>
         <translation>Слика не постоји:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="974"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="997"/>
         <source>No CSS styles named</source>
-        <translation type="unfinished"/>
+        <translation>Није именован ни један CSS стил</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1046"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1069"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;p&gt;href &lt;b&gt;%1&lt;/b&gt; пронађен на &lt;b&gt;%2&lt;/b&gt; не постоји (а можда и више њих). Раздвајање или спајање под овим условима може да доведе до неисправних веза.&lt;/p&gt;&lt;p&gt;Да ли и даље желите да наставите?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1068"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1091"/>
         <source>Add Cover</source>
-        <translation>Додај омот</translation>
+        <translation>Додај корице...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1160"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1183"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
-        <translation>Неочекивана грешка. Само фајлови слика могу бити коришћени као омог.</translation>
+        <translation>Неочекивана грешка. Само фајлови слика могу бити коришћени као корице.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1200"/>
         <source>Cover added.</source>
-        <translation>Омот је додат.</translation>
+        <translation>Корица је додата.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1186"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1203"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1209"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1226"/>
         <source>Not Available for epub2.</source>
-        <translation type="unfinished"/>
+        <translation>Није доступно за epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1194"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1217"/>
         <source>OPF Manifest Properties Updated.</source>
-        <translation type="unfinished"/>
+        <translation>Својства OPF манифеста су ажурирана.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1220"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1274"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1243"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1297"/>
         <source>NCX generation failed.</source>
-        <translation type="unfinished"/>
+        <translation>Генерисање NCX није успело.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1269"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1292"/>
         <source>NCX generated.</source>
-        <translation type="unfinished"/>
+        <translation>NCX је генерисан.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1445"/>
         <source>Styles deleted.</source>
         <translation>Стилови обрисани.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1429"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1455"/>
         <source>Reports cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Извештаји су отказани јер XML није добро обликован.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1516"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1542"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Брисање некоришћених фајлова медија је отказано јер XML није добро обликован.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1595"/>
         <source>Unused media files deleted.</source>
         <translation>Некоришћени медијски фајлови су избрисани.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1571"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1597"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Нема некоришћених слика, видео и аудио фајлова за брисање</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1579"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1605"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Брисање некоришћених стилова је отказано јер XML није добро обликован.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1596"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1622"/>
         <source>There are no unused stylesheet classes to delete.</source>
-        <translation type="unfinished"/>
+        <translation>Нема некоришћених класа описа стилова за брисање.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1608"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1634"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Не можете убацити фајл на ову позицију.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1615"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1641"/>
         <source>Insert File</source>
         <translation>Убаци фајл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1660"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1686"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Фајл &quot;%1&quot; не постоји.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1711"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1737"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1764"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Не можете убацити ид на ову позицију.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1719"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1745"/>
         <source>You must select text before inserting a new id.</source>
         <translation>Морате селектовати текст пре убацивања новог ид.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1733"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1759"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
-        <translation type="unfinished"/>
+        <translation>ИД није исправан - мора да почне словом које прати број _ : - или .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1751"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1775"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1777"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1801"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Не можете убацити линк на ову позицију.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1759"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1785"/>
         <source>You must select text before inserting a new link.</source>
         <translation>Морате селектовати текст пре убацивања новог линка.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1770"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1796"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Линк је неисправан - не може садржати &apos;&lt;&apos; or &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1813"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
-        <translation type="unfinished"/>
+        <translation>Не можете да маркирате индекс на овој позицији без обележавања текста. </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1797"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1823"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Ставка је неисправна - не може садржати &apos;&lt;&apos; or &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1828"/>
         <source>You cannot mark an index at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Не можете да маркирате индекс на овој позицији.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1882"/>
@@ -8935,7 +9006,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2047"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
-        <translation type="unfinished"/>
+        <translation>Изабран је један ресурс а нема претходних ресура са којим би требало да се споји.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2054"/>
@@ -8947,7 +9018,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2068"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Спајање отказано: %1, XML није добро обликован.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2073"/>
@@ -8975,252 +9046,273 @@ This action cannot be reversed.</source>
         <translation>Реч је ажурирана.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2333"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2342"/>
         <source>File(s) deleted.</source>
         <translation>Фајл(ови) обрисан.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2344"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2353"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Измена садржаја је отказана.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2349"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2358"/>
         <source>Table Of Contents edited.</source>
         <translation>Садржај је измењен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2367"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2376"/>
         <source>Generate TOC cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Генерисање садржаја отказано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2391"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2400"/>
         <source>Table Of Contents generated.</source>
         <translation>Садржај је генерисан.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2393"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2402"/>
         <source>No Table Of Contents changes were necessary.</source>
-        <translation type="unfinished"/>
+        <translation>Није било неопходно да се промени садржај.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2538"/>
         <source>Text selection marked.</source>
         <translation>Избор текста је означен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2531"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2549"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2558"/>
         <source>Text selection unmarked.</source>
         <translation>Избор текста је одзначен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2637"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2646"/>
         <source>Metadata Editor cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Едитор метаподатака је отказан.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2640"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2649"/>
         <source>Metadata edited.</source>
-        <translation type="unfinished"/>
+        <translation>Метаподаци су измењени.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2720"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2737"/>
         <source>RunPlugin1</source>
-        <translation type="unfinished"/>
+        <translation>ПокрениДодатак1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2721"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2738"/>
         <source>RunPlugin2</source>
-        <translation type="unfinished"/>
+        <translation>ПокрениДодатак2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2722"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2739"/>
         <source>RunPlugin3</source>
+        <translation>ПокрениДодатак3</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2740"/>
+        <source>RunPlugin4</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2749"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2741"/>
+        <source>RunPlugin5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2772"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Овај EPUB не садржи било какав CSS стил за потврђивање.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3288"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3315"/>
         <source>Line: %1, Col: %2</source>
-        <translation type="unfinished"/>
+        <translation>Лин: %1, Кол: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3387"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
         <source>File cannot be split at this position.</source>
-        <translation>Фајл не може бити подељен на овој позицији.</translation>
+        <translation>Фајл не може бити раздвојен на овој позицији.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3420"/>
+        <source>Cannot split since it may not be an HTML file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3426"/>
         <source>The Nav file cannot be split.</source>
-        <translation type="unfinished"/>
+        <translation>Nav фајл не може да се раздвоји.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3443"/>
         <source>Split completed.</source>
-        <translation>Дељење је завршено.</translation>
+        <translation>Раздвајање је завршено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3435"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3468"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
-        <translation type="unfinished"/>
+        <translation>Раздвајање је немогуће јер најмање један фајл није HTML фајл.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3441"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3474"/>
         <source>Cannot split: %1 XML is not well formed</source>
-        <translation>Немогућа подела: %1 XML није добро формиран</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3447"/>
-        <source>Cannot split since at least one file may not be an HTML file.</source>
-        <translation type="unfinished"/>
+        <translation>Раздвајање је немогуће: %1 XML није добро обликован</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
+        <source>Cannot split since at least one file may not be an HTML file.</source>
+        <translation>Раздвајање је немогуће јер најмање један фајл можда није HTML фајл.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3513"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Дељење је завршено. Можда ћете морати да ажурирате садржај.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3489"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3522"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
-        <translation type="unfinished"/>
+        <translation>Није пронађен ниједан маркер за раздвајање фајла. Користите Уметни-&gt;Маркер за раздвајање.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3598"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3633"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Документ је измењен.
 Да ли желите да сачувате промене?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3678"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3713"/>
         <source>No importer for file type: %1</source>
-        <translation type="unfinished"/>
+        <translation>Нема увозника за тип фајла: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3685"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3720"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
 
 Try setting the Clean Source preference to Mend XHTML Source Code on Open and reloading the file.</source>
-        <translation type="unfinished"/>
+        <translation>Наведени фајл није учитан услед неисправног садржаја или јер XML није добро обликован:
+
+%1 (линија %2: %3)
+
+Покушајте да поставите подешавање параметра Пречисти код на Поправи XHTML изворни код приликом отварања и поновног учитавања.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3690"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3725"/>
         <source>Loading file...</source>
         <translation>Учитавање фајла...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3704"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3739"/>
         <source>File loaded.</source>
         <translation>Фајл је учитан.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3731"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3766"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
-        <translation type="unfinished"/>
+        <translation>Творац је шифровао овај фајл користећи DRM. Сигил не може да отвори такве фајлове. </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3773"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Не могу учитати EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3742"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3777"/>
         <source>Cannot load file %1: %2</source>
         <translation>Не могу учитати фајл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3771"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3806"/>
         <source>Saving EPUB...</source>
         <translation>Чување EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3780"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3815"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
-        <translation>Sigil не може сачувати фајлове типа &quot;%1&quot;.
+        <translation>Сигил не може да сачува фајлове типа &quot;%1&quot;.
 Молим одаберите другачији форма.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3805"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3840"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in data loss.
 
 Do you want to automatically mend the files before saving?</source>
-        <translation type="unfinished"/>
+        <translation>Овај EPUB садржи HTML фајлове који нису добро обликовани и ваша тренутна подешавања параметара Пречисти изворни код су постављена на аутоматско поправљање приликом чувања. Чување фајла који није добро обликован ће покренути аутоматску поправку, која изузетно ретко може да доведе до губитка података.
+
+Да ли желите да аутоматски поправите фајлове пре чувања?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3836"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3871"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB сачуван, али нису сви HTML фајлови добро формирани.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3873"/>
         <source>EPUB saved.</source>
         <translation>EPUB сачуван.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3844"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3879"/>
         <source>Cannot save file %1: %2</source>
         <translation>Не могу сачувати фајл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3979"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4014"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB фајлови (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3980"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3981"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3982"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4015"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4016"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4017"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML фајлови (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3983"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4018"/>
         <source>Text files (*.txt)</source>
         <translation>Текстуални фајлови (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3984"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4019"/>
         <source>All files (*.*)</source>
         <translation>Сви фајлови (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4027"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB фајл (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4004"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4039"/>
         <source>%1[*] - epub%2 - %3</source>
-        <translation type="unfinished"/>
+        <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4110"/>
         <source>Preserve existing heading attributes is now:</source>
-        <translation type="unfinished"/>
+        <translation>Задржи постојеће атрибуте је тренутно:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4076"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4111"/>
         <source>ON</source>
-        <translation type="unfinished"/>
+        <translation>УКЉУЧЕНО</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4076"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4111"/>
         <source>OFF</source>
-        <translation type="unfinished"/>
+        <translation>ИСКЉУЧЕНО</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4136"/>
         <source>&amp;%1 %2</source>
-        <translation type="unfinished"/>
+        <translation>&amp;%1 %2</translation>
     </message>
 </context>
 <context>
@@ -9228,2188 +9320,2188 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>Abridger</source>
-        <translation type="unfinished"/>
+        <translation>Резимер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>A person, family, or organization contributing to a resource by shortening or condensing the original work but leaving the nature and content of the original work substantially unchanged. For substantial modifications that result in the creation of a new work, see Author.</source>
-        <translation type="unfinished"/>
+        <translation>Особа, породица или организација која даје допринос ресурсу скраћујући или резимирајући оригинално дело, али остављајући природу и садржај оригиналног дела суштински непромењене. За значајне промене које доводе до стварања новог дела, погледајте под Аутор.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Actor</source>
-        <translation type="unfinished"/>
+        <translation>Глумац</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која испољава глумачке вештине у музичкој или драмској презентацији или забављању.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Adapter</source>
-        <translation type="unfinished"/>
+        <translation>Адаптер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која 1) прерађује музичку композицију, углавном за различити медијум, или 2) поново пише романе или приче за филмове или други аудиовизуелни медијум.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Analyst</source>
-        <translation type="unfinished"/>
+        <translation>Аналитичар</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која разматра, испитује и интерпретира податке или информације везане за специфичну област.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Animator</source>
-        <translation type="unfinished"/>
+        <translation>Аниматор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која црта дводимензионалне фигуре, манипулише тродимензионалним објектима и/или такође програмира компјутер да помера објекте и слике у сврху обраде анимираног филма. Камере за анимацију, сталци, целулоидни застори и мастила су неки од алата који користи аниматор.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Annotator</source>
-        <translation type="unfinished"/>
+        <translation>Бележник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу која пише рукописне белешке на штампани артикал.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>Appellant</source>
-        <translation type="unfinished"/>
+        <translation>Апелант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>A person or organization who appeals a lower court&apos;s decision.</source>
-        <translation type="unfinished"/>
+        <translation>Особа или организација која се жали на одлуку нижег суда.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>Appellee</source>
-        <translation type="unfinished"/>
+        <translation>Тужени</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>A person or organization against whom an appeal is taken.</source>
-        <translation type="unfinished"/>
+        <translation>Особа или организација против које је поднета жалба.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Applicant</source>
-        <translation type="unfinished"/>
+        <translation>Подносилац</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за подношење пријаве или која је именована да има право на резултате процесирања пријаве (нпр. пренос права, награда, титула, позиција).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Architect</source>
-        <translation type="unfinished"/>
+        <translation>Архитекта</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која дизајнира структуре или надгледа њихову изградњу</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Arranger</source>
-        <translation type="unfinished"/>
+        <translation>Аранжер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу лили организацију која транскрибује музичку композицију, најчешће за медијум који је различит од оригиналног; у аранжману, музичка суштина у основи остаје неизмењена. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Art copyist</source>
-        <translation type="unfinished"/>
+        <translation>Дупликатор уметнина</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу (нпр. сликара или скулптора) који израђује копију дела визуелне уметности.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>Art director</source>
-        <translation type="unfinished"/>
+        <translation>Директор уметности</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>A person contributing to a motion picture or television production by overseeing the artists and craftspeople who build the sets.</source>
-        <translation type="unfinished"/>
+        <translation>Особа која учествије у филмској или телевизијској продукцији тако што надгледа уметнике и занатлије који израђују кулисе.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Artist</source>
-        <translation type="unfinished"/>
+        <translation>Уметник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу (нпр. сликара) или организацију која осмишљава и могуће имплементира оригинални графички дизајн или уметничко дело, ако поједини кодови (нпр., [egr], [etr]) нису пожељни. За илустраторе књига, бољи избор је Илустратор [ill].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Artistic director</source>
-        <translation type="unfinished"/>
+        <translation>Уметнички директор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу која је одговорна за развој уметничког стила комплетне продукције, укључујући избор дела која ће бити приказана и одабир старијег особља продукције.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Assignee</source>
-        <translation type="unfinished"/>
+        <translation>Заступник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију на коју је пренета лиценца за штампање или издавање.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Associated name</source>
-        <translation type="unfinished"/>
+        <translation>Придружено име</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је придружена или се налази у ставци или колекцији, и за коју не може да се одреди да је власништво Претходног власника [fmo] или неког другог наименованог релатора који наводи порекло.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Attributed name</source>
-        <translation type="unfinished"/>
+        <translation>Приписано име</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за аутора, уметника итд. који се доводи у везу са делом а за кога постоји или је постојао признати ауторитет који именује ту особу као аутора, креатора итд. овог дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Auctioneer</source>
-        <translation type="unfinished"/>
+        <translation>Аукционер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Особа или организација задужена за процену и јавну аукцију робе, посебно књига, уметничких дела итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Author</source>
-        <translation type="unfinished"/>
+        <translation>Аутор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију првенствено одговорну за интелектуални или уметнички садржај дела, најчешће штампаног текста. Ова ставка може да се екористи и када више од једне особе или тела имају такве одговорности.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Author in quotations or text extracts</source>
-        <translation type="unfinished"/>
+        <translation>Аутор у наводима или изводима текста</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију чији рад се наводи или се из њега узимају изводи у оним делима у чијем стварању он или она нису директно учествовали. Таква навођења се нарочито налазе у каталозима изложби, колекцијама фотографија, итд. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Author of afterword, colophon, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Аутор поговора, колофона итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за поговор, колофон итд. али која није главни аутор дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Author of dialog</source>
-        <translation type="unfinished"/>
+        <translation>Аутор дијалога</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за дијалог или говорне коментаре сценарија или звучног снимка.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Author of introduction, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Аутор предговора, итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за предговор, увод или неку другу критичку уводну материју, али која није главни аутор дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Author of screenplay, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Аутор сценарија, итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за сценарио филма , дијалоге, говорне коментаре, итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>Autographer</source>
-        <translation type="unfinished"/>
+        <translation>Потписник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>A person whose manuscript signature appears on an item.</source>
-        <translation type="unfinished"/>
+        <translation>Особа чији се писани потпис појављује на артиклу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Bibliographic antecedent</source>
-        <translation type="unfinished"/>
+        <translation>Библиографски претходник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за рад на којем је рад представљен каталошким записом базиран. Ово може бити прикладно за адаптације, наставке, настављања, индексе, итд. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Binder</source>
-        <translation type="unfinished"/>
+        <translation>Књиговезац</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за повез штампаног или рукописног материјала.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Binding designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер повеза</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за дизајн повеза дела, укључујући врсту повеза, врсту коришћених материјала, и било које декоративне аспекте повеза.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>Blurb writer</source>
-        <translation type="unfinished"/>
+        <translation>Писац похвале</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>A person or organization responsible for writing a commendation or testimonial for a work, which appears on or within the publication itself, frequently on the back or dust jacket of print publications or on advertising material for all media.</source>
-        <translation type="unfinished"/>
+        <translation>Особа или организација одговорна за писање похвале или сведочанства о раду која се појављује на самој публикацији или унутар ње, често на полеђини или омоту штампане публикације или на рекламном материјалу за све остале медије.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Book designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер књиге</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је одговорна за целокупан графички дизајн књиге, укључујући распоред врсте писама и илустрација, избор материјала и коришћених процеса.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Book producer</source>
-        <translation type="unfinished"/>
+        <translation>Продуцент књиге</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је одговорна за продукцију књиге и осталих штампаних медија, ако специфични кодови (нпр. [bkd], [egr], [tyd], [prt]) нису пожељни.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Bookjacket designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер омота књиге</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за дизајн савитљивих омота предвиђених за, или објављених уз књигу, укључујући врсту материјала који се користе, и било који декоративни аспект омота књиге.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Bookplate designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер власничке плочице</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је одговорна за дизајн ознаке идентификације власника књиге која се најчешће поставља на унутрашњу страну предње корице књиге.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Bookseller</source>
-        <translation type="unfinished"/>
+        <translation>Књижар</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која продаје књиге и остали библиографски материјал. Заинтересован је првенствено за уносне материјале. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>Braille embosser</source>
-        <translation type="unfinished"/>
+        <translation>Клесар Брајевих симбола</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>A person, family, or organization involved in manufacturing a resource by embossing Braille cells using a stylus, special embossing printer, or other device.</source>
-        <translation type="unfinished"/>
+        <translation>Особа или организација која ради на изради ресурса клесајући Брајеве ћелије коришћењем игле, специјалног штампача или неког другог уређаја.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>Broadcaster</source>
-        <translation type="unfinished"/>
+        <translation>Емитер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>A person, family, or organization involved in broadcasting a resource to an audience via radio, television, webcast, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Особа или организација која је ради на емитовању ресурса публици преко радија, телевизије, вебкаста, итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Calligrapher</source>
-        <translation type="unfinished"/>
+        <translation>Калиграф</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која пише уметничким писмом, обично као умножавач или фирмописац.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Cartographer</source>
-        <translation type="unfinished"/>
+        <translation>Картограф</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је одговорна за прављење мапа и другог картографског материјала.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>Caster</source>
-        <translation type="unfinished"/>
+        <translation>Ливац</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>A person, family, or organization involved in manufacturing a resource by pouring a liquid or molten substance into a mold and leaving it to solidify to take the shape of the mold.</source>
-        <translation type="unfinished"/>
+        <translation>Особа или организација која је учествује у изради ресурса сипањем течне или истопљене супстанце у калуп и остављајући је да очврсне како би преузела облик калупа.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Censor</source>
-        <translation type="unfinished"/>
+        <translation>Цензор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за цензора, званичног или приватног.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Choreographer</source>
-        <translation type="unfinished"/>
+        <translation>Кореограф</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која компонује или аранжира игре или друге ставове (нпр., „господар мачева”) за музичку или драмску презентацију или забаву.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Cinematographer</source>
-        <translation type="unfinished"/>
+        <translation>Сниматељ</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је задужена за слике које су снимљене за потребе филма. Сниматељ ради под надзором редитеља, и може да се зове и директор фотографије. Немојте да замените са видеограф.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Client</source>
-        <translation type="unfinished"/>
+        <translation>Клијент</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију у чије име делује друга особа или организација.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>Collection registrar</source>
-        <translation type="unfinished"/>
+        <translation>Регистрар колекције</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>A curator who lists or inventories the items in an aggregate work such as a collection of items or works.</source>
-        <translation type="unfinished"/>
+        <translation>Куратор који пописује предмете у збирном делу као што је колекција предмета или дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Collector</source>
-        <translation type="unfinished"/>
+        <translation>Колекционар</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која сакупила материјал из разних извора и који је сређен, описан и и каталогизован као колекција. Колекционар није ни творац материјала нити особа на коју су можда адресирани рукописи из колекције.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Collotyper</source>
-        <translation type="unfinished"/>
+        <translation>Колотајпер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за произвођење фотографских отисака са филма или другог колоида који има површине које привлаче или одбијају штампарску боју.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>Colorist</source>
-        <translation type="unfinished"/>
+        <translation>Колорист</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>A person or organization responsible for applying color to drawings, prints, photographs, maps, moving images, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Особа или организација одговорна за наношење боје на цртеже, отиске, фотографије, мапе, покретне слике, итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Commentator</source>
-        <translation type="unfinished"/>
+        <translation>Коментатор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која обезбеђује интерпретацију, анализу или дискусију о теми снимка, филма, или неког другог аудиовизуелног медија.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Commentator for written text</source>
-        <translation type="unfinished"/>
+        <translation>Коментатор за писани текст</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за коментаришуће или објашњавајуће белешке о тексту. За писца белешки из рукописа у штампаној књизи, коритите Бележник [ann].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Compiler</source>
-        <translation type="unfinished"/>
+        <translation>Састављач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која производи дело или публикацију одабиром и састављањем материјала из радова разних особа или тела.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Complainant</source>
-        <translation type="unfinished"/>
+        <translation>Подносилац жалбе</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за странку која подноси захтев суду за обештећење, обично у имовинским парницама.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Complainant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Подносилац жалбе-апелант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за подносиоца жалбе који носи жалбу из једног суда или јурисдикције другом како би преиначио пресуду, обично у имовинским парницама. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Complainant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Подносилац жалбе-тужени</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за подносиоца тужбе против кога се жалба подноси из једног суда или јурисдикције у други како би се преиначила пресуда, обично у имовинским парницама.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Composer</source>
-        <translation type="unfinished"/>
+        <translation>Композитор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која креира музичко дело, обично музички комад у форми рукописа или штампаној форми.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Compositor</source>
-        <translation type="unfinished"/>
+        <translation>Слагач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за израду металних форми или калупа направљених од других материјала који се користе за израду текста и слика у штампаној ствари.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Conceptor</source>
-        <translation type="unfinished"/>
+        <translation>Концептуалист</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за оригиналну идеју на којој је дело засновано, ово укључује научног аутора аудио-визуелног предмета и особу која је осмислила рекламу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Conductor</source>
-        <translation type="unfinished"/>
+        <translation>Диригент</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу која управља извођачком групом (оркестар, хор, опера, итд.) у музичкој или драмској презентацији или забави.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>Conservator</source>
-        <translation type="unfinished"/>
+        <translation>Конзерватор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>A person or organization responsible for documenting, preserving, or treating printed or manuscript material, works of art, artifacts, or other media.</source>
-        <translation type="unfinished"/>
+        <translation>Особа или организација одговорна за документовање, заштиту или третирање штампаног или рукописног материјала, уметничких дела, артефаката, или других медија.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Consultant</source>
-        <translation type="unfinished"/>
+        <translation>Консултант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је од важности за ресурс, која се позива како би дала професионални савет или услуге које се тичу специјализованог поља знања или обуку.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Consultant to a project</source>
-        <translation type="unfinished"/>
+        <translation>Консултант пројекта</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију важну за ресурс, која је посебно ангажована како би пружила интелектуални преглед стратегијских или оперативних задатака и како би анализирала, израдила спецификацију или дала налоге у циљу стварања или предлагања ефективног редоследа акција или решења.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Contestant</source>
-        <translation type="unfinished"/>
+        <translation>Учесник у парници</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за странку која се на суду супротставља, опире или оспорава захтев за одштету, одлуку, резултат, итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Contestant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Учесник у парници-апелант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за парничара који носи жалбу из једног суда или јурисдикције другом како би преиначио пресуду. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Contestant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Учесник у парници-тужени</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за учесника у парници против кога се жалба подноси из једног суда или јурисдикције у други како би се преиначила пресуда.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Contestee</source>
-        <translation type="unfinished"/>
+        <translation>Странка</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за странку која брани да се тужба, пресуда, резултат, итд. обори, одбије или оспори на суду.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Contestee-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Странка-апелант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за странку који носи жалбу из једног суда или јурисдикције другом како би се преиначила пресуда. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Contestee-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Странка-тужена</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за странку против које се жалба подноси из једног суда или јурисдикције у други како би се преиначила пресуда.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Contractor</source>
-        <translation type="unfinished"/>
+        <translation>Извођач радова</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је од важности за ресурс, која склапа уговор са другом особом или организацијом у циљу извршења одређеног задатка.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Contributor</source>
-        <translation type="unfinished"/>
+        <translation>Сарадник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију чији рад је допринео већем делу, као што је антологија, серијска публикација, или нека друга збирка појединачних дела. Немојте да користите ако је једина улога у односу на дело аутор, уредник, састављач или преводилац.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Copyright claimant</source>
-        <translation type="unfinished"/>
+        <translation>Подносилац захтева на ауторска права</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију наведену као власника ауторских права у време регистрације. Ауторско право може да се одобри или да се касније пренесе на другу особу или организацију, и тада подносилац захтева посатаје носилац ауторских права.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Copyright holder</source>
-        <translation type="unfinished"/>
+        <translation>Носилац ауторских права</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију којој су права на копирање интелектуалног садржаја дела одобрена или пренесена . Носилац ауторских права, иако обавезно није и творац дела, обично има ексклузивна права на финансијску корист од продаје и коришћења дела на које се ауторска права односе.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Corrector</source>
-        <translation type="unfinished"/>
+        <translation>Коректор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која исправља рукописе, као што је био званичник скрипторијума који је исправљао рад преписивача. За штампана дела, користите Лектор. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Correspondent</source>
-        <translation type="unfinished"/>
+        <translation>Дописник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је била или писац или прималац писма или неког другог вида комуникације.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Costume designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер костима</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која дизајнира костиме, поправља фризуре, итд. за музичку или драмску презентацију или забаву.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>Court governed</source>
-        <translation type="unfinished"/>
+        <translation>Управни суд</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>A court governed by court rules, regardless of their official nature (e.g., laws, administrative regulations.)</source>
-        <translation type="unfinished"/>
+        <translation>Суд којим управљају судска правила, независно од њихове званичне природе (нпр. закони, административна правила.)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>Court reporter</source>
-        <translation type="unfinished"/>
+        <translation>Судски извештач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>A person, family, or organization contributing to a resource by preparing a court&apos;s opinions for publication.</source>
-        <translation type="unfinished"/>
+        <translation>Особа, породица или организација која даје допринос ресурсу тако што припрема судска мишљења за објављивање.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Cover designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер корица</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је одговорна за графички дизајн корица књиге, омота албума, танког омота ЦДа, кутије, контејнера итд. За особу или организацију која је одговорна за графички дизајн целе књиге, користите Дизајнер књиге; за омоте књиге, користите Дизајнер омота књиге.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Creator</source>
-        <translation type="unfinished"/>
+        <translation>Творац</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за интелектуални или уметнички садржај дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Curator of an exhibition</source>
-        <translation type="unfinished"/>
+        <translation>Кустос изложбе</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за осмишљање и организовање изложбе.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Dancer</source>
-        <translation type="unfinished"/>
+        <translation>Плесач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која првенствено показује играчке способности у музичкој или драмској презензацији или забави.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Data contributor</source>
-        <translation type="unfinished"/>
+        <translation>Сарадник за податке</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која подноси податке за унос у базу или неку другу колекцију података.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Data manager</source>
-        <translation type="unfinished"/>
+        <translation>Менаџер података</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је одговорна за управљање базама података или другим изворима података.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Dedicatee</source>
-        <translation type="unfinished"/>
+        <translation>Прималац посвете</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију којој је књига, рукопис, итд. посвећена (не прималац поклона).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Dedicator</source>
-        <translation type="unfinished"/>
+        <translation>Давалац посвете</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за аутора посвете, која може бити формална изјава или у епистоларној или стиховној форми.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Defendant</source>
-        <translation type="unfinished"/>
+        <translation>Тужени</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за странку која се брани или пориче наводе изнесене у оптужници и против које се на суду тражи обештећење, обично правним споровима.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Defendant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Тужени-апелант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за туженог који носи жалбу из једног суда или јурисдикције другом како би преиначио пресуду, обично правним споровима. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Defendant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Брањеник-тужени</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за туженог против кога се жалба носи из једног суда или јурисдикције другом како би се преиначила пресуда, обично у правним споровима. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Degree grantor</source>
-        <translation type="unfinished"/>
+        <translation>Додељивач звања</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за организацију која додељује звање за које је поднета теза или дисертација.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Delineator</source>
-        <translation type="unfinished"/>
+        <translation>Технички цртач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која израђује техничке цртеже на основу пројекта неког другог.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Depicted</source>
-        <translation type="unfinished"/>
+        <translation>Насликан</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за ентитет који је приказан или портретисан у делу, посебно уметничком.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Depositor</source>
-        <translation type="unfinished"/>
+        <translation>Полагач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која предаје материјал на чување библиотеци или репозиторијуму без преноса законских права.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за дизајн у случају да специфичнији кодови (нпр. [bkd], [tyd]) нису пожељни.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Director</source>
-        <translation type="unfinished"/>
+        <translation>Режисер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је одговорна за општи менаџмент дела или која надгледа продукцију извођења на позорници, екрану или звучног снимка.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Dissertant</source>
-        <translation type="unfinished"/>
+        <translation>Дисертант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу која излаже тезу у циљу добијања универзитетског или високошколског звања.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>Distribution place</source>
-        <translation type="unfinished"/>
+        <translation>Место дистрибуције</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>A place from which a resource, e.g., a serial, is distributed.</source>
-        <translation type="unfinished"/>
+        <translation>Место са кога се ресурс, нпр. серија, дистрибуира.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Distributor</source>
-        <translation type="unfinished"/>
+        <translation>Дистрибутер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која има ексклузивна или дељена маркетиншка права на предмет.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Donor</source>
-        <translation type="unfinished"/>
+        <translation>Донор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је донирала садашњем власнику књигу, рукопис, итд. Донори претходним власницима се означавају као Претходни власник [fmo] или Гравер [ins]</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Draftsman</source>
-        <translation type="unfinished"/>
+        <translation>Цртач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која припрема уметничке или техничке цртеже.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Dubious author</source>
-        <translation type="unfinished"/>
+        <translation>Сумњив аутор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију којој је ауторство сумњиво или нетачно приписано.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Editor</source>
-        <translation type="unfinished"/>
+        <translation>Уредник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која припрема за издавање дело које није првенствено њено/његово, разјашњавајући текст, додајући уводни или неки други критички материјал, или технички наводећи уредничко особље.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>Editor of compilation</source>
-        <translation type="unfinished"/>
+        <translation>Уредник збирке</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>A person, family, or organization contributing to a collective or aggregate work by selecting and putting together works, or parts of works, by one or more creators. For compilations of data, information, etc., that result in new works, see compiler.</source>
-        <translation type="unfinished"/>
+        <translation>Особа, породица или организација која доприноси колектовном или збирном делу одабирући и састављајући радове или делове радова које је израдио један или више аутора. За збирке података, инфирмација, итд. које чине нова дела, погледајте Састављач.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>Editor of moving image work</source>
-        <translation type="unfinished"/>
+        <translation>Монтажер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>A person, family, or organization responsible for assembling, arranging, and trimming film, video, or other moving image formats, including both visual and audio aspects.</source>
-        <translation type="unfinished"/>
+        <translation>Особа, породица или организација одговорна за састављање, аранжирање и исецање филма, видеа или осталих формата покретних слика, укључујући и визуелне и аудио аспекте.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Electrician</source>
-        <translation type="unfinished"/>
+        <translation>Електричар</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу одговорну за постављање светлосне опреме и фокусирање светла у продукцији, и управљање осветљењем приликом извођења.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Electrotyper</source>
-        <translation type="unfinished"/>
+        <translation>Електротипер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која израђује дупликат површине за штампу користећи ливење под притиском и електродепоновање метала који се затим ојачава са задње стране оловом и омогућава штампање.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Engineer</source>
-        <translation type="unfinished"/>
+        <translation>Инжењер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за техничко планирање и дизајн, посебно за градњу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Engraver</source>
-        <translation type="unfinished"/>
+        <translation>Гравер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која у сврху штампе усеца слова, фигуре, итд. на површину као што је дрвена или метална плоча.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Etcher</source>
-        <translation type="unfinished"/>
+        <translation>Гравер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која израђује текст или слике за штампу примењујући киселину или корозивно дејство неке друге супстанце на метал, стакло или неку другу површину.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>Event place</source>
-        <translation type="unfinished"/>
+        <translation>Место догађаја</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>A place where an event such as a conference or a concert took place.</source>
-        <translation type="unfinished"/>
+        <translation>Место одржавања догађаја као што је конференција или концерт.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Expert</source>
-        <translation type="unfinished"/>
+        <translation>Експерт</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију задужену за опис или потврду вредности неке робе, посебно ретких предмета, уметничких дела, итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Facsimilist</source>
-        <translation type="unfinished"/>
+        <translation>Факсимилист</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Use for a person or organization that executed the facsimile.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је извела факсимил.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Field director</source>
-        <translation type="unfinished"/>
+        <translation>Директор спољних радова</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која управља или надгледа радове на прикупљању сирових података или изводи истраживање у стварној средини или окружењу (типично се односи на природне и друштвене науке).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>Film director</source>
-        <translation type="unfinished"/>
+        <translation>Филмски режисер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>A director responsible for the general management and supervision of a filmed performance.</source>
-        <translation type="unfinished"/>
+        <translation>Директор одговоран за општи менаџмент и надгледање филмског извођења.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>Film distributor</source>
-        <translation type="unfinished"/>
+        <translation>Дистрибутер филма</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>A person, family, or organization involved in distributing a moving image resource to theatres or other distribution channels.</source>
-        <translation type="unfinished"/>
+        <translation>Особа, породица или организација укључена у дистрибуцију ресурса покретних слика биоскопима или другим дистрибуционим каналима.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Film editor</source>
-        <translation type="unfinished"/>
+        <translation>Монтажер филма</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која монтира филм. Овај појам се користи без обзира на медијум на којем је филм израђен (нпр. ацетатни филм, видео трака).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>Film producer</source>
-        <translation type="unfinished"/>
+        <translation>Продуцент филма</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>A producer responsible for most of the business aspects of a film.</source>
-        <translation type="unfinished"/>
+        <translation>Продуцент одговоран за већину пословних аспеката филма.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>Filmmaker</source>
-        <translation type="unfinished"/>
+        <translation>Филмаџија</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>A person, family or organization responsible for creating an independent or personal film. A filmmaker is individually responsible for the conception and execution of all aspects of the film.</source>
-        <translation type="unfinished"/>
+        <translation>Особа, породица или оргнизација одговорна за прављење независног или личног филма. Филмаџија је појединачно одговоран за осмишљавање и извршавање свих аспеката једног филма.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>First party</source>
-        <translation type="unfinished"/>
+        <translation>Прва странка</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је наведена као једина странка или део првог дела. У случају преноса права, ово је додељивач, преносилац, издавач лиценце, одобрилац, итд. Више странака могу заједнички да се именују као прва странка.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Forger</source>
-        <translation type="unfinished"/>
+        <translation>Кривоклетник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која израђује или имитира нешто од вредности или важности, посебно са намером да превари.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Former owner</source>
-        <translation type="unfinished"/>
+        <translation>Бивши власник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је поседовала предмет у било које време у прошлости. Укључује оне којима је материјал некада био дат на поклон. Особа или организација која даје предмет садашњем власнику се означава као Донор [dnr].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Funder</source>
-        <translation type="unfinished"/>
+        <translation>Финансијер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је обезбедила финансијску подршку продукцији дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Geographic information specialist</source>
-        <translation type="unfinished"/>
+        <translation>Специјалиста географских информација</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за развој географског информационог система (ГИС) и интеграцију са подацима глобалног система за одређивање положаја.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Honoree</source>
-        <translation type="unfinished"/>
+        <translation>Почаствован</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију у чије сећање или у чију част се књига донира.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Домаћин</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу која се позива или редовно води програм (често емитован) који укључује друге госте, извођаче, итд. (нпр. домаћин talk show-а).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>Host institution</source>
-        <translation type="unfinished"/>
+        <translation>Институција-домаћин</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>An organization hosting the event, exhibit, conference, etc., which gave rise to a resource, but having little or no responsibility for the content of the resource.</source>
-        <translation type="unfinished"/>
+        <translation>Организација која организује догађај, изложбу, конференцију, итд. која је обзнанила ресурс, али има мало или нимало одговорности за садржај ресурса.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Illuminator</source>
-        <translation type="unfinished"/>
+        <translation>Илуминатор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за украшавање дела (посебно рукописног материјала) племенитим материјалима или бојом, обично са разрађеним дизајнима и мотивима.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Illustrator</source>
-        <translation type="unfinished"/>
+        <translation>Илустратор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која осмишљава и по могућству изводи цртеж или илустрацију, која обично прати писани текст.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Inscriber</source>
-        <translation type="unfinished"/>
+        <translation>Писац посвете</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Use for a person who has written a statement of dedication or gift.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу кока је написала изјаву посвете или поклона.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Instrumentalist</source>
-        <translation type="unfinished"/>
+        <translation>Инструменталиста</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која првенствено свира инструмент у музичкој или драмској презентацији или забави.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Interviewee</source>
-        <translation type="unfinished"/>
+        <translation>Интервјуисани</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију коју обично извештач, испитивач или неки други агент за прикупљање информација интервјуише на консултацијама или састанку.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Interviewer</source>
-        <translation type="unfinished"/>
+        <translation>Испитивач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која врши улогу извештача, анкетара или неког другог агента за прикупљање информација на консултацијама или састанку у којем су укључени једна или више особа.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Inventor</source>
-        <translation type="unfinished"/>
+        <translation>Проналазач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која прва произведе посебно користан предмет, или развије нови процес за добијање неког познатог предмета или резултата.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>Issuing body</source>
-        <translation type="unfinished"/>
+        <translation>Издавачко тело</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>A person, family or organization issuing a work, such as an official organ of the body.</source>
-        <translation type="unfinished"/>
+        <translation>Особа, породица или организација која издаје дело, као што је званичан орган тела.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>Judge</source>
-        <translation type="unfinished"/>
+        <translation>Судија</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>A person who hears and decides on legal matters in court.</source>
-        <translation type="unfinished"/>
+        <translation>Особа која саслушава и одлучује о правним стварима на суду.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>Jurisdiction governed</source>
-        <translation type="unfinished"/>
+        <translation>Управна јурисдикција</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>A jurisdiction governed by a law, regulation, etc., that was enacted by another jurisdiction.</source>
-        <translation type="unfinished"/>
+        <translation>Јурисдикција којом управља закон, регулатива, итд. а коју је успоставила друга јурисдикција.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Laboratory</source>
-        <translation type="unfinished"/>
+        <translation>Лабораторија</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Use for an institution that provides scientific analyses of material samples.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за институцију која обавља научне анализе узорака материјала.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Laboratory director</source>
-        <translation type="unfinished"/>
+        <translation>Директор лабораторије</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која управља или надгледа радове у контролисаној средини или окружењу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Landscape architect</source>
-        <translation type="unfinished"/>
+        <translation>Пејзажни архитекта</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију чији рад укључује координацију уређења постојећих и предложених карактеристика и структура тла.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Lead</source>
-        <translation type="unfinished"/>
+        <translation>Вођа</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
-        <translation type="unfinished"/>
+        <translation>Користите да означите да особа или организација има главну одговорност за одређену активност или подухват. Користите заједно са другим изразом релатора или кодом да бисте показали како ова особа или организација има већу важност у смислу те посебне улоге. Ако је више од једног релатора додељен наслову, користите релатор Вођа само ако се односи на све релаторе.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Lender</source>
-        <translation type="unfinished"/>
+        <translation>Позајмљивач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која дозвољава привремено коришћење књиге, рукописа, итд., у сврху фотокопирања или микрифилмовања.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Libelant</source>
-        <translation type="unfinished"/>
+        <translation>Оклеветани</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за странку која подноси тужбу за клевету црквеном суду или адмиралитету.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Libelant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Оклеветани-апелант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за оклеветаног који односи жалбу из једног црквеног суда или адмиралитета у други како би преиначио пресуду.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Libelant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Оклеветани-тужени</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за оклеветаног против кога се односи жалба из једног црквеног суда или адмиралитета у други како би се преиначила пресуда.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Libelee</source>
-        <translation type="unfinished"/>
+        <translation>Клеветник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за странку против које је поднесена тужба за клевету црквеном суду или адмиралитету.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Libelee-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Клеветник-апелант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за клеветника који односи жалбу из једног црквеног суда или адмиралитета у други како би преиначио пресуду.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Libelee-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Клеветник-тужени</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за клеветника против кога се односи жалба из једног црквеног суда или адмиралитета у други како би се преиначила пресуда.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Librettist</source>
-        <translation type="unfinished"/>
+        <translation>Либретиста</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је писац текста опере, ораторијума, итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Licensee</source>
-        <translation type="unfinished"/>
+        <translation>Носилац лиценце</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је оригинални прималац права на штампање или објављивање.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Licensor</source>
-        <translation type="unfinished"/>
+        <translation>Издавалац лиценце</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је потписник лиценце, имприматур, итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Lighting designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер светла</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која дизајнира шему осветљења за позоришну представу, забаву, филм, итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Lithographer</source>
-        <translation type="unfinished"/>
+        <translation>Литограф</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која припрема камен или плочу за литографску штампу, укључујући и графичког уметника који креира дизајн директно на површину са које ће се вршити штампа.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Lyricist</source>
-        <translation type="unfinished"/>
+        <translation>Текстописац</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је написала текст песме.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>Manufacture place</source>
-        <translation type="unfinished"/>
+        <translation>Место израде</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>The place of manufacture (e.g., printing, duplicating, casting, etc.) of a resource in a published form.</source>
-        <translation type="unfinished"/>
+        <translation>Место израде (нпр. штампе, умножавања, ливења, итд.) ресурса у облику у ком је издат. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Manufacturer</source>
-        <translation type="unfinished"/>
+        <translation>Произвођач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу илу организацију која израђује артефактни рад (предмет који је направила или обрадила једна или више особа). Примери артефактних радова укључују вазе, оруђа или комаде намештаја.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>Marbler</source>
-        <translation type="unfinished"/>
+        <translation>Украшавач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>The entity responsible for marbling paper, cloth, leather, etc. used in construction of a resource.</source>
-        <translation type="unfinished"/>
+        <translation>Ентитет одговоран за украшавање папира, тканине, коже, итд. који се користе у изградњи ресурса.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Markup editor</source>
-        <translation type="unfinished"/>
+        <translation>Уредник означавања</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која врши кодирање  SGML, HTML, или XML означавања метаподатака, текста, итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Медијум</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>A person held to be a channel of communication between the earthly world and a different world.</source>
-        <translation type="unfinished"/>
+        <translation>Особа која се сматра за канал комуникације између земаљског света и неког другог света.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Metadata contact</source>
-        <translation type="unfinished"/>
+        <translation>Контакт за метаподатке</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију првенствено одговорну за сабирање и одржавање оригиналног описа скупа метаподатака (нпр. скуп геопросторних метаподатака).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Metal-engraver</source>
-        <translation type="unfinished"/>
+        <translation>Метал-гравер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за декорације, илустрације, слова, итд. урезана на металну површину у сврху штампе или декорације.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>Minute taker</source>
-        <translation type="unfinished"/>
+        <translation>Бележник састанака</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>A person, family, or organization responsible for recording the minutes of a meeting.</source>
-        <translation type="unfinished"/>
+        <translation>Особа, породица, или организација одговорна за бележење минута састанка.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Moderator</source>
-        <translation type="unfinished"/>
+        <translation>Модератор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу која води програм (често емитован) у коме се дискутује о темама, у коме обично учествују експерти у областима које се тичу дискусије.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Monitor</source>
-        <translation type="unfinished"/>
+        <translation>Монитор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која надгледа сагласност са уговором и која је одговорна за извештај и његову дистрибуцију. Понекад се зове и супервизор или контролна агенција.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Music copyist</source>
-        <translation type="unfinished"/>
+        <translation>Преписивач музике</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Use for a person who transcribes or copies musical notation</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу која транскрибује или копира музичку нотацију.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Musical director</source>
-        <translation type="unfinished"/>
+        <translation>Музички директор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу која је одговорна за основне музичке одлуке које се тичу продукције, укључујући координацију рада композитора, монтажера звука, и миксера звука, одабир музичара и организовање и/или дириговање звучним пробама и извођењима.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Musician</source>
-        <translation type="unfinished"/>
+        <translation>Музичар</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која изводи музику или доприноси музичком садржају дела када није могуће или пожељно да се прецизније одреди функција.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Narrator</source>
-        <translation type="unfinished"/>
+        <translation>Наратор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу која је спикер детаља везаних за акт, појављивање или ток догађаја.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>Onscreen presenter</source>
-        <translation type="unfinished"/>
+        <translation>Презентер на екрану</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>A performer contributing to an expression of a work by appearing on screen in nonfiction moving image materials or introductions to fiction moving image materials to provide contextual or background information. Use when another term (e.g., Narrator, Host) is either not applicable or not desired.</source>
-        <translation type="unfinished"/>
+        <translation>Извођач који доприноси изразу дела појављујући се на екрану у документарним материјалима покретних слика или уводима за игране материјале покретних слика како би дао контекстуалне или објашњујуће информације. Користите када други термин (нпр. Наратор, Домаћин) не може да се користи или то није пожељно.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Opponent</source>
-        <translation type="unfinished"/>
+        <translation>Противник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за противљење тези или дисертацији.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Organizer of meeting</source>
-        <translation type="unfinished"/>
+        <translation>Организатор састанка</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за организацију састанка на коме се представља извештај или зборник радова.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Originator</source>
-        <translation type="unfinished"/>
+        <translation>Покретач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која изводи дело, нпр. име особе или организације која се доводи у везу са интелектуалним садржајем дела. Ова категорија не укључује издавача или лично припадање, или спонзора изузев када је и он заједнички аутор.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Other</source>
-        <translation type="unfinished"/>
+        <translation>Друго</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за релаторске кодове из других листа које немају еквивалент у MARC листи или за термине којима није додељен код.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Owner</source>
-        <translation type="unfinished"/>
+        <translation>Власник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која тренутно поседује предмет или збирку.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>Panelist</source>
-        <translation type="unfinished"/>
+        <translation>Панелиста</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source> performer contributing to a resource by participating in a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation type="unfinished"/>
+        <translation>Извођач који доприноси ресурсу учествујући у програму (често емитованом) где се дискутује о темама, обично уз учешће експерата из области које се тичу дискусије.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Papermaker</source>
-        <translation type="unfinished"/>
+        <translation>Папирџија</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за производњу папира, обично од дрвета, тканине или неког другог влакнастог материјала.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Patent applicant</source>
-        <translation type="unfinished"/>
+        <translation>Подносилац патента</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Use for a person or organization that applied for a patent.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која је поднела захтев за патент.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Patent holder</source>
-        <translation type="unfinished"/>
+        <translation>Власник патента</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Use for a person or organization that was granted the patent referred to by the item. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију којој је одобрен патент који се односи на предмет.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Patron</source>
-        <translation type="unfinished"/>
+        <translation>Покровитељ</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за наручивање дела. Покровитељ обично користи своја средства утицаја да би подржао рад уметника, писаца, итд. Ово укључује оне који наруче и плате за поједина дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Performer</source>
-        <translation type="unfinished"/>
+        <translation>Извођач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која исказује музичке или глумачке вештине у музичкој или драмској презентацији или забави, у случају да се посебни кодови за те функције ([act], [dnc], [itr], [voc], итд.) не користе. Ако се посебни кодови користе, [prf] се користи за особу чије главне вештине нису познате или наведене.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Permitting agency</source>
-        <translation type="unfinished"/>
+        <translation>Агенција за издавање дозвола</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за управу (обично владину агенцију) која издаје дозволе под којима се дело изводи.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Photographer</source>
-        <translation type="unfinished"/>
+        <translation>Фотограф</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за сликање фотографија, било да се користе у оригиналној форми или као репродукције.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Plaintiff</source>
-        <translation type="unfinished"/>
+        <translation>Тужитељ</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за странку која се лично жали или тужи суду, обично у  правном поступку.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Plaintiff-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Тужитељ-апелант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за тужитеља који носи жалбу из једног суда или јурисдикције другом како би преиначио пресуду, обично у правном поступку. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Plaintiff-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Тужитељ-тужени</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за тужитеља против кога се жалба подноси из једног суда или јурисдикције у други како би се преиначила пресуда, обично у правном поступку.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Platemaker</source>
-        <translation type="unfinished"/>
+        <translation>Израђивач плоча</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за производњу плоча, обично за израду штампаних слика и/или текста.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>Praeses</source>
-        <translation type="unfinished"/>
+        <translation>Пресес</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>A person who is the faculty moderator of an academic disputation, normally proposing a thesis and participating in the ensuing disputation.</source>
-        <translation type="unfinished"/>
+        <translation>Особа која је факултетски модератор академске расправе, која нормално предлаже тезу и учествује у последичној расправи.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>Presenter</source>
-        <translation type="unfinished"/>
+        <translation>Приказивач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>A person or organization mentioned in an &apos;X presents&apos; credit for moving image materials and who is associated with production, finance, or distribution in some way. A vanity credit; in early years, normally the head of a studio.</source>
-        <translation type="unfinished"/>
+        <translation>Особа или организација поменута у ставки ‘Х приказује’ код материјала покретних слика и која је на неки начин у вези са продукцијом, финансијама или дистрибуцијом. Признање сујете; у раним годинама, нормално вођа студија.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Printer</source>
-        <translation type="unfinished"/>
+        <translation>Штампар</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која штампа текстове, било са слога или са плоча.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Printer of plates</source>
-        <translation type="unfinished"/>
+        <translation>Штампар плоча</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која штампа илустрације са плоча.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Printmaker</source>
-        <translation type="unfinished"/>
+        <translation>Изађивач матрице за отиске</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која израђује рељефе, интаљо, или планографске површине за штампу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Process contact</source>
-        <translation type="unfinished"/>
+        <translation>Контакт процеса</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију првенствено одговорну за извођење или започињање процеса, као у случају прикупљања скупова метаподатака.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Producer</source>
-        <translation type="unfinished"/>
+        <translation>Продуцент</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за прављење филма, укључујући и пословне аспекте, управљање производњама и комерцијалним успехом дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>Production company</source>
-        <translation type="unfinished"/>
+        <translation>Продукцијска компанија</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Организација одговорна за финансијско, техничко и организационо управљање продукцијом за позорницу, екран, аудио снимање, телевизију, вебкаст итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>Production designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизајнер продукције</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>A person or organization responsible for designing the overall visual appearance of a moving image production.</source>
-        <translation type="unfinished"/>
+        <translation>Особа или организација одговорна за дизајн целокупне визуелне појаве продукције покретних слика.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Production manager</source>
-        <translation type="unfinished"/>
+        <translation>Менаџер продукције</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу одговорну за све техничке и пословне аспекте продукције.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Production personnel</source>
-        <translation type="unfinished"/>
+        <translation>Особље продукције</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију у вези са продукцијом (реквизити, осветљење, специјални ефекти, итд.) музичке или драмске презентације или забаве.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>Production place</source>
-        <translation type="unfinished"/>
+        <translation>Место продукције</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>The place of production (e.g., inscription, fabrication, construction, etc.) of a resource in an unpublished form.</source>
-        <translation type="unfinished"/>
+        <translation>Место производње (нпр. натпис, фабрикација, конструкција итд.) ресурса у необјављеном облику.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Programmer</source>
-        <translation type="unfinished"/>
+        <translation>Програмер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за креирање и/или одржавање докумената о дизајну компјутерског програма, изворног кôда и машински извршних дигиталних фајлова и документације о подршци.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Project director</source>
-        <translation type="unfinished"/>
+        <translation>Директор пројекта</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију са првенственом одговорношћу за све најбитније аспекте пројекта, или која управља веома великим пројектом који захтева одговорност сениор нивоа, или који има свеобухватну одговорност у вези управљања пројектима, или издаје опште директиве менаџеру пројекта.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Proofreader</source>
-        <translation type="unfinished"/>
+        <translation>Лектор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу која исправља штампану ствар. За рукописе, користите Коректор [crr].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>Provider</source>
-        <translation type="unfinished"/>
+        <translation>Добављач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>A person or organization who produces, publishes, manufactures, or distributes a resource if specific codes are not desired (e.g. [mfr], [pbl].)</source>
-        <translation type="unfinished"/>
+        <translation>Особа или организација која производи, објављује, израђује или дистрибуира ресурс ако специфични кодови нису пожељни (нпр. [mfr], [pbl].)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>Publication place </source>
-        <translation type="unfinished"/>
+        <translation>Место издања</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>The place where a resource is published.</source>
-        <translation type="unfinished"/>
+        <translation>Место у ком је ресурс објављен.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Publisher</source>
-        <translation type="unfinished"/>
+        <translation>Издавач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која штампану ствар, обично текст, али такође и штампану музику, уметничко дело, итд. чини доступну јавности.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Publishing director</source>
-        <translation type="unfinished"/>
+        <translation>Директор издања</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која председава елаборацији заједничког рада у циљу обезбеђивања његове кохеренције или континуитета. Ово укључује главне уреднике, литерарне уреднике, уреднике серија, итд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Puppeteer</source>
-        <translation type="unfinished"/>
+        <translation>Луткар</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која манипулише, контролише или управља луткама или марионетама у музичкој или драмској презентацији или забави.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>Radio director</source>
-        <translation type="unfinished"/>
+        <translation>Радијски директор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>A director responsible for the general management and supervision of a radio program.</source>
-        <translation type="unfinished"/>
+        <translation>Директор одговоран за општи менаџмент и супервизију радио програма.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>Radio producer</source>
-        <translation type="unfinished"/>
+        <translation>Радијски продуцент</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>A producer responsible for most of the business aspects of a radio program.</source>
-        <translation type="unfinished"/>
+        <translation>Продуцент одговоран за већину пословних аспеката радијског програма.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Recipient</source>
-        <translation type="unfinished"/>
+        <translation>Прималац</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију на коју се адресира преписка.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>Recording engineer</source>
-        <translation type="unfinished"/>
+        <translation>Инжењер снимања</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која надгледа техничке аспекте сесије снимања звука или слике.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>A person contributing to a resource by supervising the technical aspects of a sound or video recording session.</source>
-        <translation type="unfinished"/>
+        <translation>Особа која доприноси ресурсу надгледајући техничке аспекте сесије снимања звука или слике.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Redactor</source>
-        <translation type="unfinished"/>
+        <translation>Редактор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која пише или развија оквир за неку ставку а није интелектуално одговорна за њен садржај.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Renderer</source>
-        <translation type="unfinished"/>
+        <translation>Визуелизатор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која припрема цртеже архитектонских дизајна (нпр. визуелизације) у тачној, репрезентативној перспективи како би приказала изглед пројекта када буде завршен.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Reporter</source>
-        <translation type="unfinished"/>
+        <translation>Репортер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Use for a person or organization who writes or presents reports of news or current events on air or in print.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која пише или представља извештаје о вестима или текућим догађајима уживо или писмено.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Repository</source>
-        <translation type="unfinished"/>
+        <translation>Архива</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за агенцију која чува податке или предмете материјалне културе и нуди услуге за дугорочно, конзистентно и дељено коришћење тих података или предмета.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Research team head</source>
-        <translation type="unfinished"/>
+        <translation>Вођа истраживачког тима</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Use for a person who directed or managed a research project.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу која води или управља истраживачким пројектом.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Research team member</source>
-        <translation type="unfinished"/>
+        <translation>Члан истраживачког тима</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу која је учествовала у истраживачком пројекту али чија улога није укључивала вођење или управљање тим пројектом.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Researcher</source>
-        <translation type="unfinished"/>
+        <translation>Истраживач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Use for a person or organization responsible for performing research. </source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију одговорну за вршење истраживања.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Respondent</source>
-        <translation type="unfinished"/>
+        <translation>Респондент</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за странку која даје одговор на судске поднесак пријаве за обештећење, обично у имовинским парницама. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Respondent-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Респондент-апелант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за респондента који носи жалбу из једног суда или јурисдикције другом како би преиначио пресуду, обично у имовинским парницама. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>Respondent-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Респондент-тужени</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за респондента против кога се жалба подноси из једног суда или јурисдикције у други како би се преиначила пресуда, обично у имовинским парницама.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Responsible party</source>
-        <translation type="unfinished"/>
+        <translation>Одговорна странка</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Use for a person or organization legally responsible for the content of the published material.</source>
-        <translation type="unfinished"/>
+        <translation>Користите за особу или организацију која носи правну одговорност за садржај објављеног материјала.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="330"/>
@@ -11937,7 +12029,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="148"/>
-        <source>Minimum epub metadata should include the main language, title, and at least one creator.</source>
+        <source>Double-click in cell to edit its value.  Minimum metadata consists of main language, title, and at least one creator.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -11956,608 +12048,681 @@ Do you want to automatically mend the files before saving?</source>
         <translation>Вредност</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="522"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="624"/>
-        <source>Author</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="171"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="234"/>
+        <source>[ISBN here]</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="522"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="624"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="175"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="239"/>
+        <source>[ISSN here]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="179"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="244"/>
+        <source>[DOI here]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="183"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="249"/>
+        <source>[UUID here]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="194"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="267"/>
+        <source>[Author name here]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="200"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="272"/>
+        <source>[Creator name here]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="204"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="276"/>
+        <source>[Contributor name here]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="254"/>
+        <source>[Custom identifier here]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="444"/>
+        <source>[Place value here]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="479"/>
+        <source>[Your value here]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="543"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="645"/>
+        <source>Author</source>
+        <translation>Аутор</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="543"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="645"/>
         <source>Represents a primary author of the book or publication</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="523"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="628"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="544"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <source>Subject</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="523"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="628"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="544"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="524"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="629"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="545"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
         <source>Description</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="524"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="629"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="545"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
         <source>Description of the publication&apos;s content.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="525"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="630"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="546"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="651"/>
         <source>Publisher</source>
-        <translation type="unfinished"/>
+        <translation>Издавач</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="525"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="630"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="546"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="651"/>
         <source>An entity responsible for making the publication available.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="526"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="631"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="547"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
         <source>Date: Publication</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="526"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="631"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="547"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
         <source>The date of publication.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="527"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="632"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="548"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="653"/>
         <source>Date: Creation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="527"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="632"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="548"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="653"/>
         <source>The date of creation.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="528"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
         <source>Date: Issued</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="528"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="529"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="633"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
         <source>The date of modification.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="529"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="633"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
         <source>Date: Modification</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="530"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="634"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="551"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
         <source>Type</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="530"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="551"/>
         <source>Used to indicate that the given EPUB Publication is of a specialized type..</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="635"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="552"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="656"/>
         <source>Format</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="635"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="552"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="656"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="532"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="636"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="553"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="657"/>
         <source>Source</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="532"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="553"/>
         <source>Identifies the related resource(s) from which this EPUB Publication is derived.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="533"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="637"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="658"/>
         <source>Language</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="533"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
         <source>Specifies the language of the publication. Select from the dropdown menu</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="534"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="638"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="555"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="659"/>
         <source>Relation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="534"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="638"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="555"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="659"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="535"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="639"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="660"/>
         <source>Coverage</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="535"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="639"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="660"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="536"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="640"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="557"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="661"/>
         <source>Rights</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="536"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="640"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="557"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="661"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="537"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="626"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="647"/>
         <source>Creator</source>
-        <translation type="unfinished"/>
+        <translation>Творац</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="537"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="538"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="627"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="559"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="648"/>
         <source>Contributor</source>
-        <translation type="unfinished"/>
+        <translation>Сарадник</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="538"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="559"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="539"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="560"/>
         <source>Belongs to Collection</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="539"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="560"/>
         <source>Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="540"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="625"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="646"/>
         <source>Title</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="540"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
         <source>A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="541"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
         <source>Identifier: DOI</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="541"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
         <source>Digital Object Identifier associated with the given EPUB publication.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="542"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="563"/>
         <source>Identifier: ISBN</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="542"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="563"/>
         <source>International Standard Book Number associated with the given EPUB publication.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="543"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
         <source>Identifier: ISSN</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="543"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
         <source>International Standard Serial Number associated with the given EPUB publication.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="544"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
         <source>Identifier: UUID</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="544"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
         <source>A Universally Unique Idenitifier generated for this EPUB publication.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="546"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="646"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="567"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
         <source>Custom Element</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="546"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="567"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
+        <source>[Custom element]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="567"/>
         <source>An empty metadata element you can modify.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="573"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="594"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="694"/>
         <source>Id Attribute</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="573"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="594"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="694"/>
         <source>Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="574"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="595"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="695"/>
         <source>XML Language</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="574"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="595"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:langauge, dc:date, or dc:identifier metadata elements.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="575"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="596"/>
         <source>Text Direction: rtl</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="575"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="596"/>
         <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="576"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="597"/>
         <source>Text Direction: ltr</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="576"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="597"/>
         <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="577"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="598"/>
         <source>Title Type: main</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="577"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="598"/>
         <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="578"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="599"/>
         <source>Title Type: subtitle</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="578"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="599"/>
         <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="579"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="600"/>
         <source>Title Type: short</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="579"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="600"/>
         <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="580"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="601"/>
         <source>Title Type: collection</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="580"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="601"/>
         <source>Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="581"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="602"/>
         <source>Title Type: edition</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="581"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="602"/>
         <source>Indicates that the associated title is an edition title for this publications if one exists.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="582"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="603"/>
         <source>Title Type: expanded</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="582"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="603"/>
         <source>Indicates that the associated title is an expanded title for this publication if one exists.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="583"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="604"/>
         <source>Alternate Script</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="583"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="604"/>
         <source>Provides an alternate expression of the associated property value in a language and script identified by an alternate-language attribute.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="584"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="605"/>
         <source>Alternate Language</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="584"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="605"/>
         <source>Language code for the language used in the associated alternate-script property value.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="585"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="606"/>
         <source>Collection Type: set</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="585"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="606"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="586"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="607"/>
         <source>Collection Type: series</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="586"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="607"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="587"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="608"/>
         <source>Display Sequence</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="587"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="608"/>
         <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="588"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="675"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="609"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="696"/>
         <source>File as</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="588"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="675"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="609"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="696"/>
         <source>Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="589"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
         <source>Group Position</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="589"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
         <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="590"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
         <source>Identifier Type</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="590"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
         <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="591"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="612"/>
         <source>Meta Authority</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="591"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="612"/>
         <source>Identifies the party or authority responsible for an instance of package metadata.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="592"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="676"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="613"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="697"/>
         <source>Role</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="592"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="676"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="613"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="697"/>
         <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="593"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="677"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="614"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="698"/>
         <source>Scheme</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="593"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="614"/>
         <source>This attribute is typically added to dc:identifier, dc:source: dc:creator, or dc:contributor to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="594"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>Source of Pagination</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="594"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="595"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="616"/>
         <source>Custom Property</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="595"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="616"/>
+        <source>[Custom property/attribute]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="616"/>
         <source>An empty metadata property or attribute you can modify.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="625"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="646"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="626"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="647"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="627"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="648"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="634"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
         <source>The nature or genre of the content of the resource.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="636"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="657"/>
         <source>A reference to a resource from which the present publication is derived.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="637"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="658"/>
         <source>A language used in the publication. Choose a RFC5646 value.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="641"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="642"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="643"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="644"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="662"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="664"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="665"/>
         <source>Identifier</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="641"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="662"/>
         <source>Digital Object Identifier</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="642"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
         <source>International Standard Book Number</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="643"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="664"/>
         <source>International Standard Serial Number</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="644"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="665"/>
         <source>Universally Unique Identifier</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="645"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
         <source>Identifier: Custom</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="645"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
         <source>A custom identifier based on a specified scheme</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="646"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
         <source>An empty metadata element for you to modify</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="695"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="677"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="698"/>
         <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, or UUID.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="678"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="699"/>
         <source>Event</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="678"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="699"/>
         <source>This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="679"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="700"/>
         <source>Custom Attribute</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="679"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="700"/>
+        <source>[Custom metadata property/attribute]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="700"/>
         <source>An empty metadata attribute you can modify.</source>
         <translation type="unfinished"/>
     </message>
@@ -12574,21 +12739,34 @@ Do you want to automatically mend the files before saving?</source>
 <context>
     <name>OPFModel</name>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="591"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="596"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
         <translation>Име фајла не може садржати карактер &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="602"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="607"/>
         <source>The filename cannot be empty.</source>
         <translation>Име фајла не може бити празно.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="609"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="614"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
         <translation>Име фајла &quot;%1&quot; је већ у употреби.
 </translation>
+    </message>
+</context>
+<context>
+    <name>OPFResource</name>
+    <message>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1120"/>
+        <source>[Title here]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1122"/>
+        <source>[Main title here]</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -12658,7 +12836,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="139"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="544"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="549"/>
         <source>Status: </source>
         <translation>Статус:</translation>
     </message>
@@ -12708,114 +12886,114 @@ Do you want to automatically mend the files before saving?</source>
         <translation>Грешка: додатак се не може покренути</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="377"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="382"/>
         <source>Launcher process crashed</source>
         <translation>Процес покретања је срушен</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="388"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="393"/>
         <source>Status: finished</source>
         <translation>Статус: завршено</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="395"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="400"/>
         <source>Status: failed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="401"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="410"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="406"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="415"/>
         <source>Status: No Changes Made</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="409"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="414"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="500"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="505"/>
         <source>Plugin failed to start</source>
         <translation>Неуспео старт додатка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="508"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="513"/>
         <source>Status: error</source>
         <translation>Статус: грешка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="522"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="527"/>
         <source>Plugin cancelled</source>
         <translation>Додатак је отказан</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="523"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="528"/>
         <source>Status: cancelled</source>
         <translation>Статус: отказано</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="614"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="621"/>
         <source>Error Parsing Result XML:  </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="675"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="682"/>
         <source>Incorrect XHTML: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="675"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="682"/>
         <source> Line/Col </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="702"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="709"/>
         <source>Check Report</source>
         <translation>Провера извештаја</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="703"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="710"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="721"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="728"/>
         <source>Status: cleaning up - deleting files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="741"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="753"/>
         <source>Status: deleting </source>
         <translation>Статус: брисање</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="771"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="792"/>
         <source>Status: Loading </source>
         <translation>Статус: Учитавање</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="782"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="803"/>
         <source>Input Plugin</source>
         <translation>Улазни додатак</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="783"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="804"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="809"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="830"/>
         <source>Status: adding </source>
         <translation>Статус: додавање</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="846"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="867"/>
         <source>Status: cleaning up - modifying files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="875"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="896"/>
         <source>Status: modifying </source>
         <translation>Статус: измене</translation>
     </message>
@@ -12914,57 +13092,67 @@ Are you Sure You Want to Continue?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="172"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="248"/>
+        <source>Assign as Plugin 4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="255"/>
+        <source>Assign as Plugin 5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="184"/>
         <source>Select Plugin Zip Archive</source>
         <translation>Одабери зип архиву додатка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="172"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="184"/>
         <source>Plugin Files (*.zip)</source>
         <translation>Фајлови додатка (*.zip)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="188"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="200"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="191"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="203"/>
         <source>Warning: A plugin by that name already exists</source>
         <translation>Упозорење: Додатак са тим именом већ постоји</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="194"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="206"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
         <translation>Грешка: Додатак не може бити отпакован</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="197"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="209"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation>Грешка: Додатак није исправан Sigil додатак.</translation>
+        <translation>Грешка: Додатак није исправан Сигил додатак.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="235"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="249"/>
         <source>Nothing is Selected.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="283"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="307"/>
         <source>Remove All Plugins</source>
         <translation>Обриши све додатке</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="284"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="308"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
         <translation>Да ли сте сигурни да желите да обришете све ваше додатке?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="338"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="366"/>
         <source>Select Interpreter</source>
         <translation>Одабери интерпретатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="363"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="391"/>
         <source>Incorrect Interpreter Path selected</source>
         <translation>Одабрана путања до интерпретатора није исправна</translation>
     </message>
@@ -12977,17 +13165,17 @@ Are you Sure You Want to Continue?</source>
         <translation>Подешавања</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Preferences.cpp" line="99"/>
+        <location filename="../../Dialogs/Preferences.cpp" line="102"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Preferences.cpp" line="99"/>
+        <location filename="../../Dialogs/Preferences.cpp" line="102"/>
         <source>Changes will take effect when you restart Sigil.</source>
-        <translation>Промене ће имати дејство када поново покренете Sigil.</translation>
+        <translation>Промене ће имати дејство када поново покренете Сигил.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Preferences.cpp" line="166"/>
+        <location filename="../../Dialogs/Preferences.cpp" line="174"/>
         <source>Open Preferences Location</source>
         <translation>Отвори локацију подешавања</translation>
     </message>
@@ -13040,6 +13228,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <name>PreviewWindow</name>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="42"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="250"/>
         <source>Preview</source>
         <translation>Преглед</translation>
     </message>
@@ -13047,7 +13236,7 @@ Entities can be separated by lines, commas, or spaces.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="1043"/>
+        <location filename="../../BookManipulation/Book.cpp" line="1045"/>
         <source>Merging Files..</source>
         <translation>Спајање фајлова...</translation>
     </message>
@@ -13058,7 +13247,7 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="287"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="292"/>
         <source>Cleaning...</source>
         <translation>Чишћење...</translation>
     </message>
@@ -13092,7 +13281,7 @@ Entities can be separated by lines, commas, or spaces.</source>
         <location filename="../../Importers/ImportEPUB.cpp" line="710"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="713"/>
         <source>Sigil has created a new one for you.</source>
-        <translation type="unfinished"/>
+        <translation>Сигил је направио нов уместо вас.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="259"/>
@@ -13154,12 +13343,12 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="677"/>
         <source>Sigil has used the following file as the NCX:</source>
-        <translation type="unfinished"/>
+        <translation>Сигил је користио следећи фајл као NCX:</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="705"/>
         <source>Sigil has created a template NCX</source>
-        <translation type="unfinished"/>
+        <translation>Сигил је направио шаблонски NCX</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="706"/>
@@ -13209,12 +13398,12 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="97"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="98"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Новија верзија за Sigil је доступна, верзија &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Да ли желите да идете на страну за преузимање?&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Доступна је новија верзија програма Сигил, верзија &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Да ли желите да идете на страну за преузимање?&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="420"/>
@@ -13226,12 +13415,12 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Misc/Utility.cpp" line="535"/>
         <source>Sigil has encountered a problem.</source>
-        <translation>Sigil је наишао на проблем.</translation>
+        <translation>Сигил је наишао на проблем.</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="536"/>
-        <source>Sigil cannot continue and will now close</source>
-        <translation>Sigil не може наставити и сада ће бити затворен</translation>
+        <source>Sigil may need to close.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="70"/>
@@ -13518,7 +13707,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="395"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="395"/>
@@ -13608,7 +13797,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="767"/>
         <source>Sigil: Saved Searches</source>
-        <translation>Sigil: Сачувана претрага</translation>
+        <translation>Сигил: Сачуване претраге</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="768"/>
@@ -13683,52 +13872,52 @@ your book and automatically insert into your document.</source>
         <translation>Величина сличица:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="75"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="80"/>
         <source>All</source>
         <translation>Све</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="76"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="81"/>
         <source>Images</source>
         <translation>Слике</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="77"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="82"/>
         <source>Video</source>
         <translation>Видео</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="78"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="83"/>
         <source>Audio</source>
         <translation>Аудио</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="120"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="127"/>
         <source>Files In the Book</source>
         <translation>Фајлови у књизи</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="123"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="130"/>
         <source>Thumbnails</source>
         <translation>Сличице</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="286"/>
         <source>shades</source>
         <translation>сенке</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="277"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="286"/>
         <source>colors</source>
         <translation>боје</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="278"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="287"/>
         <source>Grayscale</source>
         <translation>Црно-бело</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="278"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="287"/>
         <source>Color</source>
         <translation>Боја</translation>
     </message>
@@ -13830,42 +14019,52 @@ ID names must be unique and start with a letter.</source>
         <translation>Истакнуте неисправне речи</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="120"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="74"/>
+        <source>Check words with numbers in them.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="77"/>
+        <source>Check Numbers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="130"/>
         <source>User Dictionaries</source>
         <translation>Кориснички речник</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="128"/>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="212"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="138"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="222"/>
         <source>Add</source>
         <translation>Додај</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="135"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="211"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="145"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="212"/>
         <source>Rename</source>
         <translation>Преименуј</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="142"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="152"/>
         <source>Copy</source>
         <translation>Копирај</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="149"/>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="226"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="159"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="236"/>
         <source>Remove</source>
         <translation>Обриши</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="152"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="162"/>
         <source>Remove the selected dictionary.
 
 You cannot remove the last dictionary.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="179"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="189"/>
         <source>Mark which dictionaries are enabled for
 spell checking.
 
@@ -13874,39 +14073,39 @@ and to make it the default dictionary.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="193"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="203"/>
         <source>User Dictionary Word List</source>
         <translation>Листа корисничких речника</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="208"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="218"/>
         <source>Enter or paste words to add to the dictionary.
 Words can be separated by lines, commas, or spaces.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="219"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="229"/>
         <source>Edit</source>
         <translation>Измени</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="233"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="243"/>
         <source>Remove All</source>
         <translation>Обриши све</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="262"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="272"/>
         <source>The default dictionary is used when you add words to the
 default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="266"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="276"/>
         <source>Default Dictionary:</source>
         <translation>Подразумевани речник:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="273"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="283"/>
         <source>none</source>
         <translation type="unfinished"/>
     </message>
@@ -13921,53 +14120,53 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <translation>Речник</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="109"/>
         <source>Add Dictionary</source>
         <translation>Додај речник</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="108"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="211"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="109"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="212"/>
         <source>Name:</source>
         <translation>Име:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="122"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="162"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="224"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="232"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="251"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="123"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="163"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="225"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="233"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="252"/>
         <source>Error</source>
         <translation>Грешка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="122"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="224"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="123"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="225"/>
         <source>A user dictionary already exists with this name!</source>
         <translation>Кориснички речник са овим именом већ постоји!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="132"/>
         <source>Add Words</source>
         <translation>Додај речи</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="131"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="132"/>
         <source>Words:</source>
         <translation>Речи:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="162"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="163"/>
         <source>Could not create file!</source>
         <translation>Не могу креирати фајл!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="232"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="233"/>
         <source>Could not rename file!</source>
         <translation>Не могу преименовати фајл!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="251"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="252"/>
         <source>You cannot delete the last dictionary.</source>
         <translation>Не можете обрисати последњи речник.</translation>
     </message>
@@ -13993,7 +14192,8 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="58"/>
         <source>Ignore the selected words until Sigil
 is restarted or a new book is opened.</source>
-        <translation type="unfinished"/>
+        <translation>Игнориши изабране речи све док се Сигил не
+покрене поново или док се не отвори нова књига.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
@@ -14208,7 +14408,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
@@ -14273,7 +14473,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Misc/Utility.cpp" line="648"/>
         <source>Sigil</source>
-        <translation>Sigil</translation>
+        <translation>Сигил</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="649"/>
@@ -14346,7 +14546,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="47"/>
         <source>&lt;p&gt;The &lt;i&gt;Fix Automatically&lt;/i&gt; option will instruct Sigil to try to repair the document. &lt;b&gt;This option may lead to loss of data!&lt;/b&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Опција &lt;i&gt;Аутоматски исправи&lt;/i&gt; ће наложити Сигилу да покуша да поправи документ. &lt;b&gt;Ова опција може да доведе до губитка података!&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="54"/>
