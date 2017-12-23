@@ -329,6 +329,11 @@ void MainWindow::unloadPluginsMenu()
     m_pluginMapper->removeMappings(ui.actionPlugin3);
     m_pluginMapper->removeMappings(ui.actionPlugin4);
     m_pluginMapper->removeMappings(ui.actionPlugin5);
+    disconnect(ui.actionPlugin1, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
+    disconnect(ui.actionPlugin2, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
+    disconnect(ui.actionPlugin3, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
+    disconnect(ui.actionPlugin4, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
+    disconnect(ui.actionPlugin5, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
 }
 
 void MainWindow::runPlugin(QAction *action)
