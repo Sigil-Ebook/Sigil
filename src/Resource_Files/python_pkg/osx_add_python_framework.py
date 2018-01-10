@@ -107,9 +107,9 @@ def ignore_in_dirs(base, items, ignored_dirs=None):
             # Note: PIL has a .dylibs directory that has no __init__.py in it but does contain *.dylib files
             if name in ignored_dirs: # or not os.path.exists(os.path.join(path, '__init__.py')):
                 ans.append(name)
-        else:
-            if name.rpartition('.')[-1] not in ('so', 'py', 'dylib'):
-                ans.append(name)
+        # else:
+        #     if name.rpartition('.')[-1] not in ('so', 'py', 'dylib'):
+        #         ans.append(name)
     return ans
 
 
