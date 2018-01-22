@@ -201,6 +201,12 @@ void PluginRunner::writeSigilCFG()
 #endif
     cfg << settings.uiLanguage();
     cfg << settings.dictionary();
+    if (m_mainWindow->isWindowModified()) {
+        cfg << QString("True");
+    } else {
+        cfg << QString("False");
+    }
+    cfg << m_mainWindow->GetCurrentFilePath();
     QList <Resource *> selected_resources = m_bookBrowser->AllSelectedResources();
     foreach(Resource * resource, selected_resources) {
         cfg << resource->GetRelativePathToRoot();

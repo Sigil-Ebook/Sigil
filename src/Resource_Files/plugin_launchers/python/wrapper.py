@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20171212
+_launcher_version=20180122
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
@@ -145,6 +145,9 @@ class Wrapper(object):
         self.sigil_ui_lang = None
         # Default Sigil spell check dictionary
         self.sigil_spellcheck_lang = None
+        # status of epub inside Sigil (isDirty) and CurrentFilePath of current epub file
+        self.epub_isDirty = False
+        self.epub_filepath = ""
         # File selected in Sigil's Book Browser
         self.selected = []
         cfg = ''
@@ -159,6 +162,8 @@ class Wrapper(object):
                 self.linux_hunspell_dict_dirs = cfg_lst.pop(0).split(":")
             self.sigil_ui_lang = cfg_lst.pop(0)
             self.sigil_spellcheck_lang = cfg_lst.pop(0)
+            self.epub_isDirty = (cfg_lst.pop(0) == "True")
+            self.epub_filepath = cfg_lst.pop(0)
             self.selected = cfg_lst
         os.environ['SigilGumboLibPath'] = self.get_gumbo_path()
 

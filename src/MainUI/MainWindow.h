@@ -207,6 +207,9 @@ public:
 
     void sizeMenuIcons();
 
+    QString GetCurrentFilePath();
+
+
 public slots:
     void AnyCodeView();
 

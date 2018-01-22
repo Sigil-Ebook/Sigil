@@ -422,6 +422,11 @@ FlowTab *MainWindow::GetCurrentFlowTab()
     return qobject_cast<FlowTab *>(GetCurrentContentTab());
 }
 
+QString MainWindow::GetCurrentFilePath()
+{
+    return m_CurrentFilePath;
+}
+
 void MainWindow::ResetLinkOrStyleBookmark()
 {
     ResetLocationBookmark(m_LinkOrStyleBookmark);

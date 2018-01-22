@@ -259,6 +259,14 @@ class OutputContainer(object):
     def get_dictionary_dirs(self):
         return self._w.get_dictionary_dirs()
 
+    # get status of epub file open inside of Sigil
+    def get_epub_is_modified(self):
+        return self._w.epub_isDirty
+
+    # get path to currently open epub or an inside Sigil or empty string if unsaved
+    def get_epub_filepath(self):
+        return self._w.epub_filepath
+
 
     # functions for converting from  manifest id to href, basename, mimetype etc
     def href_to_id(self, href, ow=None):
