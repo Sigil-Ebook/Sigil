@@ -47,6 +47,7 @@ public:
     QString get_oslist();
     QString get_autostart();
     QString get_autoclose();
+    QString get_iconpath();
 
     void set_name(const QString &val);
     void set_author(const QString &val);
@@ -57,6 +58,7 @@ public:
     void set_oslist(const QString &val);
     void set_autostart(const QString &val);
     void set_autoclose(const QString &val);
+    void set_iconpath(const QString &val);
 
 private:
     QString m_name;
@@ -68,6 +70,7 @@ private:
     QString m_oslist;
     QString m_autostart;
     QString m_autoclose;
+    QString m_iconpath;
 };
 
 #endif // PLUGIN_H

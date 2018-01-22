@@ -250,9 +250,38 @@ void MainWindow::loadPluginsMenu()
     m_pluginMapper->setMapping(ui.actionPlugin5, 4);
     connect(m_pluginMapper, SIGNAL(mapped(int)), this, SLOT(QuickLaunchPlugin(int)));
 
+    QHash<QString, Plugin *> plugins = pdb->all_plugins();
+
+    // first set default icons for quick launch plugin buttons
+    ui.actionPlugin1->setIcon(QIcon(":/main/plugin_48px_1pips.png"));
+    ui.actionPlugin2->setIcon(QIcon(":/main/plugin_48px_2pips.png"));
+    ui.actionPlugin3->setIcon(QIcon(":/main/plugin_48px_3pips.png"));
+    ui.actionPlugin4->setIcon(QIcon(":/main/plugin_48px_4pips.png"));
+    ui.actionPlugin5->setIcon(QIcon(":/main/plugin_48px_5pips.png"));
+
+    // now set any custom icons
+    SettingsStore ss;
+    QStringList namemap = ss.pluginMap();
+    int pos = 0;
+    foreach (QString name, namemap) {
+        if (!name.isEmpty()) {
+            Plugin * p = plugins.value(name);
+            if (p != NULL) {
+                QString iconpath = p->get_iconpath();
+                if (!iconpath.isEmpty()) {
+                    if (pos == 0) ui.actionPlugin1->setIcon(QIcon(iconpath));
+                    if (pos == 1) ui.actionPlugin2->setIcon(QIcon(iconpath));
+                    if (pos == 2) ui.actionPlugin3->setIcon(QIcon(iconpath));
+                    if (pos == 3) ui.actionPlugin4->setIcon(QIcon(iconpath));
+                    if (pos == 4) ui.actionPlugin5->setIcon(QIcon(iconpath));
+                }
+            }
+        }
+        pos++;
+    }
+
     updateToolTipsOnPluginIcons();
 
-    QHash<QString, Plugin *> plugins = pdb->all_plugins();
     QStringList keys = plugins.keys();
     keys.sort();
     m_pluginList = keys;

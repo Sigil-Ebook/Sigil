@@ -66,6 +66,9 @@ Plugin::Plugin(const QHash<QString, QString> &info)
     if (info.contains("autoclose")) {
         set_autoclose(info.value("autoclose"));
     }
+    if (info.contains("iconpath")) {
+        set_iconpath(info.value("iconpath"));
+    }
 
 
 }
@@ -87,6 +90,7 @@ QHash<QString, QString> Plugin::serialize()
     info.insert("oslist", get_oslist());
     info.insert("autostart", get_autostart());
     info.insert("autoclose", get_autoclose());
+    info.insert("iconpath", get_iconpath());
 
     return info;
 }
@@ -150,6 +154,12 @@ QString Plugin::get_oslist()
     return m_oslist;
 }
 
+
+QString Plugin::get_iconpath()
+{
+    return m_iconpath;
+}
+
 void Plugin::set_name(const QString &val)
 {
     m_name = val;
@@ -192,15 +202,19 @@ void Plugin::set_oslist(const QString &val)
 
 void Plugin::set_autostart(const QString &val)
 {
-  if (!val.isEmpty()) {
-    m_autostart = val.toLower();
-  }
+    if (!val.isEmpty()) {
+        m_autostart = val.toLower();
+    }
 }
 
 void Plugin::set_autoclose(const QString &val)
 {
-  if (!val.isEmpty()) {
-    m_autoclose = val.toLower();
-  }
+    if (!val.isEmpty()) {
+        m_autoclose = val.toLower();
+    }
 }
 
+void Plugin::set_iconpath(const QString &val)
+{
+    m_iconpath = val;
+}

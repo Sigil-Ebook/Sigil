@@ -21,6 +21,7 @@
 
 #include <QDir>
 #include <QFile>
+#include <QFileInfo>
 #include <QStringList>
 #include <QXmlStreamReader>
 
@@ -307,6 +308,14 @@ Plugin *PluginDB::load_plugin(const QString &name)
                 plugin->set_autoclose(reader.readElementText());
             }
         }
+    }
+
+    // look for an plugin specifc icon if one exists at 
+    // the root level of the plugin folder
+    QString iconpath = pluginsPath() + "/" + name + "/plugin.png";
+    QFileInfo fileinfo(iconpath);
+    if (fileinfo.exists() && fileinfo.isFile() && fileinfo.isReadable()) {
+        plugin->set_iconpath(iconpath);
     }
 
     if (!plugin->isvalid()) {
