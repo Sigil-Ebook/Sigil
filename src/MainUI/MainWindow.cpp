@@ -2766,7 +2766,7 @@ void MainWindow::ManagePluginsDialog()
         m_SelectCharacter->show();
     }
 
-    updateToolTipsOnPluginIcons();
+    loadPluginsMenu();
 }
 
 void MainWindow::updateToolTipsOnPluginIcons()
