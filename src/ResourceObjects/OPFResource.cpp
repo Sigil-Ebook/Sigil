@@ -1188,13 +1188,14 @@ void OPFResource::CreateMimetypes()
     m_Mimetypes[ "smil"  ] = "application/smil+xml";
     m_Mimetypes[ "pls"   ] = "application/pls+xml";
     m_Mimetypes[ "xpgt"  ] = "application/adobe-page-template+xml";
-    m_Mimetypes[ "js"    ] = "text/javascript";
-    // Until the standards gods grace us with font mimetypes,
-    // these will have to do
+    m_Mimetypes[ "js"    ] = "application/javascript";
+    // m_Mimetypes[ "js"    ] = "text/javascript";
     m_Mimetypes[ "otf"   ] = "application/vnd.ms-opentype";
+    // m_Mimetypes[ "otf"   ] = "application/font-sfnt";
     m_Mimetypes[ "ttf"   ] = "application/x-font-ttf";
     m_Mimetypes[ "ttc"   ] = "application/x-font-truetype-collection";
     m_Mimetypes[ "woff"  ] = "application/font-woff";
+    m_Mimetypes[ "woff2"  ] = "font/woff2";
     m_Mimetypes[ "vtt"   ] = "text/vtt";
     m_Mimetypes[ "ttml"  ] = "application/ttml+xml";
 }

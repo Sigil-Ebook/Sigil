@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2017, 2018 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -56,7 +57,7 @@ const QRegularExpression FILE_EXCEPTIONS("META-INF");
 
 const QStringList MISC_TEXT_EXTENSIONS = QStringList()  << "txt"  << "js";
 const QStringList MISC_XML_EXTENSIONS  = QStringList() << "smil" << "xpgt" << "pls";
-const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"   << "otf" << "woff";
+const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"   << "otf" << "woff" << "woff2";
 const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html"  << "htm";
 const QStringList STYLE_EXTENSIONS     = QStringList() << "css";
 const QStringList AUDIO_EXTENSIONS     = QStringList() << "aac" << "m4a" << "mp3" << "mpeg" << "mpg" << "oga" << "ogg";
@@ -74,6 +75,9 @@ const QStringList IMAGE_MIMEYPES     = QStringList() << "image/gif" << "image/jp
 const QStringList SVG_MIMETYPES      = QStringList() << "image/svg+xml";
 const QStringList TEXT_MIMETYPES     = QStringList() << "application/xhtml+xml" << "application/x-dtbook+xml";
 const QStringList STYLE_MIMETYPES    = QStringList() << "text/css";
+const QStringList FONT_MIMETYPES     = QStringList() << "application/x-font-ttf" << "application/x-font-opentype" << 
+                                                        "application/vnd.ms-opentype" << "application/font-woff" << 
+                                                        "application/font-sfnt" << "font/woff2";
 const QStringList AUDIO_MIMETYPES    = QStringList() << "audio/mpeg" << "audio/mp3" << "audio/ogg" << "audio/mp4";
 const QStringList VIDEO_MIMETYPES    = QStringList() << "video/mp4" << "video/ogg" << "video/webm" << 
                                                         "text/vtt" << "application/ttml+xml" ;
@@ -171,7 +175,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
         } else if (SVG_EXTENSIONS.contains(extension) || SVG_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
             resource = new SVGResource(m_FullPathToMainFolder, new_file_path);
-        } else if (FONT_EXTENSIONS.contains(extension)) {
+        } else if (FONT_EXTENSIONS.contains(extension) || FONT_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToFontsFolder + "/" + filename;
             resource = new FontResource(m_FullPathToMainFolder, new_file_path);
         } else if (TEXT_EXTENSIONS.contains(extension) || TEXT_MIMETYPES.contains(mimetype)) {
@@ -530,7 +534,8 @@ void FolderKeeper::CreateExtensionToMediaTypeMap()
   m_ExtToMType[ "html"  ] = "application/xhtml+xml";
   m_ExtToMType[ "jpeg"  ] = "image/jpeg";
   m_ExtToMType[ "jpg"   ] = "image/jpeg";
-  m_ExtToMType[ "js"    ] = "text/javascript";
+  m_ExtToMType[ "js"    ] = "application/javascript";
+  // m_ExtToMType[ "js"    ] = "text/javascript";
   m_ExtToMType[ "mp3"   ] = "audio/mpeg";
   m_ExtToMType[ "m4a"   ] = "audio/mp4";
   m_ExtToMType[ "mp4"   ] = "video/mp4";
@@ -541,6 +546,7 @@ void FolderKeeper::CreateExtensionToMediaTypeMap()
   m_ExtToMType[ "ogv"   ] = "video/ogg";
   m_ExtToMType[ "opf"   ] = "application/oebps-package+xml";
   m_ExtToMType[ "otf"   ] = "application/vnd.ms-opentype";
+  // m_ExtToMType[ "otf"   ] = "application/font-sfnt";
   m_ExtToMType[ "pls"   ] = "application/pls+xml";
   m_ExtToMType[ "png"   ] = "image/png";
   m_ExtToMType[ "smil"  ] = "application/smil+xml";
@@ -553,6 +559,7 @@ void FolderKeeper::CreateExtensionToMediaTypeMap()
   m_ExtToMType[ "vtt"   ] = "text/vtt";
   m_ExtToMType[ "webm"  ] = "video/webm";
   m_ExtToMType[ "woff"  ] = "application/font-woff";
+  m_ExtToMType[ "woff2"  ] = "font/woff2";
   m_ExtToMType[ "xpgt"  ] = "application/adobe-page-template+xml";
   m_ExtToMType[ "xhtml" ] = "application/xhtml+xml";
 }
