@@ -1,3 +1,15 @@
+Sigil-pre0.9.10
+   Bug Fixes
+    - Fix signal handling to prevent double launch of plugins immediately after plugin installed
+    - Fixed incorrect named entity tooltips for many of the Insert-> Special Characters
+
+   New Features
+    - allow plugins to supply their own icon (plugin.png 48x48) for use on the Quick Launch Toolbar icons
+    - extend plugin interface to include the status of the epub inside Sigil (modified or saved)
+    - extend plugin interface to include the path to the saved epub file or the null string if never saved
+    - extend Insert->Special Characters to include both a Greek letter panel and a mathematical symbol panel 
+
+
 Sigil-0.9.9
    Bug Fixes
     - Add python_3.5_fixes3.patch to Python build and update build docs on OSX to fix missing symbols
