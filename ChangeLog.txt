@@ -2,6 +2,7 @@ Sigil-pre0.9.10
    Bug Fixes
     - Fix signal handling to prevent double launch of plugins immediately after plugin installed
     - Fixed incorrect named entity tooltips for many of the Insert-> Special Characters
+    - Fixed lack of recognition of woff2 fonts inside Sigil and for plugins
 
    New Features
     - allow plugins to supply their own icon (plugin.png 48x48) for use on the Quick Launch Toolbar icons
