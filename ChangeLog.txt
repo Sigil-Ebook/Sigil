@@ -9,6 +9,7 @@ Sigil-pre0.9.10
     - extend plugin interface to include the status of the epub inside Sigil (modified or saved)
     - extend plugin interface to include the path to the saved epub file or the null string if never saved
     - extend Insert->Special Characters to include both a Greek letter panel and a mathematical symbol panel 
+    - add support for calibre:series and calibre:series_index to Metadata Editor for epub2
 
 
 Sigil-0.9.9
