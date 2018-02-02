@@ -226,7 +226,7 @@ def set_new_metadata(data, other, idlst, metatag, opfdata):
             mname = "meta"
             mattr["name"] = name
             mattr["content"] = mcontent
-            mcontent = ""
+            mcontent = None
         pos += 1
         # process any children
         while pos < cnt:
