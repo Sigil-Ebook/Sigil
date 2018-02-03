@@ -666,6 +666,7 @@ void MetaEditor::loadE2MetadataElements()
          tr("Identifier: Custom") << "dc:identifier-custom" << tr("A custom identifier based on a specified scheme") <<
          tr("Series") << "calibre:series" << tr("Series title or name (from calibre)") <<
          tr("Series Index") << "calibre:series_index" << tr("Index of this book in the series (from calibre)") <<
+         tr("Title for Sorting") << "calibre:title_sort" << tr("Version of ebook title to use for sorting(from calibre)") <<
          tr("Custom Element") << tr("[Custom element]") << tr("An empty metadata element for you to modify");
 
     for (int i = 0; i < data.count(); i++) {
