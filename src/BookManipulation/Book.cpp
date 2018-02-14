@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015, 2016, 2017, 2018  Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -313,7 +313,11 @@ QString Book::GetFirstUniqueSectionName(QString extension)
 
     if (extension.isEmpty()) {
         extension = first_html_file.right(first_html_file.length() - first_html_file.lastIndexOf("."));
-
+        // do not create new extensions with .xml or any other strange extension that are vague
+        // ie. xhtml is xml but xml need not be xhtml
+        if ((extension != ".xhtml") && (extension != ".htm") && (extension != ".html")) {
+            extension = ".xhtml";
+        }
         // If no extension use the default first name extension
         if (extension.isEmpty()) {
             extension = FIRST_SECTION_NAME;
@@ -335,7 +339,9 @@ HTMLResource *Book::CreateNewHTMLFile()
     TempFolder tempfolder;
     QString fullfilepath = tempfolder.GetPath() + "/" + GetFirstUniqueSectionName();
     Utility::WriteUnicodeTextFile(PLACEHOLDER_TEXT, fullfilepath);
-    HTMLResource *html_resource = qobject_cast<HTMLResource *>(m_Mainfolder->AddContentFileToFolder(fullfilepath));
+    
+    HTMLResource *html_resource = qobject_cast<HTMLResource *>(m_Mainfolder->AddContentFileToFolder(fullfilepath, 
+                                                                        true, QString("application/xhtml+xml")));
     SetModified(true);
     return html_resource;
 }
