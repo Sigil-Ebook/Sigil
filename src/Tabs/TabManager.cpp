@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2018, Kevin B. Hendricks, Stratford, ON Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -423,6 +424,13 @@ bool TabManager::SwitchedToExistingTab(const Resource *resource,
         if (image_tab != NULL) {
             return true;
         }
+
+        AVTab *av_tab = qobject_cast<AVTab *>(tab);
+
+        if (av_tab != NULL) {
+            return true;
+        }
+
     }
 
     return false;
