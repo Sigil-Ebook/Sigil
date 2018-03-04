@@ -428,6 +428,11 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
 
     m_book->GetFolderKeeper()->SuspendWatchingResources();
 
+    if (!m_filesToAdd.isEmpty()) {
+        if (addFiles(m_filesToAdd)) {
+            book_modified = true;
+        }
+    }
     if (!m_filesToDelete.isEmpty()) {
         // before deleting make sure a tab of at least one of the remaining html files will be open
         // to prevent deleting the last tab when deleting resources
@@ -446,11 +451,6 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
         }
 
         if (deleteFiles(m_filesToDelete)) {
-            book_modified = true;
-        }
-    }
-    if (!m_filesToAdd.isEmpty()) {
-        if (addFiles(m_filesToAdd)) {
             book_modified = true;
         }
     }
