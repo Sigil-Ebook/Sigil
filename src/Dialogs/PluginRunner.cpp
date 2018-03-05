@@ -850,6 +850,10 @@ bool PluginRunner::addFiles(const QStringList &files)
         } else  if (resource->Type() == Resource::HTMLResourceType) {
             HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
             html_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
+            // remember to add this new file to the list of remaining xhtml resources
+            QString href = resource->GetRelativePathToRoot();
+            m_xhtmlFiles[href] = resource;
+            m_hrefToRes[href] = resource;
         } else if (resource->Type() == Resource::CSSResourceType) {
             CSSResource *css_resource = qobject_cast<CSSResource *>(resource);
             css_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
