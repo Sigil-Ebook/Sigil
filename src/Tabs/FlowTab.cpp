@@ -1282,28 +1282,43 @@ void FlowTab::IncreaseIndent()
 
 void FlowTab::TextDirectionLeftToRight()
 {
+    QString version = m_HTMLResource->GetEpubVersion();
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction(QWebPage::SetTextDirectionLeftToRight);
     } else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->FormatStyle("direction", "ltr");
-    }
+        if (version.startsWith("3")) {
+            m_wCodeView->FormatTextDir("ltr"); 
+        } else {
+            m_wCodeView->FormatStyle("direction", "ltr");
+        }
+   }
 }
 
 void FlowTab::TextDirectionRightToLeft()
 {
+    QString version = m_HTMLResource->GetEpubVersion();
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction(QWebPage::SetTextDirectionRightToLeft);
     } else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->FormatStyle("direction", "rtl");
+        if (version.startsWith("3")) {
+            m_wCodeView->FormatTextDir("rtl"); 
+        } else {
+            m_wCodeView->FormatStyle("direction", "rtl");
+        }
     }
 }
 
 void FlowTab::TextDirectionDefault()
 {
+    QString version = m_HTMLResource->GetEpubVersion();
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction(QWebPage::SetTextDirectionDefault);
     } else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->FormatStyle("direction", "inherit");
+        if (version.startsWith("3")) {
+            m_wCodeView->FormatTextDir(QString()); 
+        } else {
+            m_wCodeView->FormatStyle("direction", "inherit");
+        }
     }
 }
 

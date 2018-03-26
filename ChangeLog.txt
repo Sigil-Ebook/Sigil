@@ -6,6 +6,7 @@ Sigil-pre0.9.10
     - Fix segfault when .xml is first file in BookBrowser and add new html or split at cursor is invoked
     - Fix bug that allowed multiple audio/video tabas of the same resource to be opened
     - Fix plugin related bug when adding/removing last xhtml file
+    - Fix Text Direction setting inside body to use structural dir attribute under epub3
 
    New Features
     - allow plugins to supply their own icon (plugin.png 48x48) for use on the Quick Launch Toolbar icons

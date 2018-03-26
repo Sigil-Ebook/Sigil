@@ -291,6 +291,15 @@ public:
     void FormatStyle(const QString &property_name, const QString &property_value);
 
     /**
+     * Based on the cursor location (in html file) add/replace as
+     * appropriate a text direction dir="property_value" attribute.
+     *
+     * @param property_value The new value to be assigned to this property.
+     */
+    void FormatTextDir(const QString &attribute_value);
+
+
+    /**
      * Based on the cursor location (in CSS file or inlined in HTML file)
      * add/replace as appropriate a property_name: property_value property in
      * the currently selected CSS style if any.

@@ -3136,6 +3136,19 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name, QStringL
     return QString();
 }
 
+void CodeViewEditor::FormatTextDir(const QString &attribute_value)
+{
+    // Going to assume that the user is allowed to click anywhere within or just after the block
+    // Also makes assumptions about being well formed, or else crazy things may happen...
+    int pos = textCursor().selectionStart();
+    QString text = toPlainText();
+    if (!IsPositionInBody(pos, text)) {
+        return;
+    }
+    // Apply the modified attribute.
+    SetAttribute("dir", ID_TAGS, attribute_value);
+}
+
 void CodeViewEditor::FormatStyle(const QString &property_name, const QString &property_value)
 {
     if (property_name.isEmpty() || property_value.isEmpty()) {
