@@ -204,14 +204,6 @@ void BookViewPreview::UpdateDisplay()
     }
 }
 
-void BookViewPreview::mouseReleaseEvent(QMouseEvent *event)
-{
-    // Propagate to base class
-    QWebView::mouseReleaseEvent(event);
-
-    emit GoToPreviewLocationRequest();
-}
-
 void BookViewPreview::ScrollToTop()
 {
     QString caret_location = "var elementList = document.getElementsByTagName(\"body\");"
@@ -776,6 +768,6 @@ void BookViewPreview::ConnectSignalsToSlots()
     connect(this,  SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(OpenContextMenu(const QPoint &)));
     connect(m_InspectElement,    SIGNAL(triggered()),  this, SLOT(InspectElement()));
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
-    connect(page(), SIGNAL(linkClicked(const QUrl &)), SIGNAL(LinkClicked(const QUrl &)));
+    connect(page(), SIGNAL(linkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
 }

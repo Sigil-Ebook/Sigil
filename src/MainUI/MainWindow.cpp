@@ -4767,9 +4767,9 @@ void MainWindow::LoadInitialFile(const QString &openfilepath, bool is_internal)
 void MainWindow::ConnectSignalsToSlots()
 {
     connect(m_PreviewWindow, SIGNAL(Shown()), this, SLOT(UpdatePreview()));
-    connect(m_PreviewWindow, SIGNAL(GoToPreviewLocationRequest()), this, SLOT(GoToPreviewLocation()));
     connect(m_PreviewWindow, SIGNAL(ZoomFactorChanged(float)),     this, SLOT(UpdateZoomLabel(float)));
     connect(m_PreviewWindow, SIGNAL(ZoomFactorChanged(float)),     this, SLOT(UpdateZoomSlider(float)));
+    connect(m_PreviewWindow, SIGNAL(OpenUrlRequest(const QUrl &)), this, SLOT(OpenUrl(const QUrl &)));
     connect(qApp, SIGNAL(focusChanged(QWidget *, QWidget *)), this, SLOT(ApplicationFocusChanged(QWidget *, QWidget *)));
     // Setup signal mapping for heading actions.
     connect(ui.actionHeading1, SIGNAL(triggered()), m_headingMapper, SLOT(map()));

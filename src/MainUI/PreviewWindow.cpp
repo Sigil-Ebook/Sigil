@@ -45,7 +45,8 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_Preview(new BookViewPreview(this)),
     m_Inspector(new QWebInspector(this)),
     m_Splitter(new QSplitter(this)),
-    m_StackedViews(new QStackedWidget(this))
+    m_StackedViews(new QStackedWidget(this)),
+    m_Filepath(QString())
 {
     SetupView();
     LoadSettings();
@@ -228,6 +229,7 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList<ViewEditor:
         }
     }
 
+    m_Filepath = filename;
     m_Preview->CustomSetDocument(filename, text);
 
     // Wait until the preview is loaded before moving cursor.
@@ -272,6 +274,27 @@ void PreviewWindow::SplitterMoved(int pos, int index)
     UpdateWindowTitle();
 }
 
+void PreviewWindow::LinkClicked(const QUrl &url)
+{
+    if (url.toString().isEmpty()) {
+        return;
+    }
+
+    QFileInfo finfo(m_Filepath);
+    QString url_string = url.toString();
+
+    // Convert fragments to full filename/fragments
+    if (url_string.startsWith("#")) {
+        url_string.prepend(finfo.fileName());
+    } else if (url.scheme() == "file") {
+        if (url_string.contains("/#")) {
+            url_string.insert(url_string.indexOf("/#") + 1, finfo.fileName());
+        }
+    }
+
+    emit OpenUrlRequest(QUrl(url_string));
+}
+
 void PreviewWindow::LoadSettings()
 {
     SettingsStore settings;
@@ -283,7 +306,7 @@ void PreviewWindow::LoadSettings()
 void PreviewWindow::ConnectSignalsToSlots()
 {
     connect(m_Splitter,  SIGNAL(splitterMoved(int, int)), this, SLOT(SplitterMoved(int, int)));
-    connect(m_Preview,   SIGNAL(GoToPreviewLocationRequest()), this, SIGNAL(GoToPreviewLocationRequest()));
     connect(m_Preview,   SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
+    connect(m_Preview,   SIGNAL(LinkClicked(const QUrl &)), this, SLOT(LinkClicked(const QUrl &)));
 }
 

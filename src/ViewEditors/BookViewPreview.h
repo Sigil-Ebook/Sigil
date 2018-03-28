@@ -146,11 +146,8 @@ signals:
 
     void DocumentLoaded();
 
-    void GoToPreviewLocationRequest();
 
 protected:
-    void mouseReleaseEvent(QMouseEvent *event);
-
     /**
      * Evaluates the provided javascript source code
      * and returns the result.

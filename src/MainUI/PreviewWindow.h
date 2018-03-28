@@ -48,11 +48,17 @@ public slots:
     void UpdatePage(QString filename, QString text, QList<ViewEditor::ElementIndex> location);
     void SetZoomFactor(float factor);
     void SplitterMoved(int pos, int index);
+    void LinkClicked(const QUrl &url);
 
 signals:
     void Shown();
-    void GoToPreviewLocationRequest();
     void ZoomFactorChanged(float factor);
+    /**
+     * Emitted whenever Preview wants to open an URL.
+     * @param url The URL to open.
+     */
+    void OpenUrlRequest(const QUrl &url);
+
 
 protected:
     virtual void hideEvent(QHideEvent* event);
@@ -72,6 +78,7 @@ private:
     QWebInspector *m_Inspector;
     QSplitter *m_Splitter;
     QStackedWidget *m_StackedViews;
+    QString m_Filepath;
 };
 
 #endif // PREVIEWWINDOW_H

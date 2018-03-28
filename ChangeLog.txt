@@ -15,6 +15,7 @@ Sigil-pre0.9.10
     - extend Insert->Special Characters to include both a Greek letter panel and a mathematical symbol panel 
     - add support for calibre:series and calibre:series_index to Metadata Editor for epub2
     - add support for calibre:title_sort to Metadata Editor for epub2
+    - add support for clicking internal links in Preview to load the proper destination tab
 
 
 Sigil-0.9.9
