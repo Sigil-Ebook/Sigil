@@ -719,6 +719,26 @@ There always has to be at least one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1422"/>
+        <source>Merge with previous file, or merge multiple files into one.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1425"/>
+        <source>Rename selected file(s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1427"/>
+        <source>Link Stylesheets to selected file(s).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1429"/>
+        <source>Add Semantics to selected file(s).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1517"/>
         <source>Other Application</source>
         <translation type="unfinished"></translation>
