@@ -33,6 +33,7 @@ class QSignalMapper;
 
 class FindReplaceQLineEdit : public QLineEdit
 {
+    Q_OBJECT
 
 public:
     FindReplaceQLineEdit(QWidget *parent = 0);
