@@ -1890,6 +1890,7 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1421"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1422"/>
         <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1900,6 +1901,7 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1424"/>
         <source>Case Sensitive</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1909,6 +1911,7 @@ other end to continue searching.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Regex</source>
         <translation type="unfinished"></translation>
@@ -1931,6 +1934,7 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1432"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1433"/>
         <source>All HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1941,6 +1945,7 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1435"/>
         <source>Selected HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1951,6 +1956,7 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1442"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1443"/>
         <source>Marked Text</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1961,11 +1967,13 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1447"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1451"/>
         <source>Up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1448"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
         <source>Down</source>
         <translation type="unfinished"></translation>
     </message>
