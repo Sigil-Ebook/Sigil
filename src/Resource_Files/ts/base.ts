@@ -1912,7 +1912,7 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
         <source>Regex</source>
         <translation type="unfinished"></translation>
     </message>
