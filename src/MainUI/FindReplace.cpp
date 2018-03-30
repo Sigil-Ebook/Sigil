@@ -1419,20 +1419,20 @@ void FindReplace::ExtendUI()
     ui.cbSearchDirection->clear();
     QString mode_tooltip = "<p>" + tr("What to search for") + ":</p><dl>";
     ui.cbSearchMode->addItem(tr("Normal"), FindReplace::SearchMode_Normal);
-    mode_tooltip += "<dt><b>Normal</b><dd>" + tr("Case in-sensitive search of exactly what you type.") + "</dd>";
+    mode_tooltip += "<dt><b>" + tr("Normal") + "</b><dd>" + tr("Case in-sensitive search of exactly what you type.") + "</dd>";
     ui.cbSearchMode->addItem(tr("Case Sensitive"), FindReplace::SearchMode_Case_Sensitive);
-    mode_tooltip += "<dt><b>Case Sensitive</b><dd>" + tr("Case sensitive search of exactly what you type.") + "</dd>";
+    mode_tooltip += "<dt><b>" + tr("Case Sensitive") + "</b><dd>" + tr("Case sensitive search of exactly what you type.") + "</dd>";
     ui.cbSearchMode->addItem(tr("Regex"), FindReplace::SearchMode_Regex);
-    mode_tooltip += "<dt><b>Regex</b><dd>" + tr("Search for a pattern using Regular Expression syntax.") + "</dd>";
+    mode_tooltip += "<dt><b>" + tr("Regex") + "</b><dd>" + tr("Search for a pattern using Regular Expression syntax.") + "</dd>";
     ui.cbSearchMode->setToolTip(mode_tooltip);
 
     QString look_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
     ui.cbLookWhere->addItem(tr("Current File"), FindReplace::LookWhere_CurrentFile);
-    look_tooltip += "<dt><b>Current File</b><dd>" + tr("Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.") + "</dd>";
+    look_tooltip += "<dt><b>" + tr("Current File") + "</b><dd>" + tr("Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.") + "</dd>";
     ui.cbLookWhere->addItem(tr("All HTML Files"), FindReplace::LookWhere_AllHTMLFiles);
-    look_tooltip += "<dt><b>All HTML Files</b><dd>" + tr("Find or replace in all HTML files in Code View.") + "</dd>";
+    look_tooltip += "<dt><b>" + tr("All HTML Files") + "</b><dd>" + tr("Find or replace in all HTML files in Code View.") + "</dd>";
     ui.cbLookWhere->addItem(tr("Selected HTML Files"), FindReplace::LookWhere_SelectedHTMLFiles);
-    look_tooltip += "<dt><b>Selected HTML Files</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser in Code View.") + "</dd>";
+    look_tooltip += "<dt><b>" + tr("Selected HTML Files") + "</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser in Code View.") + "</dd>";
     look_tooltip += "</dl>";
     look_tooltip += "<p>To restrict search to selected text, use Search&rarr;Mark Selected Text.</p>";
     ui.cbLookWhere->setToolTip(look_tooltip);
@@ -1440,7 +1440,7 @@ void FindReplace::ExtendUI()
     // Special Marked Text indicator.
     QString mark_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
     ui.MarkedTextIndicator->addItem(tr("Marked Text"));
-    mark_tooltip += "<dt><b>Marked Text</b><dd>" + tr("Restrict the find or replace to the text marked by Search&rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.") + "</dd>";
+    mark_tooltip += "<dt><b>" + tr("Marked Text") + "</b><dd>" + tr("Restrict the find or replace to the text marked by Search&rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.") + "</dd>";
     mark_tooltip += "</dl>";
     ui.MarkedTextIndicator->setToolTip(mark_tooltip);
 
@@ -1448,8 +1448,8 @@ void FindReplace::ExtendUI()
     ui.cbSearchDirection->addItem(tr("Down"), FindReplace::SearchDirection_Down);
     ui.cbSearchDirection->setToolTip("<p>" + tr("Direction to search") + ":</p>"
                                      "<dl>"
-                                     "<dt><b>Up</b><dd>" + tr("Search for the previous match from your current position.") + "</dd>"
-                                     "<dt><b>Down</b><dd>" + tr("Search for the next match from your current position.") + "</dd>"
+                                     "<dt><b>" + tr("Up") + "</b><dd>" + tr("Search for the previous match from your current position.") + "</dd>"
+                                     "<dt><b>" + tr("Down") + "</b><dd>" + tr("Search for the next match from your current position.") + "</dd>"
                                      "</dl>");
 }
 
