@@ -9,13 +9,6 @@
 
 cmake_minimum_required( VERSION 3.0.0 )
 
-if(POLICY CMP0020)
-    cmake_policy(SET CMP0020 OLD)
-endif()
-if(POLICY CMP0043)
-    cmake_policy(SET CMP0043 OLD)
-endif()
-
 #############################################################################
 
 # Print a message and fail for people who don't
@@ -557,8 +550,10 @@ set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPUL
 
 # Runs UIC on specified files
 qt5_wrap_ui( UI_FILES_H ${UI_FILES} )
+set_property( SOURCE ${UI_FILES_H} PROPERTY SKIP_AUTOMOC ON )
 # Runs RCC on specified files
 qt5_add_resources( QRC_FILES_CPP ${QRC_FILES} )
+set_property( SOURCE ${QRC_FILES_CPP} PROPERTY SKIP_AUTOMOC ON )
 # Runs lrelease on the specified files
 qt5_add_translation( QM_FILES ${TS_FILES} )
 
@@ -679,12 +674,9 @@ else()
     add_executable( ${PROJECT_NAME} WIN32 ${ALL_SOURCES} )
 endif()
 
-if (MSVC)
-    set(QT_MAIN Qt5::WinMain)
-endif()
-
-target_link_libraries( ${PROJECT_NAME} ${QT_MAIN} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES} ${PYTHON_LIBRARIES} )
-qt5_use_modules(${PROJECT_NAME} Widgets Xml XmlPatterns PrintSupport Svg WebKit WebKitWidgets Network Concurrent)
+# No need to explicity link Qt5::WinMain or to use the qt5_use_modules macro since CMAKE 2.8.11. We require CMAKE 3.0.0
+target_link_libraries( ${PROJECT_NAME} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES} ${PYTHON_LIBRARIES}
+    Qt5::Widgets  Qt5::Xml  Qt5::XmlPatterns  Qt5::PrintSupport  Qt5::Svg  Qt5::WebKit  Qt5::WebKitWidgets  Qt5::Network  Qt5::Concurrent )
 
 #############################################################################
 
