@@ -73,7 +73,7 @@ On Ubuntu/Debian `sudo apt-get install` (at a minimum) the following packages:
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install python3-dev python3-pip python3-tk python3-pyqt5 python3-lxml python3-six`
+`sudo apt-get install python3-dev python3-pip python3-lxml python3-six`
 
 That's all the Python 3.4 (or higher) stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X. These should all be able to be installed with `sudo apt-get install`.
 
