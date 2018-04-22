@@ -51,21 +51,19 @@ If your software repos provide Python 3.4.0 or higher, by all means use them to 
 + libpython3
 + libpython3-dev
 + python3-pip
-+ python3-tk
-+ python3-pyqt5
 + python3-lxml
 + python3-six
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install python3 python3-dev libpython3 libpython3-dev python3-pip python3-tk python3-pyqt5 python3-lxml python3-six`
+`sudo apt-get install python3 python3-dev libpython3 libpython3-dev python3-pip python3-lxml python3-six`
 
 If your repos don't include Python 3.4.x or higher, truck on over to [Python.org](http://www.python.org) and start reading how to build/install it from source. Whatever else you do, make sure you configure it with the `--enable-shared` option. You'll need the libpython3.4m.so library to build Sigil.
 
-That's all the Python 3.4 stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X. These can all be installed from python.org's [Python Package Index](https://pypi.python.org) using pip3 from the command-line. The entire current list (which I *highly* recommend installing) is:
+That's all the Python 3.4 stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X. Some of these can be installed from your distro's package manager, and some of them might not be able to be. I highly recommend doing so if you can. The one's that can't, can all be installed from python.org's [Python Package Index](https://pypi.python.org) using pip3 from the command-line. The entire current list (which I *highly* recommend installing) is:
 
-+ six (already installed if you installed python3-six with apt-get)
-+ lxml (already installed if you installed python3-lxml with apt-get)
++ python3-tk (install with `sudo apt-get install python3-tk` if possible)
++ python3-pyqt5 (install with `sudo apt-get install python3-pyqt5` if possible)
 + html5lib
 + regex
 + Pillow
