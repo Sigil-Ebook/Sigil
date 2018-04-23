@@ -313,7 +313,6 @@ void MetaEditor::selectProperty()
         } else if (code == "group-position") {
             QString content = "1";
             insertChild(code, content);
-            insertChild(code, content);
         } else if (code == "display-seq") {
             QString content = "1";
             insertChild(code, content);

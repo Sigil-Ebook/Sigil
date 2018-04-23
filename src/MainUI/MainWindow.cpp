@@ -4757,7 +4757,7 @@ void MainWindow::ExtendIconSizes()
 void MainWindow::LoadInitialFile(const QString &openfilepath, bool is_internal)
 {
     if (!openfilepath.isEmpty()) {
-        LoadFile(openfilepath, is_internal);
+        LoadFile(QFileInfo(openfilepath).absoluteFilePath(), is_internal);
     } else {
         CreateNewBook();
     }
