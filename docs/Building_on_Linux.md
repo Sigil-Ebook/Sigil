@@ -36,7 +36,7 @@ to get pretty-much everything you need to configure/compile/install C++ projects
 Once again: `sudo apt-get install cmake` will get you what you need on Ubuntu-type systems.
 
 ## <a name="qt5"/>Getting Qt5
-<center>**If your repos don't provide at lease Qt5.4.2, use the [Building_on_Linux](./Building_on_Linux.md) documentation**</center>
+<center>**If your repos don't provide at lease Qt5.4.2, use the [Building_on_older_Linux](./Building_on_older_Linux.md) documentation**</center>
 
 To get Sigil's Qt5 requirements, `sudo apt-get install` the following packages:
 
@@ -68,27 +68,27 @@ On Ubuntu/Debian `sudo apt-get install` (at a minimum) the following packages:
 
 + python3-dev
 + python3-pip
-+ python3-tk
-+ python3-pyqt5
 + python3-lxml
 + python3-six
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install python3-dev python3-pip python3-tk python3-pyqt5 python3-lxml python3-six`
+`sudo apt-get install python3-dev python3-pip python3-lxml python3-six`
 
 That's all the Python 3.4 (or higher) stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X. These should all be able to be installed with `sudo apt-get install`.
 
++ python3-tk
++ python3-pyqt5
 + python3-html5lib
 + python3-regex
-+ python3-pillow
++ python3-pillow (could be python3-pil)
 + python3-cssselect
 + python3-cssutils
 + python3-chardet
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install python3-html5lib python3-regex python3-pillow python3-cssselect python3-cssutils python3-chardet`
+`sudo apt-get install python3-tk python3-pyqt5 python3-html5lib python3-regex python3-pillow python3-cssselect python3-cssutils python3-chardet`
 
 If you run into any that won't install with `sudo apt-get install` you can still use pip3 to install them.
 
