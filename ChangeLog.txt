@@ -9,6 +9,7 @@ Sigil-pre0.9.10
     - Fix Text Direction setting inside body to use structural dir attribute under epub3
     - Fix duplicate group-position property in epub3 MetaData Editor
     - Use absolute path references when first opening Sigil with an ebook so that Open Recent works better
+    - Fix "issue" in handling self-closing script tags in head (similar issue that we had with self-closing title tags)
 
    New Features
     - allow plugins to supply their own icon (plugin.png 48x48) for use on the Quick Launch Toolbar icons
