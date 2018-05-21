@@ -67,7 +67,7 @@ def _well_formed(data):
     result = True 
     newdata = data
     if isinstance(newdata, str):
-        newdata = newdata.encode('utf-8')
+        newdata = newdata.encode('utf-8', 'surrogatepass')
     try:
         parser = etree.XMLParser(encoding='utf-8', recover=False)
         tree = etree.parse(BytesIO(newdata), parser)
