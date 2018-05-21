@@ -1465,7 +1465,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1352"/>
         <source>Open Tab For Image</source>
-        <translation>在新标签也打开图像</translation>
+        <translation>在新标签页打开图像</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1378"/>
@@ -8009,7 +8009,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1731"/>
         <source>Mar&amp;k Selected Text</source>
-        <translation>标识选定文本&amp;k</translation>
+        <translation>标识选定文本(&amp;k)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1739"/>
