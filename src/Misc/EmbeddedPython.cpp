@@ -536,7 +536,7 @@ PyObject* EmbeddedPython::QVariantToPyObject(const QVariant &v)
                   // since QString's utf-16 may contain surrogates or may only be pure ascii we have no easy
                   // to know the proper string storage type to use internal to python (latin1, ucs2, ucs4)
                   // so punt and create utf-8 and let python handle the conversion internally via its c-api
-                  PyObject* strval = Py_BuildValue("s", v.toString().toUtf8().constData());
+                  PyObject* strval = Py_BuildValue("s", av.toUtf8().constData());
                   PyList_SetItem(value, pos, strval);
                   pos++;
                }
