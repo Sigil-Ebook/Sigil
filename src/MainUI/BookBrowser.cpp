@@ -613,7 +613,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
 
         QString filename = QFileInfo(filepath).fileName();
 
-        if (current_filenames.contains(filename)) {
+        if (current_filenames.contains(filename, Qt::CaseInsensitive )) {
             // If this is an image prompt to replace it.
             if (IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
                 SVG_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
