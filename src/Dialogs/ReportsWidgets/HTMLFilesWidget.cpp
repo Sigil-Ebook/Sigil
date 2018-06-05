@@ -180,7 +180,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     QList<QStandardItem *> rowItems;
     // Files
     nitem = new NumericItem();
-    nitem->setText(QString::number(m_HTMLResources.count()) % tr(" files"));
+    nitem->setText(QString(tr("%n file(s)", "", m_HTMLResources.count()));
     rowItems << nitem;
     // File size
     nitem = new NumericItem();

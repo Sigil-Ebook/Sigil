@@ -139,7 +139,7 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     rowItems << nitem;
     // Files
     nitem = new NumericItem();
-    nitem->setText(QString::number(m_AllResources.count()) % tr(" files"));
+    nitem->setText(QString(tr("%n file(s)", "", m_AllResources.count())));
     rowItems << nitem;
     // File size
     nitem = new NumericItem();
