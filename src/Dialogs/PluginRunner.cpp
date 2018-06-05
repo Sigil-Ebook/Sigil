@@ -132,7 +132,7 @@ int PluginRunner::exec(const QString &name)
             if (!m_enginePath.isEmpty()) break;
         } 
         if (m_enginePath.isEmpty()) {
-            Utility::DisplayStdErrorDialog(tr("Error: Interpreter ") + m_engine + tr(" has no path set"));
+            Utility::DisplayStdErrorDialog(tr("Error: Interpreter") + " " + m_engine + " " + tr("has no path set"));
             reject();
             return QDialog::Rejected;
         }
@@ -145,14 +145,14 @@ int PluginRunner::exec(const QString &name)
         m_launcherPath = launcher_root + "/python/launcher.py";
         m_pluginPath = m_pluginsFolder + "/" + m_pluginName + "/" + "plugin.py";
         if (!QFileInfo(m_launcherPath).exists()) {
-            Utility::DisplayStdErrorDialog(tr("Installation Error: plugin launcher ") +
-                                           m_launcherPath + tr(" does not exist"));
+            Utility::DisplayStdErrorDialog(tr("Installation Error: plugin launcher") +
+                                           " " + m_launcherPath + " " + tr("does not exist"));
             reject();
             return QDialog::Rejected;
         }
     } else {
-        Utility::DisplayStdErrorDialog(tr("Error: plugin engine ") +
-                                       m_engine + tr(" is not supported (yet!)"));
+        Utility::DisplayStdErrorDialog(tr("Error: plugin engine") +
+                                       " " + m_engine + " " + tr("is not supported (yet!)"));
         reject();
         return QDialog::Rejected;
     }
@@ -685,7 +685,7 @@ bool PluginRunner::checkIsWellFormed()
             QString data = Utility::ReadUnicodeTextFile(filePath);
             XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(data);
             if (error.line != -1) {
-                errors.append(tr("Incorrect XHTML: ") + href + tr(" Line/Col ") + QString::number(error.line) +
+                errors.append(tr("Incorrect XHTML:") + " " + href + " " + tr("Line/Col") + " " + QString::number(error.line) +
                               "," + QString::number(error.column) + " " + error.message);
                 well_formed = false;
             }
