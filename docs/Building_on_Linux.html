@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1><center>Building Sigil on Linux</center></h1>
-<h2><center>Systems like Ubuntu 16.04 (and its derivitives) or newer</center></h2>
+<h2><center>Systems like Ubuntu 16.04 (and its derivatives) or newer</center></h2>
 <p>If you're looking for instructions on how to build on systems older than Ubuntu 16.04 (systems whose repo version of Qt5 is less than 5.4.2), you should look at the <a href="./Building_on_older_Linux.html">Building_on_older_Linux</a> documentation.</p>
 <h2>General Overview</h2>
 <p>The requirements for building Sigil on newer Linux systems like Ubuntu 16.04, Mint 18, Arch Linux, etc., should be able to be installed entirely from your system's software repositories.</p>
@@ -41,13 +41,14 @@
 <p>To get Sigil's Qt5 requirements, <code>sudo apt-get install</code> the following packages:</p>
 <ul>
 <li>qtbase5-dev</li>
+<li>qttools5-dev</li>
 <li>qttools5-dev-tools</li>
 <li>libqt5webkit5-dev</li>
 <li>libqt5svg5-dev</li>
 <li>libqt5xmlpatterns5-dev</li>
 </ul>
 <p>The folllowing command can be copied and pasted for convenience:</p>
-<p><code>sudo apt-get install qtbase5-dev qttools5-dev-tools libqt5webkit5-dev libqt5svg5-dev libqt5xmlpatterns5-dev</code></p>
+<p><code>sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools libqt5webkit5-dev libqt5svg5-dev libqt5xmlpatterns5-dev</code></p>
 <h2><a name="thirdparty"/>3rd-Party Dependencies (optional step)</h2>
 <p>Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them, <code>sudo apt-get install</code> the following packages.</p>
 <ul>

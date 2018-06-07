@@ -1,5 +1,5 @@
 # <center>Building Sigil on Linux</center>
-## <center>Systems like Ubuntu 16.04 (and its derivitives) or newer</center>
+## <center>Systems like Ubuntu 16.04 (and its derivatives) or newer</center>
 
 If you're looking for instructions on how to build on systems older than Ubuntu 16.04 (systems whose repo version of Qt5 is less than 5.4.2), you should look at the [Building_on_older_Linux](./Building_on_older_Linux.md) documentation.
 
@@ -41,6 +41,7 @@ Once again: `sudo apt-get install cmake` will get you what you need on Ubuntu-ty
 To get Sigil's Qt5 requirements, `sudo apt-get install` the following packages:
 
 + qtbase5-dev
++ qttools5-dev
 + qttools5-dev-tools
 + libqt5webkit5-dev
 + libqt5svg5-dev
@@ -48,7 +49,7 @@ To get Sigil's Qt5 requirements, `sudo apt-get install` the following packages:
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install qtbase5-dev qttools5-dev-tools libqt5webkit5-dev libqt5svg5-dev libqt5xmlpatterns5-dev`
+`sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools libqt5webkit5-dev libqt5svg5-dev libqt5xmlpatterns5-dev`
 
 ## <a name="thirdparty"/>3rd-Party Dependencies (optional step)
 Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them, `sudo apt-get install` the following packages.
