@@ -172,7 +172,7 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     QList<QStandardItem *> rowItems;
     // Files
     nitem = new NumericItem();
-    nitem->setText(QString(tr("%n file(s)", "", m_AllImageResources.count()));
+    nitem->setText(QString(tr("%n file(s)", "", m_AllImageResources.count())));
     rowItems << nitem;
     // File size
     nitem = new NumericItem();
