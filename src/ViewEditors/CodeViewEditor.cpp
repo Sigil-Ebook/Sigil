@@ -2276,7 +2276,7 @@ std::tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<Vie
         line = end_node->v.text.start_pos.line + 1; // compensate for xml header removed for gumbo
         col = end_node->v.text.start_pos.column;
     } else if ((end_node->type == GUMBO_NODE_ELEMENT) || (end_node->type == GUMBO_NODE_TEMPLATE)) {
-      line = end_node->v.element.start_pos.line + 1; // comprensate for xml header removed for gumbo
+        line = end_node->v.element.start_pos.line + 1; // comprensate for xml header removed for gumbo
         col = end_node->v.element.start_pos.column;
     }
     QTextCursor cursor(document());

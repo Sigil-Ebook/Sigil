@@ -389,6 +389,13 @@ GumboNode* GumboInterface::get_node_from_qwebpath(QString webpath)
         GumboNode * next_node = NULL;
         if (children->length > 0) {
             if (path_pieces.at(i+1).startsWith("#text")) {
+                // trying to find the right text child of the parent is very difficult
+                // It changes depending on what live editing is done in BookView
+                // It also requires document.normalize() to be done to merge adjacent text pieces
+                // but doing so will remove the cursor/highlight if it is on a text node merged away
+                // so restrict this to something same in that same parent element
+                if (index >= children->length) index = children->length - 1;
+                if (index < 0) index = 0;
                 next_node = static_cast<GumboNode*>(children->data[index]);
             } else {
                 // need to index correct child index when only counting elements

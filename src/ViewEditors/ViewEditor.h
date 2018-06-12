@@ -102,7 +102,7 @@ public:
      *
      * @return The element selecting list.
      */
-    virtual QList<ElementIndex> GetCaretLocation() {
+    virtual QList<ElementIndex> GetCaretLocation(bool normalize=false) {
         return QList<ViewEditor::ElementIndex>();
     }
 

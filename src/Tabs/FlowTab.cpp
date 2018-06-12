@@ -353,7 +353,7 @@ void FlowTab::CodeView()
 
     // Ensure the caret is positioned corresponding to previous view of this tab
     if (m_previousViewState == MainWindow::ViewState_BookView) {
-        m_wCodeView->StoreCaretLocationUpdate(m_wBookView->GetCaretLocation());
+        m_wCodeView->StoreCaretLocationUpdate(m_wBookView->GetCaretLocation(true));
     }
 
     m_wCodeView->ExecuteCaretUpdate();
