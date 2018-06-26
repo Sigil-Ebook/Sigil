@@ -13,6 +13,8 @@ Sigil-pre0.9.10
     - Fix issue converting Qt Strings to their Python equivalent when outside the BMP
     - Fix issue with trying to add existing html files when names clash due to case insensitive file systems
     - Fix crash bug after styling text in BookView and immediately going to CodeView without moving cursor
+    - Fix crash bug after deleting images contained in an Image Report in the BookBrowser
+
 
    New Features
     - allow plugins to supply their own icon (plugin.png 48x48) for use on the Quick Launch Toolbar icons
