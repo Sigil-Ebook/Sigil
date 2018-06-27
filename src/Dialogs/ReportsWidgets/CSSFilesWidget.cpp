@@ -215,6 +215,7 @@ void CSSFilesWidget::Delete()
     }
 
     emit DeleteFilesRequest(files_to_delete);
+    SetupTable();
 }
 
 void CSSFilesWidget::Save()

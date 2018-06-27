@@ -355,6 +355,7 @@ void HTMLFilesWidget::Delete()
     }
 
     emit DeleteFilesRequest(files_to_delete);
+    SetupTable();
 }
 
 void HTMLFilesWidget::CreateContextMenuActions()
