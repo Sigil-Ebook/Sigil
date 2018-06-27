@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2018 Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
@@ -56,13 +57,14 @@ CSSFilesWidget::CSSFilesWidget()
 void CSSFilesWidget::CreateReport(QSharedPointer<Book> book)
 {
     m_Book = book;
-    m_HTMLResources = m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(false);
-    m_CSSResources = m_Book->GetFolderKeeper()->GetResourceTypeList<CSSResource>(false);
     SetupTable();
 }
 
 void CSSFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 {
+    // Need to rebuild m_HTMLResources and m_CSSResources  since deletes can happen behind the scenes
+    m_HTMLResources = m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(false);
+    m_CSSResources = m_Book->GetFolderKeeper()->GetResourceTypeList<CSSResource>(false);
     m_ItemModel->clear();
     QStringList header;
     header.append(tr("Name"));

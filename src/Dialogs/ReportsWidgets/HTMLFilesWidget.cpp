@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2018 Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **
@@ -56,12 +57,13 @@ HTMLFilesWidget::HTMLFilesWidget()
 void HTMLFilesWidget::CreateReport(QSharedPointer<Book> book)
 {
     m_Book = book;
-    m_HTMLResources = m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(false);
     SetupTable();
 }
 
 void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 {
+    // Need to rebuild m_HTMLResources since deletes can happen behind the scenes
+    m_HTMLResources = m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(false);
     m_ItemModel->clear();
     QStringList header;
     header.append(tr("Name"));

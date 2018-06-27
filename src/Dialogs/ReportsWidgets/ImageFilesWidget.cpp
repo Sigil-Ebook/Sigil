@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2018 Kevin Hendricks, Statford, ON 
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
