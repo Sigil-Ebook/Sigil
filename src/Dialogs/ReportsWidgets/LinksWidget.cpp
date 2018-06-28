@@ -147,17 +147,17 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
             rowItems << item;
 
             // Target exists in book
-            QString target_valid = "n/a";
+            QString target_valid = tr("n/a");
             if (is_target_file) {
                 if (!href.isEmpty()) {
-                    target_valid = "no";
+                    target_valid = tr("no");
                     QString file = href_file;
                     if (href_file.isEmpty()) {
                         file = filename;
                     }
                     if (html_filenames.contains(file)) {
                         if (href_id.isEmpty() || all_ids[file].contains(href_id)) {
-                            target_valid = "yes";
+                            target_valid = tr("yes");
                         }
                     }
                 }
@@ -218,9 +218,9 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
                     if (target_href_file.isEmpty()) {
                         target_href_file = target_file;
                     }
-                    QString match = "no";
+                    QString match = tr("no");
                     if (!source_id.isEmpty() && !target_href_id.isEmpty() && source_file == target_href_file && source_id == target_href_id) {
-                        match = "yes";
+                        match = tr("yes");
                     }
                     item = new QStandardItem();
                     item->setText(match);
