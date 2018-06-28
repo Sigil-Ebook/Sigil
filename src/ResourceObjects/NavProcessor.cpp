@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016  Kevin B. Hendricks, Stratford Ontario
+**  Copyright (C) 2016, 2017, 2018, Kevin B. Hendricks, Stratford Ontario
 **
 **  This file is part of Sigil.
 **
@@ -46,26 +46,9 @@ static const QStringList SIGIL_FOLDERS = QStringList() << "Images" << "Fonts" <<
 NavProcessor::NavProcessor(HTMLResource * nav_resource)
   : m_NavResource(nav_resource)
 {
-      bool valid = true;
-      {
-          QReadLocker locker(&m_NavResource->GetLock());
-          QString source = m_NavResource->GetText();
-          GumboInterface gi = GumboInterface(source, "3.0");
-          gi.parse();
-          const QList<GumboNode*> nav_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_NAV);
-          valid = valid && nav_nodes.length() > 0;
-          bool has_toc = false;
-          for (int i = 0; i < nav_nodes.length(); ++i) {
-              GumboNode* node = nav_nodes.at(i);
-              GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "epub:type");
-              if (attr) {
-                  QString etype = QString::fromUtf8(attr->value);
-                  if (etype == "toc") has_toc = true;
-              }
-          }
-          valid = valid && has_toc;
-      }
-      if (!valid) {
+    QReadLocker locker(&m_NavResource->GetLock());
+    QString source = m_NavResource->GetText();
+    if (source.isEmpty()) {
           SettingsStore ss;
           QString lang = ss.defaultMetadataLang();
           QString newsource = 
@@ -105,8 +88,21 @@ QList<NavLandmarkEntry> NavProcessor::GetLandmarks()
     if (!m_NavResource) return landlist; 
 
     QReadLocker locker(&m_NavResource->GetLock());
+    QString source = m_NavResource->GetText();
 
-    GumboInterface gi = GumboInterface(m_NavResource->GetText(), "3.0");
+    // user may leave nav in unparseable state so use
+    // regular expressions to try and extract just the landmarks code only from main nav
+
+    QRegularExpression landmarks_start("(<\\s*nav\\s[^>]*epub:type[^>]*[\"']landmarks[\"'][^>]*>)",QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch mo = landmarks_start.match(source, 0);
+    if (mo.hasMatch()) {
+        int end = source.indexOf("</nav>", mo.capturedStart());
+        if (end > 0) {
+            source = source.mid(mo.capturedStart(), end - mo.capturedStart()+ 6);
+        }
+    }
+
+    GumboInterface gi = GumboInterface(source, "3.0");
     gi.parse();
     const QList<GumboNode*> nav_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_NAV);
     for (int i = 0; i < nav_nodes.length(); ++i) {
@@ -138,8 +134,21 @@ QList<NavPageListEntry> NavProcessor::GetPageList()
     if (!m_NavResource) return pagelist; 
         
     QReadLocker locker(&m_NavResource->GetLock());
+    QString source = m_NavResource->GetText();
 
-    GumboInterface gi = GumboInterface(m_NavResource->GetText(), "3.0");
+    // user may leave nav in unparseable state so use
+    // regular expressions to try and extract just the page-list code only from main nav
+
+    QRegularExpression pagelist_start("(<\\s*nav\\s[^>]*epub:type[^>]*[\"']page-list[\"'][^>]*>)",QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch mo = pagelist_start.match(source, 0);
+    if (mo.hasMatch()) {
+        int end = source.indexOf("</nav>", mo.capturedStart());
+        if (end > 0) {
+            source = source.mid(mo.capturedStart(), end - mo.capturedStart()+ 6);
+        }
+    }
+
+    GumboInterface gi = GumboInterface(source, "3.0");
     gi.parse();
     const QList<GumboNode*> nav_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_NAV);
     for (int i = 0; i < nav_nodes.length(); ++i) {
@@ -169,8 +178,21 @@ QList<NavTOCEntry> NavProcessor::GetTOC()
     if (!m_NavResource) return toclist; 
         
     QReadLocker locker(&m_NavResource->GetLock());
+    QString source = m_NavResource->GetText();
 
-    GumboInterface gi = GumboInterface(m_NavResource->GetText(), "3.0");
+    // user may leave nav in unparseable state so use
+    // regular expressions to try and extract just the toc code only from main nav
+
+    QRegularExpression toc_start("(<\\s*nav\\s[^>]*epub:type[^>]*[\"']toc[\"'][^>]*>)",QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch mo = toc_start.match(source, 0);
+    if (mo.hasMatch()) {
+        int end = source.indexOf("</nav>", mo.capturedStart());
+        if (end > 0) {
+            source = source.mid(mo.capturedStart(), end - mo.capturedStart()+ 6);
+        }
+    }
+
+    GumboInterface gi = GumboInterface(source, "3.0");
     gi.parse();
     const QList<GumboNode*> nav_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_NAV);
     for (int i = 0; i < nav_nodes.length(); ++i) {

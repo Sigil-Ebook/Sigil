@@ -14,7 +14,7 @@ Sigil-pre0.9.10
     - Fix issue with trying to add existing html files when names clash due to case insensitive file systems
     - Fix crash bug after styling text in BookView and immediately going to CodeView without moving cursor
     - Fix crash bugs after deleting resources contained in a Report in the BookBrowser
-
+    - Fix bug that destroys nav if left in unparseable state by user even temporarily
 
    New Features
     - allow plugins to supply their own icon (plugin.png 48x48) for use on the Quick Launch Toolbar icons
