@@ -249,21 +249,51 @@ int main(int argc, char *argv[])
         QCoreApplication::setOrganizationDomain("sigil-ebook.com");
         QCoreApplication::setApplicationName("sigil");
         QCoreApplication::setApplicationVersion(SIGIL_VERSION);
-        // Setup the translator and load the translation for the selected language
+
         QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
-        QTranslator translator;
         SettingsStore settings;
+
+        // Setup the qt_ translator and load the translation for the selected language
+        QTranslator qtTranslator;
+        const QString qm_name_qt = QString("qt_%1").arg(settings.uiLanguage());
+        // Run though all locations and stop once we find and are able to load
+        // an appropriate Qt base translation.
+        foreach(QString path, UILanguage::GetPossibleTranslationPaths()) {
+            if (QDir(path).exists()) {
+                if (qtTranslator.load(qm_name_qt, path)) {
+                    break;
+                }
+            }
+        }
+        app.installTranslator(&qtTranslator);
+
+        // Setup the qtbase_ translator and load the translation for the selected language
+        QTranslator qtbaseTranslator;
+        const QString qm_name_qtbase = QString("qtbase_%1").arg(settings.uiLanguage());
+        // Run though all locations and stop once we find and are able to load
+        // an appropriate Qt base translation.
+        foreach(QString path, UILanguage::GetPossibleTranslationPaths()) {
+            if (QDir(path).exists()) {
+                if (qtbaseTranslator.load(qm_name_qtbase, path)) {
+                    break;
+                }
+            }
+        }
+        app.installTranslator(&qtbaseTranslator);
+
+        // Setup the Sigil translator and load the translation for the selected language
+        QTranslator sigilTranslator;
         const QString qm_name = QString("sigil_%1").arg(settings.uiLanguage());
         // Run though all locations and stop once we find and are able to load
         // an appropriate translation.
         foreach(QString path, UILanguage::GetPossibleTranslationPaths()) {
             if (QDir(path).exists()) {
-                if (translator.load(qm_name, path)) {
+                if (sigilTranslator.load(qm_name, path)) {
                     break;
                 }
             }
         }
-        app.installTranslator(&translator);
+        app.installTranslator(&sigilTranslator);
 
         // Check for existing qt_styles.qss in Prefs dir and load it if present
         QString qt_stylesheet_path = Utility::DefinePrefsDir() + "/qt_styles.qss";
