@@ -253,20 +253,6 @@ int main(int argc, char *argv[])
         QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
         SettingsStore settings;
 
-        // Setup the qt_ translator and load the translation for the selected language
-        QTranslator qtTranslator;
-        const QString qm_name_qt = QString("qt_%1").arg(settings.uiLanguage());
-        // Run though all locations and stop once we find and are able to load
-        // an appropriate Qt base translation.
-        foreach(QString path, UILanguage::GetPossibleTranslationPaths()) {
-            if (QDir(path).exists()) {
-                if (qtTranslator.load(qm_name_qt, path)) {
-                    break;
-                }
-            }
-        }
-        app.installTranslator(&qtTranslator);
-
         // Setup the qtbase_ translator and load the translation for the selected language
         QTranslator qtbaseTranslator;
         const QString qm_name_qtbase = QString("qtbase_%1").arg(settings.uiLanguage());
