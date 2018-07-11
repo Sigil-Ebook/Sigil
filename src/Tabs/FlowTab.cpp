@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016, 2017, 2018 Kevin B Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012  Dave Heiland
 **  Copyright (C) 2012  Grant Drake
@@ -357,6 +357,7 @@ void FlowTab::CodeView()
     }
 
     m_wCodeView->ExecuteCaretUpdate();
+    
     QApplication::restoreOverrideCursor();
 }
 
@@ -406,8 +407,12 @@ void FlowTab::ResourceModified()
         // When the underlying resource has been modified, it replaces the whole QTextDocument which
         // causes cursor position to move to bottom of the document. We will have captured the location
         // of the caret prior to replacing in the ResourceTextChanging() slot, so now we can restore it.
+        // First try to get to the enclosing block and if possible the exact position
         m_wCodeView->ExecuteCaretUpdate(m_defaultCaretLocationToTop);
         m_defaultCaretLocationToTop = false;
+        if (m_PositionToScrollTo > 0) {
+            m_wCodeView->ScrollToPosition(m_PositionToScrollTo);
+        }
     }
 
     m_bookViewNeedsReload = true;
@@ -425,7 +430,9 @@ void FlowTab::LinkedResourceModified()
 void FlowTab::ResourceTextChanging()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
-        // We need to store the caret location so it can be restored later
+        // We need to store caret (cursor) position so it can be restored later
+        // Store an exact position as well as the tag hierarchy
+        m_PositionToScrollTo = m_wCodeView->GetCursorPosition();
         m_wCodeView->StoreCaretLocationUpdate(m_wCodeView->GetCaretLocation());
         // If the caret happened to be at the very top of the document then our location
         // will be empty. The problem is that when ResourceModified() fires next
