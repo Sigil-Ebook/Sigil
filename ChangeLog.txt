@@ -25,6 +25,9 @@ Sigil-pre0.9.10
     - add support for calibre:series and calibre:series_index to Metadata Editor for epub2
     - add support for calibre:title_sort to Metadata Editor for epub2
     - add support for clicking internal links in Preview to load the proper destination tab
+    - add support for loading Qt's base translation files if present. Allows buttons on native qt dialogs to
+        be translated (Windows users may need to manually copy newer qtbase_xx.qm files to Sigil's translation
+        directory if they didn't exist in Qt5.6.2)
 
 
 Sigil-0.9.9
