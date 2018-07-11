@@ -1434,7 +1434,7 @@ void FindReplace::ExtendUI()
     ui.cbLookWhere->addItem(tr("Selected HTML Files"), FindReplace::LookWhere_SelectedHTMLFiles);
     look_tooltip += "<dt><b>" + tr("Selected HTML Files") + "</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser in Code View.") + "</dd>";
     look_tooltip += "</dl>";
-    look_tooltip += "<p>To restrict search to selected text, use Search&rarr;Mark Selected Text.</p>";
+    look_tooltip += "<p>" + tr("To restrict search to selected text, use Search&rarr;Mark Selected Text.") + "</p>";
     ui.cbLookWhere->setToolTip(look_tooltip);
 
     // Special Marked Text indicator.
