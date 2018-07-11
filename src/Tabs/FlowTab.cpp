@@ -412,6 +412,7 @@ void FlowTab::ResourceModified()
         m_defaultCaretLocationToTop = false;
         if (m_PositionToScrollTo > 0) {
             m_wCodeView->ScrollToPosition(m_PositionToScrollTo);
+            m_PositionToScrollTo = -1;
         }
     }
 
