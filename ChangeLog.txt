@@ -28,6 +28,8 @@ Sigil-pre0.9.10
     - add support for loading Qt's base translation files if present. Allows buttons on native qt dialogs to
         be translated (Windows users may need to manually copy newer qtbase_xx.qm files to Sigil's translation
         directory if they didn't exist in Qt5.6.2)
+    - allow user to add custom css rules to Preview/Book View by creating a file called "custom_preview_style.css"
+        in the Sigil preferences folder (not responsible for custom css and ebook css fighting with each other)
 
 
 Sigil-0.9.9
