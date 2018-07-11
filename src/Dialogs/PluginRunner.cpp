@@ -406,10 +406,6 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
         ui.statusLbl->setText(tr("Status: failed"));
         return;
     }
-    else {
-        ui.statusLbl->setText(tr("Status: success"));
-        return;
-    }	    
 
     // before modifying xhtml files make sure they are well formed
     if (!checkIsWellFormed()) {
