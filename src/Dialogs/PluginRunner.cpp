@@ -685,7 +685,7 @@ bool PluginRunner::checkIsWellFormed()
     if (!xhtmlFilesToCheck.isEmpty()) {
         foreach (QString href, xhtmlFilesToCheck) {
             QString filePath = m_outputDir + "/" + href;
-            ui.statusLbl->setText("Status: checking" + " " + href);
+            ui.statusLbl->setText(tr("Status: checking") + " " + href);
             QString data = Utility::ReadUnicodeTextFile(filePath);
             XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(data);
             if (error.line != -1) {
@@ -700,7 +700,7 @@ bool PluginRunner::checkIsWellFormed()
             // can't really validate without a full dtd so
             // auto repair any xml file changes to be safe
             QString filePath = m_outputDir + "/" + href;
-            ui.statusLbl->setText("Status: checking" + " " + href);
+            ui.statusLbl->setText(tr("Status: checking") + " " + href);
             QString mtype = "application/oebs-page-map+xml";
             if (href.endsWith(".opf")) mtype = "application/oebps-package+xml";
             if (href.endsWith(".ncx")) mtype = "application/x-dtbncx+xml";
