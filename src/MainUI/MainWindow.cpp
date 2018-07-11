@@ -135,6 +135,7 @@ const int CLIPBOARD_HISTORY_MAX = 20;
 static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub";
 
 static const QString DEFAULT_FILENAME = "untitled.epub";
+static const QString CUSTOM_PREVIEW_STYLE_FILENAME = "custom_preview_style.css";
 
 QStringList MainWindow::s_RecentFiles = QStringList();
 
@@ -3629,6 +3630,11 @@ void MainWindow::ReadSettings()
     web_settings->setFontFamily(QWebSettings::StandardFont, bookViewAppearance.font_family_standard);
     web_settings->setFontFamily(QWebSettings::SerifFont, bookViewAppearance.font_family_serif);
     web_settings->setFontFamily(QWebSettings::SansSerifFont, bookViewAppearance.font_family_sans_serif);
+    // Check for existing custom Preview/Book View stylesheet in Prefs dir and load it if present
+    QFileInfo CustomPreviewStylesheetInfo(QDir(Utility::DefinePrefsDir()).filePath(CUSTOM_PREVIEW_STYLE_FILENAME));
+    if (CustomPreviewStylesheetInfo.exists() && CustomPreviewStylesheetInfo.isFile() && CustomPreviewStylesheetInfo.isReadable()) {
+        web_settings->setUserStyleSheetUrl(QUrl::fromLocalFile(CustomPreviewStylesheetInfo.absoluteFilePath()));
+    }
 }
 
 
