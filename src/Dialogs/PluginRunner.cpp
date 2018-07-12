@@ -368,7 +368,7 @@ void PluginRunner::startPlugin()
 #endif
 
     m_process.start(executable, args);
-    ui.statusLbl->setText("Status: running");
+    ui.statusLbl->setText(tr("Status: running"));
 
     // this starts the infinite progress bar
     ui.progressBar->setRange(0,0);
@@ -481,7 +481,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
 #ifdef Q_OS_MAC
     }
 #endif
-    ui.statusLbl->setText("Status: " + m_result);
+    ui.statusLbl->setText(tr("Status:") + " " + m_result);
 
     // Validation plugins we auto close the plugin runner dialog
     // since they'll see the results in the results panel.
@@ -552,7 +552,7 @@ bool PluginRunner::processResultXML()
             if (name == "result") {
                 QString result = reader.readElementText();
                 m_result = result;
-                ui.textEdit->setPlainText(tr("Status: ") + result);
+                ui.textEdit->setPlainText(tr("Status:") + " " + result);
             } else if (name == "msg") {
                 QString msg = reader.readElementText();
                 ui.textEdit->append(msg);
@@ -681,7 +681,7 @@ bool PluginRunner::checkIsWellFormed()
     if (!xhtmlFilesToCheck.isEmpty()) {
         foreach (QString href, xhtmlFilesToCheck) {
             QString filePath = m_outputDir + "/" + href;
-            ui.statusLbl->setText("Status: checking " + href);
+            ui.statusLbl->setText(tr("Status: checking") + " " + href);
             QString data = Utility::ReadUnicodeTextFile(filePath);
             XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(data);
             if (error.line != -1) {
@@ -696,7 +696,7 @@ bool PluginRunner::checkIsWellFormed()
             // can't really validate without a full dtd so
             // auto repair any xml file changes to be safe
             QString filePath = m_outputDir + "/" + href;
-            ui.statusLbl->setText("Status: checking " + href);
+            ui.statusLbl->setText(tr("Status: checking") + " " + href);
             QString mtype = "application/oebs-page-map+xml";
             if (href.endsWith(".opf")) mtype = "application/oebps-package+xml";
             if (href.endsWith(".ncx")) mtype = "application/x-dtbncx+xml";
@@ -756,7 +756,7 @@ bool PluginRunner::deleteFiles(const QStringList &files)
             continue;
         }
         if (resource) {
-            ui.statusLbl->setText(tr("Status: deleting ") + resource->Filename());
+            ui.statusLbl->setText(tr("Status: deleting") + " " + resource->Filename());
 
             if (tabResources.contains(resource)) {
                 m_tabManager->CloseTabForResource(resource);
@@ -795,7 +795,7 @@ bool PluginRunner::addFiles(const QStringList &files)
         if (m_pluginType == "input" && mime == "application/epub+zip") {
             QString epubPath = m_outputDir + "/" + href;
             QFileInfo fi(epubPath);
-            ui.statusLbl->setText(tr("Status: Loading ") + fi.fileName());
+            ui.statusLbl->setText(tr("Status: Loading") + " " + fi.fileName());
 #ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(epubPath, true);
             new_window->show();
@@ -833,7 +833,7 @@ bool PluginRunner::addFiles(const QStringList &files)
         // No need to copy to ebook root as AddContentToFolder does that for us
         QString inpath = m_outputDir + "/" + href;
         QFileInfo fi(inpath);
-        ui.statusLbl->setText(tr("Status: adding ") + fi.fileName());
+        ui.statusLbl->setText(tr("Status: adding") + " " + fi.fileName());
 
         Resource *resource = m_book->GetFolderKeeper()->AddContentFileToFolder(inpath,false);
 
@@ -903,7 +903,7 @@ bool PluginRunner::modifyFiles(const QStringList &files)
         QString inpath = m_outputDir + "/" + href;
         QString outpath = m_bookRoot + "/" + href;
         QFileInfo fi(outpath);
-        ui.statusLbl->setText(tr("Status: modifying ") + fi.fileName());
+        ui.statusLbl->setText(tr("Status: modifying") + " " + fi.fileName());
         Utility::ForceCopyFile(inpath, outpath);
         Resource *resource = m_hrefToRes.value(href);
         if (resource) {
