@@ -1,4 +1,4 @@
-Sigil-pre0.9.10
+Sigil-0.9.10
    Bug Fixes
     - Fix signal handling to prevent double launch of plugins immediately after plugin installed
     - Fixed incorrect named entity tooltips for many of the Insert-> Special Characters
