@@ -53,6 +53,7 @@ public slots:
 signals:
     void Shown();
     void ZoomFactorChanged(float factor);
+    void GoToPreviewLocationRequest();
     /**
      * Emitted whenever Preview wants to open an URL.
      * @param url The URL to open.

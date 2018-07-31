@@ -308,5 +308,6 @@ void PreviewWindow::ConnectSignalsToSlots()
     connect(m_Splitter,  SIGNAL(splitterMoved(int, int)), this, SLOT(SplitterMoved(int, int)));
     connect(m_Preview,   SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
     connect(m_Preview,   SIGNAL(LinkClicked(const QUrl &)), this, SLOT(LinkClicked(const QUrl &)));
+    connect(m_Preview,   SIGNAL(GoToPreviewLocationRequest()), this, SIGNAL(GoToPreviewLocationRequest()));
 }
 

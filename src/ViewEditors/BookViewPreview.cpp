@@ -204,6 +204,14 @@ void BookViewPreview::UpdateDisplay()
     }
 }
 
+void BookViewPreview::mousePressEvent(QMouseEvent *event)
+{
+    // Now Propagate to base class
+    QWebView::mousePressEvent(event);
+
+    emit GoToPreviewLocationRequest();
+}
+
 void BookViewPreview::ScrollToTop()
 {
     QString caret_location = "var elementList = document.getElementsByTagName(\"body\");"
