@@ -17,7 +17,7 @@ dll_dir = os.path.join(tmp_prefix, 'DLLs')
 site_dest = os.path.join(lib_dir, 'site-packages')
 
 PYQT_MODULES = ['%s.pyd' % x for x in (
-    'Qt', 'QtCore', 'QtGui', 'QtNetwork', 'QtPrintSupport', 'QtSvg', 'QtWidgets'
+    'Qt', 'QtCore', 'QtGui', 'QtNetwork', 'QtPrintSupport', 'QtSvg', 'QtWidgets', 'sip'
     )]
 EXCLUDED_UIC_WIDGET_PLUGINS = ['%s.py' % x for x in (
     'qaxcontainer', 'qscintilla', 'qtcharts', 'qtquickwidgets', 'qtwebenginewidgets', 'qtwebkit'
@@ -64,13 +64,15 @@ def copy_site_packages():
                                 break
             else:
                 break
+        if not found and pkg != 'sip.pyd': # sip.pyd will get picked up in PyQt5 if not directly in site-packages
+            print('WARNING: %s not found in site_packages. Your python environment could potentially be incomplete.' % pkg)
 
 
 def ignore_in_pyqt5_dirs(base, items, ignored_dirs=None):
     ans = []
     if ignored_dirs is None:
         ignored_dirs = {'.svn', '.bzr', '.git', 'doc', 'examples', 'includes', 'mkspecs',
-                       'plugins', 'qml', 'qsci', 'qt', 'sip', 'translations', 'port_v2', '__pycache__'}
+                       'plugins', 'qml', 'qsci', 'Qt', 'sip', 'translations', 'port_v2', '__pycache__'}
     for name in items:
         path = os.path.join(base, name)
         if os.path.isdir(path):
@@ -233,6 +235,29 @@ def create_qt_conf():
         '''), 'ascii'))
 
 
+def blot_pyqt5_init():
+    # PyPi-installed PyQt5 puts its own Qt5 libs first in the PATH
+    # by diddling its __init__.py. We don't need or want that.
+    _init_ = os.path.join(site_dest, 'PyQt5', '__init__.py')
+    if os.path.exists(_init_) and os.path.isfile(_init_):
+        with open(_init_, 'wb') as f:
+            f.write(bytes('# Do not need this', 'UTF-8'))
+
+
+def patch_pillow_init():
+    # PyPi-installed Pillow's __init__.py trys to modify doc strings
+    # that are unavailable since we compile all of them away.
+    _init_ = os.path.join(site_dest, 'PIL', '__init__.py')
+    criteria = '(__doc__ =.*)$'
+    if os.path.exists(_init_) and os.path.isfile(_init_):
+        import re
+        with open(_init_, 'r') as f:
+            content = f.read()
+            new_content = re.sub(criteria, r'#\1', content, flags = re.M)
+        with open(_init_, 'wb') as f:
+            f.write(bytes(new_content, 'UTF-8'))
+
+
 if __name__ == '__main__':
     dll_walk()
     copy_pylib()
@@ -242,4 +267,7 @@ if __name__ == '__main__':
     # create_pyvenv()
     # create_qt_conf()
     copy_tk_tcl()
+    if include_pyqt5:
+        blot_pyqt5_init()
+    patch_pillow_init()
     compile_libs()
