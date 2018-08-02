@@ -1026,7 +1026,7 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
             if (style_class_name.isEmpty()) {
                 display_name = element_name;
             } else {
-                display_name = QString("\".%1\" or \"%2.%1\"").arg(style_class_name).arg(element_name);
+                display_name = QString("\".%1\" " + tr("or") + " \"%2.%1\"").arg(style_class_name).arg(element_name);
             }
 
             // Open the first linked stylesheet if any
