@@ -19,10 +19,10 @@ platform:
 clone_script:
 - ps: >-
     if(-not $env:appveyor_pull_request_number) {
-      git clone -q --depth=1 -n --branch=$env:appveyor_repo_branch https://github.com/$env:appveyor_repo_name.git $env:appveyor_build_folder
+      git clone -q --depth=1 --branch=$env:appveyor_repo_branch https://github.com/$env:appveyor_repo_name.git $env:appveyor_build_folder
       git checkout -qf $env:appveyor_repo_commit
     } else {
-      git clone -q -n https://github.com/$env:appveyor_repo_name.git $env:appveyor_build_folder
+      git clone -q https://github.com/$env:appveyor_repo_name.git $env:appveyor_build_folder
       git fetch -q origin +refs/pull/$env:appveyor_pull_request_number/merge:
       git fetch origin FETCH_HEAD
       git checkout -qf FETCH_HEAD
