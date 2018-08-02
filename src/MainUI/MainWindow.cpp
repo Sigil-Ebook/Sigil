@@ -1034,7 +1034,7 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
                 OpenResource(first_css_resource, 1);
             }
 
-            ShowMessageOnStatusBar(QString(tr("No CSS styles named") +  " " + display_name + " " + tr("found,") + " " + tr("or stylesheet not linked.")), 7000);
+            ShowMessageOnStatusBar(QString(tr("No CSS styles named") +  " " + display_name + " " + tr("found, or stylesheet not linked.")), 7000);
 
         }
     }
