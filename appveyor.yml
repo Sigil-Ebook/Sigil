@@ -1,0 +1,110 @@
+version: '0.9.10-{build}'
+
+branches:
+  only:
+  - master
+  - /\d+\.\d+\.\d+(-\d+)?/
+  
+clone_folder: c:\project\sigil
+
+image:
+- Visual Studio 2015
+
+configuration: Release
+
+platform:
+- x86
+- x64
+
+clone_script:
+- ps: >-
+    if(-not $env:appveyor_pull_request_number) {
+      git clone -q --depth=1 -n --branch=$env:appveyor_repo_branch https://github.com/$env:appveyor_repo_name.git $env:appveyor_build_folder
+      git checkout -qf $env:appveyor_repo_commit
+    } else {
+      git clone -q -n https://github.com/$env:appveyor_repo_name.git $env:appveyor_build_folder
+      git fetch -q origin +refs/pull/$env:appveyor_pull_request_number/merge:
+      git fetch origin FETCH_HEAD
+      git checkout -qf FETCH_HEAD
+    }
+    
+    Set-Location $env:appveyor_build_folder
+
+
+environment:
+  global:
+      INNO: C:\Program Files (x86)\Inno Setup 5
+      REDIST: C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\redist\1033\vcredist_%PLATFORM%.exe
+      DOWNLOAD: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/qt5.11-custom-webkit-%PLATFORM%.zip
+  matrix:
+    - PYTHON: C:\Python37
+      QT: C:\Qt\5.11.1\msvc2015
+      CMAKE64BIT:
+      LXML: lxml‑4.2.3‑cp37‑cp37m‑win32.whl 
+    - PYTHON: C:\Python37-x64
+      QT: C:\Qt\5.11.1\msvc2015_64
+      CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
+      LXML: lxml-4.2.3-cp37-cp37m-win_amd64.whl
+
+matrix:
+  exclude:
+    - platform: x86
+      PYTHON: C:\Python37-x64
+    - platform: x64
+      PYTHON: C:\Python37
+  fast_finish: true
+
+
+only_commits:
+  message: /build_this/
+  files:
+    - CMakeLists.txt
+    - appveyor.yml
+    - src/
+    - internal/
+    - cmake_extras/
+    - 3rdparty
+
+before_build:
+- cmd: |-
+    rmdir c:\cygwin /s /q
+    rmdir c:\Python35 /s /q
+    rmdir c:\Python35-x64 /s /q
+    cp '%REDIST%' installer/
+    mkdir build
+    cd ..\..
+    curl.exe -L -o %LXML% https://download.lfd.uci.edu/pythonlibs/l8ulg3xw/%LXML%
+    curl.exe -L -o webkit.zip %DOWNLOAD%
+    7z x webkit.zip -y
+    set PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
+    python -m pip install --upgrade pip
+    pip3.7 install six
+    pip3.7 install html5lib
+    pip3.7 install regex
+    pip3.7 install cssutils
+    pip3.7 install cssselect
+    pip3.7 install chardet
+    pip3.7 install pillow==5.2.0
+    pip3.7 install PyQt5==5.11.2
+    pip3.7 install %LXML%
+    cd project\sigil\build
+    call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLATFORM%
+    cmake .. -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=%configuration% -DCMAKE_PREFIX_PATH=%QT% %CMAKE64BIT%
+
+    
+build_script:
+- cmd: |-
+    set PATH=%PYTHON%;%PATH%
+    call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLATFORM%
+    nmake
+ 
+
+after_build:
+- cmd: |-
+    set PATH=%PYTHON%;%QT%\bin;%INNO%;%PATH%
+    call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLATFORM%
+    nmake makeinstaller
+
+artifacts:
+    path: build\installer\*.exe
+
