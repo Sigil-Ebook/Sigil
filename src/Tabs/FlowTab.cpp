@@ -74,7 +74,8 @@ FlowTab::FlowTab(HTMLResource *resource,
     m_bookViewNeedsReload(false),
     m_grabFocus(grab_focus),
     m_suspendTabReloading(false),
-    m_defaultCaretLocationToTop(false)
+    m_defaultCaretLocationToTop(false),
+    m_LastPosition(-1)
 {
     // Loading a flow tab can take a while. We set the wait
     // cursor and clear it at the end of the delayed initialization.
@@ -410,9 +411,9 @@ void FlowTab::ResourceModified()
         // First try to get to the enclosing block and if possible the exact position
         m_wCodeView->ExecuteCaretUpdate(m_defaultCaretLocationToTop);
         m_defaultCaretLocationToTop = false;
-        if (m_PositionToScrollTo > 0) {
-            m_wCodeView->ScrollToPosition(m_PositionToScrollTo);
-            m_PositionToScrollTo = -1;
+        if (m_LastPosition > 0) {
+            m_wCodeView->ScrollToPosition(m_LastPosition);
+            m_LastPosition = -1;
         }
     }
 
@@ -433,7 +434,7 @@ void FlowTab::ResourceTextChanging()
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         // We need to store caret (cursor) position so it can be restored later
         // Store an exact position as well as the tag hierarchy
-        m_PositionToScrollTo = m_wCodeView->GetCursorPosition();
+        m_LastPosition = m_wCodeView->GetCursorPosition();
         m_wCodeView->StoreCaretLocationUpdate(m_wCodeView->GetCaretLocation());
         // If the caret happened to be at the very top of the document then our location
         // will be empty. The problem is that when ResourceModified() fires next
