@@ -1,6 +1,6 @@
 # FIRST:  See Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt
 #
-# SECOND: See Building_A_Relocatable_Python_Framework_on_MacOSX.txt
+# SECOND: See Building_A_Relocatable_Python_3.7_Framework_on_MacOSX.txt
 #
 
 #         Also make sure you have the latest XCode and ** Command Line tools** Installed
@@ -17,14 +17,14 @@
 export MACOSX_DEPLOYMENT_TARGET=10.9
 
 # Set the location of where the relocatable Python framework was installed
-# See "Building_A_Relocatable_Python_Framework_on_MacOSX.txt
+# See "Building_A_Relocatable_Python_3.7_Framework_on_MacOSX.txt
 
 # Remember to stay away from /tmp locations as Mac OSX has a daemon that will delete 
 # files in tmp older than 3 days right out from underneath the user
 export MYDEST=/Users/$USER/devtools/Frameworks
 
 # Set the location of where Qt is installed
-export MYQTHOME=~/Qt56
+export MYQTHOME=~/Qt511
 
 # Set the location of where you want your Sigil repo to be stored
 export MYSIGILREPO=~/repo
@@ -39,7 +39,7 @@ export PATH=${PATH}:${MYQTHOME}/bin
 # Make sure the newly created relocatable python framework is found first
 # **before** any system version of Python3
 
-export PATH=${MYDEST}/Python.framework/Versions/3.5/bin:${PATH}
+export PATH=${MYDEST}/Python.framework/Versions/3.7/bin:${PATH}
 
 mkdir build
 cd build
@@ -62,13 +62,22 @@ cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/ \
       ../Sigil
 
-# Mac OS Sierra (OSX 10.12)  and later users with XCode 8 
+# Mac OS Sierra (OSX 10.12) shoud use the following with XCode 8 
 cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
       -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
       -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/ \
+      ../Sigil
+
+# Mac OS High Sierra (OSX 10.13) shoud use the following with XCode 9 
+cmake -DPKG_SYSTEM_PYTHON=1 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
+      -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
+      -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/ \
       ../Sigil
 
 # After cmake completes
