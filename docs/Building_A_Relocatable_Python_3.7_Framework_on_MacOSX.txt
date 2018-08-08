@@ -2,12 +2,12 @@
 #
 #     First make sure you are using the latest XCode for your version of Mac OSX
 #     Then make sure you have the command line tools (CLT) installed (via xcode-select --install)
-
-#     XCode 7 and 8 users with El Capitan or Later need to download XCode 6 and copy the MacOSX10.10sdk out of it
-#     and extract the /usr/include/openssl directory and its contents into /usr/local/include/
-#     The openssl library is still shipped with Mac OSX to prevent breakage but its headers have been removed.
-#     FYI: A working openssl with headers is required for python's pip3 to work properly as a package installer
-
+#
+# *** IMPORTANT ***
+#
+#     For Python's pip3 and lzma module you will need to compile and install the headers 
+#     and static library versions of liblzma.a (xz), libssl.a (libressl), and libcrypto.a (libressl)
+#
 #     Also you need to install the latest free community edition of ActiveState's ActiveTCL 8.6.X or later.
 #     See: http://www.activestate.com/activetcl/downloads
 #
@@ -18,13 +18,13 @@
 #     https://www.tcl.tk/software/tcltk/download.html
 #     https://www.tcl.tk/doc/howto/compile.html  (use --enable-framework --enable-aqua --enable-threads during configure)
 
-#     And finally as we will be building a required PyQt5 python module, you will need to have built Qt 5.6.2 first
+#     And finally as we will be building a required PyQt5 python module, you will need to have built Qt 5.11.1 first
 #       So see Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt
 
-# Before building remember to rename any /Applications/Python 3.5.app to save it and replace it afterwards
+# Before building remember to rename any /Applications/Python 3.7.app to save it and replace it afterwards
 # as the damn python installation from source always overwrites it no matter the configure prefix used
 
-# Download Python-3.5.2.tgz from www.python.org
+# Download Python-3.7.0.tgz from www.python.org
 
 export MACOSX_DEPLOYMENT_TARGET=10.9
 
@@ -34,20 +34,17 @@ export MACOSX_DEPLOYMENT_TARGET=10.9
 
 export MYDEST=/Users/${USER}/devtools/Frameworks
 
-# now build Python 3.5.2 as a framework
-# Need to patch Python-3.5.2 to allow it to build Mac OS X 10.9 compliant 
+# now build Python 3.7.0 as a framework
+# Need to patch Python-3.7.0 to allow it to build Mac OS X 10.9 compliant and later
 # and for it to find and use the latest Tk and Tcl frameworks
-# Look in Sigil's "docs" to get the required patch "python_3.5_fixes3.patch"
+# Look in Sigil's "docs" to get the required patch "python_3.7_fixes.patch"
 
-tar -zxvf Python-3.5.2.tgz
-cd Python-3.5.2
-patch -p0 < python_3.5_fixes3.patch
+tar -zxvf Python-3.7.0.tgz
+cd Python-3.7.0
+patch -p1 < python_3.7_fixes.patch
 
-
-LDFLAGS="-Wl,-macosx_version_min,10.9" CFLAGS="-mmacosx-version-min=10.9 -Werror=partial-availability" ./configure --prefix=${MYDEST} --enable-framework=${MYDEST} --with-ensurepip
-
-or
-
+export LDFLAGS="-Wl,-macosx_version_min,10.9" 
+export CFLAGS="-mmacosx-version-min=10.9 -Werror=partial-availability" 
 ./configure --prefix=${MYDEST} --enable-framework=${MYDEST} --with-ensurepip
 
 make
@@ -56,7 +53,7 @@ sudo make frameworkinstall
 # next update path in order to use the newly built/installed Python.framework's
 # and then use pip3 to install all other required python packages to its site-packages
 
-export PATH=${MYDEST}/Python.framework/Versions/3.5/bin:${PATH}
+export PATH=${MYDEST}/Python.framework/Versions/3.7/bin:${PATH}
 which pip3
 
 sudo pip3 install six
@@ -84,7 +81,7 @@ sudo pip3 install chardet
  
 # Make the framework's main dylib relocatable using rpath
 
-cd ${MYDEST}/Python.framework/Versions/3.5/
+cd ${MYDEST}/Python.framework/Versions/3.7/
 sudo chmod u+w Python
 otool -D ./Python
 sudo install_name_tool -id @rpath/Python ./Python
@@ -93,69 +90,69 @@ sudo install_name_tool -id @rpath/Python ./Python
 # framework in a relative way and add the proper rpath to find the Python (renamed dylib)
 
 cd bin
-sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.5/Python @rpath/Python python3.5
-sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.5/Python @rpath/Python python3.5m
-sudo install_name_tool -add_rpath @executable_path/../ ./python3.5
+sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.7/Python @rpath/Python python3.7
+sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.7/Python @rpath/Python python3.7m
+sudo install_name_tool -add_rpath @executable_path/../ ./python3.7
 
 # now do the same for the Python.app stored inside the Python.framework Resources 
 # This app is needed to allow gui use by python for plugins
 
-cd ${MYDEST}/Python.framework/Versions/3.5/Resources/Python.app/Contents/MacOS
-sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.5/Python @rpath/Python ./Python
+cd ${MYDEST}/Python.framework/Versions/3.7/Resources/Python.app/Contents/MacOS
+sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.7/Python @rpath/Python ./Python
 sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
 
 # We should now have a fully relocatable Python.framework
 
-# We will now use this just-built Python3.5 interpreter to install PyQt5 and sip.
+# We will now use this just-built Python3.7 interpreter to install PyQt5 and sip.
 
 # **** Important versions of PyQt5 and sip must be selected to match with the Qt version
-# **** In these instructions we are using Qt 5.6.2 and therefore need sip-4.18.1 and PyQt5_gpl-5.6
+# **** In these instructions we are using Qt 5.11.1 and therefore need sip-4.19.12 and PyQt5_gpl-5.11.2
 
 
-# Building sip-4.18.1 from source and installing it into your Pythn Interpreter
+# Building sip-4.19.12 from source and installing it into your Python Interpreter
 
 # From https://sourceforge.net/projects/pyqt/files/sip/
-# Download sip-4.18.1.tar.gz
+# Download sip-4.19.12.tar.gz
 
 # More detailed build instructions can be found here:
 #    http://pyqt.sourceforge.net/Docs/sip4/installation.html
 
 # Must have the python interpreter you want to install PyQt5 into in the PATH to be found first
-export PATH=${MYDEST}/Python.framework/Versions/3.5/bin:${PATH}
+export PATH=${MYDEST}/Python.framework/Versions/3.7/bin:${PATH}
 which python3
 
-tar -zxvf sip-4.18.1.tar.gz
-cd sip-4.18.1
-python3 ./configure.py --deployment-target=10.9
+tar -zxvf sip-4.19.12.tar.gz
+cd sip-4.19.12
+python3 ./configure.py --deployment-target=10.9 --sip-module=PyQt5.sip
 make
 sudo make install
 
 
-# Building PyQt5 for Qt-5.6.2 from source and installing it into your Python Interpreter
+# Building PyQt5 for Qt-5.11.1 from source and installing it into your Python Interpreter
 
 # From https://sourceforge.net/projects/pyqt/files/PyQt5/
-# Download PyQt5_gpl-5.6.tar.gz
+# Download PyQt5_gpl-5.11.2.tar.gz
 
 # More detailed build instructions can be found here: 
 #    http://pyqt.sourceforge.net/Docs/PyQt5/installation.html#building-and-installing-from-source
 
 # Must have the python interpreter you want to install PyQt5 into in the path to be found first
-export PATH=${MYDEST}/Python.framework/Versions/3.5/bin:${PATH}
+export PATH=${MYDEST}/Python.framework/Versions/3.7/bin:${PATH}
 which python3
 
-# Must have the Qt5.6.2 bin directory in the path to specify which Qt to use
+# Must have the Qt5.11.1 bin directory in the path to specify which Qt to use
 # See Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt
-export PATH=/Users/${USER}/Qt56/bin:${PATH}
+export PATH=/Users/${USER}/Qt511/bin:${PATH}
 which qmake
 
 export MACOSX_DEPLOYMENT_TARGET=10.9
 
-tar -zxvf PyQt5_gpl-5.6.tar.gz
-cd PyQt5_gpl-5.6
+tar -zxvf PyQt5_gpl-5.11.2.tar.gz
+cd PyQt5_gpl-5.11.2
 python3 ./configure.py --confirm-license --no-docstrings --no-stubs 
-make
+make -j4
 sudo make install
 
 
-# Once complete you will have properly built a Python 3.5 interpreter to be embedded inside
+# Once complete you will have properly built a Python 3.7 interpreter to be embedded inside
 # of Sigil

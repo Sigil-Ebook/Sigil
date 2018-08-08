@@ -1,19 +1,19 @@
 # Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX
 
-# In order to use offical Qt 5.6 or later versions of Qt you will need to add QtWebkit back
-# and build from source.  This is what Linux distributions are doing too.
-
-# FIRST:  make sure you have XCode 6, XCode 7 or XCode8 installed and the Command Line Tools
+# We highly recommend you use the same Qt versions as official Sigil builds on Mac OS X.
+# which is now Qt 5.11.1
 
 # As of Qt 5.6, QtWebkit was removed from the stock Qt releases.  Sigil depends on this 
 # module for both its BookView and Preview windows.  We are following the examples of
-# the Linux Distributions and Adding back QtWebKit to the Qt sources to build our own
-# Qt distribution.
+# the Linux Distributions and Adding back the latest QtWebKit to build our own
 
-# Here are the steps to building Qt from source with QtWebkit added back
+# FIRST:  make sure you have XCode 6, 7 or 8 or 9 installed and the Command Line Tools
 
-# We highly recommend you use the same Qt versions as official Sigil builds on Mac OS X.
-# which is Qt 5.6.2
+# If you are using OSX 10.11 or later simply download the official Qt 5.11.1 installer.
+# It can then be used to build QtWebKit from source which can be added to the official
+# distribution.  For others, you will need to build Qt5 from source first.  
+
+# These instructions will do just that,
 
 # set the delpoyment target
 export MACOSX_DEPLOYMENT_TARGET=10.9
@@ -21,42 +21,83 @@ export MACOSX_DEPLOYMENT_TARGET=10.9
 # cd to a location to store your src tree then do
 export MYQTSRC=`pwd`
 
-# clone qtwebkit from git::/code.qt.io/qt/qtwebkit.git
-git clone git://code.qt.io/qt.qtwebkit.git
 
-# download qt-everywhere-opensource-src-5.6.2.tar.gz directly from Qt
-# From:  http://download.qt.io/archive/qt/5.6/5.6.2/single/
+# Build Prerequisites
+# -------------------
+# First build and install the following prerequisites for the build: 
+#      cmake, libpng, ligjpeg 
+# and install into /usr/local so that they can be found during qtwebkit's build
+# Note: older versions of these prerequisites may work but have not been tested
+
+
+# cmake 3.12.0 or later from https://cmake.org/download
+tar -zxvf cmake-3.12.0.tar.gz
+cd cmake-3.12.0
+./bootstrap --prefix=/usr/local -- -DCMAKE_BUILD_TYPE:STRING=Release
+make
+sudo make install
+
+# libpng 1.6.35 or later from png's sourcefore site: http://www.libpng.org/pub/png/libpng.html
+tar -zxvf libpng-1.6.35.tar.gz
+cd libpng-1.6.35
+./configure --enable-static=yes --enable-shared=no --prefix=/usr/local
+make
+sudo make install
+
+#libjpeg from the Independent JPEG Group -  https://http://www.ijg.org
+tar -zxvf jpegsrc.v9c.tar.gz
+cd jpeg-9c
+./configure --enable-static=yes --enable-shared=no --prefix=/usr/local
+make
+sudo make install
+
+
+# Building Qt5.11.1 from source
+# -----------------------------
+
+# download qt-everywhere-src-5.11.1.tar.gz directly from Qt
+# From:  http://download.qt.io/archive/qt/5.11/5.11.1/single/
 
 # and then unpack it
-tar -zxvf qt-everywhere-opensource-src-5.6.2.tar.gz
-
-# copy the qtwebkit directory into qt-everywhere-opensource-src-5.6.1 to sit beside qtbase, etc
-cd qt-everywhere-opensource-src-5.6.2
-mkdir qtwebkit
-cp -R ../qtwebkit/ ./qtwebkit
-
-# set the correct module version inside of the newly added qtwebkit directory
-# edit qtwebkit/.qmake.conf and change this line 
-
-# MODULE_VERSION = 5.7
-
-# to
-
-# MODULE_VERSION = 5.6.2
+tar -zxvf qt-everywhere-src-5.11.1.tar.gz
 
 # Create a destination directory to house your complete Qt binary in your home directory
-# to match how stock Qt does it
+# to be similar to how stock Qt does it
 cd ~/
-mkdir Qt56
+mkdir Qt511
 
-# Now return and create a shadow build inside a new directory to keep your Qt sources clean
+# Now return and create a shadow build inside a new directory to keep your Qt 5.11.1 sources clean
 cd ${MYQTSRC}
 mkdir buildqt
 cd buildqt
-../qt-everywhere-opensource-src-5.6.2/configure --prefix=/Users/${USER}/Qt56 -opensource -nomake examples -nomake tests
+
+../qt-everywhere-src-5.11.1/configure --prefix=/Users/${USER}/Qt511 -opensource -nomake examples -nomake tests
+
 # note the build itself can take a couple of hours depending on memory available, disk and cpus used
 make -j4
 make install
 
-# After the install phase completes your newly built Qt should exist in ~/Qt56 ready to be
-# Used to build Sigil with and for use with the PyQt5 Module iwth Python
+# After the install phase completes your newly built Qt should exist in ~/Qt511 ready to be
+# Used to build QtWebKit
+
+
+# Building The Latest QtWebKit for Qt5.11.1
+# -----------------------------------------
+
+# Detailed QtWebKit build instructions can be found here:
+# https://github.com/annulen/webkit/wiki/Building-QtWebKit-on-OS-X
+
+cd ${MYQTSRC}
+
+# clone qtwebkit from git::/code.qt.io/qt/qtwebkit.git and get the QtWebKit 5.212 Branch
+git clone git://code.qt.io/qt.qtwebkit.git
+
+cd qtwebkit
+
+./Tools/Scripts/build-webkit --qt --cmakeargs="-Wno-dev -DQt5_DIR=$HOME/Qt511/lib/cmake/Qt5 -DCMAKE_PREFIX_PATH=/usr/local"
+
+make -C WebKitBuild/Release install
+
+# QtWebKit will be installed into your Qt directory, side by side with other Qt modules, 
+# and will be available for building your projects.
+

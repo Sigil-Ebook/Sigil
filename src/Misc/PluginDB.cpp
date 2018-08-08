@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2018  Kevin Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2014  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
