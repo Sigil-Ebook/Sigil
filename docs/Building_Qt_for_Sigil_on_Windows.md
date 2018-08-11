@@ -1,3 +1,5 @@
+# <center>NOTE: It's no longer strictly necessary to compile Qt5 and QtWebKit together to build Sigil, but I'm going to leave these instructions for reference.</center>
+
 # <center>Building Qt 5.6.2 (suitable for Sigil) on Windows</center>
 
 Sigil needs a special version of Qt5.6.2 built with QtWebKit (which has been removed from official binary distributions) using Visual Studio 2015. If this sounds like too much work, feel free to download one of my pre-compiled versions of Qt5.6.2 that will work for building Sigil. Links can be found in the "Building_Sigil_on_Windows" document (always check the online docs folder for the latest links). If you want to build Qt yourself, read on for some tips.

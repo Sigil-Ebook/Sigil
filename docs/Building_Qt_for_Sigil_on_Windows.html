@@ -1,11 +1,12 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!doctype html>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="generator" content="ReText 7.0.0">
+<meta name="generator" content="ReText 7.0.3">
 <title>Building_Qt_for_Sigil_on_Windows</title>
 </head>
 <body>
+<h1><center>NOTE: It's no longer strictly necessary to compile Qt5 and QtWebKit together to build Sigil, but I'm going to leave these instructions for reference.</center></h1>
 <h1><center>Building Qt 5.6.2 (suitable for Sigil) on Windows</center></h1>
 <p>Sigil needs a special version of Qt5.6.2 built with QtWebKit (which has been removed from official binary distributions) using Visual Studio 2015. If this sounds like too much work, feel free to download one of my pre-compiled versions of Qt5.6.2 that will work for building Sigil. Links can be found in the "Building_Sigil_on_Windows" document (always check the online docs folder for the latest links). If you want to build Qt yourself, read on for some tips.</p>
 <p>First off ... this is not going to be the definitive, step-by-step instructions for building Qt on Windows. There are plenty of online resources which do that. I'm going to focus on the specific needs for building a version of Qt5.6.2 (with QtWebKit added back in) with VS2015 that is suitable for using to build Sigil.</p>
@@ -51,5 +52,6 @@ SET PATH=%QTSRC%\gnuwin32\bin;C:\jom;C:\icu55_x64\lib;%PATH%<br>
 SET LIB=C:\icu55_x64\lib;%LIB%<br>
 SET CL=/MP</p>
 <p>A desktop link can then be created by specifying the command %SystemRoot%\system32\cmd.exe /E:ON /V:ON /k c:\qt5vars.cmd as application and C:\CustomQt\qt-build as working directory.</p>
+
 </body>
 </html>
