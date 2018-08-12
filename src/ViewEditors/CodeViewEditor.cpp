@@ -3344,11 +3344,13 @@ void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
         }
 
         if (original_text != new_text) {
+	    StoreCaretLocationUpdate(GetCaretLocation());
             QTextCursor cursor = textCursor();
             cursor.beginEditBlock();
             cursor.select(QTextCursor::Document);
             cursor.insertText(new_text);
             cursor.endEditBlock();
+	    ExecuteCaretUpdate();
         }
     }
 }
