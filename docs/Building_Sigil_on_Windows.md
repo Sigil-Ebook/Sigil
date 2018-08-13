@@ -30,12 +30,12 @@ CMake 3.0 or better is required. I'm using 3.11.x Download it from [cmake.org](h
 Get the unicode version (5.5.9 at the time of this writing) from [jrsoftware.org](http://www.jrsoftware.org/isdl.php) make sure you say yes to the Preprocessor option when installing. **Also make sure the Inno Setup directory (the one containing "ISCC.exe") is added to your PATH**. There is no 64-bit version of Inno Setup, but you can still use it to create 64-bit program installers.
 
 ## <a name="qt5"/>Qt5.11.1
-Download qt-opensource-windows-x86-5.11.1.exe from [Qt's Website](http://download.qt.io/archive/qt/5.11/5.11.1) and install the msvc2015 component for the architecture you will be building Sigil for (can install both msvc2015 and msvc2015_x64) if you like.
+Download qt-opensource-windows-x86-5.11.1.exe from [Qt's Website](http://download.qt.io/archive/qt/5.11/5.11.1) and install the msvc2015 component for the architecture you will be building Sigil for (you can install both msvc2015 and msvc2015_x64 if you like).
 
 Once you have Qt5.11.1 for VS2015 installed, **make sure its "bin" directory (the one containing "windeployqt.exe) is added to your PATH**.
 
 ## <a name="qtwebkit"/>QtWebKit
-You need to beg, borrow or build a version of QtWebKit from [QtWebKit Reloaded's Github repository](https://github.com/annulen/webkit). You can use one of the binary releases if you like, but the latest at the time of this writing (5.212.0-alpha2) includes a buggy version of libxml2 that will result in html entity doubling (Linux Sigil users have already encountered this bug). Perhaps there will be a new release by the time you're reading this and you can just use it as is. That is certainly my hope in the long run. In the meantime, there's some fairly good documentation in their [wiki](https://github.com/annulen/webkit/wiki) for building QtWebKit on Windows. I'm building the release versions of Sigil using QtWebKit that I've compiled myself and can be found [here](https://github.com/dougmassay/win-qtwebkit-5.212/releases). Download the one for the architecture you're targeting, unzip it and merge the msvc2016_64 (or msvc2015 if you're building the x86 version) directory with the same directory in your Qt5.11.1 installation
+You need to beg, borrow or build a version of QtWebKit from [QtWebKit Reloaded's Github repository](https://github.com/annulen/webkit). You can use one of the binary releases if you like, but the latest at the time of this writing (5.212.0-alpha2) includes a buggy version of libxml2 that will result in html entity doubling (Linux Sigil users have already encountered this bug). Perhaps there will be a new release by the time you're reading this and you can just use it as is. That is certainly my hope in the long run. In the meantime, there's some fairly good documentation in their [wiki](https://github.com/annulen/webkit/wiki) for building QtWebKit on Windows. I'm building the release versions of Sigil using a version of QtWebKit that I've compiled myself; which can be found [here](https://github.com/dougmassay/win-qtwebkit-5.212/releases). Download the one for the architecture you're targeting, unzip it and merge the msvc2016_64 (or msvc2015 if you're building the x86 version) directory with the same directory in your Qt5.11.1 installation
 
 ## <a name="python"/>Getting Python 3.7
 **This is important**. If you're going to be building the 64-bit version of Sigil, you need to install the 64-bit version of Python 3.7. If you're building a 32-bit version of Sigil then you need to install a 32-bit version of Python 3.7.
@@ -63,7 +63,7 @@ From the same command prompt you updated pip with, install the "six" module with
 
 >`pip install six`
 
-Repeat for the next six modules
+Repeat for the next five modules:
 
 >`pip install html5lib`
 
@@ -83,7 +83,7 @@ Version 4.2.4 comes with precompiled binary wheels for Windows. Not all versions
 
 #### Installing is PyQt5.
 
-Like lxml. not all versions of PyQt5 will have compatible binaries that will will work with Sigil's Qt5 and Python. Stick to version 5.11.2 and everything should work with Python 3.7and Qt5.11.1
+Like lxml, not all versions of PyQt5 will have compatible binaries that will will work with Sigil's Qt5 and Python. Stick to version 5.11.2 and everything should work with Python 3.7and Qt5.11.1
 
 >`pip install PyQt5==5.11.2`
 
@@ -135,6 +135,16 @@ You can also generate Visual Studio Project/Solution Files with cmake by using:
 Leave off "Win64" and WIN_INSTALLER_USE_64BIT_CRT=1 if you're building the 32-bit version of Sigil with the "VS2015 x86 Native Tools Command Prompt" shortcut.
 
 You can also use cmake-gui (double-click on cmake-gui in the cmake/bin directory) and avoid using the command-prompt altogether if you wish (although you're on your own in figuring out how to enter all the cmake configuration options in the gui).
+
+The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version. They can come in handy it you have multiple versions of Python 3 installed on your computer.
+
+-DPYTHON_LIBRARY=`<the full path to the python3.x shared library (python37.dll)>`
+
+-DPYTHON_INCLUDE_DIR=`<the path to the directory where python3.x's header files (python.h) can be found>`
+
+-DPYTHON_EXECUTABLE=`<the full path to the python3.x binary (python.exe)>`
+
+If you don't want to build/include the bundled Python environment in the Sigil installer, use the -DPKG_SYSTEM_PYTHON=0 in the CMake configure command to disable it. **NOTE**: you'll have to configure an external Python interpeter for running Sigil plugin. The "Use Bundled Python" feature will be unavailable.
 
 ### Compiling Sigil
 
