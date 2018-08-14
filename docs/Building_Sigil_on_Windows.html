@@ -67,12 +67,12 @@
 <blockquote>
 <p><code>pip install Pillow==5.2.0</code></p>
 </blockquote>
-<h4>Installing lxml.</h4>
+<h3>Installing lxml.</h3>
 <p>Version 4.2.4 comes with precompiled binary wheels for Windows. Not all versions do. So if you want to install a different version, you'll need to find out if there's precompiled binaries for Windows or not. Install a specific version with pip using the following command</p>
 <blockquote>
 <p><code>pip install lxml==4.2.4</code></p>
 </blockquote>
-<h4>Installing is PyQt5.</h4>
+<h3>Installing PyQt5.</h3>
 <p>Like lxml, not all versions of PyQt5 will have compatible binaries that will will work with Sigil's Qt5 and Python. Stick to version 5.11.2 and everything should work with Python 3.7and Qt5.11.1</p>
 <blockquote>
 <p><code>pip install PyQt5==5.11.2</code></p>
@@ -108,10 +108,10 @@
 <p>Leave off "Win64" and WIN_INSTALLER_USE_64BIT_CRT=1 if you're building the 32-bit version of Sigil with the "VS2015 x86 Native Tools Command Prompt" shortcut.</p>
 <p>You can also use cmake-gui (double-click on cmake-gui in the cmake/bin directory) and avoid using the command-prompt altogether if you wish (although you're on your own in figuring out how to enter all the cmake configuration options in the gui).</p>
 <p>The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version. They can come in handy it you have multiple versions of Python 3 installed on your computer.</p>
-<p>-DPYTHON_LIBRARY=<code>&lt;the full path to the python3.x shared library (python37.dll)&gt;</code></p>
+<p>-DPYTHON_LIBRARY=<code>&lt;the full path to the python3.x library (ex. python37.lib)&gt;</code></p>
 <p>-DPYTHON_INCLUDE_DIR=<code>&lt;the path to the directory where python3.x's header files (python.h) can be found&gt;</code></p>
 <p>-DPYTHON_EXECUTABLE=<code>&lt;the full path to the python3.x binary (python.exe)&gt;</code></p>
-<p>If you don't want to build/include the bundled Python environment in the Sigil installer, use the -DPKG_SYSTEM_PYTHON=0 in the CMake configure command to disable it. <strong>NOTE</strong>: you'll have to configure an external Python interpeter for running Sigil plugin. The "Use Bundled Python" feature will be unavailable.</p>
+<p>If you don't want to build/include the bundled Python environment in the Sigil installer, use the -DPKG_SYSTEM_PYTHON=0 in the CMake configure command to disable it. <strong>NOTE</strong>: you'll have to configure an external Python interpeter for running Sigil plugins. The "Use Bundled Python" feature will be unavailable.</p>
 <h3>Compiling Sigil</h3>
 <p>If you generated NMake Makefiles with cmake (like I do), then compile Sigil by typing <code>nmake</code> (at the same command-prompt you just configured with) to begin building Sigil. If it completes without error, you're ready to build the installer package (leave the command prompt open).</p>
 <p>If you generated Visual Studio 2015 projects/solutions, then open the Sigil.sln file in the build directory; make sure the solution configuration is set to "Release"; select the ALL_BUILD project in the Solution Explorer and build the ALL_BUILD project from the Build menu (Build-&gt;Build ALL_BUILD). <strong>Note: don't build the solution</strong>. If it completes without error, you're ready to build the installer package.</p>

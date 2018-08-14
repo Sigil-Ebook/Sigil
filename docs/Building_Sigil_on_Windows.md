@@ -75,13 +75,13 @@ Other versions of Pillow may work fine, but Sigil's installer build is predicate
 
 >`pip install Pillow==5.2.0`
 
-#### Installing lxml.
+### Installing lxml.
 
 Version 4.2.4 comes with precompiled binary wheels for Windows. Not all versions do. So if you want to install a different version, you'll need to find out if there's precompiled binaries for Windows or not. Install a specific version with pip using the following command
 
 >`pip install lxml==4.2.4`
 
-#### Installing is PyQt5.
+### Installing PyQt5.
 
 Like lxml, not all versions of PyQt5 will have compatible binaries that will will work with Sigil's Qt5 and Python. Stick to version 5.11.2 and everything should work with Python 3.7and Qt5.11.1
 
@@ -138,13 +138,13 @@ You can also use cmake-gui (double-click on cmake-gui in the cmake/bin directory
 
 The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version. They can come in handy it you have multiple versions of Python 3 installed on your computer.
 
--DPYTHON_LIBRARY=`<the full path to the python3.x shared library (python37.dll)>`
+-DPYTHON_LIBRARY=`<the full path to the python3.x library (ex. python37.lib)>`
 
 -DPYTHON_INCLUDE_DIR=`<the path to the directory where python3.x's header files (python.h) can be found>`
 
 -DPYTHON_EXECUTABLE=`<the full path to the python3.x binary (python.exe)>`
 
-If you don't want to build/include the bundled Python environment in the Sigil installer, use the -DPKG_SYSTEM_PYTHON=0 in the CMake configure command to disable it. **NOTE**: you'll have to configure an external Python interpeter for running Sigil plugin. The "Use Bundled Python" feature will be unavailable.
+If you don't want to build/include the bundled Python environment in the Sigil installer, use the -DPKG_SYSTEM_PYTHON=0 in the CMake configure command to disable it. **NOTE**: you'll have to configure an external Python interpeter for running Sigil plugins. The "Use Bundled Python" feature will be unavailable.
 
 ### Compiling Sigil
 
