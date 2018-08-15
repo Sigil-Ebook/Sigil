@@ -85,7 +85,7 @@ before_build:
     pip3.7 install lxml==4.2.4
     cd project\sigil\build
     call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLATFORM%
-    cmake .. -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=%configuration% -DCMAKE_PREFIX_PATH=%QT% %CMAKE64BIT%
+    cmake .. -G "NMake Makefiles" -DSIGIL_REDIST_VERSION="14.0.24215" -DCMAKE_BUILD_TYPE=%configuration% -DCMAKE_PREFIX_PATH=%QT% %CMAKE64BIT%
 
     
 build_script:

@@ -155,7 +155,7 @@ begin
     Result := True;
 
   // version of the VC++ Redistributable included with Sigil Installer
-  sigil_ver := '14.0.24210';
+  sigil_ver := '${SIGIL_REDIST_VERSION}';
   if IsWin64 and not Is64BitInstallMode then
     // 32-bit version being installed on 64-bit machine
     reg_key := 'SOFTWARE\WoW6432Node\Microsoft\DevDiv\vc\servicing\14.0\RuntimeMinimum'
