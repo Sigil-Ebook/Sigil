@@ -56,10 +56,11 @@ only_commits:
   files:
     - CMakeLists.txt
     - appveyor.yml
+    - installer/Sigil.iss
     - src/
     - internal/
     - cmake_extras/
-    - 3rdparty
+    - 3rdparty/
 
 before_build:
 - cmd: |-

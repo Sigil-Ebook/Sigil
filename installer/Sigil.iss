@@ -82,7 +82,7 @@ Type: filesandordirs; Name: "{app}\Scripts"
 Type: files; Name: "{app}\sigil-python3.exe"
 
 [Tasks]
-Name: vcredistcheck; Description: Try to install the VC2015 redistributale runtime if deemed necessary (recommended)
+Name: vcredistcheck; Description: Try to install the VC2015 redistributable runtime if deemed necessary (recommended)
 
 [Run]
 ; The following command detects whether or not the c++ runtime need to be installed.
@@ -149,7 +149,11 @@ var
   reg_key, installed_ver, sigil_ver: String;
   R: Integer;
 begin
-  Result := True;
+  if not IsTaskSelected('vcredistcheck') then
+    Result := False
+  else
+    Result := True;
+
   // version of the VC++ Redistributable included with Sigil Installer
   sigil_ver := '14.0.24210';
   if IsWin64 and not Is64BitInstallMode then
@@ -166,7 +170,7 @@ begin
      // If installed VC++ 2015 runtime version is equal or newer than
      // the one included with the Sigil installer, then skip
      // executing the VC++ redistributable installer
-     if (R >= 0) or not IsTaskSelected('vcredistcheck') then
+     if R >= 0 then
        Result := False;
   end
 end;
