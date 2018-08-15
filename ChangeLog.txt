@@ -7,6 +7,12 @@ pre-0.9.11
    New Features
     - update official builds to use Qt 5.11.1 and Python 3.7
     - update internal Python modules to use latest versions
+    - give Windows users option to bypass the installation of VC runtime altogether during install
+      (for rare situations where the bundled runtime seems to break previously installed versions)
+
+   Changes
+    - Support for Windows Vista officially ends ... Win7sp1 is official minimum required Windows
+      The unofficial Legacy Windows version of Sigil will be available to XP and Vista users
 
 
 Sigil-0.9.10

@@ -17,8 +17,8 @@ Compression=lzma2/ultra
 SolidCompression=yes
 OutputDir=..\installer
 LicenseFile=${LICENSE_LOCATION}
-; Win Vista is the lowest supported version
-MinVersion=0,6.0
+; Win 7sp1 is the lowest supported version
+MinVersion=0,6.1.7601
 PrivilegesRequired=admin
 OutputBaseFilename=Sigil-${SIGIL_FULL_VERSION}-Windows${ISS_SETUP_FILENAME_PLATFORM}-Setup
 ChangesAssociations=yes
@@ -81,42 +81,14 @@ Type: filesandordirs; Name: "{app}\Scripts"
 ; So remove the old name if present.
 Type: files; Name: "{app}\sigil-python3.exe"
 
+[Tasks]
+Name: vcredistcheck; Description: Try to install the VC2015 redistributale runtime if deemed necessary (recommended)
+
 [Run]
 ; The following command detects whether or not the c++ runtime need to be installed.
 Filename: {tmp}\vcredist2015.exe; Check: NeedsVC2015RedistInstall; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2015.msi"" "; StatusMsg: Checking for VS 2015 RunTime ...
 
 [Code]
-
-function IsWindowsVersion(Major, Minor: Integer): Boolean;
-// Check the major and minor versions of Windows version numbers
-var
-  Version: TWindowsVersion;
-begin
-  GetWindowsVersionEx(Version);
-  Result := ((Version.Major = Major) and (Version.Minor = Minor));
-end;
-
-function IsSPLevelOrMore(SPMajor: Integer): Boolean;
-// Version agnostic Service Pack check
-var
-  Version: TWindowsVersion;
-begin
-  GetWindowsVersionEx(Version);
-  Result := (Version.ServicePackMajor >= SPMajor);
-end;
-
-
-// Windows version checks
-function IsWindows7: Boolean;
-begin
-  Result := IsWindowsVersion(6, 1);
-end;
-
-function IsWindowsVista: Boolean;
-begin
-  Result := IsWindowsVersion(6, 0);
-end;
-
 
 function CompareVersion(V1, V2: string): Integer;
 // Compare version strings
@@ -194,27 +166,7 @@ begin
      // If installed VC++ 2015 runtime version is equal or newer than
      // the one included with the Sigil installer, then skip
      // executing the VC++ redistributable installer
-     if R >= 0 then
+     if (R >= 0) or not IsTaskSelected('vcredistcheck') then
        Result := False;
   end
-end;
-
-
-function InitializeSetup(): Boolean;
-// Make sure Windows 7 is at least at SP1 and that
-// Vista is at least at SP2 before setup starts.
-begin
-  Result := True;
-
-  if IsWindowsVista and not IsSPLevelOrMore(2) then
-  begin
-    MsgBox('The Sigil installer requires SP2 on this version of Windows.', mbCriticalError, MB_OK);
-    Result := False;
-  end;
-
-  if IsWindows7 and not IsSPLevelOrMore(1) then
-  begin
-      MsgBox('The Sigil installer requires SP1 on this version of Windows.', mbCriticalError, MB_OK);
-      Result := False;
-  end;
 end;
