@@ -37,8 +37,9 @@
 static std::unordered_set<std::string> nonbreaking_inline  = { 
   "a","abbr","acronym","b","bdo","big","br","button","cite","code","del",
   "dfn","em","font","i","image","img","input","ins","kbd","label","map",
-  "nobr","object","q","ruby","rt","s","samp","select","small","span","strike","strong",
-  "sub","sup","textarea","tt","u","var","wbr", "mbp:nu"
+  "mark", "nobr","object","q","ruby","rt","s","samp","select","small",
+  "span","strike","strong","sub","sup","textarea","tt","u","var",
+  "wbr", "mbp:nu"
 };
 
 
