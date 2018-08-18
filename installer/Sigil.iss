@@ -81,96 +81,29 @@ Type: filesandordirs; Name: "{app}\Scripts"
 ; So remove the old name if present.
 Type: files; Name: "{app}\sigil-python3.exe"
 
-[Tasks]
-Name: vcredistcheck; Description: Try to install the VC2015 redistributable runtime if deemed necessary (recommended)
-
 [Run]
 ; The following command detects whether or not the c++ runtime need to be installed.
 Filename: {tmp}\vcredist2015.exe; Check: NeedsVC2015RedistInstall; Parameters: "/passive /Q:a /c:""msiexec /qb /i vcredist2015.msi"" "; StatusMsg: Checking for VS 2015 RunTime ...
 
 [Code]
 
-function CompareVersion(V1, V2: string): Integer;
-// Compare version strings
-// Returns 0, if the versions are equal.
-// Returns -1, if the V1 is older than the V2.
-// Returns 1, if the V1 is newer than the V2.
-var
-  P, N1, N2: Integer;
-begin
-  Result := 0;
-  while (Result = 0) and ((V1 <> '') or (V2 <> '')) do
-  begin
-    P := Pos('.', V1);
-    if P > 0 then
-    begin
-      N1 := StrToInt(Copy(V1, 1, P - 1));
-      Delete(V1, 1, P);
-    end
-      else
-    if V1 <> '' then
-    begin
-      N1 := StrToInt(V1);
-      V1 := '';
-    end
-      else
-    begin
-      N1 := 0;
-    end;
-
-    P := Pos('.', V2);
-    if P > 0 then
-    begin
-      N2 := StrToInt(Copy(V2, 1, P - 1));
-      Delete(V2, 1, P);
-    end
-      else
-    if V2 <> '' then
-    begin
-      N2 := StrToInt(V2);
-      V2 := '';
-    end
-      else
-    begin
-      N2 := 0;
-    end;
-
-    if N1 < N2 then Result := -1
-      else
-    if N1 > N2 then Result := 1;
-  end;
-end;
-
-
 function NeedsVC2015RedistInstall: Boolean;
-// Return True if VC 2015 redist included
-// with Sigil Installer needs to be run.
+// Return True if VS 2015 redist included with Sigil Installer needs to be run.
 var
-  reg_key, installed_ver, sigil_ver: String;
-  R: Integer;
+  reg_key, installed_ver: String;
 begin
-  if not IsTaskSelected('vcredistcheck') then
-    Result := False
-  else
-    Result := True;
+  Result := True;
 
-  // version of the VC++ Redistributable included with Sigil Installer
-  sigil_ver := '${SIGIL_REDIST_VERSION}';
   if IsWin64 and not Is64BitInstallMode then
     // 32-bit version being installed on 64-bit machine
     reg_key := 'SOFTWARE\WoW6432Node\Microsoft\DevDiv\vc\servicing\14.0\RuntimeMinimum'
   else
     reg_key := 'SOFTWARE\Microsoft\DevDiv\vc\servicing\14.0\RuntimeMinimum';
 
+  // If there's a VS2015 compatible version of the runtime already installed; use it.
   if RegQueryStringValue(HKEY_LOCAL_MACHINE, reg_key, 'Version', installed_ver) then
-  begin
-     //MsgBox('Registry key: ' + reg_key, mbInformation, MB_OK);
-     //MsgBox('Version: ' + installed_ver, mbInformation, MB_OK);
-     R := CompareVersion(installed_ver, sigil_ver);
-     // If installed VC++ 2015 runtime version is equal or newer than
-     // the one included with the Sigil installer, then skip
-     // executing the VC++ redistributable installer
-     if R >= 0 then
-       Result := False;
-  end
-end;
+    begin
+      //MsgBox('Installed version: ' + installed_ver, mbInformation, MB_OK);
+      Result := False;
+    end
+ end;

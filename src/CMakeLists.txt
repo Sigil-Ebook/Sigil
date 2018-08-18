@@ -513,11 +513,6 @@ set( LINUX_LAUNCH_INSTALL_SCRIPT
     Resource_Files/bash/sigil-sh_install
     )
 
-# Set a default--but overridable--version of the vc++ redist being included.
-if ( MSVC AND NOT DEFINED SIGIL_REDIST_VERSION )
-    set ( SIGIL_REDIST_VERSION "14.0.24210" )
-endif()
-
 if ( NOT DEFINED PKG_SYSTEM_PYTHON )
     if (MSVC)
         set ( PKG_SYSTEM_PYTHON 1 )
