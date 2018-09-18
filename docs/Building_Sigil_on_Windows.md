@@ -118,9 +118,9 @@ With all the pre-requisites met and all the necessary additions to your PATH, th
 
 Using the shortcut to the proper VS2015 command-prompt created in [step 1](#vs2015), cd to a suitable empty directory for building Sigil (I recommend "sigil-build", or some such similar name), and issue the following command:
 
-> `cmake -G "NMake Makefiles" WIN_INSTALLER_USE_64BIT_CRT=1 -DCMAKE_PREFIX_PATH="C:\Qt\Qt5.11.1\5.11.1\mscv2015_64\lib\cmake" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
+> `cmake -G "NMake Makefiles" -DWIN_INSTALLER_USE_64BIT_CRT=1 -DCMAKE_PREFIX_PATH="C:\Qt\Qt5.11.1\5.11.1\mscv2015_64\lib\cmake" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
 
-Leave out the WIN_INSTALLER_USE_64BIT_CRT=1 part if you're building a 32-bit version of Sigil with the "VS2015 x86 Native Tools Command Prompt" shortcut.
+Leave out the -DWIN_INSTALLER_USE_64BIT_CRT=1 part if you're building a 32-bit version of Sigil with the "VS2015 x86 Native Tools Command Prompt" shortcut.
 
 Obviously change the paths to match where you've actually installed Qt5.11.1 and the Sigil source code.
 
