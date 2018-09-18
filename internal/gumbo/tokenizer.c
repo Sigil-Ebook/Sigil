@@ -1088,6 +1088,14 @@ static StateResult handle_tag_name_state(
       abandon_current_tag(parser);
       gumbo_tokenizer_set_state(parser, GUMBO_LEX_DATA);
       return NEXT_CHAR;
+    // xml parsing rules do not allow single or double quaotes in tag names
+    case '"':
+      // fall through
+    case '\'':
+      tokenizer_add_parse_error(parser, GUMBO_ERR_TAG_INVALID);
+      abandon_current_tag(parser);
+      gumbo_tokenizer_set_state(parser, GUMBO_LEX_DATA);
+      return NEXT_CHAR;
     default:
       append_char_to_tag_buffer(parser, gumbo_tolower(c), true);
       return NEXT_CHAR;

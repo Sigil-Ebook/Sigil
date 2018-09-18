@@ -111,7 +111,7 @@ class SanityCheck(object):
             ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
             tattr['special'] = s[p:backstep]
             return tname, ttype, tattr
-        while s[p:p+1] not in ('>', '/', ' ', '"', "'", "\r", "\n") : 
+        while s[p:p+1] not in ('>', '/', ' ', '\f', "\t", "\r", "\n") : 
             p += 1
             if (p - b) > MAX_TAG_LEN or p >= taglen:
                 error_msg = 'Tag name not properly delimited: "' + s[b:p] + '"'
@@ -119,6 +119,11 @@ class SanityCheck(object):
                 self.has_error = True
                 return None, None, None
         tname=s[b:p].lower()
+        if "'" in tname or  '"' in tname:
+            error_msg = 'Tag attribute not properly space delimited: "' + s[b:p] + '"'
+            self.errors.append((self.tag_start[0], self.tag_start[1], error_msg))
+            self.has_error = True
+            return None, None, None
         if tname == '!doctype':
             tname = '!DOCTYPE'
         # other special cases
@@ -352,6 +357,9 @@ def main():
 <body>
 <p>&nbsp;</p>
 <?dp n="241" folio="241" ?>
+<ul>
+<li">This is a line of text
+</ul>
 </body>
 </html>
 '''
