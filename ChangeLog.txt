@@ -4,6 +4,7 @@ pre-0.9.11
     - allow both links in Preview and clicking in Preview to reposition CV
     - fix new cursor repositioning under new tab ala Spellcheck
     - fix prettyprinting of the mark tag in gumbo and sigil_bs4
+    - fix crash when tagname illegally (for xhtml) includes single or double quotes
 
    New Features
     - update official builds to use Qt 5.11.1 and Python 3.7

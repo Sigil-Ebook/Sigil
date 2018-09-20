@@ -880,7 +880,11 @@ std::string GumboInterface::get_tag_name(GumboNode *node)
       }
     }
     if (tagname.empty()) {
-      return std::string(gsp.data, gsp.length);
+      tagname = std::string(gsp.data, gsp.length); 
+      // replace any quotes in tag name with underscores for safety
+      replace_all(tagname, "'", "_");
+      replace_all(tagname, "\"", "_");
+      return tagname;
     }
   }
   return tagname;
