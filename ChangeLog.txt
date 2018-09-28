@@ -5,6 +5,7 @@ pre-0.9.11
     - fix new cursor repositioning under new tab ala Spellcheck
     - fix prettyprinting of the mark tag in gumbo and sigil_bs4
     - fix crash when tagname illegally (for xhtml) includes single or double quotes
+    - fix crash in Reports for non-wellformed xhtml that was okay under html5
 
    New Features
     - update official builds to use Qt 5.11.1 and Python 3.7

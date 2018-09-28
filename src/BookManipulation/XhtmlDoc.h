@@ -87,7 +87,10 @@ public:
         WellFormedError() : line(-1), column(-1) {}
     };
 
+    static WellFormedError GumboWellFormedErrorForSource(const QString &source, QString version="2.0");
+
     static WellFormedError WellFormedErrorForSource(const QString &source, QString version="2.0");
+
     static bool IsDataWellFormed(const QString &data, QString version="2.0");
 
     // Accepts a string with HTML and returns the text
