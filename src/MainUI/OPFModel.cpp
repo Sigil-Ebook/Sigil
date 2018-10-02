@@ -293,9 +293,6 @@ void OPFModel::RowsRemovedHandler(const QModelIndex &parent, int start, int end)
     }
 
     UpdateHTMLReadingOrders();
-    // File icons disappear on some platforms when re-ordering html files via
-    // drag and drop in the Book Browser TreeView without this extra refresh.
-    Refresh();
 }
 
 
@@ -469,6 +466,8 @@ void OPFModel::UpdateHTMLReadingOrders()
                                            m_Book->GetFolderKeeper()->GetResourceByIdentifier(html_item->data().toString()));
 
         if (html_resource != NULL) {
+	    // for some reason icons can be lost during drag and drop
+	    html_item->setIcon(html_resource->Icon());
             reading_order_htmls.append(html_resource);
         }
     }
