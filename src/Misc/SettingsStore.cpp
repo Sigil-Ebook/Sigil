@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016, 2017, 2018  Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2011, 2012, 2013  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012, 2013  Dave Heiland
 **
@@ -100,11 +101,13 @@ static QString KEY_CLIPBOARD_HISTORY_LIMIT = SETTINGS_GROUP + "/" + "clipboard_h
 SettingsStore::SettingsStore()
     : QSettings(Utility::DefinePrefsDir() + "/sigil.ini", QSettings::IniFormat)
 {
+     setIniCodec("UTF-8");
 }
 
 SettingsStore::SettingsStore(QString filename)
     : QSettings(filename, QSettings::IniFormat)
 {
+     setIniCodec("UTF-8");
 }
 
 QString SettingsStore::uiLanguage()
