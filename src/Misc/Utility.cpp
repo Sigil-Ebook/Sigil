@@ -56,6 +56,7 @@
 #include "sigil_exception.h"
 #include "Misc/QCodePage437Codec.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/SleepFunctions.h"
 
 #ifndef MAX_PATH
 // Set Max length to 256 because that's the max path size on many systems.
@@ -343,7 +344,14 @@ bool Utility::SDeleteFile(const QString &fullfilepath)
     }
 
     QFile file(fullfilepath);
-    return file.remove();
+    bool deleted = file.remove();
+    // Some multiple file deletion operations fail on Windows, so we try once more.
+    if (!deleted) {
+        qApp->processEvents();
+        SleepFunctions::msleep(100);
+        deleted = file.remove();
+    }
+    return deleted;
 }
 
 
