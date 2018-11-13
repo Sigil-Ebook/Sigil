@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016, 2017, 2018 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -47,6 +47,7 @@
 #include <QRegularExpressionMatch>
 #include <QStringList>
 #include <QMessageBox>
+#include <QUrl>
 
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/CleanSource.h"
@@ -557,18 +558,30 @@ void ImportEPUB::ReadOPF()
             m_UniqueIdentifierId = opf_reader.attributes().value("", "unique-identifier").toString();
             m_PackageVersion = opf_reader.attributes().value("", "version").toString();
             if (m_PackageVersion == "1.0") m_PackageVersion = "2.0";
-        } else if (opf_reader.name() == "identifier") {
+	}
+
+        else if (opf_reader.name() == "identifier") {
             ReadIdentifierElement(&opf_reader);
-        }
+	}
+
+        // epub3 look for linked metadata resources that are included inside the epub 
+        // but that are not and must not be included in the manifest
+        else if (opf_reader.name() == "link") {
+            ReadMetadataLinkElement(&opf_reader);
+	}
+
         // Get the list of content files that
         // make up the publication
         else if (opf_reader.name() == "item") {
             ReadManifestItemElement(&opf_reader);
         }
+
         // We read this just to get the NCX id
         else if (opf_reader.name() == "spine") {
             ncx_id_on_spine = opf_reader.attributes().value("", "toc").toString();
-        } else if (opf_reader.name() == "itemref") {
+        } 
+
+        else if (opf_reader.name() == "itemref") {
             m_HasSpineItems = true;
         }
     }
@@ -603,6 +616,43 @@ void ImportEPUB::ReadIdentifierElement(QXmlStreamReader *opf_reader)
     }
 }
 
+void ImportEPUB::ReadMetadataLinkElement(QXmlStreamReader *opf_reader)
+{
+    QString relation = opf_reader->attributes().value("", "rel").toString();
+    QString mtype = opf_reader->attributes().value("", "media-type").toString();
+    QString props = opf_reader->attributes().value("", "properties").toString();
+    QString href = opf_reader->attributes().value("", "href").toString();
+    if (!href.isEmpty()) {
+        QUrl url = QUrl(href);
+        if (url.isRelative()) {
+	    // we have a local unmanifested metadata file to handle
+	    // attempt to map deprecated record types into proper media-types
+	    if (relation == "marc21xml-record") {
+                mtype = "application/marcxml+xml";
+	    }
+	    else if (relation == "mods-record") {
+                mtype = "application/mods+xml";
+	    }
+	    else if (relation == "onix-record") {
+                mtype = "application/xml;onix";
+            }
+	    else if (relation == "xmp-record") {
+                mtype = "application/xml;xmp";
+	    }
+            else if (relation == "record") {
+                if (props == "onix") mtype = "application/xml;onix";
+                if (props == "xmp") mtype = "application/xml;xmp";
+	    }
+            QDir opf_dir = QFileInfo(m_OPFFilePath).dir();
+	    QString path = opf_dir.absolutePath() + "/" + url.path();
+	    if (QFile::exists(path)) {
+	        QString id = Utility::CreateUUID();
+		m_Files[ id ]  = opf_dir.relativeFilePath(path);
+		m_FileMimetypes[ id ] = mtype;
+	    }
+	}
+    }
+}
 
 void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
 {

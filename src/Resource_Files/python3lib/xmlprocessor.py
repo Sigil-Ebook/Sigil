@@ -267,7 +267,7 @@ def performOPFSourceUpdates(data, currentdir, keylist, valuelist):
         updates[ keylist[i] ] = valuelist[i]
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=ebook_xml_empty_tags)
     soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
-    for tag in soup.find_all(["item","reference","site"]):
+    for tag in soup.find_all(["link","item","reference","site"]):
         if "href" in tag.attrs :
             href = tag["href"]
             if href.find(":") == -1 :
