@@ -37,10 +37,10 @@ environment:
       DOWNLOAD: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/qt5.11-custom-webkit-%PLATFORM%.zip
   matrix:
     - PYTHON: C:\Python37
-      QT: C:\Qt\5.11.1\msvc2015
+      QT: C:\Qt\5.11\msvc2015
       CMAKE64BIT:
     - PYTHON: C:\Python37-x64
-      QT: C:\Qt\5.11.1\msvc2015_64
+      QT: C:\Qt\5.11\msvc2015_64
       CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
 
 matrix:
