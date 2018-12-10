@@ -102,6 +102,8 @@ class BookContainer(object):
         self._w.setspine_epub3(new_spine)
 
     # Modified for epub3
+    # Note: for prepend, set pos = 0
+    #       for append, set pos = -1 or pos >= current length of spine
     def spine_insert_before(self, pos, spid, linear, properties=None):
         self._w.spine_insert_before(pos, spid, linear, properties)
 
