@@ -174,6 +174,18 @@ class AttributeNamespace(Enum):
         return self.URLS[self.value]
 
 
+class OutputStatus(Enum):
+    STATUS_MSG = [
+        'OK',
+        'Document tree depth limit exceeded',
+        'System allocator returned NULL during parsing',
+     ]
+    _values_ = ['STATUS_OK', 'STATUS_TREE_TOO_DEEP', 'STATUS_OUT_OF_MEMORY']
+
+    def to_string(self):
+        return self.STATUS_MSG[self.value]
+
+
 class Attribute(ctypes.Structure):
     _fields_ = [
         ('namespace', AttributeNamespace),
@@ -390,6 +402,7 @@ class Options(ctypes.Structure):
         ('tab_stop', ctypes.c_int),
         ('use_xhtml_rules', ctypes.c_bool),
         ('stop_on_first_error', ctypes.c_bool),
+        ('max_tree_depth', ctypes.c_uint),
         ('max_errors', ctypes.c_int),
         ]
 
@@ -398,6 +411,7 @@ class Output(ctypes.Structure):
     _fields_ = [
         ('document', _Ptr(Node)),
         ('root', _Ptr(Node)),
+        ('status', OutputStatus),
         # TODO(jdtang): Error type.
         ('errors', Vector),
         ]

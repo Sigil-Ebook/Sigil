@@ -175,7 +175,8 @@ void GumboInterface::parse()
         myoptions.tab_stop = 4;
         myoptions.use_xhtml_rules = true;
         myoptions.stop_on_first_error = false;
-        myoptions.max_errors = -1;
+	myoptions.max_tree_depth = 400;
+        myoptions.max_errors = 50;
 
         // GumboInterface::m_mutex.lock();
         m_output = gumbo_parse_with_options(&myoptions, m_utf8src.data(), m_utf8src.length());
@@ -491,6 +492,7 @@ QList<GumboWellFormedError> GumboInterface::error_check()
     myoptions.tab_stop = 4;
     myoptions.use_xhtml_rules = true;
     myoptions.stop_on_first_error = false;
+    myoptions.max_tree_depth = 400;
     myoptions.max_errors = -1;
 
     if (!m_source.isEmpty() && (m_output == NULL)) {

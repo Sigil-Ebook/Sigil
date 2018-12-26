@@ -60,6 +60,7 @@ typedef struct GumboInternalToken {
   GumboTokenType type;
   GumboSourcePosition position;
   GumboStringPiece original_text;
+  bool is_injected;
   union {
     GumboTokenDocType doc_type;
     GumboTokenStartTag start_tag;

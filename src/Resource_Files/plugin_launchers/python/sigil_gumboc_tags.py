@@ -53,6 +53,7 @@ TagNames = [
         "DESC",
         "DETAILS",
         "DFN",
+        "DIALOG",
         "DIR",
         "DIV",
         "DL",
