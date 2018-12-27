@@ -3097,7 +3097,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
                 assert(state->_open_elements.length > 0);
                 assert(node_html_tag_is(state->_open_elements.data[0], GUMBO_TAG_HTML));
 		// XHTML5
-                if (parser->_options->use_xhtml_rules  &&   
+                if (parser->_options->use_xhtml_rules  && token->is_injected &&  
                             tag_in(token, kEndTag, (gumbo_tagset) { TAG(IFRAME), TAG(NOEMBED), 
                                 TAG(TEXTAREA), TAG(XMP) })) {
                     pop_current_node(parser);
@@ -4496,6 +4496,7 @@ GumboOutput* gumbo_parse_with_options(
       options, buffer, length, GUMBO_TAG_LAST, GUMBO_NAMESPACE_HTML);
 }
 
+
 // #ifndef unlikely
 //     #define unlikely(x)     __builtin_expect((x),0)
 // #endif
@@ -4526,7 +4527,7 @@ GumboOutput* gumbo_parse_fragment(
   int loop_count = 0;
 
   const unsigned int max_tree_depth = options->max_tree_depth;
-  GumboToken token;
+  GumboToken token = {0};
   bool has_error = false;
 
   // XHTML5 parsing support
