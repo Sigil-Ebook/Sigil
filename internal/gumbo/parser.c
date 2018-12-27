@@ -4496,9 +4496,9 @@ GumboOutput* gumbo_parse_with_options(
       options, buffer, length, GUMBO_TAG_LAST, GUMBO_NAMESPACE_HTML);
 }
 
-#ifndef unlikely
-    #define unlikely(x)     __builtin_expect((x),0)
-#endif
+// #ifndef unlikely
+//     #define unlikely(x)     __builtin_expect((x),0)
+// #endif
 
 GumboOutput* gumbo_parse_fragment(
     const GumboOptions* options, const char* buffer, size_t length,
@@ -4622,7 +4622,8 @@ GumboOutput* gumbo_parse_fragment(
       }
     }
 
-    if (unlikely(state->_open_elements.length > max_tree_depth)) {
+    // use of unlikely might help here but does not exist on windows
+    if (state->_open_elements.length > max_tree_depth) {
       /* this block is unlikely to be taken */
       parser._output->status = GUMBO_STATUS_TREE_TOO_DEEP;
       gumbo_debug("Tree depth limit exceeded.\n");
