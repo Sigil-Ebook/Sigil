@@ -11,7 +11,7 @@ from ctypes.util import find_library
 
 import codecs
 
-PY3 = sys.version_info[0] == 3
+PY3 = sys.version_info[0] >= 3
 if PY3:
     binary_type = bytes
     text_type = str

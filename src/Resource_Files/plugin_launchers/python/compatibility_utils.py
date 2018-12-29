@@ -31,7 +31,7 @@ import sys
 import codecs
 
 PY2 = sys.version_info[0] == 2
-PY3 = sys.version_info[0] == 3
+PY3 = sys.version_info[0] >= 3
 
 iswindows = sys.platform.startswith('win')
 
