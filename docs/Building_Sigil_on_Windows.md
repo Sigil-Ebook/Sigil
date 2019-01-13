@@ -7,7 +7,7 @@ To build Sigil on Windows, you need to get/do the following things:
 1. [Visual Studio 2015](#vs2015) (The free Community Edition will work fine)
 2. [CMake](#cmake) (3.0 or higher)
 3. [Inno Setup](#inno) (the latest Unicode version available recommended)
-4. [Qt5.11.1](#qt5) (**NOTE**: The standard precompiled binaries will work just fine)
+4. [Qt5.11.2](#qt5) (**NOTE**: The standard precompiled binaries will work just fine)
 5. [QtWebKit](#qtwebkit)
 5. [Python 3.7.x](#python)
 6. [The Sigil source code](#sigil) (downloaded zipfile or a git clone)
@@ -29,13 +29,13 @@ CMake 3.0 or better is required. I'm using 3.11.x Download it from [cmake.org](h
 ## <a name="inno"/>Inno Setup
 Get the unicode version (5.5.9 at the time of this writing) from [jrsoftware.org](http://www.jrsoftware.org/isdl.php) make sure you say yes to the Preprocessor option when installing. **Also make sure the Inno Setup directory (the one containing "ISCC.exe") is added to your PATH**. There is no 64-bit version of Inno Setup, but you can still use it to create 64-bit program installers.
 
-## <a name="qt5"/>Qt5.11.1
-Download qt-opensource-windows-x86-5.11.1.exe from [Qt's Website](http://download.qt.io/archive/qt/5.11/5.11.1) and install the msvc2015 component for the architecture you will be building Sigil for (you can install both msvc2015 and msvc2015_x64 if you like).
+## <a name="qt5"/>Qt5.11.2
+Download qt-opensource-windows-x86-5.11.2.exe from [Qt's Website](http://download.qt.io/archive/qt/5.11/5.11.2) and install the msvc2015 component for the architecture you will be building Sigil for (you can install both msvc2015 and msvc2015_x64 if you like).
 
-Once you have Qt5.11.1 for VS2015 installed, **make sure its "bin" directory (the one containing "windeployqt.exe) is added to your PATH**.
+Once you have Qt5.11.2 for VS2015 installed, **make sure its "bin" directory (the one containing "windeployqt.exe) is added to your PATH**.
 
 ## <a name="qtwebkit"/>QtWebKit
-You need to beg, borrow or build a version of QtWebKit from [QtWebKit Reloaded's Github repository](https://github.com/annulen/webkit). You can use one of the binary releases if you like, but the latest at the time of this writing (5.212.0-alpha2) includes a buggy version of libxml2 that will result in html entity doubling (Linux Sigil users have already encountered this bug). Perhaps there will be a new release by the time you're reading this and you can just use it as is. That is certainly my hope in the long run. In the meantime, there's some fairly good documentation in their [wiki](https://github.com/annulen/webkit/wiki) for building QtWebKit on Windows. I'm building the release versions of Sigil using a version of QtWebKit that I've compiled myself; which can be found [here](https://github.com/dougmassay/win-qtwebkit-5.212/releases). Download the one for the architecture you're targeting, unzip it and merge the msvc2016_64 (or msvc2015 if you're building the x86 version) directory with the same directory in your Qt5.11.1 installation
+You need to beg, borrow or build a version of QtWebKit from [QtWebKit Reloaded's Github repository](https://github.com/annulen/webkit). You can use one of the binary releases if you like, but the latest at the time of this writing (5.212.0-alpha2) includes a buggy version of libxml2 that will result in html entity doubling (Linux Sigil users have already encountered this bug). Perhaps there will be a new release by the time you're reading this and you can just use it as is. That is certainly my hope in the long run. In the meantime, there's some fairly good documentation in their [wiki](https://github.com/annulen/webkit/wiki) for building QtWebKit on Windows. I'm building the release versions of Sigil using a version of QtWebKit that I've compiled myself; which can be found [here](https://github.com/dougmassay/win-qtwebkit-5.212/releases). Download the one for the architecture you're targeting, unzip it and merge the msvc2016_64 (or msvc2015 if you're building the x86 version) directory with the same directory in your Qt5.11.2 installation.
 
 ## <a name="python"/>Getting Python 3.7
 **This is important**. If you're going to be building the 64-bit version of Sigil, you need to install the 64-bit version of Python 3.7. If you're building a 32-bit version of Sigil then you need to install a 32-bit version of Python 3.7.
@@ -55,9 +55,9 @@ Once finished, you can begin to install the extra modules needed by Sigil.
 + cssselect
 + cssutils
 + chardet
-+ Pillow (v5.2.0 recommended/verified)
-+ lxml (v4.2.4 recommended/verified)
-+ PyQt5 (5.11.2 recommeded/verified)
++ Pillow (v5.4.1 recommended/verified)
++ lxml (v4.2.6 recommended/verified)
++ PyQt5 (5.11.3 recommeded/verified)
 
 From the same command prompt you updated pip with, install the "six" module with the following command:
 
@@ -85,7 +85,7 @@ Version 4.2.4 comes with precompiled binary wheels for Windows. Not all versions
 
 Like lxml, not all versions of PyQt5 will have compatible binaries that will will work with Sigil's Qt5 and Python. Stick to version 5.11.2 and everything should work with Python 3.7and Qt5.11.1
 
->`pip install PyQt5==5.11.2`
+>`pip install PyQt5==5.11.3`
 
 
 ## <a name="sigil"/>Getting Sigil's Source Code
