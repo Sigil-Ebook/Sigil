@@ -304,7 +304,7 @@ class Wrapper(object):
 
     def build_guide_xml(self):
         guideout = []
-        if len(self.guide) > 0 or self.epub_version.startswith('2'):
+        if len(self.guide) > 0:
             guideout.append('  <guide>\n')
             for (type, title, href) in self.guide:
                 href = quoteurl(href)

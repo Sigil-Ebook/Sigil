@@ -466,7 +466,7 @@ QString OPFParser::convert_to_xml() const
     xmlres << sp.convert_to_xml();
   }
   xmlres << "  </spine>\n";
-  if ((m_guide.size() > 0) || (m_package.m_version.startsWith("2"))) {
+  if (m_guide.size() > 0) {
     xmlres << "  <guide>\n";
     foreach(GuideEntry ge, m_guide) {
       xmlres << ge.convert_to_xml();

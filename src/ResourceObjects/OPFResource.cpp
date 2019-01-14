@@ -71,7 +71,6 @@ static const QString TEMPLATE_TEXT =
     "  </manifest>\n\n"
     "  <spine toc=\"ncx\">\n"
     "  </spine>\n\n"
-    "  <guide>\n\n</guide>\n\n"
     "</package>";
 
 /** 
@@ -117,7 +116,6 @@ static const QString TEMPLATE3_TEXT =
     "  </manifest>\n\n"
     "  <spine toc=\"ncx\">\n"
     "  </spine>\n\n"
-    "  <guide>\n\n</guide>\n\n"
     "</package>";
 
 

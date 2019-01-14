@@ -426,7 +426,7 @@ class Opf_Parser(object):
         xmlres.append(self.convert_spine_entries_to_xml())
         xmlres.append('  </spine>\n')
         (opfver, uid, attr) = self.package
-        if len(self.guide) > 0 or opfver.startswith('2'):
+        if len(self.guide) > 0:
             xmlres.append('  <guide>\n')
             xmlres.append(self.convert_guide_entries_to_xml())
             xmlres.append('  </guide>\n')
