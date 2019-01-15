@@ -755,7 +755,9 @@ class CSSCalc(CSSFunction):
         )
 
         def _operant(): return Choice(_DimensionProd(self),
-                                      _CSSVariableProd(self))
+                                      _CSSVariableProd(self),
+                                      PreDef.ratio(),
+                                     )
 
         prods = Sequence(Prod(name='CALC',
                               match=lambda t, v: t == types.FUNCTION and

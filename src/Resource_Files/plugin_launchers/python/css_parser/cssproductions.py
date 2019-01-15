@@ -76,7 +76,7 @@ PRODUCTIONS = [
 
     ('S', r'{s}+'),  # 1st in list of general productions
     ('URI', r'{U}{R}{L}\({w}({string}|{url}*){w}\)'),
-    ('RATIO', r'[^\(]{w}[0-9]+{w}\/{w}[0-9]+'),
+    ('RATIO', r'{w}[0-9]+{w}\/{w}[0-9]+'),
     ('UNICODE-RANGE', r'{U}\+[0-9A-Fa-f?]{1,6}(\-[0-9A-Fa-f]{1,6})?'),
     ('IDENT', r'{ident}'),
     ('FUNCTION', r'{ident}\('),
