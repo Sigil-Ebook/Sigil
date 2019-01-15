@@ -22,8 +22,10 @@
 **
 *************************************************************************/
 
-#include <QRegularExpression>
+#include "Misc/EmbeddedPython.h"
 
+#include <QRegularExpression>
+#include "Misc/Utility.h"
 #include "Misc/CSSInfo.h"
 
 const int TAB_SPACES_WIDTH = 4;
@@ -162,7 +164,50 @@ QStringList CSSInfo::getAllPropertyValues(QString property)
 
 QString CSSInfo::getReformattedCSSText(bool multipleLineFormat)
 {
-    QString new_text(m_OriginalText);
+    QString csstext(m_OriginalText);
+
+    // Note, the EmbeddedPython interface does not handle bool properly
+    // So convert to int with 0 or 1 value for the time being
+    int useoneline = 1;
+    if (multipleLineFormat) useoneline = 0;
+
+    int rv = 0;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(csstext));
+    args.append(QVariant(useoneline));
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("cssreformatter"),
+                                         QString("reformat_css"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv != 0) {
+        Utility::DisplayStdWarningDialog(QString("Error in cssreformatter: ") + QString::number(rv), 
+				         error_traceback);
+        // an error happened, return unchanged original
+        return QString(csstext);
+    }
+    // QVariant results are a String List (new_css_text, errors, warnings)
+    QStringList results = res.toStringList();
+    QString new_csstext = results[0];
+    QString errors = results[1];
+    QString warnings = results[2];
+
+    if (!errors.isEmpty()) {
+        Utility::DisplayStdWarningDialog(QString("Error in cssreformatter: "), errors);
+        // an error happened, return unchanged original
+        return QString(csstext);
+    }
+
+    if (!warnings.isEmpty()) {
+        Utility::DisplayStdWarningDialog(QString("Warnings from cssreformatter: "), warnings);
+    }
+
+    return new_csstext;
+
+#if 0  // attempt to replace out broken css reformatter with a python one based on css_parser
     int selector_indent = m_IsCSSFile ? 0 : TAB_SPACES_WIDTH;
     // Work backwards through our selectors to change the document as will be in line order.
     // must also cater for fact that a selector group ( e.g. body,p { ) will have multiple
@@ -230,6 +275,7 @@ QString CSSInfo::getReformattedCSSText(bool multipleLineFormat)
 
     new_text.replace(LINE_MARKER, "\n");
     return new_text.trimmed();
+#endif
 }
 
 QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
@@ -531,4 +577,3 @@ QString CSSInfo::replaceBlockComments(const QString &text)
 
     return new_text;
 }
-

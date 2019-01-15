@@ -32,6 +32,9 @@
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
 
+// IMPORTANT NOTE:  This interface does NOT support passing/converting the type bool
+// All bool values should be converted to integeres with values of 0 for false and 1 for true
+
 /**
  * Possibly Useful QMetaTypes::Type types
  *
