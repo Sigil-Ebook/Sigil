@@ -2185,10 +2185,24 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
         current_resource = tab->GetLoadedResource();
     }
 
-    // Close all tabs being updated to prevent BV overwriting the new data
-    foreach(Resource *resource, resources) {
-        m_TabManager->CloseTabForResource(resource);
+    // Get a list of all open tabs and
+    // if they are to be updated and are currently in BookView
+    // mode then close those tabs
+    QList<ContentTab *> opentabs = m_TabManager->GetContentTabs();
+    foreach(ContentTab * atab, opentabs) {
+        Resource * resource = atab->GetLoadedResource();
+        if (resources.contains(resource)) {
+	    // this tab holds a resource that is to be updated
+	    FlowTab* flowtab = qobject_cast<FlowTab *>(atab);
+	    if (flowtab) {
+	        if (flowtab->GetViewState() == MainWindow::ViewState_BookView) {
+	            // BookView Tabs must be closed to update stylesheet links
+                    m_TabManager->CloseTabForResource(resource);
+	        }
+	    }
+	}
     }
+
     QStringList stylesheets = link.GetStylesheets();
     QApplication::setOverrideCursor(Qt::WaitCursor);
     // Convert HTML resources into HTMLResource types
