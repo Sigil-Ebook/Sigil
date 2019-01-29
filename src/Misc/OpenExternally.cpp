@@ -221,8 +221,11 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
             editorDescription = prettyName;
         }
         const QString editor_data = editorDescription + SEP + selectedFile;
-	if (!editors.contains(editor_data)) { 
-	    editors.prepend(editor_data);
+	editors.removeOne(editor_data);
+	editors.prepend(editor_data);
+	// limit of 5 editors per resource type
+	while(editors.size() > 5) {
+	    editors.removeLast();
 	}
         settings.setValue(editorsKey, editors);
         LAST_LOCATION = selectedFile;
