@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -1524,21 +1525,20 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
                 m_ContextMenu->addAction(m_OpenWith);
             } else {
 	        // clear previous open with action info
-                m_OpenWithEditor0->setData(QVariant::Invalid);
-                m_OpenWithEditor1->setData(QVariant::Invalid);
-                m_OpenWithEditor2->setData(QVariant::Invalid);
-                m_OpenWithEditor3->setData(QVariant::Invalid);
-                m_OpenWithEditor4->setData(QVariant::Invalid);
-                m_OpenWithEditor0->setText("");
-                m_OpenWithEditor1->setText("");
-                m_OpenWithEditor2->setText("");
-                m_OpenWithEditor3->setText("");
-                m_OpenWithEditor4->setText("");
-                m_OpenWithEditor0->setEnabled(false);
-                m_OpenWithEditor1->setEnabled(false);
-                m_OpenWithEditor2->setEnabled(false);
-                m_OpenWithEditor3->setEnabled(false);
-                m_OpenWithEditor4->setEnabled(false);
+	        for (int k = 0; k < 5; k++) {
+		    QAction * oeaction = NULL;
+		    if (k==0) oeaction = m_OpenWithEditor0;
+		    if (k==1) oeaction = m_OpenWithEditor1;
+		    if (k==2) oeaction = m_OpenWithEditor2;
+		    if (k==3) oeaction = m_OpenWithEditor3;
+		    if (k==4) oeaction = m_OpenWithEditor4;
+		    if (oeaction) {
+		        oeaction->setData(QVariant::Invalid);
+		        oeaction->setText("");
+		        oeaction->setEnabled(false);
+		        oeaction->setVisible(false);
+		    }
+		}
 	        int i = 0;
 	        foreach(QString apath, editor_paths) {
 		    QString aprettyname = editor_names[i];
@@ -1552,6 +1552,7 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
                         oeaction->setText(aprettyname);
                         oeaction->setData(apath);
                         oeaction->setEnabled(item_count == 1);
+			oeaction->setVisible(true);
 		    }
 		    i = i + 1;
 		}

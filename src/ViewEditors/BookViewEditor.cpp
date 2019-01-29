@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -955,11 +956,21 @@ bool BookViewEditor::SuccessfullySetupContextMenu(const QPoint &point)
                 m_OpenWith->setData(imageUrl);
                 m_ContextMenu->addAction(m_OpenWith);
             } else {
-                m_OpenWithEditor0->setData(QVariant::Invalid);
-                m_OpenWithEditor1->setData(QVariant::Invalid);
-                m_OpenWithEditor2->setData(QVariant::Invalid);
-                m_OpenWithEditor3->setData(QVariant::Invalid);
-                m_OpenWithEditor4->setData(QVariant::Invalid);
+	        // clear previous open with action info
+	        for (int k = 0; k < 5; k++) {
+		    QAction * oeaction = NULL;
+		    if (k==0) oeaction = m_OpenWithEditor0;
+		    if (k==1) oeaction = m_OpenWithEditor1;
+		    if (k==2) oeaction = m_OpenWithEditor2;
+		    if (k==3) oeaction = m_OpenWithEditor3;
+		    if (k==4) oeaction = m_OpenWithEditor4;
+		    if (oeaction) {
+		        oeaction->setData(QVariant::Invalid);
+		        oeaction->setText("");
+		        oeaction->setEnabled(false);
+		        oeaction->setVisible(false);
+		    }
+		}
 		QStringList editor_names = OpenExternally::editorDescriptionsForResourceType(imageType);
 		int i = 0;
 		foreach (QString aname, editor_names) {
@@ -972,6 +983,7 @@ bool BookViewEditor::SuccessfullySetupContextMenu(const QPoint &point)
 		    if (oeaction) {
                         oeaction->setText(aname);
                         oeaction->setData(imageUrl);
+			oeaction->setVisible(true);
 		    }
 		    i = i + 1;
 		}
