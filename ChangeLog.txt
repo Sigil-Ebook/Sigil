@@ -17,8 +17,8 @@ pre-0.9.11
     - update internal Python modules to use latest versions
     - update Sigil's gumbo parser to fix all known bugs and greatly speedup parsing
     - embed new project css_parser (fork of cssutils)  as a python library to fix css parsing 
-    - give Windows users option to bypass the installation of VC runtime altogether during install
-      (for rare situations where the bundled runtime seems to break previously installed versions)
+    - Sigil no longer attempts to upgrade the VC++ runtime on Windows. It only installs the
+        bundled VC++ runtime if there is no compatible version already installed
     - add support for internal but unmanifested opf metadata link resources under epub3
 
    Changes
