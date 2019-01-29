@@ -92,6 +92,7 @@ BookViewEditor::BookViewEditor(QWidget *parent)
     BookViewPreview(parent),
     m_WebPageModified(false),
     m_clipMapper(new QSignalMapper(this)),
+    m_openWithMapper(new QSignalMapper(this)),
     m_OpenWithContextMenu(new QMenu(this)),
     // m_Paste1(new QShortcut(QKeySequence(QKeySequence::Paste), this, NULL, NULL, Qt::WidgetShortcut)),
     // Old style windows paste.
@@ -1191,11 +1192,17 @@ void BookViewEditor::ConnectSignalsToSlots()
     connect(m_SelectAll,      SIGNAL(triggered()),  this, SLOT(selectAll()));
     connect(m_Open,           SIGNAL(triggered()),  this, SLOT(openImage()));
     connect(m_OpenWith,       SIGNAL(triggered()),  this, SLOT(openWith()));
-    connect(m_OpenWithEditor0, SIGNAL(triggered()),  this, SLOT(openWithEditor(0)));
-    connect(m_OpenWithEditor1, SIGNAL(triggered()),  this, SLOT(openWithEditor(1)));
-    connect(m_OpenWithEditor2, SIGNAL(triggered()),  this, SLOT(openWithEditor(2)));
-    connect(m_OpenWithEditor3, SIGNAL(triggered()),  this, SLOT(openWithEditor(3)));
-    connect(m_OpenWithEditor4, SIGNAL(triggered()),  this, SLOT(openWithEditor(4)));
+    connect(m_OpenWithEditor0, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor0, 0);
+    connect(m_OpenWithEditor1, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor1, 1);
+    connect(m_OpenWithEditor2, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor2, 2);
+    connect(m_OpenWithEditor3, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor3, 3);
+    connect(m_OpenWithEditor4, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor4, 4);
+    connect(m_openWithMapper, SIGNAL(mapped(int)), this, SLOT(openWithEditor(int)));
     connect(m_SaveAs,         SIGNAL(triggered()),  this, SLOT(saveAs()));
     connect(m_clipMapper, SIGNAL(mapped(const QString &)), this, SLOT(PasteClipEntryFromName(const QString &)));
     connect(m_InspectElement,      SIGNAL(triggered()),  this, SLOT(EmitInspectElement()));

@@ -477,6 +477,8 @@ private:
     QAction *m_OpenWithEditor3;
     QAction *m_OpenWithEditor4;
 
+    QSignalMapper *m_openWithMapper;
+
     /**
      * The resource type of the last item on which the
      * the context menu was invoked.

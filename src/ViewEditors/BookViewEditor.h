@@ -418,6 +418,7 @@ private:
     bool m_WebPageModified;
 
     QSignalMapper *m_clipMapper;
+    QSignalMapper *m_openWithMapper;
 
     /**
      * The context menu actions.
@@ -504,6 +505,7 @@ private:
      * and set the named attribute value.
      */
     const QString c_SetAncestorAttribute;
+
 };
 
 

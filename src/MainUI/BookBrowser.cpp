@@ -65,6 +65,7 @@ BookBrowser::BookBrowser(QWidget *parent)
     m_ContextMenu(new QMenu(this)),
     m_FontObfuscationContextMenu(new QMenu(this)),
     m_OpenWithContextMenu(new QMenu(this)),
+    m_openWithMapper(new QSignalMapper(this)),
     m_LastContextMenuType(Resource::GenericResourceType),
     m_RenamedResource(NULL)
 {
@@ -1674,11 +1675,17 @@ void BookBrowser::ConnectSignalsToSlots()
     connect(m_SaveAs,                  SIGNAL(triggered()), this, SLOT(SaveAs()));
     connect(m_ValidateWithW3C,         SIGNAL(triggered()), this, SLOT(ValidateStylesheetWithW3C()));
     connect(m_OpenWith,                SIGNAL(triggered()), this, SLOT(OpenWith()));
-    connect(m_OpenWithEditor0,         SIGNAL(triggered()), this, SLOT(OpenWithEditor(0)));
-    connect(m_OpenWithEditor1,         SIGNAL(triggered()), this, SLOT(OpenWithEditor(1)));
-    connect(m_OpenWithEditor2,         SIGNAL(triggered()), this, SLOT(OpenWithEditor(2)));
-    connect(m_OpenWithEditor3,         SIGNAL(triggered()), this, SLOT(OpenWithEditor(3)));
-    connect(m_OpenWithEditor4,         SIGNAL(triggered()), this, SLOT(OpenWithEditor(4)));
+    connect(m_OpenWithEditor0, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor0, 0);
+    connect(m_OpenWithEditor1, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor1, 1);
+    connect(m_OpenWithEditor2, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor2, 2);
+    connect(m_OpenWithEditor3, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor3, 3);
+    connect(m_OpenWithEditor4, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor4, 4);
+    connect(m_openWithMapper, SIGNAL(mapped(int)), this, SLOT(OpenWithEditor(int)));
     connect(m_AdobesObfuscationMethod, SIGNAL(triggered()), this, SLOT(AdobesObfuscationMethod()));
     connect(m_IdpfsObfuscationMethod,  SIGNAL(triggered()), this, SLOT(IdpfsObfuscationMethod()));
     connect(m_NoObfuscationMethod,     SIGNAL(triggered()), this, SLOT(NoObfuscationMethod()));
