@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012  Daniel Pavel <daniel.pavel@gmail.com>
 **
 **  This file is part of Sigil.
@@ -30,13 +31,18 @@ class OpenExternally
 
 public:
 
+    enum EditorInfoFields {
+        nameField = 0,
+        pathField   = 1,
+    };
+
     static bool mayOpen(const Resource::ResourceType type);
 
     static bool openFile(const QString &filePath, const QString &application);
 
-    static const QString editorForResourceType(const Resource::ResourceType type);
+    static const QStringList editorsForResourceType(const Resource::ResourceType type);
 
-    static const QString editorDescriptionForResourceType(const Resource::ResourceType type);
+    static const QStringList editorDescriptionsForResourceType(const Resource::ResourceType type);
 
     static const QString selectEditorForResourceType(const Resource::ResourceType type);
 

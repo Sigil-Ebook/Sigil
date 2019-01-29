@@ -257,7 +257,7 @@ private slots:
 
     void OpenWith() const;
 
-    void OpenWithEditor() const;
+    void OpenWithEditor(int) const;
 
     /**
      * Implements the Rename context menu action functionality.
@@ -471,7 +471,11 @@ private:
 
     QMenu *m_OpenWithContextMenu;
     QAction *m_OpenWith;
-    QAction *m_OpenWithEditor;
+    QAction *m_OpenWithEditor0;
+    QAction *m_OpenWithEditor1;
+    QAction *m_OpenWithEditor2;
+    QAction *m_OpenWithEditor3;
+    QAction *m_OpenWithEditor4;
 
     /**
      * The resource type of the last item on which the

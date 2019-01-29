@@ -214,7 +214,7 @@ public slots:
     void copyImage();
 
     void openWith();
-    void openWithEditor();
+    void openWithEditor(int);
 
     void saveAs();
 
@@ -437,7 +437,11 @@ private:
     QMenu *m_OpenWithContextMenu;
 
     QAction *m_OpenWith;
-    QAction *m_OpenWithEditor;
+    QAction *m_OpenWithEditor0;
+    QAction *m_OpenWithEditor1;
+    QAction *m_OpenWithEditor2;
+    QAction *m_OpenWithEditor3;
+    QAction *m_OpenWithEditor4;
 
     QAction *m_SaveAs;
     QAction *m_InspectElement;

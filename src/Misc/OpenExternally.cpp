@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012  Daniel Pavel <daniel.pavel@gmail.com>
 **
 **  This file is part of Sigil.
@@ -33,6 +34,7 @@
 
 static const QString SETTINGS_GROUP = "open_with";
 static const QString EMPTY;
+static const QString SEP = QString(QChar(31));
 
 // resource types that are watched for modifications from outside Sigil
 // only watch certain types of resources (auxiliaries)
@@ -111,42 +113,47 @@ bool OpenExternally::openFile(const QString &filePath, const QString &applicatio
     return false;
 }
 
-const QString OpenExternally::editorForResourceType(const Resource::ResourceType type)
+const QStringList OpenExternally::editorsForResourceType(const Resource::ResourceType type)
 {
+    QStringList editorPaths = QStringList();
     if (mayOpen(type)) {
         SettingsStore settings;
         settings.beginGroup(SETTINGS_GROUP);
-        const QString &editorKey = QString("editor_") + RESOURCE_TYPE_NAME(type);
-
-        if (settings.contains(editorKey)) {
-            const QString &editorPath = settings.value(editorKey).toString();
-            return QFile::exists(editorPath) ? editorPath : EMPTY;
+        const QString editorsKey = QString("editors_") + RESOURCE_TYPE_NAME(type);
+        if (settings.contains(editorsKey)) {
+	    QStringList editors = settings.value(editorsKey).toStringList();
+	    foreach(QString editor, editors) {
+  	        const QStringList edata = editor.split(SEP);
+		const QString editor_name = edata[nameField];
+		const QString editor_path = edata[pathField];
+	        if (QFile::exists(editor_path)) editorPaths.append(editor_path);
+	    }
         }
     }
-
-    return EMPTY;
+    return editorPaths;
 }
 
-const QString OpenExternally::editorDescriptionForResourceType(const Resource::ResourceType type)
+const QStringList OpenExternally::editorDescriptionsForResourceType(const Resource::ResourceType type)
 {
-    QString editorDescription;
-
+    QStringList editorDescriptions = QStringList();
     if (mayOpen(type)) {
         SettingsStore settings;
         settings.beginGroup(SETTINGS_GROUP);
-        const QString &editorDescriptionKey = QString("editor_description_") + RESOURCE_TYPE_NAME(type);
-        const QString &editorKey = QString("editor_") + RESOURCE_TYPE_NAME(type);
-
-        if (settings.contains(editorDescriptionKey)) {
-            editorDescription = settings.value(editorDescriptionKey).toString();
-        }
-
-        if (editorDescription.isEmpty()) {
-            editorDescription = prettyApplicationName(settings.value(editorKey).toString());
+        const QString editorsKey = QString("editors_") + RESOURCE_TYPE_NAME(type);
+        if (settings.contains(editorsKey)) {
+	    QStringList editors = settings.value(editorsKey).toStringList();
+	    foreach(QString editor, editors) {
+  	        const QStringList edata = editor.split(SEP);
+		QString editor_name = edata[nameField];
+		const QString editor_path = edata[pathField];
+	        if (QFile::exists(editor_path)) {
+  		    if (editor_name.isEmpty()) editor_name = prettyApplicationName(editor_path);
+		    editorDescriptions.append(editor_name);
+		}
+	    }
         }
     }
-
-    return editorDescription;
+    return editorDescriptions;
 }
 
 const QString OpenExternally::prettyApplicationName(const QString &applicationpath)
@@ -160,8 +167,7 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
         return EMPTY;
     }
 
-    const QString &editorKey = QString("editor_") + RESOURCE_TYPE_NAME(type);
-    const QString &editorDescriptionKey = QString("editor_description_") + RESOURCE_TYPE_NAME(type);
+    const QString editorsKey = QString("editors_") + RESOURCE_TYPE_NAME(type);
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
 #if defined(Q_OS_WIN32)
@@ -170,13 +176,20 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
 #else
     static QString LAST_LOCATION = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
 #endif
-    QString lastEditor = settings.value(editorKey).toString();
+    QStringList EmptyList = QStringList();
+    QStringList editors = settings.value(editorsKey, EmptyList).toStringList();
+    QString last_editor;
+    QString last_name;
+    if (!editors.isEmpty()) {
+        QStringList edata = editors[0].split(SEP);
+	last_name = edata[nameField];
+	last_editor = edata[pathField];
+    }
+    if (last_editor.isEmpty() || !QFile::exists(last_editor)) {
+        last_editor = LAST_LOCATION;
 
-    if (!QFile::exists(lastEditor)) {
-        lastEditor = LAST_LOCATION;
-
-        if (!QFile::exists(lastEditor)) {
-            lastEditor = LAST_LOCATION = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+        if (!QFile::exists(last_editor)) {
+            last_editor = LAST_LOCATION = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
         }
     }
 
@@ -191,14 +204,12 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
                                        ;
     const QString selectedFile = QFileDialog::getOpenFileName(0,
                                  QObject::tr("Open With"),
-                                 lastEditor,
+                                 last_editor,
                                  NAME_FILTER,
                                  0,
                                  QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails);
 
     if (!selectedFile.isEmpty()) {
-        settings.setValue(editorKey, selectedFile);
-        LAST_LOCATION = selectedFile;
         // Let the user choose a friendly menu name for the application
         QString editorDescription;
         QString prettyName = prettyApplicationName(selectedFile);
@@ -209,8 +220,12 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
         if (editorDescription.isEmpty()) {
             editorDescription = prettyName;
         }
-
-        settings.setValue(editorDescriptionKey, editorDescription);
+        const QString editor_data = editorDescription + SEP + selectedFile;
+	if (!editors.contains(editor_data)) { 
+	    editors.prepend(editor_data);
+	}
+        settings.setValue(editorsKey, editors);
+        LAST_LOCATION = selectedFile;
     }
 
     return selectedFile;

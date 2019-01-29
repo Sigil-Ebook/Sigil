@@ -75,7 +75,11 @@ BookBrowser::BookBrowser(QWidget *parent)
     SetupTreeView();
     CreateContextMenuActions();
     ConnectSignalsToSlots();
-    m_OpenWithContextMenu->addAction(m_OpenWithEditor);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor0);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor1);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor2);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor3);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor4);
     m_OpenWithContextMenu->addAction(m_OpenWith);
 }
 
@@ -830,7 +834,7 @@ void BookBrowser::OpenWith() const
     }
 }
 
-void BookBrowser::OpenWithEditor() const
+void BookBrowser::OpenWithEditor(int slotnum) const
 {
     Resource *resource = GetCurrentResource();
 
@@ -838,13 +842,20 @@ void BookBrowser::OpenWithEditor() const
         m_Book->GetFolderKeeper()->SuspendWatchingResources();
         resource->SaveToDisk();
         m_Book->GetFolderKeeper()->ResumeWatchingResources();
-        const QVariant &editorPathData = m_OpenWithEditor->data();
-
-        if (editorPathData.isValid()) {
-            if (OpenExternally::openFile(resource->GetFullPath(), editorPathData.toString())) {
-                m_Book->GetFolderKeeper()->WatchResourceFile(resource);
+	QAction * oeaction = NULL;
+	if (slotnum == 0) oeaction = m_OpenWithEditor0;
+	if (slotnum == 1) oeaction = m_OpenWithEditor1;
+	if (slotnum == 2) oeaction = m_OpenWithEditor2;
+	if (slotnum == 3) oeaction = m_OpenWithEditor3;
+	if (slotnum == 4) oeaction = m_OpenWithEditor4;
+	if (oeaction) {
+            const QVariant &editorPathData = oeaction->data();
+            if (editorPathData.isValid()) {
+                if (OpenExternally::openFile(resource->GetFullPath(), editorPathData.toString())) {
+                    m_Book->GetFolderKeeper()->WatchResourceFile(resource);
+                }
             }
-        }
+	}
     }
 }
 
@@ -1404,7 +1415,11 @@ void BookBrowser::CreateContextMenuActions()
     m_ValidateWithW3C         = new QAction(tr("Validate with W3C"),     this);
     m_OpenWith                = new QAction(tr("Open With") + "...",     this);
     m_SaveAs                  = new QAction(tr("Save As") + "...",       this);
-    m_OpenWithEditor          = new QAction("",                            this);
+    m_OpenWithEditor0          = new QAction("",                            this);
+    m_OpenWithEditor1          = new QAction("",                            this);
+    m_OpenWithEditor2          = new QAction("",                            this);
+    m_OpenWithEditor3          = new QAction("",                            this);
+    m_OpenWithEditor4          = new QAction("",                            this);
     m_CoverImage             ->setCheckable(true);
     m_NoObfuscationMethod    ->setCheckable(true);
     m_AdobesObfuscationMethod->setCheckable(true);
@@ -1497,21 +1512,52 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
 
         // Open With
         if (OpenExternally::mayOpen(resource->Type())) {
-            const QString &editorPath = OpenExternally::editorForResourceType(resource->Type());
-            const QString &editorDescription = OpenExternally::editorDescriptionForResourceType(resource->Type());
-
-            if (editorPath.isEmpty()) {
-                m_OpenWithEditor->setData(QVariant::Invalid);
+            const QStringList editor_paths = OpenExternally::editorsForResourceType(resource->Type());
+            const QStringList editor_names = OpenExternally::editorDescriptionsForResourceType(resource->Type());
+            if (editor_paths.isEmpty()) {
+                m_OpenWithEditor0->setData(QVariant::Invalid);
+                m_OpenWithEditor1->setData(QVariant::Invalid);
+                m_OpenWithEditor2->setData(QVariant::Invalid);
+                m_OpenWithEditor3->setData(QVariant::Invalid);
+                m_OpenWithEditor4->setData(QVariant::Invalid);
                 m_OpenWith->setText(tr("Open With") + "...");
                 m_ContextMenu->addAction(m_OpenWith);
             } else {
-                m_OpenWithEditor->setText(editorDescription);
-                m_OpenWithEditor->setData(editorPath);
-                m_OpenWithEditor->setEnabled(item_count == 1);
+	        // clear previous open with action info
+                m_OpenWithEditor0->setData(QVariant::Invalid);
+                m_OpenWithEditor1->setData(QVariant::Invalid);
+                m_OpenWithEditor2->setData(QVariant::Invalid);
+                m_OpenWithEditor3->setData(QVariant::Invalid);
+                m_OpenWithEditor4->setData(QVariant::Invalid);
+                m_OpenWithEditor0->setText("");
+                m_OpenWithEditor1->setText("");
+                m_OpenWithEditor2->setText("");
+                m_OpenWithEditor3->setText("");
+                m_OpenWithEditor4->setText("");
+                m_OpenWithEditor0->setEnabled(false);
+                m_OpenWithEditor1->setEnabled(false);
+                m_OpenWithEditor2->setEnabled(false);
+                m_OpenWithEditor3->setEnabled(false);
+                m_OpenWithEditor4->setEnabled(false);
+	        int i = 0;
+	        foreach(QString apath, editor_paths) {
+		    QString aprettyname = editor_names[i];
+		    QAction * oeaction = NULL;
+		    if (i == 0) oeaction = m_OpenWithEditor0;
+		    if (i == 1) oeaction = m_OpenWithEditor1;
+		    if (i == 2) oeaction = m_OpenWithEditor2;
+		    if (i == 3) oeaction = m_OpenWithEditor3;
+		    if (i == 4) oeaction = m_OpenWithEditor4;
+		    if (oeaction) {
+                        oeaction->setText(aprettyname);
+                        oeaction->setData(apath);
+                        oeaction->setEnabled(item_count == 1);
+		    }
+		    i = i + 1;
+		}
                 m_OpenWith->setText(tr("Other Application") + "...");
                 m_ContextMenu->addMenu(m_OpenWithContextMenu);
             }
-
             m_OpenWith->setEnabled(item_count == 1);
             m_OpenWithContextMenu->setEnabled(item_count == 1);
         }
@@ -1627,7 +1673,11 @@ void BookBrowser::ConnectSignalsToSlots()
     connect(m_SaveAs,                  SIGNAL(triggered()), this, SLOT(SaveAs()));
     connect(m_ValidateWithW3C,         SIGNAL(triggered()), this, SLOT(ValidateStylesheetWithW3C()));
     connect(m_OpenWith,                SIGNAL(triggered()), this, SLOT(OpenWith()));
-    connect(m_OpenWithEditor,          SIGNAL(triggered()), this, SLOT(OpenWithEditor()));
+    connect(m_OpenWithEditor0,         SIGNAL(triggered()), this, SLOT(OpenWithEditor(0)));
+    connect(m_OpenWithEditor1,         SIGNAL(triggered()), this, SLOT(OpenWithEditor(1)));
+    connect(m_OpenWithEditor2,         SIGNAL(triggered()), this, SLOT(OpenWithEditor(2)));
+    connect(m_OpenWithEditor3,         SIGNAL(triggered()), this, SLOT(OpenWithEditor(3)));
+    connect(m_OpenWithEditor4,         SIGNAL(triggered()), this, SLOT(OpenWithEditor(4)));
     connect(m_AdobesObfuscationMethod, SIGNAL(triggered()), this, SLOT(AdobesObfuscationMethod()));
     connect(m_IdpfsObfuscationMethod,  SIGNAL(triggered()), this, SLOT(IdpfsObfuscationMethod()));
     connect(m_NoObfuscationMethod,     SIGNAL(triggered()), this, SLOT(NoObfuscationMethod()));

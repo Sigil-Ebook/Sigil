@@ -169,9 +169,29 @@ BookViewEditor::~BookViewEditor()
         m_OpenWith = 0;
     }
 
-    if (m_OpenWithEditor) {
-        delete m_OpenWithEditor;
-        m_OpenWithEditor = 0;
+    if (m_OpenWithEditor0) {
+        delete m_OpenWithEditor0;
+        m_OpenWithEditor0 = NULL;
+    }
+
+    if (m_OpenWithEditor1) {
+        delete m_OpenWithEditor1;
+        m_OpenWithEditor1 = NULL;
+    }
+
+    if (m_OpenWithEditor2) {
+        delete m_OpenWithEditor2;
+        m_OpenWithEditor2 = NULL;
+    }
+
+    if (m_OpenWithEditor3) {
+        delete m_OpenWithEditor3;
+        m_OpenWithEditor3 = NULL;
+    }
+
+    if (m_OpenWithEditor4) {
+        delete m_OpenWithEditor4;
+        m_OpenWithEditor4 = NULL;
     }
 
     if (m_SaveAs) {
@@ -781,18 +801,37 @@ void BookViewEditor::saveAs()
     }
 }
 
-void BookViewEditor::openWithEditor()
+void BookViewEditor::openWithEditor(int slotnum)
 {
-    const QVariant &data = m_OpenWithEditor->data();
-
-    if (data.isValid()) {
+    QAction * oeaction = NULL;
+    if (slotnum == 0) oeaction = m_OpenWithEditor0;
+    if (slotnum == 1) oeaction = m_OpenWithEditor1;
+    if (slotnum == 2) oeaction = m_OpenWithEditor2;
+    if (slotnum == 3) oeaction = m_OpenWithEditor3;
+    if (slotnum == 4) oeaction = m_OpenWithEditor4;
+    if (oeaction) {
+        const QVariant &data = oeaction->data();
+	const QString ename = oeaction->text();
         const QUrl &resourceUrl = data.toUrl();
-        const QString &editorPath = OpenExternally::editorForResourceType((Resource::ResourceType) resourceUrl.port());
-
-        if (OpenExternally::openFile(resourceUrl.toLocalFile(), editorPath)) {
-            const QString &pathname = resourceUrl.toString();
-            emit InsertedFileOpenedExternally(pathname);
-        }
+	QString epath = QString();
+	const QStringList editor_paths = OpenExternally::editorsForResourceType(
+						(Resource::ResourceType) resourceUrl.port());
+	const QStringList editor_names = OpenExternally::editorDescriptionsForResourceType(
+						(Resource::ResourceType) resourceUrl.port());
+	int i = 0;
+	foreach(QString aname, editor_names) {
+	    if (aname == ename) {
+	        epath = editor_paths[i];
+		break;
+	    }
+	    i = i + 1;
+	}
+        if (data.isValid() && !epath.isEmpty()) {
+            if (OpenExternally::openFile(resourceUrl.toLocalFile(), epath)) {
+                const QString &pathname = resourceUrl.toString();
+                emit InsertedFileOpenedExternally(pathname);
+            }
+	}
     }
 }
 
@@ -904,17 +943,38 @@ bool BookViewEditor::SuccessfullySetupContextMenu(const QPoint &point)
             }
 
             imageUrl.setPort(imageType);   // "somewhat" ugly, but cheaper than using a QList<QVariant>
-            const QString &editorPath = OpenExternally::editorForResourceType(imageType);
+            const QStringList editorPaths = OpenExternally::editorsForResourceType(imageType);
 
-            if (editorPath.isEmpty()) {
-                m_OpenWithEditor->setData(QVariant::Invalid);
+            if (editorPaths.isEmpty()) {
+                m_OpenWithEditor0->setData(QVariant::Invalid);
+                m_OpenWithEditor1->setData(QVariant::Invalid);
+                m_OpenWithEditor2->setData(QVariant::Invalid);
+                m_OpenWithEditor3->setData(QVariant::Invalid);
+                m_OpenWithEditor4->setData(QVariant::Invalid);
                 m_OpenWith->setText(tr("Open With") + "...");
                 m_OpenWith->setData(imageUrl);
                 m_ContextMenu->addAction(m_OpenWith);
             } else {
-                const QString &editorDescription = OpenExternally::editorDescriptionForResourceType(imageType);
-                m_OpenWithEditor->setText(editorDescription);
-                m_OpenWithEditor->setData(imageUrl);
+                m_OpenWithEditor0->setData(QVariant::Invalid);
+                m_OpenWithEditor1->setData(QVariant::Invalid);
+                m_OpenWithEditor2->setData(QVariant::Invalid);
+                m_OpenWithEditor3->setData(QVariant::Invalid);
+                m_OpenWithEditor4->setData(QVariant::Invalid);
+		QStringList editor_names = OpenExternally::editorDescriptionsForResourceType(imageType);
+		int i = 0;
+		foreach (QString aname, editor_names) {
+		    QAction * oeaction = NULL;
+		    if (i == 0) oeaction = m_OpenWithEditor0;
+		    if (i == 1) oeaction = m_OpenWithEditor1;
+		    if (i == 2) oeaction = m_OpenWithEditor2;
+		    if (i == 3) oeaction = m_OpenWithEditor3;
+		    if (i == 4) oeaction = m_OpenWithEditor4;
+		    if (oeaction) {
+                        oeaction->setText(aname);
+                        oeaction->setData(imageUrl);
+		    }
+		    i = i + 1;
+		}
                 m_OpenWith->setText(tr("Other Application") + "...");
                 m_OpenWith->setData(imageUrl);
                 m_ContextMenu->addMenu(m_OpenWithContextMenu);
@@ -1071,20 +1131,28 @@ void BookViewEditor::keyReleaseEvent(QKeyEvent *event)
 
 void BookViewEditor::CreateContextMenuActions()
 {
-    m_InsertFile = new QAction(tr("Insert File") + "...", this);
-    m_Undo      = new QAction(tr("Undo"),         this);
-    m_Redo      = new QAction(tr("Redo"),         this);
-    m_Cut       = new QAction(tr("Cut"),         this);
-    m_Copy      = new QAction(tr("Copy"),        this);
-    m_CopyImage = new QAction(tr("Copy Image"),  this);
-    m_Paste     = new QAction(tr("Paste"),       this);
-    m_SelectAll = new QAction(tr("Select All"),  this);
-    m_Open           = new QAction(tr("Open"),  this);
-    m_OpenWithEditor = new QAction("",          this);
-    m_OpenWith       = new QAction(tr("Open With") + "...",  this);
-    m_SaveAs         = new QAction(tr("Save As") + "...",  this);
+    m_InsertFile      = new QAction(tr("Insert File") + "...", this);
+    m_Undo            = new QAction(tr("Undo"),         this);
+    m_Redo            = new QAction(tr("Redo"),         this);
+    m_Cut             = new QAction(tr("Cut"),         this);
+    m_Copy            = new QAction(tr("Copy"),        this);
+    m_CopyImage       = new QAction(tr("Copy Image"),  this);
+    m_Paste           = new QAction(tr("Paste"),       this);
+    m_SelectAll       = new QAction(tr("Select All"),  this);
+    m_Open            = new QAction(tr("Open"),  this);
+    m_OpenWithEditor0 = new QAction("",          this);
+    m_OpenWithEditor1 = new QAction("",          this);
+    m_OpenWithEditor2 = new QAction("",          this);
+    m_OpenWithEditor3 = new QAction("",          this);
+    m_OpenWithEditor4 = new QAction("",          this);
+    m_OpenWith        = new QAction(tr("Open With") + "...",  this);
+    m_SaveAs          = new QAction(tr("Save As") + "...",  this);
     m_OpenWithContextMenu->setTitle(tr("Open With"));
-    m_OpenWithContextMenu->addAction(m_OpenWithEditor);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor0);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor1);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor2);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor3);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor4);
     m_OpenWithContextMenu->addAction(m_OpenWith);
     m_InspectElement = new QAction(tr("Inspect Element") + "...", this);
 }
@@ -1111,7 +1179,11 @@ void BookViewEditor::ConnectSignalsToSlots()
     connect(m_SelectAll,      SIGNAL(triggered()),  this, SLOT(selectAll()));
     connect(m_Open,           SIGNAL(triggered()),  this, SLOT(openImage()));
     connect(m_OpenWith,       SIGNAL(triggered()),  this, SLOT(openWith()));
-    connect(m_OpenWithEditor, SIGNAL(triggered()),  this, SLOT(openWithEditor()));
+    connect(m_OpenWithEditor0, SIGNAL(triggered()),  this, SLOT(openWithEditor(0)));
+    connect(m_OpenWithEditor1, SIGNAL(triggered()),  this, SLOT(openWithEditor(1)));
+    connect(m_OpenWithEditor2, SIGNAL(triggered()),  this, SLOT(openWithEditor(2)));
+    connect(m_OpenWithEditor3, SIGNAL(triggered()),  this, SLOT(openWithEditor(3)));
+    connect(m_OpenWithEditor4, SIGNAL(triggered()),  this, SLOT(openWithEditor(4)));
     connect(m_SaveAs,         SIGNAL(triggered()),  this, SLOT(saveAs()));
     connect(m_clipMapper, SIGNAL(mapped(const QString &)), this, SLOT(PasteClipEntryFromName(const QString &)));
     connect(m_InspectElement,      SIGNAL(triggered()),  this, SLOT(EmitInspectElement()));

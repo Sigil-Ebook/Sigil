@@ -99,9 +99,29 @@ ImageTab::~ImageTab()
         m_OpenWith = 0;
     }
 
-    if (m_OpenWithEditor) {
-        delete m_OpenWithEditor;
-        m_OpenWithEditor = 0;
+    if (m_OpenWithEditor0) {
+        delete m_OpenWithEditor0;
+        m_OpenWithEditor0 = NULL;
+    }
+
+    if (m_OpenWithEditor1) {
+        delete m_OpenWithEditor1;
+        m_OpenWithEditor1 = NULL;
+    }
+
+    if (m_OpenWithEditor2) {
+        delete m_OpenWithEditor2;
+        m_OpenWithEditor2 = NULL;
+    }
+
+    if (m_OpenWithEditor3) {
+        delete m_OpenWithEditor3;
+        m_OpenWithEditor3 = NULL;
+    }
+
+    if (m_OpenWithEditor4) {
+        delete m_OpenWithEditor4;
+        m_OpenWithEditor4 = NULL;
     }
 
     if (m_SaveAs) {
@@ -200,17 +220,37 @@ void ImageTab::openWith()
     }
 }
 
-void ImageTab::openWithEditor()
+void ImageTab::openWithEditor(int slotnum)
 {
-    const QVariant &data = m_OpenWithEditor->data();
-
-    if (data.isValid()) {
-        const QUrl &resourceUrl = data.toUrl();
-        const QString &editorPath = OpenExternally::editorForResourceType((Resource::ResourceType) resourceUrl.port());
-
-        if (OpenExternally::openFile(resourceUrl.toLocalFile(), editorPath)) {
-            const QString &pathname = resourceUrl.toString();
-            emit InsertedFileOpenedExternally(pathname);
+    QAction * oeaction = NULL;
+    if (slotnum == 0) oeaction = m_OpenWithEditor0;
+    if (slotnum == 1) oeaction = m_OpenWithEditor1;
+    if (slotnum == 2) oeaction = m_OpenWithEditor2;
+    if (slotnum == 3) oeaction = m_OpenWithEditor3;
+    if (slotnum == 4) oeaction = m_OpenWithEditor4;
+    if (oeaction) {
+        const QVariant &data = oeaction->data();
+	const QUrl resourceUrl = data.toUrl();
+	const QString action_name = oeaction->text();
+        const QStringList editor_paths = OpenExternally::editorsForResourceType(
+                                            (Resource::ResourceType) resourceUrl.port());
+        const QStringList editor_names = OpenExternally::editorDescriptionsForResourceType(
+                                            (Resource::ResourceType) resourceUrl.port());
+	QString editor_path = QString();
+	int i = 0;
+	foreach(QString ename, editor_names) {
+	    if (ename == action_name) {
+	        editor_path = editor_paths[i];
+		break;
+	    }
+	    i = i + 1;
+	}
+        if (data.isValid() && !editor_path.isEmpty()) {
+            const QUrl &resourceUrl = data.toUrl();
+            if (OpenExternally::openFile(resourceUrl.toLocalFile(), editor_path)) {
+                const QString &pathname = resourceUrl.toString();
+                emit InsertedFileOpenedExternally(pathname);
+            }
         }
     }
 }
@@ -239,17 +279,39 @@ bool ImageTab::SuccessfullySetupContextMenu(const QPoint &point)
         }
 
         imageUrl.setPort(imageType);   // "somewhat" ugly, but cheaper than using a QList<QVariant>
-        const QString &editorPath = OpenExternally::editorForResourceType(imageType);
+        QStringList editors = OpenExternally::editorsForResourceType(imageType);
+	QStringList editor_names = OpenExternally::editorDescriptionsForResourceType(imageType);
 
-        if (editorPath.isEmpty()) {
-            m_OpenWithEditor->setData(QVariant::Invalid);
+        if (editors.isEmpty()) {
+            m_OpenWithEditor0->setData(QVariant::Invalid);
+            m_OpenWithEditor1->setData(QVariant::Invalid);
+            m_OpenWithEditor2->setData(QVariant::Invalid);
+            m_OpenWithEditor3->setData(QVariant::Invalid);
+            m_OpenWithEditor4->setData(QVariant::Invalid);
             m_OpenWith->setText(tr("Open With") + "...");
             m_OpenWith->setData(imageUrl);
             m_ContextMenu->addAction(m_OpenWith);
         } else {
-            const QString &editorDescription = OpenExternally::editorDescriptionForResourceType(imageType);
-            m_OpenWithEditor->setText(editorDescription);
-            m_OpenWithEditor->setData(imageUrl);
+            m_OpenWithEditor0->setData(QVariant::Invalid);
+            m_OpenWithEditor1->setData(QVariant::Invalid);
+            m_OpenWithEditor2->setData(QVariant::Invalid);
+            m_OpenWithEditor3->setData(QVariant::Invalid);
+            m_OpenWithEditor4->setData(QVariant::Invalid);
+	    int i = 0;
+	    foreach(QString editor, editors) {
+	        const QString aname = editor_names[i];
+		QAction * oeaction = NULL;
+		if (i == 0) oeaction = m_OpenWithEditor0;
+		if (i == 1) oeaction = m_OpenWithEditor1;
+		if (i == 2) oeaction = m_OpenWithEditor2;
+		if (i == 3) oeaction = m_OpenWithEditor3;
+		if (i == 4) oeaction = m_OpenWithEditor4;
+		if (oeaction) {
+                    oeaction->setText(aname);
+                    oeaction->setData(imageUrl);
+		}
+		i = i + 1;
+	    }
             m_OpenWith->setText(tr("Other Application") + "...");
             m_OpenWith->setData(imageUrl);
             m_ContextMenu->addMenu(m_OpenWithContextMenu);
@@ -267,12 +329,20 @@ bool ImageTab::SuccessfullySetupContextMenu(const QPoint &point)
 
 void ImageTab::CreateContextMenuActions()
 {
-    m_OpenWithEditor = new QAction("",          this);
-    m_OpenWith       = new QAction(tr("Open With") + "...",  this);
-    m_SaveAs         = new QAction(tr("Save As") + "...",  this);
-    m_CopyImage      = new QAction(tr("Copy Image"),  this);
+    m_OpenWithEditor0 = new QAction("",          this);
+    m_OpenWithEditor1 = new QAction("",          this);
+    m_OpenWithEditor2 = new QAction("",          this);
+    m_OpenWithEditor3 = new QAction("",          this);
+    m_OpenWithEditor4 = new QAction("",          this);
+    m_OpenWith        = new QAction(tr("Open With") + "...",  this);
+    m_SaveAs          = new QAction(tr("Save As") + "...",  this);
+    m_CopyImage       = new QAction(tr("Copy Image"),  this);
     m_OpenWithContextMenu->setTitle(tr("Open With"));
-    m_OpenWithContextMenu->addAction(m_OpenWithEditor);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor0);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor1);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor2);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor3);
+    m_OpenWithContextMenu->addAction(m_OpenWithEditor4);
     m_OpenWithContextMenu->addAction(m_OpenWith);
 }
 
@@ -281,10 +351,14 @@ void ImageTab::ConnectSignalsToSlots()
     connect(m_Resource, SIGNAL(ResourceUpdatedOnDisk()), this, SLOT(RefreshContent()));
     connect(m_Resource, SIGNAL(Deleted(Resource)), this, SLOT(Close()));
     connect(m_WebView, SIGNAL(customContextMenuRequested(const QPoint &)),  this, SLOT(OpenContextMenu(const QPoint &)));
-    connect(m_OpenWith,       SIGNAL(triggered()),  this, SLOT(openWith()));
-    connect(m_OpenWithEditor, SIGNAL(triggered()),  this, SLOT(openWithEditor()));
-    connect(m_SaveAs,         SIGNAL(triggered()),  this, SLOT(saveAs()));
-    connect(m_CopyImage,      SIGNAL(triggered()),  this, SLOT(copyImage()));
+    connect(m_OpenWith,       SIGNAL(triggered()),   this, SLOT(openWith()));
+    connect(m_OpenWithEditor0, SIGNAL(triggered()),  this, SLOT(openWithEditor(0)));
+    connect(m_OpenWithEditor1, SIGNAL(triggered()),  this, SLOT(openWithEditor(1)));
+    connect(m_OpenWithEditor2, SIGNAL(triggered()),  this, SLOT(openWithEditor(2)));
+    connect(m_OpenWithEditor3, SIGNAL(triggered()),  this, SLOT(openWithEditor(3)));
+    connect(m_OpenWithEditor4, SIGNAL(triggered()),  this, SLOT(openWithEditor(4)));
+    connect(m_SaveAs,         SIGNAL(triggered()),   this, SLOT(saveAs()));
+    connect(m_CopyImage,      SIGNAL(triggered()),   this, SLOT(copyImage()));
 }
 
 void ImageTab::Zoom()
