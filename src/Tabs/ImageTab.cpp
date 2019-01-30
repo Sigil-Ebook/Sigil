@@ -24,6 +24,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
 #include <QtCore/QLocale>
+#include <QtCore/QSignalMapper>
 #include <QtCore/QString>
 #include <QtCore/QUrl>
 #include <QtGui/QClipboard>
@@ -62,7 +63,8 @@ ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     ContentTab(resource, parent),
     m_WebView(new QWebView(this)),
     m_ContextMenu(new QMenu(this)),
-    m_OpenWithContextMenu(new QMenu(this))
+    m_OpenWithContextMenu(new QMenu(this)),
+    m_openWithMapper(new QSignalMapper(this))
 {
     m_WebView->setContextMenuPolicy(Qt::CustomContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
@@ -363,11 +365,17 @@ void ImageTab::ConnectSignalsToSlots()
     connect(m_Resource, SIGNAL(Deleted(Resource)), this, SLOT(Close()));
     connect(m_WebView, SIGNAL(customContextMenuRequested(const QPoint &)),  this, SLOT(OpenContextMenu(const QPoint &)));
     connect(m_OpenWith,       SIGNAL(triggered()),   this, SLOT(openWith()));
-    connect(m_OpenWithEditor0, SIGNAL(triggered()),  this, SLOT(openWithEditor(0)));
-    connect(m_OpenWithEditor1, SIGNAL(triggered()),  this, SLOT(openWithEditor(1)));
-    connect(m_OpenWithEditor2, SIGNAL(triggered()),  this, SLOT(openWithEditor(2)));
-    connect(m_OpenWithEditor3, SIGNAL(triggered()),  this, SLOT(openWithEditor(3)));
-    connect(m_OpenWithEditor4, SIGNAL(triggered()),  this, SLOT(openWithEditor(4)));
+    connect(m_OpenWithEditor0, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor0, 0);
+    connect(m_OpenWithEditor1, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor1, 1);
+    connect(m_OpenWithEditor2, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor2, 2);
+    connect(m_OpenWithEditor3, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor3, 3);
+    connect(m_OpenWithEditor4, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
+    m_openWithMapper->setMapping(m_OpenWithEditor4, 4);
+    connect(m_openWithMapper, SIGNAL(mapped(int)), this, SLOT(openWithEditor(int)));
     connect(m_SaveAs,         SIGNAL(triggered()),   this, SLOT(saveAs()));
     connect(m_CopyImage,      SIGNAL(triggered()),   this, SLOT(copyImage()));
 }

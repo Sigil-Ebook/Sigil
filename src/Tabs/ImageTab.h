@@ -104,6 +104,7 @@ private:
     QAction *m_OpenWithEditor2;
     QAction *m_OpenWithEditor3;
     QAction *m_OpenWithEditor4;
+    QSignalMapper *m_openWithMapper;
 
     QAction *m_SaveAs;
     QAction *m_CopyImage;
