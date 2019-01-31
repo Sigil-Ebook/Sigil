@@ -20,6 +20,8 @@ pre-0.9.11
     - Sigil no longer attempts to upgrade the VC++ runtime on Windows. It only installs the
         bundled VC++ runtime if there is no compatible version already installed
     - add support for internal but unmanifested opf metadata link resources under epub3
+    - extend "Open With" context menu to allow up to 5 external editors per resource type
+    - make format of all Sigil ini files to be utf-8 encoded to more easily allow user changes
 
    Changes
     - Support for Windows Vista officially ends ... Win7sp1 is official minimum required Windows
