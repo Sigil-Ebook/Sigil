@@ -16,14 +16,33 @@ translating Sigil.
 Updating Base Translation File
 ==============================
 
-1. Make sure the Qt project bin directory is in your path.  For me this is:
-   export MYQTHOME=~/Qt
-   export PATH=${PATH}:${MYQTHOME}/5.4/clang_64/bin
+NOTE: You need to delete base.ts first or it will get rebuilt in a broken 
+manner for some reason (a bug in Qt?)
+
+1. Make sure the Qt project "bin" directory is in your path so that
+the right version of "lconvert" can be found. For me this is:
+
+   export MYQTHOME=~/Qt511
+   export PATH=${PATH}:${MYQTHOME}/bin
+
 2. Open a terminal and change to the Sigil/src/Resource_Files/ts directory.
+
 3. rm base.ts
+
 4. Run `lupdate ../../* -ts base.ts`
 
-Note you need to delete base.ts first or it will get rebuilt in a broken manner for some reason (a bug in Qt?)
+5. Now manually edit the resulting base.ts file and change all of the 
+following single numerusform tags:
+
+    <numerusform></numerusform>
+
+to be double empty numerusform tags as follows:
+
+    <numerusform></numerusform><numerusform></numerusform>
+
+so that our base.ts file will work with the much older tools used
+on the Transifex site.
+
 
 
 Naming convention
