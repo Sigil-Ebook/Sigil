@@ -73,17 +73,17 @@ etc...
 
 Other versions of Pillow may work fine, but Sigil's installer build is predicated on v5.2.0, To install that specific version, use the following pip command.
 
->`pip install Pillow==5.2.0`
+>`pip install Pillow==5.4.1`
 
 ### Installing lxml.
 
 Version 4.2.4 comes with precompiled binary wheels for Windows. Not all versions do. So if you want to install a different version, you'll need to find out if there's precompiled binaries for Windows or not. Install a specific version with pip using the following command
 
->`pip install lxml==4.2.4`
+>`pip install lxml==4.2.6`
 
 ### Installing PyQt5.
 
-Like lxml, not all versions of PyQt5 will have compatible binaries that will will work with Sigil's Qt5 and Python. Stick to version 5.11.2 and everything should work with Python 3.7and Qt5.11.1
+Like lxml, not all versions of PyQt5 will have compatible binaries that will work with Sigil's Qt5 and Python. Stick to version 5.11.2 and everything should work with Python 3.7and Qt5.11.2
 
 >`pip install PyQt5==5.11.3`
 
@@ -118,19 +118,19 @@ With all the pre-requisites met and all the necessary additions to your PATH, th
 
 Using the shortcut to the proper VS2015 command-prompt created in [step 1](#vs2015), cd to a suitable empty directory for building Sigil (I recommend "sigil-build", or some such similar name), and issue the following command:
 
-> `cmake -G "NMake Makefiles" -DWIN_INSTALLER_USE_64BIT_CRT=1 -DCMAKE_PREFIX_PATH="C:\Qt\Qt5.11.1\5.11.1\mscv2015_64\lib\cmake" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
+> `cmake -G "NMake Makefiles" -DWIN_INSTALLER_USE_64BIT_CRT=1 -DCMAKE_PREFIX_PATH="C:\Qt\Qt5.11.2\5.11.2\mscv2015_64\lib\cmake" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
 
 Leave out the -DWIN_INSTALLER_USE_64BIT_CRT=1 part if you're building a 32-bit version of Sigil with the "VS2015 x86 Native Tools Command Prompt" shortcut.
 
-Obviously change the paths to match where you've actually installed Qt5.11.1 and the Sigil source code.
+Obviously change the paths to match where you've actually installed Qt5.11.2 and the Sigil source code.
 
-**NOTE**: The -DCMAKE_PREFIX_PATH will be "C:\Qt\Qt5.11.1\5.11.1\mscv2015(_64)\lib\cmake" if you installed Qt5.11.1 to its default location
+**NOTE**: The -DCMAKE_PREFIX_PATH will be "C:\Qt\Qt5.11.2\5.11.2\mscv2015(_64)\lib\cmake" if you installed Qt5.11.2 to its default location
 
 If this completes successfully, then you're ready to compile Sigil (leave the command prompt open).
 
 You can also generate Visual Studio Project/Solution Files with cmake by using:
 
-> `cmake -G "Visual Studio 14 2015 Win64" WIN_INSTALLER_USE_64BIT_CRT=1 -DCMAKE_PREFIX_PATH="C:\Qt\Qt5.11.1\5.11.1\mscv2015(_64)\lib\cmake" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
+> `cmake -G "Visual Studio 14 2015 Win64" WIN_INSTALLER_USE_64BIT_CRT=1 -DCMAKE_PREFIX_PATH="C:\Qt\Qt5.11.2\5.11.2\mscv2015(_64)\lib\cmake" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
 
 Leave off "Win64" and -DWIN_INSTALLER_USE_64BIT_CRT=1 if you're building the 32-bit version of Sigil with the "VS2015 x86 Native Tools Command Prompt" shortcut.
 
