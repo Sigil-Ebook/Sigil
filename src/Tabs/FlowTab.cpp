@@ -1201,9 +1201,9 @@ void FlowTab::Underline()
 void FlowTab::Strikethrough()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ExecCommand("strikeThrough");
+        m_wBookView->page()->triggerAction(QWebPage::ToggleStrikethrough);
     } else if (m_ViewState == MainWindow::ViewState_CodeView) {
-        m_wCodeView->ToggleFormatSelection("del", "text-decoration", "line-through");
+        m_wCodeView->ToggleFormatSelection("s", "text-decoration", "line-through");
     }
 }
 

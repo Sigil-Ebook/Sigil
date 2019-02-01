@@ -22,6 +22,7 @@ pre-0.9.11
     - add support for internal but unmanifested opf metadata link resources under epub3
     - extend "Open With" context menu to allow up to 5 external editors per resource type
     - make format of all Sigil ini files to be utf-8 encoded to more easily allow user changes
+    - remove inline style generation in BookView and still make html legal and matching with CodeView
 
    Changes
     - Support for Windows Vista officially ends ... Win7sp1 is official minimum required Windows
