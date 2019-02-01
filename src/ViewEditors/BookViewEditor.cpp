@@ -221,7 +221,7 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
     page()->setContentEditable(true);
     SetWebPageModified(false);
     // Formatting buttons in Book View will generate styled spans. Ensures spec compliance.
-    ExecCommand("styleWithCSS", "false");
+    ExecCommand("styleWithCSS", "true");
     emit PageOpened();
 }
 
@@ -232,7 +232,7 @@ QString BookViewEditor::GetHtml()
     QString html_from_Qt = page()->mainFrame()->toHtml();
     html_from_Qt = RemoveBookViewReplaceSpans(html_from_Qt);
     // replace any obsolete tags generated in BV editing
-    html_from_Qt.replace("<strike>","<s>").replace("</strike>","</s>");
+    // html_from_Qt.replace("<strike>","<s>").replace("</strike>","</s>");
     // Convert nbsp to entity because of issues with CV removing them
     html_from_Qt = CleanSource::CharToEntity(html_from_Qt);
     // Make sure body always has text - primarily from Split Section.
