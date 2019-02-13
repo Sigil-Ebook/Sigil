@@ -467,59 +467,59 @@ si al CSS s&apos;especifica un tipus de lletra de pal sec</translation>
 <context>
     <name>BookBrowser</name>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="60"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="61"/>
         <source>Book Browser</source>
         <translation>Navegador del llibre</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="72"/>
         <source>Font Obfuscation</source>
         <translation>Ofuscament dels tipus de lletra</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1505"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="73"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1418"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1525"/>
         <source>Open With</source>
         <translation>Obre amb</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="121"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="127"/>
         <source>%n file(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="211"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="618"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="634"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="683"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="783"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="983"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="624"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="640"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="689"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="789"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="996"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="211"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>Esteu segur que voleu ordenar els arxius seleccionats alfanumèricament?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="211"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>This action cannot be reversed.</source>
         <translation>Aquesta acció no es pot desfer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="237"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="243"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>El fitxer «%1» no existeix.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="561"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="567"/>
         <source>Add Existing Files</source>
         <translation>Afegeix fitxers</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="594"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="600"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -528,7 +528,7 @@ si al CSS s&apos;especifica un tipus de lletra de pal sec</translation>
 «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="603"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="609"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -537,7 +537,7 @@ si al CSS s&apos;especifica un tipus de lletra de pal sec</translation>
 «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="618"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="624"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -546,12 +546,12 @@ OK to replace?</source>
 Voleu reemplaçar-lo?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="629"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="635"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>No s&apos;ha pogut esborrar ni reemplaçar el fitxer «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="634"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="640"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -560,7 +560,7 @@ A file with this name already exists in the book.</source>
 Al llibre, ja hi ha un fitxer amb el mateix nom.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="684"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="690"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -569,185 +569,185 @@ Al llibre, ja hi ha un fitxer amb el mateix nom.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="698"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="704"/>
         <source>File(s) added.</source>
         <translation>Fitxers afegits.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="733"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="739"/>
         <source>Save As File</source>
         <translation>Desa com a fitxer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="755"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="761"/>
         <source>Unable to save the file.</source>
         <translation>No s&apos;ha pogut desar el fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="763"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="769"/>
         <source>Choose the directory to save the files to</source>
         <translation>Escolliu el directori on voleu desar els fitxers</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="783"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="789"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Un o més fitxers ja existeixen.  Voleu sobreescriure&apos;ls?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="800"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="806"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>No s&apos;ha pogut desar els fitxers. La destinació ha de ser un directori.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="808"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="814"/>
         <source>Unable to save files.</source>
         <translation>No s&apos;ha pogut desar els fitxers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="983"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="996"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>No s&apos;ha pogut canviar el nom dels fitxers ja que es repetirien noms.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1046"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1059"/>
         <source>The Nav document can not be removed.</source>
         <translation>No es pot esborrar el document NAV.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1054"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1067"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>No es poden eliminar els fitxers NCX i OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1061"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1074"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>No podeu esborrar tots els fitxers HTML.
 Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1201"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1214"/>
         <source>Unable to set file as cover image.</source>
         <translation>No s&apos;ha pogut establir el fitxer com a imatge de la coberta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1386"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1399"/>
         <source>Select All</source>
         <translation>Selecciona-ho tot</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1387"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1400"/>
         <source>Add Blank HTML File</source>
         <translation>Afegeix un fitxer HTML en blanc</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1388"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
         <source>Add Blank Stylesheet</source>
         <translation>Afegeix un full d&apos;estils en blanc</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1389"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
         <source>Add Blank SVG Image</source>
         <translation>Afegeix una imatge SVG en blanc</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1390"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1403"/>
         <source>Add Existing Files...</source>
         <translation>Afegeix fitxers...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1391"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1392"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1404"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
         <source>Add Copy</source>
         <translation>Afegeix una còpia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1393"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1406"/>
         <source>Rename</source>
         <translation>Canvia el nom</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1394"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1407"/>
         <source>Delete</source>
         <translation>Esborrar</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1395"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1408"/>
         <source>Cover Image</source>
         <translation>Imatge de la coberta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1396"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
         <source>Merge</source>
         <translation>Combina</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1397"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1410"/>
         <source>None</source>
         <translation>Cap</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1398"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1411"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Utilitza el mètode d&apos;Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1399"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1412"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Utilitza el mètode de l&apos;IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1400"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1413"/>
         <source>Sort</source>
         <translation>Ordena</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1414"/>
         <source>Renumber TOC Entries</source>
         <translation>Torna a numerar les entrades de la taula de continguts</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1415"/>
         <source>Link Stylesheets...</source>
         <translation>Enllaça-hi fulls d&apos;estils...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1403"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1416"/>
         <source>Add Semantics...</source>
         <translation>Afegeix informació semàntica...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1404"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
         <source>Validate with W3C</source>
         <translation>Valida amb el W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1406"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1419"/>
         <source>Save As</source>
         <translation>Anomena i desa</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1416"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1433"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1419"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1436"/>
         <source>Rename selected file(s)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1421"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1438"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1423"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1440"/>
         <source>Add Semantics to selected file(s).</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1511"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
         <source>Other Application</source>
         <translation>Una altra aplicació</translation>
     </message>
@@ -755,94 +755,94 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="700"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="722"/>
         <source>Clipboard contains HTML formatting</source>
         <translation>El porta-retalls conté format HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="701"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="723"/>
         <source>Do you want to paste clipboard data as plain text?</source>
         <translation>Voleu copiar les dades del porta-retalls com a text pla?</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="897"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="938"/>
         <source>Open Tab For</source>
         <translation>Obre una pestanya per</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="911"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1084"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1086"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="956"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1161"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1163"/>
         <source>Open With</source>
         <translation>Obre amb</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="918"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="991"/>
         <source>Other Application</source>
         <translation>Una altra aplicació</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="966"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1039"/>
         <source>Clips</source>
         <translation>Retalls</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="976"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1049"/>
         <source>Add To Clips</source>
         <translation>Afegeix als retalls</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1074"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1147"/>
         <source>Insert File</source>
         <translation>Inserireix un fitxer</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1075"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1148"/>
         <source>Undo</source>
         <translation>Desfés</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1076"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1149"/>
         <source>Redo</source>
         <translation>Refés</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1077"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1150"/>
         <source>Cut</source>
         <translation>Retalla</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1078"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1151"/>
         <source>Copy</source>
         <translation>Copia</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1079"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1152"/>
         <source>Copy Image</source>
         <translation>Copia la imatge</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1080"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1153"/>
         <source>Paste</source>
         <translation>Enganxa</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1081"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1154"/>
         <source>Select All</source>
         <translation>Selecciona-ho tot</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1082"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1155"/>
         <source>Open</source>
         <translation>Obre</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1085"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1162"/>
         <source>Save As</source>
         <translation>Anomena i desa</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1089"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1170"/>
         <source>Inspect Element</source>
         <translation>Inspecciona l&apos;element</translation>
     </message>
@@ -850,29 +850,29 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
 <context>
     <name>BookViewPreview</name>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="259"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="324"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="330"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="267"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="332"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="338"/>
         <source>Unsupported</source>
         <translation>No admès</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="259"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="267"/>
         <source>Spellcheck mode is not supported in Book View at this time.  Switch to Code View.</source>
         <translation>El mode de correcció ortogràfica no s&apos;admet, de moment, en la vista de llibre. Canvieu a vista de codi.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="324"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="332"/>
         <source>Replace is not supported in this view. Switch to Code View.</source>
         <translation>L&apos;opció de reemplaçar no s&apos;admet en aquesta vista. Canvieu a vista de codi.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="330"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="338"/>
         <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
         <translation>L&apos;opció de reemplaçar-ho tot no s&apos;admet en aquesta vista. Canvieu a vista de codi.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="750"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="758"/>
         <source>Inspect Element</source>
         <translation>Inspecciona l&apos;element</translation>
     </message>
@@ -1344,17 +1344,17 @@ Voleu desar-ne els canvis?</translation>
 <context>
     <name>ClipEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="64"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="65"/>
         <source>Name</source>
         <translation>Nom</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="65"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="66"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="681"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="682"/>
         <source>Unable to create file %1</source>
         <translation>No s&apos;ha pogut crear el fitxer %1</translation>
     </message>
@@ -1694,7 +1694,7 @@ També podeu utilitzar la fletxa dreta.</translation>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../Misc/EmbeddedPython.cpp" line="614"/>
+        <location filename="../../Misc/EmbeddedPython.cpp" line="617"/>
         <location filename="../../Misc/EmbeddedPythonPkg.cpp" line="613"/>
         <source>Embedded Python Error</source>
         <translation>Error Python incrustat</translation>
@@ -2025,7 +2025,7 @@ principi fins al punt d&apos;inserció.</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1161"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="1162"/>
         <source>Print %1</source>
         <translation>Imprimeix %1</translation>
     </message>
@@ -2700,49 +2700,49 @@ podeu activar-les o desactivar-les individualment a la llista de dalt.</translat
 <context>
     <name>ImageTab</name>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="155"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="177"/>
         <source>shades</source>
         <translation>nivells</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="155"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="177"/>
         <source>colors</source>
         <translation>colors</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="156"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="178"/>
         <source>Grayscale</source>
         <translation>Escala de grisos</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="156"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="178"/>
         <source>Color</source>
         <translation>Color</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="246"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="271"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="274"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="293"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="350"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="353"/>
         <source>Open With</source>
         <translation>Obrie amb</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="253"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="328"/>
         <source>Other Application</source>
         <translation>Una altra aplicació</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="272"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="351"/>
         <source>Save As</source>
         <translation>Anomena i desa</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="273"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="352"/>
         <source>Copy Image</source>
         <translation>Copia la imatge</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="307"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="400"/>
         <source>Print %1</source>
         <translation>Imprimeix %1</translation>
     </message>
@@ -2750,12 +2750,12 @@ podeu activar-les o desactivar-les individualment a la llista de dalt.</translat
 <context>
     <name>ImportEPUB</name>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="165"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="166"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="166"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="167"/>
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in data loss.
 
 Do you want to automatically fix the files?</source>
@@ -2764,7 +2764,7 @@ Do you want to automatically fix the files?</source>
 Voleu fer la correcció automàtica dels fitxers?</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="500"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="501"/>
         <source>Epub has missing or improperly specified OPF.</source>
         <translation>L’OPF de l’Epub és incorrecte o no s’ha trobat.</translation>
     </message>
@@ -8800,15 +8800,15 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
         <location filename="../../MainUI/MainWindow.cpp" line="2113"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2137"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2169"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3454"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3466"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3520"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3677"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3884"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4084"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3468"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3474"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3522"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3528"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3534"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3691"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3898"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4098"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -8894,9 +8894,19 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
         <translation>La imatge no existeix:</translation>
     </message>
     <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1029"/>
+        <source>or</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1037"/>
         <source>No CSS styles named</source>
         <translation>No hi ha cap estil CSS anomenat</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1037"/>
+        <source>found, or stylesheet not linked.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1109"/>
@@ -9087,156 +9097,156 @@ Aquesta acció no es pot desfer.</translation>
         <translation>S&apos;ha cancel·lat l&apos;enllaç amb el full d&apos;estil %1 ja que l&apos;XML no és ben format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2300"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2314"/>
         <source>Word updated.</source>
         <translation>S&apos;ha actualitzat la paraula.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2382"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2396"/>
         <source>File(s) deleted.</source>
         <translation>S&apos;han esborrat els fitxers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2393"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2407"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>S&apos;ha cancel·lat l&apos;edició de la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2398"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2412"/>
         <source>Table Of Contents edited.</source>
         <translation>S&apos;ha editat la taula de contonguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2416"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2430"/>
         <source>Generate TOC cancelled.</source>
         <translation>S&apos;ha cancel·lat la generació de la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2440"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2454"/>
         <source>Table Of Contents generated.</source>
         <translation>S&apos;ha generat la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2442"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2456"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>No cal fer canvis a la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2578"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2592"/>
         <source>Text selection marked.</source>
         <translation>S&apos;ha marcat el text seleccionat.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2580"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2598"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2594"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2612"/>
         <source>Text selection unmarked.</source>
         <translation>S&apos;ha desmarcat el text seleccionat.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2686"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2700"/>
         <source>Metadata Editor cancelled.</source>
         <translation>S&apos;ha cancel·lat l&apos;editor de metadades.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2689"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2703"/>
         <source>Metadata edited.</source>
         <translation>S&apos;han editat les metadades.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2777"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2791"/>
         <source>RunPlugin1</source>
         <translation>RunPlugin1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2778"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2792"/>
         <source>RunPlugin2</source>
         <translation>RunPlugin2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2793"/>
         <source>RunPlugin3</source>
         <translation>RunPlugin3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2780"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2794"/>
         <source>RunPlugin4</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2781"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2795"/>
         <source>RunPlugin5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2812"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2826"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Aquest EPUB no conté cap full d&apos;estil CSS per validar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3355"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3369"/>
         <source>Line: %1, Col: %2</source>
         <translation>Línia %1 - Columna %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3454"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3468"/>
         <source>File cannot be split at this position.</source>
         <translation>El fitxer no es pot dividir en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3474"/>
         <source>Cannot split since it may not be an HTML file.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3466"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
         <source>The Nav file cannot be split.</source>
         <translation>El fitxer NAV no es pot dividir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3483"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3497"/>
         <source>Split completed.</source>
         <translation>S&apos;ha completat la divisió.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3522"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>No es po dividir ja que un dels fitxers, com a mínim, no és HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3528"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>No es pot dividir %1 ja que l&apos;XML no és ben format</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3520"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3534"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>No es pot dividir ja que un dels fitxers, com a mínim, potser no és HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3553"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3567"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>S&apos;ha completat la divisió. Si cal, actualitzau la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3562"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3576"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>No s&apos;ha trobat cap marcador de divisió de fitxer.
 Utilizeu l&apos;ordre «Marcador de divisió» del menú «Insereix».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3678"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3692"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>El document s&apos;ha modificat.
 Voleu desar-ne els canvis?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3758"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3772"/>
         <source>No importer for file type: %1</source>
         <translation>No es poden importar els fitxers de tipus %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3779"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -9249,44 +9259,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Proveu de canviar les preferències de netedat del codi triant l&apos;opció «Repara el codi font XHTML en obrir» i torneu a carregat el fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3770"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3784"/>
         <source>Loading file...</source>
         <translation>S&apos;està carregant el fitxer...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3798"/>
         <source>File loaded.</source>
         <translation>S&apos;ha carregat el fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3811"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3825"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>El creador d&apos;aquest fitxer l&apos;ha encriptat amb DRM. El Sigil no pot obrir aquests fitxers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3832"/>
         <source>Cannot load EPUB: %1</source>
         <translation>No es pot carregar l&apos;EPUB %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3822"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3836"/>
         <source>Cannot load file %1: %2</source>
         <translation>No es pot carregar el fitxer %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3851"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3865"/>
         <source>Saving EPUB...</source>
         <translation>S&apos;està desant l&apos;EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3860"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3874"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>El Sigil no pot desar fitxers del tipus «%1».
 Trieu un altre format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3885"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3899"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in data loss.
 
 Do you want to automatically mend the files before saving?</source>
@@ -9295,69 +9305,69 @@ Do you want to automatically mend the files before saving?</source>
 Voleu reparar automàticament el fitxer abans de desar-lo?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3916"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3930"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>S&apos;ha desat l&apos;EPUB, però no tots els fitxers HTML són ben formats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3918"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3932"/>
         <source>EPUB saved.</source>
         <translation>S&apos;ha desat l&apos;EPUB.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3924"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3938"/>
         <source>Cannot save file %1: %2</source>
         <translation>No es pot desar el fitxer %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4059"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4073"/>
         <source>EPUB files (*.epub)</source>
         <translation>Fitxers EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4060"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4061"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4062"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4074"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4076"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Fitxers HTML  (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4063"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4077"/>
         <source>Text files (*.txt)</source>
         <translation>Fitxers de text (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4064"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4078"/>
         <source>All files (*.*)</source>
         <translation>Tots els fitxers (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4072"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4086"/>
         <source>EPUB file (*.epub)</source>
         <translation>Fitxer EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4084"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4098"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - EPUB%2 - %3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4155"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4169"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Conservació d&apos;atributs d&apos;encapçalament:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4156"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4170"/>
         <source>ON</source>
         <translation>Actiu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4156"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4170"/>
         <source>OFF</source>
         <translation>Inactiu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4181"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4195"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -12823,17 +12833,17 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
 <context>
     <name>OPFModel</name>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="596"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="595"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
         <translation>El caràcter «%1» no és permès als noms de fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="607"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="606"/>
         <source>The filename cannot be empty.</source>
         <translation>Heu d&apos;indicar un nom de fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="614"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="613"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
         <translation>Ja hi ha un fitxer amb el nom «%1».</translation>
@@ -12842,12 +12852,12 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1120"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1118"/>
         <source>[Title here]</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1122"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1120"/>
         <source>[Main title here]</source>
         <translation type="unfinished"/>
     </message>
@@ -13368,118 +13378,118 @@ Podeu separar les entitats amb línies, comes o espais.</translation>
         <translation>S&apos;estan creant els informes...</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="111"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="112"/>
         <source>Cannot read EPUB: %1</source>
         <translation>No es pot llegir l&apos;EPUB %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="221"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="222"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation>El fitxer OPF no conté cap &lt;i&gt;spine&lt;/i&gt; vàlid.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="222"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="710"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="713"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="223"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="760"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="763"/>
         <source>Sigil has created a new one for you.</source>
         <translation>El Sigil n&apos;ha creat un de nou.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="259"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="260"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation>Hi ha hagut un error analitzant l&apos;encriptat xml.
 Línia %1 - Columna %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="391"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="392"/>
         <source>Cannot unzip EPUB: %1</source>
         <translation>No es por descomprimir l&apos;EPUB %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="431"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="440"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="457"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="465"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="432"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="441"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="458"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="466"/>
         <source>Cannot extract file: %1</source>
         <translation>No es pot extreure el fitxer %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="478"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="479"/>
         <source>Cannot open EPUB: %1</source>
         <translation>No es pot obrir l&apos;EPUB %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="530"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="531"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>No s&apos;ha pogut analitzar el fitxer contenidor.xml.
 Línia %1 - Columna %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="538"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="539"/>
         <source>No appropriate OPF file found</source>
         <translation>No s&apos;ha trobat el fitxer OPF adient</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="577"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="590"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>No s&apos;ha pogut llegir el fitxer OPF.
 Línia %1 - Columna %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="631"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="681"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation>El manifest OPF conté identificadors duplicats per a %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="632"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="682"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>S&apos;ha assignat un identificador provisional per poder carregar l&apos;EPUB. Haurieu d&apos;editar el vostre fitxer OPF per tal d&apos;eliminar-ne els duplicats.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="676"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="726"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>El fitxer OPF no ha identificat correctament el fitxer NCX.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="677"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="727"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>El Sigil ha utilitzat el fitxer següent com a NCX:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="705"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="755"/>
         <source>Sigil has created a template NCX</source>
         <translation>El Sigil ha creat una plantilla NCX</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="706"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="756"/>
         <source>to support epub2 backwards compatibility.</source>
         <translation>per tal d&apos;assegurar la compatibilitat amb l&apos;EPUB2.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="709"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="759"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>El fitxer OPF no conté cap fitxer NCX.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="712"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="762"/>
         <source>The NCX file is not present in this EPUB.</source>
         <translation>No hi ha cap fitxer NCX en aquest EPUB.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="576"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="582"/>
         <source>Adding Existing Files..</source>
         <translation>S&apos;estan afegint els fitxers...</translation>
     </message>
     <message>
-        <location filename="../../Misc/OpenExternally.cpp" line="183"/>
+        <location filename="../../Misc/OpenExternally.cpp" line="196"/>
         <source>Applications</source>
         <translation>Aplicacions</translation>
     </message>
     <message>
-        <location filename="../../Misc/OpenExternally.cpp" line="193"/>
+        <location filename="../../Misc/OpenExternally.cpp" line="206"/>
         <source>Open With</source>
         <translation>Obre amb</translation>
     </message>
@@ -13509,19 +13519,19 @@ Línia %1 - Columna %2 - %3</translation>
         <translation>&lt;p&gt;Hi ha una nova versió del Sigil disponible, versió &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Voleu anar a la pàgina de descàrregues?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="420"/>
+        <location filename="../../Misc/Utility.cpp" line="428"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>No es pot llegir el fitxer %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="535"/>
+        <location filename="../../Misc/Utility.cpp" line="543"/>
         <source>Sigil has encountered a problem.</source>
         <translation>El Sigil ha tingut un problema.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="536"/>
+        <location filename="../../Misc/Utility.cpp" line="544"/>
         <source>Sigil may need to close.</source>
         <translation type="unfinished"/>
     </message>
@@ -13940,22 +13950,22 @@ Voleu desar-ne els canvis?</translation>
 <context>
     <name>SearchEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="65"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
         <source>Name</source>
         <translation>Nom</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="67"/>
         <source>Find</source>
         <translation>Cerca</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="67"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="68"/>
         <source>Replace</source>
         <translation>Reemplaça</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="604"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="605"/>
         <source>Unable to create file %1</source>
         <translation>No s&apos;ha pogut crear el fitxer %1</translation>
     </message>
@@ -14622,12 +14632,12 @@ ortogràfica és oberta.</translation>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="648"/>
+        <location filename="../../Misc/Utility.cpp" line="656"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="649"/>
+        <location filename="../../Misc/Utility.cpp" line="657"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>

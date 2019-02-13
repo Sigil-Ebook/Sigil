@@ -163,7 +163,7 @@
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="143"/>
         <source>%n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n lêer(s)</numerusform><numerusform>%n lêer(s)</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="256"/>
@@ -467,59 +467,59 @@ indien ’n sans-seriffontfamilie in u CSS gespesifiseer is</translation>
 <context>
     <name>BookBrowser</name>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="60"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="61"/>
         <source>Book Browser</source>
         <translation>Boekblaaier</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="72"/>
         <source>Font Obfuscation</source>
         <translation>Fontversluiering</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1505"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="73"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1418"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1525"/>
         <source>Open With</source>
         <translation>Open Met</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="121"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="127"/>
         <source>%n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n lêer(s)</numerusform><numerusform>%n lêer(s)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="211"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="618"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="634"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="683"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="783"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="983"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="624"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="640"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="689"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="789"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="996"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="211"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>Is u seker u wil die gekose lêers alfanumeries sorteer?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="211"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>This action cannot be reversed.</source>
         <translation>Hierdie aksie is onomkeerbaar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="237"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="243"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Die lêer “%1” bestaan nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="561"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="567"/>
         <source>Add Existing Files</source>
         <translation>Voeg Bestaande Lêers Toe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="594"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="600"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -528,7 +528,7 @@ indien ’n sans-seriffontfamilie in u CSS gespesifiseer is</translation>
 “%1”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="603"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="609"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -537,7 +537,7 @@ indien ’n sans-seriffontfamilie in u CSS gespesifiseer is</translation>
 “%1”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="618"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="624"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -546,12 +546,12 @@ OK to replace?</source>
 Wil u dit vervang?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="629"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="635"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Lêer “%1” kan die geskrap of vervang word nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="634"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="640"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -560,7 +560,7 @@ A file with this name already exists in the book.</source>
 ’n Gelyknamige lêer bestaan reeds in hierdie boek.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="684"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="690"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -569,185 +569,185 @@ A file with this name already exists in the book.</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="698"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="704"/>
         <source>File(s) added.</source>
         <translation>Lêer(s) toegevoeg.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="733"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="739"/>
         <source>Save As File</source>
         <translation>Bewaar As Lêer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="755"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="761"/>
         <source>Unable to save the file.</source>
         <translation>Kan nie as lêer bewaar nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="763"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="769"/>
         <source>Choose the directory to save the files to</source>
         <translation>Kies die gids om die lêers in te bewaar</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="783"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="789"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Een of meer lêers bestaan reeds. Wil u dit vervangskryf?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="800"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="806"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Lêers kan nie bewaar word nie. Bestemming is dalk nie ’n gids nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="808"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="814"/>
         <source>Unable to save files.</source>
         <translation>Lêers kan nie bewaar word nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="983"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="996"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Lêers kan nie hernoem word nie omdat duplikate sal ontstaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1046"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1059"/>
         <source>The Nav document can not be removed.</source>
         <translation>Die Nav-dokument kan nie verwyder word nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1054"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1067"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>Nòg die NCX nòg die OPF kan verwyder word.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1061"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1074"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>U kan nie alle html-lêers verwyder nie.
 Daar moet altyd ten minste één wees.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1201"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1214"/>
         <source>Unable to set file as cover image.</source>
         <translation>Beeld kan nie as dekblad ingestel word nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1386"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1399"/>
         <source>Select All</source>
         <translation>Kies Alles</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1387"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1400"/>
         <source>Add Blank HTML File</source>
         <translation>Voeg Blanko HTML-lêer toe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1388"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
         <source>Add Blank Stylesheet</source>
         <translation>Voeg Blanko Stylblad Toe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1389"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
         <source>Add Blank SVG Image</source>
         <translation>Voeg Blanko SVG-beeld toe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1390"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1403"/>
         <source>Add Existing Files...</source>
         <translation>Voeg Bestaande Lêers Toe…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1391"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1392"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1404"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
         <source>Add Copy</source>
         <translation>Voeg Kopie Toe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1393"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1406"/>
         <source>Rename</source>
         <translation>Hernoem</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1394"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1407"/>
         <source>Delete</source>
         <translation>Skrap</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1395"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1408"/>
         <source>Cover Image</source>
         <translation>Dekbladbeeld</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1396"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
         <source>Merge</source>
         <translation>Smelt Saam</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1397"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1410"/>
         <source>None</source>
         <translation>Geen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1398"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1411"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Gebruik Adobe se Metode</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1399"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1412"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Gebruik IDPF se Metode</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1400"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1413"/>
         <source>Sort</source>
         <translation>Sorteer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1414"/>
         <source>Renumber TOC Entries</source>
-        <translation type="unfinished"/>
+        <translation>Hernommer IOG-inskrywings</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1415"/>
         <source>Link Stylesheets...</source>
         <translation>Koppel Stylblaaie…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1403"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1416"/>
         <source>Add Semantics...</source>
         <translation>Voeg Semantiek Toe…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1404"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
         <source>Validate with W3C</source>
         <translation>Bekragtig met W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1406"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1419"/>
         <source>Save As</source>
         <translation>Bewaar As</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1416"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1433"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>Smelt met vorige lêer saam, of smelt meerdere lêers saam in een.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1419"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1436"/>
         <source>Rename selected file(s)</source>
         <translation>Hernoem gekose lêer(s)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1421"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1438"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>Koppel Stylblaaie aan gekose lêer(s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1423"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1440"/>
         <source>Add Semantics to selected file(s).</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1511"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
         <source>Other Application</source>
         <translation>Ander Toepassing</translation>
     </message>
@@ -755,94 +755,94 @@ Daar moet altyd ten minste één wees.</translation>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="700"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="722"/>
         <source>Clipboard contains HTML formatting</source>
         <translation>Knipbord bevat HTML-formattering</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="701"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="723"/>
         <source>Do you want to paste clipboard data as plain text?</source>
         <translation>Wil u die knipborddata as skoonteks plak?</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="897"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="938"/>
         <source>Open Tab For</source>
         <translation>Open Oortjie Vir</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="911"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1084"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1086"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="956"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1161"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1163"/>
         <source>Open With</source>
         <translation>Open Met</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="918"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="991"/>
         <source>Other Application</source>
         <translation>Ander Toepassing</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="966"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1039"/>
         <source>Clips</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="976"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1049"/>
         <source>Add To Clips</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1074"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1147"/>
         <source>Insert File</source>
         <translation>Voeg Lêer In</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1075"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1148"/>
         <source>Undo</source>
         <translation>Ontdoen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1076"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1149"/>
         <source>Redo</source>
         <translation>Herdoen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1077"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1150"/>
         <source>Cut</source>
         <translation>Knip</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1078"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1151"/>
         <source>Copy</source>
         <translation>Kopieer</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1079"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1152"/>
         <source>Copy Image</source>
         <translation>Kopieer Beeld</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1080"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1153"/>
         <source>Paste</source>
         <translation>Plak</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1081"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1154"/>
         <source>Select All</source>
         <translation>Kies Alles</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1082"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1155"/>
         <source>Open</source>
         <translation>Open</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1085"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1162"/>
         <source>Save As</source>
         <translation>Bewaar As</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1089"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1170"/>
         <source>Inspect Element</source>
         <translation>Inspekteer Element</translation>
     </message>
@@ -850,29 +850,29 @@ Daar moet altyd ten minste één wees.</translation>
 <context>
     <name>BookViewPreview</name>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="259"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="324"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="330"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="267"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="332"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="338"/>
         <source>Unsupported</source>
         <translation>Onondersteun</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="259"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="267"/>
         <source>Spellcheck mode is not supported in Book View at this time.  Switch to Code View.</source>
         <translation>Speltoetsmodus word nie nou in Boekaansig ondersteun nie. Skakel oor na Kodeaansig.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="324"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="332"/>
         <source>Replace is not supported in this view. Switch to Code View.</source>
         <translation>Vervang word nie in hierdie aansig ondersteun nie. Skakel oor na Kodeaansig.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="330"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="338"/>
         <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
         <translation>Vervang Alle vir die huidige lêer word nie in hierdie aansig ondersteun nie. Skakel oor na Kodeaansig.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="750"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="758"/>
         <source>Inspect Element</source>
         <translation>Inspekteer Element</translation>
     </message>
@@ -912,7 +912,7 @@ Daar moet altyd ten minste één wees.</translation>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="137"/>
         <source>%n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n lêer(s)</numerusform><numerusform>%n lêer(s)</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="141"/>
@@ -945,12 +945,12 @@ Daar moet altyd ten minste één wees.</translation>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="99"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil sal u stylbladdata na die &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C -stawingsdiens&lt;/a&gt; stuur.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="100"/>
         <source>This page should disappear once loaded after 3 seconds.</source>
-        <translation type="unfinished"/>
+        <translation>Hierdie blad behoort 3 sekondes nadat dit gelaai is te verdwyn .</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="101"/>
@@ -1071,7 +1071,7 @@ Daar moet altyd ten minste één wees.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
         <source>&lt;p&gt;This is a list of the style classes used in all HTML files and whether or not the style matched a selector in a linked stylesheet.&lt;p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Dit is ’n lys van die stylklasse wat in alle HTML-lêers gebruik word en of die styl met ’n selektor in ’n gekoppelde stylblad gepas het of nie.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="88"/>
@@ -1147,7 +1147,7 @@ Daar moet altyd ten minste één wees.</translation>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="123"/>
         <source>Move an entry up one entry in the same group.</source>
-        <translation type="unfinished"/>
+        <translation>Skuif ’n inskrywing een inskrywing op in dieselfde groep.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="126"/>
@@ -1215,7 +1215,7 @@ Daar moet altyd ten minste één wees.</translation>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="80"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Indien Sigil op enige ander plek loop sal dit outomaties bygewerk word met u veranderinge.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="90"/>
@@ -1260,7 +1260,7 @@ Daar moet altyd ten minste één wees.</translation>
     <message numerus="yes">
         <location filename="../../Dialogs/ClipEditor.cpp" line="503"/>
         <source>CSS entries added: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>CSS-inskrywings toegevoeg: %n</numerusform><numerusform>CSS-inskrywings toegevoeg: %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="616"/>
@@ -1342,17 +1342,17 @@ Do you want to save your changes?</source>
 <context>
     <name>ClipEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="64"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="65"/>
         <source>Name</source>
         <translation>Naam</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="65"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="66"/>
         <source>Text</source>
         <translation>Teks</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="681"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="682"/>
         <source>Unable to create file %1</source>
         <translation>Kan nie lêer %1 skep nie</translation>
     </message>
@@ -1615,7 +1615,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="72"/>
         <source>Delete the selected TOC entry</source>
-        <translation type="unfinished"/>
+        <translation>Skrap die gekose IOG-inskrywing</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="75"/>
@@ -1626,7 +1626,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="82"/>
         <source>Set the destination of the TOC entry from a list of valid targets in the book.</source>
-        <translation type="unfinished"/>
+        <translation>Stel die bestemming van die IOG-inskrywing van ’n lys van geldige teikens in die boek.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="85"/>
@@ -1656,7 +1656,7 @@ U kan ook die regterpylsleutel gebruik.</translation>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="85"/>
         <source>TOC Entry</source>
-        <translation type="unfinished"/>
+        <translation>IOG-inskrywing</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="86"/>
@@ -1692,7 +1692,7 @@ U kan ook die regterpylsleutel gebruik.</translation>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../Misc/EmbeddedPython.cpp" line="614"/>
+        <location filename="../../Misc/EmbeddedPython.cpp" line="617"/>
         <location filename="../../Misc/EmbeddedPythonPkg.cpp" line="613"/>
         <source>Embedded Python Error</source>
         <translation>Ingebedde Python-fout</translation>
@@ -2019,7 +2019,7 @@ other end to continue searching.</source>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1161"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="1162"/>
         <source>Print %1</source>
         <translation>Druk %1</translation>
     </message>
@@ -2202,7 +2202,7 @@ en wanneer van Boekaansig na Kodeaansig gewissel word.</translation>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="290"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Outo</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="297"/>
@@ -2502,7 +2502,8 @@ en wanneer van Boekaansig na Kodeaansig gewissel word.</translation>
         <location filename="../../Form_Files/HeadingSelector.ui" line="52"/>
         <source>Change the name of the entry in the TOC.
 The heading&apos;s title attribute will be updated in the document.</source>
-        <translation type="unfinished"/>
+        <translation>Verander die inskrywing se naam in die IOG.
+Die opskriftitelattribuut sal in die dokument bygewerk word.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
@@ -2534,7 +2535,7 @@ Merk of onmerk ’n inskrywing om te bepaal of dit tot die IOG toegevoeg gaan wo
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="134"/>
         <source>Show TOC items only</source>
-        <translation type="unfinished"/>
+        <translation>Toon slegs IOG-items</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="153"/>
@@ -2687,49 +2688,49 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImageTab</name>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="155"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="177"/>
         <source>shades</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="155"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="177"/>
         <source>colors</source>
         <translation>kleure</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="156"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="178"/>
         <source>Grayscale</source>
         <translation>Grysskaal</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="156"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="178"/>
         <source>Color</source>
         <translation>Kleur</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="246"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="271"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="274"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="293"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="350"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="353"/>
         <source>Open With</source>
         <translation>Open Met</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="253"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="328"/>
         <source>Other Application</source>
         <translation>Ander Toepassing</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="272"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="351"/>
         <source>Save As</source>
         <translation>Bewaar As</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="273"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="352"/>
         <source>Copy Image</source>
         <translation>Kopieer Beeld</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="307"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="400"/>
         <source>Print %1</source>
         <translation>Druk %1</translation>
     </message>
@@ -2737,19 +2738,19 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImportEPUB</name>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="165"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="166"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="166"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="167"/>
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in data loss.
 
 Do you want to automatically fix the files?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="500"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="501"/>
         <source>Epub has missing or improperly specified OPF.</source>
         <translation type="unfinished"/>
     </message>
@@ -2821,7 +2822,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Indien Sigil op enige ander plek loop sal dit outomaties bygewerk word met u veranderinge.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="84"/>
@@ -3492,12 +3493,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>Volume</source>
-        <translation type="unfinished"/>
+        <translation>Volume</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>A component of a collection.</source>
-        <translation type="unfinished"/>
+        <translation>’n Onderdeel van ’n versameling.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
@@ -3507,7 +3508,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>’n Waarskuwing oor ’n spesifieke materiaal. Status: Opgeskort – Vervang deur ‘kennisgewing’.</translation>
     </message>
 </context>
 <context>
@@ -6591,19 +6592,19 @@ Stylblaaie wat eerste gelys word neem voorkeur bo later stylblaaie.</translation
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="150"/>
         <source>n/a</source>
-        <translation type="unfinished"/>
+        <translation>nvt</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="153"/>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="221"/>
         <source>no</source>
-        <translation type="unfinished"/>
+        <translation>nee</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="160"/>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="223"/>
         <source>yes</source>
-        <translation type="unfinished"/>
+        <translation>ja</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="337"/>
@@ -8566,7 +8567,7 @@ Stylblaaie wat eerste gelys word neem voorkeur bo later stylblaaie.</translation
     <message>
         <location filename="../../Form_Files/main.ui" line="2228"/>
         <source>Create a new HTML file using the current TOC.</source>
-        <translation type="unfinished"/>
+        <translation>Skep ’n nuwe HTML-lêer met gebruik van die huidige IOG.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2233"/>
@@ -8729,15 +8730,15 @@ Stylblaaie wat eerste gelys word neem voorkeur bo later stylblaaie.</translation
         <location filename="../../MainUI/MainWindow.cpp" line="2113"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2137"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2169"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3454"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3466"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3520"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3677"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3884"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4084"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3468"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3474"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3522"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3528"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3534"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3691"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3898"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4098"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -8823,9 +8824,19 @@ Stylblaaie wat eerste gelys word neem voorkeur bo later stylblaaie.</translation
         <translation>Beeld bestaan nie:</translation>
     </message>
     <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1029"/>
+        <source>or</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1037"/>
         <source>No CSS styles named</source>
         <translation>Geen CSS-style benoem</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1037"/>
+        <source>found, or stylesheet not linked.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1109"/>
@@ -9015,154 +9026,154 @@ This action cannot be reversed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2300"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2314"/>
         <source>Word updated.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2382"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2396"/>
         <source>File(s) deleted.</source>
         <translation>Lêer(s) geskrap.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2393"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2407"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Wysig Inhoudsopgawe gekanselleer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2398"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2412"/>
         <source>Table Of Contents edited.</source>
         <translation>Inhoudsopgawe gewysig.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2416"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2430"/>
         <source>Generate TOC cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Genereer IOG gekanselleer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2440"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2454"/>
         <source>Table Of Contents generated.</source>
         <translation>Inhoudsopgawe gegenereer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2442"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2456"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2578"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2592"/>
         <source>Text selection marked.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2580"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2598"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2594"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2612"/>
         <source>Text selection unmarked.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2686"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2700"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Metadataredigeerder gekanselleer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2689"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2703"/>
         <source>Metadata edited.</source>
         <translation>Metadata gewysig.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2777"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2791"/>
         <source>RunPlugin1</source>
         <translation>RunPlugin1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2778"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2792"/>
         <source>RunPlugin2</source>
         <translation>RunPlugin2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2793"/>
         <source>RunPlugin3</source>
         <translation>RunPlugin3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2780"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2794"/>
         <source>RunPlugin4</source>
         <translation>RunPlugin4</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2781"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2795"/>
         <source>RunPlugin5</source>
         <translation>RunPlugin5</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2812"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2826"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Die EPUB bevat geen CSS-stylblaaie om te valideer nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3355"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3369"/>
         <source>Line: %1, Col: %2</source>
         <translation>Reël: %1, Kol: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3454"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3468"/>
         <source>File cannot be split at this position.</source>
         <translation>Lêer kan nie op hierdie posisie gesplits word nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3474"/>
         <source>Cannot split since it may not be an HTML file.</source>
         <translation>Kan nie splits nie want dit is dalk nie ’n HTML-lêer nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3466"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
         <source>The Nav file cannot be split.</source>
         <translation>Die Nav-lêer kan nie gesplits word nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3483"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3497"/>
         <source>Split completed.</source>
         <translation>Splits afgehandel.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3522"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Kan nie splits nie want ten minste een lêer is nie ’n HTML-lêer nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3528"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Kan nie splits nie: %1 XML is nie goed gevorm</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3520"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3534"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Kan nie splits nie want ten minste een lêer is dalk nie ’n HTML-lêer nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3553"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3567"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Splits afgehandel. U moet dalk die Inhoudsopgawe bywerk.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3562"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3576"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Geen splitslêermerkers gevind. Gebruik Voeg In-&gt;Splitsmerker.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3678"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3692"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3758"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3772"/>
         <source>No importer for file type: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3779"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -9171,112 +9182,112 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3770"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3784"/>
         <source>Loading file...</source>
         <translation>Laai tans lêer…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3798"/>
         <source>File loaded.</source>
         <translation>Lêer gelaai.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3811"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3825"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Die skepper van hierdie lêer het dit met DRB geënkripteer. Sigil kan nie sulke lêers open nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3832"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Kan nie EPUB laai nie: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3822"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3836"/>
         <source>Cannot load file %1: %2</source>
         <translation>Kan nie lêer %1 laai nie: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3851"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3865"/>
         <source>Saving EPUB...</source>
         <translation>Bewaar tans EPUB…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3860"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3874"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3885"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3899"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in data loss.
 
 Do you want to automatically mend the files before saving?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3916"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3930"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3918"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3932"/>
         <source>EPUB saved.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3924"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3938"/>
         <source>Cannot save file %1: %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4059"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4073"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB-lêers (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4060"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4061"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4062"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4074"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4076"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML-lêers (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4063"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4077"/>
         <source>Text files (*.txt)</source>
         <translation>Tekslêers (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4064"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4078"/>
         <source>All files (*.*)</source>
         <translation>Alle lêers (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4072"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4086"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB-lêer (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4084"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4098"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4155"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4169"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4156"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4170"/>
         <source>ON</source>
         <translation>AAN</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4156"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4170"/>
         <source>OFF</source>
         <translation>AF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4181"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4195"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -9306,22 +9317,22 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Adapter</source>
-        <translation type="unfinished"/>
+        <translation>Verwerker</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik vir ’n persoon of organisasie wat 1) ’n musiekkomposisie verwerk, gewoonlik vir ’n ander medium, of 2) romans of verhale vir rolprente of ander oudiovisuele medium herskryf.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Analyst</source>
-        <translation type="unfinished"/>
+        <translation>Analis</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik vir ’n persoon of organisasie wat data of inligting in ’n spesifieke veld hersien, eksamineer en interpreteer.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
@@ -9356,22 +9367,22 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>Appellee</source>
-        <translation type="unfinished"/>
+        <translation>Respondent</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>A person or organization against whom an appeal is taken.</source>
-        <translation type="unfinished"/>
+        <translation>’n Persoon of organisasie teen wie ’n appèl aangeteken word</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Applicant</source>
-        <translation type="unfinished"/>
+        <translation>Applikant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik vir ’n persoon of organisasie verantwoordelik vir die indiening van ’n aansoek of wat benoem is as geskik vir die uitslae van die verwerking van die aansoek (bv. verlening van regte, beloning, titel, posisie).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
@@ -9826,12 +9837,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Composer</source>
-        <translation type="unfinished"/>
+        <translation>Komponis</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik vir ’n persoon of organisasie van ’n musikale werk skep, gewoonlik ’n musiekstuk in manuskrip- of gedrukte formaat.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
@@ -9856,12 +9867,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Conductor</source>
-        <translation type="unfinished"/>
+        <translation>Dirigent</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik vir ’n persoon of organisasie wat ’n uitvoerende groep (orkes, koor, opera, ens.) in ’n musikale of dramariese voordrag of vermaak dirigeer.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
@@ -10236,12 +10247,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Distributor</source>
-        <translation type="unfinished"/>
+        <translation>Verspreider</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik vir ’n persoon of organisasie wat eksklusiewe of gedeelde bemarkingsregte vir ’n item besit.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
@@ -10306,12 +10317,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Electrician</source>
-        <translation type="unfinished"/>
+        <translation>Elektrisiën</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik vir ’n persoon wat verantwoordelik is vir die opstel van ’n beligtingstuigasie en die fokus van die ligte vir ’n produksie, en vir die beheer van die beligting tydens ’n uitvoering.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
@@ -10326,12 +10337,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Engineer</source>
-        <translation type="unfinished"/>
+        <translation>Ingenieur</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik vir ’n persoon of organisasie wat verantwoordelik is vir tegniese beplanning en ontwerp, in besonder m.b.t. konstruksie.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
@@ -10671,7 +10682,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik vir ’n persoon of organisasie wat die tydelike gebruik van ’n boek, manuskrip, ens. toestaan, soos vir fotokopiëring of mikroverfimlimg.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="250"/>
@@ -11542,12 +11553,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Sculptor</source>
-        <translation type="unfinished"/>
+        <translation>Beeldhouer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik vir ’n persoon of organisasie wat figure wat driedimensionele voorstellings is modelleer of kerf.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="338"/>
@@ -11662,12 +11673,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Stage manager</source>
-        <translation type="unfinished"/>
+        <translation>Verhoogbestuurder</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik vir ’n persoon wat in beheer is van alles wat op ’n verhoog aangaan, wat as hoof van al die spanne optree en wat assistent vir die regisseur is gedurende repitisies.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="350"/>
@@ -11822,22 +11833,22 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="365"/>
         <source>Videographer</source>
-        <translation type="unfinished"/>
+        <translation>Videograaf</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="365"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik vir ’n persoon of organisasie in beheer van ’n videoproduksie, bv. die video-opname van ’n verhoogproduksie in teenstelling met ’n kommersiële rolprent. Die videograaf kan die kameraoperateur wees of kan toesig hou oor een of meer kameraoperateurs. Moenie met kinematograaf verwar nie.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="366"/>
         <source>Voice actor</source>
-        <translation type="unfinished"/>
+        <translation>Stemakteur</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="366"/>
         <source>An actor contributing to a resource by providing the voice for characters in radio and audio productions and for animated characters in moving image works, as well as by providing voice overs in radio and television commercials, dubbed resources, etc.</source>
-        <translation type="unfinished"/>
+        <translation>’n Akteur wat tot ’n hulpbron bydra deur die stem vir karakters in radio- en klankproduksies en vir geanimeerde karakters in rolbeeldwerke, asook stemoorklanking in radio- en televisie-advertensies, oorgeklankte hulpbronne, ens. te verskaf</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="367"/>
@@ -11862,12 +11873,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="369"/>
         <source>Woodcutter</source>
-        <translation type="unfinished"/>
+        <translation>Houtsnyer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="369"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik vir ’n persoon of organisasie wat afdrukke maak deur die beeld in reliëf aan die plankkant van ’n houtstuk aanbring.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="370"/>
@@ -12735,17 +12746,17 @@ Do you want to automatically mend the files before saving?</source>
 <context>
     <name>OPFModel</name>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="596"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="595"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
         <translation>’n Lêernaam kan nie die karakter “%1” bevat nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="607"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="606"/>
         <source>The filename cannot be empty.</source>
         <translation>Die lêernaam mag nie leeg wees nie.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="614"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="613"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
         <translation>Die lêernaam “%1” is reeds in gebruik.
@@ -12755,12 +12766,12 @@ Do you want to automatically mend the files before saving?</source>
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1120"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1118"/>
         <source>[Title here]</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1122"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1120"/>
         <source>[Main title here]</source>
         <translation type="unfinished"/>
     </message>
@@ -12858,12 +12869,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="149"/>
         <source>does not exist</source>
-        <translation type="unfinished"/>
+        <translation>bestaan nie</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="154"/>
         <source>Error: plugin engine</source>
-        <translation type="unfinished"/>
+        <translation>Fout: inpropenjin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="155"/>
@@ -12951,17 +12962,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="688"/>
         <source>Incorrect XHTML:</source>
-        <translation type="unfinished"/>
+        <translation>Verkeerde XHTML:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="688"/>
         <source>Line/Col</source>
-        <translation type="unfinished"/>
+        <translation>Reël/Kol</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="715"/>
         <source>Check Report</source>
-        <translation type="unfinished"/>
+        <translation>Gaan Verslag Na</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="716"/>
@@ -13051,12 +13062,12 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="109"/>
         <source>≥Python3.4:</source>
-        <translation type="unfinished"/>
+        <translation>≥Python3.4:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="128"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Outo</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="135"/>
@@ -13213,7 +13224,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="51"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Voeg Toe</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="58"/>
@@ -13228,12 +13239,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
         <source>Add Entities</source>
-        <translation type="unfinished"/>
+        <translation>Voeg Entiteite Toe</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
         <source>Entities:</source>
-        <translation type="unfinished"/>
+        <translation>Entiteite:</translation>
     </message>
 </context>
 <context>
@@ -13250,7 +13261,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="1051"/>
         <source>Merging Files..</source>
-        <translation type="unfinished"/>
+        <translation>Smelt Tans Lêers Saam…</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/BookReports.cpp" line="53"/>
@@ -13266,7 +13277,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Creating Index...</source>
-        <translation type="unfinished"/>
+        <translation>Skep tans Indeks…</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
@@ -13276,118 +13287,118 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/Reports.cpp" line="114"/>
         <source>Creating reports...</source>
-        <translation type="unfinished"/>
+        <translation>Skep tans verslae…</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="111"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="112"/>
         <source>Cannot read EPUB: %1</source>
-        <translation type="unfinished"/>
+        <translation>Kan nie EPUB lees nie: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="221"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="222"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="222"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="710"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="713"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="223"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="760"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="763"/>
         <source>Sigil has created a new one for you.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil het ’n nuwe een namens u geskep.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="259"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="260"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="391"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="392"/>
         <source>Cannot unzip EPUB: %1</source>
         <translation>Kan nie EPUB uitpak nie: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="431"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="440"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="457"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="465"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="432"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="441"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="458"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="466"/>
         <source>Cannot extract file: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="478"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="479"/>
         <source>Cannot open EPUB: %1</source>
-        <translation type="unfinished"/>
+        <translation>Kan nie EPUB open nie: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="530"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="531"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="538"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="539"/>
         <source>No appropriate OPF file found</source>
-        <translation type="unfinished"/>
+        <translation>Geen geskikte OPF-lêer gevind</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="577"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="590"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="631"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="681"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="632"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="682"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="676"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="726"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="677"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="727"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="705"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="755"/>
         <source>Sigil has created a template NCX</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="706"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="756"/>
         <source>to support epub2 backwards compatibility.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="709"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="759"/>
         <source>The OPF file does not contain an NCX file.</source>
-        <translation type="unfinished"/>
+        <translation>Die OPF-lêer bevat nie ’n NCW-lêer nie.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="712"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="762"/>
         <source>The NCX file is not present in this EPUB.</source>
-        <translation type="unfinished"/>
+        <translation>Die NXC-lêer is afwesig in hierdie EPUB.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="576"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="582"/>
         <source>Adding Existing Files..</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/OpenExternally.cpp" line="183"/>
+        <location filename="../../Misc/OpenExternally.cpp" line="196"/>
         <source>Applications</source>
         <translation>Toepassings</translation>
     </message>
     <message>
-        <location filename="../../Misc/OpenExternally.cpp" line="193"/>
+        <location filename="../../Misc/OpenExternally.cpp" line="206"/>
         <source>Open With</source>
         <translation>Open Met</translation>
     </message>
@@ -13414,21 +13425,22 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="98"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;’n Nuwer weergawe van Sigil is beskikbaar, weergawe &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Wil u na die aflaaiblad gaan?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="420"/>
+        <location filename="../../Misc/Utility.cpp" line="428"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation type="unfinished"/>
+        <translation>Kan nie lêer %1 lees nie:
+%2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="535"/>
+        <location filename="../../Misc/Utility.cpp" line="543"/>
         <source>Sigil has encountered a problem.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="536"/>
+        <location filename="../../Misc/Utility.cpp" line="544"/>
         <source>Sigil may need to close.</source>
         <translation type="unfinished"/>
     </message>
@@ -13496,7 +13508,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/Reports.ui" line="14"/>
         <source>Reports</source>
-        <translation type="unfinished"/>
+        <translation>Verslae</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Reports.ui" line="51"/>
@@ -13509,7 +13521,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="14"/>
         <source>Saved Searches</source>
-        <translation type="unfinished"/>
+        <translation>Bewaarde Soektogte</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="23"/>
@@ -13648,7 +13660,7 @@ insluitend inskrywings in gekose groepe.</translation>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="64"/>
         <source>You can also right click on the Find text box in the Find &amp; Replace window to select an entry.</source>
-        <translation type="unfinished"/>
+        <translation>U kan ook regsklik op die Vind-tekskassie in die Vind-en-Vervang-venster om ’n inskrywing te kies.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="66"/>
@@ -13663,7 +13675,7 @@ insluitend inskrywings in gekose groepe.</translation>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>The text to put into the Find box.</source>
-        <translation type="unfinished"/>
+        <translation>Die teks om in die Vind-kassie te plaas.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
@@ -13683,7 +13695,7 @@ insluitend inskrywings in gekose groepe.</translation>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation type="unfinished"/>
+        <translation>Indien Sigil op enige ander plek loop sal dit outomaties bygewerk word met u veranderinge.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="89"/>
@@ -13693,17 +13705,17 @@ insluitend inskrywings in gekose groepe.</translation>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="163"/>
         <source>Saved Searches loaded from file.</source>
-        <translation type="unfinished"/>
+        <translation>Bewaarde Soektogte vanaf lêer gelaai.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="195"/>
         <source>You cannot select more than one entry when using this action.</source>
-        <translation type="unfinished"/>
+        <translation>U kan nie meer as een inskrywing kies wanneer hierdie aksie gekies is nie.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="203"/>
         <source>You cannot select a group for this action.</source>
-        <translation type="unfinished"/>
+        <translation>U kan nie ’n groep vir hierdie aksie kies nie.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="245"/>
@@ -13820,22 +13832,22 @@ Do you want to save your changes?</source>
 <context>
     <name>SearchEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="65"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
         <source>Name</source>
         <translation>Naam</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="67"/>
         <source>Find</source>
         <translation>Vind</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="67"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="68"/>
         <source>Replace</source>
         <translation>Vervang</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="604"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="605"/>
         <source>Unable to create file %1</source>
         <translation>Kan nie lêer %1 skep nie</translation>
     </message>
@@ -13980,7 +13992,11 @@ double click on existing destinations in your book from the list above.</source>
 The dropdown box shows existing ID names in the current file.
 
 ID names must be unique and start with a letter.</source>
-        <translation type="unfinished"/>
+        <translation>Voer ’n ID-naam in as bestemming vir hiperskakels, notas en IOG-inskrywings.
+
+Die aftuimelblokkie toon bestaande ID-name in die huidige lêer.
+
+ID-name moet uniek wees en met ’n letter begin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="29"/>
@@ -14047,7 +14063,7 @@ ID names must be unique and start with a letter.</source>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="138"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="222"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Voeg Toe</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="145"/>
@@ -14453,7 +14469,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Tabs/TabManager.cpp" line="217"/>
         <source>Cannot edit file</source>
-        <translation type="unfinished"/>
+        <translation>Kan nie lêer wysig nie</translation>
     </message>
 </context>
 <context>
@@ -14490,12 +14506,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="648"/>
+        <location filename="../../Misc/Utility.cpp" line="656"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="649"/>
+        <location filename="../../Misc/Utility.cpp" line="657"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
@@ -14570,12 +14586,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="54"/>
         <source>Fix &amp;Automatically</source>
-        <translation type="unfinished"/>
+        <translation>Herstel &amp;Outomaties</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="56"/>
         <source>Fix &amp;Manually</source>
-        <translation type="unfinished"/>
+        <translation>Herstel &amp;Handmatig</translation>
     </message>
 </context>
 <context>
@@ -14638,12 +14654,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="108"/>
         <source>broken bar</source>
-        <translation type="unfinished"/>
+        <translation>onderbroke balk</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="109"/>
         <source>section sign</source>
-        <translation type="unfinished"/>
+        <translation>afdelingsteken</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="110"/>
@@ -14663,22 +14679,22 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="113"/>
         <source>left-pointing double angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>dubbelaanhalingsteken na links</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="114"/>
         <source>not sign</source>
-        <translation type="unfinished"/>
+        <translation>is nie-teken</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="115"/>
         <source>soft hyphen</source>
-        <translation type="unfinished"/>
+        <translation>afbreekstrepie</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="116"/>
         <source>registered sign</source>
-        <translation type="unfinished"/>
+        <translation>geregistreer-teken</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="117"/>
@@ -14718,12 +14734,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="124"/>
         <source>pilcrow sign</source>
-        <translation type="unfinished"/>
+        <translation>paragraafteken</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="125"/>
         <source>middle dot</source>
-        <translation type="unfinished"/>
+        <translation>middelkol</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="126"/>
@@ -14743,7 +14759,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="129"/>
         <source>right-pointing double angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>dubbelaanhalingsteken na regs</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="130"/>
@@ -14923,7 +14939,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="165"/>
         <source>Latin small letter sharp s</source>
-        <translation type="unfinished"/>
+        <translation>Latynse kleinletter ringel-s</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="166"/>
@@ -15113,7 +15129,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="203"/>
         <source>Latin small letter f with hook</source>
-        <translation type="unfinished"/>
+        <translation>Latynse kleinletter f met hakie</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="204"/>
@@ -15403,12 +15419,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="261"/>
         <source>zero-width non-joiner</source>
-        <translation type="unfinished"/>
+        <translation>nie-aansluiter sonder lengte</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="262"/>
         <source>zero-width joiner</source>
-        <translation type="unfinished"/>
+        <translation>aansluiter sonder lengte</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="263"/>
@@ -15463,12 +15479,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="273"/>
         <source>dagger, obelisk</source>
-        <translation type="unfinished"/>
+        <translation>kruisie</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="274"/>
         <source>double dagger, double obelisk</source>
-        <translation type="unfinished"/>
+        <translation>dubbelkruisie</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="275"/>
@@ -15498,22 +15514,22 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="280"/>
         <source>single left-pointing angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>enkelaanhalingsteken hoek na links</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="281"/>
         <source>single right-pointing angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>enkelaanhalingsteken hoek na regs</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="282"/>
         <source>overline</source>
-        <translation type="unfinished"/>
+        <translation>klein strepie bo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="283"/>
         <source>fraction slash</source>
-        <translation type="unfinished"/>
+        <translation>deelteken</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="284"/>
@@ -15528,7 +15544,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="286"/>
         <source>script capital P</source>
-        <translation type="unfinished"/>
+        <translation>geskrewe hoofletter P</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="287"/>
@@ -15608,7 +15624,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="302"/>
         <source>partial differential</source>
-        <translation type="unfinished"/>
+        <translation>gedeeltelik afgeleide</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="303"/>
@@ -15638,7 +15654,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="308"/>
         <source>contains as member</source>
-        <translation type="unfinished"/>
+        <translation>bevat as lid</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="309"/>
@@ -15748,27 +15764,27 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="330"/>
         <source>subset of</source>
-        <translation type="unfinished"/>
+        <translation>deelversameling van</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="331"/>
         <source>superset of</source>
-        <translation type="unfinished"/>
+        <translation>hoofversameling van</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="332"/>
         <source>not a subset of</source>
-        <translation type="unfinished"/>
+        <translation>geen deelversameling van</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="333"/>
         <source>subset of or equal to</source>
-        <translation type="unfinished"/>
+        <translation>deelversameling of gelyk aan</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="334"/>
         <source>superset of or equal to</source>
-        <translation type="unfinished"/>
+        <translation>hoofversameling of gelyk aan</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="335"/>
@@ -15813,12 +15829,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="343"/>
         <source>left-pointing angle bracket</source>
-        <translation type="unfinished"/>
+        <translation>punthaak na links</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="344"/>
         <source>right-pointing angle bracket</source>
-        <translation type="unfinished"/>
+        <translation>punthaak na regs</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="345"/>

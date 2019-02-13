@@ -54,17 +54,17 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="41"/>
         <source>GNU General Public License v3</source>
-        <translation type="unfinished"/>
+        <translation>GNU 일반 공중 사용 허가서 v3</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer(s)</source>
-        <translation type="unfinished"/>
+        <translation>유지관리자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="56"/>
         <source>Previous Maintainer(s)</source>
-        <translation type="unfinished"/>
+        <translation>이전 관리자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
@@ -105,12 +105,12 @@
     <message>
         <location filename="../../Form_Files/AddSemantics.ui" line="14"/>
         <source>Add Semantic Property</source>
-        <translation type="unfinished"/>
+        <translation>시맨틱 속성 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddSemantics.ui" line="56"/>
         <source>Description of Semantic Properties</source>
-        <translation type="unfinished"/>
+        <translation>시맨틱 속성 설명</translation>
     </message>
 </context>
 <context>
@@ -153,7 +153,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="72"/>
         <source>Semantics</source>
-        <translation type="unfinished"/>
+        <translation>시맨틱</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="74"/>
@@ -163,12 +163,12 @@
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="143"/>
         <source>%n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 파일</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="256"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="269"/>
@@ -226,7 +226,7 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="39"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation type="unfinished"/>
+        <translation>CSS에 글꼴이 지정되지 않은 경우, 다음 글꼴을 사용하여 Sigil 내에 표시합니다. 이 글꼴은 실제 전자 책에서 사용되지 않습니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="59"/>
@@ -245,7 +245,7 @@ if no font-size specified in your CSS</source>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="93"/>
         <source>Default font family to be used for Book View and Preview
 if no font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>CSS파일에 글꼴이 지정되지 않은 경우 책보기 및 미리보기에 사용할 기본 글꼴</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="97"/>
@@ -258,18 +258,18 @@ if no font-family specified in your CSS</source>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="107"/>
         <source>Default font family to be used for Book View and Preview
 if a serif font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>CSS에 명조 계열 글꼴 모음이 지정된 경우 책보기 및 미리보기에 사용할 기본 글꼴</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="111"/>
         <source>Serif Font:</source>
-        <translation>세리프 글꼴:</translation>
+        <translation>명조 계열 글꼴 :</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="121"/>
         <source>Default font family to be used for Book View and Preview
 if a sans-serif font-family specified in your CSS</source>
-        <translation type="unfinished"/>
+        <translation>CSS에 고딕 계열 글꼴이 지정된 경우 책보기 및 미리보기에서 사용할 기본 글꼴</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="125"/>
@@ -289,7 +289,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="194"/>
         <source>Font size to be used for text in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>코드 보기의 텍스트 글자 크기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="224"/>
@@ -309,32 +309,32 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="296"/>
         <source>Insert Special Characters:</source>
-        <translation type="unfinished"/>
+        <translation>특수 문자 삽입 :</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="310"/>
         <source>Font size to be used for Insert Special Characters window</source>
-        <translation type="unfinished"/>
+        <translation>특수 문자 삽입 창에서 사용할 글자 크기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="343"/>
         <source>Font family to be used for Insert Special Characters window</source>
-        <translation type="unfinished"/>
+        <translation>특수 문자 삽입 창에서 사용할 글꼴 모음</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="388"/>
         <source>Menus</source>
-        <translation type="unfinished"/>
+        <translation>메뉴</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="394"/>
         <source>Main Menu Icon Size</source>
-        <translation type="unfinished"/>
+        <translation>메인 메뉴 아이콘 크기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="400"/>
         <source>Adjust the size of the icons in the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>메인 메뉴 아이콘 크기 조절</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="476"/>
@@ -409,7 +409,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="216"/>
         <source>Spelling Underline</source>
-        <translation type="unfinished"/>
+        <translation>맞춤법 오류 밑줄</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="217"/>
@@ -457,65 +457,65 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="399"/>
         <source>Start</source>
-        <translation type="unfinished"/>
+        <translation>시작</translation>
     </message>
 </context>
 <context>
     <name>BookBrowser</name>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="60"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="61"/>
         <source>Book Browser</source>
         <translation>책 찾아보기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="70"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="72"/>
         <source>Font Obfuscation</source>
         <translation>글꼴 난독 처리</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="71"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1505"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="73"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1418"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1525"/>
         <source>Open With</source>
-        <translation type="unfinished"/>
+        <translation>외부 프로그램으로 편집</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="121"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="127"/>
         <source>%n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 파일</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="211"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="618"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="634"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="683"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="783"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="983"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="624"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="640"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="689"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="789"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="996"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="211"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>선택한 파일을 사전순으로 정렬하시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="211"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>This action cannot be reversed.</source>
         <translation>이 작업의 실행을 취소할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="237"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="243"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>파일 &quot;%1&quot; 는 존재하지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="561"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="567"/>
         <source>Add Existing Files</source>
-        <translation type="unfinished"/>
+        <translation>기존 파일 추가</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="594"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="600"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -524,26 +524,28 @@ if a sans-serif font-family specified in your CSS</source>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="603"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="609"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>멀티미디어 파일(이미지, 동영상, 오디오) 파일이 아니면 추가되지 않습니다.
+
+&quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="618"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="624"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation type="unfinished"/>
+        <translation>멀티미디어 파일 &quot;%1&quot;이 이미 추가되어 있습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="629"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="635"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>&quot;%1&quot; 파일을 지우거나 교체할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="634"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="640"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -552,192 +554,194 @@ A file with this name already exists in the book.</source>
 이 이름을 갖는 파일이 이미 책에 있습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="684"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="690"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
-        <translation type="unfinished"/>
+        <translation>다음 파일은 잘못된 콘텐츠 혹은 잘못된 형식의 XML 파일이어서 추가되지 않았습니다.
+
+%1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="698"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="704"/>
         <source>File(s) added.</source>
         <translation>파일 추가됨.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="733"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="739"/>
         <source>Save As File</source>
         <translation>파일로 저장하기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="755"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="761"/>
         <source>Unable to save the file.</source>
         <translation>파일을 저장할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="763"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="769"/>
         <source>Choose the directory to save the files to</source>
         <translation>파일을 저장할 디렉토리를 선택하세요.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="783"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="789"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>하나 이상의 파일이 이미 존재합니다. 덮어쓰시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="800"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="806"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>파일을 저장할 수 없습니다. 대상이 디렉토리입니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="808"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="814"/>
         <source>Unable to save files.</source>
         <translation>파일을 저장할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="983"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="996"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
-        <translation type="unfinished"/>
+        <translation>동일한 파일명이 있어 파일명을 수정할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1046"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1059"/>
         <source>The Nav document can not be removed.</source>
-        <translation type="unfinished"/>
+        <translation>Nav 문서는 삭제할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1054"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1067"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
         <translation>NCX나 OPF는 제거할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1061"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1074"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>모든 html 파일을 삭제할 수 없습니다.
 적어도 하나는 항상 있어야 합니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1201"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1214"/>
         <source>Unable to set file as cover image.</source>
-        <translation type="unfinished"/>
+        <translation>파일을 표지 이미지로 설정할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1386"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1399"/>
         <source>Select All</source>
         <translation>모두 선택</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1387"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1400"/>
         <source>Add Blank HTML File</source>
         <translation>빈 HTML 파일 추가하기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1388"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
         <source>Add Blank Stylesheet</source>
         <translation>빈 스타일시트 추가</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1389"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
         <source>Add Blank SVG Image</source>
         <translation>빈 SVG 그림을 추가</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1390"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1403"/>
         <source>Add Existing Files...</source>
         <translation>기존 파일 추가...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1391"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1392"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1404"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
         <source>Add Copy</source>
-        <translation type="unfinished"/>
+        <translation>복사본 추가</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1393"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1406"/>
         <source>Rename</source>
         <translation>이름 바꾸기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1394"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1407"/>
         <source>Delete</source>
         <translation>지우기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1395"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1408"/>
         <source>Cover Image</source>
         <translation>표지 그림</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1396"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
         <source>Merge</source>
         <translation>합치기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1397"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1410"/>
         <source>None</source>
         <translation>없음</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1398"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1411"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Adobe 방식 사용하기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1399"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1412"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>IDPF 방식 사용하기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1400"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1413"/>
         <source>Sort</source>
         <translation>정렬</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1414"/>
         <source>Renumber TOC Entries</source>
         <translation>목차 항목 번호 다시 매기기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1415"/>
         <source>Link Stylesheets...</source>
         <translation>Stylesheets를 연결...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1403"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1416"/>
         <source>Add Semantics...</source>
-        <translation type="unfinished"/>
+        <translation>시맨틱 추가</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1404"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
         <source>Validate with W3C</source>
         <translation>W3C로 검증하기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1406"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1419"/>
         <source>Save As</source>
         <translation>다른 이름으로 저장하기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1416"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1433"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
-        <translation type="unfinished"/>
+        <translation>선택한 파일을 이전 파일과 병합하거나 여러개의 선택된 파일을 하나의 파일로 병합합니다. </translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1419"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1436"/>
         <source>Rename selected file(s)</source>
-        <translation type="unfinished"/>
+        <translation>선택한 파일의 파일명을 변경합니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1421"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1438"/>
         <source>Link Stylesheets to selected file(s).</source>
-        <translation type="unfinished"/>
+        <translation>선택한 파일에 스타일시트를 연결합니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1423"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1440"/>
         <source>Add Semantics to selected file(s).</source>
-        <translation type="unfinished"/>
+        <translation>선택한 파일에 시맨틱을 추가합니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1511"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
         <source>Other Application</source>
         <translation>다른 응용프로그램</translation>
     </message>
@@ -745,126 +749,126 @@ There always has to be at least one.</source>
 <context>
     <name>BookViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="700"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="722"/>
         <source>Clipboard contains HTML formatting</source>
-        <translation type="unfinished"/>
+        <translation>클립보드에 HTML 서식이 있습니다.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="701"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="723"/>
         <source>Do you want to paste clipboard data as plain text?</source>
-        <translation type="unfinished"/>
+        <translation>클립보드의 내용을 서식 없는 텍스트로 추가하시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="897"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="938"/>
         <source>Open Tab For</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="911"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1084"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1086"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="956"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1161"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1163"/>
         <source>Open With</source>
-        <translation type="unfinished"/>
+        <translation>다른 프로그램으로 편집</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="918"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="991"/>
         <source>Other Application</source>
         <translation>다른 응용프로그램</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="966"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1039"/>
         <source>Clips</source>
-        <translation type="unfinished"/>
+        <translation>클립</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="976"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1049"/>
         <source>Add To Clips</source>
-        <translation type="unfinished"/>
+        <translation>클립에 추가</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1074"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1147"/>
         <source>Insert File</source>
         <translation>파일 삽입</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1075"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1148"/>
         <source>Undo</source>
         <translation>되돌리기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1076"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1149"/>
         <source>Redo</source>
         <translation>다시 실행</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1077"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1150"/>
         <source>Cut</source>
         <translation>잘라내기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1078"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1151"/>
         <source>Copy</source>
         <translation>복사하기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1079"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1152"/>
         <source>Copy Image</source>
         <translation>이미지 복사</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1080"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1153"/>
         <source>Paste</source>
         <translation>붙여넣기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1081"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1154"/>
         <source>Select All</source>
         <translation>모두 선택</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1082"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1155"/>
         <source>Open</source>
         <translation>열기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1085"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1162"/>
         <source>Save As</source>
         <translation>다른 이름으로 저장하기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1089"/>
+        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1170"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"/>
+        <translation>요소 검사</translation>
     </message>
 </context>
 <context>
     <name>BookViewPreview</name>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="259"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="324"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="330"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="267"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="332"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="338"/>
         <source>Unsupported</source>
         <translation>지원되지 않음</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="259"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="267"/>
         <source>Spellcheck mode is not supported in Book View at this time.  Switch to Code View.</source>
-        <translation type="unfinished"/>
+        <translation>맞춤법 검사 모드가 책보기에서는 지원하지 않습니다. 코드보기로 바꿔주세요.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="324"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="332"/>
         <source>Replace is not supported in this view. Switch to Code View.</source>
         <translation>이  보기에서는 바꾸기가 지원되지 않습니다.  코드 보기로 바꿔주세요.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="330"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="338"/>
         <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
         <translation>이 보기에서는 현재 파일의 모두 바꾸기가 지원되지 않습니다.  코드 보기로 바꿔주세요.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="750"/>
+        <location filename="../../ViewEditors/BookViewPreview.cpp" line="758"/>
         <source>Inspect Element</source>
-        <translation type="unfinished"/>
+        <translation>요소 검사</translation>
     </message>
 </context>
 <context>
@@ -902,7 +906,7 @@ There always has to be at least one.</source>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="137"/>
         <source>%n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 파일</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="141"/>
@@ -912,7 +916,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="268"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="281"/>
@@ -968,22 +972,22 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="76"/>
         <source>Characters:</source>
-        <translation type="unfinished"/>
+        <translation>문자:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="74"/>
         <source>Character</source>
-        <translation type="unfinished"/>
+        <translation>문자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="75"/>
         <source>Decimal</source>
-        <translation type="unfinished"/>
+        <translation>10진수</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="76"/>
         <source>Hexadecimal</source>
-        <translation type="unfinished"/>
+        <translation>16진수</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="77"/>
@@ -998,12 +1002,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="84"/>
         <source>&lt;p&gt;This is a list of the characters used in all HTML files.&lt;p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>모든 HTML 파일에 사용된 문자 목록</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="265"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="278"/>
@@ -1021,7 +1025,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="14"/>
         <source>Style Classes in HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>HTML 파일에 사용된 스타일 클래스</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="34"/>
@@ -1051,12 +1055,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="80"/>
         <source>Matched Selector</source>
-        <translation type="unfinished"/>
+        <translation>일치하는 선택자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="81"/>
         <source>Found In</source>
-        <translation type="unfinished"/>
+        <translation>발견됨</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
@@ -1076,7 +1080,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="223"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
@@ -1333,17 +1337,17 @@ Do you want to save your changes?</source>
 <context>
     <name>ClipEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="64"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="65"/>
         <source>Name</source>
         <translation>이름</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="65"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="66"/>
         <source>Text</source>
         <translation>텍스트</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="681"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="682"/>
         <source>Unable to create file %1</source>
         <translation>%1 파일을 생성할 수 없습니다</translation>
     </message>
@@ -1376,7 +1380,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="34"/>
         <source>Clips</source>
-        <translation type="unfinished"/>
+        <translation>클립</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="99"/>
@@ -1484,12 +1488,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1406"/>
         <source>Clips</source>
-        <translation type="unfinished"/>
+        <translation>클립</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1416"/>
         <source>Add To Clips</source>
-        <translation type="unfinished"/>
+        <translation>클립에 추가</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1542"/>
@@ -1681,7 +1685,7 @@ You can also use the right arrow key.</source>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../Misc/EmbeddedPython.cpp" line="614"/>
+        <location filename="../../Misc/EmbeddedPython.cpp" line="617"/>
         <location filename="../../Misc/EmbeddedPythonPkg.cpp" line="613"/>
         <source>Embedded Python Error</source>
         <translation type="unfinished"/>
@@ -2009,7 +2013,7 @@ other end to continue searching.</source>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1161"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="1162"/>
         <source>Print %1</source>
         <translation>인쇄 %1</translation>
     </message>
@@ -2461,7 +2465,7 @@ and when switching from Book View to Code View.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="326"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="339"/>
@@ -2653,7 +2657,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="327"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="340"/>
@@ -2674,49 +2678,49 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImageTab</name>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="155"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="177"/>
         <source>shades</source>
         <translation>그림자</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="155"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="177"/>
         <source>colors</source>
         <translation>색상</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="156"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="178"/>
         <source>Grayscale</source>
         <translation>회색조(Grayscale)</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="156"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="178"/>
         <source>Color</source>
         <translation>색상</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="246"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="271"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="274"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="293"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="350"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="353"/>
         <source>Open With</source>
-        <translation type="unfinished"/>
+        <translation>다른 프로그램으로 편집</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="253"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="328"/>
         <source>Other Application</source>
         <translation>다른 응용프로그램</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="272"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="351"/>
         <source>Save As</source>
         <translation>다른 이름으로 저장</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="273"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="352"/>
         <source>Copy Image</source>
         <translation>이미지 복사</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="307"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="400"/>
         <source>Print %1</source>
         <translation>인쇄 %1</translation>
     </message>
@@ -2724,19 +2728,19 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImportEPUB</name>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="165"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="166"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="166"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="167"/>
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in data loss.
 
 Do you want to automatically fix the files?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="500"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="501"/>
         <source>Epub has missing or improperly specified OPF.</source>
         <translation type="unfinished"/>
     </message>
@@ -6589,7 +6593,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="337"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="350"/>
@@ -8728,15 +8732,15 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="2113"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2137"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2169"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3454"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3466"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3520"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3677"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3884"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4084"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3468"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3474"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3522"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3528"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3534"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3691"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3898"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4098"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -8819,9 +8823,19 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1029"/>
+        <source>or</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1037"/>
         <source>No CSS styles named</source>
         <translation>CSS 스타일 이름이 없습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1037"/>
+        <source>found, or stylesheet not linked.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1109"/>
@@ -9012,155 +9026,155 @@ This action cannot be reversed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2300"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2314"/>
         <source>Word updated.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2382"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2396"/>
         <source>File(s) deleted.</source>
         <translation>파일 삭제됨.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2393"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2407"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2398"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2412"/>
         <source>Table Of Contents edited.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2416"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2430"/>
         <source>Generate TOC cancelled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2440"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2454"/>
         <source>Table Of Contents generated.</source>
         <translation>차례가 만들어졌습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2442"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2456"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2578"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2592"/>
         <source>Text selection marked.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2580"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2598"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2594"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2612"/>
         <source>Text selection unmarked.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2686"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2700"/>
         <source>Metadata Editor cancelled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2689"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2703"/>
         <source>Metadata edited.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2777"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2791"/>
         <source>RunPlugin1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2778"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2792"/>
         <source>RunPlugin2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2793"/>
         <source>RunPlugin3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2780"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2794"/>
         <source>RunPlugin4</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2781"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2795"/>
         <source>RunPlugin5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2812"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2826"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3355"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3369"/>
         <source>Line: %1, Col: %2</source>
         <translation>행: %1, 열: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3454"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3468"/>
         <source>File cannot be split at this position.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3474"/>
         <source>Cannot split since it may not be an HTML file.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3466"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
         <source>The Nav file cannot be split.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3483"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3497"/>
         <source>Split completed.</source>
         <translation>나누기가 끝났습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3522"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3528"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3520"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3534"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3553"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3567"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3562"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3576"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3678"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3692"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>이 문서가 수정되었습나더.⏎
 변경 사항을 저장하시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3758"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3772"/>
         <source>No importer for file type: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3779"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -9169,112 +9183,112 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3770"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3784"/>
         <source>Loading file...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3798"/>
         <source>File loaded.</source>
         <translation>파일을 불러옴.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3811"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3825"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>이 파일를 만든 사람이 DRM으로 암호화했습니다. Sigil은 이 파일을 열 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3832"/>
         <source>Cannot load EPUB: %1</source>
         <translation>EPUB를 불러들일 수 없습니다: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3822"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3836"/>
         <source>Cannot load file %1: %2</source>
         <translation>파일 %1 을 불러들 일 수 없습니다: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3851"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3865"/>
         <source>Saving EPUB...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3860"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3874"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3885"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3899"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in data loss.
 
 Do you want to automatically mend the files before saving?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3916"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3930"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3918"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3932"/>
         <source>EPUB saved.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3924"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3938"/>
         <source>Cannot save file %1: %2</source>
         <translation>파일 %1 를 저장할 수 없습니다: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4059"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4073"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB 파일 (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4060"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4061"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4062"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4074"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4076"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML 파일 (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4063"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4077"/>
         <source>Text files (*.txt)</source>
         <translation>텍스트 파일 (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4064"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4078"/>
         <source>All files (*.*)</source>
         <translation>모든 파일 (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4072"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4086"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB 파일 (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4084"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4098"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4155"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4169"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4156"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4170"/>
         <source>ON</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4156"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4170"/>
         <source>OFF</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4181"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4195"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -12733,17 +12747,17 @@ Do you want to automatically mend the files before saving?</source>
 <context>
     <name>OPFModel</name>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="596"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="595"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
         <translation>파일 이름은 문자 &quot;%1&quot; 을 포함할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="607"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="606"/>
         <source>The filename cannot be empty.</source>
         <translation>파일 이름은 비워둘 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="614"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="613"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
         <translation>파일 이름 &quot;%1&quot; 은 이미 사용되고 있습니다.
@@ -12753,12 +12767,12 @@ Do you want to automatically mend the files before saving?</source>
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1120"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1118"/>
         <source>[Title here]</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1122"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1120"/>
         <source>[Main title here]</source>
         <translation type="unfinished"/>
     </message>
@@ -13277,117 +13291,117 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation>보고서 생성 중...</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="111"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="112"/>
         <source>Cannot read EPUB: %1</source>
         <translation>EPUB를 읽을 수 없습니다: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="221"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="222"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="222"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="710"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="713"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="223"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="760"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="763"/>
         <source>Sigil has created a new one for you.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="259"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="260"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="391"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="392"/>
         <source>Cannot unzip EPUB: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="431"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="440"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="457"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="465"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="432"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="441"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="458"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="466"/>
         <source>Cannot extract file: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="478"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="479"/>
         <source>Cannot open EPUB: %1</source>
         <translation>EPUB를 열 수 없습니다: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="530"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="531"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="538"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="539"/>
         <source>No appropriate OPF file found</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="577"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="590"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="631"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="681"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="632"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="682"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="676"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="726"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="677"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="727"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="705"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="755"/>
         <source>Sigil has created a template NCX</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="706"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="756"/>
         <source>to support epub2 backwards compatibility.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="709"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="759"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="712"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="762"/>
         <source>The NCX file is not present in this EPUB.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="576"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="582"/>
         <source>Adding Existing Files..</source>
         <translation>기존 파일 추가하는 중...</translation>
     </message>
     <message>
-        <location filename="../../Misc/OpenExternally.cpp" line="183"/>
+        <location filename="../../Misc/OpenExternally.cpp" line="196"/>
         <source>Applications</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/OpenExternally.cpp" line="193"/>
+        <location filename="../../Misc/OpenExternally.cpp" line="206"/>
         <source>Open With</source>
-        <translation type="unfinished"/>
+        <translation>다른 프로그램으로 편집</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="44"/>
@@ -13415,19 +13429,19 @@ Line: %1 Column %2 - %3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="420"/>
+        <location filename="../../Misc/Utility.cpp" line="428"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>다음 파일을 읽을 수 없습니다 %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="535"/>
+        <location filename="../../Misc/Utility.cpp" line="543"/>
         <source>Sigil has encountered a problem.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="536"/>
+        <location filename="../../Misc/Utility.cpp" line="544"/>
         <source>Sigil may need to close.</source>
         <translation type="unfinished"/>
     </message>
@@ -13818,22 +13832,22 @@ Do you want to save your changes?</source>
 <context>
     <name>SearchEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="65"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
         <source>Name</source>
         <translation>이름</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="67"/>
         <source>Find</source>
         <translation>찾기</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="67"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="68"/>
         <source>Replace</source>
         <translation>바꾸기</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="604"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="605"/>
         <source>Unable to create file %1</source>
         <translation>%1 파일을 생성할 수 없습니다</translation>
     </message>
@@ -14410,7 +14424,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="246"/>
         <source>Save Report As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="259"/>
@@ -14478,12 +14492,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="648"/>
+        <location filename="../../Misc/Utility.cpp" line="656"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="649"/>
+        <location filename="../../Misc/Utility.cpp" line="657"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
