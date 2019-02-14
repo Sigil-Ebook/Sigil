@@ -1,4 +1,4 @@
-pre-0.9.11
+Sigil-0.9.11
    Bug Fixes
     - after mend and prettify - put cursor at enclosing tag if possible
     - allow both links in Preview and clicking in Preview to reposition CV
