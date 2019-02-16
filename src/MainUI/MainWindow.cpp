@@ -1408,8 +1408,8 @@ void MainWindow::CreateIndex()
     if (index_resource == NULL) {
         index_resource = m_Book->CreateEmptyHTMLFile();
         index_resource->RenameTo(HTML_INDEX_FILE);
-        html_resources.append(index_resource);
-        m_Book->GetOPF()->UpdateSpineOrder(html_resources);
+        // html_resources.append(index_resource);
+        // OPF Already Updated // m_Book->GetOPF()->UpdateSpineOrder(html_resources);
     }
 
     // Make sure you not indexing the index page itself
