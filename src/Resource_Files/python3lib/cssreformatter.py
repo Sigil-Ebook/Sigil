@@ -65,7 +65,7 @@ class MyCSSSerializer(css_parser.CSSSerializer):
         styleText = self.do_css_CSSStyleDeclaration(rule.style)
 
         if styleText and rule.wellformed:
-            out = cssparser.serialize.Out(self)
+            out = css_parser.serialize.Out(self)
             out.append(self._atkeyword(rule))
             for item in rule.seq:
                 # assume comments {
