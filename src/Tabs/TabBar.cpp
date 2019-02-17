@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **
@@ -31,6 +32,18 @@ TabBar::TabBar(QWidget *parent)
       m_TabManager(parent),
       m_TabIndex(-1)
 {
+#ifdef Q_OS_MAC
+    // work around Qt MacOSX bug missing tab close icons
+    // see:  https://bugreports.qt.io/browse/QTBUG-61092
+    const QString FORCE_TAB_CLOSE_BUTTON = 
+        "QTabBar::close-button { "
+            "background-image: url(:/qt-project.org/styles/commonstyle/images/standardbutton-closetab-16.png);"
+        "}"
+        "QTabBar::close-button:hover { "
+            "background-image: url(:/qt-project.org/styles/commonstyle/images/standardbutton-closetab-hover-16.png);"
+        "}";
+    setStyleSheet(FORCE_TAB_CLOSE_BUTTON);
+#endif
 }
 
 void TabBar::mouseDoubleClickEvent(QMouseEvent *event)
