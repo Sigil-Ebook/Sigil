@@ -268,10 +268,14 @@ void PluginRunner::startPlugin()
     // So we simply read the system environment and set it for QProcess manually
     // so that python getpreferredencoding() and stdout/stderr/stdin encodings to get properly set
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+#if 0
+    // If we set the following env vars with python 3.7 and Qt 5.11 then none of the PyQt5 plugins work!
+    // Doubled checked and the paths being set are perfectly correct but mess things up. 
     if (settings.useBundledInterp()) {
-        env.insert("QT_PLUGIN_PATH", QDir(QCoreApplication::applicationDirPath() + "/../PlugIns").absolutePath());
-        env.insert("QT_QPA_PLATFORM_PLUGIN_PATH", QDir(QCoreApplication::applicationDirPath() + "/../PlugIns/platforms").absolutePath());
+         env.insert("QT_PLUGIN_PATH", QDir(QCoreApplication::applicationDirPath() + "/../PlugIns").absolutePath());
+         env.insert("QT_QPA_PLATFORM_PLUGIN_PATH", QDir(QCoreApplication::applicationDirPath() + "/../PlugIns/platforms").absolutePath());
     }
+#endif
     m_process.setProcessEnvironment(env);
 #elif defined(Q_OS_WIN32)
     if (settings.useBundledInterp()) {

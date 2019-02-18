@@ -93,13 +93,16 @@ cd bin
 sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.7/Python @rpath/Python python3.7
 sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.7/Python @rpath/Python python3.7m
 sudo install_name_tool -add_rpath @executable_path/../ ./python3.7
+# so that python3 can find the Qt Frameworks and proper plugins for PyQt5
+sudo install_name_tool -add_rpath @executable_path/../../../../ ./python3.7
 
 # now do the same for the Python.app stored inside the Python.framework Resources 
 # This app is needed to allow gui use by python for plugins
 
 cd ${MYDEST}/Python.framework/Versions/3.7/Resources/Python.app/Contents/MacOS
 sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.7/Python @rpath/Python ./Python
-sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
+# sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
+sudo install_name_tool -add_rpath @executable_path/../../../../../ ./Python
 
 # We should now have a fully relocatable Python.framework
 
