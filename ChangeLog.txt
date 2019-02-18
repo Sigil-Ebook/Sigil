@@ -1,3 +1,9 @@
+sigil-0.9.12
+   Bug Fixes
+    - fix typo in cssreformatter that caused errors with @fontface (issue #394)
+    - workaround for qt bug affecting tab close buttons on Mac (commit f3b9399)
+    - fix the Mac PyQt5 plugin framework that broke in Sigil-0.9.11 (commit b1151bd)
+
 Sigil-0.9.11
    Bug Fixes
     - after mend and prettify - put cursor at enclosing tag if possible
