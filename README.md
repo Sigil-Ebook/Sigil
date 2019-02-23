@@ -101,7 +101,7 @@ Currently these projects include:
 * ZLib Data Compression Library (zlib 1.2.8)
 * jQuery-2.2.4 (src/Resource_Files/javascript/jquery-2.2.4.min.js)
 * jQuery.ScrollTo-2.1.2 (src/Resource_Files/javascript/jquery.scrollTo-2.1.2.min.js)
-* MathJax.js single file version: (src/Resource_Files/polyfills)
+* MathJax.js Version 2.75: (src/Resource_Files/polyfills)
 
 In addtion, Sigil uses the following other packages that have been specifically
 modified for use inside Sigil:

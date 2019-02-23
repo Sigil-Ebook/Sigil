@@ -1,3 +1,8 @@
+pre-0.9.13
+   Bug Fixes
+   New Features
+     - Update to MathJax 2.75, adds support for mathml elements mlongdiv, mstack, mcarries
+
 Sigil-0.9.12
    Bug Fixes
     - fix typo in cssreformatter that caused errors with @fontface (issue #394)
