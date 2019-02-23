@@ -206,24 +206,31 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList<ViewEditor:
         // On Mac OS X QCoreApplication::applicationDirPath() points to Sigil.app/Contents/MacOS/ 
         QDir execdir(QCoreApplication::applicationDirPath());
         execdir.cdUp();
-        mathjaxurl = execdir.absolutePath() + "/polyfills/MathJax.js";
+        mathjaxurl = execdir.absolutePath() + "/polyfills/MJ/MathJax.js";
 #elif defined(Q_OS_WIN32)
-        mathjaxurl = "/" + QCoreApplication::applicationDirPath() + "/polyfills/MathJax.js";
+        mathjaxurl = "/" + QCoreApplication::applicationDirPath() + "/polyfills/MJ/MathJax.js";
 #else
         // all flavours of linux / unix
-        // user supplied environment variable to 'share/sigil' directory will overrides everything
-        if (!sigil_extra_root.isEmpty()) {
-            mathjaxurl = sigil_extra_root + "/polyfills/MathJax.js";
+        // First check if system MathJax was configured to be used at compile time
+        if (!mathjax_dir.isEmpty()) {
+            mathjaxurl = mathjax_dir + "/MathJax.js";
         } else {
-            mathjaxurl = sigil_share_root + "/polyfills/MathJax.js";
+            // otherwise user supplied environment variable to 'share/sigil'
+            // takes precedence over Sigil's usual share location.
+            if (!sigil_extra_root.isEmpty()) {
+                mathjaxurl = sigil_extra_root + "/polyfills/MJ/MathJax.js";
+            } else {
+                mathjaxurl = sigil_share_root + "/polyfills/MJ/MathJax.js";
+            }
         }
 #endif
 
         mathjaxurl = "file://" + Utility::URLEncodePath(mathjaxurl);
+        mathjaxurl = mathjaxurl + "?config=local/SIGIL_EBOOK_MML_SVG";
         int endheadpos = text.indexOf("</head>");
         if (endheadpos > 1) {
             QString inject_mathjax = 
-              "<script type=\"text/javascript\" "
+              "<script type=\"text/javascript\" async=\"async\" "
               "src=\"" + mathjaxurl + "\"></script>";
             text.insert(endheadpos, inject_mathjax);
         }
