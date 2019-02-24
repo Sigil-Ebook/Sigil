@@ -14,7 +14,7 @@
 # libSSL is still installed for backwards compatibility
 
 # standard deployment target
-export MACOSX_DEPLOYMENT_TARGET=10.9
+export MACOSX_DEPLOYMENT_TARGET=10.11
 
 # Set the location of where the relocatable Python framework was installed
 # See "Building_A_Relocatable_Python_3.7_Framework_on_MacOSX.txt
@@ -44,18 +44,12 @@ export PATH=${MYDEST}/Python.framework/Versions/3.7/bin:${PATH}
 mkdir build
 cd build
 
-# Mac OSX Yosemite users with XCode 6.3 should use the following cmake command:
-
-cmake -DPKG_SYSTEM_PYTHON=1 \
-      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
-      -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
-      -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/ \
-      ../Sigil
+# Select the appropriate cmake command from thge following depending
+# on XCode version installed and macOS version
 
 # Mac OSX El Capitan with XCode 7 should use the following cmake command:
 cmake -DPKG_SYSTEM_PYTHON=1 \
-      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.11 \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
       -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
@@ -64,7 +58,7 @@ cmake -DPKG_SYSTEM_PYTHON=1 \
 
 # Mac OS Sierra (OSX 10.12) shoud use the following with XCode 8 
 cmake -DPKG_SYSTEM_PYTHON=1 \
-      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.11 \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
       -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
@@ -73,12 +67,22 @@ cmake -DPKG_SYSTEM_PYTHON=1 \
 
 # Mac OS High Sierra (OSX 10.13) shoud use the following with XCode 9 
 cmake -DPKG_SYSTEM_PYTHON=1 \
-      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.11 \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
       -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
       -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/ \
       ../Sigil
+
+# Mac OS Mojave (OSX 10.14) shoud use the following with XCode 10 
+cmake -DPKG_SYSTEM_PYTHON=1 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.11 \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
+      -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
+      -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/ \
+      ../Sigil
+
 
 # After cmake completes
 make

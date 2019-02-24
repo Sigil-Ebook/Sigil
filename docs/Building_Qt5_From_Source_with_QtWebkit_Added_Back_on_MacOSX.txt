@@ -13,7 +13,7 @@
 # These instructions will lead you through building from source
 
 # set the delpoyment target
-export MACOSX_DEPLOYMENT_TARGET=10.9
+export MACOSX_DEPLOYMENT_TARGET=10.11
 
 # cd to a location to store your src tree then do
 export MYQTSRC=`pwd`
@@ -53,17 +53,26 @@ sudo make install
 # -----------------------------
 
 # download qt-everywhere-src-5.11.2.tar.gz directly from Qt
-# From:  http://download.qt.io/archive/qt/5.11/5.11.2/single/
+# from:  http://download.qt.io/archive/qt/5.11/5.11.2/single/
 
 # and then unpack it
 tar -zxvf qt-everywhere-src-5.11.2.tar.gz
 
-# then apply the font weight fix patch if you are on Mojave or later  
 cd qt-everywhere-src-5.11.2
-patch -p0 < ../qt_mojave_fontweight_fix.patch
+
+# now copy 3 required patches from Sigil//docs/ into this directory
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt_mojave_fontweight_fix.patch ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt_511.2_fixes1.patch  ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt_fix_macdeployqt.patch ./
+
+# then apply the font weight fix patch if you are on Mojave or later  
+patch -p0 < ./qt_mojave_fontweight_fix.patch
 
 # then apply build fixes for qtwebengine when built with 10.14 SDK (XCode 10)
-patch -p0 < ../qt511.2_fixes1.patch
+patch -p0 < ./qt511.2_fixes1.patch
+
+# then finally patch Qt's macdeployqt to always use loader paths for plugins
+patch -p0 < ./qt_fix_macdeployqt.patch
 
 # Create a destination directory to house your complete Qt binary in your home directory
 # to be similar to how stock Qt does it
@@ -104,4 +113,3 @@ make -C WebKitBuild/Release install
 
 # QtWebKit will be installed into your Qt directory, side by side with other Qt modules, 
 # and will be available for building your projects.
-

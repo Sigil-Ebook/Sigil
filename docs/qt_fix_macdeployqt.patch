@@ -1,0 +1,12 @@
+--- qttools/src/macdeployqt/macdeployqt/main.cpp.orig	2018-09-03 11:13:05.000000000 -0400
++++ qttools/src/macdeployqt/macdeployqt/main.cpp	2019-02-18 15:27:54.000000000 -0500
+@@ -204,6 +204,9 @@
+     if (plugins && !deploymentInfo.qtPath.isEmpty()) {
+         deploymentInfo.pluginPath = deploymentInfo.qtPath + "/plugins";
+         LogNormal();
++	// Qt plugins in frameworks should always have rpaths relative 
++	// to the loader_path as they are dlopened
++	deploymentInfo.useLoaderPath = true;
+         deployPlugins(appBundlePath, deploymentInfo, useDebugLibs);
+         createQtConf(appBundlePath);
+     }

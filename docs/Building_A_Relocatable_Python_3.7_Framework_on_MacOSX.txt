@@ -26,7 +26,7 @@
 
 # Download Python-3.7.0.tgz from www.python.org
 
-export MACOSX_DEPLOYMENT_TARGET=10.9
+export MACOSX_DEPLOYMENT_TARGET=10.11
 
 # Pick a location where the relocatable Python framework will be installed
 # stay away from /tmp locations since Mac OS X will auto delete files older 
@@ -43,8 +43,8 @@ tar -zxvf Python-3.7.0.tgz
 cd Python-3.7.0
 patch -p1 < python_3.7_fixes.patch
 
-export LDFLAGS="-Wl,-macosx_version_min,10.9" 
-export CFLAGS="-mmacosx-version-min=10.9 -Werror=partial-availability" 
+export LDFLAGS="-Wl,-macosx_version_min,10.11" 
+export CFLAGS="-mmacosx-version-min=10.11 -Werror=partial-availability" 
 ./configure --prefix=${MYDEST} --enable-framework=${MYDEST} --with-ensurepip
 
 make
@@ -64,6 +64,13 @@ sudo pip3 install regex
 sudo pip3 install cssutils
 sudo pip3 install cssselect
 sudo pip3 install chardet
+
+# Note: and for the upcoming release you will want to replace
+    sudo pip3 install cssutils
+with
+    sudo pip3 install css-parser
+
+which is a drop in replacement for cssutils with many bugs fixed.
 
 # Now a complete Python.framework has been built in ${MYDEST}
 # But we still need to make it a relocatable framework
@@ -101,7 +108,6 @@ sudo install_name_tool -add_rpath @executable_path/../../../../ ./python3.7
 
 cd ${MYDEST}/Python.framework/Versions/3.7/Resources/Python.app/Contents/MacOS
 sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.7/Python @rpath/Python ./Python
-# sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
 sudo install_name_tool -add_rpath @executable_path/../../../../../ ./Python
 
 # We should now have a fully relocatable Python.framework
@@ -126,7 +132,7 @@ which python3
 
 tar -zxvf sip-4.19.13.tar.gz
 cd sip-4.19.13
-python3 ./configure.py --deployment-target=10.9 --sip-module=PyQt5.sip
+python3 ./configure.py --deployment-target=10.11 --sip-module=PyQt5.sip
 make
 sudo make install
 
@@ -148,7 +154,7 @@ which python3
 export PATH=/Users/${USER}/Qt511/bin:${PATH}
 which qmake
 
-export MACOSX_DEPLOYMENT_TARGET=10.9
+export MACOSX_DEPLOYMENT_TARGET=10.11
 
 tar -zxvf PyQt5_gpl-5.11.3.tar.gz
 cd PyQt5_gpl-5.11.3
