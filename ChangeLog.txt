@@ -1,7 +1,10 @@
 pre-0.9.13
    Bug Fixes
+     - Workaround for lost cursor in qlineedit (issue #398)
    New Features
+     - Add filename to tab tooltip (commit 27f8db7)
      - Update to MathJax 2.75, adds support for mathml elements mlongdiv, mstack, mcarries
+       (commit 568aba5)
 
 Sigil-0.9.12
    Bug Fixes
