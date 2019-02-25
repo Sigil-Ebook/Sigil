@@ -536,14 +536,15 @@ bool TabManager::AddNewContentTab(ContentTab *new_tab, bool precede_current_tab)
     if (new_tab == NULL) {
         return false;
     }
-
+    int idx = -1;
     if (!precede_current_tab) {
-        addTab(new_tab, new_tab->GetIcon(), new_tab->GetFilename());
+        idx = addTab(new_tab, new_tab->GetIcon(), new_tab->GetFilename());
         setCurrentWidget(new_tab);
         new_tab->setFocus();
     } else {
-        insertTab(currentIndex(), new_tab, new_tab->GetIcon(), new_tab->GetFilename());
+        idx = insertTab(currentIndex(), new_tab, new_tab->GetIcon(), new_tab->GetFilename());
     }
+    setTabToolTip(idx, new_tab->GetFilename());
 
     connect(new_tab, SIGNAL(DeleteMe(ContentTab *)), this, SLOT(DeleteTab(ContentTab *)));
     connect(new_tab, SIGNAL(TabRenamed(ContentTab *)), this, SLOT(UpdateTabName(ContentTab *)));
