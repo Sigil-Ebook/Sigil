@@ -179,6 +179,8 @@ There are several configuration and environment variable options that can tailor
 
 -DEXTRA_DICT_DIRS=`<path1>`:`<path2>` Path(s) that should be searched for eligible spellcheck dictionaries (in addition to /usr/share/hunspell). Multiple paths should be separated by colons. This option is only relevant if -DINSTALL_BUNDLED_DICTS=0 is also specified.
 
+-DMATHJAX_DIR=`<path>` If you would like use your system's MathJax implementation instead of the one that comes bundled with Sigil, use this cmake directive when first configuring. A minimum of MathJax v2.7.0 is required to work with Sigil. NOTE: if -DMATHJAX_DIR=`<path>` is used, Sigil will install a config script to `<path>`/config/local. This file is required for Sigil's Preview to be able properly render MathML. This feature was added between Sigil 0.9.12 and 0.9.13.
+
 The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version.
 
 -DPYTHON_LIBRARY=`<the path to the python3.x shared library>`
