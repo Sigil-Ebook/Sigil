@@ -35,7 +35,7 @@ export MACOSX_DEPLOYMENT_TARGET=10.11
 export MYDEST=/Users/${USER}/devtools/Frameworks
 
 # now build Python 3.7.0 as a framework
-# Need to patch Python-3.7.0 to allow it to build Mac OS X 10.9 compliant and later
+# Need to patch Python-3.7.0 to allow it to build Mac OS X 10.11 compliant and later
 # and for it to find and use the latest Tk and Tcl frameworks
 # Look in Sigil's "docs" to get the required patch "python_3.7_fixes.patch"
 
