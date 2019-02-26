@@ -55,6 +55,7 @@ TabManager::TabManager(QWidget *parent)
     setDocumentMode(true);
     setMovable(true);
     setTabsClosable(true);
+    // setElideMode(Qt::ElideRight); this is the default after qt-5.6
     setUsesScrollButtons(true);
 }
 
@@ -538,11 +539,25 @@ bool TabManager::AddNewContentTab(ContentTab *new_tab, bool precede_current_tab)
     }
     int idx = -1;
     if (!precede_current_tab) {
+
+#ifdef Q_OS_MAC
+        // drop use of icons to workaround Qt Bugs: QTBUG-61235, QTBUG-61742, QTBUG-63445, QTBUG-64630
+        idx = addTab(new_tab, new_tab->GetFilename());
+#else
         idx = addTab(new_tab, new_tab->GetIcon(), new_tab->GetFilename());
+#endif
+
         setCurrentWidget(new_tab);
         new_tab->setFocus();
     } else {
+
+#ifdef Q_OS_MAC
+        // drop use of icons to workaround Qt Bugs: QTBUG-61235, QTBUG-61742, QTBUG-63445, QTBUG-64630
+        idx = insertTab(currentIndex(), new_tab, new_tab->GetFilename());
+#else
         idx = insertTab(currentIndex(), new_tab, new_tab->GetIcon(), new_tab->GetFilename());
+#endif
+
     }
     setTabToolTip(idx, new_tab->GetFilename());
 
