@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2018, 2019  Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -65,14 +66,12 @@ static const int RETRY_DELAY_MS = 5;
 // on command line arguments
 static MainWindow *GetMainWindow(const QStringList &arguments)
 {
-    // We use the first argument
-    // as the file to load after starting
-    if (arguments.size() > 1 &&
-        Utility::IsFileReadable(arguments.at(1))) {
-        return new MainWindow(arguments.at(1));
-    } else {
-        return new MainWindow();
+    // We use the first argument as the file to load after starting
+    QString filepath;
+    if (arguments.size() > 1 && Utility::IsFileReadable(arguments.at(1))) {
+        filepath = arguments.at(1);
     }
+    return new MainWindow(filepath);
 }
 
 #ifdef Q_OS_MAC
@@ -321,26 +320,51 @@ int main(int argc, char *argv[])
         } else {
             // Normal startup
 #ifdef Q_OS_MAC
+            // Work around QTBUG-62193 and QTBUG-65245 and others where menubar
+	    // menu items are lost under File and Sigil menus and where
+	    // Quit menu gets lost when deleting other windows first
+
+	    // Now we Create and show a frameless translucent QMainWindow to hold
+	    // the menubar.  Note: macOS has a single menubar attached at 
+	    // the top of the screen that all mainwindows share.
+
             app.setQuitOnLastWindowClosed(false);
+
+	    Qt::WindowFlags flags = Qt::Window | Qt::FramelessWindowHint;
+	    QMainWindow * basemw = new QMainWindow(NULL, flags);
+	    basemw->setAttribute(Qt::WA_TranslucentBackground, true);
 
             QMenuBar *mac_menu = new QMenuBar(0);
             QMenu *file_menu = new QMenu("File");
-            QAction *action;
-            // New
-            action = file_menu->addAction("New");
-            action->setShortcut(QKeySequence("Ctrl+N"));
-            QObject::connect(action, &QAction::triggered, file_new);
+
+	    // New
+            QAction * new_action = new QAction("New");
+            new_action->setShortcut(QKeySequence("Ctrl+N"));
+            QObject::connect(new_action, &QAction::triggered, file_new);
+	    file_menu ->addAction(new_action);
+
             // Open
-            action = file_menu->addAction("Open");
-            action->setShortcut(QKeySequence("Ctrl+O"));
-            QObject::connect(action, &QAction::triggered, file_open);
-            // Quit
-            action = file_menu->addAction("Quit");
-            action->setShortcut(QKeySequence("Ctrl+Q"));
-            QObject::connect(action, &QAction::triggered, qApp->quit);
+	    QAction* open_action = new QAction("Open");
+            open_action->setShortcut(QKeySequence("Ctrl+O"));
+            QObject::connect(open_action, &QAction::triggered, file_open);
+	    file_menu ->addAction(open_action);
+
+            // Quit - force add of a secondary quit menu to the file menu
+	    QAction* quit_action = new QAction("Quit");
+            quit_action->setMenuRole(QAction::NoRole);
+            quit_action->setShortcut(QKeySequence("Ctrl+Q"));
+            QObject::connect(quit_action, &QAction::triggered, qApp->quit);
+	    file_menu ->addAction(quit_action);
 
             mac_menu->addMenu(file_menu);
-            mac_menu->show();
+            
+	    // Application specific quit menu
+	    // according to Qt docs this is the right way to add an application
+	    // quit menu - but it does not work and will still sometimes get lost
+	    mac_menu->addAction("quit");
+
+	    basemw->setMenuBar(mac_menu);
+            basemw->show();
 #endif
             VerifyPlugins();
             MainWindow *widget = GetMainWindow(arguments);
