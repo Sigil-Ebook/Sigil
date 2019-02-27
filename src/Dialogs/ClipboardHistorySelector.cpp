@@ -65,8 +65,7 @@ void ClipboardHistorySelector::showEvent(QShowEvent *event)
 
 void ClipboardHistorySelector::ApplicationActivated()
 {
-    // Turned on when Sigil is activated, put the latest text if any at the top of the history
-    ClipboardChanged();
+    // Turned on when Sigil is activated
     connect(QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(ClipboardChanged()));
 
     // If we are currently showing this dialog, refresh the display
