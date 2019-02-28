@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, ON, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -40,6 +41,8 @@ public:
      * The supplied text can be a CSS file or html containing inline styles.
      */
     CSSInfo(const QString &text, bool isCSSFile = true);
+
+    ~CSSInfo();
 
     struct CSSSelector {
         QString originalText;       /* The original text of the complete selector                  */

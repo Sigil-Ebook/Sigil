@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2016, 2017, 2018, 2019 Kevin B. Hendricks, Stratford, ON Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -32,6 +32,11 @@ const int TAB_SPACES_WIDTH = 4;
 const QString LINE_MARKER("[SIGIL_NEWLINE]");
 static const QString DELIMITERS = "}{;";
 
+
+// Note: CSSProperties and CSSSelectors are simple struct that this code
+// created with new and so need to be manually cleaned up to prevent
+// large memory leaks
+
 CSSInfo::CSSInfo(const QString &text, bool isCSSFile)
     : m_OriginalText(text),
       m_IsCSSFile(isCSSFile)
@@ -51,6 +56,15 @@ CSSInfo::CSSInfo(const QString &text, bool isCSSFile)
         }
     }
 }
+
+// Need to manually clean up the Selector List
+CSSInfo::~CSSInfo()
+{
+  foreach(CSSSelector * sp, m_CSSSelectors) {
+      if (sp) delete sp;
+  } 
+}
+
 
 QList<CSSInfo::CSSSelector *> CSSInfo::getClassSelectors(const QString filterClassName)
 {
@@ -156,6 +170,7 @@ QStringList CSSInfo::getAllPropertyValues(QString property)
             if (property.isEmpty() || p->name == property) {
                 property_values.append(p->value);
             }
+	    delete p;
         }
     }
 
@@ -233,6 +248,10 @@ QString CSSInfo::getReformattedCSSText(bool multipleLineFormat)
         QList<CSSInfo::CSSProperty *> new_properties = getCSSProperties(m_OriginalText, cssSelector->openingBracePos + 1, cssSelector->closingBracePos);
         const QString &new_properties_text = formatCSSProperties(new_properties, multipleLineFormat, selector_indent);
         new_text.replace(cssSelector->openingBracePos + 1, cssSelector->closingBracePos - cssSelector->openingBracePos - 1, new_properties_text);
+	// clear up new_properties as they were created with new
+	foreach(CSSInfo::CSSProperty* p, new_properties) {
+	    if (p) delete p;
+	}
         // Reformat the selector text itself - whitespace only since incomplete parsing.
         // Will ensure the braces are placed on the same line as the selector name,
         // comma separated groups are spaced apart and double spaces are removed.

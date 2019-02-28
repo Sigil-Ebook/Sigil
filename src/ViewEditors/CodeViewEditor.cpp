@@ -3193,6 +3193,9 @@ void CodeViewEditor::FormatStyle(const QString &property_name, const QString &pr
                 } else {
                     property_values.append(QString("%1: %2").arg(css_property->name).arg(css_property->value));
                 }
+		// CSSInfo.getCSSProperties creates each CSSProperty pointer with new
+		// and it must be cleaned by caller to prevent memory leak
+		if (css_property) delete css_property;
             }
             style_attribute_value = QString("%1;").arg(property_values.join("; "));
         }

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2016, 2017, 2018, 2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -4521,6 +4521,8 @@ void MainWindow::ExtendUI()
 
 void MainWindow::UpdateClipButton(int clip_number, QAction *ui_action)
 {
+    // clipEntry is a simple struct created by GetEntry with new,
+    // no reference counting or smart pointers so they must be cleaned up appropriately
     ClipEditorModel::clipEntry *clip_entry = ClipEditorModel::instance()->GetEntryFromNumber(clip_number);
 
     if (clip_entry) {
@@ -4529,6 +4531,8 @@ void MainWindow::UpdateClipButton(int clip_number, QAction *ui_action)
         clip_text.replace('&', "&amp;").replace('<', "&lt;").replace('>', "&gt;");
         ui_action->setToolTip(clip_text);
         ui_action->setVisible(true);
+	// prevent memory leak
+	delete clip_entry;
     } else {
         ui_action->setText("");
         ui_action->setToolTip("");
