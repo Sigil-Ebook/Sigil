@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2018, 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -293,33 +293,33 @@ void SearchEditorModel::LoadInitialData()
 
 void SearchEditorModel::LoadData(const QString &filename, QStandardItem *item)
 {
-    SettingsStore *settings;
+    QString settings_path = filename;
+    if (settings_path.isEmpty()) settings_path = m_SettingsPath;
 
-    if (filename.isEmpty()) {
-        settings = new SettingsStore(m_SettingsPath);
-    } else {
-        settings = new SettingsStore(filename);
-    }
+    SettingsStore* ss = new SettingsStore(settings_path);
 
-    int size = settings->beginReadArray(SETTINGS_GROUP);
+    int size = ss->beginReadArray(SETTINGS_GROUP);
 
     // Add one entry at a time to the list
     for (int i = 0; i < size; ++i) {
-        settings->setArrayIndex(i);
+        ss->setArrayIndex(i);
         SearchEditorModel::searchEntry *entry = new SearchEditorModel::searchEntry();
-        QString fullname = settings->value(ENTRY_NAME).toString();
+        QString fullname = ss->value(ENTRY_NAME).toString();
         fullname.replace(QRegularExpression("\\s*/+\\s*"), "/");
         fullname.replace(QRegularExpression("^/"), "");
         entry->is_group = fullname.endsWith("/");
         // Name is set to fullname only while looping through parent groups when adding
         entry->name = fullname;
         entry->fullname = fullname;
-        entry->find = settings->value(ENTRY_FIND).toString();
-        entry->replace = settings->value(ENTRY_REPLACE).toString();
+        entry->find = ss->value(ENTRY_FIND).toString();
+        entry->replace = ss->value(ENTRY_REPLACE).toString();
         AddFullNameEntry(entry, item);
+	// done with the temporary entry so remove it
+	delete entry;
     }
 
-    settings->endArray();
+    ss->endArray();
+    delete ss;
 }
 
 void SearchEditorModel::AddFullNameEntry(SearchEditorModel::searchEntry *entry, QStandardItem *parent_item, int row)
@@ -363,6 +363,7 @@ void SearchEditorModel::AddFullNameEntry(SearchEditorModel::searchEntry *entry, 
                 new_entry->is_group = true;
                 new_entry->name = group_name;
                 parent_item = AddEntryToModel(new_entry, new_entry->is_group, parent_item, parent_item->rowCount());
+		delete new_entry;
             }
         }
         row = parent_item->rowCount();
@@ -575,58 +576,73 @@ QStandardItem *SearchEditorModel::GetItemFromId(quintptr id, int row, QStandardI
 QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry *> entries, const QString &filename)
 {
     QString message = "";
+    bool clean_up_needed = false;
+    QString settings_path = filename;
+    if (settings_path.isEmpty()) settings_path = m_SettingsPath;
 
     // Save everything if no entries selected
     if (entries.isEmpty()) {
         QList<QStandardItem *> items = GetNonParentItems(invisibleRootItem());
 
         if (!items.isEmpty()) {
+	    // GetEntries calls GetEntry which creates each entry with new
             entries = GetEntries(items);
+	    clean_up_needed = true;
         }
     }
 
     // Stop watching the file while we save it
-    if (m_FSWatcher->files().contains(m_SettingsPath)) {
-        m_FSWatcher->removePath(m_SettingsPath);
+    if (m_FSWatcher->files().contains(settings_path)) {
+        m_FSWatcher->removePath(settings_path);
     }
 
     // Open the default file for save, or specific file for export
-    SettingsStore *settings;
+    SettingsStore* ss = new SettingsStore(settings_path);
 
-    if (filename.isEmpty()) {
-        settings = new SettingsStore(m_SettingsPath);
-    } else {
-        settings = new SettingsStore(filename);
-    }
+    ss->sync();
 
-    settings->sync();
-
-    if (!settings->isWritable()) {
+    if (!ss->isWritable()) {
         message = tr("Unable to create file %1").arg(filename);
         // Watch the file again
-        m_FSWatcher->addPath(m_SettingsPath);
+        m_FSWatcher->addPath(settings_path);
+	// delete each entry if we created them above   
+	if (clean_up_needed) {
+	    foreach(SearchEditorModel::searchEntry* entry, entries) {
+	        delete entry;
+	    }
+	}
+	delete ss;
         return message;
     }
 
     // Remove the old values to account for deletions
-    settings->remove(SETTINGS_GROUP);
-    settings->beginWriteArray(SETTINGS_GROUP);
+    ss->remove(SETTINGS_GROUP);
+    ss->beginWriteArray(SETTINGS_GROUP);
     int i = 0;
     foreach(SearchEditorModel::searchEntry * entry, entries) {
-        settings->setArrayIndex(i++);
-        settings->setValue(ENTRY_NAME, entry->fullname);
+        ss->setArrayIndex(i++);
+        ss->setValue(ENTRY_NAME, entry->fullname);
 
         if (!entry->is_group) {
-            settings->setValue(ENTRY_FIND, entry->find);
-            settings->setValue(ENTRY_REPLACE, entry->replace);
+            ss->setValue(ENTRY_FIND, entry->find);
+            ss->setValue(ENTRY_REPLACE, entry->replace);
         }
     }
-    settings->endArray();
+    
+    // delete each entry if we created them above
+    if (clean_up_needed) {
+	foreach(SearchEditorModel::searchEntry* entry, entries) {
+	    delete entry;
+	}
+    }
+
+    ss->endArray();
     // Make sure file is created/updated so it can be checked
-    settings->sync();
+    ss->sync();
     // Watch the file again
-    m_FSWatcher->addPath(m_SettingsPath);
+    m_FSWatcher->addPath(settings_path);
     SetDataModified(false);
+    delete ss;
     return message;
 }
 
