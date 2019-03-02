@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -94,31 +95,37 @@ bool SearchEditor::SaveData(QList<SearchEditorModel::searchEntry *> entries, QSt
 
 void SearchEditor::LoadFindReplace()
 {
+    // destination needs to delete each searchEntry when done
     emit LoadSelectedSearchRequest(GetSelectedEntry(false));
 }
 
 void SearchEditor::Find()
 {
+    // destination needs to delete each searchEntry when done
     emit FindSelectedSearchRequest(GetSelectedEntries());
 }
 
 void SearchEditor::ReplaceCurrent()
 {
+    // destination needs to delete each searchEntry when done
     emit ReplaceCurrentSelectedSearchRequest(GetSelectedEntries());
 }
 
 void SearchEditor::Replace()
 {
+    // destination needs to delete each searchEntry when done
     emit ReplaceSelectedSearchRequest(GetSelectedEntries());
 }
 
 void SearchEditor::CountAll()
 {
+    // destination needs to delete each searchEntry when done
     emit CountAllSelectedSearchRequest(GetSelectedEntries());
 }
 
 void SearchEditor::ReplaceAll()
 {
+    // destination needs to delete each searchEntry when done
     emit ReplaceAllSelectedSearchRequest(GetSelectedEntries());
 }
 
@@ -183,6 +190,10 @@ int SearchEditor::SelectedRowsCount()
 
 SearchEditorModel::searchEntry *SearchEditor::GetSelectedEntry(bool show_warning)
 {
+    // Note: a SeachEditorModel::searchEntry is a simple struct that is created
+    // by new in SearchEditorModel GetEntry() and GetEntries()
+    // These must be manually deleted when done to prevent memory leaks
+
     SearchEditorModel::searchEntry *entry = NULL;
 
     if (ui.SearchEditorTree->selectionModel()->hasSelection()) {
@@ -210,6 +221,10 @@ SearchEditorModel::searchEntry *SearchEditor::GetSelectedEntry(bool show_warning
 
 QList<SearchEditorModel::searchEntry *> SearchEditor::GetSelectedEntries()
 {
+    // Note: a SeachEditorModel::searchEntry is a simple struct that is created 
+    // by new in SearchEditorModel GetEntry() and GetEntries()
+    // These must be manually deleted when done to prevent memory leaks
+
     QList<SearchEditorModel::searchEntry *> selected_entries;
 
     if (ui.SearchEditorTree->selectionModel()->hasSelection()) {

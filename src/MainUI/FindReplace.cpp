@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2011, 2012  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012  Dave Heiland
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -1169,6 +1170,10 @@ void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
     if (!search_entry->name.isEmpty()) {
         message = QString("%1: %2 ").arg(tr("Loaded")).arg(search_entry->name.replace('<', "&lt;").replace('>', "&gt;").left(50));
     }
+
+    // prevent memory leak in FindSearch, ReplaceCurrentSearch, ReplaceSearch,
+    // CountAllSearch, and ReplaceAllSearch
+    delete search_entry;
 
     ShowMessage(message);
 }
