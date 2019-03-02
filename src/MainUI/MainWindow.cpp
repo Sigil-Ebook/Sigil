@@ -222,6 +222,31 @@ MainWindow::~MainWindow()
         m_ViewImage->close();
         m_ViewImage = NULL;
     }
+
+#ifdef Q_OS_MAC
+    if (m_ClipboardHistorySelector) delete m_ClipboardHistorySelector;
+    if (m_LinkOrStyleBookmark) delete m_LinkOrStyleBookmark;
+    if (m_Reports) delete m_Reports;
+    if (m_ViewImage) delete m_ViewImage;
+    if (m_SelectCharacter) delete m_SelectCharacter;
+    if (m_SpellcheckEditor) delete m_SpellcheckEditor;
+    if (m_IndexEditor) delete m_IndexEditor;
+    if (m_ClipEditor) delete m_ClipEditor;
+    if (m_SearchEditor) delete m_SearchEditor;
+    if (m_pluginMapper) delete m_pluginMapper;
+    if (m_casingChangeMapper) delete m_casingChangeMapper;
+    if (m_headingMapper) delete m_headingMapper;
+    if (m_lbZoomLabel) delete m_lbZoomLabel;
+    if (m_slZoomSlider) delete m_slZoomSlider;
+    if (m_ValidationResultsView) delete m_ValidationResultsView;
+    if (m_TableOfContents) delete m_TableOfContents;
+    if (m_FindReplace) delete m_FindReplace;
+    if (m_Clips) delete m_Clips;
+    if (m_BookBrowser) delete m_BookBrowser;
+    if (m_TabManager) delete m_TabManager;
+    if (m_PreviewWindow) delete m_PreviewWindow;
+#endif
+
 }
 
 
