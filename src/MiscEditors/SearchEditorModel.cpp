@@ -639,10 +639,11 @@ QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry *> entr
     ss->endArray();
     // Make sure file is created/updated so it can be checked
     ss->sync();
+    delete ss;
+
     // Watch the file again
     m_FSWatcher->addPath(settings_path);
     SetDataModified(false);
-    delete ss;
     return message;
 }
 
