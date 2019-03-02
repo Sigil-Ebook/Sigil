@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2017, 2018 Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2017, 2018, 2019 Kevin B. Hendricks, Stratford, Ontario
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012, 2013 Dave Heiland
 **
@@ -50,6 +50,11 @@ AllFilesWidget::AllFilesWidget()
 {
     ui.setupUi(this);
     connectSignalsSlots();
+}
+
+AllFilesWidget::~AllFilesWidget()
+{
+  delete m_ItemModel;
 }
 
 void AllFilesWidget::CreateReport(QSharedPointer<Book> book)

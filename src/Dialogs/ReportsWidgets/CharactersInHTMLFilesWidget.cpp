@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **
@@ -52,6 +53,11 @@ CharactersInHTMLFilesWidget::CharactersInHTMLFilesWidget()
 {
     ui.setupUi(this);
     connectSignalsSlots();
+}
+
+CharactersInHTMLFilesWidget::~CharactersInHTMLFilesWidget()
+{
+    delete m_ItemModel;
 }
 
 void CharactersInHTMLFilesWidget::CreateReport(QSharedPointer<Book> book)

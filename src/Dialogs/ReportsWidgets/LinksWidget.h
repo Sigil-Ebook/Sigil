@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2013 Dave Heiland
 **
@@ -47,6 +48,7 @@ class LinksWidget : public ReportsWidget
 
 public:
     LinksWidget();
+    ~LinksWidget();
 
     void CreateReport(QSharedPointer<Book> book);
 

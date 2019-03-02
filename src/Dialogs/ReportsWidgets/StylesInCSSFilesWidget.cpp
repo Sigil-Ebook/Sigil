@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **
@@ -50,6 +51,11 @@ StylesInCSSFilesWidget::StylesInCSSFilesWidget()
     ui.fileTree->setContextMenuPolicy(Qt::CustomContextMenu);
     CreateContextMenuActions();
     connectSignalsSlots();
+}
+
+StylesInCSSFilesWidget::~StylesInCSSFilesWidget()
+{
+    delete m_ItemModel;
 }
 
 void StylesInCSSFilesWidget::CreateReport(QSharedPointer<Book> book)

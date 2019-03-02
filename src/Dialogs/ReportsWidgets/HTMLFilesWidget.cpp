@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018 Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2018, 2019 Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **
@@ -52,6 +52,11 @@ HTMLFilesWidget::HTMLFilesWidget()
     ui.fileTree->setContextMenuPolicy(Qt::CustomContextMenu);
     CreateContextMenuActions();
     connectSignalsSlots();
+}
+
+HTMLFilesWidget::~HTMLFilesWidget()
+{
+    delete m_ItemModel;
 }
 
 void HTMLFilesWidget::CreateReport(QSharedPointer<Book> book)

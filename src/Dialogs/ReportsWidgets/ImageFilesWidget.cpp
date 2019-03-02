@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018 Kevin Hendricks, Statford, ON 
+**  Copyright (C) 2018, 2019 Kevin Hendricks, Statford, ON 
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
@@ -55,6 +55,11 @@ ImageFilesWidget::ImageFilesWidget()
     CreateContextMenuActions();
     connectSignalsSlots();
     ReadSettings();
+}
+
+ImageFilesWidget::~ImageFilesWidget()
+{
+    delete m_ItemModel;
 }
 
 void ImageFilesWidget::CreateReport(QSharedPointer<Book> book)

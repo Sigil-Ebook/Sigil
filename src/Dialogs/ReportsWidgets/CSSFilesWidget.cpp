@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018 Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2018, 2019 Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
@@ -53,6 +53,11 @@ CSSFilesWidget::CSSFilesWidget()
     CreateContextMenuActions();
     connectSignalsSlots();
 }
+
+CSSFilesWidget::~CSSFilesWidget() {
+    delete m_ItemModel;
+}
+
 
 void CSSFilesWidget::CreateReport(QSharedPointer<Book> book)
 {
