@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Doug Massay
 **  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012, 2013 Dave Heiland
@@ -2103,6 +2104,11 @@ void CodeViewEditor::DelayedCursorScreenCentering()
 {
     if (m_DelayedCursorScreenCenteringRequired) {
         centerCursor();
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+        // The Code View viewport stopped updating on Linux somewhere
+        // around Qt5.12.0 in this delayed call to center the cursor.
+        viewport()->update();
+#endif
         m_DelayedCursorScreenCenteringRequired = false;
     }
 }
