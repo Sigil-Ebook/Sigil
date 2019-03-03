@@ -2067,10 +2067,17 @@ void MainWindow::PasteClip20IntoCurrentTarget()
     PasteClipIntoCurrentTarget(20);
 }
 
+// How to deal with this as each clipEntry struct created with new and passed via
+// emit signal to here?  Where and show should their memory be freed.
+// Perhaps we need to make clipEntry a QObject instead of just a struct or use
+// smart pointers
 void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::clipEntry *> &clips)
 {
     if (m_LastPasteTarget == NULL) {
         ShowMessageOnStatusBar(tr("Select the destination to paste into first."));
+	foreach(ClipEditorModel::clipEntry * entry, clips) {
+	    if (entry) delete entry;
+	}
         return;
     }
 
@@ -2080,6 +2087,11 @@ void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::
         // Clear the statusbar afterwards but only if entries were pasted.
         ShowMessageOnStatusBar();
     }
+
+    foreach(ClipEditorModel::clipEntry * entry, clips) {
+        if (entry) delete entry;
+    }
+
 }
 
 void MainWindow::PasteClipEntriesIntoPreviousTarget(const QList<ClipEditorModel::clipEntry *> &clips)

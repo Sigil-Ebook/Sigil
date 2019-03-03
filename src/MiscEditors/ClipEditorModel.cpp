@@ -263,6 +263,7 @@ QString ClipEditorModel::GetFullName(QStandardItem *item)
     return item->data(FULLNAME_ROLE).toString();
 }
 
+// potential memory leak here too from GetEntry
 ClipEditorModel::clipEntry *ClipEditorModel::GetEntryFromNumber(int clip_number)
 {
     return GetEntry(GetItemFromNumber(clip_number));

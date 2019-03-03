@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -95,6 +96,8 @@ bool ClipEditor::SaveData(QList<ClipEditorModel::clipEntry *> entries, QString f
 
 void ClipEditor::PasteIntoDocument()
 {
+    // GetSelectedEntries creates each clipEntry with new
+    // and so they will need to be deleted to prevent memory leaks
     emit PasteSelectedClipRequest(GetSelectedEntries());
 }
 
@@ -151,6 +154,10 @@ int ClipEditor::SelectedRowsCount()
     return count;
 }
 
+
+// Note this routine invokes ClipEditorModel GetEntries or GetEntry
+// which creates the clipEntry structs using new so we will need
+// to clean up after we are done to prevent memory leaks
 QList<ClipEditorModel::clipEntry *> ClipEditor::GetSelectedEntries()
 {
     QList<ClipEditorModel::clipEntry *> selected_entries;
@@ -254,10 +261,15 @@ bool ClipEditor::Copy()
     }
 
     while (m_SavedClipEntries.count()) {
+        // these were previously generated with new
+        ClipEditorModel::clipEntry * p = m_SavedClipEntries.at(0);
+	delete p;
         m_SavedClipEntries.removeAt(0);
     }
 
+    // we will need to clean up the entries below to prevent memory leaks
     QList<ClipEditorModel::clipEntry *> entries = GetSelectedEntries();
+   
 
     if (!entries.count()) {
         return false;
@@ -268,16 +280,22 @@ bool ClipEditor::Copy()
 
         if (entry->is_group) {
             Utility::DisplayStdErrorDialog(tr("You cannot Copy or Cut groups - use drag-and-drop.")) ;
+	    delete entry;
             return false;
         }
+	delete entry;
     }
     foreach(ClipEditorModel::clipEntry * entry, entries) {
+        // need to clean up m_SavedClipEntries when done to prevent memory leak
         ClipEditorModel::clipEntry *save_entry = new ClipEditorModel::clipEntry();
         save_entry->name = entry->name;
         save_entry->is_group = entry->is_group;
         save_entry->text = entry->text;
         m_SavedClipEntries.append(save_entry);
     }
+    // to prevent memory leaks
+    qDeleteAll(entries);
+    entries.clear();
     return true;
 }
 
@@ -410,6 +428,7 @@ void ClipEditor::ExportItems(QList<QStandardItem *> items)
             parent_path = m_ClipEditorModel->GetFullName(item->parent());
         }
 
+	// Note GetEntry creates the clipEntry with new and it is just a struct
         foreach(QStandardItem * item, sub_items) {
             ClipEditorModel::clipEntry *entry = m_ClipEditorModel->GetEntry(item);
             // Remove the top level paths since we're exporting a subset
@@ -443,6 +462,9 @@ void ClipEditor::ExportItems(QList<QStandardItem *> items)
         m_LastFolderOpen = QFileInfo(filename).absolutePath();
         WriteSettings();
     }
+    // need to delete the entries to prevent a leak
+    qDeleteAll(entries);
+    entries.clear();
 }
 
 void ClipEditor::CollapseAll()
