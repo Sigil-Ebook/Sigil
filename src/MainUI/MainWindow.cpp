@@ -1110,7 +1110,7 @@ void MainWindow::SpellcheckEditorDialog()
 void MainWindow::clearMemoryCaches()
 {
     // See https://bugreports.qt-project.org/browse/QTBUG-4350
-    // QWebSettinbgs::clearMemoryCaches();
+    // QWebSettings::clearMemoryCaches();
 
     // replace the above with a similar sequence 
     // that does not invalidate the fontCache
@@ -1253,7 +1253,7 @@ void MainWindow::AddCover()
 
     m_BookBrowser->Refresh();
     m_Book->SetModified();
-    clearMemoryCaches();
+    MainWindow::clearMemoryCaches();
     OpenResourceAndWaitUntilLoaded(html_cover_resource);
     // Reload the tab to ensure it reflects updated image.
     FlowTab *flow_tab = GetCurrentFlowTab();
@@ -1774,7 +1774,7 @@ void MainWindow::InsertFilesFromDisk()
     QStringList filenames = m_BookBrowser->AddExisting(true);
     connect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeleted()));
     // Since we disconnected the signal we will have missed forced clearing of cache
-    clearMemoryCaches();
+    MainWindow::clearMemoryCaches();
     QStringList internal_filenames;
     foreach(QString filename, filenames) {
         QString internal_filename = filename.right(filename.length() - filename.lastIndexOf("/") - 1);
@@ -3342,6 +3342,10 @@ void MainWindow::UpdatePreview()
 
         html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());
 
+	if (html_resource && (html_resource != m_PreviousHTMLResource)) {
+	    // use this as an opportunity to clean out the web caches
+	    MainWindow::clearMemoryCaches();
+	}
         // handles all cases of non-html resource in front tab
         if (!html_resource) {
             // note: must handle case of m_PreviousHTMLResource being deleted by user
@@ -3755,7 +3759,7 @@ void MainWindow::SetNewBook(QSharedPointer<Book> new_book)
 
 void MainWindow::ResourcesAddedOrDeleted()
 {
-    clearMemoryCaches();
+    MainWindow::clearMemoryCaches();
 
     // Make sure currently visible tab is updated immediately
     FlowTab *flow_tab = GetCurrentFlowTab();
