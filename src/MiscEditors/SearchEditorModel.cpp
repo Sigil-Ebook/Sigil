@@ -595,47 +595,50 @@ QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry *> entr
     }
 
     // Open the default file for save, or specific file for export
-    SettingsStore ss(settings_path);
+    {
+        SettingsStore ss(settings_path);
 
-    ss.sync();
+        // ss.sync();
 
-    if (!ss.isWritable()) {
-        message = tr("Unable to create file %1").arg(filename);
-        // Watch the file again
-        m_FSWatcher->addPath(settings_path);
-	// delete each entry if we created them above   
-	if (clean_up_needed) {
+        if (!ss.isWritable()) {
+            message = tr("Unable to create file %1").arg(filename);
+            // Watch the file again
+            m_FSWatcher->addPath(settings_path);
+	    // delete each entry if we created them above   
+	    if (clean_up_needed) {
+	        foreach(SearchEditorModel::searchEntry* entry, entries) {
+	            delete entry;
+	        }
+	    }
+            return message;
+        }
+
+        // Remove the old values to account for deletions
+        ss.remove(SETTINGS_GROUP);
+        ss.beginWriteArray(SETTINGS_GROUP);
+        int i = 0;
+        foreach(SearchEditorModel::searchEntry * entry, entries) {
+            ss.setArrayIndex(i++);
+            ss.setValue(ENTRY_NAME, entry->fullname);
+
+            if (!entry->is_group) {
+                ss.setValue(ENTRY_FIND, entry->find);
+                ss.setValue(ENTRY_REPLACE, entry->replace);
+            }
+        }
+    
+        // delete each entry if we created them above
+        if (clean_up_needed) {
 	    foreach(SearchEditorModel::searchEntry* entry, entries) {
 	        delete entry;
 	    }
-	}
-        return message;
-    }
-
-    // Remove the old values to account for deletions
-    ss.remove(SETTINGS_GROUP);
-    ss.beginWriteArray(SETTINGS_GROUP);
-    int i = 0;
-    foreach(SearchEditorModel::searchEntry * entry, entries) {
-        ss.setArrayIndex(i++);
-        ss.setValue(ENTRY_NAME, entry->fullname);
-
-        if (!entry->is_group) {
-            ss.setValue(ENTRY_FIND, entry->find);
-            ss.setValue(ENTRY_REPLACE, entry->replace);
         }
-    }
-    
-    // delete each entry if we created them above
-    if (clean_up_needed) {
-	foreach(SearchEditorModel::searchEntry* entry, entries) {
-	    delete entry;
-	}
-    }
 
-    ss.endArray();
-    // Make sure file is created/updated so it can be checked
-    ss.sync();
+        ss.endArray();
+
+        // Make sure file is created/updated so it can be checked
+        ss.sync();
+    }
 
     // Watch the file again
     m_FSWatcher->addPath(settings_path);

@@ -673,46 +673,47 @@ QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry *> entries, c
     }
 
     // Open the default file for save, or specific file for export
-    SettingsStore ss(settings_path);
+    {
+        SettingsStore ss(settings_path);
 
-    ss.sync();
+        if (!ss.isWritable()) {
+            message = tr("Unable to create file %1").arg(filename);
+            // Watch the file again
+            m_FSWatcher->addPath(settings_path);
 
-    if (!ss.isWritable()) {
-        message = tr("Unable to create file %1").arg(filename);
-        // Watch the file again
-        m_FSWatcher->addPath(settings_path);
+            // delete each entry if we created them above 
+            if (clean_up_needed) {
+	        foreach(ClipEditorModel::clipEntry* entry, entries) {
+	            delete entry;
+	        }
+            }
+            return message;
+        }
 
-        // delete each entry if we created them above 
+        // Remove the old values to account for deletions
+        ss.remove(SETTINGS_GROUP);
+        ss.beginWriteArray(SETTINGS_GROUP);
+        int i = 0;
+        foreach(ClipEditorModel::clipEntry * entry, entries) {
+            ss.setArrayIndex(i++);
+            ss.setValue(ENTRY_NAME, entry->fullname);
+
+            if (!entry->is_group) {
+                ss.setValue(ENTRY_TEXT, entry->text);
+            }
+        }
+        // delete each entry if we created them above
         if (clean_up_needed) {
-	    foreach(ClipEditorModel::clipEntry* entry, entries) {
+            foreach(ClipEditorModel::clipEntry* entry, entries) {
 	        delete entry;
-	    }
+            }
         }
-        return message;
+        ss.endArray();
+
+        // Make sure file is created/updated so it can be checked
+        ss.sync();
     }
 
-    // Remove the old values to account for deletions
-    ss.remove(SETTINGS_GROUP);
-    ss.beginWriteArray(SETTINGS_GROUP);
-    int i = 0;
-    foreach(ClipEditorModel::clipEntry * entry, entries) {
-        ss.setArrayIndex(i++);
-        ss.setValue(ENTRY_NAME, entry->fullname);
-
-        if (!entry->is_group) {
-            ss.setValue(ENTRY_TEXT, entry->text);
-        }
-    }
-    // delete each entry if we created them above
-    if (clean_up_needed) {
-        foreach(ClipEditorModel::clipEntry* entry, entries) {
-	    delete entry;
-         }
-    }
-    ss.endArray();
-
-    // Make sure file is created/updated so it can be checked
-    ss.sync();
 
     // Watch the file again
     m_FSWatcher->addPath(settings_path);
