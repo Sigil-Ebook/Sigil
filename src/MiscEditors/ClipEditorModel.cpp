@@ -349,28 +349,26 @@ void ClipEditorModel::LoadData(const QString &filename, QStandardItem *item)
     QString settings_path = filename;
     if (settings_path.isEmpty()) settings_path = m_SettingsPath;
 
-    SettingsStore* ss  = new SettingsStore(settings_path);
+    SettingsStore ss(settings_path);
 
-    int size = ss->beginReadArray(SETTINGS_GROUP);
+    int size = ss.beginReadArray(SETTINGS_GROUP);
 
     // Add one entry at a time to the list
     for (int i = 0; i < size; ++i) {
-        ss->setArrayIndex(i);
+        ss.setArrayIndex(i);
         ClipEditorModel::clipEntry *entry = new ClipEditorModel::clipEntry();
-        QString fullname = ss->value(ENTRY_NAME).toString();
+        QString fullname = ss.value(ENTRY_NAME).toString();
         fullname.replace(QRegularExpression("\\s*/+\\s*"), "/");
         fullname.replace(QRegularExpression("^/"), "");
         entry->is_group = fullname.endsWith("/");
         // Name is set to fullname only while looping through parent groups when adding
         entry->name = fullname;
         entry->fullname = fullname;
-        entry->text = ss->value(ENTRY_TEXT).toString();
+        entry->text = ss.value(ENTRY_TEXT).toString();
         AddFullNameEntry(entry, item);
 	delete entry;
     }
-
-    ss->endArray();
-    delete ss;
+    ss.endArray();
 }
 
 void ClipEditorModel::AddFullNameEntry(ClipEditorModel::clipEntry *entry, QStandardItem *parent_item, int row)
@@ -675,11 +673,11 @@ QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry *> entries, c
     }
 
     // Open the default file for save, or specific file for export
-    SettingsStore* ss = new SettingsStore(settings_path);
+    SettingsStore ss(settings_path);
 
-    ss->sync();
+    ss.sync();
 
-    if (!ss->isWritable()) {
+    if (!ss.isWritable()) {
         message = tr("Unable to create file %1").arg(filename);
         // Watch the file again
         m_FSWatcher->addPath(settings_path);
@@ -690,20 +688,19 @@ QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry *> entries, c
 	        delete entry;
 	    }
         }
-	delete ss;
         return message;
     }
 
     // Remove the old values to account for deletions
-    ss->remove(SETTINGS_GROUP);
-    ss->beginWriteArray(SETTINGS_GROUP);
+    ss.remove(SETTINGS_GROUP);
+    ss.beginWriteArray(SETTINGS_GROUP);
     int i = 0;
     foreach(ClipEditorModel::clipEntry * entry, entries) {
-        ss->setArrayIndex(i++);
-        ss->setValue(ENTRY_NAME, entry->fullname);
+        ss.setArrayIndex(i++);
+        ss.setValue(ENTRY_NAME, entry->fullname);
 
         if (!entry->is_group) {
-            ss->setValue(ENTRY_TEXT, entry->text);
+            ss.setValue(ENTRY_TEXT, entry->text);
         }
     }
     // delete each entry if we created them above
@@ -712,10 +709,10 @@ QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry *> entries, c
 	    delete entry;
          }
     }
-    ss->endArray();
+    ss.endArray();
+
     // Make sure file is created/updated so it can be checked
-    ss->sync();
-    delete ss;
+    ss.sync();
 
     // Watch the file again
     m_FSWatcher->addPath(settings_path);

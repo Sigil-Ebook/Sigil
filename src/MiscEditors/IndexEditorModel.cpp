@@ -199,16 +199,16 @@ void IndexEditorModel::LoadData(const QString &filename, QStandardItem *item)
     QString settings_path = filename;
     if (settings_path.isEmpty()) settings_path = m_SettingsPath;
 
-    SettingsStore* ss = new SettingsStore(settings_path);
+    SettingsStore ss(settings_path);
 
-    int size = ss->beginReadArray(SETTINGS_GROUP);
+    int size = ss.beginReadArray(SETTINGS_GROUP);
 
     // Add one entry at a time to the list
     for (int i = 0; i < size; ++i) {
-        ss->setArrayIndex(i);
+        ss.setArrayIndex(i);
         IndexEditorModel::indexEntry *entry = new IndexEditorModel::indexEntry();
-        entry->pattern = ss->value(ENTRY_PATTERN).toString();
-        entry->index_entry = ss->value(ENTRY_INDEX_ENTRY).toString();
+        entry->pattern = ss.value(ENTRY_PATTERN).toString();
+        entry->index_entry = ss.value(ENTRY_INDEX_ENTRY).toString();
 
         if (!entry->pattern.isEmpty() || !entry->index_entry.isEmpty()) {
             AddFullNameEntry(entry, item);
@@ -216,8 +216,7 @@ void IndexEditorModel::LoadData(const QString &filename, QStandardItem *item)
 	delete entry;
     }
 
-    ss->endArray();
-    delete ss;
+    ss.endArray();
 }
 
 QStandardItem *IndexEditorModel::AddFullNameEntry(IndexEditorModel::indexEntry *entry, QStandardItem *parent_item, int row)
@@ -339,11 +338,11 @@ QString IndexEditorModel::SaveData(QList<IndexEditorModel::indexEntry *> entries
     }
 
     // Open the default file for save, or specific file for export
-    SettingsStore* ss = new SettingsStore(settings_path);
+    SettingsStore ss(settings_path);
 
-    ss->sync();
+    ss.sync();
 
-    if (!ss->isWritable()) {
+    if (!ss.isWritable()) {
         message = tr("Unable to create file %1").arg(filename);
         // Watch the file again
         m_FSWatcher->addPath(settings_path);
@@ -354,13 +353,12 @@ QString IndexEditorModel::SaveData(QList<IndexEditorModel::indexEntry *> entries
 	        delete entry;
 	    }
         }
-	delete ss;
         return message;
     }
 
     // Remove the old values to account for deletions
-    ss->remove(SETTINGS_GROUP);
-    ss->beginWriteArray(SETTINGS_GROUP);
+    ss.remove(SETTINGS_GROUP);
+    ss.beginWriteArray(SETTINGS_GROUP);
     int i = 0;
     foreach(IndexEditorModel::indexEntry * entry, entries) {
         if (entry->pattern.isEmpty() && entry->index_entry.isEmpty()) {
@@ -368,9 +366,9 @@ QString IndexEditorModel::SaveData(QList<IndexEditorModel::indexEntry *> entries
         }
 
         foreach(QString pattern, entry->pattern.split("\n")) {
-            ss->setArrayIndex(i++);
-            ss->setValue(ENTRY_PATTERN, pattern);
-            ss->setValue(ENTRY_INDEX_ENTRY, entry->index_entry);
+            ss.setArrayIndex(i++);
+            ss.setValue(ENTRY_PATTERN, pattern);
+            ss.setValue(ENTRY_INDEX_ENTRY, entry->index_entry);
         }
     }
 
@@ -380,10 +378,9 @@ QString IndexEditorModel::SaveData(QList<IndexEditorModel::indexEntry *> entries
 	    delete entry;
 	}
     }
-    ss->endArray();
+    ss.endArray();
     // Make sure file is created/updated so it can be checked
-    ss->sync();
-    delete ss;
+    ss.sync();
 
     // Watch the file again
     m_FSWatcher->addPath(settings_path);
