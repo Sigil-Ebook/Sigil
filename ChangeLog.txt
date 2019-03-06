@@ -1,16 +1,15 @@
 pre-0.9.13
    Bug Fixes
-     - Revert change of INI encoding to utf-8 as Qt is very broken under utf-8 (commit 5484463)
-     - Workaround for lost cursor in qlineedit (issue #398) (commit a8acab7)
+     - Revert change of INI encoding to utf-8 as QSettings broken under utf-8 (commit 5484463)
+     - Workaround for lost cursor in qlineedit Qt bug (issue #398) (commit a8acab7)
      - Workaround missing File New, Open, Quit menus in Mac menubar if windows closed (commit 660a8aa)
-     - Remove Icon on Tab for macOS only to workaround mac specific Qt bug (commit 5c91924)
-     - Plug some minor memory leaks (commits: 85f78d7, cb9b833, 614d601, fbf9015, bf2f2f4, ebfb613, 4qa8f33) 
+     - Remove Icon from Tab for macOS only to workaround Qt bug (commit 5c91924)
+     - Plug memory leaks (commits: 85f78d7, cb9b833, 614d601, fbf9015, bf2f2f4, ebfb613, 4qa8f33) 
 
    New Features
      - Add filename to tab tooltip (commit 27f8db7)
-     - Clear Memory Caches when Preview changes to help keep memory footprint smaller (commit 87b9247)
-     - Update to MathJax 2.75, adds support for mathml elements mlongdiv, mstack, mcarries
-       (commit 568aba5)
+     - Clear memory caches when Preview changes to keep memory footprint smaller (commit 87b9247)
+     - Update to MathJax 2.75, adds support for mathml mlongdiv, mstack, mcarries (commit 568aba5)
 
 Sigil-0.9.12
    Bug Fixes
