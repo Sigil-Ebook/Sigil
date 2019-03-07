@@ -1,5 +1,6 @@
 pre-0.9.13
    Bug Fixes
+     - Ensure all url attributes in shape-outside properties in CSS stylesheets get updated (commit de7b09f)
      - Revert change of INI encoding to utf-8 as QSettings broken under utf-8 (commit 5484463)
      - Workaround for lost cursor in qlineedit Qt bug (issue #398) (commit a8acab7)
      - Workaround missing File New, Open, Quit menus in Mac menubar if windows closed (commit 660a8aa)
