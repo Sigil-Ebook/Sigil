@@ -1,11 +1,11 @@
-pre-0.9.13
+Sigil-0.9.13
    Bug Fixes
-     - Ensure all url attributes in shape-outside properties in CSS stylesheets get updated (commit de7b09f)
      - Revert change of INI encoding to utf-8 as QSettings broken under utf-8 (commit 5484463)
+     - Ensure all url attributes in shape-outside properties in CSS stylesheets get updated (commit de7b09f)
      - Workaround for lost cursor in qlineedit Qt bug (issue #398) (commit a8acab7)
      - Workaround missing File New, Open, Quit menus in Mac menubar if windows closed (commit 660a8aa)
      - Remove Icon from Tab for macOS only to workaround Qt bug (commit 5c91924)
-     - Plug memory leaks (commits: 85f78d7, cb9b833, 614d601, fbf9015, bf2f2f4, ebfb613, 4qa8f33) 
+     - Plug some memory leaks (commits: 85f78d7, cb9b833, 614d601, fbf9015, bf2f2f4, ebfb613, 4qa8f33) 
 
    New Features
      - Add filename to tab tooltip (commit 27f8db7)
