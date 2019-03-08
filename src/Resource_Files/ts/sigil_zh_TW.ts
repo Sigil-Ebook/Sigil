@@ -1,90 +1,90 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_TW" version="2.1">
 <context>
     <name>About</name>
     <message>
         <location filename="../../Form_Files/About.ui" line="14"/>
         <source>About</source>
-        <translation>Over Sigil</translation>
+        <translation>關於</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
         <source>The EPUB Editor</source>
-        <translation>De EPUB-bewerker</translation>
+        <translation>EPUB 編輯器</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="70"/>
         <source>General</source>
-        <translation>Algemeen</translation>
+        <translation>一般</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="107"/>
         <source>Homepage:</source>
-        <translation>Startpagina:</translation>
+        <translation>首頁：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="143"/>
         <source>Version:</source>
-        <translation>Versie:</translation>
+        <translation>版本：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="170"/>
         <source>Loaded Qt:</source>
-        <translation>Gebruikte Qt:</translation>
+        <translation>載入的Qt:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="200"/>
         <source>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</translation>
+        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU一般公共許可證第三版&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="218"/>
         <source>Build time:</source>
-        <translation>Gebouwd:</translation>
+        <translation>建立時間:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="245"/>
         <source>License:</source>
-        <translation>Licentie:</translation>
+        <translation>授權許可:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="255"/>
         <source>Authors</source>
-        <translation>Auteurs</translation>
+        <translation>作者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="41"/>
         <source>GNU General Public License v3</source>
-        <translation>GNU General Public License v3</translation>
+        <translation>GNU 通用公共授權第 3 版</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer(s)</source>
-        <translation>Beheerder(s)</translation>
+        <translation>維護者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="56"/>
         <source>Previous Maintainer(s)</source>
-        <translation>Voormalige beheerder(s)</translation>
+        <translation>先前的維護者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
         <source>Code Contributors</source>
-        <translation>Codebijdragers</translation>
+        <translation>程式碼貢獻者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="68"/>
         <source>Translators</source>
-        <translation>Vertalers</translation>
+        <translation>翻譯者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="70"/>
         <source>Original Creator</source>
-        <translation>Oorspronkelijke maker</translation>
+        <translation>原始建立者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>retired</source>
-        <translation>buiten dienst</translation>
+        <translation>已退休</translation>
     </message>
 </context>
 <context>
@@ -92,12 +92,12 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
         <source>Add metadata property</source>
-        <translation>Eigenschap toevoegen aan metagegevens</translation>
+        <translation>增加一個中繼資料屬性</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="50"/>
         <source>Metadata description</source>
-        <translation>Metagegevens omschrijving</translation>
+        <translation>中繼資料描述</translation>
     </message>
 </context>
 <context>
@@ -105,12 +105,12 @@
     <message>
         <location filename="../../Form_Files/AddSemantics.ui" line="14"/>
         <source>Add Semantic Property</source>
-        <translation>Verklarende eigenschap toevoegen</translation>
+        <translation>加入語義屬性</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddSemantics.ui" line="56"/>
         <source>Description of Semantic Properties</source>
-        <translation>Beschrijving van de verklarende eigenschap</translation>
+        <translation>語義屬性的描述</translation>
     </message>
 </context>
 <context>
@@ -118,57 +118,57 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="14"/>
         <source>All Files</source>
-        <translation>Alle bestanden</translation>
+        <translation>所有檔案</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Alleen de bestandsnamen tonen die de tekst bevatten die u opgeeft.</translation>
+        <translation>只列出包含您輸入文字的檔名。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>過濾器:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="73"/>
         <source>Directory</source>
-        <translation>Map</translation>
+        <translation>目錄</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="74"/>
         <source>Name</source>
-        <translation>Naam</translation>
+        <translation>名稱</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="75"/>
         <source>File Size (KB)</source>
-        <translation>Grootte (kB)</translation>
+        <translation>檔案大小 (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="76"/>
         <source>Type</source>
-        <translation>Type</translation>
+        <translation>型態</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="77"/>
         <source>Semantics</source>
-        <translation>Betekenis</translation>
+        <translation>語義</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="79"/>
         <source>Properties</source>
-        <translation>Eigenschappen</translation>
+        <translation>屬性</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="148"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n bestand</numerusform><numerusform>%n bestanden</numerusform></translation>
+        <translation><numerusform>%n 個檔案</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="261"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Rapport opslaan als CSV-bestand</translation>
+        <translation>將報告儲存為用逗號分隔的資料檔</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="274"/>
@@ -178,32 +178,32 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="274"/>
         <source>Cannot save report file.</source>
-        <translation>Rapportbestand kan niet worden opgeslagen.</translation>
+        <translation>無法儲存報告檔。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="299"/>
         <source>Image</source>
-        <translation>Image</translation>
+        <translation>圖片</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="304"/>
         <source>Audio</source>
-        <translation>Audio</translation>
+        <translation>聲音</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="309"/>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation>影片</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="314"/>
         <source>Font</source>
-        <translation>Lettertype</translation>
+        <translation>字型</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="341"/>
         <source>Unknown</source>
-        <translation>Onbekend</translation>
+        <translation>未知</translation>
     </message>
 </context>
 <context>
@@ -211,219 +211,215 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="14"/>
         <source>Appearance</source>
-        <translation>Uiterlijk</translation>
+        <translation>外貌</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="24"/>
         <source>Fonts / Colors</source>
-        <translation>Lettertypen / Kleuren</translation>
+        <translation>字型 / 顏色</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="30"/>
         <source>Book View / Preview:</source>
-        <translation>Boek- / voorbeeldweergave:</translation>
+        <translation>書本檢視 / 預覽：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="39"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation>Als in de CSS voor uw pagina geen lettertype is opgegeven, zal het volgende lettertype worden gebruikt voor de weergave binnen Sigil. Deze lettertypen zullen niet worden gebruikt in uw huidig e-boek. </translation>
+        <translation>如果您的頁面中的 CSS 沒有指定字型，則 Sigil 顯示時會使用以下的字型。這些字型不會真的用在您的電子書中。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="59"/>
         <source>Default font size to be used for Book View and Preview
 if no font-size specified in your CSS</source>
-        <translation>Standaard lettergrootte die gebruikt wordt voor boek- en voorbeeldweergave
-indien uw CSS geen lettergrootte opgeeft</translation>
+        <translation>若是您的 CSS 檔中未指定字型大小時，用於書本檢視與預覽的預設字型大小</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="63"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="197"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="313"/>
         <source>Font Size:</source>
-        <translation>Lettergrootte:</translation>
+        <translation>字型大小:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="93"/>
         <source>Default font family to be used for Book View and Preview
 if no font-family specified in your CSS</source>
-        <translation>Standaard letterfamilie die gebruikt wordt voor boek- en voorbeeldweergave
-indien uw CSS geen letterfamilie is opgeeft</translation>
+        <translation>若是您的 CSS 檔中未指定字型大小時，用於書本檢視與預覽的預設字型家族</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="97"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="227"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="346"/>
         <source>Standard Font:</source>
-        <translation>Standaardlettertype:</translation>
+        <translation>標準字型:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="107"/>
         <source>Default font family to be used for Book View and Preview
 if a serif font-family specified in your CSS</source>
-        <translation>Standaard letterfamilie die gebruikt wordt voor boek- en voorbeeldweergave
-indien uw CSS een letterfamilie met schreef opgeeft</translation>
+        <translation>若是您的 CSS 檔中指定了有襯線字型家族時，用於書本檢視與預覽的預設字型家族</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="111"/>
         <source>Serif Font:</source>
-        <translation>Schreeflettertype:</translation>
+        <translation>有襯線字型:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="121"/>
         <source>Default font family to be used for Book View and Preview
 if a sans-serif font-family specified in your CSS</source>
-        <translation>Standaard letterfamilie die gebruikt wordt voor boek- en voorbeeldweergave
-indien uw CSS een schreefloze letterfamilie opgeeft</translation>
+        <translation>若是您的 CSS 檔中指定了無襯線字型家族時，用於書本檢視與預覽的預設字型家族</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="125"/>
         <source>Sans-Serif Font:</source>
-        <translation>Schreefloos lettertype:</translation>
+        <translation>無襯線字型:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="171"/>
         <source>CSS / Code View:</source>
-        <translation>CSS / codeweergave:</translation>
+        <translation>CSS / 代碼檢視:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="181"/>
         <source>Item Colors:</source>
-        <translation>Kleuren onderdelen:</translation>
+        <translation>項目顏色:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="194"/>
         <source>Font size to be used for text in Code View.</source>
-        <translation>Lettergrootte die gebruikt wordt voor codeweergave.</translation>
+        <translation>代碼檢視中文字使用的字型大小。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="224"/>
         <source>Font family to be used for text in Code View.</source>
-        <translation>Letterfamilie die gebruikt wordt voor tekst in codeweergave.</translation>
+        <translation>在代碼檢視中的文字字型家族。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="263"/>
         <source>Select an alternative color for this display item</source>
-        <translation>Een alternatieve kleur kiezen om dit onderdeel weer te geven.</translation>
+        <translation>請選擇此顯示項目使用的替代顏色</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="266"/>
         <source>Custom Color...</source>
-        <translation>Specifieke kleur...</translation>
+        <translation>自訂顏色...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="296"/>
         <source>Insert Special Characters:</source>
-        <translation>Speciale tekens invoegen:</translation>
+        <translation>插入特殊字元:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="310"/>
         <source>Font size to be used for Insert Special Characters window</source>
-        <translation>Lettergrootte die gebruikt wordt in het scherm Speciaal teken invoegen</translation>
+        <translation>在插入特殊字元視窗中使用的字型大小</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="343"/>
         <source>Font family to be used for Insert Special Characters window</source>
-        <translation>Letterfamilie die wordt gebruikt in het scherm Speciaal teken invoegen</translation>
+        <translation>在插入特殊字元視窗中使用的字型家族</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="388"/>
         <source>Menus</source>
-        <translation>Menu&apos;s</translation>
+        <translation>選單</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="394"/>
         <source>Main Menu Icon Size</source>
-        <translation>Formaat van pictogram in hoofdmenu </translation>
+        <translation>主選單圖示大小</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="400"/>
         <source>Adjust the size of the icons in the main menu.</source>
-        <translation>Aanpassen van het formaat van pictogrammen in het hoofdmenu.</translation>
+        <translation>調整主選單裡的圖示大小。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="476"/>
         <source>Reset all fonts and colors to the default values</source>
-        <translation>Alle lettertypen en kleuren terugzetten naar de standaardwaarden.</translation>
+        <translation>將所有字型與顏色回復預設值</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="479"/>
         <source>Reset All</source>
-        <translation>Alles terugzetten</translation>
+        <translation>全部重設</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="204"/>
         <source>Background</source>
-        <translation>Achtergrond</translation>
+        <translation>背景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="205"/>
         <source>Foreground</source>
-        <translation>Voorgrond</translation>
+        <translation>前景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="206"/>
         <source>CSS Comment</source>
-        <translation>CSS commentaar</translation>
+        <translation>CSS 註解</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="207"/>
         <source>CSS Property</source>
-        <translation>CSS eigenschap</translation>
+        <translation>CSS 屬性</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="208"/>
         <source>CSS Quote</source>
-        <translation>CSS citaat</translation>
+        <translation>CSS 引號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="209"/>
         <source>CSS Selector</source>
-        <translation>CSS selector</translation>
+        <translation>CSS 選取器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="210"/>
         <source>CSS Value</source>
-        <translation>CSS waarde</translation>
+        <translation>CSS 值</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="211"/>
         <source>Line Highlight</source>
-        <translation>Regel gemarkeerd</translation>
+        <translation>行突顯</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="212"/>
         <source>Line# Background</source>
-        <translation>Regelnr. achtergrond</translation>
+        <translation>行號的背景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="213"/>
         <source>Line# Foreground</source>
-        <translation>Regelnr. voorgrond</translation>
+        <translation>行號的前景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="214"/>
         <source>Selection Background</source>
-        <translation>Selectie achtergrond</translation>
+        <translation>選擇區背景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="215"/>
         <source>Selection Foreground</source>
-        <translation>Selectie voorgrond</translation>
+        <translation>選擇區前景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="216"/>
         <source>Spelling Underline</source>
-        <translation>Golflijntje spelling</translation>
+        <translation>拼字底線</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="217"/>
         <source>XHTML Attribute Name</source>
-        <translation>XHTML attribuutnaam</translation>
+        <translation>XHTML 屬性名稱</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="218"/>
         <source>XHTML Attribute Value</source>
-        <translation>XHTML attribuutwaarde</translation>
+        <translation>XHTML 屬性值</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="219"/>
@@ -433,7 +429,7 @@ indien uw CSS een schreefloze letterfamilie opgeeft</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="220"/>
         <source>XHTML CSS Comment</source>
-        <translation>XHTML CSS commentaar</translation>
+        <translation>XHTML CSS 註解</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="221"/>
@@ -443,17 +439,17 @@ indien uw CSS een schreefloze letterfamilie opgeeft</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="222"/>
         <source>XHTML Entity</source>
-        <translation>XHTML entiteit</translation>
+        <translation>XHTML 實體</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="223"/>
         <source>XHTML HTML Tag</source>
-        <translation>XHTML HTML tag</translation>
+        <translation>XHTML HTML 標籤</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="224"/>
         <source>XHTML HTML Comment</source>
-        <translation>XHTML HTML commentaar</translation>
+        <translation>XHTML HTML 註解</translation>
     </message>
 </context>
 <context>
@@ -461,7 +457,7 @@ indien uw CSS een schreefloze letterfamilie opgeeft</translation>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="399"/>
         <source>Start</source>
-        <translation>Start</translation>
+        <translation>開始</translation>
     </message>
 </context>
 <context>
@@ -469,24 +465,24 @@ indien uw CSS een schreefloze letterfamilie opgeeft</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="61"/>
         <source>Book Browser</source>
-        <translation>Boekverkenner</translation>
+        <translation>書本瀏覽器</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="72"/>
         <source>Font Obfuscation</source>
-        <translation>Lettertypeversleuteling</translation>
+        <translation>字體模糊處理</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="73"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1418"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1525"/>
         <source>Open With</source>
-        <translation>Openen met</translation>
+        <translation>開啟方式</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/BookBrowser.cpp" line="127"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n bestand</numerusform><numerusform>%n bestanden</numerusform></translation>
+        <translation><numerusform>%n 個檔案</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
@@ -501,258 +497,255 @@ indien uw CSS een schreefloze letterfamilie opgeeft</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
-        <translation>Weet u zeker dat u de geselecteerde bestanden alfanumeriek wilt sorteren?</translation>
+        <translation>您真的要按照字母排序選擇的檔案？</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>This action cannot be reversed.</source>
-        <translation>Deze bewerking kan niet ongedaan worden gemaakt.</translation>
+        <translation>這個動作無法復原。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="243"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Bestand &quot;%1&quot; bestaat niet.</translation>
+        <translation>檔案 &quot;%1&quot; 不存在。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="567"/>
         <source>Add Existing Files</source>
-        <translation>Bestaande bestanden toevoegen</translation>
+        <translation>新增已存在的檔案</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="600"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
-        <translation>Bestand is geen afbeelding en kan niet worden gebruikt:
+        <translation>檔案不是圖片，因此無法使用：
 
-&quot;%1&quot;.</translation>
+&quot;%1&quot;。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="609"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
-        <translation>Bestand is geen multimedia (afbeelding, video, audio) en kan niet ingevoegd worden
+        <translation>檔案不是多媒體（圖片、影片、音效）因此無法被插入：
 
-&quot;%1&quot;.</translation>
+&quot;%1&quot;。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="624"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation>Het multimediabestand &quot;%1&quot; bestaat al in het boek.
+        <translation>多媒體檔 &quot;%1&quot; 已存在於此書中。
 
-Wilt u dit vervangen?</translation>
+要取代它嗎？</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="635"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
-        <translation>Bestand &quot;%1&quot; kan niet verwijderd of vervangen worden.</translation>
+        <translation>無法刪除或取代檔案 &quot;%1&quot;。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="640"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
-        <translation>&quot;%1&quot; kan niet ingeladen worden.
+        <translation>無法載入 &quot;%1&quot;
 
-Er bestaat in het boek al een bestand met deze naam.</translation>
+此檔案名稱已存在於此書中。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="690"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
-        <translation>De volgende bestand(en) zijn niet ingeladen vanwege ongeldige inhoud of niet goed opgebouwde XML:
+        <translation>以下的檔案未載入，因為內容不正確，或 XML 格式不正確：
 
 %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="704"/>
         <source>File(s) added.</source>
-        <translation>Bestand(en) toegevoegd.</translation>
+        <translation>檔案已加入。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="739"/>
         <source>Save As File</source>
-        <translation>Als bestand opslaan</translation>
+        <translation>存成檔案</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="761"/>
         <source>Unable to save the file.</source>
-        <translation>Het bestand kan niet opgeslagen worden.</translation>
+        <translation>無法儲存檔案。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="769"/>
         <source>Choose the directory to save the files to</source>
-        <translation>De map kiezen waar de bestanden worden opgeslagen</translation>
+        <translation>選擇檔案要儲存在哪個目錄</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="789"/>
         <source>One or more files already exists.  OK to overwrite?</source>
-        <translation>Een of meer bestanden bestaan al.
-
-Wilt u deze bestanden overschrijven?</translation>
+        <translation>有一個以上的檔案存在。要覆寫嗎？</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="806"/>
         <source>Unable to save files.  Destination may be a directory.</source>
-        <translation>Bestanden kunnen niet worden opgeslagen.
-De bestemming zou een map kunnen zijn.</translation>
+        <translation>無法儲存檔案。目標可能是個目錄。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="814"/>
         <source>Unable to save files.</source>
-        <translation>Bestanden kunnen niet opgeslagen worden.</translation>
+        <translation>無法儲存檔案。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="996"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
-        <translation>De namen van de bestanden kunnen niet gewijzigd worden, aangezien dit zou leiden tot dubbele bestandsnamen.</translation>
+        <translation>無法重新命名檔案，因為會導致檔名重覆。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1059"/>
         <source>The Nav document can not be removed.</source>
-        <translation>Het Nav-bestand mag niet verwijderd worden.</translation>
+        <translation>無法移除 Nav 文件。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1067"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
-        <translation>Noch de NCX, noch de OPF kan verwijderd worden.</translation>
+        <translation>無法移除 NCX 與 OPF。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1074"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
-        <translation>Het is niet mogelijk alle HTML-bestanden te verwijderen.
-Er moet altijd minstens één overblijven.</translation>
+        <translation>您無法移除所有的 html 檔。
+至少要留一個。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1214"/>
         <source>Unable to set file as cover image.</source>
-        <translation>Het is niet mogelijk om het bestand te gebruiken als omslagafbeelding.</translation>
+        <translation>無法設定檔案為封面圖片。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1399"/>
         <source>Select All</source>
-        <translation>Alles selecteren</translation>
+        <translation>全部選取</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1400"/>
         <source>Add Blank HTML File</source>
-        <translation>Leeg HTML-bestand toevoegen</translation>
+        <translation>新增空白 HTML 檔</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
         <source>Add Blank Stylesheet</source>
-        <translation>Leeg CSS-stijlblad toevoegen.</translation>
+        <translation>新增空白樣式</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
         <source>Add Blank SVG Image</source>
-        <translation>Lege SVG-afbeelding toevoegen</translation>
+        <translation>新增空白 SVG 圖片</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1403"/>
         <source>Add Existing Files...</source>
-        <translation>Bestaande bestanden toevoegen...</translation>
+        <translation>增加已存在的檔案...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1404"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
         <source>Add Copy</source>
-        <translation>Kopie toevoegen</translation>
+        <translation>新增複本</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1406"/>
         <source>Rename</source>
-        <translation>Naam wijzigen</translation>
+        <translation>重新命名</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1407"/>
         <source>Delete</source>
-        <translation>Verwijderen</translation>
+        <translation>刪除</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1408"/>
         <source>Cover Image</source>
-        <translation>Omslagafbeelding</translation>
+        <translation>封面圖片</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
         <source>Merge</source>
-        <translation>Samenvoegen</translation>
+        <translation>合併</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1410"/>
         <source>None</source>
-        <translation>Geen</translation>
+        <translation>無</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1411"/>
         <source>Use Adobe&apos;s Method</source>
-        <translation>Volgens de methode van Adobe</translation>
+        <translation>使用Adobe的方法</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1412"/>
         <source>Use IDPF&apos;s Method</source>
-        <translation>Volgens de methode van IDPF</translation>
+        <translation>使用IDPF的方法</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1413"/>
         <source>Sort</source>
-        <translation>Sorteren</translation>
+        <translation>排序</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1414"/>
         <source>Renumber TOC Entries</source>
-        <translation>Vermeldingen inhoudsopgave hernummeren</translation>
+        <translation>重新編號目錄條目</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1415"/>
         <source>Link Stylesheets...</source>
-        <translation>Stijlbladen koppelen...</translation>
+        <translation>連結樣式表...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1416"/>
         <source>Add Semantics...</source>
-        <translation>Betekenis toevoegen...</translation>
+        <translation>加入語義...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
         <source>Validate with W3C</source>
-        <translation>Valideren door W3C</translation>
+        <translation>以 W3C 驗證</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1419"/>
         <source>Save As</source>
-        <translation>Opslaan als</translation>
+        <translation>另存新檔</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1433"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
-        <translation>Samenvoegen met vorig bestand, of meerdere bestanden samenvoegen. </translation>
+        <translation>與上一個檔案合併，或將多個檔案合併為一個。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1436"/>
         <source>Rename selected file(s)</source>
-        <translation>Hernoem geselecteerde bestand(en)</translation>
+        <translation>重新命名選取的檔案</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1438"/>
         <source>Link Stylesheets to selected file(s).</source>
-        <translation>Stijlbladen koppelen met geselecteerde bestand(en)</translation>
+        <translation>連結樣式表到選取的檔案。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1440"/>
         <source>Add Semantics to selected file(s).</source>
-        <translation>Betekenis toevoegen aan geselecteerde bestand(en).</translation>
+        <translation>加入語義到選取的檔案。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
         <source>Other Application</source>
-        <translation>Andere toepassing</translation>
+        <translation>其他應用程式</translation>
     </message>
 </context>
 <context>
@@ -760,94 +753,94 @@ Er moet altijd minstens één overblijven.</translation>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="722"/>
         <source>Clipboard contains HTML formatting</source>
-        <translation>Klembord bevat HTML-opmaak</translation>
+        <translation>剪貼簿包含 HTML 格式</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="723"/>
         <source>Do you want to paste clipboard data as plain text?</source>
-        <translation>Wilt u klembordgegevens plakken als platte tekst?</translation>
+        <translation>你要將剪貼簿的資料貼上為純文字嗎？</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="938"/>
         <source>Open Tab For</source>
-        <translation>Tabblad openen voor</translation>
+        <translation>開啟分頁</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="956"/>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1161"/>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1163"/>
         <source>Open With</source>
-        <translation>Openen met</translation>
+        <translation>開啟方式</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="991"/>
         <source>Other Application</source>
-        <translation>Andere toepassing</translation>
+        <translation>其他應用程式</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1039"/>
         <source>Clips</source>
-        <translation>Knipsels</translation>
+        <translation>片段</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1049"/>
         <source>Add To Clips</source>
-        <translation>Toevoegen aan knipsels</translation>
+        <translation>新增到文字片段</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1147"/>
         <source>Insert File</source>
-        <translation>Bestand invoegen</translation>
+        <translation>插入檔案</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1148"/>
         <source>Undo</source>
-        <translation>Ongedaan maken</translation>
+        <translation>復原</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1149"/>
         <source>Redo</source>
-        <translation>Opnieuw uitvoeren</translation>
+        <translation>取消復原</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1150"/>
         <source>Cut</source>
-        <translation>Knippen</translation>
+        <translation>剪下</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1151"/>
         <source>Copy</source>
-        <translation>Kopiëren</translation>
+        <translation>複製</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1152"/>
         <source>Copy Image</source>
-        <translation>Afbeelding kopiëren</translation>
+        <translation>複製圖片</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1153"/>
         <source>Paste</source>
-        <translation>Plakken</translation>
+        <translation>貼上</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1154"/>
         <source>Select All</source>
-        <translation>Alles selecteren</translation>
+        <translation>全部選取</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1155"/>
         <source>Open</source>
-        <translation>Openen</translation>
+        <translation>開啟</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1162"/>
         <source>Save As</source>
-        <translation>Opslaan als</translation>
+        <translation>另存新檔</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewEditor.cpp" line="1170"/>
         <source>Inspect Element</source>
-        <translation>Element onderzoeken</translation>
+        <translation>審查元素</translation>
     </message>
 </context>
 <context>
@@ -857,28 +850,27 @@ Er moet altijd minstens één overblijven.</translation>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="332"/>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="338"/>
         <source>Unsupported</source>
-        <translation>Niet ondersteund</translation>
+        <translation>不支援</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="267"/>
         <source>Spellcheck mode is not supported in Book View at this time.  Switch to Code View.</source>
-        <translation>Spellingcontrole is nog niet beschikbaar in boekweergave.
-Schakel over naar codeweergave.</translation>
+        <translation>目前在書本檢視時不支援拼字檢查模式。請切換到代碼檢視。</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="332"/>
         <source>Replace is not supported in this view. Switch to Code View.</source>
-        <translation>Vervangen wordt niet ondersteund in deze weergave. Schakel over naar codeweergave.</translation>
+        <translation>在此檢視模式時不支援取代功能。請切換到代碼檢視。</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="338"/>
         <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
-        <translation>Alles vervangen voor het huidige bestand wordt niet ondersteund in deze weergave. Schakel over naar codeweergave.</translation>
+        <translation>在此檢視檢視時不支援當前文件的全部取代功能。請換到代碼檢視模式。</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/BookViewPreview.cpp" line="758"/>
         <source>Inspect Element</source>
-        <translation>Element onderzoeken</translation>
+        <translation>審查元素</translation>
     </message>
 </context>
 <context>
@@ -886,47 +878,47 @@ Schakel over naar codeweergave.</translation>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="14"/>
         <source>CSS Files</source>
-        <translation>CSS-bestanden</translation>
+        <translation>CSS 檔</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Alleen de bestandsnamen tonen die de tekst bevatten die u opgeeft.</translation>
+        <translation>只列出包含您輸入文字的檔名。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>過濾器:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="75"/>
         <source>Name</source>
-        <translation>Naam</translation>
+        <translation>名稱</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="76"/>
         <source>Size (KB)</source>
-        <translation>Grootte (kB)</translation>
+        <translation>大小 (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="77"/>
         <source>Times Used</source>
-        <translation>Maal gebruikt</translation>
+        <translation>使用次數</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="142"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n bestand</numerusform><numerusform>%n bestanden</numerusform></translation>
+        <translation><numerusform>%n 個檔案</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="146"/>
         <source>KB</source>
-        <translation>kB</translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="273"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Rapport opslaan als CSV-bestand</translation>
+        <translation>將報告儲存為用逗號分隔的資料檔</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="286"/>
@@ -936,12 +928,12 @@ Schakel over naar codeweergave.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="286"/>
         <source>Cannot save report file.</source>
-        <translation>Rapportbestand kan niet worden opgeslagen.</translation>
+        <translation>無法儲存報告檔。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="297"/>
         <source>Delete From Book</source>
-        <translation>Uit boek verwijderen</translation>
+        <translation>從書本刪除</translation>
     </message>
 </context>
 <context>
@@ -949,17 +941,17 @@ Schakel over naar codeweergave.</translation>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="99"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation>Sigil zendt uw stijlbladgegevens naar de &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;CSS-validatiedienst van W3C&lt;/a&gt;.</translation>
+        <translation>Sigil 會將您的樣式表資料送到 &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C 驗證服務&lt;/a&gt;。</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="100"/>
         <source>This page should disappear once loaded after 3 seconds.</source>
-        <translation>Deze pagina zou binnen drie seconden moeten verdwijnen.</translation>
+        <translation>此頁面會在載入後三秒消失。</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="101"/>
         <source>If your browser does not have javascript enabled, click on the button below.</source>
-        <translation>Als javascript in uw browser is uitgeschakeld, druk dan op onderstaande knop.</translation>
+        <translation>若是您的瀏覽器沒有開啟 javascript 支援，請按下方的按鍵。</translation>
     </message>
 </context>
 <context>
@@ -967,57 +959,57 @@ Schakel over naar codeweergave.</translation>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="14"/>
         <source>Characters in HTML Files</source>
-        <translation>Tekens in HTML-bestanden</translation>
+        <translation>HTML 檔中的字元</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Alleen de bestandsnamen tonen die de tekst bevatten die u opgeeft.</translation>
+        <translation>只列出包含您輸入文字的檔名。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>過濾器:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="76"/>
         <source>Characters:</source>
-        <translation>Tekens:</translation>
+        <translation>字元：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="80"/>
         <source>Character</source>
-        <translation>Teken</translation>
+        <translation>字元</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="81"/>
         <source>Decimal</source>
-        <translation>Decimaal</translation>
+        <translation>十進制數字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="82"/>
         <source>Hexadecimal</source>
-        <translation>Hexadecimaal</translation>
+        <translation>十六進制數字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="83"/>
         <source>Entity Name</source>
-        <translation>Naam entiteit</translation>
+        <translation>實體名稱</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="84"/>
         <source>Entity Description</source>
-        <translation>Omschrijving entiteit</translation>
+        <translation>實體描述</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="90"/>
         <source>&lt;p&gt;This is a list of the characters used in all HTML files.&lt;p&gt;</source>
-        <translation>&lt;p&gt;Dit is een lijst met de tekens die gebruikt worden in alle HTML-bestanden.&lt;p&gt;</translation>
+        <translation>&lt;p&gt;這是用於所有 HTML 檔中的字元清單。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="271"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Rapport opslaan als CSV-bestand</translation>
+        <translation>將報告儲存為用逗號分隔的資料檔</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="284"/>
@@ -1027,7 +1019,7 @@ Schakel over naar codeweergave.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="284"/>
         <source>Cannot save report file.</source>
-        <translation>Rapportbestand kan niet worden opgeslagen.</translation>
+        <translation>無法儲存報告檔。</translation>
     </message>
 </context>
 <context>
@@ -1035,62 +1027,62 @@ Schakel over naar codeweergave.</translation>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="14"/>
         <source>Style Classes in HTML Files</source>
-        <translation>Stijlklassen in HTML-bestanden</translation>
+        <translation>HTML 檔案內的樣式類別</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Alleen de bestandsnamen tonen die de tekst bevatten die u opgeeft.</translation>
+        <translation>只列出包含您輸入文字的檔名。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>過濾器:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="83"/>
         <source>HTML File</source>
-        <translation>HTML-bestand</translation>
+        <translation>HTML 檔</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="84"/>
         <source>Element</source>
-        <translation>Element</translation>
+        <translation>元素</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="85"/>
         <source>Class</source>
-        <translation>Klasse</translation>
+        <translation>類別</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="86"/>
         <source>Matched Selector</source>
-        <translation>Bijbehorende selector</translation>
+        <translation>符合的選取器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
         <source>Found In</source>
-        <translation>Gevonden in</translation>
+        <translation>找到於</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="93"/>
         <source>&lt;p&gt;This is a list of the style classes used in all HTML files and whether or not the style matched a selector in a linked stylesheet.&lt;p&gt;</source>
-        <translation>&lt;p&gt;Dit is een lijst met de stijlklassen die gebruikt worden in alle HTML-bestanden en of de stijl al dan niet een bijbehorende selector heeft in een gekoppeld stijlblad.&lt;p&gt;</translation>
+        <translation>&lt;p&gt;這裡是用於所有 HTML 檔的樣式類別清單，不管是否符合連結的樣式表選擇器。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="94"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
-        <translation>&lt;p&gt;LET OP:&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;注意：&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="95"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Vanwege de complexiteit van CSS dient u de code handmatig te controleren om er zeker van te zijn of een stijl al dan niet gebruikt wordt.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;因為 CSS 挺複雜的，您必須手動檢查您的代碼，確保某個樣式是否被使用。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="229"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Rapport opslaan als CSV-bestand</translation>
+        <translation>將報告儲存為用逗號分隔的資料檔</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="242"/>
@@ -1100,7 +1092,7 @@ Schakel over naar codeweergave.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="242"/>
         <source>Cannot save report file.</source>
-        <translation>Rapportbestand kan niet worden opgeslagen.</translation>
+        <translation>無法儲存報告檔。</translation>
     </message>
 </context>
 <context>
@@ -1109,49 +1101,49 @@ Schakel over naar codeweergave.</translation>
         <location filename="../../Form_Files/ClipEditor.ui" line="14"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="525"/>
         <source>Clip Editor</source>
-        <translation>Knipselbewerker</translation>
+        <translation>片段編輯器</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation>Naam filteren:</translation>
+        <translation>過濾器名稱：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation>Alles filteren:</translation>
+        <translation>全部過濾:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Alleen de knipsels tonen die de tekst bevatten die u opgeeft.</translation>
+        <translation>只列出包含您輸入文字的條目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="65"/>
         <source>Paste the selected entry into the active window.</source>
-        <translation>Het geselecteerde knipsel in het actieve venster plakken.</translation>
+        <translation>將選取的條目貼到目前作用中的視窗。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="68"/>
         <source>Paste Clip</source>
-        <translation>Knipsel plakken</translation>
+        <translation>貼上文字片段</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="91"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="636"/>
         <source>Add Entry</source>
-        <translation>Knipsel toevoegen</translation>
+        <translation>新增條目</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="98"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="637"/>
         <source>Add Group</source>
-        <translation>Groep toevoegen</translation>
+        <translation>新增群組</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="123"/>
         <source>Move an entry up one entry in the same group.</source>
-        <translation>Een knipsel één positie omhoog verplaatsen binnen dezelfde groep.</translation>
+        <translation>將條目在群組內上移一格。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="126"/>
@@ -1164,82 +1156,82 @@ Schakel over naar codeweergave.</translation>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="153"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation>Een knipsel naar het niveau van zijn ouder verplaatsen.</translation>
+        <translation>將條目移到它的父條目的層級。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="182"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation>U dient een vermelding direct onder een groep te selecteren om deze in de groep te plaatsen.</translation>
+        <translation>您必須立即選擇一個群組下方的項目，並將它移到群組內。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="212"/>
         <source>Move an entry down one in the group.</source>
-        <translation>Een knipsel één positie omlaag verplaatsen binnen dezelfde groep.</translation>
+        <translation>將條目在群組內下移一格。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>Klik rechts op een knipsel om het contextmenu met acties te zien.</translation>
+        <translation>在條目上點擊右鍵，可以看到動作內文選單。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="74"/>
         <source>You can also right click in your document to select an entry.</source>
-        <translation>U kunt ook rechts klikken in uw document om een knipsel te selecteren.</translation>
+        <translation>您也可以在文件上點擊右鍵，以選取條目。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Name</source>
-        <translation>Naam</translation>
+        <translation>名稱</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Name of your entry or group.</source>
-        <translation>Naam van uw knipsel of groep.</translation>
+        <translation>您的條目或群組的名稱。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Text</source>
-        <translation>Tekst</translation>
+        <translation>文字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>The text to insert. The text is treated like a Regex replacement expression so \1 can be used to insert the text selected in Code View when you paste the clip.</source>
-        <translation>De tekst om in te voegen. De tekst wordt behandeld als een vervangende reguliere expressie, zodat \1 kan worden gebruikt om de in codeweergave geselecteerde tekst in te voegen wanneer u het knipsel plakt.</translation>
+        <translation>要插入的文字。文字會被視為正規表示式，因此 \1 可以在您貼上文字片段時，在代碼檢視中插入選取的文字。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save</source>
-        <translation>Opslaan</translation>
+        <translation>儲存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save your changes.</source>
-        <translation>Uw wijzigingen opslaan.</translation>
+        <translation>儲存您的變更。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>Als er andere instanties van Sigil actief zijn, dan worden deze automatisch geactualiseerd met uw wijzigingen.</translation>
+        <translation>若是 Sigil 的任一實體正在執行中，您做的變更會自動套用在那些實體上。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="91"/>
         <source>Cannot save entries.</source>
-        <translation>Knipsels kunnen niet worden opgeslagen.</translation>
+        <translation>無法儲存條目。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="135"/>
         <source>Clip entries loaded from file.</source>
-        <translation>Knipsels geladen vanuit bestand.</translation>
+        <translation>從檔案載入的文字片段條目。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="195"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation>U kunt niet tegelijk een knipsel en zijn groep selecteren.</translation>
+        <translation>您不能選擇某條目與包含該條目的群組。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="282"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation>U kunt groepen niet kopiëren of knippen - gebruik slepen-en-neerzetten.</translation>
+        <translation>您不能複製或剪下群組 - 請改用拖放。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="354"/>
@@ -1249,99 +1241,99 @@ Schakel over naar codeweergave.</translation>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="354"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>Weet u zeker dat u alle knipsels opnieuw wilt laden?  Dit zal alle niet-opgeslagen veranderingen overschrijven.</translation>
+        <translation>您確定要重新載入所有的條目嗎？這會覆寫所有未儲存的變更。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="370"/>
         <source>Import Entries</source>
-        <translation>Knipsels importeren.</translation>
+        <translation>匯入條目</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="444"/>
         <source>Export Selected Entries</source>
-        <translation>Geselecteerde knipsels exporteren.</translation>
+        <translation>匯出選取的條目</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ClipEditor.cpp" line="525"/>
         <source>CSS entries added: %n</source>
-        <translation><numerusform>Aantal CSS-vermeldingen toegevoegd: %n</numerusform><numerusform>Aantal CSS-vermeldingen toegevoegd: %n</numerusform></translation>
+        <translation><numerusform>已加入 CSS 條目：%n</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="638"/>
         <source>Edit</source>
-        <translation>Bewerken</translation>
+        <translation>編輯</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="639"/>
         <source>Cut</source>
-        <translation>Knippen</translation>
+        <translation>剪下</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="640"/>
         <source>Copy</source>
-        <translation>Kopiëren</translation>
+        <translation>複製</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="641"/>
         <source>Paste</source>
-        <translation>Plakken</translation>
+        <translation>貼上</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="642"/>
         <source>Delete</source>
-        <translation>Verwijderen</translation>
+        <translation>刪除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="643"/>
         <source>Import</source>
-        <translation>Importeren</translation>
+        <translation>匯入</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="644"/>
         <source>Reload</source>
-        <translation>Opnieuw laden</translation>
+        <translation>重新載入</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="645"/>
         <source>Export</source>
-        <translation>Exporteren</translation>
+        <translation>匯出</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="646"/>
         <source>Export All</source>
-        <translation>Alles exporteren</translation>
+        <translation>全部匯出</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="647"/>
         <source>Collapse All</source>
-        <translation>Alles samenvouwen</translation>
+        <translation>全部折疊</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="648"/>
         <source>Expand All</source>
-        <translation>Alles uitvouwen</translation>
+        <translation>全部展開</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="649"/>
         <source>Autofill</source>
-        <translation>Automatisch doorvoeren</translation>
+        <translation>自動填入</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="729"/>
         <source>Clip entries saved.</source>
-        <translation>Knipsels opgeslagen.</translation>
+        <translation>文字片段條目已儲存。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="758"/>
         <source>Sigil: Clip Editor</source>
-        <translation>Sigil: Knipselbewerker</translation>
+        <translation>Sigil：片段編輯器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="759"/>
         <source>The Clip entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>De knipsels kunnen gewijzigd zijn.
-Wilt u uw wijzigingen opslaan?</translation>
+        <translation>文字片段條目已變更。
+您要儲存您的變更嗎？</translation>
     </message>
 </context>
 <context>
@@ -1349,17 +1341,17 @@ Wilt u uw wijzigingen opslaan?</translation>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="65"/>
         <source>Name</source>
-        <translation>Naam</translation>
+        <translation>名稱</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="66"/>
         <source>Text</source>
-        <translation>Tekst</translation>
+        <translation>文字</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="680"/>
         <source>Unable to create file %1</source>
-        <translation>Bestand %1 kan niet gemaakt worden</translation>
+        <translation>無法建立檔案 %1</translation>
     </message>
 </context>
 <context>
@@ -1367,22 +1359,22 @@ Wilt u uw wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Form_Files/ClipboardHistorySelector.ui" line="14"/>
         <source>Select Text to Paste</source>
-        <translation>Tekst selecteren om te plakken</translation>
+        <translation>選擇要貼上的文字</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipboardHistorySelector.ui" line="20"/>
         <source>Recent clipboards:</source>
-        <translation>Recente knipsels op het klembord:</translation>
+        <translation>最近的剪貼簿內容：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="337"/>
         <source>Paste</source>
-        <translation>Plakken</translation>
+        <translation>貼上</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="339"/>
         <source>Save</source>
-        <translation>Opslaan</translation>
+        <translation>儲存</translation>
     </message>
 </context>
 <context>
@@ -1390,17 +1382,17 @@ Wilt u uw wijzigingen opslaan?</translation>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="34"/>
         <source>Clips</source>
-        <translation>Knipsels</translation>
+        <translation>片段</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="99"/>
         <source>Collapse All</source>
-        <translation>Alles samenvouwen</translation>
+        <translation>全部折疊</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="100"/>
         <source>Expand All</source>
-        <translation>Alles uitvouwen</translation>
+        <translation>全部展開</translation>
     </message>
 </context>
 <context>
@@ -1408,112 +1400,112 @@ Wilt u uw wijzigingen opslaan?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="419"/>
         <source>Cannot insert closing tag at this position.</source>
-        <translation>Op deze positie kan geen sluittag worden ingevoegd.</translation>
+        <translation>無法在此位置插入關閉標籤。</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="428"/>
         <source>No open tags found at this position.</source>
-        <translation>Geen open tag gevonden op deze positie.</translation>
+        <translation>此位置找不到開放之標籤。</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1176"/>
         <source>Add To Default Dictionary</source>
-        <translation>Toevoegen aan standaard woordenlijst</translation>
+        <translation>新增到預設字典</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1189"/>
         <source>Add To Dictionary</source>
-        <translation>Toevoegen aan woordenlijst</translation>
+        <translation>新增至字典</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1206"/>
         <source>Ignore</source>
-        <translation>Negeren</translation>
+        <translation>忽略</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1268"/>
         <source>Reformat CSS</source>
-        <translation>CSS opnieuw opstellen</translation>
+        <translation>重新格式化 CSS</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1269"/>
         <source>Multiple Lines Per Style</source>
-        <translation>Meerdere regels per stijl</translation>
+        <translation>每個樣式多行</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1270"/>
         <source>Single Line Per Style</source>
-        <translation>Enkele regel per stijl</translation>
+        <translation>每個樣式一行</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1295"/>
         <source>Reformat HTML</source>
-        <translation>HTML opnieuw opmaken</translation>
+        <translation>重新格式化 HTML</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1296"/>
         <source>Mend and Prettify Code</source>
-        <translation>Code repareren en opmaken</translation>
+        <translation>修復並美化代碼</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1297"/>
         <source>Mend and Prettify Code - All HTML Files</source>
-        <translation>Code repareren en opmaken - Alle HTML-bestanden</translation>
+        <translation>修復並美化代碼 - 所有 HTML 檔案</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1298"/>
         <source>Mend Code</source>
-        <translation>Code repareren</translation>
+        <translation>修復代碼</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1299"/>
         <source>Mend Code - All HTML Files</source>
-        <translation>Code repareren - Alle HTML-bestanden</translation>
+        <translation>修復代碼 - 所有 HTML 檔案</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1329"/>
         <source>Go To Link Or Style</source>
-        <translation>Naar koppeling of stijl gaan</translation>
+        <translation>跳到連結或樣式</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1352"/>
         <source>View Image</source>
-        <translation>Afbeelding bekijken</translation>
+        <translation>檢視圖片</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1353"/>
         <source>Open Tab For Image</source>
-        <translation>Tabblad openen voor afbeelding</translation>
+        <translation>圖片於分頁開啟</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1379"/>
         <source>Mark Selected Text</source>
-        <translation>Geselecteerde tekst markeren</translation>
+        <translation>標記選取的文字</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1381"/>
         <source>Unmark Marked Text</source>
-        <translation>Markering van gemarkeerde tekst opheffen</translation>
+        <translation>將標記的文字取消標記</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1407"/>
         <source>Clips</source>
-        <translation>Knipsels</translation>
+        <translation>片段</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1417"/>
         <source>Add To Clips</source>
-        <translation>Toevoegen aan knipsels</translation>
+        <translation>新增到文字片段</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1543"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
-        <translation>U moet in een HTML-openingstag zijn om deze functie te kunnen gebruiken.</translation>
+        <translation>您必須在一個開放的 HTML 標籤中才能使用此功能。</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1553"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
-        <translation>U moet in een HTML-openingstag zijn om deze functie te kunnen gebruiken.</translation>
+        <translation>您必須在一個開放的 HTML 標籤內才能使用此功能。</translation>
     </message>
 </context>
 <context>
@@ -1521,22 +1513,22 @@ Wilt u uw wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="56"/>
         <source>Background</source>
-        <translation>Achtergrond</translation>
+        <translation>背景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="58"/>
         <source>Foreground</source>
-        <translation>Voorgrond</translation>
+        <translation>前景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="60"/>
         <source>Selection Background</source>
-        <translation>Selectie achtergrond</translation>
+        <translation>選取區背景</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="62"/>
         <source>Selection Foreground</source>
-        <translation>Selectie voorgrond</translation>
+        <translation>選取區前景</translation>
     </message>
 </context>
 <context>
@@ -1544,22 +1536,22 @@ Wilt u uw wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Form_Files/DeleteFiles.ui" line="14"/>
         <source>Delete Files</source>
-        <translation>Bestanden verwijderen</translation>
+        <translation>刪除檔案</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="66"/>
         <source>Delete Marked Files</source>
-        <translation>Gemarkeerde bestanden verwijderen</translation>
+        <translation>刪除標記的檔案</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="67"/>
         <source>Delete</source>
-        <translation>Verwijderen</translation>
+        <translation>刪除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="68"/>
         <source>File</source>
-        <translation>Bestand</translation>
+        <translation>檔案</translation>
     </message>
 </context>
 <context>
@@ -1567,27 +1559,27 @@ Wilt u uw wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Form_Files/DeleteStyles.ui" line="14"/>
         <source>Delete Styles</source>
-        <translation>Stijlen verwijderen</translation>
+        <translation>刪除樣式</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="79"/>
         <source>Delete Marked Styles</source>
-        <translation>Gemarkeerde stijlen verwijderen</translation>
+        <translation>刪除標記的樣式</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="80"/>
         <source>Delete</source>
-        <translation>Verwijderen</translation>
+        <translation>刪除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="81"/>
         <source>File</source>
-        <translation>Bestand</translation>
+        <translation>檔案</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="82"/>
         <source>Style</source>
-        <translation>Stijl</translation>
+        <translation>樣式</translation>
     </message>
 </context>
 <context>
@@ -1595,55 +1587,55 @@ Wilt u uw wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="14"/>
         <source>Edit Table Of Contents</source>
-        <translation>Inhoudsopgave bewerken</translation>
+        <translation>編輯目錄</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="52"/>
         <source>Insert a blank entry above the currently selected entry.</source>
-        <translation>Een lege vermelding invoegen boven de huidig geselecteerde vermelding.</translation>
+        <translation>在目前選取的項目上插入一個空白的項目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="55"/>
         <source>Add Above</source>
-        <translation>Boven toevoegen</translation>
+        <translation>新增於上</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="62"/>
         <source>Add a blank entry below the currently selected entry.</source>
-        <translation>Een lege vermelding toevoegen beneden de huidig geselecteerde vermelding.</translation>
+        <translation>在目前選取的項目下插入一個空白的項目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="65"/>
         <source>Add Below</source>
-        <translation>Beneden toevoegen</translation>
+        <translation>新增於下</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="72"/>
         <source>Delete the selected TOC entry</source>
-        <translation>De geselecteerde vermelding uit de inhoudsopgave verwijderen</translation>
+        <translation>刪除選取的項目</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="75"/>
         <location filename="../../Dialogs/EditTOC.cpp" line="443"/>
         <source>Delete</source>
-        <translation>Verwijderen</translation>
+        <translation>刪除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="82"/>
         <source>Set the destination of the TOC entry from a list of valid targets in the book.</source>
-        <translation>De bestemming van de vermelding in de inhoudsopgave kiezen uit een lijst met geldige bestemmingen in het boek.</translation>
+        <translation>從書中的合法目標清單中，選取目的的目錄項目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="85"/>
         <source>Select Target</source>
-        <translation>Bestemming selecteren</translation>
+        <translation>選擇目標</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="110"/>
         <source>Decrease the heading level of the selected entry.
 You can also use the left arrow key.</source>
-        <translation>Het kopniveau van de geselecteerde vermelding verlagen.
-U kunt ook de linker pijltoets gebruiken.</translation>
+        <translation>遞減選取的項目標頭等級。
+您可以使用左方向鍵。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="126"/>
@@ -1655,43 +1647,43 @@ U kunt ook de linker pijltoets gebruiken.</translation>
         <location filename="../../Form_Files/EditTOC.ui" line="148"/>
         <source>Increase the heading level of the selected entry.
 You can also use the right arrow key.</source>
-        <translation>Het kopniveau van de geselecteerde vermelding verhogen.
-U kunt ook de rechter pijltoets gebruiken.</translation>
+        <translation>遞增選取的項目標頭等級。
+您可以使用右方向鍵。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="85"/>
         <source>TOC Entry</source>
-        <translation>Vermelding in inhoudsopgave</translation>
+        <translation>目錄項目</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="86"/>
         <source>Target</source>
-        <translation>Bestemming</translation>
+        <translation>目標</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="442"/>
         <source>Rename</source>
-        <translation>Naam wijzigen</translation>
+        <translation>重新命名</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="450"/>
         <source>Move Up</source>
-        <translation>Omhoog</translation>
+        <translation>向上移</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="451"/>
         <source>Move Down</source>
-        <translation>Omlaag</translation>
+        <translation>向下移</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="457"/>
         <source>Expand All</source>
-        <translation>Alles uitvouwen</translation>
+        <translation>全部展開</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="458"/>
         <source>Collapse All</source>
-        <translation>Alles samenvouwen</translation>
+        <translation>全部折疊</translation>
     </message>
 </context>
 <context>
@@ -1700,7 +1692,7 @@ U kunt ook de rechter pijltoets gebruiken.</translation>
         <location filename="../../Misc/EmbeddedPython.cpp" line="617"/>
         <location filename="../../Misc/EmbeddedPythonPkg.cpp" line="613"/>
         <source>Embedded Python Error</source>
-        <translation>Fout van ingesloten Python</translation>
+        <translation>嵌入式 Python 錯誤</translation>
     </message>
 </context>
 <context>
@@ -1708,12 +1700,12 @@ U kunt ook de rechter pijltoets gebruiken.</translation>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="20"/>
         <source>Find &amp; Replace</source>
-        <translation>&amp;Zoeken en vervangen</translation>
+        <translation>搜尋並取代</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="55"/>
         <source>Hide Find and Replace</source>
-        <translation>Zoeken en vervangen verbergen</translation>
+        <translation>隱藏搜尋和取代</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="61"/>
@@ -1724,170 +1716,166 @@ U kunt ook de rechter pijltoets gebruiken.</translation>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="103"/>
         <source>Show/Hide Advanced Options</source>
-        <translation>Geavanceerde opties tonen/verbergen</translation>
+        <translation>顯示/隱藏進階選項</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="152"/>
         <source>Find:</source>
-        <translation>Zoeken:</translation>
+        <translation>搜尋:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="184"/>
         <source>Find next match.</source>
-        <translation>Volgende overeenkomst zoeken.</translation>
+        <translation>搜尋下一個。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="190"/>
         <source>Find</source>
-        <translation>Zoeken</translation>
+        <translation>搜尋</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="203"/>
         <source>Replace highlighted match (if any),
 then find the Next match in Code View.</source>
-        <translation>Gemarkeerde overeenkomst in codeweergave (indien aanwezig)
-vervangen en daarna de volgende overeenkomst zoeken.</translation>
+        <translation>取代突顯的比對（有的話），
+然後在代碼檢視中尋找下一個符合。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="210"/>
         <source>Replace/Find</source>
-        <translation>Vervangen/zoeken</translation>
+        <translation>取代/尋找</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="217"/>
         <source>Replace:</source>
-        <translation>Vervangen:</translation>
+        <translation>取代:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="249"/>
         <source>Replace highlighted match (if any) in Code View.</source>
-        <translation>Gemarkeerde overeenkomst in codeweergave (indien aanwezig) vervangen.</translation>
+        <translation>取代突顯的比對（有的話）。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="255"/>
         <source>Replace</source>
-        <translation>Vervangen</translation>
+        <translation>取代</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="268"/>
         <source>Replace all matches in Code View.</source>
-        <translation>Alle overeenkomsten in codeweergave vervangen .</translation>
+        <translation>在代碼檢視中取代所有符合條件。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="274"/>
         <source>Replace All</source>
-        <translation>Alles vervangen</translation>
+        <translation>全部取代</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="281"/>
         <source>Options:</source>
-        <translation>Opties:</translation>
+        <translation>選項:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="293"/>
         <source>For Regex searches, prefix your search with (?s).</source>
-        <translation>Zoekopdrachten met reguliere expressies laten voorafgaan door (?s).</translation>
+        <translation>正規表示式搜尋時，請在搜尋字串前面加上 (?s)。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="299"/>
         <source>DotAll</source>
-        <translation>DotAll</translation>
+        <translation>.*</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="306"/>
         <source>For Regex searches, prefix your search with (?U).</source>
-        <translation>Zoekopdrachten met reguliere expressies laten voorafgaan door (?U).</translation>
+        <translation>正規表示式搜尋時，請在搜尋字串前面加上 (?U)。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="312"/>
         <source>Minimal Match</source>
-        <translation>Minimale overeenkomst</translation>
+        <translation>最小比對</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="319"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
-        <translation>Voor zoekopdrachten met reguliere expressies:
-bij het openen van de zoekopdracht spaties in de geselecteerde tekst omzetten naar \s.</translation>
+        <translation>要用正規表示式搜尋，開啟「尋找」時將選取區標記或脫逸。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="325"/>
         <source>Auto-Tokenise</source>
-        <translation>Automatisch tokeniseren</translation>
+        <translation>自動標記</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="332"/>
         <source>Search from current position to end of the 
 current file or book, and then wrap to the
 other end to continue searching.</source>
-        <translation>Zoeken vanaf de huidige positie naar het einde
-van van het huidige bestand of boek,
-en dan teruglopen naar het begin
-om verder te gaan met zoeken.</translation>
+        <translation>從目前的位置開始搜尋，遇到文件或書本的結尾時回到開頭出繼續搜尋。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="337"/>
         <source>Wrap</source>
-        <translation>Teruglopen</translation>
+        <translation>繞回</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="371"/>
         <source>Count all matches in Code View.</source>
-        <translation>Alle overeenkomsten in codeweergave tellen.</translation>
+        <translation>在代碼檢視中計算所有符合條件者。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="377"/>
         <source>Count All</source>
-        <translation>Alles tellen</translation>
+        <translation>全部計算</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="384"/>
         <source>Mode:</source>
-        <translation>Methode:</translation>
+        <translation>模式：</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="179"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1435"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1436"/>
         <source>Current File</source>
-        <translation>Huidig bestand</translation>
+        <translation>目前檔案</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="334"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1258"/>
         <source>Matches found: %n</source>
-        <translation><numerusform>Overeenkomsten gevonden %n</numerusform><numerusform>Overeenkomsten gevonden %n</numerusform></translation>
+        <translation><numerusform>找到符合的項目： %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="418"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1282"/>
         <source>No replacements made</source>
-        <translation>Geen vervangingen uitgevoerd</translation>
+        <translation>未做任何取代</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="420"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1284"/>
         <source>Replacements made: %n</source>
-        <translation><numerusform>Vervangingen uitgevoerd: %n</numerusform><numerusform>Vervangingen uitgevoerd: %n</numerusform></translation>
+        <translation><numerusform>進行取代： %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="621"/>
         <source>No matches found</source>
-        <translation>Geen overeenkomsten gevonden</translation>
+        <translation>沒有發現符合條件</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1136"/>
         <source>This tab cannot be searched</source>
-        <translation>Dit tabblad kan niet doorzocht worden</translation>
+        <translation>這個選項無法搜尋</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1168"/>
         <source>Unnamed search loaded</source>
-        <translation>Naamloze zoekopdracht geladen</translation>
+        <translation>載入未命名的搜尋</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1171"/>
         <source>Loaded</source>
-        <translation>Ingeladen</translation>
+        <translation>已載入</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1184"/>
@@ -1896,121 +1884,121 @@ om verder te gaan met zoeken.</translation>
         <location filename="../../MainUI/FindReplace.cpp" line="1242"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1268"/>
         <source>No searches selected</source>
-        <translation>Geen zoekopdrachten geselecteerd</translation>
+        <translation>沒有選取任何搜尋</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>What to search for</source>
-        <translation>Waarnaar te zoeken</translation>
+        <translation>要搜尋什麼</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
         <source>Normal</source>
-        <translation>Normaal</translation>
+        <translation>標準</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
         <source>Case in-sensitive search of exactly what you type.</source>
-        <translation>Hoofdletterongevoelig zoeken naar precies hetgeen u invoert.</translation>
+        <translation>搜尋字串不管大小寫。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1428"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1429"/>
         <source>Case Sensitive</source>
-        <translation>Hoofdlettergevoelig</translation>
+        <translation>區分大小寫</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1429"/>
         <source>Case sensitive search of exactly what you type.</source>
-        <translation>Hoofdlettergevoelig zoeken naar precies hetgeen u invoert.</translation>
+        <translation>搜尋字串要區分大小寫。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1430"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1431"/>
         <source>Regex</source>
-        <translation>Regex</translation>
+        <translation>正規表示式</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1431"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
-        <translation>Zoeken naar een patroon met de syntaxis van een reguliere expressie.</translation>
+        <translation>使用正規表示式語法來做搜尋樣式。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1446"/>
         <source>Where to search</source>
-        <translation>Waar te zoeken</translation>
+        <translation>在哪裡搜尋</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1436"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
-        <translation>Het zoeken en vervangen beperken tot het geopende bestand.  Houd de Ctrl-toets ingedrukt terwijl u een zoekknop indrukt om tijdelijk het zoeken te beperken tot het huidige bestand.</translation>
+        <translation>將尋找並取代的功能限制在已開啟的檔案。點擊任何搜尋按鍵時同時按住 Ctrl 鍵，可以暫時將搜尋限制在目前的檔案。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1437"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1438"/>
         <source>All HTML Files</source>
-        <translation>Alle HTML-bestanden</translation>
+        <translation>所有HTML檔案</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1438"/>
         <source>Find or replace in all HTML files in Code View.</source>
-        <translation>Zoeken of vervangen in codeweergave in alle HTML-bestanden.</translation>
+        <translation>在代碼檢視模式中，對所有 HTML 檔尋找或取代。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1439"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1440"/>
         <source>Selected HTML Files</source>
-        <translation>Geselecteerde HTML-bestanden</translation>
+        <translation>選取的 HTML 檔案</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1440"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
-        <translation>Het zoeken of vervangen in codeweergave beperken tot de in de boekverkenner geselecteerde HTML-bestanden.</translation>
+        <translation>在代碼檢視模式中，限制尋找或取代功能於書本瀏覽器中選取的 HTML 檔。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1442"/>
         <source>To restrict search to selected text, use Search&amp;rarr;Mark Selected Text.</source>
-        <translation>Om zoeken te beperken tot geselecteerde tekst, gebruik Zoeken&amp;rarr;Geselecteerde tekst markeren.</translation>
+        <translation>要將搜尋限制為選取的文字，請使用搜尋 &amp;rarr; 標記選取的文字。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1447"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1448"/>
         <source>Marked Text</source>
-        <translation>Gemarkeerde tekst</translation>
+        <translation>已標記文字</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1448"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
-        <translation>Het zoeken of vervangen beperken tot de tekst gemarkeerd door Zoeken&amp;rarr;Markeren geselecteerde tekst. Wordt gewist als u Ongedaan maken gebruikt, tekst opgeeft, of van weergave of tabblad wisselt</translation>
+        <translation>限制尋找或取代「搜尋」─「標記選取的文字」中定義的文字。若是您用「復原」，或是輸入文字，或是變更檢視或分頁時就會被清除。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1456"/>
         <source>Up</source>
-        <translation>Omhoog</translation>
+        <translation>上</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1453"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1457"/>
         <source>Down</source>
-        <translation>Omlaag</translation>
+        <translation>下</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1454"/>
         <source>Direction to search</source>
-        <translation>Richting te zoeken</translation>
+        <translation>搜尋方向</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1456"/>
         <source>Search for the previous match from your current position.</source>
-        <translation>Vanuit uw huidige positie naar de vorige overeenkomst zoeken.</translation>
+        <translation>從您目前的位置搜尋前一筆符合。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1457"/>
         <source>Search for the next match from your current position.</source>
-        <translation>Vanuit uw huidige positie naar de volgende overeenkomst zoeken.</translation>
+        <translation>從您目前的位置搜尋下一筆符合。</translation>
     </message>
 </context>
 <context>
@@ -2018,12 +2006,12 @@ om verder te gaan met zoeken.</translation>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="58"/>
         <source>Tokenise Selection</source>
-        <translation>Selectie tokeniseren</translation>
+        <translation>將選取區標記化</translation>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="71"/>
         <source>Save Search</source>
-        <translation>Zoekopdracht opslaan</translation>
+        <translation>儲存搜尋</translation>
     </message>
 </context>
 <context>
@@ -2031,7 +2019,7 @@ om verder te gaan met zoeken.</translation>
     <message>
         <location filename="../../Tabs/FlowTab.cpp" line="1162"/>
         <source>Print %1</source>
-        <translation>%1 afdrukken</translation>
+        <translation>列印 %1</translation>
     </message>
 </context>
 <context>
@@ -2039,195 +2027,195 @@ om verder te gaan met zoeken.</translation>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="14"/>
         <source>General Settings</source>
-        <translation>Algemene instellingen</translation>
+        <translation>一般設定</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="20"/>
         <source>Choose which version of Epub to use
 when creating new or empty Epubs in Sigil.</source>
-        <translation>Kiezen welke versie van epub gebruikt wordt
-bij het aanmaken van nieuwe of lege epubs in Sigil.</translation>
+        <translation>選擇在 Sigil 建立新的或空的 Epub 時
+要使用的 Epub 版本。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="24"/>
         <source>Create New or Empty Epubs as:</source>
-        <translation>Nieuwe of lege epubs aanmaken als:</translation>
+        <translation>建立新的或空的 Epub 為：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="30"/>
         <source>Epub Version 2.</source>
-        <translation>Epub versie 2.</translation>
+        <translation>Epub 版本 2。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="33"/>
         <source>Version 2</source>
-        <translation>Versie 2</translation>
+        <translation>版本 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="43"/>
         <source>Epub Version 3.</source>
-        <translation>Epub versie 3.</translation>
+        <translation>Epub 版本 3。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="46"/>
         <source>Version 3</source>
-        <translation>Versie 3</translation>
+        <translation>版本 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="59"/>
         <source>Choose when your HTML code is automatically 
 mended.</source>
-        <translation>Kiezen wanneer uw html-code automatisch wordt gerepareerd.</translation>
+        <translation>選擇何時 HTML 代碼自動修復。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="63"/>
         <source>Mend XHTML Source Code On:</source>
-        <translation>Xhtml-broncode repareren bij:</translation>
+        <translation>修復 HTML 代碼於：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="69"/>
         <source>Mend when opening an Epub or HTML file, 
 and when switching from Book View to Code View.</source>
-        <translation>Repareren bij openen van een epub of html-bestand,
-en bij wisselen van boekweergave naar codeweergave.</translation>
+        <translation>開啟 Epub 或 HTML 檔案時，
+和從書本檢視切換到代碼檢視時修復。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="73"/>
         <source>Open</source>
-        <translation>Openen</translation>
+        <translation>開啟</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="80"/>
         <source>Mend when saving an Epub.</source>
-        <translation>Repareren bij het opslaan van een epub.</translation>
+        <translation>儲存 Epub 時修復。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="83"/>
         <source>Save</source>
-        <translation>Opslaan</translation>
+        <translation>儲存</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="93"/>
         <source>Determine if Epubs are allowed to access non-multimedia remote resources.</source>
-        <translation>Bepalen of het aan epubs is toegestaan toegang te hebben tot niet-multimediale externe bronnen.</translation>
+        <translation>決定是否允許 Epub 存取非多媒體遠端資源。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="96"/>
         <source> Control Access by Epubs to non-multimedia remote resources.</source>
-        <translation>Toegang van epubs tot niet-multimediale externe bronnen controleren. </translation>
+        <translation>控制 Epub 對非多媒體遠端資源的存取。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="105"/>
         <source>Check to allow Epubs to access non-multimedia remote resources.</source>
-        <translation>Aanvinken om epubs toe te staan niet-multimedia externe bronnen te benaderen.</translation>
+        <translation>勾選以允許 Epub 存取非多媒體遠端資源。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="108"/>
         <source>Epubs may access all remote resources types.</source>
-        <translation>Epubs mogen alle externe bronnen benaderen.</translation>
+        <translation>Epub 可以存取所有遠端資源類型。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="127"/>
         <source>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</source>
-        <translation>Welk CSS-niveau wordt opgegeven aan de validatiedienst van W3C voor stijlbladen (EPUB2)</translation>
+        <translation>為 W3C 樣式表驗證工具指定的 CSS 等級 (EPUB2)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="130"/>
         <source>EPUB2 W3C Stylesheet Validation Level:</source>
-        <translation>EPUB2 W3C validatieniveau voor stijlbladen:</translation>
+        <translation>EPUB2 W3C 樣式表驗證等級：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="139"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB2</source>
-        <translation>Validatiedienst van W3C voor stijlbladen gebruikt CSS niveau 2 voor EPUB2</translation>
+        <translation>W3C 樣式表驗證器將對 EPUB2 使用 CSS 等級 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="142"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="199"/>
         <source>CSS Level 2</source>
-        <translation>CSS niveau 2</translation>
+        <translation>CSS 等級 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="149"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB2</source>
-        <translation>Validatiedienst van W3C voor stijlbladen gebruikt CSS niveau 2.1 voor EPUB2</translation>
+        <translation>W3C 樣式表驗證器將對 EPUB2 使用 CSS 等級 2.1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="152"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="209"/>
         <source>CSS Level 2.1</source>
-        <translation>CSS niveau 2.1</translation>
+        <translation>CSS 等級 2.1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="162"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB2</source>
-        <translation>Validatiedienst van W3C voor stijlbladen gebruikt CSS niveau 3 voor EPUB2</translation>
+        <translation>W3C 樣式表驗證器將對 EPUB2 使用 CSS 等級 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="165"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="222"/>
         <source>CSS Level 3</source>
-        <translation>CSS niveau 3</translation>
+        <translation>CSS 等級 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="184"/>
         <source>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</source>
-        <translation>Welk CSS-niveau wordt opgegeven aan de validatiedienst van W3C voor stijlbladen (EPUB3)</translation>
+        <translation>為 W3C 樣式表驗證工具指定的 CSS 等級 (EPUB3)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="187"/>
         <source>EPUB3 W3C Stylesheet Validation Level:</source>
-        <translation>EPUB3 W3C validatieniveau voor stijlbladen:</translation>
+        <translation>EPUB3 W3C 樣式表驗證等級：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="196"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB3</source>
-        <translation>Validatiedienst van W3C voor stijlbladen gebruikt CSS niveau 2 voor EPUB3</translation>
+        <translation>W3C 樣式表驗證器將對 EPUB3 使用 CSS 等級 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="206"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB3</source>
-        <translation>Validatiedienst van W3C voor stijlbladen gebruikt CSS niveau 2.1 voor EPUB3</translation>
+        <translation>W3C 樣式表驗證器將對 EPUB3 使用 CSS 等級 2.1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="219"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB3</source>
-        <translation>Validatiedienst van W3C voor stijlbladen gebruikt CSS niveau 3 voor EPUB3</translation>
+        <translation>W3C 樣式表驗證器將對 EPUB3 使用 CSS 等級 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="235"/>
         <source>Number of clipboard history items to save between sessions (0 disables):</source>
-        <translation>Aantal historische items op het klembord dat bewaard blijft tussen sessies (0 is uitschakelen):</translation>
+        <translation>在工作階段之間儲存的剪貼簿歷史記錄項數(0 代表停用)：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="247"/>
         <source>Use to limit (or disable) clipboard history saving between sessions</source>
-        <translation>Hiermee kunt u het bewaren van klembordgeschiedenis tussen sessies beperken (of uitschakelen).</translation>
+        <translation>使用來限制(或停用)工作階段之間剪貼簿歷史記錄的儲存</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="279"/>
         <source>Set Folder where temporary files should be created</source>
-        <translation>Map instellen waar tijdelijke bestanden moeten worden gegenereerd</translation>
+        <translation>設定建立暫存檔案的資料夾</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="290"/>
         <source>Auto</source>
-        <translation>Automatisch</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="297"/>
         <source>Browse</source>
-        <translation>Bladeren</translation>
+        <translation>瀏覽</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="132"/>
         <source>Select Folder for Temporary Files</source>
-        <translation>Map selecteren voor tijdelijke bestanden</translation>
+        <translation>選擇暫存檔案的資料夾</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="147"/>
         <source>Incorrect Folder for Temporary Files selected</source>
-        <translation>Onjuiste map voor tijdelijke bestanden geselecteerd</translation>
+        <translation>選擇的暫存檔案的資料夾不正確</translation>
     </message>
 </context>
 <context>
@@ -2235,172 +2223,172 @@ en bij wisselen van boekweergave naar codeweergave.</translation>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="110"/>
         <source>Acknowledgements</source>
-        <translation>Dankwoord</translation>
+        <translation>致謝</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="110"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
-        <translation>Een tekstgedeelte met dankbetuiging aan hen die betrokken waren bij de totstandkoming van het werk.</translation>
+        <translation>包含對參與實際工作的致謝段落。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="111"/>
         <source>Bibliography</source>
-        <translation>Bibliografie</translation>
+        <translation>參考書目</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="111"/>
         <source>A list of works cited.</source>
-        <translation>Een lijst met aangehaalde werken.</translation>
+        <translation>引用作品的清單。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="112"/>
         <source>Text</source>
-        <translation>Tekst</translation>
+        <translation>文字</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="112"/>
         <source>The start of the main text content of a publication.</source>
-        <translation>Het begin van de hoofdtekst van een publicatie.</translation>
+        <translation>出版物主要文字內容的開始。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="113"/>
         <source>Colophon</source>
-        <translation>Colofon</translation>
+        <translation>版權頁</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="113"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
-        <translation>Een korte beschrijving, meestal aan het einde van een publicatie, die de productienotities beschrijft die van toepassing zijn op de uitgave.</translation>
+        <translation>位於出版物末尾的簡要說明，通常描述與該版本相關的出版說明。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="114"/>
         <source>Copyright Page</source>
-        <translation>Informatie auteursrecht</translation>
+        <translation>版權頁</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="114"/>
         <source>The copyright page of the work.</source>
-        <translation>Een pagina met informatie over het auteursrecht.</translation>
+        <translation>作品的版權頁。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="115"/>
         <source>Cover</source>
-        <translation>Omslag</translation>
+        <translation>封面</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="115"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation>De omslag(en), omslaginformatie, enz. van de publicatie.</translation>
+        <translation>出版物的封面和封套資訊等等。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="116"/>
         <source>Dedication</source>
-        <translation>Opgedragen aan</translation>
+        <translation>題詞</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="116"/>
         <source>An inscription addressed to one or several particular person(s).</source>
-        <translation>Een opschrift gericht aan een of meer bijzondere personen.</translation>
+        <translation>給一個或幾個特定人的題詞。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="117"/>
         <source>Epigraph</source>
-        <translation>Epigraaf</translation>
+        <translation>引言</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="117"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation>Een citaat dat toepasselijk is, maar geen integraal onderdeel van de tekst vormt.</translation>
+        <translation>與文字相關，但不是文字組成部分的引文。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="118"/>
         <source>Foreword</source>
-        <translation>Voorwoord (van iemand anders dan de auteur)</translation>
+        <translation>前言</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="118"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation>Een inleidend hoofdstuk dat vooraf gaat aan het werk en niet werd geschreven door de auteur van het werk.</translation>
+        <translation>在作品之前的介紹部分，通常不是作品的作者寫的。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="119"/>
         <source>Glossary</source>
-        <translation>Verklarende woordenlijst</translation>
+        <translation>詞彙表</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="119"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
-        <translation>Een alfabetische lijst van termen in een bepaald kennisdomein, met de definities van deze termen.</translation>
+        <translation>按字母順序排列的特定知識領域中術語的列表，以及這些術語的定義。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="120"/>
         <source>Index</source>
-        <translation>Register</translation>
+        <translation>索引</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="120"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
-        <translation>Een gedetailleerde lijst, gewoonlijk alfabetisch gerangschikt, met de specifieke informatie in een publicatie.</translation>
+        <translation>通常按字母順序排列的出版物中特定資訊的詳細清單。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="121"/>
         <source>List of Illustrations</source>
-        <translation>Lijst van illustraties</translation>
+        <translation>插圖清單</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="121"/>
         <source>A listing of illustrations included in the work.</source>
-        <translation>Een opsomming van illustraties die zijn opgenomen in het werk.</translation>
+        <translation>作品中包括的插圖的清單。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="122"/>
         <source>List of Tables</source>
-        <translation>Lijst van tabellen</translation>
+        <translation>表格清單</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="122"/>
         <source>A listing of tables included in the work.</source>
-        <translation>Een opsomming van tabellen die zijn opgenomen in het werk.</translation>
+        <translation>作品中包括的表格的清單。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="123"/>
         <source>Notes</source>
-        <translation>Noten</translation>
+        <translation>註解</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="123"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
-        <translation>Een verzameling noten. Zij kan gebruikt worden om voetnoten, eindnoten, kanttekeningen, in de tekst geplaatste noten en dergelijke te herkennen als conventionele naamgeving niet gewenst is. Status: Afgekeurd - Vervangen door: &apos;voetnoten&apos;, &apos;eindnoten&apos;</translation>
+        <translation>註解的集合。當不需要舊的命名約定時，它可以用於識別腳註、後注、邊注、內聯註釋等。狀態：已棄用 - 被「腳註」、「後注」取代</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="124"/>
         <source>Preface</source>
-        <translation>Voorwoord (van auteur)</translation>
+        <translation>前言</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="124"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation>Een inleiding die aan het werk voorafgaat, geschreven door de auteur van het werk.</translation>
+        <translation>在作品之前的介紹部分，通常是作品的作者寫的。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="125"/>
         <source>Title Page</source>
-        <translation>Titelpagina</translation>
+        <translation>標題頁</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="125"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
-        <translation>Een pagina aan het begin van een boek bevattende zijn titel, auteur, uitgever en andere publicatiegegevens.</translation>
+        <translation>書籍開頭，給出標題、作者、出版商和其他出版資訊的頁面。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="126"/>
         <source>Table of Contents</source>
-        <translation>Inhoudsopgave</translation>
+        <translation>目錄</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="126"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
-        <translation>Een inhoudsopgave is een overzicht van de koppen of delen van het boek of document, geordend op volgorde waarin ze verschijnen. Kenmerkend opgenomen in het voorwerk, of aan het begin van een hoofdstuk.</translation>
+        <translation>目錄是書籍或文件的標題或部分的清單，按照出現的順序排序。通常出現在作品的前端或在節的開頭。</translation>
     </message>
 </context>
 <context>
@@ -2408,82 +2396,82 @@ en bij wisselen van boekweergave naar codeweergave.</translation>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="14"/>
         <source>HTML Files</source>
-        <translation>HTML-bestanden</translation>
+        <translation>HTML 檔案</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Alleen de bestandsnamen tonen die de tekst bevatten die u opgeeft.</translation>
+        <translation>只列出包含您輸入文字的檔名。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>過濾器:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="74"/>
         <source>Name</source>
-        <translation>Naam</translation>
+        <translation>名稱</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="75"/>
         <source>File Size (KB)</source>
-        <translation>Grootte (kB)</translation>
+        <translation>檔案大小 (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="76"/>
         <source>All Words</source>
-        <translation>Alle woorden</translation>
+        <translation>所有單字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="77"/>
         <source>Misspelled Words</source>
-        <translation>Verkeerd gespelde woorden</translation>
+        <translation>拼錯的單字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="78"/>
         <source>Images</source>
-        <translation>Afbeeldingen</translation>
+        <translation>圖片</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="79"/>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation>影片</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="80"/>
         <source>Audio</source>
-        <translation>Audio</translation>
+        <translation>聲音</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="81"/>
         <source>Stylesheets</source>
-        <translation>Stijlbladen</translation>
+        <translation>樣式表</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="82"/>
         <source>Well Formed</source>
-        <translation>Goed opgebouwd</translation>
+        <translation>正確格式</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="171"/>
         <source>Yes</source>
-        <translation>Ja</translation>
+        <translation>是</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="171"/>
         <source>No</source>
-        <translation>Nee</translation>
+        <translation>否</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="190"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n bestand</numerusform><numerusform>%n bestanden</numerusform></translation>
+        <translation><numerusform>%n 個檔案</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="331"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Rapport opslaan als CSV-bestand</translation>
+        <translation>將報告儲存為用逗號分隔的資料檔</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="344"/>
@@ -2493,12 +2481,12 @@ en bij wisselen van boekweergave naar codeweergave.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="344"/>
         <source>Cannot save report file.</source>
-        <translation>Rapportbestand kan niet worden opgeslagen.</translation>
+        <translation>無法儲存報告檔。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="368"/>
         <source>Delete From Book</source>
-        <translation>Verwijderen uit boek</translation>
+        <translation>從書本刪除</translation>
     </message>
 </context>
 <context>
@@ -2506,105 +2494,105 @@ en bij wisselen van boekweergave naar codeweergave.</translation>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="14"/>
         <source>Generate Table Of Contents</source>
-        <translation>Inhoudsopgave genereren</translation>
+        <translation>產生目錄</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="52"/>
         <source>Change the name of the entry in the TOC.
 The heading&apos;s title attribute will be updated in the document.</source>
-        <translation>De naam van de vermelding in de inhoudsopgave wijzigen.
-Het titelattribuut van de kop zal in het document geactualiseerd worden.</translation>
+        <translation>變更目錄中的條目名稱。
+文件中標頭的標題屬性會更新。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="975"/>
         <source>Rename</source>
-        <translation>Naam wijzigen</translation>
+        <translation>重新命名</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="81"/>
         <source>Decrease the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
 You can also use the left arrow key.</source>
-        <translation>Het kopniveau van de geselecteerde vermelding met één verlagen.
-De tag van de kop in het document zal worden geactualiseerd.
-U kunt ook de linker pijltoets gebruiken.</translation>
+        <translation>將選取的條目的標頭層級下降一級。
+文件裡標頭的標籤也會被更新。
+您也可以用向左鍵。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="96"/>
         <source>Increase the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
 You can also use the right arrow key.</source>
-        <translation>Het kopniveau van de geselecteerde vermelding met één verhogen.
-De tag van de kop in het document zal worden geactualiseerd.
-U kunt ook de rechter pijltoets gebruiken.</translation>
+        <translation>將選取的條目的標頭層級上升一級。
+文件裡標頭的標籤也會被更新。
+您也可以用向右鍵。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="130"/>
         <source>Only display the items that will be added to the Table Of Contents.
 Check or uncheck an entry to determine if it will be added to the TOC.</source>
-        <translation>Alleen de vermeldingen tonen die zullen worden toegevoegd aan de inhoudsopgave.
-Vink een vermelding aan of uit om te bepalen of deze wordt toegevoegd aan de inhoudsopgave.</translation>
+        <translation>只顯示會被加入目錄的條目。
+您可以勾選或取消勾選任一條目來決定該條目是否要加入目錄中。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="134"/>
         <source>Show TOC items only</source>
-        <translation>Alleen vermeldingen van de inhoudsopgave tonen.</translation>
+        <translation>只顯示目錄條目</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="153"/>
         <source>Quickly mark which headings are included in the TOC.
 You can then check or uncheck individual headings in the list above.</source>
-        <translation>Snel markeren welke koppen worden opgenomen in de inhoudsopgave.
-U kunt dan de afzonderlijke koppen aan- of uitvinken in de bovenstaande lijst.</translation>
+        <translation>快速標記哪些標頭要加入目錄。
+您可以個別勾選上方清單中的標頭。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="618"/>
         <source>Level</source>
-        <translation>Niveau</translation>
+        <translation>層級</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <source>Included</source>
-        <translation>Ingesloten</translation>
+        <translation>已包括</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <source>Hidden</source>
-        <translation>Verborgen</translation>
+        <translation>已隱藏</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="617"/>
         <source>TOC Entry / Heading Title</source>
-        <translation>Vermelding inhoudsopgave / koptitel</translation>
+        <translation>目錄條目 / 標頭標題</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="619"/>
         <source>Include</source>
-        <translation>Opnemen</translation>
+        <translation>包括</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="838"/>
         <source>Up to level</source>
-        <translation>Een niveau omhoog</translation>
+        <translation>向上一個層次</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="840"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
-        <translation>&lt;Koppen selecteren om op te nemen in de inhoudsopgave&gt;</translation>
+        <translation>&lt;選擇要包含在目錄中的標頭&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="843"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="904"/>
         <source>None</source>
-        <translation>Geen</translation>
+        <translation>無</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="849"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="902"/>
         <source>All</source>
-        <translation>Alles</translation>
+        <translation>全部</translation>
     </message>
 </context>
 <context>
@@ -2612,77 +2600,77 @@ U kunt dan de afzonderlijke koppen aan- of uitvinken in de bovenstaande lijst.</
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="14"/>
         <source>Image Files</source>
-        <translation>Afbeeldingsbestanden</translation>
+        <translation>圖片檔</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Alleen de bestandsnamen tonen die de tekst bevatten die u opgeeft.</translation>
+        <translation>只列出包含您輸入文字的檔名。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>過濾器:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="76"/>
         <source>Thumbnail size:</source>
-        <translation>Afmeting miniatuur:</translation>
+        <translation>縮圖大小：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="88"/>
         <source>Name</source>
-        <translation>Naam</translation>
+        <translation>名稱</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="89"/>
         <source>File Size (KB)</source>
-        <translation>Grootte (kB)</translation>
+        <translation>檔案大小 (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="90"/>
         <source>Times Used</source>
-        <translation>Maal gebruikt</translation>
+        <translation>使用次數</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="91"/>
         <source>Width</source>
-        <translation>Breedte</translation>
+        <translation>寬度</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="92"/>
         <source>Height</source>
-        <translation>Hoogte</translation>
+        <translation>高度</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="93"/>
         <source>Pixels</source>
-        <translation>Pixels</translation>
+        <translation>像素</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="94"/>
         <source>Color</source>
-        <translation>Kleur</translation>
+        <translation>顏色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="97"/>
         <source>Image</source>
-        <translation>Afbeelding</translation>
+        <translation>圖片</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="184"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n bestand</numerusform><numerusform>%n bestanden</numerusform></translation>
+        <translation><numerusform>%n 個檔案</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="188"/>
         <source>KB</source>
-        <translation>kB</translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="332"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Rapport opslaan als CSV-bestand</translation>
+        <translation>將報告儲存為用逗號分隔的資料檔</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="345"/>
@@ -2692,12 +2680,12 @@ U kunt dan de afzonderlijke koppen aan- of uitvinken in de bovenstaande lijst.</
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="345"/>
         <source>Cannot save report file.</source>
-        <translation>Rapportbestand kan niet worden opgeslagen.</translation>
+        <translation>無法儲存報告檔。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="417"/>
         <source>Delete From Book</source>
-        <translation>Verwijderen uit boek</translation>
+        <translation>從書本刪除</translation>
     </message>
 </context>
 <context>
@@ -2705,49 +2693,49 @@ U kunt dan de afzonderlijke koppen aan- of uitvinken in de bovenstaande lijst.</
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="177"/>
         <source>shades</source>
-        <translation>tinten</translation>
+        <translation>陰影</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="177"/>
         <source>colors</source>
-        <translation>kleuren</translation>
+        <translation>顏色</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="178"/>
         <source>Grayscale</source>
-        <translation>Grijstinten</translation>
+        <translation>灰階</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="178"/>
         <source>Color</source>
-        <translation>Kleur</translation>
+        <translation>顏色</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="293"/>
         <location filename="../../Tabs/ImageTab.cpp" line="350"/>
         <location filename="../../Tabs/ImageTab.cpp" line="353"/>
         <source>Open With</source>
-        <translation>Openen met</translation>
+        <translation>開啟方式</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="328"/>
         <source>Other Application</source>
-        <translation>Andere toepassing</translation>
+        <translation>其他應用程式</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="351"/>
         <source>Save As</source>
-        <translation>Opslaan als</translation>
+        <translation>另存新檔</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="352"/>
         <source>Copy Image</source>
-        <translation>Afbeelding kopiëren</translation>
+        <translation>複製圖片</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="400"/>
         <source>Print %1</source>
-        <translation>Afdrukken %1</translation>
+        <translation>列印 %1</translation>
     </message>
 </context>
 <context>
@@ -2762,15 +2750,14 @@ U kunt dan de afzonderlijke koppen aan- of uitvinken in de bovenstaande lijst.</
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in data loss.
 
 Do you want to automatically fix the files?</source>
-        <translation>Deze EPUB bevat HTML-bestanden die niet goed zijn opgebouwd.
-Sigil kan proberen deze bestanden automatisch te repareren, maar dit kan leiden tot gegevensverlies.
+        <translation>此 EPUB 檔內有格式不正確的 HTML 檔。Sigil 可以試著自動修復這些檔案，不過有可能造成資料損失。
 
-Wilt u de bestanden automatisch laten repareren?</translation>
+您要自動修復這些檔案嗎？</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="501"/>
         <source>Epub has missing or improperly specified OPF.</source>
-        <translation>Epub heeft geen of onjuist opgegeven OPF.</translation>
+        <translation>Epub 遺失或未正確指定 OPF。</translation>
     </message>
 </context>
 <context>
@@ -2779,93 +2766,93 @@ Wilt u de bestanden automatisch laten repareren?</translation>
         <location filename="../../Form_Files/IndexEditor.ui" line="14"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Index Editor</source>
-        <translation>Registerbewerker</translation>
+        <translation>索引編輯器</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>過濾器:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Alleen de trefwoorden tonen die de tekst bevatten die u opgeeft. </translation>
+        <translation>只列出包含您輸入文字的條目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="55"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="421"/>
         <source>Add Entry</source>
-        <translation>Trefwoord toevoegen</translation>
+        <translation>新增條目</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="66"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>Klik rechts op een trefwoord om een contextmenu met acties te zien.</translation>
+        <translation>在條目上點擊右鍵，可以看到動作內文選單。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
         <source>You can also right click in your document to add selected text to the Index.</source>
-        <translation>U kunt ook rechts klikken in uw document om geselecteerde tekst toe te voegen aan het register.</translation>
+        <translation>您也可以在文件上點擊右鍵，新增選取的文字到索引中。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>Text to Include</source>
-        <translation>Op te nemen tekst</translation>
+        <translation>要包括的文字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>The pattern to match in your document, e.g. &quot;Gutenberg&quot;. This is a regex pattern so &quot;(?i)Gutenberg&quot; ignores case when matching.</source>
-        <translation>Het patroon dat overeenkomt in uw document, bijv. &quot;Gutenberg&quot;. Het gaat hier om een patroon met reguliere expressies. Zo wordt bij &quot;(?i)Gutenberg&quot; de hoofdletters genegeerd bij de vergelijking.</translation>
+        <translation>要在您的文件中比對的樣式，例如 &quot;Gutenberg&quot;。樣式使用正規表示式，所以 &quot;(?i)Gutenberg&quot; 會在比對時忽略大小寫。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>Index Entries</source>
-        <translation>Index aanmeldingen</translation>
+        <translation>索引條目</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using &apos;/&apos; after a level name, e.g. &quot;Books/Fantasy/Alice in Wonderland&quot; or &quot;Books/Fantasy/&quot;.</source>
-        <translation>Het trefwoord om op te nemen in het register. Laat dit leeg om de tekst te gebruiken zoals deze is, of geef een tekst op om te tonen. U kunt trefwoorden met meer niveaus maken door een &quot;/&quot; te gebruiken na de naam van een niveau, bijv. &quot;Boeken/sprookjes/Sneeuwwitje&quot; or &quot;Boeken/sprookjes/&quot;.</translation>
+        <translation>要建立在索引內的項目。留白的話就直接使用文字，否則就輸入要顯示的文字。用 &apos;/&apos; 來建立多層的項目，例如 &quot;Books/Fantasy/Alice in Wonderland&quot;，或是 &quot;Books/Fantasy/&quot;。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save</source>
-        <translation>Opslaan</translation>
+        <translation>儲存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save your changes.</source>
-        <translation>Uw wijzigingen opslaan.</translation>
+        <translation>儲存您的變更。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>Als er andere instanties van Sigil actief zijn, dan worden deze automatisch geactualiseerd met uw wijzigingen.</translation>
+        <translation>若是 Sigil 的任一實體正在執行中，您做的變更會自動套用在那些實體上。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="84"/>
         <source>Cannot save entries.</source>
-        <translation>Trefwoorden kunnen niet worden opgeslagen.</translation>
+        <translation>無法儲存條目。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="126"/>
         <source>Index entries loaded from file.</source>
-        <translation>Trefwoorden ingeladen vanuit bestand.</translation>
+        <translation>已從檔案中載入索引條目。</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Entries added: %n</source>
-        <translation><numerusform>Trefwoorden toegevoegd: %n</numerusform><numerusform>Trefwoorden toegevoegd: %n</numerusform></translation>
+        <translation><numerusform>已加入條目：%n</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="293"/>
         <source>Index files: *.ini *.txt (*.ini *.txt)</source>
-        <translation>Registerbestanden: *.ini *.txt (*.ini *.txt)</translation>
+        <translation>索引檔： *.ini *.txt (*.ini *.txt)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="295"/>
         <source>Load Entries From File</source>
-        <translation>Trefwoorden laden vanuit bestand.</translation>
+        <translation>從檔案中載入項目</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
@@ -2875,80 +2862,79 @@ Wilt u de bestanden automatisch laten repareren?</translation>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>Weet u zeker dat u alle trefwoorden opnieuw wilt laden?  Dit zal alle niet-opgeslagen wijzigingen overschrijven.</translation>
+        <translation>您確定要重新載入所有的條目嗎？這會覆蓋掉所有未儲存的變更。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="329"/>
         <source>Save Entries to File</source>
-        <translation>Trefwoorden opslaan naar bestand.</translation>
+        <translation>儲存條目到檔案</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="422"/>
         <source>Edit</source>
-        <translation>Bewerken</translation>
+        <translation>編輯</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="423"/>
         <source>Cut</source>
-        <translation>Knippen</translation>
+        <translation>剪下</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="424"/>
         <source>Copy</source>
-        <translation>Kopiëren</translation>
+        <translation>複製</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="425"/>
         <source>Paste</source>
-        <translation>Plakken</translation>
+        <translation>貼上</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="426"/>
         <source>Delete</source>
-        <translation>Verwijderen</translation>
+        <translation>刪除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
         <source>Autofill</source>
-        <translation>Automatisch doorvoeren</translation>
+        <translation>自動填入</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
         <source>Open</source>
-        <translation>Openen</translation>
+        <translation>開啟</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="429"/>
         <source>Reload</source>
-        <translation>Opnieuw laden</translation>
+        <translation>重新載入</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
         <source>Save As</source>
-        <translation>Opslaan als</translation>
+        <translation>另存新檔</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
         <source>Select All</source>
-        <translation>Alles selecteren</translation>
+        <translation>全部選取</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="506"/>
         <source>Index entries saved.</source>
-        <translation>Trefwoorden opgeslagen.</translation>
+        <translation>索引條目已儲存。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="535"/>
         <source>Sigil: Index Editor</source>
-        <translation>Sigil: Registerbewerker</translation>
+        <translation>Sigil: 索引編輯器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="536"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>De trefwoorden kunnen zijn gewijzigd.
-
-Wilt u de wijzigingen opslaan?</translation>
+        <translation>索引條目可能已變更。
+您要儲存您的變更嗎？</translation>
     </message>
 </context>
 <context>
@@ -2956,17 +2942,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="61"/>
         <source>Text to Include</source>
-        <translation>Op te nemen tekst</translation>
+        <translation>要包括的文字</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="62"/>
         <source>Index Entries</source>
-        <translation>Trefwoorden</translation>
+        <translation>索引條目</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="347"/>
         <source>Unable to create file %1</source>
-        <translation>Bestand %1 kan niet gemaakt worden</translation>
+        <translation>無法建立檔案 %1</translation>
     </message>
 </context>
 <context>
@@ -2974,78 +2960,78 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="14"/>
         <source>Keyboard Shortcuts</source>
-        <translation>Toetsencombinaties</translation>
+        <translation>快捷鍵</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="34"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Alleen de toetsencombinaties tonen die de tekst bevatten die u opgeeft.</translation>
+        <translation>只列出包含您輸入文字的條目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="37"/>
         <source>Filter: </source>
-        <translation>Filter:</translation>
+        <translation>過濾器: </translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="62"/>
         <source>Name</source>
-        <translation>Naam</translation>
+        <translation>名稱</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="67"/>
         <source>Shortcut</source>
-        <translation>Toetsencombinatie</translation>
+        <translation>捷徑</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="72"/>
         <source>Description</source>
-        <translation>Beschrijving</translation>
+        <translation>描述</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="82"/>
         <source>Reset all to default</source>
-        <translation>Alles terugzetten naar standaard</translation>
+        <translation>全部恢復預設值</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="85"/>
         <source>Reset All</source>
-        <translation>Alles terugzetten</translation>
+        <translation>全部重設</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="115"/>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="125"/>
         <source>Press the key combination you want to use.</source>
-        <translation>Druk de toetsencombinatie die u wilt gebruiken.</translation>
+        <translation>請按下您要使用的按鍵組合。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="118"/>
         <source>Shortcut:</source>
-        <translation>Toetsencombinatie:</translation>
+        <translation>捷徑:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="141"/>
         <source>Assign this keyboard shortcut, overriding any conflicting usages.</source>
-        <translation>Deze toetsencombinatie toewijzen met overschrijving van strijdig gebruik.</translation>
+        <translation>指定此快捷鍵，覆寫所有衝突的設定。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="144"/>
         <source>Assign</source>
-        <translation>Toewijzen</translation>
+        <translation>指定</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="160"/>
         <source>Remove this keyboard shortcut.</source>
-        <translation>Deze toetsencombinatie verwijderen.</translation>
+        <translation>移除此快捷鍵。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="163"/>
         <source>Remove</source>
-        <translation>Verwijderen</translation>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="343"/>
         <source>Conflicts with: &lt;b&gt;</source>
-        <translation>Conflicteert met: &lt;b&gt;</translation>
+        <translation>衝突：&lt;b&gt;</translation>
     </message>
 </context>
 <context>
@@ -3053,482 +3039,482 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="117"/>
         <source>Acknowledgments</source>
-        <translation>Dankwoord</translation>
+        <translation>致謝</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="117"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
-        <translation>Een tekstgedeelte met dankbetuiging aan hen die betrokken waren bij de totstandkoming van het werk.</translation>
+        <translation>包含對參與實際工作的致謝段落。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="118"/>
         <source>Afterword</source>
-        <translation>Nawoord</translation>
+        <translation>後記</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="118"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation>Een afsluitende verklaring van de auteur of een persoon van betekenis, kenmerkend inzicht gevend in hoe het verhaal tot stand kwam, zijn betekenis of verwante gebeurtenissen die zich hebben voorgedaan sinds zijn totstandkoming. </translation>
+        <translation>來自作者或對故事重要人物的結束陳述，通常提供對故事如何編寫的深入了解、其意義或自其時間表以來發生的相關事件。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="119"/>
         <source>Annotation</source>
-        <translation>Annotatie</translation>
+        <translation>註解</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="119"/>
         <source>Explanatory information about passages in the work. Status: Deprecated</source>
-        <translation>Verklarende informatie over tekstgedeelten in het werk. Status: Afgekeurd</translation>
+        <translation>關於作品中的段落的解釋性資訊。狀態：已棄用</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="120"/>
         <source>Appendix</source>
-        <translation>Bijlage</translation>
+        <translation>附錄</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="120"/>
         <source>Supplemental information.</source>
-        <translation>Aanvullende informatie.</translation>
+        <translation>補充資訊。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="121"/>
         <source>Assessment</source>
-        <translation>Overhoring</translation>
+        <translation>評估</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="121"/>
         <source>A test, quiz, or other activity that helps measure a student&apos;s understanding of what is being taught.</source>
-        <translation>Een test, quiz, of andere activiteit die dient om het begrip van de leerstof bij de student te meten.</translation>
+        <translation>測試、測驗或其他有助於衡量學生對正在教授內容的理解的活動。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="122"/>
         <source>Back Matter</source>
-        <translation>Nawerk</translation>
+        <translation>附屬資料</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="122"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
-        <translation>Ondergeschikte bestanddelen die zich in de publicatie bevinden na de hoofdtekst, zoals registers, bijlagen, enz.</translation>
+        <translation>出現在出版物的主要內容之後的補充材料，如索引、附錄等。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="123"/>
         <source>Bibliography</source>
-        <translation>Bibliografie</translation>
+        <translation>參考書目</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="123"/>
         <source>A list of works cited.</source>
-        <translation>Een lijst met aangehaalde werken.</translation>
+        <translation>引用作品的清單。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="124"/>
         <source>Body Matter</source>
-        <translation>Hoofdwerk</translation>
+        <translation>主體</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="124"/>
         <source>The main content of a publication.</source>
-        <translation>De hoofdtekst van een publicatie.</translation>
+        <translation>出版物的主要內容。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="125"/>
         <source>Chapter</source>
-        <translation>Hoofdstuk</translation>
+        <translation>章節</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="125"/>
         <source>A major structural division of a piece of writing.</source>
-        <translation>Een belangrijk structureel onderdeel van een geschrift.</translation>
+        <translation>一個作品的主要結構分割。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="126"/>
         <source>Colophon</source>
-        <translation>Colofon</translation>
+        <translation>版權頁</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="126"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
-        <translation>Een korte beschrijving, meestal aan het einde van een publicatie, die de productienotities beschrijft die van toepassing zijn op de uitgave.</translation>
+        <translation>位於出版物末尾的簡要說明，通常描述與該版本相關的出版說明。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="127"/>
         <source>Conclusion</source>
-        <translation>Besluit</translation>
+        <translation>結論</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="127"/>
         <source>An ending section that typically wraps up the work.</source>
-        <translation>Een afsluitend hoofdstuk dat kenmerkend het werk afsluit.</translation>
+        <translation>結尾章節, 通常對全書做總結。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="128"/>
         <source>Contributors</source>
-        <translation>Bijdragers</translation>
+        <translation>貢獻者</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="128"/>
         <source>A list of contributors to the work.</source>
-        <translation>Een lijst van bijdragers aan het werk.</translation>
+        <translation>作品的貢獻者清單。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="129"/>
         <source>Copyright Page</source>
-        <translation>Informatie auteursrecht</translation>
+        <translation>版權頁</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="129"/>
         <source>The copyright page of the work.</source>
-        <translation>Een pagina met informatie over de houders van het auteursrecht over het werk.</translation>
+        <translation>作品的版權頁。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="130"/>
         <source>Cover</source>
-        <translation>Omslag</translation>
+        <translation>封面</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="130"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation>De omslag(en), omslaginformatie, enz. van de publicatie.</translation>
+        <translation>出版物的封面和封套資訊等等。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="131"/>
         <source>Dedication</source>
-        <translation>Opgedragen aan</translation>
+        <translation>題詞</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="131"/>
         <source>An inscription addressed to one or several particular person(s).</source>
-        <translation>Een opschrift gericht aan een of meer bijzondere personen.</translation>
+        <translation>給一個或幾個特定人的題詞。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="132"/>
         <source>Division</source>
-        <translation>Rubriek</translation>
+        <translation>分隔</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="132"/>
         <source>A major structural division that may also appear as a substructure of a part (esp. in legislation).</source>
-        <translation>Een belangrijk structureel onderdeel dat ook als onderverdeling van een deel kan verschijnen (met name in wetgeving).</translation>
+        <translation>一個主要的結構分割, 也可以作為一個部分的子結構（特別是在立法中）。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="133"/>
         <source>Epigraph</source>
-        <translation>Epigraaf</translation>
+        <translation>引言</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="133"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation>Een citaat dat toepasselijk is, maar geen integraal onderdeel van de tekst vormt.</translation>
+        <translation>與文字相關，但不是文字組成部分的引文。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="134"/>
         <source>Epilogue</source>
-        <translation>Epiloog</translation>
+        <translation>結語</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="134"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
-        <translation>Een afsluitend hoofdstuk dat kenmerkend een latere periode beschrijft dan het hoofdverhaal, alhoewel het nog steeds een deel van de vertelling vormt.</translation>
+        <translation>結論章節，通常在比主故事稍晚的時候完成，雖然仍然是敘事的一部分。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="135"/>
         <source>Errata</source>
-        <translation>Errata</translation>
+        <translation>勘誤表</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="135"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
-        <translation>Publicatiefouten, in gedrukte werken kenmerkend een met de hand ingevoegd los blad; soms een gebonden pagina die verbeteringen voor fouten in het werk bevat.</translation>
+        <translation>出版物勘誤表，在印刷品中通常是手工插入的紙；有時是包含作品中錯誤更正的綁定頁面。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="136"/>
         <source>Footnotes</source>
-        <translation>Voetnoten</translation>
+        <translation>腳註</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="136"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
-        <translation>Een verzameling noten onderaan een pagina.</translation>
+        <translation>出現在頁面底部的註解集合。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="137"/>
         <source>Foreword</source>
-        <translation>Voorwoord (van iemand anders dan de auteur)</translation>
+        <translation>前言</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="137"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation>Een inleidend hoofdstuk dat vooraf gaat aan het werk, kenmerkend niet geschreven door de auteur van het werk.</translation>
+        <translation>在作品之前的介紹部分，通常不是作品的作者寫的。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="138"/>
         <source>Front Matter</source>
-        <translation>Voorwerk</translation>
+        <translation>前頁</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="138"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
-        <translation>Bestanddelen van een publicatie die voor de hoofdtekst staan, zoals de inhoudsopgave, opgedragen aan, e.d.</translation>
+        <translation>出版物主要內容前的材料, 如目錄、題詞等。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="139"/>
         <source>Glossary</source>
-        <translation>Verklarende woordenlijst</translation>
+        <translation>詞彙表</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="139"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
-        <translation>Een alfabetische lijst van termen in een bepaald kennisdomein, met de definities van deze termen.</translation>
+        <translation>按字母順序排列的特定知識領域中術語的列表，以及這些術語的定義。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="140"/>
         <source>Half Title Page</source>
-        <translation>Franse titel</translation>
+        <translation>簡名頁</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="140"/>
         <source>The half title page of the work which carries just the title itself.</source>
-        <translation>De Franse titel bevat alleen de titel van het werk.</translation>
+        <translation>作品的簡名頁，只帶有標題本身。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="141"/>
         <source>Imprimatur</source>
-        <translation>Imprimatur</translation>
+        <translation>出版許可</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="141"/>
         <source>A formal statement authorizing the publication of the work.</source>
-        <translation>Een officiële verklaring die publicatie van het werk toestaat.</translation>
+        <translation>授權發佈作品的正式聲明。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="142"/>
         <source>Imprint</source>
-        <translation>Impressum</translation>
+        <translation>版本說明</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="142"/>
         <source>Information relating to the publication or distribution of the work.</source>
-        <translation>Informatie over de publicatie of distributie van het werk.</translation>
+        <translation>與作品的出版或銷售有關的資訊。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="143"/>
         <source>Index</source>
-        <translation>Register</translation>
+        <translation>索引</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="143"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
-        <translation>Een gedetailleerde lijst, gewoonlijk alfabetisch gerangschikt, met de specifieke informatie in een publicatie.</translation>
+        <translation>通常按字母順序排列的出版物中特定資訊的詳細清單。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="144"/>
         <source>Introduction</source>
-        <translation>Inleiding</translation>
+        <translation>引言</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="144"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
-        <translation>Een hoofdstuk aan het begin van het werk, kenmerkend de lezer inleidende in het gebied of de aard van de inhoud van het werk.</translation>
+        <translation>作品的開始部分，通常向讀者介紹作品內容的範圍或性質。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="145"/>
         <source>Landmarks</source>
-        <translation>Bakens</translation>
+        <translation>地標</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="145"/>
         <source>A collection of references to well-known/recurring components within the publication</source>
-        <translation>Een verzameling verwijzingen naar bekende / terugkerende onderdelen in de publicatie</translation>
+        <translation>出版物中對知名/反覆出現的元件的參考集合</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="146"/>
         <source>List of Audio Clips</source>
-        <translation>Lijst van geluidsfragmenten</translation>
+        <translation>音訊剪輯清單</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="146"/>
         <source>A listing of audio clips included in the work.</source>
-        <translation>Een opsomming van geluidsfragmenten die zijn opgenomen in het werk.</translation>
+        <translation>作品中包含的音訊剪輯的清單。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="147"/>
         <source>List of Illustrations</source>
-        <translation>Lijst van illustraties</translation>
+        <translation>插圖清單</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="147"/>
         <source>A listing of illustrations included in the work.</source>
-        <translation>Een opsomming van illustraties die zijn opgenomen in het werk.</translation>
+        <translation>作品中包括的插圖的清單。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="148"/>
         <source>List of Tables</source>
-        <translation>Lijst van tabellen</translation>
+        <translation>表格清單</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="148"/>
         <source>A listing of tables included in the work.</source>
-        <translation>Een opsomming van tabellen die zijn opgenomen in het werk.</translation>
+        <translation>作品中包括的表格的清單。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="149"/>
         <source>List of Video Clips</source>
-        <translation>Lijst van videofragmenten</translation>
+        <translation>影片剪輯清單</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="149"/>
         <source>A listing of video clips included in the work.</source>
-        <translation>Een opsomming van videofragmenten die zijn opgenomen in het werk.</translation>
+        <translation>作品中包含的影片剪輯的清單。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="150"/>
         <source>Notice</source>
-        <translation>Kennisgeving</translation>
+        <translation>須知</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="150"/>
         <source>Information that requires special attention, and that must not be skipped or suppressed. Examples include: alert, warning, caution, danger, important.</source>
-        <translation>Informatie die speciale aandacht vereist, en die niet moet worden overgeslagen of onderdrukt. Voorbeelden hiervan zijn: waarschuwing, kennisgeving, voorzichtigheid geboden, gevaar, belangrijk.</translation>
+        <translation>需要特別注意的資訊，不得跳過或刪掉。例如包括：警報、警告、注意、危險、重要。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="151"/>
         <source>Other Credits</source>
-        <translation>Andere eervermeldingen</translation>
+        <translation>其他致謝</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="151"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
-        <translation>Verantwoording van eerder gepubliceerde delen van het werk en illustraties en toestemming te citeren uit auteursrechtelijk beschermd materiaal.</translation>
+        <translation>致謝作品中之前發佈的部分、插圖致謝和引用受版權保護的材料的許可。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="152"/>
         <source>Page List</source>
-        <translation>Paginalijst</translation>
+        <translation>頁面清單</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="152"/>
         <source>A list of references to pagebreaks (start locations) from a print version of the ebook</source>
-        <translation>Een lijst met verwijzingen naar bladovergangen (startlocaties) uit een gedrukte versie van het e-boek.</translation>
+        <translation>電子書的列印版本中分頁符（起始位置）的參照清單</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="153"/>
         <source>Part</source>
-        <translation>Deel</translation>
+        <translation>部分</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="153"/>
         <source>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</source>
-        <translation>Een belangrijk structureel onderdeel van een geschrift, kenmerkend bevattend een groep verwante hoofdstukken.</translation>
+        <translation>一段作品的主要結構分割，通常封裝一組相關的章節。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>Preamble</source>
-        <translation>Inleiding</translation>
+        <translation>前言</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
-        <translation>Een hoofdstuk in het begin van het werk, kenmerkend met inleidende en/of verklarende proza met betrekking tot het gebied of de aard van de inhoud van het werk</translation>
+        <translation>作品開頭的部分，通常包含關於作品內容的範圍或性質的介紹性和/或說明性的內容</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>Preface</source>
-        <translation>Voorwoord (van auteur)</translation>
+        <translation>前言</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation>Een inleiding die aan het werk voorafgaat, kenmerkend geschreven door de auteur van het werk.</translation>
+        <translation>在作品之前的介紹部分，通常是作品的作者寫的。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>Prologue</source>
-        <translation>Proloog</translation>
+        <translation>序幕</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
-        <translation>Een inleidend hoofdstuk dat de achtergrond van een verhaal vertelt kenmerkend als deel van de vertelling.</translation>
+        <translation>介紹部分，設定故事的背景，通常是敘事的一部分。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>Questions and Answers</source>
-        <translation>Vragen en antwoorden</translation>
+        <translation>問題與解答</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>A question and answer section.</source>
-        <translation>Een hoofdstuk met vragen en antwoorden.</translation>
+        <translation>問題與解答章節。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>Rear Notes</source>
-        <translation>Eindnoten</translation>
+        <translation>後注</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
-        <translation>Een verzameling noten aan het einde (nawerk) van het werk, of aan het einde van een hoofdstuk.</translation>
+        <translation>出現在作品後部或章節結尾的備註。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>Revision History</source>
-        <translation>Wijzigingshistorie</translation>
+        <translation>修訂記錄</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>A record of changes made to a work.</source>
-        <translation>Een overzicht van wijzigingen die zijn aangebracht aan het werk.</translation>
+        <translation>對作品所做更改的記錄。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>Subchapter</source>
-        <translation>Paragraaf</translation>
+        <translation>子章節</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>A major sub-division of a chapter.</source>
-        <translation>Een belangrijke onderverdeling van een hoofdstuk.</translation>
+        <translation>一個章節的主要子部分。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>Title Page</source>
-        <translation>Titelpagina</translation>
+        <translation>標題頁</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
-        <translation>Een pagina aan het begin van een boek bevattende zijn titel, auteur, uitgever en andere publicatiegegevens.</translation>
+        <translation>書籍開頭，給出標題、作者、出版商和其他出版資訊的頁面。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>Table of Contents</source>
-        <translation>Inhoudsopgave</translation>
+        <translation>目錄</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
-        <translation>Een inhoudsopgave is een overzicht van de koppen of delen van het boek of document, geordend op volgorde waarin ze verschijnen. Is kenmerkend opgenomen in het voorwerk of aan het begin van een hoofdstuk.</translation>
+        <translation>目錄是書籍或文件的標題或部分的清單，按照出現的順序排序。通常出現在作品的前端或在節的開頭。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>Volume</source>
-        <translation>Deel</translation>
+        <translation>卷</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>A component of a collection.</source>
-        <translation>Een onderdeel van een verzameling.</translation>
+        <translation>作品集的一個部分。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>Warning</source>
-        <translation>Waarschuwing.</translation>
+        <translation>警告</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
-        <translation>Een waarschuwing over bijzondere inhoud. Status: Afgekeurd - Vervangen door &apos;kennisgeving&apos;.</translation>
+        <translation>特定材料的警告。狀態：已棄用 - 被「須知」取代。</translation>
     </message>
 </context>
 <context>
@@ -3536,7 +3522,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="85"/>
         <source>Abkhazian</source>
-        <translation>Abchazisch</translation>
+        <translation>Abkhazian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="86"/>
@@ -3546,7 +3532,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="87"/>
         <source>Afrikaans</source>
-        <translation>Afrikaans</translation>
+        <translation>Afikaans</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="88"/>
@@ -3556,12 +3542,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="89"/>
         <source>Albanian</source>
-        <translation>Albanees</translation>
+        <translation>Albanian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="90"/>
         <source>Amharic</source>
-        <translation>Amhaars</translation>
+        <translation>Amharic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="91"/>
@@ -3581,107 +3567,107 @@ Wilt u de wijzigingen opslaan?</translation>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Arabic</source>
-        <translation>Arabisch</translation>
+        <translation>Arabic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="92"/>
         <source>Algeria</source>
-        <translation>Algerije</translation>
+        <translation>阿爾及利亞</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="93"/>
         <source>Bahrain</source>
-        <translation>Bahrein</translation>
+        <translation>Bahrain</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="94"/>
         <source>Egypt</source>
-        <translation>Egypte</translation>
+        <translation>埃及</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="95"/>
         <source>Iraq</source>
-        <translation>Irak</translation>
+        <translation>伊拉克</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="96"/>
         <source>Jordan</source>
-        <translation>Jordanië</translation>
+        <translation>約旦</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="97"/>
         <source>Kuwait</source>
-        <translation>Koeweit</translation>
+        <translation>科威特</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="98"/>
         <source>Lebanon</source>
-        <translation>Libanon</translation>
+        <translation>黎巴嫩</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="99"/>
         <source>Libya</source>
-        <translation>Libië</translation>
+        <translation>利比亞</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="100"/>
         <source>Morocco</source>
-        <translation>Marokko</translation>
+        <translation>摩洛哥</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="101"/>
         <source>Oman</source>
-        <translation>Oman</translation>
+        <translation>阿曼</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="102"/>
         <source>Qatar</source>
-        <translation>Qatar</translation>
+        <translation>卡達</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="103"/>
         <source>Syria</source>
-        <translation>Syrië</translation>
+        <translation>敘利亞</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="104"/>
         <source>Tunisia</source>
-        <translation>Tunesië</translation>
+        <translation>突尼西亞</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <source>United Arab Emirates</source>
-        <translation>Verenigde Arabische Emiraten</translation>
+        <translation>阿拉伯聯合大公國</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Yemen</source>
-        <translation>Jemen</translation>
+        <translation>葉門</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="107"/>
         <source>Aragonese</source>
-        <translation>Aragonees</translation>
+        <translation>Aragonese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Armenian</source>
-        <translation>Armeens</translation>
+        <translation>亞美尼亞語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="109"/>
         <source>Assamese</source>
-        <translation>Assamees</translation>
+        <translation>Assamese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="110"/>
         <source>Avaric</source>
-        <translation>Avaars</translation>
+        <translation>Avaric</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="111"/>
         <source>Avestan</source>
-        <translation>Avestisch</translation>
+        <translation>Avestan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="112"/>
@@ -3692,12 +3678,12 @@ Wilt u de wijzigingen opslaan?</translation>
         <location filename="../../Misc/Language.cpp" line="113"/>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Azerbaijani</source>
-        <translation>Azerbeidzjaans</translation>
+        <translation>Azerbaijani</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Azerbaijan</source>
-        <translation>Azerbeidzjan</translation>
+        <translation>Azerbaijan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="115"/>
@@ -3707,22 +3693,22 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="116"/>
         <source>Bashkir</source>
-        <translation>Basjkiers</translation>
+        <translation>Bashkir</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="117"/>
         <source>Basque</source>
-        <translation>Baskisch</translation>
+        <translation>Basque</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="118"/>
         <source>Belarusian</source>
-        <translation>Wit-Russisch</translation>
+        <translation>Belarusian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="119"/>
         <source>Bengali</source>
-        <translation>Bengaals</translation>
+        <translation>Bengali</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="120"/>
@@ -3737,39 +3723,39 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Bosnian</source>
-        <translation>Bosnisch</translation>
+        <translation>Bosnian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="123"/>
         <source>Breton</source>
-        <translation>Bretons</translation>
+        <translation>Breton</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Bulgarian</source>
-        <translation>Bulgaars</translation>
+        <translation>Bulgarian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="125"/>
         <source>Burmese</source>
-        <translation>Birmaans</translation>
+        <translation>Burmese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="126"/>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Catalan</source>
-        <translation>Catalaans</translation>
+        <translation>Catalan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <location filename="../../Misc/Language.cpp" line="312"/>
         <source>Spain</source>
-        <translation>Spanje</translation>
+        <translation>西班牙</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Central Khmer</source>
-        <translation>Khmer</translation>
+        <translation>Central Khmer</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="129"/>
@@ -3779,7 +3765,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Chechen</source>
-        <translation>Tsjetsjeens</translation>
+        <translation>Chechen</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="131"/>
@@ -3789,52 +3775,52 @@ Wilt u de wijzigingen opslaan?</translation>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Chinese</source>
-        <translation>Chinees</translation>
+        <translation>中文</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="132"/>
         <source>China</source>
-        <translation>China</translation>
+        <translation>中國</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="133"/>
         <source>Hong Kong</source>
-        <translation>Hongkong</translation>
+        <translation>香港</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Macau</source>
-        <translation>Macau</translation>
+        <translation>澳門</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Singapore</source>
-        <translation>Singapore</translation>
+        <translation>新加坡</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Taiwan</source>
-        <translation>Taiwan</translation>
+        <translation>台灣</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Church Slavic</source>
-        <translation>Kerkslavisch</translation>
+        <translation>Church Slavic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="138"/>
         <source>Chuvash</source>
-        <translation>Tsjoevasjisch</translation>
+        <translation>Chuvash</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Cornish</source>
-        <translation>Cornisch</translation>
+        <translation>Cornish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Corsican</source>
-        <translation>Corsicaans</translation>
+        <translation>Corsican</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="141"/>
@@ -3844,46 +3830,46 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="142"/>
         <source>Croatian</source>
-        <translation>Kroatisch</translation>
+        <translation>Croatian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Czech</source>
-        <translation>Tsjechisch</translation>
+        <translation>捷克</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="144"/>
         <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Danish</source>
-        <translation>Deens</translation>
+        <translation>丹麥語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Denmark</source>
-        <translation>Denemarken</translation>
+        <translation>丹麥</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Dhivehi</source>
-        <translation>Divehi</translation>
+        <translation>Dhivehi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="147"/>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Dutch</source>
-        <translation>Nederlands</translation>
+        <translation>荷蘭語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <source>Belgium</source>
-        <translation>België</translation>
+        <translation>比利時</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Netherlands</source>
-        <translation>Nederland</translation>
+        <translation>荷蘭</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="150"/>
@@ -3905,79 +3891,79 @@ Wilt u de wijzigingen opslaan?</translation>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>English</source>
-        <translation>Engels</translation>
+        <translation>英語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="152"/>
         <source>Australia</source>
-        <translation>Australië</translation>
+        <translation>澳大利亞</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Belize</source>
-        <translation>Belize</translation>
+        <translation>貝里茲</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="154"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Canada</source>
-        <translation>Canada</translation>
+        <translation>加拿大</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Caribbean</source>
-        <translation>Caraïben</translation>
+        <translation>加勒比海語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="156"/>
         <source>Great Britain</source>
-        <translation>Groot-Brittannië</translation>
+        <translation>英國</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="157"/>
         <source>India</source>
-        <translation>India</translation>
+        <translation>印度</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="158"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Ireland</source>
-        <translation>Ierland</translation>
+        <translation>愛爾蘭</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Jamaica</source>
-        <translation>Jamaica</translation>
+        <translation>牙買加</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Phillippines</source>
-        <translation>Filipijnen</translation>
+        <translation>菲律賓</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="161"/>
         <source>Trinidad</source>
-        <translation>Trinidad</translation>
+        <translation>千里達</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <source>South Africa</source>
-        <translation>Zuid-Afrika</translation>
+        <translation>南非</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>United States</source>
-        <translation>Verenigde Staten</translation>
+        <translation>美國</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="164"/>
         <source>Esperanto</source>
-        <translation>Esperanto</translation>
+        <translation>世界語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Estonian</source>
-        <translation>Estisch</translation>
+        <translation>Estonian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="166"/>
@@ -3987,17 +3973,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="167"/>
         <source>Faroese</source>
-        <translation>Faeröers</translation>
+        <translation>Faroese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="168"/>
         <source>Fijian</source>
-        <translation>Fijisch</translation>
+        <translation>斐濟</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="169"/>
         <source>Finnish</source>
-        <translation>Fins</translation>
+        <translation>芬蘭語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="170"/>
@@ -4007,56 +3993,56 @@ Wilt u de wijzigingen opslaan?</translation>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <source>French</source>
-        <translation>Frans</translation>
+        <translation>法語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="173"/>
         <source>France</source>
-        <translation>Frankrijk</translation>
+        <translation>法國</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Luxembourg</source>
-        <translation>Luxemburg</translation>
+        <translation>盧森堡</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Switzerland</source>
-        <translation>Zwitserland</translation>
+        <translation>瑞士</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="176"/>
         <source>Fulah</source>
-        <translation>Fula</translation>
+        <translation>Fulah</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Gaelic</source>
-        <translation>Gaelisch</translation>
+        <translation>Gaelic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <source>Scotland</source>
-        <translation>Schotland</translation>
+        <translation>蘇格蘭</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Galician</source>
-        <translation>Galicisch</translation>
+        <translation>Galician</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="180"/>
         <source>Ganda</source>
-        <translation>Luganda</translation>
+        <translation>Ganda</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="181"/>
         <source>Georgian</source>
-        <translation>Georgisch</translation>
+        <translation>喬治亞</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="182"/>
@@ -4066,17 +4052,17 @@ Wilt u de wijzigingen opslaan?</translation>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <source>German</source>
-        <translation>Duits</translation>
+        <translation>德語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="183"/>
         <source>Austria</source>
-        <translation>Oostenrijk</translation>
+        <translation>奧地利</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="184"/>
         <source>Germany</source>
-        <translation>Duitsland</translation>
+        <translation>德國</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="185"/>
@@ -4086,17 +4072,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Greek, Modern</source>
-        <translation>Nieuwgrieks</translation>
+        <translation>現代希臘語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="189"/>
         <source>Greek</source>
-        <translation>Grieks</translation>
+        <translation>希臘</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="190"/>
         <source>Guarani</source>
-        <translation>Guaraní</translation>
+        <translation>Guarani</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="191"/>
@@ -4106,7 +4092,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="192"/>
         <source>Haitian</source>
-        <translation>Haïtiaans Creools</translation>
+        <translation>Haitian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="193"/>
@@ -4116,7 +4102,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Hebrew</source>
-        <translation>Hebreeuws</translation>
+        <translation>希伯來</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="195"/>
@@ -4137,17 +4123,17 @@ Wilt u de wijzigingen opslaan?</translation>
         <location filename="../../Misc/Language.cpp" line="198"/>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Hungarian</source>
-        <translation>Hongaars</translation>
+        <translation>匈牙利語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Hungary</source>
-        <translation>Hongarije</translation>
+        <translation>匈牙利</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Icelandic</source>
-        <translation>IJslands</translation>
+        <translation>Icelandic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="201"/>
@@ -4162,12 +4148,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Indonesian</source>
-        <translation>Indonesisch</translation>
+        <translation>印尼語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="204"/>
         <source>Indonesian - Indonesia</source>
-        <translation>Indonesisch - Indonesië</translation>
+        <translation>印尼語 - 印尼</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="205"/>
@@ -4187,39 +4173,39 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="208"/>
         <source>Inupiaq</source>
-        <translation>Inupiak</translation>
+        <translation>Inupiaq</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Irish</source>
-        <translation>Iers</translation>
+        <translation>愛爾蘭語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="210"/>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Italian</source>
-        <translation>Italiaans</translation>
+        <translation>義大利文</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Italy</source>
-        <translation>Italië</translation>
+        <translation>義大利</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Japanese</source>
-        <translation>Japans</translation>
+        <translation>日文</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Javanese</source>
-        <translation>Javaans</translation>
+        <translation>Javanese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="215"/>
         <source>Kalaallisut</source>
-        <translation>Groenlands</translation>
+        <translation>Kalaallisut</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="216"/>
@@ -4234,17 +4220,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Kashmiri</source>
-        <translation>Kasjmiri</translation>
+        <translation>Kashmiri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Kazakh</source>
-        <translation>Kazachs</translation>
+        <translation>Kazakh</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="220"/>
         <source>Kikuyu</source>
-        <translation>Gikuyu</translation>
+        <translation>Kikuyu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="221"/>
@@ -4254,58 +4240,58 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Kirghiz</source>
-        <translation>Kirgizisch</translation>
+        <translation>Kirghiz</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Komi</source>
-        <translation>Zurjeens</translation>
+        <translation>Komi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="224"/>
         <source>Kongo</source>
-        <translation>Kongo</translation>
+        <translation>剛果</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Korean</source>
-        <translation>Koreaans</translation>
+        <translation>韓語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Kuanyama</source>
-        <translation>Kwanyama</translation>
+        <translation>Kuanyama</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Kurdish</source>
-        <translation>Koerdisch</translation>
+        <translation>Kurdish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Lao</source>
-        <translation>Laotiaans</translation>
+        <translation>寮國</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Latin</source>
-        <translation>Latijn</translation>
+        <translation>拉丁</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="230"/>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Latvian</source>
-        <translation>Lets</translation>
+        <translation>Latvian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Latvia</source>
-        <translation>Letland</translation>
+        <translation>拉脫維亞</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Limburgan</source>
-        <translation>Limburgs</translation>
+        <translation>Limburgan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="233"/>
@@ -4315,7 +4301,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="234"/>
         <source>Lithuanian</source>
-        <translation>Litouws</translation>
+        <translation>Lithuanian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="235"/>
@@ -4325,17 +4311,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Luxembourgish</source>
-        <translation>Luxemburgs</translation>
+        <translation>盧森堡語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Macedonian</source>
-        <translation>Macedonisch</translation>
+        <translation>Macedonian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Malagasy</source>
-        <translation>Malagasi</translation>
+        <translation>Malagasy</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="239"/>
@@ -4347,7 +4333,7 @@ Wilt u de wijzigingen opslaan?</translation>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Malay</source>
-        <translation>Maleis</translation>
+        <translation>Malay</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="241"/>
@@ -4357,17 +4343,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Malaysia</source>
-        <translation>Maleisië</translation>
+        <translation>Malaysia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Maltese</source>
-        <translation>Maltees</translation>
+        <translation>Maltese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Manx</source>
-        <translation>Manx-Gaelisch</translation>
+        <translation>Manx</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="245"/>
@@ -4382,17 +4368,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Marshallese</source>
-        <translation>Marshallees</translation>
+        <translation>Marshallese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Mongolian</source>
-        <translation>Mongools</translation>
+        <translation>Mongolian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Nauru</source>
-        <translation>Nauruaans</translation>
+        <translation>Nauru</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="250"/>
@@ -4408,12 +4394,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <source>North</source>
-        <translation>Noord</translation>
+        <translation>北</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>South</source>
-        <translation>Zuid</translation>
+        <translation>南</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="253"/>
@@ -4423,24 +4409,24 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Nepali</source>
-        <translation>Nepalees</translation>
+        <translation>Nepali</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Northern, Sami</source>
-        <translation>Noord-Samisch</translation>
+        <translation>Northern, Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="256"/>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Norwegian</source>
-        <translation>Noors</translation>
+        <translation>挪威語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Bokmal</source>
-        <translation>Bokmål</translation>
+        <translation>Bokmal</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="258"/>
@@ -4455,27 +4441,27 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="260"/>
         <source>Occitan</source>
-        <translation>Occitaans</translation>
+        <translation>Occitan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="261"/>
         <source>Ojibwa</source>
-        <translation>Ojibwe</translation>
+        <translation>Ojibwa</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Oriya</source>
-        <translation>Odia</translation>
+        <translation>Oriya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="263"/>
         <source>Oromo</source>
-        <translation>Afaan Oromo</translation>
+        <translation>Oromo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="264"/>
         <source>Ossetian</source>
-        <translation>Ossetisch</translation>
+        <translation>Ossetian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="265"/>
@@ -4485,39 +4471,39 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="266"/>
         <source>Panjabi</source>
-        <translation>Punjabi</translation>
+        <translation>Panjabi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Persian</source>
-        <translation>Perzisch</translation>
+        <translation>波斯語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="268"/>
         <source>Polish</source>
-        <translation>Pools</translation>
+        <translation>波蘭語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Portuguese</source>
-        <translation>Portugees</translation>
+        <translation>葡萄牙語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Brazil</source>
-        <translation>Brazilië</translation>
+        <translation>巴西</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Portugal</source>
-        <translation>Portugal</translation>
+        <translation>葡萄牙</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Pushto</source>
-        <translation>Pasjtoe</translation>
+        <translation>Pushto</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="273"/>
@@ -4529,39 +4515,39 @@ Wilt u de wijzigingen opslaan?</translation>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Romanian</source>
-        <translation>Roemeens</translation>
+        <translation>羅馬尼亞語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Moldova</source>
-        <translation>Moldavië</translation>
+        <translation>Moldova</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Romania</source>
-        <translation>Roemenië</translation>
+        <translation>羅馬尼亞</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Romansh</source>
-        <translation>Reto-Romaans</translation>
+        <translation>Romansh</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Rundi</source>
-        <translation>Kirundi</translation>
+        <translation>Rundi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="279"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Russian</source>
-        <translation>Russisch</translation>
+        <translation>俄羅斯語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Samoan</source>
-        <translation>Samoaans</translation>
+        <translation>Samoan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="282"/>
@@ -4571,23 +4557,23 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="283"/>
         <source>Sanskrit</source>
-        <translation>Sanskriet</translation>
+        <translation>Sanskrit</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="284"/>
         <source>Sardinian</source>
-        <translation>Sardijns</translation>
+        <translation>Sardinian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="285"/>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Serbian</source>
-        <translation>Servisch</translation>
+        <translation>Serbian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Serbia</source>
-        <translation>Servië</translation>
+        <translation>塞爾維亞</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="287"/>
@@ -4597,7 +4583,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Sichuan Yi</source>
-        <translation>Yi</translation>
+        <translation>Sichuan Yi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="289"/>
@@ -4607,27 +4593,27 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Sinhala</source>
-        <translation>Singalees</translation>
+        <translation>Sinhala</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Slovak</source>
-        <translation>Slowaaks</translation>
+        <translation>斯洛伐克</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Slovenian</source>
-        <translation>Sloveens</translation>
+        <translation>斯洛伐尼亞</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Somali</source>
-        <translation>Somalisch</translation>
+        <translation>Somali</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="294"/>
         <source>Sotho, Southern</source>
-        <translation>Zuid-Sotho</translation>
+        <translation>Sotho, Southern</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="295"/>
@@ -4651,12 +4637,12 @@ Wilt u de wijzigingen opslaan?</translation>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Spanish</source>
-        <translation>Spaans</translation>
+        <translation>西班牙語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Argentina</source>
-        <translation>Argentinië</translation>
+        <translation>阿根廷</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="297"/>
@@ -4666,27 +4652,27 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Chile</source>
-        <translation>Chili</translation>
+        <translation>智利</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Columbia</source>
-        <translation>Colombia</translation>
+        <translation>哥倫比亞</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Costa Rica</source>
-        <translation>Costa Rica</translation>
+        <translation>哥斯大黎加</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Dominican Republic</source>
-        <translation>Dominicaanse Republiek</translation>
+        <translation>多明尼加共和國</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Ecuador</source>
-        <translation>Ecuador</translation>
+        <translation>厄瓜多</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="303"/>
@@ -4706,47 +4692,47 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Mexico</source>
-        <translation>Mexico</translation>
+        <translation>墨西哥</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="307"/>
         <source>Nicaragua</source>
-        <translation>Nicaragua</translation>
+        <translation>尼加拉瓜</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Panama</source>
-        <translation>Panama</translation>
+        <translation>巴拿馬</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Paraguay</source>
-        <translation>Paraguay</translation>
+        <translation>巴拉圭</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Peru</source>
-        <translation>Peru</translation>
+        <translation>秘魯</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="311"/>
         <source>Puerto Rico</source>
-        <translation>Puerto Rico</translation>
+        <translation>波多黎各</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <source>Uruguay</source>
-        <translation>Uruguay</translation>
+        <translation>烏拉圭</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Venezuela</source>
-        <translation>Venezuela</translation>
+        <translation>委內瑞拉</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="315"/>
         <source>Sundanese</source>
-        <translation>Soendanees</translation>
+        <translation>Sundanese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="316"/>
@@ -4756,24 +4742,24 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Swati</source>
-        <translation>Swazi</translation>
+        <translation>Swati</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="318"/>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Swedish</source>
-        <translation>Zweeds</translation>
+        <translation>瑞典語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Finland</source>
-        <translation>Finland</translation>
+        <translation>芬蘭</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Sweden</source>
-        <translation>Zweden</translation>
+        <translation>瑞典</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="321"/>
@@ -4783,12 +4769,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Tahitian</source>
-        <translation>Tahitiaans</translation>
+        <translation>Tahitian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Tajik</source>
-        <translation>Tadzjieks</translation>
+        <translation>Tajik</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="324"/>
@@ -4798,7 +4784,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Tatar</source>
-        <translation>Tataars</translation>
+        <translation>Tatar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="326"/>
@@ -4808,12 +4794,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="327"/>
         <source>Thai</source>
-        <translation>Thai</translation>
+        <translation>泰國</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Tibetan</source>
-        <translation>Tibetaans</translation>
+        <translation>藏語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="329"/>
@@ -4823,7 +4809,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Tonga</source>
-        <translation>Tongaans</translation>
+        <translation>東加</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="331"/>
@@ -4839,17 +4825,17 @@ Wilt u de wijzigingen opslaan?</translation>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Turkish</source>
-        <translation>Turks</translation>
+        <translation>土耳其語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Turkey</source>
-        <translation>Turkije</translation>
+        <translation>土耳其</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="335"/>
         <source>Turkmen</source>
-        <translation>Turkmeens</translation>
+        <translation>Turkmen</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="336"/>
@@ -4859,18 +4845,18 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Uighur</source>
-        <translation>Oeigoers</translation>
+        <translation>Uighur</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="338"/>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Ukrainian</source>
-        <translation>Oekraïens</translation>
+        <translation>烏克蘭語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Ukraine</source>
-        <translation>Oekraïne</translation>
+        <translation>烏克蘭</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="340"/>
@@ -4881,12 +4867,12 @@ Wilt u de wijzigingen opslaan?</translation>
         <location filename="../../Misc/Language.cpp" line="341"/>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Uzbek</source>
-        <translation>Oezbeeks</translation>
+        <translation>烏茲別克</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Uzbekistan</source>
-        <translation>Oezbekistan</translation>
+        <translation>烏茲別克語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="343"/>
@@ -4896,17 +4882,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Vietnamese</source>
-        <translation>Vietnamees</translation>
+        <translation>越南語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Volapuk</source>
-        <translation>Volapük</translation>
+        <translation>Volapuk</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Walloon</source>
-        <translation>Waals</translation>
+        <translation>Walloon</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="347"/>
@@ -4916,7 +4902,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="348"/>
         <source>Western Frisian</source>
-        <translation>Fries</translation>
+        <translation>Western Frisian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="349"/>
@@ -4931,7 +4917,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="351"/>
         <source>Yiddish</source>
-        <translation>Jiddisch</translation>
+        <translation>Yiddish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="352"/>
@@ -4946,17 +4932,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Zulu</source>
-        <translation>Zoeloe</translation>
+        <translation>Zulu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="355"/>
         <source>Achinese</source>
-        <translation>Atjees</translation>
+        <translation>Achinese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="356"/>
         <source>Acoli</source>
-        <translation>Acholi</translation>
+        <translation>Acoli</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="357"/>
@@ -4966,7 +4952,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="358"/>
         <source>Adygei, Adyghe</source>
-        <translation>Adygees</translation>
+        <translation>Adygei, Adyghe</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="359"/>
@@ -4976,17 +4962,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="360"/>
         <source>Afro-Asiatic languages</source>
-        <translation>Afro-Aziatische talen</translation>
+        <translation>Afro-Asiatic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="361"/>
         <source>Ainu</source>
-        <translation>Aino</translation>
+        <translation>Ainu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Akkadian</source>
-        <translation>Akkadisch</translation>
+        <translation>Akkadian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="363"/>
@@ -4996,12 +4982,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="364"/>
         <source>Algonquian languages</source>
-        <translation>Algonkische talen</translation>
+        <translation>Algonquian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="365"/>
         <source>Altaic languages</source>
-        <translation>Altaïsche talen</translation>
+        <translation>Altaic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="366"/>
@@ -5011,7 +4997,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="367"/>
         <source>Apache languages</source>
-        <translation>Apachetalen</translation>
+        <translation>Apache languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="368"/>
@@ -5026,32 +5012,32 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="370"/>
         <source>Aromanian, Arumanian, Macedo-Romanian</source>
-        <translation>Aroemeens, Macedo-Roemeens</translation>
+        <translation>Aromanian, Arumanian, Macedo-Romanian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="371"/>
         <source>Artificial languages</source>
-        <translation>Kunsttalen</translation>
+        <translation>Artificial languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="372"/>
         <source>Asturian, Asturleonese, Bable, Leonese</source>
-        <translation>Asturisch, Astur-Leonees, Bable, Leonees</translation>
+        <translation>Asturian, Asturleonese, Bable, Leonese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="373"/>
         <source>Athapascan languages</source>
-        <translation>Athabaskische talen</translation>
+        <translation>Athapascan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="374"/>
         <source>Australian languages</source>
-        <translation>Australische talen</translation>
+        <translation>Australian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="375"/>
         <source>Austronesian languages</source>
-        <translation>Austronesische talen</translation>
+        <translation>Austronesian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="376"/>
@@ -5061,32 +5047,32 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="377"/>
         <source>Balinese</source>
-        <translation>Balinees</translation>
+        <translation>Balinese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="378"/>
         <source>Baltic languages</source>
-        <translation>Baltische talen</translation>
+        <translation>Baltic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="379"/>
         <source>Baluchi</source>
-        <translation>Beloetsji</translation>
+        <translation>Baluchi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="380"/>
         <source>Bamileke languages</source>
-        <translation>Bamileke talen</translation>
+        <translation>Bamileke languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="381"/>
         <source>Banda languages</source>
-        <translation>Bandatalen</translation>
+        <translation>Banda languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="382"/>
         <source>Bantu languages</source>
-        <translation>Bantoetalen</translation>
+        <translation>Bantu languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="383"/>
@@ -5096,12 +5082,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="384"/>
         <source>Batak languages</source>
-        <translation>Bataks</translation>
+        <translation>Batak languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="385"/>
         <source>Bedawiyet, Beja</source>
-        <translation>Beja, Bedawiyet</translation>
+        <translation>Bedawiyet, Beja</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="386"/>
@@ -5111,7 +5097,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="387"/>
         <source>Berber languages</source>
-        <translation>Berbertalen</translation>
+        <translation>Berber languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="388"/>
@@ -5126,7 +5112,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="390"/>
         <source>Bilin, Blin</source>
-        <translation>Blin, Bilin</translation>
+        <translation>Bilin, Blin</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="391"/>
@@ -5136,7 +5122,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="392"/>
         <source>Bliss, Blissymbols, Blissymbolics</source>
-        <translation>Bliss, Blissymbolen</translation>
+        <translation>Bliss, Blissymbols, Blissymbolics</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="393"/>
@@ -5146,12 +5132,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="394"/>
         <source>Buginese</source>
-        <translation>Buginees</translation>
+        <translation>Buginese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="395"/>
         <source>Buriat</source>
-        <translation>Boerjatisch</translation>
+        <translation>Buriat</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="396"/>
@@ -5161,7 +5147,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="397"/>
         <source>Caucasian languages</source>
-        <translation>Kaukasische talen</translation>
+        <translation>Caucasian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="398"/>
@@ -5171,12 +5157,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="399"/>
         <source>Celtic languages</source>
-        <translation>Keltische talen</translation>
+        <translation>Celtic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="400"/>
         <source>Central American Indian languages</source>
-        <translation>Midden-Amerikaanse Indiaanse talen</translation>
+        <translation>Central American Indian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="401"/>
@@ -5186,7 +5172,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="402"/>
         <source>Chamic languages</source>
-        <translation>Chamische talen</translation>
+        <translation>Chamic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="403"/>
@@ -5206,7 +5192,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="406"/>
         <source>Chinook jargon</source>
-        <translation>Chinook Jargon</translation>
+        <translation>Chinook jargon</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="407"/>
@@ -5221,22 +5207,22 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="409"/>
         <source>Chuukese</source>
-        <translation>Chuukees</translation>
+        <translation>Chuukese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="410"/>
         <source>Classical Nepal Bhasa/Newari, Old Newari</source>
-        <translation>Klassiek Nepal Bhasa/Newari, Oud-Newari</translation>
+        <translation>Classical Nepal Bhasa/Newari, Old Newari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="411"/>
         <source>Classical Syriac</source>
-        <translation>Klassiek Syrisch</translation>
+        <translation>Classical Syriac</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="412"/>
         <source>Coptic</source>
-        <translation>Koptisch</translation>
+        <translation>Coptic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="413"/>
@@ -5246,32 +5232,32 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="414"/>
         <source>Creoles and pidgins</source>
-        <translation>Creools en Pidgin</translation>
+        <translation>Creoles and pidgins</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="415"/>
         <source>Creoles and pidgins- English based</source>
-        <translation>Creools en Pidgin, op Engels gebaseerd</translation>
+        <translation>Creoles and pidgins- English based</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="416"/>
         <source>Creoles and pidgins- French-based</source>
-        <translation>Creools en Pidgin, op Frans gebaseerd</translation>
+        <translation>Creoles and pidgins- French-based</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="417"/>
         <source>Creoles and pidgins- Portuguese-based</source>
-        <translation>Creools en Pidgin, op Portugees gebaseerd</translation>
+        <translation>Creoles and pidgins- Portuguese-based</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="418"/>
         <source>Crimean Tatar/Turkish</source>
-        <translation>Krim-Tataars, Krim-Turks</translation>
+        <translation>Crimean Tatar/Turkish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="419"/>
         <source>Cushitic languages</source>
-        <translation>Koesjitische talen</translation>
+        <translation>Cushitic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="420"/>
@@ -5281,7 +5267,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="421"/>
         <source>Dargwa</source>
-        <translation>Darginisch</translation>
+        <translation>Dargwa</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="422"/>
@@ -5291,7 +5277,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="423"/>
         <source>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</source>
-        <translation>Kirmanckî, Dimili, Zazaki</translation>
+        <translation>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="424"/>
@@ -5311,7 +5297,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="427"/>
         <source>Dravidian languages</source>
-        <translation>Dravidische talen</translation>
+        <translation>Dravidian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="428"/>
@@ -5321,17 +5307,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="429"/>
         <source>Dutch- Middle (ca.1050-1350)</source>
-        <translation>Nederlands- Middel (ca. 1050-1350)</translation>
+        <translation>中世紀荷蘭語 (ca.1050-1350)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="430"/>
         <source>Dyula</source>
-        <translation>Dioula</translation>
+        <translation>Dyula</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="431"/>
         <source>Eastern Frisian</source>
-        <translation>Saterfries</translation>
+        <translation>Eastern Frisian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="432"/>
@@ -5341,7 +5327,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="433"/>
         <source>Egyptian (Ancient)</source>
-        <translation>Egyptisch (klassiek)</translation>
+        <translation>古埃及語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="434"/>
@@ -5351,22 +5337,22 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="435"/>
         <source>Elamite</source>
-        <translation>Elamitisch</translation>
+        <translation>Elamite</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="436"/>
         <source>English- Middle (1100-1500)</source>
-        <translation>Engels- Middel (1100-1500)</translation>
+        <translation>中世紀英語 (1100-1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="437"/>
         <source>English- Old (ca.450-1100)</source>
-        <translation>Engels- Oud (ca. 450-1100)</translation>
+        <translation>古英語 (ca.450-1100)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="438"/>
         <source>Erzya</source>
-        <translation>Erzja</translation>
+        <translation>Erzya</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="439"/>
@@ -5381,17 +5367,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="441"/>
         <source>Fanti</source>
-        <translation>Fante</translation>
+        <translation>Fanti</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="442"/>
         <source>Filipino, Pilipino</source>
-        <translation>Filipijns</translation>
+        <translation>菲律賓語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="443"/>
         <source>Finno-Ugrian languages</source>
-        <translation>Fins-Oegrische talen</translation>
+        <translation>Finno-Ugrian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="444"/>
@@ -5401,17 +5387,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="445"/>
         <source>French- Middle (ca.1400-1600)</source>
-        <translation>Frans- Middel- (ca. 1400-1600)</translation>
+        <translation>French- Middle (ca.1400-1600)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="446"/>
         <source>French- Old (842-ca.1400)</source>
-        <translation>Frans- Oud- (842-ca. 1400)</translation>
+        <translation>French- Old (842-ca.1400)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="447"/>
         <source>Friulian</source>
-        <translation>Friulisch</translation>
+        <translation>Friulian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="448"/>
@@ -5421,12 +5407,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="449"/>
         <source>Galibi Carib</source>
-        <translation>Galibi, Carib</translation>
+        <translation>Galibi Carib</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="450"/>
         <source>Gayo</source>
-        <translation>Gajo</translation>
+        <translation>Gayo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="451"/>
@@ -5436,27 +5422,27 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="452"/>
         <source>Geez</source>
-        <translation>Ge&apos;ez</translation>
+        <translation>Geez</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="453"/>
         <source>German- Middle High (ca.1050-1500)</source>
-        <translation>Duits- Middelhoog (ca. 1050-1500)</translation>
+        <translation>中世紀德語 (ca.1050-1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="454"/>
         <source>German- Old High (ca.750-1050)</source>
-        <translation>Duits- Oudhoog (ca. 750-1050)</translation>
+        <translation>古德語 (ca. 750-1050)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="455"/>
         <source>Germanic languages</source>
-        <translation>Germaanse talen</translation>
+        <translation>Germanic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="456"/>
         <source>Gilbertese</source>
-        <translation>Kiribatisch</translation>
+        <translation>Gilbertese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="457"/>
@@ -5471,7 +5457,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="459"/>
         <source>Gothic</source>
-        <translation>Gotisch</translation>
+        <translation>Gothic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="460"/>
@@ -5481,7 +5467,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="461"/>
         <source>Greek- Ancient (to 1453)</source>
-        <translation>Grieks- Klassiek (tot 1453)</translation>
+        <translation>古希臘語 (到 1453 年)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="462"/>
@@ -5496,7 +5482,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="464"/>
         <source>Hawaiian</source>
-        <translation>Hawaïaans</translation>
+        <translation>夏威夷語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="465"/>
@@ -5506,17 +5492,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="466"/>
         <source>Himachali, Western Pahari languages</source>
-        <translation>Himachali</translation>
+        <translation>Himachali, Western Pahari languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="467"/>
         <source>Hittite</source>
-        <translation>Hettitisch</translation>
+        <translation>Hittite</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="468"/>
         <source>Hmong, Mong</source>
-        <translation>Hmong</translation>
+        <translation>Hmong, Mong</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="469"/>
@@ -5531,7 +5517,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="471"/>
         <source>Ijo languages</source>
-        <translation>Ijo talen</translation>
+        <translation>Ijo languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="472"/>
@@ -5541,72 +5527,72 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="473"/>
         <source>Inari Sami</source>
-        <translation>Inari-Samisch</translation>
+        <translation>Inari Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="474"/>
         <source>Indic languages</source>
-        <translation>Indische talen</translation>
+        <translation>Indic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="475"/>
         <source>Indo-European languages</source>
-        <translation>Indo-Europese talen</translation>
+        <translation>Indo-European languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="476"/>
         <source>Ingush</source>
-        <translation>Ingoesjetisch</translation>
+        <translation>Ingush</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="477"/>
         <source>Iranian languages</source>
-        <translation>Iraanse talen</translation>
+        <translation>Iranian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="478"/>
         <source>Irish- Middle (900-1200)</source>
-        <translation>Iers- Middel (900-1200)</translation>
+        <translation>中世紀愛爾蘭語 (900-1200)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="479"/>
         <source>Irish- Old (to 900)</source>
-        <translation>Iers- Oud (tot 900)</translation>
+        <translation>古愛爾蘭語 (到 900 年)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="480"/>
         <source>Iroquoian languages</source>
-        <translation>Irokese talen</translation>
+        <translation>Iroquoian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="481"/>
         <source>Jingpho, Kachin</source>
-        <translation>Kachin, Jingpho</translation>
+        <translation>Jingpho, Kachin</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="482"/>
         <source>Judeo-Arabic</source>
-        <translation>Judeo-Arabisch</translation>
+        <translation>Judeo-Arabic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="483"/>
         <source>Judeo-Persian</source>
-        <translation>Judeo-Perzisch</translation>
+        <translation>Judeo-Persian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="484"/>
         <source>Kabardian</source>
-        <translation>Kabardisch</translation>
+        <translation>Kabardian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="485"/>
         <source>Kabyle</source>
-        <translation>Kabylisch</translation>
+        <translation>Kabyle</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="486"/>
         <source>Kalmyk, Oirat</source>
-        <translation>Kalmuks</translation>
+        <translation>Kalmyk, Oirat</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="487"/>
@@ -5616,12 +5602,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="488"/>
         <source>Kapampangan, Pampanga</source>
-        <translation>Kapampangan</translation>
+        <translation>Kapampangan, Pampanga</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="489"/>
         <source>Kara-Kalpak</source>
-        <translation>Karakalpaks</translation>
+        <translation>Kara-Kalpak</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="490"/>
@@ -5631,17 +5617,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="491"/>
         <source>Karelian</source>
-        <translation>Karelisch</translation>
+        <translation>Karelian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="492"/>
         <source>Karen languages</source>
-        <translation>Karen talen</translation>
+        <translation>Karen languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="493"/>
         <source>Kashubian</source>
-        <translation>Kasjoebisch</translation>
+        <translation>Kashubian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="494"/>
@@ -5656,12 +5642,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="496"/>
         <source>Khoisan languages</source>
-        <translation>Khoisantalen</translation>
+        <translation>Khoisan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="497"/>
         <source>Khotanese, Sakan</source>
-        <translation>Khotanees, Sakan</translation>
+        <translation>Khotanese, Sakan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="498"/>
@@ -5671,7 +5657,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="499"/>
         <source>Klingon, tlhIngan-Hol</source>
-        <translation>Klingon, tlhIngan Hol</translation>
+        <translation>Klingon, tlhIngan-Hol</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="500"/>
@@ -5681,7 +5667,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="501"/>
         <source>Kosraean</source>
-        <translation>Kosraeaans</translation>
+        <translation>Kosraean</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="502"/>
@@ -5691,12 +5677,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="503"/>
         <source>Kru languages</source>
-        <translation>Kru talen</translation>
+        <translation>Kru languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="504"/>
         <source>Kumyk</source>
-        <translation>Koemuks</translation>
+        <translation>Kumyk</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="505"/>
@@ -5726,12 +5712,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="510"/>
         <source>Land Dayak languages</source>
-        <translation>Dajak</translation>
+        <translation>Land Dayak languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="511"/>
         <source>Lezghian</source>
-        <translation>Lezgisch</translation>
+        <translation>Lezghian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="512"/>
@@ -5741,12 +5727,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="513"/>
         <source>German-Low, Low Saxon</source>
-        <translation>Nedersaksisch, Nederduits</translation>
+        <translation>German-Low, Low Saxon</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="514"/>
         <source>Lower Sorbian</source>
-        <translation>Nedersorbisch</translation>
+        <translation>Lower Sorbian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="515"/>
@@ -5756,7 +5742,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="516"/>
         <source>Luba-Lulua</source>
-        <translation>Luba-Kasai, Luba-Lulua</translation>
+        <translation>Luba-Lulua</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="517"/>
@@ -5766,7 +5752,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="518"/>
         <source>Lule Sami</source>
-        <translation>Lule-Samisch</translation>
+        <translation>Lule Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="519"/>
@@ -5776,7 +5762,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="520"/>
         <source>Luo (Kenya and Tanzania)</source>
-        <translation>Luo (Kenia en Tanzania)</translation>
+        <translation>Luo (Kenya and Tanzania)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="521"/>
@@ -5786,7 +5772,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="522"/>
         <source>Madurese</source>
-        <translation>Madoerees</translation>
+        <translation>Madurese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="523"/>
@@ -5801,12 +5787,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="525"/>
         <source>Makasar</source>
-        <translation>Makassaars</translation>
+        <translation>Makasar</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="526"/>
         <source>Manchu</source>
-        <translation>Mantsjoe</translation>
+        <translation>Manchu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="527"/>
@@ -5821,17 +5807,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="529"/>
         <source>Manipuri</source>
-        <translation>Meitei, Manipuri</translation>
+        <translation>Manipuri</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="530"/>
         <source>Manobo languages</source>
-        <translation>Manobo talen</translation>
+        <translation>Manobo languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="531"/>
         <source>Mapuche/Mapudungun</source>
-        <translation>Mapudungun</translation>
+        <translation>Mapuche/Mapudungun</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="532"/>
@@ -5846,12 +5832,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="534"/>
         <source>Masai</source>
-        <translation>Maa</translation>
+        <translation>Masai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="535"/>
         <source>Mayan languages</source>
-        <translation>Mayatalen</translation>
+        <translation>Mayan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="536"/>
@@ -5866,12 +5852,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="538"/>
         <source>Minangkabau</source>
-        <translation>Minangkabaus</translation>
+        <translation>Minangkabau</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="539"/>
         <source>Mirandese</source>
-        <translation>Mirandees</translation>
+        <translation>Mirandese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="540"/>
@@ -5881,12 +5867,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="541"/>
         <source>Moksha</source>
-        <translation>Moksja</translation>
+        <translation>Moksha</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Mon-Khmer languages</source>
-        <translation>Mon-Khmertalen</translation>
+        <translation>Mon-Khmer languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="543"/>
@@ -5896,17 +5882,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Mossi</source>
-        <translation>More</translation>
+        <translation>Mossi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Multiple languages</source>
-        <translation>Meerdere talen</translation>
+        <translation>Multiple languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="546"/>
         <source>Munda languages</source>
-        <translation>Munda talen</translation>
+        <translation>Munda languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="547"/>
@@ -5916,17 +5902,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Nahuatl languages</source>
-        <translation>Nahuatl talen</translation>
+        <translation>Nahuatl languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="549"/>
         <source>Neapolitan</source>
-        <translation>Napolitaans</translation>
+        <translation>Neapolitan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Nepal Bhasa/Newari</source>
-        <translation>Nepalbhasa/Newari</translation>
+        <translation>Nepal Bhasa/Newari</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="551"/>
@@ -5936,22 +5922,22 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Niger-Kordofanian languages</source>
-        <translation>Niger-Congotalen</translation>
+        <translation>Niger-Kordofanian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Nilo-Saharan languages</source>
-        <translation>Nilo-Saharaanse talen</translation>
+        <translation>Nilo-Saharan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Niuean</source>
-        <translation>Niueaans</translation>
+        <translation>Niuean</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="555"/>
         <source>No linguistic content/Not applicable</source>
-        <translation>Geen taalkundige inhoud / Niet van toepassing</translation>
+        <translation>No linguistic content/Not applicable</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="556"/>
@@ -5961,27 +5947,27 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="557"/>
         <source>Norse- Old</source>
-        <translation>Noors- Oud</translation>
+        <translation>Norse- Old</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="558"/>
         <source>North American Indian languages</source>
-        <translation>Noord-Amerikaans Indiaanse talen</translation>
+        <translation>North American Indian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Northern Frisian</source>
-        <translation>Noord-Fries</translation>
+        <translation>Northern Frisian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
-        <translation>Noord-Sotho</translation>
+        <translation>Northern Sotho, Sepedi, Pedi</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Nubian languages</source>
-        <translation>Nubische talen</translation>
+        <translation>Nubian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="562"/>
@@ -6006,12 +5992,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
-        <translation>Occitaans/Provençaals- Oud (tot 1500)</translation>
+        <translation>奧克語/普羅旺斯 -- 古式 (西元 1500 年前)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
-        <translation>Oudaramees, Rijksaramees (700-300 v.Chr.)</translation>
+        <translation>Official/Imperial Aramaic (700-300 BCE)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="568"/>
@@ -6021,7 +6007,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Otomian languages</source>
-        <translation>Otomi-talen</translation>
+        <translation>Otomian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="570"/>
@@ -6031,7 +6017,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Palauan</source>
-        <translation>Palaus</translation>
+        <translation>Palauan</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="572"/>
@@ -6041,37 +6027,37 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Papiamento</source>
-        <translation>Papiaments</translation>
+        <translation>Papiamento</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Papuan languages</source>
-        <translation>Papoeatalen</translation>
+        <translation>Papuan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
-        <translation>Perzisch- Oud (ca. 600-400 v.Chr.)</translation>
+        <translation>Persian- Old (ca.600-400 B.C.)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Philippine languages</source>
-        <translation>Filipijnse talen</translation>
+        <translation>Philippine languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Phoenician</source>
-        <translation>Fenicisch</translation>
+        <translation>Phoenician</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Pohnpeian</source>
-        <translation>Pohnpeiaans</translation>
+        <translation>Pohnpeian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Prakrit languages</source>
-        <translation>Prakrit talen</translation>
+        <translation>Prakrit languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="580"/>
@@ -6086,37 +6072,37 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Rarotongan, Cook Islands Maori</source>
-        <translation>Rarotongan, Cookeilanden Maori</translation>
+        <translation>Rarotongan, Cook Islands Maori</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Reserved for local use</source>
-        <translation>Gereserveerd voor lokaal gebruik</translation>
+        <translation>Reserved for local use</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Romance languages</source>
-        <translation>Romaanse talen</translation>
+        <translation>Romance languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Romany</source>
-        <translation>Romani</translation>
+        <translation>Romany</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Salishan languages</source>
-        <translation>Salishtalen</translation>
+        <translation>Salishan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Samaritan Aramaic</source>
-        <translation>Samaritaans-Aramees</translation>
+        <translation>Samaritan Aramaic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Sami languages</source>
-        <translation>Sami-talen</translation>
+        <translation>Sami languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="589"/>
@@ -6136,17 +6122,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Scots</source>
-        <translation>Schots</translation>
+        <translation>Scots</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Selkup</source>
-        <translation>Selkoeps</translation>
+        <translation>Selkup</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Semitic languages</source>
-        <translation>Semitische talen</translation>
+        <translation>Semitic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="595"/>
@@ -6161,7 +6147,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Sicilian</source>
-        <translation>Siciliaans</translation>
+        <translation>Sicilian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="598"/>
@@ -6171,7 +6157,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Sign Languages</source>
-        <translation>Gebarentaal</translation>
+        <translation>Sign Languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="600"/>
@@ -6181,37 +6167,37 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Sino-Tibetan languages</source>
-        <translation>Sino-Tibetaanse talen</translation>
+        <translation>Sino-Tibetan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Siouan languages</source>
-        <translation>Siouaanse talen</translation>
+        <translation>Siouan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Skolt Sami</source>
-        <translation>Skolt-Samisch</translation>
+        <translation>Skolt Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Slave (Athapascan)</source>
-        <translation>Slavey (Athapascan)</translation>
+        <translation>Slave (Athapascan)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Slavic languages</source>
-        <translation>Slavische talen</translation>
+        <translation>Slavic languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Sogdian</source>
-        <translation>Sogdisch</translation>
+        <translation>Sogdian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Songhai languages</source>
-        <translation>Songhai talen</translation>
+        <translation>Songhai languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="608"/>
@@ -6221,27 +6207,27 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Sorbian languages</source>
-        <translation>Sorbisch</translation>
+        <translation>Sorbian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="610"/>
         <source>South American Indian languages</source>
-        <translation>Zuid-Amerikaanse Indiaanse talen</translation>
+        <translation>South American Indian languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="611"/>
         <source>Southern Altai</source>
-        <translation>Zuid-Altaïsch</translation>
+        <translation>Southern Altai</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Southern Sami</source>
-        <translation>Zuid-Samisch</translation>
+        <translation>Southern Sami</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Sranan Tongo</source>
-        <translation>Sranantongo, Surinaams</translation>
+        <translation>Sranan Tongo</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="614"/>
@@ -6251,27 +6237,27 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Sumerian</source>
-        <translation>Soemerisch</translation>
+        <translation>Sumerian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Susu</source>
-        <translation>Soesoe</translation>
+        <translation>Susu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Alsatian, Swiss German, Alemannic</source>
-        <translation>Zwitserduits, Alemannisch, Elzassisch</translation>
+        <translation>Alsatian, Swiss German, Alemannic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Syriac</source>
-        <translation>Syrisch</translation>
+        <translation>Syriac</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Tai languages</source>
-        <translation>Taitalen</translation>
+        <translation>Tai languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="620"/>
@@ -6286,7 +6272,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Tetum</source>
-        <translation>Tetun</translation>
+        <translation>Tetum</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="623"/>
@@ -6316,7 +6302,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Tokelau</source>
-        <translation>Tokelaus</translation>
+        <translation>Tokelau</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="629"/>
@@ -6326,7 +6312,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Tsimshian</source>
-        <translation>Tsimshian</translation>
+        <translation>&apos;</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="631"/>
@@ -6336,32 +6322,32 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Tupi languages</source>
-        <translation>Tupi talen</translation>
+        <translation>Tupi languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Turkish- Ottoman (1500-1928)</source>
-        <translation>Turks- Ottomaans (1500-1928)</translation>
+        <translation>Turkish- Ottoman (1500-1928)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Tuvalu</source>
-        <translation>Tuvaluaans</translation>
+        <translation>Tuvalu</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Tuvinian</source>
-        <translation>Toevaans</translation>
+        <translation>Tuvinian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Udmurt</source>
-        <translation>Oedmoerts</translation>
+        <translation>Udmurt</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Ugaritic</source>
-        <translation>Ugaritisch</translation>
+        <translation>Ugaritic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="638"/>
@@ -6371,17 +6357,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Uncoded languages</source>
-        <translation>Talen zonder taalcode</translation>
+        <translation>Uncoded languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Undetermined</source>
-        <translation>Onbepaald</translation>
+        <translation>未決定</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Upper Sorbian</source>
-        <translation>Oppersorbisch</translation>
+        <translation>Upper Sorbian</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="642"/>
@@ -6391,12 +6377,12 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Votic</source>
-        <translation>Wotisch</translation>
+        <translation>Votic</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Wakashan languages</source>
-        <translation>Wakashtalen</translation>
+        <translation>Wakashan languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="645"/>
@@ -6416,7 +6402,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="648"/>
         <source>Yakut</source>
-        <translation>Jakoets</translation>
+        <translation>Yakut</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="649"/>
@@ -6426,17 +6412,17 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="650"/>
         <source>Yapese</source>
-        <translation>Yapees</translation>
+        <translation>Yapese</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="651"/>
         <source>Yupik languages</source>
-        <translation>Yupik talen</translation>
+        <translation>Yupik languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="652"/>
         <source>Zande languages</source>
-        <translation>Zande talen</translation>
+        <translation>Zande languages</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="653"/>
@@ -6459,7 +6445,7 @@ Wilt u de wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="14"/>
         <source>Language</source>
-        <translation>Taal</translation>
+        <translation>語言</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="36"/>
@@ -6468,26 +6454,26 @@ Wilt u de wijzigingen opslaan?</translation>
 If a translation for specific word or phrase is not available it will be displayed in English.
 
 Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</source>
-        <translation>Na het veranderen van de taal van de gebruikersinterface moet Sigil opnieuw worden opgestart.
+        <translation>變更使用者介面語言後，您必須重新啟動 Sigil。
 
-Als er voor een bepaald woord of uitdrukking geen vertaling beschikbaar is, dan wordt deze getoond in het Engels.
+若是某些字或片語的翻譯不存在，則會以英文顯示。
 
-Gebruik &lt;i&gt;Bewerken-&gt;Voorkeuren-&gt;Woordenlijsten spellingcontrole&lt;/i&gt; om het woordenboek voor spellingcontrole in te stellen.</translation>
+用「喜好設定」─「拼字檢查字典」來設定拼字檢查要使用的字典。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="43"/>
         <source>User Interface Language:</source>
-        <translation>Taal van gebruikersinterface:</translation>
+        <translation>使用者介面語言：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="53"/>
         <source>Set the default language used by the Metadata Editor for new books.</source>
-        <translation>De standaardtaal instellen voor metagegevens van nieuwe boeken.</translation>
+        <translation>設定新書的中繼資料編輯器的預設語言。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="56"/>
         <source>Default Language For Metadata:</source>
-        <translation>Standaardtaal voor metagegevens:</translation>
+        <translation>中繼資料的預設語言：</translation>
     </message>
 </context>
 <context>
@@ -6495,41 +6481,41 @@ Gebruik &lt;i&gt;Bewerken-&gt;Voorkeuren-&gt;Woordenlijsten spellingcontrole&lt;
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="14"/>
         <source>Link StyleSheets</source>
-        <translation>Stijlbladen koppelen</translation>
+        <translation>連結樣式表</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="43"/>
         <source>Move the selected stylesheets up in priority.
 
 Stylesheets that are listed first take precedence over later stylesheets.</source>
-        <translation>De geselecteerde stijlbladen ophogen in prioriteit.
+        <translation>將選取的樣式表的優先權上移。
 
-Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</translation>
+先列出的樣式表優先權較高。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="48"/>
         <source>Up</source>
-        <translation>Omhoog</translation>
+        <translation>上</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="58"/>
         <source>Move the selected stylesheets down in priority.</source>
-        <translation>De geselecteerde stijlbladen verlagen in prioriteit.</translation>
+        <translation>將選取的樣式表優先權往下移。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="61"/>
         <source>Down</source>
-        <translation>Omlaag</translation>
+        <translation>下</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="60"/>
         <source>Include</source>
-        <translation>Toevoegen</translation>
+        <translation>包括</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="61"/>
         <source>Stylesheet</source>
-        <translation>Stijlblad</translation>
+        <translation>樣式表</translation>
     </message>
 </context>
 <context>
@@ -6537,99 +6523,99 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="14"/>
         <source>Links</source>
-        <translation>Koppelingen</translation>
+        <translation>連結</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Alleen de bestandsnamen tonen die de tekst bevatten die u opgeeft.</translation>
+        <translation>只列出包含您輸入文字的檔名。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>過濾器:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="71"/>
         <source>File</source>
-        <translation>Bestand</translation>
+        <translation>檔案</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="72"/>
         <source>Line</source>
-        <translation>Regel</translation>
+        <translation>行</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="73"/>
         <source>ID</source>
-        <translation>Referentie</translation>
+        <translation>代碼</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="74"/>
         <source>Text</source>
-        <translation>Tekst</translation>
+        <translation>文字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="75"/>
         <source>Target File</source>
-        <translation>Bestand van bestemming</translation>
+        <translation>目標檔案</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="76"/>
         <source>Target ID</source>
-        <translation>Referentie van bestemming</translation>
+        <translation>目標代碼</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="77"/>
         <source>Target Exists?</source>
-        <translation>Bestaat bestemming?</translation>
+        <translation>目標是否存在？</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="78"/>
         <source>Target Text</source>
-        <translation>Tekst van bestemming</translation>
+        <translation>目標文字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="79"/>
         <source>Target&apos;s Target File</source>
-        <translation>Bestand van doorverwezen bestemming</translation>
+        <translation>目標的目標檔</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="80"/>
         <source>Target&apos;s Target ID</source>
-        <translation>Referentie van doorverwezen bestemming</translation>
+        <translation>目標的目標代碼</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="81"/>
         <source>Match?</source>
-        <translation>Overeenkomend?</translation>
+        <translation>符合嗎？</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="87"/>
         <source>Report shows all source and target links using the anchor tag &quot;a&quot;.</source>
-        <translation>Rapport toont alle vertrek- en bestemmingskoppelingen die de ankertag &quot;a&quot; gebruiker.</translation>
+        <translation>報告顯示所有使用定錨點 &quot;a&quot; 的源碼與目標連結。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="156"/>
         <source>n/a</source>
-        <translation>n.v.t.</translation>
+        <translation>不適用</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="159"/>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="227"/>
         <source>no</source>
-        <translation>nee</translation>
+        <translation>否</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="166"/>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="229"/>
         <source>yes</source>
-        <translation>ja</translation>
+        <translation>是</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="343"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Rapport opslaan als CSV-bestand</translation>
+        <translation>將報告儲存為用逗號分隔的資料檔</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="356"/>
@@ -6639,7 +6625,7 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="356"/>
         <source>Cannot save report file.</source>
-        <translation>Rapportbestand kan niet worden opgeslagen.</translation>
+        <translation>無法儲存報告檔。</translation>
     </message>
 </context>
 <context>
@@ -6647,203 +6633,203 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
         <source>untitled.epub[*] - Sigil</source>
-        <translation>naamloos.epub[*] - Sigil</translation>
+        <translation>未命名.epub[*] - Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="58"/>
         <source>&amp;File</source>
-        <translation>&amp;Bestand</translation>
+        <translation>檔案(&amp;F)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="62"/>
         <source>A&amp;dd</source>
-        <translation>&amp;Toevoegen</translation>
+        <translation>新增(&amp;D)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="88"/>
         <source>&amp;Edit</source>
-        <translation>Be&amp;werken</translation>
+        <translation>編輯(&amp;E)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="92"/>
         <source>C&amp;hange Case</source>
-        <translation>Omzetten hoofd- en kleine &amp;letters</translation>
+        <translation>變更大小寫(&amp;H)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="117"/>
         <source>&amp;Insert</source>
-        <translation>&amp;Invoegen</translation>
+        <translation>插入(&amp;I)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="121"/>
         <source>Cli&amp;p</source>
-        <translation>Kni&amp;psel</translation>
+        <translation>片段(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="158"/>
         <source>&amp;Help</source>
-        <translation>&amp;Help</translation>
+        <translation>求助(&amp;H)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="168"/>
         <source>For&amp;mat</source>
-        <translation>&amp;Opmaak</translation>
+        <translation>格式(&amp;M)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="172"/>
         <source>&amp;Heading</source>
-        <translation>&amp;Alinea</translation>
+        <translation>標頭(&amp;H)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="213"/>
         <source>&amp;View</source>
-        <translation>Beel&amp;d</translation>
+        <translation>檢視(&amp;V)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="217"/>
         <source>&amp;Toolbars</source>
-        <translation>&amp;Werkbalken</translation>
+        <translation>工具列(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="232"/>
         <source>&amp;Search</source>
-        <translation>&amp;Zoeken</translation>
+        <translation>搜尋(&amp;S)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="236"/>
         <source>Current Fil&amp;e</source>
-        <translation>&amp;Huidig bestand</translation>
+        <translation>目前檔案(&amp;E)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="268"/>
         <source>&amp;Window</source>
-        <translation>&amp;Scherm</translation>
+        <translation>視窗(&amp;W)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="280"/>
         <source>&amp;Tools</source>
-        <translation>&amp;Gereedschappen</translation>
+        <translation>工具(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="284"/>
         <source>&amp;Table Of Contents</source>
-        <translation>&amp;Inhoudsopgave</translation>
+        <translation>目錄(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="292"/>
         <source>Spe&amp;llcheck</source>
-        <translation>Spe&amp;llingcontrole</translation>
+        <translation>拼字檢查(&amp;L)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="306"/>
         <source>&amp;Index</source>
-        <translation>&amp;Register</translation>
+        <translation>索引(&amp;I)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="317"/>
         <source>Re&amp;format HTML</source>
-        <translation>HTML &amp;verbeteren</translation>
+        <translation>重新格式化 HTML(&amp;F)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="324"/>
         <source>Epub&amp;3 Tools</source>
-        <translation>Gereedschappen voor EPUB3</translation>
+        <translation>Epub&amp;3 工具</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="349"/>
         <source>Plugins</source>
-        <translation>Plug-ins</translation>
+        <translation>外掛</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="367"/>
         <location filename="../../MainUI/MainWindow.cpp" line="598"/>
         <source>File</source>
-        <translation>Bestand</translation>
+        <translation>檔案</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="382"/>
         <location filename="../../MainUI/MainWindow.cpp" line="337"/>
         <source>Edit</source>
-        <translation>Bewerken</translation>
+        <translation>編輯</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="401"/>
         <source>View</source>
-        <translation>Weergave</translation>
+        <translation>檢視</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="414"/>
         <source>Insert</source>
-        <translation>Invoegen</translation>
+        <translation>插入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="431"/>
         <source>Back</source>
-        <translation>Terug</translation>
+        <translation>返回</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="443"/>
         <source>Donate</source>
-        <translation>Een gift doen</translation>
+        <translation>捐助</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="455"/>
         <source>Tools</source>
-        <translation>Gereedschappen</translation>
+        <translation>工具</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="477"/>
         <source>Heading</source>
-        <translation>Alinea</translation>
+        <translation>標題</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="495"/>
         <source>Format</source>
-        <translation>Opmaken</translation>
+        <translation>格式</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="512"/>
         <source>Align</source>
-        <translation>Uitlijnen</translation>
+        <translation>對齊</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="527"/>
         <source>List</source>
-        <translation>Lijst</translation>
+        <translation>清單</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="540"/>
         <source>Indent</source>
-        <translation>Inspringen</translation>
+        <translation>縮排</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="553"/>
         <source>Change Case</source>
-        <translation>Hoofdletter wijzigen</translation>
+        <translation>變更大小寫</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="568"/>
         <source>Text Direction</source>
-        <translation>Tekstrichting</translation>
+        <translation>文字方向</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="582"/>
         <source>Clip Bar</source>
-        <translation>Knipselbalk</translation>
+        <translation>片段列</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="617"/>
         <source>&amp;New</source>
-        <translation>&amp;Nieuw</translation>
+        <translation>新增(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="620"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nieuw&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;新增&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Een nieuw boek maken.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;建立新的書。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="625"/>
@@ -6853,16 +6839,16 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="634"/>
         <source>&amp;Save</source>
-        <translation>O&amp;pslaan</translation>
+        <translation>儲存(&amp;S)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="637"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Opslaan&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;儲存&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Het huidige boek opslaan.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;儲存此書。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="642"/>
@@ -6872,16 +6858,16 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="647"/>
         <source>Save &amp;As...</source>
-        <translation>Ops&amp;laan als...</translation>
+        <translation>另存新檔(&amp;A)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="650"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Opslaan als&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;另存新檔&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Het huidige boek opslaan onder een andere naam.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;以不同的名稱儲存此書。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="655"/>
@@ -6891,50 +6877,50 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="660"/>
         <source>Save A &amp;Copy...</source>
-        <translation>&amp;Kopie opslaan...</translation>
+        <translation>儲存複本(&amp;C)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="663"/>
         <source>Save a copy of your book to another file name.</source>
-        <translation>Een kopie van uw boek opslaan onder een andere bestandsnaam.</translation>
+        <translation>將您的書本用另一個檔名儲存一份副本。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="672"/>
         <source>Cu&amp;t</source>
-        <translation>K&amp;nippen</translation>
+        <translation>剪下(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="675"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Knippen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;剪下&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst uit het document knippen en op het klembord plaatsen.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將選取的文字從文件中剪下，並放入剪貼簿中。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="686"/>
         <source>&amp;Paste</source>
-        <translation>&amp;Plakken</translation>
+        <translation>貼上(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="689"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Plakken&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;貼上&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Het knipsel vanaf het klembord in het boek plakken.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將剪貼簿的內容貼到書中。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="696"/>
         <source>&amp;Closing Tag</source>
-        <translation>Sluit&amp;tag</translation>
+        <translation>關閉標籤(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="699"/>
         <source>Insert a closing tag in Code View.</source>
-        <translation>Een sluittag invoegen in codeweergave.</translation>
+        <translation>在代碼檢視中插入關閉標籤。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="702"/>
@@ -6944,16 +6930,16 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="711"/>
         <source>&amp;Undo</source>
-        <translation>&amp;Ongedaan maken</translation>
+        <translation>復原(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="714"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Ongedaan maken&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;復原&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De wijzigingen van de voorgaande bewerking ongedaan maken.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;恢復上一個操作的變更。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="719"/>
@@ -6963,16 +6949,16 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="728"/>
         <source>&amp;Redo</source>
-        <translation>Opnieuw &amp;uitvoeren</translation>
+        <translation>取消復原(&amp;R)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="731"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Opnieuw uitvoeren&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;取消復原&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Opnieuw de wijzigingen uitvoeren die door de voorgaande ongedaanmaking ongedaan zijn gemaakt.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;恢復上一個復原動作的變更。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="736"/>
@@ -6982,58 +6968,58 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="745"/>
         <source>&amp;Copy</source>
-        <translation>&amp;Kopiëren</translation>
+        <translation>複製(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="748"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kopiëren&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;複製&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst kopiëren en op het klembord plaatsen.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將選取的文字複製到剪貼簿。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="762"/>
         <source>Align &amp;Left</source>
-        <translation>&amp;Links uitlijnen</translation>
+        <translation>向左對齊(&amp;L)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="765"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Links uitlijnen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;向左對齊&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De alinea links uitlijnen.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將段落向左對齊。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="779"/>
         <source>Align &amp;Right</source>
-        <translation>&amp;Rechts uitlijnen</translation>
+        <translation>向右對齊(&amp;R)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="782"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Rechts uitlijnen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;向右對齊&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De alinea rechts uitlijnen.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將段落向右對齊。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="796"/>
         <source>&amp;Center</source>
-        <translation>&amp;Centreren</translation>
+        <translation>置中(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="799"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Centreren&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;置中&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De alinea centreren.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將段落置中。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="804"/>
@@ -7043,16 +7029,16 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="816"/>
         <source>&amp;Justify</source>
-        <translation>&amp;Uitvullen</translation>
+        <translation>左右對齊(&amp;J)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="819"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uitvullen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;左右對齊&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De alinea uitvullen.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將段落兩邊對齊。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="824"/>
@@ -7062,16 +7048,16 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="836"/>
         <source>&amp;Bold</source>
-        <translation>&amp;Vet</translation>
+        <translation>粗體(&amp;B)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="839"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Vet&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;粗體&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst vet maken.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將選取的文字設為粗體字。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="844"/>
@@ -7081,16 +7067,16 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="856"/>
         <source>&amp;Italic</source>
-        <translation>Curs&amp;ief</translation>
+        <translation>斜體(&amp;I)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="859"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cursief&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;斜體&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst cursief maken.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將選取的文字設為斜體字。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="864"/>
@@ -7100,16 +7086,16 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="873"/>
         <source>&amp;Open...</source>
-        <translation>&amp;Openen...</translation>
+        <translation>開啟(&amp;O)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="876"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Openen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;開啟&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Een boek openen van schijf.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;從磁碟開啟一本書。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="881"/>
@@ -7119,16 +7105,16 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="893"/>
         <source>&amp;Underline</source>
-        <translation>&amp;Onderstrepen</translation>
+        <translation>底線(&amp;U)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="896"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Onderstrepen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;底線&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst onderstrepen.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將選取的文字加上底線。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="901"/>
@@ -7138,12 +7124,12 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="910"/>
         <source>&amp;Quit</source>
-        <translation>&amp;Afsluiten</translation>
+        <translation>離開(&amp;Q)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="913"/>
         <source>Exit</source>
-        <translation>Afsluiten</translation>
+        <translation>離開</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="916"/>
@@ -7153,40 +7139,40 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="925"/>
         <source>&amp;About...</source>
-        <translation>&amp;Over Sigil...</translation>
+        <translation>關於(&amp;A)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="928"/>
         <source>Show information about Sigil.</source>
-        <translation>Informatie tonen over Sigil.</translation>
+        <translation>顯示關於 Sigil 的資訊。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="933"/>
         <source>Add &amp;Cover...</source>
-        <translation>&amp;Omslag toevoegen...</translation>
+        <translation>新增封面(&amp;C)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="936"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Omslag toevoegen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;新增封面&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Een omslag toevoegen.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;新增封面。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="947"/>
         <source>&amp;Metadata Editor...</source>
-        <translation>&amp;Metagegevens bewerken...</translation>
+        <translation>中繼資料編輯器(&amp;M)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="950"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metagegevens bewerken&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;中繼資料編輯器&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Informatie over uw boek tonen en bewerken, zoals auteur en titel.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;編輯並顯示關於您的書本的資訊，包括作者與標題等。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="955"/>
@@ -7196,16 +7182,16 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="964"/>
         <source>&amp;Generate Table Of Contents...</source>
-        <translation>Inhoudsopgave &amp;genereren...</translation>
+        <translation>產生目錄(&amp;G)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="967"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Inhoudsopgave genereren&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;產生目錄&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Een nieuwe inhoudsopgave generenen vanuit de koppen in uw boek.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;根據您的書的標頭產生新的目錄。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="972"/>
@@ -7215,54 +7201,54 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="977"/>
         <source>&amp;Edit Table Of Contents...</source>
-        <translation>&amp;Inhoudsopgave bewerken</translation>
+        <translation>編輯目錄(&amp;E)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="980"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Inhoudsopgave bewerken&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;編輯目錄&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De bestaande inhoudsopgave rechtstreeks bewerken.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;直接編輯現有的目錄。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="994"/>
         <source>&amp;Book View</source>
-        <translation>&amp;Boekweergave</translation>
+        <translation>書本檢視(&amp;B)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="997"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Boekweergave&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;書本檢視&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Bewerken en weergeven van de bestanden in uw boek zoals deze eruit zullen zien op een e-reader.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;預覽或編輯文章在閱讀器中的排版外觀。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1011"/>
         <source>&amp;Code View</source>
-        <translation>&amp;Codeweergave</translation>
+        <translation>代碼檢視(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1014"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Codeweergave&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;代碼檢視&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Bewerken en afbeelden van de actuele inhoud van de bestanden in uw boek, inclusief de opmaakcodes die bepalen hoe uw boek eruit zal zien op een e-reader.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;編輯並檢視文檔的原始碼。包含控制文章排版外觀的程式碼(如文字置中或設定CSS)等。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1021"/>
         <source>&amp;Toggle View State</source>
-        <translation>Weergave omschake&amp;len</translation>
+        <translation>切換檢視狀態(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1024"/>
         <source>Toggle Book View to Code View or Code View to Book View</source>
-        <translation>Omschakelen tussen boekweergave en codeweergave</translation>
+        <translation>在書本檢視與代碼檢視間切換</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1027"/>
@@ -7272,16 +7258,16 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="1036"/>
         <source>&amp;Split At Cursor</source>
-        <translation>Bij &amp;cursor splitsen</translation>
+        <translation>在游標處分割(&amp;S)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1039"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Op cursor splitsen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;在游標處分割&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Het huidige bestand in twee bestanden splitsen en hierbij de plaats van uw cursor als scheidspunt gebruiken.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將目前的檔案從游標位置處分割成兩個檔案。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1044"/>
@@ -7291,7 +7277,7 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="1053"/>
         <source>&amp;File...</source>
-        <translation>&amp;Bestand...</translation>
+        <translation>檔案(&amp;F)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1056"/>
@@ -7300,11 +7286,11 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can add files to your book by using the menu File - Add - Existing Files.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bestand invoegen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;插入檔案&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Afbeeldings-, video of audiobestanden selecteren vanuit uw boek om in te voegen in de tekst.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;從您的書本中選擇圖片、影片或音效檔並插入文字中。&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;U kunt bestanden toevoegen aan uw boek vanuit het menu via Bestand - Toevoegen - Bestaande bestanden.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;您也可以用選單中的「檔案」─「新增」─「已存在的檔案」來新增檔案到您的書本中。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1063"/>
@@ -7314,72 +7300,72 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="1072"/>
         <source>&amp;Special Character...</source>
-        <translation>&amp;Speciaal teken...</translation>
+        <translation>特殊字元(&amp;S)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1075"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Speciaal teken toevoegen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;插入特殊字元&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Een teken selecteren om in uw tekst in te voegen.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;選擇一特殊字元並插入文字中。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1086"/>
         <source>I&amp;D...</source>
-        <translation>&amp;Referentie...</translation>
+        <translation>代碼(&amp;D)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1089"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Referentie invoegen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;插入代碼&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Een anker met een referentienaam invoegen of wijzigen om te gebruiken als bestemming van een koppeling.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;插入或編輯定錨點，給連結目標一個代碼名稱。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1100"/>
         <source>&amp;Link...</source>
-        <translation>Koppe&amp;ling...</translation>
+        <translation>連結(&amp;L)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1103"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Koppeling invoegen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;插入連結&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Een anker met een hyperlink naar een bestemming invoegen of bewerken.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;插入或編輯目標的超連結。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1117"/>
         <source>&amp;Numbered List</source>
-        <translation>Ge&amp;nummerde lijst</translation>
+        <translation>編號清單(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1120"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nummering&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;編號&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Een genummerde lijst maken.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;建立一編號清單。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1134"/>
         <source>Bulle&amp;ted List</source>
-        <translation>Lijst met opsom&amp;mingstekens</translation>
+        <translation>項目符號清單(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1137"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Opsommingstekens&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;項目&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Een lijst maken met opsommingstekens.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;建立一項目清單。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1142"/>
@@ -7389,55 +7375,54 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/main.ui" line="1154"/>
         <source>Stri&amp;kethrough</source>
-        <translation>&amp;Doorhalen</translation>
+        <translation>刪除線(&amp;K)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1157"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Doorhalen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;刪除線&lt;/b&gt;&lt;/p&gt;
 
-&lt;p 
-style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將選取的文字加上刪除線。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1171"/>
         <source>&amp;Subscript</source>
-        <translation>&amp;Subscript</translation>
+        <translation>下標(&amp;S)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1174"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;下標&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst een beetje kleiner en onder de normale lijn zetten.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將選取的文字設為下標。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1188"/>
         <source>Su&amp;perscript</source>
-        <translation>Su&amp;perscript</translation>
+        <translation>上標(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1191"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;上標&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst een beetje kleiner en boven de normale lijn zetten.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將選取的文字設為上標。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1202"/>
         <source>&amp;Print...</source>
-        <translation>Af&amp;drukken...</translation>
+        <translation>列印(&amp;P)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1205"/>
         <source>Print</source>
-        <translation>Afdrukken</translation>
+        <translation>列印</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1208"/>
@@ -7447,18 +7432,18 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1217"/>
         <source>Print Pre&amp;view...</source>
-        <translation>Afdruk&amp;voorbeeld...</translation>
+        <translation>預覽列印(&amp;V)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1220"/>
         <source>Print Preview</source>
-        <translation>Afdrukvoorbeeld</translation>
+        <translation>預覽列印</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1225"/>
         <location filename="../../Form_Files/main.ui" line="1228"/>
         <source>Close</source>
-        <translation>Afsluiten</translation>
+        <translation>關閉</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1231"/>
@@ -7468,12 +7453,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1240"/>
         <source>Zoom &amp;In</source>
-        <translation>&amp;Inzoomen</translation>
+        <translation>放大(&amp;I)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1243"/>
         <source>Zoom In</source>
-        <translation>Inzoomen</translation>
+        <translation>放大</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1246"/>
@@ -7483,12 +7468,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1255"/>
         <source>Zoom &amp;Out</source>
-        <translation>&amp;Uitzoomen</translation>
+        <translation>縮小(&amp;O)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1258"/>
         <source>Zoom Out</source>
-        <translation>Uitzoomen</translation>
+        <translation>縮小</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1261"/>
@@ -7498,12 +7483,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1266"/>
         <source>Sho&amp;w Tag</source>
-        <translation>&amp;Tag tonen</translation>
+        <translation>顯示標籤(&amp;W)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1269"/>
         <source>Show the enclosing tag HTML for the cursor position in Book View.</source>
-        <translation>De insluitende HTML-tag tonen voor de cursorpositie in boekweergave.</translation>
+        <translation>在書本檢視中顯示游標位置所在的相對應 HTML 標籤。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1272"/>
@@ -7513,16 +7498,16 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1281"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
-        <translation>&amp;Zoeken en vervangen...</translation>
+        <translation>尋找與取代(&amp;F)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1284"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zoeken en vervangen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;尋找與取代&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tekst in het document zoeken en vervangen.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;尋找並取代文件中的文字。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1289"/>
@@ -7532,16 +7517,16 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1298"/>
         <source>Incre&amp;ase Indent</source>
-        <translation>Inspringen ver&amp;groten</translation>
+        <translation>增加縮排(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1301"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Inspringen vergroten&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;增加縮排&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Het inspringen van de alinea vergroten.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;增加段落的縮排等級。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1306"/>
@@ -7551,16 +7536,16 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1315"/>
         <source>&amp;Decrease Indent</source>
-        <translation>Inspringen ver&amp;kleinen</translation>
+        <translation>減少縮排(&amp;D)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1318"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Inspringen verkleinen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;減少縮排&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Het inspringen van de alinea verkleinen.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;減少段落的縮排等級。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1323"/>
@@ -7571,7 +7556,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1332"/>
         <source>Te&amp;xt Direction LTR</source>
-        <translation>Tekstrichting van links naar rechts</translation>
+        <translation>文字方向左到右(&amp;X)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1335"/>
@@ -7581,14 +7566,15 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction left to right.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Links naar rechts&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;左到右&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De tekstrichting van de alinea op van-links-naar-rechts zetten.&lt;/p&gt;</translation>
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將段落方向設定為從左到右。&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1348"/>
         <source>T&amp;ext Direction RTL</source>
-        <translation>Tekstrichting van rechts naar links</translation>
+        <translation>文字方向右到左(&amp;E)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1351"/>
@@ -7598,14 +7584,15 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction right to left.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Rechts naar links&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;右到左&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De tekstrichting van de alinea op van-rechts-naar-links zetten.&lt;/p&gt;</translation>
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將段落方向設定為從右到左。&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1364"/>
         <source>Text Directi&amp;on Default</source>
-        <translation>Standaard t&amp;ekstrichting</translation>
+        <translation>文字方向預設(&amp;O)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1367"/>
@@ -7615,24 +7602,25 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction to inherit from default.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Standaard tekstrichting&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;預設&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De tekstrichting van de alinea op de standaard tekstrichting zetten.&lt;/p&gt;</translation>
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;段落方向直接承襲預設值。&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1376"/>
         <source>Remove &amp;Formatting</source>
-        <translation>Opmaak &amp;verwijderen</translation>
+        <translation>移除格式(&amp;F)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1379"/>
         <source>Ctrl+Space</source>
-        <translation>Ctrl+Spatie</translation>
+        <translation>Ctrl+空白鍵</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1388"/>
         <source>&amp;Lowercase</source>
-        <translation>&amp;Kleine letters</translation>
+        <translation>小寫(&amp;L)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1391"/>
@@ -7642,9 +7630,10 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to lowercase.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kleine letters&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;小寫&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst omzetten naar kleine letters.&lt;/p&gt;</translation>
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將選取的文字設為小寫。&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1398"/>
@@ -7654,7 +7643,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1407"/>
         <source>&amp;Uppercase</source>
-        <translation>&amp;Hoofdletters</translation>
+        <translation>大寫(&amp;U)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1410"/>
@@ -7664,9 +7653,10 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to uppercase.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Hoofdletters&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;大寫&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst omzetten naar hoofdletters.&lt;/p&gt;</translation>
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將選取的文字設為大寫。&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1417"/>
@@ -7676,7 +7666,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1426"/>
         <source>&amp;Titlecase</source>
-        <translation>Eerste letter &amp;woord hoofdletter</translation>
+        <translation>首字母大寫(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1429"/>
@@ -7686,14 +7676,15 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize the first letter of each word selected.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Eerste letter woord hoofdletter&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;標題首字母大寫&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;De eerste letter van elk geselecteerd woord hoofdletter maken.&lt;/p&gt;</translation>
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將選取的每個單字的首字母設為大寫。&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1442"/>
         <source>&amp;Capitalize</source>
-        <translation>&amp;Eerste letter hoofdletter</translation>
+        <translation>首單字大寫(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1445"/>
@@ -7703,19 +7694,20 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize only the first word of the selected text.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Eerste letter hoofdletter&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;首字母大寫&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Alleen de eerste letter van de geselecteerde tekst hoofdletter maken.&lt;/p&gt;</translation>
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;選取的文字中的第一個單字首字母設為大寫。&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1454"/>
         <source>Sigil Website...</source>
-        <translation>Website van Sigil...</translation>
+        <translation>Sigil 網站...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1459"/>
         <source>&amp;Next Tab</source>
-        <translation>&amp;Volgend tabblad</translation>
+        <translation>下一個分頁(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1462"/>
@@ -7725,7 +7717,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1467"/>
         <source>&amp;Previous Tab</source>
-        <translation>Vo&amp;rig tabblad</translation>
+        <translation>上一個分頁(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1470"/>
@@ -7735,7 +7727,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1475"/>
         <source>&amp;Close Tab</source>
-        <translation>Tabblad &amp;sluiten</translation>
+        <translation>關閉分頁(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1478"/>
@@ -7745,12 +7737,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1483"/>
         <source>Split At &amp;Markers</source>
-        <translation>Bij &amp;markeringen splitsen</translation>
+        <translation>從標記分割(&amp;M)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1486"/>
         <source>Split At Sigil split file markers</source>
-        <translation>Splitsen bij Sigil-markeringen voor het splitsen van een bestand</translation>
+        <translation>從 Sigil 分割檔案標記處分割</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1489"/>
@@ -7760,12 +7752,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1494"/>
         <source>Split &amp;Marker</source>
-        <translation>Splits&amp;markering</translation>
+        <translation>分割標記(&amp;M)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1497"/>
         <source>Insert Sigil split file marker</source>
-        <translation>Sigil-markering invoegen voor het splitsen van een bestand</translation>
+        <translation>插入 Sigil 分割檔案標記</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1500"/>
@@ -7775,12 +7767,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1505"/>
         <source>User &amp;Guide...</source>
-        <translation>&amp;Gebruikersgids...</translation>
+        <translation>使用者導覽(&amp;G)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1508"/>
         <source>User Guide</source>
-        <translation>Gebruikersgids</translation>
+        <translation>使用者導覽</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1511"/>
@@ -7790,32 +7782,32 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1516"/>
         <source>&amp;Frequently Asked Questions...</source>
-        <translation>&amp;Veelgestelde vragen...</translation>
+        <translation>常見問題(&amp;F)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1519"/>
         <source>Frequently Asked Questions</source>
-        <translation>Veelgestelde vragen</translation>
+        <translation>常見問題</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1524"/>
         <source>&amp;Tutorials...</source>
-        <translation>&amp;Handleidingen...</translation>
+        <translation>教學(&amp;T)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1527"/>
         <source>Tutorials</source>
-        <translation>Handleidingen</translation>
+        <translation>教學</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1532"/>
         <source>Well-Formed Check &amp;EPUB</source>
-        <translation>Opbouw &amp;EPUB controleren</translation>
+        <translation>&amp;EPUB 格式正確檢查</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1535"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Controleren opbouw EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Controleren of uw document voldoet aan de minimale vereisten om succesvol te worden ontleed. Deze controle garandeert niet dat uw document voldoet aan de epub-standaarden.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EPUB 格式正確檢查&lt;/span&gt;&lt;/p&gt;&lt;p&gt;驗證你的文件是否符合成功解析所需的最低要求。這並不表示符合相關的 epub 標準。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1538"/>
@@ -7825,7 +7817,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1543"/>
         <source>Validate Stylesheets With &amp;W3C</source>
-        <translation>Stijlbladen valideren via &amp;W3C</translation>
+        <translation>用 W3C 驗證樣式表(&amp;W)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1546"/>
@@ -7835,23 +7827,24 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your CSS stylesheets comply with W3C standards using the online W3C CSS Validation Service.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Stijlbladen laten valideren door W3C&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;用 W3C 來驗證樣式表&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Toetsen of uw CSS-stijlbladen voldoen aan de standaarden van W3C via de online CSS-validatiedienst van W3C.&lt;/p&gt;</translation>
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;用線上 W3C CSS 標準驗證服務來檢查您的 CSS 樣式表。&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1559"/>
         <source>&amp;Spellcheck...</source>
-        <translation>&amp;Spellingcontrole...</translation>
+        <translation>拼字檢查(&amp;S)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1562"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellingcontrole&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;拼字檢查&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Alle verkeerd gespelde woorden zoeken en u de mogelijkheid bieden deze toe te voegen aan een woordenlijst of deze te negeren.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;找出所有拼錯的單字，您可以將這些單字加入字典，或是忽略它們。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1567"/>
@@ -7861,22 +7854,22 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1575"/>
         <source>&amp;Highlight Misspelled Words</source>
-        <translation>Verkeerd gespelde woorden &amp;markeren</translation>
+        <translation>突顯拼錯的單字(&amp;H)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1578"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
-        <translation>In- of uitschakelen van markering van verkeerd gespelde woorden in codeweergave.</translation>
+        <translation>在代碼檢視中開啟或關閉突顯拼錯的單字。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1583"/>
         <source>&amp;Next Misspelled Word</source>
-        <translation>&amp;Volgend verkeerd gespeld woord</translation>
+        <translation>下一個拼錯的單字(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1586"/>
         <source>Find the next misspelled word in the book.</source>
-        <translation>Het volgende verkeerd gespelde woord in het boek zoeken.</translation>
+        <translation>尋找書中下一個拼錯的單字。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1589"/>
@@ -7886,37 +7879,37 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1594"/>
         <source>&amp;Add Misspelled Word</source>
-        <translation>Verkeerd gespeld woord &amp;toevoegen</translation>
+        <translation>新增單字(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1597"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
-        <translation>Het huidige verkeerd gespelde woord  bij de cursor toevoegen aan de standaard gebruikerswoordenlijst.</translation>
+        <translation>將目前的拼錯的單字新增到預設使用者字典中。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1602"/>
         <source>&amp;Ignore Misspelled Word</source>
-        <translation>Verkeerd gespeld woord &amp;negeren</translation>
+        <translation>忽略拼錯的單字(&amp;I)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1605"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
-        <translation>Het huidige verkeerd gespelde woord bij de cursor negeren.</translation>
+        <translation>忽略目前標記為拼錯的單字，直到重新啟動 Sigil 為止。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1610"/>
         <source>&amp;Clear Ignored Words</source>
-        <translation>Genegeerde woorden &amp;wissen</translation>
+        <translation>清除被忽略的單字(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1613"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
-        <translation>Huidige bij spellingcontrole genegeerde woorden wissen zonder Sigil opnieuw te hoeven starten.</translation>
+        <translation>清除拼字檢查標示為忽略的單字，而不需重啟 Sigil。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1618"/>
         <source>&amp;Index Editor...</source>
-        <translation>&amp;Registerbewerker...</translation>
+        <translation>索引編輯器(&amp;I)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1621"/>
@@ -7926,17 +7919,17 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1626"/>
         <source>&amp;Delete Unused Media Files...</source>
-        <translation>&amp;Ongebruikte mediabestanden verwijderen...</translation>
+        <translation>刪除未使用的媒體檔(&amp;D)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1631"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
-        <translation>Ongebruikte &amp;stijlen verwijderen...</translation>
+        <translation>刪除未使用的樣式表類別(&amp;U)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1636"/>
         <source>&amp;Reports...</source>
-        <translation>Rap&amp;porten...</translation>
+        <translation>報告(&amp;R)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1639"/>
@@ -7946,7 +7939,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1648"/>
         <source>&amp;Donate...</source>
-        <translation>Een gift &amp;doen...</translation>
+        <translation>捐助(&amp;D)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1651"/>
@@ -7954,15 +7947,15 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
 </source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Een gift doen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;捐獻&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Een gift doen om Sigil financieel te ondersteunen.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;捐獻以支持 Sigil。&lt;/p&gt;
 </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1659"/>
         <source>Close &amp;Other Tabs</source>
-        <translation>&amp;Andere tabbladen sluiten</translation>
+        <translation>關閉其他分頁(&amp;O)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1662"/>
@@ -7972,7 +7965,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1667"/>
         <source>Go To &amp;Line...</source>
-        <translation>Naar regel gaan...</translation>
+        <translation>跳到行號(&amp;L)....</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1670"/>
@@ -7982,7 +7975,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1675"/>
         <source>Find &amp;Next</source>
-        <translation>&amp;Volgende zoeken</translation>
+        <translation>尋找下一個(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1678"/>
@@ -7992,7 +7985,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1683"/>
         <source>Find &amp;Previous</source>
-        <translation>Vo&amp;rige zoeken</translation>
+        <translation>尋找上一個(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1686"/>
@@ -8002,7 +7995,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1691"/>
         <source>Replace</source>
-        <translation>Vervangen</translation>
+        <translation>取代</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1694"/>
@@ -8012,7 +8005,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1699"/>
         <source>&amp;Replace/Find Next</source>
-        <translation>Vo&amp;lgende vervangen/zoeken</translation>
+        <translation>取代/尋找下一個(&amp;R)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1702"/>
@@ -8022,7 +8015,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1707"/>
         <source>R&amp;eplace/Find Previous</source>
-        <translation>Vorige v&amp;ervangen/zoeken</translation>
+        <translation>取代/尋找上一個(&amp;E)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1710"/>
@@ -8032,7 +8025,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1715"/>
         <source>Replace &amp;All</source>
-        <translation>&amp;Alles vervangen</translation>
+        <translation>全部取代(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1718"/>
@@ -8042,7 +8035,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1723"/>
         <source>&amp;Count All</source>
-        <translation>Alles &amp;tellen</translation>
+        <translation>全部計算(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1726"/>
@@ -8052,32 +8045,32 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1731"/>
         <source>Mar&amp;k Selected Text</source>
-        <translation>Geselecteerde tekst mar&amp;keren</translation>
+        <translation>標記選取的文字(&amp;K)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1739"/>
         <source>Find &amp;Next In File</source>
-        <translation>Volgende &amp;zoeken in bestand</translation>
+        <translation>在檔案中尋找下一個(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1744"/>
         <source>&amp;Replace Next In File</source>
-        <translation>Volgende &amp;vervangen in bestand</translation>
+        <translation>在檔案中取代下一個(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1749"/>
         <source>Replace &amp;All In File</source>
-        <translation>&amp;Alles vervangen in bestand</translation>
+        <translation>在檔案中全部取代(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1754"/>
         <source>&amp;Count All In File</source>
-        <translation>Alles &amp;tellen in bestand</translation>
+        <translation>在檔案中全部計算(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1759"/>
         <source>&amp;Saved Searches...</source>
-        <translation>&amp;Opgeslagen zoekopdrachten...</translation>
+        <translation>儲存搜尋(&amp;S)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1762"/>
@@ -8087,12 +8080,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1767"/>
         <source>&amp;Clip Editor...</source>
-        <translation>&amp;Knipselbewerker...</translation>
+        <translation>片段編輯器(&amp;C)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1770"/>
         <source>Open the Clip Editor.</source>
-        <translation>De knipselbewerker openen.</translation>
+        <translation>開啟片段編輯器。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1773"/>
@@ -8102,12 +8095,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1778"/>
         <source>Clip &amp;1</source>
-        <translation>Knipsel &amp;1</translation>
+        <translation>片段 &amp;1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1781"/>
         <source>Insert Clip 1</source>
-        <translation>Knipsel 1 invoegen</translation>
+        <translation>插入片段 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1784"/>
@@ -8117,12 +8110,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1789"/>
         <source>Clip &amp;2</source>
-        <translation>Knipsel &amp;2</translation>
+        <translation>片段 &amp;2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1792"/>
         <source>Insert Clip 2</source>
-        <translation>Knipsel 2 invoegen</translation>
+        <translation>插入片段 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1795"/>
@@ -8132,12 +8125,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1800"/>
         <source>Clip &amp;3</source>
-        <translation>Knipsel &amp;3</translation>
+        <translation>片段 &amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1803"/>
         <source>Insert Clip 3</source>
-        <translation>Knipsel 3 invoegen</translation>
+        <translation>插入片段 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1806"/>
@@ -8147,12 +8140,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1811"/>
         <source>Clip &amp;4</source>
-        <translation>Knipsel &amp;4</translation>
+        <translation>片段 &amp;4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1814"/>
         <source>Insert Clip 4</source>
-        <translation>Knipsel 4 invoegen</translation>
+        <translation>插入片段 4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1817"/>
@@ -8162,12 +8155,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1822"/>
         <source>Clip &amp;5</source>
-        <translation>Knipsel &amp;5</translation>
+        <translation>片段 &amp;5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1825"/>
         <source>Insert Clip 5</source>
-        <translation>Knipsel 5 invoegen</translation>
+        <translation>插入片段 5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1828"/>
@@ -8177,12 +8170,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1833"/>
         <source>Clip &amp;6</source>
-        <translation>Knipsel &amp;6</translation>
+        <translation>片段 &amp;6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1836"/>
         <source>Insert Clip 6</source>
-        <translation>Knipsel 6 invoegen</translation>
+        <translation>插入片段 6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1839"/>
@@ -8192,12 +8185,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1844"/>
         <source>Clip &amp;7</source>
-        <translation>Knipsel &amp;7</translation>
+        <translation>片段 &amp;7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1847"/>
         <source>Insert Clip 7</source>
-        <translation>Knipsel 7 invoegen</translation>
+        <translation>插入片段 7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1850"/>
@@ -8207,12 +8200,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1855"/>
         <source>Clip &amp;8</source>
-        <translation>Knipsel 8</translation>
+        <translation>片段 &amp;8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1858"/>
         <source>Insert Clip 8</source>
-        <translation>Knipsel 8 invoegen</translation>
+        <translation>插入片段 8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1861"/>
@@ -8222,12 +8215,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1866"/>
         <source>Clip &amp;9</source>
-        <translation>Knipsel 9</translation>
+        <translation>片段 &amp;9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1869"/>
         <source>Insert Clip 9</source>
-        <translation>Knipsel 9 invoegen</translation>
+        <translation>插入片段 9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1872"/>
@@ -8237,12 +8230,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1877"/>
         <source>Clip 1&amp;0</source>
-        <translation>Knipsel 1&amp;0</translation>
+        <translation>片段 1&amp;0</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1880"/>
         <source>Insert Clip 10</source>
-        <translation>Knipsel 10 invoegen</translation>
+        <translation>插入片段 10</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1883"/>
@@ -8252,107 +8245,107 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1888"/>
         <source>Clip 11</source>
-        <translation>Knipsel 11</translation>
+        <translation>片段 11</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1891"/>
         <source>Insert Clip 11</source>
-        <translation>Knipsel 11 invoegen</translation>
+        <translation>插入片段 11</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1896"/>
         <source>Clip 12</source>
-        <translation>Knipsel 12</translation>
+        <translation>片段 12</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1899"/>
         <source>Insert Clip 12</source>
-        <translation>Knipsel 12 invoegen</translation>
+        <translation>插入片段 12</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1904"/>
         <source>Clip 13</source>
-        <translation>Knipsel 13</translation>
+        <translation>片段 13</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1907"/>
         <source>Insert Clip 13</source>
-        <translation>Knipsel 13 invoegen</translation>
+        <translation>插入片段 13</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1912"/>
         <source>Clip 14</source>
-        <translation>Knipsel 14</translation>
+        <translation>片段 14</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1915"/>
         <source>Insert Clip 14</source>
-        <translation>Knipsel 14 invoegen</translation>
+        <translation>插入片段 14</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1920"/>
         <source>Clip 15</source>
-        <translation>Knipsel 15</translation>
+        <translation>片段 15</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1923"/>
         <source>Insert Clip 15</source>
-        <translation>Knipsel 15 invoegen</translation>
+        <translation>插入片段 15</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1928"/>
         <source>Clip 16</source>
-        <translation>Knipsel 16</translation>
+        <translation>片段 16</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1931"/>
         <source>Insert Clip 16</source>
-        <translation>Knipsel 16 invoegen</translation>
+        <translation>插入片段 16</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1936"/>
         <source>Clip 17</source>
-        <translation>Knipsel 17</translation>
+        <translation>片段 17</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1939"/>
         <source>Insert Clip 17</source>
-        <translation>Knipsel 17 invoegen</translation>
+        <translation>插入片段 17</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1944"/>
         <source>Clip 18</source>
-        <translation>Knipsel 18</translation>
+        <translation>片段 18</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1947"/>
         <source>Insert Clip 18</source>
-        <translation>Knipsel 18 invoegen</translation>
+        <translation>插入片段 18</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1952"/>
         <source>Clip 19</source>
-        <translation>Knipsel 19</translation>
+        <translation>片段 19</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1955"/>
         <source>Insert Clip 19</source>
-        <translation>Knipsel 19 invoegen</translation>
+        <translation>插入片段 19</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1960"/>
         <source>Clip 20</source>
-        <translation>Knipsel 20</translation>
+        <translation>片段 20</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1963"/>
         <source>Insert Clip 20</source>
-        <translation>Knipsel 20 invoegen</translation>
+        <translation>插入片段 20</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1968"/>
         <source>&amp;Preferences...</source>
-        <translation>&amp;Voorkeuren...</translation>
+        <translation>偏好設定(&amp;P)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1971"/>
@@ -8362,12 +8355,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1976"/>
         <source>&amp;Zoom Reset</source>
-        <translation>&amp;Zoom terugzetten</translation>
+        <translation>重設縮放(&amp;Z)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1979"/>
         <source>Zoom Reset</source>
-        <translation>Zoom terugzetten</translation>
+        <translation>重設縮放</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1982"/>
@@ -8377,16 +8370,16 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1994"/>
         <source>Heading &amp;1</source>
-        <translation>Kop &amp;1</translation>
+        <translation>標題 &amp;1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1997"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kop 1&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;標題 1&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Alinea opmaken als kop van het eerste niveau.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將段落設為第一級標題。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2002"/>
@@ -8396,16 +8389,16 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2014"/>
         <source>Heading &amp;2</source>
-        <translation>Kop &amp;2</translation>
+        <translation>標題 &amp;2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2017"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kop 2&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;標題 2&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Alinea opmaken als kop van het tweede niveau.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將段落設為第二級標題。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2022"/>
@@ -8415,16 +8408,16 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2034"/>
         <source>Heading &amp;3</source>
-        <translation>Kop &amp;3</translation>
+        <translation>標題 &amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2037"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kop 3&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;標題 3&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Alinea opmaken als kop van het derde niveau.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將段落設為第三級標題。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2042"/>
@@ -8434,16 +8427,16 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2054"/>
         <source>Heading &amp;4</source>
-        <translation>Kop &amp;4</translation>
+        <translation>標題 &amp;4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2057"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kop 4&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;標題 4&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Alinea opmaken als kop van het vierde niveau.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將段落設為第四級標題。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2062"/>
@@ -8453,16 +8446,16 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2074"/>
         <source>Heading &amp;5</source>
-        <translation>Kop &amp;5</translation>
+        <translation>標題 &amp;5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2077"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kop 5&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;標題 5&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Alinea opmaken als kop van het vijfde niveau.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將段落設為第五級標題。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2082"/>
@@ -8472,16 +8465,16 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2094"/>
         <source>Heading &amp;6</source>
-        <translation>Kop &amp;6</translation>
+        <translation>標題 &amp;6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2097"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kop 6&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;標題 6&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Alinea opmaken als kop van het zesde niveau.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將段落設為第六級標題。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2102"/>
@@ -8491,16 +8484,16 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2114"/>
         <source>&amp;Normal</source>
-        <translation>&amp;Normaal</translation>
+        <translation>一般(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2117"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Alinea&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;段落&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Alinea opmaken als een normale alinea.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將段落格式化為一般的段落。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2122"/>
@@ -8510,66 +8503,66 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2130"/>
         <source>&amp;Preserve Existing Attributes</source>
-        <translation>&amp;Bestaande kopeigenschappen behouden</translation>
+        <translation>預留現有的屬性(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2133"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
-        <translation>Bij toepassing van deze stijl, alle bestaande eigenschappen op de tag behouden.</translation>
+        <translation>套用此樣式表時，保留標籤裡的所有現有的屬性</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2138"/>
         <source>Blank HTML File</source>
-        <translation>Leeg HTML-bestand</translation>
+        <translation>空白 HTML 檔案</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2141"/>
         <source>Add a new blank HTML file to the book.</source>
-        <translation>Een nieuw leeg HTML-bestand toevoegen aan het boek.</translation>
+        <translation>新增空白的 HTML 檔到書本中。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2150"/>
         <source>Existing Files...</source>
-        <translation>Bestaande bestanden...</translation>
+        <translation>已存在的檔案...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2153"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bestaande bestanden toevoegen&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;新增已存在的檔案&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Bestanden op uw computer toevoegen aan het boek.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;將您電腦中的檔案新增到書本中。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2160"/>
         <source>Blank Stylesheet</source>
-        <translation>Leeg CSS-stijlblad</translation>
+        <translation>空白樣式</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2163"/>
         <source>Add a new blank stylesheet to the book.</source>
-        <translation>Een nieuw leeg CSS-stijlblad toevoegen aan het boek.</translation>
+        <translation>新增空白樣式到書本中。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2168"/>
         <source>Blank SVG Image</source>
-        <translation>Lege SVG-afbeelding</translation>
+        <translation>空白 SVG 圖片</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2171"/>
         <source>Add a new blank svg image file to the book.</source>
-        <translation>Een nieuwe lege SVG-afbeelding toevoegen aan het boek.</translation>
+        <translation>新增空白的 SVG 圖片檔到書本中。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2176"/>
         <source>Pre&amp;vious File</source>
-        <translation>&amp;Vorig bestand</translation>
+        <translation>上一個檔案(&amp;V)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2179"/>
         <source>Open previous file of the same type.</source>
-        <translation>Vorig bestand van gelijk type openen.</translation>
+        <translation>開啟前一個相同型態的檔案。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2182"/>
@@ -8579,12 +8572,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2187"/>
         <source>Next &amp;File</source>
-        <translation>Volgend &amp;bestand</translation>
+        <translation>下一個檔案(&amp;F)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2190"/>
         <source>Open next file of the same type.</source>
-        <translation>Volgend bestand van gelijk type openen.</translation>
+        <translation>開啟下一個相同型態的檔案。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2193"/>
@@ -8594,22 +8587,22 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2198"/>
         <source>&amp;Add To Index Editor</source>
-        <translation>&amp;Toevoegen aan registerbewerker</translation>
+        <translation>新增到索引編輯器(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2201"/>
         <source>Add the selected text to the Index Editor.</source>
-        <translation>De geselecteerde tekst toevoegen aan de registerbewerker.</translation>
+        <translation>新增選取的文字到索引編輯器中。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2206"/>
         <source>&amp;Mark For Index</source>
-        <translation>&amp;Markeren voor register</translation>
+        <translation>標記做索引(&amp;M)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2209"/>
         <source>Mark the selected text for inclusion in the Index.</source>
-        <translation>De geselecteerde tekst markeren voor opname in het register.</translation>
+        <translation>標記選取的文字以便加入索引中。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2212"/>
@@ -8619,27 +8612,27 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2217"/>
         <source>&amp;Create Index</source>
-        <translation>&amp;Register aanmaken</translation>
+        <translation>建立索引(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2220"/>
         <source>Generate a new Index HTML file.</source>
-        <translation>Een nieuw HTML-bestand voor het register genereren.</translation>
+        <translation>產生新的索引 HTML 檔。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2225"/>
         <source>&amp;Create HTML Table Of Contents</source>
-        <translation>&amp;HTML-inhoudsopgave maken</translation>
+        <translation>建立 HTML 目錄(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2228"/>
         <source>Create a new HTML file using the current TOC.</source>
-        <translation>Een nieuw HTML-bestand maken met de huidige inhoudsopgave.</translation>
+        <translation>用目前的目錄表建立新的 HTML 檔。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2233"/>
         <source>Book&amp;mark Location</source>
-        <translation>Blad&amp;wijzer maken</translation>
+        <translation>將位置加入書籤(&amp;M)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2236"/>
@@ -8649,7 +8642,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2241"/>
         <source>&amp;Go To Link Or Style</source>
-        <translation>&amp;Naar koppeling of stijl gaan</translation>
+        <translation>跳到行號或樣式(&amp;G)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2244"/>
@@ -8659,7 +8652,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2253"/>
         <source>&amp;Back</source>
-        <translation>Teru&amp;g</translation>
+        <translation>返回(&amp;B)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2256"/>
@@ -8667,9 +8660,10 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
     </source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Terug&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;返回&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Terugkeren naar de locatie waar u voor het laatst naar een koppeling of stijl bent gegaan of waar u een bladwijzer heeft gezet.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;返回您上次點擊連結或樣式，或是設定書籤的位置。&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2262"/>
@@ -8679,7 +8673,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2267"/>
         <source>Edit/Paste From Clipboard &amp;History...</source>
-        <translation>Bewerken/plakken vanuit klembord&amp;geschiedenis</translation>
+        <translation>從剪貼簿歷史紀錄中編輯/貼上(&amp;H)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2270"/>
@@ -8689,7 +8683,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2275"/>
         <source>&amp;Delete Line</source>
-        <translation>&amp;Regel verwijderen</translation>
+        <translation>刪除行(&amp;D)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2278"/>
@@ -8699,77 +8693,77 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2283"/>
         <source>Manage Plugins</source>
-        <translation>Plug-ins beheren</translation>
+        <translation>管理外掛</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2292"/>
         <source>Run Plugin 1</source>
-        <translation>Plug-in 1 uitvoeren</translation>
+        <translation>執行外掛 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2301"/>
         <source>Run Plugin 2</source>
-        <translation>Plug-in 2 uitvoeren</translation>
+        <translation>執行外掛 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2310"/>
         <source>Run Plugin 3</source>
-        <translation>Plug-in 3 uitvoeren</translation>
+        <translation>執行外掛 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2319"/>
         <source>Run Plugin 4</source>
-        <translation>Plug-in 4 uitvoeren</translation>
+        <translation>執行外掛 4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2328"/>
         <source>Run Plugin 5</source>
-        <translation>Plug-in 5 uitvoeren</translation>
+        <translation>執行外掛 5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2333"/>
         <source>Mend and &amp;Prettify All HTML Files</source>
-        <translation>Alle HTML-bestanden repareren en &amp;opschonen</translation>
+        <translation>修復並美化所有 HTML 檔案(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2338"/>
         <source>&amp;Mend All HTML Files</source>
-        <translation>Alle HTML-bestanden &amp;repareren</translation>
+        <translation>修復所有 HT&amp;ML 檔案</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2343"/>
         <source>&amp;Update Manifest Properties</source>
-        <translation>&amp;Manifest bijwerken</translation>
+        <translation>更新資訊清單屬性(&amp;U)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2348"/>
         <source>Generate NC&amp;X from Nav</source>
-        <translation>NC&amp;X genereren vanuit Nav</translation>
+        <translation>從 Nav 產生 NC&amp;X</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="325"/>
         <source>Input</source>
-        <translation>Invoer</translation>
+        <translation>輸入</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="331"/>
         <source>Output</source>
-        <translation>Uitvoer</translation>
+        <translation>輸出</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="343"/>
         <source>Validation</source>
-        <translation>Validatie</translation>
+        <translation>驗證</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="489"/>
         <source>Navigation cancelled as location no longer exists.</source>
-        <translation>Navigatie geannuleerd, omdat de locatie niet meer bestaat.</translation>
+        <translation>導覽已取消，因為位置已不存在。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="505"/>
         <source>Location bookmarked.</source>
-        <translation>Bladwijzer gezet.</translation>
+        <translation>位置已加入書籤。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="552"/>
@@ -8816,432 +8810,432 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
         <source>Are you sure you want to open this external link?
 
 %1</source>
-        <translation>Weet u zeker dat u deze externe koppeling wilt openen?
+        <translation>您確定要開啟外部連結嗎？
 
 %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="598"/>
         <source>was updated</source>
-        <translation>is bijgewerkt</translation>
+        <translation>已更新</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="605"/>
         <source>Warning</source>
-        <translation>Waarschuwing</translation>
+        <translation>警告</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="605"/>
         <source>The file was NOT well formed and may be corrupted.</source>
-        <translation>Het bestand is niet goed opgebouwd en zou beschadigd kunnen zijn.</translation>
+        <translation>檔案格式不正確，可能已損毀。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="633"/>
         <source>Opening this EPUB generated warnings.</source>
-        <translation>Het openen van deze epub leidt tot waarschuwingen.</translation>
+        <translation>開啟此 EPUB 會產生警告。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="635"/>
         <source>Select Show Details for more information.</source>
-        <translation>Kies &quot;Details tonen&quot; voor meer informatie.</translation>
+        <translation>更多資訊請按「顯示詳情」。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="675"/>
         <source>Sigil is closing...</source>
-        <translation>Sigil wordt afgesloten...</translation>
+        <translation>Sigil 關閉中...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="725"/>
         <source>New file created.</source>
-        <translation>Nieuw bestand gemaakt.</translation>
+        <translation>新檔案已建立。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="746"/>
         <source>Open File</source>
-        <translation>Bestand openen</translation>
+        <translation>開啟檔案</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="783"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
-        <translation>Dit bestand bestaat niet meer. Kies OK om het uit het menu te verwijderen.
+        <translation>檔案已不存在。點擊「確定」從選單中移除。
 %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="853"/>
         <source>Save File</source>
-        <translation>Bestand opslaan</translation>
+        <translation>儲存檔案</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="907"/>
         <source>Save a Copy</source>
-        <translation>Kopie opslaan</translation>
+        <translation>儲存複本</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="969"/>
         <source>Go To Line</source>
-        <translation>Naar regel gaan</translation>
+        <translation>跳到第幾行</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="969"/>
         <source>Line #</source>
-        <translation>Regelnummer</translation>
+        <translation>行號</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="992"/>
         <source>Image does not exist: </source>
-        <translation>Afbeelding bestaat niet:</translation>
+        <translation>圖片不存在：</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1054"/>
         <source>or</source>
-        <translation>of</translation>
+        <translation>或</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1062"/>
         <source>No CSS styles named</source>
-        <translation>Geen CSS-stijlen benoemd</translation>
+        <translation>沒有找到名為</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1062"/>
         <source>found, or stylesheet not linked.</source>
-        <translation>gevonden, of stijlblad niet gekoppeld.</translation>
+        <translation>的 CSS 樣式，或沒有連結樣式表。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1134"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;p&gt;De href &lt;b&gt;%1&lt;/b&gt; gevonden in &lt;b&gt;%2&lt;/b&gt; bestaat niet (en er zijn misschien meer). Splitsen of samenvoegen onder deze omstandigheden kan koppelingen opleveren die niet werken.&lt;/p&gt;&lt;p&gt;Wilt u nog steeds verder gaan?&lt;/p&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;p&gt;在 &lt;b&gt;%2&lt;/b&gt; 找到的 href &lt;b&gt;%1&lt;/b&gt; 不存在（而且可能有更多）。在這種狀況下分割或合併可能導致連結損壞。&lt;/p&gt;&lt;p&gt;您還是想要繼續嗎？&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1156"/>
         <source>Add Cover</source>
-        <translation>Omslag toevoegen</translation>
+        <translation>新增封面</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1248"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
-        <translation>Onverwachte fout. Alleen afbeeldingen kunnen worden gebruikt voor de omslag.</translation>
+        <translation>未預期的錯誤。封面只能使用圖片檔。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1265"/>
         <source>Cover added.</source>
-        <translation>Omslag toegevoegd.</translation>
+        <translation>封面已新增。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1274"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1291"/>
         <source>Not Available for epub2.</source>
-        <translation>Niet beschikbaar voor epub2.</translation>
+        <translation>不適用於 epub2。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1282"/>
         <source>OPF Manifest Properties Updated.</source>
-        <translation>Manifest in OPF is bijgewerkt.</translation>
+        <translation>OPF 資訊清單屬性已更新。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1308"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1362"/>
         <source>NCX generation failed.</source>
-        <translation>Genereren van NCX mislukt.</translation>
+        <translation>NCX 產生失敗。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1357"/>
         <source>NCX generated.</source>
-        <translation>NCX gegenereerd.</translation>
+        <translation>NCX 已產生。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1510"/>
         <source>Styles deleted.</source>
-        <translation>Stijlen verwijderd.</translation>
+        <translation>樣式已刪除。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1520"/>
         <source>Reports cancelled due to XML not well formed.</source>
-        <translation>Rapporten geannuleerd vanwege niet goed opgebouwde XML.</translation>
+        <translation>報告已取消，因為 XML 格式不正確。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1607"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
-        <translation>Verwijderen van ongebruikte mediabestanden geannuleerd vanwege niet goed opgebouwde XML.</translation>
+        <translation>刪除未使用的媒體檔案已取消，因為 XML 格式不正確。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1660"/>
         <source>Unused media files deleted.</source>
-        <translation>Ongebruikte mediabestanden verwijderd.</translation>
+        <translation>未使用的媒體檔案已刪除。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1662"/>
         <source>There are no unused image, video or audio files to delete.</source>
-        <translation>Er zijn geen ongebruikte afbeeldings-, video- of audiobestanden om te verwijderen.</translation>
+        <translation>沒有未使用的圖片、影片或音效檔可以刪除。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1670"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
-        <translation>Verwijderen van ongebruikte stijlen is geannuleerd vanwege niet goed opgebouwde XML.</translation>
+        <translation>刪除未使用的樣式已取消，因為 XML 格式不正確。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1687"/>
         <source>There are no unused stylesheet classes to delete.</source>
-        <translation>Er zijn geen ongebruikte stijlen om te verwijderen.</translation>
+        <translation>沒有未使用的樣式類別可以刪除。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1699"/>
         <source>You cannot insert a file at this position.</source>
-        <translation>U kunt op deze positie geen bestand invoegen.</translation>
+        <translation>您不能在此位置插入檔案。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1706"/>
         <source>Insert File</source>
-        <translation>Bestand invoegen</translation>
+        <translation>插入檔案</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1751"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Het bestand &quot;%1&quot; bestaat niet.</translation>
+        <translation>檔案 &quot;%1&quot; 不存在。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1802"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1829"/>
         <source>You cannot insert an id at this position.</source>
-        <translation>Op deze positie kunt u geen referentie invoegen.</translation>
+        <translation>您不能在此位置插入 ID。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1810"/>
         <source>You must select text before inserting a new id.</source>
-        <translation>U dient tekst te selecteren voordat u een nieuwe referentie invoegt.</translation>
+        <translation>在插入新的代碼前您必須選取文字。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1824"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
-        <translation>Referentie is ongeldig.  Deze moet beginnen met een letter, gevolgd door letter, cijfer, laag streepje, dubbele punt, koppelteken of punt.</translation>
+        <translation>ID 不合法 - 需要以字母開頭，後面跟著字母、數字、_ : - 或 .</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1842"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1866"/>
         <source>You cannot insert a link at this position.</source>
-        <translation>U kunt op deze positie geen koppeling invoegen.</translation>
+        <translation>您不能在此位置插入連結。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1850"/>
         <source>You must select text before inserting a new link.</source>
-        <translation>U dient tekst te selecteren voordat u een nieuwe koppeling invoegt.</translation>
+        <translation>在插入新的連結前您必須選取文字。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1861"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation>Koppeling is ongeldig - mag geen &quot;&lt;&quot; of &quot;&gt;&quot; bevatten</translation>
+        <translation>連結不合法 - 不能含有 &apos;&lt;&apos; 或 &apos;&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1878"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
-        <translation>U kunt geen index markeren op deze plaats of zonder tekst te selecteren.</translation>
+        <translation>您不能在此位置標記索引而不選取任何文字。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1888"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation>Vermelding is ongeldig - mag geen &quot;&lt;&quot; of &quot;&gt;&quot; bevatten</translation>
+        <translation>項目不合法 - 不能含有 &apos;&lt;&apos; 或 &apos;&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1893"/>
         <source>You cannot mark an index at this position.</source>
-        <translation>Op deze plaats kunt u geen register markeren.</translation>
+        <translation>您不能在此位置標記索引。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1947"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1958"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2077"/>
         <source>Select the destination to paste into first.</source>
-        <translation>Selecteer de bestemming om als eerste heen te plakken.</translation>
+        <translation>先選擇要貼上的目標。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1966"/>
         <source>Pasted clip entry %1.</source>
-        <translation>Geplakt knipsel %1.</translation>
+        <translation>已貼上片段條目 %1。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2124"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
-        <translation>Er is een bron geselecteerd, maar er is geen vorige bron om mee samen te voegen.</translation>
+        <translation>選擇了一個資源，而沒有可併入的資源。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2131"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
-        <translation>Weet u zeker dat u de geselecteerde bestanden wilt samenvoegen?
-Deze bewerking kan niet ongedaan worden gemaakt.</translation>
+        <translation>您確定您要合併選取的檔案嗎？
+這個動作無法回復。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2145"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
-        <translation>Samenvoegen geannuleerd: %1, XML niet goed opgebouwd.</translation>
+        <translation>合併已取消：%1，因為 XML 格式不正確。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2150"/>
         <source>Merge cancelled due to XML not well formed.</source>
-        <translation>Samenvoegen geannuleerd vanwege niet goed opgebouwde XML.</translation>
+        <translation>合併取消，因為 XML 格式不正確。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2174"/>
         <source>Cannot merge file %1</source>
-        <translation>Bestand %1 kan niet samengevoegd worden</translation>
+        <translation>無法合併檔案 %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2188"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
-        <translation>Samenvoegen voltooid. Het kan nodig zijn de inhoudsopgave bij te werken.</translation>
+        <translation>合併已完成。您可能需要重新產生或編輯您的目錄表。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2206"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
-        <translation>Koppelen stijlbladen geannuleerd: %1, XML is niet goed opgebouwd.</translation>
+        <translation>連結樣式表取消：%1，XML 格式不正確。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2351"/>
         <source>Word updated.</source>
-        <translation>Woord bijgewerkt.</translation>
+        <translation>單字已更新。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2433"/>
         <source>File(s) deleted.</source>
-        <translation>Bestand(en) verwijderd.</translation>
+        <translation>檔案已刪除。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2444"/>
         <source>Edit Table of Contents cancelled.</source>
-        <translation>Bewerken van inhoudsopgave geannuleerd.</translation>
+        <translation>編輯目錄已取消。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2449"/>
         <source>Table Of Contents edited.</source>
-        <translation>Inhoudsopgave bewerkt.</translation>
+        <translation>目錄已編輯。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2467"/>
         <source>Generate TOC cancelled.</source>
-        <translation>Genereren van inhoudsopgave geannuleerd.</translation>
+        <translation>建立目錄已取消。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2491"/>
         <source>Table Of Contents generated.</source>
-        <translation>Inhoudsopgave gegenereerd.</translation>
+        <translation>目錄已產生。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2493"/>
         <source>No Table Of Contents changes were necessary.</source>
-        <translation>Het was niet nodig om de inhoudsopgave bij te werken.</translation>
+        <translation>沒有變更目錄的需要。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2629"/>
         <source>Text selection marked.</source>
-        <translation>Geselecteerde tekst gemarkeerd.</translation>
+        <translation>已標記選取的文字。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2631"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2649"/>
         <source>Text selection unmarked.</source>
-        <translation>Markering van geselecteerde tekst opgeheven.</translation>
+        <translation>已取消標記選取的文字。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2737"/>
         <source>Metadata Editor cancelled.</source>
-        <translation>Bewerken van metagegevens geannuleerd.</translation>
+        <translation>中繼資料編輯器已取消。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2740"/>
         <source>Metadata edited.</source>
-        <translation>Metagegevens gewijzigd.</translation>
+        <translation>中繼資料已編輯。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2828"/>
         <source>RunPlugin1</source>
-        <translation>RunPlugin1</translation>
+        <translation>執行外掛1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2829"/>
         <source>RunPlugin2</source>
-        <translation>RunPlugin2</translation>
+        <translation>執行外掛2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2830"/>
         <source>RunPlugin3</source>
-        <translation>RunPlugin3</translation>
+        <translation>執行外掛3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2831"/>
         <source>RunPlugin4</source>
-        <translation>RunPlugin4</translation>
+        <translation>執行外掛4</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2832"/>
         <source>RunPlugin5</source>
-        <translation>RunPlugin5</translation>
+        <translation>執行外掛5</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2863"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
-        <translation>Deze EPUB bevat geen CSS-stijlbladen om te laten valideren.</translation>
+        <translation>EPUB 沒有包含任何 CSS 樣式表，因此無法驗證。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
         <source>Line: %1, Col: %2</source>
-        <translation>Regel: %1, Kol: %2</translation>
+        <translation>行: %1, 欄: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3509"/>
         <source>File cannot be split at this position.</source>
-        <translation>Bestand kan op deze plaats niet gesplitst worden.</translation>
+        <translation>檔案無法從此位置分割。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3515"/>
         <source>Cannot split since it may not be an HTML file.</source>
-        <translation>Splitsen niet mogelijk, omdat het waarschijnlijk geen HTML-bestand is.</translation>
+        <translation>無法分割，因為可能不是 HTML 檔案。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3521"/>
         <source>The Nav file cannot be split.</source>
-        <translation>Het Nav-bestand kan niet worden gesplitst.</translation>
+        <translation>無法分割 Nav 檔案。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3538"/>
         <source>Split completed.</source>
-        <translation>Splitsen voltooid.</translation>
+        <translation>分割完成。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3563"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
-        <translation>Splitsen niet mogelijk, omdat ten minste één bestand geen HTML-bestand is.</translation>
+        <translation>無法分割，因為至少有一個檔不是 HTML 檔。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3569"/>
         <source>Cannot split: %1 XML is not well formed</source>
-        <translation>Splitsen niet mogelijk: %1 XML is niet goed opgebouwd.</translation>
+        <translation>無法分割：%1，因為 XML 格式不正確</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3575"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
-        <translation>Splitsen niet mogelijk, omdat ten minste één bestand waarschijnlijk geen HTML-bestand is.</translation>
+        <translation>無法分割，因為至少有一個檔不是 HTML 檔。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3608"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
-        <translation>Splitsen voltooid. Het kan nodig zijn de inhoudsopgave bij te werken.</translation>
+        <translation>分割已完成。您可能需要更新目錄。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3617"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
-        <translation>Geen splitsmarkeringen gevonden. Gebruik Invoegen-&gt;Splitsmarkering.</translation>
+        <translation>找不到分割檔案標記。請使用「插入」─「分割標記」。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3733"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
-        <translation>Het document is gewijzigd.
-Wilt u de wijzigingen opslaan?</translation>
+        <translation>文件已更改。
+您要儲存您的變更嗎？</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3813"/>
         <source>No importer for file type: %1</source>
-        <translation>Geen importfilter voor bestandstype: %1</translation>
+        <translation>沒有此檔案型態的匯入器：%1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3820"/>
@@ -9250,99 +9244,99 @@ Wilt u de wijzigingen opslaan?</translation>
 %1 (line %2: %3)
 
 Try setting the Clean Source preference to Mend XHTML Source Code on Open and reloading the file.</source>
-        <translation>Het volgende bestand werd niet ingeladen wegens ongeldige inhoud of niet goed opgebouwde XML:
+        <translation>下列檔案未載入，因為內容無效或是 XML 格式不正確：
 
-%1 (regel %2: %3)
+%1 (第 %2 行: %3)
 
-Probeer de voorkeur voor Broncode opschonen te wijzigen naar XHTML-broncode repareren bij openen en daarna het bestand opnieuw in te laden.</translation>
+請試著設定「整理源碼」選項為「開啟時修復 HTML 代碼」然後重新載入該檔案。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3825"/>
         <source>Loading file...</source>
-        <translation>Bestand wordt ingeladen...</translation>
+        <translation>載入檔案中...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3839"/>
         <source>File loaded.</source>
-        <translation>Bestand ingeladen.</translation>
+        <translation>檔案已載入。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3866"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
-        <translation>De maker van dit bestand heeft het versleuteld met DRM. Sigil kan dit soort bestanden niet openen.</translation>
+        <translation>這個檔案使用了DRM加密。Sigil無法開啟這類檔案。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3873"/>
         <source>Cannot load EPUB: %1</source>
-        <translation>EPUB kan niet worden ingeladen: %1</translation>
+        <translation>無法載入 EPUB: %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3877"/>
         <source>Cannot load file %1: %2</source>
-        <translation>Bestand %1 kan niet worden ingeladen: %2</translation>
+        <translation>無法載入檔案 %1: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3906"/>
         <source>Saving EPUB...</source>
-        <translation>EPUB wordt opgeslagen...</translation>
+        <translation>儲存 EPUB...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3915"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
-        <translation>Sigil kan geen bestanden opslaan van het type &quot;%1&quot;.
-Kies alstublieft een ander formaat.</translation>
+        <translation>Sigil 無法儲存型態為 &quot;%1&quot; 的檔案。
+請選擇不同的格式。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3940"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in data loss.
 
 Do you want to automatically mend the files before saving?</source>
-        <translation>Deze EPUB bevat HTML-bestanden die niet goed zijn opgebouwd en uw huidige voorkeur voor Broncode opschonen staat ingesteld op het repareren van xhtml-broncode bij opslaan. Het opslaan van een niet goed opgebouwd bestand leidt ertoe dat het automatisch wordt gerepareerd. Dit kan heel soms leiden tot gegevensverlies.
+        <translation>此 EPUB 內有格式不正確的 HTML 檔，而您目前的「整理源碼」選項設定為儲存時自動修復。儲存格式不正確的檔案時會試圖自動修復，但有很少的可能會造成資料遺失。
 
-Wilt u automatisch de bestanden laten repareren voor het opslaan?</translation>
+您要在儲存前自動修復檔案嗎？</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3971"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
-        <translation>EPUB opgeslagen, maar niet alle HTML-bestanden zijn goed opgebouwd.</translation>
+        <translation>EPUB 已儲存，但並非所有的 HTML 檔格式都正確。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3973"/>
         <source>EPUB saved.</source>
-        <translation>EPUB opgeslagen.</translation>
+        <translation>EPUB 已儲存。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3979"/>
         <source>Cannot save file %1: %2</source>
-        <translation>Bestand %1:%2 kan niet worden opgeslagen.</translation>
+        <translation>無法儲存檔案 %1: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4114"/>
         <source>EPUB files (*.epub)</source>
-        <translation>EPUB-bestanden (*.epub)</translation>
+        <translation>EPUB檔案(*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4115"/>
         <location filename="../../MainUI/MainWindow.cpp" line="4116"/>
         <location filename="../../MainUI/MainWindow.cpp" line="4117"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
-        <translation>HTML-bestanden (*.htm *.html *.xhtml)</translation>
+        <translation>HTML檔案 (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4118"/>
         <source>Text files (*.txt)</source>
-        <translation>Tekstbestanden (*.txt)</translation>
+        <translation>文字檔案(*.txt)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4119"/>
         <source>All files (*.*)</source>
-        <translation>Alle bestanden (*.*)</translation>
+        <translation>所有檔案(*.*)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4127"/>
         <source>EPUB file (*.epub)</source>
-        <translation>EPUB-bestand (*.epub)</translation>
+        <translation>EPUB檔案(*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4139"/>
@@ -9352,17 +9346,17 @@ Wilt u automatisch de bestanden laten repareren voor het opslaan?</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4210"/>
         <source>Preserve existing heading attributes is now:</source>
-        <translation>Behouden van bestaande kopeigenschappen is nu:</translation>
+        <translation>保留現有的標題屬性現在為：</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4211"/>
         <source>ON</source>
-        <translation>AAN</translation>
+        <translation>開</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4211"/>
         <source>OFF</source>
-        <translation>UIT</translation>
+        <translation>關</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4236"/>
@@ -9375,2704 +9369,2659 @@ Wilt u automatisch de bestanden laten repareren voor het opslaan?</translation>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>Abridger</source>
-        <translation>Inkorter</translation>
+        <translation>刪節者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>A person, family, or organization contributing to a resource by shortening or condensing the original work but leaving the nature and content of the original work substantially unchanged. For substantial modifications that result in the creation of a new work, see Author.</source>
-        <translation>Een persoon, familie of organisatie die bijdraagt aan een werk door het inkorten of samenvatten van het oorspronkelijke werk, waarbij de aard en inhoud van het oorspronkelijke werk hoofdzakelijk ongewijzigd blijft. Voor wezenlijke wijzigingen die leiden tot het scheppen van een nieuw werk, zie &quot;auteur&quot; [aut].</translation>
+        <translation>通過縮短或濃縮原作品，但原作品的性質和內容基本不變，為資源做出貢獻的人、家庭或組織。對於導致創造新作品的實質性修改，請參閱作者。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Actor</source>
-        <translation>Acteur</translation>
+        <translation>演員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die voornamelijk acteerkunsten vertoont in een muziek- of dramavoorstelling of amusement.</translation>
+        <translation>用於主要在音樂劇或戲劇演出或娛樂中表演演出技巧的人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Adapter</source>
-        <translation>Bewerker</translation>
+        <translation>改編者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die 1) een muziekcompositie bewerkt, gewoonlijk voor een ander medium, of 2) romans of verhalen herschrijft voor film of andere audiovisuele media.</translation>
+        <translation>用於 1) 修改音樂作品，通常為不同媒體，或 2) 重寫小說或故事為電影或其他視聽媒體的人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Analyst</source>
-        <translation>Analist</translation>
+        <translation>分析師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die gegevens of informatie op een bepaald gebied nakijkt, onderzoekt en interpreteert.</translation>
+        <translation>用於審查、檢查和解釋特定區域中的資料或資訊的人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Animator</source>
-        <translation>Animator</translation>
+        <translation>動畫師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die tweedimensionale figuren tekent, driedimensionale voorwerpen manipuleert en/of ook de computer programmeert om voorwerpen en afbeeldingen te verplaatsen ten behoeve van de vervaardiging van animatiefilms. Tot de hulpmiddelen van de animator behoren: animatiecamera&apos;s, opstellingen, celluloidschermen, transparanten en inkten.</translation>
+        <translation>用於繪製二維圖形、操縱三維物體和/或還使電腦移動物體和圖片以用於動畫膠片處理的目的的人或組織。動畫相機、支架、賽璐珞螢幕、幻燈片和墨水是動畫師的一些工具。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Annotator</source>
-        <translation>Annotator</translation>
+        <translation>註解者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
-        <translation>Te gebruiken voor een persoon die commentaar schrijft over een manuscript in een gedrukt werk.</translation>
+        <translation>用於在印出的物品上書寫手稿註釋的人。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>Appellant</source>
-        <translation>Appellant</translation>
+        <translation>上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>A person or organization who appeals a lower court&apos;s decision.</source>
-        <translation>Een persoon of organisatie die hoger beroep instelt tegen de beslissing van een lager gerecht.</translation>
+        <translation>提出下級法院裁決的人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>Appellee</source>
-        <translation>Geïntimeerde</translation>
+        <translation>被上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>A person or organization against whom an appeal is taken.</source>
-        <translation>Een persoon of organisatie tegen wie een hoger beroep is ingesteld.</translation>
+        <translation>被提出上訴的人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Applicant</source>
-        <translation>Aanvrager</translation>
+        <translation>申請人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het indienen van een aanvraag, of die wordt genoemd als in aanmerking komend voor de resultaten van de behandeling van de aanvraag (bijv. verlenen van rechten, beloning, titel, positie).</translation>
+        <translation>用於負責提交申請或被命名為符合申請處理結果（例如授予權利、獎勵、所有權、職位）的人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Architect</source>
-        <translation>Architect</translation>
+        <translation>建築師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die constructies ontwerpt of toeziet op de bouw ervan.</translation>
+        <translation>用於設計結構或監督其構造的人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Arranger</source>
-        <translation>Arrangeur</translation>
+        <translation>編曲者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een muziekcompositie bewerkt, gewoonlijk voor een ander medium dan dat van het origineel; in het arrangement blijft het muziekstuk in wezen onveranderd.</translation>
+        <translation>用於轉錄音樂作品的人或組織，通常用於與原作不同的媒體；在改編曲中，音樂基本上保持不變。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Art copyist</source>
-        <translation>Kunstkopiïst</translation>
+        <translation>藝術複製者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
-        <translation>Te gebruiken voor een persoon (bijv. een schilder of beeldhouwer) die kopieën maakt van werken van beeldende kunst.</translation>
+        <translation>用於製作視覺藝術作品副本的人（例如畫家或雕塑家）。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>Art director</source>
-        <translation>Artdirector</translation>
+        <translation>藝術導演</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>A person contributing to a motion picture or television production by overseeing the artists and craftspeople who build the sets.</source>
-        <translation>Een persoon die bijdraagt aan een film of televisieproductie door het houden van toezicht op de kunstenaars en ambachtslieden die de decors bouwen.</translation>
+        <translation>通過監督構建集合的藝術家和手工藝者來貢獻電影或電視製作的人。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Artist</source>
-        <translation>Kunstenaar</translation>
+        <translation>藝術家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
-        <translation>Te gebruiken voor een persoon (bijv. een schilder) of organisatie die een origineel grafisch ontwerp of kunstwerk bedenkt, en misschien ook uitvoert, als specifieke benamingen (bijv. &apos;graveur&apos; [egr], &apos;etser&apos; [etr]) niet gewenst zijn. Gebruik voor boekillustratoren liever &apos;illustrator&apos; [ill].</translation>
+        <translation>如果不需要特定代碼（例如，[egr]，[etr])，則用於構思並且也許實現原創圖形設計或藝術作品的人（例如畫家）或組織。對於書籍插畫，優先使用 Illustrator [ill]。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Artistic director</source>
-        <translation>Artistiek leider</translation>
+        <translation>藝術總監</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
-        <translation>Te gebruiken voor een persoon die verantwoordelijk is voor het aansturen van de ontwikkeling van de artistieke stijl van een gehele productie, met inbegrip van de keuze van de werken die worden vertoond en de selectie van de hogere medewerkers aan de productie.</translation>
+        <translation>用於負責控制整個產品的藝術風格的發展的人，包括要呈現的作品的選擇和資深生產人員的選擇。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Assignee</source>
-        <translation>Cessionaris</translation>
+        <translation>受讓人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
-        <translation>Te gebruiken voor een persoon of organisatie aan wie een licentie voor het drukken of publiceren is overgedragen.</translation>
+        <translation>用於已轉讓列印或出版許可的人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Associated name</source>
-        <translation>Betrokken naam</translation>
+        <translation>關聯名</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een relatie heeft met of wordt gevonden in een werk of collectie, maar waarvan niet kan worden vastgesteld dat deze een &quot;voormalig eigenaar&quot; [fmo] is of een van de andere in de lijst genoemde rollen vervult.</translation>
+        <translation>用於與項目或集合相關聯或找到的人或組織，不能被確定為前所有者 [fmo] 或其他指定來源的指定關係者。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Attributed name</source>
-        <translation>Toegeschreven naam</translation>
+        <translation>屬性名稱</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
-        <translation>Te gebruiken voor een auteur, artiest, enz., die met een grote mate van gezag wordt of eens werd aangewezen als auteur, schepper, enz. van het werk.</translation>
+        <translation>用於作者、藝術家等，將他/她與某一作品相關聯，該作品具有或曾經具有指定該作者作為作品的作者，創作者等的實質權限。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Auctioneer</source>
-        <translation>Veilingmeester</translation>
+        <translation>拍賣人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die belast is met taxatie en openbare veiling van goederen, met name van boeken, kunstwerken, enz.</translation>
+        <translation>用於負責貨物估計和公開拍賣的人或組織，特別是書籍、藝術作品等。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Author</source>
-        <translation>Auteur</translation>
+        <translation>作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die hoofdzakelijk verantwoordelijk is voor de intellectuele of artistieke inhoud van een werk, meestal gedrukte tekst. Deze term kan ook worden gebruikt wanneer meer dan een persoon of instantie ​​die verantwoordelijkheid draagt.</translation>
+        <translation>用於主要負責作品的知識或藝術內容的人或組織，通常是印刷文本。當多於一個的人或機構承擔這種責任時，也可以使用該術語。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Author in quotations or text extracts</source>
-        <translation>Geciteerde auteur</translation>
+        <translation>在引用或文字摘錄中的作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
-        <translation>Te gebruiken voor een persoon of organisatie van wie werk in ruime mate wordt geciteerd of uitgetrokken in werken waaraan hij of zij niet rechtstreeks heeft bijgedragen. Zulke citaten zijn vooral te vinden in tentoonstellingscatalogi, fotoverzamelingen, enz.</translation>
+        <translation>用於作品很多被他或她沒有直接貢獻的作品中引用或摘錄的人或組織。這種引用特別在展覽目錄、照片集等中找到。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Author of afterword, colophon, etc.</source>
-        <translation>Auteur van nawoord, colofon, enz.</translation>
+        <translation>後記和版權頁等的作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor een nawoord, colofon, enz., maar die niet de belangrijkste auteur van een werk is.</translation>
+        <translation>用於負責後記、後臺、版權頁等的人或組織，但不是作品的主要作者。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Author of dialog</source>
-        <translation>Auteur van dialoog</translation>
+        <translation>對話的作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor de dialoog of voor het gesproken commentaar van een scenario of een geluidsopname.</translation>
+        <translation>用於劇本或錄音中負責對話或口頭評論的人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Author of introduction, etc.</source>
-        <translation>Auteur van inleiding, enz.</translation>
+        <translation>簡介等的作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor een inleiding, voorwoord of andere belangrijke inleidende bijdrage, maar die niet de belangrijkste auteur is.</translation>
+        <translation>用於負責引言、序言、前言或其他關鍵介紹性事項，但不是主要作者的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Author of screenplay, etc.</source>
-        <translation>Scenarioschrijver</translation>
+        <translation>劇本等的作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor een filmscenario, dialoog, gesproken commentaar, enz.</translation>
+        <translation>用於負責電影劇本、對話、口頭評論等的人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>Autographer</source>
-        <translation>Autograaf</translation>
+        <translation>親筆簽名者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>A person whose manuscript signature appears on an item.</source>
-        <translation>Een persoon van wie de signatuur rust op een manuscript.</translation>
+        <translation>手稿簽名出現在物品上的人。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Bibliographic antecedent</source>
-        <translation>Oorspronkelijke auteur</translation>
+        <translation>參考書目前提</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor een werk waarop het werk in de catalogusvermelding is gebaseerd. Dit zou van toepassing kunnen zijn op bewerkingen, vervolgen, voortzettingen, inhoudsopgaven, enz.</translation>
+        <translation>用於由負責基於目錄記錄工作的個人或組織，這可能適用於改編、續集、延續、索引等。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Binder</source>
-        <translation>Boekbinder</translation>
+        <translation>裝訂工</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het inbinden van drukwerk of handschriften.</translation>
+        <translation>用於負責印刷或手稿材料裝訂的人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Binding designer</source>
-        <translation>Boekbandontwerper</translation>
+        <translation>封皮設計師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor de vormgeving van de boekband, met inbegrip van het type boekband, het soort materiaal, en de decoratieve aspecten van de boekband.</translation>
+        <translation>用於負責書籍裝訂設計的人或組織，包括裝訂類型、所使用材料以及任何裝飾裝訂的部分。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>Blurb writer</source>
-        <translation>Flaptekstschrijver</translation>
+        <translation>推薦者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>A person or organization responsible for writing a commendation or testimonial for a work, which appears on or within the publication itself, frequently on the back or dust jacket of print publications or on advertising material for all media.</source>
-        <translation>Een persoon of organisatie die verantwoordelijk is voor het schrijven van een aanbeveling voor een werk, die op of in de publicatie geplaatst wordt, vaak op achterzijde of stofomslag van gedrukte publicaties of in reclamemateriaal voor alle media.</translation>
+        <translation>負責對作品作出表揚或推薦的人或組織，出現在出版物上或出版物內，經常在印刷出版物的背面或防塵套上或媒體的廣告材料上。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Book designer</source>
-        <translation>Boekontwerper</translation>
+        <translation>書籍設計者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor de gehele grafische vormgeving van een boek, met inbegrip van de inrichting met lettertypen en illustraties, keuze van materiaal en het gebruikte procedé.</translation>
+        <translation>用於負責書籍整個圖形設計的人或組織，包括類型和插圖的排列、材料的選擇和使用的過程。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Book producer</source>
-        <translation>Boekproducent</translation>
+        <translation>書籍製作人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor de productie van boeken en andere gedrukte media, als specifieke omschrijvingen (bijv. &quot;boekontwerper&quot; [bkd], &quot;graveur&quot; [egr], &quot;letterontwerper&quot; [tyd], &quot;drukker&quot; [prt] niet gewenst zijn.</translation>
+        <translation>如果不需要特定代碼 (例如[bkd], [egr], [tyd], [prt] )，則用於負責生成圖書和其他列印媒體的人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Bookjacket designer</source>
-        <translation>Stofomslagontwerper</translation>
+        <translation>書皮設計師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het ontwerp van buigzame omslagen ontworpen voor of gepubliceerd met een boek, met inbegrip van het soort materiaal dat wordt gebruikt en alle decoratieve aspecten van de stofomslag.</translation>
+        <translation>用於負責設計或出版書籍的柔性封皮設計的人或組織，包括所使用的材料類型和書套的任何裝飾方面。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Bookplate designer</source>
-        <translation>Ontwerper ex libris</translation>
+        <translation>書板設計師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het ontwerp van een boekeigendomsvignet dat meestal wordt geplakt aan de binnenzijde van het voorplat van een boek.</translation>
+        <translation>用於負責設計書籍所有者識別標籤的個人或組織，最常見的是貼到書籍內封面。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Bookseller</source>
-        <translation>Boekhandelaar</translation>
+        <translation>書商</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die boeken en andere bibliografische materialen beschikbaar maakt voor de verkoop. De belangstelling voor de producten is in de eerste plaats om er winst mee te behalen.</translation>
+        <translation>用於使書籍和其他書目資料可供購買的個人或組織。對材料的興趣主要是利潤豐厚。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>Braille embosser</source>
-        <translation>Brailleerder</translation>
+        <translation>盲文壓花人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>A person, family, or organization involved in manufacturing a resource by embossing Braille cells using a stylus, special embossing printer, or other device.</source>
-        <translation>Een persoon, familie of organisatie die betrokken is bij het vervaardigen van een werk door brailleletters te bosseleren met behulp van een pen, speciale brailletypemachine of een ander apparaat.</translation>
+        <translation>通過使用觸針、特殊壓印打印機或其他裝置壓印盲文單元來參與制造資源的人、家庭或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>Broadcaster</source>
-        <translation>Omroep</translation>
+        <translation>廣播電臺</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>A person, family, or organization involved in broadcasting a resource to an audience via radio, television, webcast, etc.</source>
-        <translation>Een persoon, familie of organisatie die betrokken is bij het uitzenden van een werk aan een publiek via radio, televisie, webcast, e.d.</translation>
+        <translation>涉及通過廣播、電視、網路廣播等向觀眾廣播資源的人、家庭或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Calligrapher</source>
-        <translation>Kalligraaf</translation>
+        <translation>書法家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die schrijft met een artistieke hand, meestal als kopiist en/of als lettertekenaar.</translation>
+        <translation>用於在藝術手中寫作的人或組織，通常作為抄寫員和/或工作者。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Cartographer</source>
-        <translation>Cartograaf</translation>
+        <translation>製圖師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het maken van kaarten en andere cartografische materiaal.</translation>
+        <translation>用於負責創造地圖和其他製圖資料的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>Caster</source>
-        <translation>Gieter</translation>
+        <translation>鑄字者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>A person, family, or organization involved in manufacturing a resource by pouring a liquid or molten substance into a mold and leaving it to solidify to take the shape of the mold.</source>
-        <translation>Een persoon, familie of organisatie die betrokken is bij de vervaardiging van een werk door het gieten van een vloeibare of gesmolten substantie in een gietvorm en deze door stolling de vorm van de gietvorm te laten aannemen.</translation>
+        <translation>通過將液體或熔融物質傾注到模具中並使其固化以採取模具的形狀而涉及製造資源的人、家庭或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Censor</source>
-        <translation>Censor</translation>
+        <translation>檢查員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
-        <translation>Te gebruiken voor een censor, kuiser, zuiveraar, enz., officieel of particulier.</translation>
+        <translation>用於官方或私人的檢查員、刪改、修訂等。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Choreographer</source>
-        <translation>Choreograaf</translation>
+        <translation>編舞者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die dansen of andere bewegingen (bijv. zwaardenmeester) componeert voor een muziek- of dramavoorstelling of amusement.</translation>
+        <translation>用於組成或安排舞蹈或其他動作（例如「劍之主人」）的人或組織進行音樂或戲劇性演示或娛樂。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Cinematographer</source>
-        <translation>Cameraman</translation>
+        <translation>攝影技師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het opnemen van de beelden voor een film. De cameraman werkt onder toezicht van een regisseur, en kan ook worden aangeduid als de fotografische regisseur. Niet te verwarren met de &quot;videograaf&quot;.</translation>
+        <translation>用於負責為電影膠片拍攝的圖像的個人或組織。電影攝影師在導演的監督下工作，也可被稱為攝影導演。不要與攝像師混淆。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Client</source>
-        <translation>Opdrachtgever</translation>
+        <translation>當事人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
-        <translation>Te gebruiken voor een persoon of organisatie voor wie een andere persoon of organisatie optreedt.</translation>
+        <translation>用於其他人或組織代表的人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>Collection registrar</source>
-        <translation>Registrator</translation>
+        <translation>集合註冊商</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>A curator who lists or inventories the items in an aggregate work such as a collection of items or works.</source>
-        <translation>Een beheerder die de artikelen catalogiseert of inventariseert in een catalogus, zoals bij een verzameling van voorwerpen of werken.</translation>
+        <translation>列出或存儲合計作品中的項目，如項目或作品集合，的策展人。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Collector</source>
-        <translation>Verzamelaar</translation>
+        <translation>收集家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die materiaal uit diverse bronnen heeft samengebracht dat is gerangschikt, beschreven en gecatalogiseerd als een verzameling. Een verzamelaar is niet de maker van het materiaal, noch een persoon aan wie handschriften in de verzameling kunnen zijn gericht.</translation>
+        <translation>用於從已經安排、描述和編目為集合的各種來源收集材料的個人或組織。收藏家既不是材料的創造者，也不是收藏中的抄本可能被處理的人。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Collotyper</source>
-        <translation>Lichtdrukker</translation>
+        <translation>膠板製版</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor de vervaardiging van fotografische afdrukken van film of andere colloïde die inktabsorberende en inktafstotende oppervlakken heeft.</translation>
+        <translation>用於負責從具有接受油墨和防油墨表面的膠片或其他膠體生產照相印刷品的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>Colorist</source>
-        <translation>Colorist</translation>
+        <translation>彩妝師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>A person or organization responsible for applying color to drawings, prints, photographs, maps, moving images, etc.</source>
-        <translation>Een persoon of organisatie die verantwoordelijk is voor het aanbrengen van kleur in tekeningen, prenten, foto&apos;s, kaarten, films, e.d.</translation>
+        <translation>負責為圖紙、印刷品、照片、地圖、動態圖像等應用顏色的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Commentator</source>
-        <translation>Commentator</translation>
+        <translation>評論員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een interpretatie, analyse of bespreking geeft van het onderwerp op een opname, film, of ander audiovisueel medium.</translation>
+        <translation>用於在錄音，電影或其他視聽媒體上提供主題解釋、分析或討論的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Commentator for written text</source>
-        <translation>Commentator geschreven tekst</translation>
+        <translation>書面文本評論員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het commentaar of toelichting op een tekst. Voor de schrijver van handgeschreven aantekeningen in een gedrukt boek, gebruik &apos;annotator&apos; [ann].</translation>
+        <translation>用於負責評論或文本說明註釋的個人或組織，對於在打印的書中的手稿註釋的作者，使用註釋[ann]。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Compiler</source>
-        <translation>Samensteller</translation>
+        <translation>編輯者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een werk of publicatie vervaardigt door het selecteren en samenvoegen van materiaal uit werken van diverse personen of lichamen.</translation>
+        <translation>用於通過從各種人或機構的作品中選擇和整理材料來製作作品或出版物的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Complainant</source>
-        <translation>Klager</translation>
+        <translation>投訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
-        <translation>Te gebruiken voor een partij die een beroep doet op het gerecht voor schadeloosstelling, meestal in een billijkheidsprocedure.
-
-Let op: Het betreft hier de &quot;complainant&quot; volgens de Angelsaksische Equity Law.</translation>
+        <translation>用於通常在股權訴訟中向法院申請補救的一方。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Complainant-appellant</source>
-        <translation>Klager-appellant</translation>
+        <translation>投訴人-上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>Te gebruiken voor een klager die hoger beroep instelt tegen de uitspraak van het ene gerecht of rechtsgebied om de uitspraak te vernietigen, meestal in een billijkheidsprocedure.
-
-Let op: Het betreft hier de &quot;complainant-appellant&quot; volgens de Angelsaksische Equity Law.</translation>
+        <translation>用於投訴人，其從一個法院或管轄區向另一個法院或管轄區提出上訴，以通過股權程序撤銷判決。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Complainant-appellee</source>
-        <translation>Klager-geïntimeerde</translation>
+        <translation>投訴人-被上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>Te gebruiken voor een klager tegen wie hoger beroep is ingesteld tegen de uitspraak van het ene gerecht bij een ander gerecht of rechtsgebied om de uitspraak te vernietigen, meestal in een billijkheidsprocedure.
-
-Let op: Het betreft hier de &quot;complainant-appellee&quot; volgens de Angelsaksische Equity Law.</translation>
+        <translation>用於申訴人，從一個法院或管轄區向另一個法院或管轄區提出上訴，以通過股權程序來推翻判決。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Composer</source>
-        <translation>Componist</translation>
+        <translation>作曲家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een muzikaal werk maakt, meestal een muziekstuk in handschrift of gedrukte vorm.</translation>
+        <translation>用於創建音樂作品的人或組織，通常是手稿或印刷形式的音樂片段。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Compositor</source>
-        <translation>Zetter</translation>
+        <translation>作曲家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het maken van metalen matrijzen of mallen van andere materialen, gebruikt voor het vervaardigen van tekst en afbeeldingen in drukwerk.</translation>
+        <translation>用於負責創建金屬塊的人或組織或用於生產印刷品中的文本和圖像的由其他材料製成的模具。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Conceptor</source>
-        <translation>Bedenker concept</translation>
+        <translation>概念</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het originele idee waarop het werk is gebaseerd, dit is inclusief de wetenschappelijke auteur van een audiovisueel werk en de bedenker van het concept van een advertentie.</translation>
+        <translation>用於負責工作所基於的原始想法的個人或組織，包括視聽項目的科學作者和廣告的概念者。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Conductor</source>
-        <translation>Dirigent</translation>
+        <translation>指揮</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
-        <translation>Te gebruiken voor een persoon die leiding geeft een uitvoerende groep (orkest, koor, opera, enz.) in een muziek- of dramavoorstelling of amusement.</translation>
+        <translation>用於指揮表演團體 (樂團，合唱，歌劇等) 在音樂或戲劇性演示或娛樂中的人.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>Conservator</source>
-        <translation>Conservator</translation>
+        <translation>管理員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>A person or organization responsible for documenting, preserving, or treating printed or manuscript material, works of art, artifacts, or other media.</source>
-        <translation>Een persoon of organisatie die verantwoordelijk is voor het documenteren, behouden of behandelen van gedrukte of handgeschreven teksten, kunstwerken, voorwerpen, of andere media.</translation>
+        <translation>負責記錄, 保存或處理印刷或手稿材料, 藝術作品, 工件或其他媒體的個人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Consultant</source>
-        <translation>Adviseur</translation>
+        <translation>顧問</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
-        <translation>Te gebruiken voor een persoon of organisatie relevant voor een werk, die opgeroepen is om deskundig advies te geven of diensten te leveren op een gespecialiseerd gebied van kennis of opleiding.</translation>
+        <translation>用於與資源相關的個人或組織, 在專門的知識或培訓領域被要求提供專業建議或服務.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Consultant to a project</source>
-        <translation>Projectadviseur</translation>
+        <translation>項目顧問</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
-        <translation>Te gebruiken voor een persoon of organisatie relevant voor een werk, die specifiek in dienst genomen is om een intellectueel overzicht te verschaffen van een strategische of operationele taak en door analyse, specificatie of instructie een kosteneffectieve manier van handelen of oplossing te creëren. </translation>
+        <translation>用於與資源相關的人員或組織, 他們專門從事戰略或操作任務的智力概述以及分析, 規範或指導, 以創建或提出具有成本效益的行動或解決方案.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Contestant</source>
-        <translation>Opposant</translation>
+        <translation>競爭者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
-        <translation>Te gebruiken voor een partij die voor een gerecht een vordering, besluit, uitkomst enz. bestrijdt of betwist.
-
-Let op: Het betreft hier de &quot;contestant&quot; volgens Amerikaans recht.</translation>
+        <translation>用於在法院, 索賠, 決定, 結果等中反對, 抵抗或爭議的一方.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Contestant-appellant</source>
-        <translation>Opposant-appellant</translation>
+        <translation>參賽者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation>Te gebruiken voor een opposant die hoger beroep instelt tegen de uitspraak van het ene gerecht of rechtsgebied om de uitspraak te vernietigen.
-
-Let op: Het betreft hier de &quot;contestant-appellant&quot; volgens Amerikaans recht.</translation>
+        <translation>用於從一個法律或管轄區向另一個法院提出上訴的參賽者, 以撤銷判決.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Contestant-appellee</source>
-        <translation>Opposant-geïntimeerde</translation>
+        <translation>參賽者 - 被上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation>Te gebruiken voor een opposant tegen wie hoger beroep is ingesteld tegen de uitspraak van het ene gerecht bij een ander gerecht of rechtsgebied om de uitspraak te vernietigen.
-
-Let op: Het betreft hier de &quot;contestant-appellee&quot; volgens Amerikaans recht.</translation>
+        <translation>用於從一個法律或管轄區向另一個法院提出上訴的參賽者, 以撤銷該判決.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Contestee</source>
-        <translation>Geopposeerde</translation>
+        <translation>參賽者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
-        <translation>Te gebruiken voor een partij die voor een gerecht een bestreden of betwiste vordering, besluit, uitkomst enz. verdedigt.
-
-Let op: Het betreft hier de &quot;contestee&quot; volgens Amerikaans recht.</translation>
+        <translation>用於捍衛索賠, 決定, 結果等在法庭上遭到反對, 抵抗或爭議的一方.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Contestee-appellant</source>
-        <translation>Geopposeerde-appellant</translation>
+        <translation>參賽者-上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation>Te gebruiken voor een geopposeerde die hoger beroep instelt tegen de uitspraak van het ene gerecht of rechtsgebied om de uitspraak te vernietigen.
-
-Let op: Het betreft hier de &quot;contestee-appellant&quot; volgens Amerikaans recht.</translation>
+        <translation>用於從一個管轄法院向另一個法院提出上訴的比賽, 以扭轉判決.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Contestee-appellee</source>
-        <translation>Geopposeerde-geïntimeerde</translation>
+        <translation>參賽者-被上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation>Te gebruiken voor een geopposeerde tegen wie hoger beroep is ingesteld tegen de uitspraak van het ene gerecht bij een ander gerecht of rechtsgebied om de uitspraak te vernietigen.
-
-Let op: Het betreft hier de &quot;contestee-appellee&quot; volgens Amerikaans recht.</translation>
+        <translation>用於有爭議的人, 從一個管轄法院向另一個法院提出上訴, 以推翻該判決.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Contractor</source>
-        <translation>Contractant</translation>
+        <translation>承包商</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die van belang is voor een werk, die een overeenkomst aangaat met een andere persoon of organisatie om een ​​bepaalde taak uit te voeren.</translation>
+        <translation>用於與資源相關的個人或組織, 他們與另一個人或組織簽訂合同以執行特定任務.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Contributor</source>
-        <translation>Bijdrager</translation>
+        <translation>捐助者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
-        <translation>Te gebruiken voor een persoon of organisatie van wie werk heeft bijgedragen aan een groter werk, zoals een bloemlezing, vervolgpublicatie, of andere compilatie van individuele werken. Niet gebruiken als de enige functie met betrekking tot een werk is auteur, redacteur, samensteller of vertaler.</translation>
+        <translation>用於個人或組織, 他們的工作已經貢獻給更大的工作, 例如選集, 連續出版物或其他個別作品的彙編. 如果與作品有關的唯一功能是作者, 編輯, 編譯器或翻譯者, 請不要使用.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Copyright claimant</source>
-        <translation>Auteursrechtclaimer</translation>
+        <translation>版權聲明人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
-        <translation>Te gebruiken voor een persoon of organisatie vermeld als auteursrechthouder ten tijde van de registratie. Auteursrecht kan worden verleend of later overgedragen worden aan een andere persoon of organisatie, op welk moment de claimer auteursrechthouder wordt.</translation>
+        <translation>用於在註冊時列為版權所有者的個人或組織. 版權可以授予或以後轉移給另一個人或組織, 在此時, 索賠人成為版權所有者.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Copyright holder</source>
-        <translation>Auteursrechthouder</translation>
+        <translation>版權所有者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
-        <translation>Te gebruiken voor een persoon of organisatie aan wie kopieer- en wettelijke rechten zijn verleend of overgedragen voor de intellectuele inhoud van een werk. De houder van het auteursrecht, niet noodzakelijkerwijs de maker van het werk, heeft doorgaans het exclusieve recht om financieel voordeel te trekken uit de verkoop en het gebruik van het werk waarvoor de auteursrechtelijke bescherming geldt.</translation>
+        <translation>用於被授予或轉讓作品的知識內容的複製和法律權利的個人或組織. 版權所有者雖然不一定是作品的創作者, 但通常擁有從銷售和使用相關版權保護適用的作品中獲得經濟利益的專有權利.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Corrector</source>
-        <translation>Corrector</translation>
+        <translation>校正者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die de corrector is van handschriften, zoals de scriptoriumbeambte die het werk van een overschrijver corrigeert. Voor drukwerk, gebruik &quot;proeflezer&quot;.</translation>
+        <translation>用於作為手稿校正者的人或組織, 例如修改抄寫員工作的腳本官員. 對於印刷品, 請使用校對.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Correspondent</source>
-        <translation>Correspondent</translation>
+        <translation>通信者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die schrijver dan wel ontvanger is van een brief of andere communicatie.</translation>
+        <translation>用於作為信件或其他通信的作者或收件人的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Costume designer</source>
-        <translation>Kostuumontwerper</translation>
+        <translation>服裝設計師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die kostuums, kapsels, enz. ontwerpt of maakt voor een muziek- of dramavoorstelling of amusement.</translation>
+        <translation>用於設計或製作服裝，固定頭髮等的人或組織進行音樂或戲劇性演示或娛樂.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>Court governed</source>
-        <translation>Gereguleerd gerecht</translation>
+        <translation>法院管制</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>A court governed by court rules, regardless of their official nature (e.g., laws, administrative regulations.)</source>
-        <translation>Een gerecht gereguleerd door rechtsregels, ongeacht hun officiële karakter (bijv. wetten, reglementen.)</translation>
+        <translation>受法院規則管轄的法院，不論其官方性質 (例如法律, 行政法規).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>Court reporter</source>
-        <translation>Gerechtsverslaggever</translation>
+        <translation>法院書記官</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>A person, family, or organization contributing to a resource by preparing a court&apos;s opinions for publication.</source>
-        <translation>Een persoon, familie of organisatie die bijdraagt aan een werk door een gerechtelijke beslissing te bewerken voor publicatie.</translation>
+        <translation>對資源的貢獻準備法院發表意見的人，家庭或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Cover designer</source>
-        <translation>Omslagontwerper</translation>
+        <translation>封面設計</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het grafisch ontwerp van een boekomslag, platenhoes, foedraal, doos, houder, enz. Gebruik &quot;boekontwerper&quot; voor de persoon of organisatie die verantwoordelijk is voor het grafisch ontwerp van een heel boek; voor stofomslagen, gebruik &quot;stofomslagontwerper&quot;.</translation>
+        <translation>用於負責圖書封面, 專輯封面, 書套, 盒子, 容器等圖形設計的個人或組織. 對於負責整本圖書設計的個人或組織, 請使用圖書設計師; 為書夾克, 使用Bookjacket設計師.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Creator</source>
-        <translation>Maker</translation>
+        <translation>創作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor de intellectuele of artistieke inhoud van een werk.</translation>
+        <translation>用於負責作品的智力或藝術內容的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Curator of an exhibition</source>
-        <translation>Conservator van een tentoonstelling</translation>
+        <translation>展覽策展人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het bedenken en organiseren van een tentoonstelling.</translation>
+        <translation>用於負責構思和組織展覽的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Dancer</source>
-        <translation>Danser</translation>
+        <translation>舞者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die voornamelijk dansvaardigheden vertoont in een muziek- of dramavoorstelling of amusement.</translation>
+        <translation>用於主要在音樂或戲劇演出或娛樂中展示舞蹈技能的人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Data contributor</source>
-        <translation>Gegevensleverancier</translation>
+        <translation>數據貢獻者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die gegevens indient voor opname in een databank of andere gegevensverzameling.</translation>
+        <translation>用於提交數據以包含在數據庫或其他數據收集中的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Data manager</source>
-        <translation>Gegevensbeheerder</translation>
+        <translation>數據經理</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het beheren van databanken en andere gegevensbronnen.</translation>
+        <translation>用於負責管理數據庫或其他數據源的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Dedicatee</source>
-        <translation>Eerbewijsontvanger</translation>
+        <translation>受捐贈者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
-        <translation>Te gebruiken voor een persoon of organisatie aan wie een boek, handschrift, enz. als eerbewijs is opgedragen (niet de ontvanger van een gift).</translation>
+        <translation>用於書，手稿等專用的人或組織（不是禮物的收件人）。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Dedicator</source>
-        <translation>Eerbewijsgever</translation>
+        <translation>捐贈者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
-        <translation>Te gebruiken voor de auteur die een werk als eerbewijs opdraagt aan iemand anders, het eerbewijs kan een formele verklaring of in brief- of versvorm zijn.</translation>
+        <translation>使用作者的奉獻，這可能是一個正式的聲明或以片段或詩歌的形式。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Defendant</source>
-        <translation>Gedaagde</translation>
+        <translation>被告</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
-        <translation>Te gebruiken voor de partij die de beweringen in een eis verdedigt of ontkent en tegen welke eis hulp of herstel wordt gezocht in het gerecht, meestal in een juridische actie.
-
-Let op: Het betreft hier de &quot;defendant&quot; volgens Amerikaans recht.</translation>
+        <translation>用於捍衛或拒絕在訴訟中提出的指控，並在法院尋求救濟或恢復的一方，通常是法律訴訟。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Defendant-appellant</source>
-        <translation>Gedaagde-appellant</translation>
+        <translation>被告-上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation>Te gebruiken voor een gedaagde die hoger beroep instelt tegen de uitspraak van het ene gerecht of rechtsgebied om de uitspraak te vernietigen, meestal in een juridische actie.
-
-Let op: Het betreft hier de &quot;defendant-appellant&quot; volgens Amerikaans recht.</translation>
+        <translation>用於被告人從一個法院或管轄區向另一個法院或管轄區提出上訴，以通過法律訴訟來推翻判決。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Defendant-appellee</source>
-        <translation>Gedaagde-geïntimeerde</translation>
+        <translation>被告</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation>Te gebruiken voor een eiser tegen wie hoger beroep is ingesteld tegen de uitspraak van het ene gerecht bij een ander gerecht of rechtsgebied om de uitspraak te vernietigen, meestal in een juridische actie.
-
-Let op: Het betreft hier de &quot;defendant-appellee&quot; volgens Amerikaans recht.</translation>
+        <translation>用於被告人，從一個管轄法院向另一個法院提出上訴，以通過法律訴訟撤銷判決.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Degree grantor</source>
-        <translation>Graadverlener</translation>
+        <translation>學位設保人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
-        <translation>Te gebruiken voor de organisatie die een graad toekent voor het proefschrift dat was voorgelegd.</translation>
+        <translation>用於授予所描述的論文或論文的學位的組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Delineator</source>
-        <translation>Technisch tekenaar</translation>
+        <translation>描繪畫</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die technische tekeningen maakt naar ontwerpen van anderen.</translation>
+        <translation>用於從其他人的設計執行技術圖紙的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Depicted</source>
-        <translation>Afgebeeld voorwerp/persoon</translation>
+        <translation>描繪</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
-        <translation>Te gebruiken voor een afgebeeld voorwerp of geportretteerd persoon, met name in een kunstwerk.</translation>
+        <translation>用於在工作中描繪或描繪的實體，特別是在藝術作品中.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Depositor</source>
-        <translation>Uitlener</translation>
+        <translation>寄存者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die materiaal in bewaring geeft aan een bibliotheek of depot zonder de eigendom over te dragen.</translation>
+        <translation>用於將資料放置在圖書館或知識庫的實際保管之下的人或組織，而不轉移法定所有權。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Designer</source>
-        <translation>Ontwerper</translation>
+        <translation>設計者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het ontwerp als meer specifieke omschrijvingen (bijv. &quot;boekontwerper&quot; [bkd], &quot;typograaf&quot; [tyd] niet gewenst zijn.</translation>
+        <translation>如果不需要更多特定代碼（例如[bkd]，[tyd]），請使用負責設計的人員或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Director</source>
-        <translation>Regisseur</translation>
+        <translation>導演</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor de algehele leiding van een werk of die toezicht houdt op de productie van een voorstelling voor podium, scherm of geluidsopname.</translation>
+        <translation>用於負責工作的一般管理或負責監督舞臺，屏幕或錄音演出的製作的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Dissertant</source>
-        <translation>Promovendus</translation>
+        <translation>論文</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
-        <translation>Te gebruiken voor een persoon die een proefschrift presenteert ter verkrijging van een graad aan het universitair of hoger onderwijs.</translation>
+        <translation>用於為大學或高等教育學位提交論文的人。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>Distribution place</source>
-        <translation>Distributieplaats</translation>
+        <translation>分發地點</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>A place from which a resource, e.g., a serial, is distributed.</source>
-        <translation>Een plaats van waaruit een werk, bijv. een tijdschrift, wordt verspreid.</translation>
+        <translation>從其分發資源（例如，串行）的地方。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Distributor</source>
-        <translation>Distributeur</translation>
+        <translation>分銷商</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die voor een werk exclusieve of gedeelde verkooprechten heeft.</translation>
+        <translation>適用於對項目擁有獨家或共享營銷權利的個人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Donor</source>
-        <translation>Schenker</translation>
+        <translation>捐贈者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een boek, handschrift, enz. aan de huidige eigenaar heeft geschonken. Schenkers aan vorige eigenaars worden aangeduid als &quot;vorige eigenaar&quot; [fmo] of als &quot;inschrijver&quot; [ins].</translation>
+        <translation>用於作為書籍，手稿等捐贈者的個人或組織給其當前所有者.  對以前業主的捐贈者被指定為前所有者[fmo]或用戶 [ins]</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Draftsman</source>
-        <translation>Tekenaar</translation>
+        <translation>起草人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die artistieke of technische tekeningen maakt.</translation>
+        <translation>用於準備藝術或技術圖紙的個人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Dubious author</source>
-        <translation>Twijfelachtige auteur</translation>
+        <translation>可疑作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
-        <translation>Te gebruiken voor een persoon of organisatie aan welke auteurschap twijfelachtig of onjuist toegeschreven is geweest.</translation>
+        <translation>用於作者被懷疑或不正確歸屬的個人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Editor</source>
-        <translation>Redacteur</translation>
+        <translation>編輯</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een werk voorbereidt voor publicatie niet op de eerste plaats van zichzelf, zoals door het verduidelijken van de tekst, het toevoegen van inleidende of andere kritische massa, of het technisch aansturen van een redactie.</translation>
+        <translation>用於準備出版不是他/她自己的作品的人或組織，例如通過闡明文本, 添加介紹性或其他關鍵事項, 或技術指導編輯人員.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>Editor of compilation</source>
-        <translation>Redacteur van verzamelwerk</translation>
+        <translation>彙編編輯</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>A person, family, or organization contributing to a collective or aggregate work by selecting and putting together works, or parts of works, by one or more creators. For compilations of data, information, etc., that result in new works, see compiler.</source>
-        <translation>Een persoon, familie of organisatie die bijdraagt aan een gezamenlijk werk of verzamelwerk door het selecteren en het samenvoegen van werken of delen van werken van een of meer makers. Voor compilaties van gegevens, informatie, e.d., die resulteren in nieuwe werken, zie &quot;samensteller&quot; [com].</translation>
+        <translation>通過選擇由一個或多個創作者和組合作品或作品的一部分來為集體或集體作品做出貢獻的人，家庭或組織。 對於導致新工作的數據，信息等的編譯，請參閱編譯器。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>Editor of moving image work</source>
-        <translation>Monteur van bewegende beelden</translation>
+        <translation>運動圖像編輯</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>A person, family, or organization responsible for assembling, arranging, and trimming film, video, or other moving image formats, including both visual and audio aspects.</source>
-        <translation>Een persoon, familie of organisatie die verantwoordelijk is voor het samenvoegen, rangschikken en knippen van film, video of andere bewegende beelden, met inbegrip van zowel visuele en auditieve aspecten.</translation>
+        <translation>負責組裝, 安排和修整電影, 視頻或其他運動圖像格式（包括視覺和音頻方面）的個人, 家庭或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Electrician</source>
-        <translation>Lichttechnicus / elektricien</translation>
+        <translation>電工</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
-        <translation>Te gebruiken voor een persoon die verantwoordelijk is voor het opzetten van de verlichting en het richten van de lampen voor een productie en het uitvoeren van de verlichting voor een optreden. </translation>
+        <translation>用於負責設置照明裝置並將燈聚焦於生產以及在演出時運行照明裝置的人員。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Electrotyper</source>
-        <translation>Galvaniseur</translation>
+        <translation>電版技師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
-        <translation>Te gebruiken voor een persoon die een duplicaat drukoppervlak maakt door deze in was te persen, deze afpersing te galvaniseren en deze te ondersteunen met lood voor het afdrukken.</translation>
+        <translation>用於通過壓力成型和電沉積金屬，然後用鉛印刷的鉛筆來創建複印表面的個人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Engineer</source>
-        <translation>Ingenieur</translation>
+        <translation>工程師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor technische planning en ontwerp, in het bijzonder bij constructie.</translation>
+        <translation>用於負責技術規劃和設計, 特別是建築施工的人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Engraver</source>
-        <translation>Graveur</translation>
+        <translation>Engraver</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die letters, cijfers, enz. snijdt op een oppervlak, zoals een houten of metalen plaat, om af te drukken.</translation>
+        <translation>用於在表面 (例如木製或金屬板) 上切刻字母, 數字等以進行打印的人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Etcher</source>
-        <translation>Etser</translation>
+        <translation>Etcher</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die af te drukken tekst of afbeeldingen vervaardigt door het onderwerpen van metaal, glas of een ander oppervlak aan zuur of de bijtende werking van een andere stof.</translation>
+        <translation>用於通過使金屬, 玻璃或其他表面經受酸或某些其他物質的腐蝕作用而用於印刷的文本或圖像的人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>Event place</source>
-        <translation>Plaats evenement</translation>
+        <translation>活動場所</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>A place where an event such as a conference or a concert took place.</source>
-        <translation>Een plaats waar een evenement, zoals een conferentie of concert, plaatsvond.</translation>
+        <translation>舉辦會議或音樂會等活動的地方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Expert</source>
-        <translation>Deskundige</translation>
+        <translation>專家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
-        <translation>Te gebruiken voor een persoon of organisatie belast met de beschrijving en waardeschatting van goederen, vooral zeldzame voorwerpen, kunstwerken, enz.</translation>
+        <translation>用於負責描述和評估商品價值的個人或組織, 特別是稀有物品，藝術品等.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Facsimilist</source>
-        <translation>Vervaardiger facsimile</translation>
+        <translation>傳真電報員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Use for a person or organization that executed the facsimile.</source>
-        <translation>Te gebruiken voor de persoon of organisatie die de facsimile heeft gemaakt.</translation>
+        <translation>用於執行傳真的人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Field director</source>
-        <translation>Onderzoeksleider</translation>
+        <translation>現場總監</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
-        <translation>Te gebruiken voor een persoon of organisatie die het werk dat gedaan wordt om ruwe gegevens te verzamelen of onderzoek te doen in een echte omgeving leidt of controleert (kenmerkend van toepassing op de natuur- en sociale wetenschappen).</translation>
+        <translation>用於管理或監督收集原始數據或在實際環境或環境中進行研究的人員或組織 (通常適用於自然和社會科學).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>Film director</source>
-        <translation>Filmregisseur</translation>
+        <translation>製片導演</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>A director responsible for the general management and supervision of a filmed performance.</source>
-        <translation>Een regisseur die verantwoordelijk is voor de algemene leiding van en het toezicht op van een gefilmd optreden.</translation>
+        <translation>負責拍攝表演的一般管理和監督的導演.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>Film distributor</source>
-        <translation>Filmdistributeur</translation>
+        <translation>影片發行</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>A person, family, or organization involved in distributing a moving image resource to theatres or other distribution channels.</source>
-        <translation>Een persoon, familie of organisatie die betrokken is bij het verspreiden van bewegend beeldmateriaal naar bioscopen of andere distributiekanalen.</translation>
+        <translation>涉及將運動圖像資源分發到劇院或其他分發渠道的個人, 家庭或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Film editor</source>
-        <translation>Filmmonteur</translation>
+        <translation>影片剪輯員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
-        <translation>Te gebruiken voor een persoon of organisatie die een film monteert. Deze term wordt gebruikt, ongeacht het medium waarop de film wordt geproduceerd of vervaardigd (bijv. acetaatfilm, videoband).</translation>
+        <translation>用於作為電影膠片編輯的人或組織. 該術語的使用與生成或製造運動圖像的介質無關 (例如，醋酸薄膜，錄像帶).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>Film producer</source>
-        <translation>Filmproducent</translation>
+        <translation>製片人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>A producer responsible for most of the business aspects of a film.</source>
-        <translation>Een producent die verantwoordelijk is voor het merendeel van de zakelijke aspecten van een film.</translation>
+        <translation>一個負責電影大部分業務方面的製片人.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>Filmmaker</source>
-        <translation>Filmmaker</translation>
+        <translation>電影攝像</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>A person, family or organization responsible for creating an independent or personal film. A filmmaker is individually responsible for the conception and execution of all aspects of the film.</source>
-        <translation>Een persoon, familie of organisatie die verantwoordelijk is voor het maken van een onafhankelijke of persoonlijke film. Een filmmaker is individueel verantwoordelijk voor het ontwerp en de uitvoering van alle aspecten van de film.</translation>
+        <translation>負責創建獨立或個人電影的個人, 家庭或組織. 電影製作人單獨負責電影的所有方面的概念和執行.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>First party</source>
-        <translation>Eerste partij</translation>
+        <translation>甲方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die wordt onderkend als de partij aan de ene kant. In het geval van overdracht van rechten, betreft het hier de cedent, overdrager, licentiegever, verlener, enz. Meerdere partijen kunnen samen als de eerste partij worden aangeduid.</translation>
+        <translation>用於被認定為唯一一方或首要一方的個人或組織. 在轉讓權利的情況下，這是轉讓人, 轉讓人, 許可人, 設保人等. 多方可以共同命名為第一方.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Forger</source>
-        <translation>Vervalser</translation>
+        <translation>偽造者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die iets van waarde of belang maakt of imiteert, vooral met de bedoeling te frauderen.</translation>
+        <translation>用於製造或模仿有價值或重要性的人或組織, 尤其是意圖欺詐的人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Former owner</source>
-        <translation>Voormalig eigenaar</translation>
+        <translation>前所有者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een werk op enig moment in het verleden in eigendom heeft gehad. Inclusief degenen aan wie het materiaal ooit werd gepresenteerd. Een persoon of organisatie die het werk aan de huidige eigenaar heeft gegeven wordt aangeduid als &quot;schenker&quot; [dnr].</translation>
+        <translation>用於過去任何時間擁有項目的個人或組織. 包括那些曾經呈現材料的人. 將該項目給予現有所有者的個人或組織被指定為捐贈人 [dnr].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Funder</source>
-        <translation>Financier</translation>
+        <translation>投資人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die financiële ondersteuning heeft gegeven om het werk voort te brengen. </translation>
+        <translation>用於為生產工作提供財務支持的個人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Geographic information specialist</source>
-        <translation>Geografisch informatiespecialist</translation>
+        <translation>地理信息專家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
-        <translation>Te gebruiken voor een persoon die verantwoordelijk is voor de ontwikkeling van een geografisch informatiesysteem (GIS) en de integratie met GPS-gegevens.</translation>
+        <translation>用於負責地理信息系統 (GIS) 開發和與全球定位系統數據集成的人員.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Honoree</source>
-        <translation>Geëerde</translation>
+        <translation>獲獎人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </source>
-        <translation>Te gebruiken voor een persoon of organisatie aan wie ter herinnering of ter ere een boek, handschrift, enz. is gegeven.</translation>
+        <translation>用於捐贈書, 手稿等的記憶或榮譽的個人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Host</source>
-        <translation>Gastheer</translation>
+        <translation>主持人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
-        <translation>Te gebruiken voor een persoon die wordt uitgenodigd om een programma (vaak omroep) te leiden, of regelmatig een programma leidt, met andere gasten, artiesten, enz. (bijv. gastheer van een praatprogramma).</translation>
+        <translation>用於受邀或定期帶領包含其他邀請對象，表演者等的節目 (通常為廣播) 的人 (例如，聊天節目主持人).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>Host institution</source>
-        <translation>Gastinstelling</translation>
+        <translation>主辦方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>An organization hosting the event, exhibit, conference, etc., which gave rise to a resource, but having little or no responsibility for the content of the resource.</source>
-        <translation>Een organisatie die als gastheer optreedt van het evenement, de tentoonstelling, conferentie, enz., die aanleiding gaf tot een werk, maar die weinig of geen verantwoordelijkheid draagt voor de inhoud van het werk.</translation>
+        <translation>舉辦活動，展覽，會議等的組織，這產生了資源，但對資源的內容幾乎沒有或沒有責任</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Illuminator</source>
-        <translation>Illuminator</translation>
+        <translation>展現</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor de versiering van een werk (in het bijzonder handschriften) met edelmetalen of kleur, meestal met uitgewerkte patronen en motieven.</translation>
+        <translation>用於負責裝飾具有貴金屬或顏色的作品 (特別是手稿材料) 的人或組織, 通常具有精心設計和圖案.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Illustrator</source>
-        <translation>Illustrator</translation>
+        <translation>插圖畫家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een ontwerp of illustratie bedenkt, en misschien ook uitvoert, meestal ter begeleiding van een geschreven tekst.</translation>
+        <translation>用於構思和實現一個設計或插圖，通常伴隨著一個書面文本一個人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Inscriber</source>
-        <translation>Schrijver van opdracht</translation>
+        <translation>登記員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Use for a person who has written a statement of dedication or gift.</source>
-        <translation>Te gebruiken voor een persoon die een verklaring geschreven heeft van opdracht of geschenk. </translation>
+        <translation>用於寫有奉獻或禮物字句的人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Instrumentalist</source>
-        <translation>Instrumentalist</translation>
+        <translation>樂器演奏家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die hoofdzakelijk een instrument bespeelt in een muziek- of dramavoorstelling of amusement.</translation>
+        <translation>用於主要在音樂或戲劇演出或娛樂中演奏樂器的人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Interviewee</source>
-        <translation>Geïnterviewde</translation>
+        <translation>被採訪者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die is geïnterviewd bij een overleg of bijeenkomst, meestal door een verslaggever, opiniepeiler of andere informatieverzamelaar.</translation>
+        <translation>用於在磋商或會議中接受採訪的個人或組織，通常由記者，調查員或一些其他信息收集代理</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Interviewer</source>
-        <translation>Interviewer</translation>
+        <translation>採訪者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die optreedt als verslaggever, opiniepeiler of andere informatieverzamelaar in een overleg of bijeenkomst met een of meer personen.</translation>
+        <translation>用於在涉及一個或多個個人的磋商或會議中擔任記者，調查員或其他信息收集代理人的個人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Inventor</source>
-        <translation>Uitvinder</translation>
+        <translation>發明人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die als eerste een bijzonder nuttig voorwerp maakt, of een nieuw proces ontwikkelt om een bekend voorwerp of resultaat te verkrijgen.</translation>
+        <translation>用於首先生產特定有用項目的個人或組織，或開發用於獲取已知項目或結果的新過程</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>Issuing body</source>
-        <translation>Uitgevende instantie</translation>
+        <translation>發行體</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>A person, family or organization issuing a work, such as an official organ of the body.</source>
-        <translation>Een persoon, familie of organisatie die een werk uitgeeft, zoals een officieel orgaan van de instantie.</translation>
+        <translation>發出工作的人，家庭或組織，如官方機關</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>Judge</source>
-        <translation>Rechter</translation>
+        <translation>法官</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>A person who hears and decides on legal matters in court.</source>
-        <translation>Een persoon die in een gerecht hoort en beslist over juridische zaken.</translation>
+        <translation>在法庭上聽取和決定法律事務的人.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>Jurisdiction governed</source>
-        <translation>Gereguleerd rechtsgebied</translation>
+        <translation>管轄權</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>A jurisdiction governed by a law, regulation, etc., that was enacted by another jurisdiction.</source>
-        <translation>Een rechtsgebied dat gereguleerd wordt door een wet, verordening, e.d., die werd vastgesteld door een ander rechtsgebied.</translation>
+        <translation>由另一個司法管轄區頒佈的法律，法規等管轄的管轄區</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Laboratory</source>
-        <translation>Laboratorium</translation>
+        <translation>實驗室</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Use for an institution that provides scientific analyses of material samples.</source>
-        <translation>Te gebruiken voor een instelling die wetenschappelijke analyses van materiaalmonsters levert.</translation>
+        <translation>用於提供材料樣品的科學分析的機構</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Laboratory director</source>
-        <translation>Laboratoriumdirecteur</translation>
+        <translation>實驗室經理</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die het werk dat gedaan wordt in een gecontroleerde omgeving leidt of controleert.</translation>
+        <translation>用於管理或監督在受控環境或環境中完成的工作的個人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Landscape architect</source>
-        <translation>Landschapsarchitect</translation>
+        <translation>園藝師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
-        <translation>Te gebruiken voor een persoon of organisatie waarvan het werk betrekking heeft op de coördinatie van de inrichting van bestaande en voorgestelde kenmerken en structuur van het landschap.</translation>
+        <translation>用於一個人或組織, 其工作涉及協調現有和擬議的土地特徵和結構的安排</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Lead</source>
-        <translation>Leider</translation>
+        <translation>領導</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
-        <translation>Te gebruiken om aan te geven dat een persoon of organisatie hoofdverantwoordelijk draagt voor een bepaalde activiteit of inspanning. Te gebruiken met andere rollen om het grotere belang van deze persoon of organisatie met betrekking tot die specifieke rol te laten zien. Als er meer dan een gerelateerde is toegewezen aan een rubriek, gebruik dan de &quot;leider&quot;-gerelateerde alleen als deze van toepassing is op alle gerelateerden.</translation>
+        <translation>用於表示個人或組織對特定活動或努力負主要責任. 與其他關係者術語或代碼一起使用，以表明此人或組織對該特定角色的重要性. 如果還有多個相關頭銜, 則只有在適用於所有頭銜時才使用在開始.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Lender</source>
-        <translation>Uitlener</translation>
+        <translation>貸方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die het tijdelijk gebruiken van een boek, handschrift, enz., toestaat, zoals voor het maken van een fotokopie of microfilm.</translation>
+        <translation>用於允許臨時使用書籍手稿等的人員或組織, 例如用於複印或微縮膠片.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Libelant</source>
-        <translation>Libellant</translation>
+        <translation>原告</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
-        <translation>Te gebruiken voor de partij die een libel indient in een admiraliteits- of kerkelijke zaak.
-
-Let op: Het betreft hier de &quot;libelant&quot; volgens Amerikaans recht.</translation>
+        <translation>用於在教會或海事案件中提出訴訟的一方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Libelant-appellant</source>
-        <translation>Libellant-appellant</translation>
+        <translation>原告-上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation>Te gebruiken voor een libellant die hoger beroep instelt tegen de uitspraak van een admiraliteit of kerkelijke rechtbank.
-
-Let op: Het betreft hier de &quot;libelant-apellant&quot; volgens Amerikaans recht.</translation>
+        <translation>用於一個原告為了扭轉判決結果而從一個教會法院或海事法庭上訴另一個人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Libelant-appellee</source>
-        <translation>Libellant-geïntimeerde</translation>
+        <translation>原告-被上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation>Te gebruiken voor een libellant waarvan de tegenpartij hoger beroep heeft ingesteld tegen de uitspraak van een admiraliteit of kerkelijke rechtbank.
-
-Let op: Het betreft hier de &quot;libelant-appellee&quot; volgens Amerikaans recht.</translation>
+        <translation>用於從一個教會法院或海事法庭向另一個教會法院提出上訴以撤銷判決的原告人.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Libelee</source>
-        <translation>Gelibelleerde</translation>
+        <translation>被告</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
-        <translation>Te gebruiken voor een partij tegen wie een libel is ingediend bij een admiraliteit of kerkelijke rechtbank.
-
-Let op: Het betreft hier de &quot;libelee&quot; volgens Amerikaans recht.</translation>
+        <translation>用於在教會法院或海事法庭中被提出控告的一方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Libelee-appellant</source>
-        <translation>Gelibelleerde-appellant</translation>
+        <translation>被告-上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation>Te gebruiken voor een gelibelleerde die hoger beroep instelt tegen de uitspraak van een admiraliteit of kerkelijke rechtbank.
-
-Let op: Het betreft hier de &quot;libelee-appellant&quot; volgens Amerikaans recht.</translation>
+        <translation>用於從一個教會法院或海事法庭到另一個人的反對判決的原告</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Libelee-appellee</source>
-        <translation>Gelibelleerde-geïntimeerde</translation>
+        <translation>被告-被上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation>Te gebruiken voor een gelibelleerde waarvan de tegenpartij hoger beroep heeft ingesteld tegen de uitspraak van een admiraliteit of kerkelijke rechtbank.
-
-Let op: Het betreft hier de &quot;libelee-appellee&quot; volgens Amerikaans recht.</translation>
+        <translation>用於從一個教會法院或海事法庭到另一個人的反對人的反對的告訴</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Librettist</source>
-        <translation>Librettist</translation>
+        <translation>劇本作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die de schrijver is van de tekst van een opera, oratorium, enz.</translation>
+        <translation>用於作為歌劇，讚美劇等文本作者的人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Licensee</source>
-        <translation>Licentiehouder</translation>
+        <translation>執照持有者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een oorspronkelijk ontvanger is van het recht om te drukken of te publiceren.</translation>
+        <translation>用於作為打印或發佈權利的原始收件人的個人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Licensor</source>
-        <translation>Licentiegever</translation>
+        <translation>許可人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die de ondertekenaar is van de licentie, het imprimatur, enz.</translation>
+        <translation>用於作為許可證批准, 簽發的個人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Lighting designer</source>
-        <translation>Lichtontwerper</translation>
+        <translation>照明設計師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die het verlichtingsplan maakt voor een theatervoorstelling, amusement, film, enz.</translation>
+        <translation>用於為劇院演示，娛樂，電影等設計照明方案的個人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Lithographer</source>
-        <translation>Lithograaf (steendrukker)</translation>
+        <translation>石版家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die de steen of plaat voor lithografische afdrukken gereed maakt, met inbegrip van een grafisch kunstenaar die een tekening maakt direct op het oppervlak waarmee de afdrukken worden gemaakt.</translation>
+        <translation>用於準備用於平版印刷的石或板的人或組織，包括直接在表面上創建直接在其上進行印刷的圖案的圖形藝術家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Lyricist</source>
-        <translation>Liedschrijver</translation>
+        <translation>歌詞作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die de schrijver is van een tekst of lied.</translation>
+        <translation>用於作為歌曲文本作者的人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>Manufacture place</source>
-        <translation>Vervaardigingsplaats</translation>
+        <translation>製造地點</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>The place of manufacture (e.g., printing, duplicating, casting, etc.) of a resource in a published form.</source>
-        <translation>De plaats van vervaardiging (bijv. drukken, kopiëren, gieten, enz.) van een werk in een gepubliceerde vorm.</translation>
+        <translation>以公開形式的資源的製造地點 (例如，打印，複製，鑄造等)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Manufacturer</source>
-        <translation>Vervaardiger</translation>
+        <translation>製造商</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een kunstmatig werk (een voorwerp gemaakt of veranderd door een of meer personen). Voorbeelden van kunstmatige werken omvatten vazen, kanonnen en meubels.</translation>
+        <translation>用於進行人為工作的個人或組織 (由一個或多個人製作或修改的對象). 人工作品的例子包括花瓶, 大炮或傢俱.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>Marbler</source>
-        <translation>Marmeraar</translation>
+        <translation>大理石工匠</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>The entity responsible for marbling paper, cloth, leather, etc. used in construction of a resource.</source>
-        <translation>Degene die verantwoordelijk is voor het marmeren van papier, doek, leer, e.d. gebruikt bij het maken van een werk.</translation>
+        <translation>負責在建築資源中使用的大理石紙，布，皮革等的實體</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Markup editor</source>
-        <translation>Opmaakredacteur</translation>
+        <translation>標記編輯</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die de codering in SGML, HTML of XML uitvoert en metagegevens, tekst, enz. noteert.</translation>
+        <translation>用於執行元數據，文本等的SGML，HTML或XML標記編碼的人員或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>Medium</source>
-        <translation>Medium</translation>
+        <translation>巫師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>A person held to be a channel of communication between the earthly world and a different world.</source>
-        <translation>Een persoon die geacht wordt een communicatiekanaal te zijn tussen de aardse wereld en een andere wereld.</translation>
+        <translation>一個被認為是地球世界和另一個世界之間的溝通渠道的人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Metadata contact</source>
-        <translation>Contactpersoon voor metagegevens</translation>
+        <translation>元數據聯繫人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
-        <translation>Te gebruiken voor een persoon of organisatie die hoofdverantwoordelijk is voor het samenstellen en onderhouden van de originele beschrijving van een verzameling metagegevens (bijv. georuimtelijke metagegevensverzameling).</translation>
+        <translation>用於主要負責編輯和維護元數據集的原始描述 (例如，地理空間元數據集) 的人員或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Metal-engraver</source>
-        <translation>Metaalgraveur</translation>
+        <translation>金屬雕刻</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor decoraties, illustraties, letters, enz. gesneden op een metalen oppervlak voor afdruk of decoratie.</translation>
+        <translation>用於在金屬表面上切割以進行打印或裝飾的負責裝飾，插圖，信件等的人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>Minute taker</source>
-        <translation>Notulist</translation>
+        <translation>會議書記員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>A person, family, or organization responsible for recording the minutes of a meeting.</source>
-        <translation>Een persoon, familie of organisatie die verantwoordelijk is voor het opstellen van de notulen van een vergadering.</translation>
+        <translation>負責記錄會議記錄的人，家人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Moderator</source>
-        <translation>Gespreksleider</translation>
+        <translation>協調人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation>Te gebruiken voor een persoon die een programma (vaak omroepprogramma) leidt waar onderwerpen worden besproken, meestal met deelname van deskundigen op gebieden die verband houden met de discussie.</translation>
+        <translation>用於領導討論主題的節目 (通常是廣播) 的人, 通常由與討論相關領域的專家參與</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Monitor</source>
-        <translation>Toezichthouder</translation>
+        <translation>督導員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die toeziet op de naleving van de overeenkomst en verantwoordelijk is voor het verslag en toeziet op de verspreiding hiervan. Soms aangeduid als de controlerende instantie.</translation>
+        <translation>用於監督合同合規並對報告負責並控制其分發的個人或組織。 有時稱為受讓人或控制機構</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Music copyist</source>
-        <translation>Muziekkopiist</translation>
+        <translation>音樂謄寫員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Use for a person who transcribes or copies musical notation</source>
-        <translation>Te gebruiken voor een persoon die muzieknotatie transcribeert of kopieert.</translation>
+        <translation>用於轉錄或複製音樂符號的人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Musical director</source>
-        <translation>Muzikaal leider</translation>
+        <translation>音樂總監</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
-        <translation>Te gebruiken voor een persoon die verantwoordelijk is voor fundamentele muziekbeslissingen over een productie, met inbegrip van het coördineren van het werk van componist, geluidsbewerker en geluidsmengers, en het organiseren en/of het leiden van het geluid voor repetities en uitvoeringen.</translation>
+        <translation>用於負責製作的基本音樂決策的人員，包括協調作曲家，聲音編輯和混音師的工作，選擇音樂家，組織和/或演奏排練和表演的聲音</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Musician</source>
-        <translation>Muzikant</translation>
+        <translation>音樂家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die muziek uitvoert of bijdraagt aan de muzikale inhoud van een werk wanneer het niet mogelijk of wenselijk is om de functie nauwkeuriger te identificeren.</translation>
+        <translation>用於在不可能或不可能更精確地識別功能時執行音樂或貢獻作品的音樂內容的人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Narrator</source>
-        <translation>Verteller</translation>
+        <translation>講解員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
-        <translation>Te gebruiken voor een persoon die een spreker is met betrekking tot de bijzonderheden van een handeling, gebeurtenis of loop van gebeurtenissen.</translation>
+        <translation>用於作為與事件，事件或事件過程的細節相關的發言人的人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>Onscreen presenter</source>
-        <translation>Presentator in beeld</translation>
+        <translation>屏幕演示者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>A performer contributing to an expression of a work by appearing on screen in nonfiction moving image materials or introductions to fiction moving image materials to provide contextual or background information. Use when another term (e.g., Narrator, Host) is either not applicable or not desired.</source>
-        <translation>Een uitvoerder die bijdraagt aan een uiting van een werk door in beeld te verschijnen bij non-fictie bewegend beeldmateriaal of bij een inleiding tot fictie bewegend beeldmateriaal om verbanden of achtergrondinformatie te geven. Te gebruiken wanneer een andere term (bijv. &quot;verteller&quot; [nrt], &quot;gastheer&quot; [hst]) niet van toepassing of niet gewenst is.</translation>
+        <translation>通過出現在非小說移動圖像資料的屏幕上或介紹小說移動圖像資料以提供上下文或背景信息來對作品表達做出貢獻的表演者。 當其他術語 (例如，旁白，主機) 不適用或不需要時使用.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Opponent</source>
-        <translation>Opponent</translation>
+        <translation>對手</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het bestrijden van een proefschrift of dissertatie.</translation>
+        <translation>用於負責反對論文或論文的個人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Organizer of meeting</source>
-        <translation>Organisator van de bijeenkomst</translation>
+        <translation>會議主辦方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor de organisatie van de bijeenkomst waarvan een werk het rapport of de handelingen is.</translation>
+        <translation>用於負責組織一個項目是報告或訴訟的會議的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Originator</source>
-        <translation>Schepper</translation>
+        <translation>創始人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die het werk uitvoert, d.w.z., de naam van een persoon of organisatie die verbonden is met de intellectuele inhoud van het werk. Deze categorie omvat niet de uitgever of persoonlijke betrokkene, of sponsor, behalve wanneer deze ook de zakelijke auteur is.</translation>
+        <translation>用於執行工作的個人或組織，即與工作的知識內容相關聯的人員或組織的名稱. 此類別不包括出版商或個人聯盟或贊助商，除非它也是公司作者.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Other</source>
-        <translation>Overig</translation>
+        <translation>其它</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
-        <translation>Te gebruiken voor relatiecodes uit andere lijsten die geen overeenkomstige code in de MARC-lijst hebben of voor termen waaraan geen code is toegekend.</translation>
+        <translation>用於在MARC列表中沒有等效項的其他列表中的relator代碼或未分配代碼的項</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Owner</source>
-        <translation>Eigenaar</translation>
+        <translation>所有者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die tegenwoordig een werk of collectie bezit.</translation>
+        <translation>用於當前擁有項目或集合的個人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>Panelist</source>
-        <translation>Panellid</translation>
+        <translation>專家小組成員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source> performer contributing to a resource by participating in a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation>Een uitvoerder die bijdraagt aan een werk door deel te nemen aan een programma (vaak uitgezonden), waar onderwerpen worden besproken, meestal met medewerking van deskundigen op gebieden die verband houden met de discussie.</translation>
+        <translation>通過參與討論主題的程序 (通常是廣播) 來促進資源的執行者，通常由與討論相關領域的專家參與</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Papermaker</source>
-        <translation>Papiermaker</translation>
+        <translation>papermaker</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor de vervaardiging van papier, meestal van hout, kleding of andere vezelstof.</translation>
+        <translation>用於負責生產紙張的人員或組織，通常來自木材，布料或其他纖維材料.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Patent applicant</source>
-        <translation>Octrooiaanvrager</translation>
+        <translation>專利申請人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Use for a person or organization that applied for a patent.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een aanvraag voor een octrooi heeft ingediend.</translation>
+        <translation>用於申請專利的個人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Patent holder</source>
-        <translation>Octrooihouder</translation>
+        <translation>專利持有者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Use for a person or organization that was granted the patent referred to by the item. </source>
-        <translation>Te gebruiker voor een persoon of organisatie die het octrooi werd toegekend waarop het werk betrekking heeft.</translation>
+        <translation>用於被授予該項目提及的專利的個人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Patron</source>
-        <translation>Beschermheer</translation>
+        <translation>贊助人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor de opdracht tot een werk. Gewoonlijk gebruikt een beschermheer zijn invloed om het werk van kunstenaars, schrijvers, enz. te ondersteunen. Dit geldt ook voor hen die opdracht geven en betalen voor afzonderlijke werken.</translation>
+        <translation>用於負責調試工作的個人或組織。 通常，顧客使用他或她的手段或影響來支持藝術家，作家等的工作. 這包括那些誰委託和支付個別作品.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Performer</source>
-        <translation>Uitvoerder</translation>
+        <translation>表演者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die muziek- of acteerkunsten vertoont in een muziek- of dramavoorstelling of amusement, als specifieke rollen voor deze functies (&quot;acteur&quot; [act], &quot;danser&quot; [dnc], &quot;instrumentalist&quot; [itr], &quot;vocalist&quot; [voc], enz.) niet worden gebruikt. Indien specifieke rollen worden gebruikt, wordt &quot;uitvoerder&quot; [prf] gebruikt voor een persoon waarvan de voornaamste vaardigheid niet bekend is of niet is gespecificeerd.</translation>
+        <translation>如果沒有使用這些功能的特定代碼 ([act]，[dnc]，[itr]，[voc]等) ，則用於在音樂或戲劇性演示或娛樂中表現音樂或表演技巧的個人或組織. 如果使用特定代碼，[prf]用於主要技能未知或未指定的人員.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Permitting agency</source>
-        <translation>Toestaande instantie</translation>
+        <translation>許可代理</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
-        <translation>Te gebruiken voor een autoriteit (meestal een overheidsinstantie) die toestemming verleent om het werk te volbrengen.</translation>
+        <translation>用於發放工作完成的許可證的機構 (通常是政府機構).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Photographer</source>
-        <translation>Fotograaf</translation>
+        <translation>攝影師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het nemen van foto&apos;s, ongeacht of deze worden gebruikt in hun oorspronkelijke vorm of als reproducties.</translation>
+        <translation>用於負責拍攝照片的個人或組織，無論他們是以原始形式使用還是作為複製品.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Plaintiff</source>
-        <translation>Eiser</translation>
+        <translation>原告</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
-        <translation>Te gebruiken voor de partij die klaagt of eist bij het gerecht in een persoonlijke actie, meestal in een rechtszaak.</translation>
+        <translation>用於通過個人訴訟（通常是法律程序）在法庭上投訴或起訴的一方.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Plaintiff-appellant</source>
-        <translation>Eiser-appellant</translation>
+        <translation>原告上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation>Te gebruiken voor een eiser die hoger beroep instelt tegen de uitspraak van het ene gerecht bij een ander gerecht of rechtsgebied om de uitspraak te vernietigen, meestal in een rechtszaak.
-
-Let op: Het betreft hier de &quot;plaintiff-appellant&quot; volgens Amerikaans recht.</translation>
+        <translation>用於原告人從一個法院或管轄區向另一個法院或管轄區提出上訴，以通過法律程序進行判決.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Plaintiff-appellee</source>
-        <translation>Eiser-geïntimeerde</translation>
+        <translation>原告被上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation>Te gebruiken voor een eiser tegen wie hoger beroep is ingesteld tegen de uitspraak van het ene gerecht bij een ander gerecht of rechtsgebied om de uitspraak te vernietigen, meestal in een rechtszaak.
-
-Let op: Het betreft hier de &quot;plaintiff-appellee&quot; volgens Amerikaans recht.</translation>
+        <translation>用於被原告人從一個法院或管轄區向另一個法院或管轄區提出上訴的人，通常是在法律程序中推翻該判決.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Platemaker</source>
-        <translation>Plaatmaker</translation>
+        <translation>製版商</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor de vervaardiging van platen, meestal voor de vervaardiging van gedrukte afbeeldingen en/of tekst.</translation>
+        <translation>用於負責生產印版的個人或組織，通常用於生產印刷圖像和/或文本.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>Praeses</source>
-        <translation>Preses</translation>
+        <translation>之前的</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>A person who is the faculty moderator of an academic disputation, normally proposing a thesis and participating in the ensuing disputation.</source>
-        <translation>Een persoon die de faculteitsgespreksleider is van een academisch dispuut en die gewoonlijk een stelling poneert en deelneemt aan het daaropvolgend dispuut.</translation>
+        <translation>一個人是學術爭議的教師主持人，通常提出論文並參與隨後的爭議.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>Presenter</source>
-        <translation>Presenteerder</translation>
+        <translation>演說者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>A person or organization mentioned in an &apos;X presents&apos; credit for moving image materials and who is associated with production, finance, or distribution in some way. A vanity credit; in early years, normally the head of a studio.</source>
-        <translation>Een persoon of organisatie die genoemd wordt in een eervermelding &quot;X presenteert&quot; voor bewegend beeldmateriaal en die in verband wordt gebracht met de productie, financiering, of verspreiding op een of andere manier. Een eervermelding uit ijdelheid; in vroege jaren, gewoonlijk het hoofd van een studio.</translation>
+        <translation>在“某演講”中提到的個人或組織表示對運動圖像材料的信用，並且以某種方式與生產，財務或分配相關聯。 虛榮信用; 在早年，通常一個工作室的頭。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Printer</source>
-        <translation>Drukker</translation>
+        <translation>打印者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die teksten drukt, hetzij met zetsel, hetzij met platen.</translation>
+        <translation>用於打印文本的個人或組織，無論是從類型還是從版面</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Printer of plates</source>
-        <translation>Plaatdrukker</translation>
+        <translation>製版打印</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die illustraties afdrukt vanaf platen.</translation>
+        <translation>用於打印插圖的人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Printmaker</source>
-        <translation>Plaatmaker</translation>
+        <translation>版畫複製</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een drukoppervlak maakt voor hoog-, diep- of vlakdruk. </translation>
+        <translation>用於製作浮雕，凹版或平版印刷表面的人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Process contact</source>
-        <translation>Procescontactpersoon</translation>
+        <translation>過程聯繫人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die hoofdverantwoordelijk is voor het uitvoeren of starten van een proces, zoals dat wordt gedaan bij het verzamelen van reeksen metagegevens.</translation>
+        <translation>用於主要負責執行或啟動流程的人員或組織，例如對元數據集合的收集.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Producer</source>
-        <translation>Producent</translation>
+        <translation>生產者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het maken van een film, met inbegrip van zakelijke aspecten, leiding geven aan de producties en het commerciële succes van het werk.</translation>
+        <translation>用於負責製作電影的個人或組織，包括業務方面，製作的管理以及工作的商業成功</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>Production company</source>
-        <translation>Productiebedrijf</translation>
+        <translation>製作公司</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc.</source>
-        <translation>Een organisatie die verantwoordelijk is voor de financiële, technische en organisatorische leiding over een productie voor toneel, scherm, audio-opname, televisie, webcast, e.d.</translation>
+        <translation>負責舞臺，屏幕，錄音，電視，網播等產品的財務，技術和組織管理的組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>Production designer</source>
-        <translation>Productieontwerper</translation>
+        <translation>產品設計師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>A person or organization responsible for designing the overall visual appearance of a moving image production.</source>
-        <translation>Een persoon of organisatie die verantwoordelijk is voor het ontwerpen van het algehele uiterlijk van een bewegende beeldproductie.</translation>
+        <translation>負責設計運動圖像製作的整體視覺外觀的個人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Production manager</source>
-        <translation>Productieleider</translation>
+        <translation>產品經理</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
-        <translation>Te gebruiken voor een persoon die verantwoordelijk is voor alle technische en zakelijke aangelegenheden van een productie.</translation>
+        <translation>用於負責生產中的所有技術和業務問題的人員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Production personnel</source>
-        <translation>Productiemedewerker</translation>
+        <translation>生產人員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verbonden is aan de productie (rekwisieten, belichting, speciale effecten, enz.) van een muziek- of dramavoorstelling of van amusement.</translation>
+        <translation>用於與音樂或戲劇演出或娛樂的製作 (道具，燈光，特效等)
+ 相關的人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>Production place</source>
-        <translation>Vervaardigingsplaats</translation>
+        <translation>生產地點</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>The place of production (e.g., inscription, fabrication, construction, etc.) of a resource in an unpublished form.</source>
-        <translation>De plaats van vervaardiging (bijv. opschrift, fabricage, constructie, e.d.) van een werk in ongepubliceerde vorm.</translation>
+        <translation>原材料未出版形式的生產地 (例如，銘文，製作，建造等).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Programmer</source>
-        <translation>Programmeur</translation>
+        <translation>程式設計師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor de vervaardiging van en/of het onderhoud aan technische ontwerpen, broncode, en machine-uitvoerbare digitale bestanden en het ondersteunen van de documentatie.</translation>
+        <translation>用於負責創建和/或維護計算機程序設計文檔，源代碼和機器可執行數字文件和支持文檔的人員或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Project director</source>
-        <translation>Projectdirecteur</translation>
+        <translation>項目總監</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
-        <translation>Te gebruiken voor een persoon of organisatie met eerste verantwoordelijkheid voor alle noodzakelijke aspecten van een project, of die een zeer omvangrijk project leidt dat vraagt om verantwoordelijkheid op seniorniveau, of die de algehele verantwoordelijkheid draagt voor het leiden van projecten, of die algehele leiding geeft aan een projectleider.</translation>
+        <translation>用於對項目所有重要方面負主要責任的人員或組織，或管理需要高級職責的大型項目，或負責管理項目的全面責任，或向項目經理提供整體指導。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Proofreader</source>
-        <translation>Proeflezer</translation>
+        <translation>校對</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
-        <translation>Te gebruiken voor een persoon die drukwerk corrigeert. Voor handschriften, gebruik &quot;corrector&quot; [crr].</translation>
+        <translation>用於糾正印刷品的人. 對於手稿，請使用Corrector [crr].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>Provider</source>
-        <translation>Leverancier</translation>
+        <translation>供應者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>A person or organization who produces, publishes, manufactures, or distributes a resource if specific codes are not desired (e.g. [mfr], [pbl].)</source>
-        <translation>Een persoon of organisatie die een werk vervaardigt, publiceert, fabriceert of verspreidt als bepaalde codes ongewenst zijn (bijv. &quot;vervaardiger&quot; [mfr], &quot;uitgever&quot; [pbl].)</translation>
+        <translation>如果不需要特定代碼 (例如[mfr], [pbl]), 則指生產，出版，製造或分發資源的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>Publication place </source>
-        <translation>Plaats van uitgave</translation>
+        <translation>出版地</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>The place where a resource is published.</source>
-        <translation>De plaats waar een werk is uitgegeven.</translation>
+        <translation>源版出版的地方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Publisher</source>
-        <translation>Uitgever</translation>
+        <translation>出版商</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die drukwerk, vaak tekst, maar ook bladmuziek, kunst, enz. beschikbaar maakt voor het publiek.</translation>
+        <translation>用於製作印刷品的人或組織，通常是文字，也可以向公眾提供印刷的音樂，藝術品等.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Publishing director</source>
-        <translation>Publicatiedirecteur</translation>
+        <translation>出版總監</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die de leiding heeft bij de uitwerking van een collectief werk om te zorgen voor samenhang of continuïteit. Deze categorie omvat ook hoofdredacteuren, literaire redacteuren, redacteuren van series, enz.</translation>
+        <translation>用於主持編寫集體工作以確保其一致性或連續性的個人或組織. 這包括主編, 文學編輯, 系列編輯等.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Puppeteer</source>
-        <translation>Poppenspeler</translation>
+        <translation>拉線木偶表演者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die poppen of marionetten hanteert, stuurt of leidt in een muziek- of dramavoorstelling of amusement.</translation>
+        <translation>用於在音樂或戲劇性演示或娛樂中操縱，控制或指導木偶或牽線木偶的人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>Radio director</source>
-        <translation>Radioregisseur</translation>
+        <translation>廣播導演</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>A director responsible for the general management and supervision of a radio program.</source>
-        <translation>Een regisseur die verantwoordelijk is voor de algemene leiding en het toezicht op een radioprogramma.</translation>
+        <translation>負責廣播節目總體管理和監督的主任。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>Radio producer</source>
-        <translation>Radioproducent</translation>
+        <translation>無線電製作人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>A producer responsible for most of the business aspects of a radio program.</source>
-        <translation>Een producent die verantwoordelijk is voor het merendeel van de zakelijke aspecten van een radioprogramma.</translation>
+        <translation>負責無線電節目的大部分業務方面的生產者。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Recipient</source>
-        <translation>Geadresseerde</translation>
+        <translation>收信人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
-        <translation>Te gebruiken voor een persoon of organisatie aan wie correspondentie is gericht.</translation>
+        <translation>用於通信對象的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>Recording engineer</source>
-        <translation>Opnametechnicus</translation>
+        <translation>錄音工程師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die toezicht houdt op de technische aspecten van een opnamesessie van geluid of beeld.</translation>
+        <translation>用於監督聲音或錄像會話的技術方面的個人或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>A person contributing to a resource by supervising the technical aspects of a sound or video recording session.</source>
-        <translation>Een persoon die bijdraagt aan een werk door het houden van toezicht op de technische aspecten van een geluids- of video-opnamesessie.</translation>
+        <translation>通過監督聲音或視頻記錄會話的技術方面來貢獻資源的人員.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Redactor</source>
-        <translation>Redacteur</translation>
+        <translation>編輯者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die het kader voor een werk schrijft of ontwikkelt zonder intellectueel verantwoordelijk te zijn voor de inhoud.</translation>
+        <translation>用於為物品編寫或開發框架而不對其內容負責的人員或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Renderer</source>
-        <translation>3D-tekenaar</translation>
+        <translation>渲染師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die tekeningen maakt van architectonische ontwerpen (te weten architectuurvisualisaties) in nauwkeurig representatief perspectief om te laten zien hoe het project eruit zal zien als het klaar is.</translation>
+        <translation>用於以準確的，代表性的角度準備建築設計圖 (即渲染) 的人員或組織，以顯示項目在完成時的外觀.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Reporter</source>
-        <translation>Verslaggever</translation>
+        <translation>記者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Use for a person or organization who writes or presents reports of news or current events on air or in print.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die berichten over nieuws of actuele gebeurtenissen schrijft of presenteert in uitzending of in druk.</translation>
+        <translation>用於廣播或印刷品上寫入或呈現新聞或當前活動的報告的個人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Repository</source>
-        <translation>Depot</translation>
+        <translation>倉庫</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
-        <translation>Te gebruiken voor een instantie die gegevens of materiële cultuurvoorwerpen bewaart en diensten verleent om op lange termijn, consistent en gedeeld gebruik van die gegevens of voorwerpen te bevorderen.</translation>
+        <translation>用於託管數據或材料文化對象的代理機構，並提供服務以促進對這些數據或對象的長期，一致和共享的使用</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Research team head</source>
-        <translation>Hoofd onderzoeksgroep</translation>
+        <translation>研究組長</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Use for a person who directed or managed a research project.</source>
-        <translation>Te gebruiken voor een persoon die een onderzoeksproject leidt.</translation>
+        <translation>用於指導或管理研究項目的人員.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Research team member</source>
-        <translation>Lid onderzoeksgroep</translation>
+        <translation>研究組成員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
-        <translation>Te gebruiken voor een persoon die deelneemt aan een onderzoek, maar daarin niet de leidende rol vervult.</translation>
+        <translation>用於參與研究項目的人員, 但不涉及指導或管理角色.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Researcher</source>
-        <translation>Onderzoeker</translation>
+        <translation>研究員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Use for a person or organization responsible for performing research. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het doen van onderzoek.</translation>
+        <translation>用於負責研究的人員或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Respondent</source>
-        <translation>Beklaagde</translation>
+        <translation>答辯人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</source>
-        <translation>Te gebruiken voor de partij die antwoordt bij het gerecht op grond van een aanvraag voor schadeloosstelling, meestal in een billijkheidsprocedure.
-
-Let op: Het betreft hier de &quot;respondent&quot; volgens de Angelsaksische Equity Law.</translation>
+        <translation>用於通常在股本訴訟中向法院作出答覆的一方.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Respondent-appellant</source>
-        <translation>Beklaagde-appellant</translation>
+        <translation>答辯人上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>Te gebruiken voor een beklaagde die hoger beroep instelt tegen de uitspraak van het ene gerecht of rechtsgebied om de uitspraak te vernietigen, meestal in een billijkheidsprocedure.
-
-Let op: Het betreft hier de &quot;respondent-appellant&quot; volgens de Angelsaksische Equity Law.</translation>
+        <translation>用於從一個法院或管轄區向另一個法院提起上訴的被告人.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>Respondent-appellee</source>
-        <translation>Beklaagde-geïntimeerde</translation>
+        <translation>被申請人被上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>Te gebruiken voor een beklaagde tegen wie hoger beroep is ingesteld tegen de uitspraak van het ene gerecht bij een ander gerecht of rechtsgebied om de uitspraak te vernietigen, meestal in een billijkheidsprocedure.
-
-Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaksische Equity Law.</translation>
+        <translation>對於通過在產權訴訟中，通過一項法院或司法管轄區向另一方提出上訴的被告，用於扭轉判決的訴訟。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Responsible party</source>
-        <translation>Verantwoordelijke partij</translation>
+        <translation>責任方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Use for a person or organization legally responsible for the content of the published material.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die juridisch verantwoordelijk is voor de inhoud van het gepubliceerde materiaal.</translation>
+        <translation>用於對發佈資料的內容負法律責任的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="330"/>
         <source>Restager</source>
-        <translation>Heropvoerder</translation>
+        <translation>舞蹈再編輯</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="330"/>
         <source>Use for a person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content.</source>
-        <translation>Te gebruiken voor een persoon of organisatie, andere dan de oorspronkelijke choreograaf of regisseur, die verantwoordelijk is voor de heropvoering van een choreografisch of dramatische werk en die nauwelijks nieuwe inhoud bijdraagt.</translation>
+        <translation>用於除原始編舞者或導演以外的人員或組織，負責重新進行舞蹈作品或戲劇作品貢獻最少的新內容。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>Restorationist</source>
-        <translation>Restaurateur</translation>
+        <translation>恢復修補者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>A person, family, or organization responsible for the set of technical, editorial, and intellectual procedures aimed at compensating for the degradation of an item by bringing it back to a state as close as possible to its original condition.</source>
-        <translation>Een persoon, familie of organisatie die verantwoordelijk is voor de reeks aan technische, redactionele en intellectuele werkwijzen ter compensatie van de afbraak van een werk door deze terug te brengen naar een toestand die zo dicht als mogelijk staat tot de oorspronkelijke toestand.</translation>
+        <translation>負責一系列技術，編輯和智力程序的個人，家庭或組織，旨在通過將其恢復到儘可能接近原始狀態的狀態來補償項目的退化。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Reviewer</source>
-        <translation>Recensent</translation>
+        <translation>審查人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor het recenseren van een boek, film, uitvoering, enz.</translation>
+        <translation>用於負責審查書籍，電影，表演等的個人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Rubricator</source>
-        <translation>Rubricator</translation>
+        <translation>加紅字標題的人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor delen van een werk, vaak koppen of inleidende gedeelten van een manuscript, die verschijnen in een onderscheidende kleur, meestal rood.</translation>
+        <translation>用於負責部分工作的人員或組織，通常是以特殊顏色出現的手稿的標題或開頭部分，通常為紅色。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Scenarist</source>
-        <translation>Scenarioschrijver</translation>
+        <translation>編劇家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Use for a person or organization who is the author of a motion picture screenplay.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die de auteur is van een filmscript.</translation>
+        <translation>作為電影劇本作者的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Scientific advisor</source>
-        <translation>Wetenschappelijk adviseur</translation>
+        <translation>科學顧問</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die wetenschappelijk, pedagogisch of historische bekwaamheid inbrengt in het ontwerp en verwezenlijking van een werk, vooral in het geval van audiovisueel werk.</translation>
+        <translation>用於為科學，教學或歷史能力而設計的人或組織，用於對作品的概念和實現，特別是在視聽材料的情況下。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>Scribe</source>
-        <translation>Kopiist</translation>
+        <translation>Scribe</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</source>
-        <translation>Te gebruiken voor een persoon die secretaris is en voor een schrijver van nette handschriften. Gebruik &quot;facsimilist&quot; [fac] voor een persoon die natuurgetrouwe nabootsingen van oorkondes maakt.</translation>
+        <translation>一個為作家手寫書稿文案的人. 對於製作筆式傳真的人，請使用傳真電報 [fac]。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Sculptor</source>
-        <translation>Beeldhouwer</translation>
+        <translation>雕刻家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die beelden vormt of snijdt die een driedimensionale voorstelling vormen.</translation>
+        <translation>用於建模或雕刻三維表示圖形的人員或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Second party</source>
-        <translation>Tweede partij</translation>
+        <translation>第二方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die wordt onderkend als de partij aan de andere kant. In het geval van overdracht van rechten, betreft het hier de cessionaris, verkrijger, licentienemer, gerechtigde, enz. Meerdere partijen kunnen samen als de tweede partij worden aangeduid.</translation>
+        <translation>用於被識別為第二部分的一方的個人或組織。 在轉讓權的情況下，受讓人，受讓人，被許可人，受讓人等。多方可以共同命名為第二方。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Secretary</source>
-        <translation>Secretaris</translation>
+        <translation>祕書</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Use for a person or organization who is a recorder, redactor, or other person responsible for expressing the views of a organization.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die opnemer, bewerker of ander persoon verantwoordelijk voor het uiten van de denkbeelden van een organisatie is.</translation>
+        <translation>用於記錄，重定向或負責表達組織意見的人員或組織.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>Seller</source>
-        <translation>Verkoper</translation>
+        <translation>賣方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>A former owner of an item who sold that item to another owner.</source>
-        <translation>Een voormalige eigenaar van een werk die het werk verkocht aan een andere eigenaar.</translation>
+        <translation>將該物品出售給另一位的前擁有人。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Set designer</source>
-        <translation>Decorontwerper</translation>
+        <translation>設置設計師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Use for a person or organization who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die de ruwe schetsen van de artistiek leider vertaalt in concrete architecturale constructies voor een theatervoorstelling, amusement, film, enz. Decorontwerpers tekenen gedetailleerde handleidingen en specificaties voor het bouwen van het decor.</translation>
+        <translation>用於將藝術總監的粗略草圖翻譯成用於戲劇演示，娛樂，電影等的實際建築結構的個人或組織。設計師繪製構建集的詳細指南和規範。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="342"/>
         <source>Setting</source>
-        <translation>Setting</translation>
+        <translation>背景</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="342"/>
         <source>An entity in which the activity or plot of a work takes place, e.g. a geographic place, a time period, a building, an event.</source>
-        <translation>Een entiteit waarin de activiteit of plot van een werk plaatsvindt, bijv. een geografische plaats, een tijdsperiode, een gebouw, een gebeurtenis.</translation>
+        <translation>工作活動或事情發生的實體, 例如地理位置, 時間段, 建築物, 事件.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Signer</source>
-        <translation>Ondertekenaar</translation>
+        <translation>簽名人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</source>
-        <translation>Te gebruiken voor een persoon wiens handtekening voorkomt zonder bericht of andere verklaring die wijst op de herkomst. Gebruik &quot;inschrijver&quot; [ins] wanneer er een aanbiedingsbericht is.</translation>
+        <translation>用於簽名出現的人，不附有陳述或其他陳述來源的陳述。 當演示聲明時，請使用記錄器[ins]。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Singer</source>
-        <translation>Zanger</translation>
+        <translation>歌唱家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die zijn/haar stem gebruikt om met of zonder instrumentale begeleiding muziek voort te brengen. Een uitvoering kan al dan niet werkelijke woorden omvatten.</translation>
+        <translation>用於使用或不使用樂器伴奏的他/她/他們的聲音的人或組織來製作音樂。 表演可能包含或不包括實際單詞。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>Sound designer</source>
-        <translation>Geluidsregisseur</translation>
+        <translation>聲音設計師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
-        <translation>Te gebruiken voor een persoon die zorgt voor de productie en reproductie van de geluidsresultaten (zowel live als opgenomen), de installatie van microfoons, het vaststellen van geluidsniveaus en de coördinatie van geluidsbronnen voor een productie.</translation>
+        <translation>用於生產和再現聲音 (包括現場和錄音) 的人員，麥克風的安裝，聲級的設置以及生產的聲源的協調。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>Speaker</source>
-        <translation>Spreker</translation>
+        <translation>發言者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
-        <translation>Te gebruiken voor een persoon die deelneemt aan een programma (vaak omroepprogramma) en daar een geformaliseerde bijdrage of presentatie geeft die over het algemeen is voorbereid.</translation>
+        <translation>用於參與節目 (經常廣播) 提前準備正式演講的人員。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Sponsor</source>
-        <translation>Sponsor</translation>
+        <translation>主辦方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een overeenkomst heeft gesloten waardoor of onder bescherming waarvan een werk is geschreven, gedrukt, uitgegeven, enz.</translation>
+        <translation>用於簽發合同的人員或組織，或其主持人已經編寫，印刷，出版等。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>Stage director</source>
-        <translation>Toneelregisseur</translation>
+        <translation>舞臺導演</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>A person or organization contributing to a stage resource through the overall management and supervision of a performance.</source>
-        <translation>Een persoon of organisatie die bijdraagt aan een podiumwerk door de algehele leiding en toezicht van een optreden.</translation>
+        <translation>為舞臺資源做出貢獻並監督表演的人員或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Stage manager</source>
-        <translation>Toneelmeester</translation>
+        <translation>舞臺監督</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
-        <translation>Te gebruiken voor een persoon die verantwoordelijk is voor alles wat er gebeurt op een podium bij een voorstelling en die optreedt als hoofd van alle groepen en als assistent van een regisseur tijdens repetities.</translation>
+        <translation>用於負責演出舞臺上發生的一切的人，以及在排練期間擔任導演的所有員工和助理的主管。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Standards body</source>
-        <translation>Normalisatie-instituut</translation>
+        <translation>標準化組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Use for an organization responsible for the development or enforcement of a standard.</source>
-        <translation>Te gebruiken voor een organisatie die verantwoordelijk is voor de ontwikkeling of handhaving van een norm.</translation>
+        <translation>用於負責制定或執行標準的組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Stereotyper</source>
-        <translation>Clichémaker</translation>
+        <translation>鑄版工</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een nieuwe plaat voor afdrukken maakt door vormen of kopiëren van een ander drukoppervlak.</translation>
+        <translation>用於通過模製或複製另一個打印面來創建新版印刷的人員或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>Storyteller</source>
-        <translation>Verhalenverteller</translation>
+        <translation>講故事者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
-        <translation>Te gebruiken voor een persoon die een verhaal doorgeeft met creatieve of theatrale interpretatie.</translation>
+        <translation>通過創意和/或戲劇解釋傳達故事的人。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Supporting host</source>
-        <translation>Sponsor</translation>
+        <translation>支持方</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die ondersteuning biedt (door het toewijzen van faciliteiten, personeel, of andere middelen) aan een project, programma, vergadering, evenement, gegevensobjecten, materiële cultuurobjecten, of voor andere personen of organisaties die in staat zijn ondersteuning te verlenen.</translation>
+        <translation>用於支持 (通過分配設施，人員或其他資源) 項目，計劃，會議，事件，數據對象，材料文化對象或能夠支持實體的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Surveyor</source>
-        <translation>Landmeter</translation>
+        <translation>勘測員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die metingen uitvoert van stukken land, enz. voor de bepaling van locatie, vormen en grenzen.</translation>
+        <translation>用於對土地等進行測量的個人或組織，以確定位置，形式和邊界.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Teacher</source>
-        <translation>Leraar</translation>
+        <translation>教師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
-        <translation>Te gebruiken voor een persoon die, in verband met een werk, onderwijs geeft in een intellectueel onderwerp of voordoet terwijl hij lichamelijke vaardigheden onderwijst.</translation>
+        <translation>在智力科目中進行指導或在教授身體技能時表現的人。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Technical director</source>
-        <translation>Technisch directeur</translation>
+        <translation>技術總監</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
-        <translation>Te gebruiken voor een persoon die bij een productie eindverantwoordelijk is voor decor, rekwisieten, licht en geluid.</translation>
+        <translation>最終負責風景，道具，燈光和聲音的人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>Television director</source>
-        <translation>Televisieregisseur</translation>
+        <translation>電視總監</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>A director responsible for the general management and supervision of a television program.</source>
-        <translation>Een regisseur die verantwoordelijk is voor de algemene leiding van en toezicht op een televisieprogramma.</translation>
+        <translation>負責電視節目總體管理和監督的主任</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>Television producer</source>
-        <translation>Televisieproducent</translation>
+        <translation>電視製作人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>A producer responsible for most of the business aspects of a television program.</source>
-        <translation>Een producent die verantwoordelijk is voor het merendeel van de zakelijke aspecten van een televisieprogramma.</translation>
+        <translation>負責電視節目的大部分業務方面的製片人。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>Thesis advisor</source>
-        <translation>Promotor/scriptiebegeleider</translation>
+        <translation>論文顧問</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
-        <translation>Te gebruiken voor een persoon onder wiens toezicht een promovendus/student een scriptie, verhandeling, of proefschrift ontwikkelt en presenteert.</translation>
+        <translation>用於一名在學位候選人進行監督的人員，並提供論文，記述或論文文本.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>Transcriber</source>
-        <translation>Transcribeerder</translation>
+        <translation>抄錄員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
-        <translation>Te gebruiken voor een persoon die een handgeschreven of getypte kopie maakt van origineel materiaal, met inbegrip van gedicteerd of mondeling opgenomen materiaal. Gebruik voor makers van pen-facsimile&apos;s de rol &quot;vervaardiger facsimile&quot; [fac].</translation>
+        <translation>從原始材料（包括由口頭或口頭記錄的材料）準備手寫或打字副本的人員。 對於筆式傳真機的製造商，請使用Facsimilist [fac]。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>Translator</source>
-        <translation>Vertaler</translation>
+        <translation>翻譯家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die een tekst omzet van de ene taal in een andere taal, of van een oudere vorm van een taal in de moderne vorm.</translation>
+        <translation>將文本從一種語言呈現到另一種語言或從較舊形式的語言轉換為現代形式的個人或組織</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Type designer</source>
-        <translation>Letterontwerper</translation>
+        <translation>類型設計師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
-        <translation>Te gebruiken voor een persoon of organisatie die het lettertype heeft ontwikkeld dat gebruikt wordt in een bepaald werk.</translation>
+        <translation>用於設計特定項目中使用的類型面孔的人員或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>Typographer</source>
-        <translation>Typograaf</translation>
+        <translation>排版師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die primair verantwoordelijk is voor keuze en gebruik van het lettertype van een werk. Als de typograaf ook verantwoordelijk is voor andere aspecten van het grafisch ontwerp van een boek (bijv. &quot;boekontwerper&quot; [bkd]), dan kunnen codes voor beide functies nodig zijn.</translation>
+        <translation>用於主要負責項目中使用的類型的選擇和排列的人員或組織。 如果打字人員還負責圖書設計的其他方面 (例如書籍設計師[bkd])，則可能需要為兩種功能編寫代碼。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="364"/>
         <source>University place</source>
-        <translation>Universiteitsplaats</translation>
+        <translation>大學地點</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="364"/>
         <source>A place where a university that is associated with a resource is located, for example, a university where an academic dissertation or thesis was presented.</source>
-        <translation>Een plaats waar een aan het werk verbonden universiteit is gevestigd, bijvoorbeeld een universiteit waar een academisch proefschrift of scriptie werd voorgelegd.</translation>
+        <translation>與資源相關聯的大學所在的地方，例如提供學術論文或論文的大學。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="365"/>
         <source>Videographer</source>
-        <translation>Videograaf</translation>
+        <translation>攝影師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="365"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die verantwoordelijk is voor een videoproductie, zoals de beeldopname van een theaterproductie in tegenstelling tot een commerciële film. De videograaf kan de camera bedienen of kan toezicht houden op één of meer cameramannen. Niet te verwarren met de cameraman.</translation>
+        <translation>用於負責視頻製作的個人或組織，例如 與商業電影相反的舞臺製作的錄像. 攝像師可以是相機操作者，也可以監督一個或多個相機操作者。 不要與攝影師混淆.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="366"/>
         <source>Voice actor</source>
-        <translation>Stemacteur</translation>
+        <translation>配音演員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="366"/>
         <source>An actor contributing to a resource by providing the voice for characters in radio and audio productions and for animated characters in moving image works, as well as by providing voice overs in radio and television commercials, dubbed resources, etc.</source>
-        <translation>Een acteur die bijdraagt aan een werk door het voorzien van een stem aan personages in radio- en audioproducties en aan animatiefiguren in bewegende beeldwerken, maar ook door middel van een commentaarstem in radio- en televisiereclame, nasynchronisatie, e.d.</translation>
+        <translation>通過在無線電和音頻製作中為角色提供語音，以及通過在移動圖像作品中為動畫人物提供聲音，以及通過在廣播電視廣告，被稱為資源等方面提供語音來貢獻資源的演員。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="367"/>
         <source>Witness</source>
-        <translation>Getuige</translation>
+        <translation>見證人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="367"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
-        <translation>Te gebruiken voor een persoon die het waarheidsgehalte van een gebeurtenis of handeling verifieert.</translation>
+        <translation>用於驗證事件或行為的真實性的人。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="368"/>
         <source>Wood-engraver</source>
-        <translation>Houtgraveur</translation>
+        <translation>木頭雕刻家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="368"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die afdrukken maakt door het snijden van de afbeelding in reliëf op de kopse kant van een houten blok.</translation>
+        <translation>用於通過在木塊末端穀物上切割圖像進行打印的人員或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="369"/>
         <source>Woodcutter</source>
-        <translation>Houtsnijder</translation>
+        <translation>木刻工</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="369"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die afdrukken maakt door het snijden van de afbeelding in reliëf op het langshout van een houten blok.</translation>
+        <translation>用於通過在木塊的木板側切割圖像而進行打印的人員或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="370"/>
         <source>Writer of accompanying material</source>
-        <translation>Schrijver van begeleidend materiaal</translation>
+        <translation>伴隨材料的作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="370"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
-        <translation>Te gebruiken voor een persoon of organisatie die belangrijk materiaal schrijft ter begeleiding van een geluidsopname of ander audiovisueel materiaal.</translation>
+        <translation>用於撰寫伴隨錄音或其他視聽材料的重要材料的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="371"/>
         <source>Writer of added commentary</source>
-        <translation>Schrijver van toegevoegd commentaar</translation>
+        <translation>添加評論作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="371"/>
         <source>A person, family, or organization contributing to an expression of a work by providing an interpretation or critical explanation of the original work.</source>
-        <translation>Een persoon, familie of organisatie die bijdraagt aan de uiting van een werk door het geven van uitleg of kritische verklaring van het oorspronkelijke werk.</translation>
+        <translation>一個人，家庭或組織通過提供對原作的解釋或批評性解釋來促進工作的表達。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="372"/>
         <source>Writer of added lyrics</source>
-        <translation>Schrijver van toegevoegde liedtekst</translation>
+        <translation>加入歌詞者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="372"/>
         <source>A writer of words added to an expression of a musical work. For lyric writing in collaboration with a composer to form an original work, see lyricist.</source>
-        <translation>Een schrijver van woorden toegevoegd aan een uiting van een muzikaal werk. Voor het schrijven van een liedtekst in samenwerking met een componist om een origineel werk te vormen, zie &quot;liedschrijver&quot; [lyr].</translation>
+        <translation>一個作家的詞語添加到一個表達的音樂作品。 為了與作曲家合作撰寫原創作品的抒情作品，請參見歌詞。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="373"/>
         <source>Writer of added text</source>
-        <translation>Schrijver van toegevoegde tekst</translation>
+        <translation>文字添加作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="373"/>
         <source>A person, family, or organization contributing to a non-textual resource by providing text for the non-textual work (e.g., writing captions for photographs, descriptions of maps.)</source>
-        <translation>Een persoon, familie of organisatie die bijdraagt aan een niet-tekstueel werk door het verschaffen van tekst voor het niet-tekstueel werk (bijv. het schrijven van bijschriften voor foto&apos;s, beschrijvingen van kaarten.)</translation>
+        <translation>通過為非文字作品提供文字 (例如，為照片撰寫字幕，地圖描述)，為非文字資源作出貢獻的個人，家庭或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="374"/>
         <source>Writer of introduction</source>
-        <translation>Schrijver van inleiding</translation>
+        <translation>介紹作家</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="374"/>
         <source>A person, family, or organization contributing to a resource by providing an introduction to the original work.</source>
-        <translation>Een persoon, familie of organisatie die bijdraagt aan een werk door het verschaffen van een inleiding op het oorspronkelijke werk.</translation>
+        <translation>通過介紹原創作品，為資源貢獻一個人，家庭或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="375"/>
         <source>Writer of preface</source>
-        <translation>Schrijver van voorwoord</translation>
+        <translation>序言作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="375"/>
         <source>A person, family, or organization contributing to a resource by providing a preface to the original work.</source>
-        <translation>Een persoon, familie of organisatie die bijdraagt aan een werk door het verschaffen van een voorwoord voor het oorspronkelijke werk.</translation>
+        <translation>通過提供原始作品的序言，為資源貢獻的人，家庭或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="376"/>
         <source>Writer of supplementary textual content</source>
-        <translation>Schrijver van aanvullende tekstuele inhoud</translation>
+        <translation>補充文字內容作者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="376"/>
         <source>A person, family, or organization contributing to a resource by providing supplementary textual content (e.g., an introduction, a preface) to the original work.</source>
-        <translation>Een persoon, familie of organisatie die bijdraagt aan een werk door het verschaffen van aanvullende tekstuele inhoud (bijv. een inleiding, een voorwoord) voor het oorspronkelijke werk.</translation>
+        <translation>通過向原始作品提供補充文本內容 (例如介紹，序言)，為資源貢獻的個人，家庭或組織。</translation>
     </message>
 </context>
 <context>
@@ -12080,42 +12029,42 @@ Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaks
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="20"/>
         <source>MetaData Editor</source>
-        <translation>Metagegevens bewerken</translation>
+        <translation>中繼資料編輯器</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="52"/>
         <source>Add a new metadata element.</source>
-        <translation>Een nieuw metagegeven toevoegen.</translation>
+        <translation>加入一個新的中繼資料元素。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="55"/>
         <source>Add Metadata</source>
-        <translation>Metagegeven toevoegen</translation>
+        <translation>加入中繼資料</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="62"/>
         <source>Remove a metadata element or property.</source>
-        <translation>Een metagegeven of eigenschap verwijderen.</translation>
+        <translation>移除一個中繼資料元素或屬性。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="65"/>
         <source>Remove</source>
-        <translation>Verwijderen</translation>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="72"/>
         <source>Add a new property or attribute to an existing metadata element.</source>
-        <translation>Een nieuwe eigenschap toevoegen aan een bestaand metagegeven.</translation>
+        <translation>加入新屬性到已存在的中繼資料元素。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="75"/>
         <source>Add Property</source>
-        <translation>Eigenschap toevoegen</translation>
+        <translation>加入屬性</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="97"/>
         <source>Move selected metadata element or property up.</source>
-        <translation>Geselecteerd metagegeven of eigenschap omhoog verplaatsen.</translation>
+        <translation>將選取的中繼資料元素或屬性上移。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="100"/>
@@ -12126,628 +12075,628 @@ Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaks
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="110"/>
         <source>Move selected metadata element or property down.</source>
-        <translation>Geselecteerd metagegeven of eigenschap omlaag verplaatsen.</translation>
+        <translation>將選取的中繼資料元素或屬性下移。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="148"/>
         <source>Double-click in cell to edit its value.  Minimum metadata consists of main language, title, and at least one creator.</source>
-        <translation>Klik dubbel in de cel om de waarde te bewerken. De minimaal benodigde metagegevens zijn taal, titel en maker.</translation>
+        <translation>在儲存格中按兩下來編輯它的值。中繼資料至少要包括主要語言、標題和至少一個建立者。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="172"/>
         <source>Use OK to commit your metdata changes to the epub, otherwise use Cancel.</source>
-        <translation>Gebruik &quot;OK&quot; om de wijzigingen in de metagegevens aan te brengen, gebruik anders &quot;Annuleren&quot;.</translation>
+        <translation>按 OK 來確認對 epub 的中繼資料的變更，否則選擇 Cancel。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
         <source>Name</source>
-        <translation>Naam</translation>
+        <translation>名稱</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
         <source>Value</source>
-        <translation>Waarde</translation>
+        <translation>值</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="171"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="234"/>
         <source>[ISBN here]</source>
-        <translation>[Plaats hier de ISBN]</translation>
+        <translation>[這裡填入 ISBN]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="175"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="239"/>
         <source>[ISSN here]</source>
-        <translation>[Plaats hier de ISSN]</translation>
+        <translation>[這裡填入 ISSN]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="179"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="244"/>
         <source>[DOI here]</source>
-        <translation>[Plaats hier de DOI]</translation>
+        <translation>[這裡填入 DOI]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="183"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="249"/>
         <source>[UUID here]</source>
-        <translation>[Plaats hier de UUID]</translation>
+        <translation>[這裡填入 UUID]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="194"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="267"/>
         <source>[Author name here]</source>
-        <translation>[Plaats hier de naam van de auteur]</translation>
+        <translation>[這裡填入作者名稱]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="200"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="272"/>
         <source>[Creator name here]</source>
-        <translation>[Plaats hier de naam van de maker]</translation>
+        <translation>[這裡填入製作者名稱]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="204"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="276"/>
         <source>[Contributor name here]</source>
-        <translation>[Plaats hier de naam van de bijdrager]</translation>
+        <translation>[這裡填入貢獻者名稱]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="254"/>
         <source>[Custom identifier here]</source>
-        <translation>[Plaats specifieke identificatiecode hier]</translation>
+        <translation>[這裡填入自訂識別項]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="443"/>
         <source>[Place value here]</source>
-        <translation>[Plaats hier de waarde]</translation>
+        <translation>[這裡填入值]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="478"/>
         <source>[Your value here]</source>
-        <translation>[Plaats hier de waarde]</translation>
+        <translation>[這裡填入你的值]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="542"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="644"/>
         <source>Author</source>
-        <translation>Auteur</translation>
+        <translation>作者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="542"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="644"/>
         <source>Represents a primary author of the book or publication</source>
-        <translation>Een hoofdauteur van het boek of de publicatie</translation>
+        <translation>代表書籍或出版物的主要作者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="543"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="648"/>
         <source>Subject</source>
-        <translation>Onderwerp</translation>
+        <translation>主題</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="543"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="648"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
-        <translation>Een willekeurig gekozen uitdrukking of trefwoord die het betreffende onderwerp beschrijft. Gebruik meerdere &quot;onderwerp&quot;-elementen als dat nodig is.</translation>
+        <translation>描述主題的任意短語或關鍵字。如有需要，請使用多個「主題」元素。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="544"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <source>Description</source>
-        <translation>Beschrijving</translation>
+        <translation>描述</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="544"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <source>Description of the publication&apos;s content.</source>
-        <translation>Beschrijving van de inhoud van de publicatie.</translation>
+        <translation>出版物內容的說明。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="545"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
         <source>Publisher</source>
-        <translation>Uitgever</translation>
+        <translation>出版商</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="545"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
         <source>An entity responsible for making the publication available.</source>
-        <translation>Een persoon of organisatie die verantwoordelijk is voor het beschikbaar maken van de publicatie.</translation>
+        <translation>負責提供該出版物的實體。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="546"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="651"/>
         <source>Date: Publication</source>
-        <translation>Datum: publicatie</translation>
+        <translation>日期：出版</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="546"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="651"/>
         <source>The date of publication.</source>
-        <translation>De datum van publicatie.</translation>
+        <translation>出版日期。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="547"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
         <source>Date: Creation</source>
-        <translation>Datum: aanmaak</translation>
+        <translation>日期：創作</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="547"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
         <source>The date of creation.</source>
-        <translation>De datum van aanmaak.</translation>
+        <translation>創作日期。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="548"/>
         <source>Date: Issued</source>
-        <translation>Datum: uitgegeven</translation>
+        <translation>日期：發行</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="548"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="653"/>
         <source>The date of modification.</source>
-        <translation>De datum van wijziging.</translation>
+        <translation>修改日期。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="653"/>
         <source>Date: Modification</source>
-        <translation>Datum: wijziging</translation>
+        <translation>日期：修改</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
         <source>Type</source>
-        <translation>Type</translation>
+        <translation>類型</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
         <source>Used to indicate that the given EPUB Publication is of a specialized type..</source>
-        <translation>Wordt gebruikt om aan te gegeven dat de onderhavige EPUB-publicatie van een specifiek type is.</translation>
+        <translation>用於表示指定的 EPUB 出版物是專門的類型。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="551"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
         <source>Format</source>
-        <translation>Formaat</translation>
+        <translation>格式</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="551"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
-        <translation>Het mediatype of de afmetingen van de publicatie. Het is goed gebruik om een waarde te gebruiken uit een gecontroleerd vocabulaire (bijv. MIME-mediatypen).</translation>
+        <translation>出版物的媒體類型或尺寸。最佳做法是使用來自受控詞彙表的值（例如 MIME 媒體類型）。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="552"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="656"/>
         <source>Source</source>
-        <translation>Bron</translation>
+        <translation>來源</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="552"/>
         <source>Identifies the related resource(s) from which this EPUB Publication is derived.</source>
-        <translation>Identificeert de verwante werk(en) waarvan deze EPUB-publicatie is afgeleid.</translation>
+        <translation>標識從該 EPUB 出版物獲得的相關資源。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="553"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="657"/>
         <source>Language</source>
-        <translation>Taal</translation>
+        <translation>語言</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="553"/>
         <source>Specifies the language of the publication. Select from the dropdown menu</source>
-        <translation>Geeft de taal van de publicatie aan. Te selecteren in de vervolgkeuzelijst.</translation>
+        <translation>指定出版物的語言。從下拉選單中選擇</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="658"/>
         <source>Relation</source>
-        <translation>Verwijzing</translation>
+        <translation>關聯</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="658"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
-        <translation>Een verwijzing naar een verwant werk. Aanbevolen goed gebruik is om het verwante werk te identificeren door middel van een tekenreeks of nummer volgens een formeel identificatiesysteem.</translation>
+        <translation>對相關資源的參照。推薦的最佳做法是通過符合正式識別系統的字串或數字來識別參考的資源。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="555"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="659"/>
         <source>Coverage</source>
-        <translation>Reikwijdte</translation>
+        <translation>範圍</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="555"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="659"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
-        <translation>De mate of omvang van de inhoud van de inhoud van de publicatie.</translation>
+        <translation>出版物內容的範圍。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="660"/>
         <source>Rights</source>
-        <translation>Rechten</translation>
+        <translation>權利</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="660"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
-        <translation>Informatie over auteursrecht, handelsmerken en andere rechten die betrekking hebben op de publicatie. Afwezigheid van het element &quot;Rechten&quot; veronderstelt niet dat er geen rechten met betrekking tot de publicatie worden gehouden.</translation>
+        <translation>關於出版物中所擁有權利的資訊。權利資訊通常包括智慧財產權（IPR），版權和各種產權。如果權利要素不存在，則不得對該出版物中或在出版物上持有的任何權利做出假設。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="557"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="646"/>
         <source>Creator</source>
-        <translation>Maker</translation>
+        <translation>創作者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="557"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>De naam van een persoon, organisatie e.d. die verantwoordelijk is voor de totstandkoming van de inhoud van een EPUB-publicatie. De eigenschap &quot;rol&quot; kan aan dit metagegeven toegevoegd worden om aan te geven welke functie de maker gespeeld heeft bij de totstandkoming van de inhoud.</translation>
+        <translation>表示負責建立 EPUB 出版物內容的人員和組織等的名稱。role 屬性可以附加到元素以表示建立者在建立內容時扮演的角色。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="647"/>
         <source>Contributor</source>
-        <translation>Bijdrager</translation>
+        <translation>捐助者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>De naam van een persoon, organisatie e.d. die een ondergeschikte rol gespeeld heeft bij de totstandkoming van de inhoud van een EPUB-publicatie. De eigenschap &quot;rol&quot; kan aan dit metagegeven toegevoegd worden om aan te geven welke functie de bijdrager gespeeld heeft bij de totstandkoming van de inhoud.</translation>
+        <translation>表示在 EPUB 出版物的內容建立中起次要作用的人員和組織等的名稱。role 屬性可以附加到元素以表示建立者在建立內容時扮演的角色。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="559"/>
         <source>Belongs to Collection</source>
-        <translation>Behoort tot de reeks</translation>
+        <translation>作品集</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="559"/>
         <source>Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.</source>
-        <translation>Identificeert de naam van een reeks waartoe de EPUB-publicatie behoort. Een EPUB-publicatie kan behoren tot één of meer reeksen.</translation>
+        <translation>標識 EPUB 出版物所屬的作品集的名稱。EPUB 出版物可能屬於一個或多個作品集。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="560"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="645"/>
         <source>Title</source>
-        <translation>Titel</translation>
+        <translation>標題</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="560"/>
         <source>A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.</source>
-        <translation>Een titel van de publicatie. Een publicatie mag slechts één hoofdtitel hebben, maar kan tal van andere soorten titels hebben. Deze omvatten de typen: hoofdtitel, ondertitel, verkorte titel, titel van reeks, uitgavetitel en uitgebreide titel.</translation>
+        <translation>出版物的標題。出版物可能只有一個主要標題，但可能有許多其他標題類型。這些包括主題，副標題，簡短，收藏，版本和擴展的標題類型。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
         <source>Identifier: DOI</source>
-        <translation>Identificatiecode: DOI </translation>
+        <translation>識別碼：DOI</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
         <source>Digital Object Identifier associated with the given EPUB publication.</source>
-        <translation>Digital Object Identifier gekoppeld aan de onderhavige EPUB-publicatie.</translation>
+        <translation>與指定 EPUB 出版物相關的數位物件識別碼。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
         <source>Identifier: ISBN</source>
-        <translation>Identificatiecode: ISBN</translation>
+        <translation>識別碼：ISBN</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
         <source>International Standard Book Number associated with the given EPUB publication.</source>
-        <translation>Internationaal Standaard Boeknummer gekoppeld aan de onderhavige EPUB-publicatie.</translation>
+        <translation>與指定 EPUB 出版物相關的國際標準書號。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="563"/>
         <source>Identifier: ISSN</source>
-        <translation>Identificatiecode: ISSN</translation>
+        <translation>識別碼：ISSN</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="563"/>
         <source>International Standard Serial Number associated with the given EPUB publication.</source>
-        <translation>International Standard Serial Number gekoppeld aan de onderhavige EPUB-publicatie.</translation>
+        <translation>與指定 EPUB 出版物相關的國際標準期刊號。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
         <source>Identifier: UUID</source>
-        <translation>Identificatiecode: UUID</translation>
+        <translation>識別碼：UUID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
         <source>A Universally Unique Idenitifier generated for this EPUB publication.</source>
-        <translation>Een Universally Unique Idenitifier (algemeen unieke identificatiecode) gegenereerd voor deze EPUB-publication.</translation>
+        <translation>為此 EPUB 出版物產生的通用唯一識別碼。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
         <source>Custom Element</source>
-        <translation>Specifiek gegeven</translation>
+        <translation>自訂元素</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
         <source>[Custom element]</source>
-        <translation>[Specifiek gegeven]</translation>
+        <translation>[自訂元素]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
         <source>An empty metadata element you can modify.</source>
-        <translation>Een leeg metagegeven dat u zelf kunt aanpassen.</translation>
+        <translation>可以編輯的空的中繼資料元素。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="593"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="696"/>
         <source>Id Attribute</source>
-        <translation>Id eigenschap</translation>
+        <translation>ID 屬性</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="593"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="696"/>
         <source>Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.</source>
-        <translation>Optioneel, unieke korte identificatiecode die als eigenschap in het pakketdocument (opf) wordt gebruikt.</translation>
+        <translation>選填的、通常為簡短的唯一識別碼字串，用作 (opf) 文件封裝中的屬性。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="594"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="697"/>
         <source>XML Language</source>
-        <translation>XML taal</translation>
+        <translation>XML 語言</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="594"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:langauge, dc:date, or dc:identifier metadata elements.</source>
-        <translation>Optionele eigenschap die de taal van het metagegeven aangeeft. Gebruikt dezelfde codes als het metagegeven &quot;taal&quot;. Niet bedoeld voor gebruik met de metagegevens &quot;taal&quot;, &quot;datum&quot; en &quot;identificatiecode&quot;.</translation>
+        <translation>選填的、指定語言的屬性。使用與 dc:language 相同的代碼。不適用於 dc:langauge，dc:date 或 dc:identifier 中繼資料元素。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="595"/>
         <source>Text Direction: rtl</source>
-        <translation>Tekstrichting: van rechts naar links</translation>
+        <translation>文字方向：rtl</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="595"/>
         <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>Optionele eigenschap &quot;tekstrichting&quot; voor dit metagegeven. Van rechts naar links (rtl). Niet voor gebruik met het metagegeven &quot;dc:language&quot;, &quot;dc:date&quot; of &quot;dc:identifier&quot;.</translation>
+        <translation>此中繼資料項目文字方向的選填屬性。從右到左 (rtl)。不適用於 dc:langauge，dc:date 或 dc:identifier 中繼資料元素。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="596"/>
         <source>Text Direction: ltr</source>
-        <translation>Tekstrichting: van links naar rechts</translation>
+        <translation>文字方向：ltr</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="596"/>
         <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>Optionele eigenschap &quot;tekstrichting&quot; voor dit metagegeven. Van links naar rechts (ltr). Niet voor gebruik met het metagegeven &quot;dc:language&quot;, &quot;dc:date&quot; of &quot;dc:identifier&quot;.</translation>
+        <translation>此中繼資料項目文字方向的選填屬性。從左到右 (ltr)。不適用於 dc:langauge，dc:date 或 dc:identifier 中繼資料元素。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="597"/>
         <source>Title Type: main</source>
-        <translation>Soort titel: hoofdtitel</translation>
+        <translation>標題類型：主標題</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="597"/>
         <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
-        <translation>Geeft aan dat de gekoppelde titel de hoofdtitel van de publicatie is. Er mag maar één hoofdtitel zijn.</translation>
+        <translation>表示關聯的標題是此出版物的主標題。只能有一個主標題。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="598"/>
         <source>Title Type: subtitle</source>
-        <translation>Soort titel: ondertitel</translation>
+        <translation>標題類型：副標題</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="598"/>
         <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
-        <translation>Geeft aan dat de gekoppelde titel een ondertitel van de publicatie is, als deze bestaat.</translation>
+        <translation>表示關聯的標題是此出版物的副標題，如果有的話。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="599"/>
         <source>Title Type: short</source>
-        <translation>Soort titel: verkorte titel</translation>
+        <translation>標題類型：短標題</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="599"/>
         <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
-        <translation>Geeft aan dat de gekoppelde titel een verkorte titel van de publicatie is, als deze bestaat.</translation>
+        <translation>表示關聯的標題是此出版物的縮短的標題，如果有的話。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="600"/>
         <source>Title Type: collection</source>
-        <translation>Soort titel: serie</translation>
+        <translation>標題類型：作品集</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="600"/>
         <source>Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.</source>
-        <translation>Geeft aan dat de gekoppelde titel de titel is van een reeks waartoe deze publicatie behoort, als deze bestaat.</translation>
+        <translation>表示關聯的標題是包含此出版物所屬的作品集的標題，如果有的話。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="601"/>
         <source>Title Type: edition</source>
-        <translation>Soort titel: uitgave</translation>
+        <translation>標題類型：版本</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="601"/>
         <source>Indicates that the associated title is an edition title for this publications if one exists.</source>
-        <translation>Geeft aan dat de gekoppelde titel een titel van de uitgave of druk van deze publicatie is, als deze bestaat.</translation>
+        <translation>表示關聯的標題是此出版物的版本標題，如果有的話。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="602"/>
         <source>Title Type: expanded</source>
-        <translation>Soort titel: uitgebreid</translation>
+        <translation>標題類型：擴展標題</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="602"/>
         <source>Indicates that the associated title is an expanded title for this publication if one exists.</source>
-        <translation>Geeft aan dat de gekoppelde titel een uitgebreide titel voor deze publicatie is, als deze bestaat.</translation>
+        <translation>表示關聯的標題是此出版物的擴展標題，如果有的話。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="603"/>
         <source>Alternate Script</source>
-        <translation>Alternatieve tekst</translation>
+        <translation>替代的腳本</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="603"/>
         <source>Provides an alternate expression of the associated property value in a language and script identified by an alternate-language attribute.</source>
-        <translation>Bevat een alternatieve tekst voor het gekoppelde metagegeven in een taal die geïdentificeerd wordt door de eigenschap &quot;alternatieve taal&quot;.</translation>
+        <translation>在由替代語言屬性標識的語言和腳本中提供關聯屬性值的替代表達式。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="604"/>
         <source>Alternate Language</source>
-        <translation>Alternatieve taal</translation>
+        <translation>替代語言</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="604"/>
         <source>Language code for the language used in the associated alternate-script property value.</source>
-        <translation>Taalcode voor de taal die wordt gebruikt in de gekoppelde eigenschap &quot;alternatieve tekst&quot;.</translation>
+        <translation>在相關的替代腳本的屬性中的可使用的語言代碼。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="605"/>
         <source>Collection Type: set</source>
-        <translation>Soort reeks: set</translation>
+        <translation>作品集類型：集合</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="605"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
-        <translation>Eigenschap die gebruikt wordt voor het metagegeven &quot;behoort tot de reeks&quot;. Geeft de vorm of de aard van de verzameling aan. De waarde &quot;set&quot; wordt gebruikt voor een eindige reeks werken die samen een enkele intellectuele eenheid vormen; kenmerkend is dat deze werken samen worden uitgebracht en kunnen worden verkocht als een eenheid.</translation>
+        <translation>用於從屬集合的屬性。表示集合的形式或性質。值「集合」應用於組成單個智慧財產權單位的有限作品集；通常一起發行，並能夠作為一個單位出售。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="606"/>
         <source>Collection Type: series</source>
-        <translation>Soort reeks: serie</translation>
+        <translation>作品類型：系列</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="606"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
-        <translation>Eigenschap die gebruikt wordt voor het metagegeven &quot;behoort tot de reeks&quot;. Geeft de vorm of de aard van de verzameling aan. De waarde &quot;serie&quot; wordt gebruikt voor een samenhangende reeks van werken die officieel geïdentificeerd zijn als groep; kenmerkend voor een serie is dat de reeks een open einde heeft en de werken afzonderlijk in de loop van de tijd worden uitgegeven.</translation>
+        <translation>用於從屬集合的屬性。表示集合的形式或性質。值「系列」應用於正式識別為一組的相關作品序列；通常是開放式的，隨著時間的推移單獨發行。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="607"/>
         <source>Display Sequence</source>
-        <translation>Volgnummer weergave</translation>
+        <translation>顯示順序</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="607"/>
         <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
-        <translation>Geeft het volgnummer aan waarin de huidige eigenschap van het metagegeven ten opzichte van overeenkomstige eigenschappen wordt weergegeven (bijv. om de volgorde aan te geven waarmee meerdere titels of meerdere auteurs weergegeven moeten worden).</translation>
+        <translation>表示目前屬性相對於相同的中繼資料屬性顯示的數字位置（例如，表示呈現多個標題或多個作者的順序）。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="608"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="698"/>
         <source>File as</source>
-        <translation>Alfabetiseren als</translation>
+        <translation>歸檔為</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="608"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="698"/>
         <source>Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.</source>
-        <translation>Bevat de genormaliseerde vorm van de gekoppelde eigenschap voor sortering. Wordt veelal gebruikt voor de namen van auteur, maker en bijdrager.</translation>
+        <translation>提供用於排序的關聯屬性的標準化形式。通常與作者、建立者和貢獻者名稱一起使用。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="609"/>
         <source>Group Position</source>
-        <translation>Volgnummer</translation>
+        <translation>群組位置</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="609"/>
         <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
-        <translation>Geeft het volgnummer aan van de EPUB-publicatie ten opzichte van andere werken binnen dezelfde groep (al dan niet EPUB-publicaties).</translation>
+        <translation>表示 EPUB 出版物相對於屬於同一組的其他作品（無論是否是所有 EPUB 出版物）的數字位置。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
         <source>Identifier Type</source>
-        <translation>Type identificatiecode</translation>
+        <translation>識別碼類型</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
         <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
-        <translation>De vorm of de aard van een identificatiecode. Als het type identificatiecode wordt ontleend uit een codelijst of een andere officiële opsomming, dan dient tevens de eigenschap &quot;schema&quot; worden gebruikt om de bron van de code te identificeren.</translation>
+        <translation>表示識別碼的形式或性質。當識別碼類型值從代碼列表或其他正式枚舉中抽取時，應使用配置屬性來標識其來源。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
         <source>Meta Authority</source>
-        <translation>Bron voor metagegevens</translation>
+        <translation>中繼資料管理機構</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
         <source>Identifies the party or authority responsible for an instance of package metadata.</source>
-        <translation>De partij of instantie die verantwoordelijk is voor een groep metagegevens.</translation>
+        <translation>標識負責中繼資料封裝實體的機構。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="612"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="699"/>
         <source>Role</source>
-        <translation>Rol</translation>
+        <translation>角色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="612"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="699"/>
         <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
-        <translation>Beschrijft de aard van het werk uitgevoerd door een maker of bijdrager (bijv. dat de persoon de auteur of redacteur van een werk is). Wordt kenmerkend gebruikt met het schema &quot;marc:relators&quot; voor een gecontroleerd vocabulaire.</translation>
+        <translation>描述建立者或貢獻者所進行的工作的性質（例如，該人是作品的作者或編輯）。通常用於控制詞彙的 marc:relators 配置。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="613"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="700"/>
         <source>Scheme</source>
-        <translation>Schema</translation>
+        <translation>配置</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="613"/>
         <source>This attribute is typically added to dc:identifier, dc:source: dc:creator, or dc:contributor to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
-        <translation>Deze eigenschap wordt kenmerkend toegevoegd aan de metagegevens &quot;identificatiecode&quot;, &quot;bron&quot;, &quot;maker&quot; en &quot;bijdrager&quot; om het gecontroleerd vocabulaire dat gebruikt wordt aan te geven. (Bijv. &quot;marc: relators&quot; voor geldige waarden voor de eigenschap &quot;rol&quot;.</translation>
+        <translation>此屬性通常加到 dc:identifier、dc:source、dc:creator 或 dc:contributor 以表示所使用的受控詞彙系統（例如 marc:relators 來指定角色屬性的有效值）。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="614"/>
         <source>Source of Pagination</source>
-        <translation>Bron van paginering</translation>
+        <translation>分頁來源</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="614"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
-        <translation>Eigenschap die aan het metagegeven &quot;bron&quot; wordt toegevoegd om aan te geven dat de paginering is overgenomen uit de bron. Deze eigenschap zou moeten worden meegegeven als in de inhoud paginaovergangen zijn gedefinieerd en de gedrukte bron bekend is. De enige geldige waarde is &quot;pagination&quot;.</translation>
+        <translation>表示在 EPUB 出版物的指定 Rendition 中保留的已修改源資源的獨特方面。此規範定義分頁值，以表示引用的來源元素是內容中定義的分頁屬性的來源。每當包括分頁並且已知列印來源時，應設定此值。有效值：分頁。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>Custom Property</source>
-        <translation>Specifieke eigenschap</translation>
+        <translation>自訂屬性</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>[Custom property/attribute]</source>
-        <translation>[Specifieke eigenschap]</translation>
+        <translation>[自訂屬性]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>An empty metadata property or attribute you can modify.</source>
-        <translation>Een lege eigenschap voor metagegevens die u kunt aanpassen.</translation>
+        <translation>一個可以編輯的空的中繼資料屬性。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="645"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
-        <translation>De hoofdtitel van de EPUB-publicatie. Er mag maar één titel zijn.</translation>
+        <translation>epub 出版物的主標題。只能有一個主標題。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="646"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>De naam van een persoon, organisatie, e.d. die verantwoordelijk is voor de totstandbrenging  van de inhoud van een EPUB-publicatie. De eigenschappen &quot;rol&quot;, &quot;schema&quot; en &quot;alfabetiseren als&quot; kan worden toegevoegd aan het metagegeven om de functie aan te geven die de maker gespeeld heeft bij de totstandkoming van de inhoud.</translation>
+        <translation>表示負責建立 EPUB 出版物內容的人員、組織等的名稱。屬性 opf:role, opf:scheme 和opf:file-as 可以附加到元素以表示建立者在建立內容時扮演的角色。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="647"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
-        <translation>De naam van een persoon, organisatie e.d. die een ondergeschikte rol gespeeld heeft bij de totstandkoming van de inhoud van een EPUB-publicatie.</translation>
+        <translation>代表在建立 EPUB 出版物的內容中發揮次要作用的人、組織等的名稱</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
         <source>The nature or genre of the content of the resource.</source>
-        <translation>De aard of het genre van de inhoud van het werk.</translation>
+        <translation>資源內容的性質或類型。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="656"/>
         <source>A reference to a resource from which the present publication is derived.</source>
-        <translation>Een verwijzing naar een werk waarvan de onderhavige publicatie is afgeleid.</translation>
+        <translation>衍生出本出版物的資源的參照。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="657"/>
         <source>A language used in the publication. Choose a RFC5646 value.</source>
-        <translation>Een taal die wordt gebruikt in de publicatie. Kies een waarde volgens RFC5646.</translation>
+        <translation>出版物所使用的語言。使用 RFC5646 值。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="661"/>
@@ -12755,107 +12704,107 @@ Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaks
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="664"/>
         <source>Identifier</source>
-        <translation>Identificatiecode</translation>
+        <translation>識別碼</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="661"/>
         <source>Digital Object Identifier</source>
-        <translation>Digital Object Identifier</translation>
+        <translation>數位物件識別碼</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="662"/>
         <source>International Standard Book Number</source>
-        <translation>Internationaal Standaard Boeknummer</translation>
+        <translation>國際標準書號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
         <source>International Standard Serial Number</source>
-        <translation>International Standard Serial Number</translation>
+        <translation>國際標準期刊號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="664"/>
         <source>Universally Unique Identifier</source>
-        <translation>Universally Unique Identifier</translation>
+        <translation>通用唯一識別碼</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="665"/>
         <source>Identifier: Custom</source>
-        <translation>Identificatiecode: specifiek</translation>
+        <translation>識別碼：自訂</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="665"/>
         <source>A custom identifier based on a specified scheme</source>
-        <translation>Een specifieke identificatiecode gebaseerd op een aangegeven schema</translation>
+        <translation>基於指定配置的自訂識別碼</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
         <source>Series</source>
-        <translation>Reeks</translation>
+        <translation>系列</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
         <source>Series title or name (from calibre)</source>
-        <translation>Titel of naam van de reeks/serie (van Calibre).</translation>
+        <translation>系列標題或名稱（從 calibre）</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
         <source>Series Index</source>
-        <translation>Aflevering</translation>
+        <translation>系列索引</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
         <source>Index of this book in the series (from calibre)</source>
-        <translation>Nummer van de aflevering in de reeks (van Calibre)</translation>
+        <translation>在這個系列中這本書的索引（從 calibre）</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
         <source>Title for Sorting</source>
-        <translation>Sorteertitel</translation>
+        <translation>用於排序的標題</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
         <source>Version of ebook title to use for sorting(from calibre)</source>
-        <translation>Versie van titel van e-boek die gebruikt wordt om te sorteren (van Calibre)</translation>
+        <translation>用於排序的電子書標題版本（從 calibre）</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
         <source>An empty metadata element for you to modify</source>
-        <translation>Een leeg metagegeven dat u zelf kunt aanpassen</translation>
+        <translation>可供編輯的空的中繼資料元素</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="697"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>Optionele eigenschap die de taal van het metagegeven aangeeft. Gebruikt dezelfde codes als het metagegeven &quot;taal&quot;. Niet bedoeld voor gebruik met de metagegevens &quot;taal&quot;, &quot;datum&quot; en &quot;identificatiecode&quot;.</translation>
+        <translation>選填，指定語言的屬性。使用與 dc:language 相同的代碼。不適用於 dc:language、dc:date 或 dc:identifier 中繼資料元素。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="700"/>
         <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, or UUID.</source>
-        <translation>Deze eigenschap wordt kenmerkend toegevoegd aan &quot;dc:identifier&quot; om het type identificatiecode aan te geven: DOI, ISBN, ISSN of UUID.</translation>
+        <translation>這個屬性一般被加到 dc:indentifier 來指定識別碼類型：DOI、ISBN、ISSN，或 UUID。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="701"/>
         <source>Event</source>
-        <translation>Gebeurtenis</translation>
+        <translation>事件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="701"/>
         <source>This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.</source>
-        <translation>Deze eigenschap wordt kenmerkend toegevoegd aan het metagegeven &quot;dc:date&quot; om het type datum te specificeren: publicatie, aanmaak of wijziging.</translation>
+        <translation>這個屬性一般被加到 dc:date 元素來指定日期類型：發佈、創作或修改。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>
         <source>Custom Attribute</source>
-        <translation>Specifieke eigenschap</translation>
+        <translation>自訂屬性</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>
         <source>[Custom metadata property/attribute]</source>
-        <translation>[Specifieke eigenschap]</translation>
+        <translation>[自訂中繼資料屬性]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>
         <source>An empty metadata attribute you can modify.</source>
-        <translation>Een aangepaste eigenschap voor een metagegeven die u zelf kunt aanpassen.</translation>
+        <translation>可以修改的空的中繼資料屬性。</translation>
     </message>
 </context>
 <context>
@@ -12864,7 +12813,7 @@ Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaks
         <location filename="../../ResourceObjects/NCXResource.cpp" line="159"/>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="161"/>
         <source>Start</source>
-        <translation>Start</translation>
+        <translation>開始</translation>
     </message>
 </context>
 <context>
@@ -12872,18 +12821,18 @@ Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaks
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="595"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
-        <translation>Een bestandsnaam kan niet het teken &quot;%1&quot; bevatten.</translation>
+        <translation>檔案名稱不能包含字元 &quot;%1&quot;。</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="606"/>
         <source>The filename cannot be empty.</source>
-        <translation>De bestandsnaam kan niet leeg zijn.</translation>
+        <translation>檔案名稱不能是空的。</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="613"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
-        <translation>De bestandsnaam &quot;%1&quot; is al in gebruik.
+        <translation>檔案名稱 &quot;%1&quot; 已被使用了。
 </translation>
     </message>
 </context>
@@ -12892,12 +12841,12 @@ Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaks
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1118"/>
         <source>[Title here]</source>
-        <translation>[Plaats hier de titel]</translation>
+        <translation>[這裡填入標題]</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1120"/>
         <source>[Main title here]</source>
-        <translation>[Plaats hier de hoofdtitel]</translation>
+        <translation>[這裡填入主要標題]</translation>
     </message>
 </context>
 <context>
@@ -12905,27 +12854,27 @@ Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaks
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="14"/>
         <source>Open With Application Name</source>
-        <translation>Openen met naam van toepassing</translation>
+        <translation>以應用程式名稱開啟</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="20"/>
         <source>Enter the name to display in the Open With menu for this application:</source>
-        <translation>Geef de naam op die voor deze toepassing getoond moet worden in het menu &quot;Openen met&quot;.</translation>
+        <translation>輸入此應用程式要顯示在「開啟方式」選單中的名稱：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="48"/>
         <source>Filename:</source>
-        <translation>Bestandsnaam:</translation>
+        <translation>檔名:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="55"/>
         <source>Menu Name:</source>
-        <translation>Naam in menu:</translation>
+        <translation>選單名稱：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="62"/>
         <source>No File</source>
-        <translation>Geen bestand</translation>
+        <translation>沒有檔案</translation>
     </message>
 </context>
 <context>
@@ -12933,217 +12882,217 @@ Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaks
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="14"/>
         <source>Plugin Runner</source>
-        <translation>Plug-in uitvoeren</translation>
+        <translation>外掛執行器</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="28"/>
         <source>Plugin:</source>
-        <translation>Plug-in:</translation>
+        <translation>外掛：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="48"/>
         <source>Start</source>
-        <translation>Starten</translation>
+        <translation>開始</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="61"/>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="90"/>
         <source>Message</source>
-        <translation>Melding</translation>
+        <translation>訊息</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="103"/>
         <source>Details...</source>
-        <translation>Details...</translation>
+        <translation>詳細資料...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="110"/>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="139"/>
         <source>Status: </source>
-        <translation>Status:</translation>
+        <translation>狀態：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="104"/>
         <source>Error: A plugin by that name does not exist</source>
-        <translation>Fout: Er bestaat geen plug-in met die naam</translation>
+        <translation>錯誤：該名稱的外掛不存在</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="135"/>
         <source>Error: Interpreter</source>
-        <translation>Fout: Interpreter</translation>
+        <translation>錯誤：直譯器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="135"/>
         <source>has no path set</source>
-        <translation>heeft geen ingesteld pad</translation>
+        <translation>沒有設定路徑</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="148"/>
         <source>Installation Error: plugin launcher</source>
-        <translation>Installatiefout: starter voor plug-in</translation>
+        <translation>安裝錯誤：外掛執行器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="149"/>
         <source>does not exist</source>
-        <translation>bestaat niet</translation>
+        <translation>不存在</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="154"/>
         <source>Error: plugin engine</source>
-        <translation>Fout: machine voor plug-in</translation>
+        <translation>錯誤：外掛引擎</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="155"/>
         <source>is not supported (yet!)</source>
-        <translation>wordt nog niet ondersteund</translation>
+        <translation>(還)不支援！</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="161"/>
         <source>Status: ready</source>
-        <translation>Status: gereed</translation>
+        <translation>狀態：準備就緒</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="223"/>
         <source>Error: plugin can not start</source>
-        <translation>Fout: plug-in kan niet worden gestart</translation>
+        <translation>錯誤：無法啟動外掛</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="371"/>
         <source>Status: running</source>
-        <translation>Status: wordt uitgevoerd</translation>
+        <translation>狀態：執行中</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="388"/>
         <source>Launcher process crashed</source>
-        <translation>Uitvoeren van plug-in is vastgelopen</translation>
+        <translation>執行器處理程序已當機</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="399"/>
         <source>Status: finished</source>
-        <translation>Status: voltooid</translation>
+        <translation>狀態：已完成</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="406"/>
         <source>Status: failed</source>
-        <translation>Status: mislukt</translation>
+        <translation>狀態：失敗</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="412"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="421"/>
         <source>Status: No Changes Made</source>
-        <translation>Status: geen wijzigingen aangebracht</translation>
+        <translation>狀態：未做任何更改</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="420"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
-        <translation>Fout: Plug-in probeert het laatste XHTML-bestand te verwijderen ... wijzigingen worden afgebroken</translation>
+        <translation>錯誤：外掛試圖移除最後一個 XHTML 檔案 .. 終止變更</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="484"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="555"/>
         <source>Status:</source>
-        <translation>Status:</translation>
+        <translation>狀態：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="511"/>
         <source>Plugin failed to start</source>
-        <translation>Opstarten van plug-in mislukt</translation>
+        <translation>無法啟動外掛</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="519"/>
         <source>Status: error</source>
-        <translation>Status: fout</translation>
+        <translation>狀態：錯誤</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="533"/>
         <source>Plugin cancelled</source>
-        <translation>Uitvoeren van plug-in is geannuleerd</translation>
+        <translation>外掛已取消</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="534"/>
         <source>Status: cancelled</source>
-        <translation>Status: geannuleerd</translation>
+        <translation>狀態：已取消</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="627"/>
         <source>Error Parsing Result XML:  </source>
-        <translation>Fout bij ontleden XML van resultaat: </translation>
+        <translation>解析結果的 XML 時發生錯誤：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="684"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="699"/>
         <source>Status: checking</source>
-        <translation>Status: controleren</translation>
+        <translation>狀態：正在檢查</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="688"/>
         <source>Incorrect XHTML:</source>
-        <translation>Onjuiste XHTML:</translation>
+        <translation>不正確的 XHTML：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="688"/>
         <source>Line/Col</source>
-        <translation>Regel/kolom</translation>
+        <translation>行/欄</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="715"/>
         <source>Check Report</source>
-        <translation>Controlerapport</translation>
+        <translation>檢查報告</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="716"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
-        <translation>Onjuiste XHTML/XML geconstateerd
-Weet u zeker dat u wilt doorgaan?</translation>
+        <translation>偵測到不正確的 XHTML/XML
+你確定要繼續嗎？</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="734"/>
         <source>Status: cleaning up - deleting files</source>
-        <translation>Status: opschonen - bestanden verwijderen</translation>
+        <translation>狀態：清除中 - 正在刪除檔案</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="759"/>
         <source>Status: deleting</source>
-        <translation>Status: verwijderen</translation>
+        <translation>狀態：正在刪除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="798"/>
         <source>Status: Loading</source>
-        <translation>Status: inladen</translation>
+        <translation>狀態：正在載入</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="809"/>
         <source>Input Plugin</source>
-        <translation>Invoer plug-in</translation>
+        <translation>輸入外掛</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="810"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
-        <translation>Uw huidige boek zal geheel worden vervangen met verlies van alle niet-opgeslagen wijzigingen... Weet u zeker dat u wilt doorgaan?</translation>
+        <translation>你目前的書籍將會被完全取代，所有未儲存的變更將會遺失... 你確定要繼續嗎</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="836"/>
         <source>Status: adding</source>
-        <translation>Status: toevoegen</translation>
+        <translation>狀態：正在加入</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="877"/>
         <source>Status: cleaning up - modifying files</source>
-        <translation>Status: opschonen - wijzigen bestanden</translation>
+        <translation>狀態：清除中 - 正在修改檔案</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="906"/>
         <source>Status: modifying</source>
-        <translation>Status: wijzigen</translation>
+        <translation>狀態：正在修改</translation>
     </message>
 </context>
 <context>
@@ -13152,37 +13101,37 @@ Weet u zeker dat u wilt doorgaan?</translation>
         <location filename="../../Form_Files/PPluginWidget.ui" line="14"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="167"/>
         <source>Plugins</source>
-        <translation>Plug-ins</translation>
+        <translation>外掛</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="28"/>
         <source>Assign as Plugin 1</source>
-        <translation>Aanwijzen als plug-in 1</translation>
+        <translation>指定為外掛 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="75"/>
         <source>Name</source>
-        <translation>Naam</translation>
+        <translation>名稱</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="80"/>
         <source>Version</source>
-        <translation>Versie</translation>
+        <translation>版本</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="85"/>
         <source>Author</source>
-        <translation>Auteur</translation>
+        <translation>作者</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="90"/>
         <source>Type</source>
-        <translation>Type</translation>
+        <translation>型態</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="95"/>
         <source>Interpreter</source>
-        <translation>Interpreter</translation>
+        <translation>直譯器</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="109"/>
@@ -13192,117 +13141,117 @@ Weet u zeker dat u wilt doorgaan?</translation>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="128"/>
         <source>Auto</source>
-        <translation>Automatisch</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="135"/>
         <source>Set</source>
-        <translation>Instellen</translation>
+        <translation>設定</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="174"/>
         <source>Add Plugin</source>
-        <translation>Plug-in toevoegen</translation>
+        <translation>加入外掛</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="181"/>
         <source>Remove All</source>
-        <translation>Alles verwijderen</translation>
+        <translation>移除全部</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="188"/>
         <source>Remove Plugin</source>
-        <translation>Plug-in verwijderen</translation>
+        <translation>移除外掛</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="214"/>
         <source>Path to Interpreter Executable</source>
-        <translation>Pad naar uitvoerbaar bestand van interpreter</translation>
+        <translation>直譯器可執行檔的路徑</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="224"/>
         <source>Should the bundled Python interpreter be used if present?</source>
-        <translation>Moet, indien aanwezig, de meegeleverde Python-interpreter worden gebruikt?</translation>
+        <translation>如果綁定的 Python 直譯器存在時，是否要使用？</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="227"/>
         <source>Use Bundled Python</source>
-        <translation>Meegeleverde Python gebruiken</translation>
+        <translation>使用綁定的 Python</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="234"/>
         <source>Assign as Plugin 2</source>
-        <translation>Aanwijzen als plug-in 2</translation>
+        <translation>指定為外掛 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="241"/>
         <source>Assign as Plugin 3</source>
-        <translation>Aanwijzen als plug-in 3</translation>
+        <translation>指定為外掛 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="248"/>
         <source>Assign as Plugin 4</source>
-        <translation>Aanwijzen als plug-in 4</translation>
+        <translation>指定為外掛 4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="255"/>
         <source>Assign as Plugin 5</source>
-        <translation>Aanwijzen als plug-in 5</translation>
+        <translation>指定為外掛 5</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="184"/>
         <source>Select Plugin Zip Archive</source>
-        <translation>Zip-archief met plug-in selecteren</translation>
+        <translation>選擇外掛 Zip 壓縮檔</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="184"/>
         <source>Plugin Files (*.zip)</source>
-        <translation>Bestanden met plug-ins (*.zip)</translation>
+        <translation>外掛檔案 (*.zip)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="200"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
-        <translation>Fout: Plug-in plugin.xml is ongeldig of wordt niet ondersteund op uw besturingssysteem.</translation>
+        <translation>錯誤：外掛 plugin.xml 無效或你的作業系統不支援。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="203"/>
         <source>Warning: A plugin by that name already exists</source>
-        <translation>Waarschuwing: Er bestaat al een plug-in met die naam</translation>
+        <translation>錯誤：該名稱的外掛已存在</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="206"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
-        <translation>Fout: Plug-in kon niet worden ontzipt.</translation>
+        <translation>錯誤：無法解壓縮外掛。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="209"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation>Fout: Geen geldige plug-in voor Sigil.</translation>
+        <translation>錯誤：外掛不是有效的 Sigil 外掛。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="249"/>
         <source>Nothing is Selected.</source>
-        <translation>Er is niets geselecteerd.</translation>
+        <translation>沒有選取任何東西。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="307"/>
         <source>Remove All Plugins</source>
-        <translation>Alle plug-ins verwijderen</translation>
+        <translation>移除所有外掛</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="308"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
-        <translation>Weet u zeker dat u alle plug-ins wilt verwijderen?</translation>
+        <translation>你確定要移除所有外掛嗎？</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="366"/>
         <source>Select Interpreter</source>
-        <translation>Interpreter selecteren</translation>
+        <translation>選擇直譯器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="391"/>
         <source>Incorrect Interpreter Path selected</source>
-        <translation>Onjuist pad naar interpreter geselecteerd.</translation>
+        <translation>選擇的直譯器路徑不正確</translation>
     </message>
 </context>
 <context>
@@ -13310,7 +13259,7 @@ Weet u zeker dat u wilt doorgaan?</translation>
     <message>
         <location filename="../../Form_Files/Preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>Voorkeuren</translation>
+        <translation>偏好設定</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="102"/>
@@ -13320,12 +13269,12 @@ Weet u zeker dat u wilt doorgaan?</translation>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="102"/>
         <source>Changes will take effect when you restart Sigil.</source>
-        <translation>Wijzigingen treden in werking als u Sigil opnieuw start.</translation>
+        <translation>變更會在您重新啟動 Sigil 後生效。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="174"/>
         <source>Open Preferences Location</source>
-        <translation>Map met voorkeuren openen</translation>
+        <translation>開啟偏好設定位置</translation>
     </message>
 </context>
 <context>
@@ -13333,44 +13282,44 @@ Weet u zeker dat u wilt doorgaan?</translation>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="14"/>
         <source>Preserve Entities</source>
-        <translation>Entiteiten behouden</translation>
+        <translation>保留實體</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="32"/>
         <source>Entities to Preserve</source>
-        <translation>Te behouden entiteiten</translation>
+        <translation>要保留的實體</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="47"/>
         <source>Enter or paste entities to add to the list.
 Entities can be separated by lines, commas, or spaces.</source>
-        <translation>Typ of plak entiteiten om aan de lijst te te voegen.
-Entiteiten kunnen worden gescheiden door regeleinden, komma&apos;s of spaties.</translation>
+        <translation>輸入或貼上要加入清單的實體。
+實體可以用行、逗點或空白來區隔。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="51"/>
         <source>Add</source>
-        <translation>Toevoegen</translation>
+        <translation>增加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="58"/>
         <source>Remove</source>
-        <translation>Verwijderen</translation>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="65"/>
         <source>Remove All</source>
-        <translation>Alles verwijderen</translation>
+        <translation>移除全部</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
         <source>Add Entities</source>
-        <translation>Entiteiten toevoegen</translation>
+        <translation>加入實體</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
         <source>Entities:</source>
-        <translation>Entiteiten:</translation>
+        <translation>實體：</translation>
     </message>
 </context>
 <context>
@@ -13379,7 +13328,7 @@ Entiteiten kunnen worden gescheiden door regeleinden, komma&apos;s of spaties.</
         <location filename="../../MainUI/PreviewWindow.cpp" line="43"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="260"/>
         <source>Preview</source>
-        <translation>Voorbeeldweergave</translation>
+        <translation>預覽</translation>
     </message>
 </context>
 <context>
@@ -13387,62 +13336,62 @@ Entiteiten kunnen worden gescheiden door regeleinden, komma&apos;s of spaties.</
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="1051"/>
         <source>Merging Files..</source>
-        <translation>Bestanden samenvoegen...</translation>
+        <translation>合併檔案中..</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/BookReports.cpp" line="53"/>
         <location filename="../../BookManipulation/BookReports.cpp" line="124"/>
         <source>Collecting classes...</source>
-        <translation>Klassen worden verzameld...</translation>
+        <translation>收集類別中...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/CleanSource.cpp" line="292"/>
         <source>Cleaning...</source>
-        <translation>Bezig met opschonen...</translation>
+        <translation>清除中...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Creating Index...</source>
-        <translation>Het register wordt aangemaakt...</translation>
+        <translation>建立索引中...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Reports.cpp" line="115"/>
         <source>Creating reports...</source>
-        <translation>Rapporten worden opgesteld...</translation>
+        <translation>建立報告中...</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="112"/>
         <source>Cannot read EPUB: %1</source>
-        <translation>EPUB: %1 kan niet worden gelezen</translation>
+        <translation>無法讀取 EPUB: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="222"/>
         <source>The OPF file does not contain a valid spine.</source>
-        <translation>Het OPF-bestand bevat geen geldig spine-element.</translation>
+        <translation>OPF 檔未包含合法的 spine。</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="223"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="760"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="763"/>
         <source>Sigil has created a new one for you.</source>
-        <translation>Sigil heeft een nieuwe voor u gemaakt.</translation>
+        <translation>Sigil 已建立新的。</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="260"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
-        <translation>Fout bij het ontleden van encryptie xml.
-Regel: %1 kolom %2 - %3</translation>
+        <translation>剖析加密 XML 時發生錯誤。
+第 %1 行第 %2 欄 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="392"/>
         <source>Cannot unzip EPUB: %1</source>
-        <translation>Ontzippen EPUB niet mogelijk: %1</translation>
+        <translation>無法解壓縮 EPUB：%1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="432"/>
@@ -13450,101 +13399,101 @@ Regel: %1 kolom %2 - %3</translation>
         <location filename="../../Importers/ImportEPUB.cpp" line="458"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="466"/>
         <source>Cannot extract file: %1</source>
-        <translation>Kan bestand %1 niet uitpakken.</translation>
+        <translation>無法展開檔案: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="479"/>
         <source>Cannot open EPUB: %1</source>
-        <translation>EPUB kan niet geopend worden: %1</translation>
+        <translation>無法開啟 EPUB: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="531"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
-        <translation>Bestand container.xml kan niet worden ontleed.
-Regel: %1 kolom %2 - %3</translation>
+        <translation>無法剖析 container.xml 檔。
+第 %1 行第 %2 欄 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="539"/>
         <source>No appropriate OPF file found</source>
-        <translation>Geen geschikt OPF-bestand gevonden.</translation>
+        <translation>找不到合適的 OPF 檔</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="590"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
-        <translation>OPF-bestand kan niet gelezen worden.
-Regel: %1 Kolom %2 - %3</translation>
+        <translation>無法讀取 OPF 檔。
+第 %1 行第 %2 欄 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="681"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
-        <translation>Het manifest in OPF bevat dubbele ids voor: %1</translation>
+        <translation>OPF 清單包含以下項目的重覆 id： %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="682"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
-        <translation>Er is een tijdelijke id toegekend om deze EPUB in te laden. U dient uw OPF-bestand te bewerken om deze dubbeling te verwijderen.</translation>
+        <translation>暫時指定一個 id 以便載入此 EPUB。您應該編輯您的 OPF 檔將重覆的 id 移除。</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="726"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
-        <translation>Het OPF-bestand duidt het NCX-bestand niet juist aan.</translation>
+        <translation>OPF 檔無法正確辨識 NCX 檔。</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="727"/>
         <source>Sigil has used the following file as the NCX:</source>
-        <translation>Sigil heeft het volgende bestand gebruikt als de NCX:</translation>
+        <translation>Sigil 已使用以下的檔案作為NCX:</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="755"/>
         <source>Sigil has created a template NCX</source>
-        <translation>Sigil heeft een NCX-sjabloon gemaakt.</translation>
+        <translation>Sigil 已建立一個模板 NCX</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="756"/>
         <source>to support epub2 backwards compatibility.</source>
-        <translation>om compatibiliteit met EPUB2 te ondersteunen.</translation>
+        <translation>以支援 epub2 向後相容性。</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="759"/>
         <source>The OPF file does not contain an NCX file.</source>
-        <translation>Het OPF-bestand bevat geen NCX-bestand.</translation>
+        <translation>OPF 檔未包含 NCX 檔。</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="762"/>
         <source>The NCX file is not present in this EPUB.</source>
-        <translation>Het NCX-bestand is niet aanwezig in deze EPUB.</translation>
+        <translation>NCX 檔未出現在此 EPUB 檔中。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="582"/>
         <source>Adding Existing Files..</source>
-        <translation>Bestaande bestanden worden toegevoegd...</translation>
+        <translation>增加已存在的檔案..</translation>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="196"/>
         <source>Applications</source>
-        <translation>Toepassingen</translation>
+        <translation>應用程式</translation>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="206"/>
         <source>Open With</source>
-        <translation>Openen met</translation>
+        <translation>開啟方式</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="44"/>
         <source>Counting occurrences..</source>
-        <translation>Voorkomens worden geteld...</translation>
+        <translation>計算出現次數..</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="64"/>
         <source>Replacing search term...</source>
-        <translation>Zoekterm vervangen...</translation>
+        <translation>取代搜尋內容...</translation>
     </message>
     <message>
         <location filename="../../Misc/TOCHTMLWriter.cpp" line="105"/>
         <source>Table of Contents</source>
-        <translation>Inhoudsopgave</translation>
+        <translation>目錄</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="97"/>
@@ -13554,45 +13503,45 @@ Regel: %1 Kolom %2 - %3</translation>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="98"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Er is een nieuwere versie van Sigil beschikbaar, versie &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Wilt u naar de dowloadpagina gaan?&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;有新版的 Sigil 可用，版本 &lt;b&gt;%1&lt;/b&gt;。&lt;br/&gt;&lt;p&gt;你要去下載頁面嗎？&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="428"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation>Bestand kan niet worden gelezen: %1
-%2.</translation>
+        <translation>無法讀取檔案 %1:
+%2。</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="543"/>
         <source>Sigil has encountered a problem.</source>
-        <translation>Sigil is op een probleem gestuit.</translation>
+        <translation>Sigil 遇到了問題。</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="544"/>
         <source>Sigil may need to close.</source>
-        <translation>Sigil moet mogelijk afsluiten.</translation>
+        <translation>Sigil 可能需要關閉。</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="70"/>
         <source>Index</source>
-        <translation>Register</translation>
+        <translation>索引</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="207"/>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="273"/>
         <source>Invalid HTML file: %1</source>
-        <translation>Ongeldig HTML-bestand: %1</translation>
+        <translation>不合法的 HTML 檔：%1</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="316"/>
         <source>Invalid OPF file: %1</source>
-        <translation>Ongeldig OPF-bestand: %1</translation>
+        <translation>不合法的 OPF 檔：%1</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="341"/>
         <source>Invalid NCX file: %1</source>
-        <translation>Ongeldig NCX-bestand: %1</translation>
+        <translation>不合法的 NCX 檔：%1</translation>
     </message>
 </context>
 <context>
@@ -13600,7 +13549,7 @@ Regel: %1 Kolom %2 - %3</translation>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="20"/>
         <source>Rename Files</source>
-        <translation>Naam bestanden wijzigen</translation>
+        <translation>重新命名檔案</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="28"/>
@@ -13619,30 +13568,28 @@ current extensions will be kept.  If you just provide a file extension (e.g. .xh
 then only file extensions will be updated.  Be careful that any extension you use is 
 valid for all selected files.
 </source>
-        <translation>Voer de beginnaam in die gebruikt moet worden voor het wijzigen van de bestandsnamen van alle geselecteerde bestanden, bijv.:
+        <translation>輸入用於將所有選取的檔案重新命名所使用的開始名稱。例如：
 
-    bestandsnaam001
-    bestandsnaam08.xhtml
+    檔名001
+    檔名08.xhtml
     .html
 
-Alle nummers aan het EINDE van de door u opgegeven bestandsnaam zullen automatisch opgehoogd worden,
-te beginnen met het opgegeven nummer (standaard is 1 als geen nummer is opgegeven).
-Er worden voorloopnullen toegevoegd overeenkomstig het aantal te gebruiken cijfers.
+所有您輸入於結尾的數字會從您輸入的數字開始依序被取代
+（若未給數字則從 1 開始），若前面有補 0 則表示會維持其位數。
 
-Als u een extensie opgeeft, zal deze worden gebruikt voor alle bestanden, anders zullen de huidige extensies behouden blijven.
-Als u alleen een bestandsextensie opgeeft (bijv. .xhtml), dan zullen alleen de bestandsextensies worden bijgewerkt.
-Zorg ervoor dat de extensie die u gebruikt geldig is voor alle geselecteerde bestanden.
-</translation>
+若您提供了副檔名，則所有的檔案都會使用該副檔名，否則
+目前的副檔名會被保留。若是您只提供副檔名（如 .xhtml），
+則只會更新副檔名。要小心，您使用的任何副檔名都要符合選取的檔案。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="45"/>
         <source>Rename Files Starting At: </source>
-        <translation>Naam van bestanden wijzigen vanaf:</translation>
+        <translation>重新命名檔案的開頭：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="52"/>
         <source>Section0001</source>
-        <translation>Section0001</translation>
+        <translation>章節0001</translation>
     </message>
 </context>
 <context>
@@ -13650,12 +13597,12 @@ Zorg ervoor dat de extensie die u gebruikt geldig is voor alle geselecteerde bes
     <message>
         <location filename="../../Form_Files/Reports.ui" line="14"/>
         <source>Reports</source>
-        <translation>Rapporten</translation>
+        <translation>報告</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Reports.ui" line="51"/>
         <source>Refresh</source>
-        <translation>Vernieuwen</translation>
+        <translation>刷新</translation>
     </message>
 </context>
 <context>
@@ -13663,103 +13610,102 @@ Zorg ervoor dat de extensie die u gebruikt geldig is voor alle geselecteerde bes
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="14"/>
         <source>Saved Searches</source>
-        <translation>Opgeslagen zoekopdrachten</translation>
+        <translation>已儲存的搜尋</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation>Naam filteren:</translation>
+        <translation>過濾器名稱：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation>Alles filteren:</translation>
+        <translation>全部過濾:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Alleen de zoekopdrachten tonen die de tekst bevatten die u opgeeft.</translation>
+        <translation>只列出包含您輸入文字的條目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="65"/>
         <source>Load the selected entry into the Find &amp; Replace window.</source>
-        <translation>De geselecteerde zoekopdracht laden in het scherm &quot;Zoeken en vervangen&quot;.</translation>
+        <translation>載入選取的項目到「尋找並取代」視窗中。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="68"/>
         <source>Load Search</source>
-        <translation>Zoekopdracht inladen</translation>
+        <translation>載入搜尋</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="91"/>
         <source>Run Find using the selected entry.
 If a group is selected, find the first entry in the list, 
 then if not found look for the second entry in the list, etc.</source>
-        <translation>&quot;Zoeken&quot; uitvoeren met de geselecteerde zoekopdracht.
-Als een groep is geselecteerd, dan de eerste zoekopdracht in de lijst uitvoeren,
-als deze geen treffer oplevert, dan de tweede zoekopdracht in de lijst uitvoeren, enz.</translation>
+        <translation>用選取的條目執行搜尋。
+如果選擇了群組，則會尋找清單中的第一個條目，如果沒找到則會依序尋找第二個條目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>Find</source>
-        <translation>Zoek</translation>
+        <translation>尋找</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="103"/>
         <source>Run Replace using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace.</source>
-        <translation>&quot;Vervangen&quot; uitvoeren met de geselecteerde zoekopdracht.
-Als een groep is geselecteerd, dan worden alle zoekopdrachten doorgelopen en wordt gestopt bij de eerste geslaagde vervanging.</translation>
+        <translation>用選取的條目執行取代。
+如果選擇了群組，則會到每個條目尋找，並停止在第一個成功取代的地方。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="69"/>
         <source>Replace</source>
-        <translation>Vervangen</translation>
+        <translation>取代</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="131"/>
         <source>Run Replace/Find using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace/find.</source>
-        <translation>&quot;Vervangen/zoeken&quot; uitvoeren met de geselecteerde zoekopdracht.
-Als een groep is geselecteerd, dan worden alle zoekopdrachten doorgelopen en wordt gestopt bij de eerste geslaagde vondst/vervanging.</translation>
+        <translation>用選取的條目執行搜尋並取代。
+如果選擇了群組，則會到每個條目尋找，並停止在第一個成功搜尋並取代的地方。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="136"/>
         <source>Replace/Find</source>
-        <translation>Vervangen/zoeken</translation>
+        <translation>取代/尋找</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="143"/>
         <source>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</source>
-        <translation>&quot;Alles vervangen&quot; uitvoeren voor de geselecteerde zoekopdrachten in de geselecteerde volgorde.
-Selecteer een groep om alle zoekopdrachten in de groep op volgorde te vervangen.</translation>
+        <translation>用選取的條目依序執行全部取代。
+選擇一個群組，依序取代群組內的所有條目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="147"/>
         <source>Replace All</source>
-        <translation>Alles vervangen</translation>
+        <translation>全部取代</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="170"/>
         <source>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</source>
-        <translation>&quot;Alles tellen&quot; uitvoeren voor de geselecteerde zoekopdrachten in de geselecteerde volgorde,
-inclusief zoekopdrachten in geselecteerde groepen.</translation>
+        <translation>用選取的條目依序執行全部計算，
+包括在選取的群組裡的條目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
         <source>Count All</source>
-        <translation>Alles tellen</translation>
+        <translation>全部計算</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="199"/>
         <source>Move an entry up one level in the same group.</source>
-        <translation>Een zoekopdracht één positie omhoog verplaatsen binnen dezelfde groep.</translation>
+        <translation>將條目於相同群組內上移一層。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="202"/>
@@ -13772,107 +13718,107 @@ inclusief zoekopdrachten in geselecteerde groepen.</translation>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="229"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation>Een zoekopdracht verplaatsen naar het niveau van haar ouder.</translation>
+        <translation>將條目移到它的父條目的層級。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="258"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation>U dient een zoekopdracht direct onder een groep te selecteren om deze in de groep te plaatsen.</translation>
+        <translation>您必須立即選擇一個群組下方的項目，並將它移到群組內。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="288"/>
         <source>Move an entry down one level in the same group.</source>
-        <translation>Een zoekopdracht één positie omlaag verplaatsen binnen dezelfde groep.</translation>
+        <translation>將條目於相同群組內下移一層。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="354"/>
         <source>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</source>
-        <translation>Klik op &quot;Toepassen&quot; om de geselecteerde zoekopdracht te laden in Zoeken en vervangen.  Klik op &quot;OK&quot; om uw zoekopdracht in te laden, uw gegevens op te slaan en te sluiten.</translation>
+        <translation>點擊「套用」來在選取的搜尋內載入「尋找並取代」。點擊「確定」可以載入您的搜尋，儲存您的資料並關閉。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="62"/>
         <source>All searches default to Regex, All HTML Files, Down.</source>
-        <translation>Alle zoekopdrachten standaard naar Regex, Alle HTML-bestanden, Omlaag.</translation>
+        <translation>所有的搜尋預設使用正規表示式、所有 HTML 檔，以及下。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="63"/>
         <source>Hold Ctrl down while clicking Find, Replace, etc. to temporarily search only the Current File.</source>
-        <translation>Houd de Ctrl-toets ingedrukt bij Zoeken, Vervangen, enz. om tijdelijk alleen in het huidige bestand te zoeken.</translation>
+        <translation>點擊「尋找」、「取代」時同時按住 Ctrl 鍵，可以將搜尋暫時限制在目前的檔案內。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="64"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>Klik rechts op een zoekopdracht om het contextmenu met acties te zien.</translation>
+        <translation>在條目上點擊右鍵，可以看到動作內文選單。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="65"/>
         <source>You can also right click on the Find text box in the Find &amp; Replace window to select an entry.</source>
-        <translation>U kunt ook rechts klikken op het tekstvak &quot;Zoeken&quot; in het venster  &quot;Zoeken en vervangen&quot; om een zoekopdracht te selecteren.</translation>
+        <translation>您也可以在「尋找並取代」視窗中的「尋找」文字盒中點擊右鍵，來選取一個條目。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Name</source>
-        <translation>Naam</translation>
+        <translation>名稱</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Name of your entry or group.</source>
-        <translation>Naam van uw zoekopdracht of groep.</translation>
+        <translation>您的條目或群組的名稱。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>The text to put into the Find box.</source>
-        <translation>De tekst voor in het vak Zoeken</translation>
+        <translation>您要放入搜尋文字盒中的文字。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="69"/>
         <source>The text to put into the Replace box.</source>
-        <translation>De tekst voor in het vak Vervangen</translation>
+        <translation>您要放入取代文字盒中的文字。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
         <source>Save</source>
-        <translation>Opslaan</translation>
+        <translation>儲存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
         <source>Save your changes.</source>
-        <translation>Uw wijzigingen opslaan.</translation>
+        <translation>儲存您的變更。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>Als er andere instanties van Sigil actief zijn, dan worden deze automatisch geactualiseerd met uw wijzigingen.</translation>
+        <translation>若是 Sigil 的任一實體正在執行中，您做的變更會自動套用在那些實體上。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="90"/>
         <source>Cannot save entries.</source>
-        <translation>Zoekopdrachten kunnen niet opgeslagen worden.</translation>
+        <translation>無法儲存條目。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="170"/>
         <source>Saved Searches loaded from file.</source>
-        <translation>Opgeslagen zoekopdrachten ingeladen vanuit bestand.</translation>
+        <translation>從檔案載入已儲存的搜尋。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="206"/>
         <source>You cannot select more than one entry when using this action.</source>
-        <translation>Voor deze actie kunt u niet meerdere zoekopdrachten selecteren.</translation>
+        <translation>使用此動作時，不能選擇一個以上的條目。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="214"/>
         <source>You cannot select a group for this action.</source>
-        <translation>U kunt geen groep selecteren voor deze bewerking.</translation>
+        <translation>執行此動作時，您不能選擇群組。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="260"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation>U kunt niet tegelijk een zoekopdracht en haar groep selecteren.</translation>
+        <translation>您不能選擇某條目與包含該條目的群組。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="343"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation>U kunt groepen niet kopiëren of knippen - gebruik slepen-en-neerzetten.</translation>
+        <translation>您不能複製或剪下群組 - 請改用拖放。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="410"/>
@@ -13882,99 +13828,99 @@ inclusief zoekopdrachten in geselecteerde groepen.</translation>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="410"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>Weet u zeker dat u alle zoekopdrachten opnieuw wilt laden?  Dit zal alle niet-opgeslagen wijzigingen overschrijven.</translation>
+        <translation>您確定要重新載入所有的條目嗎？這會覆寫所有未儲存的變更。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="426"/>
         <source>Import Search Entries</source>
-        <translation>Zoekopdrachten importeren.</translation>
+        <translation>匯入搜尋條目</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="499"/>
         <source>Export Selected Searches</source>
-        <translation>Geselecteerde zoekopdrachten exporteren</translation>
+        <translation>匯出選取的搜尋</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="664"/>
         <source>Add Entry</source>
-        <translation>Zoekopdracht toevoegen</translation>
+        <translation>新增條目</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="665"/>
         <source>Add Group</source>
-        <translation>Groep toevoegen</translation>
+        <translation>新增群組</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="666"/>
         <source>Edit</source>
-        <translation>Bewerken</translation>
+        <translation>編輯</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="667"/>
         <source>Cut</source>
-        <translation>Knippen</translation>
+        <translation>剪下</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="668"/>
         <source>Copy</source>
-        <translation>Kopiëren</translation>
+        <translation>複製</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="669"/>
         <source>Paste</source>
-        <translation>Plakken</translation>
+        <translation>貼上</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="670"/>
         <source>Delete</source>
-        <translation>Verwijderen</translation>
+        <translation>刪除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="671"/>
         <source>Import</source>
-        <translation>Importeren</translation>
+        <translation>匯入</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="672"/>
         <source>Reload</source>
-        <translation>Opnieuw laden</translation>
+        <translation>重新載入</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="673"/>
         <source>Export</source>
-        <translation>Exporteren</translation>
+        <translation>匯出</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="674"/>
         <source>Export All</source>
-        <translation>Alles exporteren</translation>
+        <translation>全部匯出</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="675"/>
         <source>Collapse All</source>
-        <translation>Alles samenvouwen</translation>
+        <translation>全部折疊</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="676"/>
         <source>Expand All</source>
-        <translation>Alles uitvouwen</translation>
+        <translation>全部展開</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="753"/>
         <source>Search entries saved.</source>
-        <translation>Zoekopdrachten opgeslagen.</translation>
+        <translation>搜尋條目已儲存。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="782"/>
         <source>Sigil: Saved Searches</source>
-        <translation>Sigil: Opgeslagen zoekopdrachten</translation>
+        <translation>Sigil: 已儲存的搜尋</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="783"/>
         <source>The Search entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>De zoekopdrachten kunnen zijn gewijzigd.
-Wilt u uw wijzigingen opslaan?</translation>
+        <translation>搜尋條目可能已變更。
+您要儲存您的變更嗎？</translation>
     </message>
 </context>
 <context>
@@ -13982,22 +13928,22 @@ Wilt u uw wijzigingen opslaan?</translation>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
         <source>Name</source>
-        <translation>Naam</translation>
+        <translation>名稱</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="67"/>
         <source>Find</source>
-        <translation>Zoek</translation>
+        <translation>尋找</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="68"/>
         <source>Replace</source>
-        <translation>Vervangen</translation>
+        <translation>取代</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="604"/>
         <source>Unable to create file %1</source>
-        <translation>Bestand %1 kan niet gemaakt worden</translation>
+        <translation>無法建立檔案 %1</translation>
     </message>
 </context>
 <context>
@@ -14005,7 +13951,7 @@ Wilt u uw wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Form_Files/SelectCharacter.ui" line="14"/>
         <source>Insert Special Character</source>
-        <translation>Speciaal teken invoegen</translation>
+        <translation>插入特殊字元</translation>
     </message>
 </context>
 <context>
@@ -14013,84 +13959,83 @@ Wilt u uw wijzigingen opslaan?</translation>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="14"/>
         <source>Insert File</source>
-        <translation>Bestand invoegen</translation>
+        <translation>插入檔案</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="46"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Alleen de bestandsnamen tonen die de tekst bevatten die u opgeeft.</translation>
+        <translation>只列出包含您輸入文字的檔名。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="49"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>過濾器:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="59"/>
         <source>Choose which image, video, or audio files from your computer to add to
 your book and automatically insert into your document.</source>
-        <translation>Kiezen welke afbeelding-, video- of audiobestanden van uw computer
-worden toegevoegd aan uw boek en automatisch worden ingevoegd in uw document.</translation>
+        <translation>從您的電腦中選擇您要加入書本的圖片、影片或音效檔，並自動插入您的文件中。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="63"/>
         <source>Other Files...</source>
-        <translation>Andere bestanden...</translation>
+        <translation>其他檔案...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="129"/>
         <source>Thumbnail size:</source>
-        <translation>Miniatuurgrootte</translation>
+        <translation>縮圖大小：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="80"/>
         <source>All</source>
-        <translation>Alle</translation>
+        <translation>全部</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="81"/>
         <source>Images</source>
-        <translation>Afbeeldingen</translation>
+        <translation>圖片</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="82"/>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation>影片</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="83"/>
         <source>Audio</source>
-        <translation>Audio</translation>
+        <translation>聲音</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="127"/>
         <source>Files In the Book</source>
-        <translation>Bestanden in het boek</translation>
+        <translation>書裡的檔案</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="130"/>
         <source>Thumbnails</source>
-        <translation>Miniaturen</translation>
+        <translation>縮圖</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="286"/>
         <source>shades</source>
-        <translation>tinten</translation>
+        <translation>陰影</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="286"/>
         <source>colors</source>
-        <translation>kleuren</translation>
+        <translation>顏色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="287"/>
         <source>Grayscale</source>
-        <translation>Grijstinten</translation>
+        <translation>灰階</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="287"/>
         <source>Color</source>
-        <translation>Kleur</translation>
+        <translation>顏色</translation>
     </message>
 </context>
 <context>
@@ -14098,33 +14043,33 @@ worden toegevoegd aan uw boek en automatisch worden ingevoegd in uw document.</t
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="14"/>
         <source>Select Target</source>
-        <translation>Bestemming selecteren</translation>
+        <translation>選擇目標</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="22"/>
         <source>List only the entries that match the text you enter.</source>
-        <translation>Alleen de hyperlinks tonen die overeenkomen met de tekst die u opgeeft.</translation>
+        <translation>只列出符合您輸入文字的條目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="25"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>過濾器:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="58"/>
         <source>Enter the target URL for this hyperlink.  You can select or 
 double click on existing destinations in your book from the list above.</source>
-        <translation>Geef de URL op voor de bestemming van deze hyperlink.  Vanuit bovenstaande lijst kunt u bestaande bestemmingen selecteren of erop dubbelklikken.</translation>
+        <translation>則輸入此超連結的目標網址。您可以在上方的清單中選擇或雙擊在您的書本中已存在的目標。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="62"/>
         <source>Target:</source>
-        <translation>Bestemming:</translation>
+        <translation>目標:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectHyperlink.cpp" line="61"/>
         <source>Targets in the Book</source>
-        <translation>Bestemmingen in het boek</translation>
+        <translation>書本中的目標</translation>
     </message>
 </context>
 <context>
@@ -14132,7 +14077,7 @@ double click on existing destinations in your book from the list above.</source>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="14"/>
         <source>Insert ID </source>
-        <translation>Referentie invoegen</translation>
+        <translation>插入 ID </translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="22"/>
@@ -14141,16 +14086,16 @@ double click on existing destinations in your book from the list above.</source>
 The dropdown box shows existing ID names in the current file.
 
 ID names must be unique and start with a letter.</source>
-        <translation>Een referentie opgeven om te gebruiken als bestemming voor hyperlinks, noten en vermeldingen op de inhoudsopgave.
+        <translation>輸入超連結、備註與目錄項目所使用的代碼名稱。
 
-De vervolgkeuzelijst toont referenties in het huidige bestand.
+此下拉盒會顯示目前檔案中已存在的代碼名稱。
 
-Referenties moeten uniek zijn en beginnen met een letter.</translation>
+代碼名稱不能重覆，並且必須以字母開頭。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="29"/>
         <source>ID:</source>
-        <translation>Referentie:</translation>
+        <translation>ID:</translation>
     </message>
 </context>
 <context>
@@ -14158,17 +14103,17 @@ Referenties moeten uniek zijn en beginnen met een letter.</translation>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="14"/>
         <source>Mark For Index</source>
-        <translation>Markeren voor register</translation>
+        <translation>標記建索引</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="22"/>
         <source>Enter the index entry to create for the selected text.</source>
-        <translation>Geef het trefwoord op dat aangemaakt moet worden voor de geselecteerde tekst.</translation>
+        <translation>輸入選取的文字要建立的索引條目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="25"/>
         <source>Index Entry:</source>
-        <translation>Trefwoord:</translation>
+        <translation>索引條目：</translation>
     </message>
 </context>
 <context>
@@ -14176,69 +14121,69 @@ Referenties moeten uniek zijn en beginnen met een letter.</translation>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="14"/>
         <source>Spellcheck Dictionaries</source>
-        <translation>Woordenlijsten spellingcontrole</translation>
+        <translation>拼字檢查字典</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="34"/>
         <source>Dictionary:</source>
-        <translation>Woordenlijst:</translation>
+        <translation>字典：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="64"/>
         <source>Highlight misspelled words in Code View.</source>
-        <translation>Verkeerd gespelde woorden markeren in codeweergave.</translation>
+        <translation>在代碼檢視中突顯拼錯的單字。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="67"/>
         <source>Highlight Misspelled Words</source>
-        <translation>Verkeerd gespelde woorden markeren</translation>
+        <translation>突顯拼錯的單字</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="74"/>
         <source>Check words with numbers in them.</source>
-        <translation>Woorden met cijfers controleren.</translation>
+        <translation>檢查裡面有數字的單字。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="77"/>
         <source>Check Numbers</source>
-        <translation>Getallen controleren</translation>
+        <translation>檢查數字</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="130"/>
         <source>User Dictionaries</source>
-        <translation>Gebruikerswoordenlijsten</translation>
+        <translation>使用者字典</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="138"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="222"/>
         <source>Add</source>
-        <translation>Toevoegen</translation>
+        <translation>增加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="145"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="212"/>
         <source>Rename</source>
-        <translation>Naam wijzigen</translation>
+        <translation>重新命名</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="152"/>
         <source>Copy</source>
-        <translation>Kopiëren</translation>
+        <translation>複製</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="159"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="236"/>
         <source>Remove</source>
-        <translation>Verwijderen</translation>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="162"/>
         <source>Remove the selected dictionary.
 
 You cannot remove the last dictionary.</source>
-        <translation>De geselecteerde woordenlijst verwijderen.
+        <translation>移除選取的字典。
 
-U kunt de laatste woordenlijst niet verwijderen.</translation>
+您不能將所有字典都移除。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="189"/>
@@ -14247,70 +14192,69 @@ spell checking.
 
 Select a dictionary to display its words,
 and to make it the default dictionary.</source>
-        <translation>Markeren welke woordenlijsten ingeschakeld worden
-voor spellingcontrole.
+        <translation>標記拼字檢查要使用哪些字典。
 
-Kies een woordenlijst om haar woorden te tonen,
-en om haar als standaard woordenlijst in te stellen.</translation>
+選擇字典以顯示它裡面的單字，並設為預設字典。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="203"/>
         <source>User Dictionary Word List</source>
-        <translation>Inhoud van gebruikerswoordenlijst</translation>
+        <translation>使用者字典單字列表</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="218"/>
         <source>Enter or paste words to add to the dictionary.
 Words can be separated by lines, commas, or spaces.</source>
-        <translation>Invoeren of plakken van woorden om toe te voegen aan de woordenlijst.
-Woorden kunnen van elkaar gescheiden worden door regels, komma&apos;s of spaties.</translation>
+        <translation>輸入或貼上要加入字典的單字。
+單字可以用行、逗點或空白來區隔。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="229"/>
         <source>Edit</source>
-        <translation>Bewerken</translation>
+        <translation>編輯</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="243"/>
         <source>Remove All</source>
-        <translation>Alles verwijderen</translation>
+        <translation>移除全部</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="272"/>
         <source>The default dictionary is used when you add words to the
 default dictionary or use the shortcuts for Add Misspelled Words.</source>
-        <translation>De standaard woordenlijst wordt gebruikt wanneer u woorden toevoegt aan de standaard woordenlijst of wanneer u de toetsencombinatie gebruikt voor het toevoegen van verkeerd gespelde woorden.</translation>
+        <translation>您新增單字到預設字典或是用「新增拼錯的單字」的捷徑時，
+會使用預設的字典。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="276"/>
         <source>Default Dictionary:</source>
-        <translation>Standaard woordenlijst:</translation>
+        <translation>預設的字典：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="283"/>
         <source>none</source>
-        <translation>geen</translation>
+        <translation>無</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="52"/>
         <source>Enable</source>
-        <translation>Inschakelen</translation>
+        <translation>開啟</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="53"/>
         <source>Dictionary</source>
-        <translation>Woordenlijst</translation>
+        <translation>字典</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="109"/>
         <source>Add Dictionary</source>
-        <translation>Woordenlijst toevoegen</translation>
+        <translation>新增字典</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="109"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="212"/>
         <source>Name:</source>
-        <translation>Naam:</translation>
+        <translation>名稱:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="123"/>
@@ -14319,38 +14263,38 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="233"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="252"/>
         <source>Error</source>
-        <translation>Fout</translation>
+        <translation>錯誤</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="123"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="225"/>
         <source>A user dictionary already exists with this name!</source>
-        <translation>Er bestaat al een gebruikerswoordenlijst met deze naam!</translation>
+        <translation>相同名稱的使用者字典已存在！</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="132"/>
         <source>Add Words</source>
-        <translation>Woorden toevoegen</translation>
+        <translation>新增單字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="132"/>
         <source>Words:</source>
-        <translation>Woorden:</translation>
+        <translation>單字：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="163"/>
         <source>Could not create file!</source>
-        <translation>Bestand kon niet worden aangemaakt!</translation>
+        <translation>無法建立檔案！</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="233"/>
         <source>Could not rename file!</source>
-        <translation>Naam van bestand kon niet gewijzigd worden!</translation>
+        <translation>無法重新命名檔案！</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="252"/>
         <source>You cannot delete the last dictionary.</source>
-        <translation>U kunt de laatste woordenlijst niet verwijderen.</translation>
+        <translation>您不能刪除所有的字典。</translation>
     </message>
 </context>
 <context>
@@ -14358,83 +14302,81 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="14"/>
         <source>Spellcheck</source>
-        <translation>Spellingcontrole</translation>
+        <translation>拼字檢查</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>過濾器:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Alleen de vermeldingen tonen die de tekst bevatten die u opgeeft.</translation>
+        <translation>只列出包含您輸入文字的條目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="58"/>
         <source>Ignore the selected words until Sigil
 is restarted or a new book is opened.</source>
-        <translation>De geselecteerde woorden negeren totdat Sigil
-opnieuw wordt opgestart of een nieuw boek wordt geopend.</translation>
+        <translation>忽略選取的單字，直到 Sigil 重新啟動
+或是開啟了新的書本。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="532"/>
         <source>Ignore</source>
-        <translation>Negeren</translation>
+        <translation>忽略</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="91"/>
         <source>Add the selected words to the
 dictionary selected below.</source>
-        <translation>De geselecteerde woorden toevoegen
-aan de hieronder geselecteerde woordenlijst.</translation>
+        <translation>新增選取的單字到底下選取的字典。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="95"/>
         <source>Add To Dictionary:</source>
-        <translation>Toevoegen aan woordenlijst:</translation>
+        <translation>新增到字典：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="134"/>
         <source>Change all occurrences of the selected word  in
 HTML files to the word you select or type below.
 The selected word does not have to be misspelled.</source>
-        <translation>Alle voorkomens van het geselecteerde woord in HTML-bestanden 
-veranderen in het woord dat u hieronder selecteert of typt.
-Het geselecteerde woord hoeft niet verkeerd gespeld te zijn. </translation>
+        <translation>將 HTML 檔中所有選取的單字變更為您下方選擇
+或輸入的單字。選取的單字不需要是拼錯的。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="139"/>
         <source>Change Selected Word To:</source>
-        <translation>Geselecteerd woord veranderen in:</translation>
+        <translation>將選取的單字變更為：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="181"/>
         <source>Show All Words</source>
-        <translation>Alle woorden tonen</translation>
+        <translation>顯示所有的單字</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="188"/>
         <source>Sort words as AaBbCc instead of ABCabc.</source>
-        <translation>Woorden sorteren als AaBbCc in plaats van als ABCabc.</translation>
+        <translation>將單字排序為 AaBbCc 而不是 ABCabc。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="191"/>
         <source>Case-Insensitive Sort</source>
-        <translation>Hoofdletterongevoelig sorteren</translation>
+        <translation>排序不分大小寫</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="215"/>
         <source>Re-check the HTML files for misspelled words.
 Use if you edit any HTML files while Spellcheck is open.</source>
-        <translation>De HTML-bestanden opnieuw controleren op verkeerd gespelde woorden.
-Te gebruiken als u een HTML-bestand bewerkt wanneer spellingcontrole open staat.</translation>
+        <translation>重新檢查 HTML 檔找出拼錯的單字。
+若是您編輯 HTML 檔並且開啟拼字檢查時可以使用。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="219"/>
         <source>Refresh</source>
-        <translation>Vernieuwen</translation>
+        <translation>刷新</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="53"/>
@@ -14465,78 +14407,78 @@ Te gebruiken als u een HTML-bestand bewerkt wanneer spellingcontrole open staat.
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="177"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="216"/>
         <source>No words selected.</source>
-        <translation>Geen woorden geselecteerd.</translation>
+        <translation>沒有選取任何單字。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="170"/>
         <source>Ignored word(s).</source>
-        <translation>Genegeerd(e) woord(en).</translation>
+        <translation>忽略的單字。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="205"/>
         <source>Added word(s) to dictionary.</source>
-        <translation>Aan woordenlijst toegevoegd(e) woord(en).</translation>
+        <translation>新增單字到字典中。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="207"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
-        <translation>Woord(en) toegevoegd aan woordenlijst. De woordenlijst is niet ingeschakeld in Voorkeuren.</translation>
+        <translation>新增單字到字典中。字典並未在喜好設定中開啟。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="222"/>
         <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
-        <translation>Het nieuwe woord mag geen &quot;&lt;&quot;, &quot;&gt;&quot; of &quot;&amp;&quot; bevatten.</translation>
+        <translation>新增的單字不能包含 &quot;&lt;&quot;, &quot;&gt;&quot; 或是 &quot;&amp;&quot;。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="233"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="301"/>
         <source>No</source>
-        <translation>Nee</translation>
+        <translation>否</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="252"/>
         <source>Word</source>
-        <translation>Woord</translation>
+        <translation>單字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="253"/>
         <source>Count</source>
-        <translation>Aantal</translation>
+        <translation>計數</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="254"/>
         <source>Misspelled?</source>
-        <translation>Verkeerd gespeld?</translation>
+        <translation>拼錯了嗎？</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="299"/>
         <source>Yes</source>
-        <translation>Ja</translation>
+        <translation>是</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="314"/>
         <source>Misspelled Words</source>
-        <translation>Verkeerd gespelde woorden</translation>
+        <translation>拼錯的單字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="314"/>
         <source>Total Unique Words</source>
-        <translation>Totaal unieke woorden</translation>
+        <translation>所有獨一的單字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="533"/>
         <source>Add to Dictionary</source>
-        <translation>Aan woordenlijst toevoegen</translation>
+        <translation>新增到字典</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="534"/>
         <source>Find in Text</source>
-        <translation>In tekst zoeken</translation>
+        <translation>在文字中尋找</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="535"/>
         <source>Select All</source>
-        <translation>Alles selecteren</translation>
+        <translation>全部選取</translation>
     </message>
 </context>
 <context>
@@ -14544,52 +14486,52 @@ Te gebruiken als u een HTML-bestand bewerkt wanneer spellingcontrole open staat.
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="14"/>
         <source>Style Classes in CSS Files</source>
-        <translation>Stijlklassen in CSS-bestanden</translation>
+        <translation>CSS 檔中的樣式類別</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Alleen de bestandsnamen opsommen die de tekst bevatten die u opgeeft.</translation>
+        <translation>只列出包含您輸入文字的檔名。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>過濾器:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="86"/>
         <source>CSS File</source>
-        <translation>CSS-bestand</translation>
+        <translation>CSS 檔</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="87"/>
         <source>Class Selector</source>
-        <translation>Klasse-selector</translation>
+        <translation>類別選取器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="88"/>
         <source>Used In HTML File</source>
-        <translation>Gebruikt in HTML-bestand</translation>
+        <translation>在 HTML 檔案內使用</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="94"/>
         <source>&lt;p&gt;This is a list of the class based selectors in all CSS files and whether or not the selector was matched from a style in an HTML file.&lt;p&gt;</source>
-        <translation>&lt;p&gt;Dit is een lijst met de op klassen gebaseerde selectors in alle CSS-stijlbladen en of naar de selector wordt verwezen vanuit een stijl in een HTML-bestand.&lt;p&gt;</translation>
+        <translation>&lt;p&gt;這裡是用於所有 CSS 檔的樣式類別清單，不管是否符合 HTML 檔中的樣式。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="95"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
-        <translation>&lt;p&gt;LET OP:&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;注意：&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="96"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Vanwege de complexiteit van CSS dient u de code handmatig te controleren om er zeker van te zijn of een stijl al dan niet gebruikt wordt.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;因為 CSS 挺複雜的，您必須手動檢查您的代碼，確保某個樣式是否被使用。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="252"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Rapport opslaan als CSV-bestand</translation>
+        <translation>將報告儲存為用逗號分隔的資料檔</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="265"/>
@@ -14599,12 +14541,12 @@ Te gebruiken als u een HTML-bestand bewerkt wanneer spellingcontrole open staat.
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="265"/>
         <source>Cannot save report file.</source>
-        <translation>Rapportbestand kan niet worden opgeslagen.</translation>
+        <translation>無法儲存報告檔。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="276"/>
         <source>Delete From Stylesheet</source>
-        <translation>Van stijlblad verwijderen</translation>
+        <translation>從樣式表刪除</translation>
     </message>
 </context>
 <context>
@@ -14612,7 +14554,7 @@ Te gebruiken als u een HTML-bestand bewerkt wanneer spellingcontrole open staat.
     <message>
         <location filename="../../Tabs/TabBar.cpp" line="80"/>
         <source>Close Other Tabs</source>
-        <translation>De andere tabbladen sluiten</translation>
+        <translation>關閉其他分頁</translation>
     </message>
 </context>
 <context>
@@ -14620,7 +14562,7 @@ Te gebruiken als u een HTML-bestand bewerkt wanneer spellingcontrole open staat.
     <message>
         <location filename="../../Tabs/TabManager.cpp" line="218"/>
         <source>Cannot edit file</source>
-        <translation>Bestand kan niet bewerkt worden</translation>
+        <translation>無法編輯檔案</translation>
     </message>
 </context>
 <context>
@@ -14628,22 +14570,22 @@ Te gebruiken als u een HTML-bestand bewerkt wanneer spellingcontrole open staat.
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="42"/>
         <source>Table Of Contents</source>
-        <translation>Inhoudsopgave</translation>
+        <translation>目錄</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="123"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Het bestand &quot;%1&quot; bestaat niet.</translation>
+        <translation>檔案 &quot;%1&quot; 不存在。</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="154"/>
         <source>Collapse All</source>
-        <translation>Alles samenvouwen</translation>
+        <translation>全部折疊</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="155"/>
         <source>Expand All</source>
-        <translation>Alles uitvouwen</translation>
+        <translation>全部展開</translation>
     </message>
 </context>
 <context>
@@ -14651,7 +14593,7 @@ Te gebruiken als u een HTML-bestand bewerkt wanneer spellingcontrole open staat.
     <message>
         <location filename="../../Tabs/TextTab.cpp" line="309"/>
         <source>Print %1</source>
-        <translation>Afdrukken %1</translation>
+        <translation>列印 %1</translation>
     </message>
 </context>
 <context>
@@ -14666,9 +14608,9 @@ Te gebruiken als u een HTML-bestand bewerkt wanneer spellingcontrole open staat.
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
-        <translation>De gevraagde bestandsnaam bevat niet-ASCII-tekens. U kunt beter bestandsnamen gebruiken met alleen ASCII-tekens. Het gebruiken van niet-ASCII-tekens kan ertoe leiden dat de EPUB op sommige e-readers niet werkt.
+        <translation>請求的檔名包含非 ASCII 字元。您的檔名中應該只使用 ASCII 字元。使用非 ASCII 字元可能會造成 EPUB 在某些閱讀器中無法使用。
 
-Wilt u de gevraagde bestandsnaam toch gebruiken?</translation>
+您要繼續使用該檔名嗎？</translation>
     </message>
 </context>
 <context>
@@ -14676,39 +14618,39 @@ Wilt u de gevraagde bestandsnaam toch gebruiken?</translation>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="44"/>
         <source>Validation Results</source>
-        <translation>Uitslagen validatie</translation>
+        <translation>驗證結果</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="227"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="231"/>
         <source>N/A</source>
-        <translation>n.v.t.</translation>
+        <translation>無</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="254"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>Message</source>
-        <translation>Melding</translation>
+        <translation>訊息</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="255"/>
         <source>No problems found!</source>
-        <translation>Geen problemen gevonden!</translation>
+        <translation>沒有發現問題!</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>File</source>
-        <translation>Bestand</translation>
+        <translation>檔案</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>Line</source>
-        <translation>Regel</translation>
+        <translation>行</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>Offset</source>
-        <translation>Positie</translation>
+        <translation>位移</translation>
     </message>
 </context>
 <context>
@@ -14716,7 +14658,7 @@ Wilt u de gevraagde bestandsnaam toch gebruiken?</translation>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="20"/>
         <source>View Image</source>
-        <translation>Afbeelding bekijken</translation>
+        <translation>檢視圖片</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="33"/>
@@ -14729,22 +14671,22 @@ Wilt u de gevraagde bestandsnaam toch gebruiken?</translation>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="42"/>
         <source>&lt;p&gt;The operation you requested cannot be performed because &lt;b&gt;%1&lt;/b&gt; is not a well-formed XML document.&lt;/p&gt;&lt;p&gt;An error was found &lt;b&gt;at or above line %2: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Manually&lt;/i&gt; option will let you fix the problem by hand.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;De door u gevraagde bewerking kan niet worden uitgevoerd, omdat &lt;b&gt;%1&lt;/b&gt; een niet goed opgebouwd XML-document is.&lt;/p&gt;&lt;p&gt;Er werd een fout geconstateerd &lt;b&gt;op of boven regel %2: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;De optie &lt;i&gt;Handmatig repareren&lt;/i&gt; biedt u de mogelijkheid het probleem handmatig te laten repareren.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;您所請求的操作不能被執行，因為 &lt;b&gt;%1&lt;/b&gt; 不是一個良好格式的XML文件。&lt;/p&gt;&lt;p&gt;一個錯誤被發現在&lt;b&gt;第 %2 行: %3。&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;手動修復&lt;/i&gt; 選項將讓您自己手動來解決這個問題。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="47"/>
         <source>&lt;p&gt;The &lt;i&gt;Fix Automatically&lt;/i&gt; option will instruct Sigil to try to repair the document. &lt;b&gt;This option may lead to loss of data!&lt;/b&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;De optie &lt;i&gt;Automatisch repareren&lt;/i&gt; laat Sigil proberen het document te repareren. &lt;b&gt;Deze optie kan leiden tot gegevensverlies!&lt;/b&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&lt;i&gt;自動修復&lt;/i&gt;選項將指示 Sigil 嘗試修復文件。&lt;b&gt;此選項可能會導致資料遺失!&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="54"/>
         <source>Fix &amp;Automatically</source>
-        <translation>&amp;Automatisch repareren</translation>
+        <translation>自動修復(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="56"/>
         <source>Fix &amp;Manually</source>
-        <translation>&amp;Handmatig repareren</translation>
+        <translation>手動修復(&amp;M)</translation>
     </message>
 </context>
 <context>
@@ -14752,1267 +14694,1267 @@ Wilt u de gevraagde bestandsnaam toch gebruiken?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>quotation mark</source>
-        <translation>aanhalingsteken</translation>
+        <translation>引號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="98"/>
         <source>ampersand</source>
-        <translation>en-teken</translation>
+        <translation>&amp; 號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="99"/>
         <source>apostrophe</source>
-        <translation>apostrof</translation>
+        <translation>單引號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="100"/>
         <source>less-than sign</source>
-        <translation>kleiner-dan-teken</translation>
+        <translation>小於符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="101"/>
         <source>greater-than sign</source>
-        <translation>groter-dan-teken</translation>
+        <translation>大於符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="102"/>
         <source>no-break space</source>
-        <translation>vaste spatie</translation>
+        <translation>不換行空格</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="103"/>
         <source>inverted exclamation mark</source>
-        <translation>omgekeerd uitroepteken</translation>
+        <translation>倒置驚嘆號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="104"/>
         <source>cent sign</source>
-        <translation>dollarcent-teken</translation>
+        <translation>分符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="105"/>
         <source>pound sign</source>
-        <translation>pond-teken</translation>
+        <translation>英鎊符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="106"/>
         <source>currency sign</source>
-        <translation>valutateken</translation>
+        <translation>貨幣符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="107"/>
         <source>yen sign</source>
-        <translation>yen-teken</translation>
+        <translation>日元／人民幣符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="108"/>
         <source>broken bar</source>
-        <translation>onderbroken balk</translation>
+        <translation>斷豎線</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="109"/>
         <source>section sign</source>
-        <translation>paragraafteken</translation>
+        <translation>分節符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="110"/>
         <source>diaeresis</source>
-        <translation>trema</translation>
+        <translation>分音符</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>copyright symbol</source>
-        <translation>copyrightsymbool</translation>
+        <translation>版權符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="112"/>
         <source>feminine ordinal indicator</source>
-        <translation>superscript a</translation>
+        <translation>陰性序數指示符</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="113"/>
         <source>left-pointing double angle quotation mark</source>
-        <translation>dubbel aanhalingsteken naar links</translation>
+        <translation>左指雙角引號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="114"/>
         <source>not sign</source>
-        <translation>is-niet-teken</translation>
+        <translation>非符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="115"/>
         <source>soft hyphen</source>
-        <translation>afbreekstreepje</translation>
+        <translation>軟連字符</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="116"/>
         <source>registered sign</source>
-        <translation>registered-teken</translation>
+        <translation>註冊符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="117"/>
         <source>macron</source>
-        <translation>lengteteken</translation>
+        <translation>長音符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="118"/>
         <source>degree symbol</source>
-        <translation>gradenteken</translation>
+        <translation>度符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="119"/>
         <source>plus-minus sign</source>
-        <translation>plusminus-teken</translation>
+        <translation>加減符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="120"/>
         <source>superscript two</source>
-        <translation>superscript 2</translation>
+        <translation>上標 2</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="121"/>
         <source>superscript three</source>
-        <translation>superscript 3</translation>
+        <translation>上標 3</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="122"/>
         <source>acute accent</source>
-        <translation>accent aigu</translation>
+        <translation>尖音符</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="123"/>
         <source>micro sign</source>
-        <translation>micro-teken</translation>
+        <translation>微符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="124"/>
         <source>pilcrow sign</source>
-        <translation>alineateken</translation>
+        <translation>段落符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="125"/>
         <source>middle dot</source>
-        <translation>middenpunt</translation>
+        <translation>間隔號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="126"/>
         <source>cedilla</source>
-        <translation>cedille</translation>
+        <translation>軟音符</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="127"/>
         <source>superscript one</source>
-        <translation>superscript 1</translation>
+        <translation>上標 1</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="128"/>
         <source>masculine ordinal indicator</source>
-        <translation>superscript o</translation>
+        <translation>陽性序數指示符</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="129"/>
         <source>right-pointing double angle quotation mark</source>
-        <translation>dubbel aanhalingsteken naar rechts</translation>
+        <translation>右指雙角引號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="130"/>
         <source>vulgar fraction one quarter</source>
-        <translation>gewone breuk 1/4</translation>
+        <translation>普通分數四分之一</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="131"/>
         <source>vulgar fraction one half</source>
-        <translation>gewone breuk 1/2</translation>
+        <translation>普通分數二分之一</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="132"/>
         <source>vulgar fraction three quarters</source>
-        <translation>gewone breuk 3/4</translation>
+        <translation>普通分數三分之一</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="133"/>
         <source>inverted question mark</source>
-        <translation>omgekeerd vraagteken</translation>
+        <translation>倒置問號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="134"/>
         <source>Latin capital letter A with grave accent</source>
-        <translation>Latijnse hoofdletter A met accent grave</translation>
+        <translation>加重音的大寫拉丁字母 A</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="135"/>
         <source>Latin capital letter A with acute accent</source>
-        <translation>Latijnse hoofdletter A met accent aigu</translation>
+        <translation>加尖音符的大寫拉丁字母 A</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="136"/>
         <source>Latin capital letter A with circumflex</source>
-        <translation>Latijnse hoofdletter A met accent circonflexe</translation>
+        <translation>加音調符號的大寫拉丁字母 A</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="137"/>
         <source>Latin capital letter A with tilde</source>
-        <translation>Latijnse hoofdletter A met tilde</translation>
+        <translation>加波浪符的大寫拉丁字母 A</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="138"/>
         <source>Latin capital letter A with diaeresis</source>
-        <translation>Latijnse hoofdletter A met trema</translation>
+        <translation>加分音符的大寫拉丁字母 A</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="139"/>
         <source>Latin capital letter A with ring above</source>
-        <translation>Latijnse hoofdletter A met ring erboven</translation>
+        <translation>加圓圈符的大寫拉丁字母 A</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="140"/>
         <source>Latin capital letter AE</source>
-        <translation>Latijnse hoofdletter AE</translation>
+        <translation>大寫拉丁字母 AE</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="141"/>
         <source>Latin capital letter C with cedilla</source>
-        <translation>Latijnse hoofdletter C met cedille</translation>
+        <translation>加下加符的大寫拉丁字母 C</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="142"/>
         <source>Latin capital letter E with grave accent</source>
-        <translation>Latijnse hoofdletter E met accent grave</translation>
+        <translation>加重音的大寫拉丁字母 E</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="143"/>
         <source>Latin capital letter E with acute accent</source>
-        <translation>Latijnse hoofdletter E met accent aigu</translation>
+        <translation>加尖音符的大寫拉丁字母 E</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="144"/>
         <source>Latin capital letter E with circumflex</source>
-        <translation>Latijnse hoofdletter E met accent circonflexe</translation>
+        <translation>加音調符號的大寫拉丁字母 E</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="145"/>
         <source>Latin capital letter E with diaeresis</source>
-        <translation>Latijnse hoofdletter E met trema</translation>
+        <translation>加分音符的大寫拉丁字母 E</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="146"/>
         <source>Latin capital letter I with grave accent</source>
-        <translation>Latijnse hoofdletter I met accent grave</translation>
+        <translation>加重音的大寫拉丁字母 I</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="147"/>
         <source>Latin capital letter I with acute accent</source>
-        <translation>Latijnse hoofdletter I met accent aigu</translation>
+        <translation>加尖音符的大寫拉丁字母 I</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="148"/>
         <source>Latin capital letter I with circumflex</source>
-        <translation>Latijnse hoofdletter I met accent circonflexe</translation>
+        <translation>加音調符號的大寫拉丁字母 I</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="149"/>
         <source>Latin capital letter I with diaeresis</source>
-        <translation>Latijnse hoofdletter I met trema</translation>
+        <translation>加分音符的大寫拉丁字母 I</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="150"/>
         <source>Latin capital letter Eth</source>
-        <translation>Latijnse hoofdletter Eth</translation>
+        <translation>大寫拉丁字母 Eth</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="151"/>
         <source>Latin capital letter N with tilde</source>
-        <translation>Latijnse hoofdletter N met tilde</translation>
+        <translation>加波浪符的大寫拉丁字母 N</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="152"/>
         <source>Latin capital letter O with grave accent</source>
-        <translation>Latijnse hoofdletter O met accent grave</translation>
+        <translation>加重音的大寫拉丁字母 O</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="153"/>
         <source>Latin capital letter O with acute accent</source>
-        <translation>Latijnse hoofdletter O met accent aigu</translation>
+        <translation>加尖音符的大寫拉丁字母 O</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="154"/>
         <source>Latin capital letter O with circumflex</source>
-        <translation>Latijnse hoofdletter O met accent circonflexe</translation>
+        <translation>加音調符號的大寫拉丁字母 O</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="155"/>
         <source>Latin capital letter O with tilde</source>
-        <translation>Latijnse hoofdletter O met tilde</translation>
+        <translation>加波浪符的大寫拉丁字母 O</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="156"/>
         <source>Latin capital letter O with diaeresis</source>
-        <translation>Latijnse hoofdletter O met trema</translation>
+        <translation>加分音符的大寫拉丁字母 O</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="157"/>
         <source>multiplication sign</source>
-        <translation>vermenigvuldigingsteken</translation>
+        <translation>乘號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="158"/>
         <source>Latin capital letter O with stroke</source>
-        <translation>Latijnse hoofdletter O met schuine streep</translation>
+        <translation>加中橫線的大寫拉丁字母 O</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="159"/>
         <source>Latin capital letter U with grave accent</source>
-        <translation>Latijnse hoofdletter U met accent grave</translation>
+        <translation>加重音的大寫拉丁字母 U</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="160"/>
         <source>Latin capital letter U with acute accent</source>
-        <translation>Latijnse hoofdletter U met accent aigu</translation>
+        <translation>加尖音符的大寫拉丁字母 E</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="161"/>
         <source>Latin capital letter U with circumflex</source>
-        <translation>Latijnse hoofdletter U met accent circonflexe</translation>
+        <translation>加音調符號的大寫拉丁字母 U</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="162"/>
         <source>Latin capital letter U with diaeresis</source>
-        <translation>Latijnse hoofdletter U met trema</translation>
+        <translation>加分音符的大寫拉丁字母 U</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="163"/>
         <source>Latin capital letter Y with acute accent</source>
-        <translation>Latijnse hoofdletter Y met accent aigu</translation>
+        <translation>加尖音符的大寫拉丁字母 Y</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="164"/>
         <source>Latin capital letter THORN</source>
-        <translation>Latijnse hoofdletter THORN</translation>
+        <translation>大寫拉丁字母 THORN</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="165"/>
         <source>Latin small letter sharp s</source>
-        <translation>Latijnse kleine letter ringel-s</translation>
+        <translation>拉丁語小寫字母s</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="166"/>
         <source>Latin small letter a with grave accent</source>
-        <translation>Latijnse kleine letter a met accent grave</translation>
+        <translation>加重音的拉丁語小寫字母a</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="167"/>
         <source>Latin small letter a with acute accent</source>
-        <translation>Latijnse kleine letter a met accent aigu</translation>
+        <translation>加尖音符的拉丁語小寫字母a</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="168"/>
         <source>Latin small letter a with circumflex</source>
-        <translation>Latijnse kleine letter a met accent circonflexe</translation>
+        <translation>加音調符號的拉丁小寫字母a</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="169"/>
         <source>Latin small letter a with tilde</source>
-        <translation>Latijnse kleine letter a met tilde</translation>
+        <translation>加波浪符的拉丁小寫字母a</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="170"/>
         <source>Latin small letter a with diaeresis</source>
-        <translation>Latijnse kleine letter a met trema</translation>
+        <translation>加分音符的拉丁小寫字母a</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="171"/>
         <source>Latin small letter a with ring above</source>
-        <translation>Latijnse kleine letter a met ring erboven</translation>
+        <translation>加圓圈符的拉丁小寫字母a</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="172"/>
         <source>Latin small letter ae</source>
-        <translation>Latijnse kleine letter ae</translation>
+        <translation>拉丁小寫字母ae</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="173"/>
         <source>Latin small letter c with cedilla</source>
-        <translation>Latijnse kleine letter c met cedille</translation>
+        <translation>加下加符的拉丁小寫字母c</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="174"/>
         <source>Latin small letter e with grave accent</source>
-        <translation>Latijnse kleine letter e met accent grave</translation>
+        <translation>加重音的拉丁語小寫字母e</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="175"/>
         <source>Latin small letter e with acute accent</source>
-        <translation>Latijnse kleine letter e met accent aigu</translation>
+        <translation>加尖音符的拉丁語小寫字母e</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="176"/>
         <source>Latin small letter e with circumflex</source>
-        <translation>Latijnse kleine letter e met accent circonflexe</translation>
+        <translation>加音調符號的拉丁小寫字母e</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="177"/>
         <source>Latin small letter e with diaeresis</source>
-        <translation>Latijnse kleine letter e met trema</translation>
+        <translation>加分音符的拉丁小寫字母e</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="178"/>
         <source>Latin small letter i with grave accent</source>
-        <translation>Latijnse kleine letter i met accent grave</translation>
+        <translation>加重音的拉丁語小寫字母i</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="179"/>
         <source>Latin small letter i with acute accent</source>
-        <translation>Latijnse kleine letter i met accent aigu</translation>
+        <translation>加尖音符的拉丁語小寫字母i</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="180"/>
         <source>Latin small letter i with circumflex</source>
-        <translation>Latijnse kleine letter i met accent circonflexe</translation>
+        <translation>加音調符號的拉丁小寫字母i</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="181"/>
         <source>Latin small letter i with diaeresis</source>
-        <translation>Latijnse kleine letter i met trema</translation>
+        <translation>加分音符的拉丁小寫字母i</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="182"/>
         <source>Latin small letter eth</source>
-        <translation>Latijnse kleine letter eth</translation>
+        <translation>拉丁語小寫字母eth</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="183"/>
         <source>Latin small letter n with tilde</source>
-        <translation>Latijnse kleine letter n met tilde</translation>
+        <translation>加波浪符的拉丁小寫字母n</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="184"/>
         <source>Latin small letter o with grave accent</source>
-        <translation>Latijnse kleine letter o met accent grave</translation>
+        <translation>加重音的拉丁語小寫字母o</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="185"/>
         <source>Latin small letter o with acute accent</source>
-        <translation>Latijnse kleine letter o met accent aigu</translation>
+        <translation>加尖音符的拉丁語小寫字母o</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="186"/>
         <source>Latin small letter o with circumflex</source>
-        <translation>Latijnse kleine letter o met accent circonflexe</translation>
+        <translation>加音調符號的拉丁小寫字母o</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="187"/>
         <source>Latin small letter o with tilde</source>
-        <translation>Latijnse kleine letter o met tilde</translation>
+        <translation>加波浪符的拉丁小寫字母o</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="188"/>
         <source>Latin small letter o with diaeresis</source>
-        <translation>Latijnse kleine letter o met trema</translation>
+        <translation>加分音符的拉丁小寫字母o</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="189"/>
         <source>division sign</source>
-        <translation>deelteken</translation>
+        <translation>除號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="190"/>
         <source>Latin small letter o with stroke</source>
-        <translation>Latijnse kleine letter o met schuine streep</translation>
+        <translation>加中橫線的拉丁字母o</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="191"/>
         <source>Latin small letter u with grave accent</source>
-        <translation>Latijnse kleine letter u met accent grave</translation>
+        <translation>加重音的拉丁語小寫字母u</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="192"/>
         <source>Latin small letter u with acute accent</source>
-        <translation>Latijnse kleine letter u met accent aigu</translation>
+        <translation>加尖音符的拉丁語小寫字母u</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="193"/>
         <source>Latin small letter u with circumflex</source>
-        <translation>Latijnse kleine letter u met accent circonflexe</translation>
+        <translation>加音調符號的拉丁小寫字母u</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="194"/>
         <source>Latin small letter u with diaeresis</source>
-        <translation>Latijnse kleine letter u met trema</translation>
+        <translation>加分音符的拉丁小寫字母u</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="195"/>
         <source>Latin small letter y with acute accent</source>
-        <translation>Latijnse kleine letter y met accent aigu</translation>
+        <translation>加尖音符的拉丁語小寫字母y</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="196"/>
         <source>Latin small letter thorn</source>
-        <translation>Latijnse kleine letter thorn</translation>
+        <translation>拉丁語小寫字母thorn</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="197"/>
         <source>Latin small letter y with diaeresis</source>
-        <translation>Latijnse kleine letter y met trema</translation>
+        <translation>加分音符的拉丁小寫字母y</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Latin capital ligature oe</source>
-        <translation>Latijnse hoofdletter ligatuur OE</translation>
+        <translation>拉丁大寫連字oe</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="199"/>
         <source>Latin small ligature oe</source>
-        <translation>Latijnse kleine letter ligatuur oe</translation>
+        <translation>拉丁小寫連字oe</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="200"/>
         <source>Latin capital letter s with caron</source>
-        <translation>Latijnse hoofdletter S met haček</translation>
+        <translation>加對勾的拉丁大寫字母s</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="201"/>
         <source>Latin small letter s with caron</source>
-        <translation>Latijnse kleine letter s met haček</translation>
+        <translation>加對勾的拉丁小寫字母s</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>Latin capital letter y with diaeresis</source>
-        <translation>Latijnse hoofdletter Y met trema</translation>
+        <translation>加分音符的拉丁字母y</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="203"/>
         <source>Latin small letter f with hook</source>
-        <translation>Latijnse kleine letter f met haakje</translation>
+        <translation>有尾勾的小寫拉丁字母f</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="204"/>
         <source>modifier letter circumflex accent</source>
-        <translation>fonetisch aanpassingsteken accent circonflexe</translation>
+        <translation>抑揚符</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="205"/>
         <source>small tilde</source>
-        <translation>smalle tilde</translation>
+        <translation>小波浪號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="206"/>
         <source>Greek capital letter Alpha</source>
-        <translation>Griekse hoofdletter Alfa</translation>
+        <translation>希臘大寫字母Alpha</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="207"/>
         <source>Greek capital letter Beta</source>
-        <translation>Griekse hoofdletter Bèta</translation>
+        <translation>希臘大寫字母Beta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="208"/>
         <source>Greek capital letter Gamma</source>
-        <translation>Griekse hoofdletter Gamma</translation>
+        <translation>希臘大寫字母Gamma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="209"/>
         <source>Greek capital letter Delta</source>
-        <translation>Griekse hoofdletter Delta</translation>
+        <translation>希臘大寫字母Delta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="210"/>
         <source>Greek capital letter Epsilon</source>
-        <translation>Griekse hoofdletter Epsilon</translation>
+        <translation>希臘大寫字母Epsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="211"/>
         <source>Greek capital letter Zeta</source>
-        <translation>Griekse hoofdletter Zèta</translation>
+        <translation>希臘大寫字母Zeta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="212"/>
         <source>Greek capital letter Eta</source>
-        <translation>Griekse hoofdletter Èta</translation>
+        <translation>希臘大寫字母Eta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="213"/>
         <source>Greek capital letter Theta</source>
-        <translation>Griekse hoofdletter Thèta</translation>
+        <translation>希臘大寫字母Theta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="214"/>
         <source>Greek capital letter Iota</source>
-        <translation>Griekse hoofdletter Iota</translation>
+        <translation>希臘大寫字母lota</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="215"/>
         <source>Greek capital letter Kappa</source>
-        <translation>Griekse hoofdletter Kappa</translation>
+        <translation>希臘大寫字母Kappa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="216"/>
         <source>Greek capital letter Lambda</source>
-        <translation>Griekse hoofdletter Lambda</translation>
+        <translation>希臘大寫字母Lambda</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="217"/>
         <source>Greek capital letter Mu</source>
-        <translation>Griekse hoofdletter Mu</translation>
+        <translation>希臘大寫字母Mu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="218"/>
         <source>Greek capital letter Nu</source>
-        <translation>Griekse hoofdletter Nu</translation>
+        <translation>希臘大寫字母Nu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="219"/>
         <source>Greek capital letter Xi</source>
-        <translation>Griekse hoofdletter Xi</translation>
+        <translation>希臘大寫字母Xi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="220"/>
         <source>Greek capital letter Omicron</source>
-        <translation>Griekse hoofdletter Omikron</translation>
+        <translation>希臘大寫字母Omicron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="221"/>
         <source>Greek capital letter Pi</source>
-        <translation>Griekse hoofdletter Pi</translation>
+        <translation>希臘大寫字母Pi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="222"/>
         <source>Greek capital letter Rho</source>
-        <translation>Griekse hoofdletter Rho</translation>
+        <translation>希臘大寫字母Rho</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="223"/>
         <source>Greek capital letter Sigma</source>
-        <translation>Griekse hoofdletter Sigma</translation>
+        <translation>希臘大寫字母Sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="224"/>
         <source>Greek capital letter Tau</source>
-        <translation>Griekse hoofdletter Tau</translation>
+        <translation>希臘大寫字母Tau</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="225"/>
         <source>Greek capital letter Upsilon</source>
-        <translation>Griekse hoofdletter Ypsilon</translation>
+        <translation>希臘大寫字母Upsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="226"/>
         <source>Greek capital letter Phi</source>
-        <translation>Griekse hoofdletter Phi</translation>
+        <translation>希臘大寫字母Phi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="227"/>
         <source>Greek capital letter Chi</source>
-        <translation>Griekse hoofdletter Chi</translation>
+        <translation>希臘大寫字母Chi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="228"/>
         <source>Greek capital letter Psi</source>
-        <translation>Griekse hoofdletter Psi</translation>
+        <translation>希臘大寫字母Psi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="229"/>
         <source>Greek capital letter Omega</source>
-        <translation>Griekse hoofdletter Omega</translation>
+        <translation>希臘大寫字母Omega</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="230"/>
         <source>Greek small letter alpha</source>
-        <translation>Griekse kleine letter alfa</translation>
+        <translation>希臘小寫字母alpha</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="231"/>
         <source>Greek small letter beta</source>
-        <translation>Griekse kleine letter bèta</translation>
+        <translation>希臘小寫字母beta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="232"/>
         <source>Greek small letter gamma</source>
-        <translation>Griekse kleine letter gamma</translation>
+        <translation>希臘小寫字母gamma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="233"/>
         <source>Greek small letter delta</source>
-        <translation>Griekse kleine letter delta</translation>
+        <translation>希臘小寫字母delta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="234"/>
         <source>Greek small letter epsilon</source>
-        <translation>Griekse kleine letter epsilon</translation>
+        <translation>希臘小寫字母epsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="235"/>
         <source>Greek small letter zeta</source>
-        <translation>Griekse kleine letter zèta</translation>
+        <translation>希臘小寫字母zeta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="236"/>
         <source>Greek small letter eta</source>
-        <translation>Griekse kleine letter èta</translation>
+        <translation>希臘小寫字母eta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="237"/>
         <source>Greek small letter theta</source>
-        <translation>Griekse letter thèta</translation>
+        <translation>希臘小寫字母theta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="238"/>
         <source>Greek small letter iota</source>
-        <translation>Griekse kleine letter iota</translation>
+        <translation>希臘小寫字母iota</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="239"/>
         <source>Greek small letter kappa</source>
-        <translation>Griekse kleine letter kappa</translation>
+        <translation>希臘小寫字母kappa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="240"/>
         <source>Greek small letter lambda</source>
-        <translation>Griekse kleine letter lambda</translation>
+        <translation>希臘小寫字母lambda</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="241"/>
         <source>Greek small letter mu</source>
-        <translation>Griekse kleine letter mu</translation>
+        <translation>希臘小寫字母mu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="242"/>
         <source>Greek small letter nu</source>
-        <translation>Griekse kleine letter nu</translation>
+        <translation>希臘小寫字母nu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="243"/>
         <source>Greek small letter xi</source>
-        <translation>Griekse kleine letter xi</translation>
+        <translation>希臘小寫字母xi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="244"/>
         <source>Greek small letter omicron</source>
-        <translation>Griekse kleine letter omikron</translation>
+        <translation>希臘小寫字母omicron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="245"/>
         <source>Greek small letter pi</source>
-        <translation>Griekse kleine letter pi</translation>
+        <translation>希臘小寫字母pi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="246"/>
         <source>Greek small letter rho</source>
-        <translation>Griekse kleine letter rho</translation>
+        <translation>希臘小寫字母rho</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="247"/>
         <source>Greek small letter final sigma</source>
-        <translation>Griekse kleine letter eindsigma</translation>
+        <translation>希臘小寫字母結束sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="248"/>
         <source>Greek small letter sigma</source>
-        <translation>Griekse kleine letter sigma</translation>
+        <translation>希臘小寫字母sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="249"/>
         <source>Greek small letter tau</source>
-        <translation>Griekse kleine letter tau</translation>
+        <translation>希臘小寫字母tau</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="250"/>
         <source>Greek small letter upsilon</source>
-        <translation>Griekse kleine letter ypsilon</translation>
+        <translation>希臘小寫字母upsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="251"/>
         <source>Greek small letter phi</source>
-        <translation>Griekse kleine letter phi</translation>
+        <translation>希臘小寫字母phi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="252"/>
         <source>Greek small letter chi</source>
-        <translation>Griekse kleine letter chi</translation>
+        <translation>希臘小寫字母chi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="253"/>
         <source>Greek small letter psi</source>
-        <translation>Griekse kleine letter psi</translation>
+        <translation>希臘小寫字母psi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="254"/>
         <source>Greek small letter omega</source>
-        <translation>Griekse kleine letter omega</translation>
+        <translation>希臘小寫字母omega</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="255"/>
         <source>Greek theta symbol</source>
-        <translation>Grieks symbool thèta</translation>
+        <translation>希臘 theta 符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="256"/>
         <source>Greek Upsilon with hook symbol</source>
-        <translation>Griekse Ypsilon met haaksymbool</translation>
+        <translation>希臘有鉤的Upsilon符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="257"/>
         <source>Greek pi symbol</source>
-        <translation>Grieks symbool pi</translation>
+        <translation>希臘pi符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="258"/>
         <source>en space</source>
-        <translation>en-spatie</translation>
+        <translation>en 空格</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="259"/>
         <source>em space</source>
-        <translation>em-spatie</translation>
+        <translation>em 空格</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="260"/>
         <source>thin space</source>
-        <translation>smalle spatie</translation>
+        <translation>窄空格</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="261"/>
         <source>zero-width non-joiner</source>
-        <translation>anti-verbindingselement zonder lengte</translation>
+        <translation>零寬不連字</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="262"/>
         <source>zero-width joiner</source>
-        <translation>verbindingselement zonder lengte</translation>
+        <translation>零寬連字</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="263"/>
         <source>left-to-right mark</source>
-        <translation>links-naar-rechts-teken</translation>
+        <translation>左至右符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="264"/>
         <source>right-to-left mark</source>
-        <translation>rechts-naar-links-teken</translation>
+        <translation>右至左符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="265"/>
         <source>en dash</source>
-        <translation>en-streepje</translation>
+        <translation>en 連接號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="266"/>
         <source>em dash</source>
-        <translation>em-streepje</translation>
+        <translation>em 連接號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="267"/>
         <source>left single quotation mark</source>
-        <translation>enkel aanhalingsteken links</translation>
+        <translation>左單引號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="268"/>
         <source>right single quotation mark</source>
-        <translation>enkel aanhalingsteken rechts</translation>
+        <translation>右單引號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="269"/>
         <source>single low-9 quotation mark</source>
-        <translation>enkel omgekeerd laag aanhalingsteken</translation>
+        <translation>低位單引號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="270"/>
         <source>left double quotation mark</source>
-        <translation>dubbel aanhalingsteken links</translation>
+        <translation>左雙引號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="271"/>
         <source>right double quotation mark</source>
-        <translation>dubbel aanhalingsteken rechts</translation>
+        <translation>右雙引號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="272"/>
         <source>double low-9 quotation mark</source>
-        <translation>dubbel omgekeerd laag aanhalingsteken</translation>
+        <translation>低位雙引號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="273"/>
         <source>dagger, obelisk</source>
-        <translation>kruisje</translation>
+        <translation>劍號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="274"/>
         <source>double dagger, double obelisk</source>
-        <translation>dubbel kruisje</translation>
+        <translation>雙劍號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="275"/>
         <source>bullet</source>
-        <translation>opsommingsteken</translation>
+        <translation>項目符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="276"/>
         <source>horizontal ellipsis</source>
-        <translation>horizontaal beletselteken</translation>
+        <translation>水平省略號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="277"/>
         <source>per mille sign</source>
-        <translation>promilleteken</translation>
+        <translation>千分比符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="278"/>
         <source>prime</source>
-        <translation>accent</translation>
+        <translation>角分符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="279"/>
         <source>double prime</source>
-        <translation>dubbel accent</translation>
+        <translation>角秒符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="280"/>
         <source>single left-pointing angle quotation mark</source>
-        <translation>enkel aanhalingsteken hoek naar links</translation>
+        <translation>角形左單引號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="281"/>
         <source>single right-pointing angle quotation mark</source>
-        <translation>enkel aanhalingsteken hoek naar rechts</translation>
+        <translation>角形右單引號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="282"/>
         <source>overline</source>
-        <translation>klein streepje boven</translation>
+        <translation>上劃線</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="283"/>
         <source>fraction slash</source>
-        <translation>deelteken</translation>
+        <translation>分數斜線</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="284"/>
         <source>euro sign</source>
-        <translation>euroteken</translation>
+        <translation>歐元符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="285"/>
         <source>black-letter capital I</source>
-        <translation>zwarte hoofdletter I</translation>
+        <translation>黑體大寫字母 I</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="286"/>
         <source>script capital P</source>
-        <translation>geschreven hoofdletter P</translation>
+        <translation>手寫大寫 P</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="287"/>
         <source>black-letter capital R</source>
-        <translation>zwarte hoofdletter R</translation>
+        <translation>黑體字母大寫 R</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="288"/>
         <source>trademark symbol</source>
-        <translation>trademarksymbool</translation>
+        <translation>商標符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="289"/>
         <source>alef symbol</source>
-        <translation>alef-symbool</translation>
+        <translation>阿列夫符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="290"/>
         <source>leftwards arrow</source>
-        <translation>pijl naar links</translation>
+        <translation>向左箭頭</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="291"/>
         <source>upwards arrow</source>
-        <translation>pijl omhoog</translation>
+        <translation>向上箭頭</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="292"/>
         <source>rightwards arrow</source>
-        <translation>pijl naar rechts</translation>
+        <translation>向右箭頭</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="293"/>
         <source>downwards arrow</source>
-        <translation>pijl omlaag</translation>
+        <translation>向下箭頭</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="294"/>
         <source>left right arrow</source>
-        <translation>pijl links/rechts</translation>
+        <translation>向左向右箭頭</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="295"/>
         <source>downwards arrow with corner leftwards</source>
-        <translation>pijl omlaag met hoek naar links</translation>
+        <translation>向下再向左箭頭</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="296"/>
         <source>leftwards double arrow</source>
-        <translation>dubbele pijl naar links</translation>
+        <translation>向左雙線箭頭</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="297"/>
         <source>upwards double arrow</source>
-        <translation>dubbele pijl omhoog</translation>
+        <translation>向上雙線箭頭</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="298"/>
         <source>rightwards double arrow</source>
-        <translation>dubbele pijl naar rechts</translation>
+        <translation>向右雙線箭頭</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="299"/>
         <source>downwards double arrow</source>
-        <translation>dubbele pijl omlaag</translation>
+        <translation>向下雙線箭頭</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="300"/>
         <source>left right double arrow</source>
-        <translation>dubbele pijl links/rechts</translation>
+        <translation>向左向右雙線箭頭</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="301"/>
         <source>for all</source>
-        <translation>voor alle</translation>
+        <translation>全稱量詞</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="302"/>
         <source>partial differential</source>
-        <translation>partiële afgeleide</translation>
+        <translation>偏微分符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="303"/>
         <source>there exists</source>
-        <translation>er bestaat</translation>
+        <translation>存在量詞</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="304"/>
         <source>empty set</source>
-        <translation>lege verzameling</translation>
+        <translation>空集合</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="305"/>
         <source>nabla</source>
-        <translation>nabla</translation>
+        <translation>向量微分算子</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="306"/>
         <source>element of</source>
-        <translation>element van</translation>
+        <translation>屬於</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="307"/>
         <source>not an element of</source>
-        <translation>geen element van</translation>
+        <translation>不屬於</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="308"/>
         <source>contains as member</source>
-        <translation>bevat als lid</translation>
+        <translation>包含成員</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="309"/>
         <source>n-ary product</source>
-        <translation>multiplicatieteken</translation>
+        <translation>連乘符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="310"/>
         <source>n-ary summation</source>
-        <translation>sommatieteken</translation>
+        <translation>求和符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="311"/>
         <source>minus sign</source>
-        <translation>minteken</translation>
+        <translation>減號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="312"/>
         <source>asterisk operator</source>
-        <translation>asterisk-operator</translation>
+        <translation>星號運算子</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="313"/>
         <source>square root</source>
-        <translation>vierkantswortel</translation>
+        <translation>平方根</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="314"/>
         <source>proportional to</source>
-        <translation>evenredig met</translation>
+        <translation>正比</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="315"/>
         <source>infinity</source>
-        <translation>oneindig</translation>
+        <translation>無窮</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="316"/>
         <source>angle</source>
-        <translation>hoek</translation>
+        <translation>角符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="317"/>
         <source>logical and</source>
-        <translation>logische en</translation>
+        <translation>邏輯與</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="318"/>
         <source>logical or</source>
-        <translation>logische of</translation>
+        <translation>邏輯或</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="319"/>
         <source>intersection</source>
-        <translation>doorsnede</translation>
+        <translation>交集</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="320"/>
         <source>union</source>
-        <translation>vereniging</translation>
+        <translation>集合</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="321"/>
         <source>integral</source>
-        <translation>integraal</translation>
+        <translation>整數</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="322"/>
         <source>therefore sign</source>
-        <translation>dusteken</translation>
+        <translation>所以符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="323"/>
         <source>tilde operator</source>
-        <translation>bewerkingsteken tilde</translation>
+        <translation>波浪號運算符</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="324"/>
         <source>congruent to</source>
-        <translation>congruent aan</translation>
+        <translation>全等</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="325"/>
         <source>almost equal to</source>
-        <translation>bijna gelijk aan</translation>
+        <translation>約等於</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="326"/>
         <source>not equal to</source>
-        <translation>niet gelijk aan</translation>
+        <translation>不等於</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="327"/>
         <source>identical to</source>
-        <translation>identiek aan</translation>
+        <translation>相同</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="328"/>
         <source>less-than or equal to</source>
-        <translation>kleiner dan of gelijk aan</translation>
+        <translation>小於或等於</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="329"/>
         <source>greater-than or equal to</source>
-        <translation>groter dan of gelijk aan</translation>
+        <translation>大於或等於</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="330"/>
         <source>subset of</source>
-        <translation>deelverzameling van</translation>
+        <translation>子集</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="331"/>
         <source>superset of</source>
-        <translation>hoofdverzameling van</translation>
+        <translation>超集</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="332"/>
         <source>not a subset of</source>
-        <translation>geen deelverzameling van</translation>
+        <translation>非子集</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="333"/>
         <source>subset of or equal to</source>
-        <translation>deelverzameling van of gelijk aan</translation>
+        <translation>子集或等於</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="334"/>
         <source>superset of or equal to</source>
-        <translation>hoofdverzameling van of gelijk aan</translation>
+        <translation>超集或等於</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="335"/>
         <source>circled plus</source>
-        <translation>omcirkeld plus-teken</translation>
+        <translation>圓圈加號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="336"/>
         <source>circled times</source>
-        <translation>omcirkeld vermenigvuldigingsteken</translation>
+        <translation>圓圈乘號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="337"/>
         <source>up tack</source>
-        <translation>spijkertje omhoog</translation>
+        <translation>正交符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="338"/>
         <source>dot operator</source>
-        <translation>bewerkingsteken punt</translation>
+        <translation>點運算子</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="339"/>
         <source>left ceiling</source>
-        <translation>plafond links</translation>
+        <translation>左取頂高斯符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="340"/>
         <source>right ceiling</source>
-        <translation>plafond rechts</translation>
+        <translation>右取頂高斯符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="341"/>
         <source>left floor</source>
-        <translation>vloer links</translation>
+        <translation>左取底高斯符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="342"/>
         <source>right floor</source>
-        <translation>vloer rechts</translation>
+        <translation>右取底高斯符號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="343"/>
         <source>left-pointing angle bracket</source>
-        <translation>punthaak naar links</translation>
+        <translation>左角括號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="344"/>
         <source>right-pointing angle bracket</source>
-        <translation>punthaak naar rechts</translation>
+        <translation>右角括號</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="345"/>
         <source>lozenge</source>
-        <translation>ruit</translation>
+        <translation>菱形</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="346"/>
         <source>black spade suit</source>
-        <translation>zwarte schoppen</translation>
+        <translation>黑桃</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="347"/>
         <source>black club suit</source>
-        <translation>zwarte klaveren</translation>
+        <translation>梅花</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="348"/>
         <source>black heart suit</source>
-        <translation>zwarte harten</translation>
+        <translation>黑心</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="349"/>
         <source>black diamond suit</source>
-        <translation>zwarte ruiten</translation>
+        <translation>黑鑽石</translation>
     </message>
 </context>
 </TS>
