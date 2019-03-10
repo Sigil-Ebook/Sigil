@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada
+**  Copyright (C) 2019, 2018, 2017, 2016, 2015 Kevin B. Hendricks Stratford, ON, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -73,7 +73,7 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     // Enable our link filter.
     page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
     page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
-    page()->settings()->setAttribute(QWebSettings::PluginsEnabled, true);
+    // page()->settings()->setAttribute(QWebSettings::PluginsEnabled, false);
     // Allow epubs to access remote resources via the net
     page()->settings()->setAttribute(QWebSettings::LocalContentCanAccessRemoteUrls, (settings.remoteOn() == 1));
     // Enable local-storage for epub3
