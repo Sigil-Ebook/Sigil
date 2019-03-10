@@ -1109,7 +1109,7 @@ void MainWindow::SpellcheckEditorDialog()
 
 void MainWindow::clearMemoryCaches()
 {
-    // See https://bugreports.qt-project.org/browse/QTBUG-4350
+    // See https://bugreports.qt-project.org/browse/QTBUG-43504
     // QWebSettings::clearMemoryCaches();
 
     // replace the above with a similar sequence 
@@ -1117,12 +1117,12 @@ void MainWindow::clearMemoryCaches()
 
     // toggle memory caches to disable and then re-enable
     QWebSettings::setObjectCacheCapacities(0,0,0);
-    QWebSettings::setObjectCacheCapacities(0, 0, 100 * 1024 * 1024);
+    QWebSettings::setObjectCacheCapacities(1 * 1024 * 1024, 2 * 1024 * 1024, 16 * 1024 * 1024);
 
     // do the same to flush the page cache
-    int numpages = QWebSettings::maximumPagesInCache();
+    // int numpages = QWebSettings::maximumPagesInCache();
     QWebSettings::setMaximumPagesInCache(0);
-    QWebSettings::setMaximumPagesInCache(numpages);
+    QWebSettings::setMaximumPagesInCache(3);
 }
 
 
@@ -3685,6 +3685,9 @@ void MainWindow::ReadSettings()
     web_settings->setFontFamily(QWebSettings::StandardFont, bookViewAppearance.font_family_standard);
     web_settings->setFontFamily(QWebSettings::SerifFont, bookViewAppearance.font_family_serif);
     web_settings->setFontFamily(QWebSettings::SansSerifFont, bookViewAppearance.font_family_sans_serif);
+    web_settings->setObjectCacheCapacities(1 * 1024 * 1024, 2 * 1024 * 1024, 16 * 1024 * 1024);
+    web_settings->setMaximumPagesInCache(3);
+
     // Check for existing custom Preview/Book View stylesheet in Prefs dir and load it if present
     QFileInfo CustomPreviewStylesheetInfo(QDir(Utility::DefinePrefsDir()).filePath(CUSTOM_PREVIEW_STYLE_FILENAME));
     if (CustomPreviewStylesheetInfo.exists() && CustomPreviewStylesheetInfo.isFile() && CustomPreviewStylesheetInfo.isReadable()) {
