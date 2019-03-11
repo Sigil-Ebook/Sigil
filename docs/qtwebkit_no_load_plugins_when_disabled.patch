@@ -1,0 +1,34 @@
+--- .//Source/WebKit/qt/WebCoreSupport/PlatformStrategiesQt.cpp.orig	2019-03-11 16:52:14.000000000 -0400
++++ .//Source/WebKit/qt/WebCoreSupport/PlatformStrategiesQt.cpp	2019-03-11 18:34:18.000000000 -0400
+@@ -36,12 +36,14 @@
+ #include "qwebhistoryinterface.h"
+ #include "qwebpluginfactory.h"
+ #include "WebResourceLoadScheduler.h"
++#include "qwebsettings.h"
+ 
+ #include <BlobRegistryImpl.h>
+ #include <IntSize.h>
+ #include <NotImplemented.h>
+ #include <Page.h>
+ #include <PageGroup.h>
++#include <Settings.h>
+ #include <PlatformCookieJar.h>
+ #include <PluginDatabase.h>
+ #include <QCoreApplication>
+@@ -115,11 +117,16 @@
+ 
+ void PlatformStrategiesQt::refreshPlugins()
+ {
++    // do not load plugins unless they are enabled;
++    if (!QWebSettings::globalSettings()->testAttribute(QWebSettings::PluginsEnabled)) return;
+     PluginDatabase::installedPlugins()->refresh();
+ }
+ 
+ void PlatformStrategiesQt::getPluginInfo(const WebCore::Page* page, Vector<WebCore::PluginInfo>& outPlugins)
+ {
++     // do not load plugins unless they are enabled on this page;
++    if (page && !page->settings().arePluginsEnabled()) return;
++
+     QWebPageAdapter* qPage = 0;
+     if (!page->chrome().client().isEmptyChromeClient())
+         qPage = static_cast<ChromeClientQt&>(page->chrome().client()).m_webPage;
