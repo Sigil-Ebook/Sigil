@@ -103,9 +103,20 @@ git clone git://code.qt.io/qt.qtwebkit.git
 
 cd qtwebkit
 
+# copy in the necessary patches for building with the mac osx 10.14 sdk
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qtwebkit_memory_leak_fix.patch ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qtwebkit_suppress_tests_10.14_build_fix.patch ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qtwebkit_xpc_10.14_build_fix.patch
+
+# apply the patches
+patch -p0 < ./qtwebkit_memory_leak_fix.patch
+patch -p0 < ./qtwebkit_supress_tests_10.14_build_fix.patch
+patch -p0 < ./qtwebkit_xpc_10.14_build_fix.patch
+
 ./Tools/Scripts/build-webkit --qt --cmakeargs="-Wno-dev -DQt5_DIR=$HOME/Qt511/lib/cmake/Qt5 -DCMAKE_PREFIX_PATH=/usr/local"
 
 make -C WebKitBuild/Release install
 
 # QtWebKit will be installed into your Qt directory, side by side with other Qt modules, 
 # and will be available for building your projects.
+ 

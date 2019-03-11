@@ -1,0 +1,14 @@
+--- Source/WebCore/html/ImageDocument.cpp.orig	2019-03-09 20:09:37.000000000 -0500
++++ Source/WebCore/html/ImageDocument.cpp	2019-03-09 20:12:18.000000000 -0500
+@@ -151,8 +151,10 @@
+         if (data && loader()->isLoadingMultipartContent())
+             data = data->copy();
+ 
+-        cachedImage.finishLoading(data.get());
++        // put back dropped fix for QTBUG-44023?
++	// see https://github.com/qt/qtwebkit/commit/367eb49cfd0bf5e04040951b23cfbbe84738fef1
+         cachedImage.finish();
++        cachedImage.finishLoading(data.get());
+ 
+         // Report the natural image size in the page title, regardless of zoom level.
+         // At a zoom level of 1 the image is guaranteed to have an integer size.
