@@ -224,6 +224,7 @@ MainWindow::~MainWindow()
     }
 
 #ifdef Q_OS_MAC
+    QWebSettings::clearMemoryCaches();
     if (m_ClipboardHistorySelector) delete m_ClipboardHistorySelector;
     if (m_LinkOrStyleBookmark) delete m_LinkOrStyleBookmark;
     if (m_Reports) delete m_Reports;
