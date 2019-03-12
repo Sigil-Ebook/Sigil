@@ -249,9 +249,11 @@ int main(int argc, char *argv[])
         QCoreApplication::setApplicationName("sigil");
         QCoreApplication::setApplicationVersion(SIGIL_VERSION);
 
+	// many qtbugs related to mixing 32 and 64 bit qt apps when shader disk cache is used
+	QCoreApplication::setAttribute(Qt::AA_DisableShaderDiskCache);
+
         QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
         SettingsStore settings;
-
         // Setup the qtbase_ translator and load the translation for the selected language
         QTranslator qtbaseTranslator;
         const QString qm_name_qtbase = QString("qtbase_%1").arg(settings.uiLanguage());
