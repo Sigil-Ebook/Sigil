@@ -32,3 +32,19 @@
      QWebPageAdapter* qPage = 0;
      if (!page->chrome().client().isEmptyChromeClient())
          qPage = static_cast<ChromeClientQt&>(page->chrome().client()).m_webPage;
+--- .//Source/WebCore/dom/DOMImplementation.cpp.orig	2019-03-11 16:24:39.000000000 -0400
++++ .//Source/WebCore/dom/DOMImplementation.cpp	2019-03-11 16:28:02.000000000 -0400
+@@ -339,10 +339,10 @@
+     PluginData* pluginData = nullptr;
+     PluginData::AllowedPluginTypes allowedPluginTypes = PluginData::OnlyApplicationPlugins;
+     if (frame && frame->page()) {
+-        if (frame->loader().subframeLoader().allowPlugins())
++        if (frame->loader().subframeLoader().allowPlugins()) {
+             allowedPluginTypes = PluginData::AllPlugins;
+-
+-        pluginData = &frame->page()->pluginData();
++            pluginData = &frame->page()->pluginData();
++	}
+     }
+ 
+     // PDF is one image type for which a plugin can override built-in support.
