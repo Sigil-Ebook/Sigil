@@ -233,10 +233,16 @@ int main(int argc, char *argv[])
     epython->addToPythonSysPath(PluginDB::launcherRoot() + "/python");
 
     try {
+
+ 
+#if 0   // On recent processors with multiple cores this leads to over 40 threads at times
+
         // We prevent Qt from constantly creating and deleting threads.
         // Using a negative number forces the threads to stay around;
         // that way, we always have a steady number of threads ready to do work.
         QThreadPool::globalInstance()->setExpiryTimeout(-1);
+
+#endif
         // Specify the plugin folders
         // (language codecs and image loaders)
         app.addLibraryPath("codecs");
