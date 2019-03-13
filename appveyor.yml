@@ -1,4 +1,4 @@
-version: '0.9.10-{build}'
+version: '0.9.13-{build}'
 
 branches:
   only:
@@ -34,18 +34,19 @@ environment:
   global:
       INNO: C:\Program Files (x86)\Inno Setup 5
       REDIST: C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\redist\1033\vcredist_%PLATFORM%.exe
-      DOWNLOAD: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/qt5.11-custom-webkit-%PLATFORM%.zip
+      DOWNLOAD: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/qt5.12-custom-webkit-%PLATFORM%.zip
   matrix:
     - PYTHON: C:\Python37
-      QT: C:\Qt\5.11\msvc2015
+      QT: C:\Qt\5.12\msvc2015
       CMAKE64BIT:
     - PYTHON: C:\Python37-x64
-      QT: C:\Qt\5.11\msvc2015_64
+      QT: C:\Qt\5.12\msvc2015_64
       CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
 
 matrix:
   exclude:
     - platform: x86
+      PYTHON: C:\Python37
       PYTHON: C:\Python37-x64
     - platform: x64
       PYTHON: C:\Python37
