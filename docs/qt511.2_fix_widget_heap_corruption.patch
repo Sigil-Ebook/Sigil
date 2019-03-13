@@ -1,0 +1,15 @@
+--- qtbase/src/widgets/kernel/qwidget.cpp.orig	2019-03-13 09:30:11.000000000 -0400
++++ qtbase/src/widgets/kernel/qwidget.cpp	2019-03-13 09:33:20.000000000 -0400
+@@ -6981,8 +6981,11 @@
+     determineLastFocusChild(second, lastFocusChildOfSecond);
+ 
+     // If the tab order is already correct, exit early
+-    if (lastFocusChildOfFirst->d_func()->focus_next == second)
++    // Backpoint fix from Qt-5.12 to prevent heap corruption
++    if (lastFocusChildOfFirst == second ||
++	lastFocusChildOfFirst->d_func()->focus_next == second) {
+         return;
++    }
+ 
+     // Note that we need to handle two different sections in the tab chain; The section
+     // that 'first' belongs to (firstSection), where we are about to insert 'second', and

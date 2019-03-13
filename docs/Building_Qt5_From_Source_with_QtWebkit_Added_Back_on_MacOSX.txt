@@ -62,13 +62,17 @@ cd qt-everywhere-src-5.11.2
 
 # now copy 3 required patches from Sigil//docs/ into this directory
 cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt_mojave_fontweight_fix.patch ./
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt_511.2_fixes1.patch  ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt511.2_fixes1.patch  ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt511.2_fix_widget_heap_corruption.patch  ./
 
 # then apply the font weight fix patch if you are on Mojave or later  
 patch -p0 < ./qt_mojave_fontweight_fix.patch
 
 # then apply build fixes for qtwebengine when built with 10.14 SDK (XCode 10)
 patch -p0 < ./qt511.2_fixes1.patch
+
+# then backport critical heap corruption fix from Qt 5.12-alpha
+patch -p0 < ./qt511.2_fix_widget_corruption.patch
 
 # Create a destination directory to house your complete Qt binary in your home directory
 # to be similar to how stock Qt does it
