@@ -225,6 +225,25 @@ int main(int argc, char *argv[])
 #ifndef QT_DEBUG
     qInstallMessageHandler(MessageHandler);
 #endif
+
+    // Set application information for
+    // easier use of QSettings classes
+    QCoreApplication::setOrganizationName("sigil-ebook");
+    QCoreApplication::setOrganizationDomain("sigil-ebook.com");
+    QCoreApplication::setApplicationName("sigil");
+    QCoreApplication::setApplicationVersion(SIGIL_VERSION);
+    
+    // many qtbugs related to mixing 32 and 64 bit qt apps when shader disk cache is used
+    QCoreApplication::setAttribute(Qt::AA_DisableShaderDiskCache);
+
+ 
+#if 0   // On recent processors with multiple cores this leads to over 40 threads at times
+        // We prevent Qt from constantly creating and deleting threads.
+        // Using a negative number forces the threads to stay around;
+        // that way, we always have a steady number of threads ready to do work.
+        QThreadPool::globalInstance()->setExpiryTimeout(-1);
+#endif
+
     MainApplication app(argc, argv);
 
     // Set up embedded python integration first thing
@@ -234,29 +253,11 @@ int main(int argc, char *argv[])
 
     try {
 
- 
-#if 0   // On recent processors with multiple cores this leads to over 40 threads at times
-
-        // We prevent Qt from constantly creating and deleting threads.
-        // Using a negative number forces the threads to stay around;
-        // that way, we always have a steady number of threads ready to do work.
-        QThreadPool::globalInstance()->setExpiryTimeout(-1);
-
-#endif
         // Specify the plugin folders
         // (language codecs and image loaders)
         app.addLibraryPath("codecs");
         app.addLibraryPath("iconengines");
         app.addLibraryPath("imageformats");
-        // Set application information for
-        // easier use of QSettings classes
-        QCoreApplication::setOrganizationName("sigil-ebook");
-        QCoreApplication::setOrganizationDomain("sigil-ebook.com");
-        QCoreApplication::setApplicationName("sigil");
-        QCoreApplication::setApplicationVersion(SIGIL_VERSION);
-
-	// many qtbugs related to mixing 32 and 64 bit qt apps when shader disk cache is used
-	QCoreApplication::setAttribute(Qt::AA_DisableShaderDiskCache);
 
         QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
         SettingsStore settings;
