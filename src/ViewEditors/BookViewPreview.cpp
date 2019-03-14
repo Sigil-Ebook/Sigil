@@ -154,6 +154,9 @@ void BookViewPreview::CustomSetDocument(const QString &path, const QString &html
         StoreCurrentCaretLocation();
     }
 
+    // to help keep memory footprint small clear any memory caches for this page
+    settings()->clearMemoryCaches();
+
     m_isLoadFinished = false;
     // If Tidy is turned off, then Sigil will explode if there is no xmlns
     // on the <html> element. So we will silently add it if needed to ensure

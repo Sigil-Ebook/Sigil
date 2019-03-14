@@ -3354,10 +3354,8 @@ void MainWindow::UpdatePreview()
 
         html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());
 
-	if (html_resource && (html_resource != m_PreviousHTMLResource)) {
-	    // use this as an opportunity to clean out the web caches
-	    MainWindow::clearMemoryCaches();
-	}
+        // handle any memory cache clearing inside BookViewPreview
+
         // handles all cases of non-html resource in front tab
         if (!html_resource) {
             // note: must handle case of m_PreviousHTMLResource being deleted by user
