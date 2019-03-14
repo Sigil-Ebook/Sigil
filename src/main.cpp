@@ -248,9 +248,7 @@ int main(int argc, char *argv[])
 
     // drag and drop in main tab bar is too touchy and that can cause problems.
     // default drag distance limit is much too small especially for hpi displays
-    // startDragTime default is 500 milliseconds
     // startDragDistance default is just 10 pixels
-    if (app.startDragTime() < 900) app.setStartDragTime(900);
     if (app.startDragDistance() < 50) app.setStartDragDistance(50);
 
     // Set up embedded python integration first thing
