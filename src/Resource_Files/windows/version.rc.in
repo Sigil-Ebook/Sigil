@@ -14,7 +14,7 @@ BEGIN
             VALUE "FileDescription",    "Sigil is a multi-platform EPUB ebook editor"
             VALUE "FileVersion",        "${SIGIL_FULL_VERSION}.0"
             VALUE "InternalName",       "Sigil"
-            VALUE "LegalCopyright",     "Copyright (c) 2010-2014 Sigil Authors"
+            VALUE "LegalCopyright",     "Copyright (c) 2010-${SIGIL_BUILD_YEAR} Sigil Authors"
             VALUE "LegalTrademarks1",   "All Rights Reserved"
             VALUE "LegalTrademarks2",   "All Rights Reserved"
             VALUE "OriginalFilename",   "Sigil.exe"

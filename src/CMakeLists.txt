@@ -589,6 +589,8 @@ set( ALL_SOURCES ${RAW_SOURCES} ${UI_FILES_H} ${QRC_FILES_CPP} ${QM_FILES} )
 set( MATHJAX_ZIP "${CMAKE_SOURCE_DIR}/src/Resource_Files/polyfills/ML.zip" )
 
 # Adding resource (RC) files for Windows
+# Grab the current year so copyright notice is updated on Windows file properties
+string( TIMESTAMP SIGIL_BUILD_YEAR "%Y" )
 if ( WIN32 )
     configure_file( Resource_files/windows/version.rc.in ${PROJECT_BINARY_DIR}/version.rc )
     set( WINDOWS_RC_FILES
@@ -815,7 +817,7 @@ elseif (MSVC)
 
     # windeployqt
     add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND
-	    windeployqt.exe --release --no-webkit2 --no-opengl-sw --no-translations --no-compiler-runtime --dir ${MAIN_PACKAGE_DIR} --libdir ${MAIN_PACKAGE_DIR} ${MAIN_PACKAGE_DIR}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
+	    windeployqt.exe --release --no-webkit2 --no-translations --no-compiler-runtime --dir ${MAIN_PACKAGE_DIR} --libdir ${MAIN_PACKAGE_DIR} ${MAIN_PACKAGE_DIR}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
 
     set( LIBXML2 ${QT_INSTALL_BINS}/libxml2.dll )
     if ( EXISTS ${LIBXML2} )
