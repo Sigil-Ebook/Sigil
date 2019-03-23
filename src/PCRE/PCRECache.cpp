@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2011  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -34,20 +35,23 @@ PCRECache *PCRECache::instance()
 
 PCRECache::PCRECache()
 {
+  // defaults to maxCacheCost of 100
 }
 
 bool PCRECache::insert(const QString &key, SPCRE *object)
 {
-    return m_cache.insert(key, object);
+    // raise cost of each entry to 5 to reduce memory footprint
+    return m_cache.insert(key, object, 5);
 }
 
 SPCRE *PCRECache::getObject(const QString &key)
 {
-    // Create a new SPCRE if it doesn't alreayd exit.
+    // Create a new SPCRE if it doesn't already exist.
     // The key is the pattern for initializing the SPCRE.
     if (!m_cache.contains(key)) {
         SPCRE *spcre = new SPCRE(key);
-        m_cache.insert(key, spcre, 1);
+        // raise cost of each entry to 5 to reduce memory footprint
+        m_cache.insert(key, spcre, 5);
         return spcre;
     }
 
