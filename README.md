@@ -54,15 +54,16 @@ For Building on Mac OS X
 Building using purely XCode is no longer supported on Mac OS X.  The easiest 
 way to build Sigil on Mac OS X is to use cmake 3.0 and the command line.   
 
-Also because Sigil now embeds Python 3.5.X, see  
+Also because Sigil now embeds Python 3.7.X, see  
 
-> [docs/Building_A_Relocatable_Python_Framework_on_MacOSX.txt](./docs/Building_A_Relocatable_Python_Framework_on_MacOSX.txt)
+> [docs/Building_A_Relocatable_Python_3.7_Framework_on_MacOSX.txt](./docs/Building_A_Relocatable_Python_3.7_Framework_on_MacOSX.txt)
 
-for detailed instructions on how to build a fully relocatable Python 3.5.X framework before
+for detailed instructions on how to build a fully relocatable Python 3.7.X framework before
 building Sigil.  
 
-Sigil requires at least Qt 5.4.2, or Qt 5.5.1.  If you use a newer Qt version you must
-add back QtWebkit to the Qt sources and build all of Qt yourself from source, see
+Sigil uses Qt-5.11.2 currently and will move to Qt-5.12.2 for the next release.  
+If you decide to use a Qt 5.6 or later version you must add back QtWebkit to the 
+Qt sources and build all of Qt yourself from source, see
 
 > [docs/Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt](./docs/Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt)
 
