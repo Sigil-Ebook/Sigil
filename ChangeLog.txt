@@ -1,3 +1,8 @@
+pre-0.9.14
+   Bug Fixes
+   New Features
+     - reduce PCRE cache size to help lower memory footprint
+
 Sigil-0.9.13
    Bug Fixes
      - Revert change of INI encoding to utf-8 as QSettings very broken under utf-8 (commit 5484463)

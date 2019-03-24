@@ -108,7 +108,7 @@ sudo install_name_tool -add_rpath @executable_path/../../../../ ./python3.7
 
 cd ${MYDEST}/Python.framework/Versions/3.7/Resources/Python.app/Contents/MacOS
 sudo install_name_tool -change ${MYDEST}/Python.framework/Versions/3.7/Python @rpath/Python ./Python
-sudo install_name_tool -add_rpath @executable_path/../../../../../ ./Python
+sudo install_name_tool -add_rpath @executable_path/../../../../../../ ./Python
 
 # We should now have a fully relocatable Python.framework
 
