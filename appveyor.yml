@@ -95,7 +95,7 @@ build_script:
 
 after_build:
 - cmd: |-
-    set %QT%\bin;%INNO%;%PATH%
+    set PATH=%QT%\bin;%INNO%;%PATH%
     call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %PLATFORM% -vcvars_ver=14.0
     nmake makeinstaller
 
