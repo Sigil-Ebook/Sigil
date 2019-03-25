@@ -89,14 +89,13 @@ before_build:
     
 build_script:
 - cmd: |-
-    set PATH=%PYTHON%;%PATH%
     call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %PLATFORM% -vcvars_ver=14.0
     nmake
  
 
 after_build:
 - cmd: |-
-    set PATH=%PYTHON%;%QT%\bin;%INNO%;%PATH%
+    set %QT%\bin;%INNO%;%PATH%
     call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %PLATFORM% -vcvars_ver=14.0
     nmake makeinstaller
 
