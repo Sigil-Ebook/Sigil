@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016, 2017, 2018 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016 - 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -39,7 +39,6 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QFutureSynchronizer>
 #include <QtConcurrent/QtConcurrent>
-#include <QtWidgets/QMessageBox>
 #include <QtGui/QTextDocument>
 #include <QtCore/QXmlStreamReader>
 #include <QDirIterator>
@@ -124,11 +123,27 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
 
     // These mutate the m_Book object
     LocateOPF();
+    m_opfDir = QFileInfo(m_OPFFilePath).dir();
     // These mutate the m_Book object
     ReadOPF();
     AddObfuscatedButUndeclaredFonts(encrypted_files);
     AddNonStandardAppleXML();
     LoadInfrastructureFiles();
+    // Check for files missing in the Manifest and create warning
+    QStringList notInManifest;
+    foreach(QString file_path, m_ZipFilePaths) {
+        // skip mimetype and anything in META-INF and the opf itself
+        if (file_path == "mimetype") continue;
+        if (file_path.startsWith("META-INF")) continue;
+	if (m_OPFFilePath.contains(file_path)) continue;
+	if (!m_ManifestFilePaths.contains(file_path)) {
+	    notInManifest << file_path;
+	}
+    }
+    if (!notInManifest.isEmpty()) {
+        Utility::DisplayStdWarningDialog(tr("Files exist in epub that are not \
+                 listed in the manifest, they will be ignored"), notInManifest.join("\n"));
+    }
     const QHash<QString, QString> updates = LoadFolderStructure();
     const QList<Resource *> resources     = m_Book->GetFolderKeeper()->GetResourceList();
 
@@ -424,6 +439,12 @@ void ImportEPUB::ExtractContainer()
                     continue;
                 } else {
                     dir.mkpath(qfile_info.path());
+		    // add it to the list of files found inside the zip
+		    if (cp437_file_name.isEmpty()) {
+		        m_ZipFilePaths << qfile_name;
+		    } else {
+                        m_ZipFilePaths << cp437_file_name;
+		    }
                 }
 
                 // Open the file entry in the archive for reading.
@@ -465,7 +486,6 @@ void ImportEPUB::ExtractContainer()
                     unzClose(zfile);
                     throw (EPUBLoadParseError(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
                 }
-
                 if (!cp437_file_name.isEmpty() && cp437_file_name != qfile_name) {
                     QString cp437_file_path = m_ExtractedFolderPath + "/" + cp437_file_name;
                     QFile::copy(file_path, cp437_file_path);
@@ -664,8 +684,12 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     href = Utility::URLDecodePath(href);
     QString extension = QFileInfo(href).suffix().toLower();
 
+    // find the epub root relative file path from the opf location and the item href
+    QString file_path = m_opfDir.absolutePath() + "/" + href;
+    file_path = file_path.remove(0, m_ExtractedFolderPath.length() + 1); 
+    
     if (type != NCX_MIMETYPE && extension != NCX_EXTENSION) {
-        if (!m_MainfestFilePaths.contains(href)) {
+        if (!m_ManifestFilePaths.contains(file_path)) {
             if (m_Files.contains(id)) {
                 // We have an error situation with a duplicate id in the epub.
                 // We must warn the user, but attempt to use another id so the epub can still be loaded.
@@ -686,7 +710,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
 
             m_Files[ id ] = href;
             m_FileMimetypes[ id ] = type;
-            m_MainfestFilePaths << href;
+            m_ManifestFilePaths << file_path;
 
             // store information about any nav document
             if (properties.contains("nav")) {
@@ -696,6 +720,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
         }
     } else {
         m_NcxCandidates[ id ] = href;
+	m_ManifestFilePaths << file_path;
     }
 }
 

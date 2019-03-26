@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2018, 2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -206,7 +206,11 @@ private:
      * even though that's explicitly forbidden by the spec. So we use this
      * to make sure we don't load such files multiple times.
      */
-    QSet<QString> m_MainfestFilePaths;
+    QSet<QString> m_ManifestFilePaths;
+
+    QSet<QString> m_ZipFilePaths;
+
+    QDir m_opfDir;
 
     /**
      * The identifier of the book's unique identifier.
