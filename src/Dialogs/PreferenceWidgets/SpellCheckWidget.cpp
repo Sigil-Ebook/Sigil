@@ -354,12 +354,12 @@ void SpellCheckWidget::readSettings()
     QStringList dicts = sc->dictionaries();
     ui.dictionaries->clear();
     foreach(QString dict, dicts) {
-        QString name = lang->GetLanguageName(dict);
-
-        if (name.isEmpty()) {
-            name = dict;
-        }
-
+        QString fix_dict = dict;
+	fix_dict.replace("_", "-");
+	int n = fix_dict.indexOf("-");
+        QString name = lang->GetLanguageName(fix_dict);
+        if (name.isEmpty() && (n >= 2)) name = lang->GetLanguageName(fix_dict.left(n));
+        if (name.isEmpty()) name = dict;
         ui.dictionaries->addItem(name, dict);
     }
     // Select the current dictionary.

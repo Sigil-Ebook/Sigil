@@ -572,6 +572,7 @@ void Language::SetLanguageMap()
          "pag"   << tr("Pangasinan") <<
          "pap"   << tr("Papiamento") <<
          "paa"   << tr("Papuan languages") <<
+         "gug"   << tr("Paraguayan Guaraní") <<
          "peo"   << tr("Persian- Old (ca.600-400 B.C.)") <<
          "phi"   << tr("Philippine languages") <<
          "phn"   << tr("Phoenician") <<
