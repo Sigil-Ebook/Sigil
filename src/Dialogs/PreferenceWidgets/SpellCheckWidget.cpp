@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2013 Dave Heiland
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -354,12 +355,31 @@ void SpellCheckWidget::readSettings()
     QStringList dicts = sc->dictionaries();
     ui.dictionaries->clear();
     foreach(QString dict, dicts) {
+        QString name;
         QString fix_dict = dict;
 	fix_dict.replace("_", "-");
-	int n = fix_dict.indexOf("-");
-        QString name = lang->GetLanguageName(fix_dict);
-        if (name.isEmpty() && (n >= 2)) name = lang->GetLanguageName(fix_dict.left(n));
-        if (name.isEmpty()) name = dict;
+	QStringList parts = fix_dict.split("-");
+	int n = parts.count();
+	if (n == 1) {
+            name = lang->GetLanguageName(fix_dict);
+	} else {
+	    // try with the first two parts
+	    fix_dict = parts.at(0) + "-" + parts.at(1);
+	    name = lang->GetLanguageName(fix_dict);
+	    if (!name.isEmpty()) {
+	        // append any extra information to end
+	        for(int j=2; j < n; j++) name.append("-" + parts.at(j)); 
+	    }
+	    if (name.isEmpty()) {
+	        // try with just the first part
+	        name = lang->GetLanguageName(parts.at(0));
+		if (!name.isEmpty()) {
+	            // append any extra information to end
+	            for(int j=1; j < n; j++) name.append("-" + parts.at(j)); 
+		}
+	    }
+	}
+	if (name.isEmpty()) name = dict;
         ui.dictionaries->addItem(name, dict);
     }
     // Select the current dictionary.
