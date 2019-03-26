@@ -234,7 +234,10 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationVersion(SIGIL_VERSION);
     
     // many qtbugs related to mixing 32 and 64 bit qt apps when shader disk cache is used
+    // Only use if using Qt5.9.0 or higher
+#if QT_VERSION >= 0x050900
     QCoreApplication::setAttribute(Qt::AA_DisableShaderDiskCache);
+#endif
 
  
 #if 0   // On recent processors with multiple cores this leads to over 40 threads at times
