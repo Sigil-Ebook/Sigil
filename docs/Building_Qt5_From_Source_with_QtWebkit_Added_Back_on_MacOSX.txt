@@ -1,13 +1,14 @@
+
 # Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX
 
 # We highly recommend you use the same Qt versions as official Sigil builds on Mac OS X.
-# which is now Qt 5.11.2
+# which is now Qt 5.12.2 or later
 
 # As of Qt 5.6, QtWebkit was removed from the stock Qt releases.  Sigil depends on this 
 # module for both its BookView and Preview windows.  We are following the examples of
 # the Linux Distributions and Adding back the latest QtWebKit to build our own
 
-# FIRST:  make sure you have XCode 8, 9 or 10 or later installed and the Command Line Tools
+# FIRST:  make sure you have XCode 9 or 10 or later installed and the Command Line Tools
 
 # We will need to build Qt5 from source first.  
 # These instructions will lead you through building from source
@@ -49,52 +50,54 @@ make
 sudo make install
 
 
-# Building Qt5.11.2 from source
+# Building Qt5.12.2 from source
 # -----------------------------
 
-# download qt-everywhere-src-5.11.2.tar.gz directly from Qt
-# from:  http://download.qt.io/archive/qt/5.11/5.11.2/single/
+# download qt-everywhere-src-5.12.2.tar.xz directly from Qt
+# from:  http://download.qt.io/archive/qt/5.12/5.12.2/single/
 
 # and then unpack it
-tar -zxvf qt-everywhere-src-5.11.2.tar.gz
+# Note to get unxz - you may need to download and build xz-5.2.4.tar.gz
+unxz qt-everywhere-src-5.12.2.tar.xz
+tar -xvf qt-everywhere-src-5.12.2.tar
 
-cd qt-everywhere-src-5.11.2
+cd qt-everywhere-src-5.12.2
 
 # now copy 3 required patches from Sigil//docs/ into this directory
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt_mojave_fontweight_fix.patch ./
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt511.2_fixes1.patch  ./
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt511.2_fix_widget_heap_corruption.patch  ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.2_support_macosx_10.11.patch
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.2_qtableview_fix.patch  ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.2_avoid_qtabbar_segfault.patch  ./
 
-# then apply the font weight fix patch if you are on Mojave or later  
-patch -p0 < ./qt_mojave_fontweight_fix.patch
+# then apply the deployment target changes to support macosx 10.11 still
+patch -p0 < ./qt512.2_support_macosx_10.11.patch
 
-# then apply build fixes for qtwebengine when built with 10.14 SDK (XCode 10)
-patch -p0 < ./qt511.2_fixes1.patch
+# then apply a backported fix from Qt 5.12.3 elated to line wrapping in QTableView and others
+patch -p0 < ./qt512.2_qtableview_fix.patch
 
-# then backport critical heap corruption fix from Qt 5.12-alpha
-patch -p0 < ./qt511.2_fix_widget_corruption.patch
+# then apply mouse press and flick on qtabbar tab fix to prevent segfault
+patch -p0 < ./qt512.2_avoid_qtabbar_segfault.patch
 
 # Create a destination directory to house your complete Qt binary in your home directory
 # to be similar to how stock Qt does it
 cd ~/
-mkdir Qt511
+mkdir Qt512
 
 # Now return and create a shadow build inside a new directory to keep your Qt 5.11.2 sources clean
 cd ${MYQTSRC}
-mkdir buildqt
-cd buildqt
+mkdir buildqt512
+cd buildqt512
 
-../qt-everywhere-src-5.11.2/configure --prefix=/Users/${USER}/Qt511 -opensource -nomake examples -nomake tests
+../qt-everywhere-src-5.12.2/configure --prefix=/Users/${USER}/Qt512 -opensource -nomake examples -nomake tests
 
 # note the build itself can take a couple of hours depending on memory available, disk and cpus used
 make -j4
 make install
 
-# After the install phase completes your newly built Qt should exist in ~/Qt511 ready to be
+# After the install phase completes your newly built Qt should exist in ~/Qt512 ready to be
 # Used to build QtWebKit
 
 
-# Building The Latest QtWebKit for Qt5.11.2
+# Building The Latest QtWebKit for Qt5.12.2
 # -----------------------------------------
 
 # Detailed QtWebKit build instructions can be found here:
@@ -119,7 +122,7 @@ patch -p0 < ./qtwebkit_supress_tests_10.14_build_fix.patch
 patch -p0 < ./qtwebkit_xpc_10.14_build_fix.patch
 patch -p0 < ./qtwebkit_no_load_plugins_when_disabled.patch
 
-./Tools/Scripts/build-webkit --qt --cmakeargs="-Wno-dev -DQt5_DIR=$HOME/Qt511/lib/cmake/Qt5 -DCMAKE_PREFIX_PATH=/usr/local"
+./Tools/Scripts/build-webkit --qt --cmakeargs="-Wno-dev -DQt5_DIR=$HOME/Qt512/lib/cmake/Qt5 -DCMAKE_PREFIX_PATH=/usr/local"
 
 make -C WebKitBuild/Release install
 

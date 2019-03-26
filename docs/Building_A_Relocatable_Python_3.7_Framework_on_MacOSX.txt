@@ -14,17 +14,17 @@
 #     OR 
 #
 #     Build and install the latest 8.6.X versions of Tcl and Tk Frameworks on Mac OSX 
-#     Source archives are Available from the Tcl/Tk sourceforge site (latest current version is 8.6.6)
+#     Source archives are Available from the Tcl/Tk sourceforge site (latest current version is 8.6.9)
 #     https://www.tcl.tk/software/tcltk/download.html
 #     https://www.tcl.tk/doc/howto/compile.html  (use --enable-framework --enable-aqua --enable-threads during configure)
 
-#     And finally as we will be building a required PyQt5 python module, you will need to have built Qt 5.11.1 first
+#     And finally as we will be building a required PyQt5 python module, you will need to have built Qt 5.12.2 first
 #       So see Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt
 
 # Before building remember to rename any /Applications/Python 3.7.app to save it and replace it afterwards
 # as the damn python installation from source always overwrites it no matter the configure prefix used
 
-# Download Python-3.7.0.tgz from www.python.org
+# Download Python-3.7.2.tgz from www.python.org
 
 export MACOSX_DEPLOYMENT_TARGET=10.11
 
@@ -34,14 +34,14 @@ export MACOSX_DEPLOYMENT_TARGET=10.11
 
 export MYDEST=/Users/${USER}/devtools/Frameworks
 
-# now build Python 3.7.0 as a framework
-# Need to patch Python-3.7.0 to allow it to build Mac OS X 10.11 compliant and later
+# now build Python 3.7.2 as a framework
+# Need to patch Python-3.7.2 to allow it to build Mac OS X 10.11 compliant and later
 # and for it to find and use the latest Tk and Tcl frameworks
-# Look in Sigil's "docs" to get the required patch "python_3.7_fixes.patch"
+# Look in Sigil's "docs" to get the required patch "python_3.7.2_fixes.patch"
 
-tar -zxvf Python-3.7.0.tgz
-cd Python-3.7.0
-patch -p1 < python_3.7_fixes.patch
+tar -zxvf Python-3.7.2.tgz
+cd Python-3.7.2
+patch -p0 < python_3.7.2_fixes.patch
 
 export LDFLAGS="-Wl,-macosx_version_min,10.11" 
 export CFLAGS="-mmacosx-version-min=10.11 -Werror=partial-availability" 
@@ -115,13 +115,13 @@ sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
 # We will now use this just-built Python3.7 interpreter to install PyQt5 and sip.
 
 # **** Important: versions of PyQt5 and sip must be selected to match with the Qt version
-# **** In these instructions we are using Qt 5.11.2 and therefore need sip-4.19.13 and PyQt5_gpl-5.11.3
+# **** In these instructions we are using Qt 5.12.2 and therefore need sip-4.19.15 and PyQt5_gpl-5.12.1
 
 
-# Building sip-4.19.13 from source and installing it into your Python Interpreter
+# Building sip-4.19.15 from source and installing it into your Python Interpreter
 
 # From https://sourceforge.net/projects/pyqt/files/sip/
-# Download sip-4.19.13.tar.gz
+# Download sip-4.19.15.tar.gz
 
 # More detailed build instructions can be found here:
 #    http://pyqt.sourceforge.net/Docs/sip4/installation.html
@@ -130,17 +130,17 @@ sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
 export PATH=${MYDEST}/Python.framework/Versions/3.7/bin:${PATH}
 which python3
 
-tar -zxvf sip-4.19.13.tar.gz
-cd sip-4.19.13
+tar -zxvf sip-4.19.15.tar.gz
+cd sip-4.19.15
 python3 ./configure.py --deployment-target=10.11 --sip-module=PyQt5.sip
 make
 sudo make install
 
 
-# Building PyQt5 for Qt-5.11.2 from source and installing it into your Python Interpreter
+# Building PyQt5 for Qt-5.12.2 from source and installing it into your Python Interpreter
 
 # From https://sourceforge.net/projects/pyqt/files/PyQt5/
-# Download PyQt5_gpl-5.11.3.tar.gz
+# Download PyQt5_gpl-5.12.1.tar.gz
 
 # More detailed build instructions can be found here: 
 #    http://pyqt.sourceforge.net/Docs/PyQt5/installation.html#building-and-installing-from-source
@@ -149,15 +149,15 @@ sudo make install
 export PATH=${MYDEST}/Python.framework/Versions/3.7/bin:${PATH}
 which python3
 
-# Must have the Qt5.11.2 bin directory in the path to specify which Qt to use
+# Must have the Qt5.12.2 bin directory in the path to specify which Qt to use
 # See Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt
-export PATH=/Users/${USER}/Qt511/bin:${PATH}
+export PATH=/Users/${USER}/Qt512/bin:${PATH}
 which qmake
 
 export MACOSX_DEPLOYMENT_TARGET=10.11
 
-tar -zxvf PyQt5_gpl-5.11.3.tar.gz
-cd PyQt5_gpl-5.11.3
+tar -zxvf PyQt5_gpl-5.12.1.tar.gz
+cd PyQt5_gpl-5.12.1
 python3 ./configure.py --confirm-license --no-docstrings --no-stubs 
 make -j4
 sudo make install

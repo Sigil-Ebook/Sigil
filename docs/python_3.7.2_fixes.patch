@@ -1,0 +1,96 @@
+--- configure.orig	2019-03-23 15:41:07.000000000 -0400
++++ configure	2019-03-23 15:57:05.000000000 -0400
+@@ -11490,7 +11490,7 @@
+ for ac_func in alarm accept4 setitimer getitimer bind_textdomain_codeset chown \
+  clock confstr ctermid dup3 execv faccessat fchmod fchmodat fchown fchownat \
+  fexecve fdopendir fork fpathconf fstatat ftime ftruncate futimesat \
+- futimens futimes gai_strerror getentropy \
++ futimes gai_strerror \
+  getgrouplist getgroups getlogin getloadavg getpeername getpgid getpid \
+  getpriority getresuid getresgid getpwent getspnam getspent getsid getwd \
+  if_nameindex \
+@@ -11507,7 +11507,7 @@
+  sigaction sigaltstack siginterrupt sigpending sigrelse \
+  sigtimedwait sigwait sigwaitinfo snprintf strftime strlcpy symlinkat sync \
+  sysconf tcgetpgrp tcsetpgrp tempnam timegm times tmpfile tmpnam tmpnam_r \
+- truncate uname unlinkat unsetenv utimensat utimes waitid waitpid wait3 wait4 \
++ truncate uname unlinkat unsetenv utimes waitid waitpid wait3 wait4 \
+  wcscoll wcsftime wcsxfrm wmemcmp writev _getpty
+ do :
+   as_ac_var=`$as_echo "ac_cv_func_$ac_func" | $as_tr_sh`
+@@ -11520,6 +11520,22 @@
+ fi
+ done
+ 
++if test "`uname -s`" != "Darwin"
++then
++  # checks for other library functions
++  for ac_func in futimens getentropy utimensat
++  do :
++    as_ac_var=`$as_echo "ac_cv_func_$ac_func" | $as_tr_sh`
++  ac_fn_c_check_func "$LINENO" "$ac_func" "$as_ac_var"
++  if eval test \"x\$"$as_ac_var"\" = x"yes"; then :
++    cat >>confdefs.h <<_ACEOF
++#define `$as_echo "HAVE_$ac_func" | $as_tr_cpp` 1
++_ACEOF
++
++  fi
++  done
++fi
++
+ 
+ # Force lchmod off for Linux. Linux disallows changing the mode of symbolic
+ # links. Some libc implementations have a stub lchmod implementation that always
+@@ -12726,7 +12742,8 @@
+ fi
+ done
+ 
+-
++if test "`uname -s`" != "Darwin"
++then
+ for ac_func in clock_gettime
+ do :
+   ac_fn_c_check_func "$LINENO" "clock_gettime" "ac_cv_func_clock_gettime"
+@@ -12787,8 +12804,9 @@
+ 
+ fi
+ done
+-
+-
++fi
++if test "`uname -s`" != "Darwin"
++then
+ for ac_func in clock_getres
+ do :
+   ac_fn_c_check_func "$LINENO" "clock_getres" "ac_cv_func_clock_getres"
+@@ -12845,8 +12863,11 @@
+ 
+ fi
+ done
++fi
+ 
+ 
++if test "`uname -s`" != "Darwin"
++then
+ for ac_func in clock_settime
+ do :
+   ac_fn_c_check_func "$LINENO" "clock_settime" "ac_cv_func_clock_settime"
+@@ -12903,6 +12924,7 @@
+ 
+ fi
+ done
++fi
+ 
+ 
+ { $as_echo "$as_me:${as_lineno-$LINENO}: checking for major" >&5
+--- setup.py.orig	2019-03-23 15:34:53.000000000 -0400
++++ setup.py	2019-03-23 15:40:39.000000000 -0400
+@@ -1772,7 +1772,7 @@
+                         include_dirs = include_dirs,
+                         libraries = [],
+                         extra_compile_args = frameworks[2:],
+-                        extra_link_args = frameworks,
++                        extra_link_args = ['-F/Library/Frameworks', '-F/System/Library/Frameworks'] + frameworks,
+                         )
+         self.extensions.append(ext)
+         return 1
