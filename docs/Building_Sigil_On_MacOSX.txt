@@ -24,7 +24,7 @@ export MACOSX_DEPLOYMENT_TARGET=10.11
 export MYDEST=/Users/$USER/devtools/Frameworks
 
 # Set the location of where Qt is installed
-export MYQTHOME=~/Qt511
+export MYQTHOME=~/Qt512
 
 # Set the location of where you want your Sigil repo to be stored
 export MYSIGILREPO=~/repo
@@ -88,7 +88,7 @@ cmake -DPKG_SYSTEM_PYTHON=1 \
 make
 make addframeworks
 
-As of Qt 5.11 and later there is one final step required.
+As of Qt 5.12 and later there is one final step required.
 Qt's macdeployqt does not properly add the rpaths needed for the 
 Qt plugins to find the Qt Frameworks when embedded
 inside an app even one using the specified Qt app layout.
