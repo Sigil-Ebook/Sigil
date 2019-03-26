@@ -295,7 +295,7 @@ private:
 
     bool m_CheckWellFormedErrors;
 
-    QTabBar *m_TabBar;
+    // QTabBar *m_TabBar;
 };
 
 #endif // TABMANAGER_H

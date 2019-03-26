@@ -32,9 +32,10 @@ TabBar::TabBar(QWidget *parent)
       m_TabManager(parent),
       m_TabIndex(-1)
 {
-#ifdef Q_OS_MAC
+#if defined(Q_OS_MAC)
     // work around Qt MacOSX bug missing tab close icons
     // see:  https://bugreports.qt.io/browse/QTBUG-61092
+    // still broken in document mode in Qt.5.12.2 !!!!
     const QString FORCE_TAB_CLOSE_BUTTON = 
         "QTabBar::close-button { "
             "background-image: url(:/qt-project.org/styles/commonstyle/images/standardbutton-closetab-16.png);"

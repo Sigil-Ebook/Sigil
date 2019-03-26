@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018, Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2018, 2019 Kevin B. Hendricks, Stratford, ON Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -549,8 +549,11 @@ bool TabManager::AddNewContentTab(ContentTab *new_tab, bool precede_current_tab)
     int idx = -1;
     if (!precede_current_tab) {
 
-#ifdef Q_OS_MAC
+#if defined(Q_OS_MAC)
         // drop use of icons to workaround Qt Bugs: QTBUG-61235, QTBUG-61742, QTBUG-63445, QTBUG-64630
+        // This is still broken in Qt 5.12.2 
+        // elided text is wrong when icon image present (hides most of elided text)
+        // icon image still overlaps with name of tab if ElideNone is used
         idx = addTab(new_tab, new_tab->GetFilename());
 #else
         idx = addTab(new_tab, new_tab->GetIcon(), new_tab->GetFilename());
@@ -560,8 +563,11 @@ bool TabManager::AddNewContentTab(ContentTab *new_tab, bool precede_current_tab)
         new_tab->setFocus();
     } else {
 
-#ifdef Q_OS_MAC
+#if defined(Q_OS_MAC)
         // drop use of icons to workaround Qt Bugs: QTBUG-61235, QTBUG-61742, QTBUG-63445, QTBUG-64630
+        // This is still broken in Qt 5.12.2
+        // elided text is wrong when icon image present image (hides most of elided text)
+        // icon image still overlaps with name of tab if ElideNone is used
         idx = insertTab(currentIndex(), new_tab, new_tab->GetFilename());
 #else
         idx = insertTab(currentIndex(), new_tab, new_tab->GetIcon(), new_tab->GetFilename());
