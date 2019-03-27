@@ -155,15 +155,6 @@ void BookViewPreview::CustomSetDocument(const QString &path, const QString &html
         // to help keep memory footprint small clear any memory caches when a new page loads
  	if (url().path() != path) {
 	    settings()->clearMemoryCaches();
-#if 0
-	    // An attempt to flush caches but not the font caches
-	    // These need to be kept in sync with MainWindow::clearMemoryCaches()
-	    // settings()->setObjectCacheCapacities(0,0,0);
-	    // settings()->setObjectCacheCapacities(0, 8 * 1024 * 1024, 16 * 1024 * 1024);
-            // int n = settings()->maximumPagesInCache();
-	    // settings()->setMaximumPagesInCache(0);
-	    // settings()->setMaximumPagesInCache(n);
-#endif
 	} 
     }
 
