@@ -368,14 +368,14 @@ void SpellCheckWidget::readSettings()
 	    name = lang->GetLanguageName(fix_dict);
 	    if (!name.isEmpty()) {
 	        // append any extra information to end
-	        for(int j=2; j < n; j++) name.append("-" + parts.at(j)); 
+	        for(int j=2; j < n; j++) name.append(" - " + parts.at(j)); 
 	    }
 	    if (name.isEmpty()) {
 	        // try with just the first part
 	        name = lang->GetLanguageName(parts.at(0));
 		if (!name.isEmpty()) {
 	            // append any extra information to end
-	            for(int j=1; j < n; j++) name.append("-" + parts.at(j)); 
+	            for(int j=1; j < n; j++) name.append(" - " + parts.at(j)); 
 		}
 	    }
 	}
