@@ -4,10 +4,11 @@
 
 To build Sigil on Windows, you need to get/do the following things:
 
-1. [Visual Studio 2015](#vs2015) (The free Community Edition will work fine)
+1. [Visual Studio 2015](#vs2015) The free Community Edition will work fine
+   (VS2017 will work as well -- it will just require the msvc2017 version of Qt5)
 2. [CMake](#cmake) (3.0 or higher)
 3. [Inno Setup](#inno) (the latest Unicode version available recommended)
-4. [Qt5.11.2](#qt5) (**NOTE**: The standard precompiled binaries will work just fine)
+4. [Qt5.12.2](#qt5) (**NOTE**: The standard precompiled binaries will work but Sigil patches a few things)
 5. [QtWebKit](#qtwebkit)
 5. [Python 3.7.x](#python)
 6. [The Sigil source code](#sigil) (downloaded zipfile or a git clone)
@@ -15,7 +16,7 @@ To build Sigil on Windows, you need to get/do the following things:
 
 ## <a name="vs2015"/>Visual Studio 2015
 
-VS2015 is now a firm Windows requirement starting with Sigil 0.9.7. Begin with making sure you have a working version of [Visual Studio 2015](https://beta.visualstudio.com/vs/community/) (the free Community edition will work fine).
+VS2015 is now a firm Windows minimum starting with Sigil 0.9.7. Begin with making sure you have a working version of [Visual Studio 2015](https://visualstudio.microsoft.com/vs/community/), or Visual Studio 2017 with the 2015 toolchain installed (the free Community edition will work fine). Note that VS2017's 2015 developer prompts will need some tweaking.
 
 The instructions given here will focus on using the command-line cmake and nmake tools. But if you're more comfortable in an IDE, you should find sufficient instructions to get you going. I simply don't use the IDE. Too many fiddly bits (sign-ins and expiring licenses for free software) for my taste. But it did work the last time I tried it.
 
@@ -24,23 +25,23 @@ From the Start button (you're on your own if you don't have one), go to "All Pro
 If you're going to use the Visual Studio IDE and cmake-gui, you won't need to use these command-prompts.
 
 ## <a name="cmake"/>Getting CMake
-CMake 3.0 or better is required. I'm using 3.11.x Download it from [cmake.org](http://www.cmake.org) and install it. **Make sure CMake's "bin" directory (the one containing "cmake.exe") is added to your PATH**.
+CMake 3.0 or better is required. I'm using 3.12.x Download it from [cmake.org](http://www.cmake.org) and install it. **Make sure CMake's "bin" directory (the one containing "cmake.exe") is added to your PATH**.
 
 ## <a name="inno"/>Inno Setup
 Get the unicode version (5.5.9 at the time of this writing) from [jrsoftware.org](http://www.jrsoftware.org/isdl.php) make sure you say yes to the Preprocessor option when installing. **Also make sure the Inno Setup directory (the one containing "ISCC.exe") is added to your PATH**. There is no 64-bit version of Inno Setup, but you can still use it to create 64-bit program installers.
 
-## <a name="qt5"/>Qt5.11.2
-Download qt-opensource-windows-x86-5.11.2.exe from [Qt's Website](http://download.qt.io/archive/qt/5.11/5.11.2) and install the msvc2015 component for the architecture you will be building Sigil for (you can install both msvc2015 and msvc2015_x64 if you like).
+## <a name="qt5"/>Qt5.12.2
+Download qt-opensource-windows-x86-5.12.2.exe from [Qt's Website](http://download.qt.io/archive/qt/5.12/5.12.2) and install the msvc2015 component for the architecture you will be building Sigil for (you can install both msvc2015 and msvc2015_64 if you like). If you're using  Visual Studio 2017, install the msvc2017_64 component (64-bit only).
 
-Once you have Qt5.11.2 for VS2015 installed, **make sure its "bin" directory (the one containing "windeployqt.exe) is added to your PATH**.
+Once you have Qt5.12.2 for VS2015 installed, **make sure its "bin" directory (the one containing "windeployqt.exe) is added to your PATH**.
 
 ## <a name="qtwebkit"/>QtWebKit
-You need to beg, borrow or build a version of QtWebKit from [QtWebKit Reloaded's Github repository](https://github.com/annulen/webkit). You can use one of the binary releases if you like, but the latest at the time of this writing (5.212.0-alpha2) includes a buggy version of libxml2 that will result in html entity doubling (Linux Sigil users have already encountered this bug). Perhaps there will be a new release by the time you're reading this and you can just use it as is. That is certainly my hope in the long run. In the meantime, there's some fairly good documentation in their [wiki](https://github.com/annulen/webkit/wiki) for building QtWebKit on Windows. I'm building the release versions of Sigil using a version of QtWebKit that I've compiled myself; which can be found [here](https://github.com/dougmassay/win-qtwebkit-5.212/releases). Download the one for the architecture you're targeting, unzip it and merge the msvc2016_64 (or msvc2015 if you're building the x86 version) directory with the same directory in your Qt5.11.2 installation.
+You need to beg, borrow or build a version of QtWebKit from [QtWebKit Reloaded's Github repository](https://github.com/annulen/webkit). You can use one of the binary releases if you like, but the latest at the time of this writing (5.212.0-alpha2) includes a buggy version of libxml2 that will result in html entity doubling (Linux Sigil users have already encountered this bug). Perhaps there will be a new release by the time you're reading this and you can just use it as is. That is certainly my hope in the long run. In the meantime, there's some fairly good documentation in their [wiki](https://github.com/annulen/webkit/wiki) for building QtWebKit on Windows (I'm using the "Conan" instructions). I'm building the release versions of Sigil using a version of QtWebKit that I've compiled myself; which can be found [here](https://github.com/dougmassay/win-qtwebkit-5.212/releases/tag/v5.212-1). Download the one for the architecture you're targeting (and the same versions of Qt5 and Visual Studio), unzip it and merge the msvc2016_64 (or msvc2015 if you're building the x86 version) directory with the same directory in your Qt5.12.2 installation. If you want to use the exact, patched versions of Qt5.12.2 and QtWebKit that I've used to release Sigil, feel free to download the whole shebang [from the same place](https://github.com/dougmassay/win-qtwebkit-5.212/releases/tag/v5.212-1). It's the archive named: MyQtx64-5.12.2-Full-VS2015.7z (or MyQtx86-5.12.2-Full-VS2015.7z if you're building the 32-bit version of Sigil). NOTE: You can't use these if you're building Sigil with Visual Studio 2017 with the 2017 toolchain. Only Visual Studio 2015 or  Visual Studio 2017 with the 2015 toolchain).
 
 ## <a name="python"/>Getting Python 3.7
 **This is important**. If you're going to be building the 64-bit version of Sigil, you need to install the 64-bit version of Python 3.7. If you're building a 32-bit version of Sigil then you need to install a 32-bit version of Python 3.7.
 
-The official Windows Sigil installer uses Python 3.7 from [Python.org](http://www.python.org) (3.7.0 at the time of this writing). Other flavors of Python may work, but you're on your own if they don't. Download it and install it. If you install somewhere that requires special privileges to add/remove files, you may need to use an administator command prompt to install Sigil's extra Python module dependencies. **I recommend installing Python to the default location ($USER/appdata) to avoid that problem. I also recommend allowing the Python installer to add Python to your PATH**. This will make it easier for Sigil to locate the necessary Python pieces it needs, and will make it easy to install the extra Python modules using Pythons "pip" tool. I'm going to assume you've done so for the rest of these instructions.
+The official Windows Sigil installer uses Python 3.7 from [Python.org](http://www.python.org) (3.7.2 at the time of this writing). Other flavors of Python may work, but you're on your own if they don't. Download it and install it. If you install somewhere that requires special privileges to add/remove files, you may need to use an administator command prompt to install Sigil's extra Python module dependencies. **I recommend installing Python to the default location ($USER/appdata) to avoid that problem. I also recommend allowing the Python installer to add Python to your PATH**. This will make it easier for Sigil to locate the necessary Python pieces it needs, and will make it easy to install the extra Python modules using Pythons "pip" tool. I'm going to assume you've done so for the rest of these instructions.
 
 ### Getting the extra Python module dependencies
 After installing Python 3.7, I recommend making sure Python's pip/setuptools is updated to the latest version. The easiest way to do this is to open a command prompt (the shortcut to the VS2015 command prompt you made on your desktop [in step 1](#vs2015) will work fine) and type:
@@ -57,7 +58,7 @@ Once finished, you can begin to install the extra modules needed by Sigil.
 + chardet
 + Pillow (v5.4.1 recommended/verified)
 + lxml (v4.2.6 recommended/verified)
-+ PyQt5 (5.11.3 recommeded/verified)
++ PyQt5 (5.12.1 recommended/verified)
 
 From the same command prompt you updated pip with, install the "six" module with the following command:
 
@@ -71,21 +72,21 @@ etc...
 
 ### Installing Pillow
 
-Other versions of Pillow may work fine, but Sigil's installer build is predicated on v5.2.0, To install that specific version, use the following pip command.
+Other versions of Pillow may work fine, but Sigil's installer build is predicated on v5.4.1, To install that specific version, use the following pip command.
 
 >`pip install Pillow==5.4.1`
 
 ### Installing lxml.
 
-Version 4.2.4 comes with precompiled binary wheels for Windows. Not all versions do. So if you want to install a different version, you'll need to find out if there's precompiled binaries for Windows or not. Install a specific version with pip using the following command
+Version 4.2.6 comes with precompiled binary wheels for Windows. Not all versions do. So if you want to install a different version, you'll need to find out if there's precompiled binaries for Windows or not. Install a specific version with pip using the following command
 
 >`pip install lxml==4.2.6`
 
 ### Installing PyQt5.
 
-Like lxml, not all versions of PyQt5 will have compatible binaries that will work with Sigil's Qt5 and Python. Stick to version 5.11.2 and everything should work with Python 3.7and Qt5.11.2
+Like lxml, not all versions of PyQt5 will have compatible binaries that will work with Sigil's Qt5 and Python. Stick to version 5.12.1 and everything should work with Python 3.7 and Qt5.12.1 (the trick is to always select a version of PyQt that will work with Sigil's version of Qt and Python)
 
->`pip install PyQt5==5.11.3`
+>`pip install PyQt5==5.12.1`
 
 
 ## <a name="sigil"/>Getting Sigil's Source Code
@@ -118,19 +119,21 @@ With all the pre-requisites met and all the necessary additions to your PATH, th
 
 Using the shortcut to the proper VS2015 command-prompt created in [step 1](#vs2015), cd to a suitable empty directory for building Sigil (I recommend "sigil-build", or some such similar name), and issue the following command:
 
-> `cmake -G "NMake Makefiles" -DWIN_INSTALLER_USE_64BIT_CRT=1 -DCMAKE_PREFIX_PATH="C:\Qt\Qt5.11.2\5.11.2\mscv2015_64\lib\cmake" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
+> `cmake -G "NMake Makefiles" -DWIN_INSTALLER_USE_64BIT_CRT=1 -DQt5_DIR="C:\Qt\Qt5.12.2\5.12.2\mscv2015_64\lib\cmake\Qt5" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
 
 Leave out the -DWIN_INSTALLER_USE_64BIT_CRT=1 part if you're building a 32-bit version of Sigil with the "VS2015 x86 Native Tools Command Prompt" shortcut.
 
-Obviously change the paths to match where you've actually installed Qt5.11.2 and the Sigil source code.
+Obviously change the paths to match where you've actually installed Qt5.12.2 and the Sigil source code. For instance: using my Specially compiled version of Qt5/WebKit, it would look like:
 
-**NOTE**: The -DCMAKE_PREFIX_PATH will be "C:\Qt\Qt5.11.2\5.11.2\mscv2015(_64)\lib\cmake" if you installed Qt5.11.2 to its default location
+`cmake -G "NMake Makefiles" -DWIN_INSTALLER_USE_64BIT_CRT=1 -DQt5_DIR="C:\MyQt64\Qt5.12.2\lib\cmake\Qt5" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
+
+**NOTE**: The -DCMAKE_PREFIX_PATH will be "C:\Qt\Qt5.12.2\5.12.2\mscv2015(_64)\lib\cmake" if you installed the standard Qt5.12.2 to its default location
 
 If this completes successfully, then you're ready to compile Sigil (leave the command prompt open).
 
 You can also generate Visual Studio Project/Solution Files with cmake by using:
 
-> `cmake -G "Visual Studio 14 2015 Win64" WIN_INSTALLER_USE_64BIT_CRT=1 -DCMAKE_PREFIX_PATH="C:\Qt\Qt5.11.2\5.11.2\mscv2015(_64)\lib\cmake" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
+> `cmake -G "Visual Studio 14 2015 Win64" WIN_INSTALLER_USE_64BIT_CRT=1 -DQt5_DIR="C:\Qt\Qt5.12.2\5.12.2\mscv2015(_64)\lib\cmake\Qt5" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
 
 Leave off "Win64" and -DWIN_INSTALLER_USE_64BIT_CRT=1 if you're building the 32-bit version of Sigil with the "VS2015 x86 Native Tools Command Prompt" shortcut.
 
@@ -150,7 +153,7 @@ If you don't want to build/include the bundled Python environment in the Sigil i
 
 If you generated NMake Makefiles with cmake (like I do), then compile Sigil by typing `nmake` (at the same command-prompt you just configured with) to begin building Sigil. If it completes without error, you're ready to build the installer package (leave the command prompt open).
 
-If you generated Visual Studio 2015 projects/solutions, then open the Sigil.sln file in the build directory; make sure the solution configuration is set to "Release"; select the ALL_BUILD project in the Solution Explorer and build the ALL_BUILD project from the Build menu (Build->Build ALL_BUILD). **Note: don't build the solution**. If it completes without error, you're ready to build the installer package.
+If you generated Visual Studio 2015 projects/solutions, then open the Sigil.sln file in the build directory; make sure the solution configuration is set to "Release"; select the ALL_BUILD project in the Solution Explorer and build the ALL_BUILD project from the Build menu (Build->Build ALL_BUILD). **Note: don't build the solution**. If it completes without error, you're ready to build the installer package. It is not possible at this time build a Debug version of Sigil with Visual Studio. So make sure the solution configuration is changed to build "Release" only.
 
 ### Building the Sigil installer package
 
