@@ -13,7 +13,7 @@
 # We will need to build Qt5 from source first.  
 # These instructions will lead you through building from source
 
-# set the delpoyment target
+# set the deployment target
 export MACOSX_DEPLOYMENT_TARGET=10.11
 
 # cd to a location to store your src tree then do
@@ -23,7 +23,7 @@ export MYQTSRC=`pwd`
 # Build Prerequisites
 # -------------------
 # First build and install the following prerequisites for the build: 
-#      cmake, libpng, ligjpeg 
+#      cmake, libpng, ligjpeg-turbo 
 # and install into /usr/local so that they can be found during qtwebkit's build
 # Note: older versions of these prerequisites may work but have not been tested
 
@@ -35,17 +35,29 @@ cd cmake-3.12.0
 make
 sudo make install
 
-# libpng 1.6.35 or later from png's sourcefore site: http://www.libpng.org/pub/png/libpng.html
-tar -zxvf libpng-1.6.35.tar.gz
-cd libpng-1.6.35
+export MACOSX_DEPLOYMENT_TARGET=10.11
+
+# libpng 1.6.36 or later from png's sourceforge site: http://www.libpng.org/pub/png/libpng.html
+# If you are building on MacOS 10.12 or later, you will need to patch libpng
+# to support macos 10.11
+export LDFLAGS="-Wl,-macosx_version_min,10.11"
+export CFLAGS="-mmacosx-version-min=10.11 -Werror=partial-availability"
+tar -zxvf libpng-1.6.36.tar.gz
+cd libpng-1.6.36
+patch -p0 < libpng_support_macos_10.11.patch
 ./configure --enable-static=yes --enable-shared=no --prefix=/usr/local
 make
 sudo make install
+unset CFLAGS
+unset LDFLAGS
 
-#libjpeg from the Independent JPEG Group -  https://http://www.ijg.org
-tar -zxvf jpegsrc.v9c.tar.gz
-cd jpeg-9c
-./configure --enable-static=yes --enable-shared=no --prefix=/usr/local
+# libjpeg-turbo 2.0.0 or later from libjpeg-turbo.org
+# https://sourceforge.net/projects/libjpeg-turbo/files/2.0.2/
+tar -xvf libjpeg-turbo-2.0.2.tar.gz
+mkdir buildjt
+cd buildjt
+cmake -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local -DENABLE_SHARED=0 -DCMAKE_OSX_DEPLOYMENT_TARGET=10.11 \
+  -DCMAKE_C_FLAGS_RELEASE="-O3 -mmacosx-version-min=10.11 -Werror=partial-availability" ../libjpeg-turbo-2.0.2/
 make
 sudo make install
 
@@ -105,6 +117,8 @@ make install
 
 cd ${MYQTSRC}
 
+export MACOSX_DEPLOYMENT_TARGET=10.11
+
 # clone qtwebkit from git::/code.qt.io/qt/qtwebkit.git and get the QtWebKit 5.212 Branch
 git clone git://code.qt.io/qt.qtwebkit.git
 
@@ -113,14 +127,15 @@ cd qtwebkit
 # copy in the necessary patches for building with the mac osx 10.14 sdk
 cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qtwebkit_memory_leak_fix.patch ./
 cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qtwebkit_suppress_tests_10.14_build_fix.patch ./
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qtwebkit_xpc_10.14_build_fix.patch
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qtwebkit_no_load_plugins_when_disabled.patch
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qtwebkit_xpc_10.14_build_fix.patch ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qtwebkit_no_load_plugins_when_disabled.patch ./
 
 # apply the patches
 patch -p0 < ./qtwebkit_memory_leak_fix.patch
 patch -p0 < ./qtwebkit_supress_tests_10.14_build_fix.patch
 patch -p0 < ./qtwebkit_xpc_10.14_build_fix.patch
 patch -p0 < ./qtwebkit_no_load_plugins_when_disabled.patch
+
 
 ./Tools/Scripts/build-webkit --qt --cmakeargs="-Wno-dev -DQt5_DIR=$HOME/Qt512/lib/cmake/Qt5 -DCMAKE_PREFIX_PATH=/usr/local"
 
