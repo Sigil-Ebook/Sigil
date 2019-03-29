@@ -29,7 +29,6 @@
 
 TabBar::TabBar(QWidget *parent)
     : QTabBar(parent),
-      m_TabManager(parent),
       m_TabIndex(-1)
 {
 #if defined(Q_OS_MAC)
