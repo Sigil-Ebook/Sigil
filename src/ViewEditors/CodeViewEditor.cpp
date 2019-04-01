@@ -913,7 +913,7 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
                 if (match_info.at(i).offset.first > position) {
                     break;
                 }
-            } else if (!wrap) {
+            } else { 
                 if (match_info.at(i).offset.second < position) {
                     break;
                 }
