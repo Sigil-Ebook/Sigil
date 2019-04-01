@@ -29,14 +29,12 @@
 #include <QtGui/QClipboard>
 #include <QtCore/QMimeData>
 #include <QtWidgets/QSizePolicy>
-#include <QtWidgets/QTextEdit>
 #include <QtGui/QContextMenuEvent>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QKeyEvent>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QShortcut>
-#include <QtGui/QTextDocument>
 #include <QtWebKit/QWebElement>
 #include <QtWebKit/QWebSettings>
 #include <QtWebKitWidgets/QWebFrame>

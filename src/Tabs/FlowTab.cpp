@@ -135,6 +135,9 @@ FlowTab::~FlowTab()
         delete(m_views);
         m_views = 0;
     }
+
+    m_HTMLResource = NULL;
+
 }
 
 void FlowTab::CreateBookViewIfRequired(bool is_delayed_load)

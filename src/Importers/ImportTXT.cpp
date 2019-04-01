@@ -19,8 +19,6 @@
 **
 *************************************************************************/
 
-#include <QtGui/QTextDocument>
-
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/XhtmlDoc.h"

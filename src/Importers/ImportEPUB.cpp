@@ -39,7 +39,6 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QFutureSynchronizer>
 #include <QtConcurrent/QtConcurrent>
-#include <QtGui/QTextDocument>
 #include <QtCore/QXmlStreamReader>
 #include <QDirIterator>
 #include <QRegularExpression>
