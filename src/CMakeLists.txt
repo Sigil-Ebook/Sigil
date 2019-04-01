@@ -316,6 +316,8 @@ set( MISC_FILES
     Misc/GumboInterface.cpp
     Misc/PythonRoutines.h
     Misc/PythonRoutines.cpp
+    Misc/TextDocument.h
+    Misc/TextDocument.cpp
     )
 
 set( MISC_EDITORS_FILES    

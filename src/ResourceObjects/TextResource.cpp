@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -25,7 +26,6 @@
 #include <QtCore/QTimer>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QPlainTextDocumentLayout>
-#include <QtGui/QTextDocument>
 
 #include "Misc/Utility.h"
 #include "ResourceObjects/TextResource.h"
@@ -35,7 +35,7 @@ TextResource::TextResource(const QString &mainfolder, const QString &fullfilepat
     :
     Resource(mainfolder, fullfilepath, parent),
     m_CacheInUse(false),
-    m_TextDocument(new QTextDocument(this)),
+    m_TextDocument(new TextDocument(this)),
     m_IsLoaded(false)
 {
     m_TextDocument->setDocumentLayout(new QPlainTextDocumentLayout(m_TextDocument));
@@ -51,7 +51,7 @@ QString TextResource::GetText() const
         return m_Cache;
     }
 
-    return m_TextDocument->toPlainText();
+    return m_TextDocument->toText();
 }
 
 
@@ -82,7 +82,7 @@ void TextResource::SetText(const QString &text)
 }
 
 
-QTextDocument &TextResource::GetTextDocumentForWriting()
+TextDocument& TextResource::GetTextDocumentForWriting()
 {
     Q_ASSERT(m_TextDocument);
     return *m_TextDocument;
@@ -146,7 +146,7 @@ void TextResource::InitialLoad()
     QWriteLocker locker(&GetLock());
     Q_ASSERT(m_TextDocument);
 
-    if (m_TextDocument->toPlainText().isEmpty() && QFile::exists(GetFullPath())) {
+    if (m_TextDocument->toText().isEmpty() && QFile::exists(GetFullPath())) {
         SetText(Utility::ReadUnicodeTextFile(GetFullPath()));
     }
 }

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2012  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -157,7 +157,6 @@ private:
     std::string                     m_newcsslinks;
     QString                         m_currentdir;
     std::string                     m_newbody;
-    bool                            m_hasnbsp;
     QString                         m_version;
     
 };

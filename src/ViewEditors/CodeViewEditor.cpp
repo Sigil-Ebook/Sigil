@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2019 Doug Massay
-**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON Canada
+**  Copyright (C) 2015 - 2019 Kevin B. Hendricks Stratford, ON Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012, 2013 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -49,6 +49,7 @@
 #include "Misc/CSSHighlighter.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
+#include "Misc/TextDocument.h"
 #include "Misc/HTMLSpellCheck.h"
 #include "Misc/Utility.h"
 #include "PCRE/PCRECache.h"
@@ -128,7 +129,7 @@ QSize CodeViewEditor::sizeHint() const
 }
 
 
-void CodeViewEditor::CustomSetDocument(QTextDocument &document)
+void CodeViewEditor::CustomSetDocument(TextDocument &document)
 {
     setDocument(&document);
     document.setModified(false);
@@ -196,12 +197,13 @@ void CodeViewEditor::HighlightMarkedText()
     selection.format.setFontUnderline(QTextCharFormat::DotLine);
     selection.cursor.clearSelection();
     selection.cursor.setPosition(0);
-    selection.cursor.setPosition(toPlainText().length());
+    selection.cursor.setPosition(QTextCursor::End);
+    int textlen = selection.cursor.position();
     extraSelections.append(selection);
     setExtraSelections(extraSelections);
     extraSelections.clear();
 
-    if (m_MarkedTextStart < 0 || m_MarkedTextEnd > toPlainText().length()) {
+    if (m_MarkedTextStart < 0 || m_MarkedTextEnd > textlen) {
         return;
     }
     selection.format.setFontUnderline(QTextCharFormat::DotLine);
@@ -623,6 +625,13 @@ void CodeViewEditor::ScrollToFragment(const QString &fragment)
     ScrollToPosition(index);
 }
 
+
+QString CodeViewEditor::toPlainText() const
+{
+    TextDocument * doc = qobject_cast<TextDocument *> (document());
+    return doc->toText();
+}
+
 bool CodeViewEditor::IsLoadingFinished()
 {
     return m_isLoadFinished;
@@ -721,9 +730,10 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
 {
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
     SPCRE::MatchInfo match_info;
+    QString txt = toPlainText();
     int start_offset = 0;
     int start = 0;
-    int end = toPlainText().length();
+    int end = txt.length();
     if (marked_text) {
         if (!MoveToMarkedText(search_direction, wrap)) {
             return false;
@@ -736,15 +746,15 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
 
     if (search_direction == Searchable::Direction_Up) {
         if (misspelled_words) {
-            match_info = GetMisspelledWord(toPlainText(), 0, selection_offset, search_regex, search_direction);
+            match_info = GetMisspelledWord(txt, 0, selection_offset, search_regex, search_direction);
         } else {
-            match_info = spcre->getLastMatchInfo(Utility::Substring(start, selection_offset, toPlainText()));
+            match_info = spcre->getLastMatchInfo(Utility::Substring(start, selection_offset, txt));
         }
     } else {
         if (misspelled_words) {
-            match_info = GetMisspelledWord(toPlainText(), selection_offset, toPlainText().count(), search_regex, search_direction);
+            match_info = GetMisspelledWord(txt, selection_offset, txt.count(), search_regex, search_direction);
         } else {
-            match_info = spcre->getFirstMatchInfo(Utility::Substring(selection_offset, end, toPlainText()));
+            match_info = spcre->getFirstMatchInfo(Utility::Substring(selection_offset, end, txt));
         }
 
         start_offset = selection_offset;

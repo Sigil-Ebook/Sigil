@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -24,10 +25,11 @@
 #define TEXTRESOURCE_H
 
 #include <QtCore/QMutex>
-
+#include "Misc/TextDocument.h"
 #include "ResourceObjects/Resource.h"
 
-class QTextDocument;
+
+class TextDocument;
 
 /**
  * A parent class for textual resources like CSS and SVG images.
@@ -68,7 +70,7 @@ public:
      *
      * @return A reference to the QTextDocument cache.
      */
-    QTextDocument &GetTextDocumentForWriting();
+    TextDocument &GetTextDocumentForWriting();
 
     // inherited
     void SaveToDisk(bool book_wide_save = false);
@@ -128,7 +130,7 @@ private:
     /**
      * The syntax colored cache of the TextResource text content.
      */
-    QTextDocument *m_TextDocument;
+    TextDocument *m_TextDocument;
 
     bool m_IsLoaded;
 };

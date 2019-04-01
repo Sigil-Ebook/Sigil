@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015  Kevin B. Hendricks, Stratford Ontario
+**  Copyright (C) 2015-2019  Kevin B. Hendricks, Stratford Ontario
 **
 **  This file is part of Sigil.
 **
@@ -120,7 +120,6 @@ GumboInterface::GumboInterface(const QString &source, const QString &version)
           m_newcsslinks(""),
           m_currentdir(""),
           m_newbody(""),
-          m_hasnbsp(false),
           m_version(version)
 {
 }
@@ -134,7 +133,6 @@ GumboInterface::GumboInterface(const QString &source, const QString &version, co
           m_newcsslinks(""),
           m_currentdir(""),
           m_newbody(""),
-          m_hasnbsp(false),
           m_version(version)
 {
 }
@@ -153,10 +151,7 @@ GumboInterface::~GumboInterface()
 void GumboInterface::parse()
 {
     if (!m_source.isEmpty() && (m_output == NULL)) {
-  
-        if (!m_version.startsWith('3')) {
-            m_hasnbsp = m_source.contains("&nbsp;");
-        }
+
         m_utf8src = m_source.toStdString();
         // remove any xml header line and any trailing whitespace
         if (m_utf8src.compare(0,5,"<?xml") == 0) {
@@ -827,13 +822,6 @@ std::string GumboInterface::substitute_xml_entities_into_text(const std::string 
     replace_all(result, "&", "&amp;");
     replace_all(result, "<", "&lt;");
     replace_all(result, ">", "&gt;");
-    // convert non-breaking spaces to entities to prevent their loss for later editing
-    // See the strange//buggy behaviour of Qt QTextDocument toPlainText() routine 
-    if (m_hasnbsp) {
-        replace_all(result, "\xc2\xa0", "&nbsp;");
-    } else {
-        replace_all(result, "\xc2\xa0", "&#160;");
-    }
     return result;
 }
 

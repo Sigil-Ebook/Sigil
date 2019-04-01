@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON Canada 
+**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON Canada 
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -34,6 +34,7 @@
 #include "Misc/PasteTarget.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
+#include "Misc/TextDocument.h"
 #include "MiscEditors/ClipEditorModel.h"
 #include "MiscEditors/IndexEditorModel.h"
 #include "ViewEditors/ViewEditor.h"
@@ -85,7 +86,7 @@ public:
      *
      * @param document The new text document.
      */
-    void CustomSetDocument(QTextDocument &document);
+    void CustomSetDocument(TextDocument &document);
 
     void DeleteLine();
 
@@ -126,7 +127,9 @@ public:
     bool InsertHyperlink(const QString &attribute_value);
     bool IsInsertIdAllowed();
     bool IsInsertHyperlinkAllowed();
-    bool InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list, bool ignore_seletion = false);
+    bool InsertTagAttribute(const QString &element_name, const QString &attribute_name, 
+			    const QString &attribute_value, const QStringList &tag_list, 
+			    bool ignore_seletion = false);
 
     /**
     * Splits the section and returns the "upper" content.
@@ -198,6 +201,11 @@ public:
     void ScrollToLine(int line);
 
     void ScrollToFragment(const QString &fragment);
+
+    // override and hide the toPlainText() call to prevent
+    // issues with lost non-breaking spaces (improperly
+    // converted to normal spaces)
+    QString toPlainText() const;
 
     // inherited
     bool IsLoadingFinished();
