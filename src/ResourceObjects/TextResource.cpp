@@ -193,6 +193,8 @@ void TextResource::DelayedUpdateToTextDocument()
 
 void TextResource::SetTextInternal(const QString &text)
 {
+    m_TextDocument->clear();
+    m_TextDocument->clearUndoRedoStacks();
     m_TextDocument->setPlainText(text);
     m_TextDocument->setModified(false);
     // Our resource has now been loaded with some text

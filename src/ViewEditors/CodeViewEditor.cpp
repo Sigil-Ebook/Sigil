@@ -553,6 +553,17 @@ void CodeViewEditor::ReplaceDocumentText(const QString &new_text)
     cursor.removeSelectedText();
     cursor.insertText(new_text);
     cursor.endEditBlock();
+
+#if 0
+    // should we instead be calling clear on the underlying document
+    // and then inserting the new text?  Does this impact memory consumption?
+    document()->clear();
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+    cursor.setPosition(0);
+    cursor.insertText(new_text);
+    cursor.endEditBlock();
+#endif
 }
 
 
