@@ -197,8 +197,8 @@ void CodeViewEditor::HighlightMarkedText()
     selection.format.setFontUnderline(QTextCharFormat::DotLine);
     selection.cursor.clearSelection();
     selection.cursor.setPosition(0);
-    selection.cursor.setPosition(QTextCursor::End);
-    int textlen = selection.cursor.position();
+    int textlen = toPlainText().length();
+    selection.cursor.setPosition(textlen);
     extraSelections.append(selection);
     setExtraSelections(extraSelections);
     extraSelections.clear();
@@ -793,8 +793,7 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
 int CodeViewEditor::Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool marked_text)
 {
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
-    QString text;
-    text = toPlainText();
+    QString text= toPlainText();
     int start = 0;
     int end = text.length();
 
