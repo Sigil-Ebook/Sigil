@@ -21,7 +21,6 @@
 
 #include <QChar>
 #include <QTextCursor>
-#include <QDebug>
 
 #include "Misc/TextDocument.h"
 
@@ -29,6 +28,18 @@ TextDocument::TextDocument(QObject *parent)
  :
   QTextDocument(parent)
 {
+}
+
+// a faster way to get just the current length of the plain text
+// inside the TextDocument.  This is used multiple times in 
+// Find and Replace operations in CodeView
+
+int TextDocument::textLength()
+{
+    // Use text cursors to get the TextDocument's contents
+    QTextCursor cursor(this);
+    cursor.movePosition(QTextCursor::End);
+    return cursor.position();
 }
 
 // a proper replacement for toPlainText() that does not destroy

@@ -202,10 +202,15 @@ public:
 
     void ScrollToFragment(const QString &fragment);
 
+    // get length of plain text
+    int textLength() const;
+
     // override and hide the toPlainText() call to prevent
     // issues with lost non-breaking spaces (improperly
     // converted to normal spaces)
     QString toPlainText() const;
+
+
 
     // inherited
     bool IsLoadingFinished();

@@ -197,7 +197,7 @@ void CodeViewEditor::HighlightMarkedText()
     selection.format.setFontUnderline(QTextCharFormat::DotLine);
     selection.cursor.clearSelection();
     selection.cursor.setPosition(0);
-    int textlen = toPlainText().length();
+    int textlen = textLength();
     selection.cursor.setPosition(textlen);
     extraSelections.append(selection);
     setExtraSelections(extraSelections);
@@ -625,7 +625,14 @@ void CodeViewEditor::ScrollToFragment(const QString &fragment)
     ScrollToPosition(index);
 }
 
+// return the length in QChars in plain text inside
+int CodeViewEditor::textLength() const
+{
+    TextDocument * doc = qobject_cast<TextDocument *> (document());
+    return doc->textLength();
+}
 
+// overrides document toPlainText to prevent loss of nbsp
 QString CodeViewEditor::toPlainText() const
 {
     TextDocument * doc = qobject_cast<TextDocument *> (document());
@@ -838,7 +845,7 @@ bool CodeViewEditor::ReplaceSelected(const QString &search_regex, const QString 
     if (in_marked_text) {
         m_ReplacingInMarkedText = true;
     }
-    int original_text_length = toPlainText().length();
+    int original_text_length = textLength();
     replacement_made = spcre->replaceText(selected_text, m_lastMatch.capture_groups_offsets, replacement, replaced_text);
 
     if (replacement_made) {
@@ -870,7 +877,7 @@ bool CodeViewEditor::ReplaceSelected(const QString &search_regex, const QString 
         // Adjust size of marked text.
         if (in_marked_text) {
             m_ReplacingInMarkedText = false;
-            m_MarkedTextEnd += toPlainText().length() - original_text_length;
+            m_MarkedTextEnd += textLength() - original_text_length;
         }
 
         if (!hasFocus()) {
@@ -1912,8 +1919,8 @@ void CodeViewEditor::HighlightCurrentLine()
 
     // Add highlighting of the marked text
     if (IsMarkedText()) {
-        if (m_MarkedTextEnd > toPlainText().length()) {
-            m_MarkedTextEnd = toPlainText().length();
+        if (m_MarkedTextEnd > textLength()) {
+            m_MarkedTextEnd = textLength();
         }
 
         QTextEdit::ExtraSelection selection;
@@ -2136,7 +2143,7 @@ int CodeViewEditor::GetSelectionOffset(Searchable::Direction search_direction, b
             if (marked_text) {
                 offset = m_MarkedTextEnd;
             } else {
-                offset = toPlainText().length();
+                offset = textLength();
             }
         } else {
             offset = textCursor().selectionStart();

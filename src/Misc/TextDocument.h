@@ -34,6 +34,8 @@ class TextDocument : public QTextDocument
   TextDocument(QObject *parent = 0);
   ~TextDocument() {} ;
 
+  int textLength();
+
   // QTextDocument toPlainText() is broken in that it replaces a valid
   // unicode character (the non-breaking space) with a normal space
   // for no good reason, which is horrible for those coding.
