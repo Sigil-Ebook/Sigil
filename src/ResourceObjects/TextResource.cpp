@@ -146,7 +146,7 @@ void TextResource::InitialLoad()
     QWriteLocker locker(&GetLock());
     Q_ASSERT(m_TextDocument);
 
-    if (m_TextDocument->toText().isEmpty() && QFile::exists(GetFullPath())) {
+    if (m_TextDocument->toPlainText().isEmpty() && QFile::exists(GetFullPath())) {
         SetText(Utility::ReadUnicodeTextFile(GetFullPath()));
     }
 }

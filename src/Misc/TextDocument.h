@@ -46,7 +46,7 @@ class TextDocument : public QTextDocument
   
   // So introduce a new routine to do what toPlainText() should have
 
-  QString toText() const;
+  QString toText();
 
 };
 

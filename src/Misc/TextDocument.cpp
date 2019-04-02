@@ -21,6 +21,8 @@
 
 #include <QChar>
 #include <QTextCursor>
+#include <QDebug>
+
 #include "Misc/TextDocument.h"
 
 TextDocument::TextDocument(QObject *parent)
@@ -33,16 +35,19 @@ TextDocument::TextDocument(QObject *parent)
 // non-breaking space characters
 // see toPlainText() in qtbase/src/gui/text/qtextdocument.cpp
 
-QString TextDocument::toText() const
+QString TextDocument::toText()
 {
     QString txt;
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5,9,0))
     txt = toRawText();
 #else
+    // is the TextDocument itself is empty just return an empty string
+    if (isEmpty()) return txt;
+
+    // Use text cursors to get the TextDocument's contents
     QTextCursor cursor(this);
-    cursor.setPosition(QTextCursor::Start, QTextCursor::MoveAnchor);
-    cursor.setPosition(QTextCursor::End, QTextCursor::KeepAnchor);
+    cursor.select(QTextCursor::Document);
     txt = cursor.selectedText();
 #endif
 
