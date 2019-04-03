@@ -44,12 +44,8 @@ EXCLUDED_UIC_WIDGET_PLUGINS = ['%s.py' % x for x in ('qaxcontainer',
 site_packages = [ ('lxml', 'd'), 
                   ('six.py', 'f'), 
                   ('html5lib','d'), 
-                  ('PIL', 'd'), 
-                  ('regex.py','f'),
-                  ('_regex.so','f'),
-                  ('_regex.cpython-37m-darwin.so','f'),
-                  ('_regex_core.py','f'),
-                  ('test_regex.py', 'f'),
+                  ('PIL', 'd'),
+                  ('regex', 'd'),
                   ('cssselect', 'd'),
                   ('encutils', 'd'),
                   ('cssutils', 'd'),
@@ -57,6 +53,13 @@ site_packages = [ ('lxml', 'd'),
                   ('chardet', 'd'),
                   ('sip.so', 'f'),
                   ('PyQt5', 'd')]
+
+# The latest regex is installed inside its own directory in site packages
+#  ('regex.py','f'),
+#  ('_regex.so','f'),
+#  ('_regex.cpython-37m-darwin.so','f'),
+#  ('_regex_core.py','f'),
+#  ('test_regex.py', 'f'),
 
 
 def copy_python_stdlibrary(src_dir, dest_dir):
