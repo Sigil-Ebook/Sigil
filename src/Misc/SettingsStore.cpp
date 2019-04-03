@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 - 2016  Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2016 - 2019  Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2011, 2012, 2013  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012, 2013  Dave Heiland
 **
@@ -219,7 +219,7 @@ QList <std::pair <ushort, QString>>  SettingsStore::preserveEntityCodeNames()
 {
     clearSettingsGroup();
     QList <std::pair <ushort, QString>> codenames;
-    QStringList names = value(KEY_PRESERVE_ENTITY_NAMES, "&nbsp;").toStringList();
+    QStringList names = value(KEY_PRESERVE_ENTITY_NAMES, "&#160;").toStringList();
     QString codes = value(KEY_PRESERVE_ENTITY_CODES, QChar(160)).toString();
     int i = 0;
     foreach(QString name, names) {
