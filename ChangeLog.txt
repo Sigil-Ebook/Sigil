@@ -5,6 +5,8 @@ pre-0.9.14
      - reduce PCRE cache size to help lower memory footprint
      - improve mapping of hunspell dictionary names to actual language names (thanks BeckyDTP)
      - add warning during import if unmanifested files exist in the epub zip archive
+     - Sigil no longer requires use of non-breaking space entities (or any entities at all!)
+
 
 Sigil-0.9.13
    Bug Fixes
