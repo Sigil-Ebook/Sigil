@@ -1524,6 +1524,11 @@ void MainWindow::DeleteReportsStyles(QList<BookReports::StyleData *> reports_sty
 void MainWindow::ReportsDialog()
 {
     SaveTabData();
+    // since we do report file sizes, we have to flush all changes to disk
+    m_Book->GetFolderKeeper()->SuspendWatchingResources();
+    m_Book->SaveAllResourcesToDisk();
+    m_Book->GetFolderKeeper()->ResumeWatchingResources();
+
     if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
         QMessageBox::warning(this, tr("Sigil"), tr("Reports cancelled due to XML not well formed."));
         return;

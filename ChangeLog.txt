@@ -1,5 +1,6 @@
 pre-0.9.14
    Bug Fixes
+     - flush all changes to disk before creating a Report so that files sizes are correct
    New Features
      - reduce PCRE cache size to help lower memory footprint
      - improve mapping of hunspell dictionary names to actual language names (thanks BeckyDTP)
