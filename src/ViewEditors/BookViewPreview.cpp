@@ -153,7 +153,7 @@ void BookViewPreview::CustomSetDocument(const QString &path, const QString &html
     if (!url().isEmpty()) {
         StoreCurrentCaretLocation();
         // to help keep memory footprint small clear any memory caches when a new page loads
- 	if (url().path() != path) {
+ 	if (url().toLocalFile() != path) {
 	    settings()->clearMemoryCaches();
 	} 
     }
