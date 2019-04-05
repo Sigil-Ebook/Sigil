@@ -1,0 +1,11 @@
+--- Source/WebCore/platform/qt/CursorQt.cpp.orig	2019-04-05 13:31:12.000000000 -0400
++++ Source/WebCore/platform/qt/CursorQt.cpp	2019-04-05 13:32:46.000000000 -0400
+@@ -67,6 +67,8 @@
+     m_image = other.m_image;
+     m_hotSpot = other.m_hotSpot;
+ #ifndef QT_NO_CURSOR
++    // prevent memory leak of any existing m_platformCursor during assignment
++    if (m_platformCursor) delete m_platformCursor;
+     m_platformCursor = other.m_platformCursor ? new QCursor(*other.m_platformCursor)  : 0;
+ #endif
+     return *this;
