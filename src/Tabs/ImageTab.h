@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford Ontario, Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -28,7 +29,7 @@
 #include "Tabs/ContentTab.h"
 
 class ImageResource;
-class QWebView;
+class QWebEngineView;
 class QAction;
 class QMenu;
 
@@ -93,7 +94,7 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    QWebView *m_WebView;
+    QWebEngineView *m_WebView;
 
     QMenu *m_ContextMenu;
     QMenu *m_OpenWithContextMenu;

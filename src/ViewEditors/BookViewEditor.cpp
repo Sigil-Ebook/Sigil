@@ -87,7 +87,7 @@ static const QString GET_BODY_TAG_HTML = "new XMLSerializer().serializeToString(
 
 BookViewEditor::BookViewEditor(QWidget *parent)
     :
-    BookViewPreview(parent),
+    BookViewBase(parent),
     m_WebPageModified(false),
     m_clipMapper(new QSignalMapper(this)),
     m_openWithMapper(new QSignalMapper(this)),
@@ -215,7 +215,7 @@ void BookViewEditor::CustomSetDocument(const QString &path, const QString &html)
 {
     m_isLoadFinished = false;
     m_path = path;
-    BookViewPreview::CustomSetDocument(m_path, html);
+    BookViewBase::CustomSetDocument(m_path, html);
     page()->setContentEditable(true);
     SetWebPageModified(false);
     // Formatting buttons in Book View will generate styled spans. Ensures spec compliance.
@@ -1127,7 +1127,7 @@ void BookViewEditor::keyPressEvent(QKeyEvent *event)
     if ( event->matches(QKeySequence::Paste) ) {
         paste();
     } else {
-        BookViewPreview::keyPressEvent(event);
+        BookViewBase::keyPressEvent(event);
     }
 }
 
@@ -1135,7 +1135,7 @@ void BookViewEditor::keyPressEvent(QKeyEvent *event)
 void BookViewEditor::keyReleaseEvent(QKeyEvent *event)
 {
     // Propagate to base class
-    BookViewPreview::keyReleaseEvent(event);
+    BookViewBase::keyReleaseEvent(event);
     emit PageUpdated();
 }
 

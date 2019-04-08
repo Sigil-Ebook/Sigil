@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019  Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012  Grant Drake
 **
@@ -25,7 +26,7 @@
 #include <QtWidgets/QListWidget>
 #include <QtGui/QPainter>
 #include <QtWidgets/QStyledItemDelegate>
-#include <QtWebKit/QWebSettings>
+#include <QtWebEngineWidgets/QWebEngineSettings>
 
 #include "AppearanceWidget.h"
 #include "Misc/SettingsStore.h"
@@ -125,11 +126,11 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
     settings.setSpecialCharacterAppearance(specialCharacterAppearance);
     settings.setMainMenuIconSize(double(ui.iconSizeSlider->value())/10);
     // BV/PV settings can be globally changed and will take effect immediately
-    QWebSettings *web_settings = QWebSettings::globalSettings();
-    web_settings->setFontSize(QWebSettings::DefaultFontSize, bookViewAppearance.font_size);
-    web_settings->setFontFamily(QWebSettings::StandardFont,    bookViewAppearance.font_family_standard);
-    web_settings->setFontFamily(QWebSettings::SerifFont,       bookViewAppearance.font_family_serif);
-    web_settings->setFontFamily(QWebSettings::SansSerifFont,   bookViewAppearance.font_family_sans_serif);
+    QWebEngineSettings *web_settings = QWebEngineSettings::defaultSettings();
+    web_settings->setFontSize(QWebEngineSettings::DefaultFontSize, bookViewAppearance.font_size);
+    web_settings->setFontFamily(QWebEngineSettings::StandardFont,    bookViewAppearance.font_family_standard);
+    web_settings->setFontFamily(QWebEngineSettings::SerifFont,       bookViewAppearance.font_family_serif);
+    web_settings->setFontFamily(QWebEngineSettings::SansSerifFont,   bookViewAppearance.font_family_sans_serif);
 
     // CV settings require the tab to be closed/reopened. It is easiest to tell the user
     // to reopen tabs or reload, perhaps in future the Preferences widget may have a signal

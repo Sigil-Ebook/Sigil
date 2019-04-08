@@ -55,7 +55,7 @@ endif()
 #############################################################################
 
 # Qt5 packages minimum version 5.4
-find_package(Qt5 5.4 COMPONENTS Core Network Svg WebKit WebKitWidgets Widgets Xml XmlPatterns Concurrent PrintSupport LinguistTools)
+find_package(Qt5 5.4 COMPONENTS Core Network Svg WebEngine WebEngineWidgets Widgets Xml XmlPatterns Concurrent PrintSupport LinguistTools)
 set(CMAKE_AUTOMOC ON)
 
 set( MAIN_FILES
@@ -235,6 +235,8 @@ set( IMPORTER_FILES
 
 
 # These may now be obsolete if so remove them
+#    Misc/RasterizeImageResource.cpp
+#    Misc/RasterizeImageResource.h
 #    Misc/HTMLPrettyPrint.cpp
 #    Misc/HTMLPrettyPrint.h
     
@@ -269,8 +271,6 @@ set( MISC_FILES
     Misc/PluginDB.h
     Misc/QCodePage437Codec.cpp
     Misc/QCodePage437Codec.h
-    Misc/RasterizeImageResource.cpp
-    Misc/RasterizeImageResource.h
     Misc/SearchOperations.cpp
     Misc/SearchOperations.h
     Misc/Language.cpp
@@ -348,22 +348,29 @@ set( SPCRE_FILES
     PCRE/PCREReplaceTextBuilder.h
     )
 
+# disable building these until we can figure something out
+#    ViewEditors/BookViewEditor.cpp
+#    ViewEditors/BookViewEditor.h
+#    ViewEditors/BookViewBase.cpp
+#    ViewEditors/BookViewBase.h
+#    ViewEditors/ViewWebPage.cpp
+#    ViewEditors/ViewWebPage.h 
+
+
 set( VIEW_EDITOR_FILES
-    ViewEditors/BookViewEditor.cpp
-    ViewEditors/BookViewEditor.h
-    ViewEditors/BookViewPreview.cpp
-    ViewEditors/BookViewPreview.h
     ViewEditors/CodeViewEditor.cpp
     ViewEditors/CodeViewEditor.h
+    ViewEditors/ViewPreview.cpp
+    ViewEditors/ViewPreview.h
     ViewEditors/LineNumberArea.cpp
     ViewEditors/LineNumberArea.h
     ViewEditors/Searchable.cpp
     ViewEditors/Searchable.h
     ViewEditors/Zoomable.h 
-    ViewEditors/ViewEditor.h     
-    ViewEditors/ViewWebPage.cpp
-    ViewEditors/ViewWebPage.h 
-    )
+    ViewEditors/ElementIndex.h
+    ViewEditors/ViewEditor.h
+    ViewEditors/Viewer.h     
+     )
 
 set( MAINUI_FILES 
     MainUI/MainApplication.cpp
@@ -683,7 +690,7 @@ endif()
 
 # No need to explicity link Qt5::WinMain or to use the qt5_use_modules macro since CMAKE 2.8.11. We require CMAKE 3.0.0
 target_link_libraries( ${PROJECT_NAME} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES} ${PYTHON_LIBRARIES}
-    Qt5::Widgets  Qt5::Xml  Qt5::XmlPatterns  Qt5::PrintSupport  Qt5::Svg  Qt5::WebKit  Qt5::WebKitWidgets  Qt5::Network  Qt5::Concurrent )
+    Qt5::Widgets  Qt5::Xml  Qt5::XmlPatterns  Qt5::PrintSupport  Qt5::Svg  Qt5::WebEngine  Qt5::WebEngineWidgets  Qt5::Network  Qt5::Concurrent )
 
 #############################################################################
 

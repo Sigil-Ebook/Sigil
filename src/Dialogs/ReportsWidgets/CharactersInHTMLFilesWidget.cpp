@@ -20,8 +20,7 @@
 **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
 **
 *************************************************************************/
-#include <QWebView>
-#include <QWebPage>
+#include <QtWebEngineWidgets/QWebEngineView>
 #include "Misc/SleepFunctions.h"
 
 #include <QtCore/QFile>
@@ -143,7 +142,7 @@ void CharactersInHTMLFilesWidget::PageLoaded()
 
 QList <QChar> CharactersInHTMLFilesWidget::GetDisplayedCharacters(QList<HTMLResource *> resources)
 {
-    QWebView *view = new QWebView();
+    QWebEngineView *view = new QWebEngineView();
     view->setGeometry(0,0,200,200);
     connect(view->page(), SIGNAL(loadFinished(bool)), this, SLOT(PageLoaded()));
     m_PageLoaded = false;
@@ -163,7 +162,7 @@ QList <QChar> CharactersInHTMLFilesWidget::GetDisplayedCharacters(QList<HTMLReso
         }
         m_PageLoaded = false;
 
-        view->page()->triggerAction(QWebPage::SelectAll);
+        view->page()->triggerAction(QWebEnginePage::SelectAll);
         QString text = view->page()->selectedText();
         all_characters.append(text);
     }

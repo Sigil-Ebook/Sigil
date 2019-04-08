@@ -24,7 +24,7 @@
 #include <QtWidgets/QSplitter>
 #include <QtWidgets/QStackedWidget>
 #include <QVBoxLayout>
-#include <QtWebKitWidgets/QWebInspector>
+// #include <QtWebKitWidgets/QWebInspector>
 #include <QDir>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
@@ -33,7 +33,7 @@
 #include "Misc/SleepFunctions.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
-#include "ViewEditors/BookViewPreview.h"
+#include "ViewEditors/ViewPreview.h"
 #include "sigil_constants.h"
 
 static const QString SETTINGS_GROUP = "previewwindow";
@@ -43,8 +43,8 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     QDockWidget(tr("Preview"), parent),
     m_MainWidget(new QWidget(this)),
     m_Layout(new QVBoxLayout(m_MainWidget)),
-    m_Preview(new BookViewPreview(this)),
-    m_Inspector(new QWebInspector(this)),
+    m_Preview(new ViewPreview(this)),
+    // m_Inspector(new QWebInspector(this)),
     m_Splitter(new QSplitter(this)),
     m_StackedViews(new QStackedWidget(this)),
     m_Filepath(QString())
@@ -64,20 +64,24 @@ PreviewWindow::~PreviewWindow()
     // QWebInspector and the application will SegFault. This is an issue
     // with how QWebPages interface with QWebInspector.
 
+#if 0
     if (m_Inspector) {
         m_Inspector->setPage(0);
         m_Inspector->close();
     }
+#endif
 
     if (m_Preview) {
         delete m_Preview;
         m_Preview = 0;
     }
 
+#if 0
     if (m_Inspector) {
         delete m_Inspector;
         m_Inspector = 0;
     }
+#endif
 
     if (m_Splitter) {
         delete m_Splitter;
@@ -101,6 +105,7 @@ void PreviewWindow::resizeEvent(QResizeEvent *event)
 
 void PreviewWindow::hideEvent(QHideEvent * event)
 {
+#if 0
     if (m_Inspector) {
         // break the link between the inspector and the page it is inspecting
         // to prevent memory corruption from Qt modified after free issue
@@ -109,6 +114,7 @@ void PreviewWindow::hideEvent(QHideEvent * event)
             m_Inspector->hide();
         }
     }
+#endif
     if ((m_Preview) && m_Preview->isVisible()) {
         m_Preview->hide();
     }
@@ -122,17 +128,24 @@ void PreviewWindow::hideEvent(QHideEvent * event)
 
 void PreviewWindow::showEvent(QShowEvent * event)
 {
+#if 0
     // restablish the link between the inspector and its page
     if ((m_Inspector) && (m_Preview)) {
         m_Inspector->setPage(m_Preview->page());
     }
+#endif
+
     // perform the show for all children of this widget
     if ((m_Preview) && !m_Preview->isVisible()) {
         m_Preview->show();
     }
+
+#if 0
     if ((m_Inspector) && !m_Inspector->isVisible()) {
         m_Inspector->show();
     }
+#endif
+
     if ((m_Splitter) && !m_Splitter->isVisible()) {
         m_Splitter->show();
     }
@@ -166,7 +179,7 @@ void PreviewWindow::SetupView()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    m_Inspector->setPage(m_Preview->page());
+    // m_Inspector->setPage(m_Preview->page());
 
     m_Layout->setContentsMargins(0, 0, 0, 0);
 #ifdef Q_OS_MAC
@@ -177,7 +190,7 @@ void PreviewWindow::SetupView()
 
     m_Splitter->setOrientation(Qt::Vertical);
     m_Splitter->addWidget(m_Preview);
-    m_Splitter->addWidget(m_Inspector);
+    // m_Splitter->addWidget(m_Inspector);
     m_Splitter->setSizes(QList<int>() << 400 << 200);
     m_StackedViews->addWidget(m_Splitter);
 
@@ -189,7 +202,7 @@ void PreviewWindow::SetupView()
     QApplication::restoreOverrideCursor();
 }
 
-void PreviewWindow::UpdatePage(QString filename, QString text, QList<ViewEditor::ElementIndex> location)
+void PreviewWindow::UpdatePage(QString filename, QString text, QList<ElementIndex> location)
 {
     if (!m_Preview->isVisible()) {
         return;
@@ -243,12 +256,12 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList<ViewEditor:
     // Wait until the preview is loaded before moving cursor.
     while (!m_Preview->IsLoadingFinished()) {
         qApp->processEvents();
-        SleepFunctions::msleep(100);
+        // SleepFunctions::msleep(100);
     }
 
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();
-    m_Preview->InspectElement();
+    // m_Preview->InspectElement();
     UpdateWindowTitle();
 }
 
@@ -261,7 +274,7 @@ void PreviewWindow::UpdateWindowTitle()
     }
 }
 
-QList<ViewEditor::ElementIndex> PreviewWindow::GetCaretLocation()
+QList<ElementIndex> PreviewWindow::GetCaretLocation()
 {
     return m_Preview->GetCaretLocation();
 }

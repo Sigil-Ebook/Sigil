@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -30,7 +31,7 @@
 #include "Misc/Utility.h"
 #include "MiscEditors/ClipEditorModel.h"
 #include "MiscEditors/IndexEditorModel.h"
-#include "ViewEditors/BookViewPreview.h"
+#include "ViewEditors/BookViewBase.h"
 #include "ViewEditors/ViewEditor.h"
 
 class QAction;
@@ -46,7 +47,7 @@ class QSignalMapper;
  * section of a book in its final, rendered state
  * (the way it will look like in epub Reading Systems).
  */
-class BookViewEditor : public BookViewPreview, public PasteTarget
+class BookViewEditor : public BookViewBase, public PasteTarget
 {
     Q_OBJECT
 
@@ -98,17 +99,17 @@ public:
 
     void SetZoomFactor(float factor);
 
-    // Even though the BookViewPreview implements these they are pure virtual
+    // Even though the BookViewBase implements these they are pure virtual
     // in ViewEditor so they have to be implemented here.
     void SetCurrentZoomFactor(float factor) {
-        BookViewPreview::SetCurrentZoomFactor(factor);
+        BookViewBase::SetCurrentZoomFactor(factor);
     }
     float GetZoomFactor() const {
-        return BookViewPreview::GetZoomFactor();
+        return BookViewBase::GetZoomFactor();
     }
 
     bool IsLoadingFinished() {
-        return BookViewPreview::IsLoadingFinished();
+        return BookViewBase::IsLoadingFinished();
     }
 
     bool FindNext(const QString &search_regex,
@@ -117,19 +118,19 @@ public:
                   bool ignore_selection_offset = false,
                   bool wrap = true,
                   bool selected_text = false) {
-        return BookViewPreview::FindNext(search_regex, search_direction, check_spelling, ignore_selection_offset, wrap, selected_text);
+        return BookViewBase::FindNext(search_regex, search_direction, check_spelling, ignore_selection_offset, wrap, selected_text);
     }
 
     int Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool selected_text = false) {
-        return BookViewPreview::Count(search_regex, direction, wrap, selected_text);
+        return BookViewBase::Count(search_regex, direction, wrap, selected_text);
     }
 
     bool ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction = Searchable::Direction_Down, bool keep_selection = false) {
-        return BookViewPreview::ReplaceSelected(search_regex, replacement, direction, keep_selection);
+        return BookViewBase::ReplaceSelected(search_regex, replacement, direction, keep_selection);
     }
 
     int ReplaceAll(const QString &search_regex, const QString &replacement,                                Searchable::Direction direction, bool wrap, bool selected_text) {
-        return BookViewPreview::ReplaceAll(search_regex, replacement, direction, wrap, selected_text);
+        return BookViewBase::ReplaceAll(search_regex, replacement, direction, wrap, selected_text);
     }
 
     QString GetSelectedText();

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018, 2019  Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2018-2019  Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -52,7 +52,7 @@
 # include <QTextStream>
 # include <QProcessEnvironment>
 # include <QtWidgets/QPlainTextEdit>
-# include "ViewEditors/BookViewPreview.h"
+# include "ViewEditors/BookViewBase.h"
 static const QString WIN_CLIPBOARD_ERROR = "QClipboard::setMimeData: Failed to set data on clipboard";
 static const int RETRY_DELAY_MS = 5;
 #endif
@@ -165,10 +165,10 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
 
                     // BV/PV copying is a little different, in that the focus widget is set to
                     // the parent editor (unlike CodeView's QPlainTextEdit).
-                    BookViewPreview *bookViewPreview = dynamic_cast<BookViewPreview *>(widget);
+                    BookViewBase *bookViewBase = dynamic_cast<BookViewBase *>(widget);
 
-                    if (bookViewPreview) {
-                        QTimer::singleShot(RETRY_DELAY_MS, bookViewPreview, SLOT(copy()));
+                    if (bookViewBase) {
+                        QTimer::singleShot(RETRY_DELAY_MS, bookViewBase, SLOT(copy()));
                         break;
                     }
 

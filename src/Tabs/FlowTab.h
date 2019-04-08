@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012  Dave Heiland
 **  Copyright (C) 2012  Grant Drake
@@ -37,11 +38,11 @@
 
 class QStackedWidget;
 class QUrl;
-class BookViewEditor;
+// class BookViewEditor;
 class CodeViewEditor;
 class HTMLResource;
 class Resource;
-class ViewEditor;
+// class ViewEditor;
 class WellFormedCheckComponent;
 
 /**
@@ -106,9 +107,9 @@ public:
 
     bool ViewStatesEnabled();
 
-    QList<ViewEditor::ElementIndex> GetCaretLocation();
+    QList<ElementIndex> GetCaretLocation();
     QString GetCaretLocationUpdate() const;
-    void GoToCaretLocation(QList<ViewEditor::ElementIndex> location);
+    void GoToCaretLocation(QList<ElementIndex> location);
 
     QString GetDisplayedCharacters();
     QString GetText();
@@ -351,16 +352,16 @@ private slots:
     void ResourceTextChanging();
 
 private:
-    void CreateBookViewIfRequired(bool is_delayed_load = true);
+    // void CreateBookViewIfRequired(bool is_delayed_load = true);
     void CreateCodeViewIfRequired(bool is_delayed_load = true);
 
-    void BookView();
+    // void BookView();
     void CodeView();
 
     /**
      * Connects all the required signals to their respective slots.
      */
-    void ConnectBookViewSignalsToSlots();
+    // void ConnectBookViewSignalsToSlots();
     void ConnectCodeViewSignalsToSlots();
 
 
@@ -396,7 +397,7 @@ private:
      * The Book View Editor.
      * Displays and edits the rendered state of the HTML.
      */
-    BookViewEditor *m_wBookView;
+    // BookViewEditor *m_wBookView;
 
     /**
      * The Code View Editor.

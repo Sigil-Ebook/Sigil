@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2017       Kevin B, Hendricks, Stratford, ON Canada
+**  Copyright (C) 2017-2019  Kevin B, Hendricks, Stratford, ON Canada
 **  Copyright (C) 2012, 2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012, 2013 Dave Heiland
 **
@@ -26,8 +26,8 @@
 #include <QImage>
 #include <QPixmap>
 #include <QtWidgets/QLayout>
-#include <QtWebKitWidgets/QWebFrame>
-#include <QtWebKitWidgets/QWebView>
+#include <QtWebEngineWidgets/QWebEngineView>
+#include <QtWebEngineWidgets/QWebEngineSettings>
 
 #include "MainUI/MainWindow.h"
 #include "Dialogs/SelectFiles.h"
@@ -63,7 +63,7 @@ SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QStri
     m_DefaultSelectedImage(default_selected_image),
     m_ThumbnailSize(THUMBNAIL_SIZE),
     m_IsInsertFromDisk(false),
-    m_WebView(new QWebView(this))
+    m_WebView(new QWebEngineView(this))
 {
     ui.setupUi(this);
     setWindowTitle(title);
@@ -71,8 +71,7 @@ SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QStri
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);
-    m_WebView->page()->mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
-    m_WebView->page()->mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
+    m_WebView->page()->settings()->setAttribute(QWebEngineSettings::ShowScrollBars,false);
     ui.avLayout->addWidget(m_WebView);
 
     ReadSettings();

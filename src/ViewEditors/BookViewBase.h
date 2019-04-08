@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -20,8 +20,8 @@
 **
 *************************************************************************/
 
-#ifndef BOOKVIEWPREVIEW_H
-#define BOOKVIEWPREVIEW_H
+#ifndef BOOKVIEWBASE_H
+#define BOOKVIEWBASE_H
 
 #include <memory>
 #include <QtCore/QMap>
@@ -31,7 +31,7 @@
 class QSize;
 class ViewWebPage;
 
-class BookViewPreview : public QWebView, public ViewEditor
+class BookviewBase : public QWebView, public ViewEditor
 {
     Q_OBJECT
 
@@ -41,8 +41,8 @@ public:
      *
      * @param parent The object's parent.
      */
-    BookViewPreview(QWidget *parent = 0);
-    ~BookViewPreview();
+    BookviewBase(QWidget *parent = 0);
+    ~BookviewBase();
 
     QSize sizeHint() const;
 
@@ -96,14 +96,14 @@ public:
     void GrabFocus();
 
     // inherited
-    QList<ViewEditor::ElementIndex> GetCaretLocation(bool normalize=false);
+    QList<ElementIndex> GetCaretLocation(bool normalize=false);
 
-    // methods for working with and converting QWebPaths to ViewEditor::ElementIndex Lists 
-    QList<ViewEditor::ElementIndex> ConvertQWebPathToHierarchy(const QString & webpath) const;
-    QString ConvertHierarchyToQWebPath(const QList<ViewEditor::ElementIndex>& hierarchy);
+    // methods for working with and converting QWebPaths to ElementIndex Lists 
+    QList<ElementIndex> ConvertQWebPathToHierarchy(const QString & webpath) const;
+    QString ConvertHierarchyToQWebPath(const QList<ElementIndex>& hierarchy);
 
     // inherited
-    void StoreCaretLocationUpdate(const QList<ViewEditor::ElementIndex> &hierarchy);
+    void StoreCaretLocationUpdate(const QList<ElementIndex> &hierarchy);
 
     // inherited
     bool ExecuteCaretUpdate();
@@ -208,7 +208,7 @@ private:
      *
      * @return The element-selecting JavaScript code.
      */
-    QString GetElementSelectingJS_NoTextNodes(const QList<ViewEditor::ElementIndex> &hierarchy) const;
+    QString GetElementSelectingJS_NoTextNodes(const QList<ElementIndex> &hierarchy) const;
 
     /**
      * Builds the element-selecting JavaScript code, ignoring all the
@@ -218,7 +218,7 @@ private:
      *
      * @return The element-selecting JavaScript code.
      */
-    QString GetElementSelectingJS_WithTextNode(const QList<ViewEditor::ElementIndex> &hierarchy) const;
+    QString GetElementSelectingJS_WithTextNode(const QList<ElementIndex> &hierarchy) const;
 
     /**
      * Converts a DomNode from a Dom of the current page
@@ -443,4 +443,4 @@ private:
 
 };
 
-#endif // BOOKVIEWPREVIEW_H
+#endif // BOOKVIEWBASE_H

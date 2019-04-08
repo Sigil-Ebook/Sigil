@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019, 2018, 2017, 2016, 2015 Kevin B. Hendricks Stratford, ON, Canada
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, ON, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -35,7 +35,7 @@
 #include "Misc/Utility.h"
 #include "PCRE/PCRECache.h"
 #include "sigil_constants.h"
-#include "ViewEditors/BookViewPreview.h"
+#include "ViewEditors/BookViewBase.h"
 #include "ViewEditors/ViewWebPage.h"
 
 const QString SET_CURSOR_JS =
@@ -47,7 +47,7 @@ const QString SET_CURSOR_JS =
     "selection.addRange(range);";
 
 
-BookViewPreview::BookViewPreview(QWidget *parent)
+BookViewBase::BookViewBase(QWidget *parent)
     : QWebView(parent),
       c_GetBlock(Utility::ReadUnicodeTextFile(":/javascript/get_block.js")),
       m_isLoadFinished(false),
@@ -88,7 +88,7 @@ BookViewPreview::BookViewPreview(QWidget *parent)
     ConnectSignalsToSlots();
 }
 
-BookViewPreview::~BookViewPreview()
+BookViewBase::~BookViewBase()
 {
     if (m_ContextMenu != NULL) {
         delete m_ContextMenu;
@@ -107,13 +107,13 @@ BookViewPreview::~BookViewPreview()
 
 }
 
-QString BookViewPreview::GetCaretLocationUpdate()
+QString BookViewBase::GetCaretLocationUpdate()
 {
     StoreCaretLocationUpdate(GetCaretLocation());
     return m_CaretLocationUpdate;
 }
 
-QString BookViewPreview::GetDisplayedCharacters()
+QString BookViewBase::GetDisplayedCharacters()
 {
     page()->triggerAction(QWebPage::SelectAll);
     QString text = selectedText();
@@ -122,7 +122,7 @@ QString BookViewPreview::GetDisplayedCharacters()
     return text;
 }
 
-void BookViewPreview::ShowTag()
+void BookViewBase::ShowTag()
 {
     // Walk up the parent tag element hierarhcy at the caret location appending html
     // for all open tag nodes until we hit the body tag.
@@ -131,17 +131,17 @@ void BookViewPreview::ShowTag()
     emit ShowStatusMessageRequest(html);
 }
 
-void BookViewPreview::copy()
+void BookViewBase::copy()
 {
     page()->triggerAction(QWebPage::Copy);
 }
 
-QSize BookViewPreview::sizeHint() const
+QSize BookViewBase::sizeHint() const
 {
     return QSize(16777215, 16777215);
 }
 
-void BookViewPreview::CustomSetDocument(const QString &path, const QString &html)
+void BookViewBase::CustomSetDocument(const QString &path, const QString &html)
 {
     m_pendingLoadCount += 1;
 
@@ -168,12 +168,12 @@ void BookViewPreview::CustomSetDocument(const QString &path, const QString &html
     setContent(replaced_html.toUtf8(), "application/xhtml+xml", QUrl::fromLocalFile(path));
 }
 
-bool BookViewPreview::IsLoadingFinished()
+bool BookViewBase::IsLoadingFinished()
 {
     return m_isLoadFinished;
 }
 
-void BookViewPreview::SetZoomFactor(float factor)
+void BookViewBase::SetZoomFactor(float factor)
 {
     SettingsStore settings;
     settings.setZoomPreview(factor);
@@ -182,22 +182,22 @@ void BookViewPreview::SetZoomFactor(float factor)
     emit ZoomFactorChanged(factor);
 }
 
-void BookViewPreview::SetCurrentZoomFactor(float factor)
+void BookViewBase::SetCurrentZoomFactor(float factor)
 {
     m_CurrentZoomFactor = factor;
 }
 
-float BookViewPreview::GetZoomFactor() const
+float BookViewBase::GetZoomFactor() const
 {
     return m_CurrentZoomFactor;
 }
 
-void BookViewPreview::Zoom()
+void BookViewBase::Zoom()
 {
     setZoomFactor(m_CurrentZoomFactor);
 }
 
-void BookViewPreview::UpdateDisplay()
+void BookViewBase::UpdateDisplay()
 {
     SettingsStore settings;
     float stored_factor = settings.zoomWeb();
@@ -208,7 +208,7 @@ void BookViewPreview::UpdateDisplay()
     }
 }
 
-void BookViewPreview::mousePressEvent(QMouseEvent *event)
+void BookViewBase::mousePressEvent(QMouseEvent *event)
 {
     // Now Propagate to base class
     QWebView::mousePressEvent(event);
@@ -216,7 +216,7 @@ void BookViewPreview::mousePressEvent(QMouseEvent *event)
     emit GoToPreviewLocationRequest();
 }
 
-void BookViewPreview::ScrollToTop()
+void BookViewBase::ScrollToTop()
 {
     QString caret_location = "var elementList = document.getElementsByTagName(\"body\");"
                              "var element = elementList[0];";
@@ -225,7 +225,7 @@ void BookViewPreview::ScrollToTop()
     EvaluateJavascript(caret_location % scroll % SET_CURSOR_JS);
 }
 
-void BookViewPreview::ScrollToFragment(const QString &fragment)
+void BookViewBase::ScrollToFragment(const QString &fragment)
 {
     if (IsLoadingFinished()) {
         ScrollToFragmentInternal(fragment);
@@ -234,7 +234,7 @@ void BookViewPreview::ScrollToFragment(const QString &fragment)
     }
 }
 
-void BookViewPreview::ScrollToFragmentInternal(const QString &fragment)
+void BookViewBase::ScrollToFragmentInternal(const QString &fragment)
 {
     if (fragment.isEmpty()) {
         ScrollToTop();
@@ -247,7 +247,7 @@ void BookViewPreview::ScrollToFragmentInternal(const QString &fragment)
     EvaluateJavascript(caret_location % scroll % SET_CURSOR_JS);
 }
 
-bool BookViewPreview::FindNext(const QString &search_regex,
+bool BookViewBase::FindNext(const QString &search_regex,
                                Searchable::Direction search_direction,
                                bool check_spelling,
                                bool ignore_selection_offset,
@@ -258,7 +258,7 @@ bool BookViewPreview::FindNext(const QString &search_regex,
     return FindNext(search_tools, search_regex, search_direction, check_spelling, ignore_selection_offset, wrap, selected_text);
 }
 
-bool BookViewPreview::FindNext(SearchTools &search_tools,
+bool BookViewBase::FindNext(SearchTools &search_tools,
                                const QString &search_regex,
                                Searchable::Direction search_direction,
                                bool check_spelling,
@@ -324,38 +324,38 @@ bool BookViewPreview::FindNext(SearchTools &search_tools,
     return false;
 }
 
-int BookViewPreview::Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool selected_text)
+int BookViewBase::Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool selected_text)
 {
     // Spell check not actually used
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
     return spcre->getEveryMatchInfo(GetSearchTools().fulltext).count();
 }
 
-bool BookViewPreview::ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool keep_selection)
+bool BookViewBase::ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool keep_selection)
 {
     QMessageBox::critical(this, tr("Unsupported"), tr("Replace is not supported in this view. Switch to Code View."));
     return false;
 }
 
-int BookViewPreview::ReplaceAll(const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool wrap, bool selected_text)
+int BookViewBase::ReplaceAll(const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool wrap, bool selected_text)
 {
     QMessageBox::critical(this, tr("Unsupported"), tr("Replace All for the current file is not supported in this view. Switch to Code View."));
     return 0;
 }
 
 
-QString BookViewPreview::GetSelectedText()
+QString BookViewBase::GetSelectedText()
 {
     QString javascript = "window.getSelection().toString();";
     return EvaluateJavascript(javascript).toString();
 }
 
-void BookViewPreview::SetUpFindForSelectedText(const QString &search_regex)
+void BookViewBase::SetUpFindForSelectedText(const QString &search_regex)
 {
     // Nothing to do for Book Preview
 }
 
-void BookViewPreview::UpdateFinishedState(bool okay)
+void BookViewBase::UpdateFinishedState(bool okay)
 {
     if (okay) {
         m_isLoadFinished = true;
@@ -365,14 +365,14 @@ void BookViewPreview::UpdateFinishedState(bool okay)
     }
 }
 
-void BookViewPreview::HighlightPosition()
+void BookViewBase::HighlightPosition()
 {
     page()->setContentEditable(true);
     page()->triggerAction(QWebPage::SelectEndOfBlock);
     page()->setContentEditable(false);
 }
 
-QVariant BookViewPreview::EvaluateJavascript(const QString &javascript)
+QVariant BookViewBase::EvaluateJavascript(const QString &javascript)
 {
     return page()->mainFrame()->evaluateJavaScript(javascript);
 }
@@ -389,13 +389,13 @@ QVariant BookViewPreview::EvaluateJavascript(const QString &javascript)
 // is shown) or else the QStackWidget will explode on
 // Windows when switching to another tab when it tries
 // to determine where the previous focus was.
-void BookViewPreview::GrabFocus()
+void BookViewBase::GrabFocus()
 {
     qobject_cast<QWidget *>(parent())->setFocus();
     QWebView::setFocus();
 }
 
-void BookViewPreview::WebPageJavascriptOnLoad()
+void BookViewBase::WebPageJavascriptOnLoad()
 {
     page()->mainFrame()->evaluateJavaScript(c_jQuery);
     page()->mainFrame()->evaluateJavaScript(c_jQueryScrollTo);
@@ -413,7 +413,7 @@ void BookViewPreview::WebPageJavascriptOnLoad()
 }
 
 
-int BookViewPreview::GetLocalSelectionOffset(bool start_of_selection)
+int BookViewBase::GetLocalSelectionOffset(bool start_of_selection)
 {
     int anchor_offset = EvaluateJavascript("document.getSelection().anchorOffset;").toInt();
     int focus_offset  = EvaluateJavascript("document.getSelection().focusOffset;").toInt();
@@ -452,10 +452,10 @@ int BookViewPreview::GetLocalSelectionOffset(bool start_of_selection)
     }
 }
 
-int BookViewPreview::GetSelectionOffset(const QMap<int, QString> &node_offsets,
+int BookViewBase::GetSelectionOffset(const QMap<int, QString> &node_offsets,
                                         Searchable::Direction search_direction)
 {
-    QList<ViewEditor::ElementIndex> cl = GetCaretLocation();
+    QList<ElementIndex> cl = GetCaretLocation();
     // remove final #text node if it exists
     // Some BookView tabs with only SVG images report a cl.count of 0
     // meaning there is no cursor, so test for that case
@@ -470,7 +470,7 @@ int BookViewPreview::GetSelectionOffset(const QMap<int, QString> &node_offsets,
 }
 
 
-BookViewPreview::SearchTools BookViewPreview::GetSearchTools() const
+BookViewBase::SearchTools BookViewBase::GetSearchTools() const
 {
     SearchTools search_tools;
     search_tools.fulltext = "";
@@ -507,7 +507,7 @@ BookViewPreview::SearchTools BookViewPreview::GetSearchTools() const
 
 
 
-QString BookViewPreview::GetElementSelectingJS_NoTextNodes(const QList<ViewEditor::ElementIndex> &hierarchy) const
+QString BookViewBase::GetElementSelectingJS_NoTextNodes(const ElementIndex> &hierarchy) const
 {
     // TODO: see if replacing jQuery with pure JS will speed up
     // caret location scrolling... note the children()/contents() difference:
@@ -537,7 +537,7 @@ QString BookViewPreview::GetElementSelectingJS_NoTextNodes(const QList<ViewEdito
     return element_selector;
 }
 
-QList<ViewEditor::ElementIndex> BookViewPreview::GetCaretLocation(bool normalize)
+QList<ElementIndex> BookViewBase::GetCaretLocation(bool normalize)
 {
     // The location element hierarchy encoded in a string
     QString normalize_tree = "";
@@ -548,7 +548,7 @@ QList<ViewEditor::ElementIndex> BookViewPreview::GetCaretLocation(bool normalize
     return ConvertQWebPathToHierarchy(location_string);
 }
 
-QList<ViewEditor::ElementIndex> BookViewPreview::ConvertQWebPathToHierarchy(const QString & webpath) const
+QList<ElementIndex> BookViewBase::ConvertQWebPathToHierarchy(const QString & webpath) const
 {
     // The location element hierarchy encoded in a string
     QString location_string = webpath;
@@ -563,7 +563,7 @@ QList<ViewEditor::ElementIndex> BookViewPreview::ConvertQWebPathToHierarchy(cons
     return location;
 }
 
-QString BookViewPreview::ConvertHierarchyToQWebPath(const QList<ViewEditor::ElementIndex>& hierarchy)
+QString BookViewBase::ConvertHierarchyToQWebPath(const QList<ElementIndex>& hierarchy)
 {
     QStringList pathparts;
     for (int i=0; i < hierarchy.count(); i++) {
@@ -573,7 +573,7 @@ QString BookViewPreview::ConvertHierarchyToQWebPath(const QList<ViewEditor::Elem
     return pathparts.join(",");
 }
 
-void BookViewPreview::StoreCurrentCaretLocation()
+void BookViewBase::StoreCurrentCaretLocation()
 {
     // Only overwrite the current location stored if it is empty, in case we specifically
     // want a new location when switching to a new view
@@ -582,7 +582,7 @@ void BookViewPreview::StoreCurrentCaretLocation()
     }
 }
 
-void BookViewPreview::StoreCaretLocationUpdate(const QList<ViewEditor::ElementIndex> &hierarchy)
+void BookViewBase::StoreCaretLocationUpdate(const QList<ElementIndex> &hierarchy)
 {
     QString caret_location = "var element = " + GetElementSelectingJS_NoTextNodes(hierarchy) + ";";
     // We scroll to the element and center the screen on it
@@ -591,7 +591,7 @@ void BookViewPreview::StoreCaretLocationUpdate(const QList<ViewEditor::ElementIn
     m_CaretLocationUpdate = caret_location + scroll + SET_CURSOR_JS;
 }
 
-QString BookViewPreview::GetElementSelectingJS_WithTextNode(const QList<ViewEditor::ElementIndex> &hierarchy) const
+QString BookViewBase::GetElementSelectingJS_WithTextNode(const QList<ElementIndex> &hierarchy) const
 {
     QString element_selector = "$('html')";
 
@@ -604,9 +604,9 @@ QString BookViewPreview::GetElementSelectingJS_WithTextNode(const QList<ViewEdit
     return element_selector;
 }
 
-QWebElement BookViewPreview::QWebPathToQWebElement(const QString & webpath)
+QWebElement BookViewBase::QWebPathToQWebElement(const QString & webpath)
 {
-    const QList<ViewEditor::ElementIndex> &hierarchy = ConvertQWebPathToHierarchy(webpath);
+    const QList<ElementIndex> &hierarchy = ConvertQWebPathToHierarchy(webpath);
     QWebElement element = page()->mainFrame()->documentElement();
     element.findFirst("html");
 
@@ -617,7 +617,7 @@ QWebElement BookViewPreview::QWebPathToQWebElement(const QString & webpath)
     return element;
 }
 
-bool BookViewPreview::ExecuteCaretUpdate()
+bool BookViewBase::ExecuteCaretUpdate()
 {
     // Currently certain actions in Sigil result in a document being loaded multiple times
     // in response to the signals. Only proceed with moving the caret if all loads are finished.
@@ -637,7 +637,7 @@ bool BookViewPreview::ExecuteCaretUpdate()
     return true;
 }
 
-bool BookViewPreview::ExecuteCaretUpdate(const QString &caret_update)
+bool BookViewBase::ExecuteCaretUpdate(const QString &caret_update)
 {
     // This overload is for use with the Back To Link type functionality, where we have
     // a specific caret location javascript we want to force when the tab is fully loaded.
@@ -649,7 +649,7 @@ bool BookViewPreview::ExecuteCaretUpdate(const QString &caret_update)
     return false;
 }
 
-BookViewPreview::SelectRangeInputs BookViewPreview::GetRangeInputs(const QMap<int, QString> &node_offsets,
+BookViewBase::SelectRangeInputs BookViewBase::GetRangeInputs(const QMap<int, QString> &node_offsets,
         int string_start, int string_length, int textlen) const
 {
     SelectRangeInputs input;
@@ -695,7 +695,7 @@ BookViewPreview::SelectRangeInputs BookViewPreview::GetRangeInputs(const QMap<in
     return input;
 }
 
-QString BookViewPreview::GetRangeJS(const SelectRangeInputs &input) const
+QString BookViewBase::GetRangeJS(const SelectRangeInputs &input) const
 {
     QString start_node_js = GetElementSelectingJS_WithTextNode(ConvertQWebPathToHierarchy(input.start_node));
     QString end_node_js   = GetElementSelectingJS_WithTextNode(ConvertQWebPathToHierarchy(input.end_node));
@@ -709,13 +709,13 @@ QString BookViewPreview::GetRangeJS(const SelectRangeInputs &input) const
     return get_range_js;
 }
 
-void BookViewPreview::SelectTextRange(const SelectRangeInputs &input)
+void BookViewBase::SelectTextRange(const SelectRangeInputs &input)
 {
     EvaluateJavascript(GetRangeJS(input) + c_NewSelection);
 }
 
 
-void BookViewPreview::ScrollToNodeText(const QString & webpath, int character_offset)
+void BookViewBase::ScrollToNodeText(const QString & webpath, int character_offset)
 {
     const int MIN_MARGIN = 20;
     const QWebElement element = QWebPathToQWebElement(webpath);
@@ -752,17 +752,17 @@ void BookViewPreview::ScrollToNodeText(const QString & webpath, int character_of
     page()->mainFrame()->setScrollBarValue(Qt::Vertical, new_scroll_Y);
 }
 
-void BookViewPreview::InspectElement()
+void BookViewBase::InspectElement()
 {
     page()->triggerAction(QWebPage::InspectElement);
 }
 
-void BookViewPreview::CreateContextMenuActions()
+void BookViewBase::CreateContextMenuActions()
 {
     m_InspectElement = new QAction(tr("Inspect Element"), this);
 }
 
-void BookViewPreview::OpenContextMenu(const QPoint &point)
+void BookViewBase::OpenContextMenu(const QPoint &point)
 {
     if (!SuccessfullySetupContextMenu(point)) {
         return;
@@ -772,14 +772,14 @@ void BookViewPreview::OpenContextMenu(const QPoint &point)
     m_ContextMenu->clear();
 }
 
-bool BookViewPreview::SuccessfullySetupContextMenu(const QPoint &point)
+bool BookViewBase::SuccessfullySetupContextMenu(const QPoint &point)
 {
     m_ContextMenu->addAction(m_InspectElement);
     m_InspectElement->setEnabled(page()->action(QWebPage::InspectElement)->isEnabled());
     return true;
 }
 
-void BookViewPreview::ConnectSignalsToSlots()
+void BookViewBase::ConnectSignalsToSlots()
 {
     connect(this,  SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(OpenContextMenu(const QPoint &)));
     connect(m_InspectElement,    SIGNAL(triggered()),  this, SLOT(InspectElement()));

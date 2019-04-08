@@ -1,7 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B, Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **
 **  This file is part of Sigil.
 **
@@ -21,13 +20,12 @@
 *************************************************************************/
 
 #pragma once
-#ifndef VIEWEDITOR_H
-#define VIEWEDITOR_H
+#ifndef VIEWER_H
+#define VIEWER_H
 
 #include <QtCore/QList>
 #include <QtCore/QString>
 
-#include "ViewEditors/Searchable.h"
 #include "ViewEditors/Zoomable.h"
 #include "ViewEditors/ElementIndex.h"
 
@@ -35,12 +33,12 @@ class QUrl;
 
 
 /**
- * Interface for ViewEditors.
+ * Interface for Preview Viewer.
  * It would be lovely if we could make this a QObject
  * subclass, but multiple inheritance with multiple
  * QObject subclasses is apparently a bad idea.
  */
-class ViewEditor : public Searchable, public Zoomable
+class Viewer : public Zoomable
 {
 
 public:
@@ -48,7 +46,7 @@ public:
     /**
      * Destructor.
      */
-    virtual ~ViewEditor() {}
+    virtual ~Viewer() {}
 
     /**
      * Returns the state of the loading procedure.
@@ -57,12 +55,14 @@ public:
      */
     virtual bool IsLoadingFinished() = 0;
 
+#if 0
     virtual int GetCursorLine() const {
         return -1;
     }
     virtual int GetCursorColumn() const {
         return -1;
     }
+#endif
 
     /**
      * Returns an "encoded" location of the caret element.
@@ -74,7 +74,7 @@ public:
      *
      * @return The element selecting list.
      */
-    virtual QList<ElementIndex> GetCaretLocation(bool normalize=false) {
+    virtual QList<ElementIndex> GetCaretLocation() {
         return QList<ElementIndex>();
     }
 
@@ -102,6 +102,6 @@ public:
     }
 };
 
-#endif // VIEWEDITOR_H
+#endif // VIEWER_H
 
 

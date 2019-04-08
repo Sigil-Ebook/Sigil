@@ -34,7 +34,7 @@
 
 class QString;
 class QStringList;
-class QWebView;
+class QWebEngineView;
 
 class SelectFiles : public QDialog
 {
@@ -114,7 +114,7 @@ private:
     QListWidgetItem *m_VideoItem;
     QListWidgetItem *m_AudioItem;
 
-    QWebView *m_WebView;
+    QWebEngineView *m_WebView;
 
     Ui::SelectFiles ui;
 };

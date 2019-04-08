@@ -57,6 +57,9 @@
 #include "ViewEditors/LineNumberArea.h"
 #include "sigil_constants.h"
 
+const int PROGRESS_BAR_MINIMUM_DURATION = 1000;
+const QString BREAK_TAG_INSERT    = "<hr class=\"sigil_split_marker\" />";
+
 static const int TAB_SPACES_WIDTH        = 4;
 static const int LINE_NUMBER_MARGIN      = 5;
 
@@ -82,7 +85,7 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     m_ScrollOneLineDown(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Down), this, 0, 0, Qt::WidgetShortcut)),
     m_isLoadFinished(false),
     m_DelayedCursorScreenCenteringRequired(false),
-    m_CaretUpdate(QList<ViewEditor::ElementIndex>()),
+    m_CaretUpdate(QList<ElementIndex>()),
     m_checkSpelling(check_spelling),
     m_reformatCSSEnabled(false),
     m_reformatHTMLEnabled(false),
@@ -2191,7 +2194,7 @@ void CodeViewEditor::ScrollByLine(bool down)
 }
 
 
-QList<ViewEditor::ElementIndex> CodeViewEditor::GetCaretLocation()
+QList<ElementIndex> CodeViewEditor::GetCaretLocation()
 {
     // We search for the first opening tag *behind* the caret.
     // This specifies the element the caret is located in.
@@ -2216,7 +2219,7 @@ QList<ViewEditor::ElementIndex> CodeViewEditor::GetCaretLocation()
 }
 
 
-void CodeViewEditor::StoreCaretLocationUpdate(const QList<ViewEditor::ElementIndex> &hierarchy)
+void CodeViewEditor::StoreCaretLocationUpdate(const QList<ElementIndex> &hierarchy)
 {
     m_CaretUpdate = hierarchy;
 }
@@ -2267,7 +2270,7 @@ QStack<CodeViewEditor::StackElement> CodeViewEditor::GetCaretLocationStack(int o
 }
 
 
-QString CodeViewEditor::ConvertHierarchyToQWebPath(const QList<ViewEditor::ElementIndex>& hierarchy) const
+QString CodeViewEditor::ConvertHierarchyToQWebPath(const QList<ElementIndex>& hierarchy) const
 {
     QStringList pathparts;
     for (int i=0; i < hierarchy.count(); i++) {
@@ -2278,11 +2281,11 @@ QString CodeViewEditor::ConvertHierarchyToQWebPath(const QList<ViewEditor::Eleme
 }
 
 
-QList<ViewEditor::ElementIndex> CodeViewEditor::ConvertStackToHierarchy(const QStack<StackElement> stack) const
+QList<ElementIndex> CodeViewEditor::ConvertStackToHierarchy(const QStack<StackElement> stack) const
 {
-    QList<ViewEditor::ElementIndex> hierarchy;
+    QList<ElementIndex> hierarchy;
     foreach(StackElement stack_element, stack) {
-        ViewEditor::ElementIndex new_element;
+        ElementIndex new_element;
         new_element.name  = stack_element.name;
         new_element.index = stack_element.num_children - 1;
         hierarchy.append(new_element);
@@ -2291,7 +2294,7 @@ QList<ViewEditor::ElementIndex> CodeViewEditor::ConvertStackToHierarchy(const QS
 }
 
 
-std::tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<ViewEditor::ElementIndex> &hierarchy) const
+std::tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<ElementIndex> &hierarchy) const
 {
     QString source = toPlainText();
     QString version = "any_version";

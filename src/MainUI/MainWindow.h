@@ -47,6 +47,7 @@
 #include "MiscEditors/IndexEditorModel.h"
 #include "MiscEditors/SearchEditorModel.h"
 #include "Tabs/ContentTab.h"
+#include "ViewEditors/ElementIndex.h"
 
 const int MAX_RECENT_FILES = 5;
 const int STATUSBAR_MSG_DISPLAY_TIME = 7000;
@@ -1009,7 +1010,7 @@ private:
 
     HTMLResource *m_PreviousHTMLResource;
     QString m_PreviousHTMLText;
-    QList<ViewEditor::ElementIndex> m_PreviousHTMLLocation;
+    QList<ElementIndex> m_PreviousHTMLLocation;
 
     /**
      * dynamically updated plugin menus and actions

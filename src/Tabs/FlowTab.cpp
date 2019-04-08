@@ -1,9 +1,9 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 - 2019 Kevin B Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012  Dave Heiland
-**  Copyright (C) 2012  Grant Drake
+**  Copyright (C) 2016-2019  Kevin B Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2012       John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012       Dave Heiland
+**  Copyright (C) 2012       Grant Drake
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -42,8 +42,8 @@
 #include "sigil_constants.h"
 #include "Tabs/FlowTab.h"
 #include "Tabs/WellFormedCheckComponent.h"
-#include "ViewEditors/BookViewEditor.h"
-#include "ViewEditors/BookViewPreview.h"
+// #include "ViewEditors/BookViewEditor.h"
+// #include "ViewEditors/BookViewBase.h"
 #include "ViewEditors/CodeViewEditor.h"
 
 static const QString SETTINGS_GROUP = "flowtab";
@@ -64,7 +64,7 @@ FlowTab::FlowTab(HTMLResource *resource,
     m_CaretLocationToScrollTo(caret_location_to_scroll_to),
     m_HTMLResource(resource),
     m_views(new QStackedWidget(this)),
-    m_wBookView(NULL),
+    // m_wBookView(NULL),
     m_wCodeView(NULL),
     m_ViewState(view_state),
     m_previousViewState(view_state),
@@ -80,13 +80,14 @@ FlowTab::FlowTab(HTMLResource *resource,
     // Loading a flow tab can take a while. We set the wait
     // cursor and clear it at the end of the delayed initialization.
     QApplication::setOverrideCursor(Qt::WaitCursor);
-
+    CreateCodeViewIfRequired(false);
+#if 0
     if (view_state == MainWindow::ViewState_BookView) {
         CreateBookViewIfRequired(false);
     } else {
         CreateCodeViewIfRequired(false);
     }
-
+#endif
     m_Layout->addWidget(m_views);
     LoadSettings();
 
@@ -94,8 +95,8 @@ FlowTab::FlowTab(HTMLResource *resource,
     // so that the ContentTab focus handlers don't
     // get called when the tab is created.
     if (view_state == MainWindow::ViewState_BookView) {
-        setFocusProxy(m_wBookView);
-        ConnectBookViewSignalsToSlots();
+        // setFocusProxy(m_wBookView);
+        // ConnectBookViewSignalsToSlots();
     } else {
         setFocusProxy(m_wCodeView);
         ConnectCodeViewSignalsToSlots();
@@ -121,10 +122,12 @@ FlowTab::~FlowTab()
 
     m_WellFormedCheckComponent->deleteLater();
 
+#if 0
     if (m_wBookView) {
         delete m_wBookView;
         m_wBookView = 0;
     }
+#endif
 
     if (m_wCodeView) {
         delete m_wCodeView;
@@ -140,6 +143,7 @@ FlowTab::~FlowTab()
 
 }
 
+#if 0
 void FlowTab::CreateBookViewIfRequired(bool is_delayed_load)
 {
     if (m_wBookView) {
@@ -158,6 +162,7 @@ void FlowTab::CreateBookViewIfRequired(bool is_delayed_load)
     m_wBookView->Zoom();
     QApplication::restoreOverrideCursor();
 }
+#endif
 
 void FlowTab::CreateCodeViewIfRequired(bool is_delayed_load)
 {
@@ -185,10 +190,11 @@ void FlowTab::CreateCodeViewIfRequired(bool is_delayed_load)
 
 void FlowTab::DelayedInitialization()
 {
-    if (m_wBookView) {
-        m_safeToLoad = true;
-        LoadTabContent();
-    } else if (m_wCodeView) {
+    // if (m_wBookView) {
+    //     m_safeToLoad = true;
+    //     LoadTabContent();
+    // } else 
+    if (m_wCodeView) {
         m_wCodeView->CustomSetDocument(m_HTMLResource->GetTextDocumentForWriting());
         // Zoom factor for CodeView can only be set when document has been loaded.
         m_wCodeView->Zoom();
@@ -208,7 +214,11 @@ void FlowTab::DelayedInitialization()
 
             break;
         }
+        case MainWindow::ViewState_BookView:
+        default:
+	  break;
 
+#if 0
         case MainWindow::ViewState_BookView:
         default:
             BookView();
@@ -220,6 +230,8 @@ void FlowTab::DelayedInitialization()
             }
 
             break;
+#endif 
+
     }
 
     m_initialLoad = false;
@@ -268,15 +280,17 @@ bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
     m_previousViewState = m_ViewState;
     m_ViewState = new_view_state;
 
+    m_ViewState = MainWindow::ViewState_CodeView;
+
     if (new_view_state == MainWindow::ViewState_CodeView) {
         // As CV is directly hooked to the QTextDocument, we never have to "Load" content
         // except for when creating the CV control for the very first time.
         CreateCodeViewIfRequired();
         CodeView();
     } else {
-        CreateBookViewIfRequired();
-        LoadTabContent();
-        BookView();
+        // CreateBookViewIfRequired();
+        // LoadTabContent();
+        // BookView();
     }
 
     return true;
@@ -290,9 +304,9 @@ bool FlowTab::IsLoadingFinished()
         is_finished = m_wCodeView->IsLoadingFinished();
     }
 
-    if (is_finished && m_wBookView) {
-        is_finished = m_wBookView->IsLoadingFinished();
-    }
+    // if (is_finished && m_wBookView) {
+    //     is_finished = m_wBookView->IsLoadingFinished();
+    // }
 
     return is_finished;
 }
@@ -305,13 +319,14 @@ bool FlowTab::IsModified()
         is_modified = is_modified || m_wCodeView->document()->isModified();
     }
 
-    if (!is_modified && m_wBookView) {
-        is_modified = is_modified || m_wBookView->isModified();
-    }
+    // if (!is_modified && m_wBookView) {
+    //     is_modified = is_modified || m_wBookView->isModified();
+    // }
 
     return is_modified;
 }
 
+#if 0
 void FlowTab::BookView()
 {
     if (!IsDataWellFormed()) {
@@ -338,6 +353,7 @@ void FlowTab::BookView()
     m_wBookView->ExecuteCaretUpdate();
     QApplication::restoreOverrideCursor();
 }
+#endif
 
 void FlowTab::CodeView()
 {
@@ -356,9 +372,9 @@ void FlowTab::CodeView()
     m_grabFocus = true;
 
     // Ensure the caret is positioned corresponding to previous view of this tab
-    if (m_previousViewState == MainWindow::ViewState_BookView) {
-        m_wCodeView->StoreCaretLocationUpdate(m_wBookView->GetCaretLocation(true));
-    }
+    // if (m_previousViewState == MainWindow::ViewState_BookView) {
+    //    m_wCodeView->StoreCaretLocationUpdate(m_wBookView->GetCaretLocation(true));
+    // }
 
     m_wCodeView->ExecuteCaretUpdate();
     
@@ -371,12 +387,14 @@ void FlowTab::LoadTabContent()
     //        The only exception is initial load when control is created, done elsewhere.
     // In BV, we will only allow loading if the document is well formed, since loading the
     //        resource into BV and then saving will alter badly formed sections of text.
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView) {
         if (m_safeToLoad && m_bookViewNeedsReload) {
-            m_wBookView->CustomSetDocument(m_HTMLResource->GetFullPath(), m_HTMLResource->GetText());
-            m_bookViewNeedsReload = false;
-        }
+           m_wBookView->CustomSetDocument(m_HTMLResource->GetFullPath(), m_HTMLResource->GetText());
+           m_bookViewNeedsReload = false;
+       }
     }
+#endif
 }
 
 void FlowTab::SaveTabContent()
@@ -386,6 +404,7 @@ void FlowTab::SaveTabContent()
     //        means the resource already is "saved". We just need to reset modified state.
     // In BV, we only need to save the BV HTML into the resource if user has modified it,
     //        which will trigger ResourceModified() to set flag to say PV needs reloading.
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView && m_wBookView && m_wBookView->IsModified()) {
         SettingsStore ss;
         QString html = m_wBookView->GetHtml();
@@ -397,7 +416,7 @@ void FlowTab::SaveTabContent()
         m_wBookView->ResetModified();
         m_safeToLoad = true;
     }
-
+#endif
     // Either from being in CV or saving from BV above we now reset the resource to say no user changes unsaved.
     m_HTMLResource->GetTextDocumentForWriting().setModified(false);
 }
@@ -420,14 +439,14 @@ void FlowTab::ResourceModified()
         }
     }
 
-    m_bookViewNeedsReload = true;
+    // m_bookViewNeedsReload = true;
 
     EmitUpdatePreview();
 }
 
 void FlowTab::LinkedResourceModified()
 {
-    MainWindow::clearMemoryCaches();
+    // MainWindow::clearMemoryCaches();
     ResourceModified();
     ReloadTabIfPending();
 }
@@ -462,10 +481,12 @@ void FlowTab::ReloadTabIfPending()
 
     setFocus();
 
+#if 0
     // Reload BV if the resource was marked as changed outside of the editor.
     if ((m_bookViewNeedsReload && m_ViewState == MainWindow::ViewState_BookView)) {
         LoadTabContent();
     }
+#endif
 }
 
 void FlowTab::LeaveEditor(QWidget *editor)
@@ -485,9 +506,11 @@ void FlowTab::LoadSettings()
 
 void FlowTab::UpdateDisplay()
 {
+#if 0
     if (m_wBookView) {
         m_wBookView->UpdateDisplay();
     }
+#endif
 
     if (m_wCodeView) {
         m_wCodeView->UpdateDisplay();
@@ -533,9 +556,12 @@ void FlowTab::RefreshSpellingHighlighting()
 
 bool FlowTab::CutEnabled()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->pageAction(QWebPage::Cut)->isEnabled();
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+
+  //    if (m_ViewState == MainWindow::ViewState_BookView) {
+  //        return m_wBookView->pageAction(QWebPage::Cut)->isEnabled();
+  //    } else
+ 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->textCursor().hasSelection();
     }
 
@@ -544,9 +570,11 @@ bool FlowTab::CutEnabled()
 
 bool FlowTab::CopyEnabled()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->pageAction(QWebPage::Copy)->isEnabled();
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+  //    if (m_ViewState == MainWindow::ViewState_BookView) {
+  //        return m_wBookView->pageAction(QWebPage::Copy)->isEnabled();
+  //    } else 
+
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->textCursor().hasSelection();
     }
 
@@ -555,9 +583,10 @@ bool FlowTab::CopyEnabled()
 
 bool FlowTab::PasteEnabled()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->pageAction(QWebPage::Paste)->isEnabled();
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+  //    if (m_ViewState == MainWindow::ViewState_BookView) {
+  //        return m_wBookView->pageAction(QWebPage::Paste)->isEnabled();
+  //    } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->canPaste();
     }
 
@@ -575,9 +604,9 @@ bool FlowTab::DeleteLineEnabled()
 
 bool FlowTab::RemoveFormattingEnabled()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->pageAction(QWebPage::RemoveFormat)->isEnabled();
-    }
+  //    if (m_ViewState == MainWindow::ViewState_BookView) {
+  //        return m_wBookView->pageAction(QWebPage::RemoveFormat)->isEnabled();
+  //    }
 
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->IsCutCodeTagsAllowed();
@@ -599,9 +628,11 @@ bool FlowTab::AddToIndexEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->IsAddToIndexAllowed();
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
-        return true;
     }
+ 
+    //   } else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //        return true;
+    //    }
 
     return false;
 }
@@ -610,9 +641,10 @@ bool FlowTab::MarkForIndexEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return true;
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
-        return true;
     }
+    //    } else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //        return true;
+    //    }
 
     return false;
 }
@@ -621,9 +653,10 @@ bool FlowTab::InsertIdEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->IsInsertIdAllowed();
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
-        return true;
     }
+    //    } else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //        return true;
+    //    }
 
     return false;
 }
@@ -632,9 +665,10 @@ bool FlowTab::InsertHyperlinkEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->IsInsertHyperlinkAllowed();
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
-        return true;
-    }
+    } 
+    //   else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //      return true;
+    //   }
 
     return false;
 }
@@ -643,9 +677,10 @@ bool FlowTab::InsertSpecialCharacterEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return true;
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
-        return true;
     }
+    // } else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return true;
+    // }
 
     return false;
 }
@@ -654,9 +689,10 @@ bool FlowTab::InsertFileEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->IsInsertFileAllowed();
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
-        return true;
-    }
+    } 
+    // else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return true;
+    // }
 
     return false;
 }
@@ -672,53 +708,55 @@ bool FlowTab::ToggleAutoSpellcheckEnabled()
 
 bool FlowTab::ViewStatesEnabled()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView ||
-        m_ViewState == MainWindow::ViewState_CodeView) {
-        return true;
-    }
+  //    if (m_ViewState == MainWindow::ViewState_BookView ||
+   if (m_ViewState == MainWindow::ViewState_CodeView) {
+       return true;
+   }
 
     return false;
 }
 
-void FlowTab::GoToCaretLocation(QList<ViewEditor::ElementIndex> location)
+void FlowTab::GoToCaretLocation(QList<ElementIndex> location)
 {
     if (location.isEmpty()) {
         return;
     }
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->StoreCaretLocationUpdate(location);
-        m_wBookView->ExecuteCaretUpdate();
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->StoreCaretLocationUpdate(location);
+    //     m_wBookView->ExecuteCaretUpdate();
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->StoreCaretLocationUpdate(location);
         m_wCodeView->ExecuteCaretUpdate();
     }
 }
 
-QList<ViewEditor::ElementIndex> FlowTab::GetCaretLocation()
+QList<ElementIndex> FlowTab::GetCaretLocation()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->GetCaretLocation();
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+      // if (m_ViewState == MainWindow::ViewState_BookView) {
+      //     return m_wBookView->GetCaretLocation();
+      // } else 
+      if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->GetCaretLocation();
     }
 
-    return QList<ViewEditor::ElementIndex>();
+    return QList<ElementIndex>();
 }
 
 QString FlowTab::GetCaretLocationUpdate() const
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->GetCaretLocationUpdate();
-    }
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //       return m_wBookView->GetCaretLocationUpdate();
+    //   }
 
     return QString();
 }
 
 QString FlowTab::GetDisplayedCharacters()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->GetDisplayedCharacters();
-    }
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->GetDisplayedCharacters();
+    // }
 
     return "";
 }
@@ -727,9 +765,10 @@ QString FlowTab::GetText()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->toPlainText();
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->GetHtml();
-    }
+    } 
+    // else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->GetHtml();
+    // }
 
     return "";
 }
@@ -763,9 +802,10 @@ int FlowTab::GetCursorColumn() const
 
 float FlowTab::GetZoomFactor() const
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->GetZoomFactor();
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->GetZoomFactor();
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->GetZoomFactor();
     }
 
@@ -774,6 +814,7 @@ float FlowTab::GetZoomFactor() const
 
 void FlowTab::SetZoomFactor(float new_zoom_factor)
 {
+#if 0
     // We need to set a wait cursor for the Book View
     // since zoom operations take some time in it.
     if (m_ViewState == MainWindow::ViewState_BookView) {
@@ -784,16 +825,19 @@ void FlowTab::SetZoomFactor(float new_zoom_factor)
         }
 
         QApplication::restoreOverrideCursor();
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else
+#endif 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->SetZoomFactor(new_zoom_factor);
     }
 }
 
 Searchable *FlowTab::GetSearchableContent()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView;
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView;
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView;
     }
 
@@ -803,9 +847,10 @@ Searchable *FlowTab::GetSearchableContent()
 
 void FlowTab::ScrollToFragment(const QString &fragment)
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ScrollToFragment(fragment);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->ScrollToFragment(fragment);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ScrollToFragment(fragment);
     }
 }
@@ -817,9 +862,9 @@ void FlowTab::ScrollToLine(int line)
     }
     // Scrolling to top if BV/CV requests a line allows
     // view to be reset to top for links
-    else if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ScrollToTop();
-    }
+    // else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->ScrollToTop();
+    // }
 }
 
 void FlowTab::ScrollToPosition(int cursor_position)
@@ -831,16 +876,16 @@ void FlowTab::ScrollToPosition(int cursor_position)
 
 void FlowTab::ScrollToCaretLocation(QString caret_location_update)
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ExecuteCaretUpdate(caret_location_update);
-    }
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->ExecuteCaretUpdate(caret_location_update);
+    // }
 }
 
 void FlowTab::ScrollToTop()
 {
-    if (m_wBookView) {
-        m_wBookView->ScrollToTop();
-    }
+    // if (m_wBookView) {
+    //     m_wBookView->ScrollToTop();
+    // }
 
     if (m_wCodeView) {
         m_wCodeView->ScrollToTop();
@@ -872,11 +917,13 @@ bool FlowTab::IsDataWellFormed()
 {
     // The content has been changed or was in a not well formed state when last checked.
     QString version = m_HTMLResource->GetEpubVersion();
-    if (m_ViewState == MainWindow::ViewState_BookView) {
+
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
         // If we are in BookView, then we know the data must be well formed, as even if edits have
         // taken place QWebView will have retained the XHTML integrity.
-        m_safeToLoad = true;
-    } else {
+        // m_safeToLoad = true;
+    // } else {
+
         // We are in PV or CV. In either situation the xhtml from CV could be invalid as the user may
         // have switched to PV to preview it (as they are allowed to do).
         // It is also possible that they opened the tab in PV as the initial load and CV is not loaded.
@@ -893,53 +940,58 @@ bool FlowTab::IsDataWellFormed()
             }
 
             m_WellFormedCheckComponent->DemandAttentionIfAllowed(error);
-        }
-    }
+	}
+   // }
 
     return m_safeToLoad;
 }
 
 void FlowTab::Undo()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->Undo();
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->Undo();
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->undo();
     }
 }
 
 void FlowTab::Redo()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->Redo();
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->Redo();
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->redo();
     }
 }
 
 void FlowTab::Cut()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction(QWebPage::Cut);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->page()->triggerAction(QWebPage::Cut);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->cut();
     }
 }
 
 void FlowTab::Copy()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction(QWebPage::Copy);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->page()->triggerAction(QWebPage::Copy);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->copy();
     }
 }
 
 void FlowTab::Paste()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->paste();
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->paste();
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->paste();
     }
 }
@@ -990,12 +1042,15 @@ void FlowTab::SplitSection()
         return;
     }
 
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView) {
         QString content = m_wBookView->SplitSection();
         // The webview visually has split off the text, but not yet saved to the underlying resource
         SaveTabContent();
         emit OldTabRequest(content, m_HTMLResource);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView && m_wCodeView) {
+    } else
+#endif 
+    if (m_ViewState == MainWindow::ViewState_CodeView && m_wCodeView) {
         emit OldTabRequest(m_wCodeView->SplitSection(), m_HTMLResource);
     }
 }
@@ -1018,9 +1073,10 @@ void FlowTab::InsertSGFSectionMarker()
         return;
     }
 
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->InsertHtml(BREAK_TAG_INSERT);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView && m_wCodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->InsertHtml(BREAK_TAG_INSERT);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView && m_wCodeView) {
         m_wCodeView->InsertSGFSectionMarker();
     }
 }
@@ -1036,18 +1092,20 @@ void FlowTab::AddToIndex()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->AddToIndex();
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->AddToIndex();
     }
+    //  else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->AddToIndex();
+    // }
 }
 
 bool FlowTab::MarkForIndex(const QString &title)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->MarkForIndex(title);
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->MarkForIndex(title);
-    }
+    } 
+    // else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->MarkForIndex(title);
+    // }
 
     return false;
 }
@@ -1059,9 +1117,10 @@ QString FlowTab::GetAttributeId()
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         // We are only interested in ids on <a> anchor elements
         attribute_value = m_wCodeView->GetAttributeId();
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
-        attribute_value = m_wBookView->GetAncestorTagAttributeValue("id", ANCHOR_TAGS);
-    }
+    } 
+    // else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     attribute_value = m_wBookView->GetAncestorTagAttributeValue("id", ANCHOR_TAGS);
+    // }
 
     return attribute_value;
 }
@@ -1072,9 +1131,10 @@ QString FlowTab::GetAttributeHref()
 
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         attribute_value = m_wCodeView->GetAttribute("href", ANCHOR_TAGS, false, true);
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
-        attribute_value = m_wBookView->GetAncestorTagAttributeValue("href", ANCHOR_TAGS);
     }
+    // else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     attribute_value = m_wBookView->GetAncestorTagAttributeValue("href", ANCHOR_TAGS);
+    // }
 
     return attribute_value;
 }
@@ -1089,14 +1149,16 @@ QString FlowTab::GetAttributeIndexTitle()
         if (attribute_value.isEmpty()) {
             attribute_value = m_wCodeView->GetSelectedText();
         }
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
+    }
+#if 0 
+    else if (m_ViewState == MainWindow::ViewState_BookView) {
         attribute_value = m_wBookView->GetAncestorTagAttributeValue("title", ANCHOR_TAGS);
 
         if (attribute_value.isEmpty()) {
             attribute_value = m_wBookView->GetSelectedText();
         }
     }
-
+#endif
     return attribute_value;
 }
 
@@ -1104,9 +1166,10 @@ QString FlowTab::GetSelectedText()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->GetSelectedText();
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->GetSelectedText();
-    }
+    } 
+    // else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->GetSelectedText();
+    // }
 
     return "";
 }
@@ -1115,9 +1178,10 @@ bool FlowTab::InsertId(const QString &id)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->InsertId(id);
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->InsertId(id);
-    }
+    } 
+    // else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->InsertId(id);
+    // }
 
     return false;
 }
@@ -1126,18 +1190,20 @@ bool FlowTab::InsertHyperlink(const QString &href)
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->InsertHyperlink(href);
-    } else if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->InsertHyperlink(href);
-    }
+    } 
+    // else if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->InsertHyperlink(href);
+    // }
 
     return false;
 }
 
 void FlowTab::InsertFile(QString html)
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->InsertHtml(html);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->InsertHtml(html);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->insertPlainText(html);
     }
 }
@@ -1146,9 +1212,10 @@ void FlowTab::PrintPreview()
 {
     QPrintPreviewDialog *print_preview = new QPrintPreviewDialog(this);
 
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        connect(print_preview, SIGNAL(paintRequested(QPrinter *)), m_wBookView, SLOT(print(QPrinter *)));
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     connect(print_preview, SIGNAL(paintRequested(QPrinter *)), m_wBookView, SLOT(print(QPrinter *)));
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         connect(print_preview, SIGNAL(paintRequested(QPrinter *)), m_wCodeView, SLOT(print(QPrinter *)));
     } else {
         return;
@@ -1165,9 +1232,10 @@ void FlowTab::Print()
     print_dialog.setWindowTitle(tr("Print %1").arg(GetFilename()));
 
     if (print_dialog.exec() == QDialog::Accepted) {
-        if (m_ViewState == MainWindow::ViewState_BookView) {
-            m_wBookView->print(&printer);
-        } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        // if (m_ViewState == MainWindow::ViewState_BookView) {
+        //     m_wBookView->print(&printer);
+        // } else 
+	if (m_ViewState == MainWindow::ViewState_CodeView) {
             m_wCodeView->print(&printer);
         }
     }
@@ -1175,27 +1243,30 @@ void FlowTab::Print()
 
 void FlowTab::Bold()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction(QWebPage::ToggleBold);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->page()->triggerAction(QWebPage::ToggleBold);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ToggleFormatSelection("b", "font-weight", "bold");
     }
 }
 
 void FlowTab::Italic()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction(QWebPage::ToggleItalic);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->page()->triggerAction(QWebPage::ToggleItalic);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ToggleFormatSelection("i", "font-style", "italic");
     }
 }
 
 void FlowTab::Underline()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction(QWebPage::ToggleUnderline);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->page()->triggerAction(QWebPage::ToggleUnderline);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ToggleFormatSelection("u", "text-decoration", "underline");
     }
 }
@@ -1203,101 +1274,117 @@ void FlowTab::Underline()
 // the strike tag has been deprecated, the del tag is still okay
 void FlowTab::Strikethrough()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction(QWebPage::ToggleStrikethrough);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->page()->triggerAction(QWebPage::ToggleStrikethrough);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ToggleFormatSelection("del", "text-decoration", "line-through");
     }
 }
 
 void FlowTab::Subscript()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction(QWebPage::ToggleSubscript);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->page()->triggerAction(QWebPage::ToggleSubscript);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ToggleFormatSelection("sub");
     }
 }
 
 void FlowTab::Superscript()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction(QWebPage::ToggleSuperscript);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->page()->triggerAction(QWebPage::ToggleSuperscript);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ToggleFormatSelection("sup");
     }
 }
 
 void FlowTab::AlignLeft()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ExecCommand("justifyLeft");
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->ExecCommand("justifyLeft");
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->FormatStyle("text-align", "left");
     }
 }
 
 void FlowTab::AlignCenter()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ExecCommand("justifyCenter");
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->ExecCommand("justifyCenter");
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->FormatStyle("text-align", "center");
     }
 }
 
 void FlowTab::AlignRight()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ExecCommand("justifyRight");
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->ExecCommand("justifyRight");
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->FormatStyle("text-align", "right");
     }
 }
 
 void FlowTab::AlignJustify()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ExecCommand("justifyFull");
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->ExecCommand("justifyFull");
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->FormatStyle("text-align", "justify");
     }
 }
 
 void FlowTab::InsertBulletedList()
 {
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecCommand("insertUnorderedList");
     }
+#endif
 }
 
 void FlowTab::InsertNumberedList()
 {
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecCommand("insertOrderedList");
     }
+#endif
 }
 
 void FlowTab::DecreaseIndent()
 {
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction(QWebPage::Outdent);
     }
+#endif
 }
 
 void FlowTab::IncreaseIndent()
 {
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction(QWebPage::Indent);
     }
+#endif
 }
 
 void FlowTab::TextDirectionLeftToRight()
 {
     QString version = m_HTMLResource->GetEpubVersion();
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction(QWebPage::SetTextDirectionLeftToRight);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->page()->triggerAction(QWebPage::SetTextDirectionLeftToRight);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         if (version.startsWith("3")) {
             m_wCodeView->FormatTextDir("ltr"); 
         } else {
@@ -1309,9 +1396,10 @@ void FlowTab::TextDirectionLeftToRight()
 void FlowTab::TextDirectionRightToLeft()
 {
     QString version = m_HTMLResource->GetEpubVersion();
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction(QWebPage::SetTextDirectionRightToLeft);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->page()->triggerAction(QWebPage::SetTextDirectionRightToLeft);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         if (version.startsWith("3")) {
             m_wCodeView->FormatTextDir("rtl"); 
         } else {
@@ -1323,9 +1411,10 @@ void FlowTab::TextDirectionRightToLeft()
 void FlowTab::TextDirectionDefault()
 {
     QString version = m_HTMLResource->GetEpubVersion();
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction(QWebPage::SetTextDirectionDefault);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->page()->triggerAction(QWebPage::SetTextDirectionDefault);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         if (version.startsWith("3")) {
             m_wCodeView->FormatTextDir(QString()); 
         } else {
@@ -1336,31 +1425,36 @@ void FlowTab::TextDirectionDefault()
 
 void FlowTab::ShowTag()
 {
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ShowTag();
     }
+#endif
 }
 
 void FlowTab::RemoveFormatting()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->page()->triggerAction(QWebPage::RemoveFormat);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->page()->triggerAction(QWebPage::RemoveFormat);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->CutCodeTags();
     }
 }
 
 void FlowTab::ChangeCasing(const Utility::Casing casing)
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        m_wBookView->ApplyCaseChangeToSelection(casing);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     m_wBookView->ApplyCaseChangeToSelection(casing);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         m_wCodeView->ApplyCaseChangeToSelection(casing);
     }
 }
 
 void FlowTab::HeadingStyle(const QString &heading_type, bool preserve_attributes)
 {
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView) {
         QChar last_char = heading_type[ heading_type.count() - 1 ];
 
@@ -1370,7 +1464,9 @@ void FlowTab::HeadingStyle(const QString &heading_type, bool preserve_attributes
         } else if (heading_type == "Normal") {
             m_wBookView->FormatBlock("p", preserve_attributes);
         }
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    } else
+#endif 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         QChar last_char = heading_type[ heading_type.count() - 1 ];
 
         // For heading_type == "Heading #"
@@ -1405,117 +1501,136 @@ void FlowTab::IgnoreMisspelledWord()
 
 bool FlowTab::BoldChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->pageAction(QWebPage::ToggleBold)->isChecked();
-    } else {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->pageAction(QWebPage::ToggleBold)->isChecked();
+    // } else {
         return ContentTab::BoldChecked();
-    }
+   // }
 }
 
 bool FlowTab::ItalicChecked()
 {
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->pageAction(QWebPage::ToggleItalic)->isChecked();
     } else {
         return ContentTab::ItalicChecked();
     }
+#endif
+    return ContentTab::ItalicChecked();
 }
 
 bool FlowTab::UnderlineChecked()
 {
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->pageAction(QWebPage::ToggleUnderline)->isChecked();
     } else {
         return ContentTab::UnderlineChecked();
     }
+#endif
+    return ContentTab::UnderlineChecked();
 }
 
 bool FlowTab::StrikethroughChecked()
 {
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->QueryCommandState("strikeThrough");
     } else {
         return ContentTab::StrikethroughChecked();
     }
+#endif
+    return ContentTab::StrikethroughChecked();
 }
 
 bool FlowTab::SubscriptChecked()
 {
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->QueryCommandState("subscript");
     } else {
         return ContentTab::SubscriptChecked();
     }
+#endif
+    return ContentTab::SubscriptChecked();
 }
 
 bool FlowTab::SuperscriptChecked()
 {
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->QueryCommandState("superscript");
     } else {
         return ContentTab::SuperscriptChecked();
     }
+#endif
+    return ContentTab::SuperscriptChecked();
 }
 
 bool FlowTab::AlignLeftChecked()
 {
+#if 0
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->QueryCommandState("justifyLeft");
     } else {
         return ContentTab::AlignLeftChecked();
     }
+#endif
+    return ContentTab::AlignLeftChecked();
 }
 
 bool FlowTab::AlignRightChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->QueryCommandState("justifyRight");
-    } else {
+  //    if (m_ViewState == MainWindow::ViewState_BookView) {
+  //        return m_wBookView->QueryCommandState("justifyRight");
+  //    } else {
         return ContentTab::AlignRightChecked();
-    }
+  //    }
 }
 
 bool FlowTab::AlignCenterChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->QueryCommandState("justifyCenter");
-    } else {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->QueryCommandState("justifyCenter");
+    // } else {
         return ContentTab::AlignCenterChecked();
-    }
+    // }
 }
 
 bool FlowTab::AlignJustifyChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->QueryCommandState("justifyFull");
-    } else {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->QueryCommandState("justifyFull");
+    // } else {
         return ContentTab::AlignJustifyChecked();
-    }
+    // }
 }
 
 bool FlowTab::BulletListChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->QueryCommandState("insertUnorderedList");
-    } else {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->QueryCommandState("insertUnorderedList");
+    // } else {
         return ContentTab::BulletListChecked();
-    }
+    //  }
 }
 
 bool FlowTab::NumberListChecked()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->QueryCommandState("insertOrderedList");
-    } else {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->QueryCommandState("insertOrderedList");
+    // } else {
         return ContentTab::NumberListChecked();
-    }
+    // }
 }
 
 bool FlowTab::PasteClipNumber(int clip_number)
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->PasteClipNumber(clip_number);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->PasteClipNumber(clip_number);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->PasteClipNumber(clip_number);
     }
     return false;
@@ -1523,9 +1638,10 @@ bool FlowTab::PasteClipNumber(int clip_number)
 
 bool FlowTab::PasteClipEntries(QList<ClipEditorModel::clipEntry *>clips)
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->PasteClipEntries(clips);
-    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->PasteClipEntries(clips);
+    // } else 
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
         return m_wCodeView->PasteClipEntries(clips);
     }
     return false;
@@ -1533,11 +1649,11 @@ bool FlowTab::PasteClipEntries(QList<ClipEditorModel::clipEntry *>clips)
 
 QString FlowTab::GetCaretElementName()
 {
-    if (m_ViewState == MainWindow::ViewState_BookView) {
-        return m_wBookView->GetCaretElementName();
-    } else {
+    // if (m_ViewState == MainWindow::ViewState_BookView) {
+    //     return m_wBookView->GetCaretElementName();
+    // } else {
         return ContentTab::GetCaretElementName();
-    }
+    // }
 }
 
 void FlowTab::SuspendTabReloading()
@@ -1555,11 +1671,14 @@ void FlowTab::ResumeTabReloading()
     m_suspendTabReloading = false;
 
     // Force an immediate reload if there is one pending
+
+#if 0
     if (m_bookViewNeedsReload) {
         // Must save tab content first or else reload may not take place.
         SaveTabContent();
         ReloadTabIfPending();
     }
+#endif
 }
 
 void FlowTab::DelayedConnectSignalsToSlots()
@@ -1570,6 +1689,7 @@ void FlowTab::DelayedConnectSignalsToSlots()
     connect(m_HTMLResource, SIGNAL(LoadedFromDisk()), this, SLOT(ReloadTabIfPending()));
 }
 
+#if 0
 void FlowTab::ConnectBookViewSignalsToSlots()
 {
     connect(m_wBookView, SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
@@ -1591,6 +1711,7 @@ void FlowTab::ConnectBookViewSignalsToSlots()
     connect(m_wBookView, SIGNAL(PageOpened()), this, SLOT(EmitUpdatePreviewImmediately()));
     connect(m_wBookView, SIGNAL(DocumentLoaded()), this, SLOT(EmitUpdatePreviewImmediately()));
 }
+#endif
 
 void FlowTab::ConnectCodeViewSignalsToSlots()
 {

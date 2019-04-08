@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016, 2017, 2018, 2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -35,11 +35,11 @@
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QProgressDialog>
 #include <QtWidgets/QToolBar>
-#include <QtWebKit/QWebSettings>
+#include <QtWebEngineWidgets/QWebEngineSettings>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
-#include <QWebView>
-#include <QWebPage>
+// #include <QWebView>
+// #include <QWebPage>
 #include <QString>
 #include <QStringList>
 #include <QFont>
@@ -181,7 +181,7 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_LastWindowSize(QByteArray()),
     m_PreviousHTMLResource(NULL),
     m_PreviousHTMLText(QString()),
-    m_PreviousHTMLLocation(QList<ViewEditor::ElementIndex>()),
+    m_PreviousHTMLLocation(QList<ElementIndex>()),
     m_menuPluginsInput(NULL),
     m_menuPluginsOutput(NULL),
     m_menuPluginsEdit(NULL),
@@ -1109,27 +1109,24 @@ void MainWindow::SpellcheckEditorDialog()
 
 void MainWindow::clearMemoryCaches()
 {
-    int numpages = QWebSettings::maximumPagesInCache();
+    // the equivalent in QtWebEngine does not really exist
+    // the closest thing is page()->profile() which gets you the QWebEngineProfile
+    // You can then use on a page by page basis:
+  
+    //      clearHttpCache()
+    //      clearVisitedLinks()
+
+    //      setHttpCacheMaximumSize() in bytes but 0 means "auto"
+    //      httpCacheMaximumSize()
+
+    //      setHttpCacheType() (MemoryHtttpCache, DiskHttpCache, NoCache)
+    //      httpCacheType()
+
+    //      setCachPath()
+    //      cachePath()
+
+#if 0
     QWebSettings::clearMemoryCaches();
-    QWebSettings::setObjectCacheCapacities(0, 0, 8 * 1024 * 1024);
-    QWebSettings::setMaximumPagesInCache(numpages);
-
-#if 0  // This bug now appears to be fixed in the latest qtwebkit 5.212
-
-    // See https://bugreports.qt-project.org/browse/QTBUG-43504
-    // QWebSettings::clearMemoryCaches();
-
-    // replace the above with a similar sequence 
-    // that does not invalidate the fontCache
-    int numpages = QWebSettings::maximumPagesInCache();
-
-    // toggle memory caches to disable and then re-enable
-    QWebSettings::setObjectCacheCapacities(0,0,0);
-    QWebSettings::setObjectCacheCapacities(0, 8 * 1024 * 1024, 16 * 1024 * 1024);
-
-    // do the same to flush the page cache
-    QWebSettings::setMaximumPagesInCache(0);
-    QWebSettings::setMaximumPagesInCache(numpages);
 #endif
 }
 
@@ -2438,7 +2435,7 @@ void MainWindow::RemoveResources(QList<Resource *> resources)
     if (!current_resources.contains(m_PreviousHTMLResource)) {
         m_PreviousHTMLResource = NULL;
         m_PreviousHTMLText = "";
-        m_PreviousHTMLLocation = QList<ViewEditor::ElementIndex>();
+        m_PreviousHTMLLocation = QList<ElementIndex>();
     }
     if ((pw_showing) && !m_PreviewWindow->IsVisible()) {
         m_PreviewWindow->show();
@@ -3353,7 +3350,7 @@ void MainWindow::UpdatePreview()
     m_PreviewTimer.stop();
 
     QString text;
-    QList<ViewEditor::ElementIndex> location;
+    QList<ElementIndex> location;
     HTMLResource *html_resource;
 
     ContentTab *tab = GetCurrentContentTab();
@@ -3691,18 +3688,18 @@ void MainWindow::ReadSettings()
     m_ClipboardHistoryLimit = settings.clipboardHistoryLimit();
     // Our default fonts for book view/web preview
     SettingsStore::BookViewAppearance bookViewAppearance = settings.bookViewAppearance();
-    QWebSettings *web_settings = QWebSettings::globalSettings();
-    web_settings->setFontSize(QWebSettings::DefaultFontSize, bookViewAppearance.font_size);
-    web_settings->setFontFamily(QWebSettings::StandardFont, bookViewAppearance.font_family_standard);
-    web_settings->setFontFamily(QWebSettings::SerifFont, bookViewAppearance.font_family_serif);
-    web_settings->setFontFamily(QWebSettings::SansSerifFont, bookViewAppearance.font_family_sans_serif);
-    web_settings->setObjectCacheCapacities(0, 0, 8 * 1024 * 1024);
-    web_settings->setMaximumPagesInCache(1);
+    QWebEngineSettings *web_settings = QWebEngineSettings::defaultSettings();
+    web_settings->setFontSize(QWebEngineSettings::DefaultFontSize, bookViewAppearance.font_size);
+    web_settings->setFontFamily(QWebEngineSettings::StandardFont, bookViewAppearance.font_family_standard);
+    web_settings->setFontFamily(QWebEngineSettings::SerifFont, bookViewAppearance.font_family_serif);
+    web_settings->setFontFamily(QWebEngineSettings::SansSerifFont, bookViewAppearance.font_family_sans_serif);
 
     // Check for existing custom Preview/Book View stylesheet in Prefs dir and load it if present
     QFileInfo CustomPreviewStylesheetInfo(QDir(Utility::DefinePrefsDir()).filePath(CUSTOM_PREVIEW_STYLE_FILENAME));
     if (CustomPreviewStylesheetInfo.exists() && CustomPreviewStylesheetInfo.isFile() && CustomPreviewStylesheetInfo.isReadable()) {
-        web_settings->setUserStyleSheetUrl(QUrl::fromLocalFile(CustomPreviewStylesheetInfo.absoluteFilePath()));
+        // following no longer exists in QtWebEngine so until we figure out how to use
+        // javascript to handle this insertion we will need to disable this
+        // web_settings->setUserStyleSheetUrl(QUrl::fromLocalFile(CustomPreviewStylesheetInfo.absoluteFilePath()));
     }
 }
 

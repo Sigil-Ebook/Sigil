@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -26,7 +27,7 @@
 #include "Tabs/ContentTab.h"
 #include "ResourceObjects/Resource.h"
 
-class QWebView;
+class QWebEngineView;
 
 class AVTab : public ContentTab
 {
@@ -41,7 +42,7 @@ public slots:
 private:
     void ConnectSignalsToSlots();
 
-    QWebView *m_WebView;
+    QWebEngineView *m_WebView;
 };
 
 #endif // IMAGETAB_H

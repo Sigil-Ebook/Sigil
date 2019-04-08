@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -24,8 +24,6 @@
 
 #include <QtCore/QFileInfo>
 #include <QtCore/QString>
-#include <QtWebKitWidgets/QWebFrame>
-#include <QtWebKitWidgets/QWebPage>
 // #include <QDebug>
 
 #include "BookManipulation/CleanSource.h"

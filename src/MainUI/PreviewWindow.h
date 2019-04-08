@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 Dave Heiland, John Schember
 **
 **  This file is part of Sigil.
@@ -24,12 +25,12 @@
 #define PREVIEWWINDOW_H
 
 #include <QtWidgets/QDockWidget>
-#include <ViewEditors/ViewEditor.h>
+#include <ViewEditors/Viewer.h>
 
-class BookViewPreview;
+class ViewPreview;
 class QSplitter;
 class QStackedWidget;
-class QWebInspector;
+// class QWebInspector;
 class QVBoxLayout;
 
 class PreviewWindow : public QDockWidget
@@ -39,13 +40,13 @@ class PreviewWindow : public QDockWidget
 public:
     PreviewWindow(QWidget *parent = 0);
     ~PreviewWindow();
-    QList<ViewEditor::ElementIndex> GetCaretLocation();
+    QList<ElementIndex> GetCaretLocation();
     bool IsVisible();
     bool HasFocus();
     float GetZoomFactor();
 
 public slots:
-    void UpdatePage(QString filename, QString text, QList<ViewEditor::ElementIndex> location);
+    void UpdatePage(QString filename, QString text, QList<ElementIndex> location);
     void SetZoomFactor(float factor);
     void SplitterMoved(int pos, int index);
     void LinkClicked(const QUrl &url);
@@ -75,8 +76,8 @@ private:
     QWidget *m_MainWidget;
     QVBoxLayout *m_Layout;
 
-    BookViewPreview *m_Preview;
-    QWebInspector *m_Inspector;
+    ViewPreview *m_Preview;
+    // QWebInspector *m_Inspector;
     QSplitter *m_Splitter;
     QStackedWidget *m_StackedViews;
     QString m_Filepath;

@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019  Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -30,7 +31,8 @@
 #include <QtGui/QClipboard>
 #include <QtWidgets/QLayout>
 #include <QtWidgets/QMenu>
-#include <QtWebKitWidgets/QWebView>
+#include <QtWebEngineWidgets/QWebEngineView>
+#include <QtWebEngineWidgets/QWebEngineProfile>
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintDialog>
 #include <QtPrintSupport/QPrintPreviewDialog>
@@ -61,7 +63,7 @@ const QString IMAGE_HTML_BASE =
 ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     :
     ContentTab(resource, parent),
-    m_WebView(new QWebView(this)),
+    m_WebView(new QWebEngineView(this)),
     m_ContextMenu(new QMenu(this)),
     m_OpenWithContextMenu(new QMenu(this)),
     m_openWithMapper(new QSignalMapper(this))
@@ -167,7 +169,7 @@ void ImageTab::UpdateDisplay()
 
 void ImageTab::RefreshContent()
 {
-    MainWindow::clearMemoryCaches();
+    m_WebView->page()->profile()->clearHttpCache();
     const QString path = m_Resource->GetFullPath();
     const QFileInfo fileInfo = QFileInfo(path);
     const double ffsize = fileInfo.size() / 1024.0;
@@ -400,8 +402,7 @@ void ImageTab::Print()
     print_dialog.setWindowTitle(tr("Print %1").arg(GetFilename()));
 
     if (print_dialog.exec() == QDialog::Accepted) {
-        m_WebView->print(&printer);
+        // m_WebView->print(&printer);
     }
 }
-
 

@@ -264,10 +264,10 @@ public:
     void SetDelayedCursorScreenCenteringRequired();
 
     // inherited
-    QList<ViewEditor::ElementIndex> GetCaretLocation();
+    QList<ElementIndex> GetCaretLocation();
 
     // inherited
-    void StoreCaretLocationUpdate(const QList<ViewEditor::ElementIndex> &hierarchy);
+    void StoreCaretLocationUpdate(const QList<ElementIndex> &hierarchy);
 
     // inherited
     bool ExecuteCaretUpdate(bool default_to_top = false);
@@ -662,7 +662,7 @@ private:
 
 
     // Used to convert Hierarchy to QWedPath used by BV and Gumbo
-    QString ConvertHierarchyToQWebPath(const QList<ViewEditor::ElementIndex>& hierarchy) const;
+    QString ConvertHierarchyToQWebPath(const QList<ElementIndex>& hierarchy) const;
 
     /**
      * Converts a ViewEditor element hierarchy to a tuple describing necessary caret moves.
@@ -671,7 +671,7 @@ private:
      * @param hierarchy The caret location as ElementIndex hierarchy.
      * @return The info needed to move the caret to the new location.
      */
-    std::tuple<int, int> ConvertHierarchyToCaretMove(const QList<ViewEditor::ElementIndex> &hierarchy) const;
+    std::tuple<int, int> ConvertHierarchyToCaretMove(const QList<ElementIndex> &hierarchy) const;
 
     /**
      * Insert HTML tags around the current selection.
@@ -796,7 +796,7 @@ private:
      * Stores the update for the caret location
      * when switching from BookView to CodeView.
      */
-    QList<ViewEditor::ElementIndex> m_CaretUpdate;
+    QList<ElementIndex> m_CaretUpdate;
 
     /**
      * Whether spell checking is enabled on this view.

@@ -1,5 +1,5 @@
 /**
-**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -27,8 +27,8 @@
 #include <QtCore/QList>
 #include <QtCore/QString>
 #include <QtCore/QXmlStreamReader>
-#include <QtWebKitWidgets/QWebFrame>
-#include <QtWebKitWidgets/QWebPage>
+// #include <QtWebKitWidgets/QWebFrame>
+// #include <QtWebKitWidgets/QWebPage>
 #include <QtXml/QXmlInputSource>
 #include <QtXml/QXmlSimpleReader>
 #include <QRegularExpression>
@@ -297,7 +297,7 @@ bool XhtmlDoc::IsDataWellFormed(const QString &data, QString version)
     return error.line == -1;
 }
 
-
+#if 0
 // Accepts a string with HTML and returns the text
 // in that HTML fragment. For instance:
 //   <h1>Hello <b>Qt</b>&nbsp;this is great</h1>
@@ -310,7 +310,6 @@ QString XhtmlDoc::GetTextInHtml(const QString &source)
     return page.mainFrame()->toPlainText();
 }
 
-
 // Resolves HTML entities in the provided string.
 // For instance:
 //    Bonnie &amp; Clyde
@@ -322,7 +321,10 @@ QString XhtmlDoc::ResolveHTMLEntities(const QString &text)
     QString newsource = "<div>" + text + "</div>";
     return GetTextInHtml(newsource);
 }
+#endif
 
+#if 0 
+//this should no longer be needed without BookView
 
 // A tree node class without a children() function...
 // appallingly stupid, isn't it?
@@ -344,7 +346,7 @@ QList<QWebElement> XhtmlDoc::QWebElementChildren(const QWebElement &element)
 
     return children;
 }
-
+#endif
 
 QStringList XhtmlDoc::GetSGFSectionSplits(const QString &source,
         const QString &custom_header)

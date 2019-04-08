@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks
 **  Copyright (C) 2013 Dave Heiland
 **
 **  This file is part of Sigil.
@@ -21,8 +22,8 @@
 
 #include <QtCore/QFileInfo>
 #include <QtWidgets/QLayout>
-#include <QWebView>
-#include <QWebFrame>
+#include <QtWebEngineWidgets/QWebEngineView>
+#include <QtWebEngineWidgets/QWebEngineSettings>
 
 #include "MainUI/MainWindow.h"
 #include "Dialogs/ViewImage.h"
@@ -39,8 +40,7 @@ ViewImage::ViewImage(QWidget *parent)
     ui.webView->setContextMenuPolicy(Qt::NoContextMenu);
     ui.webView->setFocusPolicy(Qt::NoFocus);
     ui.webView->setAcceptDrops(false);
-    ui.webView->page()->mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
-    ui.webView->page()->mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
+    ui.webView->page()->settings()->setAttribute(QWebEngineSettings::ShowScrollBars,false);
 
     ReadSettings();
 }
