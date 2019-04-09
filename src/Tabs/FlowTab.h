@@ -36,19 +36,15 @@
 #include "Tabs/ContentTab.h"
 #include "Tabs/WellFormedContent.h"
 
-class QStackedWidget;
 class QUrl;
-// class BookViewEditor;
 class CodeViewEditor;
 class HTMLResource;
 class Resource;
-// class ViewEditor;
 class WellFormedCheckComponent;
 
 /**
  * A tab widget used for displaying XHTML section.
- * It can display the section in both rendered view (Book View)
- * and raw code view (Code View).
+ * It supports raw code view (Code View).
  */
 class FlowTab : public ContentTab, public WellFormedContent
 {
@@ -78,6 +74,7 @@ public:
 
     // Overrides inherited from ContentTabs
 
+    // keep this around until all external changes are made
     MainWindow::ViewState GetViewState();
 
     bool IsModified();
@@ -301,7 +298,7 @@ signals:
     void UpdatePreview();
     void UpdatePreviewImmediately();
 
-    void InspectElement();
+    // void InspectElement();
 
 
 private slots:
@@ -352,16 +349,13 @@ private slots:
     void ResourceTextChanging();
 
 private:
-    // void CreateBookViewIfRequired(bool is_delayed_load = true);
     void CreateCodeViewIfRequired(bool is_delayed_load = true);
 
-    // void BookView();
     void CodeView();
 
     /**
      * Connects all the required signals to their respective slots.
      */
-    // void ConnectBookViewSignalsToSlots();
     void ConnectCodeViewSignalsToSlots();
 
 
@@ -389,22 +383,13 @@ private:
     HTMLResource *m_HTMLResource;
 
     /**
-     * The splitter widget that separates the two Views.
-     */
-    QStackedWidget *m_views;
-
-    /**
-     * The Book View Editor.
-     * Displays and edits the rendered state of the HTML.
-     */
-    // BookViewEditor *m_wBookView;
-
-    /**
      * The Code View Editor.
      * Displays and edits the raw code.
      */
     CodeViewEditor *m_wCodeView;
 
+
+    // Keep this for now
     /**
      * This is used in a few different ways.
      *
@@ -430,8 +415,6 @@ private:
     bool m_safeToLoad;
 
     bool m_initialLoad;
-
-    bool m_bookViewNeedsReload;
 
     bool m_grabFocus;
 

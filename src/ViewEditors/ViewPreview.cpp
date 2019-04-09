@@ -186,8 +186,11 @@ void ViewPreview::ScrollToTop()
     QString caret_location = "var elementList = document.getElementsByTagName(\"body\");"
                              "var element = elementList[0];";
     QString scroll = "var from_top = window.innerHeight / 2;"
-                     "$.scrollTo(element, 0, {offset: {top:-from_top, left:0} });";
-    DoJavascript(caret_location % scroll % SET_CURSOR_JS2);
+                     "if (typeof element !== 'undefined') {"
+                     "    $.scrollTo(element, 0, {offset: {top:-from_top, left:0} });";
+    QString script = caret_location + scroll + SET_CURSOR_JS2 + "}";
+
+    DoJavascript(script);
 }
 
 void ViewPreview::ScrollToFragment(const QString &fragment)
@@ -208,8 +211,10 @@ void ViewPreview::ScrollToFragmentInternal(const QString &fragment)
 
     QString caret_location = "var element = document.getElementById(\"" % fragment % "\");";
     QString scroll = "var from_top = window.innerHeight / 2.5;"
+                     "if (typeof element !== 'undefined') {"
                      "$.scrollTo(element, 0, {offset: {top:-from_top, left:0 } });";
-    DoJavascript(caret_location % scroll % SET_CURSOR_JS2);
+    QString script = caret_location + scroll + SET_CURSOR_JS2 + "}";
+    DoJavascript(script);
 }
 
 void ViewPreview::UpdateFinishedState(bool okay)
@@ -225,19 +230,25 @@ void ViewPreview::UpdateFinishedState(bool okay)
 QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
 {
     JSResult * pres = new JSResult();
+    int loop_count = 100;
     page()->runJavaScript(javascript,SetJavascriptResultFunctor(pres));
-    qDebug() << "running javascript";
-    while(!pres->isFinished()) {
+    qDebug() << "evaluating javascript" << javascript;
+    while(!pres->isFinished() && (loop_count-- > 0)) {
         qApp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::ExcludeSocketNotifiers, 100);
     }
-    
-    QVariant res = pres->res;
-    delete pres;
+    QVariant res;
+    if (pres->isFinished()) {
+        res = pres->res;
+        delete pres;
+    } else {
+        qDebug() << "EvaluateJavascript timed out";
+    }
     return res;
 }
 
 void ViewPreview::DoJavascript(const QString &javascript)
 {
+    qDebug() << "running javascript" << javascript;
     page()->runJavaScript(javascript);
 }
 
@@ -348,8 +359,9 @@ void ViewPreview::StoreCaretLocationUpdate(const QList<ElementIndex> &hierarchy)
     QString caret_location = "var element = " + GetElementSelectingJS_NoTextNodes(hierarchy) + ";";
     // We scroll to the element and center the screen on it
     QString scroll = "var from_top = window.innerHeight / 2;"
+                     "if (typeof element !== 'undefined') {"
                      "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
-    m_CaretLocationUpdate = caret_location + scroll + SET_CURSOR_JS2;
+    m_CaretLocationUpdate = caret_location + scroll + SET_CURSOR_JS2 + "}";
 }
 
 QString ViewPreview::GetElementSelectingJS_WithTextNode(const QList<ElementIndex> &hierarchy) const

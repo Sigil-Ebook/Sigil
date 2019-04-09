@@ -5158,7 +5158,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
 
         connect(tab,   SIGNAL(UpdatePreview()), this, SLOT(UpdatePreviewRequest()));
         connect(tab,   SIGNAL(UpdatePreviewImmediately()), this, SLOT(UpdatePreview()));
-        connect(tab,   SIGNAL(InspectElement()), this, SLOT(InspectHTML()));
+        // connect(tab,   SIGNAL(InspectElement()), this, SLOT(InspectHTML()));
     }
 
     if (rType != Resource::AudioResourceType && rType != Resource::VideoResourceType) {
