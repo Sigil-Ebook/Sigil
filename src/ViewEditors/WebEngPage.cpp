@@ -32,7 +32,7 @@ WebEngPage::WebEngPage(QObject *parent)
 bool WebEngPage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::NavigationType type, bool isMainFrame)
 {
     if (type == QWebEnginePage::NavigationTypeLinkClicked) {
-        qDebug() << "acceptNavigationRequest " << url.toString() << " , " << type << " , " << isMainFrame;
+        // qDebug() << "acceptNavigationRequest " << url.toString() << " , " << type << " , " << isMainFrame;
         emit LinkClicked(url);
         return false;
     }

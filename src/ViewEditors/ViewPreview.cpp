@@ -58,7 +58,7 @@ struct SetJavascriptResultFunctor {
     void operator()(const QVariant &result) {
         pres->res.setValue(result);
         pres->finished = true;
-        qDebug() << "javascript done";
+        // qDebug() << "javascript done";
     }
 };
 
@@ -232,7 +232,7 @@ QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
     JSResult * pres = new JSResult();
     int loop_count = 100;
     page()->runJavaScript(javascript,SetJavascriptResultFunctor(pres));
-    qDebug() << "evaluating javascript" << javascript;
+    // qDebug() << "evaluating javascript" << javascript;
     while(!pres->isFinished() && (loop_count-- > 0)) {
         qApp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::ExcludeSocketNotifiers, 100);
     }
@@ -241,14 +241,14 @@ QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
         res = pres->res;
         delete pres;
     } else {
-        qDebug() << "EvaluateJavascript timed out";
+        // qDebug() << "EvaluateJavascript timed out";
     }
     return res;
 }
 
 void ViewPreview::DoJavascript(const QString &javascript)
 {
-    qDebug() << "running javascript" << javascript;
+    // qDebug() << "running javascript" << javascript;
     page()->runJavaScript(javascript);
 }
 

@@ -26,7 +26,7 @@
 #include <QtWidgets/QSplitter>
 #include <QtWidgets/QStackedWidget>
 #include <QVBoxLayout>
-// #include <QtWebKitWidgets/QWebInspector>
+#include <QtWebEngineWidgets/QWebEngineView>
 #include <QDir>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
@@ -47,7 +47,7 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_MainWidget(new QWidget(this)),
     m_Layout(new QVBoxLayout(m_MainWidget)),
     m_Preview(new ViewPreview(this)),
-    // m_Inspector(new QWebInspector(this)),
+    m_Inspector(new QWebEngineView(this)),
     m_Splitter(new QSplitter(this)),
     m_StackedViews(new QStackedWidget(this)),
     m_Filepath(QString()),
@@ -68,24 +68,20 @@ PreviewWindow::~PreviewWindow()
     // QWebInspector and the application will SegFault. This is an issue
     // with how QWebPages interface with QWebInspector.
 
-#if 0
     if (m_Inspector) {
-        m_Inspector->setPage(0);
+        m_Inspector->page()->setInspectedPage(0);
         m_Inspector->close();
     }
-#endif
 
     if (m_Preview) {
         delete m_Preview;
         m_Preview = 0;
     }
 
-#if 0
     if (m_Inspector) {
         delete m_Inspector;
         m_Inspector = 0;
     }
-#endif
 
     if (m_Splitter) {
         delete m_Splitter;
@@ -109,16 +105,9 @@ void PreviewWindow::resizeEvent(QResizeEvent *event)
 
 void PreviewWindow::hideEvent(QHideEvent * event)
 {
-#if 0
-    if (m_Inspector) {
-        // break the link between the inspector and the page it is inspecting
-        // to prevent memory corruption from Qt modified after free issue
-        m_Inspector->setPage(0);
-        if (m_Inspector->isVisible()) {
+    if (m_Inspector && m_Inspector->isVisible()) {
             m_Inspector->hide();
-        }
     }
-#endif
     if ((m_Preview) && m_Preview->isVisible()) {
         m_Preview->hide();
     }
@@ -132,23 +121,14 @@ void PreviewWindow::hideEvent(QHideEvent * event)
 
 void PreviewWindow::showEvent(QShowEvent * event)
 {
-#if 0
-    // restablish the link between the inspector and its page
-    if ((m_Inspector) && (m_Preview)) {
-        m_Inspector->setPage(m_Preview->page());
-    }
-#endif
-
     // perform the show for all children of this widget
     if ((m_Preview) && !m_Preview->isVisible()) {
         m_Preview->show();
     }
 
-#if 0
     if ((m_Inspector) && !m_Inspector->isVisible()) {
         m_Inspector->show();
     }
-#endif
 
     if ((m_Splitter) && !m_Splitter->isVisible()) {
         m_Splitter->show();
@@ -185,8 +165,8 @@ void PreviewWindow::SetupView()
 
     // QWebEngineView events are routed to their parent
     m_Preview->installEventFilter(this);
-
-    // m_Inspector->setPage(m_Preview->page());
+    m_Inspector->setMinimumHeight(200);
+    m_Inspector->page()->setInspectedPage(m_Preview->page());
 
     m_Layout->setContentsMargins(0, 0, 0, 0);
 #ifdef Q_OS_MAC
@@ -197,7 +177,7 @@ void PreviewWindow::SetupView()
 
     m_Splitter->setOrientation(Qt::Vertical);
     m_Splitter->addWidget(m_Preview);
-    // m_Splitter->addWidget(m_Inspector);
+    m_Splitter->addWidget(m_Inspector);
     m_Splitter->setSizes(QList<int>() << 400 << 200);
     m_StackedViews->addWidget(m_Splitter);
 
@@ -283,10 +263,10 @@ void PreviewWindow::UpdateWindowTitle()
 QList<ElementIndex> PreviewWindow::GetCaretLocation()
 {
     QList<ElementIndex> hierarchy = m_Preview->GetCaretLocation();
-    foreach(ElementIndex ei, hierarchy){
-      qDebug()<< "name: " << ei.name << " index: " << ei.index;
-    }
-    return m_Preview->GetCaretLocation();
+    // foreach(ElementIndex ei, hierarchy){
+    //     qDebug()<< "name: " << ei.name << " index: " << ei.index;
+    // }
+   return hierarchy;
 }
 
 void PreviewWindow::SetZoomFactor(float factor)
@@ -319,7 +299,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
   switch (event->type()) {
     case QEvent::ChildAdded:
       if (object == m_Preview) {
-	 qDebug() << "child add event";
+	  // qDebug() << "child add event";
 	  const QChildEvent *childEvent(static_cast<QChildEvent*>(event));
 	  if (childEvent->child()) {
 	      childEvent->child()->installEventFilter(this);
@@ -328,7 +308,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
       break;
     case QEvent::MouseButtonPress:
       {
-	  qDebug() << "Preview mouse button press event " << object;
+	  // qDebug() << "Preview mouse button press event " << object;
 	  const QMouseEvent *mouseEvent(static_cast<QMouseEvent*>(event));
 	  if (mouseEvent) {
 	      if (mouseEvent->button() == Qt::LeftButton) {
@@ -340,7 +320,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
       break;
     case QEvent::MouseButtonRelease:
       {
-	  qDebug() << "Preview mouse button release event " << object;
+	  // qDebug() << "Preview mouse button release event " << object;
       }
       break;
     default:
@@ -349,12 +329,10 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
   return return_value;
 }
 
-
-
 void PreviewWindow::LinkClicked(const QUrl &url)
 {
     if (m_GoToRequestPending) m_GoToRequestPending = false;
-    qDebug() << "in PreviewWindow LinkClicked with url :" << url.toString();
+    // qDebug() << "in PreviewWindow LinkClicked with url :" << url.toString();
 
     if (url.toString().isEmpty()) {
         return;
