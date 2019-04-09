@@ -20,13 +20,14 @@
 *************************************************************************/
 
 #include <QEvent>
+#include <QEventLoop>
 #include <QSize>
 #include <QUrl>
 #include <QDir>
-#include <QEventLoop>
 #include <QtWebEngineWidgets/QWebEngineSettings>
 #include <QtWebEngineWidgets/QWebEngineProfile>
 #include <QtWebEngineWidgets/QWebEnginePage>
+#include <QtWebEngineWidgets/QWebEngineView>
 #include <QDebug>
 
 #include "Misc/SettingsStore.h"
@@ -194,14 +195,6 @@ void ViewPreview::UpdateDisplay()
         m_CurrentZoomFactor = stored_factor;
         Zoom();
     }
-}
-
-void ViewPreview::mousePressEvent(QMouseEvent *event)
-{
-    // Propagate to base class
-    QWebEngineView::mousePressEvent(event);
-
-    emit GoToPreviewLocationRequest();
 }
 
 void ViewPreview::ScrollToTop()

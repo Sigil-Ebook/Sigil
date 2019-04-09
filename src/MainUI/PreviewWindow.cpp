@@ -20,6 +20,8 @@
 **
 *************************************************************************/
 
+#include <QEvent>
+#include <QMouseEvent>
 #include <QApplication>
 #include <QtWidgets/QSplitter>
 #include <QtWidgets/QStackedWidget>
@@ -179,6 +181,9 @@ void PreviewWindow::SetupView()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
+    // QWebEngineView events are routed to their parent
+    m_Preview->installEventFilter(this);
+
     // m_Inspector->setPage(m_Preview->page());
 
     m_Layout->setContentsMargins(0, 0, 0, 0);
@@ -256,7 +261,6 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList<ElementInde
     // Wait until the preview is loaded before moving cursor.
     while (!m_Preview->IsLoadingFinished()) {
         qApp->processEvents();
-        // SleepFunctions::msleep(100);
     }
 
     m_Preview->StoreCaretLocationUpdate(location);
@@ -276,6 +280,10 @@ void PreviewWindow::UpdateWindowTitle()
 
 QList<ElementIndex> PreviewWindow::GetCaretLocation()
 {
+    QList<ElementIndex> hierarchy = m_Preview->GetCaretLocation();
+    foreach(ElementIndex ei, hierarchy){
+      qDebug()<< "name: " << ei.name << " index: " << ei.index;
+    }
     return m_Preview->GetCaretLocation();
 }
 
@@ -294,6 +302,44 @@ void PreviewWindow::SplitterMoved(int pos, int index)
     settings.endGroup();
     UpdateWindowTitle();
 }
+
+
+bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
+{
+  bool return_value = QObject::eventFilter(object, event);
+  switch (event->type()) {
+    case QEvent::ChildAdded:
+      if (object == m_Preview) {
+	 qDebug() << "child add event";
+	  const QChildEvent *childEvent(static_cast<QChildEvent*>(event));
+	  if (childEvent->child()) {
+	      childEvent->child()->installEventFilter(this);
+	  }
+      }
+      break;
+    case QEvent::MouseButtonPress:
+      {
+	  const QMouseEvent *mouseEvent(static_cast<QMouseEvent*>(event));
+	  if (mouseEvent) {
+	      if (mouseEvent->button() == Qt::LeftButton) {
+		  qDebug() << "Preview mouse button press event " << object;
+		  emit GoToPreviewLocationRequest();
+	      }
+	  }
+      }
+      break;
+    case QEvent::MouseButtonRelease:
+      {
+	  qDebug() << "Preview mouse button release event " << object;
+      }
+      break;
+    default:
+      break;
+  }
+  return return_value;
+}
+
+
 
 void PreviewWindow::LinkClicked(const QUrl &url)
 {
@@ -329,6 +375,5 @@ void PreviewWindow::ConnectSignalsToSlots()
     connect(m_Splitter,  SIGNAL(splitterMoved(int, int)), this, SLOT(SplitterMoved(int, int)));
     connect(m_Preview,   SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
     connect(m_Preview,   SIGNAL(LinkClicked(const QUrl &)), this, SLOT(LinkClicked(const QUrl &)));
-    connect(m_Preview,   SIGNAL(GoToPreviewLocationRequest()), this, SIGNAL(GoToPreviewLocationRequest()));
 }
 

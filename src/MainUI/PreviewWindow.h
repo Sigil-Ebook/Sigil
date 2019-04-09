@@ -44,6 +44,7 @@ public:
     bool IsVisible();
     bool HasFocus();
     float GetZoomFactor();
+    bool eventFilter(QObject *object, QEvent *event);
 
 public slots:
     void UpdatePage(QString filename, QString text, QList<ElementIndex> location);

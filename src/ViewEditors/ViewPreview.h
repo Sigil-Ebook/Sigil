@@ -23,6 +23,7 @@
 #define VIEWPREVIEW_H
 
 #include <memory>
+#include <QEvent>
 #include <QtWebEngineWidgets/QWebEngineView>
 #include "ViewEditors/Viewer.h"
 
@@ -99,6 +100,7 @@ public:
 
     bool acceptNavigationRequest(const QUrl & url, QWebEnginePage::NavigationType ntype, bool isMainFrame);
 
+
 public slots:
 
 
@@ -119,8 +121,6 @@ signals:
     void GoToPreviewLocationRequest();
 
 protected:
-    void mousePressEvent(QMouseEvent *event);
-
     /**
      * Evaluates the provided javascript source code
      * and returns the result.
