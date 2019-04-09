@@ -33,6 +33,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
+#include "ViewEditors/WebEngPage.h"
 #include "ViewEditors/ViewPreview.h"
 
 const QString SET_CURSOR_JS2 =
@@ -64,7 +65,7 @@ struct SetJavascriptResultFunctor {
 ViewPreview::ViewPreview(QWidget *parent)
     : QWebEngineView(parent),
       m_isLoadFinished(false),
-      m_ViewWebPage(new QWebEnginePage(this)),
+      m_ViewWebPage(new WebEngPage(this)),
       c_jQuery(Utility::ReadUnicodeTextFile(":/javascript/jquery-2.2.4.min.js")),
       c_jQueryScrollTo(Utility::ReadUnicodeTextFile(":/javascript/jquery.scrollTo-2.1.2-min.js")),
       c_GetCaretLocation(Utility::ReadUnicodeTextFile(":/javascript/book_view_current_location.js")),
@@ -72,16 +73,11 @@ ViewPreview::ViewPreview(QWidget *parent)
       m_pendingLoadCount(0),
       m_pendingScrollToFragment(QString())
 {
+    setPage(m_ViewWebPage);
     setContextMenuPolicy(Qt::CustomContextMenu);
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
     SetCurrentZoomFactor(settings.zoomPreview());
-    // use our web page that can be used for debugging javascript
-    setPage(m_ViewWebPage);
-    // Enable our link filter.
-    // page()->setLinkDelegationPolicy(QWebEnginePage::DelegateAllLinks);
-    // page()->settings()->setAttribute(QWebEngineSettings::DeveloperExtrasEnabled, true);
-    page()->settings()->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, false);
     page()->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, false);
     page()->settings()->setDefaultTextEncoding("UTF-8");
     // Allow epubs to access remote resources via the net
@@ -104,18 +100,6 @@ ViewPreview::~ViewPreview()
         delete m_ViewWebPage;
         m_ViewWebPage = 0;
     }
-}
-
-bool ViewPreview::acceptNavigationRequest(const QUrl & url, QWebEnginePage::NavigationType type, bool isMainFrame)
-{
-    qDebug() << "acceptNavigationRequest("<<url << "," << type << "," << isMainFrame<<")";
-
-    if (type == QWebEnginePage::NavigationTypeLinkClicked) {
-        emit LinkClicked(url);
-        // QDesktopServices::openUrl(url);
-        return false;
-    }
-    return true;
 }
 
 QString ViewPreview::GetCaretLocationUpdate()
@@ -419,6 +403,7 @@ void ViewPreview::ConnectSignalsToSlots()
 {
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
+    connect(page(), SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
 }
 
 

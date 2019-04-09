@@ -25,6 +25,7 @@
 #include <memory>
 #include <QEvent>
 #include <QtWebEngineWidgets/QWebEngineView>
+#include "ViewEditors/WebEngPage.h"
 #include "ViewEditors/Viewer.h"
 
 class QSize;
@@ -97,8 +98,6 @@ public:
     QString GetCaretLocationUpdate();
 
     void StoreCurrentCaretLocation();
-
-    bool acceptNavigationRequest(const QUrl & url, QWebEnginePage::NavigationType ntype, bool isMainFrame);
 
 
 public slots:
@@ -188,7 +187,7 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    QWebEnginePage *m_ViewWebPage;
+    WebEngPage *m_ViewWebPage;
 
     float m_CurrentZoomFactor;
 

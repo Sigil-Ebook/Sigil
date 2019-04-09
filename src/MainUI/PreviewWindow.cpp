@@ -30,6 +30,7 @@
 #include <QDir>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QTimer>
 
 #include "MainUI/PreviewWindow.h"
 #include "Misc/SleepFunctions.h"
@@ -49,7 +50,8 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     // m_Inspector(new QWebInspector(this)),
     m_Splitter(new QSplitter(this)),
     m_StackedViews(new QStackedWidget(this)),
-    m_Filepath(QString())
+    m_Filepath(QString()),
+    m_GoToRequestPending(false)
 {
     SetupView();
     LoadSettings();
@@ -303,6 +305,13 @@ void PreviewWindow::SplitterMoved(int pos, int index)
     UpdateWindowTitle();
 }
 
+void PreviewWindow::EmitGoToPreviewLocationRequest()
+{
+    if (m_GoToRequestPending) {
+        m_GoToRequestPending = false;
+        emit GoToPreviewLocationRequest();
+    }
+}
 
 bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 {
@@ -319,11 +328,12 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
       break;
     case QEvent::MouseButtonPress:
       {
+	  qDebug() << "Preview mouse button press event " << object;
 	  const QMouseEvent *mouseEvent(static_cast<QMouseEvent*>(event));
 	  if (mouseEvent) {
 	      if (mouseEvent->button() == Qt::LeftButton) {
-		  qDebug() << "Preview mouse button press event " << object;
-		  emit GoToPreviewLocationRequest();
+	          m_GoToRequestPending = true;
+	          QTimer::singleShot(50, this, SLOT(EmitGoToPreviewLocationRequest()));
 	      }
 	  }
       }
@@ -343,6 +353,9 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 
 void PreviewWindow::LinkClicked(const QUrl &url)
 {
+    if (m_GoToRequestPending) m_GoToRequestPending = false;
+    qDebug() << "in PreviewWindow LinkClicked with url :" << url.toString();
+
     if (url.toString().isEmpty()) {
         return;
     }

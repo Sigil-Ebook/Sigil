@@ -360,6 +360,8 @@ set( SPCRE_FILES
 set( VIEW_EDITOR_FILES
     ViewEditors/CodeViewEditor.cpp
     ViewEditors/CodeViewEditor.h
+    ViewEditors/WebEngPage.cpp
+    ViewEditors/WebEngPage.h 
     ViewEditors/ViewPreview.cpp
     ViewEditors/ViewPreview.h
     ViewEditors/LineNumberArea.cpp

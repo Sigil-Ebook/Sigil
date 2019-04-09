@@ -51,6 +51,7 @@ public slots:
     void SetZoomFactor(float factor);
     void SplitterMoved(int pos, int index);
     void LinkClicked(const QUrl &url);
+    void EmitGoToPreviewLocationRequest();
 
 signals:
     void Shown();
@@ -82,6 +83,7 @@ private:
     QSplitter *m_Splitter;
     QStackedWidget *m_StackedViews;
     QString m_Filepath;
+    bool m_GoToRequestPending;
 };
 
 #endif // PREVIEWWINDOW_H
