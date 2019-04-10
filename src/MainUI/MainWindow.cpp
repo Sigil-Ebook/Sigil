@@ -2921,7 +2921,6 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionTextDirectionDefault->setEnabled(true);
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
-    ui.actionShowTag->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(true);
     ui.menuHeadings->setEnabled(true);
     ui.actionHeading1->setEnabled(true);
@@ -3006,7 +3005,6 @@ void MainWindow::SetStateActionsRawView()
     ui.actionTextDirectionDefault->setEnabled(false);
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
-    ui.actionShowTag->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(false);
     ui.menuHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
@@ -3074,7 +3072,6 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionTextDirectionDefault->setEnabled(false);
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
-    ui.actionShowTag->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(false);
     ui.menuHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
@@ -4260,7 +4257,6 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionTextDirectionLTR, "MainWindow.TextDirectionLTR");
     sm->registerAction(this, ui.actionTextDirectionRTL, "MainWindow.TextDirectionRTL");
     sm->registerAction(this, ui.actionTextDirectionDefault, "MainWindow.TextDirectionDefault");
-    sm->registerAction(this, ui.actionShowTag, "MainWindow.ShowTag");
     sm->registerAction(this, ui.actionRemoveFormatting, "MainWindow.RemoveFormatting");
     sm->registerAction(this, ui.actionHeading1, "MainWindow.Heading1");
     sm->registerAction(this, ui.actionHeading2, "MainWindow.Heading2");
@@ -4903,7 +4899,6 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(ui.actionInsertNumberedList,       SIGNAL(triggered()),  tab,   SLOT(InsertNumberedList()));
         connect(ui.actionDecreaseIndent,           SIGNAL(triggered()),  tab,   SLOT(DecreaseIndent()));
         connect(ui.actionIncreaseIndent,           SIGNAL(triggered()),  tab,   SLOT(IncreaseIndent()));
-        connect(ui.actionShowTag,                  SIGNAL(triggered()),  tab,   SLOT(ShowTag()));
         connect(ui.actionRemoveFormatting,         SIGNAL(triggered()),  tab,   SLOT(RemoveFormatting()));
         connect(ui.actionSplitSection,             SIGNAL(triggered()),  tab,   SLOT(SplitSection()));
         connect(ui.actionInsertSGFSectionMarker,   SIGNAL(triggered()),  tab,   SLOT(InsertSGFSectionMarker()));
@@ -4974,7 +4969,6 @@ void MainWindow::BreakTabConnections(ContentTab *tab)
     disconnect(ui.actionTextDirectionLTR,          0, tab, 0);
     disconnect(ui.actionTextDirectionRTL,          0, tab, 0);
     disconnect(ui.actionTextDirectionDefault,      0, tab, 0);
-    disconnect(ui.actionShowTag,                   0, tab, 0);
     disconnect(ui.actionRemoveFormatting,          0, tab, 0);
     disconnect(ui.actionSplitSection,              0, tab, 0);
     disconnect(ui.actionInsertSGFSectionMarker,    0, tab, 0);

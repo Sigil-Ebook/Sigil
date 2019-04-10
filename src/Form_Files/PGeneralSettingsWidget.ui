@@ -66,8 +66,7 @@ mended.</string>
       <item row="0" column="0">
        <widget class="QCheckBox" name="MendOnOpen">
         <property name="toolTip">
-         <string>Mend when opening an Epub or HTML file, 
-and when switching from Book View to Code View.</string>
+         <string>Mend when opening an Epub or HTML file.</string>
         </property>
         <property name="text">
          <string>Open</string>

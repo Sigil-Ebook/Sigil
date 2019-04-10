@@ -25,11 +25,11 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QGroupBox" name="groupBoxBookView">
+        <widget class="QGroupBox" name="groupBoxPreview">
          <property name="title">
-          <string>Book View / Preview:</string>
+          <string>Preview:</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayoutBV">
+         <layout class="QVBoxLayout" name="verticalLayoutPV">
           <item>
            <widget class="QLabel" name="labelWarning">
             <property name="toolTip">
@@ -44,11 +44,11 @@
            </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayoutBV" stretch="0,0">
+           <layout class="QHBoxLayout" name="horizontalLayoutPV" stretch="0,0">
             <item>
-             <layout class="QGridLayout" name="gridLayoutBV">
+             <layout class="QGridLayout" name="gridLayoutPV">
               <item row="0" column="0">
-               <widget class="QLabel" name="labelBookViewFontSize">
+               <widget class="QLabel" name="labelPreviewFontSize">
                 <property name="minimumSize">
                  <size>
                   <width>80</width>
@@ -56,7 +56,7 @@
                  </size>
                 </property>
                 <property name="toolTip">
-                 <string>Default font size to be used for Book View and Preview
+                 <string>Default font size to be used for Preview
 if no font-size specified in your CSS</string>
                 </property>
                 <property name="text">
@@ -65,7 +65,7 @@ if no font-size specified in your CSS</string>
                </widget>
               </item>
               <item row="0" column="3">
-               <spacer name="horizontalSpacerBV">
+               <spacer name="horizontalSpacerPV">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
@@ -78,7 +78,7 @@ if no font-size specified in your CSS</string>
                </spacer>
               </item>
               <item row="0" column="2">
-               <widget class="QSpinBox" name="bookViewFontSizeSpin">
+               <widget class="QSpinBox" name="previewFontSizeSpin">
                 <property name="minimum">
                  <number>6</number>
                 </property>
@@ -88,9 +88,9 @@ if no font-size specified in your CSS</string>
                </widget>
               </item>
               <item row="1" column="0">
-               <widget class="QLabel" name="labelBookViewFontStandard">
+               <widget class="QLabel" name="labelPreviewFontStandard">
                 <property name="toolTip">
-                 <string>Default font family to be used for Book View and Preview
+                 <string>Default font family to be used for Preview
 if no font-family specified in your CSS</string>
                 </property>
                 <property name="text">
@@ -99,12 +99,12 @@ if no font-family specified in your CSS</string>
                </widget>
               </item>
               <item row="1" column="2" colspan="2">
-               <widget class="QFontComboBox" name="cbBookViewFontStandard"/>
+               <widget class="QFontComboBox" name="cbPreviewFontStandard"/>
               </item>
               <item row="2" column="0">
-               <widget class="QLabel" name="labelBookViewFontSerif">
+               <widget class="QLabel" name="labelPreviewFontSerif">
                 <property name="toolTip">
-                 <string>Default font family to be used for Book View and Preview
+                 <string>Default font family to be used for Preview
 if a serif font-family specified in your CSS</string>
                 </property>
                 <property name="text">
@@ -113,12 +113,12 @@ if a serif font-family specified in your CSS</string>
                </widget>
               </item>
               <item row="2" column="2" colspan="2">
-               <widget class="QFontComboBox" name="cbBookViewFontSerif"/>
+               <widget class="QFontComboBox" name="cbPreviewFontSerif"/>
               </item>
               <item row="3" column="0">
-               <widget class="QLabel" name="labelBookViewFontSansSerif">
+               <widget class="QLabel" name="labelPreviewFontSansSerif">
                 <property name="toolTip">
-                 <string>Default font family to be used for Book View and Preview
+                 <string>Default font family to be used for Preview
 if a sans-serif font-family specified in your CSS</string>
                 </property>
                 <property name="text">
@@ -127,12 +127,12 @@ if a sans-serif font-family specified in your CSS</string>
                </widget>
               </item>
               <item row="3" column="2" colspan="2">
-               <widget class="QFontComboBox" name="cbBookViewFontSansSerif"/>
+               <widget class="QFontComboBox" name="cbPreviewFontSansSerif"/>
               </item>
              </layout>
             </item>
             <item>
-             <spacer name="horizontalSpacerBV2">
+             <spacer name="horizontalSpacerPV2">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>

@@ -940,10 +940,6 @@ void FlowTab::TextDirectionDefault()
     }
 }
 
-void FlowTab::ShowTag()
-{
-}
-
 void FlowTab::RemoveFormatting()
 {
     if (m_wCodeView) {
