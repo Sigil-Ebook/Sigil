@@ -219,10 +219,12 @@ void BookViewPreview::mousePressEvent(QMouseEvent *event)
 void BookViewPreview::ScrollToTop()
 {
     QString caret_location = "var elementList = document.getElementsByTagName(\"body\");"
-                             "var element = elementList[0];";
+      "var element = elementList[0];";
     QString scroll = "var from_top = window.innerHeight / 2;"
+                     "if (typeof element !== 'undefined') {"
                      "$.scrollTo(element, 0, {offset: {top:-from_top, left:0} });";
-    EvaluateJavascript(caret_location % scroll % SET_CURSOR_JS);
+    QString script = caret_location + scroll + SET_CURSOR_JS2 + "}";
+    EvaluateJavascript(script);
 }
 
 void BookViewPreview::ScrollToFragment(const QString &fragment)
@@ -240,11 +242,12 @@ void BookViewPreview::ScrollToFragmentInternal(const QString &fragment)
         ScrollToTop();
         return;
     }
-
     QString caret_location = "var element = document.getElementById(\"" % fragment % "\");";
     QString scroll = "var from_top = window.innerHeight / 2.5;"
+                     "if (typeof element !== 'undefined') {"
                      "$.scrollTo(element, 0, {offset: {top:-from_top, left:0 } });";
-    EvaluateJavascript(caret_location % scroll % SET_CURSOR_JS);
+    QString script = caret_location + scroll + SET_CURSOR_JS2 + "}";
+    EvaluateJavascript(script);
 }
 
 bool BookViewPreview::FindNext(const QString &search_regex,
@@ -587,8 +590,9 @@ void BookViewPreview::StoreCaretLocationUpdate(const QList<ViewEditor::ElementIn
     QString caret_location = "var element = " + GetElementSelectingJS_NoTextNodes(hierarchy) + ";";
     // We scroll to the element and center the screen on it
     QString scroll = "var from_top = window.innerHeight / 2;"
+                     "if (typeof element !== 'undefined') {"
                      "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
-    m_CaretLocationUpdate = caret_location + scroll + SET_CURSOR_JS;
+    m_CaretLocationUpdate = caret_location + scroll + SET_CURSOR_JS2 + "}";
 }
 
 QString BookViewPreview::GetElementSelectingJS_WithTextNode(const QList<ViewEditor::ElementIndex> &hierarchy) const
