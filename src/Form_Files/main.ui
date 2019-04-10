@@ -219,9 +219,6 @@
     </widget>
     <addaction name="menuToolbars"/>
     <addaction name="separator"/>
-    <addaction name="actionBookView"/>
-    <addaction name="actionCodeView"/>
-    <addaction name="actionToggleViewState"/>
     <addaction name="separator"/>
     <addaction name="actionZoomIn"/>
     <addaction name="actionZoomOut"/>
@@ -406,8 +403,6 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionBookView"/>
-   <addaction name="actionCodeView"/>
   </widget>
   <widget class="QToolBar" name="toolBarInsertions">
    <property name="windowTitle">
@@ -980,51 +975,6 @@
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</string>
-   </property>
-  </action>
-  <action name="actionBookView">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/view-book_48px.png</normaloff>:/main/view-book_48px.png</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Book View</string>
-   </property>
-   <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</string>
-   </property>
-  </action>
-  <action name="actionCodeView">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/view-code_48px.png</normaloff>:/main/view-code_48px.png</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Code View</string>
-   </property>
-   <property name="toolTip">
-    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</string>
-   </property>
-  </action>
-  <action name="actionToggleViewState">
-   <property name="text">
-    <string>&amp;Toggle View State</string>
-   </property>
-   <property name="toolTip">
-    <string>Toggle Book View to Code View or Code View to Book View</string>
-   </property>
-   <property name="shortcut">
-    <string>F2</string>
    </property>
   </action>
   <action name="actionSplitSection">

@@ -47,7 +47,6 @@ TabManager::TabManager(QWidget *parent)
 {
     QTabBar *tab_bar = new TabBar(this);
     setTabBar(tab_bar);
-    connect(tab_bar, SIGNAL(TabBarDoubleClicked()),      this, SIGNAL(ToggleViewStateRequest()));
     connect(tab_bar, SIGNAL(TabBarClicked()),            this, SLOT(SetFocusInTab()));
     connect(tab_bar, SIGNAL(CloseOtherTabsRequest(int)), this, SLOT(CloseOtherTabs(int)));
     connect(this, SIGNAL(currentChanged(int)),         this, SLOT(EmitTabChanged()));
@@ -158,7 +157,7 @@ void TabManager::ReloadTabDataForResources(const QList<Resource *> &resources)
     }
 }
 
-void TabManager::ReopenTabs(MainWindow::ViewState view_state)
+void TabManager::ReopenTabs()
 {
     ContentTab *currentTab = GetCurrentContentTab();
     QList<Resource *> resources = GetTabResources();
@@ -166,9 +165,9 @@ void TabManager::ReopenTabs(MainWindow::ViewState view_state)
         CloseTabForResource(resource);
     }
     foreach(Resource *resource, resources) {
-        OpenResource(resource, -1, -1, QString(), view_state);
+        OpenResource(resource, -1, -1, QString());
     }
-    OpenResource(currentTab->GetLoadedResource(), -1, -1, QString(), view_state);
+    OpenResource(currentTab->GetLoadedResource(), -1, -1, QString());
 }
 
 
@@ -208,7 +207,6 @@ void TabManager::OpenResource(Resource *resource,
                               int line_to_scroll_to,
                               int position_to_scroll_to,
                               const QString &caret_location_to_scroll_to,
-                              MainWindow::ViewState view_state,
                               const QUrl &fragment,
                               bool precede_current_tab)
 {
@@ -218,7 +216,7 @@ void TabManager::OpenResource(Resource *resource,
 
     bool grab_focus = !precede_current_tab;
     ContentTab *new_tab = CreateTabForResource(resource, line_to_scroll_to, position_to_scroll_to,
-                          caret_location_to_scroll_to, view_state, fragment, grab_focus);
+                          caret_location_to_scroll_to, fragment, grab_focus);
 
     if (new_tab) {
         AddNewContentTab(new_tab, precede_current_tab);
@@ -451,7 +449,6 @@ ContentTab *TabManager::CreateTabForResource(Resource *resource,
         int line_to_scroll_to,
         int position_to_scroll_to,
         const QString &caret_location_to_scroll_to,
-        MainWindow::ViewState view_state,
         const QUrl &fragment,
         bool grab_focus)
 {
@@ -465,7 +462,6 @@ ContentTab *TabManager::CreateTabForResource(Resource *resource,
             }
             tab = new FlowTab(html_resource,
                               fragment,
-                              view_state,
                               line_to_scroll_to,
                               position_to_scroll_to,
                               caret_location_to_scroll_to,

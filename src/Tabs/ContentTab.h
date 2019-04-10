@@ -159,19 +159,6 @@ public:
         return false;
     }
 
-    virtual bool ViewStatesEnabled() {
-        return false;
-    }
-
-    /**
-     * Checked state of the BookView action.
-     *
-     * @return \c true if the BookView action should be checked.
-     */
-    virtual bool BookViewChecked()      {
-        return false;
-    }
-
     /**
      * Checked state of the CodeView action.
      *
@@ -404,7 +391,7 @@ signals:
 
     /**
      * Emitted when we want to do some operations with the clipboard
-     * to paste things into Book View, but restoring state afterwards
+     * to paste things into elsewhere, but restoring state afterwards
      * so that Clipboard History and current clipboard contents are
      * left unaffected.
      */

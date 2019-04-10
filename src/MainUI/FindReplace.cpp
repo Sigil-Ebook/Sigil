@@ -602,11 +602,7 @@ void FindReplace::SetCodeViewIfNeeded(bool force)
     if (force ||
         (!m_LookWhereCurrentFile &&
          (GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles ||
-          GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles) &&
-         (m_MainWindow->GetViewState() == MainWindow::ViewState_BookView))) {
-        // Force change to Code View
-        m_MainWindow->AnyCodeView();
-
+          GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles))) {
         if (has_focus) {
             SetFocus();
         }

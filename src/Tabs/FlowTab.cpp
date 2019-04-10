@@ -47,7 +47,6 @@ static const QString SETTINGS_GROUP = "flowtab";
 
 FlowTab::FlowTab(HTMLResource *resource,
                  const QUrl &fragment,
-                 MainWindow::ViewState view_state,
                  int line_to_scroll_to,
                  int position_to_scroll_to,
                  QString caret_location_to_scroll_to,
@@ -61,8 +60,6 @@ FlowTab::FlowTab(HTMLResource *resource,
     m_CaretLocationToScrollTo(caret_location_to_scroll_to),
     m_HTMLResource(resource),
     m_wCodeView(NULL),
-    m_ViewState(view_state),
-    m_previousViewState(view_state),
     m_WellFormedCheckComponent(new WellFormedCheckComponent(this, parent)),
     m_safeToLoad(false),
     m_initialLoad(true),
@@ -159,48 +156,6 @@ void FlowTab::DelayedInitialization()
     QApplication::restoreOverrideCursor();
 }
 
-// we only support codeview now
-MainWindow::ViewState FlowTab::GetViewState()
-{
-    return MainWindow::ViewState_CodeView;
-}
-
-bool FlowTab::SetViewState(MainWindow::ViewState new_view_state)
-{
-    // There are only two ways a tab can get routed into a particular viewstate.
-    // At FlowTab construction time, all initialisation is done via a timer to
-    // call DelayedInitialization(). So that needs to handle first time tab state.
-    // The second route is via this function, which is invoked from MainWindow
-    // any time a tab is switched to.
-
-    // Do we really need to do anything? Not if we are already in this state.
-    if (new_view_state == m_ViewState) {
-        return false;
-    }
-
-    // Ignore this function if we are in the middle of doing an initial load
-    // of the content. We don't want it to save over the content with nothing
-    // if this is called before the delayed initialization function is called.
-    if (m_initialLoad || !IsLoadingFinished()) {
-        return false;
-    }
-
-    // We do a save (if pending changes) before switching to ensure we don't lose
-    // any unsaved data in the current view, as cannot rely on lost focus happened.
-    SaveTabContent();
-    // Track our previous view state for the purposes of caret syncing
-    m_previousViewState = m_ViewState;
-    m_ViewState = MainWindow::ViewState_CodeView;
-    // if (new_view_state == MainWindow::ViewState_CodeView) {
-        // As CV is directly hooked to the QTextDocument, we never have to "Load" content
-        // except for when creating the CV control for the very first time.
-        // CreateCodeViewIfRequired();
-        // CodeView();
-    // }
-
-    return true;
-}
-
 bool FlowTab::IsLoadingFinished()
 {
     bool is_finished = true;
@@ -226,9 +181,7 @@ bool FlowTab::IsModified()
 void FlowTab::CodeView()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    m_ViewState = MainWindow::ViewState_CodeView;
     CreateCodeViewIfRequired();
-    // m_views->setCurrentIndex(m_views->indexOf(m_wCodeView));
     m_wCodeView->SetDelayedCursorScreenCenteringRequired();
     setFocusProxy(m_wCodeView);
 
@@ -476,14 +429,6 @@ bool FlowTab::InsertFileEnabled()
 }
 
 bool FlowTab::ToggleAutoSpellcheckEnabled()
-{
-    if (m_wCodeView) {
-        return true;
-    }
-    return false;
-}
-
-bool FlowTab::ViewStatesEnabled()
 {
     if (m_wCodeView) {
         return true;

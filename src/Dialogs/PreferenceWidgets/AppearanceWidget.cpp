@@ -88,12 +88,12 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
 {
     SettingsStore settings;
     settings.setAppearancePrefsTabIndex(ui.tabAppearance->currentIndex());
-    SettingsStore::BookViewAppearance bookViewAppearance;
-    bookViewAppearance.font_family_standard     = ui.cbBookViewFontStandard->currentText();
-    bookViewAppearance.font_family_serif        = ui.cbBookViewFontSerif->currentText();
-    bookViewAppearance.font_family_sans_serif   = ui.cbBookViewFontSansSerif->currentText();
-    bookViewAppearance.font_size                = ui.bookViewFontSizeSpin->value();
-    settings.setBookViewAppearance(bookViewAppearance);
+    SettingsStore::PreviewAppearance PVAppearance;
+    PVAppearance.font_family_standard     = ui.cbBookViewFontStandard->currentText();
+    PVAppearance.font_family_serif        = ui.cbBookViewFontSerif->currentText();
+    PVAppearance.font_family_sans_serif   = ui.cbBookViewFontSansSerif->currentText();
+    PVAppearance.font_size                = ui.bookViewFontSizeSpin->value();
+    settings.setPreviewAppearance(PVAppearance);
     SettingsStore::CodeViewAppearance codeViewAppearance;
     codeViewAppearance.font_family = ui.cbCodeViewFont->currentText();
     codeViewAppearance.font_size = ui.codeViewFontSizeSpin->value();
@@ -125,12 +125,12 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
     specialCharacterAppearance.font_size   = ui.specialCharacterFontSizeSpin->value();
     settings.setSpecialCharacterAppearance(specialCharacterAppearance);
     settings.setMainMenuIconSize(double(ui.iconSizeSlider->value())/10);
-    // BV/PV settings can be globally changed and will take effect immediately
+    // PV settings can be globally changed and will take effect immediately
     QWebEngineSettings *web_settings = QWebEngineSettings::defaultSettings();
-    web_settings->setFontSize(QWebEngineSettings::DefaultFontSize, bookViewAppearance.font_size);
-    web_settings->setFontFamily(QWebEngineSettings::StandardFont,    bookViewAppearance.font_family_standard);
-    web_settings->setFontFamily(QWebEngineSettings::SerifFont,       bookViewAppearance.font_family_serif);
-    web_settings->setFontFamily(QWebEngineSettings::SansSerifFont,   bookViewAppearance.font_family_sans_serif);
+    web_settings->setFontSize(QWebEngineSettings::DefaultFontSize,   PVAppearance.font_size);
+    web_settings->setFontFamily(QWebEngineSettings::StandardFont,    PVAppearance.font_family_standard);
+    web_settings->setFontFamily(QWebEngineSettings::SerifFont,       PVAppearance.font_family_serif);
+    web_settings->setFontFamily(QWebEngineSettings::SansSerifFont,   PVAppearance.font_family_sans_serif);
 
     // CV settings require the tab to be closed/reopened. It is easiest to tell the user
     // to reopen tabs or reload, perhaps in future the Preferences widget may have a signal
@@ -168,15 +168,15 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
 {
     SettingsStore settings;
     ui.tabAppearance->setCurrentIndex(settings.appearancePrefsTabIndex());
-    SettingsStore::BookViewAppearance bookViewAppearance = settings.bookViewAppearance();
+    SettingsStore::PreviewAppearance PVAppearance = settings.previewAppearance();
     SettingsStore::CodeViewAppearance codeViewAppearance = settings.codeViewAppearance();
     SettingsStore::SpecialCharacterAppearance specialCharacterAppearance = settings.specialCharacterAppearance();
-    loadComboValueOrDefault(ui.cbBookViewFontStandard,  bookViewAppearance.font_family_standard,    "Arial");
-    loadComboValueOrDefault(ui.cbBookViewFontSerif,     bookViewAppearance.font_family_serif,       "Times New Roman");
-    loadComboValueOrDefault(ui.cbBookViewFontSansSerif, bookViewAppearance.font_family_sans_serif,  "Arial");
+    loadComboValueOrDefault(ui.cbBookViewFontStandard,  PVAppearance.font_family_standard,    "Arial");
+    loadComboValueOrDefault(ui.cbBookViewFontSerif,     PVAppearance.font_family_serif,       "Times New Roman");
+    loadComboValueOrDefault(ui.cbBookViewFontSansSerif, PVAppearance.font_family_sans_serif,  "Arial");
     loadComboValueOrDefault(ui.cbCodeViewFont,          codeViewAppearance.font_family,             "Courier New");
     loadComboValueOrDefault(ui.cbSpecialCharacterFont,  specialCharacterAppearance.font_family,     "Helvetica");
-    ui.bookViewFontSizeSpin->setValue(bookViewAppearance.font_size);
+    ui.bookViewFontSizeSpin->setValue(PVAppearance.font_size);
     ui.codeViewFontSizeSpin->setValue(codeViewAppearance.font_size);
     ui.specialCharacterFontSizeSpin->setValue(specialCharacterAppearance.font_size);
     codeViewAppearance.font_family = ui.cbCodeViewFont->currentText();

@@ -161,7 +161,6 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_lbZoomLabel(NULL),
     c_SaveFilters(GetSaveFiltersMap()),
     c_LoadFilters(GetLoadFiltersMap()),
-    m_ViewState(MainWindow::ViewState_BookView),
     m_headingMapper(new QSignalMapper(this)),
     m_casingChangeMapper(new QSignalMapper(this)),
     m_pluginMapper(new QSignalMapper(this)),
@@ -200,7 +199,6 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     // (avoiding side-effects)
     ReadSettings();
     // Ensure the UI is properly set to the saved view state.
-    SetDefaultViewState();
     SetupPreviewTimer();
     ConnectSignalsToSlots();
     CreateRecentFilesActions();
@@ -478,11 +476,7 @@ void MainWindow::GoToBookmark(MainWindow::LocationBookmark *locationBookmark)
 
     try {
         Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(locationBookmark->filename);
-        // The following OpenResource call will switch ViewState if required to be changed.
-        // However in order to ensure the caret is moved to the bookmark which may not be where
-        // the tab was last clicked on we must switch view state now.
-        SetViewState(locationBookmark->view_state);
-        OpenResource(resource, -1, locationBookmark->cv_cursor_position, locationBookmark->bv_caret_location_update, locationBookmark->view_state);
+        OpenResource(resource, -1, locationBookmark->cv_cursor_position, locationBookmark->bv_caret_location_update);
         ShowMessageOnStatusBar();
     } catch (ResourceDoesNotExist) {
         // Nothing. Old file must have been deleted.
@@ -516,7 +510,6 @@ void MainWindow::BookmarkLinkOrStyleLocation()
 
     Resource *current_resource = tab->GetLoadedResource();
     m_LinkOrStyleBookmark->filename = current_resource->Filename();
-    m_LinkOrStyleBookmark->view_state = m_ViewState;
     m_LinkOrStyleBookmark->cv_cursor_position = tab->GetCursorPosition();
     m_LinkOrStyleBookmark->bv_caret_location_update = tab->GetCaretLocationUpdate();
     ui.actionGoBackFromLinkOrStyle->setEnabled(!m_LinkOrStyleBookmark->filename.isEmpty());
@@ -546,7 +539,7 @@ void MainWindow::OpenUrl(const QUrl &url)
             line = 1;
         }
 
-        OpenResource(resource, line, -1, QString(), MainWindow::ViewState_Unknown, url.fragment());
+        OpenResource(resource, line, -1, QString(), url.fragment());
     } else {
         QMessageBox::StandardButton button_pressed;
         button_pressed = QMessageBox::warning(this, tr("Sigil"), tr("Are you sure you want to open this external link?\n\n%1").arg(url.toString()), QMessageBox::Ok | QMessageBox::Cancel);
@@ -561,31 +554,21 @@ void MainWindow::OpenResource(Resource *resource,
                               int line_to_scroll_to,
                               int position_to_scroll_to,
                               const QString &caret_location_to_scroll_to,
-                              MainWindow::ViewState view_state,
                               const QUrl &fragment,
                               bool precede_current_tab)
 {
-    if (view_state == MainWindow::ViewState_Unknown) {
-        view_state = m_ViewState;
-    }
-
     m_TabManager->OpenResource(resource, line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to,
-                              view_state, fragment, precede_current_tab);
-
-    if (view_state != m_ViewState) {
-        SetViewState(view_state);
-    }
+                              fragment, precede_current_tab);
 }
 
 void MainWindow::OpenResourceAndWaitUntilLoaded(Resource *resource,
         int line_to_scroll_to,
         int position_to_scroll_to,
         const QString &caret_location_to_scroll_to,
-        MainWindow::ViewState view_state,
         const QUrl &fragment,
         bool precede_current_tab)
 {
-    OpenResource(resource, line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to, view_state, fragment, precede_current_tab);
+    OpenResource(resource, line_to_scroll_to, position_to_scroll_to, caret_location_to_scroll_to, fragment, precede_current_tab);
     while (!GetCurrentContentTab()->IsLoadingFinished()) {
         qApp->processEvents();
         SleepFunctions::msleep(100);
@@ -601,7 +584,7 @@ void MainWindow::ResourceUpdatedFromDisk(Resource *resource)
     if (resource->Type() == Resource::HTMLResourceType) {
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
         if (!m_Book->IsDataOnDiskWellFormed(html_resource)) {
-            OpenResource(resource, -1, -1, QString(), MainWindow::ViewState_CodeView);
+            OpenResource(resource, -1, -1, QString());
             message = QString(tr("Warning")) + ": " + message + " " + tr("The file was NOT well formed and may be corrupted.");
             duration = 20000;
         }
@@ -969,7 +952,7 @@ void MainWindow::GoToLine()
     int line = QInputDialog::getInt(this, tr("Go To Line"), tr("Line #"), -1, 1);
 
     if (line >= 1) {
-        OpenResource(tab->GetLoadedResource(), line, -1, QString(), MainWindow::ViewState_CodeView);
+        OpenResource(tab->GetLoadedResource(), line, -1, QString());
     }
 }
 
@@ -1815,12 +1798,6 @@ void MainWindow::InsertId()
 
     QString id = flow_tab->GetAttributeId();
 
-    // Prevent adding a hidden anchor id in Book View.
-    if (m_ViewState == MainWindow::ViewState_BookView && id.isEmpty() && flow_tab->GetSelectedText().isEmpty()) {
-        QMessageBox::warning(this, tr("Sigil"), tr("You must select text before inserting a new id."));
-        return;
-    }
-
     HTMLResource *html_resource = qobject_cast<HTMLResource *>(flow_tab->GetLoadedResource());
 
     SelectId select_id(id, html_resource, m_Book, this);
@@ -1854,12 +1831,6 @@ void MainWindow::InsertHyperlink()
     }
 
     QString href = flow_tab->GetAttributeHref();
-
-    // Prevent adding a hidden anchor link in Book View.
-    if (m_ViewState == MainWindow::ViewState_BookView && href.isEmpty() && flow_tab->GetSelectedText().isEmpty()) {
-        QMessageBox::warning(this, tr("Sigil"), tr("You must select text before inserting a new link."));
-        return;
-    }
 
     HTMLResource *html_resource = qobject_cast<HTMLResource *>(flow_tab->GetLoadedResource());
     QList<Resource *> resources = GetAllHTMLResources() + m_BookBrowser->AllMediaResources();
@@ -2232,24 +2203,6 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
         current_resource = tab->GetLoadedResource();
     }
 
-    // Get a list of all open tabs and
-    // if they are to be updated and are currently in BookView
-    // mode then close those tabs
-    QList<ContentTab *> opentabs = m_TabManager->GetContentTabs();
-    foreach(ContentTab * atab, opentabs) {
-        Resource * resource = atab->GetLoadedResource();
-        if (resources.contains(resource)) {
-	    // this tab holds a resource that is to be updated
-	    FlowTab* flowtab = qobject_cast<FlowTab *>(atab);
-	    if (flowtab) {
-	        if (flowtab->GetViewState() == MainWindow::ViewState_BookView) {
-	            // BookView Tabs must be closed to update stylesheet links
-                    m_TabManager->CloseTabForResource(resource);
-	        }
-	    }
-	}
-    }
-
     QStringList stylesheets = link.GetStylesheets();
     QApplication::setOverrideCursor(Qt::WaitCursor);
     // Convert HTML resources into HTMLResource types
@@ -2271,7 +2224,6 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
 void MainWindow::FindWord(QString word)
 {
     SaveTabData();
-    SetViewState(MainWindow::ViewState_CodeView);
 
     // Note the current tab if it is an HTML file.
     HTMLResource *current_html_resource = NULL;
@@ -2344,7 +2296,6 @@ void MainWindow::UpdateWord(QString old_word, QString new_word)
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     SaveTabData();
-    SetViewState(MainWindow::ViewState_CodeView);
 
     QList<HTMLResource *> html_resources;
     QList<Resource *> resources = GetAllHTMLResources();
@@ -2416,12 +2367,6 @@ QStringList MainWindow::GetStylesheetsAlreadyLinked(Resource *resource)
 
 void MainWindow::RemoveResources(QList<Resource *> resources)
 {
-    // work around Qt bug when deleting png images on page shown by both
-    // BookView and Preview by temporarily hiding the PreviewWindow
-    bool pw_showing = m_PreviewWindow->IsVisible();
-    if ((pw_showing) && (m_ViewState == MainWindow::ViewState_BookView)) {
-        m_PreviewWindow->hide();
-    }
     // Provide the open tab list to ensure one tab stays open
     if (resources.count() > 0) {
         m_BookBrowser->RemoveResources(m_TabManager->GetTabResources(), resources);
@@ -2436,9 +2381,6 @@ void MainWindow::RemoveResources(QList<Resource *> resources)
         m_PreviousHTMLResource = NULL;
         m_PreviousHTMLText = "";
         m_PreviousHTMLLocation = QList<ElementIndex>();
-    }
-    if ((pw_showing) && !m_PreviewWindow->IsVisible()) {
-        m_PreviewWindow->show();
     }
     ShowMessageOnStatusBar(tr("File(s) deleted."));
 }
@@ -2662,48 +2604,9 @@ void MainWindow::ClearMarkedText(ContentTab *old_tab)
     m_FindReplace->ShowHideMarkedText(false);
 }
 
-void MainWindow::ToggleViewState()
-{
-    ContentTab *tab = GetCurrentContentTab();
-
-    if (tab == NULL) {
-        return;
-    }
-
-    Resource::ResourceType type = tab->GetLoadedResource()->Type();
-
-    if (type == Resource::HTMLResourceType) {
-        if (m_ViewState == MainWindow::ViewState_CodeView) {
-            SetViewState(MainWindow::ViewState_BookView);
-        } else {
-            SetViewState(MainWindow::ViewState_CodeView);
-        }
-    }
-
-    UpdateBrowserSelectionToTab();
-}
-
-void MainWindow::BookView()
-{
-    SetViewState(MainWindow::ViewState_BookView);
-    UpdateBrowserSelectionToTab();
-}
-
 void MainWindow::CodeView()
 {
-    SetViewState(MainWindow::ViewState_CodeView);
     UpdateBrowserSelectionToTab();
-}
-
-
-MainWindow::ViewState MainWindow::GetViewState()
-{
-    return m_ViewState;
-}
-
-void MainWindow::AnyCodeView()
-{
-    SetViewState(MainWindow::ViewState_CodeView);
 }
 
 void MainWindow::SearchEditorDialog(SearchEditorModel::searchEntry *search_entry)
@@ -2782,7 +2685,7 @@ void MainWindow::PreferencesDialog()
     preferences.exec();
 
     if (preferences.isReloadTabsRequired()) {
-        m_TabManager->ReopenTabs(m_ViewState);
+        m_TabManager->ReopenTabs();
     } else if (preferences.isRefreshSpellingHighlightingRequired()) {
         RefreshSpellingHighlighting();
         // Make sure menu state is set
@@ -2811,7 +2714,7 @@ void MainWindow::ManagePluginsDialog()
 
     // other preferences may have been changed as well
     if (preferences.isReloadTabsRequired()) {
-        m_TabManager->ReopenTabs(m_ViewState);
+        m_TabManager->ReopenTabs();
     } else if (preferences.isRefreshSpellingHighlightingRequired()) {
         RefreshSpellingHighlighting();
         // Make sure menu state is set
@@ -2890,24 +2793,7 @@ void MainWindow::ChangeSignalsWhenTabChanges(ContentTab *old_tab, ContentTab *ne
 }
 
 
-void MainWindow::SetViewState(MainWindow::ViewState view_state)
-{
-    // This function is called when:
-    // 1. Invoked from OpenResource() to open a new tab or programmatically switch to existing one.
-    // 2. When the user toggles view state, or uses the specific view state icons on toolbar
-    // 3. To return to a bookmarked location
-    // OpenResource() ensures that any attempt to open a tab with a viewstate of "Unknown"
-    // will instead inherit the current MainWindow setting for the last FlowTab used.
-    // The only other places that call this function directly all use the m_ViewState
-    // value for view_state parameter, hence can never be "Unknown" in this function.
-    Q_ASSERT(view_state != MainWindow::ViewState_Unknown);
-    bool set_tab_state = m_ViewState != view_state;
-    m_ViewState = view_state;
-    UpdateViewState(set_tab_state);
-}
-
-
-void MainWindow::UpdateViewState(bool set_tab_state)
+void MainWindow::UpdateMWState(bool set_tab_state)
 {
     ContentTab *tab = GetCurrentContentTab();
 
@@ -2922,26 +2808,12 @@ void MainWindow::UpdateViewState(bool set_tab_state)
             FlowTab *ftab = dynamic_cast<FlowTab *>(tab);
 
             if (ftab) {
-                bool view_state_changed = ftab->SetViewState(m_ViewState);
-                // We cannot reliably use Qt focus events to determine whether or
-                // not to reload the contents of a tab.
                 ftab->ReloadTabIfPending();
-
-                if (!view_state_changed) {
-                    // Either we were already in this view, the data is not well formed or tab is still loading.
-                    // We must force the UI to be in the state that this tab is now in.
-                    m_ViewState = ftab->GetViewState();
-                }
             }
             ClearMarkedText();
         }
 
-        if (m_ViewState == MainWindow::ViewState_CodeView) {
-            SetStateActionsCodeView();
-        } else {
-            m_ViewState = MainWindow::ViewState_BookView;
-            SetStateActionsBookView();
-        }
+        SetStateActionsCodeView();
     } else if (type == Resource::CSSResourceType) {
         SetStateActionsCSSView();
     } else if (type == Resource::XMLResourceType ||
@@ -3004,7 +2876,7 @@ void MainWindow::UpdateUIWhenTabsSwitch()
     }
 
     tab->UpdateDisplay();
-    UpdateViewState();
+    UpdateMWState();
     ClearMarkedText();
 }
 
@@ -3018,84 +2890,8 @@ void MainWindow::UpdateUIOnTabCountChange()
 }
 
 
-void MainWindow::SetStateActionsBookView()
-{
-    ui.actionBookView->setChecked(true);
-    ui.actionCodeView->setChecked(false);
-    ui.actionBookView->setEnabled(true);
-    ui.actionCodeView->setEnabled(true);
-    ui.actionPrintPreview->setEnabled(true);
-    ui.actionPrint->setEnabled(true);
-    ui.actionSplitSection->setEnabled(true);
-    ui.actionInsertSGFSectionMarker->setEnabled(true);
-    ui.actionInsertFile->setEnabled(true);
-    ui.actionInsertSpecialCharacter->setEnabled(true);
-    ui.actionInsertId->setEnabled(true);
-    ui.actionInsertHyperlink->setEnabled(true);
-    ui.actionInsertClosingTag->setEnabled(false);
-    ui.actionUndo->setEnabled(true);
-    ui.actionRedo->setEnabled(true);
-    ui.actionPasteClipboardHistory->setEnabled(true);
-    ui.actionBold         ->setEnabled(true);
-    ui.actionItalic       ->setEnabled(true);
-    ui.actionUnderline    ->setEnabled(true);
-    ui.actionStrikethrough->setEnabled(true);
-    ui.actionSubscript    ->setEnabled(true);
-    ui.actionSuperscript  ->setEnabled(true);
-    ui.actionAlignLeft   ->setEnabled(true);
-    ui.actionAlignCenter ->setEnabled(true);
-    ui.actionAlignRight  ->setEnabled(true);
-    ui.actionAlignJustify->setEnabled(true);
-    ui.actionDecreaseIndent->setEnabled(true);
-    ui.actionIncreaseIndent->setEnabled(true);
-    ui.actionTextDirectionLTR    ->setEnabled(true);
-    ui.actionTextDirectionRTL    ->setEnabled(true);
-    ui.actionTextDirectionDefault->setEnabled(true);
-    ui.actionInsertBulletedList->setEnabled(true);
-    ui.actionInsertNumberedList->setEnabled(true);
-    ui.actionShowTag->setEnabled(true);
-    ui.actionRemoveFormatting->setEnabled(true);
-    ui.menuHeadings->setEnabled(true);
-    ui.actionHeading1->setEnabled(true);
-    ui.actionHeading2->setEnabled(true);
-    ui.actionHeading3->setEnabled(true);
-    ui.actionHeading4->setEnabled(true);
-    ui.actionHeading5->setEnabled(true);
-    ui.actionHeading6->setEnabled(true);
-    ui.actionHeadingNormal->setEnabled(true);
-    ui.actionCasingLowercase  ->setEnabled(true);
-    ui.actionCasingUppercase  ->setEnabled(true);
-    ui.actionCasingTitlecase ->setEnabled(true);
-    ui.actionCasingCapitalize ->setEnabled(true);
-    ui.actionFind->setEnabled(true);
-    ui.actionFindNext->setEnabled(true);
-    ui.actionFindPrevious->setEnabled(true);
-    ui.actionReplaceCurrent->setEnabled(true);
-    ui.actionReplaceNext->setEnabled(true);
-    ui.actionReplacePrevious->setEnabled(true);
-    ui.actionReplaceAll->setEnabled(true);
-    ui.actionCount->setEnabled(true);
-    ui.actionMarkSelection->setEnabled(false);
-    ui.menuSearchCurrentFile->setEnabled(true);
-    ui.actionFindNextInFile->setEnabled(true);
-    ui.actionReplaceNextInFile->setEnabled(true);
-    ui.actionReplaceAllInFile->setEnabled(true);
-    ui.actionCountInFile->setEnabled(true);
-    ui.actionGoToLine->setEnabled(false);
-    ui.actionGoToLinkOrStyle->setEnabled(false);
-    ui.actionAddMisspelledWord->setEnabled(false);
-    ui.actionIgnoreMisspelledWord->setEnabled(false);
-    ui.actionAutoSpellCheck->setEnabled(false);
-    UpdateUIOnTabChanges();
-    m_FindReplace->ShowHide();
-}
-
 void MainWindow::SetStateActionsCodeView()
 {
-    ui.actionBookView->setChecked(false);
-    ui.actionCodeView->setChecked(true);
-    ui.actionBookView->setEnabled(true);
-    ui.actionCodeView->setEnabled(true);
     ui.actionPrintPreview->setEnabled(true);
     ui.actionPrint->setEnabled(true);
     ui.actionSplitSection->setEnabled(true);
@@ -3181,10 +2977,6 @@ void MainWindow::SetStateActionsCSSView()
 
 void MainWindow::SetStateActionsRawView()
 {
-    ui.actionBookView->setChecked(false);
-    ui.actionCodeView->setChecked(false);
-    ui.actionBookView->setEnabled(false);
-    ui.actionCodeView->setEnabled(false);
     ui.actionPrintPreview->setEnabled(true);
     ui.actionPrint->setEnabled(true);
     ui.actionSplitSection->setEnabled(false);
@@ -3253,10 +3045,6 @@ void MainWindow::SetStateActionsRawView()
 
 void MainWindow::SetStateActionsStaticView()
 {
-    ui.actionBookView->setChecked(false);
-    ui.actionCodeView->setChecked(false);
-    ui.actionBookView->setEnabled(false);
-    ui.actionCodeView->setEnabled(false);
     ui.actionPrintPreview->setEnabled(true);
     ui.actionPrint->setEnabled(true);
     ui.actionSplitSection->setEnabled(false);
@@ -3390,7 +3178,7 @@ void MainWindow::UpdatePreview()
 
         html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());
 
-        // handle any memory cache clearing inside BookViewPreview
+        // handle any memory cache clearing inside Preview
 
         // handles all cases of non-html resource in front tab
         if (!html_resource) {
@@ -3480,19 +3268,6 @@ void MainWindow::UpdateZoomLabel(int slider_value)
 }
 
 
-void MainWindow::SetDefaultViewState()
-{
-    // Default will be BookView unless there is a persisted value.
-    SettingsStore settings;
-    int view_state_value = settings.viewState();
-
-    switch (view_state_value) {
-        case MainWindow::ViewState_CodeView:
-            m_ViewState = static_cast<MainWindow::ViewState>(view_state_value);
-            break;
-    }
-}
-
 void MainWindow::SetAutoSpellCheck(bool new_state)
 {
     SettingsStore settings;
@@ -3560,7 +3335,7 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource *origina
     m_BookBrowser->Refresh();
     // Open the old shortened content in a new tab preceding the current one.
     // without grabbing focus
-    OpenResource(html_resource, -1, -1, QString(), m_ViewState, QUrl(), true);
+    OpenResource(html_resource, -1, -1, QString(), QUrl(), true);
     FlowTab *flow_tab = GetCurrentFlowTab();
 
     // We will reload the reduced content tab to ensure reflects updated resource.
@@ -3581,13 +3356,6 @@ void MainWindow::SplitOnSGFSectionMarkers()
     }
 
     SaveTabData();
-
-    // If have the current tab is open in BV, make sure it has its content saved so it won't later overwrite a split.
-    FlowTab *flow_tab = GetCurrentFlowTab();
-
-    if (flow_tab && (flow_tab->GetViewState() == MainWindow::ViewState_BookView)) {
-        flow_tab->SaveTabContent();
-    }
 
     bool done_checking_frags = false;
     bool ignore_frags = false;
@@ -3640,13 +3408,6 @@ void MainWindow::SplitOnSGFSectionMarkers()
         m_TabManager->ReloadTabDataForResources(changed_resources);
         m_BookBrowser->Refresh();
         ShowMessageOnStatusBar(tr("Split completed. You may need to update the Table of Contents."));
-
-        if (flow_tab && (flow_tab->GetViewState() == MainWindow::ViewState_BookView)) {
-            // Our focus will have been moved to the book browser. Set it there and back to do
-            // an equivalent of "GrabFocus()" to workaround Qt setFocus() not always working.
-            m_BookBrowser->setFocus();
-            flow_tab->setFocus();
-        }
     } else {
         ShowMessageOnStatusBar(tr("No split file markers found. Use Insert->Split Marker."));
     }
@@ -3713,12 +3474,12 @@ void MainWindow::ReadSettings()
     settings.endGroup();
     m_ClipboardHistoryLimit = settings.clipboardHistoryLimit();
     // Our default fonts for book view/web preview
-    SettingsStore::BookViewAppearance bookViewAppearance = settings.bookViewAppearance();
+    SettingsStore::PreviewAppearance PVAppearance = settings.previewAppearance();
     QWebEngineSettings *web_settings = QWebEngineSettings::defaultSettings();
-    web_settings->setFontSize(QWebEngineSettings::DefaultFontSize, bookViewAppearance.font_size);
-    web_settings->setFontFamily(QWebEngineSettings::StandardFont, bookViewAppearance.font_family_standard);
-    web_settings->setFontFamily(QWebEngineSettings::SerifFont, bookViewAppearance.font_family_serif);
-    web_settings->setFontFamily(QWebEngineSettings::SansSerifFont, bookViewAppearance.font_family_sans_serif);
+    web_settings->setFontSize(QWebEngineSettings::DefaultFontSize, PVAppearance.font_size);
+    web_settings->setFontFamily(QWebEngineSettings::StandardFont, PVAppearance.font_family_standard);
+    web_settings->setFontFamily(QWebEngineSettings::SerifFont, PVAppearance.font_family_serif);
+    web_settings->setFontFamily(QWebEngineSettings::SansSerifFont, PVAppearance.font_family_sans_serif);
 
     // Check for existing custom Preview/Book View stylesheet in Prefs dir and load it if present
     QFileInfo CustomPreviewStylesheetInfo(QDir(Utility::DefinePrefsDir()).filePath(CUSTOM_PREVIEW_STYLE_FILENAME));
@@ -3752,7 +3513,6 @@ void MainWindow::WriteSettings()
     KeyboardShortcutManager::instance()->writeSettings();
     settings.endGroup();
     settings.setClipboardHistoryLimit(m_ClipboardHistoryLimit);
-    settings.setViewState(m_ViewState);
 }
 
 bool MainWindow::MaybeSaveDialogSaysProceed()
@@ -4541,9 +4301,6 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionDeleteUnusedMedia, "MainWindow.DeleteUnusedMedia");
     sm->registerAction(this, ui.actionDeleteUnusedStyles, "MainWindow.DeleteUnusedStyles");
     // View
-    sm->registerAction(this, ui.actionBookView, "MainWindow.BookView");
-    sm->registerAction(this, ui.actionCodeView, "MainWindow.CodeView");
-    sm->registerAction(this, ui.actionToggleViewState, "MainWindow.ToggleViewState");
     sm->registerAction(this, ui.actionZoomIn, "MainWindow.ZoomIn");
     sm->registerAction(this, ui.actionZoomOut, "MainWindow.ZoomOut");
     sm->registerAction(this, ui.actionZoomReset, "MainWindow.ZoomReset");
@@ -4805,14 +4562,6 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/help-browser_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/help-browser_22px.png"));
     ui.actionAbout->setIcon(icon);
-    icon = ui.actionBookView->icon();
-    icon.addFile(QString::fromUtf8(":/main/view-book_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/view-book_22px.png"));
-    ui.actionBookView->setIcon(icon);
-    icon = ui.actionCodeView->icon();
-    icon.addFile(QString::fromUtf8(":/main/view-code_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/view-code_22px.png"));
-    ui.actionCodeView->setIcon(icon);
     icon = ui.actionSplitSection->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-section-break_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/insert-section-break_22px.png"));
@@ -4965,9 +4714,6 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionZoomIn,        SIGNAL(triggered()), this, SLOT(ZoomIn()));
     connect(ui.actionZoomOut,       SIGNAL(triggered()), this, SLOT(ZoomOut()));
     connect(ui.actionZoomReset,     SIGNAL(triggered()), this, SLOT(ZoomReset()));
-    connect(ui.actionBookView,      SIGNAL(triggered()),  this,   SLOT(BookView()));
-    connect(ui.actionCodeView,      SIGNAL(triggered()),  this,   SLOT(CodeView()));
-    connect(ui.actionToggleViewState, SIGNAL(triggered()),  this,   SLOT(ToggleViewState()));
     connect(ui.actionHeadingPreserveAttributes, SIGNAL(triggered(bool)), this, SLOT(SetPreserveHeadingAttributes(bool)));
     connect(m_headingMapper,      SIGNAL(mapped(const QString &)),  this,   SLOT(ApplyHeadingStyleToTab(const QString &)));
     // Window
@@ -5029,16 +4775,14 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_BookBrowser, SIGNAL(LinkStylesheetsToResourcesRequest(QList<Resource *>)), this, SLOT(LinkStylesheetsToResources(QList<Resource *>)));
     connect(m_BookBrowser, SIGNAL(RemoveResourcesRequest()), this, SLOT(RemoveResources()));
     connect(m_BookBrowser, SIGNAL(OpenFileRequest(QString, int)), this, SLOT(OpenFile(QString, int)));
-    connect(m_TableOfContents, SIGNAL(OpenResourceRequest(Resource *, int, int, const QString &, MainWindow::ViewState, const QUrl &)),
-            this,     SLOT(OpenResource(Resource *, int, int, const QString &, MainWindow::ViewState, const QUrl &)));
-    connect(m_ValidationResultsView, SIGNAL(OpenResourceRequest(Resource *, int, int, const QString &, MainWindow::ViewState)),
-            this,     SLOT(OpenResource(Resource *, int, int, const QString &, MainWindow::ViewState)));
+    connect(m_TableOfContents, SIGNAL(OpenResourceRequest(Resource *, int, int, const QString &, const QUrl &)),
+            this,     SLOT(OpenResource(Resource *, int, int, const QString &, const QUrl &)));
+    connect(m_ValidationResultsView, SIGNAL(OpenResourceRequest(Resource *, int, int, const QString &)),
+            this,     SLOT(OpenResource(Resource *, int, int, const QString &)));
     connect(m_TabManager, SIGNAL(OpenUrlRequest(const QUrl &)),
             this, SLOT(OpenUrl(const QUrl &)));
     connect(m_TabManager, SIGNAL(OldTabRequest(QString, HTMLResource *)),
             this,          SLOT(CreateSectionBreakOldTab(QString, HTMLResource *)));
-    connect(m_TabManager, SIGNAL(ToggleViewStateRequest()),
-            this,          SLOT(ToggleViewState()));
     connect(m_FindReplace, SIGNAL(OpenSearchEditorRequest(SearchEditorModel::searchEntry *)),
             this,          SLOT(SearchEditorDialog(SearchEditorModel::searchEntry *)));
     connect(m_TabManager, SIGNAL(ShowStatusMessageRequest(const QString &, int)), this, SLOT(ShowMessageOnStatusBar(const QString &, int)));

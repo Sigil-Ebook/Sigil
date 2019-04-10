@@ -117,7 +117,7 @@ void TableOfContents::ItemClickedHandler(const QModelIndex &index)
 
     try {
         Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
-        emit OpenResourceRequest(resource, line, -1, QString(), MainWindow::ViewState_Unknown, url.fragment());
+        emit OpenResourceRequest(resource, line, -1, QString(), url.fragment());
     } catch (ResourceDoesNotExist) {
         Utility::DisplayStdErrorDialog(
             tr("The file \"%1\" does not exist.")

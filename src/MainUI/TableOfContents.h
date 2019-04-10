@@ -108,7 +108,6 @@ signals:
                              int line_to_scroll_to = -1,
                              int position_to_scroll_to = -1,
                              const QString &caret_location_to_scroll_to = QString(),
-                             MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
                              const QUrl &fragment = QUrl());
 
 private:

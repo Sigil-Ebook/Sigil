@@ -57,13 +57,11 @@ public:
      *
      * @param resource The resource this tab will be displaying.
      * @param fragment The URL fragment ID to which the tab should scroll.
-     * @param view_state In which View should the resource open or switch to.
      * @param line_to_scroll_to To which line should the resource scroll.
      * @param parent The parent of this QObject.
      */
     FlowTab(HTMLResource *resource,
             const QUrl &fragment,
-            MainWindow::ViewState view_state,
             int line_to_scroll_to = -1,
             int position_to_scroll_to = -1,
             QString caret_location_to_scroll_to = QString(),
@@ -73,9 +71,6 @@ public:
     ~FlowTab();
 
     // Overrides inherited from ContentTabs
-
-    // keep this around until all external changes are made
-    MainWindow::ViewState GetViewState();
 
     bool IsModified();
 
@@ -102,8 +97,6 @@ public:
 
     bool InsertFileEnabled();
 
-    bool ViewStatesEnabled();
-
     QList<ElementIndex> GetCaretLocation();
     QString GetCaretLocationUpdate() const;
     void GoToCaretLocation(QList<ElementIndex> location);
@@ -123,12 +116,10 @@ public:
 
     Searchable *GetSearchableContent();
 
-    bool SetViewState(MainWindow::ViewState new_view_state);
-
     bool IsLoadingFinished();
 
     /**
-     * Scrolls the tab to the specified fragment (if in Book View).
+     * Scrolls the tab to the specified fragment.
      *
      * @param fragment The URL fragment ID to which the tab should scroll.
      */
@@ -386,20 +377,6 @@ private:
      * Displays and edits the raw code.
      */
     CodeViewEditor *m_wCodeView;
-
-
-    // Keep this for now
-    /**
-     * This is used in a few different ways.
-     *
-     * 1) We store the requested view state for loading the document.
-     * 2) We store the current view state.
-     * 3) We compare the state of the view when entering to this in order
-     *    to determine if we have changed the view (BV, CV) in order to
-     *    load the latest content into the view.
-     */
-    MainWindow::ViewState m_ViewState;
-    MainWindow::ViewState m_previousViewState;
 
     /**
      * The component used to display a dialog about

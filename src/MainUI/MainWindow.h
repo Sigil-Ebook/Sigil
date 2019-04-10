@@ -151,31 +151,13 @@ public:
     void SelectResources(QList<Resource *> resources);
 
     /**
-     * Describes the type of the View mode
-     * currently used in FlowTab.
-     */
-    enum ViewState {
-        ViewState_Unknown = 0,     /**< Default non view that we don't know or care what it is */
-        ViewState_BookView = 10,   /**< The WYSIWYG view. */
-        ViewState_CodeView = 30    /**< The XHTML code editing view. */
-    };
-
-    /**
      * The location of the last bookmark.
      */
     struct LocationBookmark {
         QString filename;
-        MainWindow::ViewState view_state;
         QString bv_caret_location_update;
         int cv_cursor_position;
     };
-
-    /**
-     * Returns the current view state.
-     *
-     * @return The current view state.
-     */
-    MainWindow::ViewState GetViewState();
 
     void CloseAllTabs();
 
@@ -213,7 +195,6 @@ public:
 
 
 public slots:
-    void AnyCodeView();
 
     void OpenUrl(const QUrl &url);
 
@@ -224,7 +205,6 @@ public slots:
                       int line_to_scroll_to = -1,
                       int position_to_scroll_to = -1,
                       const QString &caret_location_to_scroll_to = QString(),
-                      MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
                       const QUrl &fragment = QUrl(),
                       bool precede_current_tab = false);
 
@@ -232,7 +212,6 @@ public slots:
                                         int line_to_scroll_to = -1,
                                         int position_to_scroll_to = -1,
                                         const QString &caret_location_to_scroll_to = QString(),
-                                        MainWindow::ViewState view_state = MainWindow::ViewState_Unknown,
                                         const QUrl &fragment = QUrl(),
                                         bool precede_current_tab = false);
 
@@ -364,7 +343,7 @@ private slots:
     void QuickLaunchPlugin(int i);
 
     /**
-     * Some controls (CodeView, BookView and combo boxes in F&R) inherit PasteTarget
+     * Some controls (CodeView and combo boxes in F&R) inherit PasteTarget
      * to allow various modeless/popup dialogs like Clipboard History, Clip Editor and
      * Insert Special Characters to insert text into the focused "PasteTarget" control.
      * These two slots will delegate the relevant signal to the current target if any.
@@ -393,11 +372,6 @@ private slots:
     void PasteClip18IntoCurrentTarget();
     void PasteClip19IntoCurrentTarget();
     void PasteClip20IntoCurrentTarget();
-
-    /**
-     * Implements the set BookView functionality.
-     */
-    void BookView();
 
     /**
      * Implements the set CodeView functionality.
@@ -470,7 +444,7 @@ private slots:
      * Updates the toolbars/menus based on current state
      * and updates the tab state if requested
      */
-    void UpdateViewState(bool set_tab_state = true);
+    void UpdateMWState(bool set_tab_state = true);
 
     /**
      * Updates the toolbars based on current tab state and changes.
@@ -486,11 +460,6 @@ private slots:
      * Performs needed changes when the user switches tabs.
      */
     void UpdateUIWhenTabsSwitch();
-
-    /**
-     * Set initial state for actions in Book View
-     */
-    void SetStateActionsBookView();
 
     /**
      * Set initial state for actions in Code View
@@ -565,7 +534,7 @@ private slots:
      * @param originating_resource  The original resource from which the content
      *                              was extracted to create the "old" tab/resource.
      * @see FlowTab::SplitSection, FlowTab::OldTabRequest,
-     *      BookViewEditor::SplitSection, Book::CreateSectionBreakOriginalResource
+     *      Book::CreateSectionBreakOriginalResource
      */
     void CreateSectionBreakOldTab(QString content, HTMLResource *originating_resource);
 
@@ -624,8 +593,6 @@ private slots:
     void MarkSelection();
     void ClearMarkedText(ContentTab *old_tab = NULL);
 
-    void ToggleViewState();
-
     void ApplyHeadingStyleToTab(const QString &heading_type);
     void SetPreserveHeadingAttributes(bool new_state);
 
@@ -678,8 +645,6 @@ private:
      * window position, geometry etc.
      */
     void WriteSettings();
-
-    void SetDefaultViewState();
 
     /**
      * Gets called on possible saves and asks the user
@@ -833,13 +798,6 @@ private:
      */
     void BreakTabConnections(ContentTab *tab);
 
-    /**
-     * Sets the view state of the current tab to view_state
-     *
-     * @param view_state - The view state to set.
-     */
-    void SetViewState(MainWindow::ViewState view_state);
-
     void SetupPreviewTimer();
 
     ///////////////////////////////
@@ -954,11 +912,6 @@ private:
      * we can save, and the values being filters for use in file dialogs.
      */
     const QMap<QString, QString> c_LoadFilters;
-
-    /**
-     * Holds the view state for new/switched tabs
-     */
-    MainWindow::ViewState m_ViewState;
 
     /**
      * Collects signals and sends specific parameters to the connected slots.

@@ -41,7 +41,6 @@ static QString KEY_ZOOM_WEB = SETTINGS_GROUP + "/" + "zoom_web";
 static QString KEY_ZOOM_PREVIEW = SETTINGS_GROUP + "/" + "zoom_preview";
 static QString KEY_RENAME_TEMPLATE = SETTINGS_GROUP + "/" + "rename_template";
 static QString KEY_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "dictionary_name";
-static QString KEY_VIEW_STATE = SETTINGS_GROUP + "/" + "view_state";
 static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
 static QString KEY_SPELL_CHECK_NUMBERS = SETTINGS_GROUP + "/" + "spell_check_numbers";
 static QString KEY_DEFAULT_USER_DICTIONARY = SETTINGS_GROUP + "/" + "user_dictionary_name";
@@ -64,10 +63,10 @@ static QString KEY_CSS_EPUB3_VALIDATION_SPEC = SETTINGS_GROUP + "/" + "css_epub3
 static QString KEY_TEMP_FOLDER = SETTINGS_GROUP + "/" + "temp_folder_path";
 
 static QString KEY_APPEARANCE_PREFS_TAB_INDEX = SETTINGS_GROUP + "/" + "appearance_prefs_tab_index";
-static QString KEY_BOOK_VIEW_FONT_FAMILY_STANDARD = SETTINGS_GROUP + "/" + "book_view_font_family_standard";
-static QString KEY_BOOK_VIEW_FONT_FAMILY_SERIF = SETTINGS_GROUP + "/" + "book_view_font_family_serif";
-static QString KEY_BOOK_VIEW_FONT_FAMILY_SANS_SERIF = SETTINGS_GROUP + "/" + "book_view_font_family_sans_serif";
-static QString KEY_BOOK_VIEW_FONT_SIZE = SETTINGS_GROUP + "/" + "book_view_font_size";
+static QString KEY_PREVIEW_FONT_FAMILY_STANDARD = SETTINGS_GROUP + "/" + "preview_font_family_standard";
+static QString KEY_PREVIEW_FONT_FAMILY_SERIF = SETTINGS_GROUP + "/" + "preview_font_family_serif";
+static QString KEY_PREVIEW_FONT_FAMILY_SANS_SERIF = SETTINGS_GROUP + "/" + "preview_font_family_sans_serif";
+static QString KEY_PREVIEW_FONT_SIZE = SETTINGS_GROUP + "/" + "preview_font_size";
 
 static QString KEY_CODE_VIEW_BACKGROUND_COLOR = SETTINGS_GROUP + "/" + "code_view_background_color";
 static QString KEY_CODE_VIEW_FOREGROUND_COLOR = SETTINGS_GROUP + "/" + "code_view_foreground_color";
@@ -158,12 +157,6 @@ QStringList SettingsStore::enabledUserDictionaries()
 {
     clearSettingsGroup();
     return value(KEY_ENABLED_USER_DICTIONARIES, defaultUserDictionary()).toStringList();
-}
-
-int SettingsStore::viewState()
-{
-    clearSettingsGroup();
-    return value(KEY_VIEW_STATE, -1).toInt();
 }
 
 bool SettingsStore::spellCheck()
@@ -289,14 +282,14 @@ int SettingsStore::appearancePrefsTabIndex() {
     return value(KEY_APPEARANCE_PREFS_TAB_INDEX, 0).toInt();
 }
 
-SettingsStore::BookViewAppearance SettingsStore::bookViewAppearance()
+SettingsStore::PreviewAppearance SettingsStore::previewAppearance()
 {
     clearSettingsGroup();
-    SettingsStore::BookViewAppearance appearance;
-    appearance.font_family_standard = value(KEY_BOOK_VIEW_FONT_FAMILY_STANDARD, "Arial").toString();
-    appearance.font_family_serif = value(KEY_BOOK_VIEW_FONT_FAMILY_SERIF, "Times New Roman").toString();
-    appearance.font_family_sans_serif = value(KEY_BOOK_VIEW_FONT_FAMILY_SANS_SERIF, "Arial").toString();
-    appearance.font_size = value(KEY_BOOK_VIEW_FONT_SIZE, 16).toInt();
+    SettingsStore::PreviewAppearance appearance;
+    appearance.font_family_standard = value(KEY_PREVIEW_FONT_FAMILY_STANDARD, "Arial").toString();
+    appearance.font_family_serif = value(KEY_PREVIEW_FONT_FAMILY_SERIF, "Times New Roman").toString();
+    appearance.font_family_sans_serif = value(KEY_PREVIEW_FONT_FAMILY_SANS_SERIF, "Arial").toString();
+    appearance.font_size = value(KEY_PREVIEW_FONT_SIZE, 16).toInt();
     return appearance;
 }
 
@@ -401,12 +394,6 @@ void SettingsStore::setEnabledUserDictionaries(const QStringList names)
 {
     clearSettingsGroup();
     setValue(KEY_ENABLED_USER_DICTIONARIES, names);
-}
-
-void SettingsStore::setViewState(int state)
-{
-    clearSettingsGroup();
-    setValue(KEY_VIEW_STATE, state);
 }
 
 void SettingsStore::setSpellCheck(bool enabled)
@@ -521,13 +508,13 @@ void SettingsStore::setAppearancePrefsTabIndex(int index) {
     setValue(KEY_APPEARANCE_PREFS_TAB_INDEX, index);
 }
 
-void SettingsStore::setBookViewAppearance(const SettingsStore::BookViewAppearance &book_view_appearance)
+void SettingsStore::setPreviewAppearance(const SettingsStore::PreviewAppearance &preview_appearance)
 {
     clearSettingsGroup();
-    setValue(KEY_BOOK_VIEW_FONT_FAMILY_STANDARD, book_view_appearance.font_family_standard);
-    setValue(KEY_BOOK_VIEW_FONT_FAMILY_SERIF, book_view_appearance.font_family_serif);
-    setValue(KEY_BOOK_VIEW_FONT_FAMILY_SANS_SERIF, book_view_appearance.font_family_sans_serif);
-    setValue(KEY_BOOK_VIEW_FONT_SIZE, book_view_appearance.font_size);
+    setValue(KEY_PREVIEW_FONT_FAMILY_STANDARD, preview_appearance.font_family_standard);
+    setValue(KEY_PREVIEW_FONT_FAMILY_SERIF, preview_appearance.font_family_serif);
+    setValue(KEY_PREVIEW_FONT_FAMILY_SANS_SERIF, preview_appearance.font_family_sans_serif);
+    setValue(KEY_PREVIEW_FONT_SIZE, preview_appearance.font_size);
 }
 
 void SettingsStore::setCodeViewAppearance(const SettingsStore::CodeViewAppearance &code_view_appearance)
@@ -580,10 +567,10 @@ void SettingsStore::setClipboardHistoryLimit(int limit)
 void SettingsStore::clearAppearanceSettings()
 {
     clearSettingsGroup();
-    remove(KEY_BOOK_VIEW_FONT_FAMILY_STANDARD);
-    remove(KEY_BOOK_VIEW_FONT_FAMILY_SERIF);
-    remove(KEY_BOOK_VIEW_FONT_FAMILY_SANS_SERIF);
-    remove(KEY_BOOK_VIEW_FONT_SIZE);
+    remove(KEY_PREVIEW_FONT_FAMILY_STANDARD);
+    remove(KEY_PREVIEW_FONT_FAMILY_SERIF);
+    remove(KEY_PREVIEW_FONT_FAMILY_SANS_SERIF);
+    remove(KEY_PREVIEW_FONT_SIZE);
     remove(KEY_CODE_VIEW_BACKGROUND_COLOR);
     remove(KEY_CODE_VIEW_FOREGROUND_COLOR);
     remove(KEY_CODE_VIEW_CSS_COMMENT_COLOR);
