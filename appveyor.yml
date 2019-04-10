@@ -28,6 +28,8 @@ clone_script:
     
     Set-Location $env:appveyor_build_folder
 
+install:
+  - choco install ninja
 
 environment:
   global:
@@ -84,17 +86,17 @@ before_build:
     pip3.7 install lxml==4.2.6
     cd project\sigil\build
     call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %PLATFORM% -vcvars_ver=14.0
-    cmake .. -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=%configuration% -DQt5_DIR=%QT%\lib\cmake\Qt5 %CMAKE64BIT%
+    cmake .. -G "Ninja" -DCMAKE_BUILD_TYPE=%configuration% -DQt5_DIR=%QT%\lib\cmake\Qt5 %CMAKE64BIT%
 
     
 build_script:
 - cmd: |-
-    nmake
+    ninja -j4
  
 
 after_build:
 - cmd: |-
-    nmake makeinstaller
+    ninja -j4 makeinstaller
 
 artifacts:
     path: build\installer\*.exe
