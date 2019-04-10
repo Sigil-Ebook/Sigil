@@ -189,6 +189,15 @@ void PreviewWindow::SetupView()
     QApplication::restoreOverrideCursor();
 }
 
+void PreviewWindow::ScrollTo(QList<ViewEditor::ElementIndex> location)
+{
+    if (!m_Preview->isVisible()) {
+        return;
+    }
+    m_Preview->StoreCaretLocationUpdate(location);
+    m_Preview->ExecuteCaretUpdate();
+}
+
 void PreviewWindow::UpdatePage(QString filename, QString text, QList<ViewEditor::ElementIndex> location)
 {
     if (!m_Preview->isVisible()) {

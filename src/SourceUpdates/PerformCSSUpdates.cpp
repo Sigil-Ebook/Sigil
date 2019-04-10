@@ -65,6 +65,7 @@ QString PerformCSSUpdates::operator()()
         ")");
 
     int start_index = 0;
+    // this next line is what is crashing
     QRegularExpressionMatch mo = reference.match(result, start_index);
     // handle case if no initial match at all
     if (!mo.hasMatch()) return result;

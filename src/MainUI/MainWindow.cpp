@@ -3348,6 +3348,27 @@ void MainWindow::UpdatePreviewCSSRequest()
     UpdatePreviewRequest();
 }
 
+void MainWindow::ScrollPreview()
+{
+    HTMLResource *html_resource;
+    ContentTab *tab = GetCurrentContentTab();
+    if (tab != NULL) {
+        html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());
+        if (html_resource) {
+            FlowTab *flow_tab = qobject_cast<FlowTab *>(tab);
+            if (flow_tab) {
+	        // Make sure the document is loaded.  As soon as the views are created
+	        // signals are sent that it has changed which requests Preview to update
+	        // so these need to be ignored.  Once the document is loaded it signals again.
+	        if (!flow_tab->IsLoadingFinished()) {
+	            return;
+	        }
+	        m_PreviewWindow->ScrollTo(flow_tab->GetCaretLocation());
+            }
+        }
+    }
+}
+
 void MainWindow::UpdatePreview()
 {
     m_PreviewTimer.stop();
@@ -5161,6 +5182,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
 
         connect(tab,   SIGNAL(UpdatePreview()), this, SLOT(UpdatePreviewRequest()));
         connect(tab,   SIGNAL(UpdatePreviewImmediately()), this, SLOT(UpdatePreview()));
+	connect(tab,   SIGNAL(ScrollPreviewImmediately()), this, SLOT(ScrollPreview()));
         connect(tab,   SIGNAL(InspectElement()), this, SLOT(InspectHTML()));
     }
 

@@ -510,6 +510,15 @@ void FlowTab::EmitUpdatePreviewImmediately()
     emit UpdatePreviewImmediately();
 }
 
+void FlowTab::EmitScrollPreviewImmediately()
+{
+    if (!IsModified()) {
+        emit ScrollPreviewImmediately();
+    } else {
+        emit UpdatePreviewImmediately();
+    }
+}
+
 void FlowTab::EmitUpdateCursorPosition()
 {
     emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
@@ -1587,7 +1596,7 @@ void FlowTab::ConnectBookViewSignalsToSlots()
     connect(m_wBookView, SIGNAL(textChanged()), this, SLOT(EmitContentChanged()));
     connect(m_wBookView, SIGNAL(BVInspectElement()), this, SIGNAL(InspectElement()));
     connect(m_wBookView, SIGNAL(PageUpdated()), this, SLOT(EmitUpdatePreview()));
-    connect(m_wBookView, SIGNAL(PageClicked()), this, SLOT(EmitUpdatePreviewImmediately()));
+    connect(m_wBookView, SIGNAL(PageClicked()), this, SLOT(EmitScrollPreviewImmediately()));
     connect(m_wBookView, SIGNAL(PageOpened()), this, SLOT(EmitUpdatePreviewImmediately()));
     connect(m_wBookView, SIGNAL(DocumentLoaded()), this, SLOT(EmitUpdatePreviewImmediately()));
 }
@@ -1609,7 +1618,7 @@ void FlowTab::ConnectCodeViewSignalsToSlots()
     connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
     connect(m_wCodeView, SIGNAL(FilteredCursorMoved()), this, SLOT(EmitUpdatePreview()));
     connect(m_wCodeView, SIGNAL(PageUpdated()), this, SLOT(EmitUpdatePreview()));
-    connect(m_wCodeView, SIGNAL(PageClicked()), this, SLOT(EmitUpdatePreviewImmediately()));
+    connect(m_wCodeView, SIGNAL(PageClicked()), this, SLOT(EmitScrollPreviewImmediately()));
     connect(m_wCodeView, SIGNAL(DocumentSet()), this, SLOT(EmitUpdatePreviewImmediately()));
     connect(m_wCodeView, SIGNAL(MarkSelectionRequest()), this, SIGNAL(MarkSelectionRequest()));
     connect(m_wCodeView, SIGNAL(ClearMarkedTextRequest()), this, SIGNAL(ClearMarkedTextRequest()));

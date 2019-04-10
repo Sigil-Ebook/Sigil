@@ -299,6 +299,7 @@ signals:
 
     void UpdatePreview();
     void UpdatePreviewImmediately();
+    void ScrollPreviewImmediately();
 
     void InspectElement();
 
@@ -323,6 +324,7 @@ private slots:
 
     void EmitUpdatePreview();
     void EmitUpdatePreviewImmediately();
+    void EmitScrollPreviewImmediately();
 
     void EmitUpdateCursorPosition();
 
