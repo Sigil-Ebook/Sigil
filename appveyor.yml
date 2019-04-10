@@ -8,7 +8,7 @@ branches:
 clone_folder: c:\project\sigil
 
 image:
-- Visual Studio 2017
+- Visual Studio 2015
 
 configuration: Release
 
@@ -39,7 +39,7 @@ environment:
       QT: C:\MyQt32\Qt5.12.2
       CMAKE64BIT:
     - PYTHON: C:\Python37-x64
-      QT: C:\MyQt64\Qt5.12.2
+      QT: C:\Qt\5.12.1\msvc2015_64
       CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
 
 matrix:
@@ -69,8 +69,6 @@ before_build:
     cp '%REDIST%' installer/
     mkdir build
     cd ..\..
-    curl.exe -L -o webkit.7z %DOWNLOAD%
-    7z x webkit.7z -y
     set PATH=%PYTHON%;%PYTHON%\Scripts;%QT%\bin;%INNO%;%PATH%
     python -m pip install --upgrade pip
     pip3.7 install six==1.12.0
@@ -83,7 +81,7 @@ before_build:
     pip3.7 install PyQt5==5.12.1
     pip3.7 install lxml==4.2.6
     cd project\sigil\build
-    call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %PLATFORM% -vcvars_ver=14.0
+    call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLATFORM%
     cmake .. -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=%configuration% -DQt5_DIR=%QT%\lib\cmake\Qt5 %CMAKE64BIT%
 
     
