@@ -3,7 +3,6 @@ version: '0.9.13-{build}'
 branches:
   only:
   - master
-  - engine
   - /\d+\.\d+\.\d+(-\d+)?/
   
 clone_folder: c:\project\sigil
