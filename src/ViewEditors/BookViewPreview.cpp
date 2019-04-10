@@ -223,7 +223,7 @@ void BookViewPreview::ScrollToTop()
     QString scroll = "var from_top = window.innerHeight / 2;"
                      "if (typeof element !== 'undefined') {"
                      "$.scrollTo(element, 0, {offset: {top:-from_top, left:0} });";
-    QString script = caret_location + scroll + SET_CURSOR_JS2 + "}";
+    QString script = caret_location + scroll + SET_CURSOR_JS + "}";
     EvaluateJavascript(script);
 }
 
@@ -246,7 +246,7 @@ void BookViewPreview::ScrollToFragmentInternal(const QString &fragment)
     QString scroll = "var from_top = window.innerHeight / 2.5;"
                      "if (typeof element !== 'undefined') {"
                      "$.scrollTo(element, 0, {offset: {top:-from_top, left:0 } });";
-    QString script = caret_location + scroll + SET_CURSOR_JS2 + "}";
+    QString script = caret_location + scroll + SET_CURSOR_JS + "}";
     EvaluateJavascript(script);
 }
 
@@ -592,7 +592,7 @@ void BookViewPreview::StoreCaretLocationUpdate(const QList<ViewEditor::ElementIn
     QString scroll = "var from_top = window.innerHeight / 2;"
                      "if (typeof element !== 'undefined') {"
                      "$.scrollTo( element, 0, {offset: {top:-from_top, left:0 } } );";
-    m_CaretLocationUpdate = caret_location + scroll + SET_CURSOR_JS2 + "}";
+    m_CaretLocationUpdate = caret_location + scroll + SET_CURSOR_JS + "}";
 }
 
 QString BookViewPreview::GetElementSelectingJS_WithTextNode(const QList<ViewEditor::ElementIndex> &hierarchy) const
