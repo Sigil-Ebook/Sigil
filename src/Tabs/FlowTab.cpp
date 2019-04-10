@@ -347,7 +347,16 @@ void FlowTab::EmitUpdatePreview()
 
 void FlowTab::EmitUpdatePreviewImmediately()
 {
-    emit UpdatePreviewImmediately();
+      emit UpdatePreviewImmediately();
+}
+
+void FlowTab::EmitScrollPreviewImmediately()
+{
+  if (!m_wCodeView->document()->isModified()) {
+      emit ScrollPreviewImmediately();
+  } else {
+      emit UpdatePreviewImmediately();
+  }
 }
 
 void FlowTab::EmitUpdateCursorPosition()
@@ -1160,7 +1169,7 @@ void FlowTab::ConnectCodeViewSignalsToSlots()
     connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
     connect(m_wCodeView, SIGNAL(FilteredCursorMoved()), this, SLOT(EmitUpdatePreview()));
     connect(m_wCodeView, SIGNAL(PageUpdated()), this, SLOT(EmitUpdatePreview()));
-    connect(m_wCodeView, SIGNAL(PageClicked()), this, SLOT(EmitUpdatePreviewImmediately()));
+    connect(m_wCodeView, SIGNAL(PageClicked()), this, SLOT(EmitScrollPreviewImmediately()));
     connect(m_wCodeView, SIGNAL(DocumentSet()), this, SLOT(EmitUpdatePreviewImmediately()));
     connect(m_wCodeView, SIGNAL(MarkSelectionRequest()), this, SIGNAL(MarkSelectionRequest()));
     connect(m_wCodeView, SIGNAL(ClearMarkedTextRequest()), this, SIGNAL(ClearMarkedTextRequest()));

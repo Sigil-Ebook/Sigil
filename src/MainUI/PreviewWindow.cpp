@@ -251,6 +251,15 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList<ElementInde
     UpdateWindowTitle();
 }
 
+void PreviewWindow::ScrollTo(QList<ElementIndex> location)
+{
+    if (!m_Preview->isVisible()) {
+        return;
+    }
+    m_Preview->StoreCaretLocationUpdate(location);
+    m_Preview->ExecuteCaretUpdate();
+}
+
 void PreviewWindow::UpdateWindowTitle()
 {
     if ((m_Preview) && m_Preview->isVisible()) {

@@ -49,6 +49,7 @@ public:
 
 public slots:
     void UpdatePage(QString filename, QString text, QList<ElementIndex> location);
+    void ScrollTo(QList<ElementIndex> location);
     void SetZoomFactor(float factor);
     void SplitterMoved(int pos, int index);
     void LinkClicked(const QUrl &url);

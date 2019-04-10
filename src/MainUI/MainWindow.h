@@ -515,6 +515,7 @@ private slots:
 
     void UpdatePreviewRequest();
     void UpdatePreviewCSSRequest();
+    void ScrollPreview();
     void UpdatePreview();
     void InspectHTML();
 
