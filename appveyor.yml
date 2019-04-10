@@ -3,6 +3,7 @@ version: '0.9.13-{build}'
 branches:
   only:
   - master
+  - engine
   - /\d+\.\d+\.\d+(-\d+)?/
   
 clone_folder: c:\project\sigil
@@ -39,7 +40,7 @@ environment:
       QT: C:\MyQt32\Qt5.12.2
       CMAKE64BIT:
     - PYTHON: C:\Python37-x64
-      QT: C:\MyQt64\Qt5.12.2
+      QT: C:\Qt\5.12\msvc2015_64
       CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
 
 matrix:
@@ -69,8 +70,6 @@ before_build:
     cp '%REDIST%' installer/
     mkdir build
     cd ..\..
-    curl.exe -L -o webkit.7z %DOWNLOAD%
-    7z x webkit.7z -y
     set PATH=%PYTHON%;%PYTHON%\Scripts;%QT%\bin;%INNO%;%PATH%
     python -m pip install --upgrade pip
     pip3.7 install six==1.12.0
