@@ -318,8 +318,8 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 	  if (mouseEvent) {
 	      if (mouseEvent->button() == Qt::LeftButton) {
 		  qDebug() << "Detected Left Mouse Button Release Event";
-	          m_GoToRequestPending = true;
-	          QTimer::singleShot(50, this, SLOT(EmitGoToPreviewLocationRequest()));
+	          // m_GoToRequestPending = true;
+	          // QTimer::singleShot(50, this, SLOT(EmitGoToPreviewLocationRequest()));
 	      }
 	  }
       }
