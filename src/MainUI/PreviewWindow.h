@@ -46,6 +46,8 @@ public:
     bool HasFocus();
     float GetZoomFactor();
     bool eventFilter(QObject *object, QEvent *event);
+    void setMathJaxURL(QString mathjaxurl) { m_mathjaxurl = mathjaxurl; };
+    void setUserCSSURL(QString usercssurl) { m_usercssurl = usercssurl; }
 
 public slots:
     void UpdatePage(QString filename, QString text, QList<ElementIndex> location);
@@ -86,6 +88,11 @@ private:
     QStackedWidget *m_StackedViews;
     QString m_Filepath;
     bool m_GoToRequestPending;
+
+    QString m_mathjaxurl;
+    QString m_usercssurl;
+
+
 };
 
 #endif // PREVIEWWINDOW_H

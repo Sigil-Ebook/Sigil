@@ -38,8 +38,6 @@
 #include <QtWebEngineWidgets/QWebEngineSettings>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
-// #include <QWebView>
-// #include <QWebPage>
 #include <QString>
 #include <QStringList>
 #include <QFont>
@@ -195,7 +193,7 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     setAttribute(Qt::WA_DeleteOnClose);
     ExtendUI();
     PlatformSpecificTweaks();
-    // Needs to come before signals connect
+    // Needs to come before signals connect and after ExtendUI
     // (avoiding side-effects)
     ReadSettings();
     // Ensure the UI is properly set to the saved view state.
@@ -3470,7 +3468,8 @@ void MainWindow::ReadSettings()
     m_ClipboardHistorySelector->LoadClipboardHistory(clipboardHistory);
     settings.endGroup();
     m_ClipboardHistoryLimit = settings.clipboardHistoryLimit();
-    // Our default fonts for book view/web preview
+
+    // Our default fonts for Preview
     SettingsStore::PreviewAppearance PVAppearance = settings.previewAppearance();
     QWebEngineSettings *web_settings = QWebEngineSettings::defaultSettings();
     web_settings->setFontSize(QWebEngineSettings::DefaultFontSize, PVAppearance.font_size);
@@ -3478,13 +3477,43 @@ void MainWindow::ReadSettings()
     web_settings->setFontFamily(QWebEngineSettings::SerifFont, PVAppearance.font_family_serif);
     web_settings->setFontFamily(QWebEngineSettings::SansSerifFont, PVAppearance.font_family_sans_serif);
 
-    // Check for existing custom Preview/Book View stylesheet in Prefs dir and load it if present
+    // Check for existing custom Preview stylesheet in Prefs dir and tell Preview about it
     QFileInfo CustomPreviewStylesheetInfo(QDir(Utility::DefinePrefsDir()).filePath(CUSTOM_PREVIEW_STYLE_FILENAME));
-    if (CustomPreviewStylesheetInfo.exists() && CustomPreviewStylesheetInfo.isFile() && CustomPreviewStylesheetInfo.isReadable()) {
-        // following no longer exists in QtWebEngine so until we figure out how to use
-        // javascript to handle this insertion we will need to disable this
-        // web_settings->setUserStyleSheetUrl(QUrl::fromLocalFile(CustomPreviewStylesheetInfo.absoluteFilePath()));
+    if (CustomPreviewStylesheetInfo.exists() && 
+	CustomPreviewStylesheetInfo.isFile() && 
+	CustomPreviewStylesheetInfo.isReadable()) {
+        QString usercssurl = QUrl::fromLocalFile(CustomPreviewStylesheetInfo.absoluteFilePath()).toString();
+        m_PreviewWindow->setUserCSSURL(usercssurl);
     }
+
+    // Determine MathJax location and tell Preview about it
+    // The path to MathJax.js is platform dependent
+    QString mathjaxurl;
+#ifdef Q_OS_MAC
+    // On Mac OS X QCoreApplication::applicationDirPath() points to Sigil.app/Contents/MacOS/ 
+    QDir execdir(QCoreApplication::applicationDirPath());
+    execdir.cdUp();
+    mathjaxurl = execdir.absolutePath() + "/polyfills/MJ/MathJax.js";
+#elif defined(Q_OS_WIN32)
+    mathjaxurl = "/" + QCoreApplication::applicationDirPath() + "/polyfills/MJ/MathJax.js";
+#else
+    // all flavours of linux / unix
+    // First check if system MathJax was configured to be used at compile time
+    if (!mathjax_dir.isEmpty()) {
+        mathjaxurl = mathjax_dir + "/MathJax.js";
+    } else {
+        // otherwise user supplied environment variable to 'share/sigil'
+        // takes precedence over Sigil's usual share location.
+        if (!sigil_extra_root.isEmpty()) {
+	    mathjaxurl = sigil_extra_root + "/polyfills/MJ/MathJax.js";
+        } else {
+	    mathjaxurl = sigil_share_root + "/polyfills/MJ/MathJax.js";
+        }
+    }
+#endif
+    mathjaxurl = "file://" + Utility::URLEncodePath(mathjaxurl);
+    mathjaxurl = mathjaxurl + "?config=local/SIGIL_EBOOK_MML_SVG";
+    m_PreviewWindow->setMathJaxURL(mathjaxurl);
 }
 
 

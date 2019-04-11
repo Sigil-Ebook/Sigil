@@ -195,44 +195,27 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList<ElementInde
         return;
     }
 
-    // If this page uses the mathml, inject a polyfill
+    // If the user has set a default stylesheet inject it
+    if (!m_usercssurl.isEmpty()) {
+        int endheadpos = text.indexOf("</head>");
+        if (endheadpos > 1) {
+            QString inject_userstyles = 
+              "<link rel=\"stylesheet\" type=\"text/css\""
+	      "href=\"" + m_usercssurl + "\" />\n";
+            text.insert(endheadpos, inject_userstyles);
+	}
+    }
+
+    // If this page uses mathml tags, inject a polyfill
     // MathJax.js so that the mathml appears in the Preview Window
     QRegularExpression mathused("<\\s*math [^>]*>");
     QRegularExpressionMatch mo = mathused.match(text);
     if (mo.hasMatch()) {
-        QString mathjaxurl;
-
-        // The path to MathJax.js is platform dependent
-#ifdef Q_OS_MAC
-        // On Mac OS X QCoreApplication::applicationDirPath() points to Sigil.app/Contents/MacOS/ 
-        QDir execdir(QCoreApplication::applicationDirPath());
-        execdir.cdUp();
-        mathjaxurl = execdir.absolutePath() + "/polyfills/MJ/MathJax.js";
-#elif defined(Q_OS_WIN32)
-        mathjaxurl = "/" + QCoreApplication::applicationDirPath() + "/polyfills/MJ/MathJax.js";
-#else
-        // all flavours of linux / unix
-        // First check if system MathJax was configured to be used at compile time
-        if (!mathjax_dir.isEmpty()) {
-            mathjaxurl = mathjax_dir + "/MathJax.js";
-        } else {
-            // otherwise user supplied environment variable to 'share/sigil'
-            // takes precedence over Sigil's usual share location.
-            if (!sigil_extra_root.isEmpty()) {
-                mathjaxurl = sigil_extra_root + "/polyfills/MJ/MathJax.js";
-            } else {
-                mathjaxurl = sigil_share_root + "/polyfills/MJ/MathJax.js";
-            }
-        }
-#endif
-
-        mathjaxurl = "file://" + Utility::URLEncodePath(mathjaxurl);
-        mathjaxurl = mathjaxurl + "?config=local/SIGIL_EBOOK_MML_SVG";
         int endheadpos = text.indexOf("</head>");
         if (endheadpos > 1) {
             QString inject_mathjax = 
               "<script type=\"text/javascript\" async=\"async\" "
-              "src=\"" + mathjaxurl + "\"></script>";
+              "src=\"" + m_mathjaxurl + "\"></script>\n";
             text.insert(endheadpos, inject_mathjax);
         }
     }
@@ -247,7 +230,6 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList<ElementInde
 
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();
-    // m_Preview->InspectElement();
     UpdateWindowTitle();
 }
 
