@@ -31,6 +31,7 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QTimer>
+#include <QDebug>
 
 #include "MainUI/PreviewWindow.h"
 #include "Misc/SleepFunctions.h"
@@ -254,10 +255,10 @@ void PreviewWindow::UpdateWindowTitle()
 QList<ElementIndex> PreviewWindow::GetCaretLocation()
 {
     QList<ElementIndex> hierarchy = m_Preview->GetCaretLocation();
-    // foreach(ElementIndex ei, hierarchy){
-    //     qDebug()<< "name: " << ei.name << " index: " << ei.index;
-    // }
-   return hierarchy;
+    foreach(ElementIndex ei, hierarchy){
+        qDebug()<< "name: " << ei.name << " index: " << ei.index;
+    }
+    return hierarchy;
 }
 
 void PreviewWindow::SetZoomFactor(float factor)
@@ -290,7 +291,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
   switch (event->type()) {
     case QEvent::ChildAdded:
       if (object == m_Preview) {
-	  // qDebug() << "child add event";
+	  qDebug() << "child add event";
 	  const QChildEvent *childEvent(static_cast<QChildEvent*>(event));
 	  if (childEvent->child()) {
 	      childEvent->child()->installEventFilter(this);
@@ -299,10 +300,11 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
       break;
     case QEvent::MouseButtonPress:
       {
-	  // qDebug() << "Preview mouse button press event " << object;
+	  qDebug() << "Preview mouse button press event " << object;
 	  const QMouseEvent *mouseEvent(static_cast<QMouseEvent*>(event));
 	  if (mouseEvent) {
 	      if (mouseEvent->button() == Qt::LeftButton) {
+		  qDebug() << "Detected Left Mouse Button Press Event";
 	          m_GoToRequestPending = true;
 	          QTimer::singleShot(50, this, SLOT(EmitGoToPreviewLocationRequest()));
 	      }
@@ -311,7 +313,15 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
       break;
     case QEvent::MouseButtonRelease:
       {
-	  // qDebug() << "Preview mouse button release event " << object;
+	  qDebug() << "Preview mouse button release event " << object;
+	  const QMouseEvent *mouseEvent(static_cast<QMouseEvent*>(event));
+	  if (mouseEvent) {
+	      if (mouseEvent->button() == Qt::LeftButton) {
+		  qDebug() << "Detected Left Mouse Button Release Event";
+	          m_GoToRequestPending = true;
+	          QTimer::singleShot(50, this, SLOT(EmitGoToPreviewLocationRequest()));
+	      }
+	  }
       }
       break;
     default:
@@ -323,7 +333,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 void PreviewWindow::LinkClicked(const QUrl &url)
 {
     if (m_GoToRequestPending) m_GoToRequestPending = false;
-    // qDebug() << "in PreviewWindow LinkClicked with url :" << url.toString();
+    qDebug() << "in PreviewWindow LinkClicked with url :" << url.toString();
 
     if (url.toString().isEmpty()) {
         return;
