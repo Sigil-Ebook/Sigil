@@ -230,7 +230,7 @@ void ViewPreview::UpdateFinishedState(bool okay)
 QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
 {
     JSResult * pres = new JSResult();
-    int loop_count = 100;
+    int loop_count = 1000;
     page()->runJavaScript(javascript,SetJavascriptResultFunctor(pres));
     qDebug() << "evaluate javascript" << javascript;
     while(!pres->isFinished() && (loop_count-- > 0)) {
