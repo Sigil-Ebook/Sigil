@@ -236,6 +236,7 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList<ElementInde
 
 void PreviewWindow::ScrollTo(QList<ElementIndex> location)
 {
+    qDebug() << "received a PreviewWindow ScrollTo event";
     if (!m_Preview->isVisible()) {
         return;
     }
@@ -279,6 +280,7 @@ void PreviewWindow::SplitterMoved(int pos, int index)
 
 void PreviewWindow::EmitGoToPreviewLocationRequest()
 {
+    qDebug() << "in EmitGoToPreviewLocationRequest with pending request: " << m_GoToRequestPending;
     if (m_GoToRequestPending) {
         m_GoToRequestPending = false;
         emit GoToPreviewLocationRequest();
@@ -305,8 +307,9 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 	  if (mouseEvent) {
 	      if (mouseEvent->button() == Qt::LeftButton) {
 		  qDebug() << "Detected Left Mouse Button Press Event";
+ 		  qDebug() << "emitting GoToPreviewLocationRequest";
 	          m_GoToRequestPending = true;
-	          QTimer::singleShot(50, this, SLOT(EmitGoToPreviewLocationRequest()));
+	          QTimer::singleShot(100, this, SLOT(EmitGoToPreviewLocationRequest()));
 	      }
 	  }
       }
@@ -317,9 +320,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 	  const QMouseEvent *mouseEvent(static_cast<QMouseEvent*>(event));
 	  if (mouseEvent) {
 	      if (mouseEvent->button() == Qt::LeftButton) {
-		  qDebug() << "Detected Left Mouse Button Release Event";
-	          // m_GoToRequestPending = true;
-	          // QTimer::singleShot(50, this, SLOT(EmitGoToPreviewLocationRequest()));
+ 		  qDebug() << "Detected Left Mouse Button Release Event";
 	      }
 	  }
       }

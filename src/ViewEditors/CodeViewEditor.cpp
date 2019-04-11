@@ -38,6 +38,7 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QRegularExpressionMatchIterator>
+#include <QDebug>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/CleanSource.h"
@@ -1853,10 +1854,20 @@ void CodeViewEditor::focusOutEvent(QFocusEvent *event)
 
 void CodeViewEditor::EmitFilteredCursorMoved()
 {
+    // 20190411 - I can see no reason at all that this is needed and it causes
+    // full reloads of the Preview for nothing other than a cursor 
+    // movement in the CodeView.
+
+    // So disable this for now
+
+#if 0
+    // qDebug() << "CV in EmitFilteredCursorMoved()";
+
     // Avoid slowdown while selecting text
     if (QApplication::mouseButtons() == Qt::NoButton) {
         emit FilteredCursorMoved();
     }
+#endif
 }
 
 void CodeViewEditor::TextChangedFilter()
@@ -2317,7 +2328,6 @@ std::tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<Ele
     }
     QTextCursor cursor(document());
     return std::make_tuple(line - cursor.blockNumber(), col);
-
 }
 
 

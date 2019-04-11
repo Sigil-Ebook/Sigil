@@ -3131,6 +3131,7 @@ void MainWindow::UpdatePreviewCSSRequest()
 
 void MainWindow::ScrollPreview()
 {
+    qDebug() << "in ScrollPreview called from FlowTab";
     QList<ElementIndex> location;
     HTMLResource *html_resource;
 

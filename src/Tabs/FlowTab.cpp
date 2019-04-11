@@ -32,6 +32,7 @@
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintDialog>
 #include <QtPrintSupport/QPrintPreviewDialog>
+#include <QDebug>
 
 #include "BookManipulation/CleanSource.h"
 #include "MiscEditors/ClipEditorModel.h"
@@ -226,6 +227,7 @@ void FlowTab::ResourceModified()
         m_LastPosition = -1;
     }
 
+    qDebug() << "FlowTab emitting UpdatePreview from ResourceModified";
     EmitUpdatePreview();
 }
 
@@ -290,30 +292,36 @@ void FlowTab::UpdateDisplay()
 void FlowTab::EmitContentChanged()
 {
     m_safeToLoad = false;
+    qDebug() << "FlowTab emiting Content Changed";
     emit ContentChanged();
 }
 
 void FlowTab::EmitUpdatePreview()
 {
+    qDebug() << "FlowTab emiting UpdatePreview from EmitUpdatePreview";
     emit UpdatePreview();
 }
 
 void FlowTab::EmitUpdatePreviewImmediately()
 {
+      qDebug() << "FlowTab emiting UpdatePreviewImmediately from EmitUpdatePreviewImmediately";
       emit UpdatePreviewImmediately();
 }
 
 void FlowTab::EmitScrollPreviewImmediately()
 {
   if (!m_wCodeView->document()->isModified()) {
+      qDebug() << "FlowTab emiting ScrollPreviewImmediately from EmitScrollPreviewImmediately";
       emit ScrollPreviewImmediately();
   } else {
+      qDebug() << "FlowTab emiting UpdatePreviewImmediately from EmitScrollPreviewImmediately";
       emit UpdatePreviewImmediately();
   }
 }
 
 void FlowTab::EmitUpdateCursorPosition()
 {
+    qDebug() << "FlowTab emiting UpdateCursorPosition from EmitUpdateCursorPosition";
     emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
 }
 
