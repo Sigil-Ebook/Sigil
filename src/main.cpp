@@ -52,7 +52,7 @@
 # include <QTextStream>
 # include <QProcessEnvironment>
 # include <QtWidgets/QPlainTextEdit>
-# include "ViewEditors/BookViewBase.h"
+// # include "ViewEditors/BookViewBase.h"
 static const QString WIN_CLIPBOARD_ERROR = "QClipboard::setMimeData: Failed to set data on clipboard";
 static const int RETRY_DELAY_MS = 5;
 #endif
@@ -163,6 +163,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
                         break;
                     }
 
+#if 0
                     // BV/PV copying is a little different, in that the focus widget is set to
                     // the parent editor (unlike CodeView's QPlainTextEdit).
                     BookViewBase *bookViewBase = dynamic_cast<BookViewBase *>(widget);
@@ -171,6 +172,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
                         QTimer::singleShot(RETRY_DELAY_MS, bookViewBase, SLOT(copy()));
                         break;
                     }
+#endif
 
                     // Same issue can happen on a QLineEdit / QComboBox
                     QLineEdit *lineEdit = dynamic_cast<QLineEdit *>(widget);
