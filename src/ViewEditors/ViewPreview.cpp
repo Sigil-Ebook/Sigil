@@ -21,6 +21,7 @@
 
 #include <QEvent>
 #include <QEventLoop>
+#include <QDeadlineTimer>
 #include <QSize>
 #include <QUrl>
 #include <QDir>
@@ -230,10 +231,10 @@ void ViewPreview::UpdateFinishedState(bool okay)
 QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
 {
     JSResult * pres = new JSResult();
-    int loop_count = 1000;
-    page()->runJavaScript(javascript,SetJavascriptResultFunctor(pres));
+    QDeadlineTimer deadline(5000);  // in milliseconds
     qDebug() << "evaluate javascript" << javascript;
-    while(!pres->isFinished() && (loop_count-- > 0)) {
+    page()->runJavaScript(javascript,SetJavascriptResultFunctor(pres));
+    while(!pres->isFinished() && (!deadline.hasExpired())) {
         qApp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::ExcludeSocketNotifiers, 100);
     }
     QVariant res;
