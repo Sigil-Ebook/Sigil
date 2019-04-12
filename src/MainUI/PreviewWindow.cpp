@@ -201,8 +201,9 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList<ElementInde
         int endheadpos = text.indexOf("</head>");
         if (endheadpos > 1) {
             QString inject_userstyles = 
-              "<link rel=\"stylesheet\" type=\"text/css\""
+              "<link rel=\"stylesheet\" type=\"text/css\" "
 	      "href=\"" + m_usercssurl + "\" />\n";
+	    qDebug() << "Preview injecting stylesheet: " << inject_userstyles;
             text.insert(endheadpos, inject_userstyles);
 	}
     }
