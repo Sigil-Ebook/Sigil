@@ -210,7 +210,10 @@ public:
     // converted to normal spaces)
     QString toPlainText() const;
 
-
+    // override the createMimeDataFromSelection() to 
+    // prevent copy and cut from losing nbsp
+    // ala Kovid's solution in calibre PlainTextEdit
+    virtual QMimeData *createMimeDataFromSelection() const;
 
     // inherited
     bool IsLoadingFinished();

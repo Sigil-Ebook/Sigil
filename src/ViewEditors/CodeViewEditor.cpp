@@ -654,6 +654,16 @@ QString CodeViewEditor::toPlainText() const
     return doc->toText();
 }
 
+// overrides createMimeDataFromSelection()
+QMimeData *CodeViewEditor::createMimeDataFromSelection() const
+{ 
+  QString selected_text = textCursor().selectedText();
+  selected_text = selected_text.replace(QChar::ParagraphSeparator, '\n');
+  QMimeData* md = new QMimeData();
+  md->setText(selected_text);
+  return md;
+}
+
 bool CodeViewEditor::IsLoadingFinished()
 {
     return m_isLoadFinished;
