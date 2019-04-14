@@ -153,6 +153,10 @@ void FlowTab::DelayedInitialization()
     // Only now will we wire up monitoring of ResourceChanged, to prevent
     // unnecessary saving and marking of the resource for reloading.
     DelayedConnectSignalsToSlots();
+
+    // sync Preview to where CodeView is now
+    emit ScrollPreviewImmediately();
+
     // Cursor set in constructor
     QApplication::restoreOverrideCursor();
 }
