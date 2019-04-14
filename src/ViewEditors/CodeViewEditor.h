@@ -24,6 +24,7 @@
 #ifndef CODEVIEWEDITOR_H
 #define CODEVIEWEDITOR_H
 
+#include <QMimeData>
 #include <QtCore/QList>
 #include <QtCore/QStack>
 #include <QtWidgets/QPlainTextEdit>
@@ -210,7 +211,10 @@ public:
     // converted to normal spaces)
     QString toPlainText() const;
 
-
+    // override the createMimeDataFromSelection() to 
+    // prevent copy and cut from losing nbsp
+    // ala Kovid's solution in calibre PlainTextEdit
+    virtual QMimeData *createMimeDataFromSelection() const;
 
     // inherited
     bool IsLoadingFinished();

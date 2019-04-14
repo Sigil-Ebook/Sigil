@@ -26,6 +26,8 @@
 
 #include <memory>
 
+#include <QChar>
+#include <QString>
 #include <QtCore/QFileInfo>
 #include <QtGui/QContextMenuEvent>
 #include <QtCore/QSignalMapper>
@@ -648,6 +650,16 @@ QString CodeViewEditor::toPlainText() const
 {
     TextDocument * doc = qobject_cast<TextDocument *> (document());
     return doc->toText();
+}
+
+// overrides createMimeDataFromSelection()
+QMimeData *CodeViewEditor::createMimeDataFromSelection() const
+{ 
+  QString selected_text = textCursor().selectedText();
+  selected_text = selected_text.replace(QChar::ParagraphSeparator, '\n');
+  QMimeData* md = new QMimeData();
+  md->setText(selected_text);
+  return md;
 }
 
 bool CodeViewEditor::IsLoadingFinished()
