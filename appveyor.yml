@@ -44,7 +44,7 @@ environment:
       QT: C:\MyQt32\Qt5.12.2
       CMAKE64BIT:
     - PYTHON: C:\Python37-x64
-      QT: C:\MyQtx64_WE\5.12
+      QT: C:\MyQtx64_WE\5.12.2
       CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
 
 matrix:
