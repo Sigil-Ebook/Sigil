@@ -1008,10 +1008,6 @@ private:
 
     QTimer m_PreviewTimer;
 
-    HTMLResource *m_PreviousHTMLResource;
-    QString m_PreviousHTMLText;
-    QList<ViewEditor::ElementIndex> m_PreviousHTMLLocation;
-
     /**
      * dynamically updated plugin menus and actions
      */

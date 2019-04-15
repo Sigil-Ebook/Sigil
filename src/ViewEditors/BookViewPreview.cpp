@@ -358,6 +358,11 @@ void BookViewPreview::SetUpFindForSelectedText(const QString &search_regex)
     // Nothing to do for Book Preview
 }
 
+void BookViewPreview::LoadingStarted()
+{
+    m_isLoadFinished = false;
+}
+
 void BookViewPreview::UpdateFinishedState(bool okay)
 {
     if (okay) {
@@ -787,6 +792,7 @@ void BookViewPreview::ConnectSignalsToSlots()
 {
     connect(this,  SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(OpenContextMenu(const QPoint &)));
     connect(m_InspectElement,    SIGNAL(triggered()),  this, SLOT(InspectElement()));
+    connect(page(), SIGNAL(loadStarted()), this, SLOT(LoadingStarted()));
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
     connect(page(), SIGNAL(linkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));

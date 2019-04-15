@@ -303,6 +303,11 @@ signals:
 
     void InspectElement();
 
+public slots:
+    void EmitUpdatePreview();
+    void EmitUpdatePreviewImmediately();
+    void EmitScrollPreviewImmediately();
+
 
 private slots:
 
@@ -321,10 +326,6 @@ private slots:
     void DelayedConnectSignalsToSlots();
 
     void EmitContentChanged();
-
-    void EmitUpdatePreview();
-    void EmitUpdatePreviewImmediately();
-    void EmitScrollPreviewImmediately();
 
     void EmitUpdateCursorPosition();
 

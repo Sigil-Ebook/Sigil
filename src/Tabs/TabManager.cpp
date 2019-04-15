@@ -398,6 +398,8 @@ bool TabManager::SwitchedToExistingTab(const Resource *resource,
     // If the resource is already opened in
     // some tab, then we just switch to it
     if (resource_index != -1) {
+        // the next line will cause a TabChanged signal to be emitted
+        // which will cause the Preview to be updated
         setCurrentIndex(resource_index);
         QWidget *tab = widget(resource_index);
         Q_ASSERT(tab);

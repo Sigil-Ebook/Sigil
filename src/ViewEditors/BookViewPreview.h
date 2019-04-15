@@ -171,6 +171,7 @@ protected:
 
 protected slots:
 
+    void LoadingStarted();
     void UpdateFinishedState(bool okay);
 
     /**
