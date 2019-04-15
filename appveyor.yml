@@ -38,13 +38,13 @@ environment:
   global:
       INNO: C:\Program Files (x86)\Inno Setup 5
       REDIST: C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Redist\MSVC\%RedistVersion%\vcredist_%PLATFORM%.exe
-      DOWNLOAD: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/MyQt%PLATFORM%-5.12.2-Full-VS2015.7z
+      DOWNLOAD: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/MyQt%PLATFORM%_WE-5.12.2-Full-VS2017.7z
   matrix:
     - PYTHON: C:\Python37
       QT: C:\MyQt32\Qt5.12.2
       CMAKE64BIT:
     - PYTHON: C:\Python37-x64
-      QT: C:\Qt\5.12\msvc2017_64
+      QT: C:\MyQtx64_WE\Qt5.12.2
       CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
 
 matrix:
@@ -74,6 +74,8 @@ before_build:
     cp '%REDIST%' installer/
     mkdir build
     cd ..\..
+    curl.exe -L -o webkit.7z %DOWNLOAD%
+    7z x webkit.7z -y
     set PATH=%PYTHON%;%PYTHON%\Scripts;%QT%\bin;%INNO%;%PATH%
     python -m pip install --upgrade pip
     pip3.7 install six==1.12.0
