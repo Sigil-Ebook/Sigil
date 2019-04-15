@@ -49,6 +49,8 @@ public:
 
     bool IsLoadingFinished();
 
+    bool WasLoadOkay() { return m_LoadOkay; }
+
     void SetZoomFactor(float factor);
 
     void SetCurrentZoomFactor(float factor);
@@ -139,6 +141,7 @@ protected:
 protected slots:
 
     void UpdateFinishedState(bool okay);
+    void LoadingStarted();
 
 protected:
 
@@ -218,6 +221,7 @@ private:
     int m_pendingLoadCount;
     QString m_pendingScrollToFragment;
 
+    bool m_LoadOkay;
     // QAction *m_InspectElement;
 
 };

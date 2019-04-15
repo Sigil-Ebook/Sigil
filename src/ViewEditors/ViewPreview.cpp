@@ -22,6 +22,7 @@
 #include <QEvent>
 #include <QEventLoop>
 #include <QDeadlineTimer>
+#include <QTimer>
 #include <QSize>
 #include <QUrl>
 #include <QDir>
@@ -50,6 +51,7 @@ struct JSResult {
   bool     finished;
   JSResult() : res(QVariant("")), finished(false) {}
   JSResult(JSResult * pRes) : res(pRes->res),  finished(pRes->finished) {}
+  ~JSResult() { }
   bool isFinished() { return finished; }
 };
 
@@ -59,7 +61,7 @@ struct SetJavascriptResultFunctor {
     void operator()(const QVariant &result) {
         pres->res.setValue(result);
         pres->finished = true;
-        // qDebug() << "javascript done";
+        qDebug() << "javascript done";
     }
 };
 
@@ -72,13 +74,15 @@ ViewPreview::ViewPreview(QWidget *parent)
       c_GetCaretLocation(Utility::ReadUnicodeTextFile(":/javascript/book_view_current_location.js")),
       m_CaretLocationUpdate(QString()),
       m_pendingLoadCount(0),
-      m_pendingScrollToFragment(QString())
+      m_pendingScrollToFragment(QString()),
+      m_LoadOkay(true)
 {
     setPage(m_ViewWebPage);
     setContextMenuPolicy(Qt::CustomContextMenu);
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
     SetCurrentZoomFactor(settings.zoomPreview());
+    page()->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, true);
     page()->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, false);
     page()->settings()->setDefaultTextEncoding("UTF-8");
     // Allow epubs to access remote resources via the net
@@ -124,15 +128,18 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
 
     // If this is not the very first load of this document, store the caret location
     if (!url().isEmpty()) {
-        StoreCurrentCaretLocation();
+
+        // This next line really causes problems as it happens to interfere with later loading
+        // StoreCurrentCaretLocation();
+ 
 	// keep memory footprint small clear any caches when a new page loads
 	if (url().toLocalFile() != path) {
-	    page()->profile()->clearHttpCache();
+	    // page()->profile()->clearHttpCache();
 	} 
-
     }
 
     m_isLoadFinished = false;
+
     // If Tidy is turned off, then Sigil will explode if there is no xmlns
     // on the <html> element. So we will silently add it if needed to ensure
     // no errors occur, to allow loading of documents created outside of
@@ -217,25 +224,49 @@ void ViewPreview::ScrollToFragmentInternal(const QString &fragment)
     QString script = caret_location + scroll + SET_CURSOR_JS2 + "}";
     DoJavascript(script);
 }
+void ViewPreview::LoadingStarted()
+{
+    qDebug() << "Loading a page started";
+    // m_isLoadFinished = false;
+    // m_LoadOkay = true;
+}
 
 void ViewPreview::UpdateFinishedState(bool okay)
 {
+    // AAArrrrggggggghhhhhhhh - Qt 5.12.2 has a bug that returns 
+    // loadFinished with okay as false when reloading some pages but there
+    // are no apparent errors
+
+    // Worse yet there is randomly a second loadFinished signal with okay set to good
+
+    qDebug() << "UpdateFinishedState with okay " << okay;
     if (okay) {
         m_isLoadFinished = true;
+	m_LoadOkay = true;
         emit DocumentLoaded();
     } else {
+        // an error loading the page happened
+        // m_isLoadFinished = false;
         m_isLoadFinished = false;
+	m_LoadOkay = false;
+        emit DocumentLoaded();
     }
 }
 
 QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
 {
+     // do not try to evaluate javascripts with the page not loaded yet
+    qDebug() << "EvaluateJavascript: " << m_isLoadFinished;
+    if (!m_isLoadFinished) return QVariant();
+
     JSResult * pres = new JSResult();
-    QDeadlineTimer deadline(5000);  // in milliseconds
+    QDeadlineTimer deadline(10000);  // in milliseconds
+
     qDebug() << "evaluate javascript" << javascript;
     page()->runJavaScript(javascript,SetJavascriptResultFunctor(pres));
     while(!pres->isFinished() && (!deadline.hasExpired())) {
-        qApp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::ExcludeSocketNotifiers, 100);
+        // qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 100);
+        qApp->processEvents(QEventLoop::AllEvents, 100);
     }
     QVariant res;
     if (pres->isFinished()) {
@@ -244,13 +275,15 @@ QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
     } else {
         qDebug() << "evaluate javascript timed out";
 	qDebug() << "intentionally leak the JSResult structure";
-	res = QVariant("");
     }
     return res;
 }
 
 void ViewPreview::DoJavascript(const QString &javascript)
 {
+     // do not try to evaluate javascripts with the page not loaded yet
+    qDebug() << "run javascript with " << m_isLoadFinished;
+    if (!m_isLoadFinished) return;
     qDebug() << "run javascript" << javascript;
     page()->runJavaScript(javascript);
 }
@@ -418,6 +451,7 @@ void ViewPreview::ConnectSignalsToSlots()
 {
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
+    connect(page(), SIGNAL(loadStarted()), this, SLOT(LoadingStarted()));
     connect(page(), SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
 }
 

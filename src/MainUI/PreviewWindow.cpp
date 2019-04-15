@@ -190,11 +190,19 @@ void PreviewWindow::SetupView()
     QApplication::restoreOverrideCursor();
 }
 
-void PreviewWindow::UpdatePage(QString filename, QString text, QList<ElementIndex> location)
+void PreviewWindow::UpdatePage(QString filename_url, QString text, QList<ElementIndex> location)
 {
     if (!m_Preview->isVisible()) {
         return;
     }
+
+    qDebug() << "PreviewWindow UpdatePage " << filename_url;
+
+    // QWebEnginePage bug, loadFinished returns false for some internal urls
+    // Need to strip off fragment and then scroll to correct location
+    QString filename(filename_url);
+    int fragpos = filename.indexOf("#");
+    if (fragpos != -1) filename = filename.left(fragpos);
 
     // If the user has set a default stylesheet inject it
     if (!m_usercssurl.isEmpty()) {
@@ -225,11 +233,19 @@ void PreviewWindow::UpdatePage(QString filename, QString text, QList<ElementInde
     m_Filepath = filename;
     m_Preview->CustomSetDocument(filename, text);
 
+    // this next bit is allowing javascript to run before
+    // the page is finished loading somehow? 
+    // but we explicitly prevent that
+
     // Wait until the preview is loaded before moving cursor.
     while (!m_Preview->IsLoadingFinished()) {
         qApp->processEvents();
     }
+    
+    qDebug() << "PreviewWindow loadFinished with okay set to :" << m_Preview->WasLoadOkay();
 
+    qDebug() << "PreviewWindow UpdatePage load is Finished";
+    qDebug() << "PreviewWindow UpdatePage final step scroll to location";
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();
     UpdateWindowTitle();
@@ -256,6 +272,7 @@ void PreviewWindow::UpdateWindowTitle()
 
 QList<ElementIndex> PreviewWindow::GetCaretLocation()
 {
+    qDebug() << "PreviewWindow in GetCaretLocation";
     QList<ElementIndex> hierarchy = m_Preview->GetCaretLocation();
     foreach(ElementIndex ei, hierarchy){
         qDebug()<< "name: " << ei.name << " index: " << ei.index;
@@ -281,7 +298,7 @@ void PreviewWindow::SplitterMoved(int pos, int index)
 
 void PreviewWindow::EmitGoToPreviewLocationRequest()
 {
-    qDebug() << "in EmitGoToPreviewLocationRequest with pending request: " << m_GoToRequestPending;
+    qDebug() << "EmitGoToPreviewLocationRequest request: " << m_GoToRequestPending;
     if (m_GoToRequestPending) {
         m_GoToRequestPending = false;
         emit GoToPreviewLocationRequest();
@@ -290,7 +307,6 @@ void PreviewWindow::EmitGoToPreviewLocationRequest()
 
 bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 {
-  bool return_value = QObject::eventFilter(object, event);
   switch (event->type()) {
     case QEvent::ChildAdded:
       if (object == m_Preview) {
@@ -310,6 +326,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 		  qDebug() << "Detected Left Mouse Button Press Event";
  		  qDebug() << "emitting GoToPreviewLocationRequest";
 	          m_GoToRequestPending = true;
+		  // we must delay long enough to separate out LinksClicked from scroll sync clicks
 	          QTimer::singleShot(100, this, SLOT(EmitGoToPreviewLocationRequest()));
 	      }
 	  }
@@ -329,7 +346,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
     default:
       break;
   }
-  return return_value;
+  return QObject::eventFilter(object, event);
 }
 
 void PreviewWindow::LinkClicked(const QUrl &url)
@@ -352,7 +369,6 @@ void PreviewWindow::LinkClicked(const QUrl &url)
             url_string.insert(url_string.indexOf("/#") + 1, finfo.fileName());
         }
     }
-
     emit OpenUrlRequest(QUrl(url_string));
 }
 

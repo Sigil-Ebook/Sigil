@@ -413,6 +413,10 @@ bool TabManager::SwitchedToExistingTab(const Resource *resource,
                 flow_tab->ScrollToLine(line_to_scroll_to);
             }
 
+	    // do need to tell Preview about it?
+	    // No the TabChanged signal will UpdatePreview
+	    // flow_tab->UpdatePreview();
+
             return true;
         }
 

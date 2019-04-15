@@ -88,6 +88,7 @@ private:
     QStackedWidget *m_StackedViews;
     QString m_Filepath;
     bool m_GoToRequestPending;
+    bool m_MouseReleaseEventHappened;
 
     QString m_mathjaxurl;
     QString m_usercssurl;

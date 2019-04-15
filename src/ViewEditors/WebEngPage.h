@@ -38,6 +38,12 @@ public:
 
 signals:
     void LinkClicked(const QUrl &url);
+
+private slots:
+    void EmitLinkClicked();    
+
+private:
+    QUrl m_url;
 };
 
 #endif // WEBENGPAGE_H

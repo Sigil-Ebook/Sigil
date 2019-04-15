@@ -289,7 +289,6 @@ signals:
     void UpdatePreviewImmediately();
     void ScrollPreviewImmediately();
 
-
 private slots:
 
     /**
