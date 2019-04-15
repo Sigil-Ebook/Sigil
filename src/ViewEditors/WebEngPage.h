@@ -35,6 +35,8 @@ public:
     WebEngPage(QObject *parent = 0);
 
     bool acceptNavigationRequest(const QUrl & url, QWebEnginePage::NavigationType ntype, bool isMainFrame);
+    void javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessageLevel level, 
+                                  const QString & message, int lineNumber, const QString & sourceID);
 
 signals:
     void LinkClicked(const QUrl &url);

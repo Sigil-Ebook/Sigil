@@ -396,6 +396,8 @@ bool TabManager::SwitchedToExistingTab(const Resource *resource,
     // If the resource is already opened in
     // some tab, then we just switch to it
     if (resource_index != -1) {
+        // the next line will cause TabChanged to be emitted which will update Preview
+        // but to whatever location this tab has now now after scrolling
         setCurrentIndex(resource_index);
         QWidget *tab = widget(resource_index);
         Q_ASSERT(tab);
@@ -413,9 +415,8 @@ bool TabManager::SwitchedToExistingTab(const Resource *resource,
                 flow_tab->ScrollToLine(line_to_scroll_to);
             }
 
-	    // do need to tell Preview about it?
-	    // No the TabChanged signal will UpdatePreview
-	    // flow_tab->UpdatePreview();
+	    // We need to tell Preview to scroll to this tab's position
+	    flow_tab->EmitScrollPreviewImmediately();
 
             return true;
         }

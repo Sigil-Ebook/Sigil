@@ -75,7 +75,7 @@ ViewPreview::ViewPreview(QWidget *parent)
       m_CaretLocationUpdate(QString()),
       m_pendingLoadCount(0),
       m_pendingScrollToFragment(QString()),
-      m_LoadOkay(true)
+      m_LoadOkay(false)
 {
     setPage(m_ViewWebPage);
     setContextMenuPolicy(Qt::CustomContextMenu);
@@ -134,7 +134,7 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
  
 	// keep memory footprint small clear any caches when a new page loads
 	if (url().toLocalFile() != path) {
-	    // page()->profile()->clearHttpCache();
+	    page()->profile()->clearHttpCache();
 	} 
     }
 
@@ -227,36 +227,28 @@ void ViewPreview::ScrollToFragmentInternal(const QString &fragment)
 void ViewPreview::LoadingStarted()
 {
     qDebug() << "Loading a page started";
-    // m_isLoadFinished = false;
-    // m_LoadOkay = true;
+    m_isLoadFinished = false;
+    m_LoadOkay = false;
 }
 
 void ViewPreview::UpdateFinishedState(bool okay)
 {
     // AAArrrrggggggghhhhhhhh - Qt 5.12.2 has a bug that returns 
-    // loadFinished with okay as false when reloading some pages but there
-    // are no apparent errors
-
-    // Worse yet there is randomly a second loadFinished signal with okay set to good
+    // loadFinished with okay set to false when caused by 
+    // clicking a link that acceptNavigationRequest denies
+    // even when there are no apparent errors!
 
     qDebug() << "UpdateFinishedState with okay " << okay;
-    if (okay) {
-        m_isLoadFinished = true;
-	m_LoadOkay = true;
-        emit DocumentLoaded();
-    } else {
-        // an error loading the page happened
-        // m_isLoadFinished = false;
-        m_isLoadFinished = false;
-	m_LoadOkay = false;
-        emit DocumentLoaded();
-    }
+    m_isLoadFinished = true;
+    m_LoadOkay = okay;
+    emit DocumentLoaded();
 }
 
 QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
 {
-     // do not try to evaluate javascripts with the page not loaded yet
     qDebug() << "EvaluateJavascript: " << m_isLoadFinished;
+
+     // do not try to evaluate javascripts with the page not loaded yet
     if (!m_isLoadFinished) return QVariant();
 
     JSResult * pres = new JSResult();
@@ -281,10 +273,11 @@ QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
 
 void ViewPreview::DoJavascript(const QString &javascript)
 {
-     // do not try to evaluate javascripts with the page not loaded yet
     qDebug() << "run javascript with " << m_isLoadFinished;
+
+     // do not try to evaluate javascripts with the page not loaded yet
     if (!m_isLoadFinished) return;
-    qDebug() << "run javascript" << javascript;
+
     page()->runJavaScript(javascript);
 }
 

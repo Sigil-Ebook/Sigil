@@ -196,13 +196,10 @@ void PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
         return;
     }
 
-    qDebug() << "PreviewWindow UpdatePage " << filename_url;
-
-    // QWebEnginePage bug, loadFinished returns false for some internal urls
-    // Need to strip off fragment and then scroll to correct location
-    QString filename(filename_url);
-    int fragpos = filename.indexOf("#");
-    if (fragpos != -1) filename = filename.left(fragpos);
+    qDebug() << "PV UpdatePage " << filename_url;
+    foreach(ElementIndex ei, location){
+        qDebug()<< "PV UpdatePage name: " << ei.name << " index: " << ei.index;
+    }
 
     // If the user has set a default stylesheet inject it
     if (!m_usercssurl.isEmpty()) {
@@ -230,8 +227,8 @@ void PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
         }
     }
 
-    m_Filepath = filename;
-    m_Preview->CustomSetDocument(filename, text);
+    m_Filepath = filename_url;
+    m_Preview->CustomSetDocument(filename_url, text);
 
     // this next bit is allowing javascript to run before
     // the page is finished loading somehow? 
@@ -243,7 +240,6 @@ void PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     }
     
     qDebug() << "PreviewWindow loadFinished with okay set to :" << m_Preview->WasLoadOkay();
-
     qDebug() << "PreviewWindow UpdatePage load is Finished";
     qDebug() << "PreviewWindow UpdatePage final step scroll to location";
     m_Preview->StoreCaretLocationUpdate(location);

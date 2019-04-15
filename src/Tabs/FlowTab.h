@@ -289,6 +289,11 @@ signals:
     void UpdatePreviewImmediately();
     void ScrollPreviewImmediately();
 
+public slots:
+    void EmitUpdatePreview();
+    void EmitUpdatePreviewImmediately();
+    void EmitScrollPreviewImmediately();
+
 private slots:
 
     /**
@@ -307,9 +312,6 @@ private slots:
 
     void EmitContentChanged();
 
-    void EmitUpdatePreview();
-    void EmitUpdatePreviewImmediately();
-    void EmitScrollPreviewImmediately();
     void EmitUpdateCursorPosition();
 
     /**

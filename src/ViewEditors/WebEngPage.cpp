@@ -31,11 +31,15 @@ WebEngPage::WebEngPage(QObject *parent)
 // Because you can not delegate all links in QtWebEngine we must override here and generate
 // our own link requests
 
-// Another bad Qt bug - a loadStarted signal is emitted by this page **before** this is called
+// BUT a loadStarted signal is emitted by this page **before** this is called
 // Even **before** it knows how we want to handle it!
-// Once we "return false" a loadFinished with okay **false** is generated.
+// Once we "return false" from this a loadFinished with okay **false** is generated.
 
-// The QWebEngineView that has this page has to deal with all of this nonsense
+// These false loadStart and LoadFinished greatly confuse our model
+
+// Therefore do NOT emit a signal from this method as it can create huge delays in when
+// loadFinished(okay) returns (with okay as false) 
+
 bool WebEngPage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::NavigationType type, bool isMainFrame)
 {
     if (type == QWebEnginePage::NavigationTypeLinkClicked) {
@@ -51,3 +55,11 @@ void WebEngPage::EmitLinkClicked()
 {
     emit LinkClicked(m_url);
 }
+
+void WebEngPage::javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessageLevel level, 
+				  const QString & message, int lineNumber, const QString & sourceID)
+{
+  const QString logEntry = message + " on line:" % QString::number(lineNumber) % " Source:" + sourceID;
+  qDebug() << "Javascript error: " << level << logEntry;
+}
+
