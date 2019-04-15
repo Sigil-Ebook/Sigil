@@ -415,9 +415,6 @@ bool TabManager::SwitchedToExistingTab(const Resource *resource,
                 flow_tab->ScrollToLine(line_to_scroll_to);
             }
 
-	    // We need to tell Preview to scroll to this tab's position
-	    flow_tab->EmitScrollPreviewImmediately();
-
             return true;
         }
 
