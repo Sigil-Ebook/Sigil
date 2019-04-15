@@ -98,6 +98,8 @@
 #include "Tabs/OPFTab.h"
 #include "Tabs/TabManager.h"
 
+#define DBG if(0)
+
 static const int TEXT_ELIDE_WIDTH   = 300;
 static const QString SETTINGS_GROUP = "mainwindow";
 const float ZOOM_STEP               = 0.1f;
@@ -483,7 +485,7 @@ void MainWindow::GoToBookmark(MainWindow::LocationBookmark *locationBookmark)
 
 void MainWindow::GoToPreviewLocation()
 {
-    qDebug() << "In MainWindow: GoToPreviewLocation";
+    DBG qDebug() << "In MainWindow: GoToPreviewLocation";
     FlowTab *flow_tab = GetCurrentFlowTab();
     if (flow_tab && flow_tab->GetLoadedResource()->Type() == Resource::HTMLResourceType) {
         flow_tab->GoToCaretLocation(m_PreviewWindow->GetCaretLocation());
@@ -3122,7 +3124,7 @@ void MainWindow::UpdatePreviewCSSRequest()
 
 void MainWindow::ScrollPreview()
 {
-    qDebug() << "in ScrollPreview called from FlowTab";
+    DBG qDebug() << "in ScrollPreview called from FlowTab";
     QList<ElementIndex> location;
     HTMLResource *html_resource;
 

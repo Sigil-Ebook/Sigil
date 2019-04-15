@@ -23,6 +23,8 @@
 #include <QDebug>
 #include "ViewEditors/WebEngPage.h"
 
+#define DBG if(0)
+ 
 WebEngPage::WebEngPage(QObject *parent)
     : QWebEnginePage(parent)
 {
@@ -43,7 +45,7 @@ WebEngPage::WebEngPage(QObject *parent)
 bool WebEngPage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::NavigationType type, bool isMainFrame)
 {
     if (type == QWebEnginePage::NavigationTypeLinkClicked) {
-        qDebug() << "acceptNavigationRequest " << url.toString() << " , " << type << " , " << isMainFrame;
+        DBG qDebug() << "acceptNavigationRequest " << url.toString() << " , " << type << " , " << isMainFrame;
         m_url = url;
 	QTimer::singleShot(20,this,SLOT(EmitLinkClicked()));
         return false;

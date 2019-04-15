@@ -38,6 +38,8 @@
 #include "ViewEditors/WebEngPage.h"
 #include "ViewEditors/ViewPreview.h"
 
+#define DBG if(0)
+
 const QString SET_CURSOR_JS2 =
     "var range = document.createRange();"
     "range.setStart(element, 0);"
@@ -61,7 +63,7 @@ struct SetJavascriptResultFunctor {
     void operator()(const QVariant &result) {
         pres->res.setValue(result);
         pres->finished = true;
-        qDebug() << "javascript done";
+        DBG qDebug() << "javascript done";
     }
 };
 
@@ -82,7 +84,7 @@ ViewPreview::ViewPreview(QWidget *parent)
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
     SetCurrentZoomFactor(settings.zoomPreview());
-    page()->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, true);
+    page()->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, false);
     page()->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, false);
     page()->settings()->setDefaultTextEncoding("UTF-8");
     // Allow epubs to access remote resources via the net
@@ -226,7 +228,7 @@ void ViewPreview::ScrollToFragmentInternal(const QString &fragment)
 }
 void ViewPreview::LoadingStarted()
 {
-    qDebug() << "Loading a page started";
+    DBG qDebug() << "Loading a page started";
     m_isLoadFinished = false;
     m_LoadOkay = false;
 }
@@ -238,7 +240,7 @@ void ViewPreview::UpdateFinishedState(bool okay)
     // clicking a link that acceptNavigationRequest denies
     // even when there are no apparent errors!
 
-    qDebug() << "UpdateFinishedState with okay " << okay;
+    DBG qDebug() << "UpdateFinishedState with okay " << okay;
     m_isLoadFinished = true;
     m_LoadOkay = okay;
     emit DocumentLoaded();
@@ -246,34 +248,34 @@ void ViewPreview::UpdateFinishedState(bool okay)
 
 QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
 {
-    qDebug() << "EvaluateJavascript: " << m_isLoadFinished;
+    DBG qDebug() << "EvaluateJavascript: " << m_isLoadFinished;
 
-     // do not try to evaluate javascripts with the page not loaded yet
+    // do not try to evaluate javascripts with the page not loaded yet
     if (!m_isLoadFinished) return QVariant();
 
     JSResult * pres = new JSResult();
     QDeadlineTimer deadline(10000);  // in milliseconds
 
-    qDebug() << "evaluate javascript" << javascript;
+    DBG qDebug() << "evaluate javascript" << javascript;
+
     page()->runJavaScript(javascript,SetJavascriptResultFunctor(pres));
     while(!pres->isFinished() && (!deadline.hasExpired())) {
-        // qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 100);
-        qApp->processEvents(QEventLoop::AllEvents, 100);
+        qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 100);
     }
     QVariant res;
     if (pres->isFinished()) {
         res = pres->res;
         delete pres;
     } else {
-        qDebug() << "evaluate javascript timed out";
-	qDebug() << "intentionally leak the JSResult structure";
+        DBG qDebug() << "evaluate javascript timed out";
+	DBG qDebug() << "intentionally leak the JSResult structure";
     }
     return res;
 }
 
 void ViewPreview::DoJavascript(const QString &javascript)
 {
-    qDebug() << "run javascript with " << m_isLoadFinished;
+    DBG qDebug() << "run javascript with " << m_isLoadFinished;
 
      // do not try to evaluate javascripts with the page not loaded yet
     if (!m_isLoadFinished) return;

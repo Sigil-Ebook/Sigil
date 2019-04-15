@@ -44,6 +44,8 @@
 #include "Tabs/WellFormedCheckComponent.h"
 #include "ViewEditors/CodeViewEditor.h"
 
+#define DBG if(0)
+
 static const QString SETTINGS_GROUP = "flowtab";
 
 FlowTab::FlowTab(HTMLResource *resource,
@@ -231,7 +233,7 @@ void FlowTab::ResourceModified()
         m_LastPosition = -1;
     }
 
-    qDebug() << "FlowTab emitting UpdatePreview from ResourceModified";
+    DBG qDebug() << "FlowTab emitting UpdatePreview from ResourceModified";
     EmitUpdatePreview();
 }
 
@@ -296,36 +298,36 @@ void FlowTab::UpdateDisplay()
 void FlowTab::EmitContentChanged()
 {
     m_safeToLoad = false;
-    qDebug() << "FlowTab emiting Content Changed";
+    DBG qDebug() << "FlowTab emiting Content Changed";
     emit ContentChanged();
 }
 
 void FlowTab::EmitUpdatePreview()
 {
-    qDebug() << "FlowTab emiting UpdatePreview from EmitUpdatePreview";
+    DBG qDebug() << "FlowTab emiting UpdatePreview from EmitUpdatePreview";
     emit UpdatePreview();
 }
 
 void FlowTab::EmitUpdatePreviewImmediately()
 {
-      qDebug() << "FlowTab emiting UpdatePreviewImmediately from EmitUpdatePreviewImmediately";
+      DBG qDebug() << "FlowTab emiting UpdatePreviewImmediately from EmitUpdatePreviewImmediately";
       emit UpdatePreviewImmediately();
 }
 
 void FlowTab::EmitScrollPreviewImmediately()
 {
   if (!m_wCodeView->document()->isModified()) {
-      qDebug() << "FlowTab emiting ScrollPreviewImmediately from EmitScrollPreviewImmediately";
+      DBG qDebug() << "FlowTab emiting ScrollPreviewImmediately from EmitScrollPreviewImmediately";
       emit ScrollPreviewImmediately();
   } else {
-      qDebug() << "FlowTab emiting UpdatePreviewImmediately from EmitScrollPreviewImmediately";
+      DBG qDebug() << "FlowTab emiting UpdatePreviewImmediately from EmitScrollPreviewImmediately";
       emit UpdatePreviewImmediately();
   }
 }
 
 void FlowTab::EmitUpdateCursorPosition()
 {
-    qDebug() << "FlowTab emiting UpdateCursorPosition from EmitUpdateCursorPosition";
+    DBG qDebug() << "FlowTab emiting UpdateCursorPosition from EmitUpdateCursorPosition";
     emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
 }
 

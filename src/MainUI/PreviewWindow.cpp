@@ -42,6 +42,8 @@
 
 static const QString SETTINGS_GROUP = "previewwindow";
 
+#define DBG if(0)
+
 PreviewWindow::PreviewWindow(QWidget *parent)
     :
     QDockWidget(tr("Preview"), parent),
@@ -196,10 +198,8 @@ void PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
         return;
     }
 
-    qDebug() << "PV UpdatePage " << filename_url;
-    foreach(ElementIndex ei, location){
-        qDebug()<< "PV UpdatePage name: " << ei.name << " index: " << ei.index;
-    }
+    DBG qDebug() << "PV UpdatePage " << filename_url;
+    DBG foreach(ElementIndex ei, location) qDebug()<< "PV name: " << ei.name << " index: " << ei.index;
 
     // If the user has set a default stylesheet inject it
     if (!m_usercssurl.isEmpty()) {
@@ -208,7 +208,7 @@ void PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
             QString inject_userstyles = 
               "<link rel=\"stylesheet\" type=\"text/css\" "
 	      "href=\"" + m_usercssurl + "\" />\n";
-	    qDebug() << "Preview injecting stylesheet: " << inject_userstyles;
+	    DBG qDebug() << "Preview injecting stylesheet: " << inject_userstyles;
             text.insert(endheadpos, inject_userstyles);
 	}
     }
@@ -239,9 +239,11 @@ void PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
         qApp->processEvents();
     }
     
-    qDebug() << "PreviewWindow loadFinished with okay set to :" << m_Preview->WasLoadOkay();
-    qDebug() << "PreviewWindow UpdatePage load is Finished";
-    qDebug() << "PreviewWindow UpdatePage final step scroll to location";
+    if (!m_Preview->WasLoadOkay()) qDebug() << "PV loadFinished with okay set to false!";
+ 
+    DBG qDebug() << "PreviewWindow UpdatePage load is Finished";
+    DBG qDebug() << "PreviewWindow UpdatePage final step scroll to location";
+
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();
     UpdateWindowTitle();
@@ -249,7 +251,7 @@ void PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
 
 void PreviewWindow::ScrollTo(QList<ElementIndex> location)
 {
-    qDebug() << "received a PreviewWindow ScrollTo event";
+    DBG qDebug() << "received a PreviewWindow ScrollTo event";
     if (!m_Preview->isVisible()) {
         return;
     }
@@ -268,11 +270,9 @@ void PreviewWindow::UpdateWindowTitle()
 
 QList<ElementIndex> PreviewWindow::GetCaretLocation()
 {
-    qDebug() << "PreviewWindow in GetCaretLocation";
+    DBG qDebug() << "PreviewWindow in GetCaretLocation";
     QList<ElementIndex> hierarchy = m_Preview->GetCaretLocation();
-    foreach(ElementIndex ei, hierarchy){
-        qDebug()<< "name: " << ei.name << " index: " << ei.index;
-    }
+    DBG foreach(ElementIndex ei, hierarchy) qDebug() << "name: " << ei.name << " index: " << ei.index;
     return hierarchy;
 }
 
@@ -294,7 +294,7 @@ void PreviewWindow::SplitterMoved(int pos, int index)
 
 void PreviewWindow::EmitGoToPreviewLocationRequest()
 {
-    qDebug() << "EmitGoToPreviewLocationRequest request: " << m_GoToRequestPending;
+    DBG qDebug() << "EmitGoToPreviewLocationRequest request: " << m_GoToRequestPending;
     if (m_GoToRequestPending) {
         m_GoToRequestPending = false;
         emit GoToPreviewLocationRequest();
@@ -306,7 +306,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
   switch (event->type()) {
     case QEvent::ChildAdded:
       if (object == m_Preview) {
-	  qDebug() << "child add event";
+	  DBG qDebug() << "child add event";
 	  const QChildEvent *childEvent(static_cast<QChildEvent*>(event));
 	  if (childEvent->child()) {
 	      childEvent->child()->installEventFilter(this);
@@ -315,12 +315,12 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
       break;
     case QEvent::MouseButtonPress:
       {
-	  qDebug() << "Preview mouse button press event " << object;
+	  DBG qDebug() << "Preview mouse button press event " << object;
 	  const QMouseEvent *mouseEvent(static_cast<QMouseEvent*>(event));
 	  if (mouseEvent) {
 	      if (mouseEvent->button() == Qt::LeftButton) {
-		  qDebug() << "Detected Left Mouse Button Press Event";
- 		  qDebug() << "emitting GoToPreviewLocationRequest";
+		  DBG qDebug() << "Detected Left Mouse Button Press Event";
+ 		  DBG qDebug() << "emitting GoToPreviewLocationRequest";
 	          m_GoToRequestPending = true;
 		  // we must delay long enough to separate out LinksClicked from scroll sync clicks
 	          QTimer::singleShot(100, this, SLOT(EmitGoToPreviewLocationRequest()));
@@ -330,11 +330,11 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
       break;
     case QEvent::MouseButtonRelease:
       {
-	  qDebug() << "Preview mouse button release event " << object;
+	  DBG qDebug() << "Preview mouse button release event " << object;
 	  const QMouseEvent *mouseEvent(static_cast<QMouseEvent*>(event));
 	  if (mouseEvent) {
 	      if (mouseEvent->button() == Qt::LeftButton) {
- 		  qDebug() << "Detected Left Mouse Button Release Event";
+	          DBG qDebug() << "Detected Left Mouse Button Release Event";
 	      }
 	  }
       }
@@ -348,7 +348,8 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 void PreviewWindow::LinkClicked(const QUrl &url)
 {
     if (m_GoToRequestPending) m_GoToRequestPending = false;
-    qDebug() << "in PreviewWindow LinkClicked with url :" << url.toString();
+
+    DBG qDebug() << "in PreviewWindow LinkClicked with url :" << url.toString();
 
     if (url.toString().isEmpty()) {
         return;
