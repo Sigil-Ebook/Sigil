@@ -267,8 +267,8 @@ QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
         res = pres->res;
         delete pres;
     } else {
-        DBG qDebug() << "evaluate javascript timed out";
-	DBG qDebug() << "intentionally leak the JSResult structure";
+        qDebug() << "Error: VP EvaluateJavascript timed out";
+	qDebug() << "   ... intentionally leaking the JSResult structure";
     }
     return res;
 }
