@@ -1864,10 +1864,13 @@ void CodeViewEditor::focusOutEvent(QFocusEvent *event)
 
 void CodeViewEditor::EmitFilteredCursorMoved()
 {
+    //Mooving the cursor while typing should never make Preview Flash its background image
+#if 0
     // Avoid slowdown while selecting text
     if (QApplication::mouseButtons() == Qt::NoButton) {
         emit FilteredCursorMoved();
     }
+#endif
 }
 
 void CodeViewEditor::TextChangedFilter()

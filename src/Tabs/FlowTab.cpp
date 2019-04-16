@@ -321,7 +321,7 @@ void FlowTab::EmitScrollPreviewImmediately()
       emit ScrollPreviewImmediately();
   } else {
       DBG qDebug() << "FlowTab emiting UpdatePreviewImmediately from EmitScrollPreviewImmediately";
-      emit UpdatePreviewImmediately();
+      emit UpdatePreview();
   }
 }
 
@@ -1122,7 +1122,8 @@ void FlowTab::ConnectCodeViewSignalsToSlots()
     connect(m_wCodeView, SIGNAL(SpellingHighlightRefreshRequest()), this, SIGNAL(SpellingHighlightRefreshRequest()));
     connect(m_wCodeView, SIGNAL(ShowStatusMessageRequest(const QString &)), this, SIGNAL(ShowStatusMessageRequest(const QString &)));
     connect(m_wCodeView, SIGNAL(FilteredTextChanged()), this, SLOT(EmitContentChanged()));
-    connect(m_wCodeView, SIGNAL(FilteredCursorMoved()), this, SLOT(EmitScrollPreviewImmediately()));
+    // This causes to much Preview flash due to editing in the window
+    // connect(m_wCodeView, SIGNAL(FilteredCursorMoved()), this, SLOT(EmitScrollPreviewImmediately()));
     connect(m_wCodeView, SIGNAL(PageUpdated()), this, SLOT(EmitUpdatePreview()));
     connect(m_wCodeView, SIGNAL(PageClicked()), this, SLOT(EmitScrollPreviewImmediately()));
     connect(m_wCodeView, SIGNAL(DocumentSet()), this, SLOT(EmitUpdatePreviewImmediately()));
