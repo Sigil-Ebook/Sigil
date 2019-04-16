@@ -77,6 +77,7 @@ before_build:
     curl.exe -L -o webkit.7z %DOWNLOAD%
     7z x webkit.7z -y
     set PATH=%PYTHON%;%PYTHON%\Scripts;%QT%\bin;%INNO%;%PATH%
+    echo 'PATH = %PATH%'
     python -m pip install --upgrade pip
     pip3.7 install six==1.12.0
     pip3.7 install html5lib==1.0.1
@@ -89,6 +90,10 @@ before_build:
     pip3.7 install lxml==4.2.6
     cd project\sigil\build
     call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %PLATFORM%
+    echo 'LIB = %LIB%'
+    echo 'LIBPATH = %LIBPATH%'
+    echo 'INCLUDE = %INCLUDE%'
+    echo 'CL = %CL%'
     cmake .. -G "Ninja" -DCMAKE_BUILD_TYPE=%configuration% -DQt5_DIR=%QT%\lib\cmake\Qt5 %CMAKE64BIT%
 
     
