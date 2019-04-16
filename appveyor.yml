@@ -86,6 +86,10 @@ before_build:
     pip3.7 install lxml==4.2.6
     cd project\sigil\build
     call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %PLATFORM% -vcvars_ver=14.0
+    echo 'LIB = %LIB%'
+    echo 'LIBPATH = %LIBPATH%'
+    echo 'INCLUDE = %INCLUDE%'
+    echo 'CL = %CL%'
     cmake .. -G "Ninja" -DCMAKE_BUILD_TYPE=%configuration% -DQt5_DIR=%QT%\lib\cmake\Qt5 %CMAKE64BIT%
 
     
