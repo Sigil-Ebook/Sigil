@@ -227,6 +227,9 @@ void TabManager::OpenResource(Resource *resource,
         QString message = tr("Cannot edit file") + ": " + resource->Filename();
         emit ShowStatusMessageRequest(message);
     }
+
+    // do not try to scroll Preview here as FlowTabs use delayed initialization
+    // instead the flowtab will handle this by itself
 }
 
 
@@ -417,6 +420,8 @@ bool TabManager::SwitchedToExistingTab(const Resource *resource,
                 flow_tab->ScrollToLine(line_to_scroll_to);
             }
 
+	    // Tell Preview to scroll to this new location
+	    flow_tab->EmitScrollPreviewImmediately();
             return true;
         }
 
