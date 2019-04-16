@@ -77,6 +77,11 @@ before_build:
     curl.exe -L -o webkit.7z %DOWNLOAD%
     7z x webkit.7z -y
     set PATH=%PYTHON%;%PYTHON%\Scripts;%QT%\bin;%INNO%;%PATH%
+    echo 'PATH = %PATH%'
+    echo 'LIB = %LIB%'
+    echo 'LIBPATH = %LIBPATH%'
+    echo 'INCLUDE = %INCLUDE%'
+    echo 'CL = %CL%'
     python -m pip install --upgrade pip
     pip3.7 install six==1.12.0
     pip3.7 install html5lib==1.0.1
