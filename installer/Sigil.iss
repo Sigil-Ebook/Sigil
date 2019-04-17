@@ -143,6 +143,7 @@ function NeedsVCRedistInstall: Boolean;
 // Return True if VC++ redist included with Sigil Installer needs to be installed.
 var
   reg_key, installed_ver, min_ver: String;
+  R: Integer;
 begin
   Result := True;
   // Mimimum version of the VC++ Redistributable needed (currently VS2017 and later).
