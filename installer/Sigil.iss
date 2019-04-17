@@ -157,9 +157,9 @@ begin
   // If there's a compatible version of the 14.XX runtime already installed; use it.
   if RegQueryStringValue(HKEY_LOCAL_MACHINE, reg_key, 'Version', installed_ver) then
     begin
-      MsgBox('Registry key: ' + reg_key, mbInformation, MB_OK);
-      MsgBox('Installed version: ' + installed_ver, mbInformation, MB_OK);
-      MsgBox('Minimum version: ' + min_ver, mbInformation, MB_OK);
+      //MsgBox('Registry key: ' + reg_key, mbInformation, MB_OK);
+      //MsgBox('Installed version: ' + installed_ver, mbInformation, MB_OK);
+      //MsgBox('Minimum version: ' + min_ver, mbInformation, MB_OK);
       R := CompareVersion(installed_ver, min_ver);
       // If installed VC++ runtime version is equal or newer than
       // the minimum version specified, then don't run
