@@ -476,13 +476,78 @@
    <attribute name="toolBarBreak">
     <bool>true</bool>
    </attribute>
-   <addaction name="actionHeading1"/>
-   <addaction name="actionHeading2"/>
-   <addaction name="actionHeading3"/>
-   <addaction name="actionHeading4"/>
-   <addaction name="actionHeading5"/>
-   <addaction name="actionHeading6"/>
-   <addaction name="actionHeadingNormal"/>
+  <widget class="QComboBox" name="cbHeadings">
+    <item>
+      <property name="text">
+       <string></string>
+      </property>
+      <property name="icon">
+        <iconset resource="../Resource_Files/main/main.qrc">
+          <normaloff>:/main/heading-normal_48px.png</normaloff>:/main/heading-normal_48px.png
+        </iconset>
+      </property>
+    </item>
+    <item>
+      <property name="text">
+       <string></string>
+      </property>
+      <property name="icon">
+        <iconset resource="../Resource_Files/main/main.qrc">
+         <normaloff>:/main/heading-1_48px.png</normaloff>:/main/heading-1_48px.png
+        </iconset>
+      </property>
+    </item>
+    <item>
+      <property name="text">
+       <string></string>
+      </property>
+      <property name="icon">
+        <iconset resource="../Resource_Files/main/main.qrc">
+          <normaloff>:/main/heading-2_48px.png</normaloff>:/main/heading-2_48px.png
+        </iconset>
+      </property>
+    </item>
+    <item>
+      <property name="text">
+       <string></string>
+      </property>
+      <property name="icon">
+        <iconset resource="../Resource_Files/main/main.qrc">
+          <normaloff>:/main/heading-3_48px.png</normaloff>:/main/heading-3_48px.png
+        </iconset>
+      </property>
+    </item>
+    <item>
+      <property name="text">
+       <string></string>
+      </property>
+      <property name="icon">
+        <iconset resource="../Resource_Files/main/main.qrc">
+          <normaloff>:/main/heading-4_48px.png</normaloff>:/main/heading-4_48px.png
+        </iconset>
+      </property>
+    </item>
+    <item>
+      <property name="text">
+       <string></string>
+      </property>
+      <property name="icon">
+        <iconset resource="../Resource_Files/main/main.qrc">
+          <normaloff>:/main/heading-5_48px.png</normaloff>:/main/heading-5_48px.png
+        </iconset>
+      </property>
+    </item>
+    <item>
+      <property name="text">
+       <string></string>
+      </property>
+      <property name="icon">
+        <iconset resource="../Resource_Files/main/main.qrc">
+          <normaloff>:/main/heading-6_48px.png</normaloff>:/main/heading-6_48px.png
+        </iconset>
+      </property>
+    </item>
+   </widget>
   </widget>
   <widget class="QToolBar" name="toolBarTextFormats">
    <property name="windowTitle">
@@ -602,6 +667,7 @@
    <addaction name="actionClip19"/>
    <addaction name="actionClip20"/>
   </widget>
+
   <action name="actionNew">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">

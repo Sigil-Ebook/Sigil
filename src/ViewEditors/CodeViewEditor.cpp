@@ -2207,6 +2207,10 @@ void CodeViewEditor::ScrollByLine(bool down)
     }
 }
 
+QString CodeViewEditor::GetCaretElementName() 
+{
+    return m_element_name;
+}
 
 QList<ElementIndex> CodeViewEditor::GetCaretLocation()
 {
@@ -2229,7 +2233,18 @@ QList<ElementIndex> CodeViewEditor::GetCaretLocation()
         offset = start;
         len = mo.capturedLength();
     }
-    return ConvertStackToHierarchy(GetCaretLocationStack(offset + len));
+    QList<ElementIndex> hierarchy = ConvertStackToHierarchy(GetCaretLocationStack(offset + len));
+
+    // determine last block element containing caret
+    QString element_name;
+    foreach(ElementIndex ei, hierarchy) {
+        if (BLOCK_LEVEL_TAGS.contains(ei.name)) {
+	    element_name = ei.name;
+        }
+    }
+    m_element_name = element_name;
+
+    return hierarchy;
 }
 
 

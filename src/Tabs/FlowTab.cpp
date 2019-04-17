@@ -1081,7 +1081,10 @@ bool FlowTab::PasteClipEntries(QList<ClipEditorModel::clipEntry *>clips)
 
 QString FlowTab::GetCaretElementName()
 {
-    return ContentTab::GetCaretElementName();
+    if (m_wCodeView) {
+        return m_wCodeView->GetCaretElementName();
+    }
+    return QString();
 }
 
 void FlowTab::SuspendTabReloading()
