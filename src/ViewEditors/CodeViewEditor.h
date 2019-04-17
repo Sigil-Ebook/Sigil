@@ -266,6 +266,8 @@ public:
      */
     void SetDelayedCursorScreenCenteringRequired();
 
+    QString GetCaretElementName();
+
     // inherited
     QList<ElementIndex> GetCaretLocation();
 
@@ -850,6 +852,7 @@ private:
      * Whether spelling highlighting should be reapplied when this tab is next given focus.
      */
     bool m_pendingSpellingHighlighting;
+    QString m_element_name;
 };
 
 #endif // CODEVIEWEDITOR_H
