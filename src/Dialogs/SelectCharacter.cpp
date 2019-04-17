@@ -78,7 +78,7 @@ void SelectCharacter::SetList()
         << QString::fromUtf8("\xe2\x80\x82")    << "ensp"       << "&ensp;"   << "en space &#x2002;"
         << QString::fromUtf8("\xe2\x80\x83")    << "emsp"       << "&emsp;"   << "em space &#x2003;"
         << QString::fromUtf8("\xe2\x80\x89")    << "thinsp"     << "&thinsp;" << "thin space &#x2009;"
-        << "&#169;"                             << "shy"        << "&shy;"    << "soft hyphen &#xad;"
+        << "&#173;"                             << "shy"        << "&shy;"    << "soft hyphen &#xad;"
         << QString::fromUtf8("\xe2\x80\xaf")    << "nnbsp"      << "&#x202f;" << "narrow non-breaking space &#x202f"
     ;
 
