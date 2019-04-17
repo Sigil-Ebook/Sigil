@@ -83,12 +83,13 @@ private:
     // Al the possible nodes/states
     enum BlockState {
         State_Text          = 1 << 0,
-        State_Entity        = 1 << 1,
-        State_HTML          = 1 << 2,
-        State_CSS           = 1 << 3,
-        State_CSSComment    = 1 << 4,
-        State_HTMLComment   = 1 << 5,
-        State_DOCTYPE       = 1 << 6
+        State_SpSpace       = 1 << 1,
+        State_Entity        = 1 << 2,
+        State_HTML          = 1 << 3,
+        State_CSS           = 1 << 4,
+        State_CSSComment    = 1 << 5,
+        State_HTMLComment   = 1 << 6,
+        State_DOCTYPE       = 1 << 7
     };
 
     struct HighlightingRule {

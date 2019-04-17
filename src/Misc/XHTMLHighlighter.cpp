@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -20,6 +21,9 @@
 *************************************************************************/
 
 #include <QRegularExpressionMatch>
+#include <QBrush>
+#include <QColor>
+#include <QDebug>
 
 #include "Misc/SpellCheck.h"
 #include "Misc/Utility.h"
@@ -50,6 +54,7 @@ static const QString ATTRIBUTE_NAME         = "[\\w:-]+";
 static const QString ENTITY_BEGIN           = "&(?=[^\\s;]+;)";
 static const QString ENTITY_END             = ";";
 
+static const QString SPECIAL_SPACE_BEGIN    = "[\\x{00A0}\\x{2000}-\\x{200A}\\x{202F}\\x{3000}]+";
 
 // Constructor
 XHTMLHighlighter::XHTMLHighlighter(bool checkSpelling, QObject *parent)
@@ -67,6 +72,8 @@ XHTMLHighlighter::XHTMLHighlighter(bool checkSpelling, QObject *parent)
     QTextCharFormat attribute_name_format;
     QTextCharFormat attribute_value_format;
     QTextCharFormat entity_format;
+    QTextCharFormat special_space_format;
+
     doctype_format        .setForeground(m_codeViewAppearance.xhtml_doctype_color);
     html_format           .setForeground(m_codeViewAppearance.xhtml_html_color);
     html_comment_format   .setForeground(m_codeViewAppearance.xhtml_html_comment_color);
@@ -75,6 +82,9 @@ XHTMLHighlighter::XHTMLHighlighter(bool checkSpelling, QObject *parent)
     attribute_name_format .setForeground(m_codeViewAppearance.xhtml_attribute_name_color);
     attribute_value_format.setForeground(m_codeViewAppearance.xhtml_attribute_value_color);
     entity_format         .setForeground(m_codeViewAppearance.xhtml_entity_color);
+    // use the same color as for entities but as an underline since they are "spaces"
+    special_space_format  .setUnderlineColor(m_codeViewAppearance.xhtml_entity_color);
+    special_space_format  .setUnderlineStyle(QTextCharFormat::DashUnderline);
     HighlightingRule rule;
     rule.pattern = QRegularExpression(DOCTYPE_BEGIN);
     rule.format  = doctype_format;
@@ -115,6 +125,9 @@ XHTMLHighlighter::XHTMLHighlighter(bool checkSpelling, QObject *parent)
     rule.pattern = QRegularExpression(ENTITY_END);
     rule.format  = entity_format;
     m_Rules[ "ENTITY_END" ] = rule;
+    rule.pattern = QRegularExpression(SPECIAL_SPACE_BEGIN);
+    rule.format  = special_space_format;
+    m_Rules[ "SPECIAL_SPACE_BEGIN" ] = rule;
 }
 
 
@@ -147,6 +160,7 @@ void XHTMLHighlighter::highlightBlock(const QString &text)
 
     // The order of these operations is important
     // because some states format text over previous states!
+    HighlightLine(text, State_SpSpace);
     HighlightLine(text, State_Entity);
     HighlightLine(text, State_CSS);
     HighlightLine(text, State_HTML);
@@ -179,6 +193,9 @@ QRegularExpression XHTMLHighlighter::GetLeftBracketRegEx(int state) const
 
         case State_DOCTYPE:
             return m_Rules.value("DOCTYPE_BEGIN").pattern;
+
+        case State_SpSpace:
+            return m_Rules.value("SPECIAL_SPACE_BEGIN").pattern;
 
         default:
             return empty;
@@ -322,6 +339,8 @@ void XHTMLHighlighter::FormatBody(const QString &text, int state, int index, int
         setFormat(index, length, m_Rules.value("CSS_COMMENT_BEGIN").format);
     } else if (state == State_Entity) {
         setFormat(index, length, m_Rules.value("ENTITY_BEGIN").format);
+    } else if (state == State_SpSpace) {
+        setFormat(index, length, m_Rules.value("SPECIAL_SPACE_BEGIN").format);
     } else if (state == State_DOCTYPE) {
         setFormat(index, length, m_Rules.value("DOCTYPE_BEGIN").format);
     }
@@ -395,7 +414,7 @@ void XHTMLHighlighter::HighlightLine(const QString &text, int state)
                 main_index += length;
                 // Set the current state so the next line can continue
                 // with the formatting.
-                SetState(state);
+		if (state != State_SpSpace) SetState(state);
             }
         } else {
             // (3)
