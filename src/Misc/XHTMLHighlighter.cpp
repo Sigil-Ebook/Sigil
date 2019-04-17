@@ -386,6 +386,12 @@ void XHTMLHighlighter::HighlightLine(const QString &text, int state)
             return;
         }
 
+        // Special Spaces State should always be case (1) but has no ending regex
+        if (state == State_SpSpace) {
+  	    right_bracket_index = left_bracket_index + left_bracket_len;
+	    right_bracket_len = 0;
+	}
+
         // Every node/state has a left "bracket", a right "bracket" and the inside body.
         // This example uses HTML tags, but the principle is the same for every node/state.
         // There are four possible cases:
@@ -414,7 +420,7 @@ void XHTMLHighlighter::HighlightLine(const QString &text, int state)
                 main_index += length;
                 // Set the current state so the next line can continue
                 // with the formatting.
-		if (state != State_SpSpace) SetState(state);
+                SetState(state);
             }
         } else {
             // (3)
