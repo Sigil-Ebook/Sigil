@@ -2,7 +2,7 @@
 # Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX
 
 # We highly recommend you use the same Qt versions as official Sigil builds on Mac OS X.
-# which is now Qt 5.12.2 or later
+# which is now Qt 5.12.3 or later
 
 # As of Qt 5.6, QtWebkit was removed from the stock Qt releases.  Sigil depends on this 
 # module for both its BookView and Preview windows.  We are following the examples of
@@ -13,8 +13,9 @@
 # We will need to build Qt5 from source first.  
 # These instructions will lead you through building from source
 
-# set the deployment target
-export MACOSX_DEPLOYMENT_TARGET=10.11
+# set the deployment target (this is minimum needed for Qt 5.12.X)
+
+export MACOSX_DEPLOYMENT_TARGET=10.12
 
 # cd to a location to store your src tree then do
 export MYQTSRC=`pwd`
@@ -35,13 +36,13 @@ cd cmake-3.12.0
 make
 sudo make install
 
-export MACOSX_DEPLOYMENT_TARGET=10.11
+
 
 # libpng 1.6.36 or later from png's sourceforge site: http://www.libpng.org/pub/png/libpng.html
 # If you are building on MacOS 10.12 or later, you will need to patch libpng
-# to support macos 10.11
-export LDFLAGS="-Wl,-macosx_version_min,10.11"
-export CFLAGS="-mmacosx-version-min=10.11 -Werror=partial-availability"
+# to support macos 10.12
+export LDFLAGS="-Wl,-macosx_version_min,10.12"
+export CFLAGS="-mmacosx-version-min=10.12 -Werror=partial-availability"
 tar -zxvf libpng-1.6.36.tar.gz
 cd libpng-1.6.36
 patch -p0 < libpng_support_macos_10.11.patch
@@ -56,38 +57,48 @@ unset LDFLAGS
 tar -xvf libjpeg-turbo-2.0.2.tar.gz
 mkdir buildjt
 cd buildjt
-cmake -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local -DENABLE_SHARED=0 -DCMAKE_OSX_DEPLOYMENT_TARGET=10.11 \
-  -DCMAKE_C_FLAGS_RELEASE="-O3 -mmacosx-version-min=10.11 -Werror=partial-availability" ../libjpeg-turbo-2.0.2/
+cmake -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local -DENABLE_SHARED=0 -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
+  -DCMAKE_C_FLAGS_RELEASE="-O3 -mmacosx-version-min=10.12 -Werror=partial-availability" ../libjpeg-turbo-2.0.2/
 make
 sudo make install
 
 
-# Building Qt5.12.2 from source
+# Building Qt5.12.3 from source
 # -----------------------------
 
-# download qt-everywhere-src-5.12.2.tar.xz directly from Qt
-# from:  http://download.qt.io/archive/qt/5.12/5.12.2/single/
+# download qt-everywhere-src-5.12.3.tar.xz directly from Qt
+# from:  http://download.qt.io/archive/qt/5.12/5.12.3/single/
 
 # and then unpack it
 # Note to get unxz - you may need to download and build xz-5.2.4.tar.gz
-unxz qt-everywhere-src-5.12.2.tar.xz
-tar -xvf qt-everywhere-src-5.12.2.tar
+unxz qt-everywhere-src-5.12.3.tar.xz
+tar -xvf qt-everywhere-src-5.12.3.tar
 
-cd qt-everywhere-src-5.12.2
+cd qt-everywhere-src-5.12.3
 
-# now copy 3 required patches from Sigil//docs/ into this directory
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.2_support_macosx_10.11.patch
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.2_qtableview_fix.patch  ./
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.2_avoid_qtabbar_segfault.patch  ./
+# now copy 3 required patches from Sigil/docs/ into this directory
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.3_avoid_qtabbar_segfault.patch ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.3_final_fix_close_tab_icon.patch ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.3_webengine_backport.patch ./
 
-# then apply the deployment target changes to support macosx 10.11 still
-patch -p0 < ./qt512.2_support_macosx_10.11.patch
+###This is broken
+###cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.3_support_macosx_10.11.patch ./
+#### then apply the deployment target changes to support macosx 10.11 still
+###patch -p0 < ./qt512.3_support_macosx_10.11.patch
 
-# then apply a backported fix from Qt 5.12.3 elated to line wrapping in QTableView and others
-patch -p0 < ./qt512.2_qtableview_fix.patch
+# apply a backported fix from Qt 5.12.4 related deleting old page in QtWebEngine
+patch -p0 < ./qt512.3_webengine_backport.patch
 
 # then apply mouse press and flick on qtabbar tab fix to prevent segfault
-patch -p0 < ./qt512.2_avoid_qtabbar_segfault.patch
+patch -p0 < ./qt512.3_avoid_qtabbar_segfault.patch
+
+# then apply a backported fix from Qt5.12.4 to prevent the loss of tab close icon for macOS
+patch -p0 < ./qt512.3_final_fix_close_tab_icon.patch
+
+
+# this is the new minimum supported by Qt 5.12.X
+export MACOSX_DEPLOYMENT_TARGET=10.12
+
 
 # Create a destination directory to house your complete Qt binary in your home directory
 # to be similar to how stock Qt does it
@@ -96,10 +107,10 @@ mkdir Qt512
 
 # Now return and create a shadow build inside a new directory to keep your Qt 5.11.2 sources clean
 cd ${MYQTSRC}
-mkdir buildqt512
-cd buildqt512
+mkdir buildqt
+cd buildqt
 
-../qt-everywhere-src-5.12.2/configure --prefix=/Users/${USER}/Qt512 -opensource -nomake examples -nomake tests
+../qt-everywhere-src-5.12.3/configure --prefix=/Users/${USER}/Qt512 -webengine-proprietary-codecs -opensource -nomake examples -nomake tests
 
 # note the build itself can take a couple of hours depending on memory available, disk and cpus used
 make -j4
@@ -109,7 +120,7 @@ make install
 # Used to build QtWebKit
 
 
-# Building The Latest QtWebKit for Qt5.12.2
+# Building The Latest QtWebKit for Qt5.12.3
 # -----------------------------------------
 
 # Detailed QtWebKit build instructions can be found here:
@@ -117,7 +128,7 @@ make install
 
 cd ${MYQTSRC}
 
-export MACOSX_DEPLOYMENT_TARGET=10.11
+export MACOSX_DEPLOYMENT_TARGET=10.12
 
 # clone qtwebkit from git::/code.qt.io/qt/qtwebkit.git and get the QtWebKit 5.212 Branch
 git clone git://code.qt.io/qt.qtwebkit.git
@@ -137,6 +148,7 @@ patch -p0 < ./qtwebkit_supress_tests_10.14_build_fix.patch
 patch -p0 < ./qtwebkit_xpc_10.14_build_fix.patch
 patch -p0 < ./qtwebkit_no_load_plugins_when_disabled.patch
 patch -p0 < ./qtwebkit_cursorqt_memory_leak_fix.patch
+
 
 ./Tools/Scripts/build-webkit --qt --cmakeargs="-Wno-dev -DQt5_DIR=$HOME/Qt512/lib/cmake/Qt5 -DCMAKE_PREFIX_PATH=/usr/local"
 
