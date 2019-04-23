@@ -3958,16 +3958,6 @@ void MainWindow::UpdateUiWithCurrentFile(const QString &fullfilepath)
     }
 }
 
-void MainWindow::CBHeadingsActivated(int index)
-{
-    if (index > -1) {
-        QAction* actionHeading = ui.cbHeadings->itemData(index, Qt::UserRole).value<QAction *>();
-        if (actionHeading->isEnabled()) {
-            actionHeading->trigger();
-        }
-    }
-}
-
 void MainWindow::SelectEntryOnHeadingToolbar(const QString &element_name)
 {
     ui.actionHeading1->setChecked(false);
@@ -3984,26 +3974,19 @@ void MainWindow::SelectEntryOnHeadingToolbar(const QString &element_name)
 
             if (heading_name == "1") {
                 ui.actionHeading1->setChecked(true);
-		ui.cbHeadings->setCurrentIndex(1);
             } else if (heading_name == "2") {
                 ui.actionHeading2->setChecked(true);
-		ui.cbHeadings->setCurrentIndex(2);
             } else if (heading_name == "3") {
                 ui.actionHeading3->setChecked(true);
-		ui.cbHeadings->setCurrentIndex(3);
             } else if (heading_name == "4") {
                 ui.actionHeading4->setChecked(true);
-		ui.cbHeadings->setCurrentIndex(4);
             } else if (heading_name == "5") {
                 ui.actionHeading5->setChecked(true);
-		ui.cbHeadings->setCurrentIndex(5);
             } else if (heading_name == "6") {
                 ui.actionHeading6->setChecked(true);
-		ui.cbHeadings->setCurrentIndex(6);
             }
         } else {
             ui.actionHeadingNormal->setChecked(true);
-		ui.cbHeadings->setCurrentIndex(0);
         }
     }
 }
@@ -4366,16 +4349,13 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionPlugin4, "MainWindow.Plugins.RunPlugin4");
     sm->registerAction(this, ui.actionPlugin5, "MainWindow.Plugins.RunPlugin5");
 
-    // for Headings ComboBox
-    ui.cbHeadings->setItemData(0, QVariant::fromValue(ui.actionHeadingNormal)); 
-    ui.cbHeadings->setItemData(1, QVariant::fromValue(ui.actionHeading1)); 
-    ui.cbHeadings->setItemData(2, QVariant::fromValue(ui.actionHeading2)); 
-    ui.cbHeadings->setItemData(3, QVariant::fromValue(ui.actionHeading3)); 
-    ui.cbHeadings->setItemData(4, QVariant::fromValue(ui.actionHeading4)); 
-    ui.cbHeadings->setItemData(5, QVariant::fromValue(ui.actionHeading5)); 
-    ui.cbHeadings->setItemData(6, QVariant::fromValue(ui.actionHeading6));
-    ui.cbHeadings->setEditable(false);
-    connect(ui.cbHeadings, SIGNAL(activated(int)), this, SLOT(CBHeadingsActivated(int)));
+    // Headings QToolButton
+    ui.tbHeadings->setPopupMode(QToolButton::InstantPopup);
+    ui.tbHeadings->setToolButtonStyle(Qt::ToolButtonTextOnly);
+    QFont font = ui.tbHeadings->font();
+    font.setPointSize(24);
+    ui.tbHeadings->setFont(font);
+
     ExtendIconSizes();
     UpdateClipsUI();
 }

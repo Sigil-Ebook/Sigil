@@ -225,8 +225,6 @@ public slots:
 
     void ResourcesAddedOrDeleted();
 
-    void CBHeadingsActivated(int index);
-
 signals:
     void SettingsChanged();
 
