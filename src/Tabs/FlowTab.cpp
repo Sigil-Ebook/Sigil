@@ -516,11 +516,7 @@ void FlowTab::EmitUpdatePreviewImmediately()
 
 void FlowTab::EmitScrollPreviewImmediately()
 {
-    if (!IsModified()) {
-        emit ScrollPreviewImmediately();
-    } else {
-        emit UpdatePreview();
-    }
+    emit ScrollPreviewImmediately();
 }
 
 void FlowTab::EmitUpdateCursorPosition()
