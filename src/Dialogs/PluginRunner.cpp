@@ -247,7 +247,7 @@ void PluginRunner::startPlugin()
 #ifdef Q_OS_MAC
         args.append(QString("-EBu"));
 #elif defined(Q_OS_WIN32)
-        args.append(QString("-Ou"));
+        args.append(QString("-Bu"));
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
         args.append(QString("-Ou"));
 #endif
