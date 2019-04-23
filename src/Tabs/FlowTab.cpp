@@ -316,13 +316,8 @@ void FlowTab::EmitUpdatePreviewImmediately()
 
 void FlowTab::EmitScrollPreviewImmediately()
 {
-  if (!m_wCodeView->document()->isModified()) {
       DBG qDebug() << "FlowTab emiting ScrollPreviewImmediately from EmitScrollPreviewImmediately";
       emit ScrollPreviewImmediately();
-  } else {
-      DBG qDebug() << "FlowTab emiting UpdatePreviewImmediately from EmitScrollPreviewImmediately";
-      emit UpdatePreview();
-  }
 }
 
 void FlowTab::EmitUpdateCursorPosition()
