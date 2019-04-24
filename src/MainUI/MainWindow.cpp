@@ -179,6 +179,9 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_LastPasteTarget(NULL),
     m_ZoomPreview(false),
     m_LastWindowSize(QByteArray()),
+    m_PreviousHTMLResource(NULL),
+    m_PreviousHTMLText(QString()),
+    m_PreviousHTMLLocation(QList<ViewEditor::ElementIndex>()),
     m_menuPluginsInput(NULL),
     m_menuPluginsOutput(NULL),
     m_menuPluginsEdit(NULL),
@@ -2429,6 +2432,14 @@ void MainWindow::RemoveResources(QList<Resource *> resources)
         m_BookBrowser->RemoveSelection(m_TabManager->GetTabResources());
     }
 
+    // check if user deleted the html resource last shown in Preview 
+    // and if removed update Preview's cache resource, text, and location
+    QList<Resource *> current_resources = m_Book->GetFolderKeeper()->GetResourceListByType(Resource::HTMLResourceType);
+    if (!current_resources.contains(m_PreviousHTMLResource)) {
+        m_PreviousHTMLResource = NULL;
+        m_PreviousHTMLText = "";
+        m_PreviousHTMLLocation = QList<ViewEditor::ElementIndex>();
+    }
     if ((pw_showing) && !m_PreviewWindow->IsVisible()) {
         m_PreviewWindow->show();
     }
@@ -3377,20 +3388,42 @@ void MainWindow::UpdatePreview()
 
         html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());
 
-        if (!html_resource) return;
+        // handle any memory cache clearing inside BookViewPreview
 
-        FlowTab *flow_tab = qobject_cast<FlowTab *>(tab);
-        if (flow_tab) {
-            // Make sure the document is loaded.  As soon as the views are created
-            // signals are sent that it has changed which requests Preview to update
-            // so these need to be ignored.  Once the document is loaded it signals again.
-            if (!flow_tab->IsLoadingFinished()) {
-                return;
+        // handles all cases of non-html resource in front tab
+        if (!html_resource) {
+            // note: must handle case of m_PreviousHTMLResource being deleted by user
+            // see RemoveResources()
+            html_resource = m_PreviousHTMLResource;
+        } else {
+            m_PreviousHTMLResource = NULL;
+        }
+
+        if (html_resource) {
+            FlowTab *flow_tab = qobject_cast<FlowTab *>(tab);
+            if (flow_tab) {
+                // Make sure the document is loaded.  As soon as the views are created
+                // signals are sent that it has changed which requests Preview to update
+                // so these need to be ignored.  Once the document is loaded it signals again.
+                if (!flow_tab->IsLoadingFinished()) {
+                    return;
+                }
+                text = flow_tab->GetText();
+                location = flow_tab->GetCaretLocation();
+            } else {
+                text = m_PreviousHTMLText;
+                if (m_PreviousHTMLResource) {
+                    location = m_PreviewWindow->GetCaretLocation();
+                } else {
+                    location = m_PreviousHTMLLocation;
+                }
             }
-            text = flow_tab->GetText();
-            location = flow_tab->GetCaretLocation();
+            m_PreviousHTMLResource = html_resource;
+            m_PreviousHTMLText = text;
+            m_PreviousHTMLLocation = location;
+
             m_PreviewWindow->UpdatePage(html_resource->GetFullPath(), text, location);
-	}
+        }
     }
 }
 
