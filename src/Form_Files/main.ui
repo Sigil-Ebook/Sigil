@@ -569,10 +569,18 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionCasingLowercase"/>
-   <addaction name="actionCasingUppercase"/>
-   <addaction name="actionCasingTitlecase"/>
-   <addaction name="actionCasingCapitalize"/>
+   <widget class="QToolButton" name="tbCase">
+    <property name="text">
+     <string>aA</string>
+    </property>
+    <property name="toolTip">
+     <string>set Case of Selected Text</string>
+    </property>
+    <addaction name="actionCasingLowercase"/>
+    <addaction name="actionCasingUppercase"/>
+    <addaction name="actionCasingTitlecase"/>
+    <addaction name="actionCasingCapitalize"/>
+   </widget>
   </widget>
   <widget class="QToolBar" name="toolBarTextDirection">
    <property name="windowTitle">

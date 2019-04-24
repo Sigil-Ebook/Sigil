@@ -4383,10 +4383,15 @@ void MainWindow::ExtendUI()
 
     // Headings QToolButton
     ui.tbHeadings->setPopupMode(QToolButton::InstantPopup);
-    //ui.tbHeadings->setToolButtonStyle(Qt::ToolButtonTextOnly);
-    //QFont font = ui.tbHeadings->font();
-    //font.setPointSize(24);
-    //ui.tbHeadings->setFont(font);
+
+    // Change Case QToolButton
+    ui.tbCase->setPopupMode(QToolButton::InstantPopup);
+
+    // stop gap until an icon can be made
+    ui.tbCase->setToolButtonStyle(Qt::ToolButtonTextOnly);
+    QFont font = ui.tbCase->font();
+    font.setPointSize(18);
+    ui.tbCase->setFont(font);
 
     ExtendIconSizes();
     UpdateClipsUI();
