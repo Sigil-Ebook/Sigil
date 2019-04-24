@@ -4,7 +4,7 @@
 # Adds linked Qt's lib directory to the LD_LIBRARY_PATH
 
 QTLIB_DIR="${QT_LIBRARY_DIR}"
-SIGIL_BIN_DIR="${CMAKE_INSTALL_PREFIX}/lib/sigil"
+SIGIL_BIN_DIR="${CMAKE_INSTALL_FULL_LIBDIR}/sigil"
 
 if [ -z "$LD_LIBRARY_PATH" ]; then
   LD_LIBRARY_PATH="$SIGIL_BIN_DIR:$QTLIB_DIR"
@@ -26,5 +26,5 @@ fi
 
 export LD_LIBRARY_PATH
 
-exec ${CMAKE_INSTALL_PREFIX}/lib/sigil/sigil "$@"
+exec ${CMAKE_INSTALL_FULL_LIBDIR}/sigil/sigil "$@"
 
