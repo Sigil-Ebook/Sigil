@@ -485,9 +485,10 @@
     <bool>true</bool>
    </attribute>
    <widget class="QToolButton" name="tbHeadings">
-    <property name="text">
-     <string>H*</string>
-    </property>
+    <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/heading-all_48px.png</normaloff>:/main/heading-all_48px.png</iconset>
+   </property>
     <property name="toolTip">
       <string>set Heading Level of Selected Text</string>
    </property>
@@ -1943,7 +1944,7 @@
    </property>
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/heading-1_48px.png</normaloff>:/main/heading-1_43px.png</iconset>
+     <normaloff>:/main/heading-1_48px.png</normaloff>:/main/heading-1_48px.png</iconset>
    </property>
    <property name="text">
     <string>Heading &amp;1</string>

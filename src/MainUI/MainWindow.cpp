@@ -4383,10 +4383,10 @@ void MainWindow::ExtendUI()
 
     // Headings QToolButton
     ui.tbHeadings->setPopupMode(QToolButton::InstantPopup);
-    ui.tbHeadings->setToolButtonStyle(Qt::ToolButtonTextOnly);
-    QFont font = ui.tbHeadings->font();
-    font.setPointSize(24);
-    ui.tbHeadings->setFont(font);
+    //ui.tbHeadings->setToolButtonStyle(Qt::ToolButtonTextOnly);
+    //QFont font = ui.tbHeadings->font();
+    //font.setPointSize(24);
+    //ui.tbHeadings->setFont(font);
 
     ExtendIconSizes();
     UpdateClipsUI();
@@ -4584,6 +4584,10 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/heading-6_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/heading-6_22px.png"));
     ui.actionHeading6->setIcon(icon);
+    icon = ui.tbHeadings->icon();
+    icon.addFile(QString::fromUtf8(":/main/heading-all_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/heading-all_22px.png"));
+    ui.tbHeadings->setIcon(icon);
     icon = ui.actionHeadingNormal->icon();
     icon.addFile(QString::fromUtf8(":/main/heading-normal_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/heading-normal_22px.png"));
