@@ -3422,6 +3422,86 @@ void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
     }
 }
 
+QString CodeViewEditor::RemoveFirstTag(const QString &text, const QString &tagname)
+{
+    QString result = text;
+    int p = result.indexOf(">");
+    if (p > -1) {
+        QString tag = result.mid(0,p+1);
+        if (tag.contains(tagname)) {
+            result = result.mid(p+1,-1);
+        }
+    }
+    return result;
+}
+
+QString CodeViewEditor::RemoveLastTag(const QString &text, const QString &tagname)
+{
+    QString result = text;
+    int p = result.lastIndexOf("<");
+    if (p > -1) {
+        QString tag = result.mid(p,-1);
+        if (tag.contains(tagname)) {
+	    result = result.mid(0,p);
+	}
+    }
+    return result;
+}
+
+void CodeViewEditor::ApplyListToSelection(const QString &element)
+{
+    QTextCursor cursor = textCursor();
+    const QString selected_text = cursor.selectedText();
+
+    if (selected_text.isEmpty()) {
+        return;
+    }
+
+    QString new_text = selected_text;
+    QString tagname = GetOpeningTagName(0, new_text);
+    if (tagname.isEmpty()) {
+        if (new_text.trimmed().startsWith("<ol")) tagname = "ol";
+        if (new_text.trimmed().startsWith("<ul")) tagname = "ul";
+    }
+      
+    if (((tagname == "ol") && (element == "ol")) || 
+	((tagname == "ul") && (element == "ul"))) 
+    {
+        new_text = RemoveFirstTag(new_text, element);
+	new_text = RemoveLastTag(new_text, element);
+	        
+	// now split remaining text by new lines and 
+	// remove any beginning and ending li tags
+	QStringList alist = new_text.split(QChar::ParagraphSeparator, QString::SkipEmptyParts);
+	QString result;
+	foreach(QString aitem, alist) {
+	    result = result + RemoveLastTag(RemoveFirstTag(aitem,"li"), "li") + "\n";
+	}
+        new_text = result;
+    }
+    else if ((tagname == "p") || tagname.isEmpty()) {
+        QStringList alist = new_text.split(QChar::ParagraphSeparator, QString::SkipEmptyParts);
+	QString result;
+	foreach(QString aitem, alist) {
+	    result = result + "<li>" + aitem + "</li>\n"; 
+	}
+        new_text = "<" + element + ">\n" + result + "</" + element + ">\n";    
+    }
+    
+    if (new_text == selected_text) {
+        return;
+    }
+
+    const int pos = cursor.selectionStart();
+    cursor.beginEditBlock();
+    cursor.removeSelectedText();
+    cursor.insertText(new_text);
+    cursor.setPosition(pos + new_text.length());
+    cursor.setPosition(pos, QTextCursor::KeepAnchor);
+    cursor.endEditBlock();
+    setTextCursor(cursor);
+}
+
 void CodeViewEditor::ApplyCaseChangeToSelection(const Utility::Casing &casing)
 {
     QTextCursor cursor = textCursor();

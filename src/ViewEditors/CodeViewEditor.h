@@ -102,7 +102,9 @@ public:
 
     bool TextIsSelected();
     bool TextIsSelectedAndNotInStartOrEndTag();
-    bool TextIsSelectedAndNotContainingTag();
+
+    // No Longer Exists?
+    // bool TextIsSelectedAndNotContainingTag();
 
     QString StripCodeTags(QString text);
 
@@ -326,6 +328,8 @@ public:
      * @param property_value The new value to be assigned to this property.
      */
     void FormatCSSStyle(const QString &property_name, const QString &property_value);
+
+    void ApplyListToSelection(const QString &element);
 
     void ApplyCaseChangeToSelection(const Utility::Casing &casing);
 
@@ -555,6 +559,9 @@ private slots:
 
 private:
     bool IsMarkedText();
+
+    QString RemoveFirstTag(const QString &text, const QString &tagname);
+    QString RemoveLastTag(const QString &text, const QString &tagname);
 
     QString GetCurrentWordAtCaret(bool select_word);
 

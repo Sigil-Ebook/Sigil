@@ -2933,6 +2933,8 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionHeading5->setEnabled(true);
     ui.actionHeading6->setEnabled(true);
     ui.actionHeadingNormal->setEnabled(true);
+    ui.actionInsertBulletedList ->setEnabled(true);
+    ui.actionInsertNumberedList ->setEnabled(true);
     ui.actionCasingLowercase  ->setEnabled(true);
     ui.actionCasingUppercase  ->setEnabled(true);
     ui.actionCasingTitlecase ->setEnabled(true);

@@ -895,12 +895,16 @@ void FlowTab::AlignJustify()
 
 void FlowTab::InsertBulletedList()
 {
-  // should we put something here
+    if (m_wCodeView) {
+        m_wCodeView->ApplyListToSelection("ul");
+    }
 }
 
 void FlowTab::InsertNumberedList()
 {
-  // should we put something here
+    if (m_wCodeView) {
+        m_wCodeView->ApplyListToSelection("ol");
+    }
 }
 
 void FlowTab::DecreaseIndent()
