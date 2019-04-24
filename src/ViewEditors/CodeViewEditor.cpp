@@ -3602,6 +3602,9 @@ void CodeViewEditor::SelectAndScrollIntoView(int start_position, int end_positio
     if (scroll_to_center) {
         centerCursor();
     }
+
+    // Tell FlowTab to Tell Preview to sync
+    emit PageClicked();
 }
 
 void CodeViewEditor::ConnectSignalsToSlots()
