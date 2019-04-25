@@ -72,6 +72,9 @@ static const QString STYLE_ATTRIBUTE_SEARCH = "style\\s*=\\s*\"[^\"]*\"";
 static const QString ATTRIBUTE_NAME_POSTFIX_SEARCH = "\\s*=\\s*\"[^\"]*\"";
 static const QString ATTRIB_VALUES_SEARCH   = "\"([^\"]*)";
 
+static const QString OPEN_TAG_STARTS_SELECTION = "^\\s*(<\\s*([a-zA-Z0-9]+)[^>]*>)";
+static const QString STARTING_INDENT_USED = "(^\\s*)[^\\s]";
+
 static const int MAX_SPELLING_SUGGESTIONS = 10;
 
 
@@ -3458,34 +3461,47 @@ void CodeViewEditor::ApplyListToSelection(const QString &element)
     }
 
     QString new_text = selected_text;
-    QString tagname = GetOpeningTagName(0, new_text);
-    if (tagname.isEmpty()) {
-        if (new_text.trimmed().startsWith("<ol")) tagname = "ol";
-        if (new_text.trimmed().startsWith("<ul")) tagname = "ul";
+
+    QRegularExpression start_indent(STARTING_INDENT_USED);
+    QRegularExpressionMatch indent_mo = start_indent.match(new_text);
+    QString indent;
+    if (indent_mo.hasMatch()) {
+        indent = indent_mo.captured(1);
+	indent = indent.replace("\t","    ");
     }
-      
+ 
+    QRegularExpression open_tag_at_start(OPEN_TAG_STARTS_SELECTION);
+    QRegularExpressionMatch open_mo = open_tag_at_start.match(new_text);
+    QString tagname;
+    if (open_mo.hasMatch()) {
+        tagname = open_mo.captured(2);
+    }
+
     if (((tagname == "ol") && (element == "ol")) || 
 	((tagname == "ul") && (element == "ul"))) 
     {
         new_text = RemoveFirstTag(new_text, element);
 	new_text = RemoveLastTag(new_text, element);
-	        
+	new_text = new_text.trimmed();
 	// now split remaining text by new lines and 
 	// remove any beginning and ending li tags
 	QStringList alist = new_text.split(QChar::ParagraphSeparator, QString::SkipEmptyParts);
-	QString result;
+	QStringList result;
 	foreach(QString aitem, alist) {
-	    result = result + RemoveLastTag(RemoveFirstTag(aitem,"li"), "li") + "\n";
+	    result.append(indent + RemoveLastTag(RemoveFirstTag(aitem,"li"), "li"));
 	}
-        new_text = result;
+	result.append("");
+	new_text = result.join("\n");
     }
     else if ((tagname == "p") || tagname.isEmpty()) {
         QStringList alist = new_text.split(QChar::ParagraphSeparator, QString::SkipEmptyParts);
-	QString result;
+	QStringList result;
+	result.append(indent + "<" + element + ">");
 	foreach(QString aitem, alist) {
-	    result = result + "<li>" + aitem + "</li>\n"; 
+	    result.append(indent + "    " + "<li>" + aitem.trimmed() + "</li>"); 
 	}
-        new_text = "<" + element + ">\n" + result + "</" + element + ">\n";    
+	result.append(indent + "</" + element + ">\n");
+	new_text = result.join('\n');
     }
     
     if (new_text == selected_text) {
