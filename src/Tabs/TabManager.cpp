@@ -421,7 +421,7 @@ bool TabManager::SwitchedToExistingTab(const Resource *resource,
 
 
             // manually update the Preview Location
-	    flow_tab->EmitScrollPreviewImmediately();
+	    // flow_tab->EmitScrollPreviewImmediately();
 
             return true;
         }
