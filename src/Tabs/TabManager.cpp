@@ -420,8 +420,9 @@ bool TabManager::SwitchedToExistingTab(const Resource *resource,
                 flow_tab->ScrollToLine(line_to_scroll_to);
             }
 
-	    // Tell Preview to scroll to this new location
-	    flow_tab->EmitScrollPreviewImmediately();
+	    // Use FilteredCursorMoved signal instead of this
+	    // flow_tab->EmitScrollPreviewImmediately();
+
             return true;
         }
 

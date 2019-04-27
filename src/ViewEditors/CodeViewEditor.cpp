@@ -1862,13 +1862,11 @@ void CodeViewEditor::focusOutEvent(QFocusEvent *event)
 
 void CodeViewEditor::EmitFilteredCursorMoved()
 {
-  // this can cause extreme Preview flicker when typing/editing
-#if 0 
+    // Used to sync Preview after CV scrolling
     // Avoid slowdown while selecting text
     if (QApplication::mouseButtons() == Qt::NoButton) {
         emit FilteredCursorMoved();
     }
-#endif
 }
 
 void CodeViewEditor::TextChangedFilter()
