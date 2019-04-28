@@ -612,6 +612,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
         }
 
         QString filename = QFileInfo(filepath).fileName();
+	bool CoverImageSemanticsSet = false;
 
         if (current_filenames.contains(filename, Qt::CaseInsensitive )) {
             // If this is an image prompt to replace it.
@@ -630,6 +631,10 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
 
                 try {
                     Resource *old_resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+		    ImageResource* image_resource = qobject_cast<ImageResource *>(old_resource);
+		    if (image_resource) {
+		        CoverImageSemanticsSet = m_Book->GetOPF()->IsCoverImage(image_resource);
+		    }
                     old_resource->Delete();
                 } catch (ResourceDoesNotExist) {
                     Utility::DisplayStdErrorDialog(tr("Unable to delete or replace file \"%1\".").arg(filename)
@@ -673,8 +678,15 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
                 }
             }
         } else {
-            // TODO: adding a CSS file should add the referenced fonts too
             Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath);
+	    // if replacing a cover image, set the cover image semantics
+	    if (CoverImageSemanticsSet) {
+		ImageResource* new_image_resource = qobject_cast<ImageResource *>(resource);
+		if (new_image_resource) {
+		    m_Book->GetOPF()->SetResourceAsCoverImage(new_image_resource);
+		}
+	    }
+            // TODO: adding a CSS file should add the referenced fonts too
             if (resource->Type() == Resource::CSSResourceType) {
                 CSSResource *css_resource = qobject_cast<CSSResource *> (resource);
                 css_resource->InitialLoad();
