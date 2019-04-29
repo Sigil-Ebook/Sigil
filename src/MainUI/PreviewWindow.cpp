@@ -25,6 +25,7 @@
 #include <QApplication>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QToolBar>
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QDir>
 #include <QRegularExpression>
@@ -99,7 +100,6 @@ void PreviewWindow::hideEvent(QHideEvent * event)
     if (m_Inspector) {
         m_Inspector->StopInspection();
 	m_Inspector->close();
-	m_Inspector->hide();
     }
 
     if ((m_Preview) && m_Preview->isVisible()) {
@@ -145,24 +145,26 @@ void PreviewWindow::SetupView()
     m_Preview->installEventFilter(this);
 
     m_Layout->setContentsMargins(0, 0, 0, 0);
-#ifdef Q_OS_MAC
-    // m_Layout->setSpacing(4);
-#endif
     m_Layout->addWidget(m_Preview);
 
-    // ToolBar for Inspect, Select-All, Copy, Reload
-    m_inspectButton = new QPushButton(QIcon(":main/inspect_22px.png"),"", this);
-    m_inspectButton->setToolTip(tr("Inspect Page"));
-    m_selectButton  = new QPushButton(QIcon(":main/edit-select-all_22px.png"),"", this);
-    m_selectButton->setToolTip(tr("Select-All"));
-    m_copyButton    = new QPushButton(QIcon(":main/edit-copy_22px.png"),"", this);
-    m_copyButton->setToolTip(tr("Copy Selection To ClipBoard"));
-    m_reloadButton  = new QPushButton(QIcon(":main/reload-page_22px.png"),"", this);
-    m_reloadButton->setToolTip(tr("Update Preview Window"));
-    m_buttons->addWidget(m_inspectButton);
-    m_buttons->addWidget(m_selectButton);
-    m_buttons->addWidget(m_copyButton);
-    m_buttons->addWidget(m_reloadButton);
+    m_inspectAction = new QAction(QIcon(":main/inspect_48px.png"),"", this);
+    m_inspectAction->setToolTip(tr("Inspect Page"));
+
+    m_selectAction  = new QAction(QIcon(":main/edit-select-all_48px.png"),"", this);
+    m_selectAction->setToolTip(tr("Select-All"));
+
+    m_copyAction    = new QAction(QIcon(":main/edit-copy_48px.png"),"", this);
+    m_copyAction->setToolTip(tr("Copy Selection To ClipBoard"));
+
+    m_reloadAction  = new QAction(QIcon(":main/reload-page_48px.png"),"", this);
+    m_reloadAction->setToolTip(tr("Update Preview Window"));
+
+    QToolBar * tb = new QToolBar();
+    tb->addAction(m_inspectAction);
+    tb->addAction(m_selectAction);
+    tb->addAction(m_copyAction);
+    tb->addAction(m_reloadAction);
+    m_buttons->addWidget(tb);
     m_Layout->addLayout(m_buttons);
 
     m_MainWidget->setLayout(m_Layout);
@@ -388,10 +390,10 @@ void PreviewWindow::ConnectSignalsToSlots()
 {
     connect(m_Preview,   SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
     connect(m_Preview,   SIGNAL(LinkClicked(const QUrl &)), this, SLOT(LinkClicked(const QUrl &)));
-    connect(m_inspectButton, SIGNAL(clicked()),     this, SLOT(InspectPreviewPage()));
-    connect(m_selectButton,  SIGNAL(clicked()),     this, SLOT(SelectAllPreview()));
-    connect(m_copyButton,    SIGNAL(clicked()),     this, SLOT(CopyPreview()));
-    connect(m_reloadButton,  SIGNAL(clicked()),     this, SLOT(ReloadPreview()));
-    connect(m_Inspector,     SIGNAL(finished(int)), this, SLOT(InspectorClosed(int)));
+    connect(m_inspectAction, SIGNAL(triggered()),     this, SLOT(InspectPreviewPage()));
+    connect(m_selectAction,  SIGNAL(triggered()),     this, SLOT(SelectAllPreview()));
+    connect(m_copyAction,    SIGNAL(triggered()),     this, SLOT(CopyPreview()));
+    connect(m_reloadAction,  SIGNAL(triggered()),     this, SLOT(ReloadPreview()));
+    connect(m_Inspector,     SIGNAL(finished(int)),   this, SLOT(InspectorClosed(int)));
 }
 

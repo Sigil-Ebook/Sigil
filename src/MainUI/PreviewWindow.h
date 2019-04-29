@@ -25,6 +25,7 @@
 #define PREVIEWWINDOW_H
 
 #include <QPushButton>
+#include <QAction>
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QtWidgets/QDockWidget>
 #include <ViewEditors/Viewer.h>
@@ -98,11 +99,10 @@ private:
     QString m_mathjaxurl;
     QString m_usercssurl;
 
-    QPushButton * m_inspectButton;
-    QPushButton * m_selectButton;
-    QPushButton * m_copyButton;
-    QPushButton * m_reloadButton;
-
+    QAction * m_inspectAction;
+    QAction * m_selectAction;
+    QAction * m_copyAction;
+    QAction * m_reloadAction;
 
 };
 

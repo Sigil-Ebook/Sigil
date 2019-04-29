@@ -39,6 +39,7 @@ Inspector::Inspector(QWidget *parent) :
 {
     m_Layout->addWidget(m_inspectView);
     LoadSettings();
+    setWindowTitle(tr("Inspect Page or Element"));
 }
 
 Inspector::~Inspector()
