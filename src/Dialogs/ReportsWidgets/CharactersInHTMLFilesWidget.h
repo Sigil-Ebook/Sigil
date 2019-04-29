@@ -60,8 +60,6 @@ private slots:
     void Save();
     void DoubleClick();
 
-    void PageLoaded();
-
 private:
     void ReadSettings();
     void WriteSettings();

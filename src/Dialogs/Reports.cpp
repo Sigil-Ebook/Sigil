@@ -20,7 +20,6 @@
 **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
 **
 *************************************************************************/
-
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QProgressDialog>
 
@@ -117,31 +116,40 @@ void Reports::CreateReports(QSharedPointer<Book> book)
     int progress_value = 0;
     progress.setValue(progress_value++);
     qApp->processEvents();
+
     // Populate all of our report widgets
     m_AllFilesWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
+
     m_HTMLFilesWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
+
     m_LinksWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
+
     m_ImageFilesWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
+
     m_CSSFilesWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
+
     m_ClassesInHTMLFilesWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
+
     m_StylesInCSSFilesWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
+
     m_CharactersInHTMLFilesWidget->CreateReport(book);
     progress.setValue(progress_value++);
     qApp->processEvents();
+
     QApplication::restoreOverrideCursor();
 }
 

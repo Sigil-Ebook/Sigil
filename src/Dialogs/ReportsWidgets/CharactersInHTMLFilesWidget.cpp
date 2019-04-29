@@ -20,8 +20,6 @@
 **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
 **
 *************************************************************************/
-#include <QtWebEngineWidgets/QWebEngineView>
-#include "Misc/SleepFunctions.h"
 
 #include <QtCore/QFile>
 #include <QtCore/QHashIterator>
@@ -38,6 +36,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "Misc/XMLEntities.h"
+#include "Misc/GumboInterface.h"
 #include "ResourceObjects/HTMLResource.h"
 
 static const QString SETTINGS_GROUP = "reports";
@@ -135,35 +134,15 @@ void CharactersInHTMLFilesWidget::AddTableData()
     }
 }
 
-void CharactersInHTMLFilesWidget::PageLoaded()
-{
-    m_PageLoaded = true;
-}
-
 QList <QChar> CharactersInHTMLFilesWidget::GetDisplayedCharacters(QList<HTMLResource *> resources)
 {
-    QWebEngineView *view = new QWebEngineView();
-    view->setGeometry(0,0,200,200);
-    connect(view->page(), SIGNAL(loadFinished(bool)), this, SLOT(PageLoaded()));
-    m_PageLoaded = false;
-
     QString all_characters;
     foreach (HTMLResource *resource, resources) {
         QString replaced_html = resource->GetText();
         replaced_html = replaced_html.replace("<html>", "<html xmlns=\"http://www.w3.org/1999/xhtml\">");
-        // Skip displaying images, etc. to improve performance
-        replaced_html = replaced_html.replace("<(img|video|audio)", "<ignore");
-        replaced_html = replaced_html.replace("</(img|video|audio)", "</ignore");
-        view->setContent(replaced_html.toUtf8(), "application/xhtml+xml", QUrl::fromLocalFile(resource->GetFullPath()));
-
-        while (!m_PageLoaded) {
-            qApp->processEvents();
-            SleepFunctions::msleep(100);
-        }
-        m_PageLoaded = false;
-
-        view->page()->triggerAction(QWebEnginePage::SelectAll);
-        QString text = view->page()->selectedText();
+	QString version = "any_version";
+	GumboInterface gi = GumboInterface(replaced_html, version);
+	QString text = gi.get_body_text();
         all_characters.append(text);
     }
 
