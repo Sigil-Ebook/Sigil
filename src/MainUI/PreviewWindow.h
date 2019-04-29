@@ -68,6 +68,8 @@ signals:
     void Shown();
     void ZoomFactorChanged(float factor);
     void GoToPreviewLocationRequest();
+    void RequestPreviewReload();
+
     /**
      * Emitted whenever Preview wants to open an URL.
      * @param url The URL to open.

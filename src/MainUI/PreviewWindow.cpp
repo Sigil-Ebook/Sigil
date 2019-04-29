@@ -148,16 +148,20 @@ void PreviewWindow::SetupView()
     m_Layout->addWidget(m_Preview);
 
     m_inspectAction = new QAction(QIcon(":main/inspect_48px.png"),"", this);
-    m_inspectAction->setToolTip(tr("Inspect Page"));
+    m_inspectAction->setToolTip(tr("Inspect Page: Ctrl-F5"));
+    m_inspectAction->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_F5));
 
     m_selectAction  = new QAction(QIcon(":main/edit-select-all_48px.png"),"", this);
-    m_selectAction->setToolTip(tr("Select-All"));
+    m_selectAction->setToolTip(tr("Select-All: Ctrl-A"));
+    m_selectAction->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_A));
 
     m_copyAction    = new QAction(QIcon(":main/edit-copy_48px.png"),"", this);
-    m_copyAction->setToolTip(tr("Copy Selection To ClipBoard"));
+    m_copyAction->setToolTip(tr("Copy Selection To ClipBoard: Ctrl-C"));
+    m_copyAction->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_C));
 
     m_reloadAction  = new QAction(QIcon(":main/reload-page_48px.png"),"", this);
-    m_reloadAction->setToolTip(tr("Update Preview Window"));
+    m_reloadAction->setToolTip(tr("Update Preview Window: Ctrl-R"));
+    m_reloadAction->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_R));
 
     QToolBar * tb = new QToolBar();
     tb->addAction(m_inspectAction);
@@ -374,8 +378,9 @@ void PreviewWindow::CopyPreview()
 
 void PreviewWindow::ReloadPreview()
 {
-    m_Preview->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
+    // m_Preview->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
     // m_Preview->triggerPageAction(QWebEnginePage::Reload);
+    emit RequestPreviewReload();
 }
 
 void PreviewWindow::LoadSettings()
