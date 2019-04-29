@@ -23,6 +23,7 @@
 #ifndef CSSTAB_H
 #define CSSTAB_H
 
+#include "sigil_constants.h"
 #include "Tabs/TextTab.h"
 
 class CSSResource;
@@ -51,6 +52,12 @@ public slots:
     void TextDirectionRightToLeft();
     void TextDirectionDefault();
 
+    void HighlightRed();
+    void HighlightGreen();
+    void HighlightBlue();
+    void HighlightCyan();
+    void HighlightMegenta();
+    void HighlightYellow();
 signals:
     void CSSUpdated();
 

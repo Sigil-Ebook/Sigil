@@ -126,8 +126,10 @@ public:
 
     bool InsertId(const QString &attribute_value);
     bool InsertHyperlink(const QString &attribute_value);
+    bool Highlight(const QString &attribute_value);
     bool IsInsertIdAllowed();
     bool IsInsertHyperlinkAllowed();
+    bool IsHighlightAllowed();
     bool InsertTagAttribute(const QString &element_name, const QString &attribute_name, 
 			    const QString &attribute_value, const QStringList &tag_list, 
 			    bool ignore_seletion = false);
@@ -329,6 +331,8 @@ public:
     void ApplyCaseChangeToSelection(const Utility::Casing &casing);
 
     QString GetAttributeId();
+
+    QString GetAttributeHighlight();
 
     /**
      * Based on the cursor location (in html file)

@@ -610,6 +610,11 @@ bool BookViewEditor::InsertHyperlink(const QString &href)
     return InsertTagAttribute(element_name, attribute_name, href, ANCHOR_TAGS);
 }
 
+bool BookViewEditor::Highlight(const QString &highlight)
+{
+    return InsertTagAttribute("span", "style", highlight, HIGHLIGHT_TAGS);
+}
+
 void BookViewEditor::AddToIndex()
 {
     QString selected_text = GetSelectedText();

@@ -648,6 +648,17 @@ bool FlowTab::InsertHyperlinkEnabled()
     return false;
 }
 
+bool FlowTab::HighlightEnabled()
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        return m_wCodeView->IsHighlightAllowed();
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
+        return true;
+    }
+
+    return false;
+}
+
 bool FlowTab::InsertSpecialCharacterEnabled()
 {
     if (m_ViewState == MainWindow::ViewState_CodeView) {
@@ -1088,6 +1099,20 @@ QString FlowTab::GetAttributeHref()
     return attribute_value;
 }
 
+QString FlowTab::GetAttributeHighlight()
+{
+    QString attribute_value;
+
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        // We are only interested in marks on <mark> anchor elements
+        attribute_value = m_wCodeView->GetAttributeHighlight();
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
+        attribute_value = m_wBookView->GetAncestorTagAttributeValue("span", HIGHLIGHT_TAGS);
+    }
+
+    return attribute_value;
+}
+
 QString FlowTab::GetAttributeIndexTitle()
 {
     QString attribute_value;
@@ -1140,6 +1165,15 @@ bool FlowTab::InsertHyperlink(const QString &href)
     }
 
     return false;
+}
+
+void FlowTab::Highlight(const QString &highlight)
+{
+    if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->Highlight(highlight);
+    } else if (m_ViewState == MainWindow::ViewState_BookView) {
+        m_wBookView->Highlight(highlight);
+    }
 }
 
 void FlowTab::InsertFile(QString html)

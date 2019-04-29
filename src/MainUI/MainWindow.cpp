@@ -1844,6 +1844,57 @@ void MainWindow::InsertId()
     }
 }
 
+void MainWindow::HighlightRed()
+{
+	Highlight(HIGHLIGHT_COLOR_RED);
+}
+
+void MainWindow::HighlightGreen()
+{
+	Highlight(HIGHLIGHT_COLOR_GREEN);
+}
+
+void MainWindow::HighlightBlue()
+{
+	Highlight(HIGHLIGHT_COLOR_BLUE);
+}
+
+void MainWindow::HighlightCyan()
+{
+	Highlight(HIGHLIGHT_COLOR_CYAN);
+}
+
+void MainWindow::HighlightMegenta()
+{
+	Highlight(HIGHLIGHT_COLOR_MEGENTA);
+}
+
+void MainWindow::HighlightYellow()
+{
+	Highlight(HIGHLIGHT_COLOR_YELLOW);
+}
+
+void MainWindow::Highlight(const QString &highlight)
+{
+    SaveTabData();
+    // Get current id attribute value if any
+    ShowMessageOnStatusBar();
+
+    FlowTab *flow_tab = GetCurrentFlowTab();
+    if (!flow_tab || !flow_tab->HighlightEnabled()) {
+        return;
+    }
+
+    QString span = flow_tab->GetAttributeHighlight();
+
+    // Prevent adding a mark in Book View.
+    if (m_ViewState == MainWindow::ViewState_BookView && span.isEmpty() && flow_tab->GetSelectedText().isEmpty()) {
+        return;
+    }
+
+    flow_tab->Highlight(highlight);
+}
+
 void MainWindow::InsertHyperlink()
 {
     SaveTabData();
@@ -2983,6 +3034,12 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionStrikethrough  ->setChecked(tab->StrikethroughChecked());
     ui.actionSubscript      ->setChecked(tab->SubscriptChecked());
     ui.actionSuperscript    ->setChecked(tab->SuperscriptChecked());
+    ui.actionHighlightRed    ->setChecked(tab->HighlightEnabled());
+    ui.actionHighlightGreen  ->setChecked(tab->HighlightEnabled());
+    ui.actionHighlightBlue   ->setChecked(tab->HighlightEnabled());
+    ui.actionHighlightCyan   ->setChecked(tab->HighlightEnabled());
+    ui.actionHighlightMegenta->setChecked(tab->HighlightEnabled());
+    ui.actionHighlightYellow ->setChecked(tab->HighlightEnabled());
     ui.actionAlignLeft      ->setChecked(tab->AlignLeftChecked());
     ui.actionAlignRight     ->setChecked(tab->AlignRightChecked());
     ui.actionAlignCenter    ->setChecked(tab->AlignCenterChecked());
@@ -3045,6 +3102,12 @@ void MainWindow::SetStateActionsBookView()
     ui.actionStrikethrough->setEnabled(true);
     ui.actionSubscript    ->setEnabled(true);
     ui.actionSuperscript  ->setEnabled(true);
+    ui.actionHighlightRed    ->setEnabled(true);
+    ui.actionHighlightGreen  ->setEnabled(true);
+    ui.actionHighlightBlue   ->setEnabled(true);
+    ui.actionHighlightCyan   ->setEnabled(true);
+    ui.actionHighlightMegenta->setEnabled(true);
+    ui.actionHighlightYellow ->setEnabled(true);
     ui.actionAlignLeft   ->setEnabled(true);
     ui.actionAlignCenter ->setEnabled(true);
     ui.actionAlignRight  ->setEnabled(true);
@@ -3117,6 +3180,12 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionStrikethrough->setEnabled(true);
     ui.actionSubscript    ->setEnabled(true);
     ui.actionSuperscript  ->setEnabled(true);
+    ui.actionHighlightRed    ->setEnabled(true);
+    ui.actionHighlightGreen  ->setEnabled(true);
+    ui.actionHighlightBlue   ->setEnabled(true);
+    ui.actionHighlightCyan   ->setEnabled(true);
+    ui.actionHighlightMegenta->setEnabled(true);
+    ui.actionHighlightYellow ->setEnabled(true);
     ui.actionAlignLeft   ->setEnabled(true);
     ui.actionAlignCenter ->setEnabled(true);
     ui.actionAlignRight  ->setEnabled(true);
@@ -3206,6 +3275,12 @@ void MainWindow::SetStateActionsRawView()
     ui.actionStrikethrough->setEnabled(false);
     ui.actionSubscript    ->setEnabled(false);
     ui.actionSuperscript  ->setEnabled(false);
+    ui.actionHighlightRed   ->setEnabled(false);
+    ui.actionHighlightGreen ->setEnabled(false);
+    ui.actionHighlightBlue  ->setEnabled(false);
+    ui.actionHighlightCyan  ->setEnabled(false);
+    ui.actionHighlightMegenta->setEnabled(false);
+    ui.actionHighlightYellow->setEnabled(false);
     ui.actionAlignLeft   ->setEnabled(false);
     ui.actionAlignCenter ->setEnabled(false);
     ui.actionAlignRight  ->setEnabled(false);
@@ -3278,6 +3353,12 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionStrikethrough->setEnabled(false);
     ui.actionSubscript    ->setEnabled(false);
     ui.actionSuperscript  ->setEnabled(false);
+    ui.actionHighlightRed    ->setEnabled(false);
+    ui.actionHighlightGreen  ->setEnabled(false);
+    ui.actionHighlightBlue   ->setEnabled(false);
+    ui.actionHighlightCyan   ->setEnabled(false);
+    ui.actionHighlightMegenta->setEnabled(false);
+    ui.actionHighlightYellow ->setEnabled(false);
     ui.actionAlignLeft   ->setEnabled(false);
     ui.actionAlignCenter ->setEnabled(false);
     ui.actionAlignRight  ->setEnabled(false);
@@ -4487,6 +4568,12 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionStrikethrough, "MainWindow.Strikethrough");
     sm->registerAction(this, ui.actionSubscript, "MainWindow.Subscript");
     sm->registerAction(this, ui.actionSuperscript, "MainWindow.Superscript");
+    sm->registerAction(this, ui.actionHighlightRed, "MainWindow.HighlightRed");
+    sm->registerAction(this, ui.actionHighlightGreen, "MainWindow.HighlightGreen");
+    sm->registerAction(this, ui.actionHighlightBlue, "MainWindow.HighlightBlue");
+    sm->registerAction(this, ui.actionHighlightCyan, "MainWindow.HighlightCyan");
+    sm->registerAction(this, ui.actionHighlightMegenta, "MainWindow.HighlightMegenta");
+    sm->registerAction(this, ui.actionHighlightYellow, "MainWindow.HighlightYellow");
     sm->registerAction(this, ui.actionAlignLeft, "MainWindow.AlignLeft");
     sm->registerAction(this, ui.actionAlignCenter, "MainWindow.AlignCenter");
     sm->registerAction(this, ui.actionAlignRight, "MainWindow.AlignRight");
@@ -4719,6 +4806,30 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/format-text-superscript_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-text-superscript_22px.png"));
     ui.actionSuperscript->setIcon(icon);
+    icon = ui.actionHighlightRed->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-highlight-red_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/format-text-highlight-red_22px.png"));
+    ui.actionHighlightRed->setIcon(icon);
+    icon = ui.actionHighlightGreen->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-highlight-green_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/format-text-highlight-green_22px.png"));
+    ui.actionHighlightGreen->setIcon(icon);
+    icon = ui.actionHighlightBlue->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-highlight-blue_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/format-text-highlight-blue_22px.png"));
+    ui.actionHighlightBlue->setIcon(icon);
+    icon = ui.actionHighlightCyan->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-highlight-cyan_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/format-text-highlight-cyan_22px.png"));
+    ui.actionHighlightCyan->setIcon(icon);
+    icon = ui.actionHighlightMegenta->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-highlight-megenta_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/format-text-highlight-megenta_22px.png"));
+    ui.actionHighlightMegenta->setIcon(icon);
+    icon = ui.actionHighlightYellow->icon();
+    icon.addFile(QString::fromUtf8(":/main/format-text-highlight-yellow_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/format-text-highlight-yellow_22px.png"));
+    ui.actionHighlightYellow->setIcon(icon);
     icon = ui.actionInsertNumberedList->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-numbered-list_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/insert-numbered-list_22px.png"));
@@ -5153,6 +5264,12 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
     if (rType == Resource::HTMLResourceType) {
         connect(ui.actionSubscript,                SIGNAL(triggered()),  tab,   SLOT(Subscript()));
         connect(ui.actionSuperscript,              SIGNAL(triggered()),  tab,   SLOT(Superscript()));
+        connect(ui.actionHighlightRed,             SIGNAL(triggered()),  this,  SLOT(HighlightRed()));
+        connect(ui.actionHighlightGreen,           SIGNAL(triggered()),  this,  SLOT(HighlightGreen()));
+        connect(ui.actionHighlightBlue,            SIGNAL(triggered()),  this,  SLOT(HighlightBlue()));
+        connect(ui.actionHighlightCyan,            SIGNAL(triggered()),  this,  SLOT(HighlightCyan()));
+        connect(ui.actionHighlightMegenta,         SIGNAL(triggered()),  this,  SLOT(HighlightMegenta()));
+        connect(ui.actionHighlightYellow,          SIGNAL(triggered()),  this,  SLOT(HighlightYellow()));
         connect(ui.actionInsertBulletedList,       SIGNAL(triggered()),  tab,   SLOT(InsertBulletedList()));
         connect(ui.actionInsertNumberedList,       SIGNAL(triggered()),  tab,   SLOT(InsertNumberedList()));
         connect(ui.actionDecreaseIndent,           SIGNAL(triggered()),  tab,   SLOT(DecreaseIndent()));
@@ -5218,6 +5335,12 @@ void MainWindow::BreakTabConnections(ContentTab *tab)
     disconnect(ui.actionStrikethrough,             0, tab, 0);
     disconnect(ui.actionSubscript,                 0, tab, 0);
     disconnect(ui.actionSuperscript,               0, tab, 0);
+    disconnect(ui.actionHighlightRed,              0, tab, 0);
+    disconnect(ui.actionHighlightGreen,            0, tab, 0);
+    disconnect(ui.actionHighlightBlue,             0, tab, 0);
+    disconnect(ui.actionHighlightCyan,             0, tab, 0);
+    disconnect(ui.actionHighlightMegenta,          0, tab, 0);
+    disconnect(ui.actionHighlightYellow,           0, tab, 0);
     disconnect(ui.actionAlignLeft,                 0, tab, 0);
     disconnect(ui.actionAlignCenter,               0, tab, 0);
     disconnect(ui.actionAlignRight,                0, tab, 0);

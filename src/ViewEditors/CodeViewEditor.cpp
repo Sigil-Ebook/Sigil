@@ -1756,6 +1756,32 @@ bool CodeViewEditor::IsInsertHyperlinkAllowed()
     return true;
 }
 
+bool CodeViewEditor::IsHighlightAllowed()
+{
+    int pos = textCursor().selectionStart();
+    QString text = toPlainText();
+
+    if (!IsPositionInBody(pos, text)) {
+        return false;
+    }
+
+    // Only allow if the closing tag we're in is an "span" tag
+    QString closing_tag_name = GetClosingTagName(pos, text);
+
+    if (!closing_tag_name.isEmpty() && !HIGHLIGHT_TAGS.contains(closing_tag_name)) {
+        return false;
+    }
+
+    // Only allow if the opening tag we're in is an "span" tag
+    QString tag_name = GetOpeningTagName(pos, text);
+
+    if (!tag_name.isEmpty() && !HIGHLIGHT_TAGS.contains(tag_name)) {
+        return false;
+    }
+
+    return true;
+}
+
 bool CodeViewEditor::IsInsertFileAllowed()
 {
     int pos = textCursor().selectionStart();
@@ -1792,6 +1818,11 @@ bool CodeViewEditor::InsertHyperlink(const QString &attribute_value)
     safe_attribute_value.replace(">", "&gt;");
 
     return InsertTagAttribute(element_name, attribute_name, safe_attribute_value, ANCHOR_TAGS);
+}
+
+bool CodeViewEditor::Highlight(const QString &attribute_value)
+{
+    return InsertTagAttribute("span", "style", attribute_value, HIGHLIGHT_TAGS);
 }
 
 bool CodeViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list, bool ignore_selection)
@@ -2981,6 +3012,21 @@ QString CodeViewEditor::GetAttributeId()
     }
 
     return GetAttribute("id", tag_list, false, true);
+}
+
+QString CodeViewEditor::GetAttributeHighlight()
+{
+    int pos = textCursor().selectionStart();
+    QString text = toPlainText();
+    QString tag_name = GetOpeningTagName(pos, text);
+    // If we're in an opening tag use it for the id, else use a
+    QStringList tag_list = HIGHLIGHT_TAGS;
+
+    if (tag_name.isEmpty()) {
+        tag_list = HIGHLIGHT_TAGS;
+    }
+
+    return GetAttribute("span", tag_list, false, true);
 }
 
 QString CodeViewEditor::GetAttribute(const QString &attribute_name, QStringList tag_list, bool must_be_in_attribute, bool skip_paired_tags)

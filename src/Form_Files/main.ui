@@ -189,6 +189,12 @@
     <addaction name="actionStrikethrough"/>
     <addaction name="actionSubscript"/>
     <addaction name="actionSuperscript"/>
+    <addaction name="actionHighlightRed"/>
+    <addaction name="actionHighlightGreen"/>
+    <addaction name="actionHighlightBlue"/>
+    <addaction name="actionHighlightCyan"/>
+    <addaction name="actionHighlightMegenta"/>
+    <addaction name="actionHighlightYellow"/>
     <addaction name="separator"/>
     <addaction name="actionAlignLeft"/>
     <addaction name="actionAlignCenter"/>
@@ -506,6 +512,12 @@
    <addaction name="actionStrikethrough"/>
    <addaction name="actionSubscript"/>
    <addaction name="actionSuperscript"/>
+   <addaction name="actionHighlightRed"/>
+   <addaction name="actionHighlightGreen"/>
+   <addaction name="actionHighlightBlue"/>
+   <addaction name="actionHighlightCyan"/>
+   <addaction name="actionHighlightMegenta"/>
+   <addaction name="actionHighlightYellow"/>
   </widget>
   <widget class="QToolBar" name="toolBarTextAlign">
    <property name="windowTitle">
@@ -1191,6 +1203,108 @@
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</string>
+   </property>
+  </action>
+  <action name="actionHighlightRed">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-text-highlight-red_48px.png</normaloff>:/main/format-text-highlight-red_48px.png</iconset>
+   </property>
+   <property name="text">
+    <string>HighlightRed</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;HighlightRed&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Highlight the selected text.&lt;/p&gt;</string>
+   </property>
+  </action>
+  <action name="actionHighlightGreen">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-text-highlight-green_48px.png</normaloff>:/main/format-text-highlight-green_48px.png</iconset>
+   </property>
+   <property name="text">
+    <string>HighlightGreen</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;HighlightGreen&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Highlight the selected text.&lt;/p&gt;</string>
+   </property>
+  </action>
+  <action name="actionHighlightBlue">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-text-highlight-blue_48px.png</normaloff>:/main/format-text-highlight-blue_48px.png</iconset>
+   </property>
+   <property name="text">
+    <string>HighlightBlue</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;HighlightBlue&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Highlight the selected text.&lt;/p&gt;</string>
+   </property>
+  </action>
+  <action name="actionHighlightCyan">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-text-highlight-cyan_48px.png</normaloff>:/main/format-text-highlight-cyan_48px.png</iconset>
+   </property>
+   <property name="text">
+    <string>HighlightCyan</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;HighlightCyan&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Highlight the selected text.&lt;/p&gt;</string>
+   </property>
+  </action>
+  <action name="actionHighlightMegenta">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-text-highlight-megenta_48px.png</normaloff>:/main/format-text-highlight-megenta_48px.png</iconset>
+   </property>
+   <property name="text">
+    <string>HighlightMegenta</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;HighlightMegenta&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Highlight the selected text.&lt;/p&gt;</string>
+   </property>
+  </action>
+  <action name="actionHighlightYellow">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/format-text-highlight-yellow_48px.png</normaloff>:/main/format-text-highlight-yellow_48px.png</iconset>
+   </property>
+   <property name="text">
+    <string>HighlightYellow</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;HighlightYellow&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Highlight the selected text.&lt;/p&gt;</string>
    </property>
   </action>
   <action name="actionPrint">

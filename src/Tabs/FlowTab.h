@@ -98,6 +98,7 @@ public:
 
     bool InsertIdEnabled();
     bool InsertHyperlinkEnabled();
+    bool HighlightEnabled();
 
     bool InsertSpecialCharacterEnabled();
     bool ToggleAutoSpellcheckEnabled();
@@ -250,11 +251,13 @@ public slots:
 
     QString GetAttributeId();
     QString GetAttributeHref();
+    QString GetAttributeHighlight();
     QString GetAttributeIndexTitle();
 
     QString GetSelectedText();
     bool InsertId(const QString &id);
     bool InsertHyperlink(const QString &url);
+    void Highlight(const QString &highlight);
 
     void GoToLinkOrStyle();
 

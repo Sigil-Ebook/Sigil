@@ -89,3 +89,33 @@ void CSSTab::TextDirectionDefault()
 {
     m_wCodeView->FormatCSSStyle("direction", "inherit");
 }
+
+void CSSTab::HighlightRed()
+{
+    m_wCodeView->FormatCSSStyle("style", HIGHLIGHT_COLOR_RED);
+}
+
+void CSSTab::HighlightGreen()
+{
+    m_wCodeView->FormatCSSStyle("style", HIGHLIGHT_COLOR_GREEN);
+}
+
+void CSSTab::HighlightBlue()
+{
+    m_wCodeView->FormatCSSStyle("style", HIGHLIGHT_COLOR_BLUE);
+}
+
+void CSSTab::HighlightCyan()
+{
+    m_wCodeView->FormatCSSStyle("style", HIGHLIGHT_COLOR_CYAN);
+}
+
+void CSSTab::HighlightMegenta()
+{
+    m_wCodeView->FormatCSSStyle("style", HIGHLIGHT_COLOR_MEGENTA);
+}
+
+void CSSTab::HighlightYellow()
+{
+    m_wCodeView->FormatCSSStyle("style", HIGHLIGHT_COLOR_YELLOW);
+}

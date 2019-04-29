@@ -183,6 +183,7 @@ public:
 
     bool InsertId(const QString &id);
     bool InsertHyperlink(const QString &href);
+    bool Highlight(const QString &highlight);
 
     void AddToIndex();
     bool MarkForIndex(const QString &title);

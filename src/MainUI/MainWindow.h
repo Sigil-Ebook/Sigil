@@ -349,6 +349,14 @@ private slots:
 
     void InsertHyperlink();
 
+    void HighlightRed();
+    void HighlightGreen();
+    void HighlightBlue();
+    void HighlightCyan();
+    void HighlightMegenta();
+    void HighlightYellow();
+    void Highlight(const QString &highlight);
+
     void MarkForIndex();
 
     /**

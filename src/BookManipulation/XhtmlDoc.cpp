@@ -62,6 +62,13 @@ const QStringList ID_TAGS = QStringList() << BLOCK_LEVEL_TAGS <<
                             "font" << "i" << "label" << "mark" << "pre" << "small" <<
                             "span" << "strike" << "strong" << "sub" << "sup" << "u";
 const QStringList ANCHOR_TAGS = QStringList() << "a";
+const QStringList HIGHLIGHT_TAGS = QStringList() << "mark" << "span";
+const QString HIGHLIGHT_COLOR_RED     = "background-color: #FFCCCC";
+const QString HIGHLIGHT_COLOR_GREEN   = "background-color: #CCFFCC";
+const QString HIGHLIGHT_COLOR_BLUE    = "background-color: #CCCCFF";
+const QString HIGHLIGHT_COLOR_CYAN    = "background-color: #CCFFFF";
+const QString HIGHLIGHT_COLOR_MEGENTA = "background-color: #FFCCFF";
+const QString HIGHLIGHT_COLOR_YELLOW  = "background-color: #FFFFCC";
 const QStringList SRC_TAGS = QStringList() << "link" << "img";
 
 

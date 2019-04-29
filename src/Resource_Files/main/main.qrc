@@ -109,6 +109,24 @@
         <file>format-text-superscript_16px.png</file>
         <file>format-text-superscript_22px.png</file>
         <file>format-text-superscript_48px.png</file>
+        <file>format-text-highlight-red_16px.png</file>
+        <file>format-text-highlight-red_22px.png</file>
+        <file>format-text-highlight-red_48px.png</file>
+        <file>format-text-highlight-green_16px.png</file>
+        <file>format-text-highlight-green_22px.png</file>
+        <file>format-text-highlight-green_48px.png</file>
+        <file>format-text-highlight-blue_16px.png</file>
+        <file>format-text-highlight-blue_22px.png</file>
+        <file>format-text-highlight-blue_48px.png</file>
+        <file>format-text-highlight-cyan_16px.png</file>
+        <file>format-text-highlight-cyan_22px.png</file>
+        <file>format-text-highlight-cyan_48px.png</file>
+        <file>format-text-highlight-megenta_16px.png</file>
+        <file>format-text-highlight-megenta_22px.png</file>
+        <file>format-text-highlight-megenta_48px.png</file>
+        <file>format-text-highlight-yellow_16px.png</file>
+        <file>format-text-highlight-yellow_22px.png</file>
+        <file>format-text-highlight-yellow_48px.png</file>
         <file>format-text-underline_16px.png</file>
         <file>format-text-underline_22px.png</file>
         <file>format-text-underline_48px.png</file>

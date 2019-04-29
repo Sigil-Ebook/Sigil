@@ -149,6 +149,9 @@ public:
     virtual bool InsertHyperlinkEnabled() {
         return false;
     }
+    virtual bool HighlightEnabled() {
+        return false;
+    }
     virtual bool InsertSpecialCharacterEnabled() {
         return false;
     }
