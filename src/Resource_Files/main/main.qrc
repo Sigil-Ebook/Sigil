@@ -49,6 +49,9 @@
         <file>edit-redo_16px.png</file>
         <file>edit-redo_22px.png</file>
         <file>edit-redo_48px.png</file>
+        <file>edit-select-all_16px.png</file>
+        <file>edit-select-all_22px.png</file>
+        <file>edit-select-all_48px.png</file>
         <file>edit-undo_16px.png</file>
         <file>edit-undo_22px.png</file>
         <file>edit-undo_48px.png</file>
@@ -157,6 +160,9 @@
         <file>insert-numbered-list_48px.png</file>
         <file>insert-special-character_22px.png</file>
         <file>insert-special-character_48px.png</file>
+        <file>inspect_16px.png</file>
+        <file>inspect_22px.png</file>
+        <file>inspect_48px.png</file>
         <file>list-add_16px.png</file>
         <file>list-add_22px.png</file>
         <file>list-add_48px.png</file>
@@ -179,6 +185,9 @@
         <file>process-stop_16px.png</file>
         <file>process-stop_22px.png</file>
         <file>process-stop_48px.png</file>
+        <file>reload-page_16px.png</file>
+        <file>reload-page_22px.png</file>
+        <file>reload-page_48px.png</file>
         <file>split-section_16px.png</file>
         <file>split-section_22px.png</file>
         <file>split-section_48px.png</file>

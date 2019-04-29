@@ -23,9 +23,8 @@
 #include <QEvent>
 #include <QMouseEvent>
 #include <QApplication>
-#include <QtWidgets/QSplitter>
-#include <QtWidgets/QStackedWidget>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QDir>
 #include <QRegularExpression>
@@ -34,6 +33,7 @@
 #include <QDebug>
 
 #include "MainUI/PreviewWindow.h"
+#include "Dialogs/Inspector.h"
 #include "Misc/SleepFunctions.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -49,10 +49,9 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     QDockWidget(tr("Preview"), parent),
     m_MainWidget(new QWidget(this)),
     m_Layout(new QVBoxLayout(m_MainWidget)),
+    m_buttons(new QHBoxLayout(m_MainWidget)),
     m_Preview(new ViewPreview(this)),
-    m_Inspector(new QWebEngineView(this)),
-    m_Splitter(new QSplitter(this)),
-    m_StackedViews(new QStackedWidget(this)),
+    m_Inspector(new Inspector(this)),
     m_Filepath(QString()),
     m_GoToRequestPending(false)
 {
@@ -71,29 +70,18 @@ PreviewWindow::~PreviewWindow()
     // QWebInspector and the application will SegFault. This is an issue
     // with how QWebPages interface with QWebInspector.
 
-    if (m_Inspector) {
-        m_Inspector->page()->setInspectedPage(0);
-        m_Inspector->close();
-    }
-
     if (m_Preview) {
         delete m_Preview;
-        m_Preview = 0;
+        m_Preview = nullptr;
     }
 
     if (m_Inspector) {
+        if (m_Inspector->isVisible()) {
+            m_Inspector->StopInspection();
+	    m_Inspector->close();
+	}
         delete m_Inspector;
-        m_Inspector = 0;
-    }
-
-    if (m_Splitter) {
-        delete m_Splitter;
-        m_Splitter = 0;
-    }
-
-    if (m_StackedViews) {
-        delete(m_StackedViews);
-        m_StackedViews= 0;
+        m_Inspector = nullptr;
     }
 }
 
@@ -108,17 +96,14 @@ void PreviewWindow::resizeEvent(QResizeEvent *event)
 
 void PreviewWindow::hideEvent(QHideEvent * event)
 {
-    if (m_Inspector && m_Inspector->isVisible()) {
-            m_Inspector->hide();
+    if (m_Inspector) {
+        m_Inspector->StopInspection();
+	m_Inspector->close();
+	m_Inspector->hide();
     }
+
     if ((m_Preview) && m_Preview->isVisible()) {
         m_Preview->hide();
-    }
-    if ((m_Splitter) && m_Splitter->isVisible()) {
-        m_Splitter->hide();
-    }
-    if ((m_StackedViews) && m_StackedViews->isVisible()) {
-        m_StackedViews->hide();
     }
 }
 
@@ -129,16 +114,6 @@ void PreviewWindow::showEvent(QShowEvent * event)
         m_Preview->show();
     }
 
-    if ((m_Inspector) && !m_Inspector->isVisible()) {
-        m_Inspector->show();
-    }
-
-    if ((m_Splitter) && !m_Splitter->isVisible()) {
-        m_Splitter->show();
-    }
-    if ((m_StackedViews) && !m_StackedViews->isVisible()) {
-        m_StackedViews->show();
-    }
     QDockWidget::showEvent(event);
     raise();
     emit Shown();
@@ -168,21 +143,27 @@ void PreviewWindow::SetupView()
 
     // QWebEngineView events are routed to their parent
     m_Preview->installEventFilter(this);
-    m_Inspector->setMinimumHeight(200);
-    m_Inspector->page()->setInspectedPage(m_Preview->page());
 
     m_Layout->setContentsMargins(0, 0, 0, 0);
 #ifdef Q_OS_MAC
-    m_Layout->setSpacing(4);
+    // m_Layout->setSpacing(4);
 #endif
+    m_Layout->addWidget(m_Preview);
 
-    m_Layout->addWidget(m_StackedViews);
-
-    m_Splitter->setOrientation(Qt::Vertical);
-    m_Splitter->addWidget(m_Preview);
-    m_Splitter->addWidget(m_Inspector);
-    m_Splitter->setSizes(QList<int>() << 400 << 200);
-    m_StackedViews->addWidget(m_Splitter);
+    // ToolBar for Inspect, Select-All, Copy, Reload
+    m_inspectButton = new QPushButton(QIcon(":main/inspect_22px.png"),"", this);
+    m_inspectButton->setToolTip(tr("Inspect Page"));
+    m_selectButton  = new QPushButton(QIcon(":main/edit-select-all_22px.png"),"", this);
+    m_selectButton->setToolTip(tr("Select-All"));
+    m_copyButton    = new QPushButton(QIcon(":main/edit-copy_22px.png"),"", this);
+    m_copyButton->setToolTip(tr("Copy Selection To ClipBoard"));
+    m_reloadButton  = new QPushButton(QIcon(":main/reload-page_22px.png"),"", this);
+    m_reloadButton->setToolTip(tr("Update Preview Window"));
+    m_buttons->addWidget(m_inspectButton);
+    m_buttons->addWidget(m_selectButton);
+    m_buttons->addWidget(m_copyButton);
+    m_buttons->addWidget(m_reloadButton);
+    m_Layout->addLayout(m_buttons);
 
     m_MainWidget->setLayout(m_Layout);
     setWidget(m_MainWidget);
@@ -281,17 +262,6 @@ void PreviewWindow::SetZoomFactor(float factor)
     m_Preview->SetZoomFactor(factor);
 }
 
-void PreviewWindow::SplitterMoved(int pos, int index)
-{
-    Q_UNUSED(pos);
-    Q_UNUSED(index);
-    SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
-    settings.setValue("splitter", m_Splitter->saveState());
-    settings.endGroup();
-    UpdateWindowTitle();
-}
-
 void PreviewWindow::EmitGoToPreviewLocationRequest()
 {
     DBG qDebug() << "EmitGoToPreviewLocationRequest request: " << m_GoToRequestPending;
@@ -369,18 +339,59 @@ void PreviewWindow::LinkClicked(const QUrl &url)
     emit OpenUrlRequest(QUrl(url_string));
 }
 
+void PreviewWindow::InspectorClosed(int i)
+{
+    qDebug() << "received finished with argument: " << i;
+}
+
+void PreviewWindow::InspectPreviewPage()
+{
+    qDebug() << "InspectPreviewPage()";
+    // non-modal dialog
+    if (!m_Inspector->isVisible()) {
+        qDebug() << "inspecting";
+        m_Inspector->InspectPage(m_Preview->page());
+        m_Inspector->show();
+        m_Inspector->raise();
+        m_Inspector->activateWindow();
+	return;
+    }
+    qDebug() << "stopping inspection()";
+    m_Inspector->close();
+}
+
+void PreviewWindow::SelectAllPreview()
+{
+    m_Preview->triggerPageAction(QWebEnginePage::SelectAll);
+}
+
+void PreviewWindow::CopyPreview()
+{
+    m_Preview->triggerPageAction(QWebEnginePage::Copy);
+}
+
+void PreviewWindow::ReloadPreview()
+{
+    m_Preview->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
+    // m_Preview->triggerPageAction(QWebEnginePage::Reload);
+}
+
 void PreviewWindow::LoadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-    m_Splitter->restoreState(settings.value("splitter").toByteArray());
+    // m_Layout->restoreState(settings.value("layout").toByteArray());
     settings.endGroup();
 }
 
 void PreviewWindow::ConnectSignalsToSlots()
 {
-    connect(m_Splitter,  SIGNAL(splitterMoved(int, int)), this, SLOT(SplitterMoved(int, int)));
     connect(m_Preview,   SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
     connect(m_Preview,   SIGNAL(LinkClicked(const QUrl &)), this, SLOT(LinkClicked(const QUrl &)));
+    connect(m_inspectButton, SIGNAL(clicked()),     this, SLOT(InspectPreviewPage()));
+    connect(m_selectButton,  SIGNAL(clicked()),     this, SLOT(SelectAllPreview()));
+    connect(m_copyButton,    SIGNAL(clicked()),     this, SLOT(CopyPreview()));
+    connect(m_reloadButton,  SIGNAL(clicked()),     this, SLOT(ReloadPreview()));
+    connect(m_Inspector,     SIGNAL(finished(int)), this, SLOT(InspectorClosed(int)));
 }
 

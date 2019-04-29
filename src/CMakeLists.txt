@@ -204,6 +204,8 @@ set( DIALOG_FILES
     Dialogs/SpellcheckEditor.h
     Dialogs/ViewImage.cpp
     Dialogs/ViewImage.h
+    Dialogs/Inspector.cpp
+    Dialogs/Inspector.h
     )
 
 set( EXPORTER_FILES

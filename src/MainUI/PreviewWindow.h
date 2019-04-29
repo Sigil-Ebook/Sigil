@@ -24,15 +24,17 @@
 #ifndef PREVIEWWINDOW_H
 #define PREVIEWWINDOW_H
 
+#include <QPushButton>
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QtWidgets/QDockWidget>
 #include <ViewEditors/Viewer.h>
+#include <Dialogs/Inspector.h>
 
 class ViewPreview;
-class QSplitter;
-class QStackedWidget;
+class Inspector;
 class QWebEngineView;
 class QVBoxLayout;
+class QHBoxLayout;
 
 class PreviewWindow : public QDockWidget
 {
@@ -53,9 +55,13 @@ public slots:
     void UpdatePage(QString filename, QString text, QList<ElementIndex> location);
     void ScrollTo(QList<ElementIndex> location);
     void SetZoomFactor(float factor);
-    void SplitterMoved(int pos, int index);
     void LinkClicked(const QUrl &url);
     void EmitGoToPreviewLocationRequest();
+    void InspectPreviewPage();
+    void SelectAllPreview();
+    void CopyPreview();
+    void ReloadPreview();
+    void InspectorClosed(int);
 
 signals:
     void Shown();
@@ -81,17 +87,21 @@ private:
 
     QWidget *m_MainWidget;
     QVBoxLayout *m_Layout;
+    QHBoxLayout *m_buttons;
 
     ViewPreview *m_Preview;
-    QWebEngineView *m_Inspector;
-    QSplitter *m_Splitter;
-    QStackedWidget *m_StackedViews;
+    Inspector *m_Inspector;
     QString m_Filepath;
     bool m_GoToRequestPending;
     bool m_MouseReleaseEventHappened;
 
     QString m_mathjaxurl;
     QString m_usercssurl;
+
+    QPushButton * m_inspectButton;
+    QPushButton * m_selectButton;
+    QPushButton * m_copyButton;
+    QPushButton * m_reloadButton;
 
 
 };
