@@ -329,6 +329,10 @@ public:
      */
     void FormatCSSStyle(const QString &property_name, const QString &property_value);
 
+    bool IsSelectionValid(const QString &text);
+
+    void WrapSelectionInElement(const QString &element, bool unwrap = false);
+
     void ApplyListToSelection(const QString &element);
 
     void ApplyCaseChangeToSelection(const Utility::Casing &casing);

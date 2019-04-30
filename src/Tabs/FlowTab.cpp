@@ -909,12 +909,16 @@ void FlowTab::InsertNumberedList()
 
 void FlowTab::DecreaseIndent()
 {
-  // should we put something here
+    if (m_wCodeView) {
+        m_wCodeView->WrapSelectionInElement("blockquote", true);
+    }
 }
 
 void FlowTab::IncreaseIndent()
 {
-  // should we put something here
+    if (m_wCodeView) {
+        m_wCodeView->WrapSelectionInElement("blockquote", false);
+    }
 }
 
 void FlowTab::TextDirectionLeftToRight()
