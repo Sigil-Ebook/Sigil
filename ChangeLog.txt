@@ -2,6 +2,7 @@ pre-0.9.14
    Bug Fixes
      - flush all changes to disk before creating a Report so that files sizes are correct
    New Features
+     - build system now uses GNUInstallDirs to determine the best installation libdir on Linux
      - reduce PCRE cache size to help lower memory footprint
      - improve mapping of hunspell dictionary names to actual language names (thanks BeckyDTP)
      - add warning during import if unmanifested files exist in the epub zip archive
