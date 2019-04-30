@@ -117,6 +117,8 @@ Then issue the following command to configure Sigil for building:
 
 > `cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ../sigil-src`
 
+(Sigil now uses cmake's GNUInstallDirs to determine the best installation libdir on Linux. Should you need to override that decision on your system, add -DCMAKE_INSTALL_LIBDIR=lib or -DCMAKE_INSTALL_LIBDIR=lib64 as appropriate to the above cmake configure command)
+
 If there are no errors, you're ready to build.
 
 The default install prefix is /usr/local. If you wish to change the install location, you can do so by adding a `-DCMAKE_INSTALL_PREFIX` option to the above cmake configure command like so:
@@ -154,7 +156,7 @@ To test if Sigil's Python 3.4+ plugin framework is fully functional, you can do 
 
 1. download testplugin_v013.zip from [https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v014.zip](https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v014.zip)
 2. open Sigil to the normal nearly blank template epub it generates when opened
-3. use Plugins->Manage Plugins menu and make sure you have a Python 3.4+ interpreter configured 
+3. use Plugins->Manage Plugins menu and make sure you have a Python 3.4+ interpreter configured
 4. use the "Add Plugin" button to navigate to and add testplugin_vXXX.zip and then hit "Okay" to exit the Manage Plugins Dialog
 5. use Plugins->Edit->testplugin to launch the plugin and hit the "Start" button to run it
 6. check the plugin output window for your missing or broken plugin test results
@@ -170,6 +172,8 @@ There are several configuration and environment variable options that can tailor
 -DCMAKE_INSTALL_PREFIX=`<path>` Configures the prefix where Sigil will be installed to (default is /usr/local)
 
 -DSHARE_INSTALL_PREFIX=`<path>` Configures the prefix where Sigil's support files will be installed to (default is /usr/local meaning the support files will be installed in /usr/local/share/sigil)
+
+-DCMAKE_INSTALL_LIBDIR=(lib|lib64) Tells cmake to override the install lib path automatically determined by GNUInstallDirs
 
 -DUSE_SYSTEM_LIBS=(0|1) Tells cmake to try and use the system libraries when building Sigil instead of the ones bundled with Sigil in the 3rdParty directory. If a system version of a 3rd-party can't be found, Sigil falls back on the bundled version -- unless -DSYSTEM_LIBS_REQUIRED=1 is also specified (default is 0).
 

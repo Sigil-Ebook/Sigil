@@ -101,6 +101,7 @@
 <blockquote>
 <p><code>cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ../sigil-src</code></p>
 </blockquote>
+<p>(Sigil now uses cmake's GNUInstallDirs to determine the best installation libdir on Linux. Should you need to override that decision on your system, add -DCMAKE_INSTALL_LIBDIR=lib or -DCMAKE_INSTALL_LIBDIR=lib64 as appropriate to the above cmake configure command)</p>
 <p>If there are no errors, you're ready to build.</p>
 <p>The default install prefix is /usr/local. If you wish to change the install location, you can do so by adding a <code>-DCMAKE_INSTALL_PREFIX</code> option to the above cmake configure command like so:</p>
 <blockquote>
@@ -130,7 +131,7 @@
 <ol>
 <li>download testplugin_v013.zip from <a href="https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v014.zip">https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v014.zip</a></li>
 <li>open Sigil to the normal nearly blank template epub it generates when opened</li>
-<li>use Plugins-&gt;Manage Plugins menu and make sure you have a Python 3.4+ interpreter configured </li>
+<li>use Plugins-&gt;Manage Plugins menu and make sure you have a Python 3.4+ interpreter configured</li>
 <li>use the "Add Plugin" button to navigate to and add testplugin_vXXX.zip and then hit "Okay" to exit the Manage Plugins Dialog</li>
 <li>use Plugins-&gt;Edit-&gt;testplugin to launch the plugin and hit the "Start" button to run it</li>
 <li>check the plugin output window for your missing or broken plugin test results</li>
@@ -141,6 +142,7 @@
 <h3>CMake options</h3>
 <p>-DCMAKE_INSTALL_PREFIX=<code>&lt;path&gt;</code> Configures the prefix where Sigil will be installed to (default is /usr/local)</p>
 <p>-DSHARE_INSTALL_PREFIX=<code>&lt;path&gt;</code> Configures the prefix where Sigil's support files will be installed to (default is /usr/local meaning the support files will be installed in /usr/local/share/sigil)</p>
+<p>-DCMAKE_INSTALL_LIBDIR=(lib|lib64) Tells cmake to override the install lib path automatically determined by GNUInstallDirs</p>
 <p>-DUSE_SYSTEM_LIBS=(0|1) Tells cmake to try and use the system libraries when building Sigil instead of the ones bundled with Sigil in the 3rdParty directory. If a system version of a 3rd-party can't be found, Sigil falls back on the bundled version -- unless -DSYSTEM_LIBS_REQUIRED=1 is also specified (default is 0).</p>
 <p>-DSYSTEM_LIBS_REQUIRED=(0|1) When used in conjunction with -DUSE_SYSTEM_LIBS=1, the Sigil build process will fail if all the necessary libraries can't be located on the system, instead of falling back on the bundled versions (default is 0).</p>
 <p>-DINSTALL_BUNDLED_DICTS=(0|1) Default is 1. Can be used to enable/disable the installation of the bundled Hunspell dictionaries used for spellchecking. If this is disabled (-DINSTALL_BUNDLED_DICTS=0), then the standard system spell-check dictionary location of /usr/share/hunspell will be searched for eligible dictionaries. If additional system paths need to be searched for dictionaries, they can be added using the -DEXTRA_DICT_DIRS option. Setting this to 0 will require that you manually install the language-specific hunspell dictionaries (from your software repos) yourself (e.g. <code>sudo apt-get install hunspell-en-us</code>).</p>
