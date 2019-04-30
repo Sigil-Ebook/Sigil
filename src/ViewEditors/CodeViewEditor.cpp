@@ -3057,15 +3057,19 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name, QStringL
         }
     }
 
-    pos--;
+    // If you highlight a pasage of text including the entire opening p tag itself
+    // The selection start position shows text[pos] = "<" so there is no need
+    // to decrement the starting position for some reason as was done here
 
-    if (pos <= 0) {
+    // pos--;
+
+    if (pos <=  0) {
         return QString();
     }
 
     QStringList pairs;
 
-    // Search backwards for the next opening tag
+    // Search forwards for the last opening tag before pos
     while (true) {
         QRegularExpressionMatchIterator i = tag_search.globalMatch(text);
         while (i.hasNext()) {
