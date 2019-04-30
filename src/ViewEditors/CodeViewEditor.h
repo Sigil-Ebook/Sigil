@@ -24,7 +24,6 @@
 #ifndef CODEVIEWEDITOR_H
 #define CODEVIEWEDITOR_H
 
-#include <QMimeData>
 #include <QtCore/QList>
 #include <QtCore/QStack>
 #include <QtWidgets/QPlainTextEdit>
@@ -103,7 +102,9 @@ public:
 
     bool TextIsSelected();
     bool TextIsSelectedAndNotInStartOrEndTag();
-    bool TextIsSelectedAndNotContainingTag();
+
+    // No Longer Exists?
+    // bool TextIsSelectedAndNotContainingTag();
 
     QString StripCodeTags(QString text);
 
@@ -267,6 +268,8 @@ public:
      */
     void SetDelayedCursorScreenCenteringRequired();
 
+    QString GetCaretElementName();
+
     // inherited
     QList<ViewEditor::ElementIndex> GetCaretLocation();
 
@@ -325,6 +328,12 @@ public:
      * @param property_value The new value to be assigned to this property.
      */
     void FormatCSSStyle(const QString &property_name, const QString &property_value);
+
+    bool IsSelectionValid(const QString &text);
+
+    void WrapSelectionInElement(const QString &element, bool unwrap = false);
+
+    void ApplyListToSelection(const QString &element);
 
     void ApplyCaseChangeToSelection(const Utility::Casing &casing);
 
@@ -554,6 +563,9 @@ private slots:
 
 private:
     bool IsMarkedText();
+
+    QString RemoveFirstTag(const QString &text, const QString &tagname);
+    QString RemoveLastTag(const QString &text, const QString &tagname);
 
     QString GetCurrentWordAtCaret(bool select_word);
 
@@ -851,6 +863,7 @@ private:
      * Whether spelling highlighting should be reapplied when this tab is next given focus.
      */
     bool m_pendingSpellingHighlighting;
+    QString m_element_name;
 };
 
 #endif // CODEVIEWEDITOR_H

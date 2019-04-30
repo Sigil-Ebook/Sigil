@@ -1277,6 +1277,8 @@ void FlowTab::InsertBulletedList()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecCommand("insertUnorderedList");
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->ApplyListToSelection("ul");
     }
 }
 
@@ -1284,13 +1286,18 @@ void FlowTab::InsertNumberedList()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->ExecCommand("insertOrderedList");
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->ApplyListToSelection("ol");
     }
+
 }
 
 void FlowTab::DecreaseIndent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction(QWebPage::Outdent);
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->WrapSelectionInElement("blockquote", true);
     }
 }
 
@@ -1298,6 +1305,8 @@ void FlowTab::IncreaseIndent()
 {
     if (m_ViewState == MainWindow::ViewState_BookView) {
         m_wBookView->page()->triggerAction(QWebPage::Indent);
+    } else if (m_ViewState == MainWindow::ViewState_CodeView) {
+        m_wCodeView->WrapSelectionInElement("blockquote", false);
     }
 }
 
@@ -1545,7 +1554,7 @@ QString FlowTab::GetCaretElementName()
     if (m_ViewState == MainWindow::ViewState_BookView) {
         return m_wBookView->GetCaretElementName();
     } else {
-        return ContentTab::GetCaretElementName();
+        return m_wCodeView->GetCaretElementName();;
     }
 }
 

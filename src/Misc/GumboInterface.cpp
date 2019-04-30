@@ -547,6 +547,48 @@ QList<GumboWellFormedError> GumboInterface::error_check()
     return errlist;
 }
 
+QList<GumboWellFormedError> GumboInterface::fragment_error_check()
+{
+    QList<GumboWellFormedError> errlist;
+    int line_offset = 0;
+
+    // In case we ever have to revert to earlier versions, please note the following
+    // additional initialization is needed because Microsoft Visual Studio 2013 (and earlier?)
+    // do not properly initialize myoptions from the static const kGumboDefaultOptions defined
+    // in the gumbo library.  Instead whatever was in memory at the time is used causing random 
+    // issues later on so if reverting remember to keep these specific changes as the bug 
+    // they work around took a long long time to track down
+    GumboOptions myoptions = kGumboDefaultOptions;
+    myoptions.tab_stop = 4;
+    myoptions.use_xhtml_rules = true;
+    myoptions.stop_on_first_error = false;
+    myoptions.max_tree_depth = 400;
+    myoptions.max_errors = -1;
+
+    if (!m_source.isEmpty() && (m_output == NULL)) {
+
+        m_utf8src = m_source.toStdString();
+        m_output = gumbo_parse_fragment(&myoptions, m_utf8src.data(), m_utf8src.length(),
+					GUMBO_TAG_BODY, GUMBO_NAMESPACE_HTML);
+    }
+    const GumboVector* errors  = &m_output->errors;
+    for (unsigned int i=0; i< errors->length; ++i) {
+        GumboError* er = static_cast<GumboError*>(errors->data[i]);
+        GumboWellFormedError gperror;
+        gperror.line = er->position.line;
+        gperror.column = er->position.column;
+        // unsigned int typenum = er->type;
+        GumboStringBuffer text;
+        gumbo_string_buffer_init(&text);
+        gumbo_error_to_string(er, &text);
+        std::string errmsg(text.data, text.length);
+        gperror.message = QString::fromStdString(errmsg);
+        gumbo_string_buffer_destroy(&text);
+        errlist.append(gperror);
+    }
+    return errlist;
+}
+
 
 QList<GumboNode*> GumboInterface::get_all_nodes_with_attribute(const QString& attname)
 {

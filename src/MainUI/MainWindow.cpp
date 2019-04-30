@@ -3121,13 +3121,13 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionAlignCenter ->setEnabled(true);
     ui.actionAlignRight  ->setEnabled(true);
     ui.actionAlignJustify->setEnabled(true);
-    ui.actionDecreaseIndent->setEnabled(false);
-    ui.actionIncreaseIndent->setEnabled(false);
+    ui.actionDecreaseIndent->setEnabled(true);
+    ui.actionIncreaseIndent->setEnabled(true);
     ui.actionTextDirectionLTR    ->setEnabled(true);
     ui.actionTextDirectionRTL    ->setEnabled(true);
     ui.actionTextDirectionDefault->setEnabled(true);
-    ui.actionInsertBulletedList->setEnabled(false);
-    ui.actionInsertNumberedList->setEnabled(false);
+    ui.actionInsertBulletedList->setEnabled(true);
+    ui.actionInsertNumberedList->setEnabled(true);
     ui.actionShowTag->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(true);
     ui.menuHeadings->setEnabled(true);
