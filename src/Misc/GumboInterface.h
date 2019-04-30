@@ -88,6 +88,7 @@ public:
     // utility routines 
     std::string get_tag_name(GumboNode *node);
     QString get_local_text_of_node(GumboNode* node);
+    QString get_body_text();
 
     // routine to check if well-formed
     QList<GumboWellFormedError> error_check();

@@ -317,6 +317,22 @@ QString GumboInterface::get_body_contents()
     return QString::fromStdString(results);
 }
 
+QString GumboInterface::get_body_text() 
+{
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+    }
+    QList<GumboTag> tags = QList<GumboTag>() << GUMBO_TAG_BODY;
+    QList<GumboNode*> nodes = get_all_nodes_with_tags(tags);
+    if (nodes.count() != 1) {
+        return QString();
+    }
+    QString results = get_local_text_of_node(nodes.at(0));
+    return results;
+}
+
 
 QStringList GumboInterface::get_properties(GumboNode* node)
 {
