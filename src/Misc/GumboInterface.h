@@ -92,6 +92,7 @@ public:
 
     // routine to check if well-formed
     QList<GumboWellFormedError> error_check();
+    QList<GumboWellFormedError> fragment_error_check();
 
     // routines to work with node and it children only
     QList<GumboNode*> get_nodes_with_attribute(GumboNode* node, const char * att_name);
