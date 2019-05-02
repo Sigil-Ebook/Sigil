@@ -311,12 +311,20 @@ Plugin *PluginDB::load_plugin(const QString &name)
         }
     }
 
-    // look for an plugin specifc icon if one exists at 
-    // the root level of the plugin folder
-    QString iconpath = pluginsPath() + "/" + name + "/plugin.png";
+    // First look for a persistent custom user-specified
+    // icon in the plugin's preference folder.
+    QString iconpath = pluginsPath() + "/../plugins_prefs/" + name + "/plugin.png";
     QFileInfo fileinfo(iconpath);
     if (fileinfo.exists() && fileinfo.isFile() && fileinfo.isReadable()) {
         plugin->set_iconpath(iconpath);
+    } else {
+        // If no custom user-supplied icon, look in the
+        // plugin folder for a plugin dev-supplied icon.
+        iconpath = pluginsPath() + "/" + name + "/plugin.png";
+        QFileInfo fileinfo(iconpath);
+        if (fileinfo.exists() && fileinfo.isFile() && fileinfo.isReadable()) {
+            plugin->set_iconpath(iconpath);
+        }
     }
 
     if (!plugin->isvalid()) {
