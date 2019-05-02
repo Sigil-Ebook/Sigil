@@ -50,7 +50,7 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     QDockWidget(tr("Preview"), parent),
     m_MainWidget(new QWidget(this)),
     m_Layout(new QVBoxLayout(m_MainWidget)),
-    m_buttons(new QHBoxLayout(m_MainWidget)),
+    m_buttons(new QHBoxLayout()),
     m_Preview(new ViewPreview(this)),
     m_Inspector(new Inspector(this)),
     m_Filepath(QString()),
