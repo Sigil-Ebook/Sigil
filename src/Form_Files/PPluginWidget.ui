@@ -16,19 +16,6 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="13" column="2">
-      <widget class="QComboBox" name="comboBox_2"/>
-     </item>
-     <item row="12" column="2">
-      <widget class="QComboBox" name="comboBox"/>
-     </item>
-     <item row="12" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Assign as Plugin 1</string>
-       </property>
-      </widget>
-     </item>
      <item row="6" column="0" rowspan="6" colspan="3">
       <widget class="QTableWidget" name="pluginTable">
        <property name="sizePolicy">
@@ -228,42 +215,152 @@
        </property>
       </widget>
      </item>
-     <item row="13" column="0">
-      <widget class="QLabel" name="label_3">
+     <item row="12" column="0" colspan="4">
+      <widget class="Line" name="line_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="0" colspan="3">
+      <widget class="QLabel" name="label_12">
        <property name="text">
-        <string>Assign as Plugin 2</string>
+        <string>Quick Launch Plugin Assignments</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
      <item row="14" column="0">
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Assign as Plugin 3</string>
+        <string>Plugin 1:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
      <item row="15" column="0">
-      <widget class="QLabel" name="label_5">
+      <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>Assign as Plugin 4</string>
+        <string>Plugin 2:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
      <item row="16" column="0">
-      <widget class="QLabel" name="label_6">
+      <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>Assign as Plugin 5</string>
+        <string>Plugin 3:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
-     <item row="14" column="2">
+     <item row="17" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Plugin 4:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="18" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Plugin 5:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="1">
+      <widget class="QComboBox" name="comboBox"/>
+     </item>
+     <item row="15" column="1">
+      <widget class="QComboBox" name="comboBox_2"/>
+     </item>
+     <item row="16" column="1">
       <widget class="QComboBox" name="comboBox_3"/>
      </item>
-     <item row="15" column="2">
+     <item row="17" column="1">
       <widget class="QComboBox" name="comboBox_4"/>
      </item>
-     <item row="16" column="2">
+     <item row="18" column="1">
       <widget class="QComboBox" name="comboBox_5"/>
+     </item>
+     <item row="14" column="2">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>Plugin 6:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="2">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>Plugin 7:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="2">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>Plugin 8:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="17" column="2">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>Plugin 9:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="18" column="2">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>Plugin 10:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="3">
+      <widget class="QComboBox" name="comboBox_6"/>
+     </item>
+     <item row="15" column="3">
+      <widget class="QComboBox" name="comboBox_7"/>
+     </item>
+     <item row="16" column="3">
+      <widget class="QComboBox" name="comboBox_8"/>
+     </item>
+     <item row="17" column="3">
+      <widget class="QComboBox" name="comboBox_9"/>
+     </item>
+     <item row="18" column="3">
+      <widget class="QComboBox" name="comboBox_10"/>
      </item>
     </layout>
    </item>

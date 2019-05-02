@@ -198,7 +198,10 @@ int SettingsStore::cleanOn()
 QStringList SettingsStore::pluginMap()
 {
     clearSettingsGroup();
-    QStringList EmptyMap = QStringList() << "" << "" << "" << "" << "";
+    QStringList EmptyMap = QStringList();
+    for (int i = 0; i < 10; i++) {
+        EmptyMap.append("");
+    }
     return value(KEY_PLUGIN_USER_MAP, EmptyMap).toStringList();
 }
 
@@ -432,7 +435,7 @@ void SettingsStore::setCleanOn(int on)
     setValue(KEY_CLEAN_ON, on);
 }
 
-void SettingsStore::setPluginMap(QStringList &map)
+void SettingsStore::setPluginMap(const QStringList &map)
 {
     clearSettingsGroup();
     setValue(KEY_PLUGIN_USER_MAP, map);

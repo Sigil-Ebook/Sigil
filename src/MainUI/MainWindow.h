@@ -978,6 +978,7 @@ private:
     QStringList m_pluginList;
     bool m_SaveCSS;
 
+    QList<QAction*> m_qlactions;
     /**
      * Holds all the widgets Qt Designer created for us.
      */

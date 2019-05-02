@@ -7,6 +7,7 @@
 
 #include "ui_PPluginWidget.h"
 
+class QComboBox;
 class Plugin;
 
 class PluginWidget : public PreferencesWidget
@@ -48,6 +49,7 @@ private:
     bool m_isDirty;
     QString m_LastFolderOpen;
     bool m_useBundledInterp;
+    QList<QComboBox*> m_qlcbxs;
 };
 
 #endif // PLUGINWIDGET_H

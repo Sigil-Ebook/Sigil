@@ -24,6 +24,19 @@ PluginWidget::PluginWidget()
     m_useBundledInterp(false)
 {
     ui.setupUi(this);
+
+    // initialize ui combobox pointer list
+    m_qlcbxs.append(ui.comboBox);
+    m_qlcbxs.append(ui.comboBox_2);
+    m_qlcbxs.append(ui.comboBox_3);
+    m_qlcbxs.append(ui.comboBox_4);
+    m_qlcbxs.append(ui.comboBox_5);
+    m_qlcbxs.append(ui.comboBox_6);
+    m_qlcbxs.append(ui.comboBox_7);
+    m_qlcbxs.append(ui.comboBox_8);
+    m_qlcbxs.append(ui.comboBox_9);
+    m_qlcbxs.append(ui.comboBox_10);
+
     readSettings();
     connectSignalsToSlots();
 }
@@ -42,17 +55,15 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
     pdb->set_engine_path("python3.4", ui.editPathPy3->text());
 
 
-    // handle the 5 assignable plugin buttons
+    // handle the 10 assignable plugin buttons
     QHash<QString, Plugin*> plugins = pdb->all_plugins();
     QStringList keys = plugins.keys();
     keys.sort();
     QStringList pluginmap;
     QStringList pnames;
-    pnames.append(ui.comboBox->currentText());
-    pnames.append(ui.comboBox_2->currentText());
-    pnames.append(ui.comboBox_3->currentText());
-    pnames.append(ui.comboBox_4->currentText());
-    pnames.append(ui.comboBox_5->currentText());
+    foreach(QComboBox* cb, m_qlcbxs) {
+      pnames.append(cb->currentText());
+    }
     foreach (QString pname, pnames) {
         if (keys.contains(pname)) {
             pluginmap.append(pname);
@@ -120,43 +131,31 @@ void PluginWidget::readSettings()
 
     ui.pluginTable->resizeColumnsToContents();
 
-    // handle the 5 assignable plugin buttons
-    ui.comboBox->clear();
-    ui.comboBox_2->clear();
-    ui.comboBox_3->clear();
-    ui.comboBox_4->clear();
-    ui.comboBox_5->clear();
+    // handle the assignable plugin buttons
+    foreach(QComboBox* cb, m_qlcbxs) {
+        cb->clear();
+    }
 
     QStringList keys = plugins.keys();
     keys.sort();
     QStringList items = QStringList() << "";
     items.append(keys);
-    ui.comboBox->addItems(items);
-    ui.comboBox_2->addItems(items);
-    ui.comboBox_3->addItems(items);
-    ui.comboBox_4->addItems(items);
-    ui.comboBox_5->addItems(items);
-
-    ui.comboBox->setCurrentIndex(0);
-    ui.comboBox_2->setCurrentIndex(0);
-    ui.comboBox_3->setCurrentIndex(0);
-    ui.comboBox_4->setCurrentIndex(0);
-    ui.comboBox_5->setCurrentIndex(0);
+    foreach(QComboBox* cb, m_qlcbxs) {
+        cb->addItems(items);
+    }
+    foreach(QComboBox* cb, m_qlcbxs) {
+        cb->setCurrentIndex(0);
+    }
 
     QStringList pluginmap = settings.pluginMap();
     // prevent segfaults from corrupted settings files
-    while (pluginmap.count() < 5) pluginmap.append(QString(""));
-    int t1 = ui.comboBox->findText(pluginmap.at(0));
-    int t2 = ui.comboBox_2->findText(pluginmap.at(1));
-    int t3 = ui.comboBox_3->findText(pluginmap.at(2));
-    int t4 = ui.comboBox_4->findText(pluginmap.at(3));
-    int t5 = ui.comboBox_5->findText(pluginmap.at(4));
+    while (pluginmap.count() < 10) pluginmap.append(QString(""));
 
-    ui.comboBox->setCurrentIndex(t1);
-    ui.comboBox_2->setCurrentIndex(t2);
-    ui.comboBox_3->setCurrentIndex(t3);
-    ui.comboBox_4->setCurrentIndex(t4);
-    ui.comboBox_5->setCurrentIndex(t5);
+    // initialize each combo box current index from settings
+    for (int i=0; i < 10; i++) {
+        int t = m_qlcbxs.at(i)->findText(pluginmap.at(i));
+	m_qlcbxs.at(i)->setCurrentIndex(t);
+    }
 
     // If the python bundled interpreter is present/ready, enable the checkbox and set it
     // based on the value of the SettingStore Value. Otherwise keep it disabled.
@@ -231,11 +230,9 @@ void PluginWidget::addPlugin()
     ui.pluginTable->insertRow(rows);
     setPluginTableRow(p,rows);
     ui.pluginTable->resizeColumnsToContents();
-    ui.comboBox->addItem(pluginname);
-    ui.comboBox_2->addItem(pluginname);
-    ui.comboBox_3->addItem(pluginname);
-    ui.comboBox_4->addItem(pluginname);
-    ui.comboBox_5->addItem(pluginname);
+    foreach(QComboBox* cb, m_qlcbxs) {
+        cb->addItem(pluginname);
+    }
     ui.pluginTable->setSortingEnabled(true);
 }
 
@@ -261,39 +258,29 @@ void PluginWidget::removePlugin()
 
 
     // now update the toolbar plugin assignments
-    QString val1 = ui.comboBox->currentText();
-    QString val2 = ui.comboBox_2->currentText();
-    QString val3 = ui.comboBox_3->currentText();
-    QString val4 = ui.comboBox_4->currentText();
-    QString val5 = ui.comboBox_5->currentText();
+    // get their current settings
+    QStringList vals;
+    foreach(QComboBox* cb, m_qlcbxs) {
+        vals.append(cb->currentText());
+    }
 
-    // all 5 have the identical lists
+    // all 10 have the identical lists
+    // so remove the same item from each list
     int item_to_remove = ui.comboBox->findText(pluginname);
     if (item_to_remove > -1) {
-        ui.comboBox->removeItem(item_to_remove);
-        ui.comboBox_2->removeItem(item_to_remove);
-        ui.comboBox_3->removeItem(item_to_remove);
-        ui.comboBox_4->removeItem(item_to_remove);
-        ui.comboBox_5->removeItem(item_to_remove);
+        foreach(QComboBox* cb, m_qlcbxs) {
+	    cb->removeItem(item_to_remove);
+        }
     }
-    int target;
-    target = ui.comboBox->findText(val1);
-    ui.comboBox->setCurrentIndex(target);
-
-    target = ui.comboBox_2->findText(val2);
-    ui.comboBox_2->setCurrentIndex(target);
-
-    target = ui.comboBox_3->findText(val3);
-    ui.comboBox_3->setCurrentIndex(target);
-
-    target = ui.comboBox_4->findText(val4);
-    ui.comboBox_4->setCurrentIndex(target);
-
-    target = ui.comboBox_5->findText(val5);
-    ui.comboBox_5->setCurrentIndex(target);
+    // now put back their current assigned plugins
+    int i = 0;
+    foreach(QComboBox* cb, m_qlcbxs) {
+        int target = cb->findText(vals.at(i));
+        cb->setCurrentIndex(target);
+        i++;
+    }
 
     ui.pluginTable->setSortingEnabled(true);
-
 }
 
 
@@ -319,16 +306,10 @@ void PluginWidget::removeAllPlugins()
         ui.pluginTable->resizeColumnsToContents();
         ui.pluginTable->setSortingEnabled(true);
     }
-    ui.comboBox->clear();
-    ui.comboBox_2->clear();
-    ui.comboBox_3->clear();
-    ui.comboBox_4->clear();
-    ui.comboBox_5->clear();
-    ui.comboBox->setCurrentIndex(-1);
-    ui.comboBox_2->setCurrentIndex(-1);
-    ui.comboBox_3->setCurrentIndex(-1);
-    ui.comboBox_4->setCurrentIndex(-1);
-    ui.comboBox_5->setCurrentIndex(-1);
+    foreach(QComboBox* cb, m_qlcbxs) {
+        cb->clear();
+	cb->setCurrentIndex(-1);
+    }
 }
 
 
@@ -415,9 +396,7 @@ void PluginWidget::connectSignalsToSlots()
     connect(ui.pluginTable, SIGNAL(cellDoubleClicked(int,int)), this, SLOT(pluginSelected(int,int)));
     connect(ui.editPathPy3, SIGNAL(editingFinished()), this, SLOT(enginePy3PathChanged()));
     connect(ui.chkUseBundled, SIGNAL(stateChanged(int)), this, SLOT(useBundledPy3Changed(int)));
-    connect(ui.comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(pluginMapChanged(int)));
-    connect(ui.comboBox_2, SIGNAL(currentIndexChanged(int)), this, SLOT(pluginMapChanged(int)));
-    connect(ui.comboBox_3, SIGNAL(currentIndexChanged(int)), this, SLOT(pluginMapChanged(int)));
-    connect(ui.comboBox_4, SIGNAL(currentIndexChanged(int)), this, SLOT(pluginMapChanged(int)));
-    connect(ui.comboBox_5, SIGNAL(currentIndexChanged(int)), this, SLOT(pluginMapChanged(int)));
+    foreach(QComboBox* cb, m_qlcbxs) {
+        connect(cb, SIGNAL(currentIndexChanged(int)), this, SLOT(pluginMapChanged(int)));
+    }
 }

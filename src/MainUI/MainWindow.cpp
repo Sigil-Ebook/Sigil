@@ -263,26 +263,24 @@ void MainWindow::loadPluginsMenu()
     connect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
 
     // Setup up for quick launch of plugins
-    connect(ui.actionPlugin1, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
-    m_pluginMapper->setMapping(ui.actionPlugin1, 0);
-    connect(ui.actionPlugin2, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
-    m_pluginMapper->setMapping(ui.actionPlugin2, 1);
-    connect(ui.actionPlugin3, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
-    m_pluginMapper->setMapping(ui.actionPlugin3, 2);
-    connect(ui.actionPlugin4, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
-    m_pluginMapper->setMapping(ui.actionPlugin4, 3);
-    connect(ui.actionPlugin5, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
-    m_pluginMapper->setMapping(ui.actionPlugin5, 4);
+    int i = 0;
+    foreach(QAction* pa, m_qlactions){
+        connect(pa, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
+        m_pluginMapper->setMapping(pa, i);
+	i++;
+    }
     connect(m_pluginMapper, SIGNAL(mapped(int)), this, SLOT(QuickLaunchPlugin(int)));
 
     QHash<QString, Plugin *> plugins = pdb->all_plugins();
 
     // first set default icons for quick launch plugin buttons
-    ui.actionPlugin1->setIcon(QIcon(":/main/plugin_48px_1pips.png"));
-    ui.actionPlugin2->setIcon(QIcon(":/main/plugin_48px_2pips.png"));
-    ui.actionPlugin3->setIcon(QIcon(":/main/plugin_48px_3pips.png"));
-    ui.actionPlugin4->setIcon(QIcon(":/main/plugin_48px_4pips.png"));
-    ui.actionPlugin5->setIcon(QIcon(":/main/plugin_48px_5pips.png"));
+    // Do we need this?  Aren't these set in Form_Files/main.ui
+    i = 1;
+    foreach(QAction* pa, m_qlactions) {
+        QString resource = ":/main/plugin_48px_" + QString::number(i) + "pips.png";
+        pa->setIcon(QIcon(resource));
+        i++;
+    }
 
     // now set any custom icons
     SettingsStore ss;
@@ -294,11 +292,7 @@ void MainWindow::loadPluginsMenu()
             if (p != NULL) {
                 QString iconpath = p->get_iconpath();
                 if (!iconpath.isEmpty()) {
-                    if (pos == 0) ui.actionPlugin1->setIcon(QIcon(iconpath));
-                    if (pos == 1) ui.actionPlugin2->setIcon(QIcon(iconpath));
-                    if (pos == 2) ui.actionPlugin3->setIcon(QIcon(iconpath));
-                    if (pos == 3) ui.actionPlugin4->setIcon(QIcon(iconpath));
-                    if (pos == 4) ui.actionPlugin5->setIcon(QIcon(iconpath));
+		    m_qlactions.at(pos)->setIcon(QIcon(iconpath));
                 }
             }
         }
@@ -378,16 +372,10 @@ void MainWindow::unloadPluginsMenu()
     }
     disconnect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
     disconnect(m_pluginMapper, SIGNAL(mapped(int)), this, SLOT(QuickLaunchPlugin(int)));
-    m_pluginMapper->removeMappings(ui.actionPlugin1);
-    m_pluginMapper->removeMappings(ui.actionPlugin2);
-    m_pluginMapper->removeMappings(ui.actionPlugin3);
-    m_pluginMapper->removeMappings(ui.actionPlugin4);
-    m_pluginMapper->removeMappings(ui.actionPlugin5);
-    disconnect(ui.actionPlugin1, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
-    disconnect(ui.actionPlugin2, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
-    disconnect(ui.actionPlugin3, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
-    disconnect(ui.actionPlugin4, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
-    disconnect(ui.actionPlugin5, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
+    foreach(QAction * pa, m_qlactions) {
+        m_pluginMapper->removeMappings(pa);
+        disconnect(pa, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
+    }
 }
 
 void MainWindow::runPlugin(QAction *action)
@@ -2741,21 +2729,13 @@ void MainWindow::updateToolTipsOnPluginIcons()
 {
     SettingsStore ss;
     QStringList namemap = ss.pluginMap();
-    QString pname1 = tr("RunPlugin1");
-    QString pname2 = tr("RunPlugin2");
-    QString pname3 = tr("RunPlugin3");
-    QString pname4 = tr("RunPlugin4");
-    QString pname5 = tr("RunPlugin5");
-    if (namemap.count() > 0) pname1 = namemap.at(0);
-    if (namemap.count() > 1) pname2 = namemap.at(1);
-    if (namemap.count() > 2) pname3 = namemap.at(2);
-    if (namemap.count() > 3) pname4 = namemap.at(3);
-    if (namemap.count() > 4) pname5 = namemap.at(4);
-    ui.actionPlugin1->setToolTip(pname1);
-    ui.actionPlugin2->setToolTip(pname2);
-    ui.actionPlugin3->setToolTip(pname3);
-    ui.actionPlugin4->setToolTip(pname4);
-    ui.actionPlugin5->setToolTip(pname5);
+    int i=0;
+    foreach(QAction* pa, m_qlactions) {
+        QString pname = tr("RunPlugin") + QString::number(i+1);
+        if (namemap.count() > i) pname = namemap.at(i);
+        pa->setToolTip(pname);
+        i++;
+    }
 }
 
 void MainWindow::WellFormedCheckEpub()
@@ -4124,6 +4104,18 @@ void MainWindow::PlatformSpecificTweaks()
 
 void MainWindow::ExtendUI()
 {
+    // initialize list of quick launch plugin actions
+    m_qlactions.append(ui.actionPlugin1);
+    m_qlactions.append(ui.actionPlugin2);
+    m_qlactions.append(ui.actionPlugin3);
+    m_qlactions.append(ui.actionPlugin4);
+    m_qlactions.append(ui.actionPlugin5);
+    m_qlactions.append(ui.actionPlugin6);
+    m_qlactions.append(ui.actionPlugin7);
+    m_qlactions.append(ui.actionPlugin8);
+    m_qlactions.append(ui.actionPlugin9);
+    m_qlactions.append(ui.actionPlugin10);
+
     m_FindReplace->ShowHide();
     // We want a nice frame around the tab manager
     QFrame *frame = new QFrame(this);
@@ -4172,6 +4164,7 @@ void MainWindow::ExtendUI()
     m_TableOfContents->toggleViewAction()->setShortcut(QKeySequence(Qt::ALT + Qt::Key_F3));
     ui.menuView->addAction(m_ValidationResultsView->toggleViewAction());
     m_ValidationResultsView->toggleViewAction()->setShortcut(QKeySequence(Qt::ALT + Qt::Key_F2));
+
     // Create the view menu to hide and show toolbars.
     ui.menuToolbars->addAction(ui.toolBarFileActions->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTextManip->toggleViewAction());
@@ -4377,11 +4370,16 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionClip20, "MainWindow.Clip20");
 
     // for plugins
-    sm->registerAction(this, ui.actionPlugin1, "MainWindow.Plugins.RunPlugin1");
-    sm->registerAction(this, ui.actionPlugin2, "MainWindow.Plugins.RunPlugin2");
-    sm->registerAction(this, ui.actionPlugin3, "MainWindow.Plugins.RunPlugin3");
-    sm->registerAction(this, ui.actionPlugin4, "MainWindow.Plugins.RunPlugin4");
-    sm->registerAction(this, ui.actionPlugin5, "MainWindow.Plugins.RunPlugin5");
+    sm->registerAction(this, ui.actionPlugin1,  "MainWindow.Plugins.RunPlugin1");
+    sm->registerAction(this, ui.actionPlugin2,  "MainWindow.Plugins.RunPlugin2");
+    sm->registerAction(this, ui.actionPlugin3,  "MainWindow.Plugins.RunPlugin3");
+    sm->registerAction(this, ui.actionPlugin4,  "MainWindow.Plugins.RunPlugin4");
+    sm->registerAction(this, ui.actionPlugin5,  "MainWindow.Plugins.RunPlugin5");
+    sm->registerAction(this, ui.actionPlugin6,  "MainWindow.Plugins.RunPlugin6");
+    sm->registerAction(this, ui.actionPlugin7,  "MainWindow.Plugins.RunPlugin7");
+    sm->registerAction(this, ui.actionPlugin8,  "MainWindow.Plugins.RunPlugin8");
+    sm->registerAction(this, ui.actionPlugin9,  "MainWindow.Plugins.RunPlugin9");
+    sm->registerAction(this, ui.actionPlugin10, "MainWindow.Plugins.RunPlugin10");
 
     // Headings QToolButton
     ui.tbHeadings->setPopupMode(QToolButton::InstantPopup);

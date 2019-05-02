@@ -318,7 +318,7 @@ public slots:
 
     void setCleanOn(int on);
 
-    void setPluginMap(QStringList & map);
+    void setPluginMap(const QStringList & map);
 
     void setDefaultVersion(const QString &version);
 

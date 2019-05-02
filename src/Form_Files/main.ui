@@ -460,7 +460,7 @@
   </widget>
   <widget class="QToolBar" name="toolBarPlugins">
    <property name="windowTitle">
-    <string>Plugins</string>
+    <string>Plugins Set 1</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -473,6 +473,22 @@
    <addaction name="actionPlugin3"/>
    <addaction name="actionPlugin4"/>
    <addaction name="actionPlugin5"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarPlugins2">
+   <property name="windowTitle">
+    <string>Plugins Set 2</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionPlugin6"/>
+   <addaction name="actionPlugin7"/>
+   <addaction name="actionPlugin8"/>
+   <addaction name="actionPlugin9"/>
+   <addaction name="actionPlugin10"/>
   </widget>
   <widget class="QToolBar" name="toolBarHeadings">
    <property name="windowTitle">
@@ -2290,6 +2306,51 @@
    </property>
    <property name="text">
     <string>Run Plugin 5</string>
+   </property>
+  </action>
+  <action name="actionPlugin6">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/plugin_48px_6pips.png</normaloff>:/main/plugin_48px_6pips.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run Plugin 6</string>
+   </property>
+  </action>
+  <action name="actionPlugin7">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/plugin_48px_7pips.png</normaloff>:/main/plugin_48px_7pips.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run Plugin 7</string>
+   </property>
+  </action>
+  <action name="actionPlugin8">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/plugin_48px_8pips.png</normaloff>:/main/plugin_48px_8pips.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run Plugin 8</string>
+   </property>
+  </action>
+  <action name="actionPlugin9">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/plugin_48px_9pips.png</normaloff>:/main/plugin_48px_9pips.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run Plugin 9</string>
+   </property>
+  </action>
+  <action name="actionPlugin10">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/plugin_48px_10pips.png</normaloff>:/main/plugin_48px_10pips.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run Plugin 10</string>
    </property>
   </action>
   <action name="actionMendPrettifyHTML">
