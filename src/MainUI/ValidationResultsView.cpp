@@ -45,7 +45,7 @@ ValidationResultsView::ValidationResultsView(QWidget *parent)
     m_ResultTable(new QTableWidget(this))
 {
     setWidget(m_ResultTable);
-    setAllowedAreas(Qt::BottomDockWidgetArea);
+    setAllowedAreas(Qt::BottomDockWidgetArea | Qt::TopDockWidgetArea);
     SetUpTable();
     connect(m_ResultTable, SIGNAL(itemDoubleClicked(QTableWidgetItem *)),
             this,           SLOT(ResultDoubleClicked(QTableWidgetItem *)));
