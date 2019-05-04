@@ -37,9 +37,10 @@ Inspector::Inspector(QWidget *parent) :
     m_inspectView(new QWebEngineView(this)),
     m_page(nullptr)
 {
+    setWindowTitle(tr("Inspect Page or Element"));
+    setMinimumSize(QSize(200, 200));
     m_Layout->addWidget(m_inspectView);
     LoadSettings();
-    setWindowTitle(tr("Inspect Page or Element"));
 }
 
 Inspector::~Inspector()
@@ -69,7 +70,7 @@ void Inspector::StopInspection()
 
 QSize Inspector::sizeHint()
 {
-  return QSize(400,200);
+  return QSize(450,250);
 }
 
 void Inspector::closeEvent(QCloseEvent* event)
@@ -87,6 +88,8 @@ void Inspector::LoadSettings()
 
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
+    } else {
+      resize(sizeHint());
     }
     settings.endGroup();
 }
