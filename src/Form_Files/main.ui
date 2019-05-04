@@ -392,17 +392,6 @@
    <addaction name="separator"/>
    <addaction name="actionFind"/>
   </widget>
-  <widget class="QToolBar" name="toolBarViews">
-   <property name="windowTitle">
-    <string>View</string>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
   <widget class="QToolBar" name="toolBarInsertions">
    <property name="windowTitle">
     <string>Insert</string>
