@@ -4173,6 +4173,8 @@ void MainWindow::ExtendUI()
     ui.menuToolbars->addAction(ui.toolBarBack->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarDonate->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTools->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarPlugins->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarPlugins2->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarHeadings->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTextFormats->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTextAlign->toggleViewAction());
