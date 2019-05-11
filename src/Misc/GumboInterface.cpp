@@ -550,7 +550,6 @@ QList<GumboWellFormedError> GumboInterface::error_check()
 QList<GumboWellFormedError> GumboInterface::fragment_error_check()
 {
     QList<GumboWellFormedError> errlist;
-    int line_offset = 0;
 
     // In case we ever have to revert to earlier versions, please note the following
     // additional initialization is needed because Microsoft Visual Studio 2013 (and earlier?)
