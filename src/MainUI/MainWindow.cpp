@@ -97,6 +97,7 @@
 #include "Tabs/FlowTab.h"
 #include "Tabs/OPFTab.h"
 #include "Tabs/TabManager.h"
+#include "MainUI/MainApplication.h"
 
 #define DBG if(0)
 
