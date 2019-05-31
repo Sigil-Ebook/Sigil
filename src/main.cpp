@@ -329,17 +329,33 @@ int main(int argc, char *argv[])
         // the reply has time to return.
         UpdateChecker *checker = new UpdateChecker(&app);
         checker->CheckForUpdate();
+
         // Install an event filter for the application
         // so we can catch OS X's file open events
         AppEventFilter *filter = new AppEventFilter(&app);
         app.installEventFilter(filter);
-        const QStringList &arguments = QCoreApplication::arguments();
+
+        QStringList arguments = QCoreApplication::arguments();
+
+#ifdef Q_OS_MAC
+        // now process main app events so that any startup 
+        // FileOpen event will be processed for macOS
+        QCoreApplication::processEvents();
+
+        QString filepath = filter->getInitialFilePath();
+
+        // if one found append it to argv for processing as normal
+        if ((arguments.size() == 1) && !filepath.isEmpty()) {
+            arguments << QFileInfo(filepath).absoluteFilePath();
+        }
+#endif
 
         if (arguments.contains("-t")) {
             std::cout  << TempFolder::GetPathToSigilScratchpad().toStdString() << std::endl;
             return 1;
         } else {
             // Normal startup
+
 #ifdef Q_OS_MAC
             // Work around QTBUG-62193 and QTBUG-65245 and others where menubar
 	    // menu items are lost under File and Sigil menus and where
@@ -387,6 +403,7 @@ int main(int argc, char *argv[])
 	    basemw->setMenuBar(mac_menu);
             basemw->show();
 #endif
+
             VerifyPlugins();
             MainWindow *widget = GetMainWindow(arguments);
             widget->show();

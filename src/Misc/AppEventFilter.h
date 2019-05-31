@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -24,6 +25,7 @@
 #define APPEVENTFILTER_H
 
 #include <QtCore/QObject>
+#include <QString>
 
 class QEvent;
 
@@ -37,12 +39,18 @@ public:
     // The argument is the object's parent.
     AppEventFilter(QObject *parent);
 
+    QString getInitialFilePath();
+
 protected:
 
     // The event filter used to catch OS X's
     // QFileOpenEvents. These signal the user used the OS's
     // services to start Sigil with an existing document
     bool eventFilter(QObject *watched_object, QEvent *event);
+
+private:
+    // any initial file passed in from OS when Sigil first launched
+    QString m_initialFilePath;
 
 };
 
