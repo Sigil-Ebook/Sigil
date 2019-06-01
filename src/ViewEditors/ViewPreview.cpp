@@ -30,6 +30,7 @@
 #include <QtWebEngineWidgets/QWebEngineProfile>
 #include <QtWebEngineWidgets/QWebEnginePage>
 #include <QtWebEngineWidgets/QWebEngineView>
+#include <QtWebEngineWidgets/QWebEngineScript>
 #include <QDebug>
 
 #include "Misc/SettingsStore.h"
@@ -258,7 +259,7 @@ QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
 
     DBG qDebug() << "evaluate javascript" << javascript;
 
-    page()->runJavaScript(javascript,SetJavascriptResultFunctor(pres));
+    page()->runJavaScript(javascript,QWebEngineScript::ApplicationWorld, SetJavascriptResultFunctor(pres));
     while(!pres->isFinished() && (!deadline.hasExpired())) {
         qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 100);
     }
@@ -280,7 +281,7 @@ void ViewPreview::DoJavascript(const QString &javascript)
      // do not try to evaluate javascripts with the page not loaded yet
     if (!m_isLoadFinished) return;
 
-    page()->runJavaScript(javascript);
+    page()->runJavaScript(javascript,QWebEngineScript::ApplicationWorld);
 }
 
 
@@ -300,8 +301,8 @@ void ViewPreview::GrabFocus()
 
 void ViewPreview::WebPageJavascriptOnLoad()
 {
-    page()->runJavaScript(c_jQuery);
-    page()->runJavaScript(c_jQueryScrollTo);
+    page()->runJavaScript(c_jQuery, QWebEngineScript::ApplicationWorld);
+    page()->runJavaScript(c_jQueryScrollTo, QWebEngineScript::ApplicationWorld);
     m_pendingLoadCount -= 1;
 
     if (m_pendingLoadCount == 0) {
@@ -503,9 +504,9 @@ QString ViewPreview::GetSelectedText()
 
 void ViewPreview::HighlightPosition()
 {
-    page()->runJavaScript("document/documentElement.contentEditable = true");
+    page()->runJavaScript("document/documentElement.contentEditable = true", QWebEngineScript::ApplicationWorld);
     page()->triggerAction(QWebEnginePage::SelectEndOfBlock);
-    page()->runJavaScript("document/documentElement.contentEditable = false");
+    page()->runJavaScript("document/documentElement.contentEditable = false", QWebEngineScript::ApplicationWorld);
 }
 
 void ViewPreview::copy()
