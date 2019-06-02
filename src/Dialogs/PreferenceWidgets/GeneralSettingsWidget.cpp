@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2011  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012  Dave Heiland
 **
@@ -79,6 +80,12 @@ PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
         new_remote_on_level = 1;
     }
 
+    int new_javascript_on_level = 0;
+
+    if (ui.AllowJavascript->isChecked()) {
+        new_javascript_on_level = 1;
+    }
+
     QString new_temp_folder_home = "<SIGIL_DEFAULT_TEMP_HOME>";
     if (!ui.lineEdit->text().isEmpty()) {
          new_temp_folder_home = ui.lineEdit->text();
@@ -89,6 +96,7 @@ PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
     settings.setCssEpub2ValidationSpec(css_epub2_spec);
     settings.setCssEpub3ValidationSpec(css_epub3_spec);
     settings.setRemoteOn(new_remote_on_level);
+    settings.setJavascriptOn(new_javascript_on_level);
     settings.setClipboardHistoryLimit(int(ui.clipLimitSpin->value()));
     settings.setTempFolderHome(new_temp_folder_home);
 
@@ -117,6 +125,8 @@ void GeneralSettingsWidget::readSettings()
     ui.MendOnSave->setChecked(cleanOn & CLEANON_SAVE);
     int remoteOn = settings.remoteOn();
     ui.AllowRemote->setChecked(remoteOn);
+    int javascriptOn = settings.javascriptOn();
+    ui.AllowJavascript->setChecked(javascriptOn);
     ui.clipLimitSpin->setValue(int(settings.clipboardHistoryLimit()));
     QString temp_folder_home = settings.tempFolderHome();
     ui.lineEdit->setText(temp_folder_home);

@@ -88,6 +88,8 @@ ViewPreview::ViewPreview(QWidget *parent)
     page()->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, false);
     page()->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, false);
     page()->settings()->setDefaultTextEncoding("UTF-8");
+    // Javascript is allowed 
+    page()->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, (settings.javascriptOn() == 1));
     // Allow epubs to access remote resources via the net
     page()->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, (settings.remoteOn() == 1));
     page()->settings()->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, false);

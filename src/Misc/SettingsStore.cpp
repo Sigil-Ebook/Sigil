@@ -48,6 +48,7 @@ static QString KEY_ENABLED_USER_DICTIONARIES = SETTINGS_GROUP + "/" + "enabled_u
 static QString KEY_PLUGIN_USER_MAP = SETTINGS_GROUP + "/" + "plugin_user_map";
 static QString KEY_CLEAN_ON = SETTINGS_GROUP + "/" + "clean_on";
 static QString KEY_REMOTE_ON = SETTINGS_GROUP + "/" + "remote_on";
+static QString KEY_JAVASCRIPT_ON = SETTINGS_GROUP + "/" + "javascript_on";
 static QString KEY_DEFAULT_VERSION = SETTINGS_GROUP + "/" + "default_version";
 static QString KEY_PRESERVE_ENTITY_NAMES = SETTINGS_GROUP + "/" + "preserve_entity_names";
 static QString KEY_PRESERVE_ENTITY_CODES = SETTINGS_GROUP + "/" + "preserve_entity_codes";
@@ -187,6 +188,12 @@ int SettingsStore::remoteOn()
 {
     clearSettingsGroup();
     return value(KEY_REMOTE_ON, 0).toInt();
+}
+
+int SettingsStore::javascriptOn()
+{
+    clearSettingsGroup();
+    return value(KEY_JAVASCRIPT_ON, 0).toInt();
 }
 
 int SettingsStore::cleanOn()
@@ -427,6 +434,12 @@ void SettingsStore::setRemoteOn(int on)
 {
     clearSettingsGroup();
     setValue(KEY_REMOTE_ON, on);
+}
+
+void SettingsStore::setJavascriptOn(int on)
+{
+    clearSettingsGroup();
+    setValue(KEY_JAVASCRIPT_ON, on);
 }
 
 void SettingsStore::setCleanOn(int on)

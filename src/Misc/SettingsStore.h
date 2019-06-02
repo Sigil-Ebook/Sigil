@@ -132,6 +132,8 @@ public:
 
     int remoteOn();
 
+    int javascriptOn();
+
     int cleanOn();
 
     QStringList pluginMap();
@@ -315,6 +317,8 @@ public slots:
     void setRenameTemplate(const QString &name);
 
     void setRemoteOn(int on);
+
+    void setJavascriptOn(int on);
 
     void setCleanOn(int on);
 
