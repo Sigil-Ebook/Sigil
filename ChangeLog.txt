@@ -1,12 +1,28 @@
 pre-0.9.14
    Bug Fixes
      - flush all changes to disk before creating a Report so that files sizes are correct
+     - stop writing python bytecode to Program Files on Windows
+     - remember cover semantics if cover image replaced by Add Existing...
+     - fix issues with the Plugin Framework documentation epub
+     - more memory leaks plugged
+     - minor code cleanups
    New Features
+     - updated to Qt 5.12.3 with Annulen Webkit 5.212 with extra QtCursor memory leak fixes
+     - updated to Python 3.7.2
+     - updated build docs for macOS, Linux and Windows
      - build system now uses GNUInstallDirs to determine the best installation libdir on Linux
+     - updated desktop integration for Linux
      - reduce PCRE cache size to help lower memory footprint
      - improve mapping of hunspell dictionary names to actual language names (thanks BeckyDTP)
      - add warning during import if unmanifested files exist in the epub zip archive
-     - Sigil no longer requires use of non-breaking space entities (or any entities at all!)
+     - no longer requires use of non-breaking space entities (or any entities at all!)
+     - special spaces are now visisble via syntax highlighting in CodeView
+     - dropping epubs on Sigil.app no longer opens an extra empty epub on macOS
+     - reload Preview only when needed to help prevent screen flicker and lower memory use
+     - enabled Windows automated builds using Apppveyor
+     - characters in HTML files report now uses gumbo for speed
+     - allow user's custom plugin icons to survive a plugin update
+     
 
 
 Sigil-0.9.13
