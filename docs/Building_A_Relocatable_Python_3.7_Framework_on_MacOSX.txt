@@ -1,13 +1,58 @@
-# Pre-Build requirements for El Captian and later users:
+# *** IMPORTANT ***
+
+# Build Prerequisite requirements for Python 3.7.2 on macOS 10.12 Sierra and later users:
 #
 #     First make sure you are using the latest XCode for your version of Mac OSX
 #     Then make sure you have the command line tools (CLT) installed (via xcode-select --install)
 #
-# *** IMPORTANT ***
 #
 #     For Python's pip3 and lzma module you will need to compile and install the headers 
-#     and static library versions of liblzma.a (xz), libssl.a (libressl), and libcrypto.a (libressl)
+#     and static library versions of liblzma.a (xz), libssl.a (libopenssl), and libcrypto.a (libopenssl)
 #
+
+# Download openssl-1.1.c.tar.gz or later from https://www.openssl.org/source
+
+export MACOSX_DEPLOYMENT_TARGET=10.12
+export LDFLAGS="-Wl,-macosx_version_min,10.12"
+export CFLAGS="-mmacosx-version-min=10.12 -Werror=partial-availability"
+
+tar -zxvf openssl-1.1.1c.tar.gz
+cd openssl-1.1.1c
+./config no-shared --prefix=/usr/local
+make
+sudo make install
+
+# Download xz-5.2.4.tar.gz or later from https://tukaani.org/xz/  (via sourceforge)
+
+export MACOSX_DEPLOYMENT_TARGET=10.12
+export LDFLAGS="-Wl,-macosx_version_min,10.12"
+export CFLAGS="-mmacosx-version-min=10.12 -Werror=partial-availability"
+
+# Since configure is very stupid in how it tests symbols on macOSX we need
+# to apply a patch to prevent it from using something that does not exist
+# on our deployment target of 10.12 as below (futimens does not exist on macOS10.12)
+
+cat fix_xz_for_macOS_10.12.patch
+--- configure.orig	2019-06-04 11:12:26.000000000 -0400
++++ configure	2019-06-04 11:12:42.000000000 -0400
+@@ -18233,7 +18233,7 @@
+ 
+ 
+ # Find the best function to set timestamps.
+-for ac_func in futimens futimes futimesat utimes _futime utime
++for ac_func in futimes futimesat utimes _futime utime
+ do :
+   as_ac_var=`$as_echo "ac_cv_func_$ac_func" | $as_tr_sh`
+ ac_fn_c_check_func "$LINENO" "$ac_func" "$as_ac_var"
+-------
+
+tar -zxvf xz-5.2.4.tar.gz
+cd xz-5.2.4
+patch -p0 < fix_xz_for_macOS_10.12.patch
+./configure --disable-shared --prefix=/usr/local
+make
+sudo make install
+
 #     Also you need to install the latest free community edition of ActiveState's ActiveTCL 8.6.X or later.
 #     See: http://www.activestate.com/activetcl/downloads
 #
@@ -18,21 +63,25 @@
 #     https://www.tcl.tk/software/tcltk/download.html
 #     https://www.tcl.tk/doc/howto/compile.html  (use --enable-framework --enable-aqua --enable-threads during configure)
 
-#     And finally as we will be building a required PyQt5 python module, you will need to have built Qt 5.12.2 first
+#     And finally as we will be building a required PyQt5 python module, you will need to have built or
+#     downloaded prebuilt versions of Qt 5.12.3 first
 #       So see Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt
+
+
+# Building Python 3.7.2 to be fully relocatable for macOS Sierra and later
 
 # Before building remember to rename any /Applications/Python 3.7.app to save it and replace it afterwards
 # as the damn python installation from source always overwrites it no matter the configure prefix used
 
 # Download Python-3.7.2.tgz from www.python.org
 
-export MACOSX_DEPLOYMENT_TARGET=10.11
+export MACOSX_DEPLOYMENT_TARGET=10.12
 
 # Pick a location where the relocatable Python framework will be installed
 # stay away from /tmp locations since Mac OS X will auto delete files older 
 # than 3 days in /tmp right out from under you
 
-export MYDEST=/Users/${USER}/devtools/Frameworks
+export MYDEST=/Users/${USER}/devtools2/Frameworks
 
 # now build Python 3.7.2 as a framework
 # Need to patch Python-3.7.2 to allow it to build Mac OS X 10.11 compliant and later
@@ -43,8 +92,8 @@ tar -zxvf Python-3.7.2.tgz
 cd Python-3.7.2
 patch -p0 < python_3.7.2_fixes.patch
 
-export LDFLAGS="-Wl,-macosx_version_min,10.11" 
-export CFLAGS="-mmacosx-version-min=10.11 -Werror=partial-availability" 
+export LDFLAGS="-Wl,-macosx_version_min,10.12" 
+export CFLAGS="-mmacosx-version-min=10.12 -Werror=partial-availability" 
 ./configure --prefix=${MYDEST} --enable-framework=${MYDEST} --with-ensurepip
 
 make
@@ -115,13 +164,13 @@ sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
 # We will now use this just-built Python3.7 interpreter to install PyQt5 and sip.
 
 # **** Important: versions of PyQt5 and sip must be selected to match with the Qt version
-# **** In these instructions we are using Qt 5.12.2 and therefore need sip-4.19.15 and PyQt5_gpl-5.12.1
+# **** In these instructions we are using Qt 5.12.3 and therefore need sip-4.19.15 and PyQt5_gpl-5.12.1
 
 
-# Building sip-4.19.15 from source and installing it into your Python Interpreter
+# Building sip-4.19.17 from source and installing it into your Python Interpreter
 
 # From https://sourceforge.net/projects/pyqt/files/sip/
-# Download sip-4.19.15.tar.gz
+# Download sip-4.19.17.tar.gz
 
 # More detailed build instructions can be found here:
 #    http://pyqt.sourceforge.net/Docs/sip4/installation.html
@@ -130,17 +179,17 @@ sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
 export PATH=${MYDEST}/Python.framework/Versions/3.7/bin:${PATH}
 which python3
 
-tar -zxvf sip-4.19.15.tar.gz
-cd sip-4.19.15
-python3 ./configure.py --deployment-target=10.11 --sip-module=PyQt5.sip
+tar -zxvf sip-4.19.17.tar.gz
+cd sip-4.19.17
+python3 ./configure.py --deployment-target=10.12 --sip-module=PyQt5.sip
 make
 sudo make install
 
 
-# Building PyQt5 for Qt-5.12.2 from source and installing it into your Python Interpreter
+# Building PyQt5 for Qt-5.12.3 from source and installing it into your Python Interpreter
 
 # From https://sourceforge.net/projects/pyqt/files/PyQt5/
-# Download PyQt5_gpl-5.12.1.tar.gz
+# Download PyQt5_gpl-5.12.2.tar.gz
 
 # More detailed build instructions can be found here: 
 #    http://pyqt.sourceforge.net/Docs/PyQt5/installation.html#building-and-installing-from-source
@@ -149,15 +198,15 @@ sudo make install
 export PATH=${MYDEST}/Python.framework/Versions/3.7/bin:${PATH}
 which python3
 
-# Must have the Qt5.12.2 bin directory in the path to specify which Qt to use
+# Must have the Qt5.12.3 bin directory in the path to specify which Qt to use
 # See Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt
 export PATH=/Users/${USER}/Qt512/bin:${PATH}
 which qmake
 
-export MACOSX_DEPLOYMENT_TARGET=10.11
+export MACOSX_DEPLOYMENT_TARGET=10.12
 
-tar -zxvf PyQt5_gpl-5.12.1.tar.gz
-cd PyQt5_gpl-5.12.1
+tar -zxvf PyQt5_gpl-5.12.2.tar.gz
+cd PyQt5_gpl-5.12.2
 python3 ./configure.py --confirm-license --no-docstrings --no-stubs 
 make -j4
 sudo make install
