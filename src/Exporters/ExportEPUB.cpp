@@ -143,13 +143,13 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
     fileInfo.tmz_date.tm_year = timeNow.date().year();
 
     // Write the mimetype. This must be uncompressed and the first entry in the archive.
-    if (zipOpenNewFileInZip64(zfile, "mimetype", &fileInfo, NULL, 0, NULL, 0, NULL, Z_NO_COMPRESSION, 0, 0) != Z_OK) {
+    if (zipOpenNewFileInZip64(zfile, "mimetype", &fileInfo, NULL, 0, NULL, 0, NULL, Z_NO_COMPRESSION, 0, 0) != ZIP_OK) {
         zipClose(zfile, NULL);
         QFile::remove(tempFile);
         throw(CannotStoreFile("mimetype"));
     }
 
-    if (zipWriteInFileInZip(zfile, EPUB_MIME_DATA, (unsigned int)strlen(EPUB_MIME_DATA)) != Z_OK) {
+    if (zipWriteInFileInZip(zfile, EPUB_MIME_DATA, (unsigned int)strlen(EPUB_MIME_DATA)) != ZIP_OK) {
         zipCloseFileInZip(zfile);
         zipClose(zfile, NULL);
         QFile::remove(tempFile);
@@ -170,7 +170,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
 
         // Add the file entry to the archive.
         // We should check the uncompressed file size. If it's over >= 0xffffffff the last parameter (zip64) should be 1.
-        if (zipOpenNewFileInZip4_64(zfile, relpath.toUtf8().constData(), &fileInfo, NULL, 0, NULL, 0, NULL, Z_DEFLATED, 8, 0, 15, 8, Z_DEFAULT_STRATEGY, NULL, 0, 0x0b00, 1<<11, 0) != Z_OK) {
+        if (zipOpenNewFileInZip4_64(zfile, relpath.toUtf8().constData(), &fileInfo, NULL, 0, NULL, 0, NULL, Z_DEFLATED, 8, 0, 15, 8, Z_DEFAULT_STRATEGY, NULL, 0, 0x0b00, 1<<11, 0) != ZIP_OK) {
             zipClose(zfile, NULL);
             QFile::remove(tempFile);
             throw(CannotStoreFile(relpath.toStdString()));
@@ -192,7 +192,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
         qint64 read = 0;
 
         while ((read = dfile.read(buff, BUFF_SIZE)) > 0) {
-            if (zipWriteInFileInZip(zfile, buff, read) != Z_OK) {
+            if (zipWriteInFileInZip(zfile, buff, read) != ZIP_OK) {
                 dfile.close();
                 zipCloseFileInZip(zfile);
                 zipClose(zfile, NULL);
@@ -211,7 +211,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
             throw(CannotStoreFile(relpath.toStdString()));
         }
 
-        if (zipCloseFileInZip(zfile) != Z_OK) {
+        if (zipCloseFileInZip(zfile) != ZIP_OK) {
             zipClose(zfile, NULL);
             QFile::remove(tempFile);
             throw(CannotStoreFile(relpath.toStdString()));
