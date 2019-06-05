@@ -1,0 +1,113 @@
+diff --git ./qtwebengine/src/webenginewidgets/api/qwebenginepage.cpp ./qtwebengine/src/webenginewidgets/api/qwebenginepage.cpp
+index dd720a41b..85a162383 100644
+--- ./qtwebengine/src/webenginewidgets/api/qwebenginepage.cpp
++++ ./qtwebengine/src/webenginewidgets/api/qwebenginepage.cpp
+@@ -775,6 +775,13 @@ void QWebEnginePagePrivate::bindPageAndView(QWebEnginePage *page, QWebEngineView
+         view->d_func()->pageChanged(oldPage, page);
+         if (oldWidget != widget)
+             view->d_func()->widgetChanged(oldWidget, widget);
++
++        // At this point m_ownsPage should still refer to oldPage,
++        // it is only set for the new page after binding.
++        if (view->d_func()->m_ownsPage) {
++            delete oldPage;
++            view->d_func()->m_ownsPage = false;
++        }
+     }
+ }
+ 
+diff --git ./qtwebengine/src/webenginewidgets/api/qwebengineview.cpp ./qtwebengine/src/webenginewidgets/api/qwebengineview.cpp
+index 966b30100..381f1385c 100644
+--- ./qtwebengine/src/webenginewidgets/api/qwebengineview.cpp
++++ ./qtwebengine/src/webenginewidgets/api/qwebengineview.cpp
+@@ -126,6 +126,7 @@ static QAccessibleInterface *webAccessibleFactory(const QString &, QObject *obje
+ QWebEngineViewPrivate::QWebEngineViewPrivate()
+     : page(0)
+     , m_dragEntered(false)
++    , m_ownsPage(false)
+ {
+ #ifndef QT_NO_ACCESSIBILITY
+     QAccessible::installFactory(&webAccessibleFactory);
+@@ -176,6 +177,7 @@ QWebEnginePage* QWebEngineView::page() const
+     if (!d->page) {
+         QWebEngineView *that = const_cast<QWebEngineView*>(this);
+         that->setPage(new QWebEnginePage(that));
++        d->m_ownsPage = true;
+     }
+     return d->page;
+ }
+diff --git ./qtwebengine/src/webenginewidgets/api/qwebengineview_p.h ./qtwebengine/src/webenginewidgets/api/qwebengineview_p.h
+index 28fb883aa..7848e0cf3 100644
+--- ./qtwebengine/src/webenginewidgets/api/qwebengineview_p.h
++++ ./qtwebengine/src/webenginewidgets/api/qwebengineview_p.h
+@@ -77,6 +77,7 @@ class QWebEngineViewPrivate
+ 
+     QWebEnginePage *page;
+     bool m_dragEntered;
++    mutable bool m_ownsPage;
+ };
+ 
+ #ifndef QT_NO_ACCESSIBILITY
+diff --git ./qtwebengine/tests/auto/widgets/qwebengineview/tst_qwebengineview.cpp ./qtwebengine/tests/auto/widgets/qwebengineview/tst_qwebengineview.cpp
+index 5f05f70ab..6ab63b54e 100644
+--- ./qtwebengine/tests/auto/widgets/qwebengineview/tst_qwebengineview.cpp
++++ ./qtwebengine/tests/auto/widgets/qwebengineview/tst_qwebengineview.cpp
+@@ -195,6 +195,10 @@ private Q_SLOTS:
+     void deletePage();
+     void closeOpenerTab();
+     void switchPage();
++    void setPageDeletesImplicitPage();
++    void setViewDeletesImplicitPage();
++    void setPagePreservesExplicitPage();
++    void setViewPreservesExplicitPage();
+ };
+ 
+ // This will be called before the first test function is executed.
+@@ -3196,5 +3200,47 @@ void tst_QWebEngineView::switchPage()
+       QTRY_COMPARE(webView.grab().toImage().pixelColor(QPoint(150,150)), Qt::black);
+ }
+ 
++void tst_QWebEngineView::setPageDeletesImplicitPage()
++{
++    QWebEngineView view;
++    QPointer<QWebEnginePage> implicitPage = view.page();
++    QWebEnginePage explicitPage;
++    view.setPage(&explicitPage);
++    QCOMPARE(view.page(), &explicitPage);
++    QVERIFY(!implicitPage); // should be deleted
++}
++
++void tst_QWebEngineView::setViewDeletesImplicitPage()
++{
++    QWebEngineView view;
++    QPointer<QWebEnginePage> implicitPage = view.page();
++    QWebEnginePage explicitPage;
++    explicitPage.setView(&view);
++    QCOMPARE(view.page(), &explicitPage);
++    QVERIFY(!implicitPage); // should be deleted
++}
++
++void tst_QWebEngineView::setPagePreservesExplicitPage()
++{
++    QWebEngineView view;
++    QPointer<QWebEnginePage> explicitPage1 = new QWebEnginePage(&view);
++    QPointer<QWebEnginePage> explicitPage2 = new QWebEnginePage(&view);
++    view.setPage(explicitPage1.data());
++    view.setPage(explicitPage2.data());
++    QCOMPARE(view.page(), explicitPage2.data());
++    QVERIFY(explicitPage1); // should not be deleted
++}
++
++void tst_QWebEngineView::setViewPreservesExplicitPage()
++{
++    QWebEngineView view;
++    QPointer<QWebEnginePage> explicitPage1 = new QWebEnginePage(&view);
++    QPointer<QWebEnginePage> explicitPage2 = new QWebEnginePage(&view);
++    explicitPage1->setView(&view);
++    explicitPage2->setView(&view);
++    QCOMPARE(view.page(), explicitPage2.data());
++    QVERIFY(explicitPage1); // should not be deleted
++}
++
+ QTEST_MAIN(tst_QWebEngineView)
+ #include "tst_qwebengineview.moc"
