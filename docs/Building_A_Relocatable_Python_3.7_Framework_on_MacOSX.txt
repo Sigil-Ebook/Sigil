@@ -164,7 +164,7 @@ sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
 # We will now use this just-built Python3.7 interpreter to install PyQt5 and sip.
 
 # **** Important: versions of PyQt5 and sip must be selected to match with the Qt version
-# **** In these instructions we are using Qt 5.12.3 and therefore need sip-4.19.15 and PyQt5_gpl-5.12.1
+# **** In these instructions we are using Qt 5.12.3 and therefore need sip-4.19.17 and PyQt5_gpl-5.12.2
 
 
 # Building sip-4.19.17 from source and installing it into your Python Interpreter
