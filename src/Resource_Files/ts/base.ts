@@ -2735,23 +2735,23 @@ You can then check or uncheck individual headings in the list above.</source>
     <name>ImportEPUB</name>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="143"/>
-        <source>Files exist in epub that are not                  listed in the manifest, they will be ignored</source>
+        <source>Files exist in epub that are not listed in the manifest, they will be ignored</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="180"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="179"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="181"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="180"/>
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in data loss.
 
 Do you want to automatically fix the files?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="520"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="519"/>
         <source>Epub has missing or improperly specified OPF.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13222,95 +13222,95 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="236"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="235"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="237"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="784"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="787"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="236"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="783"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="786"/>
         <source>Sigil has created a new one for you.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="274"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="273"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="406"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="405"/>
         <source>Cannot unzip EPUB: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="452"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="461"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="478"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="486"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="451"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="460"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="477"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="485"/>
         <source>Cannot extract file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="498"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="497"/>
         <source>Cannot open EPUB: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="550"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="549"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="558"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="557"/>
         <source>No appropriate OPF file found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="609"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="608"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="704"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="703"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="705"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="704"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="750"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="749"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="751"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="750"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="779"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="778"/>
         <source>Sigil has created a template NCX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="780"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="779"/>
         <source>to support epub2 backwards compatibility.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="783"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="782"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="786"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="785"/>
         <source>The NCX file is not present in this EPUB.</source>
         <translation type="unfinished"></translation>
     </message>
