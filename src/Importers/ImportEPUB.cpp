@@ -140,8 +140,7 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
 	}
     }
     if (!notInManifest.isEmpty()) {
-        Utility::DisplayStdWarningDialog(tr("Files exist in epub that are not \
-                 listed in the manifest, they will be ignored"), notInManifest.join("\n"));
+        Utility::DisplayStdWarningDialog(tr("Files exist in epub that are not listed in the manifest, they will be ignored"), notInManifest.join("\n"));
     }
     const QHash<QString, QString> updates = LoadFolderStructure();
     const QList<Resource *> resources     = m_Book->GetFolderKeeper()->GetResourceList();
