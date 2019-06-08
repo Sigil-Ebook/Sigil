@@ -20,6 +20,7 @@ pre-0.9.14
      - dropping epubs on Sigil.app no longer opens an extra empty epub on macOS
      - reload Preview only when needed to help prevent screen flicker and lower memory use
      - enabled Windows automated builds using Apppveyor
+     - Windows releases now compiled with Visual Studio 2017
      - characters in HTML files report now uses gumbo for speed
      - allow user's custom plugin icons to survive a plugin update
      
