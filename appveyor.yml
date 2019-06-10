@@ -80,13 +80,13 @@ before_build:
     python -m pip install --upgrade pip
     pip3.7 install six==1.12.0
     pip3.7 install html5lib==1.0.1
-    pip3.7 install regex==2018.11.22
+    pip3.7 install regex==2019.3.12
     pip3.7 install cssutils==1.0.2
     pip3.7 install cssselect==1.0.3
     pip3.7 install chardet==3.0.4
     pip3.7 install pillow==5.4.1
-    pip3.7 install PyQt5==5.12.1
-    pip3.7 install lxml==4.2.6
+    pip3.7 install PyQt5==5.12.2
+    pip3.7 install lxml==4.3.2
     cd project\sigil\build
     call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %PLATFORM%
     echo 'LIB = %LIB%'
