@@ -1,4 +1,4 @@
-pre-0.9.14
+Sigil-0.9.14
    Bug Fixes
      - flush all changes to disk before creating a Report so that files sizes are correct
      - stop writing python bytecode to Program Files on Windows
