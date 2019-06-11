@@ -22,6 +22,7 @@
 #include <QByteArray>
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QtWebEngineWidgets/QWebEnginePage>
+#include <QtWebEngineWidgets/QWebEngineSettings>
 #include <QApplication>
 #include <QDebug>
 
@@ -41,6 +42,9 @@ Inspector::Inspector(QWidget *parent) :
     setMinimumSize(QSize(200, 200));
     m_Layout->addWidget(m_inspectView);
     LoadSettings();
+    // QtWebEngine WebInspector needs to run javascript in MainWorld
+    // so override the app default but just for this inspector
+    m_inspectView->page()->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
 }
 
 Inspector::~Inspector()
