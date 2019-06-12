@@ -32,7 +32,6 @@
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
-#include "Misc/HTMLPrettyPrint.h"
 #include "Misc/GumboInterface.h"
 #include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
