@@ -234,13 +234,6 @@ set( IMPORTER_FILES
     Importers/ImportTXT.cpp
     Importers/ImportTXT.h
     )
-
-
-# These may now be obsolete if so remove them
-#    Misc/RasterizeImageResource.cpp
-#    Misc/RasterizeImageResource.h
-#    Misc/HTMLPrettyPrint.cpp
-#    Misc/HTMLPrettyPrint.h
     
 set( MISC_FILES    
     Misc/AppEventFilter.cpp
@@ -351,15 +344,6 @@ set( SPCRE_FILES
     PCRE/PCREReplaceTextBuilder.cpp
     PCRE/PCREReplaceTextBuilder.h
     )
-
-# disable building these until we can figure something out
-#    ViewEditors/BookViewEditor.cpp
-#    ViewEditors/BookViewEditor.h
-#    ViewEditors/BookViewBase.cpp
-#    ViewEditors/BookViewBase.h
-#    ViewEditors/ViewWebPage.cpp
-#    ViewEditors/ViewWebPage.h 
-
 
 set( VIEW_EDITOR_FILES
     ViewEditors/CodeViewEditor.cpp
