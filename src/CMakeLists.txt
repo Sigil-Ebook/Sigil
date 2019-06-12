@@ -285,6 +285,7 @@ set( MISC_FILES
     Misc/MarcRelators.cpp
     Misc/MarcRelators.h
     Misc/UILanguage.cpp
+    Misc/UILanguage.h
     Misc/SettingsStore.cpp
     Misc/SettingsStore.h
     Misc/SpellCheck.cpp
@@ -310,6 +311,7 @@ set( MISC_FILES
     Misc/ValidationResult.cpp
     Misc/WrapIndicator.h
     Misc/XMLEntities.cpp
+    Misc/XMLEntities.h
     Misc/PyObjectPtr.h
     Misc/PyObjectPtr.cpp
     Misc/EmbeddedPython.h

@@ -1,6 +1,6 @@
 pre-0.9.15
     New Features
-     - ported to use QtWebEngine (based on Chromium) to replace QtWebkit whose development effectively stopped
+     - ported to use QtWebEngine (based on Chromium) to replace QtWebkit
      - QtWebEngine reduces memory growth and plugs many major memory leaks
      - QtWebEngine has ongoing security and support patches from Qt/Google/Chromium
      - removes the broken/deprecated BookView Editor that relied on QtWebKit
@@ -8,8 +8,9 @@ pre-0.9.15
            (see https://github.com/Sigil-Ebook/PageEdit)
      - allows the user to control use of javascript and remote access by epubs when editing
 
-It also includes all of the fixes and updates from Sigil-0.9.14:
+It also includes all of the fixes and updates from Sigil-0.9.14.
 
+Sigil-0.9.14
    Bug Fixes
      - flush all changes to disk before creating a Report so that files sizes are correct
      - stop writing python bytecode to Program Files on Windows
@@ -33,17 +34,6 @@ It also includes all of the fixes and updates from Sigil-0.9.14:
      - enabled Windows automated builds using Apppveyor
      - characters in HTML files report now uses gumbo for speed
      - allow user's custom plugin icons to survive a plugin update
-
-
-pre-0.9.14
-   Bug Fixes
-     - flush all changes to disk before creating a Report so that files sizes are correct
-   New Features
-     - reduce PCRE cache size to help lower memory footprint
-     - improve mapping of hunspell dictionary names to actual language names (thanks BeckyDTP)
-     - add warning during import if unmanifested files exist in the epub zip archive
-     - Sigil no longer requires use of non-breaking space entities (or any entities at all!)
-
 
 Sigil-0.9.13
    Bug Fixes
