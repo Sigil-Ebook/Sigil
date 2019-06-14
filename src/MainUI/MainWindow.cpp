@@ -3465,7 +3465,7 @@ void MainWindow::ReadSettings()
 
     // QWebEngine security settings to help prevent rogue epub3 javascripts
     // User preferences control if javascript is allowed (on) or not
-    web_settings->setUnknownUrlSchemePolicy(QWebEngineSettings::DisallowUnknownUrlSchemes);
+    web_settings->setAttribute(QWebEngineSettings::AutoLoadImages, true);
     web_settings->setAttribute(QWebEngineSettings::JavascriptEnabled, (settings.javascriptOn() == 1));
     web_settings->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, false);
     web_settings->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, false);
@@ -3475,15 +3475,23 @@ void MainWindow::ReadSettings()
     web_settings->setAttribute(QWebEngineSettings::AutoLoadIconsForPage, false);
     web_settings->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, true);
     web_settings->setAttribute(QWebEngineSettings::AllowRunningInsecureContent, false);
-    web_settings->setAttribute(QWebEngineSettings::AllowWindowActivationFromJavaScript, false);
-    web_settings->setAttribute(QWebEngineSettings::PlaybackRequiresUserGesture, true);
-    web_settings->setAttribute(QWebEngineSettings::JavascriptCanPaste, false);
     web_settings->setAttribute(QWebEngineSettings::XSSAuditingEnabled, true);
     web_settings->setAttribute(QWebEngineSettings::AllowGeolocationOnInsecureOrigins, false);
-    web_settings->setAttribute(QWebEngineSettings::DnsPrefetchEnabled, false);
     web_settings->setAttribute(QWebEngineSettings::ScreenCaptureEnabled, false);
     web_settings->setAttribute(QWebEngineSettings::LocalStorageEnabled, false);
-    web_settings->setAttribute(QWebEngineSettings::AutoLoadImages, true);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
+    web_settings->setAttribute(QWebEngineSettings::AllowWindowActivationFromJavaScript, false);
+#endif
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
+    web_settings->setUnknownUrlSchemePolicy(QWebEngineSettings::DisallowUnknownUrlSchemes);
+    web_settings->setAttribute(QWebEngineSettings::PlaybackRequiresUserGesture, true);
+    web_settings->setAttribute(QWebEngineSettings::JavascriptCanPaste, false);
+#endif
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+    web_settings->setAttribute(QWebEngineSettings::DnsPrefetchEnabled, false);
+#endif
 
     web_settings->setFontSize(QWebEngineSettings::DefaultFontSize, PVAppearance.font_size);
     web_settings->setFontFamily(QWebEngineSettings::StandardFont, PVAppearance.font_family_standard);

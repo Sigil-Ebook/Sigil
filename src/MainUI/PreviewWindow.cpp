@@ -356,7 +356,7 @@ void PreviewWindow::InspectPreviewPage()
     // non-modal dialog
     if (!m_Inspector->isVisible()) {
         qDebug() << "inspecting";
-        m_Inspector->InspectPage(m_Preview->page());
+        m_Inspector->InspectPageofView(m_Preview);
         m_Inspector->show();
         m_Inspector->raise();
         m_Inspector->activateWindow();

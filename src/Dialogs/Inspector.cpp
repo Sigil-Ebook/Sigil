@@ -26,6 +26,22 @@
 #include <QApplication>
 #include <QDebug>
 
+
+#if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QStringLiteral>
+
+#ifndef QSL
+#define QSL(x) QStringLiteral(x)
+#endif
+
+#endif //QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
+
+
 #include "Misc/SettingsStore.h"
 #include "Dialogs/Inspector.h"
 
@@ -36,41 +52,105 @@ Inspector::Inspector(QWidget *parent) :
     QDialog(parent),
     m_Layout(new QVBoxLayout(this)),
     m_inspectView(new QWebEngineView(this)),
-    m_page(nullptr)
+    m_view(nullptr),
+    m_LoadingFinished(false),
+    m_LoadOkay(false)
 {
     setWindowTitle(tr("Inspect Page or Element"));
     setMinimumSize(QSize(200, 200));
     m_Layout->addWidget(m_inspectView);
-    LoadSettings();
     // QtWebEngine WebInspector needs to run javascript in MainWorld
     // so override the app default but just for this inspector
     m_inspectView->page()->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
+    LoadSettings();
+    connect(m_inspectView->page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
+    connect(m_inspectView->page(), SIGNAL(loadStarted()), this, SLOT(LoadingStarted()));
 }
 
 Inspector::~Inspector()
 {
-  if (m_inspectView) {
-      m_inspectView->close();
-      m_inspectView->page()->setInspectedPage(nullptr);
-      m_page = nullptr;
-      delete m_inspectView;
-      m_inspectView = nullptr;
-  }
+    if (m_inspectView) {
+        m_inspectView->close();
+#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
+        m_inspectView->page()->setInspectedPage(nullptr);
+#endif
+        m_view = nullptr;
+        delete m_inspectView;
+        m_inspectView = nullptr;
+    }
 }
 
-void Inspector::InspectPage(QWebEnginePage* page)
+bool Inspector::isEnabled()
 {
-    m_page = page;
-    m_inspectView->page()->setInspectedPage(m_page);
+#if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
+    if (!qEnvironmentVariableIsSet("QTWEBENGINE_REMOTE_DEBUGGING")) {
+        return false;
+    }
+#endif
+    return true;
+}
+
+void Inspector::LoadingStarted()
+{
+    m_LoadingFinished = false;
+    m_LoadOkay = false;
+}
+
+void Inspector::UpdateFinishedState(bool okay)
+{
+    m_LoadingFinished = true;
+    m_LoadOkay = okay;
+}
+
+void Inspector::InspectPageofView(QWebEngineView* view)
+{
+    m_view = view;
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
+    if (m_view) {
+        m_inspectView->page()->setInspectedPage(m_view->page());
+    } else {
+        m_inspectView->page()->setInspectedPage(nullptr);
+    }
+#else
+    if (m_view && isEnabled()) {
+        QString viewUrl = m_view->url().toString();
+        int port = qEnvironmentVariableIntValue("QTWEBENGINE_REMOTE_DEBUGGING");
+        QUrl inspectorUrl = QUrl(QSL("http://localhost:%1").arg(port));
+        QNetworkAccessManager netmgr;
+        QNetworkReply *reply = netmgr.get(QNetworkRequest(inspectorUrl.resolved(QUrl("json/list"))));
+        while(!reply->isFinished()) {
+            qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 100);
+        }
+        QJsonArray clients = QJsonDocument::fromJson(reply->readAll()).array();
+        QUrl pageUrl;
+        for (int i = 0; i < clients.size(); i++) {
+            QJsonObject object = clients.at(i).toObject();
+            QString objectUrl = object.value(QSL("url")).toString();
+            if (objectUrl == viewUrl) {
+	        pageUrl = inspectorUrl.resolved(QUrl(object.value(QSL("devtoolsFrontendUrl")).toString()));
+	        break;
+            }
+        }
+        m_inspectView->load(pageUrl);
+        while(!IsLoadingFinished()) {
+            qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 100);
+        }
+        show();
+    }
+#endif
 }
 
 void Inspector::StopInspection()
 {
     SaveSettings();
-    m_page = nullptr;
-    m_inspectView->page()->setInspectedPage(m_page);
+    m_view = nullptr;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
+    m_inspectView->page()->setInspectedPage(nullptr);
+#else
+    m_inspectView->setHtml("<html><head><title></title></head><body></body></html>");
+#endif
 }
-
 
 QSize Inspector::sizeHint()
 {
@@ -79,7 +159,7 @@ QSize Inspector::sizeHint()
 
 void Inspector::closeEvent(QCloseEvent* event)
 {
-    qDebug() << "Inspector Close Event";
+    // qDebug() << "Inspector Close Event";
     StopInspection();
     QDialog::closeEvent(event);
 }
