@@ -2352,6 +2352,9 @@
    <property name="text">
     <string>Launch External Xhtml Editor</string>
    </property>
+   <property name="shortcut">
+    <string>F2</string>
+   </property>
   </action>
   <action name="actionMendPrettifyHTML">
    <property name="text">

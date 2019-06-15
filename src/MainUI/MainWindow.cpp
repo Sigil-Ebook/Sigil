@@ -4312,6 +4312,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionPrint, "MainWindow.Print");
     sm->registerAction(this, ui.actionExit, "MainWindow.Exit");
     // Edit
+    sm->registerAction(this, ui.actionXEditor, "MainWindow.LaunchExternalXEditor");
     sm->registerAction(this, ui.actionUndo, "MainWindow.Undo");
     sm->registerAction(this, ui.actionRedo, "MainWindow.Redo");
     sm->registerAction(this, ui.actionCut, "MainWindow.Cut");
