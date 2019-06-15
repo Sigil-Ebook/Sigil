@@ -76,6 +76,7 @@
 #include "MainUI/ValidationResultsView.h"
 #include "Misc/HTMLSpellCheck.h"
 #include "Misc/KeyboardShortcutManager.h"
+#include "Misc/OpenExternally.h"
 #include "Misc/Plugin.h"
 #include "Misc/PluginDB.h"
 #include "Misc/PythonRoutines.h"
@@ -377,6 +378,52 @@ void MainWindow::unloadPluginsMenu()
         m_pluginMapper->removeMappings(pa);
         disconnect(pa, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
     }
+}
+
+void MainWindow::launchExternalXEditor()
+{
+    // Launch external xhtml editor for current tab resource
+    // ONLY if the current tab resource is a HTMLResource and
+    // ONLY if an external editor path is set and still exists
+
+    HTMLResource *html_resource = NULL;
+    ContentTab *tab = GetCurrentContentTab();
+    if (tab != NULL) {
+        html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());
+    }
+
+    if (!html_resource) {
+        ShowMessageOnStatusBar(tr("External XHtml Editor works only on Html Resources!"));
+        return;
+    }
+
+    SettingsStore ss;
+    QString XEditorPath = ss.externalXEditorPath();
+    if (XEditorPath.isEmpty()) {
+        ShowMessageOnStatusBar(tr("No External Xhtml Editor has been specified:  See Preferences"));
+        return;
+    }
+
+    // make sure XEditor Path actually exists
+    QFileInfo xeditorinfo(XEditorPath);
+    if (!xeditorinfo.exists()) {
+        ShowMessageOnStatusBar(tr("Specified External Xhtml Editor path does not exist"));
+        return;
+    }
+
+    Resource *resource = qobject_cast<Resource *>(html_resource);
+
+    if (resource) {
+        m_Book->GetFolderKeeper()->SuspendWatchingResources();
+        resource->SaveToDisk();
+        m_Book->GetFolderKeeper()->ResumeWatchingResources();
+	if (OpenExternally::openFile(resource->GetFullPath(), XEditorPath)) {
+            ShowMessageOnStatusBar(tr("Executing External Xhtml Editor"));
+	    m_Book->GetFolderKeeper()->WatchResourceFile(resource);
+            return;
+	}
+    }
+    ShowMessageOnStatusBar(tr("Failed to Launch External Xhtml Editor"));
 }
 
 void MainWindow::runPlugin(QAction *action)
@@ -4482,202 +4529,257 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/document-new_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/document-new_22px.png"));
     ui.actionNew->setIcon(icon);
+
     icon = ui.actionAddExistingFile->icon();
     icon.addFile(QString::fromUtf8(":/main/document-add_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/document-add_22px.png"));
     ui.actionAddExistingFile->setIcon(icon);
+
     icon = ui.actionSave->icon();
     icon.addFile(QString::fromUtf8(":/main/document-save_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/document-save_22px.png"));
     ui.actionSave->setIcon(icon);
+
+    icon = ui.actionXEditor->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-edit_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/document-edit_22px.png"));
+    ui.actionXEditor->setIcon(icon);
+
     icon = ui.actionSpellcheckEditor->icon();
     icon.addFile(QString::fromUtf8(":/main/document-spellcheck_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/document-spellcheck_22px.png"));
     ui.actionSpellcheckEditor->setIcon(icon);
+
     icon = ui.actionCut->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-cut_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/edit-cut_22px.png"));
     ui.actionCut->setIcon(icon);
+
     icon = ui.actionPaste->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-paste_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/edit-paste_22px.png"));
     ui.actionPaste->setIcon(icon);
+
     icon = ui.actionUndo->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-undo_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/edit-undo_22px.png"));
     ui.actionUndo->setIcon(icon);
+
     icon = ui.actionRedo->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-redo_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/edit-redo_22px.png"));
     ui.actionRedo->setIcon(icon);
+
     icon = ui.actionCopy->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-copy_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/edit-copy_22px.png"));
     ui.actionCopy->setIcon(icon);
+
     icon = ui.actionAlignLeft->icon();
     icon.addFile(QString::fromUtf8(":/main/format-justify-left_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-justify-left_22px.png"));
     ui.actionAlignLeft->setIcon(icon);
+
     icon = ui.actionAlignRight->icon();
     icon.addFile(QString::fromUtf8(":/main/format-justify-right_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-justify-right_22px.png"));
     ui.actionAlignRight->setIcon(icon);
+
     icon = ui.actionAlignCenter->icon();
     icon.addFile(QString::fromUtf8(":/main/format-justify-center_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-justify-center_22px.png"));
     ui.actionAlignCenter->setIcon(icon);
+
     icon = ui.actionAlignJustify->icon();
     icon.addFile(QString::fromUtf8(":/main/format-justify-fill_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-justify-fill_22px.png"));
     ui.actionAlignJustify->setIcon(icon);
+
     icon = ui.actionBold->icon();
     icon.addFile(QString::fromUtf8(":/main/format-text-bold_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-text-bold_22px.png"));
     ui.actionBold->setIcon(icon);
+
     icon = ui.actionItalic->icon();
     icon.addFile(QString::fromUtf8(":/main/format-text-italic_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-text-italic_22px.png"));
     ui.actionItalic->setIcon(icon);
+
     icon = ui.actionUnderline->icon();
     icon.addFile(QString::fromUtf8(":/main/format-text-underline_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-text-underline_22px.png"));
     ui.actionUnderline->setIcon(icon);
+
     icon = ui.actionStrikethrough->icon();
     icon.addFile(QString::fromUtf8(":/main/format-text-strikethrough_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-text-strikethrough_22px.png"));
     ui.actionStrikethrough->setIcon(icon);
+
     icon = ui.actionSubscript->icon();
     icon.addFile(QString::fromUtf8(":/main/format-text-subscript_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-text-subscript_22px.png"));
     ui.actionSubscript->setIcon(icon);
+
     icon = ui.actionSuperscript->icon();
     icon.addFile(QString::fromUtf8(":/main/format-text-superscript_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-text-superscript_22px.png"));
     ui.actionSuperscript->setIcon(icon);
+
     icon = ui.actionInsertNumberedList->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-numbered-list_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/insert-numbered-list_22px.png"));
     ui.actionInsertNumberedList->setIcon(icon);
+
     icon = ui.actionInsertBulletedList->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-bullet-list_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/insert-bullet-list_22px.png"));
     ui.actionInsertBulletedList->setIcon(icon);
+
     icon = ui.actionIncreaseIndent->icon();
     icon.addFile(QString::fromUtf8(":/main/format-indent-more_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-indent-more_22px.png"));
     ui.actionIncreaseIndent->setIcon(icon);
+
     icon = ui.actionDecreaseIndent->icon();
     icon.addFile(QString::fromUtf8(":/main/format-indent-less_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-indent-less_22px.png"));
     ui.actionDecreaseIndent->setIcon(icon);
+
     icon = ui.actionCasingLowercase->icon();
     icon.addFile(QString::fromUtf8(":/main/format-case-lowercase_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-case-lowercase_22px.png"));
     ui.actionCasingLowercase->setIcon(icon);
+
     icon = ui.actionCasingUppercase->icon();
     icon.addFile(QString::fromUtf8(":/main/format-case-uppercase_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-case-uppercase_22px.png"));
     ui.actionCasingUppercase->setIcon(icon);
+
     icon = ui.actionCasingTitlecase->icon();
     icon.addFile(QString::fromUtf8(":/main/format-case-titlecase_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-case-titlecase_22px.png"));
     ui.actionCasingTitlecase->setIcon(icon);
+
     icon = ui.actionCasingCapitalize->icon();
     icon.addFile(QString::fromUtf8(":/main/format-case-capitalize_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-case-capitalize_22px.png"));
     ui.actionCasingCapitalize->setIcon(icon);
+
     icon = ui.actionTextDirectionLTR->icon();
     icon.addFile(QString::fromUtf8(":/main/format-direction-ltr_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-direction-ltr_22px.png"));
     ui.actionTextDirectionLTR->setIcon(icon);
+
     icon = ui.actionTextDirectionRTL->icon();
     icon.addFile(QString::fromUtf8(":/main/format-direction-rtl_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-direction-rtl_22px.png"));
     ui.actionTextDirectionRTL->setIcon(icon);
+
     icon = ui.actionTextDirectionDefault->icon();
     icon.addFile(QString::fromUtf8(":/main/format-direction-default_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-direction-default_22px.png"));
     ui.actionTextDirectionDefault->setIcon(icon);
+
     icon = ui.actionHeading1->icon();
     icon.addFile(QString::fromUtf8(":/main/heading-1_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/heading-1_22px.png"));
     ui.actionHeading1->setIcon(icon);
+
     icon = ui.actionHeading2->icon();
     icon.addFile(QString::fromUtf8(":/main/heading-2_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/heading-2_22px.png"));
     ui.actionHeading2->setIcon(icon);
+
     icon = ui.actionHeading3->icon();
     icon.addFile(QString::fromUtf8(":/main/heading-3_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/heading-3_22px.png"));
     ui.actionHeading3->setIcon(icon);
+
     icon = ui.actionHeading4->icon();
     icon.addFile(QString::fromUtf8(":/main/heading-4_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/heading-4_22px.png"));
     ui.actionHeading4->setIcon(icon);
+
     icon = ui.actionHeading5->icon();
     icon.addFile(QString::fromUtf8(":/main/heading-5_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/heading-5_22px.png"));
     ui.actionHeading5->setIcon(icon);
+
     icon = ui.actionHeading6->icon();
     icon.addFile(QString::fromUtf8(":/main/heading-6_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/heading-6_22px.png"));
     ui.actionHeading6->setIcon(icon);
+
     icon = ui.tbHeadings->icon();
     icon.addFile(QString::fromUtf8(":/main/heading-all_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/heading-all_22px.png"));
     ui.tbHeadings->setIcon(icon);
+
     icon = ui.actionHeadingNormal->icon();
     icon.addFile(QString::fromUtf8(":/main/heading-normal_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/heading-normal_22px.png"));
     ui.actionHeadingNormal->setIcon(icon);
+
     icon = ui.actionOpen->icon();
     icon.addFile(QString::fromUtf8(":/main/document-open_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/document-open_22px.png"));
     ui.actionOpen->setIcon(icon);
+
     icon = ui.actionExit->icon();
     icon.addFile(QString::fromUtf8(":/main/process-stop_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/process-stop_22px.png"));
     ui.actionExit->setIcon(icon);
+
     icon = ui.actionAbout->icon();
     icon.addFile(QString::fromUtf8(":/main/help-browser_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/help-browser_22px.png"));
     ui.actionAbout->setIcon(icon);
+
     icon = ui.actionSplitSection->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-section-break_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/insert-section-break_22px.png"));
     ui.actionSplitSection->setIcon(icon);
+
     icon = ui.actionInsertFile->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-image_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/insert-image_22px.png"));
     ui.actionInsertFile->setIcon(icon);
+
     icon = ui.actionPrint->icon();
     icon.addFile(QString::fromUtf8(":/main/document-print_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/document-print_22px.png"));
     ui.actionPrint->setIcon(icon);
+
     icon = ui.actionPrintPreview->icon();
     icon.addFile(QString::fromUtf8(":/main/document-print-preview_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/document-print-preview_22px.png"));
     ui.actionPrintPreview->setIcon(icon);
+
     icon = ui.actionZoomIn->icon();
     icon.addFile(QString::fromUtf8(":/main/list-add_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/list-add_22px.png"));
     ui.actionZoomIn->setIcon(icon);
+
     icon = ui.actionZoomOut->icon();
     icon.addFile(QString::fromUtf8(":/main/list-remove_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/list-remove_22px.png"));
     ui.actionZoomOut->setIcon(icon);
+
     icon = ui.actionFind->icon();
     icon.addFile(QString::fromUtf8(":/main/edit-find_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/edit-find_22px.png"));
     ui.actionFind->setIcon(icon);
+
     icon = ui.actionDonate->icon();
     icon.addFile(QString::fromUtf8(":/main/emblem-favorite_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/emblem-favorite_22px.png"));
     ui.actionDonate->setIcon(icon);
+
     icon = ui.actionMetaEditor->icon();
     icon.addFile(QString::fromUtf8(":/main/metadata-editor_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/metadata-editor_22px.png"));
     ui.actionMetaEditor->setIcon(icon);
+
     icon = ui.actionGenerateTOC->icon();
     icon.addFile(QString::fromUtf8(":/main/generate-toc_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/generate-toc_22px.png"));
@@ -4732,7 +4834,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionClose,         SIGNAL(triggered()), this, SLOT(close()));
     connect(ui.actionExit,          SIGNAL(triggered()), this, SLOT(Exit()));
     // Edit
-    connect(ui.actionInsertFile,     SIGNAL(triggered()), this, SLOT(InsertFileDialog()));
+    connect(ui.actionXEditor,         SIGNAL(triggered()), this, SLOT(launchExternalXEditor()));
+    connect(ui.actionInsertFile,      SIGNAL(triggered()), this, SLOT(InsertFileDialog()));
     connect(ui.actionInsertSpecialCharacter, SIGNAL(triggered()), this, SLOT(InsertSpecialCharacter()));
     connect(ui.actionInsertId,        SIGNAL(triggered()),  this,   SLOT(InsertId()));
     connect(ui.actionInsertHyperlink, SIGNAL(triggered()),  this,   SLOT(InsertHyperlink()));

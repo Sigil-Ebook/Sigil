@@ -225,6 +225,8 @@ public slots:
 
     void ResourcesAddedOrDeleted();
 
+    void launchExternalXEditor();
+
 signals:
     void SettingsChanged();
 

@@ -28,8 +28,9 @@
 #include <QDir>
 #include <QFileDialog>
 #include <QFileInfo>
-#include "Misc/Utility.h"
+#include <QStandardPaths>
 
+#include "Misc/Utility.h"
 #include "sigil_constants.h"
 
 GeneralSettingsWidget::GeneralSettingsWidget()
@@ -90,6 +91,15 @@ PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
     if (!ui.lineEdit->text().isEmpty()) {
          new_temp_folder_home = ui.lineEdit->text();
     }
+
+    QString new_xeditor_path = "";
+    if (!ui.lineEdit7->text().isEmpty()) {
+         QString xeditorpath = ui.lineEdit7->text();
+	 if (QFileInfo(xeditorpath).exists()) {
+	     new_xeditor_path = xeditorpath;
+	 }
+    }
+
     SettingsStore settings;
     settings.setCleanOn(new_clean_on_level);
     settings.setDefaultVersion(new_epub_version);
@@ -99,6 +109,7 @@ PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
     settings.setJavascriptOn(new_javascript_on_level);
     settings.setClipboardHistoryLimit(int(ui.clipLimitSpin->value()));
     settings.setTempFolderHome(new_temp_folder_home);
+    settings.setExternalXEditorPath(new_xeditor_path);
 
     if (!m_refreshClipboardHistoryLimit) {
         return PreferencesWidget::ResultAction_None;
@@ -130,6 +141,54 @@ void GeneralSettingsWidget::readSettings()
     ui.clipLimitSpin->setValue(int(settings.clipboardHistoryLimit()));
     QString temp_folder_home = settings.tempFolderHome();
     ui.lineEdit->setText(temp_folder_home);
+    QString xeditor_path = settings.externalXEditorPath();
+    ui.lineEdit7->setText(xeditor_path);
+}
+
+void GeneralSettingsWidget::clearXEditorPath()
+{
+    ui.lineEdit7->setText("");
+}
+
+void GeneralSettingsWidget::setXEditorPath()
+{
+#if defined(Q_OS_WIN32)
+    static QString LAST_LOCATION = QProcessEnvironment::systemEnvironment().value("PROGRAMFILES", "").trimmed();
+#else
+    static QString LAST_LOCATION = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
+#endif
+
+    static const QString NAME_FILTER = QObject::tr("Applications")
+#if defined(Q_OS_WIN32)
+                                       + " (*.exe *.com *.bat *.cmd)"
+#elif defined(Q_OS_MAC)
+                                       + " (*.app)"
+#else
+                                       + " (*)"
+#endif
+      ;
+    QString xeditorPath = QFileDialog::getOpenFileName(0,
+						       QObject::tr("Select External Xhtml Editor"),
+						       LAST_LOCATION,
+						       NAME_FILTER,
+						       0,
+						       QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails);
+    ui.lineEdit7->setText(xeditorPath);
+}
+
+void GeneralSettingsWidget::XEditorPathChanged()
+{
+    // make sure typed in path actually exists
+    QString xeditorpath = ui.lineEdit7->text();
+    if (!xeditorpath.isEmpty()) {
+        QFileInfo xeditinfo(xeditorpath);
+        if (!xeditinfo.exists() || !xeditinfo.isReadable()) {
+            disconnect(ui.lineEdit7, SIGNAL(editingFinished()), this, SLOT(XEditorPathChanged()));
+            Utility::DisplayStdWarningDialog(tr("Incorrect Path for External Xhtml Editor selected"));
+            ui.lineEdit7->setText("");
+            connect(ui.lineEdit7, SIGNAL(editingFinished()), this, SLOT(XEditorPathChanged()));
+        }
+    }
 }
 
 void GeneralSettingsWidget::autoTempFolder()
@@ -177,4 +236,7 @@ void GeneralSettingsWidget::connectSignalsToSlots()
     connect(ui.browseButton, SIGNAL(clicked()), this, SLOT(setTempFolder()));
     connect(ui.lineEdit, SIGNAL(editingFinished()), this, SLOT(tempFolderPathChanged()));
     connect(ui.clipLimitSpin, SIGNAL(valueChanged(int)), this, SLOT(clipLimitValueChanged()));
+    connect(ui.clearButton7, SIGNAL(clicked()), this, SLOT(clearXEditorPath()));
+    connect(ui.browseButton7, SIGNAL(clicked()), this, SLOT(setXEditorPath()));
+    connect(ui.lineEdit7, SIGNAL(editingFinished()), this, SLOT(XEditorPathChanged()));
 }

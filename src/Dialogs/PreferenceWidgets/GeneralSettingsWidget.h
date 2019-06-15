@@ -43,6 +43,11 @@ private slots:
     void autoTempFolder();
     void setTempFolder();
     void tempFolderPathChanged();
+
+    void clearXEditorPath();
+    void setXEditorPath();
+    void XEditorPathChanged();
+
     void clipLimitValueChanged();
 
 private:

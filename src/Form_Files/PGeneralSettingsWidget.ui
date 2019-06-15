@@ -331,6 +331,36 @@ mended.</string>
     </widget>
    </item>
    <item>
+    <widget class="QGroupBox" name="groupBox_7">
+     <property name="title">
+      <string>Set your preferred alternative external xhtml editor</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_7">
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item>
+         <widget class="QLineEdit" name="lineEdit7"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="clearButton7">
+          <property name="text">
+           <string>clear</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="browseButton7">
+          <property name="text">
+           <string>Browse</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>

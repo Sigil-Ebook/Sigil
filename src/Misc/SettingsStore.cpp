@@ -52,6 +52,7 @@ static QString KEY_JAVASCRIPT_ON = SETTINGS_GROUP + "/" + "javascript_on";
 static QString KEY_DEFAULT_VERSION = SETTINGS_GROUP + "/" + "default_version";
 static QString KEY_PRESERVE_ENTITY_NAMES = SETTINGS_GROUP + "/" + "preserve_entity_names";
 static QString KEY_PRESERVE_ENTITY_CODES = SETTINGS_GROUP + "/" + "preserve_entity_codes";
+static QString KEY_EXTERNAL_XHTML_EDITOR = SETTINGS_GROUP + "/" + "external_xhtml_editor"; 
 
 static QString KEY_PLUGIN_INFO = SETTINGS_GROUP + "/" + "plugin_info";
 static QString KEY_PLUGIN_ENGINE_PATHS = SETTINGS_GROUP + "/" + "plugin_engine_paths";
@@ -122,6 +123,12 @@ QString SettingsStore::defaultMetadataLang()
 {
     clearSettingsGroup();
     return value(KEY_DEFAULT_METADATA_LANGUAGE, "en").toString();
+}
+
+QString SettingsStore::externalXEditorPath()
+{
+    clearSettingsGroup();
+    return value(KEY_EXTERNAL_XHTML_EDITOR, "").toString();
 }
 
 float SettingsStore::zoomImage()
@@ -368,6 +375,12 @@ void SettingsStore::setUILanguage(const QString &language_code)
 {
     clearSettingsGroup();
     setValue(KEY_UI_LANGUAGE, language_code);
+}
+
+void SettingsStore::setExternalXEditorPath(const QString &path)
+{
+    clearSettingsGroup();
+    setValue(KEY_EXTERNAL_XHTML_EDITOR, path);
 }
 
 void SettingsStore::setZoomImage(float zoom)

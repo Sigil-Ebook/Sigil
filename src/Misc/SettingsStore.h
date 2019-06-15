@@ -63,6 +63,8 @@ public:
      */
     QString defaultMetadataLang();
 
+    QString externalXEditorPath();
+
     /**
      * The zoom factor used by the component.
      *
@@ -247,6 +249,8 @@ public slots:
      * @param lang The language to set.
      */
     void setDefaultMetadataLang(const QString &lang);
+
+    void setExternalXEditorPath(const QString &path);
 
     /**
      * Set the zoom factor used by the component.

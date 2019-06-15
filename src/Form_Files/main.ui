@@ -390,6 +390,8 @@
    <addaction name="actionCopy"/>
    <addaction name="actionPaste"/>
    <addaction name="separator"/>
+   <addaction name="actionXEditor"/>
+   <addaction name="separator"/>
    <addaction name="actionFind"/>
   </widget>
   <widget class="QToolBar" name="toolBarInsertions">
@@ -2340,6 +2342,15 @@
    </property>
    <property name="text">
     <string>Run Plugin 10</string>
+   </property>
+  </action>
+  <action name="actionXEditor">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/document-edit_48px.png</normaloff>:/main/document-edit_48px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Launch External Xhtml Editor</string>
    </property>
   </action>
   <action name="actionMendPrettifyHTML">
