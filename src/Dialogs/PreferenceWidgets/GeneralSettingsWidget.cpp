@@ -29,6 +29,7 @@
 #include <QFileDialog>
 #include <QFileInfo>
 #include <QStandardPaths>
+#include <QProcessEnvironment>
 
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
