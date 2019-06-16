@@ -407,7 +407,7 @@ GumboNode* GumboInterface::get_node_from_qwebpath(QString webpath)
                 // It also requires document.normalize() to be done to merge adjacent text pieces
                 // but doing so will remove the cursor/highlight if it is on a text node merged away
                 // so restrict this to something same in that same parent element
-                if (index >= children->length) index = children->length - 1;
+	        if (index >= (int)(children->length)) index = children->length - 1;
                 if (index < 0) index = 0;
                 next_node = static_cast<GumboNode*>(children->data[index]);
             } else {

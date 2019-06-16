@@ -3864,7 +3864,7 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
             ShowMessageOnStatusBar(tr("EPUB saved."));
         }
         QApplication::restoreOverrideCursor();
-    } catch (std::runtime_error e) {
+    } catch (std::runtime_error &e) {
         ShowMessageOnStatusBar();
         QApplication::restoreOverrideCursor();
         Utility::DisplayExceptionErrorDialog(tr("Cannot save file %1: %2").arg(fullfilepath).arg(e.what()));
