@@ -41,7 +41,6 @@ public:
 
     void closeEvent(QCloseEvent* event);
 
-    bool isEnabled();
     bool IsLoadingFinished() { return m_LoadingFinished; }
     bool WasLoadOkay() { return m_LoadOkay; }
 

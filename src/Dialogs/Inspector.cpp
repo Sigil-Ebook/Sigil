@@ -24,23 +24,6 @@
 #include <QtWebEngineWidgets/QWebEnginePage>
 #include <QtWebEngineWidgets/QWebEngineSettings>
 #include <QApplication>
-#include <QDebug>
-
-
-#if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
-#include <QJsonArray>
-#include <QJsonObject>
-#include <QJsonDocument>
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
-#include <QStringLiteral>
-
-#ifndef QSL
-#define QSL(x) QStringLiteral(x)
-#endif
-
-#endif //QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
-
 
 #include "Misc/SettingsStore.h"
 #include "Dialogs/Inspector.h"
@@ -80,16 +63,6 @@ Inspector::~Inspector()
     }
 }
 
-bool Inspector::isEnabled()
-{
-#if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
-    if (!qEnvironmentVariableIsSet("QTWEBENGINE_REMOTE_DEBUGGING")) {
-        return false;
-    }
-#endif
-    return true;
-}
-
 void Inspector::LoadingStarted()
 {
     m_LoadingFinished = false;
@@ -109,33 +82,13 @@ void Inspector::InspectPageofView(QWebEngineView* view)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
     if (m_view) {
         m_inspectView->page()->setInspectedPage(m_view->page());
-    } else {
-        m_inspectView->page()->setInspectedPage(nullptr);
     }
 #else
-    if (m_view && isEnabled()) {
-        QString viewUrl = m_view->url().toString();
-        int port = qEnvironmentVariableIntValue("QTWEBENGINE_REMOTE_DEBUGGING");
-        QUrl inspectorUrl = QUrl(QSL("http://localhost:%1").arg(port));
-        QNetworkAccessManager netmgr;
-        QNetworkReply *reply = netmgr.get(QNetworkRequest(inspectorUrl.resolved(QUrl("json/list"))));
-        while(!reply->isFinished()) {
-            qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 100);
-        }
-        QJsonArray clients = QJsonDocument::fromJson(reply->readAll()).array();
-        QUrl pageUrl;
-        for (int i = 0; i < clients.size(); i++) {
-            QJsonObject object = clients.at(i).toObject();
-            QString objectUrl = object.value(QSL("url")).toString();
-            if (objectUrl == viewUrl) {
-	        pageUrl = inspectorUrl.resolved(QUrl(object.value(QSL("devtoolsFrontendUrl")).toString()));
-	        break;
-            }
-        }
-        m_inspectView->load(pageUrl);
-        while(!IsLoadingFinished()) {
-            qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 100);
-        }
+    if (m_view) {
+        QString not_supported = tr("The Inspector functionality is not supported before Qt 5.11");
+        QString response = "<html><head><title>Warning</title></head><body><p>" + 
+	                    not_supported + "</p></body></html>";
+        m_inspectView->setHtml(response);
         show();
     }
 #endif
@@ -187,4 +140,3 @@ void Inspector::SaveSettings()
     QApplication::restoreOverrideCursor();
     settings.endGroup();
 }
-
