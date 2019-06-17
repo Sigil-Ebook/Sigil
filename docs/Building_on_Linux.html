@@ -7,15 +7,15 @@
 </head>
 <body>
 <h1><center>Building Sigil on Linux</center></h1>
-<h2><center>Systems like Ubuntu 16.04 (and its derivatives) or newer</center></h2>
-<p>If you're looking for instructions on how to build on systems older than Ubuntu 16.04 (systems whose repo version of Qt5 is less than 5.4.2), you should look at the <a href="./Building_on_older_Linux.html">Building_on_older_Linux</a> documentation.</p>
+<h2><center>Systems like Ubuntu 18.04 (and its derivatives) or newer</center></h2>
+<p>If you're looking for instructions on how to build on systems older than Ubuntu 18.04 (systems whose repo version of Qt5 is less than 5.9.4), you should look at the <a href="./Building_on_older_Linux.html">Building_on_older_Linux</a> documentation.</p>
 <h2>General Overview</h2>
-<p>The requirements for building Sigil on newer Linux systems like Ubuntu 16.04, Mint 18, Arch Linux, etc., should be able to be installed entirely from your system's software repositories.</p>
+<p>The requirements for building Sigil on newer Linux systems like Ubuntu 18.04, Mint 19, Arch Linux, etc., should be able to be installed entirely from your system's software repositories.</p>
 <p>To build Sigil on newer Linux systems, you need to get/do the following things:</p>
 <ol>
 <li><a href="#gcc">A Linux build-toolchain</a> with a C++11 capable compiler (gcc 4.9.x or higher recommended)</li>
 <li><a href="#cmake">CMake</a> (3.0 or higher)</li>
-<li><a href="#qt5">Qt5.4.2 or higher</a> (with QtWebKit)</li>
+<li><a href="#qt5">Qt5.9.4 or higher</a> (with QtWebEngine)</li>
 <li><a href="#thirdparty">3rd-party dependencies</a> (an optional step)</li>
 <li><a href="#python">Python 3.4</a> (or higher)</li>
 <li><a href="#sigil">The Sigil source code</a> (downloaded tarball/zipfile or a git clone)</li>
@@ -37,18 +37,18 @@
 <h2><a name="cmake"/>Getting CMake</h2>
 <p>Once again: <code>sudo apt-get install cmake</code> will get you what you need on Ubuntu-type systems.</p>
 <h2><a name="qt5"/>Getting Qt5</h2>
-<p><center><strong>If your repos don't provide at lease Qt5.4.2, use the <a href="./Building_on_older_Linux.html">Building_on_older_Linux</a> documentation</strong></center></p>
+<p><center><strong>If your repos don't provide at lease Qt5.9.4, use the <a href="./Building_on_older_Linux.html">Building_on_older_Linux</a> documentation</strong></center></p>
 <p>To get Sigil's Qt5 requirements, <code>sudo apt-get install</code> the following packages:</p>
 <ul>
 <li>qtbase5-dev</li>
 <li>qttools5-dev</li>
 <li>qttools5-dev-tools</li>
-<li>libqt5webkit5-dev</li>
+<li>qtwebengine-dev</li>
 <li>libqt5svg5-dev</li>
 <li>libqt5xmlpatterns5-dev</li>
 </ul>
 <p>The folllowing command can be copied and pasted for convenience:</p>
-<p><code>sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools libqt5webkit5-dev libqt5svg5-dev libqt5xmlpatterns5-dev</code></p>
+<p><code>sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools qtwebengine-dev libqt5svg5-dev libqt5xmlpatterns5-dev</code></p>
 <h2><a name="thirdparty"/>3rd-Party Dependencies (optional step)</h2>
 <p>Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them, <code>sudo apt-get install</code> the following packages.</p>
 <ul>
@@ -66,6 +66,7 @@
 <li>python3-pip</li>
 <li>python3-lxml</li>
 <li>python3-six</li>
+<li>python3-css-parser</li>
 </ul>
 <p>The folllowing command can be copied and pasted for convenience:</p>
 <p><code>sudo apt-get install python3-dev python3-pip python3-lxml python3-six</code></p>
@@ -81,7 +82,7 @@
 <li>python3-chardet</li>
 </ul>
 <p>The folllowing command can be copied and pasted for convenience:</p>
-<p><code>sudo apt-get install python3-tk python3-pyqt5 python3-html5lib python3-regex python3-pillow python3-cssselect python3-cssutils python3-chardet</code></p>
+<p><code>sudo apt-get install python3-tk python3-pyqt5 python3-html5lib python3-regex python3-pillow python3-cssselect python3-cssutils python3-css-parser python3-chardet</code></p>
 <p>If you run into any that won't install with <code>sudo apt-get install</code> you can still use pip3 to install them.</p>
 <h2><a name="sigil"/>Getting Sigil's Source Code</h2>
 <p>You can clone the Sigil Github repository:</p>
@@ -141,6 +142,7 @@
 <h3>CMake options</h3>
 <p>-DCMAKE_INSTALL_PREFIX=<code>&lt;path&gt;</code> Configures the prefix where Sigil will be installed to (default is /usr/local)</p>
 <p>-DSHARE_INSTALL_PREFIX=<code>&lt;path&gt;</code> Configures the prefix where Sigil's support files will be installed to (default is /usr/local meaning the support files will be installed in /usr/local/share/sigil)</p>
+<p>-DCMAKE_INSTALL_LIBDIR=(lib|lib64) Use to override GnuInstallDirs if it doesn't choose the correct lib directory for your distro.</p>
 <p>-DUSE_SYSTEM_LIBS=(0|1) Tells cmake to try and use the system libraries when building Sigil instead of the ones bundled with Sigil in the 3rdParty directory. If a system version of a 3rd-party can't be found, Sigil falls back on the bundled version -- unless -DSYSTEM_LIBS_REQUIRED=1 is also specified (default is 0).</p>
 <p>-DSYSTEM_LIBS_REQUIRED=(0|1) When used in conjunction with -DUSE_SYSTEM_LIBS=1, the Sigil build process will fail if all the necessary libraries can't be located on the system, instead of falling back on the bundled versions (default is 0).</p>
 <p>-DINSTALL_BUNDLED_DICTS=(0|1) Default is 1. Can be used to enable/disable the installation of the bundled Hunspell dictionaries used for spellchecking. If this is disabled (-DINSTALL_BUNDLED_DICTS=0), then the standard system spell-check dictionary location of /usr/share/hunspell will be searched for eligible dictionaries. If additional system paths need to be searched for dictionaries, they can be added using the -DEXTRA_DICT_DIRS option. Setting this to 0 will require that you manually install the language-specific hunspell dictionaries (from your software repos) yourself (e.g. <code>sudo apt-get install hunspell-en-us</code>).</p>

@@ -1,17 +1,17 @@
 # <center>Building Sigil on Linux</center>
-## <center>Systems like Ubuntu 16.04 (and its derivatives) or newer</center>
+## <center>Systems like Ubuntu 18.04 (and its derivatives) or newer</center>
 
-If you're looking for instructions on how to build on systems older than Ubuntu 16.04 (systems whose repo version of Qt5 is less than 5.4.2), you should look at the [Building_on_older_Linux](./Building_on_older_Linux.md) documentation.
+If you're looking for instructions on how to build on systems older than Ubuntu 18.04 (systems whose repo version of Qt5 is less than 5.9.4), you should look at the [Building_on_older_Linux](./Building_on_older_Linux.md) documentation.
 
 ## General Overview
 
-The requirements for building Sigil on newer Linux systems like Ubuntu 16.04, Mint 18, Arch Linux, etc., should be able to be installed entirely from your system's software repositories.
+The requirements for building Sigil on newer Linux systems like Ubuntu 18.04, Mint 19, Arch Linux, etc., should be able to be installed entirely from your system's software repositories.
 
 To build Sigil on newer Linux systems, you need to get/do the following things:
 
 1. [A Linux build-toolchain](#gcc) with a C++11 capable compiler (gcc 4.9.x or higher recommended)
 2. [CMake](#cmake) (3.0 or higher)
-3. [Qt5.4.2 or higher](#qt5) (with QtWebKit)
+3. [Qt5.9.4 or higher](#qt5) (with QtWebEngine)
 4. [3rd-party dependencies](#thirdparty) (an optional step)
 5. [Python 3.4](#python) (or higher)
 6. [The Sigil source code](#sigil) (downloaded tarball/zipfile or a git clone)
@@ -36,20 +36,20 @@ to get pretty-much everything you need to configure/compile/install C++ projects
 Once again: `sudo apt-get install cmake` will get you what you need on Ubuntu-type systems.
 
 ## <a name="qt5"/>Getting Qt5
-<center>**If your repos don't provide at lease Qt5.4.2, use the [Building_on_older_Linux](./Building_on_older_Linux.md) documentation**</center>
+<center>**If your repos don't provide at lease Qt5.9.4, use the [Building_on_older_Linux](./Building_on_older_Linux.md) documentation**</center>
 
 To get Sigil's Qt5 requirements, `sudo apt-get install` the following packages:
 
 + qtbase5-dev
 + qttools5-dev
 + qttools5-dev-tools
-+ libqt5webkit5-dev
++ qtwebengine-dev
 + libqt5svg5-dev
 + libqt5xmlpatterns5-dev
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools libqt5webkit5-dev libqt5svg5-dev libqt5xmlpatterns5-dev`
+`sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools qtwebengine-dev libqt5svg5-dev libqt5xmlpatterns5-dev`
 
 ## <a name="thirdparty"/>3rd-Party Dependencies (optional step)
 Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them, `sudo apt-get install` the following packages.
@@ -71,6 +71,7 @@ On Ubuntu/Debian `sudo apt-get install` (at a minimum) the following packages:
 + python3-pip
 + python3-lxml
 + python3-six
++ python3-css-parser
 
 The folllowing command can be copied and pasted for convenience:
 
@@ -89,7 +90,7 @@ That's all the Python 3.4 (or higher) stuff you will need to get Sigil "up and r
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install python3-tk python3-pyqt5 python3-html5lib python3-regex python3-pillow python3-cssselect python3-cssutils python3-chardet`
+`sudo apt-get install python3-tk python3-pyqt5 python3-html5lib python3-regex python3-pillow python3-cssselect python3-cssutils python3-css-parser python3-chardet`
 
 If you run into any that won't install with `sudo apt-get install` you can still use pip3 to install them.
 
@@ -170,6 +171,8 @@ There are several configuration and environment variable options that can tailor
 -DCMAKE_INSTALL_PREFIX=`<path>` Configures the prefix where Sigil will be installed to (default is /usr/local)
 
 -DSHARE_INSTALL_PREFIX=`<path>` Configures the prefix where Sigil's support files will be installed to (default is /usr/local meaning the support files will be installed in /usr/local/share/sigil)
+
+-DCMAKE_INSTALL_LIBDIR=(lib|lib64) Use to override GnuInstallDirs if it doesn't choose the correct lib directory for your distro.
 
 -DUSE_SYSTEM_LIBS=(0|1) Tells cmake to try and use the system libraries when building Sigil instead of the ones bundled with Sigil in the 3rdParty directory. If a system version of a 3rd-party can't be found, Sigil falls back on the bundled version -- unless -DSYSTEM_LIBS_REQUIRED=1 is also specified (default is 0).
 
