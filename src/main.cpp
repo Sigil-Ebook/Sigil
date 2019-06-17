@@ -212,7 +212,12 @@ void VerifyPlugins()
 // Application entry point
 int main(int argc, char *argv[])
 {
-    QT_REQUIRE_VERSION(argc, argv, "5.0.0");
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+    QT_REQUIRE_VERSION(argc, argv, "5.9.0");
+#else
+    QT_REQUIRE_VERSION(argc, argv, "5.12.3");
+#endif
+
 #ifndef QT_DEBUG
     qInstallMessageHandler(MessageHandler);
 #endif

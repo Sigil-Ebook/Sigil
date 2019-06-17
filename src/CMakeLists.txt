@@ -54,8 +54,14 @@ endif()
 
 #############################################################################
 
-# Qt5 packages minimum version 5.4
-find_package(Qt5 5.4 COMPONENTS Core Network Svg WebEngine WebEngineWidgets Widgets Xml XmlPatterns Concurrent PrintSupport LinguistTools)
+if( UNIX AND NOT APPLE )
+    # Qt5 packages minimum version 5.9 for Linux
+    find_package(Qt5 5.9 COMPONENTS Core Network Svg WebEngine WebEngineWidgets Widgets Xml XmlPatterns Concurrent PrintSupport LinguistTools)
+else()
+    # Qt5 packages minimum version 5.12 for Mac/Windows
+    find_package(Qt5 5.12 COMPONENTS Core Network Svg WebEngine WebEngineWidgets Widgets Xml XmlPatterns Concurrent PrintSupport LinguistTools)
+endif()
+
 set(CMAKE_AUTOMOC ON)
 
 set( MAIN_FILES
