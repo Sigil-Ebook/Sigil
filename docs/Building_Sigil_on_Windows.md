@@ -5,10 +5,9 @@
 To build Sigil on Windows, you need to get/do the following things:
 
 1. [Visual Studio 2017](#vsstudio) The free Community Edition will work fine
-   (VS2015 will work as well -- it will just require the msvc2015 version of Qt5)
 2. [CMake](#cmake) (3.0 or higher)
 3. [Inno Setup](#inno) (the latest Unicode version available recommended)
-4. [Qt5.12.3](#qt5) (**NOTE**: The standard precompiled binaries will work but Sigil patches a few things)
+4. [Qt5.12.3/QtWebEngine](#qt5) (**NOTE**: The standard precompiled binaries will work but Sigil patches a few things)
 5. [Python 3.7.x](#python)
 6. [The Sigil source code](#sigil) (downloaded zipfile or a git clone)
 7. [Building Sigil](#build)
@@ -30,9 +29,9 @@ CMake 3.0 or better is required. I'm using 3.12.x Download it from [cmake.org](h
 Get the unicode version (5.5.9 at the time of this writing) from [jrsoftware.org](http://www.jrsoftware.org/isdl.php) make sure you say yes to the Preprocessor option when installing. **Also make sure the Inno Setup directory (the one containing "ISCC.exe") is added to your PATH**. There is no 64-bit version of Inno Setup, but you can still use it to create 64-bit program installers.
 
 ## <a name="qt5"/>Qt5.12.3
-Download qt-opensource-windows-x86-5.12.3.exe from [Qt's Website](http://download.qt.io/archive/qt/5.12/5.12.3) and install the msvc2017_64 (or msvc2015) component for the architecture you will be building Sigil for (you can install both msvc2017_64 and msvc2017 if you like). Also install the QtWebEngine component.
+Download qt-opensource-windows-x86-5.12.3.exe from [Qt's Website](http://download.qt.io/archive/qt/5.12/5.12.3) and install the msvc2017_64, or msvc2017 component (depending on the architecture you will be building Sigil for). You can install both msvc2017_64 and msvc2017 if you like. Also install the QtWebEngine component.
 
-If you want to use the exact, patched versions of Qt5.12.3 and QtWebEngine that I've used to release Sigil, feel free to download the whole shebang [from my personal repository](https://github.com/dougmassay/win-qtwebkit-5.212/releases/tag/v5.212-1). It's the archive named: MyQtx64-5.12.3_WE-WK_VS2017.7z (NOTE: You can't use this if you're building Sigil with Visual Studio 2015 -- you're also on your own with a 32-bit version).
+If you want to use the exact, patched versions of Qt5.12.3 and QtWebEngine that I've used to release Sigil, feel free to download the whole shebang [from my personal repository](https://github.com/dougmassay/win-qtwebkit-5.212/releases/tag/v5.212-1). It's the archive named: MyQtx64-5.12.3_WE-WK_VS2017.7z (NOTE: you're on your own with a 32-bit version).
 
 Once you have Qt5.12.3 for Visual Studio installed, **make sure its "bin" directory (the one containing "windeployqt.exe) is added to your PATH**
 
@@ -104,7 +103,6 @@ Unzip the source code. Rename the uppermost directory to something useful like "
 To build the Sigil installer package, you'll need to copy the Visual Studio 2017 redistributable runtime installer to the `<sigil-src>\installer` folder (the one that contains the Sigil.iss file). These redistributable files can usually be found somewhere in Visual Studio's folder structure:
 
 `C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Redist\MSVC\14.XX.XXXXX\`
-
 
 vcredist_x64.exe for 64-bit builds, and vcredist_x86.exe for 32-bit builds.
 
