@@ -24,6 +24,7 @@
 #include <QtWebEngineWidgets/QWebEnginePage>
 #include <QtWebEngineWidgets/QWebEngineSettings>
 #include <QApplication>
+#include <QDebug>
 
 #include "Misc/SettingsStore.h"
 #include "Dialogs/Inspector.h"
@@ -52,12 +53,15 @@ Inspector::Inspector(QWidget *parent) :
 
 Inspector::~Inspector()
 {
+    qDebug() << "In Inspector Destructor";
     if (m_inspectView) {
+        qDebug() << " Inspector Destructor calling close";
         m_inspectView->close();
 #if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
         m_inspectView->page()->setInspectedPage(nullptr);
 #endif
         m_view = nullptr;
+	qDebug() << "deleting the inspector itself";
         delete m_inspectView;
         m_inspectView = nullptr;
     }
@@ -96,6 +100,7 @@ void Inspector::InspectPageofView(QWebEngineView* view)
 
 void Inspector::StopInspection()
 {
+    qDebug() << "In Stop Inspection";
     SaveSettings();
     m_view = nullptr;
 #if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
@@ -112,8 +117,9 @@ QSize Inspector::sizeHint()
 
 void Inspector::closeEvent(QCloseEvent* event)
 {
-    // qDebug() << "Inspector Close Event";
+    qDebug() << "In Inspector closeEvent about to StopInspection";
     StopInspection();
+    qDebug() << "passing closeEvent to QDialog parent";
     QDialog::closeEvent(event);
 }
 

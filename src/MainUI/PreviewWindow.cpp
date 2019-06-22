@@ -63,6 +63,8 @@ PreviewWindow::PreviewWindow(QWidget *parent)
 
 PreviewWindow::~PreviewWindow()
 {
+    qDebug() << "In PreviewWindow Destructor";
+
     // BookViewPreview must be deleted before QWebInspector.
     // BookViewPreview's QWebPage is linked to the QWebInspector
     // and when deleted it will send a message to the linked QWebInspector
@@ -362,7 +364,7 @@ void PreviewWindow::InspectPreviewPage()
         m_Inspector->activateWindow();
 	return;
     }
-    qDebug() << "stopping inspection()";
+    qDebug() << "stopping inspection via the ui inspector action()";
     m_Inspector->close();
 }
 
