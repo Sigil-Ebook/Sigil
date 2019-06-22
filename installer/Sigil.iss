@@ -7,6 +7,7 @@ AppName=Sigil
 AppVerName=Sigil ${SIGIL_FULL_VERSION}
 VersionInfoVersion=${SIGIL_FULL_VERSION}
 DefaultDirName={pf}\Sigil
+DisableDirPage=no
 DefaultGroupName=Sigil
 UninstallDisplayIcon={app}\Sigil.exe
 AppPublisher=Sigil-Ebook

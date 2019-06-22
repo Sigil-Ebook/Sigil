@@ -71,7 +71,9 @@ SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QStri
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
     m_WebView->page()->settings()->setAttribute(QWebEngineSettings::ShowScrollBars,false);
+#endif
     ui.avLayout->addWidget(m_WebView);
 
     ReadSettings();

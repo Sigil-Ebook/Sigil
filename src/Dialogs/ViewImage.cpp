@@ -40,7 +40,9 @@ ViewImage::ViewImage(QWidget *parent)
     ui.webView->setContextMenuPolicy(Qt::NoContextMenu);
     ui.webView->setFocusPolicy(Qt::NoFocus);
     ui.webView->setAcceptDrops(false);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
     ui.webView->page()->settings()->setAttribute(QWebEngineSettings::ShowScrollBars,false);
+#endif
 
     ReadSettings();
 }
