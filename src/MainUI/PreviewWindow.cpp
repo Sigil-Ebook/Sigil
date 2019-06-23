@@ -365,6 +365,7 @@ void PreviewWindow::InspectPreviewPage()
 	return;
     }
     qDebug() << "stopping inspection via the ui inspector action()";
+    m_Inspector->StopInspection();
     m_Inspector->close();
 }
 
