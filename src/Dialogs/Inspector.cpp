@@ -40,6 +40,7 @@ Inspector::Inspector(QWidget *parent) :
     m_LoadingFinished(false),
     m_LoadOkay(false)
 {
+    setAttribute(Qt::WA_DeleteOnClose, false);
     setWindowTitle(tr("Inspect Page or Element"));
     setMinimumSize(QSize(200, 200));
     m_Layout->addWidget(m_inspectView);
