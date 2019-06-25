@@ -36,7 +36,7 @@ class Inspector : public QDialog
     Q_OBJECT
 
 public:
-    Inspector(QWidget *parent = nullptr);
+    Inspector(QWidget *parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
     ~Inspector();
 
     void closeEvent(QCloseEvent* event);
