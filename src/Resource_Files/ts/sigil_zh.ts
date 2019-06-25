@@ -9,7 +9,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
         <source>The EPUB Editor</source>
-        <translation>EPUB编辑器</translation>
+        <translation>EPUB 编辑器</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="70"/>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="170"/>
         <source>Loaded Qt:</source>
-        <translation>装载QT:</translation>
+        <translation>装载 QT：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="200"/>
@@ -39,12 +39,12 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="218"/>
         <source>Build time:</source>
-        <translation>构建时间:</translation>
+        <translation>构建时间：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="245"/>
         <source>License:</source>
-        <translation>证书:</translation>
+        <translation>证书：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="255"/>
@@ -59,12 +59,12 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer(s)</source>
-        <translation>维护者(们)</translation>
+        <translation>维护者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="56"/>
         <source>Previous Maintainer(s)</source>
-        <translation>以前的维护者(们)</translation>
+        <translation>以前的维护者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>retired</source>
-        <translation>退休了的</translation>
+        <translation>已隐退</translation>
     </message>
 </context>
 <context>
@@ -143,7 +143,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="75"/>
         <source>File Size (KB)</source>
-        <translation>文件大小 (KB)</translation>
+        <translation>文件大小（KB）</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="76"/>
@@ -163,7 +163,7 @@
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="148"/>
         <source>%n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 个文件</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="261"/>
@@ -203,7 +203,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="341"/>
         <source>Unknown</source>
-        <translation>未知的</translation>
+        <translation>未知</translation>
     </message>
 </context>
 <context>
@@ -220,65 +220,61 @@
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="30"/>
-        <source>Book View / Preview:</source>
-        <translation>读书视图/预览</translation>
+        <source>Preview:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="39"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation>如果你页面的CSS没有指定字体，Sigil将使用下面的字体，这些字体不会再你的成书(ebook)中使用。</translation>
+        <translation>如果你页面的 CSS 没有指定字体，Sigil 将使用下面的字体，这些字体不会再你的成书中使用。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="59"/>
-        <source>Default font size to be used for Book View and Preview
+        <source>Default font size to be used for Preview
 if no font-size specified in your CSS</source>
-        <translation>在读书视图和预览中使用的默认字体
-如果在你的CSS中没有指定字体大小</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="63"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="197"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="313"/>
         <source>Font Size:</source>
-        <translation>字体大小:</translation>
+        <translation>字体大小：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="93"/>
-        <source>Default font family to be used for Book View and Preview
+        <source>Default font family to be used for Preview
 if no font-family specified in your CSS</source>
-        <translation>在读书视图和预览中使用默认字体系列
-如果在你的CSS中没有指定字体系列</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="97"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="227"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="346"/>
         <source>Standard Font:</source>
-        <translation>标准字体:</translation>
+        <translation>标准字体：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="107"/>
-        <source>Default font family to be used for Book View and Preview
+        <source>Default font family to be used for Preview
 if a serif font-family specified in your CSS</source>
-        <translation>在读书视图和预览中使用默认字体系列
-如果在你的CSS中指定用Serif字体系列</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="111"/>
         <source>Serif Font:</source>
-        <translation>Serif字体:</translation>
+        <translation>衬线字体：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="121"/>
-        <source>Default font family to be used for Book View and Preview
+        <source>Default font family to be used for Preview
 if a sans-serif font-family specified in your CSS</source>
-        <translation>在读书视图和预览中使用默认字体系列
-如果在你的CSS中指定无衬线字体系列</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="125"/>
         <source>Sans-Serif Font:</source>
-        <translation>无衬线字体:</translation>
+        <translation>无衬线字体：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="171"/>
@@ -288,7 +284,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="181"/>
         <source>Item Colors:</source>
-        <translation>项目颜色</translation>
+        <translation>项目颜色：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="194"/>
@@ -313,7 +309,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="296"/>
         <source>Insert Special Characters:</source>
-        <translation>插入特殊字符:</translation>
+        <translation>插入特殊字符：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="310"/>
@@ -351,109 +347,109 @@ if a sans-serif font-family specified in your CSS</source>
         <translation>全部重置</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="204"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="205"/>
         <source>Background</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="205"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="206"/>
         <source>Foreground</source>
         <translation>前景</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="206"/>
-        <source>CSS Comment</source>
-        <translation>CSS注释</translation>
-    </message>
-    <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="207"/>
-        <source>CSS Property</source>
-        <translation>CSS属性</translation>
+        <source>CSS Comment</source>
+        <translation>CSS 注释</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="208"/>
-        <source>CSS Quote</source>
-        <translation>CSS引用</translation>
+        <source>CSS Property</source>
+        <translation>CSS 属性</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="209"/>
-        <source>CSS Selector</source>
-        <translation>CSS选择器</translation>
+        <source>CSS Quote</source>
+        <translation>CSS 引用</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="210"/>
-        <source>CSS Value</source>
-        <translation>CSS值</translation>
+        <source>CSS Selector</source>
+        <translation>CSS 选择器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="211"/>
+        <source>CSS Value</source>
+        <translation>CSS 值</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="212"/>
         <source>Line Highlight</source>
         <translation>行突出显示</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="212"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="213"/>
         <source>Line# Background</source>
         <translation>行#背景</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="213"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="214"/>
         <source>Line# Foreground</source>
         <translation>行#前景</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="214"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="215"/>
         <source>Selection Background</source>
         <translation>选择部分背景</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="215"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="216"/>
         <source>Selection Foreground</source>
         <translation>选择部分前景</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="216"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="217"/>
         <source>Spelling Underline</source>
         <translation>拼写下划线</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="217"/>
-        <source>XHTML Attribute Name</source>
-        <translation>XHTML属性名称</translation>
-    </message>
-    <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="218"/>
-        <source>XHTML Attribute Value</source>
-        <translation>XHTML属性值</translation>
+        <source>XHTML Attribute Name</source>
+        <translation>XHTML 属性名称</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="219"/>
+        <source>XHTML Attribute Value</source>
+        <translation>XHTML 属性值</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="220"/>
         <source>XHTML CSS</source>
         <translation>XHTML CSS</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="220"/>
-        <source>XHTML CSS Comment</source>
-        <translation>XHTML CSS注释</translation>
-    </message>
-    <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="221"/>
-        <source>XHTML DocType</source>
-        <translation>XHTML文本类型</translation>
+        <source>XHTML CSS Comment</source>
+        <translation>XHTML CSS 注释</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="222"/>
-        <source>XHTML Entity</source>
-        <translation>XHTML实体</translation>
+        <source>XHTML DocType</source>
+        <translation>XHTML 文本类型</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="223"/>
-        <source>XHTML HTML Tag</source>
-        <translation>XHTML HTML标签</translation>
+        <source>XHTML Entity</source>
+        <translation>XHTML 实体</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="224"/>
+        <source>XHTML HTML Tag</source>
+        <translation>XHTML HTML 标签</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="225"/>
         <source>XHTML HTML Comment</source>
-        <translation>XHTML HTML注释</translation>
+        <translation>XHTML HTML 注释</translation>
     </message>
 </context>
 <context>
@@ -478,23 +474,23 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="73"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1418"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1525"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1430"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1537"/>
         <source>Open With</source>
-        <translation>用...打开</translation>
+        <translation>打开方式</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/BookBrowser.cpp" line="127"/>
         <source>%n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 个文件</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="624"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="640"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="689"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="789"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="996"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="625"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="645"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="701"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="801"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1008"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -523,358 +519,233 @@ if a sans-serif font-family specified in your CSS</source>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
-        <translation>文件不是图像或者无法使用
+        <translation>文件不是图像或者无法使用：
 
-&quot;%1&quot;</translation>
+“%1”。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="609"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
-        <translation>文件不是多媒体（突袭, 视频, 音频）或者无法使用
+        <translation>文件不是多媒体（图像，视频，音频）或者无法使用
 
-&quot;%1&quot;</translation>
+“%1”。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="624"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="625"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation>书中以存在该多媒体文件 &quot;%1&quot;。
+        <translation>书中已存在该多媒体文件 “%1”。
 
-确认后替代</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="635"/>
-        <source>Unable to delete or replace file &quot;%1&quot;.</source>
-        <translation>无法删除或者替换 &quot;%1&quot; 文件</translation>
+是否替换？</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="640"/>
+        <source>Unable to delete or replace file &quot;%1&quot;.</source>
+        <translation>无法删除或者替换文件 “%1”。</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="645"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
-        <translation>无法加载 &quot;%1&quot;
+        <translation>无法加载 “%1”
 
-在书中已经存在该名称的文件</translation>
+在书中已经存在该名称的文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="690"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="702"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
-        <translation>由于无效内容或错误的XML格式，下面文件无法加载:
+        <translation>由于无效内容或错误的 XML 格式，下面文件无法加载：
 
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="704"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="716"/>
         <source>File(s) added.</source>
-        <translation>添加的文件.</translation>
+        <translation>文件已添加。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="739"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="751"/>
         <source>Save As File</source>
         <translation>文件另存为</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="761"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
         <source>Unable to save the file.</source>
         <translation>无法保存该文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="769"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="781"/>
         <source>Choose the directory to save the files to</source>
         <translation>选择将文件保存的目录</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="789"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="801"/>
         <source>One or more files already exists.  OK to overwrite?</source>
-        <translation>一个或多个文件已经存在. 确认后覆盖？</translation>
+        <translation>一个或多个文件已经存在。确认后覆盖？</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="806"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="818"/>
         <source>Unable to save files.  Destination may be a directory.</source>
-        <translation>无法保存文件. 目标可能是一个目录.</translation>
+        <translation>无法保存文件。目标可能是一个目录。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="814"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="826"/>
         <source>Unable to save files.</source>
-        <translation>无法保存文件.</translation>
+        <translation>无法保存文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="996"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1008"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
-        <translation>因为可能造成文件重名无法重命名文件.</translation>
+        <translation>无法重命名文件，此操作会导致同名文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1059"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1071"/>
         <source>The Nav document can not be removed.</source>
-        <translation>Nav文旦无法被删除.</translation>
+        <translation>无法删除 Nav 文档。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1067"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1079"/>
         <source>Neither the NCX nor the OPF can be removed.</source>
-        <translation>NCX和OPF都无法删除.</translation>
+        <translation>NCX 和 OPF 都无法删除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1074"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1086"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
-        <translation>无法删除所有的html文件
-至少要有一个.</translation>
+        <translation>无法将所有的 html 文件都删除。
+至少保留一个。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1214"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1226"/>
         <source>Unable to set file as cover image.</source>
-        <translation>无法将文件设置为封面图像.</translation>
+        <translation>无法将文件设置为封面图像。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1399"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1411"/>
         <source>Select All</source>
         <translation>选择全部</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1400"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1412"/>
         <source>Add Blank HTML File</source>
-        <translation>添加空白HTML文件</translation>
+        <translation>添加空白 HTML 文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1401"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1413"/>
         <source>Add Blank Stylesheet</source>
         <translation>添加空白的样式表</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1414"/>
         <source>Add Blank SVG Image</source>
-        <translation>添加空白的SVG图形</translation>
+        <translation>添加空白的 SVG 图形</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1403"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1415"/>
         <source>Add Existing Files...</source>
-        <translation>添加存在的文件</translation>
+        <translation>添加现有文件...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1404"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1405"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1416"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
         <source>Add Copy</source>
-        <translation>添加一个复制</translation>
+        <translation>添加副本</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1406"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1418"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1407"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1419"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1408"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1420"/>
         <source>Cover Image</source>
         <translation>封面图像</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1421"/>
         <source>Merge</source>
         <translation>合并</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1410"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1422"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1411"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1423"/>
         <source>Use Adobe&apos;s Method</source>
-        <translation>使用Adobe的方法</translation>
+        <translation>使用 Adobe 方式</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1412"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1424"/>
         <source>Use IDPF&apos;s Method</source>
-        <translation>使用IDPF方法</translation>
+        <translation>使用 IDPF 方式</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1413"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1425"/>
         <source>Sort</source>
         <translation>排序</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1414"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1426"/>
         <source>Renumber TOC Entries</source>
-        <translation>重命名TOC条目</translation>
+        <translation>重命名 TOC 条目</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1415"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1427"/>
         <source>Link Stylesheets...</source>
         <translation>连接样式表...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1416"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1428"/>
         <source>Add Semantics...</source>
         <translation>添加语义...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1429"/>
         <source>Validate with W3C</source>
-        <translation>用W3C验证</translation>
+        <translation>用 W3C 验证</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1419"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1431"/>
         <source>Save As</source>
         <translation>保存为</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1433"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1445"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
-        <translation type="unfinished"/>
+        <translation>和上一个文件合并，或者是多个文件合并为一个。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1436"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1448"/>
         <source>Rename selected file(s)</source>
-        <translation type="unfinished"/>
+        <translation>重命名已选定的文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1438"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1450"/>
         <source>Link Stylesheets to selected file(s).</source>
-        <translation type="unfinished"/>
+        <translation>将样式表链接到选定的文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1440"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1452"/>
         <source>Add Semantics to selected file(s).</source>
-        <translation type="unfinished"/>
+        <translation>添加语义到选定的文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1572"/>
         <source>Other Application</source>
         <translation>其它应用程序</translation>
-    </message>
-</context>
-<context>
-    <name>BookViewEditor</name>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="722"/>
-        <source>Clipboard contains HTML formatting</source>
-        <translation>剪贴板包含HTML格式</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="723"/>
-        <source>Do you want to paste clipboard data as plain text?</source>
-        <translation>是否将剪贴板内容以纯文本粘贴?</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="938"/>
-        <source>Open Tab For</source>
-        <translation>打开标签</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="956"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1161"/>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1163"/>
-        <source>Open With</source>
-        <translation>用...打开</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="991"/>
-        <source>Other Application</source>
-        <translation>其它应用程序</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1039"/>
-        <source>Clips</source>
-        <translation>剪辑</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1049"/>
-        <source>Add To Clips</source>
-        <translation>添加到剪辑</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1147"/>
-        <source>Insert File</source>
-        <translation>插入文件</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1148"/>
-        <source>Undo</source>
-        <translation>撤销</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1149"/>
-        <source>Redo</source>
-        <translation>重复</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1150"/>
-        <source>Cut</source>
-        <translation>剪切</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1151"/>
-        <source>Copy</source>
-        <translation>复制</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1152"/>
-        <source>Copy Image</source>
-        <translation>复制图像</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1153"/>
-        <source>Paste</source>
-        <translation>黏贴</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1154"/>
-        <source>Select All</source>
-        <translation>选择全部</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1155"/>
-        <source>Open</source>
-        <translation>打开</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1162"/>
-        <source>Save As</source>
-        <translation>保存为</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewEditor.cpp" line="1170"/>
-        <source>Inspect Element</source>
-        <translation>检测元素</translation>
-    </message>
-</context>
-<context>
-    <name>BookViewPreview</name>
-    <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="267"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="332"/>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="338"/>
-        <source>Unsupported</source>
-        <translation>不支持</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="267"/>
-        <source>Spellcheck mode is not supported in Book View at this time.  Switch to Code View.</source>
-        <translation>书视图目前不支持拼写检查模式, 切换到代码视图。</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="332"/>
-        <source>Replace is not supported in this view. Switch to Code View.</source>
-        <translation>此视图不支持替换, 切换到代码视图。</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="338"/>
-        <source>Replace All for the current file is not supported in this view. Switch to Code View.</source>
-        <translation>此视图中不支持替换当前全部文件, 切换到代码视图。</translation>
-    </message>
-    <message>
-        <location filename="../../ViewEditors/BookViewPreview.cpp" line="758"/>
-        <source>Inspect Element</source>
-        <translation>检测元素</translation>
     </message>
 </context>
 <context>
@@ -882,7 +753,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="14"/>
         <source>CSS Files</source>
-        <translation>CSS文件</translation>
+        <translation>CSS 文件</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="34"/>
@@ -912,7 +783,7 @@ There always has to be at least one.</source>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="142"/>
         <source>%n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 个文件</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="146"/>
@@ -981,47 +852,47 @@ There always has to be at least one.</source>
         <translation>字符：</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="80"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="78"/>
         <source>Character</source>
         <translation>字符</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="81"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="79"/>
         <source>Decimal</source>
         <translation>小数</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="82"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="80"/>
         <source>Hexadecimal</source>
         <translation>16进制数</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="83"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="81"/>
         <source>Entity Name</source>
         <translation>单元名称</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="84"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="82"/>
         <source>Entity Description</source>
         <translation>单元描述</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="90"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="88"/>
         <source>&lt;p&gt;This is a list of the characters used in all HTML files.&lt;p&gt;</source>
         <translation>&lt;p&gt;这是在HTML文件中使用的所有字符列表. &lt;p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="271"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="249"/>
         <source>Save Report As Comma Separated File</source>
         <translation>将报告保存为都好分割的文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="284"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="262"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="284"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="262"/>
         <source>Cannot save report file.</source>
         <translation>无法保存报告文件</translation>
     </message>
@@ -1260,7 +1131,7 @@ There always has to be at least one.</source>
     <message numerus="yes">
         <location filename="../../Dialogs/ClipEditor.cpp" line="525"/>
         <source>CSS entries added: %n</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>CSS 项已添加： %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="638"/>
@@ -1371,12 +1242,12 @@ Do you want to save your changes?</source>
         <translation>最近的剪贴板</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="337"/>
+        <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="340"/>
         <source>Paste</source>
         <translation>黏贴</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="339"/>
+        <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="342"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
@@ -1402,112 +1273,112 @@ Do you want to save your changes?</source>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="419"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="428"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation>无法在此位置插入结束标记. </translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="428"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="437"/>
         <source>No open tags found at this position.</source>
         <translation>在此位置找不到打开的标签. </translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1176"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1220"/>
         <source>Add To Default Dictionary</source>
         <translation>添加到默认字典</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1189"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1233"/>
         <source>Add To Dictionary</source>
         <translation>添加到字典</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1206"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1250"/>
         <source>Ignore</source>
         <translation>忽略</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1268"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1312"/>
         <source>Reformat CSS</source>
         <translation>重新CSS格式化</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1269"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1313"/>
         <source>Multiple Lines Per Style</source>
         <translation>每个格式应用多行</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1270"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1314"/>
         <source>Single Line Per Style</source>
         <translation>每个格式应用单行</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1295"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1339"/>
         <source>Reformat HTML</source>
         <translation>重新HTML格式化</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1296"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1340"/>
         <source>Mend and Prettify Code</source>
         <translation>修改和优化代码</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1297"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1341"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>修改和预验证码 - 所有HTML文件</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1298"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1342"/>
         <source>Mend Code</source>
         <translation>修改代码</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1299"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1343"/>
         <source>Mend Code - All HTML Files</source>
         <translation>修改代码 - 所有HTML文件</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1329"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1373"/>
         <source>Go To Link Or Style</source>
         <translation>转换到链接或样式</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1352"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1396"/>
         <source>View Image</source>
         <translation>看图</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1353"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1397"/>
         <source>Open Tab For Image</source>
         <translation>打开图像的标签</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1379"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1423"/>
         <source>Mark Selected Text</source>
         <translation>标记所选文本</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1381"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1425"/>
         <source>Unmark Marked Text</source>
         <translation>去除所选文本标记</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1407"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1451"/>
         <source>Clips</source>
         <translation>剪辑</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1417"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1461"/>
         <source>Add To Clips</source>
         <translation>添加到剪辑</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1543"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1587"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>您必须在HTML开始标记中才能使用此功能. </translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1553"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1597"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>您必须在HTML开始标记内使用此功能. </translation>
     </message>
@@ -1515,22 +1386,22 @@ Do you want to save your changes?</source>
 <context>
     <name>ColorSwatchDelegate</name>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="56"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="57"/>
         <source>Background</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="58"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="59"/>
         <source>Foreground</source>
         <translation>前景</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="60"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="61"/>
         <source>Selection Background</source>
         <translation>选择部分背景</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="62"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="63"/>
         <source>Selection Foreground</source>
         <translation>选择部分前景</translation>
     </message>
@@ -1694,7 +1565,6 @@ You can also use the right arrow key.</source>
     <name>EmbeddedPython</name>
     <message>
         <location filename="../../Misc/EmbeddedPython.cpp" line="617"/>
-        <location filename="../../Misc/EmbeddedPythonPkg.cpp" line="613"/>
         <source>Embedded Python Error</source>
         <translation>嵌入式Python错误</translation>
     </message>
@@ -1840,169 +1710,169 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="179"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1435"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1436"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1431"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1432"/>
         <source>Current File</source>
         <translation>当前文件</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="334"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1258"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1254"/>
         <source>Matches found: %n</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>查找到匹配项：%n</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="418"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1282"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1278"/>
         <source>No replacements made</source>
         <translation>没有替换</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="420"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1284"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1280"/>
         <source>Replacements made: %n</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>已替换： %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="621"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="617"/>
         <source>No matches found</source>
         <translation>我发现匹配</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1136"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1132"/>
         <source>This tab cannot be searched</source>
         <translation>无法搜索这个标签</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1168"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1164"/>
         <source>Unnamed search loaded</source>
         <translation>加载了未命名的搜索</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1171"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1167"/>
         <source>Loaded</source>
         <translation>加载</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1184"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1204"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1222"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1242"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1268"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1180"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1200"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1218"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1238"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1264"/>
         <source>No searches selected</source>
         <translation>没有选择搜索</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1421"/>
         <source>What to search for</source>
         <translation>搜索所什么</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1422"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
         <source>Normal</source>
         <translation>普通</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
         <source>Case in-sensitive search of exactly what you type.</source>
         <translation>大小写不敏感搜索你所输入的</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1428"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1429"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1424"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Case Sensitive</source>
         <translation>大小写敏感</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1429"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Case sensitive search of exactly what you type.</source>
         <translation>大小写敏感搜索你所输入的</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1430"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1431"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
         <source>Regex</source>
         <translation>正则表达式</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1431"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation>使用正则表达式语法搜索.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1446"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1430"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1442"/>
         <source>Where to search</source>
         <translation>在哪里搜索</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1436"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1432"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation>限制查找或替换在打开的文件中, 按住Ctrl键的同时单击任何搜索按钮，以临时限制搜索在当前文件中。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1437"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1438"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1433"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
         <source>All HTML Files</source>
         <translation>所有HTML文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1438"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
         <source>Find or replace in all HTML files in Code View.</source>
         <translation>在代码视图中的所有HTML文件中查找或替换。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1439"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1440"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1435"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1436"/>
         <source>Selected HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>已选择 HTML 文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1440"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1436"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation>在代码视图的书浏览器中, 限制在选择的HTML文件中查找或替换.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1442"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1438"/>
         <source>To restrict search to selected text, use Search&amp;rarr;Mark Selected Text.</source>
-        <translation type="unfinished"/>
+        <translation>要限制为仅在选定的文本中搜索，使用 Search&amp;rarr; 标记选定的文本。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1447"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1448"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1443"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1444"/>
         <source>Marked Text</source>
         <translation>标记的文本</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1448"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1444"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
         <translation>将查找或替换限制在标记所选文本的文本. 如果您使用撤消，输入文字或更改视图或标签，则清除。</translation>
     </message>
     <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="1448"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1456"/>
         <source>Up</source>
         <translation>上</translation>
     </message>
     <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="1449"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1453"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1457"/>
         <source>Down</source>
         <translation>下</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1454"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1450"/>
         <source>Direction to search</source>
         <translation>搜索的方向</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1456"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
         <source>Search for the previous match from your current position.</source>
         <translation>从当前位置搜索上一次的匹配。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1457"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1453"/>
         <source>Search for the next match from your current position.</source>
         <translation>从当前位置搜索下一个匹配。</translation>
     </message>
@@ -2023,7 +1893,7 @@ other end to continue searching.</source>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="1162"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="816"/>
         <source>Print %1</source>
         <translation>打印%1</translation>
     </message>
@@ -2082,146 +1952,180 @@ mended.</source>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="69"/>
-        <source>Mend when opening an Epub or HTML file, 
-and when switching from Book View to Code View.</source>
-        <translation>打开Epub或HTML文件时，
-和从书视图切换到代码视图时修复.</translation>
+        <source>Mend when opening an Epub or HTML file.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="73"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="72"/>
         <source>Open</source>
         <translation>打开</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="80"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="79"/>
         <source>Mend when saving an Epub.</source>
         <translation>当保存一个Epub是修复</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="83"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="82"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="93"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="92"/>
         <source>Determine if Epubs are allowed to access non-multimedia remote resources.</source>
         <translation>确定是否允许Epubs访问非多媒体远程资源.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="96"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="95"/>
         <source> Control Access by Epubs to non-multimedia remote resources.</source>
         <translation>控制Epubs对非多媒体远程资源的访问.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="105"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="104"/>
         <source>Check to allow Epubs to access non-multimedia remote resources.</source>
         <translation>选中此复选框以允许Epubs访问非多媒体远程资源.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="108"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="107"/>
         <source>Epubs may access all remote resources types.</source>
         <translation>准许Epub访问所有远程资源类型</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="127"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="120"/>
+        <source>Determine if javascript is allowed to be used by Epubs</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="123"/>
+        <source> Control Use of Javascript by Epubs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="132"/>
+        <source>Check to allow Epubs to use javascript.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="135"/>
+        <source>Epubs may use javascript.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="154"/>
         <source>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</source>
         <translation>为W3C样式表验证工具（EPUB2）指定的CSS级别</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="130"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="157"/>
         <source>EPUB2 W3C Stylesheet Validation Level:</source>
         <translation>EPUB2的W3C样式表验证工具级别: </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="139"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="166"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB2</source>
         <translation>W3C样式表验证器将对EPUB2使用CSS级别2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="142"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="199"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="169"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="226"/>
         <source>CSS Level 2</source>
         <translation>CSS级别2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="149"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="176"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB2</source>
         <translation>W3C样式表验证器将对EPUB2使用CSS级别2.1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="152"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="209"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="179"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="236"/>
         <source>CSS Level 2.1</source>
         <translation>CSS级别2.1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="162"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="189"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB2</source>
         <translation>W3C样式表验证器将对EPUB2使用CSS级别3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="165"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="222"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="192"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="249"/>
         <source>CSS Level 3</source>
         <translation>CSS级别3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="184"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="211"/>
         <source>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</source>
         <translation>为W3C样式表验证工具（EPUB3）指定的CSS级别</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="187"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="214"/>
         <source>EPUB3 W3C Stylesheet Validation Level:</source>
         <translation>EPUB3的W3C样式表验证工具级别: </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="196"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="223"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB3</source>
         <translation>W3C样式表验证器将对EPUB3使用CSS级别2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="206"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="233"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB3</source>
         <translation>W3C样式表验证器将对EPUB3使用CSS级别2.1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="219"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="246"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB3</source>
         <translation>W3C样式表验证器将对EPUB3使用CSS级别3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="235"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="262"/>
         <source>Number of clipboard history items to save between sessions (0 disables):</source>
-        <translation type="unfinished"/>
+        <translation>会话期间剪切板历史项目数（0 代表禁用）：</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="247"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="274"/>
         <source>Use to limit (or disable) clipboard history saving between sessions</source>
-        <translation type="unfinished"/>
+        <translation>用于限制（或禁用）会话期间剪切板历时</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="279"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="306"/>
         <source>Set Folder where temporary files should be created</source>
         <translation>设置临时文件所使用的文件夹</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="290"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="317"/>
         <source>Auto</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="297"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="324"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="354"/>
         <source>Browse</source>
         <translation>浏览</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="132"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="336"/>
+        <source>Set your preferred alternative external xhtml editor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="347"/>
+        <source>clear</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="188"/>
+        <source>Incorrect Path for External Xhtml Editor selected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="202"/>
         <source>Select Folder for Temporary Files</source>
         <translation>设置临时文件文件夹</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="147"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="217"/>
         <source>Incorrect Folder for Temporary Files selected</source>
         <translation>临时文件文件夹不对</translation>
     </message>
@@ -2474,7 +2378,7 @@ and when switching from Book View to Code View.</source>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="190"/>
         <source>%n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 个文件</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="331"/>
@@ -2668,7 +2572,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="184"/>
         <source>%n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 个文件</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="188"/>
@@ -2699,49 +2603,49 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImageTab</name>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="177"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="179"/>
         <source>shades</source>
         <translation>色彩</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="177"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="179"/>
         <source>colors</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="178"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="180"/>
         <source>Grayscale</source>
         <translation>灰度</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="178"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="180"/>
         <source>Color</source>
         <translation>色彩</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="293"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="350"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="353"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="295"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="352"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="355"/>
         <source>Open With</source>
         <translation>用...打开</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="328"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="330"/>
         <source>Other Application</source>
         <translation>其它应用程序</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="351"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="353"/>
         <source>Save As</source>
         <translation>保存为</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="352"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="354"/>
         <source>Copy Image</source>
         <translation>复制图像</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="400"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="402"/>
         <source>Print %1</source>
         <translation>打印%1</translation>
     </message>
@@ -2749,12 +2653,17 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImportEPUB</name>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="166"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="143"/>
+        <source>Files exist in epub that are not listed in the manifest, they will be ignored</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="179"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="167"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="180"/>
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in data loss.
 
 Do you want to automatically fix the files?</source>
@@ -2762,7 +2671,7 @@ Do you want to automatically fix the files?</source>
 您要自动修复这些文件吗？</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="501"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="519"/>
         <source>Epub has missing or improperly specified OPF.</source>
         <translation>Epub丢失或者不正确的OPF</translation>
     </message>
@@ -2849,7 +2758,7 @@ Do you want to automatically fix the files?</source>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Entries added: %n</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>项目已添加： %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="293"/>
@@ -2960,6 +2869,19 @@ Do you want to save your changes?</source>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="347"/>
         <source>Unable to create file %1</source>
         <translation>无法创建文件 %1</translation>
+    </message>
+</context>
+<context>
+    <name>Inspector</name>
+    <message>
+        <location filename="../../Dialogs/Inspector.cpp" line="42"/>
+        <source>Inspect Page or Element</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Inspector.cpp" line="88"/>
+        <source>The Inspector functionality is not supported before Qt 5.11</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6046,406 +5968,411 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="575"/>
+        <source>Paraguayan Guaraní</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
         <translation>波斯语-古代(ca.600-400 B.C.)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="576"/>
+        <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Philippine languages</source>
         <translation>菲律宾语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="577"/>
+        <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Phoenician</source>
         <translation>腓尼基</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="578"/>
+        <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Pohnpeian</source>
         <translation>Pohnpeian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="579"/>
+        <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Prakrit languages</source>
         <translation>Prakrit语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="580"/>
+        <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Rajasthani</source>
         <translation>Rajasthani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="581"/>
+        <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Rapanui</source>
         <translation>Rapanui</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="582"/>
+        <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Rarotongan, Cook Islands Maori</source>
         <translation>拉罗汤根，库克群岛毛利人</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="583"/>
+        <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Reserved for local use</source>
         <translation>保留供本地使用</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="584"/>
+        <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Romance languages</source>
         <translation>Romance语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="585"/>
+        <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Romany</source>
         <translation>罗马书</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="586"/>
+        <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Salishan languages</source>
         <translation>Salishan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="587"/>
+        <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Samaritan Aramaic</source>
         <translation>撒玛利亚人阿拉姆语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="588"/>
+        <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Sami languages</source>
         <translation>Sami语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="589"/>
+        <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Sandawe</source>
         <translation>Sandawe</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="590"/>
+        <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Santali</source>
         <translation>Santali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="591"/>
+        <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Sasak</source>
         <translation>Sasak</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="592"/>
+        <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Scots</source>
         <translation>Scots</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="593"/>
+        <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Selkup</source>
         <translation>Selkup</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="594"/>
+        <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Semitic languages</source>
         <translation>Semitic语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="595"/>
+        <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Serer</source>
         <translation>Serer</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="596"/>
+        <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Shan</source>
         <translation>Shan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="597"/>
+        <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Sicilian</source>
         <translation>西西里人</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="598"/>
+        <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Sidamo</source>
         <translation>Sidamo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="599"/>
+        <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Sign Languages</source>
         <translation>标志语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="600"/>
+        <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Siksika</source>
         <translation>Siksika</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="601"/>
+        <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Sino-Tibetan languages</source>
         <translation>中藏语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="602"/>
+        <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Siouan languages</source>
         <translation>Siouan语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="603"/>
+        <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Skolt Sami</source>
         <translation>Skolt Sami</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="604"/>
+        <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Slave (Athapascan)</source>
         <translation>Slave (Athapascan)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="605"/>
+        <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Slavic languages</source>
         <translation>斯拉夫语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="606"/>
+        <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Sogdian</source>
         <translation>Sogdian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="607"/>
+        <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Songhai languages</source>
         <translation>宋海语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="608"/>
+        <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Soninke</source>
         <translation>Soninke</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="609"/>
+        <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Sorbian languages</source>
         <translation>索布族语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="610"/>
+        <location filename="../../Misc/Language.cpp" line="611"/>
         <source>South American Indian languages</source>
         <translation>南美印第安语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="611"/>
+        <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Southern Altai</source>
         <translation>南阿尔泰</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="612"/>
+        <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Southern Sami</source>
         <translation>南Sami</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="613"/>
+        <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Sranan Tongo</source>
         <translation>Sranan Tongo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="614"/>
+        <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Sukuma</source>
         <translation>Sukuma</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="615"/>
+        <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Sumerian</source>
         <translation>苏美尔人</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="616"/>
+        <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Susu</source>
         <translation>Susu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="617"/>
+        <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Alsatian, Swiss German, Alemannic</source>
         <translation>阿尔萨斯, 瑞士德语, Alemannic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="618"/>
+        <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Syriac</source>
         <translation>叙利亚</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="619"/>
+        <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Tai languages</source>
         <translation>泰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="620"/>
+        <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Tamashek</source>
         <translation>Tamashek</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="621"/>
+        <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Tereno</source>
         <translation>Tereno</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="622"/>
+        <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Tetum</source>
         <translation>Tetum</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="623"/>
+        <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Tigre</source>
         <translation>Tigre</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="624"/>
+        <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Timne</source>
         <translation>Timne</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="625"/>
+        <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Tiv</source>
         <translation>Tiv</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="626"/>
+        <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Tlingit</source>
         <translation>Tlingit</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="627"/>
+        <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Tok Pisin</source>
         <translation>Tok Pisin</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="628"/>
+        <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Tokelau</source>
         <translation>Tokelau</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="629"/>
+        <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Tonga (Nyasa)</source>
         <translation>汤加(Nyasa)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="630"/>
+        <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Tsimshian</source>
         <translation>Tsimshian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="631"/>
+        <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Tumbuka</source>
         <translation>Tumbuka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="632"/>
+        <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Tupi languages</source>
         <translation>Tupi语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="633"/>
+        <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Turkish- Ottoman (1500-1928)</source>
         <translation>土耳其 - 奥斯曼(1500-1928)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="634"/>
+        <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Tuvalu</source>
         <translation>Tuvalu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="635"/>
+        <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Tuvinian</source>
         <translation>Tuvinian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="636"/>
+        <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Udmurt</source>
         <translation>Udmurt</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="637"/>
+        <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Ugaritic</source>
         <translation>Ugaritic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="638"/>
+        <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Umbundu</source>
         <translation>Umbundu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="639"/>
+        <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Uncoded languages</source>
         <translation>未编码的语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="640"/>
+        <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Undetermined</source>
         <translation>未确定</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="641"/>
+        <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Upper Sorbian</source>
         <translation>上索布族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="642"/>
+        <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Vai</source>
         <translation>Vai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="643"/>
+        <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Votic</source>
         <translation>Votic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="644"/>
+        <location filename="../../Misc/Language.cpp" line="645"/>
         <source>Wakashan languages</source>
         <translation>Wakashan语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="645"/>
+        <location filename="../../Misc/Language.cpp" line="646"/>
         <source>Waray</source>
         <translation>Waray</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="646"/>
+        <location filename="../../Misc/Language.cpp" line="647"/>
         <source>Washo</source>
         <translation>Washo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="647"/>
+        <location filename="../../Misc/Language.cpp" line="648"/>
         <source>Wolaitta, Wolaytta</source>
         <translation>Wolaitta, Wolaytta</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="648"/>
+        <location filename="../../Misc/Language.cpp" line="649"/>
         <source>Yakut</source>
         <translation>Yakut</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="649"/>
+        <location filename="../../Misc/Language.cpp" line="650"/>
         <source>Yao</source>
         <translation>Yao</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="650"/>
+        <location filename="../../Misc/Language.cpp" line="651"/>
         <source>Yapese</source>
         <translation>Yapese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="651"/>
+        <location filename="../../Misc/Language.cpp" line="652"/>
         <source>Yupik languages</source>
         <translation>Yupik语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="652"/>
+        <location filename="../../Misc/Language.cpp" line="653"/>
         <source>Zande languages</source>
         <translation>Zande语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="653"/>
+        <location filename="../../Misc/Language.cpp" line="654"/>
         <source>Zapotec</source>
         <translation>Zapotec</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="654"/>
+        <location filename="../../Misc/Language.cpp" line="655"/>
         <source>Zenaga</source>
         <translation>Zenaga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="655"/>
+        <location filename="../../Misc/Language.cpp" line="656"/>
         <source>Zuni</source>
         <translation>Zuni</translation>
     </message>
@@ -6605,19 +6532,19 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="156"/>
         <source>n/a</source>
-        <translation type="unfinished"/>
+        <translation>n/a</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="159"/>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="227"/>
         <source>no</source>
-        <translation type="unfinished"/>
+        <translation>否</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="166"/>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="229"/>
         <source>yes</source>
-        <translation type="unfinished"/>
+        <translation>是</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="343"/>
@@ -6688,149 +6615,169 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation>&amp;H标标题</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="213"/>
+        <location filename="../../Form_Files/main.ui" line="212"/>
         <source>&amp;View</source>
         <translation>&amp;V视图</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="217"/>
+        <location filename="../../Form_Files/main.ui" line="216"/>
         <source>&amp;Toolbars</source>
         <translation>&amp;T工具栏</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="232"/>
+        <location filename="../../Form_Files/main.ui" line="228"/>
         <source>&amp;Search</source>
         <translation>&amp;S搜索</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="236"/>
+        <location filename="../../Form_Files/main.ui" line="232"/>
         <source>Current Fil&amp;e</source>
         <translation>&amp;e当前文件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="268"/>
+        <location filename="../../Form_Files/main.ui" line="264"/>
         <source>&amp;Window</source>
         <translation>&amp;W窗口</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="280"/>
+        <location filename="../../Form_Files/main.ui" line="276"/>
         <source>&amp;Tools</source>
         <translation>&amp;T工具</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="284"/>
+        <location filename="../../Form_Files/main.ui" line="280"/>
         <source>&amp;Table Of Contents</source>
         <translation>&amp;T目录</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="292"/>
+        <location filename="../../Form_Files/main.ui" line="288"/>
         <source>Spe&amp;llcheck</source>
         <translation>&amp;l拼写检查</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="306"/>
+        <location filename="../../Form_Files/main.ui" line="302"/>
         <source>&amp;Index</source>
         <translation>&amp;I索引</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="317"/>
+        <location filename="../../Form_Files/main.ui" line="313"/>
         <source>Re&amp;format HTML</source>
         <translation>&amp;f重新格式化HTML</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="324"/>
+        <location filename="../../Form_Files/main.ui" line="320"/>
         <source>Epub&amp;3 Tools</source>
         <translation>Epub&amp;3工具</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="349"/>
+        <location filename="../../Form_Files/main.ui" line="345"/>
         <source>Plugins</source>
         <translation>插件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="367"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="598"/>
+        <location filename="../../Form_Files/main.ui" line="363"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="619"/>
         <source>File</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="382"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="337"/>
+        <location filename="../../Form_Files/main.ui" line="378"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="332"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="401"/>
-        <source>View</source>
-        <translation>观察</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="414"/>
+        <location filename="../../Form_Files/main.ui" line="399"/>
         <source>Insert</source>
         <translation>插入</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="431"/>
+        <location filename="../../Form_Files/main.ui" line="416"/>
         <source>Back</source>
         <translation>回退</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="443"/>
+        <location filename="../../Form_Files/main.ui" line="428"/>
         <source>Donate</source>
         <translation>捐款</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="455"/>
+        <location filename="../../Form_Files/main.ui" line="440"/>
         <source>Tools</source>
         <translation>工具</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="477"/>
+        <location filename="../../Form_Files/main.ui" line="454"/>
+        <source>Plugins Set 1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="470"/>
+        <source>Plugins Set 2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="486"/>
         <source>Heading</source>
         <translation>标题</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="495"/>
+        <location filename="../../Form_Files/main.ui" line="500"/>
+        <source>set Heading Level of Selected Text</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="513"/>
         <source>Format</source>
         <translation>格式</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="512"/>
+        <location filename="../../Form_Files/main.ui" line="530"/>
         <source>Align</source>
         <translation>对齐</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="527"/>
+        <location filename="../../Form_Files/main.ui" line="545"/>
         <source>List</source>
         <translation>列表</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="540"/>
+        <location filename="../../Form_Files/main.ui" line="558"/>
         <source>Indent</source>
         <translation>缩进</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="553"/>
+        <location filename="../../Form_Files/main.ui" line="571"/>
         <source>Change Case</source>
         <translation>变大小写</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="568"/>
+        <location filename="../../Form_Files/main.ui" line="581"/>
+        <source>aA</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="584"/>
+        <source>set Case of Selected Text</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="594"/>
         <source>Text Direction</source>
         <translation>文字方向</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="582"/>
+        <location filename="../../Form_Files/main.ui" line="608"/>
         <source>Clip Bar</source>
         <translation>剪辑条</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="617"/>
+        <location filename="../../Form_Files/main.ui" line="644"/>
         <source>&amp;New</source>
         <translation>&amp;新建</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="620"/>
+        <location filename="../../Form_Files/main.ui" line="647"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
@@ -6839,17 +6786,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;创建一本新书.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="625"/>
+        <location filename="../../Form_Files/main.ui" line="652"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="634"/>
+        <location filename="../../Form_Files/main.ui" line="661"/>
         <source>&amp;Save</source>
         <translation>&amp;S保存</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="637"/>
+        <location filename="../../Form_Files/main.ui" line="664"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
@@ -6858,17 +6805,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;保存当前的书.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="642"/>
+        <location filename="../../Form_Files/main.ui" line="669"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="647"/>
+        <location filename="../../Form_Files/main.ui" line="674"/>
         <source>Save &amp;As...</source>
         <translation>&amp;A另存为</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="650"/>
+        <location filename="../../Form_Files/main.ui" line="677"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
@@ -6877,27 +6824,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;使用不同的文件名保存当前图书.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="655"/>
+        <location filename="../../Form_Files/main.ui" line="682"/>
         <source>Ctrl+Shift+S</source>
         <translation>Ctrl+Shift+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="660"/>
+        <location filename="../../Form_Files/main.ui" line="687"/>
         <source>Save A &amp;Copy...</source>
         <translation>&amp;C保存为副本</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="663"/>
+        <location filename="../../Form_Files/main.ui" line="690"/>
         <source>Save a copy of your book to another file name.</source>
         <translation>将你的书籍保存为另一个文件名</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="672"/>
+        <location filename="../../Form_Files/main.ui" line="699"/>
         <source>Cu&amp;t</source>
         <translation>&amp;t剪切</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="675"/>
+        <location filename="../../Form_Files/main.ui" line="702"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
@@ -6906,12 +6853,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;剪切文档中选定的文本并将其放在剪贴板中.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="686"/>
+        <location filename="../../Form_Files/main.ui" line="713"/>
         <source>&amp;Paste</source>
         <translation>&amp;P粘贴</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="689"/>
+        <location filename="../../Form_Files/main.ui" line="716"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
@@ -6920,27 +6867,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将剪贴板中的内容粘贴到书中.&lt;/ p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="696"/>
+        <location filename="../../Form_Files/main.ui" line="723"/>
         <source>&amp;Closing Tag</source>
         <translation>&amp;C关闭标签</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="699"/>
+        <location filename="../../Form_Files/main.ui" line="726"/>
         <source>Insert a closing tag in Code View.</source>
         <translation>在代码视图中插入结束标记.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="702"/>
+        <location filename="../../Form_Files/main.ui" line="729"/>
         <source>Ctrl+.</source>
         <translation>Ctrl+.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="711"/>
+        <location filename="../../Form_Files/main.ui" line="738"/>
         <source>&amp;Undo</source>
         <translation>&amp;U撤消</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="714"/>
+        <location filename="../../Form_Files/main.ui" line="741"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
@@ -6949,17 +6896,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;回复上一个操作的更改.&lt;/ p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="719"/>
+        <location filename="../../Form_Files/main.ui" line="746"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="728"/>
+        <location filename="../../Form_Files/main.ui" line="755"/>
         <source>&amp;Redo</source>
         <translation>&amp;R重做</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="731"/>
+        <location filename="../../Form_Files/main.ui" line="758"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
@@ -6968,17 +6915,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;恢复上一次撤消操作的变更.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="736"/>
+        <location filename="../../Form_Files/main.ui" line="763"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="745"/>
+        <location filename="../../Form_Files/main.ui" line="772"/>
         <source>&amp;Copy</source>
         <translation>&amp;C复制</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="748"/>
+        <location filename="../../Form_Files/main.ui" line="775"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
@@ -6987,12 +6934,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;复制所选文本并将其放在剪贴板中.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="762"/>
+        <location filename="../../Form_Files/main.ui" line="789"/>
         <source>Align &amp;Left</source>
         <translation>&amp;L左对齐</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="765"/>
+        <location filename="../../Form_Files/main.ui" line="792"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
@@ -7001,12 +6948,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将该段对齐到左边.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="779"/>
+        <location filename="../../Form_Files/main.ui" line="806"/>
         <source>Align &amp;Right</source>
         <translation>&amp;R右对齐</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="782"/>
+        <location filename="../../Form_Files/main.ui" line="809"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
@@ -7015,12 +6962,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将该段对齐到右边.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="796"/>
+        <location filename="../../Form_Files/main.ui" line="823"/>
         <source>&amp;Center</source>
         <translation>&amp;居中</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="799"/>
+        <location filename="../../Form_Files/main.ui" line="826"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
@@ -7029,17 +6976,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将该段居中.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="804"/>
+        <location filename="../../Form_Files/main.ui" line="831"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="816"/>
+        <location filename="../../Form_Files/main.ui" line="843"/>
         <source>&amp;Justify</source>
         <translation>&amp;J对齐</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="819"/>
+        <location filename="../../Form_Files/main.ui" line="846"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
@@ -7048,17 +6995,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落对齐到左边距和右边距.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="824"/>
+        <location filename="../../Form_Files/main.ui" line="851"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="836"/>
+        <location filename="../../Form_Files/main.ui" line="863"/>
         <source>&amp;Bold</source>
         <translation>&amp;B加粗</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="839"/>
+        <location filename="../../Form_Files/main.ui" line="866"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
@@ -7067,17 +7014,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;使所选文本加粗.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="844"/>
+        <location filename="../../Form_Files/main.ui" line="871"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="856"/>
+        <location filename="../../Form_Files/main.ui" line="883"/>
         <source>&amp;Italic</source>
         <translation>&amp;I斜体</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="859"/>
+        <location filename="../../Form_Files/main.ui" line="886"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
@@ -7086,17 +7033,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将所选文本设为斜体.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="864"/>
+        <location filename="../../Form_Files/main.ui" line="891"/>
         <source>Ctrl+I</source>
         <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="873"/>
+        <location filename="../../Form_Files/main.ui" line="900"/>
         <source>&amp;Open...</source>
         <translation>&amp;O打开</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="876"/>
+        <location filename="../../Form_Files/main.ui" line="903"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
@@ -7105,17 +7052,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;从磁盘打开一本书k.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="881"/>
+        <location filename="../../Form_Files/main.ui" line="908"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="893"/>
+        <location filename="../../Form_Files/main.ui" line="920"/>
         <source>&amp;Underline</source>
         <translation>&amp;U加下划线</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="896"/>
+        <location filename="../../Form_Files/main.ui" line="923"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
@@ -7124,42 +7071,42 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将所选文本加下划线.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="901"/>
+        <location filename="../../Form_Files/main.ui" line="928"/>
         <source>Ctrl+U</source>
         <translation>Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="910"/>
+        <location filename="../../Form_Files/main.ui" line="937"/>
         <source>&amp;Quit</source>
         <translation>&amp;Q退出</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="913"/>
+        <location filename="../../Form_Files/main.ui" line="940"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="916"/>
+        <location filename="../../Form_Files/main.ui" line="943"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="925"/>
+        <location filename="../../Form_Files/main.ui" line="952"/>
         <source>&amp;About...</source>
         <translation>&amp;A关于</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="928"/>
+        <location filename="../../Form_Files/main.ui" line="955"/>
         <source>Show information about Sigil.</source>
         <translation>显示Sigil的信息.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="933"/>
+        <location filename="../../Form_Files/main.ui" line="960"/>
         <source>Add &amp;Cover...</source>
         <translation>&amp;C添加封面...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="936"/>
+        <location filename="../../Form_Files/main.ui" line="963"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
@@ -7168,12 +7115,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;添加封面.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="947"/>
+        <location filename="../../Form_Files/main.ui" line="974"/>
         <source>&amp;Metadata Editor...</source>
         <translation>&amp;M元数据编辑器...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="950"/>
+        <location filename="../../Form_Files/main.ui" line="977"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
@@ -7182,17 +7129,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;编辑并显示您的书籍相关资讯，包括作者和书名.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="955"/>
+        <location filename="../../Form_Files/main.ui" line="982"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="964"/>
+        <location filename="../../Form_Files/main.ui" line="991"/>
         <source>&amp;Generate Table Of Contents...</source>
         <translation>&amp;G生成目录</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="967"/>
+        <location filename="../../Form_Files/main.ui" line="994"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
@@ -7201,17 +7148,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;从书中的标题生成一个新的目录.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="972"/>
+        <location filename="../../Form_Files/main.ui" line="999"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="977"/>
+        <location filename="../../Form_Files/main.ui" line="1004"/>
         <source>&amp;Edit Table Of Contents...</source>
         <translation>&amp;E编辑目录</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="980"/>
+        <location filename="../../Form_Files/main.ui" line="1007"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
@@ -7220,55 +7167,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;直接编辑存在的目录.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="994"/>
-        <source>&amp;Book View</source>
-        <translation>&amp;B书视图</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="997"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Book View&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the files in your book as they will appear to readers.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;书视图&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;编辑并显示图书中的文件，让读者看到.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1011"/>
-        <source>&amp;Code View</source>
-        <translation>&amp;C代码视图</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1014"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Code View&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display the actual contents of the files in your book, including the formatting codes that control how your book will appear to readers.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;代码视图&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;编辑并显示图书中文件的实际内容，包括控制图书向读者显示的格式代码.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1021"/>
-        <source>&amp;Toggle View State</source>
-        <translation>&amp;T切换视图状态</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1024"/>
-        <source>Toggle Book View to Code View or Code View to Book View</source>
-        <translation>切换书视图到代码视图或者代码视图到书视图。</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1027"/>
-        <source>F2</source>
-        <translation>F2</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1036"/>
+        <location filename="../../Form_Files/main.ui" line="1018"/>
         <source>&amp;Split At Cursor</source>
         <translation>&amp;S在光标处切分</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1039"/>
+        <location filename="../../Form_Files/main.ui" line="1021"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
@@ -7277,17 +7181,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;使用光标位置作为分割点将当前文件分割为两个文件.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1044"/>
+        <location filename="../../Form_Files/main.ui" line="1026"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+回车</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1053"/>
+        <location filename="../../Form_Files/main.ui" line="1035"/>
         <source>&amp;File...</source>
         <translation>&amp;F文件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1056"/>
+        <location filename="../../Form_Files/main.ui" line="1038"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
@@ -7300,17 +7204,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;您可以使用文件 - 添加 - 现有文件菜单将文件添加到您的书.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1063"/>
+        <location filename="../../Form_Files/main.ui" line="1045"/>
         <source>Ctrl+Shift+I</source>
         <translation>Ctrl+Shift+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1072"/>
+        <location filename="../../Form_Files/main.ui" line="1054"/>
         <source>&amp;Special Character...</source>
         <translation>&amp;S特殊字符</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1075"/>
+        <location filename="../../Form_Files/main.ui" line="1057"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
@@ -7319,12 +7223,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;选择一个字符插入到文本中.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1086"/>
+        <location filename="../../Form_Files/main.ui" line="1068"/>
         <source>I&amp;D...</source>
         <translation>I&amp;D</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1089"/>
+        <location filename="../../Form_Files/main.ui" line="1071"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
@@ -7333,12 +7237,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;插入或编辑具有ID名称的锚点以用作链接目标.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1100"/>
+        <location filename="../../Form_Files/main.ui" line="1082"/>
         <source>&amp;Link...</source>
         <translation>&amp;L链接</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1103"/>
+        <location filename="../../Form_Files/main.ui" line="1085"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
@@ -7347,12 +7251,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;插入或编辑具有到目标的超链接的锚点.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1117"/>
+        <location filename="../../Form_Files/main.ui" line="1099"/>
         <source>&amp;Numbered List</source>
         <translation>&amp;N编号列表</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1120"/>
+        <location filename="../../Form_Files/main.ui" line="1102"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
@@ -7361,12 +7265,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;生成编号列表.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1134"/>
+        <location filename="../../Form_Files/main.ui" line="1116"/>
         <source>Bulle&amp;ted List</source>
         <translation>&amp;t符号列表</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1137"/>
+        <location filename="../../Form_Files/main.ui" line="1119"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
@@ -7375,17 +7279,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;生成符号列表.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1142"/>
+        <location filename="../../Form_Files/main.ui" line="1124"/>
         <source>Ctrl+Shift+L</source>
         <translation>Ctrl+Shift+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1154"/>
+        <location filename="../../Form_Files/main.ui" line="1136"/>
         <source>Stri&amp;kethrough</source>
         <translation>删除线</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1157"/>
+        <location filename="../../Form_Files/main.ui" line="1139"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
@@ -7394,12 +7298,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;在所选文本中画一条线.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1171"/>
+        <location filename="../../Form_Files/main.ui" line="1153"/>
         <source>&amp;Subscript</source>
         <translation>&amp;S下标</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1174"/>
+        <location filename="../../Form_Files/main.ui" line="1156"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
@@ -7408,12 +7312,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将所选文本设置为略小于法线的下方.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1188"/>
+        <location filename="../../Form_Files/main.ui" line="1170"/>
         <source>Su&amp;perscript</source>
         <translation>&amp;p上标</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1191"/>
+        <location filename="../../Form_Files/main.ui" line="1173"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
@@ -7422,93 +7326,78 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将所选文本设置为略小于法线的上方.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1202"/>
+        <location filename="../../Form_Files/main.ui" line="1184"/>
         <source>&amp;Print...</source>
         <translation>&amp;P打印</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1205"/>
+        <location filename="../../Form_Files/main.ui" line="1187"/>
         <source>Print</source>
         <translation>打印</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1208"/>
+        <location filename="../../Form_Files/main.ui" line="1190"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1217"/>
+        <location filename="../../Form_Files/main.ui" line="1199"/>
         <source>Print Pre&amp;view...</source>
         <translation>&amp;v打印预览</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1220"/>
+        <location filename="../../Form_Files/main.ui" line="1202"/>
         <source>Print Preview</source>
         <translation>打印预览</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1225"/>
-        <location filename="../../Form_Files/main.ui" line="1228"/>
+        <location filename="../../Form_Files/main.ui" line="1207"/>
+        <location filename="../../Form_Files/main.ui" line="1210"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1231"/>
+        <location filename="../../Form_Files/main.ui" line="1213"/>
         <source>Ctrl+Shift+W</source>
         <translation>Ctrl+Shift+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1240"/>
+        <location filename="../../Form_Files/main.ui" line="1222"/>
         <source>Zoom &amp;In</source>
         <translation>&amp;I放大</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1243"/>
+        <location filename="../../Form_Files/main.ui" line="1225"/>
         <source>Zoom In</source>
         <translation>放大</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1246"/>
+        <location filename="../../Form_Files/main.ui" line="1228"/>
         <source>Ctrl+=</source>
         <translation>Ctr;+=</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1255"/>
+        <location filename="../../Form_Files/main.ui" line="1237"/>
         <source>Zoom &amp;Out</source>
         <translation>缩小</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1258"/>
+        <location filename="../../Form_Files/main.ui" line="1240"/>
         <source>Zoom Out</source>
         <translation>缩小</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1261"/>
+        <location filename="../../Form_Files/main.ui" line="1243"/>
         <source>Ctrl+-</source>
         <translation>Ctrl+-</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1266"/>
-        <source>Sho&amp;w Tag</source>
-        <translation>&amp;w显示标签</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1269"/>
-        <source>Show the enclosing tag HTML for the cursor position in Book View.</source>
-        <translation>在“书本视图”中显示光标位置的HTML封闭标记.</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1272"/>
-        <source>Ctrl+Alt+T</source>
-        <translation>Ctrl+Alt+T</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1281"/>
+        <location filename="../../Form_Files/main.ui" line="1252"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
         <translation>&amp;F搜索和替换</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1284"/>
+        <location filename="../../Form_Files/main.ui" line="1255"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
@@ -7517,17 +7406,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;在文档中查找和替换文本.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1289"/>
+        <location filename="../../Form_Files/main.ui" line="1260"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1298"/>
+        <location filename="../../Form_Files/main.ui" line="1269"/>
         <source>Incre&amp;ase Indent</source>
         <translation>&amp;a增加缩进</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1301"/>
+        <location filename="../../Form_Files/main.ui" line="1272"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
@@ -7536,17 +7425,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;增加段落的缩进级别.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1306"/>
+        <location filename="../../Form_Files/main.ui" line="1277"/>
         <source>Ctrl+Alt+M</source>
         <translation>Ctrl+Alt+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1315"/>
+        <location filename="../../Form_Files/main.ui" line="1286"/>
         <source>&amp;Decrease Indent</source>
         <translation>&amp;D降低缩进</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1318"/>
+        <location filename="../../Form_Files/main.ui" line="1289"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
@@ -7555,18 +7444,18 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;降低段落的缩进级别.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1323"/>
-        <location filename="../../Form_Files/main.ui" line="1734"/>
+        <location filename="../../Form_Files/main.ui" line="1294"/>
+        <location filename="../../Form_Files/main.ui" line="1705"/>
         <source>Ctrl+Shift+M</source>
         <translation>Ctrl+Shift+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1332"/>
+        <location filename="../../Form_Files/main.ui" line="1303"/>
         <source>Te&amp;xt Direction LTR</source>
         <translation>&amp;x文本左向右方向</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1335"/>
+        <location filename="../../Form_Files/main.ui" line="1306"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
 
@@ -7578,12 +7467,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落方向从左向右设置.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1348"/>
+        <location filename="../../Form_Files/main.ui" line="1319"/>
         <source>T&amp;ext Direction RTL</source>
         <translation>&amp;x文本右向左方向</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1351"/>
+        <location filename="../../Form_Files/main.ui" line="1322"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
 
@@ -7595,12 +7484,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落方向从右向左设置.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1364"/>
+        <location filename="../../Form_Files/main.ui" line="1335"/>
         <source>Text Directi&amp;on Default</source>
         <translation>&amp;o默认文字方向</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1367"/>
+        <location filename="../../Form_Files/main.ui" line="1338"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
 
@@ -7612,22 +7501,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落方向设置为继承默认值.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1376"/>
+        <location filename="../../Form_Files/main.ui" line="1347"/>
         <source>Remove &amp;Formatting</source>
         <translation>&amp;F移除格式</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1379"/>
+        <location filename="../../Form_Files/main.ui" line="1350"/>
         <source>Ctrl+Space</source>
         <translation>Ctrl+空格</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1388"/>
+        <location filename="../../Form_Files/main.ui" line="1359"/>
         <source>&amp;Lowercase</source>
         <translation>&amp;L小写</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1391"/>
+        <location filename="../../Form_Files/main.ui" line="1362"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
@@ -7639,17 +7528,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将选中文本变为小写.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1398"/>
+        <location filename="../../Form_Files/main.ui" line="1369"/>
         <source>Alt+L</source>
         <translation>Alt+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1407"/>
+        <location filename="../../Form_Files/main.ui" line="1378"/>
         <source>&amp;Uppercase</source>
         <translation>&amp;U大写</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1410"/>
+        <location filename="../../Form_Files/main.ui" line="1381"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
@@ -7661,17 +7550,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将选中文本变为大写.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1417"/>
+        <location filename="../../Form_Files/main.ui" line="1388"/>
         <source>Alt+U</source>
         <translation>Alt+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1426"/>
+        <location filename="../../Form_Files/main.ui" line="1397"/>
         <source>&amp;Titlecase</source>
         <translation>&amp;T首字母大写</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1429"/>
+        <location filename="../../Form_Files/main.ui" line="1400"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
@@ -7682,12 +7571,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;大写所选每个字词的第一个字母.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1442"/>
+        <location filename="../../Form_Files/main.ui" line="1413"/>
         <source>&amp;Capitalize</source>
         <translation>&amp;C大写</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1445"/>
+        <location filename="../../Form_Files/main.ui" line="1416"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
@@ -7699,127 +7588,127 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;仅使选定文本的第一个单词大写.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1454"/>
+        <location filename="../../Form_Files/main.ui" line="1425"/>
         <source>Sigil Website...</source>
         <translation>Sigil网页</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1459"/>
+        <location filename="../../Form_Files/main.ui" line="1430"/>
         <source>&amp;Next Tab</source>
         <translation>&amp;N新标签</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1462"/>
+        <location filename="../../Form_Files/main.ui" line="1433"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1467"/>
+        <location filename="../../Form_Files/main.ui" line="1438"/>
         <source>&amp;Previous Tab</source>
         <translation>&amp;P前一个标签</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1470"/>
+        <location filename="../../Form_Files/main.ui" line="1441"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1475"/>
+        <location filename="../../Form_Files/main.ui" line="1446"/>
         <source>&amp;Close Tab</source>
         <translation>&amp;C关闭标签</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1478"/>
+        <location filename="../../Form_Files/main.ui" line="1449"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1483"/>
+        <location filename="../../Form_Files/main.ui" line="1454"/>
         <source>Split At &amp;Markers</source>
         <translation>&amp;M在标记处切分</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1486"/>
+        <location filename="../../Form_Files/main.ui" line="1457"/>
         <source>Split At Sigil split file markers</source>
         <translation>&amp;M在Sigil切分标记处切分</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1489"/>
+        <location filename="../../Form_Files/main.ui" line="1460"/>
         <source>F6</source>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1494"/>
+        <location filename="../../Form_Files/main.ui" line="1465"/>
         <source>Split &amp;Marker</source>
         <translation>&amp;M切分标记</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1497"/>
+        <location filename="../../Form_Files/main.ui" line="1468"/>
         <source>Insert Sigil split file marker</source>
         <translation>插入Sigil切分标记</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1500"/>
+        <location filename="../../Form_Files/main.ui" line="1471"/>
         <source>Ctrl+Shift+Return</source>
         <translation>Ctrl+Shift+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1505"/>
+        <location filename="../../Form_Files/main.ui" line="1476"/>
         <source>User &amp;Guide...</source>
         <translation>&amp;G用户指南</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1508"/>
+        <location filename="../../Form_Files/main.ui" line="1479"/>
         <source>User Guide</source>
         <translation>用户指南</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1511"/>
+        <location filename="../../Form_Files/main.ui" line="1482"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1516"/>
+        <location filename="../../Form_Files/main.ui" line="1487"/>
         <source>&amp;Frequently Asked Questions...</source>
         <translation>&amp;F经常问的问题</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1519"/>
+        <location filename="../../Form_Files/main.ui" line="1490"/>
         <source>Frequently Asked Questions</source>
         <translation>经常问的问题</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1524"/>
+        <location filename="../../Form_Files/main.ui" line="1495"/>
         <source>&amp;Tutorials...</source>
         <translation>&amp;T教程</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1527"/>
+        <location filename="../../Form_Files/main.ui" line="1498"/>
         <source>Tutorials</source>
         <translation>教程</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1532"/>
+        <location filename="../../Form_Files/main.ui" line="1503"/>
         <source>Well-Formed Check &amp;EPUB</source>
         <translation>EPUB格式良好性检查</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1535"/>
+        <location filename="../../Form_Files/main.ui" line="1506"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EPUB格式良好性检查&lt;/span&gt;&lt;/p&gt;&lt;p&gt;验证您的文档是否符合需要成功解析的最低要求. 这并不表示符合相关的epub标准.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1538"/>
+        <location filename="../../Form_Files/main.ui" line="1509"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1543"/>
+        <location filename="../../Form_Files/main.ui" line="1514"/>
         <source>Validate Stylesheets With &amp;W3C</source>
         <translation>&amp;W使用W3C验证样式表W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1546"/>
+        <location filename="../../Form_Files/main.ui" line="1517"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
@@ -7831,12 +7720,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;使用在线W3C CSS验证服务验证您的CSS样式表是否符合W3C标准.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1559"/>
+        <location filename="../../Form_Files/main.ui" line="1530"/>
         <source>&amp;Spellcheck...</source>
         <translation>&amp;S拼写检查</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1562"/>
+        <location filename="../../Form_Files/main.ui" line="1533"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
@@ -7845,102 +7734,102 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;查找所有拼写错误的单词，并允许您将其添加到字典或忽略它们.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1567"/>
+        <location filename="../../Form_Files/main.ui" line="1538"/>
         <source>Alt+Q</source>
         <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1575"/>
+        <location filename="../../Form_Files/main.ui" line="1546"/>
         <source>&amp;Highlight Misspelled Words</source>
         <translation>&amp;H突出拼写错字</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1578"/>
+        <location filename="../../Form_Files/main.ui" line="1549"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
         <translation>在代码视图中启用或禁用突出显示拼写错误的字词.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1583"/>
+        <location filename="../../Form_Files/main.ui" line="1554"/>
         <source>&amp;Next Misspelled Word</source>
         <translation>&amp;N下一个拼写错误</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1586"/>
+        <location filename="../../Form_Files/main.ui" line="1557"/>
         <source>Find the next misspelled word in the book.</source>
         <translation>在书中找到下一个拼写错误的单词.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1589"/>
+        <location filename="../../Form_Files/main.ui" line="1560"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1594"/>
+        <location filename="../../Form_Files/main.ui" line="1565"/>
         <source>&amp;Add Misspelled Word</source>
         <translation>&amp;A添加错别字</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1597"/>
+        <location filename="../../Form_Files/main.ui" line="1568"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
         <translation>将插入符下的当前拼写错误的单词添加到默认用户字典</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1602"/>
+        <location filename="../../Form_Files/main.ui" line="1573"/>
         <source>&amp;Ignore Misspelled Word</source>
         <translation>&amp;I忽略拼写错误的字</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1605"/>
+        <location filename="../../Form_Files/main.ui" line="1576"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
         <translation>忽略插入符号下的当前拼写错误的单词，直到Sigil重新启动.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1610"/>
+        <location filename="../../Form_Files/main.ui" line="1581"/>
         <source>&amp;Clear Ignored Words</source>
         <translation>&amp;C清除已忽略的字词</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1613"/>
+        <location filename="../../Form_Files/main.ui" line="1584"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
         <translation>清除当前从Spellcheck忽略的单词，而不必重新启动Sigil。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1618"/>
+        <location filename="../../Form_Files/main.ui" line="1589"/>
         <source>&amp;Index Editor...</source>
         <translation>&amp;I索引编辑器...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1621"/>
+        <location filename="../../Form_Files/main.ui" line="1592"/>
         <source>Ctrl+Alt+I</source>
         <translation>Ctrl+Alt+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1626"/>
+        <location filename="../../Form_Files/main.ui" line="1597"/>
         <source>&amp;Delete Unused Media Files...</source>
         <translation>&amp;D删除未使用的媒体文件...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1631"/>
+        <location filename="../../Form_Files/main.ui" line="1602"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
         <translation>&amp;U删除未用的样式表类...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1636"/>
+        <location filename="../../Form_Files/main.ui" line="1607"/>
         <source>&amp;Reports...</source>
         <translation>&amp;R报告</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1639"/>
+        <location filename="../../Form_Files/main.ui" line="1610"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Alt+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1648"/>
+        <location filename="../../Form_Files/main.ui" line="1619"/>
         <source>&amp;Donate...</source>
         <translation>&amp;D捐款</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1651"/>
+        <location filename="../../Form_Files/main.ui" line="1622"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
@@ -7950,427 +7839,427 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;捐款支持Sigil.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1659"/>
+        <location filename="../../Form_Files/main.ui" line="1630"/>
         <source>Close &amp;Other Tabs</source>
         <translation>&amp;O关闭其它标签</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1662"/>
+        <location filename="../../Form_Files/main.ui" line="1633"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1667"/>
+        <location filename="../../Form_Files/main.ui" line="1638"/>
         <source>Go To &amp;Line...</source>
         <translation>&amp;L转移到行...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1670"/>
+        <location filename="../../Form_Files/main.ui" line="1641"/>
         <source>Ctrl+/</source>
         <translation>Ctrl+/</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1675"/>
+        <location filename="../../Form_Files/main.ui" line="1646"/>
         <source>Find &amp;Next</source>
         <translation>&amp;N查找下一个</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1678"/>
+        <location filename="../../Form_Files/main.ui" line="1649"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1683"/>
+        <location filename="../../Form_Files/main.ui" line="1654"/>
         <source>Find &amp;Previous</source>
         <translation>&amp;P查找前一个</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1686"/>
+        <location filename="../../Form_Files/main.ui" line="1657"/>
         <source>Ctrl+Shift+G</source>
         <translation>Ctrl+Shift+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1691"/>
+        <location filename="../../Form_Files/main.ui" line="1662"/>
         <source>Replace</source>
         <translation>替换</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1694"/>
+        <location filename="../../Form_Files/main.ui" line="1665"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1699"/>
+        <location filename="../../Form_Files/main.ui" line="1670"/>
         <source>&amp;Replace/Find Next</source>
         <translation>&amp;R替换/查找下一个</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1702"/>
+        <location filename="../../Form_Files/main.ui" line="1673"/>
         <source>Ctrl+]</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1707"/>
+        <location filename="../../Form_Files/main.ui" line="1678"/>
         <source>R&amp;eplace/Find Previous</source>
         <translation>&amp;e替换/查找前一个</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1710"/>
+        <location filename="../../Form_Files/main.ui" line="1681"/>
         <source>Ctrl+[</source>
         <translation>Ctr;+[</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1715"/>
+        <location filename="../../Form_Files/main.ui" line="1686"/>
         <source>Replace &amp;All</source>
         <translation>&amp;A全部替换</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1718"/>
+        <location filename="../../Form_Files/main.ui" line="1689"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1723"/>
+        <location filename="../../Form_Files/main.ui" line="1694"/>
         <source>&amp;Count All</source>
         <translation>&amp;C全部计算</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1726"/>
+        <location filename="../../Form_Files/main.ui" line="1697"/>
         <source>Alt+C</source>
         <translation>Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1731"/>
+        <location filename="../../Form_Files/main.ui" line="1702"/>
         <source>Mar&amp;k Selected Text</source>
         <translation>&amp;k给选中的文本做标记</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1739"/>
+        <location filename="../../Form_Files/main.ui" line="1710"/>
         <source>Find &amp;Next In File</source>
         <translation>&amp;N在文件中查找先一个</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1744"/>
+        <location filename="../../Form_Files/main.ui" line="1715"/>
         <source>&amp;Replace Next In File</source>
         <translation>&amp;N在文件中替换先一个</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1749"/>
+        <location filename="../../Form_Files/main.ui" line="1720"/>
         <source>Replace &amp;All In File</source>
         <translation>&amp;N在文件中查替换全部</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1754"/>
+        <location filename="../../Form_Files/main.ui" line="1725"/>
         <source>&amp;Count All In File</source>
         <translation>&amp;C在文件中计数所有</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1759"/>
+        <location filename="../../Form_Files/main.ui" line="1730"/>
         <source>&amp;Saved Searches...</source>
         <translation>&amp;S保存的搜索</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1762"/>
+        <location filename="../../Form_Files/main.ui" line="1733"/>
         <source>Ctrl+Alt+F</source>
         <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1767"/>
+        <location filename="../../Form_Files/main.ui" line="1738"/>
         <source>&amp;Clip Editor...</source>
         <translation>&amp;C剪辑编辑器...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1770"/>
+        <location filename="../../Form_Files/main.ui" line="1741"/>
         <source>Open the Clip Editor.</source>
         <translation>打开剪辑编辑器.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1773"/>
+        <location filename="../../Form_Files/main.ui" line="1744"/>
         <source>Ctrl+Alt+C</source>
         <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1778"/>
+        <location filename="../../Form_Files/main.ui" line="1749"/>
         <source>Clip &amp;1</source>
         <translation>剪辑 &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1781"/>
+        <location filename="../../Form_Files/main.ui" line="1752"/>
         <source>Insert Clip 1</source>
         <translation>插入剪辑1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1784"/>
+        <location filename="../../Form_Files/main.ui" line="1755"/>
         <source>Ctrl+Alt+1</source>
         <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1789"/>
+        <location filename="../../Form_Files/main.ui" line="1760"/>
         <source>Clip &amp;2</source>
         <translation>剪辑 &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1792"/>
+        <location filename="../../Form_Files/main.ui" line="1763"/>
         <source>Insert Clip 2</source>
         <translation>插入剪辑2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1795"/>
+        <location filename="../../Form_Files/main.ui" line="1766"/>
         <source>Ctrl+Alt+2</source>
         <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1800"/>
+        <location filename="../../Form_Files/main.ui" line="1771"/>
         <source>Clip &amp;3</source>
         <translation>剪辑 &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1803"/>
+        <location filename="../../Form_Files/main.ui" line="1774"/>
         <source>Insert Clip 3</source>
         <translation>插入剪辑3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1806"/>
+        <location filename="../../Form_Files/main.ui" line="1777"/>
         <source>Ctrl+Alt+3</source>
         <translation>Ctrl+Alt+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1811"/>
+        <location filename="../../Form_Files/main.ui" line="1782"/>
         <source>Clip &amp;4</source>
         <translation>剪辑 &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1814"/>
+        <location filename="../../Form_Files/main.ui" line="1785"/>
         <source>Insert Clip 4</source>
         <translation>插入剪辑4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1817"/>
+        <location filename="../../Form_Files/main.ui" line="1788"/>
         <source>Ctrl+Alt+4</source>
         <translation>Ctrl+Alt+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1822"/>
+        <location filename="../../Form_Files/main.ui" line="1793"/>
         <source>Clip &amp;5</source>
         <translation>剪辑 &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1825"/>
+        <location filename="../../Form_Files/main.ui" line="1796"/>
         <source>Insert Clip 5</source>
         <translation>插入剪辑5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1828"/>
+        <location filename="../../Form_Files/main.ui" line="1799"/>
         <source>Ctrl+Alt+5</source>
         <translation>Ctrl+Alt+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1833"/>
+        <location filename="../../Form_Files/main.ui" line="1804"/>
         <source>Clip &amp;6</source>
         <translation>剪辑 &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1836"/>
+        <location filename="../../Form_Files/main.ui" line="1807"/>
         <source>Insert Clip 6</source>
         <translation>插入剪辑6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1839"/>
+        <location filename="../../Form_Files/main.ui" line="1810"/>
         <source>Ctrl+Alt+6</source>
         <translation>Ctrl+Alt+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1844"/>
+        <location filename="../../Form_Files/main.ui" line="1815"/>
         <source>Clip &amp;7</source>
         <translation>剪辑 &amp;7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1847"/>
+        <location filename="../../Form_Files/main.ui" line="1818"/>
         <source>Insert Clip 7</source>
         <translation>插入剪辑7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1850"/>
+        <location filename="../../Form_Files/main.ui" line="1821"/>
         <source>Ctrl+Alt+7</source>
         <translation>Ctrl+Alt+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1855"/>
+        <location filename="../../Form_Files/main.ui" line="1826"/>
         <source>Clip &amp;8</source>
         <translation>剪辑 &amp;8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1858"/>
+        <location filename="../../Form_Files/main.ui" line="1829"/>
         <source>Insert Clip 8</source>
         <translation>插入剪辑8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1861"/>
+        <location filename="../../Form_Files/main.ui" line="1832"/>
         <source>Ctrl+Alt+8</source>
         <translation>Ctrl+Alt+8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1866"/>
+        <location filename="../../Form_Files/main.ui" line="1837"/>
         <source>Clip &amp;9</source>
         <translation>剪辑 &amp;9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1869"/>
+        <location filename="../../Form_Files/main.ui" line="1840"/>
         <source>Insert Clip 9</source>
         <translation>插入剪辑9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1872"/>
+        <location filename="../../Form_Files/main.ui" line="1843"/>
         <source>Ctrl+Alt+9</source>
         <translation>Ctrl+Alt+9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1877"/>
+        <location filename="../../Form_Files/main.ui" line="1848"/>
         <source>Clip 1&amp;0</source>
         <translation>剪辑 1&amp;0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1880"/>
+        <location filename="../../Form_Files/main.ui" line="1851"/>
         <source>Insert Clip 10</source>
         <translation>插入剪辑10</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1883"/>
+        <location filename="../../Form_Files/main.ui" line="1854"/>
         <source>Ctrl+Alt+0</source>
         <translation>Ctrl+Alt+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1888"/>
+        <location filename="../../Form_Files/main.ui" line="1859"/>
         <source>Clip 11</source>
         <translation>剪辑 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1891"/>
+        <location filename="../../Form_Files/main.ui" line="1862"/>
         <source>Insert Clip 11</source>
         <translation>插入剪辑11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1896"/>
+        <location filename="../../Form_Files/main.ui" line="1867"/>
         <source>Clip 12</source>
         <translation>剪辑 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1899"/>
+        <location filename="../../Form_Files/main.ui" line="1870"/>
         <source>Insert Clip 12</source>
         <translation>插入剪辑12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1904"/>
+        <location filename="../../Form_Files/main.ui" line="1875"/>
         <source>Clip 13</source>
         <translation>剪辑 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1907"/>
+        <location filename="../../Form_Files/main.ui" line="1878"/>
         <source>Insert Clip 13</source>
         <translation>插入剪辑13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1912"/>
+        <location filename="../../Form_Files/main.ui" line="1883"/>
         <source>Clip 14</source>
         <translation>剪辑 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1915"/>
+        <location filename="../../Form_Files/main.ui" line="1886"/>
         <source>Insert Clip 14</source>
         <translation>插入剪辑14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1920"/>
+        <location filename="../../Form_Files/main.ui" line="1891"/>
         <source>Clip 15</source>
         <translation>剪辑 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1923"/>
+        <location filename="../../Form_Files/main.ui" line="1894"/>
         <source>Insert Clip 15</source>
         <translation>插入剪辑15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1928"/>
+        <location filename="../../Form_Files/main.ui" line="1899"/>
         <source>Clip 16</source>
         <translation>剪辑 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1931"/>
+        <location filename="../../Form_Files/main.ui" line="1902"/>
         <source>Insert Clip 16</source>
         <translation>插入剪辑16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1936"/>
+        <location filename="../../Form_Files/main.ui" line="1907"/>
         <source>Clip 17</source>
         <translation>剪辑 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1939"/>
+        <location filename="../../Form_Files/main.ui" line="1910"/>
         <source>Insert Clip 17</source>
         <translation>插入剪辑17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1944"/>
+        <location filename="../../Form_Files/main.ui" line="1915"/>
         <source>Clip 18</source>
         <translation>剪辑 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1947"/>
+        <location filename="../../Form_Files/main.ui" line="1918"/>
         <source>Insert Clip 18</source>
         <translation>插入剪辑18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1952"/>
+        <location filename="../../Form_Files/main.ui" line="1923"/>
         <source>Clip 19</source>
         <translation>剪辑 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1955"/>
+        <location filename="../../Form_Files/main.ui" line="1926"/>
         <source>Insert Clip 19</source>
         <translation>插入剪辑19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1960"/>
+        <location filename="../../Form_Files/main.ui" line="1931"/>
         <source>Clip 20</source>
         <translation>剪辑 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1963"/>
+        <location filename="../../Form_Files/main.ui" line="1934"/>
         <source>Insert Clip 20</source>
         <translation>插入剪辑20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1968"/>
+        <location filename="../../Form_Files/main.ui" line="1939"/>
         <source>&amp;Preferences...</source>
         <translation>&amp;P配置</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1971"/>
+        <location filename="../../Form_Files/main.ui" line="1942"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1976"/>
+        <location filename="../../Form_Files/main.ui" line="1947"/>
         <source>&amp;Zoom Reset</source>
         <translation>&amp;Z重置缩放</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1979"/>
+        <location filename="../../Form_Files/main.ui" line="1950"/>
         <source>Zoom Reset</source>
         <translation>重置缩放</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1982"/>
+        <location filename="../../Form_Files/main.ui" line="1953"/>
         <source>Ctrl+0</source>
         <translation>Ctrl+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1994"/>
+        <location filename="../../Form_Files/main.ui" line="1965"/>
         <source>Heading &amp;1</source>
         <translation>标题 &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1997"/>
+        <location filename="../../Form_Files/main.ui" line="1968"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
@@ -8379,17 +8268,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为1级标题.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2002"/>
+        <location filename="../../Form_Files/main.ui" line="1973"/>
         <source>Ctrl+1</source>
         <translation>Ctrl+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2014"/>
+        <location filename="../../Form_Files/main.ui" line="1985"/>
         <source>Heading &amp;2</source>
         <translation>标题 &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2017"/>
+        <location filename="../../Form_Files/main.ui" line="1988"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
@@ -8398,17 +8287,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为2级标题.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2022"/>
+        <location filename="../../Form_Files/main.ui" line="1993"/>
         <source>Ctrl+2</source>
         <translation>Ctrl+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2034"/>
+        <location filename="../../Form_Files/main.ui" line="2005"/>
         <source>Heading &amp;3</source>
         <translation>标题 &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2037"/>
+        <location filename="../../Form_Files/main.ui" line="2008"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
@@ -8417,17 +8306,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为3级标题.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2042"/>
+        <location filename="../../Form_Files/main.ui" line="2013"/>
         <source>Ctrl+3</source>
         <translation>Ctrl+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2054"/>
+        <location filename="../../Form_Files/main.ui" line="2025"/>
         <source>Heading &amp;4</source>
         <translation>标题 &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2057"/>
+        <location filename="../../Form_Files/main.ui" line="2028"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
@@ -8436,17 +8325,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为4级标题.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2062"/>
+        <location filename="../../Form_Files/main.ui" line="2033"/>
         <source>Ctrl+4</source>
         <translation>Ctrl+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2074"/>
+        <location filename="../../Form_Files/main.ui" line="2045"/>
         <source>Heading &amp;5</source>
         <translation>标题 &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2077"/>
+        <location filename="../../Form_Files/main.ui" line="2048"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
@@ -8455,17 +8344,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为5级标题.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2082"/>
+        <location filename="../../Form_Files/main.ui" line="2053"/>
         <source>Ctrl+5</source>
         <translation>Ctrl+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2094"/>
+        <location filename="../../Form_Files/main.ui" line="2065"/>
         <source>Heading &amp;6</source>
         <translation>标题 &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2097"/>
+        <location filename="../../Form_Files/main.ui" line="2068"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
@@ -8474,17 +8363,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为6级标题.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2102"/>
+        <location filename="../../Form_Files/main.ui" line="2073"/>
         <source>Ctrl+6</source>
         <translation>Ctrl+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2114"/>
+        <location filename="../../Form_Files/main.ui" line="2085"/>
         <source>&amp;Normal</source>
         <translation>&amp;N正常</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2117"/>
+        <location filename="../../Form_Files/main.ui" line="2088"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
@@ -8493,37 +8382,37 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为正常段落.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2122"/>
+        <location filename="../../Form_Files/main.ui" line="2093"/>
         <source>Ctrl+7</source>
         <translation>Ctrl+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2130"/>
+        <location filename="../../Form_Files/main.ui" line="2101"/>
         <source>&amp;Preserve Existing Attributes</source>
         <translation>&amp;P保留现有属性</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2133"/>
+        <location filename="../../Form_Files/main.ui" line="2104"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
         <translation>应用此样式时，保留标记上的所有现有属性</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2138"/>
+        <location filename="../../Form_Files/main.ui" line="2109"/>
         <source>Blank HTML File</source>
         <translation>空白HTML文件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2141"/>
+        <location filename="../../Form_Files/main.ui" line="2112"/>
         <source>Add a new blank HTML file to the book.</source>
         <translation>添加空白HTML文件到书中</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2150"/>
+        <location filename="../../Form_Files/main.ui" line="2121"/>
         <source>Existing Files...</source>
         <translation>已存在文件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2153"/>
+        <location filename="../../Form_Files/main.ui" line="2124"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
@@ -8531,127 +8420,127 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;从你的电脑中添加文件到书中.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2160"/>
+        <location filename="../../Form_Files/main.ui" line="2131"/>
         <source>Blank Stylesheet</source>
         <translation>空白的样式表</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2163"/>
+        <location filename="../../Form_Files/main.ui" line="2134"/>
         <source>Add a new blank stylesheet to the book.</source>
         <translation>添加空白的样式表到书中</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2168"/>
+        <location filename="../../Form_Files/main.ui" line="2139"/>
         <source>Blank SVG Image</source>
         <translation>空白的SVG图形</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2171"/>
+        <location filename="../../Form_Files/main.ui" line="2142"/>
         <source>Add a new blank svg image file to the book.</source>
         <translation>添加空白svg图形文件到书中</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2176"/>
+        <location filename="../../Form_Files/main.ui" line="2147"/>
         <source>Pre&amp;vious File</source>
         <translation>&amp;v上一个文件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2179"/>
+        <location filename="../../Form_Files/main.ui" line="2150"/>
         <source>Open previous file of the same type.</source>
         <translation>打开上一个同类型文件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2182"/>
+        <location filename="../../Form_Files/main.ui" line="2153"/>
         <source>Alt+PgUp</source>
         <translation>Alt+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2187"/>
+        <location filename="../../Form_Files/main.ui" line="2158"/>
         <source>Next &amp;File</source>
         <translation>&amp;F下一个文件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2190"/>
+        <location filename="../../Form_Files/main.ui" line="2161"/>
         <source>Open next file of the same type.</source>
         <translation>打开下一个同类型文件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2193"/>
+        <location filename="../../Form_Files/main.ui" line="2164"/>
         <source>Alt+PgDown</source>
         <translation>Alt+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2198"/>
+        <location filename="../../Form_Files/main.ui" line="2169"/>
         <source>&amp;Add To Index Editor</source>
         <translation>&amp;A添加到索引编辑器</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2201"/>
+        <location filename="../../Form_Files/main.ui" line="2172"/>
         <source>Add the selected text to the Index Editor.</source>
         <translation>将选中的文本添加到索引编辑器</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2206"/>
+        <location filename="../../Form_Files/main.ui" line="2177"/>
         <source>&amp;Mark For Index</source>
         <translation>&amp;M标记为索引</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2209"/>
+        <location filename="../../Form_Files/main.ui" line="2180"/>
         <source>Mark the selected text for inclusion in the Index.</source>
         <translation>将所选文本标记为包含在索引中</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2212"/>
+        <location filename="../../Form_Files/main.ui" line="2183"/>
         <source>Ctrl+Shift+X</source>
         <translation>Ctrl+Shift+X</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2217"/>
+        <location filename="../../Form_Files/main.ui" line="2188"/>
         <source>&amp;Create Index</source>
         <translation>&amp;C生成索引</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2220"/>
+        <location filename="../../Form_Files/main.ui" line="2191"/>
         <source>Generate a new Index HTML file.</source>
         <translation>生成新的HTML文件索引</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2225"/>
+        <location filename="../../Form_Files/main.ui" line="2196"/>
         <source>&amp;Create HTML Table Of Contents</source>
         <translation>&amp;C创建HTML目录</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2228"/>
+        <location filename="../../Form_Files/main.ui" line="2199"/>
         <source>Create a new HTML file using the current TOC.</source>
         <translation>使用当前TOC创建一个新的HTML文件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2233"/>
+        <location filename="../../Form_Files/main.ui" line="2204"/>
         <source>Book&amp;mark Location</source>
         <translation>&amp;m书签的位置</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2236"/>
+        <location filename="../../Form_Files/main.ui" line="2207"/>
         <source>Ctrl+Alt+B</source>
         <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2241"/>
+        <location filename="../../Form_Files/main.ui" line="2212"/>
         <source>&amp;Go To Link Or Style</source>
         <translation>转移到链接或样式</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2244"/>
+        <location filename="../../Form_Files/main.ui" line="2215"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2253"/>
+        <location filename="../../Form_Files/main.ui" line="2224"/>
         <source>&amp;Back</source>
         <translation>&amp;B后退</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2256"/>
+        <location filename="../../Form_Files/main.ui" line="2227"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
@@ -8660,149 +8549,207 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;返回您上次访问的链接或样式，或将您的位置添加到书签.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2262"/>
+        <location filename="../../Form_Files/main.ui" line="2233"/>
         <source>Ctrl+\</source>
         <translation>Ctrl+\</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2267"/>
+        <location filename="../../Form_Files/main.ui" line="2238"/>
         <source>Edit/Paste From Clipboard &amp;History...</source>
         <translation>从剪贴板历史中编辑或粘贴...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2270"/>
+        <location filename="../../Form_Files/main.ui" line="2241"/>
         <source>Ctrl+Alt+V</source>
         <translation>
 根李连杰的面向一样，双眼突出，满脸皱褶，是不是吃了同一种返老还童药？
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2275"/>
+        <location filename="../../Form_Files/main.ui" line="2246"/>
         <source>&amp;Delete Line</source>
         <translation>&amp;D删除行</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2278"/>
+        <location filename="../../Form_Files/main.ui" line="2249"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2283"/>
+        <location filename="../../Form_Files/main.ui" line="2254"/>
         <source>Manage Plugins</source>
         <translation>管理插件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2292"/>
+        <location filename="../../Form_Files/main.ui" line="2263"/>
         <source>Run Plugin 1</source>
         <translation>运行插件1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2301"/>
+        <location filename="../../Form_Files/main.ui" line="2272"/>
         <source>Run Plugin 2</source>
         <translation>运行插件2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2310"/>
+        <location filename="../../Form_Files/main.ui" line="2281"/>
         <source>Run Plugin 3</source>
         <translation>运行插件3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2319"/>
+        <location filename="../../Form_Files/main.ui" line="2290"/>
         <source>Run Plugin 4</source>
-        <translation type="unfinished"/>
+        <translation>运行插件 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2328"/>
+        <location filename="../../Form_Files/main.ui" line="2299"/>
         <source>Run Plugin 5</source>
+        <translation>运行插件 5</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2308"/>
+        <source>Run Plugin 6</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2333"/>
+        <location filename="../../Form_Files/main.ui" line="2317"/>
+        <source>Run Plugin 7</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2326"/>
+        <source>Run Plugin 8</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2335"/>
+        <source>Run Plugin 9</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2344"/>
+        <source>Run Plugin 10</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2353"/>
+        <source>Launch External Xhtml Editor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2356"/>
+        <source>F2</source>
+        <translation>F2</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2361"/>
         <source>Mend and &amp;Prettify All HTML Files</source>
         <translation>修改和预处理所有HTML文件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2338"/>
+        <location filename="../../Form_Files/main.ui" line="2366"/>
         <source>&amp;Mend All HTML Files</source>
         <translation>&amp;M修改所有HTML文件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2343"/>
+        <location filename="../../Form_Files/main.ui" line="2371"/>
         <source>&amp;Update Manifest Properties</source>
         <translation>&amp;U更新清单属性</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2348"/>
+        <location filename="../../Form_Files/main.ui" line="2376"/>
         <source>Generate NC&amp;X from Nav</source>
         <translation>&amp;x从Nav生成NCX</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="325"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="320"/>
         <source>Input</source>
         <translation>输入</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="331"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="326"/>
         <source>Output</source>
         <translation>输出</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="343"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="338"/>
         <source>Validation</source>
         <translation>验证</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="489"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="396"/>
+        <source>External XHtml Editor works only on Html Resources!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="403"/>
+        <source>No External Xhtml Editor has been specified:  See Preferences</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="410"/>
+        <source>Specified External Xhtml Editor path does not exist</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="421"/>
+        <source>Executing External Xhtml Editor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="426"/>
+        <source>Failed to Launch External Xhtml Editor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="520"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>因为位置已不存在导航已取消。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="505"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="537"/>
         <source>Location bookmarked.</source>
         <translation>加入书签的位置</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="552"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="784"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="992"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1138"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1520"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1607"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1662"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1670"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1687"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1699"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1802"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1810"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1824"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1829"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1842"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1850"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1861"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1866"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1878"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1888"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1893"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2124"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2131"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2145"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="583"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="805"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1013"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1164"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1551"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1638"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1693"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1701"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1730"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1833"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1849"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1854"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1867"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1880"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1885"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1897"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1907"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1912"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2143"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2150"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2174"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2206"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3509"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3515"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3521"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3563"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3569"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3575"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3732"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3939"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4139"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2164"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2169"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2193"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2225"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3350"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3356"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3362"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3397"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3403"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3409"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3623"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3830"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4030"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="552"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="583"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -8811,430 +8758,400 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="598"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="619"/>
         <source>was updated</source>
         <translation>已经更新</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="605"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="626"/>
         <source>Warning</source>
         <translation>警示</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="605"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="626"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>该文件没有正确形成并可能已损坏.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="633"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="654"/>
         <source>Opening this EPUB generated warnings.</source>
         <translation>打开此EPUB产生的警告。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="635"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="656"/>
         <source>Select Show Details for more information.</source>
         <translation>有关详细信息，请选择显示详细信息</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="675"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="696"/>
         <source>Sigil is closing...</source>
         <translation>Sigil正在关闭中...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="725"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="746"/>
         <source>New file created.</source>
         <translation>新文件生成了</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="746"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="767"/>
         <source>Open File</source>
         <translation>打开文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="783"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="804"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>此文件已不存在. 单击“确定”将其从菜单中删除.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="853"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="874"/>
         <source>Save File</source>
         <translation>保存文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="907"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="928"/>
         <source>Save a Copy</source>
         <translation>保存为副本</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="969"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="990"/>
         <source>Go To Line</source>
         <translation>转移到行</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="969"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="990"/>
         <source>Line #</source>
         <translation>行 #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1013"/>
         <source>Image does not exist: </source>
         <translation>图形不存在: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1054"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1075"/>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>或</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1062"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1083"/>
         <source>No CSS styles named</source>
         <translation>没有CSS样式命名</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1062"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1083"/>
         <source>found, or stylesheet not linked.</source>
-        <translation type="unfinished"/>
+        <translation>找到，或是样式表没有链接。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1160"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;p&gt;在&lt;b&gt;%2&lt;/b&gt;中的href&lt;b&gt;%1&lt;/b&gt;不存在 (并且可能有更多).  在这些条件下分裂或合并可能导致链接断开.&lt;/p&gt;&lt;p&gt;你希望继续吗?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1156"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1182"/>
         <source>Add Cover</source>
         <translation>添加封面</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1248"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1274"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>意外的错误. 只有图像文件可用于封面.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1265"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1291"/>
         <source>Cover added.</source>
         <translation>封面添加完毕.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1274"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1291"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1300"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1317"/>
         <source>Not Available for epub2.</source>
         <translation>不适用于epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1282"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1308"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>OPF清单属性已更新.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1308"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1362"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1334"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
         <source>NCX generation failed.</source>
         <translation>NCX生成失败.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1357"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1383"/>
         <source>NCX generated.</source>
         <translation>NCX已生成.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1510"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1536"/>
         <source>Styles deleted.</source>
         <translation>样式已删除.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1520"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1551"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>由于XML格式不正确而取消的报告.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1607"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1638"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>删除由于XML格式不正确而取消的未使用的媒体文件.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1660"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1691"/>
         <source>Unused media files deleted.</source>
         <translation>未使用的媒体文件已删除.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1662"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1693"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>没有未使用的图像、视频或音频文件需要删除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1670"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1701"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>删除由于XML格式不正确而取消的未使用的样式。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1687"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1718"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation>没有未使用的样式表需要删除</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1699"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1730"/>
         <source>You cannot insert a file at this position.</source>
         <translation>无法再当前位置插入文件.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1706"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1737"/>
         <source>Insert File</source>
         <translation>插入文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1782"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>文件&quot;%1&quot;不存在</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1802"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1829"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1833"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1854"/>
         <source>You cannot insert an id at this position.</source>
         <translation>无法再当前位置插入ID标识.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1810"/>
-        <source>You must select text before inserting a new id.</source>
-        <translation>在插入新的ID之前，您必须先选择文字。</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1849"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID无效 - 必须以字母开头，后可跟字母数字以及“_”“:”“-” 或“.”</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1842"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1866"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1867"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1885"/>
         <source>You cannot insert a link at this position.</source>
         <translation>无法再当前位置插入连接.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1850"/>
-        <source>You must select text before inserting a new link.</source>
-        <translation>在插入新的连接之前，您必须先选择文字。</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1861"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1880"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>链接无效 - 不能包含 &apos;&lt;&apos; 或 &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1878"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1897"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>您不能在此位置标记索引或不选择文本.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1888"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1907"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>条目无效 - 不能包含“&lt;”或“&gt;”</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1893"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1912"/>
         <source>You cannot mark an index at this position.</source>
         <translation>您不能在此位置标记索引.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1947"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1958"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2077"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1966"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1977"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2096"/>
         <source>Select the destination to paste into first.</source>
         <translation>选择要粘贴到的目标位置.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1966"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1985"/>
         <source>Pasted clip entry %1.</source>
         <translation>已粘贴剪辑项%1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2124"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2143"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>选择了一个资源, 没有要合并到的以前的资源.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2131"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2150"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>您确定要合并所选的文件吗？
 此操作无法撤消.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2145"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2164"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
         <translation>合并取消: %1, XML格式不正确.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2150"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2169"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>由于XML格式不正确, 因此合并已取消.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2174"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2193"/>
         <source>Cannot merge file %1</source>
         <translation>无法合并文件%1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2188"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2207"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>合并完成. 您可能需要重新生成或编辑您的目录.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2206"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2225"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>已取消链接样式表: %1, XML格式不正确.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2350"/>
         <source>Word updated.</source>
         <translation>词以更新.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2433"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2424"/>
         <source>File(s) deleted.</source>
         <translation>文件已删除.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2444"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2435"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>编辑目录已取消.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2449"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2440"/>
         <source>Table Of Contents edited.</source>
         <translation>编辑目录已编辑。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2467"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2458"/>
         <source>Generate TOC cancelled.</source>
         <translation>生成的TOC取消.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2491"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2482"/>
         <source>Table Of Contents generated.</source>
         <translation>目录一生成.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2493"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2484"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>无需改变目录.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2629"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2620"/>
         <source>Text selection marked.</source>
         <translation>已标记文本选择.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2631"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2649"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2622"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2640"/>
         <source>Text selection unmarked.</source>
         <translation>取消选择文本的标记</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2737"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2689"/>
         <source>Metadata Editor cancelled.</source>
         <translation>元数据编辑器已取消.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2740"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2692"/>
         <source>Metadata edited.</source>
         <translation>元数据已编辑</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2828"/>
-        <source>RunPlugin1</source>
-        <translation>运行插件1</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2829"/>
-        <source>RunPlugin2</source>
-        <translation>运行插件2</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2830"/>
-        <source>RunPlugin3</source>
-        <translation>运行插件3</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2831"/>
-        <source>RunPlugin4</source>
+        <location filename="../../MainUI/MainWindow.cpp" line="2782"/>
+        <source>RunPlugin</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2832"/>
-        <source>RunPlugin5</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2863"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2807"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>此EPUB不包含任何需要验证的CSS样式表.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3264"/>
         <source>Line: %1, Col: %2</source>
         <translation>行: %1, 列: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3509"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3350"/>
         <source>File cannot be split at this position.</source>
         <translation>文件不能在此位置分割.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3515"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3356"/>
         <source>Cannot split since it may not be an HTML file.</source>
-        <translation type="unfinished"/>
+        <translation>无法拆分，可能不是 HTML 文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3521"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3362"/>
         <source>The Nav file cannot be split.</source>
         <translation>Nav文件不能分割.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3538"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
         <source>Split completed.</source>
         <translation>分割结束.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3563"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3397"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>由于至少有一个文件不是HTML文件, 因此无法拆分.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3403"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>无法拆分: ％1 XML格式不正确.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3575"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3409"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>无法拆分, 因为至少有一个文件可能不是HTML文件.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3608"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3442"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>拆分完成, 您可能需要更新目录.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3617"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3444"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>未找到拆分文件标记. 使用插入-&gt;拆分标记.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3733"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3624"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>文档已修改.
 要保存更改吗?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3813"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3704"/>
         <source>No importer for file type: %1</source>
         <translation>没有文件类型的导入器: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3820"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3711"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -9245,44 +9162,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 尝试打开时将“清除源”首选项设置为“修改XHTML源代码”, 然后重新加载文件.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3825"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3716"/>
         <source>Loading file...</source>
         <translation>加载文件中...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3839"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3730"/>
         <source>File loaded.</source>
         <translation>文件已加载.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3866"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3757"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>此文件的创建者已使用DRM加密. Sigil无法打开这样的文件.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3873"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3764"/>
         <source>Cannot load EPUB: %1</source>
         <translation>无法加载EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3877"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3768"/>
         <source>Cannot load file %1: %2</source>
         <translation>无法加载%1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3906"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3797"/>
         <source>Saving EPUB...</source>
         <translation>正在保存EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3915"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3806"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil无法保存类型“%1”的文件.
 请选择其他格式.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3940"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3831"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in data loss.
 
 Do you want to automatically mend the files before saving?</source>
@@ -9290,69 +9207,69 @@ Do you want to automatically mend the files before saving?</source>
 您要在保存之前自动修复文件吗?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3971"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3862"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB已保存, 但并非所有HTML文件格式正确.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3973"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3864"/>
         <source>EPUB saved.</source>
         <translation>EPUB已保存.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3979"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3870"/>
         <source>Cannot save file %1: %2</source>
         <translation>无法保存文件 %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4114"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4005"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB文件(*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4115"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4116"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4117"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4006"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4008"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML文件(*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4009"/>
         <source>Text files (*.txt)</source>
         <translation>文本文件(*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4119"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4010"/>
         <source>All files (*.*)</source>
         <translation>所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4127"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4018"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB文件(*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4139"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4030"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4210"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4100"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>保留现有标题属性是: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4211"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4101"/>
         <source>ON</source>
         <translation>开</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4211"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4101"/>
         <source>OFF</source>
         <translation>关</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4236"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4126"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -12073,7 +11990,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="148"/>
         <source>Double-click in cell to edit its value.  Minimum metadata consists of main language, title, and at least one creator.</source>
-        <translation type="unfinished"/>
+        <translation>双击单元编辑值，最简元数据应该包括主要语言，标题和至少一位创建者。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="172"/>
@@ -12094,58 +12011,58 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="171"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="234"/>
         <source>[ISBN here]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写 ISBN]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="175"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="239"/>
         <source>[ISSN here]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写 ISBN]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="179"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="244"/>
         <source>[DOI here]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写 DOI]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="183"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="249"/>
         <source>[UUID here]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写 UUID]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="194"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="267"/>
         <source>[Author name here]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写作者名]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="200"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="272"/>
         <source>[Creator name here]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写创建者]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="204"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="276"/>
         <source>[Contributor name here]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写贡献者]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="254"/>
         <source>[Custom identifier here]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写自定义标识符]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="443"/>
         <source>[Place value here]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写值]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="478"/>
         <source>[Your value here]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写您需要的值]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="542"/>
@@ -12411,7 +12328,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
         <source>[Custom element]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写自定义元素]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
@@ -12654,7 +12571,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>[Custom property/attribute]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写自定义属性]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
@@ -12732,32 +12649,32 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
         <source>Series</source>
-        <translation type="unfinished"/>
+        <translation>系列</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
         <source>Series title or name (from calibre)</source>
-        <translation type="unfinished"/>
+        <translation>系列标题或名称（来自 calibre）</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
         <source>Series Index</source>
-        <translation type="unfinished"/>
+        <translation>系列索引</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
         <source>Index of this book in the series (from calibre)</source>
-        <translation type="unfinished"/>
+        <translation>此书在所在系列中的编号（来自 calibre）</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
         <source>Title for Sorting</source>
-        <translation type="unfinished"/>
+        <translation>按标题排序</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
         <source>Version of ebook title to use for sorting(from calibre)</source>
-        <translation type="unfinished"/>
+        <translation>按电子书标题版本排序（来自 calibre）</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
@@ -12792,7 +12709,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>
         <source>[Custom metadata property/attribute]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写自定义元数据属性]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>
@@ -12834,12 +12751,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1118"/>
         <source>[Title here]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写标题]</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1120"/>
         <source>[Main title here]</source>
-        <translation type="unfinished"/>
+        <translation>[此处填写主标题]</translation>
     </message>
 </context>
 <context>
@@ -12920,32 +12837,32 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="135"/>
         <source>Error: Interpreter</source>
-        <translation type="unfinished"/>
+        <translation>错误：翻译器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="135"/>
         <source>has no path set</source>
-        <translation type="unfinished"/>
+        <translation>没有设定路径</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="148"/>
         <source>Installation Error: plugin launcher</source>
-        <translation type="unfinished"/>
+        <translation>安装错误: 插件启动器</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="149"/>
         <source>does not exist</source>
-        <translation type="unfinished"/>
+        <translation>不存在</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="154"/>
         <source>Error: plugin engine</source>
-        <translation type="unfinished"/>
+        <translation>错误：插件引擎</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="155"/>
         <source>is not supported (yet!)</source>
-        <translation type="unfinished"/>
+        <translation>（暂）不支持</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="161"/>
@@ -12960,7 +12877,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="371"/>
         <source>Status: running</source>
-        <translation type="unfinished"/>
+        <translation>状态：运行中</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="388"/>
@@ -12992,7 +12909,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/PluginRunner.cpp" line="484"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="555"/>
         <source>Status:</source>
-        <translation type="unfinished"/>
+        <translation>状态：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="511"/>
@@ -13023,17 +12940,17 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/PluginRunner.cpp" line="684"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="699"/>
         <source>Status: checking</source>
-        <translation type="unfinished"/>
+        <translation>状态：检查中</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="688"/>
         <source>Incorrect XHTML:</source>
-        <translation type="unfinished"/>
+        <translation>错误的 XHTML：</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="688"/>
         <source>Line/Col</source>
-        <translation type="unfinished"/>
+        <translation>行/列</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="715"/>
@@ -13055,12 +12972,12 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="759"/>
         <source>Status: deleting</source>
-        <translation type="unfinished"/>
+        <translation>状态：删除中</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="798"/>
         <source>Status: Loading</source>
-        <translation type="unfinished"/>
+        <translation>状态：装载中</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="809"/>
@@ -13075,7 +12992,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="836"/>
         <source>Status: adding</source>
-        <translation type="unfinished"/>
+        <translation>状态：添加中</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="877"/>
@@ -13085,164 +13002,194 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="906"/>
         <source>Status: modifying</source>
-        <translation type="unfinished"/>
+        <translation>状态：变更中</translation>
     </message>
 </context>
 <context>
     <name>PluginWidget</name>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="14"/>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="167"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="154"/>
         <source>Plugins</source>
         <translation>插件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="28"/>
-        <source>Assign as Plugin 1</source>
-        <translation>指定为插件1</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="75"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="62"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="80"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="67"/>
         <source>Version</source>
         <translation>版本</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="85"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="72"/>
         <source>Author</source>
         <translation>作者</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="90"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="77"/>
         <source>Type</source>
         <translation>类型</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="95"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="82"/>
         <source>Interpreter</source>
         <translation>解释器</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="109"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="96"/>
         <source>≥Python3.4:</source>
         <translation>≥Python3.4:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="128"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="115"/>
         <source>Auto</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="135"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="122"/>
         <source>Set</source>
         <translation>集合</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="174"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="161"/>
         <source>Add Plugin</source>
         <translation>添加插件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="181"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="168"/>
         <source>Remove All</source>
         <translation>删除所有的</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="188"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="175"/>
         <source>Remove Plugin</source>
         <translation>移除插件</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="214"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="201"/>
         <source>Path to Interpreter Executable</source>
         <translation>可执行解释器的路径</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="224"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="211"/>
         <source>Should the bundled Python interpreter be used if present?</source>
         <translation>如果绑定的Python解释器存在是否使用?</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="227"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="214"/>
         <source>Use Bundled Python</source>
         <translation>使用绑定的Python</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="234"/>
-        <source>Assign as Plugin 2</source>
-        <translation>指定为插件2</translation>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="228"/>
+        <source>Quick Launch Plugin Assignments</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="241"/>
-        <source>Assign as Plugin 3</source>
-        <translation>指定为插件3</translation>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="238"/>
+        <source>Plugin 1:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="248"/>
-        <source>Assign as Plugin 4</source>
+        <source>Plugin 2:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PPluginWidget.ui" line="255"/>
-        <source>Assign as Plugin 5</source>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="258"/>
+        <source>Plugin 3:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="184"/>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="268"/>
+        <source>Plugin 4:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="278"/>
+        <source>Plugin 5:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="303"/>
+        <source>Plugin 6:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="313"/>
+        <source>Plugin 7:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="323"/>
+        <source>Plugin 8:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="333"/>
+        <source>Plugin 9:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PPluginWidget.ui" line="343"/>
+        <source>Plugin 10:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="183"/>
         <source>Select Plugin Zip Archive</source>
         <translation>选择Zip格式的插件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="184"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="183"/>
         <source>Plugin Files (*.zip)</source>
         <translation>插件文件(*.zip)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="200"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="199"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
         <translation>错误: 你的操作系统上无效或者是不支持的插件plugin.xml文件.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="203"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="202"/>
         <source>Warning: A plugin by that name already exists</source>
         <translation>警告: 该文件名的插件已经存在</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="206"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="205"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
         <translation>错误: zip插件文件无法解开.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="209"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="208"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
         <translation>错误: 不是有效的Sigil插件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="249"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="246"/>
         <source>Nothing is Selected.</source>
         <translation>没有任何被选择</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="307"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="294"/>
         <source>Remove All Plugins</source>
         <translation>删除所有插件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="308"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="295"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
         <translation>是否确定删除所有插件?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="366"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="347"/>
         <source>Select Interpreter</source>
         <translation>选择解释器</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="391"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="372"/>
         <source>Incorrect Interpreter Path selected</source>
         <translation>选择的计数器路径错误</translation>
     </message>
@@ -13318,10 +13265,30 @@ Entities can be separated by lines, commas, or spaces.</source>
 <context>
     <name>PreviewWindow</name>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="43"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="260"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="50"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="254"/>
         <source>Preview</source>
         <translation>预览</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="151"/>
+        <source>Inspect Page: Ctrl-F5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="155"/>
+        <source>Select-All: Ctrl-A</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="159"/>
+        <source>Copy Selection To ClipBoard: Ctrl-C</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="163"/>
+        <source>Update Preview Window: Ctrl-R</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -13338,7 +13305,7 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation>选择的类...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="292"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="291"/>
         <source>Cleaning...</source>
         <translation>清理...</translation>
     </message>
@@ -13353,108 +13320,119 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Reports.cpp" line="115"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="162"/>
+        <location filename="../../Misc/OpenExternally.cpp" line="196"/>
+        <source>Applications</source>
+        <translation>应用程序</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="172"/>
+        <source>Select External Xhtml Editor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Reports.cpp" line="114"/>
         <source>Creating reports...</source>
         <translation>生成报告...</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="112"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="110"/>
         <source>Cannot read EPUB: %1</source>
         <translation>无法读取EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="222"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="235"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation>OPF文件没有一个有效的书脊</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="223"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="760"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="763"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="236"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="783"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="786"/>
         <source>Sigil has created a new one for you.</source>
         <translation>Sigil已经为你生成了一个新的.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="260"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="273"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation>加密XML文件语法分析错误.
 行: %1 列 %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="392"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="405"/>
         <source>Cannot unzip EPUB: %1</source>
         <translation>无法解压缩EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="432"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="441"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="458"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="466"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="451"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="460"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="477"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="485"/>
         <source>Cannot extract file: %1</source>
         <translation>无法提取文件: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="479"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="497"/>
         <source>Cannot open EPUB: %1</source>
         <translation>无法打开EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="531"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="549"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>无法分析container.xml文件.
 行: %1 列 %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="539"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="557"/>
         <source>No appropriate OPF file found</source>
         <translation>没有发现适当的OPF文件</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="590"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="608"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>无法读取OPF文件.
 行: %1 列 %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="681"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="703"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation>OPF文件包含重复的ID: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="682"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="704"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>已经为加载的EPUB指定了临时ID. 你需要编辑OPF文件来移除重复项.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="726"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="749"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>OPF文件无法正确识别NCX文件.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="727"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="750"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>Sigil已经使用下面的文件作为NCX.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="755"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="778"/>
         <source>Sigil has created a template NCX</source>
         <translation>Sigil已创建了NCX模板.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="756"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="779"/>
         <source>to support epub2 backwards compatibility.</source>
         <translation>为了向后兼容epub2.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="759"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="782"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>此OPF文件未包含一个NCX文件.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="762"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="785"/>
         <source>The NCX file is not present in this EPUB.</source>
         <translation>本EPUB中没有该NCX文件.</translation>
     </message>
@@ -13462,11 +13440,6 @@ Line: %1 Column %2 - %3</source>
         <location filename="../../MainUI/BookBrowser.cpp" line="582"/>
         <source>Adding Existing Files..</source>
         <translation>添加已存在文件..</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/OpenExternally.cpp" line="196"/>
-        <source>Applications</source>
-        <translation>应用程序</translation>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="206"/>
@@ -13513,7 +13486,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Misc/Utility.cpp" line="544"/>
         <source>Sigil may need to close.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil 需要关闭。</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="70"/>
@@ -13989,52 +13962,52 @@ your book and automatically insert into your document.</source>
         <translation>缩略图大小: </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="80"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="79"/>
         <source>All</source>
         <translation>所有</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="81"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="80"/>
         <source>Images</source>
         <translation>图像</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="82"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="81"/>
         <source>Video</source>
         <translation>视频</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="83"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="82"/>
         <source>Audio</source>
         <translation>音频</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="127"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="126"/>
         <source>Files In the Book</source>
         <translation>书中的文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="130"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="129"/>
         <source>Thumbnails</source>
         <translation>缩略图</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="286"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="285"/>
         <source>shades</source>
         <translation>色彩</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="286"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="285"/>
         <source>colors</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="287"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="286"/>
         <source>Grayscale</source>
         <translation>灰度</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="287"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="286"/>
         <source>Color</source>
         <translation>色彩</translation>
     </message>
@@ -14140,12 +14113,12 @@ ID名称必须是为一个且以一个字母开头.</translation>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="74"/>
         <source>Check words with numbers in them.</source>
-        <translation type="unfinished"/>
+        <translation>在其中检查包含数字的单词。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="77"/>
         <source>Check Numbers</source>
-        <translation type="unfinished"/>
+        <translation>检查编号</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="130"/>
@@ -14160,7 +14133,7 @@ ID名称必须是为一个且以一个字母开头.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="145"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="212"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="213"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
@@ -14233,63 +14206,63 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="52"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="53"/>
         <source>Enable</source>
         <translation>启用</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="53"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="54"/>
         <source>Dictionary</source>
         <translation>字典</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="109"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="110"/>
         <source>Add Dictionary</source>
         <translation>添加字典</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="109"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="212"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="110"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="213"/>
         <source>Name:</source>
         <translation>名称: </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="123"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="163"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="225"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="233"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="252"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="124"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="164"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="226"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="234"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="253"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="123"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="225"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="124"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="226"/>
         <source>A user dictionary already exists with this name!</source>
         <translation>同名用户字典已经存在!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="132"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="133"/>
         <source>Add Words</source>
         <translation>添加单词</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="132"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="133"/>
         <source>Words:</source>
         <translation>单词: </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="163"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="164"/>
         <source>Could not create file!</source>
         <translation>无法生成文件!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="233"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="234"/>
         <source>Could not rename file!</source>
         <translation>无法给文件重命名!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="252"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="253"/>
         <source>You cannot delete the last dictionary.</source>
         <translation>无法删除最后一个字典.</translation>
     </message>
@@ -14559,7 +14532,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>TabManager</name>
     <message>
-        <location filename="../../Tabs/TabManager.cpp" line="218"/>
+        <location filename="../../Tabs/TabManager.cpp" line="225"/>
         <source>Cannot edit file</source>
         <translation>无法编辑文件</translation>
     </message>
@@ -15473,42 +15446,42 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="253"/>
         <source>Greek small letter psi</source>
-        <translation>希腊小写字母psi</translation>
+        <translation>希腊小写字母 psi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="254"/>
         <source>Greek small letter omega</source>
-        <translation>希腊小写字母omega</translation>
+        <translation>希腊小写字母 omega</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="255"/>
         <source>Greek theta symbol</source>
-        <translation>希腊θ符号</translation>
+        <translation>希腊 theta 符号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="256"/>
         <source>Greek Upsilon with hook symbol</source>
-        <translation>希腊有钩的Upsilon符号</translation>
+        <translation>希腊有钩的 Upsilon 符号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="257"/>
         <source>Greek pi symbol</source>
-        <translation>希腊pi符号</translation>
+        <translation>希腊 pi 符号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="258"/>
         <source>en space</source>
-        <translation>en间隔</translation>
+        <translation>en 间隔</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="259"/>
         <source>em space</source>
-        <translation>em间隔</translation>
+        <translation>em 间隔</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="260"/>
         <source>thin space</source>
-        <translation>thin间隔</translation>
+        <translation>thin 间隔</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="261"/>
@@ -15533,12 +15506,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="265"/>
         <source>en dash</source>
-        <translation>en连字号</translation>
+        <translation>en 连字号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="266"/>
         <source>em dash</source>
-        <translation>em连字号</translation>
+        <translation>em 连字号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="267"/>
@@ -15573,12 +15546,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="273"/>
         <source>dagger, obelisk</source>
-        <translation>剑标, 方尖标</translation>
+        <translation>剑标，方尖标</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="274"/>
         <source>double dagger, double obelisk</source>
-        <translation>双剑标, 双方尖标</translation>
+        <translation>双剑标，双方尖标</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="275"/>
@@ -15633,17 +15606,17 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="285"/>
         <source>black-letter capital I</source>
-        <translation>黑体字符大写I</translation>
+        <translation>黑体字符大写 I</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="286"/>
         <source>script capital P</source>
-        <translation>手写大写P</translation>
+        <translation>手写大写 P</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="287"/>
         <source>black-letter capital R</source>
-        <translation>黑体字符大写R</translation>
+        <translation>黑体字符大写 R</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="288"/>
@@ -15653,7 +15626,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="289"/>
         <source>alef symbol</source>
-        <translation>alef符号</translation>
+        <translation>alef 符号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="290"/>
@@ -15753,12 +15726,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="309"/>
         <source>n-ary product</source>
-        <translation>n进制乘积</translation>
+        <translation>n 进制乘积</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="310"/>
         <source>n-ary summation</source>
-        <translation>n进制和</translation>
+        <translation>n 进制和</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="311"/>
