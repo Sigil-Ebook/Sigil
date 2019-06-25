@@ -1,12 +1,15 @@
-pre-0.9.15
+Sigil-0.9.15 - A Beta Release of Sigil ported to QtWebEngine to replace QtWebKit
     New Features
      - ported to use QtWebEngine (based on Chromium) to replace QtWebkit
-     - QtWebEngine reduces memory growth and plugs many major memory leaks
+     - QtWebEngine plugs many major memory leaks.  Memory footprint should stay low to moderate.
      - QtWebEngine has ongoing security and support patches from Qt/Google/Chromium
      - removes the broken/deprecated BookView Editor that relied on QtWebKit
-     - created PageEdit app (that uses QtWebEngine) that via Open-With replaces BookView functionality
+     - created PageEdit app (that uses QtWebEngine) that replaces much BookView functionality
            (see https://github.com/Sigil-Ebook/PageEdit)
      - allows the user to control use of javascript and remote access by epubs when editing
+           to improve overall security
+     - adds action to launch one preferred external xhtml editor via shortcut or icon
+           (can be used to fast launch PageEdit app or any other xhtml open-with editor)
 
 It also includes all of the fixes and updates from Sigil-0.9.14.
 
