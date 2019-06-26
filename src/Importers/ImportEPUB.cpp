@@ -424,6 +424,14 @@ void ImportEPUB::ExtractContainer()
 
             // If there is no file name then we can't do anything with it.
             if (!qfile_name.isEmpty()) {
+
+	        // for security reasons we need the file path to always be inside the 
+                // target folder and not outside, so we will remove all relative upward 
+                // paths segments ".." from the file path before prepending the target 
+                // folder to create the final target path
+	        qfile_name = qfile_name.replace("../","");
+                cp437_file_name = cp437_file_name.replace("../","");
+
                 // We use the dir object to create the path in the temporary directory.
                 // Unfortunately, we need a dir ojbect to do this as it's not a static function.
                 QDir dir(m_ExtractedFolderPath);
