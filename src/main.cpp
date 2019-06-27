@@ -233,11 +233,6 @@ int main(int argc, char *argv[])
 #if QT_VERSION >= 0x050900
     QCoreApplication::setAttribute(Qt::AA_DisableShaderDiskCache);
 #endif
-    // Test HighDPIScaling setting.
-    // This may be needed to run QWebEngineView Preview HighDPI monitors on Windows.
-    // Not sure I can leave this setting across the board, though. May be different
-    // for different Windows versions -- let alone other platforms.
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
  
 #if 0   // On recent processors with multiple cores this leads to over 40 threads at times
         // We prevent Qt from constantly creating and deleting threads.
