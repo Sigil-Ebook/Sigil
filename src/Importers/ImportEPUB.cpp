@@ -425,12 +425,41 @@ void ImportEPUB::ExtractContainer()
             // If there is no file name then we can't do anything with it.
             if (!qfile_name.isEmpty()) {
 
-	        // for security reasons we need the file path to always be inside the 
-                // target folder and not outside, so we will remove all relative upward 
-                // paths segments ".." from the file path before prepending the target 
-                // folder to create the final target path
-	        qfile_name = qfile_name.replace("../","");
-                cp437_file_name = cp437_file_name.replace("../","");
+	        // for security reasons against maliciously crafted zip archives
+                // we need the file path to always be inside the target folder 
+                // and not outside, so we will remove all illegal backslashes
+                // and all relative upward paths segments "/../" from the zip's local 
+                // file name/path before prepending the target folder to create 
+                // the final path
+
+	        QString original_path = qfile_name;
+	        bool evil_or_corrupt_epub = false;
+
+                if (qfile_name.contains("\\")) evil_or_corrupt_epub = true; 
+	        qfile_name = "/" + qfile_name.replace("\\","");
+
+                if (qfile_name.contains("/../")) evil_or_corrupt_epub = true;
+	        qfile_name = qfile_name.replace("/../","/");
+
+                while(qfile_name.startsWith("/")) { 
+		    qfile_name = qfile_name.remove(0,1);
+		}
+
+                if (cp437_file_name.contains("\\")) evil_or_corrupt_epub = true; 
+                cp437_file_name = "/" + cp437_file_name.replace("\\","");
+
+                if (cp437_file_name.contains("/../")) evil_or_corrupt_epub = true;
+	        cp437_file_name = cp437_file_name.replace("/../","/");
+
+                while(cp437_file_name.startsWith("/")) { 
+		    cp437_file_name = cp437_file_name.remove(0,1);
+		}
+
+                if (evil_or_corrupt_epub) {
+                    unzCloseCurrentFile(zfile);
+                    unzClose(zfile);
+                    throw (EPUBLoadParseError(QString(QObject::tr("Possible evil or corrupt epub file name: %1")).arg(original_path).toStdString()));
+                }
 
                 // We use the dir object to create the path in the temporary directory.
                 // Unfortunately, we need a dir ojbect to do this as it's not a static function.
