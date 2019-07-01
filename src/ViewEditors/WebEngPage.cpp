@@ -42,6 +42,9 @@ WebEngPage::WebEngPage(QObject *parent)
 // Therefore do NOT emit a signal from this method as it can create huge delays in when
 // loadFinished(okay) returns (with okay as false) 
 
+// AAARRRRRGGGGGGHHHHHHH, this routine is *NOT* invoked when a user clicks on an
+// internal link (ie. a fragment to a different location in the current page)
+
 bool WebEngPage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::NavigationType type, bool isMainFrame)
 {
     if (type == QWebEnginePage::NavigationTypeLinkClicked) {
@@ -50,6 +53,7 @@ bool WebEngPage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::Navig
 	QTimer::singleShot(20,this,SLOT(EmitLinkClicked()));
         return false;
     }
+    DBG qDebug() << " at end of acceptNavigationRequest with type: " << type;
     return true;
 }
 

@@ -53,8 +53,7 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_buttons(new QHBoxLayout()),
     m_Preview(new ViewPreview(this)),
     m_Inspector(new Inspector(this)),
-    m_Filepath(QString()),
-    m_GoToRequestPending(false)
+    m_Filepath(QString())
 {
     SetupView();
     LoadSettings();
@@ -270,11 +269,8 @@ void PreviewWindow::SetZoomFactor(float factor)
 
 void PreviewWindow::EmitGoToPreviewLocationRequest()
 {
-    DBG qDebug() << "EmitGoToPreviewLocationRequest request: " << m_GoToRequestPending;
-    if (m_GoToRequestPending) {
-        m_GoToRequestPending = false;
-        emit GoToPreviewLocationRequest();
-    }
+    DBG qDebug() << "EmitGoToPreviewLocationRequest request";
+    emit GoToPreviewLocationRequest();
 }
 
 bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
@@ -296,10 +292,31 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 	  if (mouseEvent) {
 	      if (mouseEvent->button() == Qt::LeftButton) {
 		  DBG qDebug() << "Detected Left Mouse Button Press Event";
- 		  DBG qDebug() << "emitting GoToPreviewLocationRequest";
-	          m_GoToRequestPending = true;
-		  // we must delay long enough to separate out LinksClicked from scroll sync clicks
-	          QTimer::singleShot(100, this, SLOT(EmitGoToPreviewLocationRequest()));
+		  QString hoverurl = m_Preview->GetHoverUrl();
+		  if (hoverurl.isEmpty()) {
+ 		      DBG qDebug() << "emitting GoToPreviewLocationRequest";
+	              QTimer::singleShot(50, this, SLOT(EmitGoToPreviewLocationRequest()));
+                  } else {
+		      QUrl link2url(hoverurl);
+                      QUrl currenturl(m_Preview->url());
+		      DBG qDebug() << "mouse press with : " << link2url.toString();
+		      DBG qDebug() << "  with current url: " << currenturl.toString();
+                      QString fragment;
+                      if (link2url.hasFragment()) {
+			  fragment = link2url.fragment();
+                          link2url.setFragment(QString());
+                      }
+                      if (currenturl.hasFragment()) {
+			  currenturl.setFragment(QString());
+		      }
+                      // test for local in-page link
+		      // otherwise do nothing and acceptNavigationRequest will handle it
+                      if (link2url == currenturl) {
+			  DBG qDebug() << "we have a local link to fragment: " << fragment;
+			  // tell current CV tab to scroll to fragment or top
+                          emit ScrollToFragmentRequest(fragment);  
+         	      }
+		  }
 	      }
 	  }
       }
@@ -323,8 +340,6 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 
 void PreviewWindow::LinkClicked(const QUrl &url)
 {
-    if (m_GoToRequestPending) m_GoToRequestPending = false;
-
     DBG qDebug() << "in PreviewWindow LinkClicked with url :" << url.toString();
 
     if (url.toString().isEmpty()) {

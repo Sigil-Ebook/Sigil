@@ -198,6 +198,8 @@ public slots:
 
     void OpenUrl(const QUrl &url);
 
+    void ScrollCVToFragment(const QString &fragment);
+
     /**
      * Opens the specified resource in the specified view state.
      */

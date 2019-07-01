@@ -159,6 +159,11 @@ bool ViewPreview::IsLoadingFinished()
     return m_isLoadFinished;
 }
 
+QString ViewPreview::GetHoverUrl()
+{
+    return m_hoverUrl;
+}
+
 void ViewPreview::SetZoomFactor(float factor)
 {
     SettingsStore settings;
@@ -229,11 +234,35 @@ void ViewPreview::ScrollToFragmentInternal(const QString &fragment)
     QString script = caret_location + scroll + SET_CURSOR_JS2 + "}";
     DoJavascript(script);
 }
+
+void ViewPreview::LinkHovered(const QString &url)
+{
+    DBG qDebug() << "linkHovered received " << url;;
+    m_hoverUrl = url;
+}
+
 void ViewPreview::LoadingStarted()
 {
     DBG qDebug() << "Loading a page started";
     m_isLoadFinished = false;
     m_LoadOkay = false;
+}
+
+
+// AAARRRGGGHHHH - when a user hits a link that is a fragment
+// that points to the current page, a load started signal is 
+// generated but NO proper load finished signal ever comes.
+// This is a horrible Qt bug to exist in a Qt 5.12.3 LTS release
+
+// To workaround this keep track of our loading state
+// and set it to finished when progress hits 100
+void ViewPreview::LoadingProgress(int progress)
+{
+  DBG qDebug() << "Loading progress " << progress;
+  if (progress >= 100) {
+      m_isLoadFinished = true;
+      m_LoadOkay = true;
+  }
 }
 
 void ViewPreview::UpdateFinishedState(bool okay)
@@ -451,6 +480,8 @@ void ViewPreview::ConnectSignalsToSlots()
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
     connect(page(), SIGNAL(loadStarted()), this, SLOT(LoadingStarted()));
     connect(page(), SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
+    connect(page(), SIGNAL(loadProgress(int)), this, SLOT(LoadingProgress(int)));
+    connect(page(), SIGNAL(linkHovered(const QString &)), this, SLOT(LinkHovered(const QString &)));
 }
 
 
@@ -517,7 +548,4 @@ void ViewPreview::copy()
 }
 
 #endif
-
-
-
 

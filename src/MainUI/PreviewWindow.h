@@ -76,6 +76,13 @@ signals:
      */
     void OpenUrlRequest(const QUrl &url);
 
+    /**
+     * Emitted whenever Preview wants current CV tab to scroll
+     * to fragment
+     * @param url The URL to open.
+     */
+    void ScrollToFragmentRequest(const QString &fragment);
+ 
 
 protected:
     virtual void hideEvent(QHideEvent* event);
@@ -95,8 +102,6 @@ private:
     ViewPreview *m_Preview;
     Inspector *m_Inspector;
     QString m_Filepath;
-    bool m_GoToRequestPending;
-    bool m_MouseReleaseEventHappened;
 
     QString m_mathjaxurl;
     QString m_usercssurl;

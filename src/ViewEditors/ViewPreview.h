@@ -49,6 +49,8 @@ public:
 
     bool IsLoadingFinished();
 
+    QString GetHoverUrl();
+
     bool WasLoadOkay() { return m_LoadOkay; }
 
     void SetZoomFactor(float factor);
@@ -142,6 +144,8 @@ protected slots:
 
     void UpdateFinishedState(bool okay);
     void LoadingStarted();
+    void LoadingProgress(int progress);
+    void LinkHovered(const QString &url);
 
 protected:
 
@@ -224,6 +228,7 @@ private:
     bool m_LoadOkay;
     // QAction *m_InspectElement;
 
+    QString m_hoverUrl;
 };
 
 #if 0
