@@ -48,7 +48,7 @@ public:
      * @param infomap  QHash map used to generate the list of properties this dialog displays
      * @param parent The dialog's parent.
      */
-  AddSemantics(const QHash<QString, DescriptiveInfo> & infomap, QWidget *parent = 0);
+    AddSemantics(const QHash<QString, DescriptiveInfo> & infomap, const QString & current_code, QWidget *parent = 0);
 
     /**
      * Returns the list of names selected by user.

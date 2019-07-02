@@ -1252,8 +1252,17 @@ void BookBrowser::AddSemanticCode()
 
     QStringList codes;
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
+
+    QString current_code;
     if (version.startsWith('3')) {
-        AddSemantics addmeaning(Landmarks::instance()->GetCodeMap(), this);
+        NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
+        current_code = navproc.GetLandmarkCodeForResource(resource);
+    } else { 
+        current_code = m_Book->GetOPF()->GetGuideSemanticCodeForResource(resource);
+    }
+
+    if (version.startsWith('3')) {
+        AddSemantics addmeaning(Landmarks::instance()->GetCodeMap(), current_code, this);
         if (addmeaning.exec() == QDialog::Accepted) {
             codes = addmeaning.GetSelectedEntries();
             if (!codes.isEmpty()) {
@@ -1270,7 +1279,7 @@ void BookBrowser::AddSemanticCode()
             }
         }
     } else {
-        AddSemantics addmeaning(GuideItems::instance()->GetCodeMap(), this);
+        AddSemantics addmeaning(GuideItems::instance()->GetCodeMap(), current_code, this);
         if (addmeaning.exec() == QDialog::Accepted) {
             codes = addmeaning.GetSelectedEntries();
             if (!codes.isEmpty()) {
