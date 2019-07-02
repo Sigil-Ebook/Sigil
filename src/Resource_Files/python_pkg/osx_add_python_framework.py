@@ -66,8 +66,8 @@ def copy_python_stdlibrary(src_dir, dest_dir):
     for x in os.listdir(src_dir):
         y = os.path.join(src_dir, x)
         ext = os.path.splitext(x)[1]
-        if os.path.isdir(y) and x not in ('test', 'hotshot', 'distutils',
-                'site-packages', 'idlelib', 'lib2to3', 'dist-packages', '__pycache__'):
+        if os.path.isdir(y) and x not in ('test', 'hotshot', 'site-packages', 
+                                          'idlelib', 'lib2to3', 'dist-packages', '__pycache__'):
             shutil.copytree(y, os.path.join(dest_dir, x),
                     ignore=ignore_in_dirs)
         if os.path.isfile(y) and ext in ('.py', '.so'):
