@@ -21,8 +21,6 @@
 
 #include <QtCore/QDate>
 #include <QtCore/QModelIndex>
-#include <QBrush>
-#include <QListWidgetItem>
 
 #include "Dialogs/AddSemantics.h"
 #include "Misc/SettingsStore.h"
@@ -35,28 +33,27 @@ AddSemantics::AddSemantics(const QHash<QString, DescriptiveInfo> &infomap, const
     m_SemanticsInfo(infomap)
 {
     ui.setupUi(this);
+
     connect(ui.lwProperties, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)),
             this,	          SLOT(UpdateDescription(QListWidgetItem *)));
     connect(this, SIGNAL(accepted()), this, SLOT(WriteSettings()));
     connect(ui.lwProperties, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(accept()));
+
     // Fill the dialog with sorted translated semantics property names
     QStringList names;
-    QString current_name;
     foreach (QString code, m_SemanticsInfo.keys()) {
         QString name = m_SemanticsInfo.value(code, DescriptiveInfo()).name;
+        // add a space and check mark to the end of the name if current semantic set 
+        if (code == current_code) {
+	    name.append(' ');
+            name.append(QChar(10003));
+	}
         m_Name2Code[name] = code;
-        if (code == current_code) current_name = name;
         names.append(name);
     }
     names.sort();
-    int rownum = 0;
     foreach(QString name, names) {
         ui.lwProperties->addItem(name);
-        if (name == current_name) {
-	    QListWidgetItem * item = ui.lwProperties->item(rownum);
-            item->setForeground(QBrush(Qt::red));
-	}
-        rownum++;
     }
     ReadSettings();
 }
