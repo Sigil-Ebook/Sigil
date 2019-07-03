@@ -8,13 +8,8 @@
 #
 #         You will need to have CMake 3.0 or later installed and in your path
 
-
-# XCode 7 and later users may want to install the openssl headers into /usr/local/include from 
-# the MacOSX 10.10sdk from XCode 6.3 as XCode 7 and later have removed the openssl headers.
-# libSSL is still installed for backwards compatibility
-
 # standard deployment target
-export MACOSX_DEPLOYMENT_TARGET=10.11
+export MACOSX_DEPLOYMENT_TARGET=10.12
 
 # Set the location of where the relocatable Python framework was installed
 # See "Building_A_Relocatable_Python_3.7_Framework_on_MacOSX.txt
@@ -47,27 +42,18 @@ cd build
 # Select the appropriate cmake command from thge following depending
 # on XCode version installed and macOS version
 
-# Mac OSX El Capitan with XCode 7 should use the following cmake command:
+# Mac OS Sierra (OSX 10.12) shoud use the following with XCode 8 or XCode 9
 cmake -DPKG_SYSTEM_PYTHON=1 \
-      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.11 \
-      -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
-      -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
-      -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/ \
-      ../Sigil
-
-# Mac OS Sierra (OSX 10.12) shoud use the following with XCode 8 
-cmake -DPKG_SYSTEM_PYTHON=1 \
-      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.11 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
       -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
       -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/ \
       ../Sigil
 
-# Mac OS High Sierra (OSX 10.13) shoud use the following with XCode 9 
+# Mac OS High Sierra (OSX 10.13) shoud use the following with XCode 9 or 10 
 cmake -DPKG_SYSTEM_PYTHON=1 \
-      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.11 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
       -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
@@ -76,7 +62,7 @@ cmake -DPKG_SYSTEM_PYTHON=1 \
 
 # Mac OS Mojave (OSX 10.14) shoud use the following with XCode 10 
 cmake -DPKG_SYSTEM_PYTHON=1 \
-      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.11 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
       -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
@@ -96,7 +82,6 @@ inside an app even one using the specified Qt app layout.
 These installed Qt plugins need to have an specific @loader_path rpath added
 as follows:
 
-install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/audio/libqtaudio_coreaudio.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/bearer/libqgenericbearer.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/iconengines/libqsvgicon.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqgif.dylib
@@ -110,16 +95,18 @@ install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Conte
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqtiff.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqwbmp.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqwebp.dylib
-install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/mediaservice/libqavfcamera.dylib
-install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/mediaservice/libqavfmediaplayer.dylib
-install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/mediaservice/libqtmedia_audioengine.dylib
+install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/platforminputcontexts/libqtvirtualkeyboardplugin.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/platforms/libqcocoa.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/position/libqtposition_cl.dylib
-install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/position/libqtposition_geoclue.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/position/libqtposition_positionpoll.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/position/libqtposition_serialnmea.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/printsupport/libcocoaprintersupport.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/styles/libqmacstyle.dylib
+install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/virtualkeyboard/libqtvirtualkeyboard_hangul.dylib
+install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/virtualkeyboard/libqtvirtualkeyboard_openwnn.dylib
+install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/virtualkeyboard/libqtvirtualkeyboard_pinyin.dylib
+install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/virtualkeyboard/libqtvirtualkeyboard_tcime.dylib
+install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/virtualkeyboard/libqtvirtualkeyboard_thai.dylib
 
 
 # In ${MYSIGILREPO}/build/bin you will find the newly built Sigil.app
