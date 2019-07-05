@@ -23,6 +23,7 @@
 #include <QEvent>
 #include <QMouseEvent>
 #include <QApplication>
+#include <QClipboard>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QToolBar>
@@ -316,6 +317,11 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 			  // tell current CV tab to scroll to fragment or top
                           emit ScrollToFragmentRequest(fragment);  
          	      }
+		  }
+	      } else if (mouseEvent->button() == Qt::RightButton) {
+		  QString hoverurl = m_Preview->GetHoverUrl();
+		  if (!hoverurl.isEmpty()) {
+		      QApplication::clipboard()->setText(hoverurl);
 		  }
 	      }
 	  }
