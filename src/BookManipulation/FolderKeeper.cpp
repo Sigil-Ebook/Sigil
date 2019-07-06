@@ -469,8 +469,8 @@ void FolderKeeper::ResumeWatchingResources()
 //	    Images
 //	    Fonts
 //	    Text
-//      Styles
-//      Misc
+//          Styles
+//          Misc
 void FolderKeeper::CreateFolderStructure()
 {
     QDir folder(m_FullPathToMainFolder);
@@ -506,6 +506,7 @@ void FolderKeeper::CreateInfrastructureFiles()
     m_NCX->SetEpubVersion(version);
     m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
+
     // TODO: change from Resource* to const Resource&
     connect(m_OPF, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
     connect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
