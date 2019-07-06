@@ -629,6 +629,19 @@ void OPFResource::RemoveResource(const Resource *resource)
 }
 
 
+void OPFResource::ClearSemanticCodesInGuide()
+{
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    foreach(GuideEntry ge, p.m_guide) {
+        p.m_guide.removeAt(0);
+    }
+    UpdateText(p);
+}
+
+
 void OPFResource::AddGuideSemanticCode(HTMLResource *html_resource, QString new_code, bool toggle)
 {
     QWriteLocker locker(&GetLock());
@@ -744,12 +757,6 @@ QString OPFResource::GetGuideSemanticNameForResource(Resource *resource)
 
 QHash <QString, QString>  OPFResource::GetSemanticCodeForPaths()
 {
-  QString version = GetEpubVersion();
-  if (version.startsWith('3')) {
-    NavProcessor navproc(GetNavResource());
-    return navproc.GetLandmarkCodeForPaths();
-  }
-
   QReadLocker locker(&GetLock());
   QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
   OPFParser p;
@@ -765,14 +772,9 @@ QHash <QString, QString>  OPFResource::GetSemanticCodeForPaths()
   return semantic_types;
 }
 
+
 QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
 {
-    QString version = GetEpubVersion();
-    if (version.startsWith('3')) {
-        NavProcessor navproc(GetNavResource());
-        return navproc.GetLandmarkNameForPaths();
-    }
-
     QReadLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;

@@ -321,6 +321,7 @@
      </property>
      <addaction name="actionUpdateManifestProperties"/>
      <addaction name="actionNCXFromNav"/>
+     <addaction name="actionGuideFromNav"/>
     </widget>
     <addaction name="actionAddCover"/>
     <addaction name="actionMetaEditor"/>
@@ -2374,6 +2375,11 @@
   <action name="actionNCXFromNav">
    <property name="text">
     <string>Generate NC&amp;X from Nav</string>
+   </property>
+  </action>
+  <action name="actionGuideFromNav">
+   <property name="text">
+    <string>Generate OPF &amp;Guide from Nav</string>
    </property>
   </action>
  </widget>

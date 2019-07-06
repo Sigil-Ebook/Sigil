@@ -63,6 +63,8 @@ public:
     QHash <QString, QString> GetSemanticCodeForPaths();
     QHash <QString, QString> GetGuideSemanticNameForPaths();
 
+    void ClearSemanticCodesInGuide();
+
     int GetReadingOrder(const HTMLResource *html_resource) const;
     QHash <Resource *, int> GetReadingOrderAll( const QList <Resource *> resources);
 

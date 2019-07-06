@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016  Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2019  Kevin B. Hendricks, Stratford, Ontario, Canada
 **
 **  This file is part of Sigil.
 **
@@ -184,7 +184,7 @@ void Landmarks::SetGuideLandMap()
     }
 
     m_GuideLandMap[ "acknowledgements" ] = "acknowledgments";
-    m_GuideLandMap[ "acknowledgments"  ] = "acknowledegments";
+    m_GuideLandMap[ "acknowledgments"  ] = "acknowledgements";
     m_GuideLandMap[ "bibliography"     ] = "bibliography";
     m_GuideLandMap[ "text"             ] = "bodymatter";
     m_GuideLandMap[ "bodymatter"       ] = "text";
@@ -203,3 +203,4 @@ void Landmarks::SetGuideLandMap()
     m_GuideLandMap[ "titlepage"        ] = "title-page";
     m_GuideLandMap[ "toc"              ] = "toc";
 }
+

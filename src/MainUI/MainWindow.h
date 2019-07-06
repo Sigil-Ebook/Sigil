@@ -221,6 +221,8 @@ public slots:
 
     void GenerateNCXFromNav();
 
+    void GenerateGuideFromNav();
+
     void CreateIndex();
 
     void runPlugin(QAction *action);

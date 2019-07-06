@@ -1269,12 +1269,6 @@ void BookBrowser::AddSemanticCode()
                 QString new_code = codes.at(0);
                 NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
                 navproc.AddLandmarkCode(html_resource, new_code);
-                // if new_code is valid for guide as well, update the guide too
-                QString guide_code = Landmarks::instance()->GuideLandMapping(new_code);
-                if (!guide_code.isEmpty()) {
-                    m_Book->GetOPF()->AddGuideSemanticCode(html_resource, guide_code);
-                    m_OPFModel->Refresh();
-                }
                 emit BookContentModified();
             }
         }

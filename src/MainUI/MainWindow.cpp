@@ -76,6 +76,7 @@
 #include "MainUI/ValidationResultsView.h"
 #include "Misc/HTMLSpellCheck.h"
 #include "Misc/KeyboardShortcutManager.h"
+#include "Misc/Landmarks.h"
 #include "Misc/OpenExternally.h"
 #include "Misc/Plugin.h"
 #include "Misc/PluginDB.h"
@@ -1193,6 +1194,8 @@ bool MainWindow::ProceedWithUndefinedUrlFragments()
 
 void MainWindow::AddCover()
 {
+    QString version = m_Book->GetOPF()->GetEpubVersion();
+ 
     // Get the image to use.
     QStringList selected_files;
     // Get just images, not svg files.
@@ -1230,7 +1233,14 @@ void MainWindow::AddCover()
             html_resources.append(html_resource);
 
             // Check if this is an existing cover file.
-            if (m_Book->GetOPF()->GetGuideSemanticCodeForResource(html_resource) == "cover") {
+            QString semantic_code;
+            if (version.startsWith('3')) {
+                NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
+                semantic_code = navproc.GetLandmarkCodeForResource(html_resource);
+	    } else {
+	        semantic_code = m_Book->GetOPF()->GetGuideSemanticCodeForResource(html_resource);
+	    }
+            if (semantic_code == "cover") {
                 html_cover_resource = html_resource;
             } else if (resource->Filename().toLower() == HTML_COVER_FILENAME && html_cover_resource == NULL) {
                 html_cover_resource = html_resource;
@@ -1240,7 +1250,6 @@ void MainWindow::AddCover()
 
     // Populate the HTML cover file with the necessary text.
     // If a template file exists, use its text for the cover source.
-    QString version = m_Book->GetOPF()->GetEpubVersion();
     QString text = HTML_COVER_SOURCE;
     if (version.startsWith('3')) text = HTML5_COVER_SOURCE;
     QString cover_path = Utility::DefinePrefsDir() + "/" + HTML_COVER_FILENAME;
@@ -1262,9 +1271,9 @@ void MainWindow::AddCover()
         if (version.startsWith('3')) {
             NavProcessor navproc(m_Book->GetOPF()->GetNavResource());
             navproc.AddLandmarkCode(html_cover_resource, "cover", false);
+        } else {
+            m_Book->GetOPF()->AddGuideSemanticCode(html_cover_resource, "cover", false);
         }
-        m_Book->GetOPF()->AddGuideSemanticCode(html_cover_resource, "cover", false);
-        
         ImageResource *image_type_resource = qobject_cast<ImageResource *>(image_resource);
         if (image_type_resource) {
             if (!m_Book->GetOPF()->IsCoverImage(image_type_resource)) {
@@ -1327,7 +1336,6 @@ void MainWindow::UpdateManifestProperties()
     QApplication::restoreOverrideCursor();
 }
 
-
 void MainWindow::GenerateNCXFromNav()
 {
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
@@ -1375,35 +1383,61 @@ void MainWindow::GenerateNCXFromNav()
         m_BookBrowser->Refresh();
         m_Book->SetModified();
 
-        // now update the guide entries as well
-        PythonRoutines pr;
-        QList<QStringList> results = pr.UpdateGuideFromNavInPython(navdata, navname);
-        foreach(QStringList entry, results) {
-           QString gtype = entry.at(0);
-           QString href  = entry.at(1);
-           if (!gtype.isEmpty() && !href.isEmpty()) {
-               // remove any fragment identifier and extract file name
-               QStringList parts = href.split('#', QString::KeepEmptyParts);
-               QString base = parts.at(0);
-               QStringList path_pieces = base.split("/");
-               int last = path_pieces.count() - 1;
-               QString filename = path_pieces.at(last);
-               Resource * resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
-               HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-               if (html_resource) {
-                   // The OPFResource AddSemantic code defaults to remove by adding again (ie. toggling)
-                   // Setting the last parameter (toggle) to false disables toggling
-                   m_Book->GetOPF()->AddGuideSemanticCode(html_resource, gtype, false); 
-               }
-           }
-        }
-
         ShowMessageOnStatusBar(tr("NCX generated."));
         QApplication::restoreOverrideCursor();
         return;
     }
 
     ShowMessageOnStatusBar(tr("NCX generation failed."));
+    QApplication::restoreOverrideCursor();
+}
+
+void MainWindow::GenerateGuideFromNav()
+{
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    if (!version.startsWith('3')) {
+        ShowMessageOnStatusBar(tr("Not Available for epub2."));
+        return;
+    }
+
+    SaveTabData();
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // find existing nav document if there is one
+    HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
+
+    if (nav_resource) {
+
+        // start by clearing whatever old info is in the guide now
+        m_Book->GetOPF()->ClearSemanticCodesInGuide();
+
+        // collect all of the current nav landmark codes
+        NavProcessor navproc(nav_resource);
+	QHash<QString, QString> nav_landmark_codes = navproc.GetLandmarkCodeForPaths();
+
+        // Walk through all html resources and if they have a landmark code
+        // lookup its equivalent in the guide and set it if it exists
+	QList<Resource *> html_resources = GetAllHTMLResources();
+	foreach(Resource * resource, html_resources) {
+	    HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+            if (html_resource) {
+	        QString respath = resource->GetRelativePathToOEBPS();
+	        if (nav_landmark_codes.contains(respath)) {
+	            QString landmark_code = nav_landmark_codes[respath];
+                    QString guide_code =  Landmarks::instance()->GuideLandMapping(landmark_code);
+                    if (!guide_code.isEmpty()) {
+		        m_Book->GetOPF()->AddGuideSemanticCode(html_resource, guide_code, false);
+	            }
+		}
+	    }
+	}
+        m_Book->SetModified();
+        ShowMessageOnStatusBar(tr("OPF Guide generated."));
+        QApplication::restoreOverrideCursor();
+        return;
+    }
+
+    ShowMessageOnStatusBar(tr("OPF Guide generation failed."));
     QApplication::restoreOverrideCursor();
 }
 
@@ -1433,7 +1467,17 @@ void MainWindow::CreateIndex()
     }
 
     // get semantic (guide/landmark) information for all resources
-    QHash <QString, QString> semantic_types = m_Book->GetOPF()->GetSemanticCodeForPaths();
+    QHash <QString, QString> semantic_types;
+    QString version = m_Book->GetOPF()->GetEpubVersion();
+    HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
+    if (version.startsWith('3')) {
+        if (nav_resource) {
+            NavProcessor navproc(nav_resource);
+            semantic_types = navproc.GetLandmarkCodeForPaths();
+	}
+    } else {
+        semantic_types = m_Book->GetOPF()->GetSemanticCodeForPaths();
+    }
     QStringList allow_index;
     allow_index  << "bodymatter" << "chapter" << "conclusion" << "division" << "epilogue" << 
                     "introduction" << "part" << "preamble" << "prologue" << "subchapter" <<  
@@ -1485,7 +1529,6 @@ void MainWindow::CreateIndex()
     html_resources.removeOne(index_resource);
 
     // Skip indexing any epub3 nav document
-    HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
     if (nav_resource) {
         html_resources.removeOne(nav_resource);
     }
@@ -1497,18 +1540,17 @@ void MainWindow::CreateIndex()
     }
 
     // Write out the HTML index file.
-    QString version = index_resource->GetEpubVersion();
     IndexHTMLWriter index;
     index_resource->SetText(index.WriteXML(version));
 
     // Normally Setting a semantic on a resource that already has it set will remove the semantic.
     //  Pass along toggle as false to disable this default behaviour
-    m_Book->GetOPF()->AddGuideSemanticCode(index_resource, "index", false);
     if (version.startsWith('3')) {
-      NavProcessor navproc(m_Book->GetOPF()->GetNavResource());
+        NavProcessor navproc(m_Book->GetOPF()->GetNavResource());
         navproc.AddLandmarkCode(index_resource, "index", false);
+    } else {
+        m_Book->GetOPF()->AddGuideSemanticCode(index_resource, "index", false);
     }
-
     m_Book->SetModified();
     m_BookBrowser->Refresh();
     OpenResource(index_resource);
@@ -2511,6 +2553,8 @@ void MainWindow::CreateHTMLTOC()
     SaveTabData();
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
+    QString version = m_Book->GetOPF()->GetEpubVersion();
+
     bool found_css = false;
     foreach(Resource *resource, m_BookBrowser->AllCSSResources()) {
         if (resource->Filename() == SGC_TOC_CSS_FILENAME) {
@@ -2552,11 +2596,13 @@ void MainWindow::CreateHTMLTOC()
                 htmlResources.append(htmlResource);
 
                 // Check if this is an existing toc file.
-                if (m_Book->GetOPF()->GetGuideSemanticCodeForResource(htmlResource) == "toc") {
-                    tocResource = htmlResource;
-                } else if (resource->Filename() == HTML_TOC_FILE && tocResource == NULL) {
-                    tocResource = htmlResource;
-                }
+		if (!version.startsWith('3')) {
+                    if (m_Book->GetOPF()->GetGuideSemanticCodeForResource(htmlResource) == "toc") {
+                        tocResource = htmlResource;
+                    } else if (resource->Filename() == HTML_TOC_FILE && tocResource == NULL) {
+                        tocResource = htmlResource;
+                    }
+		}
             }
         }
     }
@@ -2573,14 +2619,14 @@ void MainWindow::CreateHTMLTOC()
         m_Book->GetOPF()->UpdateSpineOrder(htmlResources);
     }
     TOCHTMLWriter toc(m_TableOfContents->GetRootEntry());
-    QString version = tocResource->GetEpubVersion();
     tocResource->SetText(toc.WriteXML(version));
 
     // Setting a semantic on a resource that already has it set will remove the semantic.
     // Unless you pass toggle as false as the final parameter
     // In epub3 only the nav should be marked as the toc so do not set this landmark in the nav
-    m_Book->GetOPF()->AddGuideSemanticCode(tocResource, "toc", false);
-
+    if (!version.startsWith('3')) {
+        m_Book->GetOPF()->AddGuideSemanticCode(tocResource, "toc", false);
+    }
     m_Book->SetModified();
     m_BookBrowser->Refresh();
     OpenResource(tocResource);
@@ -4412,6 +4458,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionMendHTML, "MainWindow.MendHTML");
     sm->registerAction(this, ui.actionUpdateManifestProperties, "MainWindow.UpdateManifestProperties");
     sm->registerAction(this, ui.actionNCXFromNav, "MainWindow.NCXFromNav");
+    sm->registerAction(this, ui.actionGuideFromNav, "MainWindow.NCXFromNav");
     sm->registerAction(this, ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
     sm->registerAction(this, ui.actionSpellcheck, "MainWindow.Spellcheck");
     sm->registerAction(this, ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
@@ -4892,6 +4939,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionMendHTML,      SIGNAL(triggered()), this, SLOT(MendHTML()));
     connect(ui.actionUpdateManifestProperties,      SIGNAL(triggered()), this, SLOT(UpdateManifestProperties()));
     connect(ui.actionNCXFromNav,    SIGNAL(triggered()), this, SLOT(GenerateNCXFromNav()));
+    connect(ui.actionGuideFromNav,    SIGNAL(triggered()), this, SLOT(GenerateGuideFromNav()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateToc()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));
