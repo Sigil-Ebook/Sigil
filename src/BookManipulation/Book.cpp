@@ -86,6 +86,7 @@ const QString EMPTY_NAV_FILE_START =
     "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:epub=\"http://www.idpf.org/2007/ops\" "
     "lang=\"%1\" xml:lang=\"%2\">\n"
     "<head>\n"
+    "  <title></title>\n"
     "  <meta charset=\"utf-8\" />\n"
     "  <link href=\"../Styles/%3\" rel=\"stylesheet\" type=\"text/css\"/>"
     "</head>\n"
