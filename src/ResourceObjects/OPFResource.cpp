@@ -110,6 +110,7 @@ static const QString TEMPLATE3_TEXT =
     "    <dc:identifier id=\"BookId\">urn:uuid:%1</dc:identifier>\n"
     "    <dc:language>%2</dc:language>\n"
     "    <dc:title>%3</dc:title>\n"
+    "    <meta property=\"dcterms:modified\">%4</meta>\n"
     "  </metadata>\n\n"
     "  <manifest>\n"
     "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
@@ -1119,7 +1120,11 @@ QString OPFResource::GetOPFDefaultText(const QString &version)
     if (version.startsWith('2')) {
       return TEMPLATE_TEXT.arg(Utility::CreateUUID()).arg(defaultLanguage).arg(tr("[Title here]"));
     }
-    return TEMPLATE3_TEXT.arg(Utility::CreateUUID()).arg(defaultLanguage).arg(tr("[Main title here]"));
+    // epub 3 set dcterms:modified date time in ISO 8601 format
+    QDateTime local(QDateTime::currentDateTime());
+    local.setTimeSpec(Qt::UTC);
+    QString datetime = local.toString(Qt::ISODate);
+    return TEMPLATE3_TEXT.arg(Utility::CreateUUID()).arg(defaultLanguage).arg(tr("[Main title here]")).arg(datetime);
 }
 
 
