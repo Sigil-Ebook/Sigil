@@ -1336,7 +1336,7 @@ void MainWindow::UpdateManifestProperties()
     QApplication::restoreOverrideCursor();
 }
 
-void MainWindow::GenerateNCXFromNav()
+void MainWindow::GenerateNCXGuideFromNav()
 {
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
     if (!version.startsWith('3')) {
@@ -1357,7 +1357,7 @@ void MainWindow::GenerateNCXFromNav()
     }
 
     if ((!nav_resource) || navdata.isEmpty()) {
-        ShowMessageOnStatusBar(tr("NCX generation failed."));
+        ShowMessageOnStatusBar(tr("NCX and Guide generation failed."));
         QApplication::restoreOverrideCursor();
     }
 
@@ -1374,70 +1374,48 @@ void MainWindow::GenerateNCXFromNav()
     future.waitForFinished();
     QString ncxdata = future.result();
 
-    if (!ncxdata.isEmpty()) {
-        NCXResource * ncx_resource = m_Book->GetNCX();
-        ncx_resource->SetText(ncxdata);
-        ncx_resource->SaveToDisk();
-        m_TableOfContents->Refresh();
-        m_BookBrowser->BookContentModified();
-        m_BookBrowser->Refresh();
-        m_Book->SetModified();
-
-        ShowMessageOnStatusBar(tr("NCX generated."));
+    if (ncxdata.isEmpty()) {
+        ShowMessageOnStatusBar(tr("NCX and Guide generation failed."));
         QApplication::restoreOverrideCursor();
         return;
     }
 
-    ShowMessageOnStatusBar(tr("NCX generation failed."));
-    QApplication::restoreOverrideCursor();
-}
+    NCXResource * ncx_resource = m_Book->GetNCX();
+    ncx_resource->SetText(ncxdata);
+    ncx_resource->SaveToDisk();
 
-void MainWindow::GenerateGuideFromNav()
-{
-    QString version = m_Book->GetConstOPF()->GetEpubVersion();
-    if (!version.startsWith('3')) {
-        ShowMessageOnStatusBar(tr("Not Available for epub2."));
-        return;
-    }
+    // now create the opf guide from the nav
 
-    SaveTabData();
-    QApplication::setOverrideCursor(Qt::WaitCursor);
+    // start by clearing whatever old info is in the guide now
+    m_Book->GetOPF()->ClearSemanticCodesInGuide();
 
-    // find existing nav document if there is one
-    HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
+    // collect all of the current nav landmark codes
+    NavProcessor navproc(nav_resource);
+    QHash<QString, QString> nav_landmark_codes = navproc.GetLandmarkCodeForPaths();
 
-    if (nav_resource) {
-
-        // start by clearing whatever old info is in the guide now
-        m_Book->GetOPF()->ClearSemanticCodesInGuide();
-
-        // collect all of the current nav landmark codes
-        NavProcessor navproc(nav_resource);
-	QHash<QString, QString> nav_landmark_codes = navproc.GetLandmarkCodeForPaths();
-
-        // Walk through all html resources and if they have a landmark code
-        // lookup its equivalent in the guide and set it if it exists
-	QList<Resource *> html_resources = GetAllHTMLResources();
-	foreach(Resource * resource, html_resources) {
-	    HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-            if (html_resource) {
-	        QString respath = resource->GetRelativePathToOEBPS();
-	        if (nav_landmark_codes.contains(respath)) {
-	            QString landmark_code = nav_landmark_codes[respath];
-                    QString guide_code =  Landmarks::instance()->GuideLandMapping(landmark_code);
-                    if (!guide_code.isEmpty()) {
-		        m_Book->GetOPF()->AddGuideSemanticCode(html_resource, guide_code, false);
-	            }
-		}
+    // Walk through all html resources and if they have a landmark code
+    // lookup its equivalent in the guide and set it if it exists
+    QList<Resource *> html_resources = GetAllHTMLResources();
+    foreach(Resource * resource, html_resources) {
+	HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        if (html_resource) {
+	    QString respath = resource->GetRelativePathToOEBPS();
+	    if (nav_landmark_codes.contains(respath)) {
+	        QString landmark_code = nav_landmark_codes[respath];
+                QString guide_code =  Landmarks::instance()->GuideLandMapping(landmark_code);
+                if (!guide_code.isEmpty()) {
+		    m_Book->GetOPF()->AddGuideSemanticCode(html_resource, guide_code, false);
+	        }
 	    }
 	}
-        m_Book->SetModified();
-        ShowMessageOnStatusBar(tr("OPF Guide generated."));
-        QApplication::restoreOverrideCursor();
-        return;
     }
 
-    ShowMessageOnStatusBar(tr("OPF Guide generation failed."));
+    m_TableOfContents->Refresh();
+    m_BookBrowser->BookContentModified();
+    m_BookBrowser->Refresh();
+    m_Book->SetModified();
+
+    ShowMessageOnStatusBar(tr("NCX and Guide generated."));
     QApplication::restoreOverrideCursor();
 }
 
@@ -4457,8 +4435,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionMendPrettifyHTML, "MainWindow.MendPrettifyHTML");
     sm->registerAction(this, ui.actionMendHTML, "MainWindow.MendHTML");
     sm->registerAction(this, ui.actionUpdateManifestProperties, "MainWindow.UpdateManifestProperties");
-    sm->registerAction(this, ui.actionNCXFromNav, "MainWindow.NCXFromNav");
-    sm->registerAction(this, ui.actionGuideFromNav, "MainWindow.NCXFromNav");
+    sm->registerAction(this, ui.actionNCXGuideFromNav, "MainWindow.NCXGuideFromNav");
     sm->registerAction(this, ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
     sm->registerAction(this, ui.actionSpellcheck, "MainWindow.Spellcheck");
     sm->registerAction(this, ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
@@ -4938,8 +4915,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionMendPrettifyHTML,    SIGNAL(triggered()), this, SLOT(MendPrettifyHTML()));
     connect(ui.actionMendHTML,      SIGNAL(triggered()), this, SLOT(MendHTML()));
     connect(ui.actionUpdateManifestProperties,      SIGNAL(triggered()), this, SLOT(UpdateManifestProperties()));
-    connect(ui.actionNCXFromNav,    SIGNAL(triggered()), this, SLOT(GenerateNCXFromNav()));
-    connect(ui.actionGuideFromNav,    SIGNAL(triggered()), this, SLOT(GenerateGuideFromNav()));
+    connect(ui.actionNCXGuideFromNav, SIGNAL(triggered()), this, SLOT(GenerateNCXGuideFromNav()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateToc()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));
