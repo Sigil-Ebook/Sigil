@@ -2562,30 +2562,34 @@ void MainWindow::CreateHTMLTOC()
     // Turn the list of Resources that are really HTMLResources to a real list
     // of HTMLResources.
     QList<Resource *> resources = GetAllHTMLResources();
+
     foreach(Resource * resource, resources) {
 
         HTMLResource *htmlResource = qobject_cast<HTMLResource *>(resource);
 
         if (htmlResource) {
 
-            // prevent the nav resource from being chosen or used
+	    htmlResources.append(htmlResource);
+
+            // prevent the nav resource from being chosen or used for an html toc
             if (htmlResource != navResource) {
 
-                htmlResources.append(htmlResource);
-
-                // Check if this is an existing toc file.
+                // if epub2, check if this is an existing toc file
 		if (!version.startsWith('3')) {
                     if (m_Book->GetOPF()->GetGuideSemanticCodeForResource(htmlResource) == "toc") {
                         tocResource = htmlResource;
-                    } else if (resource->Filename() == HTML_TOC_FILE && tocResource == NULL) {
-                        tocResource = htmlResource;
-                    }
+		    }
 		}
+
+                // alternatively check if it matches our standard HTML_TOC filename
+                if (resource->Filename() == HTML_TOC_FILE && tocResource == NULL) {
+                    tocResource = htmlResource;
+                }
             }
         }
     }
-    // Close the tab so the focus saving doesn't overwrite the text were
-    // replacing in the resource.
+    // If you found an existing one, close the tab so the focus 
+    // saving doesn't overwrite the text we are replacing in the resource.
     if (tocResource != NULL) {
         m_TabManager->CloseTabForResource(tocResource);
     }
