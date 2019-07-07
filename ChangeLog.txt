@@ -6,6 +6,8 @@ pre-0.9.16
      - fix macOS specific bug with newer versions of PIL (Pillow) used by plugins
      - no longer link against unused Qt frameworks when building (thank you eli-schwartz!)
      - prevent ms vc++ automatic reboots during Windows installs
+     - prevent user from changing any semantics on the nav itself (it must be set to "toc")
+     - fix bug that dropped nav from spine when HTML TOC created
     New Features
      - added epub3 tool: Generate NCX/Guide for epub2 e-readers
      - added right click on link in Preview copies url to clipboard
