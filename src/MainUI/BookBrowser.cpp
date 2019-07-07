@@ -1250,12 +1250,17 @@ void BookBrowser::AddSemanticCode()
     }
     HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
 
-    QStringList codes;
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
-
-    QString current_code;
+    HTMLResource * nav_resource = NULL;
     if (version.startsWith('3')) {
-        NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
+        nav_resource = m_Book->GetConstOPF()->GetNavResource();
+    }
+
+    QStringList codes;
+    QString current_code;
+
+    if (version.startsWith('3')) {
+        NavProcessor navproc(nav_resource);
         current_code = navproc.GetLandmarkCodeForResource(resource);
     } else { 
         current_code = m_Book->GetOPF()->GetGuideSemanticCodeForResource(resource);
@@ -1267,10 +1272,14 @@ void BookBrowser::AddSemanticCode()
             codes = addmeaning.GetSelectedEntries();
             if (!codes.isEmpty()) {
                 QString new_code = codes.at(0);
-                NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
-                navproc.AddLandmarkCode(html_resource, new_code);
-                m_OPFModel->Refresh();
-                emit BookContentModified();
+		// do not allow a user to change any semantics on the nav resource as it
+		// must be set to "toc"
+		if (html_resource != nav_resource) {
+                    NavProcessor navproc(nav_resource);
+                    navproc.AddLandmarkCode(html_resource, new_code);
+                    m_OPFModel->Refresh();
+                    emit BookContentModified();
+		}
             }
         }
     } else {
