@@ -1269,6 +1269,7 @@ void BookBrowser::AddSemanticCode()
                 QString new_code = codes.at(0);
                 NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
                 navproc.AddLandmarkCode(html_resource, new_code);
+                m_OPFModel->Refresh();
                 emit BookContentModified();
             }
         }
