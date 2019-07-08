@@ -103,7 +103,9 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
     // will (indirectly) call QTextDocument::setPlainText, and if
     // a tab is open for the ncx/opf, then an event needs to be sent
     // to the tab widget. Events can't cross threads, and we crash.
-    const QString ncx_result = UpdateNCXFile(ncx_resource, xml_updates);
+    if (ncx_resource) {
+        const QString ncx_result = UpdateNCXFile(ncx_resource, xml_updates);
+    }
     const QString opf_result = UpdateOPFFile(opf_resource, xml_updates);
 
     // Handle other xml resources one by one since done in Embedded Python
