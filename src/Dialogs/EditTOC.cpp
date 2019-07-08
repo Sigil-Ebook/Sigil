@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2013 Dave Heiland
 **
 **  This file is part of Sigil.
@@ -96,6 +96,7 @@ void EditTOC::Save()
         NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
         navproc.GenerateNavTOCFromTOCEntries(ConvertTableToEntries());
     } else {
+        // this is safe as all epub2's must hve an ncx (if not we made one for them)
         m_Book->GetNCX()->GenerateNCXFromTOCEntries(m_Book.data(), ConvertTableToEntries());
     }
 }

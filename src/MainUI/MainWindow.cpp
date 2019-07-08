@@ -1381,6 +1381,13 @@ void MainWindow::GenerateNCXGuideFromNav()
     }
 
     NCXResource * ncx_resource = m_Book->GetNCX();
+    // generate a new empty NCX if one does not exist in this epub3
+    if (!ncx_resource) {
+        ncx_resource = m_Book->AddNCXToFolder();
+	// We manually created an NCX file because there wasn't one in the manifest.
+        // Need to create a new manifest id for it.
+        m_Book->GetOPF()->AddNCXItem(ncx_resource->GetFullPath());
+    }
     ncx_resource->SetText(ncxdata);
     ncx_resource->SaveToDisk();
 
@@ -2510,6 +2517,7 @@ void MainWindow::GenerateToc()
         is_toc_changed = navproc.GenerateTOCFromBookContents(m_Book.data());
     } else {
         // Regenerate the NCX regardless of whether headings were changed, in case the user erased it.
+        // using GetNCX() here will never return a nullptr on epub2
         is_toc_changed = m_Book->GetNCX()->GenerateNCXFromBookContents(m_Book.data());
     }
     if (is_headings_changed || is_toc_changed) {

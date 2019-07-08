@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015, 2016        Kevin B. Hendricks  Stratford, ON Canada
+**  Copyright (C) 2015-2019         Kevin B. Hendricks  Stratford, ON Canada
 **  Copyright (C) 2013              John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
