@@ -798,14 +798,14 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
     }
     
     if (m_PackageVersion.startsWith('2')) {
-        m_Book->FolderKepper()->AddNCXToFolder();
+        m_Book->GetFolderKeeper()->AddNCXToFolder();
     }
 
     if (!ncx_href.isEmpty()) {
         m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
 	if (QFile::exists(m_NCXFilePath) && m_PackageVersion.startsWith('3')) {
 	    // only ask folderkeeper to create an NCX is one already exists for epub3
-            m_Book->FolderKepper()->AddNCXToFolder();
+            m_Book->GetFolderKeeper()->AddNCXToFolder();
 	}
     }
 

@@ -350,6 +350,7 @@ NCXResource*FolderKeeper::AddNCXToFolder()
 
     // TODO: change from Resource* to const Resource&
     connect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
+    return m_NCX;
 }
 
 

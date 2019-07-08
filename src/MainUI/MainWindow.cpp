@@ -1383,9 +1383,10 @@ void MainWindow::GenerateNCXGuideFromNav()
     NCXResource * ncx_resource = m_Book->GetNCX();
     // generate a new empty NCX if one does not exist in this epub3
     if (!ncx_resource) {
-        ncx_resource = m_Book->AddNCXToFolder();
+        ncx_resource = m_Book->GetFolderKeeper()->AddNCXToFolder();
 	// We manually created an NCX file because there wasn't one in the manifest.
         // Need to create a new manifest id for it.
+        // FIXME: Deal with setting spine attributes for NCX properly
         m_Book->GetOPF()->AddNCXItem(ncx_resource->GetFullPath());
     }
     ncx_resource->SetText(ncxdata);
