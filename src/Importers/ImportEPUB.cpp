@@ -796,9 +796,17 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
             }
         }
     }
+    
+    if (m_PackageVersion.startsWith('2')) {
+        m_Book->FolderKepper()->AddNCXToFolder();
+    }
 
     if (!ncx_href.isEmpty()) {
         m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
+	if (QFile::exists(m_NCXFilePath) && m_PackageVersion.startsWith('3')) {
+	    // only ask folderkeeper to create an NCX is one already exists for epub3
+            m_Book->FolderKepper()->AddNCXToFolder();
+	}
     }
 
     if (ncx_href.isEmpty() || m_NCXFilePath.isEmpty() || !QFile::exists(m_NCXFilePath)) {
@@ -817,17 +825,18 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
             // Create a new file for the NCX.
             // Previously this resource was created local to the stack, which if ref counted 
             // may be okay but lets create it with new and make its parent the FolderKeeper
-            NCXResource* ncxresource = new NCXResource(m_ExtractedFolderPath, m_NCXFilePath, m_Book->GetFolderKeeper());
+            NCXResource ncx_resource(m_ExtractedFolderPath, m_NCXFilePath, m_Book->GetFolderKeeper());
 
             // We are relying on an identifier being set from the metadata.
             // It might not have one if the book does not have the urn:uuid: format.
             if (!m_UuidIdentifierValue.isEmpty()) {
-                ncx_resource->SetMainID(m_UuidIdentifierValue);
+                ncx_resource.SetMainID(m_UuidIdentifierValue);
             }
 
-            ncx_resource->SaveToDisk();
+            ncx_resource.SaveToDisk();
 	}
 
+	
         if (m_PackageVersion.startsWith('2')) { 
             if (ncx_href.isEmpty()) {
                 load_warning = QObject::tr("The OPF file does not contain an NCX file.") + "\n" + 
@@ -855,8 +864,8 @@ void ImportEPUB::LoadInfrastructureFiles()
     m_Book->GetOPF()->SetCurrentBookRelPath(OPFBookRelPath);
     NCXResource * ncxresource = m_Book->GetNCX();
     if (ncxresource) {
-        ncxresource->SetText(CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath),"application/x-dtbncx+xml"));
         ncxresource->SetEpubVersion(m_PackageVersion);
+        ncxresource->SetText(CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath),"application/x-dtbncx+xml"));
         QString NCXBookRelPath = m_NCXFilePath;
         NCXBookRelPath = NCXBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
         ncxresource->SetCurrentBookRelPath(NCXBookRelPath);

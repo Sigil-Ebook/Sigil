@@ -180,6 +180,8 @@ public:
      */
     NCXResource *GetNCX() const;
 
+    NCXResource* AddNCXToFolder();
+
     /**
      * Returns the full path to the main folder of the publication.
      *
