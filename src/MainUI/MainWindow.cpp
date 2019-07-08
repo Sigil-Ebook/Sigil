@@ -1386,8 +1386,9 @@ void MainWindow::GenerateNCXGuideFromNav()
         ncx_resource = m_Book->GetFolderKeeper()->AddNCXToFolder();
 	// We manually created an NCX file because there wasn't one in the manifest.
         // Need to create a new manifest id for it.
-        // FIXME: Deal with setting spine attributes for NCX properly
-        m_Book->GetOPF()->AddNCXItem(ncx_resource->GetFullPath());
+        // and take that manifest id and add it to the spine attribute
+        QString NCXId = m_Book->GetOPF()->AddNCXItem(ncx_resource->GetFullPath());
+	m_Book->GetOPF()->UpdateNCXOnSpine(NCXId);
     }
     ncx_resource->SetText(ncxdata);
     ncx_resource->SaveToDisk();
