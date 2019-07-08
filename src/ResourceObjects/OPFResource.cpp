@@ -113,9 +113,8 @@ static const QString TEMPLATE3_TEXT =
     "    <meta property=\"dcterms:modified\">%4</meta>\n"
     "  </metadata>\n\n"
     "  <manifest>\n"
-    "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
     "  </manifest>\n\n"
-    "  <spine toc=\"ncx\">\n"
+    "  <spine>\n"
     "  </spine>\n\n"
     "</package>";
 
