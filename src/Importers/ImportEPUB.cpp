@@ -213,16 +213,21 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
         m_Book->GetOPF()->SetNavResource(nav_resource);
     }
 
-    if (m_NCXNotInManifest) {
+    
+    if (m_NCXNotInManifest && m_PackageVersion.startsWith('2')) {
         // We manually created an NCX file because there wasn't one in the manifest.
         // Need to create a new manifest id for it.
         m_NCXId = m_Book->GetOPF()->AddNCXItem(m_NCXFilePath);
     }
 
-    // Ensure that our spine has a <spine toc="ncx"> element on it now in case it was missing.
-    m_Book->GetOPF()->UpdateNCXOnSpine(m_NCXId);
-    // Make sure the <item> for the NCX in the manifest reflects correct href path
-    m_Book->GetOPF()->UpdateNCXLocationInManifest(m_Book->GetNCX());
+    NCXResource * ncxresource = m_Book->GetNCX();
+ 
+    if (ncxresource) {
+        // Ensure that our spine has a <spine toc="ncx"> element on it now in case it was missing.
+        m_Book->GetOPF()->UpdateNCXOnSpine(m_NCXId);
+        // Make sure the <item> for the NCX in the manifest reflects correct href path
+        m_Book->GetOPF()->UpdateNCXLocationInManifest(ncxresource);
+    }
 
     // If spine was not present or did not contain any items, recreate the OPF from scratch
     // preserving any important metadata elements and making a new reading order.
@@ -763,7 +768,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
 void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
 {
     QString load_warning;
-    QString ncx_href = "not_found";
+    QString ncx_href = "";
     m_NCXId = ncx_id_on_spine;
 
     // Handle various failure conditions, such as:
@@ -792,29 +797,38 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
         }
     }
 
-    m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
+    if (!ncx_href.isEmpty()) {
+        m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
+    }
 
-    if (ncx_href.isEmpty() || !QFile::exists(m_NCXFilePath)) {
+    if (ncx_href.isEmpty() || m_NCXFilePath.isEmpty() || !QFile::exists(m_NCXFilePath)) {
         m_NCXNotInManifest = m_NCXId.isEmpty() || ncx_href.isEmpty();
         m_NCXId.clear();
-        // Things are really bad and no .ncx file was found in the manifest or
+
+        // For epub3 having an ncx is optional so do nothing here
+
+        // For epub2, having an ncx is required so things are really
+        // bad and no .ncx file was found in the manifest or
         // the file does not physically exist.  We need to create a new one.
-        m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % NCX_FILE_NAME;
-        // Create a new file for the NCX.
-        NCXResource ncx_resource(m_ExtractedFolderPath, m_NCXFilePath, m_Book->GetFolderKeeper());
 
-        // We are relying on an identifier being set from the metadata.
-        // It might not have one if the book does not have the urn:uuid: format.
-        if (!m_UuidIdentifierValue.isEmpty()) {
-            ncx_resource.SetMainID(m_UuidIdentifierValue);
-        }
+        if ( m_PackageVersion.startsWith('2') ) {
+            m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % NCX_FILE_NAME;
 
-        ncx_resource.SaveToDisk();
+            // Create a new file for the NCX.
+            // Previously this resource was created local to the stack, which if ref counted 
+            // may be okay but lets create it with new and make its parent the FolderKeeper
+            NCXResource* ncxresource = new NCXResource(m_ExtractedFolderPath, m_NCXFilePath, m_Book->GetFolderKeeper());
 
-        if (m_PackageVersion.startsWith('3')) { 
-            load_warning = QObject::tr("Sigil has created a template NCX") + "\n" + 
-              QObject::tr("to support epub2 backwards compatibility.");
-        } else {
+            // We are relying on an identifier being set from the metadata.
+            // It might not have one if the book does not have the urn:uuid: format.
+            if (!m_UuidIdentifierValue.isEmpty()) {
+                ncx_resource->SetMainID(m_UuidIdentifierValue);
+            }
+
+            ncx_resource->SaveToDisk();
+	}
+
+        if (m_PackageVersion.startsWith('2')) { 
             if (ncx_href.isEmpty()) {
                 load_warning = QObject::tr("The OPF file does not contain an NCX file.") + "\n" + 
                                " - " +  QObject::tr("Sigil has created a new one for you.");
@@ -839,12 +853,14 @@ void ImportEPUB::LoadInfrastructureFiles()
     QString OPFBookRelPath = m_OPFFilePath;
     OPFBookRelPath = OPFBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
     m_Book->GetOPF()->SetCurrentBookRelPath(OPFBookRelPath);
-
-    m_Book->GetNCX()->SetText(CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath),"application/x-dtbncx+xml"));
-    m_Book->GetNCX()->SetEpubVersion(m_PackageVersion);
-    QString NCXBookRelPath = m_NCXFilePath;
-    NCXBookRelPath = NCXBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
-    m_Book->GetNCX()->SetCurrentBookRelPath(NCXBookRelPath);
+    NCXResource * ncxresource = m_Book->GetNCX();
+    if (ncxresource) {
+        ncxresource->SetText(CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath),"application/x-dtbncx+xml"));
+        ncxresource->SetEpubVersion(m_PackageVersion);
+        QString NCXBookRelPath = m_NCXFilePath;
+        NCXBookRelPath = NCXBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
+        ncxresource->SetCurrentBookRelPath(NCXBookRelPath);
+    }
 }
 
 
