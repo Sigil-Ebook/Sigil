@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016
+**  Copyright (C) 2016-2019   Kevin B Hendricks, Stratford, Ontario Canada 
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -75,6 +75,7 @@ void TableOfContents::SetBook(QSharedPointer<Book> book)
     if (m_EpubVersion.startsWith('3')) {
       connect(m_Book->GetConstOPF()->GetNavResource(), SIGNAL(Modified()), this, SLOT(StartRefreshDelay()));
     } else {
+      // This is fine on epub2 as GetNCX() will always return a valid pointer
       connect(m_Book->GetNCX(), SIGNAL(Modified()), this, SLOT(StartRefreshDelay()));
     }
     
@@ -99,6 +100,7 @@ void TableOfContents::RenumberTOCContents()
 {
     if (m_EpubVersion.startsWith('3')) {
     } else {
+        // This is fine for epub2 as GetNCX will always return a valid NCXResource  pointer
         m_Book->GetNCX()->GenerateNCXFromTOCContents(m_Book.data(), m_TOCModel);
     }
 }
