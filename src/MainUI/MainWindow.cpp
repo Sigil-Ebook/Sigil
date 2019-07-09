@@ -1383,7 +1383,7 @@ void MainWindow::GenerateNCXGuideFromNav()
     NCXResource * ncx_resource = m_Book->GetNCX();
     // generate a new empty NCX if one does not exist in this epub3
     if (!ncx_resource) {
-        ncx_resource = m_Book->GetFolderKeeper()->AddNCXToFolder();
+        ncx_resource = m_Book->GetFolderKeeper()->AddNCXToFolder(version);
 	// We manually created an NCX file because there wasn't one in the manifest.
         // Need to create a new manifest id for it.
         // and take that manifest id and add it to the spine attribute
@@ -3737,6 +3737,8 @@ void MainWindow::CreateNewBook()
         HTMLResource * nav_resource = new_book->CreateEmptyNavFile(true);
         new_book->GetOPF()->SetNavResource(nav_resource);
         new_book->GetOPF()->SetItemRefLinear(nav_resource, false);
+    } else {
+        NCXResource * ncx_resource = new_book->GetFolderKeeper()->AddNCXToFolder(version);
     }
     SetNewBook(new_book);
     new_book->SetModified(false);
@@ -3747,6 +3749,7 @@ void MainWindow::CreateNewBook()
 
 bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
 {
+    qDebug() << fullfilepath << is_internal;
     if (!Utility::IsFileReadable(fullfilepath)) {
         return false;
     }
@@ -3806,29 +3809,29 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
 
             return true;
         }
-    } catch (FileEncryptedWithDrm) {
-        ShowMessageOnStatusBar();
-        QApplication::restoreOverrideCursor();
-        Utility::DisplayStdErrorDialog(
-            tr("The creator of this file has encrypted it with DRM. "
-               "Sigil cannot open such files."));
-    } catch (EPUBLoadParseError epub_load_error) {
-        ShowMessageOnStatusBar();
-        QApplication::restoreOverrideCursor();
-        const QString errors = QString(epub_load_error.what());
-        Utility::DisplayStdErrorDialog(
-            tr("Cannot load EPUB: %1").arg(QDir::toNativeSeparators(fullfilepath)), errors);
-    } catch (const std::runtime_error &e) {
-        ShowMessageOnStatusBar();
-        QApplication::restoreOverrideCursor();
-        Utility::DisplayExceptionErrorDialog(tr("Cannot load file %1: %2")
+   } catch (FileEncryptedWithDrm) {
+       ShowMessageOnStatusBar();
+       QApplication::restoreOverrideCursor();
+       Utility::DisplayStdErrorDialog(
+           tr("The creator of this file has encrypted it with DRM. "
+              "Sigil cannot open such files."));
+   } catch (EPUBLoadParseError epub_load_error) {
+       ShowMessageOnStatusBar();
+       QApplication::restoreOverrideCursor();
+       const QString errors = QString(epub_load_error.what());
+       Utility::DisplayStdErrorDialog(
+           tr("Cannot load EPUB: %1").arg(QDir::toNativeSeparators(fullfilepath)), errors);
+   } catch (const std::runtime_error &e) {
+       ShowMessageOnStatusBar();
+       QApplication::restoreOverrideCursor();
+       Utility::DisplayExceptionErrorDialog(tr("Cannot load file %1: %2")
                                              .arg(QDir::toNativeSeparators(fullfilepath))
                                              .arg(e.what()));
-    } catch (QString err) {
-        ShowMessageOnStatusBar();
-        QApplication::restoreOverrideCursor();
-        Utility::DisplayStdErrorDialog(err);
-    }
+   } catch (QString err) {
+       ShowMessageOnStatusBar();
+       QApplication::restoreOverrideCursor();
+       Utility::DisplayStdErrorDialog(err);
+   }
 
     // If we got to here some sort of error occurred while loading the file
     // and potentially has left the GUI in a nasty state (like on initial startup)

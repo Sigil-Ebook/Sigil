@@ -180,7 +180,7 @@ public:
      */
     NCXResource *GetNCX() const;
 
-    NCXResource* AddNCXToFolder();
+    NCXResource* AddNCXToFolder(const QString & version);
 
     void RemoveNCXFromFolder();
 

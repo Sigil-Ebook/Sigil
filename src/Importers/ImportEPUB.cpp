@@ -153,7 +153,7 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
     // let it modify the file.
     for (int i=0; i<resources.count(); ++i) {
         if (resources.at(i)->Type() == Resource::HTMLResourceType) {
-            HTMLResource *hresource = dynamic_cast<HTMLResource *>(resources.at(i));
+            HTMLResource *hresource = qobject_cast<HTMLResource *>(resources.at(i));
             if (!hresource) {
                 continue;
             }
@@ -200,14 +200,14 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
         HTMLResource * nav_resource = NULL;
         if (m_NavResource) {
             if (m_NavResource->Type() == Resource::HTMLResourceType) {
-                nav_resource = dynamic_cast<HTMLResource*>(m_NavResource);
+                nav_resource = qobject_cast<HTMLResource*>(m_NavResource);
             }
         }
         if (!nav_resource) { 
             // we need to create a nav file here because one was not found
             // it will automatically be added to the content.opf
             nav_resource = m_Book->CreateEmptyNavFile(true);
-            Resource * res = dynamic_cast<Resource *>(nav_resource);
+            Resource * res = qobject_cast<Resource *>(nav_resource);
             m_Book->GetOPF()->SetItemRefLinear(res, false);
         }
         m_Book->GetOPF()->SetNavResource(nav_resource);
@@ -771,6 +771,11 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
     QString ncx_href = "";
     m_NCXId = ncx_id_on_spine;
 
+    // if epub2 must have an ncx
+    if (m_PackageVersion.startsWith('2')) {
+        m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion);
+    }
+
     // Handle various failure conditions, such as:
     // - ncx not specified in the spine (search for a matching manifest item by extension)
     // - ncx specified in spine, but no matching manifest item entry (create a new one)
@@ -796,16 +801,12 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
             }
         }
     }
-    
-    if (m_PackageVersion.startsWith('2')) {
-        m_Book->GetFolderKeeper()->AddNCXToFolder();
-    }
-
     if (!ncx_href.isEmpty()) {
         m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
+
 	if (QFile::exists(m_NCXFilePath) && m_PackageVersion.startsWith('3')) {
-	    // only ask folderkeeper to create an NCX is one already exists for epub3
-            m_Book->GetFolderKeeper()->AddNCXToFolder();
+	    // only ask folderkeeper to create an NCX if an ncx already exists in this epub3
+            m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion);
 	}
     }
 
@@ -823,9 +824,8 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
             m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % NCX_FILE_NAME;
 
             // Create a new file for the NCX.
-            // Previously this resource was created local to the stack, which if ref counted 
-            // may be okay but lets create it with new and make its parent the FolderKeeper
-            NCXResource ncx_resource(m_ExtractedFolderPath, m_NCXFilePath, m_Book->GetFolderKeeper());
+            NCXResource ncx_resource(m_ExtractedFolderPath, m_NCXFilePath, NULL);
+            ncx_resource.SetEpubVersion(m_PackageVersion);
 
             // We are relying on an identifier being set from the metadata.
             // It might not have one if the book does not have the urn:uuid: format.
