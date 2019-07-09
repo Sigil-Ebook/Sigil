@@ -1080,7 +1080,7 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
     if (ncx_resource) {
         ncx_filename = ncx_resource->Filename();
     }
-    if (ncx_resource && resources.contains(ncx_resource) and version.startsWith('2')) {
+    if (ncx_resource && resources.contains(ncx_resource) && version.startsWith('2')) {
         Utility::DisplayStdErrorDialog(
             tr("The NCX is required for epub2 and can not be removed.")
         );
@@ -1531,7 +1531,6 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
                                  (AllHTMLResources().count() > 1 && resources.count() != item_count));
             m_ContextMenu->addAction(m_Rename);
         }
-
         if (resource->Type() == Resource::HTMLResourceType) {
             m_ContextMenu->addAction(m_Merge);
             m_Merge->setEnabled(item_count > 1 ||
@@ -1549,6 +1548,10 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
         }
 
         if (resource->Type() == Resource::NCXResourceType) {
+	    NCXResource * ncx_resource = m_Book->GetNCX();
+            if (ncx_resource && ncx_resource->GetEpubVersion().startsWith('3')) {
+                m_ContextMenu->addAction(m_Delete);
+	    }
             m_ContextMenu->addAction(m_RenumberTOC);
         }
 

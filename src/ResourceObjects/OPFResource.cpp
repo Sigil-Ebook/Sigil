@@ -598,8 +598,14 @@ void OPFResource::RemoveResource(const Resource *resource)
     OPFParser p;
     p.parse(source);
     if (p.m_manifest.isEmpty()) return;
-
-    QString resource_oebps_path = resource->GetRelativePathToOEBPS();
+    QString resource_oebps_path;
+    if (resource->Type() == NCXResourceType) {
+        const NCXResource * ncx_resource = qobject_cast<const NCXResource*>(resource);
+	resource_oebps_path = ncx_resource->GetRelativePathToOEBPS();
+    } else {
+        resource_oebps_path = resource->GetRelativePathToOEBPS();
+    }
+	
     int pos = p.m_hrefpos.value(resource_oebps_path, -1);
     QString item_id = "";
 

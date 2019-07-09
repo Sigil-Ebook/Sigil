@@ -170,3 +170,10 @@ QString NCXResource::GetRelativePathToRoot() const
     QString parent_name = parent_dir.dirName();
     return parent_name + "/" + Filename();
 }
+
+QString NCXResource::GetRelativePathToOEBPS() const
+{
+    return Filename();
+}
+
+

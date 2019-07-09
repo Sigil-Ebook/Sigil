@@ -3749,7 +3749,6 @@ void MainWindow::CreateNewBook()
 
 bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
 {
-    qDebug() << fullfilepath << is_internal;
     if (!Utility::IsFileReadable(fullfilepath)) {
         return false;
     }
