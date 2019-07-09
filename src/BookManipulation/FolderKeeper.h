@@ -182,6 +182,8 @@ public:
 
     NCXResource* AddNCXToFolder();
 
+    void RemoveNCXFromFolder();
+
     /**
      * Returns the full path to the main folder of the publication.
      *

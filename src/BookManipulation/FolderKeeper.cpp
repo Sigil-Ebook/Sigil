@@ -356,6 +356,18 @@ NCXResource*FolderKeeper::AddNCXToFolder()
 }
 
 
+void FolderKeeper::RemoveNCXFromFolder()
+{
+    if (!m_NCX) {
+        return;
+    }
+    disconnect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
+    RemoveResource(m_NCX);    
+    m_NCX = NULL;
+    return;
+}
+
+
 QString FolderKeeper::GetFullPathToMainFolder() const
 {
     return m_FullPathToMainFolder;

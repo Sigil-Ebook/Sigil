@@ -319,6 +319,16 @@ void OPFResource::UpdateNCXOnSpine(const QString &new_ncx_id)
     }
 }
 
+void OPFResource::RemoveNCXOnSpine()
+{
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    p.m_spineattr.m_atts.remove("toc");
+    UpdateText(p);
+}
+
 
 void OPFResource::UpdateNCXLocationInManifest(const NCXResource *ncx)
 {

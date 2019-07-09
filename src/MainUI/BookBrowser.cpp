@@ -1063,6 +1063,8 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
         return;
     }
 
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+
     Resource *next_resource = NULL;
 
     Resource * nav_resource =  m_Book->GetConstOPF()->GetNavResource();
@@ -1072,14 +1074,27 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
         );
         return;
     }
-    Resource::ResourceType resource_type = resources.first()->Type();
-    if (resource_type == Resource::OPFResourceType ||
-        resource_type == Resource::NCXResourceType) {
+    // do the same for ncx under epub2
+    NCXResource * ncx_resource = m_Book->GetNCX();
+    QString ncx_filename;
+    if (ncx_resource) {
+        ncx_filename = ncx_resource->Filename();
+    }
+    if (ncx_resource && resources.contains(ncx_resource) and version.startsWith('2')) {
         Utility::DisplayStdErrorDialog(
-            tr("Neither the NCX nor the OPF can be removed.")
+            tr("The NCX is required for epub2 and can not be removed.")
         );
         return;
-    } else if (resource_type == Resource::HTMLResourceType &&
+    }
+    Resource::ResourceType resource_type = resources.first()->Type();
+    if (resource_type == Resource::OPFResourceType) {
+        Utility::DisplayStdErrorDialog(
+            tr("The OPF is required for epub and can be removed.")
+        );
+        return;
+    }
+
+    if (resource_type == Resource::HTMLResourceType &&
                resources.count() == m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>().count()) {
         {
             Utility::DisplayStdErrorDialog(
@@ -1109,6 +1124,16 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
     }
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // if we are deleting the ncx, handle it here
+    if (ncx_resource && files_to_delete.contains(ncx_filename)) {
+        // remove it from the spine attributes first
+        m_Book->GetOPF()->RemoveNCXOnSpine();
+        m_Book->GetFolderKeeper()->RemoveNCXFromFolder();
+	ncx_resource->Delete();
+        files_to_delete.removeOne(ncx_filename);
+	resources.removeOne(ncx_resource);
+    }
 
     foreach(Resource * resource, resources) {
         if (!files_to_delete.contains(resource->Filename())) {
