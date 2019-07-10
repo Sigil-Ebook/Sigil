@@ -221,6 +221,8 @@ public slots:
 
     void GenerateNCXGuideFromNav();
 
+    void RemoveNCXGuideFromEpub3();
+
     void CreateIndex();
 
     void runPlugin(QAction *action);

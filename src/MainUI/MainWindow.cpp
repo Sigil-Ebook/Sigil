@@ -1336,6 +1336,39 @@ void MainWindow::UpdateManifestProperties()
     QApplication::restoreOverrideCursor();
 }
 
+
+void MainWindow::RemoveNCXGuideFromEpub3()
+{
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    if (!version.startsWith('3')) {
+        ShowMessageOnStatusBar(tr("Not Available for epub2."));
+        return;
+    }
+
+    SaveTabData();
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    NCXResource * ncx_resource = m_Book->GetNCX();
+    if (ncx_resource) {
+        m_Book->GetOPF()->RemoveNCXOnSpine();
+        m_Book->GetFolderKeeper()->RemoveNCXFromFolder();
+        ncx_resource->Delete();
+    }
+
+    // clear the guide
+    m_Book->GetOPF()->ClearSemanticCodesInGuide();
+
+    m_TableOfContents->Refresh();
+    m_BookBrowser->BookContentModified();
+    m_BookBrowser->Refresh();
+    m_Book->SetModified();
+
+    ShowMessageOnStatusBar(tr("NCX and Guide removed."));
+    QApplication::restoreOverrideCursor();
+
+}
+
+
 void MainWindow::GenerateNCXGuideFromNav()
 {
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
@@ -4452,6 +4485,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionMendHTML, "MainWindow.MendHTML");
     sm->registerAction(this, ui.actionUpdateManifestProperties, "MainWindow.UpdateManifestProperties");
     sm->registerAction(this, ui.actionNCXGuideFromNav, "MainWindow.NCXGuideFromNav");
+    sm->registerAction(this, ui.actionRemoveNCXGuide, "MainWindow.RemoveNCXGuide");
     sm->registerAction(this, ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
     sm->registerAction(this, ui.actionSpellcheck, "MainWindow.Spellcheck");
     sm->registerAction(this, ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
@@ -4932,6 +4966,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionMendHTML,      SIGNAL(triggered()), this, SLOT(MendHTML()));
     connect(ui.actionUpdateManifestProperties,      SIGNAL(triggered()), this, SLOT(UpdateManifestProperties()));
     connect(ui.actionNCXGuideFromNav, SIGNAL(triggered()), this, SLOT(GenerateNCXGuideFromNav()));
+    connect(ui.actionRemoveNCXGuide,  SIGNAL(triggered()), this, SLOT(RemoveNCXGuideFromEpub3()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateToc()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));

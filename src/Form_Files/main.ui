@@ -321,6 +321,7 @@
      </property>
      <addaction name="actionUpdateManifestProperties"/>
      <addaction name="actionNCXGuideFromNav"/>
+     <addaction name="actionRemoveNCXGuide"/>
     </widget>
     <addaction name="actionAddCover"/>
     <addaction name="actionMetaEditor"/>
@@ -2374,6 +2375,11 @@
   <action name="actionNCXGuideFromNav">
    <property name="text">
     <string>Generate &amp;NCX/Guide for epub2 e-readers</string>
+   </property>
+  </action>
+  <action name="actionRemoveNCXGuide">
+   <property name="text">
+    <string>Remove the NCX and Guide</string>
    </property>
   </action>
  </widget>
