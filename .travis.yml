@@ -1,0 +1,80 @@
+os: osx
+language: c++
+compiler: clang
+osx_image: xcode10.1
+
+env:
+  global:
+    - HOMEBREW_NO_AUTO_UPDATE=1
+    - MACOSX_DEPLOYMENT_TARGET=10.12
+    - QT_URL=https://raw.githubusercontent.com/kevinhendricks/BuildSigilOnMac/master/Qt5.12.3/Qt512.tar.xz
+    - PYTHON_URL=https://raw.githubusercontent.com/kevinhendricks/BuildSigilOnMac/master/Python/Python.framework.tar.xz
+    - PY_VER=3.7
+
+branches:
+  only:
+  - master
+  - optncx
+  - /\d+\.\d+\.\d+(-\d+)?/
+
+git:
+  depth: 3
+
+install:
+  - brew install gdrive
+  - brew install xz
+  - pwd
+  - cd ~
+  # Retrieve custom Qt
+  - wget $QT_URL
+  - tar xzf Qt512.tar.xz
+  - export MYQTHOME=${HOME}/Qt512
+  # Add custom Qt to path
+  - export PATH=${PATH}:${MYQTHOME}/bin
+  # macdeployqt looks for qt plugins in a hard-coded compile-time location
+  - sudo mkdir -p /Users/kbhend/Qt512
+  - sudo chown -R travis /Users/kbhend/
+  - cp -R ~/Qt512/plugins /Users/kbhend/Qt512
+  # Retrieve custom Python
+  - mkdir Frameworks
+  - cd ./Frameworks
+  - wget $PYTHON_URL
+  - tar xzf Python.framework.tar.xz
+  - export MYDEST=${HOME}/Frameworks
+  # prepend custom Python to path
+  - export PATH=${MYDEST}/Python.framework/Versions/${PY_VER}/bin:${PATH}
+
+script:
+  - cd ~/build/${TRAVIS_REPO_SLUG}
+  - mkdir build && cd build
+  - pwd
+  - cmake -DPKG_SYSTEM_PYTHON=1 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
+      -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
+      -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/ ../
+  - make -j4
+  - make addframeworks
+  - bash ../ci_scripts/rpath_adjust.sh
+  - cd ./bin
+  # Don't make the xz archive on remote PRs
+  - if [[ "$TRAVIS_SECURE_ENV_VARS" == true ]]; then
+        tar -cJf Sigil.tar.xz Sigil.app;
+    fi
+  - cd ../
+
+after_success:
+  # Remote PRs won't set secure variables, so don't try to deploy
+  - python3 --version
+  - if [[ "$TRAVIS_SECURE_ENV_VARS" == true ]]; then
+        python3 ../ci_scripts/macgddeploy.py;
+    fi
+
+#deploy:
+#  provider: script
+#  script: bash ../ci_scripts/macgddeploy.sh
+#  skip_cleanup: true
+#  on:
+#    branch: master
+
