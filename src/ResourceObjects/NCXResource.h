@@ -56,6 +56,7 @@ public:
     void GenerateNCXFromTOCEntries(const Book *book, TOCModel::TOCEntry toc_root_entry);
 
     QString GetRelativePathToRoot() const;
+    QString GetRelativePathToOEBPS() const;
 
 private:
 

@@ -1336,6 +1336,39 @@ void MainWindow::UpdateManifestProperties()
     QApplication::restoreOverrideCursor();
 }
 
+
+void MainWindow::RemoveNCXGuideFromEpub3()
+{
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    if (!version.startsWith('3')) {
+        ShowMessageOnStatusBar(tr("Not Available for epub2."));
+        return;
+    }
+
+    SaveTabData();
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    NCXResource * ncx_resource = m_Book->GetNCX();
+    if (ncx_resource) {
+        m_Book->GetOPF()->RemoveNCXOnSpine();
+        m_Book->GetFolderKeeper()->RemoveNCXFromFolder();
+        ncx_resource->Delete();
+    }
+
+    // clear the guide
+    m_Book->GetOPF()->ClearSemanticCodesInGuide();
+
+    m_TableOfContents->Refresh();
+    m_BookBrowser->BookContentModified();
+    m_BookBrowser->Refresh();
+    m_Book->SetModified();
+
+    ShowMessageOnStatusBar(tr("NCX and Guide removed."));
+    QApplication::restoreOverrideCursor();
+
+}
+
+
 void MainWindow::GenerateNCXGuideFromNav()
 {
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
@@ -1381,6 +1414,15 @@ void MainWindow::GenerateNCXGuideFromNav()
     }
 
     NCXResource * ncx_resource = m_Book->GetNCX();
+    // generate a new empty NCX if one does not exist in this epub3
+    if (!ncx_resource) {
+        ncx_resource = m_Book->GetFolderKeeper()->AddNCXToFolder(version);
+	// We manually created an NCX file because there wasn't one in the manifest.
+        // Need to create a new manifest id for it.
+        // and take that manifest id and add it to the spine attribute
+        QString NCXId = m_Book->GetOPF()->AddNCXItem(ncx_resource->GetFullPath());
+	m_Book->GetOPF()->UpdateNCXOnSpine(NCXId);
+    }
     ncx_resource->SetText(ncxdata);
     ncx_resource->SaveToDisk();
 
@@ -2510,6 +2552,7 @@ void MainWindow::GenerateToc()
         is_toc_changed = navproc.GenerateTOCFromBookContents(m_Book.data());
     } else {
         // Regenerate the NCX regardless of whether headings were changed, in case the user erased it.
+        // using GetNCX() here will never return a nullptr on epub2
         is_toc_changed = m_Book->GetNCX()->GenerateNCXFromBookContents(m_Book.data());
     }
     if (is_headings_changed || is_toc_changed) {
@@ -3727,6 +3770,8 @@ void MainWindow::CreateNewBook()
         HTMLResource * nav_resource = new_book->CreateEmptyNavFile(true);
         new_book->GetOPF()->SetNavResource(nav_resource);
         new_book->GetOPF()->SetItemRefLinear(nav_resource, false);
+    } else {
+        NCXResource * ncx_resource = new_book->GetFolderKeeper()->AddNCXToFolder(version);
     }
     SetNewBook(new_book);
     new_book->SetModified(false);
@@ -3796,29 +3841,29 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
 
             return true;
         }
-    } catch (FileEncryptedWithDrm) {
-        ShowMessageOnStatusBar();
-        QApplication::restoreOverrideCursor();
-        Utility::DisplayStdErrorDialog(
-            tr("The creator of this file has encrypted it with DRM. "
-               "Sigil cannot open such files."));
-    } catch (EPUBLoadParseError epub_load_error) {
-        ShowMessageOnStatusBar();
-        QApplication::restoreOverrideCursor();
-        const QString errors = QString(epub_load_error.what());
-        Utility::DisplayStdErrorDialog(
-            tr("Cannot load EPUB: %1").arg(QDir::toNativeSeparators(fullfilepath)), errors);
-    } catch (const std::runtime_error &e) {
-        ShowMessageOnStatusBar();
-        QApplication::restoreOverrideCursor();
-        Utility::DisplayExceptionErrorDialog(tr("Cannot load file %1: %2")
+   } catch (FileEncryptedWithDrm) {
+       ShowMessageOnStatusBar();
+       QApplication::restoreOverrideCursor();
+       Utility::DisplayStdErrorDialog(
+           tr("The creator of this file has encrypted it with DRM. "
+              "Sigil cannot open such files."));
+   } catch (EPUBLoadParseError epub_load_error) {
+       ShowMessageOnStatusBar();
+       QApplication::restoreOverrideCursor();
+       const QString errors = QString(epub_load_error.what());
+       Utility::DisplayStdErrorDialog(
+           tr("Cannot load EPUB: %1").arg(QDir::toNativeSeparators(fullfilepath)), errors);
+   } catch (const std::runtime_error &e) {
+       ShowMessageOnStatusBar();
+       QApplication::restoreOverrideCursor();
+       Utility::DisplayExceptionErrorDialog(tr("Cannot load file %1: %2")
                                              .arg(QDir::toNativeSeparators(fullfilepath))
                                              .arg(e.what()));
-    } catch (QString err) {
-        ShowMessageOnStatusBar();
-        QApplication::restoreOverrideCursor();
-        Utility::DisplayStdErrorDialog(err);
-    }
+   } catch (QString err) {
+       ShowMessageOnStatusBar();
+       QApplication::restoreOverrideCursor();
+       Utility::DisplayStdErrorDialog(err);
+   }
 
     // If we got to here some sort of error occurred while loading the file
     // and potentially has left the GUI in a nasty state (like on initial startup)
@@ -4440,6 +4485,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionMendHTML, "MainWindow.MendHTML");
     sm->registerAction(this, ui.actionUpdateManifestProperties, "MainWindow.UpdateManifestProperties");
     sm->registerAction(this, ui.actionNCXGuideFromNav, "MainWindow.NCXGuideFromNav");
+    sm->registerAction(this, ui.actionRemoveNCXGuide, "MainWindow.RemoveNCXGuide");
     sm->registerAction(this, ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
     sm->registerAction(this, ui.actionSpellcheck, "MainWindow.Spellcheck");
     sm->registerAction(this, ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
@@ -4920,6 +4966,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionMendHTML,      SIGNAL(triggered()), this, SLOT(MendHTML()));
     connect(ui.actionUpdateManifestProperties,      SIGNAL(triggered()), this, SLOT(UpdateManifestProperties()));
     connect(ui.actionNCXGuideFromNav, SIGNAL(triggered()), this, SLOT(GenerateNCXGuideFromNav()));
+    connect(ui.actionRemoveNCXGuide,  SIGNAL(triggered()), this, SLOT(RemoveNCXGuideFromEpub3()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateToc()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));

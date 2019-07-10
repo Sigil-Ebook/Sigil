@@ -81,6 +81,8 @@ public:
 
     QString AddNCXItem(const QString &ncx_path);
 
+    void RemoveNCXOnSpine();
+
     void UpdateNCXOnSpine(const QString &new_ncx_id);
 
     void UpdateNCXLocationInManifest(const NCXResource *ncx);

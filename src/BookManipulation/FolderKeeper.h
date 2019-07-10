@@ -180,6 +180,10 @@ public:
      */
     NCXResource *GetNCX() const;
 
+    NCXResource* AddNCXToFolder(const QString & version);
+
+    void RemoveNCXFromFolder();
+
     /**
      * Returns the full path to the main folder of the publication.
      *

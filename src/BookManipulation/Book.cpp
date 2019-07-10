@@ -549,8 +549,11 @@ HTMLResource *Book::CreateSectionBreakOriginalResource(const QString &content, H
     // Now, update references to the original file that are made in other files.
     // We can't assume that ids are unique in this case, and so need to use a different mechanism.
     AnchorUpdates::UpdateExternalAnchors(html_resources, Utility::URLEncodePath(originating_filename), new_files);
-    // Update TOC entries as well
-    AnchorUpdates::UpdateTOCEntries(GetNCX(), Utility::URLEncodePath(originating_filename), new_files);
+    // Update TOC entries as well if an NCX exists:
+    NCXResource * ncx_resource = GetNCX();
+    if (ncx_resource) {
+        AnchorUpdates::UpdateTOCEntries(ncx_resource, Utility::URLEncodePath(originating_filename), new_files);
+    }
     SetModified(true);
     return new_resource;
 }
@@ -637,8 +640,11 @@ void Book::CreateNewSections(const QStringList &new_sections, HTMLResource *orig
     // Now, update references to the original file that are made in other files.
     // We can't assume that ids are unique in this case, and so need to use a different mechanism.
     AnchorUpdates::UpdateExternalAnchors(other_files, Utility::URLEncodePath(original_resource->Filename()), new_files);
-    // Update TOC entries as well
-    AnchorUpdates::UpdateTOCEntries(GetNCX(), Utility::URLEncodePath(original_resource->Filename()), new_files);
+    // Update TOC entries as well if an NCX exists, they are optional on epub3
+    NCXResource * ncx_resource = GetNCX();
+    if (ncx_resource) {
+        AnchorUpdates::UpdateTOCEntries(ncx_resource, Utility::URLEncodePath(original_resource->Filename()), new_files);
+    }
     GetOPF()->UpdateSpineOrder(html_resources);
     SetModified(true);
 }

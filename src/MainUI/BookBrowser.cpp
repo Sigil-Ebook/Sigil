@@ -1063,6 +1063,8 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
         return;
     }
 
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+
     Resource *next_resource = NULL;
 
     Resource * nav_resource =  m_Book->GetConstOPF()->GetNavResource();
@@ -1072,14 +1074,23 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
         );
         return;
     }
-    Resource::ResourceType resource_type = resources.first()->Type();
-    if (resource_type == Resource::OPFResourceType ||
-        resource_type == Resource::NCXResourceType) {
+    // do the same for ncx under epub2
+    NCXResource * ncx_resource = m_Book->GetNCX();
+    if (ncx_resource && resources.contains(ncx_resource)) {
         Utility::DisplayStdErrorDialog(
-            tr("Neither the NCX nor the OPF can be removed.")
+            tr("The NCX can not be removed.")
         );
         return;
-    } else if (resource_type == Resource::HTMLResourceType &&
+    }
+    Resource::ResourceType resource_type = resources.first()->Type();
+    if (resource_type == Resource::OPFResourceType) {
+        Utility::DisplayStdErrorDialog(
+            tr("The OPF is required for epub and can be removed.")
+        );
+        return;
+    }
+
+    if (resource_type == Resource::HTMLResourceType &&
                resources.count() == m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>().count()) {
         {
             Utility::DisplayStdErrorDialog(
@@ -1506,7 +1517,6 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
                                  (AllHTMLResources().count() > 1 && resources.count() != item_count));
             m_ContextMenu->addAction(m_Rename);
         }
-
         if (resource->Type() == Resource::HTMLResourceType) {
             m_ContextMenu->addAction(m_Merge);
             m_Merge->setEnabled(item_count > 1 ||

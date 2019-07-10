@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015, 2016        Kevin B. Hendricks  Stratford, ON Canada
+**  Copyright (C) 2015-2019         Kevin B. Hendricks  Stratford, ON Canada
 **  Copyright (C) 2013              John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -113,9 +113,8 @@ static const QString TEMPLATE3_TEXT =
     "    <meta property=\"dcterms:modified\">%4</meta>\n"
     "  </metadata>\n\n"
     "  <manifest>\n"
-    "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
     "  </manifest>\n\n"
-    "  <spine toc=\"ncx\">\n"
+    "  <spine>\n"
     "  </spine>\n\n"
     "</package>";
 
@@ -318,6 +317,16 @@ void OPFResource::UpdateNCXOnSpine(const QString &new_ncx_id)
         p.m_spineattr.m_atts[QString("toc")] = new_ncx_id;
         UpdateText(p);
     }
+}
+
+void OPFResource::RemoveNCXOnSpine()
+{
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    p.m_spineattr.m_atts.remove("toc");
+    UpdateText(p);
 }
 
 
@@ -589,8 +598,14 @@ void OPFResource::RemoveResource(const Resource *resource)
     OPFParser p;
     p.parse(source);
     if (p.m_manifest.isEmpty()) return;
-
-    QString resource_oebps_path = resource->GetRelativePathToOEBPS();
+    QString resource_oebps_path;
+    if (resource->Type() == NCXResourceType) {
+        const NCXResource * ncx_resource = qobject_cast<const NCXResource*>(resource);
+	resource_oebps_path = ncx_resource->GetRelativePathToOEBPS();
+    } else {
+        resource_oebps_path = resource->GetRelativePathToOEBPS();
+    }
+	
     int pos = p.m_hrefpos.value(resource_oebps_path, -1);
     QString item_id = "";
 

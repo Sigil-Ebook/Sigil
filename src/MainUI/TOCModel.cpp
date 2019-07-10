@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2019  Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -106,6 +106,7 @@ QString TOCModel::GetNCXText()
 {
     QMutexLocker book_lock(&m_UsingBookMutex);
     NCXResource *ncx = m_Book->GetNCX();
+    if (!ncx) return QString();
     QReadLocker locker(&(ncx->GetLock()));
     return CleanSource::ProcessXML(ncx->GetText(), "application/x-dtbncx+xml");
 }

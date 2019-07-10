@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2016-2019   Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -233,6 +234,8 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
 
 void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &originating_filename, const QList<HTMLResource *> new_files)
 {
+    
+    // this routine should only be run on epub2
     Q_ASSERT(ncx_resource);
     const QHash<QString, QString> &ID_locations = GetIDLocations(new_files);
     // serialize the hash for passing to python

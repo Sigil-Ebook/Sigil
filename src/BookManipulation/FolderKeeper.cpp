@@ -334,9 +334,35 @@ OPFResource *FolderKeeper::GetOPF() const
 }
 
 
+// Note this routine can now return nullptr on epub3
 NCXResource *FolderKeeper::GetNCX() const
 {
     return m_NCX;
+}
+
+
+NCXResource*FolderKeeper::AddNCXToFolder(const QString & version)
+{
+    m_NCX = new NCXResource(m_FullPathToMainFolder, m_FullPathToOEBPSFolder + "/" + NCX_FILE_NAME, this);
+    m_NCX->SetMainID(m_OPF->GetMainIdentifierValue());
+    m_NCX->SetEpubVersion(version);
+    m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
+
+    // TODO: change from Resource* to const Resource&
+    connect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
+    return m_NCX;
+}
+
+
+void FolderKeeper::RemoveNCXFromFolder()
+{
+    if (!m_NCX) {
+        return;
+    }
+    disconnect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
+    RemoveResource(m_NCX);    
+    m_NCX = NULL;
+    return;
 }
 
 
@@ -501,15 +527,12 @@ void FolderKeeper::CreateInfrastructureFiles()
     QString version = ss.defaultVersion();
     m_OPF = new OPFResource(m_FullPathToMainFolder, m_FullPathToOEBPSFolder + "/" + OPF_FILE_NAME, this);
     m_OPF->SetEpubVersion(version);
-    m_NCX = new NCXResource(m_FullPathToMainFolder, m_FullPathToOEBPSFolder + "/" + NCX_FILE_NAME, this);
-    m_NCX->SetMainID(m_OPF->GetMainIdentifierValue());
-    m_NCX->SetEpubVersion(version);
     m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
-    m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
+    // note - ncx is optional on epub3 so do not create an ncx here
+    // instead add it ony when needed
 
     // TODO: change from Resource* to const Resource&
     connect(m_OPF, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
-    connect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
     // For ResourceAdded, the connection has to be DirectConnection,
     // otherwise the default of AutoConnection screws us when
     // AddContentFileToFolder is called from multiple threads.
