@@ -3,7 +3,6 @@ version: '0.9.15-{build}'
 branches:
   only:
   - master
-  - optncx
   - /\d+\.\d+\.\d+(-\d+)?/
   
 clone_folder: c:\project\sigil
