@@ -55,6 +55,10 @@ public:
     static QStringList LinuxHunspellDictionaryDirs();
 #endif
 
+    // Generate relative path to destination from starting directory path
+    // Both paths should be absolute and preferably cannonical
+    static QString relativePath(const QString & destination, const QString & starting_dir); 
+
     // Uses QUuid to generate a random UUID but also removes
     // the curly braces that QUuid::createUuid() adds
     static QString CreateUUID();

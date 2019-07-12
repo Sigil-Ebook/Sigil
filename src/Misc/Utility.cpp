@@ -137,6 +137,34 @@ QStringList Utility::LinuxHunspellDictionaryDirs()
 }
 #endif
 
+QString Utility::relativePath(const QString & destination, const QString & start_dir)
+{
+    QChar sep = '/';
+    QStringList dsegs = destination.split(sep, QString::SkipEmptyParts);
+    QStringList ssegs = start_dir.split(sep, QString::SkipEmptyParts);
+    QStringList res;
+    int i = 0;
+    int nd = dsegs.size();
+    int ns = ssegs.size();
+    // skip over starting common path segments in both paths 
+    while (i < ns && i < nd && (dsegs.at(i) == ssegs.at(i))) {
+        i++;
+    }
+    // now "move up" for each remaining path segment in the starting directory
+    int p = i;
+    while (p < ns) {
+        res.append("..");
+        p++;
+    }
+    // And append the remaining path segments from the destination 
+    p = i;
+    while(p < nd) {
+        res.append(dsegs.at(p));
+        p++;
+    }
+    return res.join(sep);
+}
+
 
 // Uses QUuid to generate a random UUID but also removes
 // the curly braces that QUuid::createUuid() adds
