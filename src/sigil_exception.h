@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2015  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -130,6 +131,15 @@ public:
 class EPUBLoadParseError : public std::runtime_error {
 public:
     EPUBLoadParseError(const std::string &msg) : std::runtime_error(msg) { };
+};
+
+
+/**
+ * Thrown for Invalid EPUB errors while loading and parsing content files.
+ */
+class UNZIPLoadParseError : public std::runtime_error {
+public:
+    UNZIPLoadParseError(const std::string &msg) : std::runtime_error(msg) { };
 };
 
 #endif // SG_EXCEPTION_H
