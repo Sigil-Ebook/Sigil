@@ -612,7 +612,7 @@ A file with this name already exists in the book.</source>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1088"/>
-        <source>The OPF is required for epub and can be removed.</source>
+        <source>The OPF is required for epub and can not be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

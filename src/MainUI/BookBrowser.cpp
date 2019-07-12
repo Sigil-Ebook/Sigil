@@ -1085,7 +1085,7 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
     Resource::ResourceType resource_type = resources.first()->Type();
     if (resource_type == Resource::OPFResourceType) {
         Utility::DisplayStdErrorDialog(
-            tr("The OPF is required for epub and can be removed.")
+            tr("The OPF is required for epub and can not be removed.")
         );
         return;
     }
