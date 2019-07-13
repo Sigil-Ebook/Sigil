@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2019  Doug Massay
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -69,8 +70,7 @@ QString Resource::Filename() const
 // relative path of the resource's directory within the EPUB.
 QString Resource::GetFolder() const
 {
-    QString absFolderPath = QFileInfo(m_FullFilePath).absolutePath();
-    QString relFolderPath = absFolderPath.right(absFolderPath.length() - m_MainFolder.length());
+    QString relFolderPath = QFileInfo(GetRelativePath()).path();
     // Note m_MainFolder may or may not end with a path separator on all systems
     // since this should be a relative path remove any remaining leading path separator
     if (relFolderPath.startsWith('/')) relFolderPath = relFolderPath.remove(0,1);
