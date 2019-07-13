@@ -137,11 +137,20 @@ QStringList Utility::LinuxHunspellDictionaryDirs()
 }
 #endif
 
+// Generate relative path to destination from starting directory path
+// Both paths should be absolute and preferably cannonical
 QString Utility::relativePath(const QString & destination, const QString & start_dir)
 {
+    QString dest(destination);
+    QString start(start_dir);
     QChar sep = '/';
-    QStringList dsegs = destination.split(sep, QString::SkipEmptyParts);
-    QStringList ssegs = start_dir.split(sep, QString::SkipEmptyParts);
+
+    // remove any trailing path separators from both paths
+    while (dest.endsWith(sep)) dest.chop(1);
+    while (start.endsWith(sep)) start.chop(1);
+
+    QStringList dsegs = dest.split(sep, QString::KeepEmptyParts);
+    QStringList ssegs = start.split(sep, QString::KeepEmptyParts);
     QStringList res;
     int i = 0;
     int nd = dsegs.size();

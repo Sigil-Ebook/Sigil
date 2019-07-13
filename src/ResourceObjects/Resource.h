@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -125,6 +126,13 @@ public:
      * @return The resource's full file path.
      */
     QString GetFullPath() const;
+
+    /**
+     * Returns the full path to the folder containing
+     * this resource
+     * @return The resource's full path to its containing folder.
+     */
+    QString GetFullFolderPath() const;
 
     /**
      * Returns the URL to the parent folder ("base URL") of this resource.

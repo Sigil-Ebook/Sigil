@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -65,18 +66,27 @@ QString Resource::Filename() const
 }
 
 
+// relative path of the resource's directory within the EPUB.
 QString Resource::GetFolder() const
 {
-    // Pathname of the directory within the EPUB.
-    return QFileInfo(GetRelativePath()).absolutePath().remove(0, 1);
+    QString absFolderPath = QFileInfo(m_FullFilePath).absolutePath();
+    QString relFolderPath = absFolderPath.right(absFolderPath.length() - m_MainFolder.length());
+    // Note m_MainFolder may or may not end with a path separator on all systems
+    // since this should be a relative path remove any remaining leading path separator
+    if (relFolderPath.startsWith('/')) relFolderPath = relFolderPath.remove(0,1);
+    return relFolderPath;
 }
 
 
 QString Resource::GetRelativePath() const
 {
     // Pathname of the file within the EPUB.
-    return m_FullFilePath.right(m_FullFilePath.length() - m_MainFolder.length());
+    QString relFilePath = m_FullFilePath.right(m_FullFilePath.length() - m_MainFolder.length());
+    // Note m_MainFolder may or may not end with a path separator on all systems
+    if (relFilePath.startsWith('/')) relFilePath = relFilePath.remove(0,1);
+    return relFilePath; 
 }
+
 
 QString Resource::GetRelativePathToOEBPS() const
 {
@@ -86,6 +96,12 @@ QString Resource::GetRelativePathToOEBPS() const
 
 QString Resource::GetRelativePathToRoot() const
 {
+    // FIXME -  This is broken as it assumes all resources follow
+    // the same layout depth - which leads to this needing to be
+    // overridden in ncx, opf, etc 
+    // Keep this for now but it should simply return GetRelativePath()
+    // or better yet replace all calls to to with GetRelativePath()
+
     QFileInfo info(m_FullFilePath);
     QDir parent_dir = info.dir();
     QString parent_name = parent_dir.dirName();
@@ -98,6 +114,12 @@ QString Resource::GetRelativePathToRoot() const
 QString Resource::GetFullPath() const
 {
     return m_FullFilePath;
+}
+
+
+QString Resource::GetFullFolderPath() const
+{
+    return QFileInfo(m_FullFilePath).absolutePath();
 }
 
 
