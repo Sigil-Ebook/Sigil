@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20190625
+_launcher_version=20190714
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
@@ -358,6 +358,19 @@ class Wrapper(object):
             mime = self.id_to_mime[id]
             if mime ==  "application/oebs-page-map+xml":
                 return id
+        return None
+
+
+    # routines to help find the manifest id of the nav
+    def getnavid(self):
+        if self.epub_version == "2.0":
+            return None
+        for id in sorted(self.id_to_mime):
+            mime = self.id_to_mime[id]
+            if mime == "application/xhtml+xml":
+                properties = self.id_to_props[id]
+                if "nav" in properties:
+                    return id
         return None
 
 

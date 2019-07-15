@@ -82,6 +82,12 @@ class OutputContainer(object):
     def getpagemapid(self):
         return self._w.getpagemapid()
 
+# nav access routines
+
+    def getnavid(self):
+        return self._w.getnavid()
+
+
 # spine get and access routines
 
     def getspine(self):
