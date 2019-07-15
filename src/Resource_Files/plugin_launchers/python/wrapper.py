@@ -369,7 +369,7 @@ class Wrapper(object):
             mime = self.id_to_mime[id]
             if mime == "application/xhtml+xml":
                 properties = self.id_to_props[id]
-                if "nav" in properties:
+                if properties is not None and "nav" in properties:
                     return id
         return None
 
