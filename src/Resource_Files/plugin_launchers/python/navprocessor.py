@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2014 Kevin B. Hendricks, John Schember, and Doug Massay
+# Copyright (c) 2019 Kevin B. Hendricks
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -55,11 +55,6 @@ SIGIL_REPLACE_TOC_HERE       = "<!-- SIGIL_REPLACE_TOC_HERE -->"
 NAV_TOC_PATTERN       = re.compile(r'''^\s*<!--\s*SIGIL_REPLACE_TOC_HERE\s*-->\s*$''',re.M)
 NAV_PAGELIST_PATTERN  = re.compile(r'''^\s*<!--\s*SIGIL_REPLACE_PAGELIST_HERE\s*-->\s*$''',re.M)
 NAV_LANDMARKS_PATTERN = re.compile(r'''^\s*<!--\s*SIGIL_REPLACE_LANDMARKS_HERE\s*-->\s*$''',re.M)
-
-TOC_START_PATTERN       = re.compile(r'''(<\s*nav\s[^>]*epub:type[^>]*[\"']toc[\"'][^>]*>)''',re.I)
-PAGELIST_START_PATTERN  = re.compile(r'''(<\s*nav\s[^>]*epub:type[^>]*[\"']page-list[\"'][^>]*>)''',re.I)
-LANDMARKS_START_PATTERN = re.compile(r'''(<\s*nav\s[^>]*epub:type[^>]*[\"']landmarks[\"'][^>]*>)''',re.I)
-NAV_TAG_END_PATTERN     = re.compile(r'''(</\s*nav\s*>)''', re.I)
 
 ASCII_CHARS   = set(chr(x) for x in range(128))
 URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -127,26 +122,12 @@ class NavProcessor(object):
     # href is unquoted (percent encodings removed)
     # title has been xml decoded/unescaped
     def getTOC(self):
-        # as the user may have left the nav in an unparseable state
-        # use regular expressions to try to extract exactly what we want
+        # parse the nav to get the table of contents
         navsrc = self.content
         toclist = []
 
-        # extract the TOC from the navsrc
-        m_beg = re.search(TOC_START_PATTERN, navsrc)
-        if m_beg is None:
-            return toclist
-        bp = m_beg.start()
-        m_end = re.search(NAV_TAG_END_PATTERN, navsrc[m_beg.end():])
-        if m_end is None:
-            return toclist
-        ep = m_end.end() + m_beg.end() + 1
-        navsrc = navsrc[bp:ep]
-
-        # now parse this snippet to extract the toc
         qp = QuickXHTMLParser()
         qp.setContent(navsrc)
-
         lvl = 0
         po = 0
         title = ""
@@ -161,21 +142,26 @@ class NavProcessor(object):
             else:
                 if tname == "nav" and ttype == "begin":
                     nav_type = tattr.get("epub:type", None)
-                if tname == "ol":
-                    if ttype == "begin": lvl += 1
-                    if ttype == "end": lvl -= 1
                     continue
-                if tname == "a" and ttype == "begin":
-                    href = tattr.get("href", "")
-                    href = unquoteurl(href)
-                    continue
-                if tname == "a" and ttype == "end":
-                    po += 1
-                    title = xmldecode(title)
-                    toclist.append((po, lvl, href, title))
-                    title = ""
-                    href = None
-                    continue
+                if tname == "nav" and ttype == "end":
+                	nav_type = None
+                	continue
+                if nav_type is not None and nav_type == "toc":
+                    if tname == "ol":
+                        if ttype == "begin": lvl += 1
+                        if ttype == "end": lvl -= 1
+                        continue
+                    if tname == "a" and ttype == "begin":
+                        href = tattr.get("href", "")
+                        href = unquoteurl(href)
+                        continue
+                    if tname == "a" and ttype == "end":
+                        po += 1
+                        title = xmldecode(title)
+                        toclist.append((po, lvl, href, title))
+                        title = ""
+                        href = None
+                        continue
 
         return toclist
 
@@ -184,18 +170,33 @@ class NavProcessor(object):
     # title should be xml decoded/unescaped
     def setTOC(self, toclist):
         toc_xhtml =  self.buildTOC(toclist)
-        # replace the TOC from the navsrc with a placeholer                                                            
+        # replace the TOC in the current navsrc with a placeholder
         navsrc = self.content
-        m_beg = re.search(TOC_START_PATTERN, navsrc)
-        # the toc is not optional so it should always be found
-        if m_beg is None:
-            return False
-        bp = m_beg.start()
-        m_end = re.search(NAV_TAG_END_PATTERN, navsrc[m_beg.end():])
-        if m_end is None:
-            return False
-        ep = m_end.end() + m_beg.end() + 1
-        navsrc = navsrc[0:bp] + SIGIL_REPLACE_TOC_HERE + navsrc[ep:]
+        qp = QuickXHTMLParser()
+        qp.setContent(navsrc)
+        nav_type = None
+        res = []
+        skip_output = False
+        for txt, tp, tname, ttype, tattr in qp.parse_iter():
+            if txt is not None:
+                if not skip_output:
+                    res.append(txt)
+            else:
+                if tname == "nav" and ttype == "begin":
+                    nav_type = tattr.get("epub:type", None)
+                    if nav_type is not None and nav_type == "toc":
+                        res.append(SIGIL_REPLACE_TOC_HERE)
+                        skip_output = True
+                        continue
+                if tname == "nav" and ttype == "end" and nav_type == "toc":
+                    nav_type = None
+                    skip_output = False
+                    continue
+
+                if not skip_output:
+                    res.append(qp.tag_info_to_xml(tname, ttype, tattr))
+
+        navsrc = "".join(res)
         m = re.search(NAV_TOC_PATTERN, navsrc)
         if m is None:
             return False
@@ -207,23 +208,10 @@ class NavProcessor(object):
     # href is unquoted (percent encodings removed)
     # title has been xml decoded/unescaped
     def getLandmarks(self):
-        # as the user may have left the nav in an unparseable state
-        # use regular expressions to try to extract exactly what we want
+        # parse the nav to get the landmarks
         navsrc = self.content
         landmarks = []
-
-        # extract the landmarks from the navsrc
-        m_beg = re.search(LANDMARKS_START_PATTERN, navsrc)
-        if m_beg is None:
-            return landmarks
-        bp = m_beg.start()
-        m_end = re.search(NAV_TAG_END_PATTERN, navsrc[m_beg.end():])
-        if m_end is None:
-            return landmarks
-        ep = m_end.end() + m_beg.end() + 1
-        navsrc = navsrc[bp:ep]
-
-        # now parse this snippet to extract the landmarks
+        
         qp = QuickXHTMLParser()
         qp.setContent(navsrc)
         title = ""
@@ -240,19 +228,24 @@ class NavProcessor(object):
                 if tname == "nav" and ttype == "begin":
                     nav_type = tattr.get("epub:type", None)
                     continue
-                if tname == "a" and ttype == "begin":
-                    href = tattr.get("href", "")
-                    href = unquoteurl(href)
-                    epubtype = tattr.get("epub:type", None)
+                if tname == "nav" and ttype == "end":
+                    nav_type = None
                     continue
-                if tname == "a" and ttype == "end":
-                    if epubtype is not None:
-                        title = xmldecode(title)
-                        landmarks.append((epubtype, href, title))
-                    title = ""
-                    epubtype = None
-                    href=None
-                    continue
+
+                if nav_type is not None and nav_type == "landmarks": 
+                    if tname == "a" and ttype == "begin":
+                        href = tattr.get("href", "")
+                        href = unquoteurl(href)
+                        epubtype = tattr.get("epub:type", None)
+                        continue
+                    if tname == "a" and ttype == "end":
+                        if epubtype is not None:
+                            title = xmldecode(title)
+                            landmarks.append((epubtype, href, title))
+                        title = ""
+                        epubtype = None
+                        href=None
+                        continue
         return landmarks
 
     # replace the landmarks with ordered list of tuples (epubtype, href, title)
@@ -262,16 +255,31 @@ class NavProcessor(object):
         landmarks_xhtml =  self.buildLandmarks(landmarks)
         # replace the landmarks from the navsrc with a placeholer
         navsrc = self.content
-        m_beg = re.search(LANDMARKS_START_PATTERN, navsrc)
-        # landmarks is not optional so it should always be found
-        if m_beg is None:
-            return False
-        bp = m_beg.start()
-        m_end = re.search(NAV_TAG_END_PATTERN, navsrc[m_beg.end():])
-        if m_end is None:
-            return False
-        ep = m_end.end() + m_beg.end() + 1
-        navsrc = navsrc[0:bp] + SIGIL_REPLACE_LANDMARKS_HERE + navsrc[ep:]
+        qp = QuickXHTMLParser()
+        qp.setContent(navsrc)
+        nav_type = None
+        res = []
+        skip_output = False
+        for txt, tp, tname, ttype, tattr in qp.parse_iter():
+            if txt is not None:
+                if not skip_output:
+                    res.append(txt)
+            else:
+                if tname == "nav" and ttype == "begin":
+                    nav_type = tattr.get("epub:type", None)
+                    if nav_type is not None and nav_type == "landmarks":
+                        res.append(SIGIL_REPLACE_LANDMARKS_HERE)
+                        skip_output = True
+                        continue
+                if tname == "nav" and ttype == "end" and nav_type == "landmarks":
+                    nav_type = None
+                    skip_output = False
+                    continue
+
+                if not skip_output:
+                    res.append(qp.tag_info_to_xml(tname, ttype, tattr))
+
+        navsrc = "".join(res)
         m = re.search(NAV_LANDMARKS_PATTERN, navsrc)
         if m is None:
             return False
@@ -283,23 +291,10 @@ class NavProcessor(object):
     # href is unquoted (percent encodings removed)
     # title has been xml decoded/unescaped
     def getPageList(self):
-        # as the user may have left the nav in an unparseable state
-        # use regular expressions to try to extract exactly what we want
+        # parse the nav source to get the page-list
         navsrc = self.content
         pagelist = []
 
-        # extract the page-list from the navsrc
-        m_beg = re.search(PAGELIST_START_PATTERN, navsrc)
-        if m_beg is None:
-            return pagelist
-        bp = m_beg.start()
-        m_end = re.search(NAV_TAG_END_PATTERN, navsrc[m_beg.end():])
-        if m_end is None:
-            return pagelist
-        ep = m_end.end() + m_beg.end() + 1
-        navsrc = navsrc[bp:ep]
-
-        # now parse this snippet to extract the page-list
         qp = QuickXHTMLParser()
         qp.setContent(navsrc)
         pgcnt = 0
@@ -316,16 +311,21 @@ class NavProcessor(object):
                 if tname == "nav" and ttype == "begin":
                     nav_type = tattr.get("epub:type", None)
                     continue
-                if tname == "a" and ttype == "begin":
-                    href = tattr.get("href", "")
-                    href = unquoteurl(href)
+                if tname == "nav" and ttype == "end":
+                    nav_type = None
                     continue
-                if tname == "a" and ttype == "end":
-                    pgcnt += 1
-                    title = xmldecode(title)
-                    pagelist.append((pgcnt, href, title))
-                    title = ""
-                    continue
+                if nav_type is not None and nav_type == "page-list":
+                    if tname == "a" and ttype == "begin" and nav_type == "page-list":
+                        href = tattr.get("href", "")
+                        href = unquoteurl(href)
+                        continue
+                    if tname == "a" and ttype == "end":
+                        pgcnt += 1
+                        title = xmldecode(title)
+                        pagelist.append((pgcnt, href, title))
+                        title = ""
+                        continue
+
         return pagelist
 
     # replace the page with ordered list of tuples (page_number, href, title)
@@ -335,26 +335,40 @@ class NavProcessor(object):
         pagelist_xhtml =  self.buildPageList(pagelist)
         # replace the pagelist from the navsrc with a placeholer
         navsrc = self.content
-        m_beg = re.search(PAGELIST_START_PATTERN, navsrc)
-        # the page-list is optional, but we may want to add one even if not currently present
-        if m_beg is None:
-            # no page-list nav section was found, so inject it before the nav landmarks
-            if len(pagelist) > 0:
-                m_landmark = re.search(LANDMARKS_START_PATTERN, navsrc)
-                if m_landmark is None:
-                    return False
-                inject_xhtml = '<nav epub:type="page-list" id="page-list" hidden=""></nav>\n    '
-                navsrc = navsrc[0:m_landmarks.start()] + inject_xhtml + navsrc[m_landmarks.start():]
-        # try again
-        m_beg = re.search(PAGELIST_START_PATTERN, navsrc)
-        if m_beg is None:
-            return False
-        bp = m_beg.start()
-        m_end = re.search(NAV_TAG_END_PATTERN, navsrc[m_beg.end():])
-        if m_end is None:
-            return False
-        ep = m_end.end() + m_beg.end() + 1
-        navsrc = navsrc[0:bp] + SIGIL_REPLACE_PAGELIST_HERE + navsrc[ep:]
+        qp = QuickXHTMLParser()
+        qp.setContent(navsrc)
+        nav_type = None
+        res = []
+        skip_output = False
+        found_page_list = False
+        
+        for txt, tp, tname, ttype, tattr in qp.parse_iter():
+            if txt is not None:
+                if not skip_output:
+                    res.append(txt)
+            else:
+                if tname == "nav" and ttype == "begin":
+                    nav_type = tattr.get("epub:type", None)
+                    if nav_type is not None and nav_type == "page-list":
+                        res.append(SIGIL_REPLACE_PAGELIST_HERE)
+                        found_page_list = True
+                        skip_output = True
+                        continue
+                if tname == "nav" and ttype == "end" and nav_type == "page-list":
+                    nav_type = None
+                    skip_output = False
+                    continue
+                if tname == "body" and ttype == "end":
+                    if not found_page_list and len(pagelist) > 0:
+                        padding = res[-1]
+                        res.append(SIGIL_REPLACE_PAGELIST_HERE)
+                        res.append(padding)
+                        found_page_list = True
+
+                if not skip_output:
+                    res.append(qp.tag_info_to_xml(tname, ttype, tattr))
+        
+        navsrc = "".join(res)
         m = re.search(NAV_PAGELIST_PATTERN, navsrc)
         if m is None:
             return False
@@ -470,11 +484,13 @@ def main(argv=sys.argv):
     landmarks = np.getLandmarks()
     pagelist = np.getPageList()
     toclist = np.getTOC()
+    print(toclist)
+    print(landmarks)
+    print(pagelist)
     print(np.setLandmarks(landmarks))
     print(np.setPageList(pagelist))
     print(np.setTOC(toclist))
     print(np.getNavSrc())
-
     return 0
 
 if __name__ == '__main__':
