@@ -1,4 +1,4 @@
-pre-0.9.16
+Sigil-0.9.16
     Bug Fixes:
      - add missing title tag to nav head to make epubcheck happy
      - add dcterms:modified to empty epub 3 opf to keep epubcheck happy
