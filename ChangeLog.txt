@@ -6,14 +6,16 @@ pre-0.9.16
      - fix macOS specific bug with newer versions of PIL (Pillow) used by plugins
      - no longer link against unused Qt frameworks when building (thank you eli-schwartz!)
      - prevent ms vc++ automatic reboots during Windows installs
-     - prevent user from changing any semantics on the nav itself (it must be set to "toc")
+     - prevent user from changing semantics of the nav file itself (it must be set to "toc")
      - fix bug that dropped nav from spine when HTML TOC created
     New Features
      - added epub3 tool: Generate NCX/Guide for epub2 e-readers
+     - added epub3 tool: Remove NCX and Guide
      - added right click on link in Preview copies url to clipboard
      - added check mark indicator for current semantic set in AddSemantics dialog
      - opf guide is no longer used/updated in epub3, unless new epub3 tool menu is used 
      - harden Sigil against maliciously crafted epub zip archives (aka zip-slip attacks)
+     - added bk.getnavid() to the plugin framework and navprocessor.py for plugin devs
      - updated build documents to the latest Qt 5.12.3 and Python 3.7.2
 
 Sigil-0.9.15 - A Beta Release of Sigil ported to QtWebEngine to replace QtWebKit
