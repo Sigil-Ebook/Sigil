@@ -113,15 +113,6 @@ const QString EMPTY_NAV_FILE_LANDMARKS =
     "  </nav>\n";
 
 const QString EMPTY_NAV_FILE_END = 
-    "<!-- \n"
-    "  <nav epub:type=\"page-list\" id=\"page-list\" hidden=\"\">\n"
-    "    <ol>\n"
-    "      <li><a href=\"../Text/Filename001.xhtml#pagei\">i</a></li>\n"
-    "      <li><a href=\"../Text/Filename001.xhtml#page001\">1</a></li>\n"
-    "      <li><a href=\"../Text/Filename001.xhtml#page002\">2</a></li>\n"
-    "    </ol>\n"
-    "  </nav>\n"
-    " -->\n"
     "</body>\n"
     "</html>";
 
