@@ -113,6 +113,7 @@ sudo pip3 install regex
 sudo pip3 install cssutils
 sudo pip3 install cssselect
 sudo pip3 install chardet
+sudo pip3 install certifi
 
 # Note: and for the upcoming release you will want to replace
     sudo pip3 install cssutils
@@ -121,15 +122,6 @@ with
 
 which is a drop in replacement for cssutils with many bugs fixed.
 
-# For Python 3.6 or later on newer macOS systems, there seems
-# to be missing OpenSSL certificates that can cause problems.
-# To fix this issue an extra module must be installed and run
-# to install the certificates.  This can be done by running the
-# following python3 program to install the "certifi" module
-# and use its certificates for python3 
-
-sudo ./python3 install_certifi.py
- 
 # Now a complete Python.framework has been built in ${MYDEST}
 # But we still need to make it a relocatable framework
 
