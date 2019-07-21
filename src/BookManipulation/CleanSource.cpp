@@ -42,6 +42,9 @@
 static const QString HEAD_END = "</\\s*head\\s*>";
 const QString SVG_NAMESPACE_PREFIX = "<\\s*[^>]*(xmlns\\s*:\\s*svg\\s*=\\s*(?:\"|')[^\"']+(?:\"|'))[^>]*>";
 
+static const QStringList NUMERIC_NBSP = QStringList() << "&#160;" << "&#xa0;" << "&#x00a0;";
+
+
 // Performs general cleaning (and improving)
 // of provided book XHTML source code
 QString CleanSource::Mend(const QString &source, const QString &version)
@@ -279,11 +282,25 @@ QString CleanSource::CharToEntity(const QString &source, const QString &version)
     QString new_source = source;
     QList<std::pair <ushort, QString>> codenames = settings.preserveEntityCodeNames();
     std::pair <ushort, QString> epair;
+    bool has_numeric_nbsp = false;
     foreach(epair, codenames) {
-        QString codename = epair.second;
-	// only use numeric entities in epub3
-        if (version.startsWith("2") || (version.startsWith("3") && codename.startsWith("&#"))) { 
+        QString codename = epair.second.toLower();
+        if (NUMERIC_NBSP.contains(codename)) {
+	    has_numeric_nbsp = true;
+        } 
+    }
+    // now intelligently handle the replacements
+    foreach(epair, codenames) {
+        QString codename = epair.second.toLower();
+        if (version.startsWith("2")) {
             new_source.replace(QChar(epair.first), codename);
+	} else if (version.startsWith("3")) {
+	    // only use numeric entities in epub3
+	    if (codename.startsWith("&#")) { 
+                new_source.replace(QChar(epair.first), codename);
+	    } else if ((codename == "&nbsp;") && !has_numeric_nbsp) {
+                new_source.replace(QChar(epair.first), "&#160;");
+	    }
 	}
     }
     return new_source;
