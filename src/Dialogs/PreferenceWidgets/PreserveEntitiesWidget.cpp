@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2014 Kevin Hendricks
+**  Copyright (C) 2014-2019 Kevin Hendricks, Stratford, Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -60,6 +60,8 @@ PreferencesWidget::ResultAction PreserveEntitiesWidget::saveSettings()
 
 void PreserveEntitiesWidget::addEntities()
 {
+    QStringList invalid = QStringList() << "&amp;" << "&gt;" << "&lt;";
+
     QString list = QInputDialog::getText(this, tr("Add Entities"), tr("Entities:"));
 
     if (list.isEmpty()) {
@@ -68,11 +70,12 @@ void PreserveEntitiesWidget::addEntities()
 
     list.replace(" ", ",");
     list.replace(",", "\n");
+
     QStringList names = list.split("\n");
 
     // Add the entities to the list
     foreach(QString name, names) {
-        if (!name.isEmpty()) {
+        if (!name.isEmpty() && !invalid.contains(name)) {
             if (XMLEntities::instance()->GetEntityCode(name) > 0) {
                 QListWidgetItem *item = new QListWidgetItem(name, ui.entityList);
                 item->setFlags(item->flags() | Qt::ItemIsEditable);

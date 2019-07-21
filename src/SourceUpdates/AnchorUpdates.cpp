@@ -102,7 +102,8 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
-    GumboInterface gi = GumboInterface(html_resource->GetText(), html_resource->GetEpubVersion());
+    QString version = html_resource->GetEpubVersion();
+    GumboInterface gi = GumboInterface(html_resource->GetText(), version);
     gi.parse();
     const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);
     const QString &resource_filename = html_resource->Filename();
@@ -135,7 +136,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
     }
 
     if (is_changed) {
-      html_resource->SetText(CleanSource::CharToEntity(gi.getxhtml()));
+        html_resource->SetText(CleanSource::CharToEntity(gi.getxhtml(), version));
     }
 }
 
@@ -144,7 +145,8 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
-    GumboInterface gi = GumboInterface(html_resource->GetText(), html_resource->GetEpubVersion());
+    QString version = html_resource->GetEpubVersion();
+    GumboInterface gi = GumboInterface(html_resource->GetText(), version);
     gi.parse();
     const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);
     QString original_filename_with_relative_path = "../" % TEXT_FOLDER_NAME % "/" % originating_filename;
@@ -177,7 +179,7 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
     }
 
     if (is_changed) {
-      html_resource->SetText(CleanSource::CharToEntity(gi.getxhtml()));
+        html_resource->SetText(CleanSource::CharToEntity(gi.getxhtml(), version));
     }
 }
 
@@ -189,7 +191,8 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
-    GumboInterface gi = GumboInterface(html_resource->GetText(), html_resource->GetEpubVersion());
+    QString version = html_resource->GetEpubVersion();
+    GumboInterface gi = GumboInterface(html_resource->GetText(), version);
     gi.parse();
     const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);
     bool is_changed = false;
@@ -227,7 +230,7 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
     }
 
     if (is_changed) {
-      html_resource->SetText(CleanSource::CharToEntity(gi.getxhtml()));
+        html_resource->SetText(CleanSource::CharToEntity(gi.getxhtml(), version));
     }
 }
 

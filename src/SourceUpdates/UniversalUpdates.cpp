@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015  Kevin B. Hendricks  Stratford, ON Canada
+**  Copyright (C) 2015-2019  Kevin B. Hendricks  Stratford, Ontario Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -249,7 +249,7 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
 
     try {
         source = XhtmlDoc::ResolveCustomEntities(html_resource->GetText());
-        source = CleanSource::CharToEntity(source);
+        source = CleanSource::CharToEntity(source, version);
 
         if (ss.cleanOn() & CLEANON_OPEN) {
             source = CleanSource::Mend(source, version);

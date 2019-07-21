@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -110,7 +111,7 @@ QString ImportHTML::LoadSource()
         }
 
         m_CachedSource = HTMLEncodingResolver::ReadHTMLFile(m_FullFilePath);
-        m_CachedSource = CleanSource::CharToEntity(m_CachedSource);
+        m_CachedSource = CleanSource::CharToEntity(m_CachedSource, m_EpubVersion);
         if (ss.cleanOn() & CLEANON_OPEN) {
             m_CachedSource = XhtmlDoc::ResolveCustomEntities(m_CachedSource);
             m_CachedSource = CleanSource::Mend(m_CachedSource, m_EpubVersion);

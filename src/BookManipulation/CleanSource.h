@@ -53,7 +53,7 @@ public:
 
     static QString PrettifyDOCTYPEHeader(const QString &source);
 
-    static QString CharToEntity(const QString &source);
+    static QString CharToEntity(const QString &source, const QString &version);
 
     static bool ReformatAll(QList <HTMLResource *> resources, QString(clean_fun)(const QString &source, const QString &version));
 

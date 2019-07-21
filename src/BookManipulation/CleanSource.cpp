@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -71,7 +71,7 @@ QString CleanSource::Mend(const QString &source, const QString &version)
 
     GumboInterface gp = GumboInterface(newsource, version);
     newsource = gp.repair();
-    newsource = CharToEntity(newsource);
+    newsource = CharToEntity(newsource, version);
     newsource = PrettifyDOCTYPEHeader(newsource);
     return newsource;
 }
@@ -83,7 +83,7 @@ QString CleanSource::MendPrettify(const QString &source, const QString &version)
     QString newsource = PreprocessSpecialCases(source);
     GumboInterface gi = GumboInterface(newsource, version);
     newsource = gi.prettyprint();
-    newsource = CharToEntity(newsource);
+    newsource = CharToEntity(newsource, version);
     newsource = PrettifyDOCTYPEHeader(newsource);
     return newsource;
 }
@@ -273,14 +273,18 @@ QString CleanSource::PrettifyDOCTYPEHeader(const QString &source)
 }
 
 
-QString CleanSource::CharToEntity(const QString &source)
+QString CleanSource::CharToEntity(const QString &source, const QString &version)
 {
     SettingsStore settings;
     QString new_source = source;
     QList<std::pair <ushort, QString>> codenames = settings.preserveEntityCodeNames();
     std::pair <ushort, QString> epair;
     foreach(epair, codenames) {
-        new_source.replace(QChar(epair.first), epair.second);
+        QString codename = epair.second;
+	// only use numeric entities in epub3
+        if (version.startsWith("2") || (version.startsWith("3") && codename.startsWith("&#"))) { 
+            new_source.replace(QChar(epair.first), codename);
+	}
     }
     return new_source;
 }

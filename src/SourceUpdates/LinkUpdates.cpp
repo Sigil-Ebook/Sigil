@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
@@ -54,5 +55,5 @@ void LinkUpdates::UpdateLinksInOneFile(HTMLResource *html_resource, QList<QStrin
     GumboInterface gi = GumboInterface(newsource, version);
     gi.parse();
     newsource = gi.perform_link_updates(newcsslinks);
-    html_resource->SetText(CleanSource::CharToEntity(newsource));
+    html_resource->SetText(CleanSource::CharToEntity(newsource, version));
 }
