@@ -3,6 +3,14 @@ from __future__ import unicode_literals, division, absolute_import, print_functi
 
 import sys
 import os
+
+if sys.platform.startswith('darwin'):
+    try:
+        import certifi
+        os.environ["SSL_CERT_FILE"]=certifi.where()
+    except:
+        pass
+
 import re
 import socket
 

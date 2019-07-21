@@ -17,8 +17,8 @@ const QString SIGIL_PREFS_DIR = QString(getenv("SIGIL_PREFS_DIR"));
 
 #if __APPLE__
 const QString PATH_LIST_DELIM = ":";
-// const QString PYTHON_MAIN_PATH = "/Frameworks/Python.framework/Versions/3.5/lib/python3.5";
 const QString PYTHON_MAIN_BIN_PATH = "/Frameworks/Python.framework/Versions/3.7/bin/python3";
+const QString PYTHON_SITE_PACKAGES = "/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages";
 const QStringList PYTHON_SYS_PATHS = QStringList () << "/plat-darwin" << "/lib-dynload" << "/site-packages";
 #endif
 

@@ -269,6 +269,11 @@ void PluginRunner::startPlugin()
     // so that python getpreferredencoding() and stdout/stderr/stdin encodings to get properly set
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     if (settings.useBundledInterp()) {
+         // determine path to site-packages/certifi/cacert.pem to set SSL_CERT_FILE
+         QDir exedir(QCoreApplication::applicationDirPath());
+	 exedir.cdUp();
+         QString cert_path = exedir.absolutePath() + PYTHON_SITE_PACKAGES + "/certifi/cacert.pem";
+	 env.insert("SSL_CERT_FILE", cert_path);
          env.insert("QT_PLUGIN_PATH", QDir(QCoreApplication::applicationDirPath() + "/../PlugIns").absolutePath());
          env.insert("QT_QPA_PLATFORM_PLUGIN_PATH", QDir(QCoreApplication::applicationDirPath() + "/../PlugIns/platforms").absolutePath());
     }
