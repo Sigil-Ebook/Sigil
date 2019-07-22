@@ -87,16 +87,27 @@ FlowTab::FlowTab(HTMLResource *resource,
 
 FlowTab::~FlowTab()
 {
-    // Explicitly disconnect signals because Modified is causing the ResourceModified
-    // function to be called after we delete other things later in this destructor.
-    // No idea how that's possible but this prevents a segfault...
+    // Tabs are destroyed later when they are closed with no impact on the
+    // the underlying resource.  But at the same time Tabs can be destroyed when
+    // the underlying resource emits its Destroyed signal.
+
+    // This causes a potential race during MainWindow::SetNewBook when the 
+    // previous book is destroyed at the same time the Tabmanager is closing all of its tabs.
+
+    // Also disconnect signals from our underlying resource to prevent Modified 
+    // from causing the ResourceModified method to be called on a defunct Tab after we delete 
+    // other things later in this destructor but before completion.
+
+    // Actually since we are being destroyed explicitly disconnect *all* future signals
+    // from our underlying resource including Deleted and Modified as they no 
+    // longer needs to be delivered
 
     disconnect(this, 0, 0, 0);
 
-    // or at least it used to, as this signal Modified still fires so try an explicit
-    // disconnect
-
-    disconnect(m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+    if (!GetResourceWasDeleted()) {
+        // was: disconnect(m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+	disconnect(m_HTMLResource, 0, this , 0);
+    }
 
     m_WellFormedCheckComponent->deleteLater();
 

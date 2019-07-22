@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -342,6 +343,11 @@ public slots:
      */
     virtual void ChangeCasing(const Utility::Casing casing);
 
+    /**
+     * Returns state of underlying resource
+     */
+    bool GetResourceWasDeleted();
+
 signals:
 
     /**
@@ -412,6 +418,11 @@ signals:
 protected slots:
 
     /**
+     * Invoked when underlying resource sends out its Deleted signal
+     */
+    void UnderlyingResourceDeleted();
+
+    /**
      * Emits the DeleteMe signal.
      */
     void EmitDeleteMe();
@@ -455,6 +466,11 @@ protected:
      * The main layout of the widget.
      */
     QLayout *m_Layout;
+
+    /**
+     * Has our underlying resource been deleted
+     */
+    bool m_resource_was_deleted;
 };
 
 #endif // CONTENTTAB_H

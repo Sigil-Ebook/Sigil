@@ -32,9 +32,10 @@ ContentTab::ContentTab(Resource *resource, QWidget *parent)
     :
     QWidget(parent),
     m_Resource(resource),
-    m_Layout(new QVBoxLayout(this))
+    m_Layout(new QVBoxLayout(this)),
+    m_resource_was_deleted(false)
 {
-    connect(resource, SIGNAL(Deleted(const Resource *)),          this, SLOT(EmitDeleteMe()));
+    connect(resource, SIGNAL(Deleted(const Resource *)),          this, SLOT(UnderlyingResourceDeleted()));
     connect(resource, SIGNAL(Renamed(const Resource *, QString)), this, SLOT(EmitTabRenamed()));
     m_Layout->setContentsMargins(0, 0, 0, 0);
     setLayout(m_Layout);
@@ -104,6 +105,17 @@ void ContentTab::ContentChangedExternally()
 
 void ContentTab::ChangeCasing(const Utility::Casing casing)
 {
+}
+
+bool ContentTab::GetResourceWasDeleted()
+{  
+    return m_resource_was_deleted;
+}
+
+void ContentTab::UnderlyingResourceDeleted()
+{
+      m_resource_was_deleted = true;
+      EmitDeleteMe();
 }
 
 void ContentTab::EmitDeleteMe()

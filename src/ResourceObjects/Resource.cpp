@@ -209,6 +209,9 @@ bool Resource::Delete()
 
     if (successful) {
         emit Deleted(this);
+        // try to prevent any resource modified signals from going out
+	// while we wait for delete to actually happen
+	disconnect(this, 0, 0, 0);
         deleteLater();
     }
 
