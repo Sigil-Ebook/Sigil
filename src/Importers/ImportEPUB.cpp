@@ -726,6 +726,8 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
 
     // find the epub root relative file path from the opf location and the item href
     QString file_path = m_opfDir.absolutePath() + "/" + href;
+    QFileInfo fi(file_path);
+    file_path = fi.canonicalFilePath();
     file_path = file_path.remove(0, m_ExtractedFolderPath.length() + 1); 
     
     if (type != NCX_MIMETYPE && extension != NCX_EXTENSION) {
