@@ -96,8 +96,8 @@ mime_base_map = {
                 'audio/mp4'                               : 'Audio',
                 'video/mp4'                               : 'Video',
                 'text/css'                                : 'Styles',
-                'application/x-dtbncx+xml'                : './',
-                'application/oebps-package+xml'           : './',
+                'application/x-dtbncx+xml'                : '',
+                'application/oebps-package+xml'           : '',
                 'application/oebs-page-map+xml'           : 'Misc',
                 'application/smil+xml'                    : 'Misc',
                 'application/adobe-page-template+xml'     : 'Misc',
@@ -593,7 +593,10 @@ class Wrapper(object):
             base = "Video"
         else:
             base = mime_base_map.get(mime,'Misc')
-        href = base + "/" + basename
+        if base == "":
+            href = basename
+        else:
+            href = base + "/" + basename
         if uniqueid in self.id_to_href:
             raise WrapperException('Manifest Id is not unique')
         if href in self.href_to_id:
