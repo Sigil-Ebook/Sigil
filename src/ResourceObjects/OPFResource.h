@@ -79,7 +79,7 @@ public:
 
     void EnsureUUIDIdentifierPresent();
 
-    QString AddNCXItem(const QString &ncx_path);
+    QString AddNCXItem(const QString &ncx_path, QString id="ncx");
 
     void RemoveNCXOnSpine();
 

@@ -751,6 +751,14 @@ bool PluginRunner::deleteFiles(const QStringList &files)
         }
         if (mime == "application/x-dtbncx+xml") {
 	    if (m_hrefToRes.contains(href)) {
+	        QString version = m_book->GetConstOPF()->GetEpubVersion();
+	        NCXResource * ncx_resource = m_book->GetNCX();
+	        if (ncx_resource && version.startsWith('3')) {
+		    m_book->GetOPF()->RemoveNCXOnSpine();
+		    m_book->GetFolderKeeper()->RemoveNCXFromFolder();
+		    ncx_resource->Delete();
+                    changes_made = true;
+	        }
                 continue;
 	    }
         }
@@ -832,6 +840,20 @@ bool PluginRunner::addFiles(const QStringList &files)
             continue;
         }
         if (mime == "application/x-dtbncx+xml") {
+	    // under epub3 you can add an ncx
+            QString version = m_book->GetConstOPF()->GetEpubVersion();
+	    NCXResource * ncx_resource = m_book->GetNCX();
+	    if (!ncx_resource && version.startsWith('3')) {
+                QString inpath = m_outputDir + "/" + href;
+                QFileInfo fi(inpath);
+                ui.statusLbl->setText(tr("Status: adding") + " " + fi.fileName());
+	        ncx_resource = m_book->GetFolderKeeper()->AddNCXToFolder(version);
+		ncx_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
+		ncx_resource->SaveToDisk();
+		// now add it to the opf with the preferred id
+                // QString ncx_id = m_book->GetOPF()->AddNCXItem(ncx_resource->GetFullPath(),id);
+		// m_book->GetOPF()->UpdateNCXOnSpine(ncx_id);
+	    }
             continue;
         }
 
@@ -846,8 +868,6 @@ bool PluginRunner::addFiles(const QStringList &files)
 
         // For new Editable Resources must do the equivalent of the InitialLoad
         // Order is important as some resource types inherit from other resource types
-
-        // NOTE! AddContentFileToFolder returns a resource reference and not a pointer
 
         if (resource->Type() == Resource::FontResourceType && !m_algorithm.isEmpty()) {
             FontResource *font_resource = qobject_cast<FontResource *>(resource);

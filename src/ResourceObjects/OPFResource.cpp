@@ -285,7 +285,7 @@ void OPFResource::EnsureUUIDIdentifierPresent()
     UpdateText(p);
 }
 
-QString OPFResource::AddNCXItem(const QString &ncx_path)
+QString OPFResource::AddNCXItem(const QString &ncx_path, QString id)
 {
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
@@ -295,7 +295,7 @@ QString OPFResource::AddNCXItem(const QString &ncx_path)
     QString ncx_oebps_path  = QString(ncx_path).remove(path_to_oebps_folder);
     int n = p.m_manifest.count();
     ManifestEntry me;
-    me.m_id = GetUniqueID("ncx", p);
+    me.m_id = GetUniqueID(id, p);
     me.m_href = ncx_oebps_path;
     me.m_mtype = "application/x-dtbncx+xml";
     p.m_manifest.append(me);

@@ -35,7 +35,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20190716
+_launcher_version=20190729
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
@@ -96,8 +96,8 @@ mime_base_map = {
                 'audio/mp4'                               : 'Audio',
                 'video/mp4'                               : 'Video',
                 'text/css'                                : 'Styles',
-                'application/x-dtbncx+xml'                : '',
-                'application/oebps-package+xml'           : '',
+                'application/x-dtbncx+xml'                : './',
+                'application/oebps-package+xml'           : './',
                 'application/oebs-page-map+xml'           : 'Misc',
                 'application/smil+xml'                    : 'Misc',
                 'application/adobe-page-template+xml'     : 'Misc',
