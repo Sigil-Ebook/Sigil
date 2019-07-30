@@ -44,7 +44,7 @@
 #include "Tabs/WellFormedCheckComponent.h"
 #include "ViewEditors/CodeViewEditor.h"
 
-#define DBG if(0)
+#define DBG if(1)
 
 static const QString SETTINGS_GROUP = "flowtab";
 

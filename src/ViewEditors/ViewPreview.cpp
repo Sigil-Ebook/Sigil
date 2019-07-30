@@ -39,7 +39,7 @@
 #include "ViewEditors/WebEngPage.h"
 #include "ViewEditors/ViewPreview.h"
 
-#define DBG if(0)
+#define DBG if(1)
 
 const QString SET_CURSOR_JS2 =
     "var range = document.createRange();"
@@ -380,6 +380,7 @@ QList<ElementIndex> ViewPreview::GetCaretLocation()
 {
     // The location element hierarchy encoded in a string
     QString location_string = EvaluateJavascript(c_GetCaretLocation).toString();
+    qDebug() << "GetCaretLocation: " << location_string;
     return ConvertQWebPathToHierarchy(location_string);
 }
 
