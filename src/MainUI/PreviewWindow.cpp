@@ -180,16 +180,20 @@ void PreviewWindow::SetupView()
     QApplication::restoreOverrideCursor();
 }
 
-void PreviewWindow::UpdatePage(QString filename_url, QString text, QList<ElementIndex> location)
+bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<ElementIndex> location)
 {
+
+    qDebug() << "Entered PV UpdatePage with filename: " << filename_url;
+
     if (!m_Preview->isVisible()) {
         qDebug() << "ignoring PV UpdatePage since PV is not visible";
-        return;
+        return true;
     }
    
     if (m_updatingPage) {
-        qDebug() << "ignoring PV UpdatePage since already updating";
-        return;
+        qDebug() << "delaying PV UpdatePage request as currently loading a page: ";
+        // m_Preview->triggerPageAction(QWebEnginePage::Stop);
+	return false;
     }
 
     m_updatingPage = true;
@@ -232,9 +236,9 @@ void PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
 
     // Wait until the preview is loaded before moving cursor.
     while (!m_Preview->IsLoadingFinished()) {
-        qApp->processEvents();
+        qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 100);
     }
-    
+
     if (!m_Preview->WasLoadOkay()) qDebug() << "PV loadFinished with okay set to false!";
  
     DBG qDebug() << "PreviewWindow UpdatePage load is Finished";
@@ -244,6 +248,7 @@ void PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     m_Preview->ExecuteCaretUpdate();
     UpdateWindowTitle();
     m_updatingPage = false;
+    return true;
 }
 
 void PreviewWindow::ScrollTo(QList<ElementIndex> location)

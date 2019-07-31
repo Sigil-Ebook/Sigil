@@ -3335,7 +3335,10 @@ void MainWindow::UpdatePreview()
 	    m_PreviousHTMLText = text;
 	    m_PreviousHTMLLocation = location;
 
-            m_PreviewWindow->UpdatePage(html_resource->GetFullPath(), text, location);
+            bool res = m_PreviewWindow->UpdatePage(html_resource->GetFullPath(), text, location);
+	    if (!res) {
+	        m_PreviewTimer.start();
+	    }
         }
     }
 }
@@ -4897,6 +4900,7 @@ void MainWindow::changeEvent(QEvent *e)
         if(isMinimized()) {
             // MINIMIZED
 	    qDebug() << "Main Window was minimized";
+	    m_PreviewTimer.stop();
         } else {
             // NORMAL/MAXIMIZED ETC
 	    qDebug() << "Main Window was restored";
