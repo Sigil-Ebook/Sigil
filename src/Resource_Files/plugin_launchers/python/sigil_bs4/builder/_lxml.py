@@ -167,6 +167,16 @@ class LXMLTreeBuilderForXML(TreeBuilder):
         attrs = dict(attrs)
         nsprefix = None
 
+        # ARRGGHH lxml 4.4.X has changes empty prefixes on namespaces to be the null string 
+        # and not None which all prior versions used! So remap '' prefixes to be None
+        # so we can work with all lxml versions
+        new_nsmap = {}
+        for pfx, ns in list(nsmap.items()):
+            if pfx is not None and pfx == '':
+                pfx = None
+            new_nsmap[pfx] = ns
+        nsmap = new_nsmap
+        
         # Fix bug in bs4 _lxml.py that ignores attributes that specify namespaces on this tag
         # Invert each namespace map as it comes in.
         if len(nsmap) > 0:
