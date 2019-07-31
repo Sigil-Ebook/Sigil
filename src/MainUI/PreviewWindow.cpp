@@ -54,7 +54,8 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_buttons(new QHBoxLayout()),
     m_Preview(new ViewPreview(this)),
     m_Inspector(new Inspector(this)),
-    m_Filepath(QString())
+    m_Filepath(QString()),
+    m_updatingPage(false)
 {
     SetupView();
     LoadSettings();
@@ -182,8 +183,16 @@ void PreviewWindow::SetupView()
 void PreviewWindow::UpdatePage(QString filename_url, QString text, QList<ElementIndex> location)
 {
     if (!m_Preview->isVisible()) {
+        qDebug() << "ignoring PV UpdatePage since PV is not visible";
         return;
     }
+   
+    if (m_updatingPage) {
+        qDebug() << "ignoring PV UpdatePage since already updating";
+        return;
+    }
+
+    m_updatingPage = true;
 
     DBG qDebug() << "PV UpdatePage " << filename_url;
     DBG foreach(ElementIndex ei, location) qDebug()<< "PV name: " << ei.name << " index: " << ei.index;
@@ -234,6 +243,7 @@ void PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();
     UpdateWindowTitle();
+    m_updatingPage = false;
 }
 
 void PreviewWindow::ScrollTo(QList<ElementIndex> location)

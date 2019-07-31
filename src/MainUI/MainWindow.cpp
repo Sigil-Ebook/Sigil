@@ -3283,6 +3283,8 @@ void MainWindow::UpdatePreview()
 {
     m_PreviewTimer.stop();
 
+    qDebug() << "MW: UpdatePreview()";
+
     QString text;
     QList<ElementIndex> location;
     HTMLResource *html_resource;
@@ -4889,6 +4891,19 @@ void MainWindow::LoadInitialFile(const QString &openfilepath, bool is_internal)
     }
 }
 
+void MainWindow::changeEvent(QEvent *e) 
+{
+    if(e->type() == QEvent::WindowStateChange) {
+        if(isMinimized()) {
+            // MINIMIZED
+	    qDebug() << "Main Window was minimized";
+        } else {
+            // NORMAL/MAXIMIZED ETC
+	    qDebug() << "Main Window was restored";
+        }
+    }
+    // e->accept();
+}
 
 void MainWindow::ConnectSignalsToSlots()
 {

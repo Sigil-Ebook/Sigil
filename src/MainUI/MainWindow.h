@@ -236,6 +236,9 @@ signals:
 
 protected:
     void showEvent(QShowEvent *event);
+
+    void changeEvent(QEvent * event);
+
     /**
      * Workaround for Qt 4.8 bug, which does not save/restore window state
      * correctly if maximized at the time of calling saveGeometry().

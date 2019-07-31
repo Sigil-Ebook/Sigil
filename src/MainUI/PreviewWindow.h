@@ -111,6 +111,7 @@ private:
     QAction * m_copyAction;
     QAction * m_reloadAction;
 
+    bool m_updatingPage;
 };
 
 #endif // PREVIEWWINDOW_H
