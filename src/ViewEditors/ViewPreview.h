@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks Stratford, Ontario, Canada 
+**  Copyright (C) 2019 Kevin B. Hendricks Stratford, Ontario, Canada
+**  Copyright (C) 2019 Doug Massay
 **
 **  This file is part of Sigil.
 **
@@ -43,7 +44,7 @@ public:
     ViewPreview(QWidget *parent = 0);
     ~ViewPreview();
 
-    QSize sizeHint() const;
+    // QSize sizeHint() const;
 
     void CustomSetDocument(const QString &path, const QString &html);
 

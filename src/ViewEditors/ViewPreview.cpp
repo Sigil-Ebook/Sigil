@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2019  Kevin B. Hendricks Stratford, Ontario, Canada
+**  Copyright (C) 2019 Doug Massay
 **
 **  This file is part of Sigil.
 **
@@ -118,10 +119,13 @@ QString ViewPreview::GetCaretLocationUpdate()
     return m_CaretLocationUpdate;
 }
 
+/** This made sense when Book View shared space with
+* Code view as the central widget. Now that Preview is always
+* a QDockWidget, let MainWindow pick the initial size.
 QSize ViewPreview::sizeHint() const
 {
     return QSize(16777215, 16777215);
-}
+} */
 
 void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
 {

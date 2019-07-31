@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2019 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -4322,7 +4323,9 @@ void MainWindow::ExtendUI()
     m_PreviewWindow = new PreviewWindow(this);
     m_PreviewWindow->setObjectName(PREVIEW_WINDOW_NAME);
     addDockWidget(Qt::RightDockWidgetArea, m_PreviewWindow);
-    m_PreviewWindow->hide();
+    // Now that Book View is gone, show Preview by default on new installations
+    // tabified with the TOC widget in the RightDockWidgetArea
+    tabifyDockWidget(m_TableOfContents, m_PreviewWindow);
 
     m_Clips = new ClipsWindow(this);
     m_Clips->setObjectName(CLIPS_WINDOW_NAME);
