@@ -44,8 +44,6 @@ public:
     ViewPreview(QWidget *parent = 0);
     ~ViewPreview();
 
-    // QSize sizeHint() const;
-
     void CustomSetDocument(const QString &path, const QString &html);
 
     bool IsLoadingFinished();
