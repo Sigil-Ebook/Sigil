@@ -44,7 +44,7 @@
 
 static const QString SETTINGS_GROUP = "previewwindow";
 
-#define DBG if(1)
+#define DBG if(0)
 
 PreviewWindow::PreviewWindow(QWidget *parent)
     :

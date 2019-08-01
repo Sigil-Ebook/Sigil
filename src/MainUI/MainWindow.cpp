@@ -102,7 +102,7 @@
 #include "Tabs/TabManager.h"
 #include "MainUI/MainApplication.h"
 
-#define DBG if(1)
+#define DBG if(0)
 
 static const int TEXT_ELIDE_WIDTH   = 300;
 static const QString SETTINGS_GROUP = "mainwindow";
