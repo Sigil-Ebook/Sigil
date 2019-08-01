@@ -183,15 +183,15 @@ void PreviewWindow::SetupView()
 bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<ElementIndex> location)
 {
 
-    qDebug() << "Entered PV UpdatePage with filename: " << filename_url;
+    DBG qDebug() << "Entered PV UpdatePage with filename: " << filename_url;
 
     if (!m_Preview->isVisible()) {
-        qDebug() << "ignoring PV UpdatePage since PV is not visible";
+        DBG qDebug() << "ignoring PV UpdatePage since PV is not visible";
         return true;
     }
    
     if (m_updatingPage) {
-        qDebug() << "delaying PV UpdatePage request as currently loading a page: ";
+        DBG qDebug() << "delaying PV UpdatePage request as currently loading a page: ";
         // m_Preview->triggerPageAction(QWebEnginePage::Stop);
 	return false;
     }
@@ -383,14 +383,14 @@ void PreviewWindow::LinkClicked(const QUrl &url)
 
 void PreviewWindow::InspectorClosed(int i)
 {
-    qDebug() << "received finished with argument: " << i;
+    DBG qDebug() << "received finished with argument: " << i;
 }
 
 void PreviewWindow::InspectPreviewPage()
 {
     // non-modal dialog
     if (!m_Inspector->isVisible()) {
-        qDebug() << "inspecting";
+        DBG qDebug() << "inspecting";
         m_Inspector->InspectPageofView(m_Preview);
         m_Inspector->show();
         m_Inspector->raise();

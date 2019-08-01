@@ -3284,7 +3284,7 @@ void MainWindow::UpdatePreview()
 {
     m_PreviewTimer.stop();
 
-    qDebug() << "MW: UpdatePreview()";
+    DBG qDebug() << "MW: UpdatePreview()";
 
     QString text;
     QList<ElementIndex> location;
@@ -4902,11 +4902,11 @@ void MainWindow::changeEvent(QEvent *e)
     if(e->type() == QEvent::WindowStateChange) {
         if(isMinimized()) {
             // MINIMIZED
-	    qDebug() << "Main Window was minimized";
+	    DBG qDebug() << "Main Window was minimized";
 	    m_PreviewTimer.stop();
         } else {
             // NORMAL/MAXIMIZED ETC
-	    qDebug() << "Main Window was restored";
+	    DBG qDebug() << "Main Window was restored";
         }
     }
     // e->accept();
