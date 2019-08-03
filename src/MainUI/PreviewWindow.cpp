@@ -145,9 +145,9 @@ void PreviewWindow::SetupView()
     // QWebEngineView events are routed to their parent
     m_Preview->installEventFilter(this);
 
-    // Qt 5.9.x QtWebEngine handled mouse events differently than Qt 5.12.X
-    // Need to install event filter on WebEngView fcocusProxy as well
+#if QT_VERSION < QT_VERSION_CHECK(5, 10, 0)
     m_Preview->focusProxy()->installEventFilter(this);
+#endif
 
     m_Layout->setContentsMargins(0, 0, 0, 0);
     m_Layout->addWidget(m_Preview);
