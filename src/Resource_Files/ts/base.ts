@@ -13142,27 +13142,27 @@ Entities can be separated by lines, commas, or spaces.</source>
     <name>PreviewWindow</name>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="51"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="269"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="273"/>
         <source>Preview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="152"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="156"/>
         <source>Inspect Page: Ctrl-F5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="156"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="160"/>
         <source>Select-All: Ctrl-A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="160"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="164"/>
         <source>Copy Selection To ClipBoard: Ctrl-C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="164"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="168"/>
         <source>Update Preview Window: Ctrl-R</source>
         <translation type="unfinished"></translation>
     </message>
