@@ -145,24 +145,9 @@ void PreviewWindow::SetupView()
     // QWebEngineView events are routed to their parent
     m_Preview->installEventFilter(this);
 
-    // Debug Linux 0.9.5 select one of the following at a time
-    // to see if anything helps CV->PV work
-
-#if 1
-    // QWebEngineView events are routed to their parent
-    m_Preview->focusWidget()->installEventFilter(this);
-#endif
-
-#if 0 
+    // Qt 5.9.x QtWebEngine handled mouse events differently than Qt 5.12.X
+    // Need to install event filter on WebEngView fcocusProxy as well
     m_Preview->focusProxy()->installEventFilter(this);
-#endif
-
-#if 0
-    for(auto* child : m_Preview->children() ) {
-       child->installEventFilter(this);
-    }
-#endif
-    // End DEBUG Linux 0.9.5
 
     m_Layout->setContentsMargins(0, 0, 0, 0);
     m_Layout->addWidget(m_Preview);
