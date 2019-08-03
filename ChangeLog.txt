@@ -12,6 +12,7 @@ Sigil-0.9.17
      - fix CodeView to Preview sync breakage due to attempting to load the Preview before it 
           finished loading the last update
      - fix sigil_bs4 to work with latest python lxml 4.4.X in a backwards compatible manner
+     - fix missing Preview to CodeView sync on Qt versions 5.9.X
     New Features
      - add a python3 plugin module navprocessor.py for plugin devs
      - show Preview by default (tabified with TOC) for new installations of Sigil
