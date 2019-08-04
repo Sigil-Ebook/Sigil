@@ -145,7 +145,7 @@ void PreviewWindow::SetupView()
     // QWebEngineView events are routed to their parent
     m_Preview->installEventFilter(this);
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 10, 0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
     m_Preview->focusProxy()->installEventFilter(this);
 #endif
 
