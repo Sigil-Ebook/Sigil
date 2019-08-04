@@ -718,6 +718,11 @@ void MainWindow::closeEvent(QCloseEvent *event)
         KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
         sm->removeActionsOf(this);
 
+        // stop any further UpdatePreview timer actions
+        if (m_PreviewTimer.isActive()) {
+            m_PreviewTimer.stop();
+        }
+
         // The user may have unsaved search/clip/index/meta entries if dialogs are open.
         // Prompt them to save or discard their changes if any.
         if (m_SearchEditor && m_SearchEditor->isVisible()) {
