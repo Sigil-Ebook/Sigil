@@ -15,6 +15,7 @@ Sigil-0.9.17
      - fix missing Preview to CodeView sync on Qt versions 5.9.X
      - fix segfault on app close related to the PreviewWindow update timer firing at a bad time
      - fix syncing loss caused by spurous load finished signals causing ExecuteCaretUpdate to stop working 
+     - fix macOS specific bug that allowed multiple Dockwidget MainWindows to become tabs
     New Features
      - add a python3 plugin module navprocessor.py for plugin devs
      - show Preview by default (tabified with TOC) for new installations of Sigil
