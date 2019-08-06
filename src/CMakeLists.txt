@@ -499,6 +499,14 @@ set( QRC_FILES
     Resource_Files/icon/icon.qrc
     )
 
+if (APPLE)
+    LIST(APPEND MISC_FILES
+        Misc/macos_menu_and_window_fixes.mm
+    )
+
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -framework AppKit")
+endif()
+
 file( GLOB TS_FILES Resource_Files/ts/sigil_*.ts )
 
 file( GLOB DIC_FILES Resource_Files/dictionaries/* )

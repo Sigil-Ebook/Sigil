@@ -60,6 +60,8 @@ static const int RETRY_DELAY_MS = 5;
 # include <QFileDialog>
 # include <QKeySequence>
 # include <QAction>
+extern void disableWindowTabbing();
+extern void removeMacosSpecificMenuItems();
 #endif
 
 // Creates a MainWindow instance depending
@@ -242,6 +244,11 @@ int main(int argc, char *argv[])
 #endif
 
     MainApplication app(argc, argv);
+
+#ifdef Q_OS_MAC
+    disableWindowTabbing();
+    removeMacosSpecificMenuItems();
+#endif
 
     // drag and drop in main tab bar is too touchy and that can cause problems.
     // default drag distance limit is much too small especially for hpi displays
