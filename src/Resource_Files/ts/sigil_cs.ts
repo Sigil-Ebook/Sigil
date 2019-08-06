@@ -455,7 +455,7 @@ if a sans-serif font-family specified in your CSS</source>
 <context>
     <name>Book</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="400"/>
+        <location filename="../../BookManipulation/Book.cpp" line="391"/>
         <source>Start</source>
         <translation>Začátek</translation>
     </message>
@@ -1899,7 +1899,7 @@ od opačného konce.</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="816"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="827"/>
         <source>Print %1</source>
         <translation>Tisk %1</translation>
     </message>
@@ -6685,13 +6685,13 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="364"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="638"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="639"/>
         <source>File</source>
         <translation>Soubor</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="379"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="333"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="334"/>
         <source>Edit</source>
         <translation>Úpravy</translation>
     </message>
@@ -8686,95 +8686,95 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="321"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="322"/>
         <source>Input</source>
         <translation>Vstup</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="327"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="328"/>
         <source>Output</source>
         <translation>Výstup</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="339"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="340"/>
         <source>Validation</source>
         <translation>Schválení</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="397"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="398"/>
         <source>External XHtml Editor works only on Html Resources!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="404"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="405"/>
         <source>No External Xhtml Editor has been specified:  See Preferences</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="411"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="412"/>
         <source>Specified External Xhtml Editor path does not exist</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="422"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="423"/>
         <source>Executing External Xhtml Editor</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="428"/>
         <source>Failed to Launch External Xhtml Editor</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="521"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="522"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>Pohyb byl zrušen, protože poloha už neexistuje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="538"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="539"/>
         <source>Location bookmarked.</source>
         <translation>Místo opatřeno záložkou.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="602"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="824"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1032"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1183"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1631"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1718"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1773"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1781"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1798"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1810"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1913"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1929"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1934"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1947"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1960"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1965"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1977"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1987"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1992"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2223"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2230"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2244"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2249"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2273"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2305"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3439"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="603"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="825"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1033"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1632"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1719"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1774"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1782"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1799"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1811"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1914"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1930"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1935"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1948"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1961"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1966"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1978"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1988"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1993"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2224"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2231"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2245"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2250"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2274"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2306"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3445"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3451"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3457"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3492"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3498"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3712"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3921"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4121"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3504"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3927"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4127"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="602"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="603"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -8784,406 +8784,406 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="638"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="639"/>
         <source>was updated</source>
         <translation>byl aktualizován</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="645"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="646"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="645"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="646"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>Soubor NEBYL dobře utvořen a může být poškozen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="673"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="674"/>
         <source>Opening this EPUB generated warnings.</source>
         <translation>Otevření tohoto EPUB vedlo k varováním.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="675"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="676"/>
         <source>Select Show Details for more information.</source>
         <translation>Vyberte Ukázat podrobnosti pro zobrazení dalších informací.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="715"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="716"/>
         <source>Sigil is closing...</source>
         <translation>Sigil zavírá...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="766"/>
         <source>New file created.</source>
         <translation>Nový soubor vytvořen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="786"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="787"/>
         <source>Open File</source>
         <translation>Otevřít soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="823"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="824"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>Tento soubor už neexistuje. Klepněte na OK pro jeho odstranění z nabídky.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="893"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="894"/>
         <source>Save File</source>
         <translation>Uložit soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="947"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="948"/>
         <source>Save a Copy</source>
         <translation>Uložit kopii</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1009"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1010"/>
         <source>Go To Line</source>
         <translation>Jít na řádek</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1009"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1010"/>
         <source>Line #</source>
         <translation>Řádek #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1032"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1033"/>
         <source>Image does not exist: </source>
         <translation>Obrázek neexistuje:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1094"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1095"/>
         <source>or</source>
         <translation>nebo</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1102"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1103"/>
         <source>No CSS styles named</source>
         <translation>Žádné pojmenované styly CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1102"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1103"/>
         <source>found, or stylesheet not linked.</source>
         <translation>nalezeno, nebo není stylový list propojen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1179"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1180"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1203"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1204"/>
         <source>Add Cover</source>
         <translation>Přidat obal</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1301"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1302"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Neočekávaná chyba. Pro obal lze použít pouze obrázkové soubory.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1318"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1319"/>
         <source>Cover added.</source>
         <translation>Obal přidán.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1327"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1344"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1376"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1328"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1345"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
         <source>Not Available for epub2.</source>
         <translation>Nedostupné pro EPUB 2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1335"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1336"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>Vlastnosti manifestu OPF aktualizovány.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1366"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1367"/>
         <source>NCX and Guide removed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1393"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1411"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1394"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1412"/>
         <source>NCX and Guide generation failed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1461"/>
         <source>NCX and Guide generated.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1616"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1617"/>
         <source>Styles deleted.</source>
         <translation>Styly smazány.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1631"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1632"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Zprávy zrušeny kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1719"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Smazání nepoužívaných multimediálních souborů zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1771"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1772"/>
         <source>Unused media files deleted.</source>
         <translation>Nepoužívané multimediální soubory smazány.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1773"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1774"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Nejsou žádné nepoužívané obrázky, obrazové nebo zvukové záznamy ke smazání.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1781"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1782"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Smazání nepoužívaných stylů zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1798"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1799"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation>Nejsou žádné nepoužívané třídy stylových listů ke smazání.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1810"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1811"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Nemůžete vložit soubor v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1817"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1818"/>
         <source>Insert File</source>
         <translation>Vložit soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1862"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1863"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Soubor &quot;%1&quot; neexistuje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1913"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1934"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1914"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1935"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Nemůžete vložit ID v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1929"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1930"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID je neplatné - musí začínat písmenem, následováno číslem písmene _ : - nebo .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1947"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1965"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1948"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1966"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Nemůžete vložit odkaz v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1960"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1961"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Odkaz je neplatný - nemůže obsahovat &apos;&lt;&apos; nebo &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1977"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1978"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Nemůžete označit rejstřík v této poloze nebo bez vybrání textu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1987"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1988"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Položka je neplatná - nemůže obsahovat &apos;&lt;&apos; nebo &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1993"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Nemůžete označit rejstřík v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2046"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2057"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2047"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2058"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2177"/>
         <source>Select the destination to paste into first.</source>
         <translation>Vyberte cíl, do kterého vkládat nejprve.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2065"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2066"/>
         <source>Pasted clip entry %1.</source>
         <translation>Vložena položka úryvku %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2223"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2224"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Jeden zdroj byl vybrán, ale není tu předchozí zdroj, se kterým by se sloučil.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2230"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2231"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Jste si jistý, že chcete sloučit vybrané soubory?
 Tento krok nelze vrátit zpět.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2244"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2245"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
         <translation>Sloučení zrušeno: %1, nedobře utvořené XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2249"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2250"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>Sloučení zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2273"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2274"/>
         <source>Cannot merge file %1</source>
         <translation>Nelze sloučit soubor %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2287"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2288"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Sloučení dokončeno. Možná bude potřeba vytvořit obsah znovu nebo jej upravit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2305"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2306"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Odkazování stylových listů zrušeno: %1, XML není dobře utvořen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2430"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2431"/>
         <source>Word updated.</source>
         <translation>Slovo aktualizováno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2504"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2505"/>
         <source>File(s) deleted.</source>
         <translation>Soubor(y) smazán.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2515"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2516"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Upravení obsahu zrušeno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2520"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2521"/>
         <source>Table Of Contents edited.</source>
         <translation>Obsah upraven.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2538"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2539"/>
         <source>Generate TOC cancelled.</source>
         <translation>Vytvoření obsahu zrušeno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2563"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2564"/>
         <source>Table Of Contents generated.</source>
         <translation>Obsah vytvořen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2565"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2566"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Nebyly nutné žádné změny obsahu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2709"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2710"/>
         <source>Text selection marked.</source>
         <translation>Výběr textu označen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2711"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2729"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2712"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2730"/>
         <source>Text selection unmarked.</source>
         <translation>Výběr textu odznačen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2778"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2779"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Editor popisu zrušen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2781"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2782"/>
         <source>Metadata edited.</source>
         <translation>Popisná data upravena.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2871"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2872"/>
         <source>RunPlugin</source>
         <translation>Spustit přídavný modul</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2896"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2897"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Tento EPUB neobsahuje žádné stylové listy ke schválení.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3359"/>
         <source>Line: %1, Col: %2</source>
         <translation>Řádek: %1, sloupec: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3439"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3445"/>
         <source>File cannot be split at this position.</source>
         <translation>Soubor nelze v tomto místě rozdělit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3445"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3451"/>
         <source>Cannot split since it may not be an HTML file.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3451"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3457"/>
         <source>The Nav file cannot be split.</source>
         <translation>Soubor Nav nelze rozdělit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3468"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3474"/>
         <source>Split completed.</source>
         <translation>Rozdělení dokončeno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3492"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Nelze rozdělit, protože alespoň jeden soubor není souborem HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3492"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3498"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Nelze rozdělit: %1 XML není dobře utvořen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3498"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3504"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Nelze rozdělit, protože alespoň jeden soubor nemusí být souborem HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3531"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3537"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Rozdělení dokončeno. Možná bude potřeba obnovit obsah.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3533"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3539"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Nenalezeny žádné značky pro rozdělení souboru. Použijte Vložka-&gt;Značka pro rozdělení.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3713"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3719"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Dokument byl změněn.
 Chcete uložit své změny?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3795"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3801"/>
         <source>No importer for file type: %1</source>
         <translation>Žádný zavaděč pro souborový typ: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3808"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -9196,44 +9196,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Pokuste se nastavit nastavení pro uklizení zdroje na Spravit zdrojový kód XHTML při otevření a soubor nahrát znovu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3807"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3813"/>
         <source>Loading file...</source>
         <translation>Nahrává se soubor...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3821"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3827"/>
         <source>File loaded.</source>
         <translation>Soubor nahrán.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3848"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3854"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Tvůrce tohoto souboru jej zašifroval DRM. Sigil takové soubory otevřít nedokáže.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3855"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3861"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Nelze nahrát EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3859"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3865"/>
         <source>Cannot load file %1: %2</source>
         <translation>Nelze nahrát soubor %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3888"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3894"/>
         <source>Saving EPUB...</source>
         <translation>Ukládá se EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3897"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3903"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil nedokáže ukládat soubory typu &quot;%1&quot;.
 Vyberte, prosím, jiný formát.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3922"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3928"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in data loss.
 
 Do you want to automatically mend the files before saving?</source>
@@ -9242,69 +9242,69 @@ Do you want to automatically mend the files before saving?</source>
 Chcete soubory před uložením opravit automaticky?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3953"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3959"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB uložen, ale ne všechny soubory HTML jsou utvořeny dobře.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3955"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3961"/>
         <source>EPUB saved.</source>
         <translation>EPUB uložen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3961"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3967"/>
         <source>Cannot save file %1: %2</source>
         <translation>Nelze uložit soubor %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4102"/>
         <source>EPUB files (*.epub)</source>
         <translation>Soubory EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4097"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4098"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4099"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4103"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4104"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4105"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Soubory HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4100"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4106"/>
         <source>Text files (*.txt)</source>
         <translation>Textové soubory (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4107"/>
         <source>All files (*.*)</source>
         <translation>Všechny soubory (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4109"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4115"/>
         <source>EPUB file (*.epub)</source>
         <translation>Soubor EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4121"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4127"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4191"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4197"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Zachování stávajících vlastností nadpisů je nyní:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4192"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4198"/>
         <source>ON</source>
         <translation>ZAPNUTO</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4192"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4198"/>
         <source>OFF</source>
         <translation>VYPNUTO</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4217"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4223"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -12909,132 +12909,133 @@ Chcete soubory před uložením opravit automaticky?</translation>
         <translation>Chyba: Přídavný modul nelze spustit</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="371"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="376"/>
         <source>Status: running</source>
         <translation>Stav: Běží</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="388"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="393"/>
         <source>Launcher process crashed</source>
         <translation>Proces spouštěče se zhroutil.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="399"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="404"/>
         <source>Status: finished</source>
         <translation>Stav: Dokončeno</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="406"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="411"/>
         <source>Status: failed</source>
         <translation>Stav: Nepodařilo se</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="412"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="421"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="417"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="426"/>
         <source>Status: No Changes Made</source>
         <translation>Stav: Neprovedeny žádné změny</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="420"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="425"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation>Chyba: Přídavný modul se pokusil odstranit poslední soubor XHTML. Ruší se změny</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="484"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="555"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="489"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="560"/>
         <source>Status:</source>
         <translation>Stav: </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="511"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="516"/>
         <source>Plugin failed to start</source>
         <translation>Přídavný modul se nepodařilo spustit</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="519"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="524"/>
         <source>Status: error</source>
         <translation>Stav: Chyba</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="533"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="538"/>
         <source>Plugin cancelled</source>
         <translation>Přídavný modul zrušen</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="534"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="539"/>
         <source>Status: cancelled</source>
         <translation>Stav: zrušeno</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="627"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="632"/>
         <source>Error Parsing Result XML:  </source>
         <translation>Chyba při zpracování výsledného XML:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="684"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="699"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="689"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="704"/>
         <source>Status: checking</source>
         <translation>Stav: Ověřuje se</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="688"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="693"/>
         <source>Incorrect XHTML:</source>
         <translation>Nesprávné XHTML: </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="688"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="693"/>
         <source>Line/Col</source>
         <translation>Řádek/Sloupec</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="715"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="720"/>
         <source>Check Report</source>
         <translation>Zpráva o kontrole</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="716"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="721"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>Zjištěn nesprávný XHTML/XML
 Jste si jistý, že chcete pokračovat?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="734"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="739"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>Stav: Uklízí se. Mažou se soubory</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="759"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="772"/>
         <source>Status: deleting</source>
         <translation>Stav: Maže se</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="798"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="811"/>
         <source>Status: Loading</source>
         <translation>Stav: Nahrává se</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="809"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="822"/>
         <source>Input Plugin</source>
         <translation>Zadat přídavný modul</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="810"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="823"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>Vaše nynější kniha bude zcela nahrazena. Budou ztraceny všechny neuložené změny. Jste si jistý, že chcete pokračovat?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="836"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="849"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="863"/>
         <source>Status: adding</source>
         <translation>Stav: Přidává se</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="877"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="902"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>Stav: Uklízí se. Mění se soubory</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="906"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="931"/>
         <source>Status: modifying</source>
         <translation>Stav: Mění se</translation>
     </message>
@@ -13286,12 +13287,12 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
         <translation>Odstranit vše</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="65"/>
         <source>Add Entities</source>
         <translation>Přidat entity</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="63"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="65"/>
         <source>Entities:</source>
         <translation>Entity:</translation>
     </message>
@@ -13300,27 +13301,27 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
     <name>PreviewWindow</name>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="51"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="254"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="273"/>
         <source>Preview</source>
         <translation>Náhled</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="151"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="156"/>
         <source>Inspect Page: Ctrl-F5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="155"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="160"/>
         <source>Select-All: Ctrl-A</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="159"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="164"/>
         <source>Copy Selection To ClipBoard: Ctrl-C</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="163"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="168"/>
         <source>Update Preview Window: Ctrl-R</source>
         <translation type="unfinished"/>
     </message>
@@ -13328,7 +13329,7 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="1058"/>
+        <location filename="../../BookManipulation/Book.cpp" line="1049"/>
         <source>Merging Files..</source>
         <translation>Slučují se soubory...</translation>
     </message>
@@ -13339,7 +13340,7 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
         <translation>Sbírají se třídy...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="291"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="312"/>
         <source>Cleaning...</source>
         <translation>Uklízí se...</translation>
     </message>
@@ -13381,8 +13382,8 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="241"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="843"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="846"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="845"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="848"/>
         <source>Sigil has created a new one for you.</source>
         <translation>Sigil pro vás jednu vytvořil.</translation>
     </message>
@@ -13436,32 +13437,32 @@ Line: %1 Column %2 - %3</source>
 Řádek: %1, Sloupec %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="745"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="747"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation>Manifest OPF obsahuje zdvojená ID pro: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="746"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="748"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>Pro nahrání tohoto EPUB bylo přiřazeno dočasné ID. Měl byste kvůli odstranění zdvojení váš soubor OPF upravit.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="796"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="798"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>Soubor OPF nerozpoznal soubor NCX správně.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="797"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="799"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>Sigil použil následující soubor jako NCX:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="842"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="844"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>Soubor OPF neobsahuje soubor NCX.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="845"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="847"/>
         <source>The NCX file is not present in this EPUB.</source>
         <translation>Soubor NCX není přítomen v tomto EPUB.</translation>
     </message>
@@ -13501,19 +13502,19 @@ Line: %1 Column %2 - %3</source>
         <translation>&lt;p&gt;Je dostupná novější verze programu Sigil, verze &lt;b&gt;%1&lt;/b&gt;.&lt;/p&gt;&lt;p&gt;Chcete přejít na stránku pro stahování?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="428"/>
+        <location filename="../../Misc/Utility.cpp" line="466"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Nelze přečíst soubor %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="543"/>
+        <location filename="../../Misc/Utility.cpp" line="581"/>
         <source>Sigil has encountered a problem.</source>
         <translation>Sigil se potkal s potížemi.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="544"/>
+        <location filename="../../Misc/Utility.cpp" line="582"/>
         <source>Sigil may need to close.</source>
         <translation>Sigil může potřebovat zavřít.</translation>
     </message>
@@ -14610,12 +14611,12 @@ Použijte v případě, že upravujete jakékoli soubory HTML, když je otevřen
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="656"/>
+        <location filename="../../Misc/Utility.cpp" line="694"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="657"/>
+        <location filename="../../Misc/Utility.cpp" line="695"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
