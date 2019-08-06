@@ -14,6 +14,7 @@ Sigil-0.9.17
      - fix sigil_bs4 to work with latest python lxml 4.4.X in a backwards compatible manner
      - fix missing Preview to CodeView sync on Qt versions 5.9.X
      - fix segfault on app close related to the PreviewWindow update timer firing at a bad time
+     - fix syncing loss caused by spurous load finished signals causing ExecuteCaretUpdate to stop working 
     New Features
      - add a python3 plugin module navprocessor.py for plugin devs
      - show Preview by default (tabified with TOC) for new installations of Sigil
