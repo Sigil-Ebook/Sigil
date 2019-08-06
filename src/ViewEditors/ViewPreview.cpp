@@ -440,11 +440,15 @@ QString ViewPreview::GetElementSelectingJS_WithTextNode(const QList<ElementIndex
 
 bool ViewPreview::ExecuteCaretUpdate()
 {
+    // The following is no longer needed as we disable javascripts from running until load finished
+    // happens, otherwise this will be ignored.
+#if 0
     // Currently certain actions in Sigil result in a document being loaded multiple times
     // in response to the signals. Only proceed with moving the caret if all loads are finished.
     if (m_pendingLoadCount > 0) {
         return false;
     }
+#endif
 
     // If there is no caret location update pending...
     if (m_CaretLocationUpdate.isEmpty()) {
