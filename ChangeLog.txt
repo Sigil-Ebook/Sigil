@@ -3,7 +3,7 @@ Sigil-0.9.17
      - fix missing python3 network certifications on macOS
      - do not apply named entities in Preserve Entities to epub3 epubs
      - fix build docs for macOS
-     - prevent FlowTab destructor race when opening a new book (Linux, Mac, Windows)
+     - prevent FlowTab destructor race crash when opening a new book (Linux, Mac, Windows)
      - fix suggestions for built-in en_US dictionary by adding "x" to the TRY list
      - fix plugins adding and deleting ncx under epub3
      - throw exception in plugins when epub2 tries to add or delete the ncx
@@ -13,6 +13,7 @@ Sigil-0.9.17
           finished loading the last update
      - fix sigil_bs4 to work with latest python lxml 4.4.X in a backwards compatible manner
      - fix missing Preview to CodeView sync on Qt versions 5.9.X
+     - fix segfault on app close related to the PreviewWindow update timer firing at a bad time
     New Features
      - add a python3 plugin module navprocessor.py for plugin devs
      - show Preview by default (tabified with TOC) for new installations of Sigil
