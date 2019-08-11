@@ -119,6 +119,12 @@ QString ViewPreview::GetCaretLocationUpdate()
     return m_CaretLocationUpdate;
 }
 
+// Pick a sane/modest initial size for the Preview dockwidget
+QSize ViewPreview::sizeHint() const
+{
+    return QSize(200, 400);
+}
+
 void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
 {
     m_pendingLoadCount += 1;
