@@ -28,6 +28,7 @@
 #include <QtCore/QString>
 #include <QtCore/QHash>
 #include <QtConcurrent/QtConcurrent>
+#include <QDebug>
 
 #include "Misc/Utility.h"
 #include "Misc/GumboInterface.h"
@@ -56,6 +57,7 @@ void AnchorUpdates::UpdateAllAnchors(const QList<HTMLResource *> &html_resources
     QList<HTMLResource *> new_files;
     new_files.append(new_file);
     const QHash<QString, QString> &ID_locations = GetIDLocations(new_files);
+
     QList<QString> originating_filename_links;
     foreach(QString originating_filename, originating_filenames) {
         originating_filename_links.append("../" % TEXT_FOLDER_NAME % "/" % originating_filename);
@@ -100,6 +102,8 @@ std::tuple<QString, QList<QString>> AnchorUpdates::GetOneFileIDs(HTMLResource *h
 void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
         const QHash<QString, QString> ID_locations)
 {
+    qDebug() << "in UpdateAnchorsInOneFile";
+    qDebug() << "ID_locations" << ID_locations;
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
     QString version = html_resource->GetEpubVersion();
@@ -118,7 +122,12 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
 
             if (parts.length() > 1) {
                 QString fragment_id = href.right(href.size() - (parts.at(0).length() + 1));
+		QString base_href = parts.at(0);
                 QString file_id = ID_locations.value(fragment_id);
+		qDebug() << "fragment_id" << fragment_id;
+		qDebug() << "file_id" << file_id;
+		qDebug() << "resource_filename" << resource_filename;
+		qDebug() << "base_href" << base_href;
 
                 // If the ID is in a different file, update the link
                 if (file_id != resource_filename && !file_id.isEmpty()) {
@@ -130,7 +139,13 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
                                               .append(fragment_id);
                     gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
                     is_changed = true;
-                }
+                } else if (file_id == resource_filename && !base_href.contains(file_id)) {
+		    // this is a local internal link that that has the wrong base_href
+		    // fix it
+                    QString attribute_value = QString("#").append(fragment_id);
+                    gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
+                    is_changed = true;
+		}
             }
         }
     }
