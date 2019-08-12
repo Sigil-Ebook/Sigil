@@ -34,8 +34,6 @@
 #include <QXmlStreamReader>
 #include <QFileInfo>
 #include <QDebug>
-#include <QFile>
-#include <QTextStream>
 
 #include "Misc/PluginDB.h"
 #include "Misc/UILanguage.h"
@@ -51,18 +49,20 @@
 
 
 #ifdef Q_OS_WIN32
-# include <QFile>
-# include <QTextStream>
-# include <QProcessEnvironment>
-# include <QtWidgets/QPlainTextEdit>
+#include <QFile>
+#include <QTextStream>
+#include <QProcessEnvironment>
+#include <QtWidgets/QPlainTextEdit>
 static const QString WIN_CLIPBOARD_ERROR = "QClipboard::setMimeData: Failed to set data on clipboard";
 static const int RETRY_DELAY_MS = 5;
 #endif
 
 #ifdef Q_OS_MAC
-# include <QFileDialog>
-# include <QKeySequence>
-# include <QAction>
+#include <QFile>
+#include <QTextStream>
+#include <QFileDialog>
+#include <QKeySequence>
+#include <QAction>
 extern void disableWindowTabbing();
 extern void removeMacosSpecificMenuItems();
 #endif
@@ -193,7 +193,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
             abort();
     }
     
-#if 1 // #ifdef Q_OS_WIN32
+#if defined(Q_OS_WIN32) || defined(Q_OS_MAC)
     // qDebug() prints to WINDOWS_SIGIL_DEBUG_LOGFILE environment variable on Windows.
     // User must have permissions to write to the location or no file will be created.
     if (qEnvironmentVariableIsSet("WINDOWS_SIGIL_DEBUG_LOGFILE") && !qEnvironmentVariableIsEmpty("WINDOWS_SIGIL_DEBUG_LOGFILE")) {
