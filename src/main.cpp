@@ -34,6 +34,8 @@
 #include <QXmlStreamReader>
 #include <QFileInfo>
 #include <QDebug>
+#include <QFile>
+#include <QTextStream>
 
 #include "Misc/PluginDB.h"
 #include "Misc/UILanguage.h"
@@ -46,6 +48,7 @@
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
+
 
 #ifdef Q_OS_WIN32
 # include <QFile>
@@ -190,16 +193,22 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
             abort();
     }
     
-#ifdef Q_OS_WIN32
+#if 1 // #ifdef Q_OS_WIN32
     // qDebug() prints to WINDOWS_SIGIL_DEBUG_LOGFILE environment variable on Windows.
     // User must have permissions to write to the location or no file will be created.
     if (qEnvironmentVariableIsSet("WINDOWS_SIGIL_DEBUG_LOGFILE") && !qEnvironmentVariableIsEmpty("WINDOWS_SIGIL_DEBUG_LOGFILE")) {
         QString sigil_log_file;
+#ifdef Q_OS_WIN32
         sigil_log_file = QProcessEnvironment::systemEnvironment().value("WINDOWS_SIGIL_DEBUG_LOGFILE", "").trimmed();
-        QFile outFile(sigil_log_file);
-        outFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
-        QTextStream ts(&outFile);
-        ts << win_debug_message << endl;
+#else
+        sigil_log_file = qEnvironmentVariable("WINDOWS_SIGIL_DEBUG_LOGFILE", "").trimmed();
+#endif
+	if (!sigil_log_file.isEmpty()) {
+            QFile outFile(sigil_log_file);
+            outFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
+            QTextStream ts(&outFile);
+            ts << win_debug_message << endl;
+	}
     }
 #endif
 }
