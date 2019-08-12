@@ -40,7 +40,7 @@
 #include "ViewEditors/WebEngPage.h"
 #include "ViewEditors/ViewPreview.h"
 
-#define DBG if(0)
+#define DBG if(1)
 
 const QString SET_CURSOR_JS2 =
     "var range = document.createRange();"
@@ -77,7 +77,7 @@ ViewPreview::ViewPreview(QWidget *parent)
       c_jQueryScrollTo(Utility::ReadUnicodeTextFile(":/javascript/jquery.scrollTo-2.1.2-min.js")),
       c_GetCaretLocation(Utility::ReadUnicodeTextFile(":/javascript/book_view_current_location.js")),
       m_CaretLocationUpdate(QString()),
-      m_pendingLoadCount(0),
+      m_CustomSetDocumentInProgress(false),
       m_pendingScrollToFragment(QString()),
       m_LoadOkay(false)
 {
@@ -127,11 +127,12 @@ QSize ViewPreview::sizeHint() const
 
 void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
 {
-    m_pendingLoadCount += 1;
 
     if (html.isEmpty()) {
         return;
     }
+
+    m_CustomSetDocumentInProgress = true;
 
     // If this is not the very first load of this document, store the caret location
     if (!url().isEmpty()) {
@@ -228,7 +229,6 @@ void ViewPreview::ScrollToFragmentInternal(const QString &fragment)
         ScrollToTop();
         return;
     }
-
     QString caret_location = "var element = document.getElementById(\"" % fragment % "\");";
     QString scroll = "var from_top = window.innerHeight / 2.5;"
                      "if (typeof element !== 'undefined') {"
@@ -261,7 +261,7 @@ void ViewPreview::LoadingStarted()
 void ViewPreview::LoadingProgress(int progress)
 {
   DBG qDebug() << "Loading progress " << progress;
-  if (progress >= 100) {
+  if (progress >= 100 && !m_CustomSetDocumentInProgress) {
       m_isLoadFinished = true;
       m_LoadOkay = true;
   }
@@ -275,7 +275,7 @@ void ViewPreview::UpdateFinishedState(bool okay)
     // even when there are no apparent errors!
 
     DBG qDebug() << "UpdateFinishedState with okay " << okay;
-    m_isLoadFinished = true;
+    // m_isLoadFinished = true;
     m_LoadOkay = okay;
     emit DocumentLoaded();
 }
@@ -290,7 +290,7 @@ QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
     JSResult * pres = new JSResult();
     QDeadlineTimer deadline(10000);  // in milliseconds
 
-    DBG qDebug() << "evaluate javascript" << javascript;
+    // DBG qDebug() << "evaluate javascript" << javascript;
 
     page()->runJavaScript(javascript,QWebEngineScript::ApplicationWorld, SetJavascriptResultFunctor(pres));
     while(!pres->isFinished() && (!deadline.hasExpired())) {
@@ -309,7 +309,8 @@ QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
 
 void ViewPreview::DoJavascript(const QString &javascript)
 {
-    DBG qDebug() << "run javascript with " << m_isLoadFinished;
+    DBG qDebug() << "DoJavascript with " << m_isLoadFinished;
+    // DBG qDebug() << "In DoJavaScript with: " << javascript;
 
      // do not try to evaluate javascripts with the page not loaded yet
     if (!m_isLoadFinished) return;
@@ -332,19 +333,23 @@ void ViewPreview::GrabFocus()
     QWebEngineView::setFocus();
 }
 
+// do not set load to finished until jqery has been loaded
 void ViewPreview::WebPageJavascriptOnLoad()
 {
+    DBG qDebug() << "WebPageJavascriptOnLoad start";
     page()->runJavaScript(c_jQuery, QWebEngineScript::ApplicationWorld);
     page()->runJavaScript(c_jQueryScrollTo, QWebEngineScript::ApplicationWorld);
-    m_pendingLoadCount -= 1;
-
-    if (m_pendingLoadCount == 0) {
+    DBG qDebug() << "WebPageJavascriptOnLoad end";
+    DBG qDebug() << "WebPageJavascriptOnLoad with m_CustomSetDocumentInProgress: " << m_CustomSetDocumentInProgress;
+    m_isLoadFinished = true;
+    if (m_CustomSetDocumentInProgress) {
         if (!m_pendingScrollToFragment.isEmpty()) {
             ScrollToFragment(m_pendingScrollToFragment);
             m_pendingScrollToFragment.clear();
         } else {
             executeCaretUpdateInternal();
         }
+	m_CustomSetDocumentInProgress = false;
     }
 }
 
@@ -382,7 +387,7 @@ QList<ElementIndex> ViewPreview::GetCaretLocation()
 {
     // The location element hierarchy encoded in a string
     QString location_string = EvaluateJavascript(c_GetCaretLocation).toString();
-    qDebug() << "GetCaretLocation: " << location_string;
+    DBG qDebug() << "GetCaretLocation: " << location_string;
     return ConvertQWebPathToHierarchy(location_string);
 }
 
@@ -422,6 +427,7 @@ void ViewPreview::StoreCurrentCaretLocation()
 
 void ViewPreview::StoreCaretLocationUpdate(const QList<ElementIndex> &hierarchy)
 {
+    DBG qDebug() << "in StoreCaretLocationUpdate";
     QString caret_location = "var element = " + GetElementSelectingJS_NoTextNodes(hierarchy) + ";";
     // We scroll to the element and center the screen on it
     QString scroll = "var from_top = window.innerHeight / 2;"

@@ -102,7 +102,7 @@
 #include "Tabs/TabManager.h"
 #include "MainUI/MainApplication.h"
 
-#define DBG if(0)
+#define DBG if(1)
 
 static const int TEXT_ELIDE_WIDTH   = 300;
 static const QString SETTINGS_GROUP = "mainwindow";
@@ -227,6 +227,7 @@ MainWindow::~MainWindow()
     }
 
 #ifdef Q_OS_MAC
+    DBG qDebug() << "In MainWindow destructor in mac only part";
     if (m_ClipboardHistorySelector) delete m_ClipboardHistorySelector;
     if (m_LinkOrStyleBookmark) delete m_LinkOrStyleBookmark;
     if (m_Reports) delete m_Reports;
@@ -712,9 +713,20 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    DBG qDebug() << "in close event before maybe save";
+ 
     if (MaybeSaveDialogSaysProceed()) {
+        DBG qDebug() << "in close event after maybe save";
         ShowMessageOnStatusBar(tr("Sigil is closing..."));
+
+        // this sshould be done first to save all geometry
         WriteSettings();
+
+#if 0
+	// now let any outstanding events be processed:
+        // qApp->processEvents();
+#endif
+
         KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
         sm->removeActionsOf(this);
 
@@ -742,6 +754,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
         }
 
         if ((m_PreviewWindow)  && m_PreviewWindow->isVisible()) {
+	    DBG qDebug() << "in close event hiding Preview Window";
             m_PreviewWindow->hide();
         }
         event->accept();
@@ -984,6 +997,7 @@ bool MainWindow::SaveACopy()
 
 void MainWindow::Exit()
 {
+    DBG qDebug() << "In Exit";
     qApp->closeAllWindows();
 #ifdef Q_OS_MAC
     MainWindow *mw;
@@ -3687,6 +3701,7 @@ void MainWindow::ReadSettings()
 
 void MainWindow::WriteSettings()
 {
+    DBG qDebug() << "In WriteSettings";
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
     // The size of the window and it's full screen status
@@ -3695,7 +3710,19 @@ void MainWindow::WriteSettings()
     // and open it maximized on the wrong screen.
     // https://bugreports.qt-project.org/browse/QTBUG-21371
     settings.setValue("maximized", isMaximized());
-    settings.setValue("geometry", m_LastWindowSize);
+    DBG qDebug() << "In WriteSettings with maximized " << isMaximized();
+    DBG qDebug() << "In WriteSettings with LastWindowSize " << m_LastWindowSize;
+
+    if (!m_LastWindowSize.isEmpty()) {
+        settings.setValue("geometry", m_LastWindowSize);
+    } else {
+        // handle the case where we have not moved or resized anything
+        // but we are not maximized
+        if (!isMaximized()) {
+	    DBG qDebug() << "In WriteSettings but it had no LastWindowSize ";
+            settings.setValue("geometry", saveGeometry());
+	}
+    }
     // The positions of all the toolbars and dock widgets
     settings.setValue("toolbars", saveState());
     // The last folders used for saving and opening files
@@ -3711,11 +3738,18 @@ void MainWindow::WriteSettings()
 
 bool MainWindow::MaybeSaveDialogSaysProceed()
 {
+
+  // calling processEvents lets the close animation happen
+  // *before* we even ask if it is okay to proceed.
+  // not sure this is even needed anymore given our changes
+  // to prevent the SetNewBook race in FlowTabs
+#if 0
     // Make sure that any tabs currently about to be drawn etc get a chance to do so.
     // or else the process of closing/creating a new book will crash with Qt object errors.
     // Particularly a problem if open a large tab in Preview prior to the action
     // due to QWebInspector
     qApp->processEvents();
+#endif 
 
     if (isWindowModified()) {
         QMessageBox::StandardButton button_pressed;
@@ -4914,7 +4948,7 @@ void MainWindow::changeEvent(QEvent *e)
 	    DBG qDebug() << "Main Window was restored";
         }
     }
-    // e->accept();
+    e->accept();
 }
 
 void MainWindow::ConnectSignalsToSlots()

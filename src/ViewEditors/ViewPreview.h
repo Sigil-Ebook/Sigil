@@ -223,7 +223,7 @@ private:
      */
     QString m_CaretLocationUpdate;
 
-    int m_pendingLoadCount;
+    bool  m_CustomSetDocumentInProgress;
     QString m_pendingScrollToFragment;
 
     bool m_LoadOkay;

@@ -1,5 +1,5 @@
 var startNode = document.getSelection().anchorNode;
-if ( typeof startNode !== 'undefined'  && startNode !== null ) {
+if ( typeof startNode !== 'undefined'  && startNode !== null) {
     // create a reverse function for jQuery
     $.fn.reverse = [].reverse;
 

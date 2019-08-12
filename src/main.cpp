@@ -189,6 +189,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
             Utility::DisplayExceptionErrorDialog(QString("Fatal: %1").arg(QString(message)));
             abort();
     }
+    
 #ifdef Q_OS_WIN32
     // qDebug() prints to WINDOWS_SIGIL_DEBUG_LOGFILE environment variable on Windows.
     // User must have permissions to write to the location or no file will be created.
