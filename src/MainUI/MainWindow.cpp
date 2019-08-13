@@ -717,7 +717,8 @@ void MainWindow::closeEvent(QCloseEvent *event)
  
     if (MaybeSaveDialogSaysProceed()) {
         DBG qDebug() << "in close event after maybe save";
-        ShowMessageOnStatusBar(tr("Sigil is closing..."));
+	// something is allowing the app to process events
+        // ShowMessageOnStatusBar(tr("Sigil is closing..."));
 
         // this sshould be done first to save all geometry
         WriteSettings();
@@ -759,6 +760,15 @@ void MainWindow::closeEvent(QCloseEvent *event)
         }
         event->accept();
     } else {
+#ifdef Q_OS_MAC
+        // work around Qt bug that causes close window to minimize randomly
+        // even before this closeEvent is accepted or handled.  In this case
+        // we have cancelled the close so we should unminize the window if needed
+        if (isMinimized()) {
+	    DBG qDebug() << "fixing improperly minimized window in close event";
+	    showNormal();
+        }
+#endif
         event->ignore();
     }
 }
@@ -3750,7 +3760,7 @@ bool MainWindow::MaybeSaveDialogSaysProceed()
     // due to QWebInspector
     qApp->processEvents();
 #endif 
-
+    DBG qDebug() << "in MaybeSaveDialog" << isWindowModified() << isMinimized();
     if (isWindowModified()) {
         QMessageBox::StandardButton button_pressed;
         button_pressed = QMessageBox::warning(this,
@@ -3761,12 +3771,14 @@ bool MainWindow::MaybeSaveDialogSaysProceed()
                                              );
 
         if (button_pressed == QMessageBox::Save) {
+	    DBG qDebug() << "leaving MaybeSaveDialog" << isWindowModified() << isMinimized();
             return Save();
         } else if (button_pressed == QMessageBox::Cancel) {
+	    DBG qDebug() << "leaving MaybeSaveDialog" << isWindowModified() << isMinimized();
             return false;
         }
     }
-
+    DBG qDebug() << "leaving MaybeSaveDialog" << isWindowModified() << isMinimized();
     return true;
 }
 
@@ -4938,17 +4950,29 @@ void MainWindow::LoadInitialFile(const QString &openfilepath, bool is_internal)
 
 void MainWindow::changeEvent(QEvent *e) 
 {
+    DBG qDebug() << "changeEvent: " << e;
     if(e->type() == QEvent::WindowStateChange) {
         if(isMinimized()) {
             // MINIMIZED
 	    DBG qDebug() << "Main Window was minimized";
 	    m_PreviewTimer.stop();
-        } else {
+        } else if (isMaximized()) {
+	    DBG qDebug() << "Main Window was maximized";
+	} else {
             // NORMAL/MAXIMIZED ETC
 	    DBG qDebug() << "Main Window was restored";
         }
     }
-    e->accept();
+    if(e->type() == QEvent::ActivationChange) {
+        if(isActiveWindow()) {
+	    DBG qDebug() << "Main Window is now Active";
+	} else {
+	    DBG qDebug() << "Main Window is now Inactive";
+        }
+    }
+
+    QMainWindow::changeEvent(e);
+    // e->accept();
 }
 
 void MainWindow::ConnectSignalsToSlots()
