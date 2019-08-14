@@ -32,6 +32,11 @@ AppEventFilter::AppEventFilter(QObject *parent)
 {
 }
 
+void AppEventFilter::setInitialFilePath(const QString & filepath)
+{
+    m_initialFilePath = filepath;
+}
+
 QString AppEventFilter::getInitialFilePath()
 {
     return m_initialFilePath;

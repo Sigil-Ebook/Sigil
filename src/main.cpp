@@ -350,6 +350,8 @@ int main(int argc, char *argv[])
 	if ((arguments.size() == 1) && !filepath.isEmpty()) {
 	    arguments << QFileInfo(filepath).absoluteFilePath();
 	}
+
+	if (filepath.isEmpty()) filter->setInitialFilePath(QString("placeholder"));
 #endif
 
         if (arguments.contains("-t")) {

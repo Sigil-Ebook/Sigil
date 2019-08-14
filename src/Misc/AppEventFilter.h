@@ -40,6 +40,7 @@ public:
     AppEventFilter(QObject *parent);
 
     QString getInitialFilePath();
+    void setInitialFilePath(const QString& filepath);
 
 protected:
 
