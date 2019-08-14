@@ -260,6 +260,13 @@ int main(int argc, char *argv[])
     removeMacosSpecificMenuItems();
 #endif
 
+    // Install an event filter for the application
+    // so we can catch OS X's file open events
+    // This needs to be done upfront to prevent events from
+    // being missed
+    AppEventFilter *filter = new AppEventFilter(&app);
+    app.installEventFilter(filter);
+
     // drag and drop in main tab bar is too touchy and that can cause problems.
     // default drag distance limit is much too small especially for hpi displays
     // startDragDistance default is just 10 pixels
@@ -340,11 +347,6 @@ int main(int argc, char *argv[])
         // the reply has time to return.
         UpdateChecker *checker = new UpdateChecker(&app);
         checker->CheckForUpdate();
-
-        // Install an event filter for the application
-        // so we can catch OS X's file open events
-        AppEventFilter *filter = new AppEventFilter(&app);
-        app.installEventFilter(filter);
 
         QStringList arguments = QCoreApplication::arguments();
 
