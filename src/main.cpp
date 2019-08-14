@@ -32,7 +32,9 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMessageBox>
 #include <QXmlStreamReader>
+#include <QFile>
 #include <QFileInfo>
+#include <QTextStream>
 #include <QDebug>
 
 #include "Misc/PluginDB.h"
@@ -49,17 +51,12 @@
 
 
 #ifdef Q_OS_WIN32
-#include <QFile>
-#include <QTextStream>
-#include <QProcessEnvironment>
 #include <QtWidgets/QPlainTextEdit>
 static const QString WIN_CLIPBOARD_ERROR = "QClipboard::setMimeData: Failed to set data on clipboard";
 static const int RETRY_DELAY_MS = 5;
 #endif
 
 #ifdef Q_OS_MAC
-#include <QFile>
-#include <QTextStream>
 #include <QFileDialog>
 #include <QKeySequence>
 #include <QAction>
@@ -132,12 +129,12 @@ static QIcon GetApplicationIcon()
 void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &message)
 {
     QString error_message;
-    QString win_debug_message;
+    QString qt_debug_message;
 
     switch (type) {
         // TODO: should go to a log
         case QtDebugMsg:
-            win_debug_message = QString("Debug: %1").arg(message.toLatin1().constData());
+            qt_debug_message = QString("Debug: %1").arg(message.toLatin1().constData());
             fprintf(stderr, "Debug: %s\n", message.toLatin1().constData());
             break;
 #if QT_VERSION >= 0x050600
@@ -193,24 +190,16 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
             abort();
     }
     
-#if defined(Q_OS_WIN32) || defined(Q_OS_MAC)
-    // qDebug() prints to WINDOWS_SIGIL_DEBUG_LOGFILE environment variable on Windows.
+    // qDebug() prints to SIGIL_DEBUG_LOGFILE environment variable.
     // User must have permissions to write to the location or no file will be created.
-    if (qEnvironmentVariableIsSet("WINDOWS_SIGIL_DEBUG_LOGFILE") && !qEnvironmentVariableIsEmpty("WINDOWS_SIGIL_DEBUG_LOGFILE")) {
-        QString sigil_log_file;
-#ifdef Q_OS_WIN32
-        sigil_log_file = QProcessEnvironment::systemEnvironment().value("WINDOWS_SIGIL_DEBUG_LOGFILE", "").trimmed();
-#else
-        sigil_log_file = qEnvironmentVariable("WINDOWS_SIGIL_DEBUG_LOGFILE", "").trimmed();
-#endif
+    QString sigil_log_file;
+    sigil_log_file = Utility::GetEnvironmentVar("SIGIL_DEBUG_LOGFILE");
 	if (!sigil_log_file.isEmpty()) {
             QFile outFile(sigil_log_file);
             outFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
             QTextStream ts(&outFile);
-            ts << win_debug_message << endl;
+            ts << qt_debug_message << endl;
 	}
-    }
-#endif
 }
 
 
