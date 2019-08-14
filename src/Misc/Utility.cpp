@@ -637,17 +637,15 @@ void Utility::DisplayStdWarningDialog(const QString &warning_message, const QStr
 // if the env var isn't set, it returns an empty string
 QString Utility::GetEnvironmentVar(const QString &variable_name)
 {
-    // Renaming this function (and all references to it)
-    // to GetEnvironmentVariable gets you a linker error
-    // on MSVC 9. Funny, innit?
-    QRegularExpression search_for_name("^" + QRegularExpression::escape(variable_name) + "=");
-    QString variable = QProcess::systemEnvironment().filter(search_for_name).value(0);
-
-    if (!variable.isEmpty()) {
-        return variable.split("=")[ 1 ];
-    } else {
-        return QString();
-    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
+    // The only time this might fall down is on Linux when an
+    // environment variable holds bytedata. Don't use this
+    // utility function for retrieval if that's the case.
+    return qEnvironmentVariable(variable_name, "").trimmed();
+#else
+    // This will typically only be used on older Qts on Linux
+    return QProcessEnvironment::systemEnvironment().value(variable_name, "").trimmed();
+#endif
 }
 
 
