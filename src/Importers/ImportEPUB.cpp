@@ -46,6 +46,7 @@
 #include <QStringList>
 #include <QMessageBox>
 #include <QUrl>
+#include <QDebug>
 
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/CleanSource.h"
@@ -128,8 +129,17 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
     AddObfuscatedButUndeclaredFonts(encrypted_files);
     AddNonStandardAppleXML();
     LoadInfrastructureFiles();
+    qDebug() << "m_ExtractedFolderPath: " << m_ExtractedFolderPath;
     // Check for files missing in the Manifest and create warning
     QStringList notInManifest;
+    qDebug() << "Zip File Paths: ";
+    foreach(QString fp, m_ZipFilePaths) {
+        qDebug() << "    " <<  fp;
+    }
+    qDebug() << "Manifest File Paths: ";
+    foreach(QString fp, m_ManifestFilePaths) {
+        qDebug() << "    " << fp;
+    }
     foreach(QString file_path, m_ZipFilePaths) {
         // skip mimetype and anything in META-INF and the opf itself
         if (file_path == "mimetype") continue;
@@ -139,6 +149,8 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
 	    notInManifest << file_path;
 	}
     }
+    qDebug() << "missing file paths: " << notInManifest;
+    
     if (!notInManifest.isEmpty()) {
         Utility::DisplayStdWarningDialog(tr("Files exist in epub that are not listed in the manifest, they will be ignored"), notInManifest.join("\n"));
     }
@@ -726,8 +738,10 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
 
     // find the epub root relative file path from the opf location and the item href
     QString file_path = m_opfDir.absolutePath() + "/" + href;
+    qDebug() << "creating manifest file path from: " << file_path;
     QFileInfo fi(file_path);
     file_path = fi.canonicalFilePath();
+
     file_path = file_path.remove(0, m_ExtractedFolderPath.length() + 1); 
     
     if (type != NCX_MIMETYPE && extension != NCX_EXTENSION) {
