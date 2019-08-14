@@ -40,7 +40,7 @@
 #include "ViewEditors/WebEngPage.h"
 #include "ViewEditors/ViewPreview.h"
 
-#define DBG if(1)
+#define DBG if(0)
 
 const QString SET_CURSOR_JS2 =
     "var range = document.createRange();"

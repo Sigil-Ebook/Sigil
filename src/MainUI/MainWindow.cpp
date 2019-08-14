@@ -102,7 +102,7 @@
 #include "Tabs/TabManager.h"
 #include "MainUI/MainApplication.h"
 
-#define DBG if(1)
+#define DBG if(0)
 
 static const int TEXT_ELIDE_WIDTH   = 300;
 static const QString SETTINGS_GROUP = "mainwindow";
@@ -714,19 +714,16 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     DBG qDebug() << "in close event before maybe save";
- 
+
+    // this should be done first to save all geometry
+    // and can not hurt even if close is later ignored
+    WriteSettings();
+
     if (MaybeSaveDialogSaysProceed()) {
+
         DBG qDebug() << "in close event after maybe save";
-	// something is allowing the app to process events
-        // ShowMessageOnStatusBar(tr("Sigil is closing..."));
 
-        // this sshould be done first to save all geometry
-        WriteSettings();
-
-#if 0
-	// now let any outstanding events be processed:
-        // qApp->processEvents();
-#endif
+        ShowMessageOnStatusBar(tr("Sigil is closing..."));
 
         KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
         sm->removeActionsOf(this);
@@ -760,15 +757,6 @@ void MainWindow::closeEvent(QCloseEvent *event)
         }
         event->accept();
     } else {
-#ifdef Q_OS_MAC
-        // work around Qt bug that causes close window to minimize randomly
-        // even before this closeEvent is accepted or handled.  In this case
-        // we have cancelled the close so we should unminize the window if needed
-        if (isMinimized()) {
-	    DBG qDebug() << "fixing improperly minimized window in close event";
-	    showNormal();
-        }
-#endif
         event->ignore();
     }
 }
@@ -3749,18 +3737,14 @@ void MainWindow::WriteSettings()
 bool MainWindow::MaybeSaveDialogSaysProceed()
 {
 
-  // calling processEvents lets the close animation happen
-  // *before* we even ask if it is okay to proceed.
-  // not sure this is even needed anymore given our changes
-  // to prevent the SetNewBook race in FlowTabs
-#if 0
+#ifndef Q_OS_MAC
     // Make sure that any tabs currently about to be drawn etc get a chance to do so.
     // or else the process of closing/creating a new book will crash with Qt object errors.
     // Particularly a problem if open a large tab in Preview prior to the action
     // due to QWebInspector
     qApp->processEvents();
 #endif 
-    DBG qDebug() << "in MaybeSaveDialog" << isWindowModified() << isMinimized();
+
     if (isWindowModified()) {
         QMessageBox::StandardButton button_pressed;
         button_pressed = QMessageBox::warning(this,
@@ -3771,14 +3755,11 @@ bool MainWindow::MaybeSaveDialogSaysProceed()
                                              );
 
         if (button_pressed == QMessageBox::Save) {
-	    DBG qDebug() << "leaving MaybeSaveDialog" << isWindowModified() << isMinimized();
             return Save();
         } else if (button_pressed == QMessageBox::Cancel) {
-	    DBG qDebug() << "leaving MaybeSaveDialog" << isWindowModified() << isMinimized();
             return false;
         }
     }
-    DBG qDebug() << "leaving MaybeSaveDialog" << isWindowModified() << isMinimized();
     return true;
 }
 

@@ -499,11 +499,8 @@ set( QRC_FILES
     Resource_Files/icon/icon.qrc
     )
 
-if (APPLE)
-    LIST(APPEND MISC_FILES
-        Misc/macos_menu_and_window_fixes.mm
-    )
-
+if ( APPLE )
+    LIST( APPEND MISC_FILES Misc/macos_menu_and_window_fixes.mm )
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -framework AppKit")
 endif()
 
@@ -683,7 +680,7 @@ include_directories( BEFORE
 
 #############################################################################
 
-# We make bundles for Mac OS X
+# We make bundles for Mac OS X 
 if ( APPLE )
     add_executable( ${PROJECT_NAME} MACOSX_BUNDLE ${ALL_SOURCES} )
     set_target_properties( ${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${PROJECT_BINARY_DIR}/MacOSXBundleInfo.plist )
@@ -694,8 +691,9 @@ else()
 endif()
 
 # No need to explicity link Qt5::WinMain or to use the qt5_use_modules macro since CMAKE 2.8.11. We require CMAKE 3.0.0
-target_link_libraries( ${PROJECT_NAME} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES} ${PYTHON_LIBRARIES}
-    Qt5::Widgets  Qt5::Xml  Qt5::PrintSupport  Qt5::WebEngine  Qt5::WebEngineWidgets  Qt5::Network  Qt5::Concurrent )
+target_link_libraries( ${PROJECT_NAME} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} 
+    ${MINIZIP_LIBRARIES} ${PYTHON_LIBRARIES} Qt5::Widgets  Qt5::Xml  Qt5::PrintSupport  Qt5::WebEngine  
+    Qt5::WebEngineWidgets  Qt5::Network  Qt5::Concurrent )
 
 #############################################################################
 

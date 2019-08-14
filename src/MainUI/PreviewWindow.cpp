@@ -44,7 +44,7 @@
 
 static const QString SETTINGS_GROUP = "previewwindow";
 
-#define DBG if(1)
+#define DBG if(0)
 
 PreviewWindow::PreviewWindow(QWidget *parent)
     :
@@ -153,20 +153,16 @@ void PreviewWindow::SetupView()
     m_Layout->addWidget(m_Preview);
 
     m_inspectAction = new QAction(QIcon(":main/inspect_48px.png"),"", this);
-    m_inspectAction->setToolTip(tr("Inspect Page: Ctrl-F5"));
-    m_inspectAction->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_F5));
+    m_inspectAction->setToolTip(tr("Inspect Page"));
 
     m_selectAction  = new QAction(QIcon(":main/edit-select-all_48px.png"),"", this);
-    m_selectAction->setToolTip(tr("Select-All: Ctrl-A"));
-    m_selectAction->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_A));
+    m_selectAction->setToolTip(tr("Select-All"));
 
     m_copyAction    = new QAction(QIcon(":main/edit-copy_48px.png"),"", this);
-    m_copyAction->setToolTip(tr("Copy Selection To ClipBoard: Ctrl-C"));
-    m_copyAction->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_C));
+    m_copyAction->setToolTip(tr("Copy Selection To ClipBoard"));
 
     m_reloadAction  = new QAction(QIcon(":main/reload-page_48px.png"),"", this);
-    m_reloadAction->setToolTip(tr("Update Preview Window: Ctrl-R"));
-    m_reloadAction->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_R));
+    m_reloadAction->setToolTip(tr("Update Preview Window"));
 
     QToolBar * tb = new QToolBar();
     tb->addAction(m_inspectAction);
@@ -196,7 +192,6 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
    
     if (m_updatingPage) {
         DBG qDebug() << "delaying PV UpdatePage request as currently loading a page: ";
-        // m_Preview->triggerPageAction(QWebEnginePage::Stop);
 	return false;
     }
 
@@ -240,7 +235,9 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
 
     // Wait until the preview is loaded before moving cursor.
     while (!m_Preview->IsLoadingFinished()) {
-        qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 100);
+        // This line broke close via titlebar on macOS so revert it
+        // qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 100);
+        qApp->processEvents();
     }
 
     if (!m_Preview->WasLoadOkay()) qDebug() << "PV loadFinished with okay set to false!";
