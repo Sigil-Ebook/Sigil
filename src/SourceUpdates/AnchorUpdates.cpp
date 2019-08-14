@@ -250,6 +250,7 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
 }
 
 
+// use this after a split
 void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &originating_filename, const QList<HTMLResource *> new_files)
 {
     
@@ -289,3 +290,38 @@ void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &o
     }
     ncx_resource->SetText(res.toString());
 }
+
+
+// use this after a merge
+void AnchorUpdates::UpdateTOCEntriesAfterMerge(NCXResource *ncx_resource, const QString &sink_filename, const QStringList & merged_filenames)
+{
+    
+    // this routine should only be run on epub2
+    Q_ASSERT(ncx_resource);
+    QWriteLocker locker(&ncx_resource->GetLock());
+    QString source = ncx_resource->GetText();
+
+    int rv = 0;
+    QString error_traceback;
+
+    QList<QVariant> args;
+    args.append(QVariant(source));
+    args.append(QVariant(sink_filename));
+    args.append(QVariant(merged_filenames));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("xmlprocessor"),
+                                         QString("anchorNCXUpdatesAfterMerge"),
+                                         args,
+                                         &rv,
+                                         error_traceback);    
+    if (rv != 0) {
+      Utility::DisplayStdWarningDialog(QString("error in xmlprocessor anchorNCXUpdatesAfterMerge: ") + QString::number(rv), 
+                                       error_traceback);
+      // an error happened - make no changes
+      return;
+    }
+    ncx_resource->SetText(res.toString());
+}
+

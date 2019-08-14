@@ -1105,6 +1105,12 @@ Resource *Book::MergeResources(QList<Resource *> resources)
     // Reconcile all references to the files that were merged.
     QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
     AnchorUpdates::UpdateAllAnchors(html_resources, merged_filenames, sink_html_resource);
+    NCXResource * ncx_resource = GetNCX();
+    if (ncx_resource) {
+        AnchorUpdates::UpdateTOCEntriesAfterMerge(ncx_resource, 
+						  Utility::URLEncodePath(sink_html_resource->Filename()),
+						  merged_filenames);
+    }
     SetModified(true);
     return NULL;
 }

@@ -225,6 +225,34 @@ def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
     return newdata
 
 
+def anchorNCXUpdatesAfterMerge(data, sink_filename, merged_names):
+    data = _remove_xml_header(data)
+    # build list of urls to rreplace
+    namelist = []
+    for fn in merged_names:
+        namelist.append(TEXT_FOLDER_NAME + "/" + fn)
+    # and build url of file to replace them with
+    sink_filename_with_relative_path = TEXT_FOLDER_NAME  + "/" + sink_filename
+
+    # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
+    data = data.encode('utf-8')
+    # rebuild serialized lookup dictionary
+    xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=ebook_xml_empty_tags)
+    soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
+    for tag in soup.find_all("content"):
+        if "src" in tag.attrs:
+            src = tag["src"]
+            if src.find(":") == -1:
+                parts = src.split('#')
+                if (parts is not None) and (parts[0] in namelist):
+                    attribute_value = sink_filename_with_relative_path
+                    if len(parts) > 1 and parts[1] != "":
+                        attribute_value += "#" + parts[1]
+                    tag["src"] = attribute_value
+    newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
+    return newdata
+
+
 def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
     data = _remove_xml_header(data)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8

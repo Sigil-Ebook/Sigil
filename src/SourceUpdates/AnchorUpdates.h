@@ -64,6 +64,8 @@ public:
      */
     static void UpdateTOCEntries(NCXResource *ncx_resource, const QString &originating_filename, const QList<HTMLResource *> new_files);
 
+    static void UpdateTOCEntriesAfterMerge(NCXResource *ncx_resource, const QString &sink_filename, const QStringList &merged_filenames);
+
 private:
 
     static QHash<QString, QString> GetIDLocations(const QList<HTMLResource *> &html_resources);
