@@ -593,8 +593,9 @@ void ImportEPUB::LocateOPF()
                 // with the OEBPS mimetype is considered the "main" one.
 	        if (m_OPFFilePath.isEmpty()) {
                     m_OPFFilePath = m_ExtractedFolderPath + "/" + container.attributes().value("", "full-path").toString();
-		    num_opf++;
 		}
+		num_opf++;
+
             }
         }
     }
