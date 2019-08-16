@@ -581,19 +581,20 @@ void ImportEPUB::LocateOPF()
         container.addData(Utility::ReadUnicodeTextFile(fullpath));
     }
 
+    int num_opf = 0;
+
     while (!container.atEnd()) {
         container.readNext();
 
-        if (container.isStartElement() &&
-            container.name() == "rootfile"
-           ) {
+        if (container.isStartElement() && container.name() == "rootfile") {
             if (container.attributes().hasAttribute("media-type") &&
-                container.attributes().value("", "media-type") == OEBPS_MIMETYPE
-               ) {
-                m_OPFFilePath = m_ExtractedFolderPath + "/" + container.attributes().value("", "full-path").toString();
+                container.attributes().value("", "media-type") == OEBPS_MIMETYPE) {
                 // As per OCF spec, the first rootfile element
                 // with the OEBPS mimetype is considered the "main" one.
-                break;
+	        if (m_OPFFilePath.isEmpty()) {
+                    m_OPFFilePath = m_ExtractedFolderPath + "/" + container.attributes().value("", "full-path").toString();
+		    num_opf++;
+		}
             }
         }
     }
@@ -605,6 +606,10 @@ void ImportEPUB::LocateOPF()
                               .arg(container.columnNumber())
                               .arg(container.errorString());
         throw (EPUBLoadParseError(error.toStdString()));
+    }
+
+    if (num_opf > 1) {
+        Utility::DisplayStdWarningDialog(tr("This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found."),"");
     }
 
     if (m_OPFFilePath.isEmpty() || !QFile::exists(m_OPFFilePath)) {
