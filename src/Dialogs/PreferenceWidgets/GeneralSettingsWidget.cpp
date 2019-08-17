@@ -29,7 +29,6 @@
 #include <QFileDialog>
 #include <QFileInfo>
 #include <QStandardPaths>
-#include <QProcessEnvironment>
 
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
@@ -154,7 +153,7 @@ void GeneralSettingsWidget::clearXEditorPath()
 void GeneralSettingsWidget::setXEditorPath()
 {
 #if defined(Q_OS_WIN32)
-    static QString LAST_LOCATION = QProcessEnvironment::systemEnvironment().value("PROGRAMFILES", "").trimmed();
+    static QString LAST_LOCATION = Utility::GetEnvironmentVar("PROGRAMFILES");
 #else
     static QString LAST_LOCATION = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
 #endif
