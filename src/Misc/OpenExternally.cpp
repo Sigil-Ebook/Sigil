@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2019  Doug Massay
 **  Copyright (C) 2012  Daniel Pavel <daniel.pavel@gmail.com>
 **
 **  This file is part of Sigil.
@@ -22,7 +23,7 @@
 
 #include <QtCore/QProcess>
 #if defined(Q_OS_WIN32)
-#include <QProcessEnvironment>
+#include "Windows.h"
 #endif
 #include <QtCore/QStandardPaths>
 #include <QtWidgets/QFileDialog>
@@ -30,7 +31,9 @@
 #include "Dialogs/OpenWithName.h"
 #include "Misc/OpenExternally.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 
+#define DBG if(1)
 
 static const QString SETTINGS_GROUP = "open_with";
 static const QString EMPTY;
@@ -102,6 +105,50 @@ bool OpenExternally::openFile(const QString &filePath, const QString &applicatio
         return QProcess::startDetached("/usr/bin/open", arguments);
     }
 
+#elif defined(Q_OS_WIN32)
+
+    if (QFile::exists(filePath) && QFile::exists(application)) {
+        QProcess proc;
+        bool batch;
+        // Handle bat|cmd files differently than exes
+        if (QFileInfo(application).suffix() == "bat" || QFileInfo(application).suffix() == "cmd") {
+            DBG qDebug() << "External bat|cmd file being launched: " << application;
+            batch = true;
+            proc.setProgram("C:\\Windows\\System32\\cmd.exe");
+            proc.setArguments(QStringList("/c"));
+            // Filename only. No other way to get the cmd string properly quoted/escaped otherwise. We'll change
+            // the working directory to the directory where the scripts resides so that it can be found/launched.
+            proc.setNativeArguments(QFileInfo(application).fileName() + " \"" + QDir::toNativeSeparators(filePath) + "\"");
+        } else {
+            // binary files are launched "normally."
+            DBG qDebug() << "External binary program being launched: " << application;
+            batch = false;
+            proc.setProgram(application);
+            proc.setArguments(QStringList(QDir::toNativeSeparators(filePath)));
+        }
+        // Change to the directory of the application/script first. This is
+        // very important for batch files, but doesn't matter much for exes.
+        proc.setWorkingDirectory(QDir::toNativeSeparators(QFileInfo(application).canonicalPath()));
+        if (batch) {
+            // This nonsense (which requires including Windows.h) is necessary to launch a new
+            // console window (which must subsequently be hidden) because Qt gui apps don't have
+            // a console for the new process to inherit (which is default for QProcess::startDetached).
+            // See: https://doc-snapshots.qt.io/qt5-5.13/qprocess.html#CreateProcessArgumentModifier-typedef
+            proc.setCreateProcessArgumentsModifier([] (QProcess::CreateProcessArguments *args)
+            {
+                args->flags |= CREATE_NEW_CONSOLE;
+                args->startupInfo->dwFlags = STARTF_USESHOWWINDOW;
+                args->startupInfo->wShowWindow = SW_HIDE;
+            });
+        }
+        DBG qDebug() << "QProcess program: " << proc.program();
+        DBG qDebug() << "QProcess arguments: " << proc.arguments();
+        if (batch) {
+            DBG qDebug() << "QProcess Native arguments: " << proc.nativeArguments();
+        }
+        return proc.startDetached();
+    }
+
 #else
 
     if (QFile::exists(filePath) && QFile::exists(application)) {
@@ -171,8 +218,7 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
 #if defined(Q_OS_WIN32)
-    // Windows barks about getenv or _wgetenv. This elicits no warnings and works with unicode paths
-    static QString LAST_LOCATION = QProcessEnvironment::systemEnvironment().value("PROGRAMFILES", "").trimmed();
+    static QString LAST_LOCATION = Utility::GetEnvironmentVar("PROGRAMFILES");
 #else
     static QString LAST_LOCATION = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
 #endif
