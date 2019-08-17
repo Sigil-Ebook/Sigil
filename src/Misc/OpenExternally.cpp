@@ -27,6 +27,7 @@
 #endif
 #include <QtCore/QStandardPaths>
 #include <QtWidgets/QFileDialog>
+#include <QDebug>
 
 #include "Dialogs/OpenWithName.h"
 #include "Misc/OpenExternally.h"
