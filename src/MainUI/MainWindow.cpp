@@ -715,9 +715,15 @@ void MainWindow::closeEvent(QCloseEvent *event)
 {
     DBG qDebug() << "in close event before maybe save";
 
+    // stop any further UpdatePreview timer actions
+    if (m_PreviewTimer.isActive()) {
+        m_PreviewTimer.stop();
+    }
+
     // this should be done first to save all geometry
     // and can not hurt even if close is later ignored
     WriteSettings();
+
 
     if (MaybeSaveDialogSaysProceed()) {
 
@@ -727,11 +733,6 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
         KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
         sm->removeActionsOf(this);
-
-        // stop any further UpdatePreview timer actions
-        if (m_PreviewTimer.isActive()) {
-            m_PreviewTimer.stop();
-        }
 
         // The user may have unsaved search/clip/index/meta entries if dialogs are open.
         // Prompt them to save or discard their changes if any.
