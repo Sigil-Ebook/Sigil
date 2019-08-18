@@ -143,7 +143,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
     QString fileName = fileInformation.fileName();
 
     if (fileName.left(1) == ".") {
-        normalised_file_path = fileInformation.canonicalPath() % "/" % fileName.right(fileName.size() - 1);
+        normalised_file_path = fileInformation.absolutePath() % "/" % fileName.right(fileName.size() - 1);
     }
 
     // We need to lock here because otherwise

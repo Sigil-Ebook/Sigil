@@ -52,6 +52,7 @@
 #include <QRegularExpressionMatch>
 #include <QFile>
 #include <QFileInfo>
+#include <QDebug>
 
 #include "sigil_constants.h"
 #include "sigil_exception.h"
@@ -907,5 +908,40 @@ QStringList Utility::ZipInspect(const QString &zippath)
     return filelist;
 }
 
+QString Utility::longestCommonPath(const QStringList& filepaths, const QString& sep)
+{
+    if (filepaths.isEmpty()) return QString();
+    if (filepaths.length() == 1) return QFileInfo(filepaths.at(0)).absolutePath() + sep;
+    QStringList fpaths(filepaths);
+    fpaths.sort();
+    const QStringList segs1 = fpaths.at(0).split(sep);
+    const QStringList segs2 = fpaths.at(1).split(sep);
+    QStringList res;
+    int i = 0;
+    while((i < segs1.length()) && (i < segs2.length()) && (segs1.at(i) == segs2.at(i))) {
+        res.append(segs1.at(i));
+        i++; 
+    } 
+    if (res.length() == 0) return sep;
+    return res.join(sep) + sep;
+}
 
+QString Utility::resolveRelativeSegmentsInFilePath(const QString& file_path, const QString &sep)
+{
+    const QStringList segs = file_path.split(sep);
+    QStringList res;
+    for (int i = 0; i < segs.length(); i++) {
+        if (segs.at(i) == ".") continue;
+        if (segs.at(i) == "..") {
+            if (!res.isEmpty()) {
+	        res.removeLast();
+            } else {
+	        qDebug() << "Error resolving relative path segments";
+            }
+        } else {
+            res << segs.at(i);
+        }
+    }
+    return res.join(sep);
+}
 
