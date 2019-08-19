@@ -159,6 +159,22 @@ void OPFResource::SetText(const QString &text)
     TextResource::SetText(source);
 }
 
+QList<Resource*> OPFResource::GetSpineOrderResources( const QList<Resource *> &resources)
+{
+    QReadLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    const QHash<QString, Resource*> id_mapping = GetManifestIDResourceMapping(resources, p);
+    QList<Resource *> spine_order;
+    for (int i = 0; i < p.m_spine.count(); ++i) {
+        QString idref = p.m_spine.at(i).m_idref;
+        if (id_mapping.contains(idref)) {
+	    spine_order << id_mapping[idref];
+	}
+    }
+    return spine_order;
+}
 
 QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource *> resources)
 {
@@ -177,6 +193,7 @@ QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource 
     }
     return reading_order;
 }
+
 
 int OPFResource::GetReadingOrder(const HTMLResource *html_resource) const
 {
@@ -967,6 +984,20 @@ int OPFResource::GetMainIdentifier(const OPFParser& p) const
     return -1;
 }
 
+QHash<QString, Resource*>OPFResource::GetManifestIDResourceMapping(const QList<Resource *> &resources,
+						       const OPFParser &p)
+{
+    QHash<QString, Resource*> id_mapping;
+    foreach(Resource * resource, resources) {
+        QString oebps_path = resource->GetRelativePathToOEBPS();
+        int pos = p.m_hrefpos.value(oebps_path,-1);
+        if (pos > -1) { 
+	    id_mapping[ p.m_manifest.at(pos).m_id ] = resource;
+        }
+    }
+    return id_mapping;
+}
+
 
 QString OPFResource::GetResourceManifestID(const Resource *resource, const OPFParser& p) const
 {
@@ -979,7 +1010,7 @@ QString OPFResource::GetResourceManifestID(const Resource *resource, const OPFPa
 }
 
 
-QHash<Resource *, QString> OPFResource::GetResourceManifestIDMapping(const QList<Resource *> resources, 
+QHash<Resource *, QString> OPFResource::GetResourceManifestIDMapping(const QList<Resource *> &resources, 
                                                                      const OPFParser& p)
 {
     QHash<Resource *, QString> id_mapping;

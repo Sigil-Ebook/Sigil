@@ -68,6 +68,8 @@ public:
     int GetReadingOrder(const HTMLResource *html_resource) const;
     QHash <Resource *, int> GetReadingOrderAll( const QList <Resource *> resources);
 
+    QList<Resource*> GetSpineOrderResources(const QList<Resource *> &resources);
+
     QString GetMainIdentifierValue() const;
 
     void SaveToDisk(bool book_wide_save = false);
@@ -199,7 +201,9 @@ private:
 
     QString GetResourceManifestID(const Resource *resource, const OPFParser &p) const;
 
-    QHash<Resource *, QString> GetResourceManifestIDMapping(const QList<Resource *> resources, const OPFParser &p);
+    QHash<Resource *, QString> GetResourceManifestIDMapping(const QList<Resource *> &resources, const OPFParser &p);
+
+    QHash<QString, Resource *> GetManifestIDResourceMapping(const QList<Resource *> &resources, const OPFParser &p);
 
     void RemoveDCElements(OPFParser &p);
 
