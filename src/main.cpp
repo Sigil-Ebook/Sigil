@@ -139,14 +139,17 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
             break;
 #if QT_VERSION >= 0x050600
         case QtInfoMsg:
+            qt_debug_message = QString("Info: %1").arg(message.toLatin1().constData());
             fprintf(stderr, "Info: %s\n", message.toLatin1().constData());
             break;
 #endif
         // TODO: should go to a log
         case QtWarningMsg:
+            qt_debug_message = QString("Warning: %1").arg(message.toLatin1().constData());
             fprintf(stderr, "Warning: %s\n", message.toLatin1().constData());
             break;
         case QtCriticalMsg:
+            qt_debug_message = QString("Critical: %1").arg(message.toLatin1().constData());
             error_message = QString(message.toLatin1().constData());
 #ifdef Q_OS_WIN32
             // On Windows there is a known issue with the clipboard that results in some copy
