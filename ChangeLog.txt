@@ -1,3 +1,22 @@
+preSigil-0.9.18
+    Bug Fixes:
+     - fix bug in macOS that caused spurious warnings about missing file in the manifest
+     - hopefully fix macOS bug about launching files using open-with from Desktop
+     - make sure JQuery gets loaded before starting to use Preview javascript functions
+     - fix local links during split that incorrectly used target filename for internal link
+     - create GetEnvironmentVar to make access to environment variables more cross-platform
+     - fix macOS bug when hitting close on the title bar of MainWindow causing strange window behaviour
+     - hopefully fix macOS segfault on close by disabling Preview timer immediately
+     - fix Windows 7 issues when running batch (.bat) files via OpenExternally (open with)
+     - all error messages are now properly logged
+
+    New Features:
+     - enable use of SIGIL_DEBUG_LOGFILE environment var to control saving debug output to a file
+     - properly update the ncx after merging xhtml files
+     - properly warn users if a multiple rendition epub (multiple OPF files) has been loaded
+     - make Sigil's external XHtml editor work to pass an OPF file (see PageEdit new features)
+
+
 Sigil-0.9.17
     Bug Fixes:
      - fix missing python3 network certifications on macOS
