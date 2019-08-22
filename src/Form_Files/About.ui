@@ -116,7 +116,7 @@
             </font>
            </property>
            <property name="text">
-            <string notr="true">&lt;a href=&quot;http://code.google.com/p/sigil/&quot;&gt;http://code.google.com/p/sigil/&lt;/a&gt;</string>
+            <string notr="true">&lt;a href=&quot;http://github.com/Sigil-Ebook/Sigil/&quot;&gt;http://github.com/Sigil-Ebook/Sigil/&lt;/a&gt;</string>
            </property>
            <property name="textFormat">
             <enum>Qt::AutoText</enum>
