@@ -49,7 +49,7 @@ site_packages = [ ('lxml', 'd'),
                   ('certifi', 'd'),
                   ('cssselect', 'd'),
                   ('encutils', 'd'),
-                  ('cssutils', 'd'),
+                  ('css_parser', 'd'),
                   ('webencodings', 'd'), # needed by html5lib
                   ('chardet', 'd'),
                   ('sip.so', 'f'),
