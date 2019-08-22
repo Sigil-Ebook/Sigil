@@ -110,17 +110,14 @@ sudo pip3 install html5lib
 sudo pip3 install lxml
 sudo pip3 install Pillow
 sudo pip3 install regex
-sudo pip3 install cssutils
+sudo pip3 install css-parser
 sudo pip3 install cssselect
 sudo pip3 install chardet
 sudo pip3 install certifi
 
-# Note: and for the upcoming release you will want to replace
-    sudo pip3 install cssutils
-with
-    sudo pip3 install css-parser
+Note: we have replaced cssutils with a drop in replacement with many bugs fixed
+called css-parser.
 
-which is a drop in replacement for cssutils with many bugs fixed.
 
 # Now a complete Python.framework has been built in ${MYDEST}
 # But we still need to make it a relocatable framework

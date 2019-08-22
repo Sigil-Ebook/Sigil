@@ -230,6 +230,10 @@ def main(argv=unicode_argv()):
     plugin_dir = os.path.dirname(script_home)
     script_module = os.path.splitext(os.path.basename(target_file))[0]
 
+    # remap cssutils to css_parser
+    import css_parser
+    sys.modules['cssutils'] = css_parser
+
     # do basic sanity checking anyway
     if script_type not in SUPPORTED_SCRIPT_TYPES:
         failed(None, msg="Launcher: script type %s is not supported" % script_type)
