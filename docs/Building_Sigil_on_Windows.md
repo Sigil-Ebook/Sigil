@@ -51,7 +51,7 @@ Once finished, you can begin to install the extra modules needed by Sigil.
 + html5lib
 + regex (2019.3.12 minimum required starting with Sigil 0.9.14)
 + cssselect
-+ cssutils
++ css-parser
 + chardet
 + Pillow (v5.4.1 recommended/verified)
 + lxml (v4.3.2 recommended/verified)

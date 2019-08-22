@@ -1,6 +1,6 @@
 # <center>Building Sigil on Older Linux Systems</centers>
 
-If your system's software repositories provide Qt5.4.x or higher and Python 3.4.x or higher, you may be able to compile Sigil using entirely repo-provided dependencies. These systems will likely be Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable. If your system qualifies, check out the [Building on Linux](./Building_on_Linux.md) documentation.
+If your system's software repositories provide Qt5.9.x or higher and Python 3.4.x or higher, you may be able to compile Sigil using entirely repo-provided dependencies. These systems will likely be Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable. If your system qualifies, check out the [Building on Linux](./Building_on_Linux.md) documentation.
 
 Otherwise, continue on ...
 
@@ -10,7 +10,7 @@ To build Sigil on older Linux systems, you need to get/do the following things:
 
 1. [A Linux build-toolchain](#gcc) with a C++11 capable compiler (gcc4.8.x-ish or higher recommended)
 2. [CMake](#cmake) (3.0 or higher)
-3. [Qt5.4.0 - Qt5.5.1](#qt5)
+3. [Qt5.9.4](#qt5)
 4. [Python 3.4](#python) (or higher)
 5. [The Sigil source code](#sigil) (downloaded tarball/zipfile or a git clone)
 6. [Build/Install Sigil](#build)
@@ -38,9 +38,9 @@ at a command prompt to see if your version is sufficient. I've seen some later v
 Once again: `sudo apt-get install cmake` will get you what you need on Debian type systems. If your favorite software repositories can't supply CMake 3.0 or better, you'll need to download the source from [cmake.org](http://www.cmake.org) and build it it yourself. I've done it myself and their instructions are pretty good. You can either build it with an older version of CMake, or there's a boot-strap method if all you have is gcc/make.
 
 ## <a name="qt5"/>Getting Qt5
- <center>***NOTE: Do NOT use any of the official precompiled Qt binaries higher than Qt5.5.1 at this time. 5.6.x and higher are missing a component Sigil needs.***</center>
+ <center>You can use one of the official precompiled Qt binaries higher than Qt5.9.x at this time. 5.12.3 recommended</center>
 
-Download a binary installer from the [official Qt website](http://download.qt.io/archive/qt/). Sigil requires Qt5.4.0 - Qt5.5.1. Note: the official binary releases of Qt5 are incompatible with Sigil starting with Qt5.6 (a result of QtWebkit being dropped from their installers). Look for the version that's appropriate for your architecture (qt-opensource-linux-***x86***-5.4.x.run or qt-opensource-linux-***x64***-5.4.x.run). Make sure its executable bit is set and launch it with administrative privileges to install it in its default location of /opt/Qt5.4.x (which is what I recommend). Or install it wherever you like--but just note that my command line examples later are going to assume the location of /opt/Qt5.4.x. Adjust accordingly if you choose different location.
+Download a binary installer from the [official Qt website](http://download.qt.io/archive/qt/). Sigil requires Qt5.9.4 or higher. Look for the version that's appropriate for your architecture (qt-opensource-linux-***x86***-5.12.x.run or qt-opensource-linux-***x64***-5.12.x.run). Make sure its executable bit is set and launch it with administrative privileges to install it in its default location of /opt/Qt5.12.x (which is what I recommend). Or install it wherever you like--but just note that my command line examples later are going to assume the location of /opt/Qt5.12.x. Adjust accordingly if you choose different location.
 
 
 ## <a name="python"/>Getting Python 3.4
@@ -53,10 +53,11 @@ If your software repos provide Python 3.4.0 or higher, by all means use them to 
 + python3-pip
 + python3-lxml
 + python3-six
++ python3-css-parser (may have to use `pip3 install css-parser` if your distro has no package for this)
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install python3 python3-dev libpython3 libpython3-dev python3-pip python3-lxml python3-six`
+`sudo apt-get install python3 python3-dev libpython3 libpython3-dev python3-pip python3-lxml python3-six python3-css-parser`
 
 If your repos don't include Python 3.4.x or higher, truck on over to [Python.org](http://www.python.org) and start reading how to build/install it from source. Whatever else you do, make sure you configure it with the `--enable-shared` option. You'll need the libpython3.4m.so library to build Sigil.
 
@@ -68,7 +69,6 @@ That's all the Python 3.4 stuff you will need to get Sigil "up and running", but
 + regex
 + Pillow
 + cssselect
-+ cssutils
 + chardet
 
 To install the 'html5lib' module, for example, you would use the command:
@@ -97,7 +97,7 @@ Unzip/untar the source code. Rename the uppermost directory ("Sigil-0.X.X" if yo
 
 ## <a name="build"/>Building Sigil
 
-First off ... you don't build IN the Sigil source directory. You do all the building in a separate "build" directory. So at the same directory level as the Sigil source code directory, create a new directory called "sigil-build". The rest of the instructions will assume that both your Sigil source directory (I renamed it "sigil-src" in the previous step; adjust accordingly if you didn't) and your Sigil build directory ("sigil-build) are at the root of your user's home (~) directory. I'm also assuming that you installed Qt5 into /opt/Qt5.4.2 (adjust accordingly for different versions and/or different locations)
+First off ... you don't build IN the Sigil source directory. You do all the building in a separate "build" directory. So at the same directory level as the Sigil source code directory, create a new directory called "sigil-build". The rest of the instructions will assume that both your Sigil source directory (I renamed it "sigil-src" in the previous step; adjust accordingly if you didn't) and your Sigil build directory ("sigil-build) are at the root of your user's home (~) directory. I'm also assuming that you installed Qt5 into /opt/Qt5.12.x (adjust accordingly for different versions and/or different locations)
 
 So first off, open a terminal and cd into your sigil-build directory
 
@@ -105,17 +105,17 @@ So first off, open a terminal and cd into your sigil-build directory
 
 Then issue the following command to configure Sigil for building on a 64-bit linux machine:
 
-> `cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.4.2/5.4/gcc_64/lib/cmake -DCMAKE_BUILD_TYPE=Release ../sigil-src`
+> `cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.12.3/5.12/gcc_64/lib/cmake -DCMAKE_BUILD_TYPE=Release ../sigil-src`
 
 For a 32-bit machine it would be:
 
-> `cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.4.2/5.4/gcc/lib/cmake -DCMAKE_BUILD_TYPE=Release ../sigil-src`
+> `cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.12.3/5.12/gcc/lib/cmake -DCMAKE_BUILD_TYPE=Release ../sigil-src`
 
 If there are no errors, you're ready to build.
 
 The default install prefix is /usr/local. If you wish to change the install location, you can do so by adding a `-DCMAKE_INSTALL_PREFIX` option to the above cmake configure command like so:
 
-> `cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.4.2/5.4/gcc_64/lib/cmake -DCMAKE_INSTALL_PREFIX=/a/different/install/prefix -DCMAKE_BUILD_TYPE=Release ../sigil-src`
+> `cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.12.3/5.12/gcc_64/lib/cmake -DCMAKE_INSTALL_PREFIX=/a/different/install/prefix -DCMAKE_BUILD_TYPE=Release ../sigil-src`
 
 You can also customize/override where the Sigil support files get installed (`<CMAKE_INSTALL_PREFIX>/share` by default) with the `-DSHARE_INSTALL_PREFIX` option (not recommended for beginners).
 
@@ -143,9 +143,6 @@ If that still doesn't get rid of the "`GL/gl.h errors`", some newer systems may 
 
 > `sudo apt-get install libglu1-mesa-dev`
 
-Also note that building Sigil with precompiled versions of Qt5.4.2/5.5.x downloaded from qt.io require that the gstreamer v0.10 development headers be installed. Many newer Linux versions don't come with gstreamer0.10 installed by default any more, so you may need to install it first. This the case on Ubuntu 16.04 (Xenial) for example.
-
-> `sudo apt-get install libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev`
 
 ### Installing Sigil
 If all goes well, install Sigil with:

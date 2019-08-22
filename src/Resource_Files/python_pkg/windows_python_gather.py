@@ -31,7 +31,7 @@ site_packages = [ ('lxml', 'd'),
                   ('regex','d'),
                   ('cssselect', 'd'),
                   ('encutils', 'd'),
-                  ('cssutils', 'd'),
+                  ('css_parser', 'd'),
                   ('webencodings', 'd'), # needed by html5lib
                   ('chardet', 'd')]
 

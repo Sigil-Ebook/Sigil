@@ -43,13 +43,13 @@ To get Sigil's Qt5 requirements, `sudo apt-get install` the following packages:
 + qtbase5-dev
 + qttools5-dev
 + qttools5-dev-tools
-+ qtwebengine-dev
++ qtwebengine5-dev
 + libqt5svg5-dev
 + libqt5xmlpatterns5-dev
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools qtwebengine-dev libqt5svg5-dev libqt5xmlpatterns5-dev`
+`sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools qtwebengine5-dev libqt5svg5-dev libqt5xmlpatterns5-dev`
 
 ## <a name="thirdparty"/>3rd-Party Dependencies (optional step)
 Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them, `sudo apt-get install` the following packages.
@@ -71,11 +71,11 @@ On Ubuntu/Debian `sudo apt-get install` (at a minimum) the following packages:
 + python3-pip
 + python3-lxml
 + python3-six
-+ python3-css-parser
++ python3-css-parser (may have to use `pip3 install css-parser` if your distro has no package for this)
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install python3-dev python3-pip python3-lxml python3-six`
+`sudo apt-get install python3-dev python3-pip python3-lxml python3-six python3-css-parser`
 
 That's all the Python 3.4 (or higher) stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X. These should all be able to be installed with `sudo apt-get install`.
 
@@ -85,12 +85,11 @@ That's all the Python 3.4 (or higher) stuff you will need to get Sigil "up and r
 + python3-regex
 + python3-pillow (could be python3-pil)
 + python3-cssselect
-+ python3-cssutils
 + python3-chardet
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install python3-tk python3-pyqt5 python3-html5lib python3-regex python3-pillow python3-cssselect python3-cssutils python3-css-parser python3-chardet`
+`sudo apt-get install python3-tk python3-pyqt5 python3-html5lib python3-regex python3-pillow python3-cssselect python3-chardet`
 
 If you run into any that won't install with `sudo apt-get install` you can still use pip3 to install them.
 
