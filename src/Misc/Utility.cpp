@@ -586,14 +586,10 @@ void Utility::DisplayExceptionErrorDialog(const QString &error_info)
     detailed_text << "Error info: "    + error_info
                   << "Sigil version: " + QString(SIGIL_FULL_VERSION)
                   << "Runtime Qt: "    + QString(qVersion())
-                  << "Compiled Qt: "   + QString(QT_VERSION_STR);
-#if defined Q_OS_WIN32
-    detailed_text << "Platform: Windows SysInfo ID " + QString::number(QSysInfo::WindowsVersion);
-#elif defined Q_OS_MAC
-    detailed_text << "Platform: Mac SysInfo ID " + QString::number(QSysInfo::MacintoshVersion);
-#else
-    detailed_text << "Platform: Linux";
-#endif
+                  << "Compiled Qt: "   + QString(QT_VERSION_STR)
+                  << "System: "        + QSysInfo::prettyProductName()
+                  << "Architecture: "  + QSysInfo::currentCpuArchitecture();
+
     message_box.setDetailedText(detailed_text.join("\n"));
     message_box.exec();
 }
