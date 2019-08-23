@@ -14,7 +14,7 @@
 <ol>
 <li><a href="#gcc">A Linux build-toolchain</a> with a C++11 capable compiler (gcc4.8.x-ish or higher recommended)</li>
 <li><a href="#cmake">CMake</a> (3.0 or higher)</li>
-<li><a href="#qt5">Qt5.9.x or higher</a></li>
+<li><a href="#qt5">Qt5.9.4</a></li>
 <li><a href="#python">Python 3.4</a> (or higher)</li>
 <li><a href="#sigil">The Sigil source code</a> (downloaded tarball/zipfile or a git clone)</li>
 <li><a href="#build">Build/Install Sigil</a></li>
@@ -39,9 +39,8 @@
 <h2><a name="cmake"/>Getting CMake</h2>
 <p>Once again: <code>sudo apt-get install cmake</code> will get you what you need on Debian type systems. If your favorite software repositories can't supply CMake 3.0 or better, you'll need to download the source from <a href="http://www.cmake.org">cmake.org</a> and build it it yourself. I've done it myself and their instructions are pretty good. You can either build it with an older version of CMake, or there's a boot-strap method if all you have is gcc/make.</p>
 <h2><a name="qt5"/>Getting Qt5</h2>
-<p><center>You can use one of the official precompiled Qt binaries higher than Qt5.9.x at this time. 5.12.3 recommended</center></p>
-<p>Download a binary installer from the <a href="http://download.qt.io/archive/qt/">official Qt website</a>. Sigil requires Qt5.9.x. Look for the version that's appropriate for your architecture (qt-opensource-linux-***x86***-5.12.x.run or qt-opensource-linux-***x64***-5.12.x.run). Make sure its executable bit is set and launch it with administrative privileges to install it in its default location of /opt/Qt5.12.x (which is what I recommend). Or install it wherever you like--but just note that my command line examples later are going to assume the location of /opt/Qt5.12.x. Adjust accordingly if you choose different location.</p>
-
+<p>You can use one of the official precompiled Qt binaries higher than Qt5.9.x at this time. 5.12.3 recommended</p>
+<p>Download a binary installer from the <a href="http://download.qt.io/archive/qt/">official Qt website</a>. Sigil requires Qt5.9.4 or higher. Look for the version that's appropriate for your architecture (qt-opensource-linux-<strong><em>x86</em></strong>-5.12.x.run or qt-opensource-linux-<strong><em>x64</em></strong>-5.12.x.run). Make sure its executable bit is set and launch it with administrative privileges to install it in its default location of /opt/Qt5.12.x (which is what I recommend). Or install it wherever you like--but just note that my command line examples later are going to assume the location of /opt/Qt5.12.x. Adjust accordingly if you choose different location.</p>
 <h2><a name="python"/>Getting Python 3.4</h2>
 <p>If your software repos provide Python 3.4.0 or higher, by all means use them to get the correct pieces installed. On Ubuntu/Debian I recommend (at a minimum) to <code>sudo apt-get install</code> the following packages (might need to be <code>python3.4-&lt;module name&gt;</code> on some systems):</p>
 <ul>
@@ -52,7 +51,7 @@
 <li>python3-pip</li>
 <li>python3-lxml</li>
 <li>python3-six</li>
-<li>python3-css-parser (may have to use `pip3 install css-parser` if your distro has no package for this)</li>
+<li>python3-css-parser (may have to use <code>pip3 install css-parser</code> if your distro has no package for this)</li>
 </ul>
 <p>The folllowing command can be copied and pasted for convenience:</p>
 <p><code>sudo apt-get install python3 python3-dev libpython3 libpython3-dev python3-pip python3-lxml python3-six python3-css-parser</code></p>
@@ -92,11 +91,11 @@
 </blockquote>
 <p>Then issue the following command to configure Sigil for building on a 64-bit linux machine:</p>
 <blockquote>
-<p><code>cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.12.3/5.12/gcc_64/lib/cmake -DCMAKE_BUILD_TYPE=Release ../sigil-src</code></p>
+<p><code>cmake -G "Unix Makefiles" -DQt5_DIR=/opt/Qt5.12.3/5.12/gcc_64/lib/cmake/Qt5 -DCMAKE_BUILD_TYPE=Release ../sigil-src</code></p>
 </blockquote>
 <p>For a 32-bit machine it would be:</p>
 <blockquote>
-<p><code>cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.12.3/5.12/gcc/lib/cmake -DCMAKE_BUILD_TYPE=Release ../sigil-src</code></p>
+<p><code>cmake -G "Unix Makefiles" -DQt5_Dir=/opt/Qt5.12.3/5.12/gcc/lib/cmake/Qt5 -DCMAKE_BUILD_TYPE=Release ../sigil-src</code></p>
 </blockquote>
 <p>If there are no errors, you're ready to build.</p>
 <p>The default install prefix is /usr/local. If you wish to change the install location, you can do so by adding a <code>-DCMAKE_INSTALL_PREFIX</code> option to the above cmake configure command like so:</p>
@@ -149,6 +148,7 @@
 <h2><a name="advanced"/>Advanced Stuff</h2>
 <p>There are several configuration and environment variable options that can tailor how Sigil is built and/or run. I've talked about a few of the cmake options already, but I'll mention them here again along with the rest--with a brief explanation of their purposes.</p>
 <h3>CMake options</h3>
+<p>-DQt5_DIR=<code>&lt;path&gt;</code> Configures cmake to use a Qt5 installation other than the normal system version of Qt5 (ex. /opt/Qt5.12.3/5.12/gcc_64/lib/cmake/Qt5 - the path should alays end in /lib/cmake/Qt5)</p>
 <p>-DCMAKE_INSTALL_PREFIX=<code>&lt;path&gt;</code> Configures the prefix where Sigil will be installed to (default is /usr/local)</p>
 <p>-DSHARE_INSTALL_PREFIX=<code>&lt;path&gt;</code> Configures the prefix where Sigil's support files will be installed to (default is /usr/local meaning the support files will be installed in /usr/local/share/sigil)</p>
 <p>-DUSE_SYSTEM_LIBS=(0|1) Tells cmake to try and use the system libraries when building Sigil instead of the ones bundled with Sigil in the 3rdParty directory. If a system version of a 3rd-party can't be found, Sigil falls back on the bundled version -- unless -DSYSTEM_LIBS_REQUIRED=1 is also specified (default is 0).</p>

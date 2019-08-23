@@ -43,12 +43,10 @@
 <li>qtbase5-dev</li>
 <li>qttools5-dev</li>
 <li>qttools5-dev-tools</li>
-<li>qtwebengine-dev</li>
-<li>libqt5svg5-dev</li>
-<li>libqt5xmlpatterns5-dev</li>
+<li>qtwebengine5-dev</li>
 </ul>
 <p>The folllowing command can be copied and pasted for convenience:</p>
-<p><code>sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools qtwebengine-dev libqt5svg5-dev libqt5xmlpatterns5-dev</code></p>
+<p><code>sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools qtwebengine5-dev</code></p>
 <h2><a name="thirdparty"/>3rd-Party Dependencies (optional step)</h2>
 <p>Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them, <code>sudo apt-get install</code> the following packages.</p>
 <ul>
@@ -66,7 +64,7 @@
 <li>python3-pip</li>
 <li>python3-lxml</li>
 <li>python3-six</li>
-<li>python3-css-parser (may have to use "pip3 install css-parser" if your distro has no package for this)</li>
+<li>python3-css-parser (may have to use <code>pip3 install css-parser</code> if your distro has no package for this)</li>
 </ul>
 <p>The folllowing command can be copied and pasted for convenience:</p>
 <p><code>sudo apt-get install python3-dev python3-pip python3-lxml python3-six python3-css-parser</code></p>
@@ -139,6 +137,7 @@
 <h2><a name="advanced"/>Advanced Stuff</h2>
 <p>There are several configuration and environment variable options that can tailor how Sigil is built and/or run. I've talked about a few of the cmake options already, but I'll mention them here again along with the rest--with a brief explanation of their purposes.</p>
 <h3>CMake options</h3>
+<p>-DQt5_DIR=<code>&lt;path&gt;</code> Configures cmake to use a Qt5 installation other than the normal system version of Qt5 (ex. /opt/Qt5.12.3/5.12/gcc_64/lib/cmake/Qt5 - the path should alays end in /lib/cmake/Qt5)</p>
 <p>-DCMAKE_INSTALL_PREFIX=<code>&lt;path&gt;</code> Configures the prefix where Sigil will be installed to (default is /usr/local)</p>
 <p>-DSHARE_INSTALL_PREFIX=<code>&lt;path&gt;</code> Configures the prefix where Sigil's support files will be installed to (default is /usr/local meaning the support files will be installed in /usr/local/share/sigil)</p>
 <p>-DCMAKE_INSTALL_LIBDIR=(lib|lib64) Use to override GnuInstallDirs if it doesn't choose the correct lib directory for your distro.</p>

@@ -44,12 +44,11 @@ To get Sigil's Qt5 requirements, `sudo apt-get install` the following packages:
 + qttools5-dev
 + qttools5-dev-tools
 + qtwebengine5-dev
-+ libqt5svg5-dev
-+ libqt5xmlpatterns5-dev
+
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools qtwebengine5-dev libqt5svg5-dev libqt5xmlpatterns5-dev`
+`sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools qtwebengine5-dev`
 
 ## <a name="thirdparty"/>3rd-Party Dependencies (optional step)
 Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them, `sudo apt-get install` the following packages.
@@ -166,6 +165,8 @@ Install any missing Python modules with your system's package management system 
 There are several configuration and environment variable options that can tailor how Sigil is built and/or run. I've talked about a few of the cmake options already, but I'll mention them here again along with the rest--with a brief explanation of their purposes.
 
 ### CMake options
+
+-DQt5_DIR=`<path>` Configures cmake to use a Qt5 installation other than the normal system version of Qt5 (ex. /opt/Qt5.12.3/5.12/gcc_64/lib/cmake/Qt5 - the path should alays end in /lib/cmake/Qt5)
 
 -DCMAKE_INSTALL_PREFIX=`<path>` Configures the prefix where Sigil will be installed to (default is /usr/local)
 

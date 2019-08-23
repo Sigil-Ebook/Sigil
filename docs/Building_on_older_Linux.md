@@ -38,7 +38,7 @@ at a command prompt to see if your version is sufficient. I've seen some later v
 Once again: `sudo apt-get install cmake` will get you what you need on Debian type systems. If your favorite software repositories can't supply CMake 3.0 or better, you'll need to download the source from [cmake.org](http://www.cmake.org) and build it it yourself. I've done it myself and their instructions are pretty good. You can either build it with an older version of CMake, or there's a boot-strap method if all you have is gcc/make.
 
 ## <a name="qt5"/>Getting Qt5
- <center>You can use one of the official precompiled Qt binaries higher than Qt5.9.x at this time. 5.12.3 recommended</center>
+You can use one of the official precompiled Qt binaries higher than Qt5.9.x at this time. 5.12.3 recommended
 
 Download a binary installer from the [official Qt website](http://download.qt.io/archive/qt/). Sigil requires Qt5.9.4 or higher. Look for the version that's appropriate for your architecture (qt-opensource-linux-***x86***-5.12.x.run or qt-opensource-linux-***x64***-5.12.x.run). Make sure its executable bit is set and launch it with administrative privileges to install it in its default location of /opt/Qt5.12.x (which is what I recommend). Or install it wherever you like--but just note that my command line examples later are going to assume the location of /opt/Qt5.12.x. Adjust accordingly if you choose different location.
 
@@ -105,11 +105,11 @@ So first off, open a terminal and cd into your sigil-build directory
 
 Then issue the following command to configure Sigil for building on a 64-bit linux machine:
 
-> `cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.12.3/5.12/gcc_64/lib/cmake -DCMAKE_BUILD_TYPE=Release ../sigil-src`
+> `cmake -G "Unix Makefiles" -DQt5_DIR=/opt/Qt5.12.3/5.12/gcc_64/lib/cmake/Qt5 -DCMAKE_BUILD_TYPE=Release ../sigil-src`
 
 For a 32-bit machine it would be:
 
-> `cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/opt/Qt5.12.3/5.12/gcc/lib/cmake -DCMAKE_BUILD_TYPE=Release ../sigil-src`
+> `cmake -G "Unix Makefiles" -DQt5_Dir=/opt/Qt5.12.3/5.12/gcc/lib/cmake/Qt5 -DCMAKE_BUILD_TYPE=Release ../sigil-src`
 
 If there are no errors, you're ready to build.
 
@@ -178,6 +178,7 @@ There are several configuration and environment variable options that can tailor
 
 ### CMake options
 
+-DQt5_DIR=`<path>` Configures cmake to use a Qt5 installation other than the normal system version of Qt5 (ex. /opt/Qt5.12.3/5.12/gcc_64/lib/cmake/Qt5 - the path should alays end in /lib/cmake/Qt5)
 
 -DCMAKE_INSTALL_PREFIX=`<path>` Configures the prefix where Sigil will be installed to (default is /usr/local)
 
