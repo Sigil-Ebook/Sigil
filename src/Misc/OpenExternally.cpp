@@ -34,7 +34,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 
-#define DBG if(1)
+#define DBG if(0)
 
 static const QString SETTINGS_GROUP = "open_with";
 static const QString EMPTY;
