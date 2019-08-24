@@ -133,11 +133,13 @@ class MetadataProcessor(object):
                 numrec += 1
             elif mname == "meta" and "refines" in mattr:
                 self.refines.append(mentry)
-            elif mname == "meta" and "property" in mattr and mattr["property"] in _recognized_meta:
+            elif mname == "meta" and "property" in mattr:
                 # primary meta tag
-                property = mattr["property"]
-                del mattr["property"]
-                mname = property
+                # handle recognized meta/property combinations
+                if mattr["property"] in _recognized_meta:
+                    property = mattr["property"]
+                    del mattr["property"]
+                    mname = property
                 mentry = (mname, mcontent, mattr)
                 self.rec.append(mentry)
                 id = mattr.get("id",None)
@@ -259,7 +261,10 @@ def set_new_metadata(data, other, idlst, metatag, opfdata):
             (name, value) = line.split(_US)
             name = name.strip()
             value = value.strip()
-            if name in ["id", "xml:lang", "dir"]:
+            attrlist = ["id", "xml:lang", "dir"]
+            if mname == "meta":
+                attrlist.append("property")
+            if name in attrlist:
                 if name == "id":
                     id = valid_id(value, idlst)
                     mattr["id"] = id
