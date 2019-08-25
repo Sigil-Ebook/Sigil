@@ -323,6 +323,7 @@ bool ImageTab::SuccessfullySetupContextMenu(const QPoint &point)
 		if (oeaction) {
                     oeaction->setText(aname);
                     oeaction->setData(imageUrl);
+		    oeaction->setEnabled(true);
 		    oeaction->setVisible(true);
 		}
 		i = i + 1;
