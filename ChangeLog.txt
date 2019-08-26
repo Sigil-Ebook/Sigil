@@ -1,4 +1,4 @@
-preSigil-0.9.18
+Sigil-0.9.18
     Bug Fixes:
      - fix bug in macOS that caused spurious warnings about missing file in the manifest
      - hopefully fix macOS bug about launching files using open-with from Desktop
@@ -9,12 +9,17 @@ preSigil-0.9.18
      - hopefully fix macOS segfault on close by disabling Preview timer immediately
      - fix Windows 7 issues when running batch (.bat) files via OpenExternally (open with)
      - all error messages are now properly logged
+     - fix improperly disabled open-with menu in Image Tabs popup context menu
+     - removed use of Qt obsolete methods in About and Error Dialogs
 
     New Features:
      - enable use of SIGIL_DEBUG_LOGFILE environment var to control saving debug output to a file
      - properly update the ncx after merging xhtml files
      - properly warn users if a multiple rendition epub (multiple OPF files) has been loaded
      - make Sigil's external XHtml editor work to pass an OPF file (see PageEdit new features)
+     - Allow epub3 metadata editor to edit primary meta tags
+     - Replace buggy cssutils module used in plugins with our own drop-in rpelacement fork: css-parser
+     - Updated Mac, Windows, and Linux build documentation
 
 
 Sigil-0.9.17
