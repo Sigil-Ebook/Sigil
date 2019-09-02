@@ -2685,7 +2685,7 @@ Voulez-vous que les fichiers soient corrigés automatiquement ?</translation>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="613"/>
         <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
-        <translation type="unfinished"/>
+        <translation>Cet ePub a plusieurs rendus (plusieurs fichiers OPF). L&apos;édition de cet ePub dans Sigil produira un ePub normal de rendu unique en utilisant uniquement le fichier OPF principal (le premier) trouvé.</translation>
     </message>
 </context>
 <context>
@@ -8692,7 +8692,7 @@ soit redemarré.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="402"/>
         <source>External XHtml Editor works only on Html Resources or OPF Resources!</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;éditeur XHTML externe ne fonctionne que sur les ressources HTML ou les ressources OPF !</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="409"/>
@@ -12079,7 +12079,7 @@ le titre et au moins un auteur/créateur « dc:creator ».</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="208"/>
         <source>[meta value here]</source>
-        <translation type="unfinished"/>
+        <translation>[métadonnée ici]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="259"/>
@@ -12370,12 +12370,12 @@ le titre et au moins un auteur/créateur « dc:creator ».</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
         <source>Meta Element (primary)</source>
-        <translation type="unfinished"/>
+        <translation>Élément de Métadonnée (primaire)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
         <source>An empty primary meta element you can modify.</source>
-        <translation type="unfinished"/>
+        <translation>Un élément de Métadonnée primaire vide que vous pouvez modifier.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="598"/>
@@ -12696,7 +12696,7 @@ le titre et au moins un auteur/créateur « dc:creator ».</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="671"/>
         <source>Series title or name (from calibre)</source>
-        <translation>Titre ou nom de la séries (depuis Calibre).</translation>
+        <translation>Titre ou nom de la séries (pour Calibre).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="672"/>
@@ -12706,7 +12706,7 @@ le titre et au moins un auteur/créateur « dc:creator ».</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="672"/>
         <source>Index of this book in the series (from calibre)</source>
-        <translation>Index du livre dans la séries (depuis Calibre).</translation>
+        <translation>Index du livre dans la séries (pour Calibre).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
@@ -12716,12 +12716,12 @@ le titre et au moins un auteur/créateur « dc:creator ».</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
         <source>Version of ebook title to use for sorting (from calibre)</source>
-        <translation type="unfinished"/>
+        <translation>Version du titre de l&apos;ebook à utiliser pour le tri (pour Calibre)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
         <source>An empty element for you to modify</source>
-        <translation type="unfinished"/>
+        <translation>Un élément vide à modifier</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>
@@ -13315,22 +13315,22 @@ Les entités peuvent être séparées pas des lignes, des virgules ou des espace
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="156"/>
         <source>Inspect Page</source>
-        <translation type="unfinished"/>
+        <translation>Inspecter la page</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="159"/>
         <source>Select-All</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionner tout</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="162"/>
         <source>Copy Selection To ClipBoard</source>
-        <translation type="unfinished"/>
+        <translation>Copier la sélection dans le presse-papier</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="165"/>
         <source>Update Preview Window</source>
-        <translation type="unfinished"/>
+        <translation>Mettre a jour la fenêtre de prévisualisation</translation>
     </message>
 </context>
 <context>

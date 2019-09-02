@@ -541,7 +541,7 @@ if a sans-serif font-family specified in your CSS</source>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation>多媒體檔 &quot;%1&quot; 已存在於此書中。
+        <translation>多媒體檔「%1」已存在於此書中。
 
 要取代它嗎？</translation>
     </message>
@@ -555,9 +555,9 @@ OK to replace?</source>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
-        <translation>無法載入 &quot;%1&quot;
+        <translation>無法載入「%1」
 
-此檔案名稱已存在於此書中。</translation>
+書中已存在這個名稱的檔案。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="702"/>
@@ -9785,7 +9785,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>Colorist</source>
-        <translation>彩妝師</translation>
+        <translation>著色者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
@@ -9865,17 +9865,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Compositor</source>
-        <translation>作曲家</translation>
+        <translation>排字工人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
-        <translation>用於負責創建金屬塊的人或組織或用於生產印刷品中的文本和圖像的由其他材料製成的模具。</translation>
+        <translation>用於負責創造金屬塊或其他材料製成的模具的人或組織，用於生產印刷品中的文字和圖片。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Conceptor</source>
-        <translation>概念</translation>
+        <translation>概念創始者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
@@ -9925,7 +9925,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Contestant</source>
-        <translation>競爭者</translation>
+        <translation>質疑者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
@@ -9935,27 +9935,27 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Contestant-appellant</source>
-        <translation>參賽者</translation>
+        <translation>質疑者-上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation>用於從一個法律或管轄區向另一個法院提出上訴的參賽者, 以撤銷判決.</translation>
+        <translation>用於從一個法律或管轄區向另一個法院提出上訴的質疑者，以撤銷判決。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Contestant-appellee</source>
-        <translation>參賽者 - 被上訴人</translation>
+        <translation>質疑者-被上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation>用於從一個法律或管轄區向另一個法院提出上訴的參賽者, 以撤銷該判決.</translation>
+        <translation>用於從一個法律或管轄區向另一個法院提出上訴的質疑者，以撤銷該判決。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Contestee</source>
-        <translation>參賽者</translation>
+        <translation>被質疑者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
@@ -9965,17 +9965,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Contestee-appellant</source>
-        <translation>參賽者-上訴人</translation>
+        <translation>被質疑者-上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation>用於從一個管轄法院向另一個法院提出上訴的比賽, 以扭轉判決.</translation>
+        <translation>用於從一個管轄法院向另一個法院提出上訴的被質疑者, 以扭轉判決.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Contestee-appellee</source>
-        <translation>參賽者-被上訴人</translation>
+        <translation>被質疑者-被上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
@@ -9995,7 +9995,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Contributor</source>
-        <translation>捐助者</translation>
+        <translation>貢獻者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
@@ -10090,7 +10090,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
-        <translation>用於負責作品的智力或藝術內容的個人或組織。</translation>
+        <translation>用於負責作品的知識或藝術內容的個人或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
@@ -10185,7 +10185,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Degree grantor</source>
-        <translation>學位設保人</translation>
+        <translation>學位授予者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
@@ -10195,7 +10195,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Delineator</source>
-        <translation>描繪畫</translation>
+        <translation>描畫者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
@@ -10245,7 +10245,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Dissertant</source>
-        <translation>論文</translation>
+        <translation>論文提交者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
@@ -10365,7 +10365,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Engraver</source>
-        <translation>Engraver</translation>
+        <translation>雕刻師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
@@ -10375,7 +10375,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Etcher</source>
-        <translation>Etcher</translation>
+        <translation>蝕刻師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
@@ -10555,7 +10555,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Illuminator</source>
-        <translation>展現</translation>
+        <translation>裝飾人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
@@ -10575,7 +10575,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Inscriber</source>
-        <translation>登記員</translation>
+        <translation>題寫人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
@@ -10775,7 +10775,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Licensee</source>
-        <translation>執照持有者</translation>
+        <translation>被許可人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
@@ -11035,7 +11035,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Papermaker</source>
-        <translation>papermaker</translation>
+        <translation>造紙者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
@@ -11145,7 +11145,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>Praeses</source>
-        <translation>之前的</translation>
+        <translation>主導</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
@@ -11402,12 +11402,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Renderer</source>
-        <translation>渲染師</translation>
+        <translation>繪製師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
-        <translation>用於以準確的，代表性的角度準備建築設計圖 (即渲染) 的人員或組織，以顯示項目在完成時的外觀.</translation>
+        <translation>用於以準確的，代表性的角度準備建築設計圖 (即繪製) 的人員或組織，以顯示項目在完成時的外觀.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
@@ -11472,7 +11472,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Respondent-appellant</source>
-        <translation>答辯人上訴人</translation>
+        <translation>答辯人-上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="327"/>
@@ -11482,7 +11482,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>Respondent-appellee</source>
-        <translation>被申請人被上訴人</translation>
+        <translation>答辯人-被上訴人</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="328"/>
@@ -11562,7 +11562,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>Scribe</source>
-        <translation>Scribe</translation>
+        <translation>抄寫員</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="336"/>
@@ -11592,7 +11592,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Secretary</source>
-        <translation>祕書</translation>
+        <translation>書記官</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="339"/>
@@ -11822,12 +11822,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Type designer</source>
-        <translation>類型設計師</translation>
+        <translation>字體設計師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
-        <translation>用於設計特定項目中使用的類型面孔的人員或組織。</translation>
+        <translation>用於設計特定項目中使用的字體的人員或組織。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="363"/>
@@ -11852,12 +11852,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="365"/>
         <source>Videographer</source>
-        <translation>攝影師</translation>
+        <translation>錄像師</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="365"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
-        <translation>用於負責視頻製作的個人或組織，例如 與商業電影相反的舞臺製作的錄像. 攝像師可以是相機操作者，也可以監督一個或多個相機操作者。 不要與攝影師混淆.</translation>
+        <translation>用於負責視頻製作的個人或組織，例如 與商業電影相反的舞臺製作的錄像. 錄像師可以是相機操作者，也可以監督一個或多個相機操作者。 不要與攝影師混淆.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="366"/>
@@ -12031,7 +12031,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="172"/>
         <source>Use OK to commit your metdata changes to the epub, otherwise use Cancel.</source>
-        <translation>按 OK 來確認對 epub 的中繼資料的變更，否則選擇 Cancel。</translation>
+        <translation>按確定來確認對 epub 的中繼資料的變更，否則選擇取消。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
@@ -12088,7 +12088,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="208"/>
         <source>[meta value here]</source>
-        <translation type="unfinished"/>
+        <translation>[這裡填入 meta 值]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="259"/>
@@ -12379,12 +12379,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
         <source>Meta Element (primary)</source>
-        <translation type="unfinished"/>
+        <translation>Meta 元素（主要）</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
         <source>An empty primary meta element you can modify.</source>
-        <translation type="unfinished"/>
+        <translation>可以編輯的空的主要 meta 元素。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="598"/>
@@ -12725,12 +12725,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
         <source>Version of ebook title to use for sorting (from calibre)</source>
-        <translation type="unfinished"/>
+        <translation>用於排序的電子書標題版本（從 calibre）</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
         <source>An empty element for you to modify</source>
-        <translation type="unfinished"/>
+        <translation>可供編輯的空的元素</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>

@@ -1,35 +1,35 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sv" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="uk_UA" version="2.1">
 <context>
     <name>About</name>
     <message>
         <location filename="../../Form_Files/About.ui" line="14"/>
         <source>About</source>
-        <translation>Om</translation>
+        <translation>Про програму</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
         <source>The EPUB Editor</source>
-        <translation>EPUB-redigeraren</translation>
+        <translation>Редактор EPUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="70"/>
         <source>General</source>
-        <translation>Allmänt</translation>
+        <translation>Загальна інфо</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="107"/>
         <source>Homepage:</source>
-        <translation>Webbplats:</translation>
+        <translation>Домашня сторінка:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="143"/>
         <source>Version:</source>
-        <translation>Version:</translation>
+        <translation>Версія:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="170"/>
         <source>Loaded Qt:</source>
-        <translation>Inläst Qt:</translation>
+        <translation>Версія Qt:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="200"/>
@@ -39,17 +39,17 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="218"/>
         <source>Build time:</source>
-        <translation>Byggtid:</translation>
+        <translation>Час збірки:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="245"/>
         <source>License:</source>
-        <translation>Licens:</translation>
+        <translation>Ліцензія:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="255"/>
         <source>Authors</source>
-        <translation>Upphovsmän</translation>
+        <translation>Автори</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="41"/>
@@ -59,32 +59,32 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer(s)</source>
-        <translation>Upprätthållare</translation>
+        <translation>Підтримка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="56"/>
         <source>Previous Maintainer(s)</source>
-        <translation>Tidigare upprätthållare</translation>
+        <translation>Попередня підтримка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
         <source>Code Contributors</source>
-        <translation>Kod bidragsgivare</translation>
+        <translation>Співавтори коду</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="68"/>
         <source>Translators</source>
-        <translation>Översättare</translation>
+        <translation>Перекладачі</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="70"/>
         <source>Original Creator</source>
-        <translation>Ursprunglig skapare</translation>
+        <translation>Автор проекту</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>retired</source>
-        <translation>indragen</translation>
+        <translation>на пенсії</translation>
     </message>
 </context>
 <context>
@@ -92,12 +92,12 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
         <source>Add metadata property</source>
-        <translation>Lägg till metadataegenskap</translation>
+        <translation>Додати властивість метаданих</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="50"/>
         <source>Metadata description</source>
-        <translation>Metadata beskrivning</translation>
+        <translation>Опис метаданих</translation>
     </message>
 </context>
 <context>
@@ -105,12 +105,12 @@
     <message>
         <location filename="../../Form_Files/AddSemantics.ui" line="14"/>
         <source>Add Semantic Property</source>
-        <translation>Lägg till semantisk egenskap</translation>
+        <translation>Додати семантичну властивість</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddSemantics.ui" line="56"/>
         <source>Description of Semantic Properties</source>
-        <translation>Beskrivning av semantiska egenskaper</translation>
+        <translation>Опис семантичних властивостей</translation>
     </message>
 </context>
 <context>
@@ -118,57 +118,57 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="14"/>
         <source>All Files</source>
-        <translation>Alla filer</translation>
+        <translation>Всі файли</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Lista endast de filnamn som innehåller texten du anger.</translation>
+        <translation>Вивести тільки файли, що містять введений мною текст</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="73"/>
         <source>Directory</source>
-        <translation>Mapp</translation>
+        <translation>Тека</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="74"/>
         <source>Name</source>
-        <translation>Namn</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="75"/>
         <source>File Size (KB)</source>
-        <translation>Filstorlek (KB)</translation>
+        <translation>Розмір файлу (КБ)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="76"/>
         <source>Type</source>
-        <translation>Typ</translation>
+        <translation>Тип</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="77"/>
         <source>Semantics</source>
-        <translation>Semantik</translation>
+        <translation>Семантика</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="79"/>
         <source>Properties</source>
-        <translation>Egenskaper</translation>
+        <translation>Властивості</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="148"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n fil</numerusform><numerusform>%n filer</numerusform></translation>
+        <translation><numerusform>%n файл</numerusform><numerusform>%n файли</numerusform><numerusform>%n файли</numerusform><numerusform>%n файл(и)</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="261"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Spara rapport som kommaseparerad fil</translation>
+        <translation>Зберегти звіт як файл з комами роздільниками</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="274"/>
@@ -178,32 +178,32 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="274"/>
         <source>Cannot save report file.</source>
-        <translation>Det går inte att spara rapportfilen.</translation>
+        <translation>Не можу зберегти файл звіту.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="299"/>
         <source>Image</source>
-        <translation>Bild</translation>
+        <translation>Зображення</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="304"/>
         <source>Audio</source>
-        <translation>Ljud</translation>
+        <translation>Аудіо</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="309"/>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation>Відео</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="314"/>
         <source>Font</source>
-        <translation>Typsnitt</translation>
+        <translation>Шрифт</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="341"/>
         <source>Unknown</source>
-        <translation>Okänd</translation>
+        <translation>Невідоме</translation>
     </message>
 </context>
 <context>
@@ -211,219 +211,219 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="14"/>
         <source>Appearance</source>
-        <translation>Utseende</translation>
+        <translation>Вигляд</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="24"/>
         <source>Fonts / Colors</source>
-        <translation>Typsnitt / Färger</translation>
+        <translation>Шрифти / Кольори</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="30"/>
         <source>Preview:</source>
-        <translation>Förhandsgranskning:</translation>
+        <translation>Переглянути:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="39"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation>Om inget typsnitt anges i CSS för din sida, kommer följande typsnitt att användas för att visas inom Sigil. Dessa typsnitt kommer inte att användas i din faktiska e-boken.</translation>
+        <translation>Якщо у CSS для вашої сторінки не вказано жодного шрифту, для відображення в програмі Sigil буде використаний вказаний нижче шрифт. Ці шрифти не використовуватимуться у вашій фактичній електронній книзі.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="59"/>
         <source>Default font size to be used for Preview
 if no font-size specified in your CSS</source>
-        <translation>Standard teckenstorlek som ska användas för förhandsgranskning
-om ingen teckenstorlek anges i din CSS</translation>
+        <translation>Розмір шрифту за замовчуванням, який буде використовуватися для Попереднього перегляду
+якщо розмір шрифту не вказано у вашому CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="63"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="197"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="313"/>
         <source>Font Size:</source>
-        <translation>Teckenstorlek:</translation>
+        <translation>Розмір шрифту:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="93"/>
         <source>Default font family to be used for Preview
 if no font-family specified in your CSS</source>
-        <translation>Standard typsnittsfamilj som ska användas för förhandsgranskning
-om ingen typsnittsfamilj anges i din CSS</translation>
+        <translation>Сімейство шрифтів за замовчуванням, яке буде використовуватися для Попереднього перегляду
+якщо сімейство шрифтів не вказано у вашому CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="97"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="227"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="346"/>
         <source>Standard Font:</source>
-        <translation>Standard typsnitt:</translation>
+        <translation>Стандартний шрифт:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="107"/>
         <source>Default font family to be used for Preview
 if a serif font-family specified in your CSS</source>
-        <translation>Standard typsnittsfamilj som ska användas för förhandsgranskning
-om ingen serif-typsnittsfamilj anges i din CSS</translation>
+        <translation>Сімейство шрифтів за замовчуванням, яке буде використовуватися для Попереднього перегляду
+якщо сімейство шрифтів &quot;serif&quot; не вказано у вашому CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="111"/>
         <source>Serif Font:</source>
-        <translation>Serif-typsnitt:</translation>
+        <translation>Шрифт Serif:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="121"/>
         <source>Default font family to be used for Preview
 if a sans-serif font-family specified in your CSS</source>
-        <translation>Standard typsnittsfamilj som ska användas för förhandsgranskning
-om ingen sans-serif-typsnittsfamilj anges i din CSS</translation>
+        <translation>Сімейство шрифтів за замовчуванням, яке буде використовуватися для Попереднього перегляду
+якщо сімейство шрифтів &quot;sans-serif&quot; не вказано у вашому CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="125"/>
         <source>Sans-Serif Font:</source>
-        <translation>Sans-Serif-typsnitt:</translation>
+        <translation>Шрифт Sans-Serif:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="171"/>
         <source>CSS / Code View:</source>
-        <translation>CSS / Kodvy:</translation>
+        <translation>CSS / Браузер Коду:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="181"/>
         <source>Item Colors:</source>
-        <translation>Artikel färger:</translation>
+        <translation>Кольори елементу:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="194"/>
         <source>Font size to be used for text in Code View.</source>
-        <translation>Teckenstorlek som ska användas för text i Kodvyn.</translation>
+        <translation>Розмір шрифту для тексту в режимі Перегляду коду</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="224"/>
         <source>Font family to be used for text in Code View.</source>
-        <translation>Typsnittsfamilj som ska användas för text i Kodvyn.</translation>
+        <translation>Сім’я шрифту для тексту в режимі Перегляду коду.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="263"/>
         <source>Select an alternative color for this display item</source>
-        <translation>Välj en alternativ färg för det här visningsobjektet</translation>
+        <translation>Оберіть альтернативний колір для показу цього елементу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="266"/>
         <source>Custom Color...</source>
-        <translation>Anpassad färg...</translation>
+        <translation>Колір на замовлення...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="296"/>
         <source>Insert Special Characters:</source>
-        <translation>Infoga specialtecken:</translation>
+        <translation>Вставка спеціальних символів:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="310"/>
         <source>Font size to be used for Insert Special Characters window</source>
-        <translation>Teckenstorlek som ska användas i fönstret Infoga specialtecken</translation>
+        <translation>Розмір шрифту для вікна &quot;Вставка спеціальних символів&quot;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="343"/>
         <source>Font family to be used for Insert Special Characters window</source>
-        <translation>Typsnittsfamilj som ska användas i fönstret Infoga specialtecken</translation>
+        <translation>Сімейство шрифтів для вікна &quot;Вставка спеціальних символів&quot;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="388"/>
         <source>Menus</source>
-        <translation>Menyer</translation>
+        <translation>Меню</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="394"/>
         <source>Main Menu Icon Size</source>
-        <translation>Ikonstorlek i huvudmenyn</translation>
+        <translation>Розмір піктограм головного меню</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="400"/>
         <source>Adjust the size of the icons in the main menu.</source>
-        <translation>Justera storleken på ikonerna i huvudmenyn.</translation>
+        <translation>Налаштувати розмір піктограм в головному меню.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="476"/>
         <source>Reset all fonts and colors to the default values</source>
-        <translation>Återställ alla typsnitt och färger till standardvärdena</translation>
+        <translation>Скинути всі шрифти та кольори до значень за умовчанням</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="479"/>
         <source>Reset All</source>
-        <translation>Återställ alla</translation>
+        <translation>Скинути все</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="205"/>
         <source>Background</source>
-        <translation>Bakgrund</translation>
+        <translation>Тло</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="206"/>
         <source>Foreground</source>
-        <translation>Förgrund</translation>
+        <translation>Передній план</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="207"/>
         <source>CSS Comment</source>
-        <translation>CSS-kommentar</translation>
+        <translation>Коментар CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="208"/>
         <source>CSS Property</source>
-        <translation>CSS-egenskap</translation>
+        <translation>Властивість CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="209"/>
         <source>CSS Quote</source>
-        <translation>CSS-citat</translation>
+        <translation>Цитата CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="210"/>
         <source>CSS Selector</source>
-        <translation>CSS-väljare</translation>
+        <translation>Селектор CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="211"/>
         <source>CSS Value</source>
-        <translation>CSS-värde</translation>
+        <translation>Значення CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="212"/>
         <source>Line Highlight</source>
-        <translation>Radmarkering</translation>
+        <translation>Підкреслений рядок</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="213"/>
         <source>Line# Background</source>
-        <translation>Rad# Bakgrund</translation>
+        <translation>Рядок# Фон</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="214"/>
         <source>Line# Foreground</source>
-        <translation>Rad# Förgrund</translation>
+        <translation>Рядок# Передній план</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="215"/>
         <source>Selection Background</source>
-        <translation>Urval bakgrund</translation>
+        <translation>Вибрати Фон</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="216"/>
         <source>Selection Foreground</source>
-        <translation>Urval förgrund</translation>
+        <translation>Вибрати Передній план</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="217"/>
         <source>Spelling Underline</source>
-        <translation>Stavning understrykning</translation>
+        <translation>Підкреслити при перевірці орфографії</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="218"/>
         <source>XHTML Attribute Name</source>
-        <translation>Namn för XHTML-attribut</translation>
+        <translation>Ім&apos;я атрибута XHTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="219"/>
         <source>XHTML Attribute Value</source>
-        <translation>Värde för XHTML-attribut</translation>
+        <translation>Значення атрибута XHTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="220"/>
@@ -433,7 +433,7 @@ om ingen sans-serif-typsnittsfamilj anges i din CSS</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="221"/>
         <source>XHTML CSS Comment</source>
-        <translation>Kommentar för XHTML-CSS</translation>
+        <translation>Коментар CSS XHTML </translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="222"/>
@@ -443,17 +443,17 @@ om ingen sans-serif-typsnittsfamilj anges i din CSS</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="223"/>
         <source>XHTML Entity</source>
-        <translation>XHTML-enhet</translation>
+        <translation>Об&apos;єкт XHTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="224"/>
         <source>XHTML HTML Tag</source>
-        <translation>Tagg för XHTML-HTML</translation>
+        <translation>Тег HTML XHTML </translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="225"/>
         <source>XHTML HTML Comment</source>
-        <translation>Kommentar för XHTML-HTML</translation>
+        <translation>Коментар HTML XHTML </translation>
     </message>
 </context>
 <context>
@@ -461,7 +461,7 @@ om ingen sans-serif-typsnittsfamilj anges i din CSS</translation>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="391"/>
         <source>Start</source>
-        <translation>Börja</translation>
+        <translation>Старт</translation>
     </message>
 </context>
 <context>
@@ -469,24 +469,24 @@ om ingen sans-serif-typsnittsfamilj anges i din CSS</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="61"/>
         <source>Book Browser</source>
-        <translation>Bokbläddrare</translation>
+        <translation>Структура Книги</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="72"/>
         <source>Font Obfuscation</source>
-        <translation type="unfinished"/>
+        <translation>Обфускація Шрифту</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="73"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1454"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
         <source>Open With</source>
-        <translation>Öppna med</translation>
+        <translation>Відкрити за допомогою</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/BookBrowser.cpp" line="127"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n fil</numerusform><numerusform>%n filer</numerusform></translation>
+        <translation><numerusform>%n файл</numerusform><numerusform>%n файли</numerusform><numerusform>%n файлів</numerusform><numerusform>%n файл(и)</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
@@ -501,29 +501,29 @@ om ingen sans-serif-typsnittsfamilj anges i din CSS</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
-        <translation>Är du säker på att du vill sortera de valda filerna alfanumeriskt?</translation>
+        <translation>Ви впевнені, що хочете відсортувати обрані файли в абетко-цифровому форматі?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="217"/>
         <source>This action cannot be reversed.</source>
-        <translation>Denna åtgärd kan inte ångras.</translation>
+        <translation>Цю дію не можна буде повернути.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="243"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Filen &quot;%1&quot; finns inte.</translation>
+        <translation>Не існує файлу &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="567"/>
         <source>Add Existing Files</source>
-        <translation>Lägg till befintliga filer</translation>
+        <translation>Додати існуючі файли</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="600"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
-        <translation>Filen är inte en bild och kan inte användas:
+        <translation>Файл не є зображенням і його не можна використати
 
 &quot;%1&quot;.</translation>
     </message>
@@ -532,7 +532,7 @@ om ingen sans-serif-typsnittsfamilj anges i din CSS</translation>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
-        <translation>Filen är inte multimedia (bild, video, ljud) och kan inte infogas:
+        <translation>Файл не є медія (зображення, відео, аудіо) і його не можна вставити
 
 &quot;%1&quot;.</translation>
     </message>
@@ -541,222 +541,220 @@ om ingen sans-serif-typsnittsfamilj anges i din CSS</translation>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation>Multimediafilen &quot;%1&quot; finns redan i boken.
+        <translation>Мультимедійний файл &quot;%1&quot; вже є в книзі.
 
-Ok för att ersätta?</translation>
+OK для заміни?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="640"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
-        <translation>Det går inte att radera eller ersätta filen &quot;%1&quot;.</translation>
+        <translation>Не можливо видалити або перемістити файл &quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="645"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
-        <translation>Det går inte att läsa in &quot;%1&quot;
+        <translation>Не можливо завантажити &quot;%1&quot;
 
-En fil med det här namnet finns redan i boken.</translation>
+Файл з цим ім’ям вже є у книзі.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="702"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
-        <translation>Följande filer lästes inte in på grund av ogiltigt innehåll eller inte välformad XML:
+        <translation>Наступні файли не завантажені через недійсний вміст або неправильно сформований XML:
 
 %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="716"/>
         <source>File(s) added.</source>
-        <translation>Fil(er) tillagd(a).</translation>
+        <translation>Файл(и) додано.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="751"/>
         <source>Save As File</source>
-        <translation>Spara som fil</translation>
+        <translation>Зберегти як файл</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
         <source>Unable to save the file.</source>
-        <translation>Det går inte att spara filen.</translation>
+        <translation>Неможливо зберегти файл</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="781"/>
         <source>Choose the directory to save the files to</source>
-        <translation>Välj mapp att spara filer till
-
-%1</translation>
+        <translation>Оберіть теку для збереження файлів</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="801"/>
         <source>One or more files already exists.  OK to overwrite?</source>
-        <translation>En eller flera filer finns redan. Okej att skriva över?</translation>
+        <translation>Мінімум один файл вже існує. Хочете перезаписати?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="818"/>
         <source>Unable to save files.  Destination may be a directory.</source>
-        <translation>Det går inte att spara filer. Destination kan vara en mapp.</translation>
+        <translation>Не можливо зберегти файли.  Місце призначення може бути текою.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="826"/>
         <source>Unable to save files.</source>
-        <translation>Det går inte att spara filer.</translation>
+        <translation>Неможливо зберегти файли.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1008"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
-        <translation>Det går inte att byta namn på filer eftersom detta skulle resultera i dubbla filnamn.</translation>
+        <translation>Неможливо перейменувати файли, оскільки це призведе до повторювання імен файлів.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1073"/>
         <source>The Nav document can not be removed.</source>
-        <translation>Nav-dokumentet kan inte tas bort.</translation>
+        <translation>Документ Nav не може бути видалений.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1081"/>
         <source>The NCX can not be removed.</source>
-        <translation>NCX kan inte tas bort.</translation>
+        <translation>NCX не може бути видалений.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1088"/>
         <source>The OPF is required for epub and can not be removed.</source>
-        <translation>OPF krävs för epub och kan inte tas bort.</translation>
+        <translation>OPF необхідний для epub і не може бути видалений.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1097"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
-        <translation>Du kan inte ta bort alla html-filer.
-Det måste alltid finnas minst en.</translation>
+        <translation>Ви не можете видалити всі html файли
+Там завжди повинен бути принаймні один.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1237"/>
         <source>Unable to set file as cover image.</source>
-        <translation>Det går inte att ställa in filen som omslagsbild.</translation>
+        <translation>Неможливо встановити файл як зображення обкладинки.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1435"/>
         <source>Select All</source>
-        <translation>Välj alla</translation>
+        <translation>Вибрати все</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1436"/>
         <source>Add Blank HTML File</source>
-        <translation>Lägg till en tom HTML-fil</translation>
+        <translation>Додати пустий HTML файл</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1437"/>
         <source>Add Blank Stylesheet</source>
-        <translation>Lägg till tom formatmall</translation>
+        <translation>Додати порожню таблицю стилів</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1438"/>
         <source>Add Blank SVG Image</source>
-        <translation>Lägg till tom SVG-bild</translation>
+        <translation>Додати порожнє SVG зображення</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1439"/>
         <source>Add Existing Files...</source>
-        <translation>Lägg till befintliga filer...</translation>
+        <translation>Додати існуючі файли ...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1440"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1441"/>
         <source>Add Copy</source>
-        <translation>Lägg till kopia</translation>
+        <translation>Додати копію</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1442"/>
         <source>Rename</source>
-        <translation>Byt namn</translation>
+        <translation>Перейменувати</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1443"/>
         <source>Delete</source>
-        <translation>Ta bort</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1444"/>
         <source>Cover Image</source>
-        <translation>Omslagsbild</translation>
+        <translation>Зображення обкладинки</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1445"/>
         <source>Merge</source>
-        <translation>Sammanfoga</translation>
+        <translation>Об&apos;єднати</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1446"/>
         <source>None</source>
-        <translation>Ingen</translation>
+        <translation>Нема</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1447"/>
         <source>Use Adobe&apos;s Method</source>
-        <translation>Använd Adobes metod</translation>
+        <translation>Зробити методом Adobe</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1448"/>
         <source>Use IDPF&apos;s Method</source>
-        <translation>Använd IDPF:s metod</translation>
+        <translation>Зробити методом IDPF</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1449"/>
         <source>Sort</source>
-        <translation>Sortera</translation>
+        <translation>Сортувати</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1450"/>
         <source>Renumber TOC Entries</source>
-        <translation>Numrera om innehållsförteckning</translation>
+        <translation>Перенумерувати елементи змісту</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1451"/>
         <source>Link Stylesheets...</source>
-        <translation>Länka formatmallar...</translation>
+        <translation>Зв&apos;язати з Таблицею Стилів...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1452"/>
         <source>Add Semantics...</source>
-        <translation>Lägg till semantik...</translation>
+        <translation>Додати семантику ...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1453"/>
         <source>Validate with W3C</source>
-        <translation>Validera med W3C</translation>
+        <translation>Перевірка за допомогою W3C</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1455"/>
         <source>Save As</source>
-        <translation>Spara som</translation>
+        <translation>Зберегти як</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1469"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
-        <translation>Sammanfoga med föregående fil, eller sammanfoga flera filer till en.</translation>
+        <translation>Об’єднати з попереднім файлом або об&apos;єднати декілька файлів в один.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1472"/>
         <source>Rename selected file(s)</source>
-        <translation>Byt namn på vald fil(er)</translation>
+        <translation>Перейменувати обраний(ні) файл(и)</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
         <source>Link Stylesheets to selected file(s).</source>
-        <translation>Länka formatmallar till markerad fil/markerade filer.</translation>
+        <translation>Зв&apos;язати з Таблицею Стилів вибрані файли.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1476"/>
         <source>Add Semantics to selected file(s).</source>
-        <translation>Lägg till semantik till vald(a) fil(er).</translation>
+        <translation>Додати семантику до вибраних файлів.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1595"/>
         <source>Other Application</source>
-        <translation>Andra program</translation>
+        <translation>Інша програма</translation>
     </message>
 </context>
 <context>
@@ -764,47 +762,47 @@ Det måste alltid finnas minst en.</translation>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="14"/>
         <source>CSS Files</source>
-        <translation>CSS-filer</translation>
+        <translation>Файли CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Lista endast de filnamn som innehåller texten du anger.</translation>
+        <translation>Вивести тільки файли, що містять введений мною текст</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="75"/>
         <source>Name</source>
-        <translation>Namn</translation>
+        <translation>Ім&apos;я</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="76"/>
         <source>Size (KB)</source>
-        <translation>Storlek (KB)</translation>
+        <translation>Розмір (КБ)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="77"/>
         <source>Times Used</source>
-        <translation>Gånger använd</translation>
+        <translation>Час використання</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="142"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n fil</numerusform><numerusform>%n filer</numerusform></translation>
+        <translation><numerusform>%n файл(и)</numerusform><numerusform>%n файл(и)</numerusform><numerusform>%n файл(и)</numerusform><numerusform>%n файл(ів)</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="146"/>
         <source>KB</source>
-        <translation>KB</translation>
+        <translation>КБ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="273"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Spara rapport som kommaseparerad fil</translation>
+        <translation>Зберегти звіт як файл з комами роздільниками</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="286"/>
@@ -814,12 +812,12 @@ Det måste alltid finnas minst en.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="286"/>
         <source>Cannot save report file.</source>
-        <translation>Det går inte att spara rapportfilen.</translation>
+        <translation>Не можу зберегти файл звіту.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="297"/>
         <source>Delete From Book</source>
-        <translation>Ta bort från bok</translation>
+        <translation>Видалити з книги</translation>
     </message>
 </context>
 <context>
@@ -827,17 +825,17 @@ Det måste alltid finnas minst en.</translation>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="99"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation>Sigil kommer att skicka din formatmallsdata till &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C-valideringstjänst&lt;/a&gt;.</translation>
+        <translation>Sigil надішле ваші таблиці CSS до &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="100"/>
         <source>This page should disappear once loaded after 3 seconds.</source>
-        <translation>Denna sida ska försvinna när den lästs in efter 3 sekunder.</translation>
+        <translation>Ця сторінка повинна зникати після завантаження через 3 секунди.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="101"/>
         <source>If your browser does not have javascript enabled, click on the button below.</source>
-        <translation>Om din webbläsare inte har javascript aktiverat, klicka på knappen nedan.</translation>
+        <translation>Якщо у вашому браузері не ввімкнено JavaScript, натисніть кнопку нижче.</translation>
     </message>
 </context>
 <context>
@@ -845,57 +843,57 @@ Det måste alltid finnas minst en.</translation>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="14"/>
         <source>Characters in HTML Files</source>
-        <translation>Tecken i HTML-filer</translation>
+        <translation>Знаків у файлах HTML</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Lista endast de filnamn som innehåller texten du anger.</translation>
+        <translation>Вивести тільки файли, що містять введений мною текст</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="76"/>
         <source>Characters:</source>
-        <translation>Tecken:</translation>
+        <translation>Символи:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="78"/>
         <source>Character</source>
-        <translation>Tecken</translation>
+        <translation>Символ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="79"/>
         <source>Decimal</source>
-        <translation>Decimal</translation>
+        <translation>Десятковий</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="80"/>
         <source>Hexadecimal</source>
-        <translation>Hexadecimal</translation>
+        <translation>Шістнадцятковий</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="81"/>
         <source>Entity Name</source>
-        <translation>Entitetsnamn</translation>
+        <translation>Назва Об&apos;єкту</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="82"/>
         <source>Entity Description</source>
-        <translation>Enhetens beskrivning</translation>
+        <translation>Опис Об&apos;єкту</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="88"/>
         <source>&lt;p&gt;This is a list of the characters used in all HTML files.&lt;p&gt;</source>
-        <translation>&lt;p&gt;Detta är en lista över de tecken som används i alla HTML-filer.&lt;p&gt;</translation>
+        <translation>&lt;p&gt;Це список символів, які використовуються у всіх файлах HTML.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="249"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Spara rapport som kommaseparerad fil</translation>
+        <translation>Зберегти звіт як файл з комами роздільниками</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="262"/>
@@ -905,7 +903,7 @@ Det måste alltid finnas minst en.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="262"/>
         <source>Cannot save report file.</source>
-        <translation>Det går inte att spara rapportfilen.</translation>
+        <translation>Не можу зберегти файл звіту.</translation>
     </message>
 </context>
 <context>
@@ -913,62 +911,62 @@ Det måste alltid finnas minst en.</translation>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="14"/>
         <source>Style Classes in HTML Files</source>
-        <translation>Stilklasser i HTML-filer</translation>
+        <translation>Класи стилів у файлах HTML</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Lista endast de filnamn som innehåller texten du anger.</translation>
+        <translation>Вивести тільки файли, що містять введений мною текст</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="83"/>
         <source>HTML File</source>
-        <translation>HTML-fil</translation>
+        <translation>HTML Файл</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="84"/>
         <source>Element</source>
-        <translation>Element</translation>
+        <translation>Елемент</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="85"/>
         <source>Class</source>
-        <translation>Klass</translation>
+        <translation>Клас</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="86"/>
         <source>Matched Selector</source>
-        <translation type="unfinished"/>
+        <translation>Селектор збігів</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
         <source>Found In</source>
-        <translation>Hittad i</translation>
+        <translation>Знайдено в</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="93"/>
         <source>&lt;p&gt;This is a list of the style classes used in all HTML files and whether or not the style matched a selector in a linked stylesheet.&lt;p&gt;</source>
-        <translation>&lt;p&gt;Det här är en lista över formatklasserna som används i alla HTML-filer och huruvida stilen matchade en väljare i en länkad formatmall.&lt;p&gt;</translation>
+        <translation>&lt;p&gt;Це список класів стилів, що використовуються у всіх HTML-файлах, незалежно від того, відповідає стиль селектору в пов&apos;язаній таблиці стилів чи ні.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="94"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
-        <translation>&lt;p&gt;OBSERVERA:&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;ПРИМІТКА:&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="95"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;På grund av komplexiteten i CSS måste du kontrollera din kod manuellt för att vara säker på om en stil används eller inte.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Через складність CSS Ви повинні перевірити свій код вручну, щоб бути впевненим, використовується стиль чи ні.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="229"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Spara rapport som kommaseparerad fil</translation>
+        <translation>Зберегти звіт як файл з комами роздільниками</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="242"/>
@@ -978,7 +976,7 @@ Det måste alltid finnas minst en.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="242"/>
         <source>Cannot save report file.</source>
-        <translation>Det går inte att spara rapportfilen.</translation>
+        <translation>Не можу зберегти файл звіту.</translation>
     </message>
 </context>
 <context>
@@ -987,49 +985,49 @@ Det måste alltid finnas minst en.</translation>
         <location filename="../../Form_Files/ClipEditor.ui" line="14"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="525"/>
         <source>Clip Editor</source>
-        <translation>Klippredigerare</translation>
+        <translation>Редактор Фрагментів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation>Filternamn:</translation>
+        <translation>Фільтр у назві:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation>Filtrera alla:</translation>
+        <translation>Фільтр у всіх полях:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Lista endast de poster som innehåller texten du anger.</translation>
+        <translation>Вивести лише записи, що містять введений користувачем текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="65"/>
         <source>Paste the selected entry into the active window.</source>
-        <translation>Klistra in den valda posten i det aktiva fönstret.</translation>
+        <translation>Вставити вибраний запис в активне вікно.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="68"/>
         <source>Paste Clip</source>
-        <translation>Klistra in klipp</translation>
+        <translation>Вставити фрагмент</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="91"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="636"/>
         <source>Add Entry</source>
-        <translation>Lägg till en post</translation>
+        <translation>Додати запис</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="98"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="637"/>
         <source>Add Group</source>
-        <translation>Lägg till grupp</translation>
+        <translation>Додати Групу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="123"/>
         <source>Move an entry up one entry in the same group.</source>
-        <translation>Flytta en post upp en post i samma grupp.</translation>
+        <translation>Перемістити запис в групі на один щабель вгору.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="126"/>
@@ -1037,87 +1035,87 @@ Det måste alltid finnas minst en.</translation>
         <location filename="../../Form_Files/ClipEditor.ui" line="185"/>
         <location filename="../../Form_Files/ClipEditor.ui" line="215"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="153"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation>Flytta en post till nivån för sin förälder.</translation>
+        <translation>Перемістити запис на рівень його батьків.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="182"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation>Du måste välja ett objekt direkt under en grupp för att flytta det till gruppen.</translation>
+        <translation>Ви повинні вибрати пункт безпосередньо під групою, щоб перемістити його до групи.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="212"/>
         <source>Move an entry down one in the group.</source>
-        <translation>Flytta en post ner en i gruppen.</translation>
+        <translation>Перемістити запис в групі на один щабель вниз.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>Högerklicka på en post för att se en snabbmeny med åtgärder.</translation>
+        <translation>Клацніть правою кнопкою миші на запис, щоб побачити контекстне меню дій.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="74"/>
         <source>You can also right click in your document to select an entry.</source>
-        <translation>Du kan också högerklicka i dokumentet för att välja en post.</translation>
+        <translation>Ви також можете клацнути правою кнопкою миші на документі, щоб вибрати запис.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Name</source>
-        <translation>Namn</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Name of your entry or group.</source>
-        <translation>Namn på din post eller grupp.</translation>
+        <translation>Назва Вашого запису чи групи.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>The text to insert. The text is treated like a Regex replacement expression so \1 can be used to insert the text selected in Code View when you paste the clip.</source>
-        <translation>Texten som ska infogas. Texten behandlas som ett regex-ersättningsuttryck så att \1 kan användas för att infoga den text som är markerad i Kodvyn när du klistrar in klippet.</translation>
+        <translation>Текст для вставки. Текст трактується як регулярний вираз Regex, тому \1 можна використовувати для вставки тексту, вибраного у Браузері Коду, коли Ви вставляєте фрагмент.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save</source>
-        <translation>Spara</translation>
+        <translation>Зберегти</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save your changes.</source>
-        <translation>Spara dina ändringar.</translation>
+        <translation>Зберегти зміни.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>Om några andra instanser av Sigil körs kommer de att uppdateras automatiskt med dina ändringar.</translation>
+        <translation>Якщо запущені інші екземпляри Sigil, вони будуть автоматично оновлені з вашими змінами.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="91"/>
         <source>Cannot save entries.</source>
-        <translation>Det går inte att spara poster.</translation>
+        <translation>Неможливо зберегти внесені записи.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="135"/>
         <source>Clip entries loaded from file.</source>
-        <translation>Klipposter lästa från fil.</translation>
+        <translation>Внесений фрагмент, завантажено з файлу.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="195"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation>Du kan inte välja en post och en grupp som innehåller posten.</translation>
+        <translation>Ви не можете вибрати запис та групу, що містить запис.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="282"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation>Du kan inte Kopiera eller Klippa ut grupper - använd dra-och-släpp.</translation>
+        <translation>Ви не можете копіювати або вирізати групи - використовуйте drag-and-drop.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="354"/>
@@ -1127,99 +1125,99 @@ Det måste alltid finnas minst en.</translation>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="354"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>Är du säker på att du vill uppdatera alla poster? Detta kommer att skriva över eventuella osparade ändringar.</translation>
+        <translation>Ви впевнені, що хочете перезавантажити всі записи? Це перезапише всі незбережені зміни.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="370"/>
         <source>Import Entries</source>
-        <translation>Importera poster</translation>
+        <translation>Імпорт Записів</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="444"/>
         <source>Export Selected Entries</source>
-        <translation>Exportera valda poster</translation>
+        <translation>Експорт вибраних Записів</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ClipEditor.cpp" line="525"/>
         <source>CSS entries added: %n</source>
-        <translation><numerusform>CSS-post tillagd: %n</numerusform><numerusform>CSS-poster tillagda: %n</numerusform></translation>
+        <translation><numerusform>Додано записів CSS: %n</numerusform><numerusform>Додано записів CSS: %n</numerusform><numerusform>Додано записів CSS: %n</numerusform><numerusform>Додано записів CSS: %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="638"/>
         <source>Edit</source>
-        <translation>Redigera</translation>
+        <translation>Редагувати</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="639"/>
         <source>Cut</source>
-        <translation>Klipp ut</translation>
+        <translation>Вирізати</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="640"/>
         <source>Copy</source>
-        <translation>Kopiera</translation>
+        <translation>Копіювати</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="641"/>
         <source>Paste</source>
-        <translation>Klistra in</translation>
+        <translation>Вставити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="642"/>
         <source>Delete</source>
-        <translation>Ta bort</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="643"/>
         <source>Import</source>
-        <translation>Importera</translation>
+        <translation>Імпорт</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="644"/>
         <source>Reload</source>
-        <translation>Uppdatera</translation>
+        <translation>Перезавантажити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="645"/>
         <source>Export</source>
-        <translation>Exportera</translation>
+        <translation>Експорт</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="646"/>
         <source>Export All</source>
-        <translation>Exportera alla</translation>
+        <translation>Експортувати все</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="647"/>
         <source>Collapse All</source>
-        <translation>Kollapsa alla</translation>
+        <translation>Згорнути все</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="648"/>
         <source>Expand All</source>
-        <translation>Expandera alla</translation>
+        <translation>Розгорнути все</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="649"/>
         <source>Autofill</source>
-        <translation>Autofyll</translation>
+        <translation>Автозаповнення</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="729"/>
         <source>Clip entries saved.</source>
-        <translation>Klipposter sparade.</translation>
+        <translation>Внесені фрагменти збережені.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="758"/>
         <source>Sigil: Clip Editor</source>
-        <translation>Sigil: Klippredigerare</translation>
+        <translation>Sigil: Редактор Фрагментів</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="759"/>
         <source>The Clip entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>Klipposterna kan ha ändrats.
-Vill du spara dina ändringar?</translation>
+        <translation>Внесений фрагмент, можливо, був змінений.
+Ви хочете зберегти свої зміни?</translation>
     </message>
 </context>
 <context>
@@ -1227,17 +1225,17 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="65"/>
         <source>Name</source>
-        <translation>Namn</translation>
+        <translation>Ім&apos;я</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="66"/>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="680"/>
         <source>Unable to create file %1</source>
-        <translation>Det gick inte att skapa filen %1</translation>
+        <translation>Неможливо створити файл %1</translation>
     </message>
 </context>
 <context>
@@ -1245,22 +1243,22 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../Form_Files/ClipboardHistorySelector.ui" line="14"/>
         <source>Select Text to Paste</source>
-        <translation>Välj text att klistra in</translation>
+        <translation>Вибрати Текст для вставки</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipboardHistorySelector.ui" line="20"/>
         <source>Recent clipboards:</source>
-        <translation>Senaste urklipp:</translation>
+        <translation>Недавній вміст буферу обміну:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="340"/>
         <source>Paste</source>
-        <translation>Klistra in</translation>
+        <translation>Вставити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="342"/>
         <source>Save</source>
-        <translation>Spara</translation>
+        <translation>Зберегти</translation>
     </message>
 </context>
 <context>
@@ -1268,17 +1266,17 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="34"/>
         <source>Clips</source>
-        <translation>Klipp</translation>
+        <translation>Фрагменти</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="99"/>
         <source>Collapse All</source>
-        <translation>Kollapsa alla</translation>
+        <translation>Згорнути все</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="100"/>
         <source>Expand All</source>
-        <translation>Expandera alla</translation>
+        <translation>Розгорнути все</translation>
     </message>
 </context>
 <context>
@@ -1286,112 +1284,112 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="428"/>
         <source>Cannot insert closing tag at this position.</source>
-        <translation>Det går inte att infoga stängningstagg på den här positionen.</translation>
+        <translation>Неможливо вставити закриваючий тег у цю позицію.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="437"/>
         <source>No open tags found at this position.</source>
-        <translation>Inga öppna taggar hittades på denna position.</translation>
+        <translation>У цій позиції не знайдено відкритих тегів.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1220"/>
         <source>Add To Default Dictionary</source>
-        <translation>Lägg till i standard ordboken</translation>
+        <translation>Додати до Словника за замовчуванням</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1233"/>
         <source>Add To Dictionary</source>
-        <translation>Lägg till i ordboken</translation>
+        <translation>Додати до Словника</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1250"/>
         <source>Ignore</source>
-        <translation>Ignorera</translation>
+        <translation>Ігнорувати</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1312"/>
         <source>Reformat CSS</source>
-        <translation>Formatera om CSS</translation>
+        <translation>Переформатувати CSS</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1313"/>
         <source>Multiple Lines Per Style</source>
-        <translation>Flera rader per stil</translation>
+        <translation>Багаторядковий Стиль</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1314"/>
         <source>Single Line Per Style</source>
-        <translation>En rad per stil</translation>
+        <translation>Однорядковий Стиль</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1339"/>
         <source>Reformat HTML</source>
-        <translation>Formatera om HTML</translation>
+        <translation>Переформатувати HTML</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1340"/>
         <source>Mend and Prettify Code</source>
-        <translation>Förbättra och försköna kod</translation>
+        <translation>Виправити та відформатувати Код</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1341"/>
         <source>Mend and Prettify Code - All HTML Files</source>
-        <translation>Förbättra och försökan kod - Alla HTML-filer</translation>
+        <translation>Виправити та відформатувати Код - Всі HTML файли</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1342"/>
         <source>Mend Code</source>
-        <translation>Förbättra kod</translation>
+        <translation>Виправити Код</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1343"/>
         <source>Mend Code - All HTML Files</source>
-        <translation>Förbättra kod - Alla HTML-filer</translation>
+        <translation>Виправити Код - Всі HTML файли</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1373"/>
         <source>Go To Link Or Style</source>
-        <translation>Gå till länk eller stil</translation>
+        <translation>Перейти до посилання або стилю</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1396"/>
         <source>View Image</source>
-        <translation>Visa bild</translation>
+        <translation>Перегляд зображення</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1397"/>
         <source>Open Tab For Image</source>
-        <translation>Öppna fliken för bild</translation>
+        <translation>Відкрити вкладку для зображення</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1423"/>
         <source>Mark Selected Text</source>
-        <translation>Markera vald text</translation>
+        <translation>Позначити вибраний текст</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1425"/>
         <source>Unmark Marked Text</source>
-        <translation>Avmarkera vald text</translation>
+        <translation>Зняти позначку з відміченого тексту</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1451"/>
         <source>Clips</source>
-        <translation>Klipp</translation>
+        <translation>Фрагменти</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1461"/>
         <source>Add To Clips</source>
-        <translation>Lägg till klipp</translation>
+        <translation>Додати до фрагментів</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1587"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
-        <translation>Du måste vara i en inledande HTML-tagg för att använda den här funktionen.</translation>
+        <translation>Щоб користуватися цією функцією, ви повинні бути в тезі HTML, що відкривається.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1597"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
-        <translation>Du måste vara inne i en inledande HTML-tagg för att använda den här funktionen.</translation>
+        <translation>Щоб користуватися цією функцією, ви повинні бути всередині відкритого тегу HTML.</translation>
     </message>
 </context>
 <context>
@@ -1399,22 +1397,22 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="57"/>
         <source>Background</source>
-        <translation>Bakgrund</translation>
+        <translation>Тло</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="59"/>
         <source>Foreground</source>
-        <translation>Förgrund</translation>
+        <translation>Передній план</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="61"/>
         <source>Selection Background</source>
-        <translation>Urval bakgrund</translation>
+        <translation>Вибрати Фон</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="63"/>
         <source>Selection Foreground</source>
-        <translation>Urval förgrund</translation>
+        <translation>Вибрати Передній план</translation>
     </message>
 </context>
 <context>
@@ -1422,22 +1420,22 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../Form_Files/DeleteFiles.ui" line="14"/>
         <source>Delete Files</source>
-        <translation>Ta bort filer</translation>
+        <translation>Видалити Файли</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="66"/>
         <source>Delete Marked Files</source>
-        <translation>Ta bort märkta filer</translation>
+        <translation>Видалити помічені Файли</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="67"/>
         <source>Delete</source>
-        <translation>Ta bort</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="68"/>
         <source>File</source>
-        <translation>Fil</translation>
+        <translation>Файл</translation>
     </message>
 </context>
 <context>
@@ -1445,27 +1443,27 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../Form_Files/DeleteStyles.ui" line="14"/>
         <source>Delete Styles</source>
-        <translation>Ta bort stilar</translation>
+        <translation>Видалити стилі</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="79"/>
         <source>Delete Marked Styles</source>
-        <translation>Ta bort markerade stilar</translation>
+        <translation>Видалити позначені стилі</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="80"/>
         <source>Delete</source>
-        <translation>Ta bort</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="81"/>
         <source>File</source>
-        <translation>Fil</translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="82"/>
         <source>Style</source>
-        <translation>Stil</translation>
+        <translation>Стиль</translation>
     </message>
 </context>
 <context>
@@ -1473,103 +1471,103 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="14"/>
         <source>Edit Table Of Contents</source>
-        <translation>Redigera Innehållsförteckning</translation>
+        <translation>Редагувати Зміст</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="52"/>
         <source>Insert a blank entry above the currently selected entry.</source>
-        <translation>Infoga en tom post ovanför den markerade posten.</translation>
+        <translation>Вставити порожній запис над вибраним.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="55"/>
         <source>Add Above</source>
-        <translation>Lägg till ovan</translation>
+        <translation>Додати вище</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="62"/>
         <source>Add a blank entry below the currently selected entry.</source>
-        <translation>Lägg till en tom post under den markerade posten.</translation>
+        <translation>Додати порожній запис під вибраний.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="65"/>
         <source>Add Below</source>
-        <translation>Lägg till under</translation>
+        <translation>Додати нижче</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="72"/>
         <source>Delete the selected TOC entry</source>
-        <translation>Ta bord den markerade innehållsförteckningens inlägg</translation>
+        <translation>Видалити вибраний запис TOC</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="75"/>
         <location filename="../../Dialogs/EditTOC.cpp" line="444"/>
         <source>Delete</source>
-        <translation>Ta bort</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="82"/>
         <source>Set the destination of the TOC entry from a list of valid targets in the book.</source>
-        <translation>Ange destinationen för innehållsförteckningens inlägg från en lista över giltiga mål i boken.</translation>
+        <translation>Встановіть призначення запису TOC зі списку дійсних цілей у книзі.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="85"/>
         <source>Select Target</source>
-        <translation>Välj mål</translation>
+        <translation>Вибрати Адресат</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="110"/>
         <source>Decrease the heading level of the selected entry.
 You can also use the left arrow key.</source>
-        <translation>Minska rubriknivån för den valda posten.
-Du kan också använda vänster piltangent.</translation>
+        <translation>Зменшити рівень заголовка вибраного запису.
+Ви також можете використовувати клавішу зі стрілкою вліво.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="126"/>
         <location filename="../../Form_Files/EditTOC.ui" line="136"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="148"/>
         <source>Increase the heading level of the selected entry.
 You can also use the right arrow key.</source>
-        <translation>Öka rubriknivån för den valda posten.
-Du kan också använda höger piltangent.</translation>
+        <translation>Збільшити рівень заголовка вибраного запису.
+Ви також можете використовувати клавішу зі стрілкою вправо.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="85"/>
         <source>TOC Entry</source>
-        <translation>Innehållsförteckningens inlägg</translation>
+        <translation>Запис TOC</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="86"/>
         <source>Target</source>
-        <translation>Mål</translation>
+        <translation>Адресат</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="443"/>
         <source>Rename</source>
-        <translation>Byt namn</translation>
+        <translation>Перейменувати</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="451"/>
         <source>Move Up</source>
-        <translation>Flytta upp</translation>
+        <translation>Перемістити вгору</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="452"/>
         <source>Move Down</source>
-        <translation>Flytta ner</translation>
+        <translation>Перемістити вниз</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="458"/>
         <source>Expand All</source>
-        <translation>Expandera alla</translation>
+        <translation>Розгорнути все</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="459"/>
         <source>Collapse All</source>
-        <translation>Kollapsa alla</translation>
+        <translation>Згорнути все</translation>
     </message>
 </context>
 <context>
@@ -1577,7 +1575,7 @@ Du kan också använda höger piltangent.</translation>
     <message>
         <location filename="../../Misc/EmbeddedPython.cpp" line="617"/>
         <source>Embedded Python Error</source>
-        <translation>Integrerat Python-fel</translation>
+        <translation>Помилка вбудованого Python</translation>
     </message>
 </context>
 <context>
@@ -1585,85 +1583,85 @@ Du kan också använda höger piltangent.</translation>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="20"/>
         <source>Find &amp; Replace</source>
-        <translation>Sök &amp; ersätt</translation>
+        <translation>Знайти &amp; Замінити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="55"/>
         <source>Hide Find and Replace</source>
-        <translation>Dölj Sök och ersätt</translation>
+        <translation>Сховати Знайти та Замінити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="61"/>
         <location filename="../../Form_Files/FindReplace.ui" line="109"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="103"/>
         <source>Show/Hide Advanced Options</source>
-        <translation>Visa/Dölj Avancerade alternativ</translation>
+        <translation>Показати/Приховати Додаткові Параметри</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="152"/>
         <source>Find:</source>
-        <translation>Hitta:</translation>
+        <translation>Знайти:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="184"/>
         <source>Find next match.</source>
-        <translation>Hitta nästa träff.</translation>
+        <translation>Знайти наступне входження.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="190"/>
         <source>Find</source>
-        <translation>Hitta</translation>
+        <translation>Знайти</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="203"/>
         <source>Replace highlighted match (if any),
 then find the Next match in Code View.</source>
-        <translation>Ersätt markerad träff (om någon),
-hitta sedan nästa träff i Kodvyn.</translation>
+        <translation>Замінити виділений збіг (якщо такий є),
+потім знайти наступний збіг у Браузері Коду.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="210"/>
         <source>Replace/Find</source>
-        <translation>Ersätt/Hitta</translation>
+        <translation>Замінити/Знайти</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="217"/>
         <source>Replace:</source>
-        <translation>Ersätt:</translation>
+        <translation>Замінити:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="249"/>
         <source>Replace highlighted match (if any) in Code View.</source>
-        <translation>Ersätt markerad träff (om någon) i Kodvyn.</translation>
+        <translation>Замінити виділений збіг (якщо такий є) у Браузері Коду.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="255"/>
         <source>Replace</source>
-        <translation>Ersätt</translation>
+        <translation>Замінити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="268"/>
         <source>Replace all matches in Code View.</source>
-        <translation>Ersätt alla matchningar i Kodvyn.</translation>
+        <translation>Замінити усі співпадіння у Браузері Коду.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="274"/>
         <source>Replace All</source>
-        <translation>Ersätt alla</translation>
+        <translation>Замінити Все</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="281"/>
         <source>Options:</source>
-        <translation>Alternativ:</translation>
+        <translation>Параметри:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="293"/>
         <source>For Regex searches, prefix your search with (?s).</source>
-        <translation>För Regex-sökningar, prefix din sökning med (?s).</translation>
+        <translation>Для пошуку в Regex, використовується префікс пошуку (?s).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="299"/>
@@ -1673,96 +1671,96 @@ hitta sedan nästa träff i Kodvyn.</translation>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="306"/>
         <source>For Regex searches, prefix your search with (?U).</source>
-        <translation>För Regex-sökningar, prefix din sökning med (?U).</translation>
+        <translation>Для пошуку в Regex, використовується префікс пошуку (?U).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="312"/>
         <source>Minimal Match</source>
-        <translation>Minimal träff</translation>
+        <translation>Мінімальний збіг</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="319"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
-        <translation type="unfinished"/>
+        <translation>Для пошуку в Regex, маркувати/уникати певних символів у виділенні при відкритті &quot;Пошук&quot;.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="325"/>
         <source>Auto-Tokenise</source>
-        <translation type="unfinished"/>
+        <translation>Авто-Маркер</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="332"/>
         <source>Search from current position to end of the 
 current file or book, and then wrap to the
 other end to continue searching.</source>
-        <translation>Sök från aktuell position till slutet av
-aktuell fil eller bok, och svepa sedan till
-andra änden för att fortsätta söka.</translation>
+        <translation>Пошук від поточного положення курсору до кінця
+поточного файлу чи книги, а потім перехід до
+початку для продовження пошуку.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="337"/>
         <source>Wrap</source>
-        <translation>Packa</translation>
+        <translation>Шукати скрізь</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="371"/>
         <source>Count all matches in Code View.</source>
-        <translation>Räkna alla matchningar i Kodvyn.</translation>
+        <translation>Порахувати усі співпадіння у Браузері Коду.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="377"/>
         <source>Count All</source>
-        <translation>Räkna alla</translation>
+        <translation>Порахувати все</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="384"/>
         <source>Mode:</source>
-        <translation>Läge:</translation>
+        <translation>Режим:</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="179"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1431"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1432"/>
         <source>Current File</source>
-        <translation>Aktuell fil</translation>
+        <translation>Поточний Файл</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="334"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1254"/>
         <source>Matches found: %n</source>
-        <translation><numerusform>Träffar hittade: %n</numerusform><numerusform>Träffar hittade: %n</numerusform></translation>
+        <translation><numerusform>Знайдено збігів: %n</numerusform><numerusform>Знайдено збігів: %n</numerusform><numerusform>Знайдено збігів: %n</numerusform><numerusform>Знайдено збігів: %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="418"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1278"/>
         <source>No replacements made</source>
-        <translation>Inga ersättningar gjordes</translation>
+        <translation>Замін не зроблено</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="420"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1280"/>
         <source>Replacements made: %n</source>
-        <translation><numerusform>Ersättning gjord: %n</numerusform><numerusform>Ersättningar gjorda: %n</numerusform></translation>
+        <translation><numerusform>Зроблено замін: %n</numerusform><numerusform>Зроблено замін: %n</numerusform><numerusform>Зроблено замін: %n</numerusform><numerusform>Зроблено замін: %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="617"/>
         <source>No matches found</source>
-        <translation>Inga träffar hittade</translation>
+        <translation>Збігів не знайдено</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1132"/>
         <source>This tab cannot be searched</source>
-        <translation>Den här fliken kan inte sökas</translation>
+        <translation>Не можна шукати на цій вкладці</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1164"/>
         <source>Unnamed search loaded</source>
-        <translation>Namnlös sökning inläst</translation>
+        <translation>Завантажено пошук без назви</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1167"/>
         <source>Loaded</source>
-        <translation>Läst</translation>
+        <translation>Завантажено</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1180"/>
@@ -1771,121 +1769,121 @@ andra änden för att fortsätta söka.</translation>
         <location filename="../../MainUI/FindReplace.cpp" line="1238"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1264"/>
         <source>No searches selected</source>
-        <translation>Inga sökningar valda</translation>
+        <translation>Не вибрано пошукових запитів</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1421"/>
         <source>What to search for</source>
-        <translation>Vad ska man söka efter</translation>
+        <translation>Що шукати</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1422"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
         <source>Normal</source>
-        <translation>Normal</translation>
+        <translation>Звичайний</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
         <source>Case in-sensitive search of exactly what you type.</source>
-        <translation>Icke-skiftolägeskänslig sökning av exakt vad du skriver.</translation>
+        <translation>Пошук без урахування регістру безпосередньо того, що Ви друкуєте.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1424"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Case Sensitive</source>
-        <translation>Skiftlägeskänslig</translation>
+        <translation>З урахуванням регістру</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Case sensitive search of exactly what you type.</source>
-        <translation>Skiftlägeskänslig sökning av exakt vad du skriver.</translation>
+        <translation>Пошук з урахуванням регістру безпосередньо того, що Ви друкуєте.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
         <source>Regex</source>
-        <translation>Regex</translation>
+        <translation>Регулярні вирази</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
-        <translation>Sök efter ett mönster med reguljärt uttryckssyntax.</translation>
+        <translation>Пошук за шаблоном з використанням синтаксису регулярних виразів.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1430"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1442"/>
         <source>Where to search</source>
-        <translation>Var ska man söka</translation>
+        <translation>Де шукати</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1432"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
-        <translation>Begränsa sök eller ersätt till den öppnade filen. Håll ned Ctrl-tangenten medan du klickar på någon sökknapp för att tillfälligt begränsa sökningen till den aktuella filen.</translation>
+        <translation>Обмежити пошук або заміну відкритим файлом. Утримуйте клавішу Ctrl при натисканні будь-яких кнопок пошуку, щоб тимчасово обмежити пошук поточним файлом.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1433"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
         <source>All HTML Files</source>
-        <translation>Alla HTML-filer</translation>
+        <translation>Всі HTML файли</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
         <source>Find or replace in all HTML files in Code View.</source>
-        <translation>Hitta eller ersätt i alla HTML-filer i Kodvyn.</translation>
+        <translation>Знайти або замінити у всіх HTML файлах у Браузері Коду.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1435"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1436"/>
         <source>Selected HTML Files</source>
-        <translation>Valda HTML-filer</translation>
+        <translation>Вибрані HTML-файли</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1436"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
-        <translation>Begränsa sökningen eller ersätt till de HTML-filer som valts i Bokbläddraren i Kodvyn.</translation>
+        <translation>Обмежити пошук або заміну HTML-файлами, вибраними у вікні Структури Ккниги.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1438"/>
         <source>To restrict search to selected text, use Search&amp;rarr;Mark Selected Text.</source>
-        <translation>För att begränsa sökningen till vald text, använd Sök&amp;rarr;markera vald text.</translation>
+        <translation>Щоб обмежити пошук вибраним текстом, використовуйте Пошук&amp;rarr;Позначити вибраний текст.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1443"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1444"/>
         <source>Marked Text</source>
-        <translation>Markerad text</translation>
+        <translation>Позначений Текст</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1444"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
-        <translation>Begränsa sök eller ersätt till texten markerad med Sök&amp;rarr;markera vald Text. Rensas om du använder Ångra, ange text eller ändra vyer eller flikar.</translation>
+        <translation>Обмежити пошук або заміну текстом, позначеним Пошук&amp;rarr;Позначити вибраний текст. Очищається, якщо використовується &quot;Відмінити&quot;, вводиться текст або змінюється режим перегляду або вкладки.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1448"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
         <source>Up</source>
-        <translation>Upp</translation>
+        <translation>Вгору</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1449"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1453"/>
         <source>Down</source>
-        <translation>Ner</translation>
+        <translation>Вниз</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1450"/>
         <source>Direction to search</source>
-        <translation>Riktning för att söka</translation>
+        <translation>Напрямок пошуку</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
         <source>Search for the previous match from your current position.</source>
-        <translation>Sök efter föregående träff från din nuvarande position.</translation>
+        <translation>Пошук попереднього збігу з поточної позиції.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1453"/>
         <source>Search for the next match from your current position.</source>
-        <translation>Sök efter nästa träff från din nuvarande position.</translation>
+        <translation>Пошук наступного збігу з поточної позиції.</translation>
     </message>
 </context>
 <context>
@@ -1893,12 +1891,12 @@ andra änden för att fortsätta söka.</translation>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="58"/>
         <source>Tokenise Selection</source>
-        <translation type="unfinished"/>
+        <translation>Символічний вибір</translation>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="71"/>
         <source>Save Search</source>
-        <translation>Spara sökning</translation>
+        <translation>Зберегти результати пошуку</translation>
     </message>
 </context>
 <context>
@@ -1906,7 +1904,7 @@ andra änden för att fortsätta söka.</translation>
     <message>
         <location filename="../../Tabs/FlowTab.cpp" line="827"/>
         <source>Print %1</source>
-        <translation>Skriv ut %1</translation>
+        <translation>Друк %1</translation>
     </message>
 </context>
 <context>
@@ -1914,230 +1912,230 @@ andra änden för att fortsätta söka.</translation>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="14"/>
         <source>General Settings</source>
-        <translation>Allmänna inställningar</translation>
+        <translation>Загальні параметри</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="20"/>
         <source>Choose which version of Epub to use
 when creating new or empty Epubs in Sigil.</source>
-        <translation>Välj vilken version av Epub som ska användas
-när du skapar nya eller tomma epuber i Sigil.</translation>
+        <translation>Виберіть, яку версію Epub використовувати
+при створенні нових або порожніх Epubs в Sigil.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="24"/>
         <source>Create New or Empty Epubs as:</source>
-        <translation>Skapa nya eller tomma epuber som:</translation>
+        <translation>Створити новий або порожній Epubs як:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="30"/>
         <source>Epub Version 2.</source>
-        <translation>Epub version 2.</translation>
+        <translation>Epub Version 2.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="33"/>
         <source>Version 2</source>
-        <translation>Version 2</translation>
+        <translation>Версія 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="43"/>
         <source>Epub Version 3.</source>
-        <translation>Epub version 3.</translation>
+        <translation>Epub Version 3.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="46"/>
         <source>Version 3</source>
-        <translation>Version 3</translation>
+        <translation>Версія 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="59"/>
         <source>Choose when your HTML code is automatically 
 mended.</source>
-        <translation>Choose when your HTML code is automatically 
-mended.</translation>
+        <translation>Виберіть, коли ваш код HTML буде автоматично
+виправлений.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="63"/>
         <source>Mend XHTML Source Code On:</source>
-        <translation>Förbättra XHTML-källkod på:</translation>
+        <translation>Виправити вихідний код XHTML на:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="69"/>
         <source>Mend when opening an Epub or HTML file.</source>
-        <translation>Förbättra när du öppnar en Epub- eller HTML-fil.</translation>
+        <translation>Виправити при відкритті файлу Epub або HTML.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="72"/>
         <source>Open</source>
-        <translation>Öppna</translation>
+        <translation>Відкрити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="79"/>
         <source>Mend when saving an Epub.</source>
-        <translation>Förbättra när du sparar en Epub.</translation>
+        <translation>Виправити при збереженні Epub.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="82"/>
         <source>Save</source>
-        <translation>Spara</translation>
+        <translation>Зберегти</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="92"/>
         <source>Determine if Epubs are allowed to access non-multimedia remote resources.</source>
-        <translation>Bestäm om Epubs får komma åt fjärrresurser som inte är multimedia.</translation>
+        <translation>Визначає, чи дозволяється Epubs отримувати доступ до віддалених немультимедійних ресурсів.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="95"/>
         <source> Control Access by Epubs to non-multimedia remote resources.</source>
-        <translation>Kontrollera åtkomst av Epubs till fjärrresurser som inte är multimedia.</translation>
+        <translation>Управління доступом Epubs до віддалених немультимедійних ресурсів.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="104"/>
         <source>Check to allow Epubs to access non-multimedia remote resources.</source>
-        <translation>Kontrollera om du vill tillåta Epubs att komma åt fjärrresurser som inte är multimedia.</translation>
+        <translation>Встановіть прапорець, щоб дозволити Epubs отримати доступ до віддалених немультимедійних ресурсів.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="107"/>
         <source>Epubs may access all remote resources types.</source>
-        <translation>Epuber kan komma åt alla fjärrresurstyper.</translation>
+        <translation>Epubs можуть отримувати доступ до всіх типів віддалених ресурсів.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="120"/>
         <source>Determine if javascript is allowed to be used by Epubs</source>
-        <translation>Bestäm om javascript får användas av Epubs</translation>
+        <translation>Визначає, чи дозволено використовувати JavaScript у Epubs</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="123"/>
         <source> Control Use of Javascript by Epubs.</source>
-        <translation>  Kontrollera användningen av Javascript av Epubs.</translation>
+        <translation>Управління використанням JavaScript у Epubs.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="132"/>
         <source>Check to allow Epubs to use javascript.</source>
-        <translation>Kontrollera att Epubs kan använda javascript.</translation>
+        <translation>Встановіть прапорець, щоб дозволити Epubs використовувати JavaScript.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="135"/>
         <source>Epubs may use javascript.</source>
-        <translation>Epubs kan använda javascript.</translation>
+        <translation>Epubs можуть використовувати JavaScript.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="154"/>
         <source>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</source>
-        <translation>Vilken CSS-nivå som ska anges för valideringsverktyget för W3C-formatmallar (EPUB2)</translation>
+        <translation>Який рівень CSS вказати для інструменту перевірки таблиць стилів W3C (EPUB 2)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="157"/>
         <source>EPUB2 W3C Stylesheet Validation Level:</source>
-        <translation>EPUB2 valideringsnivå för W3C-formatmallar:</translation>
+        <translation>Рівень перевірки таблиць стилів EPUB2 W3C:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="166"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB2</source>
-        <translation>Validering av W3C-formatmallar kommer att använda CSS nivå 2 for EPUB2</translation>
+        <translation>Валідатор таблиці стилів W3C використовуватиме CSS рівня 2 для EPUB2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="169"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="226"/>
         <source>CSS Level 2</source>
-        <translation>CSS nivå 2</translation>
+        <translation>CSS Level 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="176"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB2</source>
-        <translation>Validering av W3C-formatmallar kommer att använda CSS nivå 2.1 for EPUB2</translation>
+        <translation>Валідатор таблиці стилів W3C використовуватиме CSS рівня 2.1 для EPUB2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="179"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="236"/>
         <source>CSS Level 2.1</source>
-        <translation>CSS nivå 2.1</translation>
+        <translation>CSS Level 2.1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="189"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB2</source>
-        <translation>Validering av W3C-formatmallar kommer att använda CSS nivå 3 for EPUB2</translation>
+        <translation>Валідатор таблиці стилів W3C використовуватиме CSS рівня 3 для EPUB2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="192"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="249"/>
         <source>CSS Level 3</source>
-        <translation>CSS nivå 3</translation>
+        <translation>CSS Level 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="211"/>
         <source>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</source>
-        <translation>Vilken CSS-nivå som ska anges för valideringsverktyget för W3C-formatmallar (EPUB3)</translation>
+        <translation>Який рівень CSS вказати для інструменту перевірки таблиць стилів W3C (EPUB 3)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="214"/>
         <source>EPUB3 W3C Stylesheet Validation Level:</source>
-        <translation>EPUB3 valideringsnivå för W3C-formatmallar:</translation>
+        <translation>Рівень перевірки таблиць стилів EPUB3 W3C:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="223"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB3</source>
-        <translation>Validering av W3C-formatmallar kommer att använda CSS nivå 2 for EPUB3</translation>
+        <translation>Валідатор таблиці стилів W3C використовуватиме CSS рівня 2 для EPUB3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="233"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB3</source>
-        <translation>Validering av W3C-formatmallar kommer att använda CSS nivå 2.1 for EPUB3</translation>
+        <translation>Валідатор таблиці стилів W3C використовуватиме CSS рівня 2.1 для EPUB3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="246"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB3</source>
-        <translation>Validering av W3C-formatmallar kommer att använda CSS nivå 3 for EPUB3</translation>
+        <translation>Валідатор таблиці стилів W3C використовуватиме CSS рівня 3 для EPUB3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="262"/>
         <source>Number of clipboard history items to save between sessions (0 disables):</source>
-        <translation>Antal urklippshistorikobjekt att spara mellan sessioner (0 inaktiverar):</translation>
+        <translation>Кількість елементів з історії буфера обміну для збереження між сесіями (0 — не зберігати):</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="274"/>
         <source>Use to limit (or disable) clipboard history saving between sessions</source>
-        <translation>Använd för att begränsa (eller inaktivera) sparande av urklippshistorik mellan sessioner</translation>
+        <translation>Використовуйте для обмеження (або відключення) збереження історії буфера обміну між сесіями</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="306"/>
         <source>Set Folder where temporary files should be created</source>
-        <translation>Ange mapp där temporära filer ska skapas</translation>
+        <translation>Встановіть папку, де слід створювати тимчасові файли</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="317"/>
         <source>Auto</source>
-        <translation>Automatisk</translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="324"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="354"/>
         <source>Browse</source>
-        <translation>Bläddra</translation>
+        <translation>Переглядати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="336"/>
         <source>Set your preferred alternative external xhtml editor</source>
-        <translation>Ställ in önskad alternativ extern XHTML-redigerare</translation>
+        <translation>Встановіть бажаний альтернативний зовнішній редактор xhtml</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="347"/>
         <source>clear</source>
-        <translation>rensa</translation>
+        <translation>чисто</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="187"/>
         <source>Incorrect Path for External Xhtml Editor selected</source>
-        <translation>Felaktig sökväg för extern XHTML-redigerare vald</translation>
+        <translation>Неправильний шлях до вибраного зовнішнього редактора Xhtml</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="201"/>
         <source>Select Folder for Temporary Files</source>
-        <translation>Välj mapp för temporära filer</translation>
+        <translation>Виберіть папку для тимчасових файлів</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="216"/>
         <source>Incorrect Folder for Temporary Files selected</source>
-        <translation>Felaktig mapp för temporära filer vald</translation>
+        <translation>Вибрано неправильну папку для тимчасових файлів</translation>
     </message>
 </context>
 <context>
@@ -2145,172 +2143,172 @@ mended.</translation>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="110"/>
         <source>Acknowledgements</source>
-        <translation>Bekräftelse</translation>
+        <translation>Дякування</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="110"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
-        <translation>En passage som innehåller bekräftelser till enheter som är involverade i förverkligandet av arbetet.</translation>
+        <translation>Уривок, який містить подяки суб’єктам, які беруть участь у реалізації твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="111"/>
         <source>Bibliography</source>
-        <translation>Bibliografi</translation>
+        <translation>Бібліографія</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="111"/>
         <source>A list of works cited.</source>
-        <translation>En lista över citerade verk.</translation>
+        <translation>Список цитованих робіт.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="112"/>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="112"/>
         <source>The start of the main text content of a publication.</source>
-        <translation>Början av huvudtextinnehållet i en publikation.</translation>
+        <translation>Початок основного текстового змісту публікації.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="113"/>
         <source>Colophon</source>
-        <translation>Kolofon</translation>
+        <translation>Колофон</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="113"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
-        <translation>En kort beskrivning som vanligtvis finns i slutet av en publikation, beskriver produktionsnoteringar som är relevanta för upplagan.</translation>
+        <translation>Короткий опис, зазвичай розміщений в кінці публікації, описує виробничі нотатки, що стосуються видання.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="114"/>
         <source>Copyright Page</source>
-        <translation>Upphovsrättssida</translation>
+        <translation>Сторінка авторських прав</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="114"/>
         <source>The copyright page of the work.</source>
-        <translation>Arbetets upphovsrättssida.</translation>
+        <translation>Сторінка авторських прав на твір.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="115"/>
         <source>Cover</source>
-        <translation>Omslag</translation>
+        <translation>Обкладинка</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="115"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Обкладинка(-ки) видань, інформація на суперобкладинках і т.д.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="116"/>
         <source>Dedication</source>
-        <translation>Engagemang</translation>
+        <translation>Присвячення</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="116"/>
         <source>An inscription addressed to one or several particular person(s).</source>
-        <translation>En inskription adresserad till en eller flera särskilda personer.</translation>
+        <translation>Напис, адресований одній або декільком окремим особам.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="117"/>
         <source>Epigraph</source>
-        <translation>Inskrift</translation>
+        <translation>Епіграф</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="117"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation>En citat som är relevant men inte integrerad i texten.</translation>
+        <translation>Цитата, яка доречна, але не є невід’ємною частиною тексту.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="118"/>
         <source>Foreword</source>
-        <translation>Förord</translation>
+        <translation>Передмова</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="118"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation>Ett inledande avsnitt som föregår arbetet, vanligtvis inte skrivet av arbetets författare.</translation>
+        <translation>Вступний розділ, що передує твору, як правило, не написаний автором твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="119"/>
         <source>Glossary</source>
-        <translation>Ordlista</translation>
+        <translation>Глосарій</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="119"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
-        <translation>En alfabetisk förteckning över termer inom ett visst kunskapsområde, med definitionerna för dessa termer.</translation>
+        <translation>Алфавітний перелік термінів у певній галузі знань із визначеннями для цих термінів.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="120"/>
         <source>Index</source>
-        <translation>Index</translation>
+        <translation>Індекс</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="120"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
-        <translation>En detaljerad förteckning, vanligtvis ordnad alfabetiskt, av den specifika informationen i en publikation.</translation>
+        <translation>Детальний список, який зазвичай розташований в алфавітному порядку, певної інформації в публікації.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="121"/>
         <source>List of Illustrations</source>
-        <translation>Förteckning över illustrationer</translation>
+        <translation>Список ілюстрацій</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="121"/>
         <source>A listing of illustrations included in the work.</source>
-        <translation>En förteckning över illustrationer som ingår i arbetet.</translation>
+        <translation>Перелік ілюстрацій, включених до твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="122"/>
         <source>List of Tables</source>
-        <translation>Förteckning över tabeller</translation>
+        <translation>Список таблиць</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="122"/>
         <source>A listing of tables included in the work.</source>
-        <translation>En förteckning över tabeller som ingår i arbetet.</translation>
+        <translation>Перелік таблиць, включених до твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="123"/>
         <source>Notes</source>
-        <translation>Anteckningar</translation>
+        <translation>Примітки</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="123"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Збірка нотаток. Її можна використовувати для ідентифікації виносок, задніх нотаток, граничних приміток, вбудованих нотаток тощо, коли застарілі угоди про іменування не бажані. Статус: застарілий - замінено на: &quot;виноски&quot;, &quot;замітки&quot;</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="124"/>
         <source>Preface</source>
-        <translation>Förord</translation>
+        <translation>Вступ</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="124"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation>En inledande sektion som föregår arbetet, vanligtvis skrivet av arbetets författare.</translation>
+        <translation>Вступний розділ, що передує твору, як правило, написаний автором твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="125"/>
         <source>Title Page</source>
-        <translation>Titelsida</translation>
+        <translation>Титульний аркуш</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="125"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
-        <translation>En sida i början av en bok som ger sin titel, författare, utgivare och annan publikationsinformation.</translation>
+        <translation>Сторінка на початку книги, що містить її назву, авторів, видавця та іншу інформацію про видання.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="126"/>
         <source>Table of Contents</source>
-        <translation>Innehållsförteckning</translation>
+        <translation>Зміст</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="126"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
-        <translation>En innehållsförteckning som är en förteckning över rubriker eller delar av boken eller dokumentet, organiserade i den ordning de visas. Vanligtvis förekommer i arbetets främre material, eller i början av en sektion.</translation>
+        <translation>Зміст — це перелік заголовків або частин книги чи документа, впорядкованих у тому порядку, в якому вони відображаються. Зазвичай з’являється в передній частині твору або на початку розділу.</translation>
     </message>
 </context>
 <context>
@@ -2318,82 +2316,82 @@ mended.</translation>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="14"/>
         <source>HTML Files</source>
-        <translation>HTML-filer</translation>
+        <translation>Файли HTML</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Lista endast de filnamn som innehåller texten du anger.</translation>
+        <translation>Вивести тільки файли, що містять введений мною текст</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="74"/>
         <source>Name</source>
-        <translation>Namn</translation>
+        <translation>Ім&apos;я</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="75"/>
         <source>File Size (KB)</source>
-        <translation>Filstorlek (KB)</translation>
+        <translation>Розмір файлу (КБ)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="76"/>
         <source>All Words</source>
-        <translation>Alla ord</translation>
+        <translation>Всі слова</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="77"/>
         <source>Misspelled Words</source>
-        <translation>Felstavade ord</translation>
+        <translation>Слова з помилками</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="78"/>
         <source>Images</source>
-        <translation>Bilder</translation>
+        <translation>Зображення</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="79"/>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation>Відео</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="80"/>
         <source>Audio</source>
-        <translation>Ljud</translation>
+        <translation>Аудіо</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="81"/>
         <source>Stylesheets</source>
-        <translation>Formatmallar</translation>
+        <translation>Таблиці Стилів</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="82"/>
         <source>Well Formed</source>
-        <translation>Välformat</translation>
+        <translation>Правильно сформований</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="171"/>
         <source>Yes</source>
-        <translation>Ja</translation>
+        <translation>Так</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="171"/>
         <source>No</source>
-        <translation>Nej</translation>
+        <translation>Ні</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="190"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n fil</numerusform><numerusform>%n filer</numerusform></translation>
+        <translation><numerusform>%n файл(ів)</numerusform><numerusform>%n файл(ів)</numerusform><numerusform>%n файл(ів)</numerusform><numerusform>%n файл(ів)</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="331"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Spara rapport som kommaseparerad fil</translation>
+        <translation>Зберегти звіт як файл з комами роздільниками</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="344"/>
@@ -2403,12 +2401,12 @@ mended.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="344"/>
         <source>Cannot save report file.</source>
-        <translation>Det går inte att spara rapportfilen.</translation>
+        <translation>Не можу зберегти файл звіту.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="368"/>
         <source>Delete From Book</source>
-        <translation>Ta bort från bok</translation>
+        <translation>Видалити з книги</translation>
     </message>
 </context>
 <context>
@@ -2416,88 +2414,88 @@ mended.</translation>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="14"/>
         <source>Generate Table Of Contents</source>
-        <translation>Generera Innehållsförteckning</translation>
+        <translation>Генерація Змісту</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="52"/>
         <source>Change the name of the entry in the TOC.
 The heading&apos;s title attribute will be updated in the document.</source>
-        <translation>Ändra namnet på posten i innehållsförteckningen.
-Rubrikens titelattribut uppdateras i dokumentet.</translation>
+        <translation>Змініть назву запису в TOC.
+Атрибут назви заголовка буде оновлений в документі.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="975"/>
         <source>Rename</source>
-        <translation>Byt namn</translation>
+        <translation>Перейменувати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="81"/>
         <source>Decrease the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
 You can also use the left arrow key.</source>
-        <translation>Minska rubriknivån för den valda posten med 1.
-Rubrikens tagg uppdateras i dokumentet.
-Du kan också använda vänster piltangent.</translation>
+        <translation>Зменшити рівень заголовка вибраного запису на 1.
+Тег заголовка буде оновлено в документі.
+Ви також можете використовувати клавішу зі стрілкою вліво.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="96"/>
         <source>Increase the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
 You can also use the right arrow key.</source>
-        <translation>Öka rubriknivån för den valda posten med 1.
-Rubrikens tagg uppdateras i dokumentet.
-Du kan också använda höger piltangent.</translation>
+        <translation>Збільшити рівень заголовка вибраного запису на 1.
+Тег заголовка буде оновлено в документі.
+Ви також можете використовувати клавішу зі стрілкою вправо.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="130"/>
         <source>Only display the items that will be added to the Table Of Contents.
 Check or uncheck an entry to determine if it will be added to the TOC.</source>
-        <translation>Visa bara de objekt som kommer att läggas till i innehållsförteckningen.
-Markera eller avmarkera en post för att avgöra om den kommer att läggas till i innehållsförteckningen.</translation>
+        <translation>Відображає лише ті пункти, які будуть додані до Змісту.
+Встановіть або зніміть прапорці для запису, щоб визначити, чи буде він доданий до TOC.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="134"/>
         <source>Show TOC items only</source>
-        <translation>Visa endast poster i innehållsförteckning</translation>
+        <translation>Показати лише елементи TOC</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="153"/>
         <source>Quickly mark which headings are included in the TOC.
 You can then check or uncheck individual headings in the list above.</source>
-        <translation>Markera snabbt vilka rubriker som ingår i innehållsförteckningen.
-Du kan sedan kontrollera eller avmarkera enskilda rubriker i listan ovan.</translation>
+        <translation>Швидко позначити, які заголовки включені в TOC.
+Потім Ви можете встановити або зняти прапорці окремих заголовків у списку вище.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="618"/>
         <source>Level</source>
-        <translation>Nivå</translation>
+        <translation>Рівень</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <source>Included</source>
-        <translation>Inkluderad</translation>
+        <translation>Помістити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <source>Hidden</source>
-        <translation>Dold</translation>
+        <translation>Прихований</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="617"/>
         <source>TOC Entry / Heading Title</source>
-        <translation>Innehållsförteckningspost / rubrik</translation>
+        <translation>Запис TOC / Назва Заголовка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="619"/>
         <source>Include</source>
-        <translation>Inkludera</translation>
+        <translation>Містить</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="838"/>
         <source>Up to level</source>
-        <translation>Upp till nivå</translation>
+        <translation>До рівня</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="840"/>
@@ -2508,13 +2506,13 @@ Du kan sedan kontrollera eller avmarkera enskilda rubriker i listan ovan.</trans
         <location filename="../../Dialogs/HeadingSelector.cpp" line="843"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="904"/>
         <source>None</source>
-        <translation>Ingen</translation>
+        <translation>Нема</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="849"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="902"/>
         <source>All</source>
-        <translation>Alla</translation>
+        <translation>Усьому</translation>
     </message>
 </context>
 <context>
@@ -2522,77 +2520,77 @@ Du kan sedan kontrollera eller avmarkera enskilda rubriker i listan ovan.</trans
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="14"/>
         <source>Image Files</source>
-        <translation>Bildfiler</translation>
+        <translation>Файли зображення</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Lista endast de filnamn som innehåller texten du anger.</translation>
+        <translation>Вивести тільки файли, що містять введений мною текст</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>Фільтр</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="76"/>
         <source>Thumbnail size:</source>
-        <translation>Miniatyrbildsstorlek:</translation>
+        <translation>Розмір мініатюри:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="88"/>
         <source>Name</source>
-        <translation>Namn</translation>
+        <translation>Ім&apos;я</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="89"/>
         <source>File Size (KB)</source>
-        <translation>Filstorlek (KB)</translation>
+        <translation>Розмір файлу (КБ)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="90"/>
         <source>Times Used</source>
-        <translation>Gånger använd</translation>
+        <translation>Час використання</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="91"/>
         <source>Width</source>
-        <translation>Bredd</translation>
+        <translation>Ширина</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="92"/>
         <source>Height</source>
-        <translation>Höjd</translation>
+        <translation>Висота</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="93"/>
         <source>Pixels</source>
-        <translation>Pixlar</translation>
+        <translation>Пікселі</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="94"/>
         <source>Color</source>
-        <translation>Färg</translation>
+        <translation>Колір</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="97"/>
         <source>Image</source>
-        <translation>Bild</translation>
+        <translation>Зображення</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="184"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n fil</numerusform><numerusform>%n filer</numerusform></translation>
+        <translation><numerusform>%n файл(ів)</numerusform><numerusform>%n файл(ів)</numerusform><numerusform>%n файл(ів)</numerusform><numerusform>%n файл(ів)</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="188"/>
         <source>KB</source>
-        <translation>KB</translation>
+        <translation>КБ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="332"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Spara rapport som kommaseparerad fil</translation>
+        <translation>Зберегти звіт як файл з комами роздільниками</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="345"/>
@@ -2602,12 +2600,12 @@ Du kan sedan kontrollera eller avmarkera enskilda rubriker i listan ovan.</trans
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="345"/>
         <source>Cannot save report file.</source>
-        <translation>Det går inte att spara rapportfilen.</translation>
+        <translation>Не можу зберегти файл звіту.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="417"/>
         <source>Delete From Book</source>
-        <translation>Ta bort från bok</translation>
+        <translation>Видалити з книги</translation>
     </message>
 </context>
 <context>
@@ -2615,49 +2613,49 @@ Du kan sedan kontrollera eller avmarkera enskilda rubriker i listan ovan.</trans
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="179"/>
         <source>shades</source>
-        <translation>nyanser</translation>
+        <translation>тіні</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="179"/>
         <source>colors</source>
-        <translation>färger</translation>
+        <translation>кольори</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="180"/>
         <source>Grayscale</source>
-        <translation>Gråskala</translation>
+        <translation>Відтінки сірого</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="180"/>
         <source>Color</source>
-        <translation>Färg</translation>
+        <translation>Колір</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="295"/>
         <location filename="../../Tabs/ImageTab.cpp" line="352"/>
         <location filename="../../Tabs/ImageTab.cpp" line="355"/>
         <source>Open With</source>
-        <translation>Öppna med</translation>
+        <translation>Відкрити за допомогою</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="330"/>
         <source>Other Application</source>
-        <translation>Andra program</translation>
+        <translation>Інший додаток</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="353"/>
         <source>Save As</source>
-        <translation>Spara som</translation>
+        <translation>Зберегти як</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="354"/>
         <source>Copy Image</source>
-        <translation>Kopiera bild</translation>
+        <translation>Копіювати зображення</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="402"/>
         <source>Print %1</source>
-        <translation>Skriv ut %1</translation>
+        <translation>Друк %1</translation>
     </message>
 </context>
 <context>
@@ -2665,7 +2663,7 @@ Du kan sedan kontrollera eller avmarkera enskilda rubriker i listan ovan.</trans
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="155"/>
         <source>Files exist in epub that are not listed in the manifest, they will be ignored</source>
-        <translation>Filer finns i epub som inte är listade i manifestet, de kommer att ignoreras</translation>
+        <translation>У epub існують файли, які не вказані в маніфесті, вони будуть ігноровані</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="191"/>
@@ -2677,19 +2675,19 @@ Du kan sedan kontrollera eller avmarkera enskilda rubriker i listan ovan.</trans
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in data loss.
 
 Do you want to automatically fix the files?</source>
-        <translation>Denna EPUB har HTML-filer som inte är välformade. Sigil kan försöka att automatiskt åtgärda dessa filer, även om detta kan leda till förlust av data.
+        <translation>Цей EPUB містить файли HTML, які не сформовані належним чином. Sigil може спробувати автоматично виправити ці файли, хоча це може призвести до втрати даних.
 
-Vill du automatiskt fixa filerna?</translation>
+Ви хочете автоматично виправити файли?</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="573"/>
         <source>Epub has missing or improperly specified OPF.</source>
-        <translation>Epub har saknad eller felaktigt specificerad OPF.</translation>
+        <translation>Epub відсутній або неправильно вказаний OPF.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="613"/>
         <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
-        <translation>Denna epub har flera tolkningar (flera OPF-filer). Redigera denna epub i Sigil kommer att producera en normal återgivning som epub med endast de viktigaste (första) OPF-Filen hittade.</translation>
+        <translation>Ця електронна публікація має множинне тлумачення (декілька файлів OPF). Редагування цього epub в Sigil призведе до створення звичайної одиночної версії epub з використнням лише основного (першого) знайденого файлу OPF.</translation>
     </message>
 </context>
 <context>
@@ -2698,93 +2696,93 @@ Vill du automatiskt fixa filerna?</translation>
         <location filename="../../Form_Files/IndexEditor.ui" line="14"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Index Editor</source>
-        <translation>Indexredigerare</translation>
+        <translation>Редактор Індексів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Lista endast de poster som innehåller texten du anger.</translation>
+        <translation>Вивести лише записи, що містять введений користувачем текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="55"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="421"/>
         <source>Add Entry</source>
-        <translation>Lägg till en post</translation>
+        <translation>Додати запис</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="66"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>Högerklicka på en post för att se en snabbmeny med åtgärder.</translation>
+        <translation>Клацніть правою кнопкою миші на запис, щоб побачити контекстне меню дій.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
         <source>You can also right click in your document to add selected text to the Index.</source>
-        <translation>Du kan också högerklicka i dokumentet för att lägga till vald text i Indexet.</translation>
+        <translation>Ви також можете клацнути правою кнопкою миші у своєму документі, щоб додати вибраний текст до Індекса.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>Text to Include</source>
-        <translation>Text att inkludera</translation>
+        <translation>Текст для включення</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>The pattern to match in your document, e.g. &quot;Gutenberg&quot;. This is a regex pattern so &quot;(?i)Gutenberg&quot; ignores case when matching.</source>
-        <translation>Mönstret som ska matcha i dokumentet, t.ex. &quot;Gutenberg&quot;. Detta är ett regex-mönster så &quot;(?i)Gutenberg&quot; ignorerar skiftlägeskänslighet vid matchning.</translation>
+        <translation>Шаблон, який повинен відповідати вашому документу, наприклад &quot;Гутенберг&quot;. Це шаблон регулярного вираження, тому &quot;(?i)Гутенберг&quot; ігнорує ситуацію при збігу.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>Index Entries</source>
-        <translation>Indexposter</translation>
+        <translation>Індексні записи</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using &apos;/&apos; after a level name, e.g. &quot;Books/Fantasy/Alice in Wonderland&quot; or &quot;Books/Fantasy/&quot;.</source>
-        <translation>Posten för att skapa i indexet. Lämna tomt för att använda text som det är, eller skriv in text för att visa. Skapa flera nivåposter med hjälp av &apos;/&apos; efter ett nivånamn, t.ex. &quot;Böcker/Fantasy/Alice i Underlandet&quot; eller &quot;Böcker/Fantasy/&quot;.</translation>
+        <translation>Створення елемента в індексі. Залиште порожнім, щоб використовувати текст таким, яким він є, або введіть текст для відображення. Щоб створити багаторівневі записи, використовуйте &apos;/&apos; після назви рівня, наприклад &quot;Books/Fantasy/Alice in Wonderland&quot; або &quot;Books/Fantasy/&quot;.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save</source>
-        <translation>Spara</translation>
+        <translation>Зберегти</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save your changes.</source>
-        <translation>Spara dina ändringar.</translation>
+        <translation>Зберегти зміни.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>Om några andra instanser av Sigil körs kommer de att uppdateras automatiskt med dina ändringar.</translation>
+        <translation>Якщо запущені інші екземпляри Sigil, вони будуть автоматично оновлені з вашими змінами.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="84"/>
         <source>Cannot save entries.</source>
-        <translation>Det går inte att spara poster.</translation>
+        <translation>Неможливо зберегти внесені записи.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="126"/>
         <source>Index entries loaded from file.</source>
-        <translation>Indexposter lästes in från fil.</translation>
+        <translation>Індексні записи, завантажені з файлу.</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Entries added: %n</source>
-        <translation><numerusform>Post tillagd: %n</numerusform><numerusform>Poster tillagda: %n</numerusform></translation>
+        <translation><numerusform>Додано записів: %n</numerusform><numerusform>Додано записів: %n</numerusform><numerusform>Додано записів: %n</numerusform><numerusform>Додано записів: %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="293"/>
         <source>Index files: *.ini *.txt (*.ini *.txt)</source>
-        <translation>Indexfiler: *.ini *.txt (*.ini *.txt)</translation>
+        <translation>Файли індексів: *.ini *.txt (*.ini *.txt)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="295"/>
         <source>Load Entries From File</source>
-        <translation>Läs poster från fil</translation>
+        <translation>Завантажити записи з файлу</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
@@ -2794,79 +2792,79 @@ Vill du automatiskt fixa filerna?</translation>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="311"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>Är du säker på att du vill uppdatera alla poster? Detta kommer att skriva över eventuella osparade ändringar.</translation>
+        <translation>Ви впевнені, що хочете перезавантажити всі записи? Це перезапише всі незбережені зміни.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="329"/>
         <source>Save Entries to File</source>
-        <translation>Spara poster till fil</translation>
+        <translation>Зберегти записи у файл</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="422"/>
         <source>Edit</source>
-        <translation>Redigera</translation>
+        <translation>Редагувати</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="423"/>
         <source>Cut</source>
-        <translation>Klipp ut</translation>
+        <translation>Вирізати</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="424"/>
         <source>Copy</source>
-        <translation>Kopiera</translation>
+        <translation>Копіювати</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="425"/>
         <source>Paste</source>
-        <translation>Klistra in</translation>
+        <translation>Вставити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="426"/>
         <source>Delete</source>
-        <translation>Ta bort</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
         <source>Autofill</source>
-        <translation>Autofyll</translation>
+        <translation>Автозаповнення</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
         <source>Open</source>
-        <translation>Öppna</translation>
+        <translation>Відкрити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="429"/>
         <source>Reload</source>
-        <translation>Uppdatera</translation>
+        <translation>Перезавантажити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
         <source>Save As</source>
-        <translation>Spara som</translation>
+        <translation>Зберегти як</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
         <source>Select All</source>
-        <translation>Välj alla</translation>
+        <translation>Вибрати все</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="506"/>
         <source>Index entries saved.</source>
-        <translation>Indexposter sparade.</translation>
+        <translation>Записи індексу збережено.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="535"/>
         <source>Sigil: Index Editor</source>
-        <translation>Sigil: Indexredigerare</translation>
+        <translation>Sigil: Редактор Індексів</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="536"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>Indexposterna kan ha ändrats.
-Vill du spara dina ändringar?</translation>
+        <translation>Записи в індексі можливо бути змінені.
+Ви хочете зберегти свої зміни?</translation>
     </message>
 </context>
 <context>
@@ -2874,17 +2872,17 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="61"/>
         <source>Text to Include</source>
-        <translation>Text att inkludera</translation>
+        <translation>Текст для включення</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="62"/>
         <source>Index Entries</source>
-        <translation>Indexposter</translation>
+        <translation>Індексні записи</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="347"/>
         <source>Unable to create file %1</source>
-        <translation>Det gick inte att skapa filen %1</translation>
+        <translation>Неможливо створити файл %1</translation>
     </message>
 </context>
 <context>
@@ -2892,12 +2890,12 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../Dialogs/Inspector.cpp" line="43"/>
         <source>Inspect Page or Element</source>
-        <translation>Inspektera sida eller element</translation>
+        <translation>Ревізувати Сторінку або Елемент</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Inspector.cpp" line="89"/>
         <source>The Inspector functionality is not supported before Qt 5.11</source>
-        <translation>Inspektörens funktionalitet stöds inte innan Qt 5.11</translation>
+        <translation>Функціональність інспектора не підтримується до Qt 5.11</translation>
     </message>
 </context>
 <context>
@@ -2905,78 +2903,78 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="14"/>
         <source>Keyboard Shortcuts</source>
-        <translation>Tangentbordskortkommandon</translation>
+        <translation>Клавіатурні скорочення</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="34"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Lista endast de poster som innehåller texten du anger.</translation>
+        <translation>Вивести лише записи, що містять введений користувачем текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="37"/>
         <source>Filter: </source>
-        <translation>Filtrera: </translation>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="62"/>
         <source>Name</source>
-        <translation>Namn</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="67"/>
         <source>Shortcut</source>
-        <translation>Kortkommando</translation>
+        <translation>Швидкий виклик</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="72"/>
         <source>Description</source>
-        <translation>Beskrivning</translation>
+        <translation>Опис</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="82"/>
         <source>Reset all to default</source>
-        <translation>Återställ alla till standard</translation>
+        <translation>Скинути всі значення за замовчуванням</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="85"/>
         <source>Reset All</source>
-        <translation>Återställ alla</translation>
+        <translation>Скинути все</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="115"/>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="125"/>
         <source>Press the key combination you want to use.</source>
-        <translation>Klicka på tangentkombinationen du vill använda.</translation>
+        <translation>Натисніть комбінацію клавіш, яку ви хочете використовувати.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="118"/>
         <source>Shortcut:</source>
-        <translation>Kortkommando:</translation>
+        <translation>Швидкий виклик:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="141"/>
         <source>Assign this keyboard shortcut, overriding any conflicting usages.</source>
-        <translation>Tilldela detta tangentbordskortkommando, åsidosätta eventuella motstridiga användningar.</translation>
+        <translation>Призначити цю комбінацію клавіш, замінюючи будь-які конфліктні ситуациї.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="144"/>
         <source>Assign</source>
-        <translation>Tilldela</translation>
+        <translation>Призначити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="160"/>
         <source>Remove this keyboard shortcut.</source>
-        <translation>Ta bort detta tangentbordskortkommandot.</translation>
+        <translation>Прибрати цю комбінацію клавіш.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="163"/>
         <source>Remove</source>
-        <translation>Ta bort</translation>
+        <translation>Вилучити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="343"/>
         <source>Conflicts with: &lt;b&gt;</source>
-        <translation>Konflikter med: &lt;b&gt;</translation>
+        <translation>Конфлікт з: &lt;b&gt;</translation>
     </message>
 </context>
 <context>
@@ -2984,482 +2982,482 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="117"/>
         <source>Acknowledgments</source>
-        <translation>Erkännanden</translation>
+        <translation>Дякування</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="117"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
-        <translation>En passage som innehåller bekräftelser till enheter som är involverade i förverkligandet av arbetet.</translation>
+        <translation>Уривок, який містить подяки суб’єктам, які беруть участь у реалізації твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="118"/>
         <source>Afterword</source>
-        <translation>Efterord</translation>
+        <translation>Післямова</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="118"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation>En avslutande uttalande från författaren eller en person av betydelse för berättelsen, vanligtvis ger insikt i hur berättelsen kom att skrivas, dess betydelse eller relaterade händelser som har framkommit sedan dess tidslinje.</translation>
+        <translation>Заключне висловлювання автора чи людини, що має важливе значення для розповіді, як правило, забезпечує розуміння того, як історія була написана, її значення чи пов’язані з нею події, що набули свого часу.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="119"/>
         <source>Annotation</source>
-        <translation>Kommentar</translation>
+        <translation>Анотація</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="119"/>
         <source>Explanatory information about passages in the work. Status: Deprecated</source>
-        <translation>Förklarande information om avsnitt i arbetet. Tillstånd: Föråldrad</translation>
+        <translation>Пояснювальні відомості про уривки у творі. Статус: застарілий</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="120"/>
         <source>Appendix</source>
-        <translation>Appendix</translation>
+        <translation>Додаток</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="120"/>
         <source>Supplemental information.</source>
-        <translation>Kompletterande information.</translation>
+        <translation>Додаткова інформація.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="121"/>
         <source>Assessment</source>
-        <translation>Bedömning</translation>
+        <translation>Оцінка знань</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="121"/>
         <source>A test, quiz, or other activity that helps measure a student&apos;s understanding of what is being taught.</source>
-        <translation>Ett test, frågesport eller annan aktivitet som hjälper till att mäta en elevs förståelse för vad som lärs ut.</translation>
+        <translation>Тест, контрольна або перевірочна робота чи інша діяльність, яка допомагає оцінити розуміння студентом того, що йому викладається.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="122"/>
         <source>Back Matter</source>
-        <translation>Baksida</translation>
+        <translation>Допоміжний матеріал</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="122"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
-        <translation>Tillhörande material som förekommer efter huvudinnehållet i en publikation, t.ex. index, bilagor o.s.v.</translation>
+        <translation>Допоміжний матеріал, що виникає після основного змісту публікації, наприклад, індекси, додатки тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="123"/>
         <source>Bibliography</source>
-        <translation>Bibliografi</translation>
+        <translation>Бібліографія</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="123"/>
         <source>A list of works cited.</source>
-        <translation>En lista över citerade verk.</translation>
+        <translation>Список цитованих робіт.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="124"/>
         <source>Body Matter</source>
-        <translation>Framsida</translation>
+        <translation>Основний текст</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="124"/>
         <source>The main content of a publication.</source>
-        <translation>Huvudinnehållet i en publikation.</translation>
+        <translation>Основний зміст публікації.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="125"/>
         <source>Chapter</source>
-        <translation>Kapitel</translation>
+        <translation>Розділ</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="125"/>
         <source>A major structural division of a piece of writing.</source>
-        <translation>En stor strukturell uppdelning av ett skrivande.</translation>
+        <translation>Основна структурна частина твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="126"/>
         <source>Colophon</source>
-        <translation>Kolofon</translation>
+        <translation>Колофон</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="126"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
-        <translation>En kort beskrivning som vanligtvis finns i slutet av en publikation, beskriver produktionsnoteringar som är relevanta för upplagan.</translation>
+        <translation>Короткий опис, зазвичай розміщений в кінці публікації, описує виробничі нотатки, що стосуються видання.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="127"/>
         <source>Conclusion</source>
-        <translation>Slutsats</translation>
+        <translation>Завершення</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="127"/>
         <source>An ending section that typically wraps up the work.</source>
-        <translation>En slutsektion som vanligtvis sveper upp arbetet.</translation>
+        <translation>Кінцевий розділ, який зазвичай завершує роботу.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="128"/>
         <source>Contributors</source>
-        <translation>Bidragsgivare</translation>
+        <translation>Співавтори</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="128"/>
         <source>A list of contributors to the work.</source>
-        <translation>En lista över bidragsgivare till arbetet.</translation>
+        <translation>Список співавторів твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="129"/>
         <source>Copyright Page</source>
-        <translation>Copyright-sida</translation>
+        <translation>Сторінка авторських прав</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="129"/>
         <source>The copyright page of the work.</source>
-        <translation>Arbetets upphovsrättssida.</translation>
+        <translation>Сторінка авторських прав на твір.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="130"/>
         <source>Cover</source>
-        <translation>Omslag</translation>
+        <translation>Обкладинка</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="130"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Обкладинка(-ки) видань, інформація на суперобкладинках і т.д.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="131"/>
         <source>Dedication</source>
-        <translation>Engagemang</translation>
+        <translation>Присвячення</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="131"/>
         <source>An inscription addressed to one or several particular person(s).</source>
-        <translation>En inskription adresserad till en eller flera särskilda personer.</translation>
+        <translation>Напис, адресований одній або декільком окремим особам.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="132"/>
         <source>Division</source>
-        <translation>Uppdelning</translation>
+        <translation>Розділ</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="132"/>
         <source>A major structural division that may also appear as a substructure of a part (esp. in legislation).</source>
-        <translation>En stor strukturell uppdelning som också kan framstå som en understruktur av en del (särskilt i lagstiftning).</translation>
+        <translation>Основний структурний розділ, який також може виступати як підструктура частини (особливо у законодавстві).</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="133"/>
         <source>Epigraph</source>
-        <translation>Inskrift</translation>
+        <translation>Епіграф</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="133"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation>En citat som är relevant men inte integrerad i texten.</translation>
+        <translation>Цитата, яка доречна, але не є невід’ємною частиною тексту.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="134"/>
         <source>Epilogue</source>
-        <translation>Epilog</translation>
+        <translation>Епілог</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="134"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
-        <translation>En avslutande sektion som vanligtvis skrivs från en senare tidpunkt än huvudhistorien, men fortfarande en del av berättelsen.</translation>
+        <translation>Заключний розділ, який, як правило, пишеться з пізнішого часу, ніж основний сюжет, хоча все ще є частиною оповідання.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="135"/>
         <source>Errata</source>
-        <translation>Rättelse</translation>
+        <translation>Друкарські помилки</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="135"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
-        <translation>Publiceringsrättelse, i tryckta verk infogas vanligtvis ett löst ark för hand; ibland en bunden sida som innehåller korrigeringar för misstag i arbetet.</translation>
+        <translation>Друкарські помилки видання, у друкованих творах, як правило, вільний аркуш, вставлений вручну; іноді переплетена сторінка, яка містить виправлення помилок у роботі.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="136"/>
         <source>Footnotes</source>
-        <translation>Fotnoter</translation>
+        <translation>Примітки</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="136"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
-        <translation>En samling anteckningar som visas längst ner på en sida.</translation>
+        <translation>Збірка приміток та пояснень до тексту, що з’являються внизу сторінки.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="137"/>
         <source>Foreword</source>
-        <translation>Förord</translation>
+        <translation>Передмова</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="137"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation>Ett inledande avsnitt som föregår arbetet, vanligtvis inte skrivet av arbetets författare.</translation>
+        <translation>Вступний розділ, що передує твору, як правило, не написаний автором твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="138"/>
         <source>Front Matter</source>
-        <translation>Främre material</translation>
+        <translation>Титульні сторінки</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="138"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
-        <translation>Preliminärt material till huvudinnehållet i en publikation, till exempel innehållsförteckningar, dedikationer o.s.v.</translation>
+        <translation>Попередній матеріал до основного змісту публікації, такий як зміст, присвяти тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="139"/>
         <source>Glossary</source>
-        <translation>Ordlista</translation>
+        <translation>Глосарій</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="139"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
-        <translation>En alfabetisk lista över termer inom ett visst kunskapsområde, med definitionerna för dessa termer.</translation>
+        <translation>Алфавітний перелік термінів у певній галузі знань із визначеннями для цих термінів.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="140"/>
         <source>Half Title Page</source>
-        <translation>Halv titelsida</translation>
+        <translation>Шмуцтитул</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="140"/>
         <source>The half title page of the work which carries just the title itself.</source>
-        <translation>Halvtitelsidan av arbetet som bär bara titeln själv.</translation>
+        <translation>Окрема сторінка, де поміщають заголовок частини, розділу чи розділ книги, а деколи окремих творів, які входять у збірник.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="141"/>
         <source>Imprimatur</source>
-        <translation>Imprimatur</translation>
+        <translation>Дозвіл цензури</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="141"/>
         <source>A formal statement authorizing the publication of the work.</source>
-        <translation>Ett formellt uttalande som godkänner publiceringen av arbetet.</translation>
+        <translation>Офіційна заява про дозвіл на публікацію твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="142"/>
         <source>Imprint</source>
-        <translation>Avtryck</translation>
+        <translation>Імпринт</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="142"/>
         <source>Information relating to the publication or distribution of the work.</source>
-        <translation>Information om publiceringen eller distribution av arbetet.</translation>
+        <translation>Інформація, що стосується публікації чи розповсюдження твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="143"/>
         <source>Index</source>
-        <translation>Index</translation>
+        <translation>Індекс</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="143"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
-        <translation>En detaljerad lista, vanligtvis ordnad alfabetiskt, av den specifika informationen i en publikation.</translation>
+        <translation>Детальний список, який зазвичай розташований в алфавітному порядку, певної інформації в публікації.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="144"/>
         <source>Introduction</source>
-        <translation>Introduktion</translation>
+        <translation>Введення</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="144"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
-        <translation>Ett avsnitt i början av arbetet, som vanligtvis introducerar läsaren till omfattningen eller arten av arbetets innehåll.</translation>
+        <translation>Розділ на початку твору, як правило, знайомить читача зі сферою чи характером змісту твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="145"/>
         <source>Landmarks</source>
-        <translation>Landmärken</translation>
+        <translation>Пам&apos;ятка</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="145"/>
         <source>A collection of references to well-known/recurring components within the publication</source>
-        <translation>En samling referenser till välkända/återkommande komponenter i publikationen</translation>
+        <translation>Збірник посилань на відомі/повторювані компоненти в публікації</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="146"/>
         <source>List of Audio Clips</source>
-        <translation>Förteckning över ljudklipp</translation>
+        <translation>Список аудіокліпів</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="146"/>
         <source>A listing of audio clips included in the work.</source>
-        <translation>En förteckning över ljudklipp som ingår i arbetet.</translation>
+        <translation>Перелік аудіокліпів, включених до твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="147"/>
         <source>List of Illustrations</source>
-        <translation>Förteckning över illustrationer</translation>
+        <translation>Список ілюстрацій</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="147"/>
         <source>A listing of illustrations included in the work.</source>
-        <translation>En lista över illustrationer som ingår i arbetet.</translation>
+        <translation>Перелік ілюстрацій, включених до твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="148"/>
         <source>List of Tables</source>
-        <translation>Förteckning över tabeller</translation>
+        <translation>Список таблиць</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="148"/>
         <source>A listing of tables included in the work.</source>
-        <translation>En förteckning över tabeller som ingår i arbetet.</translation>
+        <translation>Перелік таблиць, включених до твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="149"/>
         <source>List of Video Clips</source>
-        <translation>Förteckning över videoklipp</translation>
+        <translation>Список відеокліпів</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="149"/>
         <source>A listing of video clips included in the work.</source>
-        <translation>En lista över videoklipp som ingår i arbetet.</translation>
+        <translation>Перелік відеокліпів, включених до твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="150"/>
         <source>Notice</source>
-        <translation>Notis</translation>
+        <translation>Увага</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="150"/>
         <source>Information that requires special attention, and that must not be skipped or suppressed. Examples include: alert, warning, caution, danger, important.</source>
-        <translation>Information som kräver särskild uppmärksamhet, och det får inte hoppas över eller undertryckas. Exempel är: varning, fara, viktigt.</translation>
+        <translation>Інформація, яка потребує особливої уваги, і яку не слід пропускати чи приховувати. Приклади включають: тривога, попередження, обережно, небезпечно, важливо.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="151"/>
         <source>Other Credits</source>
-        <translation>Andra erkännanden</translation>
+        <translation>Інші подяки</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="151"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
-        <translation>Bekräftelse av tidigare publicerade delar av verket, illustrationserkännanden och tillstånd att citera från upphovsrättsskyddat material.</translation>
+        <translation>Подяка за раніше опубліковані частини твору, права на ілюстрацій та дозвіл на цитування матеріалів, захищених авторським правом.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="152"/>
         <source>Page List</source>
-        <translation>Sidlista</translation>
+        <translation>Список сторінок</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="152"/>
         <source>A list of references to pagebreaks (start locations) from a print version of the ebook</source>
-        <translation>En lista med referenser till sidbrytningar (startplatser) från en utskriftsversion av e-boken</translation>
+        <translation>Список посилань на розриви сторінок (початкові місця) з версії для друку електронної книги</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="153"/>
         <source>Part</source>
-        <translation>Del</translation>
+        <translation>Частина</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="153"/>
         <source>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</source>
-        <translation>En stor strukturell uppdelning av en bit av skrivande, vanligtvis inkapslar en uppsättning relaterade kapitel.</translation>
+        <translation>Основний структурний поділ фрагмента написаного, як правило, укладає набір пов&apos;язаних з ним розділів.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>Preamble</source>
-        <translation>Ingress</translation>
+        <translation>Преамбула</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
-        <translation>Ett avsnitt i början av arbetet, som vanligtvis innehåller inledande och/eller förklarande prosa om omfattningen eller arten av arbetets innehåll</translation>
+        <translation>Розділ на початку твору, який зазвичай містить вступну та/або пояснювальну прозу щодо обсягу чи характеру змісту твору</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>Preface</source>
-        <translation>Förord</translation>
+        <translation>Вступ</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation>En inledande sektion som föregår arbetet, vanligtvis skrivet av arbetets författare.</translation>
+        <translation>Вступний розділ, що передує твору, як правило, написаний автором твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>Prologue</source>
-        <translation>Prolog</translation>
+        <translation>Пролог</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
-        <translation>En inledande sektion som sätter bakgrunden till en berättelse, vanligtvis en del av berättelsen.</translation>
+        <translation>Вступний розділ, який задає тло сюжету, як правило, є частиною розповіді.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>Questions and Answers</source>
-        <translation>Frågor och svar</translation>
+        <translation>Питання та Відповіді</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>A question and answer section.</source>
-        <translation>Ett fråga och svar avsnitt.</translation>
+        <translation>Розділ запитань та відповідей.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>Rear Notes</source>
-        <translation>Bakanteckningar</translation>
+        <translation>Прикінцеві примітки</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
-        <translation>En samling anteckningar som visas på baksidan (backmatter) av arbetet, eller i slutet av en sektion.</translation>
+        <translation>Збірка приміток, що з’являються ззаду (позаду, в кінці) твору або в кінці розділу.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>Revision History</source>
-        <translation>Revisionshistorik</translation>
+        <translation>Історія внесених змін</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>A record of changes made to a work.</source>
-        <translation>Ett register över ändringar som gjorts i ett arbete.</translation>
+        <translation>Перелік змін, внесених до твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>Subchapter</source>
-        <translation>Avsnitt</translation>
+        <translation>Підрозділ</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>A major sub-division of a chapter.</source>
-        <translation>En stor del av ett kapitel.</translation>
+        <translation>Основний підрозділ глави.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>Title Page</source>
-        <translation>Titelsida</translation>
+        <translation>Титульний аркуш</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
-        <translation>En sida i början av en bok som ger sin titel, författare, utgivare och annan publikationsinformation.</translation>
+        <translation>Сторінка на початку книги, що містить її назву, авторів, видавця та іншу інформацію про видання.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>Table of Contents</source>
-        <translation>Innehållsförteckning</translation>
+        <translation>Зміст</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
-        <translation>En innehållsförteckning som är en förteckning över rubriker eller delar av boken eller dokumentet, organiserade i den ordning de visas. Vanligtvis förekommer i arbetets främre material, eller i början av en sektion.</translation>
+        <translation>Зміст — це перелік заголовків або частин книги чи документа, впорядкованих у тому порядку, в якому вони відображаються. Зазвичай з’являється в передній частині твору або на початку розділу.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>Volume</source>
-        <translation>Volym</translation>
+        <translation>Том</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>A component of a collection.</source>
-        <translation>En komponent av en samling.</translation>
+        <translation>Компонент колекції.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>Warning</source>
-        <translation>Varning</translation>
+        <translation>Попередження</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
-        <translation>En varning om specifikt material. Status: Föråldrad - Ersatt med &quot;notis&quot;.</translation>
+        <translation>Попередження або застереження щодо особливого матеріалу. Статус: Депрекація - замінено на &quot;повідомлення&quot;.</translation>
     </message>
 </context>
 <context>
@@ -3467,32 +3465,32 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="85"/>
         <source>Abkhazian</source>
-        <translation>Abchaziska</translation>
+        <translation>Абхазька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="86"/>
         <source>Afar</source>
-        <translation>Afar</translation>
+        <translation>Афар</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="87"/>
         <source>Afrikaans</source>
-        <translation>Afrikaans</translation>
+        <translation>Африкаанс</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="88"/>
         <source>Akan</source>
-        <translation>Akan</translation>
+        <translation>Акан</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="89"/>
         <source>Albanian</source>
-        <translation>Albanska</translation>
+        <translation>Албанська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="90"/>
         <source>Amharic</source>
-        <translation>Amhariska</translation>
+        <translation>Амхарська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="91"/>
@@ -3512,205 +3510,205 @@ Vill du spara dina ändringar?</translation>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Arabic</source>
-        <translation>Arabiska</translation>
+        <translation>Арабська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="92"/>
         <source>Algeria</source>
-        <translation>Algeriet</translation>
+        <translation>Алжир</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="93"/>
         <source>Bahrain</source>
-        <translation>Bahrain</translation>
+        <translation>Бахрейн</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="94"/>
         <source>Egypt</source>
-        <translation>Egypten</translation>
+        <translation>Єгипет</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="95"/>
         <source>Iraq</source>
-        <translation>Irak</translation>
+        <translation>Ірак</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="96"/>
         <source>Jordan</source>
-        <translation>Jordanien</translation>
+        <translation>Йорданія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="97"/>
         <source>Kuwait</source>
-        <translation>Kuwait</translation>
+        <translation>Кувейт</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="98"/>
         <source>Lebanon</source>
-        <translation>Libanon</translation>
+        <translation>Ліван</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="99"/>
         <source>Libya</source>
-        <translation>Libyen</translation>
+        <translation>Лівія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="100"/>
         <source>Morocco</source>
-        <translation>Marocko</translation>
+        <translation>Марокко</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="101"/>
         <source>Oman</source>
-        <translation>Oman</translation>
+        <translation>Оман</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="102"/>
         <source>Qatar</source>
-        <translation>Qatar</translation>
+        <translation>Катар</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="103"/>
         <source>Syria</source>
-        <translation>Syrien</translation>
+        <translation>Сирія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="104"/>
         <source>Tunisia</source>
-        <translation>Tunisien</translation>
+        <translation>Туніс</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <source>United Arab Emirates</source>
-        <translation>Förenade Arabemiraten</translation>
+        <translation>Об&apos;єднані Арабські Емірати</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Yemen</source>
-        <translation>Jemen</translation>
+        <translation>Ємен</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="107"/>
         <source>Aragonese</source>
-        <translation>Aragonska</translation>
+        <translation>Арагонська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Armenian</source>
-        <translation>Armeniska</translation>
+        <translation>Вірменська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="109"/>
         <source>Assamese</source>
-        <translation>Assamesiska</translation>
+        <translation>Асамійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="110"/>
         <source>Avaric</source>
-        <translation>Avariska</translation>
+        <translation>Аварська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="111"/>
         <source>Avestan</source>
-        <translation>Avestiska</translation>
+        <translation>Авестан</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="112"/>
         <source>Aymara</source>
-        <translation>Aymara</translation>
+        <translation>Аймарська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="113"/>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Azerbaijani</source>
-        <translation>Azerbajdzjanska</translation>
+        <translation>Азербайджанська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Azerbaijan</source>
-        <translation>Azerbajdzjan</translation>
+        <translation>Азербайджан</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="115"/>
         <source>Bambara</source>
-        <translation>Bambara</translation>
+        <translation>Бенгальська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="116"/>
         <source>Bashkir</source>
-        <translation>Basjkir</translation>
+        <translation>Башкирська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="117"/>
         <source>Basque</source>
-        <translation>Baskiska</translation>
+        <translation>Баскська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="118"/>
         <source>Belarusian</source>
-        <translation>Vitryska</translation>
+        <translation>Білоруська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="119"/>
         <source>Bengali</source>
-        <translation>Bengali</translation>
+        <translation>Бенгальська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="120"/>
         <source>Bihari</source>
-        <translation>Bihari</translation>
+        <translation>Біхарі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="121"/>
         <source>Bislama</source>
-        <translation>Bislama</translation>
+        <translation>Біслама</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Bosnian</source>
-        <translation>Bosniska</translation>
+        <translation>Боснійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="123"/>
         <source>Breton</source>
-        <translation>Bretonska</translation>
+        <translation>Бретонська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Bulgarian</source>
-        <translation>Bulgariska</translation>
+        <translation>Болгарська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="125"/>
         <source>Burmese</source>
-        <translation>Burmesiska</translation>
+        <translation>Бірманська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="126"/>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Catalan</source>
-        <translation>Katalanska</translation>
+        <translation>Каталонська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <location filename="../../Misc/Language.cpp" line="312"/>
         <source>Spain</source>
-        <translation>Spanien</translation>
+        <translation>Іспанія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Central Khmer</source>
-        <translation>Kambodjanska</translation>
+        <translation>Кхмерська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="129"/>
         <source>Chamorro</source>
-        <translation>Chamorro</translation>
+        <translation>Чаморо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Chechen</source>
-        <translation>Tjetjenska</translation>
+        <translation>Чеченська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="131"/>
@@ -3720,106 +3718,106 @@ Vill du spara dina ändringar?</translation>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Chinese</source>
-        <translation>Kinesiska</translation>
+        <translation>Китайська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="132"/>
         <source>China</source>
-        <translation>Kina</translation>
+        <translation>Китай</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="133"/>
         <source>Hong Kong</source>
-        <translation>Hongkong</translation>
+        <translation>Гонконг</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Macau</source>
-        <translation>Macao</translation>
+        <translation>Макао</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Singapore</source>
-        <translation>Singapore</translation>
+        <translation>Сінгапур</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Taiwan</source>
-        <translation>Taiwan</translation>
+        <translation>Тайвань</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Church Slavic</source>
-        <translation>Kyrkslaviska</translation>
+        <translation>Церковнослов&apos;янська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="138"/>
         <source>Chuvash</source>
-        <translation>Tjuvasjiska</translation>
+        <translation>Чуваська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Cornish</source>
-        <translation>Korniska</translation>
+        <translation>Корнійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Corsican</source>
-        <translation>Korsikanska</translation>
+        <translation>Корсиканська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="141"/>
         <source>Cree</source>
-        <translation>Cree</translation>
+        <translation>Крі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="142"/>
         <source>Croatian</source>
-        <translation>Kroatiska</translation>
+        <translation>Хорватська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Czech</source>
-        <translation>Tjeckien</translation>
+        <translation>Чеська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="144"/>
         <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Danish</source>
-        <translation>Danska</translation>
+        <translation>Данська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Denmark</source>
-        <translation>Danmark</translation>
+        <translation>Данія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Dhivehi</source>
-        <translation>Divehi</translation>
+        <translation>Мальдівська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="147"/>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Dutch</source>
-        <translation>Holländska</translation>
+        <translation>Голландська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <source>Belgium</source>
-        <translation>Belgien</translation>
+        <translation>Бельгія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Netherlands</source>
-        <translation>Nederländerna</translation>
+        <translation>Нідерланди</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Dzongkha</source>
-        <translation>Dzongkha</translation>
+        <translation>Дзонг-ке</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="151"/>
@@ -3836,99 +3834,99 @@ Vill du spara dina ändringar?</translation>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>English</source>
-        <translation>Engelska</translation>
+        <translation>Англійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="152"/>
         <source>Australia</source>
-        <translation>Australien</translation>
+        <translation>Австралія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Belize</source>
-        <translation>Belize</translation>
+        <translation>Беліз</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="154"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Canada</source>
-        <translation>Kanada</translation>
+        <translation>Канада</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Caribbean</source>
-        <translation>Västindien</translation>
+        <translation>Антильські острови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="156"/>
         <source>Great Britain</source>
-        <translation>Storbritannien</translation>
+        <translation>Велика Британія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="157"/>
         <source>India</source>
-        <translation>Indien</translation>
+        <translation>Індія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="158"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Ireland</source>
-        <translation>Irland</translation>
+        <translation>Ірландія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Jamaica</source>
-        <translation>Jamaica</translation>
+        <translation>Ямайка</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Phillippines</source>
-        <translation>Filippinerna</translation>
+        <translation>Філіппіни</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="161"/>
         <source>Trinidad</source>
-        <translation>Trinidad</translation>
+        <translation>Трінідад</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <source>South Africa</source>
-        <translation>Sydafrika</translation>
+        <translation>Південно-Африканська Республіка</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>United States</source>
-        <translation>USA</translation>
+        <translation>США</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="164"/>
         <source>Esperanto</source>
-        <translation>Esperanto</translation>
+        <translation>Есперанто</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Estonian</source>
-        <translation>Estniska</translation>
+        <translation>Естонська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="166"/>
         <source>Ewe</source>
-        <translation>Ewe</translation>
+        <translation>Еве</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="167"/>
         <source>Faroese</source>
-        <translation>Färöiska</translation>
+        <translation>Фарерська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="168"/>
         <source>Fijian</source>
-        <translation>Fijianska</translation>
+        <translation>Фіджійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="169"/>
         <source>Finnish</source>
-        <translation>Finska</translation>
+        <translation>Фінська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="170"/>
@@ -3938,56 +3936,56 @@ Vill du spara dina ändringar?</translation>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <source>French</source>
-        <translation>Franska</translation>
+        <translation>Французька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="173"/>
         <source>France</source>
-        <translation>Frankrike</translation>
+        <translation>Франція</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Luxembourg</source>
-        <translation>Luxemburg</translation>
+        <translation>Люксембург</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Switzerland</source>
-        <translation>Schweiz</translation>
+        <translation>Швейцарія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="176"/>
         <source>Fulah</source>
-        <translation>Fulah</translation>
+        <translation>Фула</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Gaelic</source>
-        <translation>Höglandsskotska</translation>
+        <translation>Гельська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <source>Scotland</source>
-        <translation>Skottland</translation>
+        <translation>Шотландія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Galician</source>
-        <translation>Galiciska</translation>
+        <translation>Галісійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="180"/>
         <source>Ganda</source>
-        <translation>Luganda</translation>
+        <translation>Ганда</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="181"/>
         <source>Georgian</source>
-        <translation>Georgiska</translation>
+        <translation>Грузинська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="182"/>
@@ -3997,568 +3995,568 @@ Vill du spara dina ändringar?</translation>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <source>German</source>
-        <translation>Tyska</translation>
+        <translation>Німецька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="183"/>
         <source>Austria</source>
-        <translation>Österrike</translation>
+        <translation>Австрія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="184"/>
         <source>Germany</source>
-        <translation>Tyskland</translation>
+        <translation>Німеччина</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="185"/>
         <source>Liechtenstein</source>
-        <translation>Liechtenstein</translation>
+        <translation>Ліхтенштейн</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Greek, Modern</source>
-        <translation>Grekiska, modern</translation>
+        <translation>Грецька, сучасна</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="189"/>
         <source>Greek</source>
-        <translation>Grekiska</translation>
+        <translation>Греція</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="190"/>
         <source>Guarani</source>
-        <translation>Guarani</translation>
+        <translation>Гуарані</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="191"/>
         <source>Gujarati</source>
-        <translation>Gujarati</translation>
+        <translation>Гуджараті</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="192"/>
         <source>Haitian</source>
-        <translation>Haitiska</translation>
+        <translation>Гаїтянська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Hausa</source>
-        <translation>Hausa</translation>
+        <translation>Гауса</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Hebrew</source>
-        <translation>Hebreiska</translation>
+        <translation>Єврейська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="195"/>
         <source>Herero</source>
-        <translation>Herero</translation>
+        <translation>Гереро</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="196"/>
         <source>Hindi</source>
-        <translation>Hindi</translation>
+        <translation>Хінді</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="197"/>
         <source>Hiri Motu</source>
-        <translation>Hiri Motu</translation>
+        <translation>Хірімоту</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="198"/>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Hungarian</source>
-        <translation>Ungerska</translation>
+        <translation>Угорська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Hungary</source>
-        <translation>Ungern</translation>
+        <translation>Угорщина</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Icelandic</source>
-        <translation>Isländska</translation>
+        <translation>Ісландська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="201"/>
         <source>Ido</source>
-        <translation>Ido</translation>
+        <translation>Ідо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="202"/>
         <source>Igbo</source>
-        <translation>Ibo</translation>
+        <translation>Ігбо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Indonesian</source>
-        <translation>Indonesiska</translation>
+        <translation>Індонезійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="204"/>
         <source>Indonesian - Indonesia</source>
-        <translation>Indonesiska - Indonesien</translation>
+        <translation>Індонезійська - Індонезія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="205"/>
         <source>Interlingua</source>
-        <translation>Interlingua</translation>
+        <translation>Інтерлінгва</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Interlingue</source>
-        <translation>Interlingue</translation>
+        <translation>Окциденталь</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="207"/>
         <source>Inuktitut</source>
-        <translation>Inuktitut</translation>
+        <translation>Інуктітут</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="208"/>
         <source>Inupiaq</source>
-        <translation>Iñupiaq</translation>
+        <translation>Інупіак</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Irish</source>
-        <translation>Irländska</translation>
+        <translation>Ірландська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="210"/>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Italian</source>
-        <translation>Italienska</translation>
+        <translation>Італійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Italy</source>
-        <translation>Italien</translation>
+        <translation>Італія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Japanese</source>
-        <translation>Japanska</translation>
+        <translation>Японська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Javanese</source>
-        <translation>Javanesiska</translation>
+        <translation>Яванська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="215"/>
         <source>Kalaallisut</source>
-        <translation>Kalâtdlisut</translation>
+        <translation>Калаалісут</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="216"/>
         <source>Kannada</source>
-        <translation>Kannada</translation>
+        <translation>Каннада</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="217"/>
         <source>Kanuri</source>
-        <translation>Kanuri</translation>
+        <translation>Канурі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Kashmiri</source>
-        <translation>Kashmiri</translation>
+        <translation>Кашмірська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Kazakh</source>
-        <translation>Kazakiska</translation>
+        <translation>Казахська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="220"/>
         <source>Kikuyu</source>
-        <translation>Kikuyu</translation>
+        <translation>Кікуйю</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Kinyarwanda</source>
-        <translation>Rwanda</translation>
+        <translation>Кіньяруанда</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Kirghiz</source>
-        <translation>Kirgiziska</translation>
+        <translation>Киргизька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Komi</source>
-        <translation>Komi</translation>
+        <translation>Комі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="224"/>
         <source>Kongo</source>
-        <translation>Kikongo</translation>
+        <translation>Конґолезька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Korean</source>
-        <translation>Koreanska</translation>
+        <translation>Корейська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Kuanyama</source>
-        <translation>Kwanyama</translation>
+        <translation>Кваньяма</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Kurdish</source>
-        <translation>Kurdiska</translation>
+        <translation>Курдська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Lao</source>
-        <translation>Lao</translation>
+        <translation>Лаоська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Latin</source>
-        <translation>Latin</translation>
+        <translation>Латинська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="230"/>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Latvian</source>
-        <translation>Lettiska</translation>
+        <translation>Латвійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Latvia</source>
-        <translation>Lettland</translation>
+        <translation>Латвія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Limburgan</source>
-        <translation>Limburgiska</translation>
+        <translation>Лімбурзька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="233"/>
         <source>Lingala</source>
-        <translation>Lingala</translation>
+        <translation>Лінгала</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="234"/>
         <source>Lithuanian</source>
-        <translation>Litauiska</translation>
+        <translation>Литовська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="235"/>
         <source>Luba-Katanga</source>
-        <translation>Luba-Katanga</translation>
+        <translation>Луба-катанга</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Luxembourgish</source>
-        <translation>Luxemburgiska</translation>
+        <translation>Люксембурзька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Macedonian</source>
-        <translation>Makedonska</translation>
+        <translation>Македонська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Malagasy</source>
-        <translation>Madagaskiska</translation>
+        <translation>Малагасійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="239"/>
         <source>Malayalam</source>
-        <translation>Malayalam</translation>
+        <translation>Малайська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="240"/>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Malay</source>
-        <translation>Malaysiska</translation>
+        <translation>Малайська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Brunei</source>
-        <translation>Malajiska</translation>
+        <translation>Бруней</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Malaysia</source>
-        <translation>Malaysia</translation>
+        <translation>Малайзія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Maltese</source>
-        <translation>Maltesiska</translation>
+        <translation>Мальтійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Manx</source>
-        <translation>Manx</translation>
+        <translation>Манкс</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="245"/>
         <source>Maori</source>
-        <translation>Maori</translation>
+        <translation>Маорі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="246"/>
         <source>Marathi</source>
-        <translation>Marathi</translation>
+        <translation>Мараті</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Marshallese</source>
-        <translation>Marshallesiska</translation>
+        <translation>Маршальська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Mongolian</source>
-        <translation>Mongoliska</translation>
+        <translation>Монгольська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Nauru</source>
-        <translation>Nauruanska</translation>
+        <translation>Науру</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="250"/>
         <source>Navajo</source>
-        <translation>Navajo</translation>
+        <translation>Навахо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Ndebele</source>
-        <translation>Ndebele</translation>
+        <translation>Ндебеле</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <source>North</source>
-        <translation>Norra</translation>
+        <translation>Північ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>South</source>
-        <translation>Södra</translation>
+        <translation>Південь</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Ndonga</source>
-        <translation>Ndonga</translation>
+        <translation>Ндонга</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Nepali</source>
-        <translation>Nepali</translation>
+        <translation>Непальська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Northern, Sami</source>
-        <translation>Norra, Samiska</translation>
+        <translation>Північносаамська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="256"/>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Norwegian</source>
-        <translation>Norska</translation>
+        <translation>Норвезька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Bokmal</source>
-        <translation>Bokmål</translation>
+        <translation>Букмол</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Nynorsk</source>
-        <translation>Nynorska</translation>
+        <translation>Нюношк</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="259"/>
         <source>Nyanja</source>
-        <translation>Chichewa</translation>
+        <translation>Ньянджа</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="260"/>
         <source>Occitan</source>
-        <translation>Occitanska</translation>
+        <translation>Оксітанська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="261"/>
         <source>Ojibwa</source>
-        <translation>Ojibwa</translation>
+        <translation>Оджібва</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Oriya</source>
-        <translation>Oriya</translation>
+        <translation>Орія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="263"/>
         <source>Oromo</source>
-        <translation>Oromo</translation>
+        <translation>Оромо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="264"/>
         <source>Ossetian</source>
-        <translation>Ossetiska</translation>
+        <translation>Осетинська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Pali</source>
-        <translation>Pali</translation>
+        <translation>Палі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="266"/>
         <source>Panjabi</source>
-        <translation>Punjabi</translation>
+        <translation>Панджабська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Persian</source>
-        <translation>Persiska</translation>
+        <translation>Перська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="268"/>
         <source>Polish</source>
-        <translation>Polska</translation>
+        <translation>Польська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Portuguese</source>
-        <translation>Portugisiska</translation>
+        <translation>Португальська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Brazil</source>
-        <translation>Brasilien</translation>
+        <translation>Бразилія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Portugal</source>
-        <translation>Portugal</translation>
+        <translation>Португалія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Pushto</source>
-        <translation>Pashto</translation>
+        <translation>Пушту</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="273"/>
         <source>Quechua</source>
-        <translation>Quechua</translation>
+        <translation>Кечуа</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="274"/>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Romanian</source>
-        <translation>Rumänska</translation>
+        <translation>Румунська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Moldova</source>
-        <translation>Moldavien</translation>
+        <translation>Молдова</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Romania</source>
-        <translation>Rumänien</translation>
+        <translation>Румунія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Romansh</source>
-        <translation>Rätoromanska</translation>
+        <translation>Ретороманська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Rundi</source>
-        <translation>Kirundi</translation>
+        <translation>Кірунді</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="279"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Russian</source>
-        <translation>Ryska</translation>
+        <translation>Російська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Samoan</source>
-        <translation>Samoanska</translation>
+        <translation>Самоанська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="282"/>
         <source>Sango</source>
-        <translation>Sango</translation>
+        <translation>Санго</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="283"/>
         <source>Sanskrit</source>
-        <translation>Sanskrit</translation>
+        <translation>Санскрит</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="284"/>
         <source>Sardinian</source>
-        <translation>Sardiska</translation>
+        <translation>Сардинська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="285"/>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Serbian</source>
-        <translation>Serbiska</translation>
+        <translation>Сербська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Serbia</source>
-        <translation>Serbien</translation>
+        <translation>Сербія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Shona</source>
-        <translation>Shona</translation>
+        <translation>Шона</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Sichuan Yi</source>
-        <translation type="unfinished"/>
+        <translation>Сичуань</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="289"/>
         <source>Sindhi</source>
-        <translation>Sindhi</translation>
+        <translation>Синдхі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Sinhala</source>
-        <translation>Singalesiska</translation>
+        <translation>Сингала</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Slovak</source>
-        <translation>Slovakiska</translation>
+        <translation>Словацька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Slovenian</source>
-        <translation>Slovenska</translation>
+        <translation>Словенська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Somali</source>
-        <translation>Somaliska</translation>
+        <translation>Сомалійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="294"/>
         <source>Sotho, Southern</source>
-        <translation>Sotho, Södra</translation>
+        <translation>Сесото</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="295"/>
@@ -4582,1812 +4580,1812 @@ Vill du spara dina ändringar?</translation>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Spanish</source>
-        <translation>Spanska</translation>
+        <translation>Іспанська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Argentina</source>
-        <translation>Argentina</translation>
+        <translation>Аргентина</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="297"/>
         <source>Bolivia</source>
-        <translation>Bolivia</translation>
+        <translation>Болівія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Chile</source>
-        <translation>Chile</translation>
+        <translation>Чилі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Columbia</source>
-        <translation>Columbia</translation>
+        <translation>Колумбія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Costa Rica</source>
-        <translation>Costa Rica</translation>
+        <translation>Коста-Рика</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Dominican Republic</source>
-        <translation>Dominikanska Republiken</translation>
+        <translation>Домініканська Республіка</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Ecuador</source>
-        <translation>Ecuador</translation>
+        <translation>Еквадор</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="303"/>
         <source>El Salvador</source>
-        <translation>El Salvador</translation>
+        <translation>Сальвадор</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="304"/>
         <source>Guatemala</source>
-        <translation>Guatemala</translation>
+        <translation>Гватемала</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="305"/>
         <source>Honduras</source>
-        <translation>Honduras</translation>
+        <translation>Гондурас</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Mexico</source>
-        <translation>Mexico</translation>
+        <translation>Мексика</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="307"/>
         <source>Nicaragua</source>
-        <translation>Nicaragua</translation>
+        <translation>Нікарагуа</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Panama</source>
-        <translation>Panama</translation>
+        <translation>Панама</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Paraguay</source>
-        <translation>Paraguay</translation>
+        <translation>Парагвай</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Peru</source>
-        <translation>Peru</translation>
+        <translation>Перу</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="311"/>
         <source>Puerto Rico</source>
-        <translation>Puerto Rico</translation>
+        <translation>Пуерто-Рико</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <source>Uruguay</source>
-        <translation>Uruguay</translation>
+        <translation>Уругвай</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Venezuela</source>
-        <translation>Venezuela</translation>
+        <translation>Венесуела</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="315"/>
         <source>Sundanese</source>
-        <translation>Sundanesiska</translation>
+        <translation>Сунданська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Swahili</source>
-        <translation>Swahili</translation>
+        <translation>Суахілі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Swati</source>
-        <translation>Siswati</translation>
+        <translation>Свазі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="318"/>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Swedish</source>
-        <translation>Svenska</translation>
+        <translation>Шведська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Finland</source>
-        <translation>Finland</translation>
+        <translation>Фінляндія</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Sweden</source>
-        <translation>Sverige</translation>
+        <translation>Швеція</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Tagalog</source>
-        <translation>Tagalog</translation>
+        <translation>Тсвана</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Tahitian</source>
-        <translation>Tahitiska</translation>
+        <translation>Таїтянська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Tajik</source>
-        <translation>Tadzjikiska</translation>
+        <translation>Таджицька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Tamil</source>
-        <translation>Tamil</translation>
+        <translation>Тамільська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Tatar</source>
-        <translation>Tatariska</translation>
+        <translation>Татарська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Telugu</source>
-        <translation>Telugu</translation>
+        <translation>Телугу</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="327"/>
         <source>Thai</source>
-        <translation>Thailändska</translation>
+        <translation>Тайська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Tibetan</source>
-        <translation>Tibetanska</translation>
+        <translation>Тибетська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Tigrinya</source>
-        <translation>Tigrinska</translation>
+        <translation>Тигринійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Tonga</source>
-        <translation>Tonganska</translation>
+        <translation>Тонга</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Tsonga</source>
-        <translation>Tsonga</translation>
+        <translation>Цонґа</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="332"/>
         <source>Tswana</source>
-        <translation>Setswana</translation>
+        <translation>Тсвана</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Turkish</source>
-        <translation>Turkiska</translation>
+        <translation>Турецька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Turkey</source>
-        <translation>Turkiet</translation>
+        <translation>Туреччина</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="335"/>
         <source>Turkmen</source>
-        <translation>Turkmeniska</translation>
+        <translation>Туркменська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Twi</source>
-        <translation>Tiwi</translation>
+        <translation>Тві</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Uighur</source>
-        <translation>Uiguriska</translation>
+        <translation>Уйгур</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="338"/>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Ukrainian</source>
-        <translation>Ukrainska</translation>
+        <translation>Українська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Ukraine</source>
-        <translation>Ukraina</translation>
+        <translation>Україна</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Urdu</source>
-        <translation>Urdu</translation>
+        <translation>Урду</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="341"/>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Uzbek</source>
-        <translation>Uzbekiska</translation>
+        <translation>Узбецька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Uzbekistan</source>
-        <translation>Uzbekistan</translation>
+        <translation>Узбекистан</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="343"/>
         <source>Venda</source>
-        <translation>Venda</translation>
+        <translation>Венда</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Vietnamese</source>
-        <translation>Vietnamesiska</translation>
+        <translation>В&apos;єтнамська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Volapuk</source>
-        <translation>Volapük</translation>
+        <translation>Волапюк</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Walloon</source>
-        <translation>Vallonska</translation>
+        <translation>Валлонська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="347"/>
         <source>Welsh</source>
-        <translation>Walesiska</translation>
+        <translation>Уельська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="348"/>
         <source>Western Frisian</source>
-        <translation>Västfrisiska</translation>
+        <translation>Фризька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="349"/>
         <source>Wolof</source>
-        <translation>Wolof</translation>
+        <translation>Волоф</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="350"/>
         <source>Xhosa</source>
-        <translation>Xhosa</translation>
+        <translation>Хоза</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="351"/>
         <source>Yiddish</source>
-        <translation>Jiddish</translation>
+        <translation>Ідиш</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Yoruba</source>
-        <translation>Yoruba</translation>
+        <translation>Йоруба</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="353"/>
         <source>Zhuang</source>
-        <translation>Zhuang</translation>
+        <translation>Чжуань</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Zulu</source>
-        <translation>Zulu</translation>
+        <translation>Зулуська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="355"/>
         <source>Achinese</source>
-        <translation>Acehnesiska</translation>
+        <translation>Ачеська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="356"/>
         <source>Acoli</source>
-        <translation>Acholi</translation>
+        <translation>Ачолі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="357"/>
         <source>Adangme</source>
-        <translation>Dangme</translation>
+        <translation>Дангме</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="358"/>
         <source>Adygei, Adyghe</source>
-        <translation>Adygeiska</translation>
+        <translation>Адигейська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="359"/>
         <source>Afrihili</source>
-        <translation>Afrihili</translation>
+        <translation>Афрігілі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="360"/>
         <source>Afro-Asiatic languages</source>
-        <translation>Afroasiatiska språk</translation>
+        <translation>Афро-азіатські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="361"/>
         <source>Ainu</source>
-        <translation>Ainu</translation>
+        <translation>Айнська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Akkadian</source>
-        <translation>Akkadiska</translation>
+        <translation>Аккадська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="363"/>
         <source>Aleut</source>
-        <translation>Aleutiska</translation>
+        <translation>Алеутська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="364"/>
         <source>Algonquian languages</source>
-        <translation>Algonkinspråk</translation>
+        <translation>Алгонкінські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="365"/>
         <source>Altaic languages</source>
-        <translation>Altaiska språk</translation>
+        <translation>Алтайські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="366"/>
         <source>Angika</source>
-        <translation>Angika</translation>
+        <translation>Ангіка</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="367"/>
         <source>Apache languages</source>
-        <translation>Athabaskiska språk</translation>
+        <translation>Мова апачів </translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="368"/>
         <source>Arapaho</source>
-        <translation>Arapaho</translation>
+        <translation>Арапахо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="369"/>
         <source>Arawak</source>
-        <translation>Arawak</translation>
+        <translation>Аравакська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="370"/>
         <source>Aromanian, Arumanian, Macedo-Romanian</source>
-        <translation>Arumänska</translation>
+        <translation>Арумунська, Аромунська, Македа-румунський</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="371"/>
         <source>Artificial languages</source>
-        <translation>Artificiellt språk</translation>
+        <translation>Штучна мова</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="372"/>
         <source>Asturian, Asturleonese, Bable, Leonese</source>
-        <translation>Asturiska, asturleonesiska, leonesiska</translation>
+        <translation>Астурійська, Астурлеонська, Леонська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="373"/>
         <source>Athapascan languages</source>
-        <translation>Athabaskiska språk</translation>
+        <translation>Атабаскські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="374"/>
         <source>Australian languages</source>
-        <translation>Australiska språk</translation>
+        <translation>Австралійські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="375"/>
         <source>Austronesian languages</source>
-        <translation>Austronesiska språk</translation>
+        <translation>Австронезійські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="376"/>
         <source>Awadhi</source>
-        <translation>Awadhi</translation>
+        <translation>Авадхі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="377"/>
         <source>Balinese</source>
-        <translation>Balinesiska</translation>
+        <translation>Балийська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="378"/>
         <source>Baltic languages</source>
-        <translation>Baltiska språk</translation>
+        <translation>Балтійські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="379"/>
         <source>Baluchi</source>
-        <translation>Baluchiska</translation>
+        <translation>Белуджійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="380"/>
         <source>Bamileke languages</source>
-        <translation>Bamileke språk</translation>
+        <translation>Бамілеке мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="381"/>
         <source>Banda languages</source>
-        <translation>Banda språk</translation>
+        <translation>Банда мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="382"/>
         <source>Bantu languages</source>
-        <translation>Bantuspråk</translation>
+        <translation>Банту мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="383"/>
         <source>Basa</source>
-        <translation>Basa</translation>
+        <translation>Корнська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="384"/>
         <source>Batak languages</source>
-        <translation>Batak språk</translation>
+        <translation>Батакські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="385"/>
         <source>Bedawiyet, Beja</source>
-        <translation>Beja</translation>
+        <translation>Беджа</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="386"/>
         <source>Bemba</source>
-        <translation>Bemba</translation>
+        <translation>Бемба</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="387"/>
         <source>Berber languages</source>
-        <translation>Berberspråk</translation>
+        <translation>Берберські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="388"/>
         <source>Bhojpuri</source>
-        <translation>Bhojpuri</translation>
+        <translation>Бходжпурі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="389"/>
         <source>Bikol</source>
-        <translation>Bikol</translation>
+        <translation>Бікольська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="390"/>
         <source>Bilin, Blin</source>
-        <translation>Bilen</translation>
+        <translation>Білін</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="391"/>
         <source>Bini, Edo</source>
-        <translation>Edo</translation>
+        <translation>Едо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="392"/>
         <source>Bliss, Blissymbols, Blissymbolics</source>
-        <translation>Bliss</translation>
+        <translation>Блісс</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="393"/>
         <source>Braj</source>
-        <translation>Braj</translation>
+        <translation>Брадж</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="394"/>
         <source>Buginese</source>
-        <translation>Buginesiska</translation>
+        <translation>Бугійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="395"/>
         <source>Buriat</source>
-        <translation>Burjatiska</translation>
+        <translation>Бурятська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="396"/>
         <source>Caddo</source>
-        <translation>Caddo</translation>
+        <translation>Каддойські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="397"/>
         <source>Caucasian languages</source>
-        <translation>Kaukasiska språk</translation>
+        <translation>Кавказькі мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="398"/>
         <source>Cebuano</source>
-        <translation>Cebuano</translation>
+        <translation>Себуанська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="399"/>
         <source>Celtic languages</source>
-        <translation>Keltiska språk</translation>
+        <translation>Кельтські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="400"/>
         <source>Central American Indian languages</source>
-        <translation type="unfinished"/>
+        <translation>Індіанські мови Центральної Америки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="401"/>
         <source>Chagatai</source>
-        <translation>Tjagataiska</translation>
+        <translation>Чагатайська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="402"/>
         <source>Chamic languages</source>
-        <translation type="unfinished"/>
+        <translation>Чамські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="403"/>
         <source>Cherokee</source>
-        <translation>Cherokesiska</translation>
+        <translation>Черокі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="404"/>
         <source>Cheyenne</source>
-        <translation>Cheyenner</translation>
+        <translation>Шеєнська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="405"/>
         <source>Chibcha</source>
-        <translation>Chibcha</translation>
+        <translation>Чибча</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="406"/>
         <source>Chinook jargon</source>
-        <translation type="unfinished"/>
+        <translation>Чинукський жаргон</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="407"/>
         <source>Chipewyan, Dene Suline</source>
-        <translation type="unfinished"/>
+        <translation>Чіпевайан, Дене Сулін</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="408"/>
         <source>Choctaw</source>
-        <translation>Choctaw</translation>
+        <translation>Чоктавська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="409"/>
         <source>Chuukese</source>
-        <translation>Chuukesiska</translation>
+        <translation>Трукська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="410"/>
         <source>Classical Nepal Bhasa/Newari, Old Newari</source>
-        <translation>Klassisk Newari</translation>
+        <translation>Класичний неварі/Неварі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="411"/>
         <source>Classical Syriac</source>
-        <translation>Klassisk Syriska</translation>
+        <translation>Сирійська мова</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="412"/>
         <source>Coptic</source>
-        <translation>Koptiska</translation>
+        <translation>Коптська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="413"/>
         <source>Creek</source>
-        <translation type="unfinished"/>
+        <translation>Крикська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="414"/>
         <source>Creoles and pidgins</source>
-        <translation>Kreolspråk och pidginspråk</translation>
+        <translation>Креольська та Піджин</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="415"/>
         <source>Creoles and pidgins- English based</source>
-        <translation>Kreolspråk och pidginspråk - Engelska baserade</translation>
+        <translation>Креольська та Піджин – англійська основа</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="416"/>
         <source>Creoles and pidgins- French-based</source>
-        <translation>Kreolspråk och pidginspråk - Franska baserade</translation>
+        <translation>Креольська та Піджин – французська основа</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="417"/>
         <source>Creoles and pidgins- Portuguese-based</source>
-        <translation>Kreolspråk och pidginspråk - Portugisiska baserade</translation>
+        <translation>Креольська та Піджин – португальська основа</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="418"/>
         <source>Crimean Tatar/Turkish</source>
-        <translation>Krimtatariska</translation>
+        <translation>Кримськотатарська/Турецька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="419"/>
         <source>Cushitic languages</source>
-        <translation>Kushitiska språk</translation>
+        <translation>Кушитські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="420"/>
         <source>Dakota</source>
-        <translation>Dakota</translation>
+        <translation>Дакота</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="421"/>
         <source>Dargwa</source>
-        <translation>Dargwa</translation>
+        <translation>Даргинська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="422"/>
         <source>Delaware</source>
-        <translation>Delaware</translation>
+        <translation>Делавер</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="423"/>
         <source>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</source>
-        <translation>Zazaiska</translation>
+        <translation>Димлі, Зазакі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="424"/>
         <source>Dinka</source>
-        <translation>Dinka</translation>
+        <translation>Динка</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="425"/>
         <source>Dogri</source>
-        <translation>Dogri</translation>
+        <translation>Догрі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="426"/>
         <source>Dogrib</source>
-        <translation>Dogrib</translation>
+        <translation>Догріб</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="427"/>
         <source>Dravidian languages</source>
-        <translation>Dravidiska språk</translation>
+        <translation>Дравідійські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="428"/>
         <source>Duala</source>
-        <translation>Duala</translation>
+        <translation>Дуала</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="429"/>
         <source>Dutch- Middle (ca.1050-1350)</source>
-        <translation>Holländska- medel (ca.1050-1350)</translation>
+        <translation>Середньонідерландська (ок. 1050-1350)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="430"/>
         <source>Dyula</source>
-        <translation>Dioula</translation>
+        <translation>Дюла</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="431"/>
         <source>Eastern Frisian</source>
-        <translation>Östfrisiska</translation>
+        <translation>Фризька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="432"/>
         <source>Efik</source>
-        <translation>Efik</translation>
+        <translation>Ибібіо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="433"/>
         <source>Egyptian (Ancient)</source>
-        <translation>Egyptiska (antik)</translation>
+        <translation>Єгипетська (стародавня)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="434"/>
         <source>Ekajuk</source>
-        <translation>Ekajuk</translation>
+        <translation>Экаджук</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="435"/>
         <source>Elamite</source>
-        <translation>Elamitiska</translation>
+        <translation>Еламська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="436"/>
         <source>English- Middle (1100-1500)</source>
-        <translation>Engelska- medel (1100-1500)</translation>
+        <translation>Середньоанглійська (1100-1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="437"/>
         <source>English- Old (ca.450-1100)</source>
-        <translation>Engelska- gammal (ca.450-1100)</translation>
+        <translation>Давньоанглійська (ок. 450-1100)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="438"/>
         <source>Erzya</source>
-        <translation>Erzia</translation>
+        <translation>Ерзянська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="439"/>
         <source>Ewondo</source>
-        <translation>Ewondo</translation>
+        <translation>Евондо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="440"/>
         <source>Fang</source>
-        <translation>Fang</translation>
+        <translation>Фанг</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="441"/>
         <source>Fanti</source>
-        <translation>Fante</translation>
+        <translation>Фанті</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="442"/>
         <source>Filipino, Pilipino</source>
-        <translation>Filipino</translation>
+        <translation>Філіппінська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="443"/>
         <source>Finno-Ugrian languages</source>
-        <translation>Finskugriska språk</translation>
+        <translation>Фіно-угорські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="444"/>
         <source>Fon</source>
-        <translation>Fon</translation>
+        <translation>Фон</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="445"/>
         <source>French- Middle (ca.1400-1600)</source>
-        <translation>Franska- medel (ca.1400-1600)</translation>
+        <translation>Середньофранцузська (ок. 1400-1600)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="446"/>
         <source>French- Old (842-ca.1400)</source>
-        <translation>Franska- gammal (842-ca.1400)</translation>
+        <translation>Давньофранцузська (842-ок.1400)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="447"/>
         <source>Friulian</source>
-        <translation>Friuliska</translation>
+        <translation>Фріульська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="448"/>
         <source>Ga</source>
-        <translation>Ga</translation>
+        <translation>Га</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="449"/>
         <source>Galibi Carib</source>
-        <translation type="unfinished"/>
+        <translation>Карибська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="450"/>
         <source>Gayo</source>
-        <translation>Gayo</translation>
+        <translation>Гайо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="451"/>
         <source>Gbaya</source>
-        <translation>Gbaya</translation>
+        <translation>Гбайя</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="452"/>
         <source>Geez</source>
-        <translation>Ge&apos;ez</translation>
+        <translation>Геез</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="453"/>
         <source>German- Middle High (ca.1050-1500)</source>
-        <translation>Tyska- medelhög (ca.1050-1500)</translation>
+        <translation>Середньоверхньонімецька (ок.1050-1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="454"/>
         <source>German- Old High (ca.750-1050)</source>
-        <translation>Tyska- gammal hög (ca.750-1050)</translation>
+        <translation>Давньоверхньонімецька (ок.750-1050)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="455"/>
         <source>Germanic languages</source>
-        <translation>Germanska språk</translation>
+        <translation>Германські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="456"/>
         <source>Gilbertese</source>
-        <translation>Kiribatiska</translation>
+        <translation>Кірибаті</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="457"/>
         <source>Gondi</source>
-        <translation>Gond</translation>
+        <translation>Гонді</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="458"/>
         <source>Gorontalo</source>
-        <translation>Gorontalo</translation>
+        <translation>Горонтало</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="459"/>
         <source>Gothic</source>
-        <translation>Gotiska</translation>
+        <translation>Готська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="460"/>
         <source>Grebo</source>
-        <translation>Grebo</translation>
+        <translation>Гребо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="461"/>
         <source>Greek- Ancient (to 1453)</source>
-        <translation>Grekiska- klassisk (till 1453)</translation>
+        <translation>Давньогрецька (до 1453)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="462"/>
         <source>Gwich&apos;in</source>
-        <translation>Gwich’in</translation>
+        <translation>Гвічін</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="463"/>
         <source>Haida</source>
-        <translation>Haida</translation>
+        <translation>Хайда</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="464"/>
         <source>Hawaiian</source>
-        <translation>Hawaiiska</translation>
+        <translation>Гавайська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="465"/>
         <source>Hiligaynon</source>
-        <translation>Hiligaynon</translation>
+        <translation>Хілігайнон</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="466"/>
         <source>Himachali, Western Pahari languages</source>
-        <translation>Himachali</translation>
+        <translation>Хімачалі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="467"/>
         <source>Hittite</source>
-        <translation>Hettitiska</translation>
+        <translation>Хетська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="468"/>
         <source>Hmong, Mong</source>
-        <translation>Hmong</translation>
+        <translation>Хмонг</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="469"/>
         <source>Hupa</source>
-        <translation>Hupa</translation>
+        <translation>Хупа</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="470"/>
         <source>Iban</source>
-        <translation>Iban</translation>
+        <translation>Ібанська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="471"/>
         <source>Ijo languages</source>
-        <translation>Ijo språk</translation>
+        <translation>Мова Іджо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="472"/>
         <source>Iloko</source>
-        <translation>Ilokano</translation>
+        <translation>Ілоко</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="473"/>
         <source>Inari Sami</source>
-        <translation>Enaresamiska</translation>
+        <translation>Інарі-саамська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="474"/>
         <source>Indic languages</source>
-        <translation>Indiska språk</translation>
+        <translation>Індоарійські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="475"/>
         <source>Indo-European languages</source>
-        <translation>Indoeuropeiska språk</translation>
+        <translation>Індоєвропейські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="476"/>
         <source>Ingush</source>
-        <translation>Ingusjiska</translation>
+        <translation>Інгуська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="477"/>
         <source>Iranian languages</source>
-        <translation>Iranska språk</translation>
+        <translation>Іранські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="478"/>
         <source>Irish- Middle (900-1200)</source>
-        <translation>Irländska- medel (900-1200)</translation>
+        <translation>Середньоірландський (900-1200)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="479"/>
         <source>Irish- Old (to 900)</source>
-        <translation>Irländska- gammal (till 900)</translation>
+        <translation>Давньоірландсьеий (to 900)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="480"/>
         <source>Iroquoian languages</source>
-        <translation>Irokesiska språk</translation>
+        <translation>Ірокезькі мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="481"/>
         <source>Jingpho, Kachin</source>
-        <translation>Jingpho</translation>
+        <translation>Качинська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="482"/>
         <source>Judeo-Arabic</source>
-        <translation>Judeoarabiska</translation>
+        <translation>Єврейсько-арабська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="483"/>
         <source>Judeo-Persian</source>
-        <translation>Judeopersiska</translation>
+        <translation>Єврейсько-перська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="484"/>
         <source>Kabardian</source>
-        <translation>Kabardinska</translation>
+        <translation>Кабардинська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="485"/>
         <source>Kabyle</source>
-        <translation>Kabyliska</translation>
+        <translation>Кабільська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="486"/>
         <source>Kalmyk, Oirat</source>
-        <translation>Kalmuckiska</translation>
+        <translation>Калмицька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="487"/>
         <source>Kamba</source>
-        <translation>Kamba</translation>
+        <translation>Камба</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="488"/>
         <source>Kapampangan, Pampanga</source>
-        <translation>Kapampangan</translation>
+        <translation>Пампанґанська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="489"/>
         <source>Kara-Kalpak</source>
-        <translation>Karakalpakiska</translation>
+        <translation>Каракалпацька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="490"/>
         <source>Karachay-Balkar</source>
-        <translation>Karatjajbalkariska</translation>
+        <translation>Карачаєво-балкарська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="491"/>
         <source>Karelian</source>
-        <translation>Karelska</translation>
+        <translation>Карельська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="492"/>
         <source>Karen languages</source>
-        <translation type="unfinished"/>
+        <translation>Каренські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="493"/>
         <source>Kashubian</source>
-        <translation>Kasjubiska</translation>
+        <translation>Кашубська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="494"/>
         <source>Kawi</source>
-        <translation>Kawi</translation>
+        <translation>Каві</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="495"/>
         <source>Khasi</source>
-        <translation>Khasi</translation>
+        <translation>Кхасі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="496"/>
         <source>Khoisan languages</source>
-        <translation>Khoisanspråk</translation>
+        <translation>Койсанські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="497"/>
         <source>Khotanese, Sakan</source>
-        <translation>Sakiska</translation>
+        <translation>Хотаносакська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="498"/>
         <source>Kimbundu</source>
-        <translation>Kimbundu</translation>
+        <translation>Північна мбунду</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="499"/>
         <source>Klingon, tlhIngan-Hol</source>
-        <translation>Klingonska</translation>
+        <translation>Клінгонська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="500"/>
         <source>Konkani</source>
-        <translation>Konkani</translation>
+        <translation>Конкані</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="501"/>
         <source>Kosraean</source>
-        <translation type="unfinished"/>
+        <translation>Косяе</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="502"/>
         <source>Kpelle</source>
-        <translation>Kpelle</translation>
+        <translation>Кпелле</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="503"/>
         <source>Kru languages</source>
-        <translation>Kruspråk</translation>
+        <translation>Мови Кру</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="504"/>
         <source>Kumyk</source>
-        <translation type="unfinished"/>
+        <translation>Кумицька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="505"/>
         <source>Kurukh</source>
-        <translation>Indisk kurux</translation>
+        <translation>Курух</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="506"/>
         <source>Kutenai</source>
-        <translation>Kutenai</translation>
+        <translation>Кутенай</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="507"/>
         <source>Ladino</source>
-        <translation>Ladino</translation>
+        <translation>Ладіно</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="508"/>
         <source>Lahnda</source>
-        <translation>Lahnda</translation>
+        <translation>Лахнда</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="509"/>
         <source>Lamba</source>
-        <translation>Lamba</translation>
+        <translation>Ламба</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="510"/>
         <source>Land Dayak languages</source>
-        <translation>Land Dayak språk</translation>
+        <translation>Мови Землі Даяк</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="511"/>
         <source>Lezghian</source>
-        <translation>Lezgiska</translation>
+        <translation>Лезгинська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="512"/>
         <source>Lojban</source>
-        <translation>Lojban</translation>
+        <translation>Ложбан</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="513"/>
         <source>German-Low, Low Saxon</source>
-        <translation type="unfinished"/>
+        <translation>Нижньонімецька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="514"/>
         <source>Lower Sorbian</source>
-        <translation type="unfinished"/>
+        <translation>Нижньолужицька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="515"/>
         <source>Lozi</source>
-        <translation>Lozi</translation>
+        <translation>Лозі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="516"/>
         <source>Luba-Lulua</source>
-        <translation>Luba-Kasai</translation>
+        <translation>Луба</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="517"/>
         <source>Luiseno</source>
-        <translation>Luiseno</translation>
+        <translation>Луісеньо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="518"/>
         <source>Lule Sami</source>
-        <translation>Lulesamiska</translation>
+        <translation>Луле-саамський</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="519"/>
         <source>Lunda</source>
-        <translation>Lunda</translation>
+        <translation>Лунда</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="520"/>
         <source>Luo (Kenya and Tanzania)</source>
-        <translation>Luo (Kenya och Tanzania)</translation>
+        <translation>Долуо (Кения и Танзания)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="521"/>
         <source>Lushai</source>
-        <translation>Lushai</translation>
+        <translation>Мізо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="522"/>
         <source>Madurese</source>
-        <translation>Maduresiska</translation>
+        <translation>Мадурська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="523"/>
         <source>Magahi</source>
-        <translation>Magahi</translation>
+        <translation>Маґадгі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="524"/>
         <source>Maithili</source>
-        <translation>Maithili</translation>
+        <translation>Майтхілі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="525"/>
         <source>Makasar</source>
-        <translation>Makassariska</translation>
+        <translation>Макасарська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="526"/>
         <source>Manchu</source>
-        <translation>Manchuiska</translation>
+        <translation>Маньчжурська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="527"/>
         <source>Mandar</source>
-        <translation>Mandar</translation>
+        <translation>Мандарська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="528"/>
         <source>Mandingo</source>
-        <translation>Mandinka</translation>
+        <translation>Мандінка</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="529"/>
         <source>Manipuri</source>
-        <translation>Meitei</translation>
+        <translation>Маніпурі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="530"/>
         <source>Manobo languages</source>
-        <translation>Manobo språk</translation>
+        <translation>Мови Манобо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="531"/>
         <source>Mapuche/Mapudungun</source>
-        <translation>Mapudungun</translation>
+        <translation>Мапудунґун</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="532"/>
         <source>Mari</source>
-        <translation>Mariska</translation>
+        <translation>Марійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="533"/>
         <source>Marwari</source>
-        <translation>Marvari</translation>
+        <translation>Марварі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="534"/>
         <source>Masai</source>
-        <translation>Maa</translation>
+        <translation>Масайська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="535"/>
         <source>Mayan languages</source>
-        <translation>Mayaspråk</translation>
+        <translation>Майянські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="536"/>
         <source>Mende</source>
-        <translation>Mende</translation>
+        <translation>Менде</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="537"/>
         <source>Mi&apos;kmaq, Micmac</source>
-        <translation>Micmac</translation>
+        <translation>Мікмак</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="538"/>
         <source>Minangkabau</source>
-        <translation>Minangkabau</translation>
+        <translation>Мінангкабау</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="539"/>
         <source>Mirandese</source>
-        <translation>Mirandesiska</translation>
+        <translation>Мірандська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Mohawk</source>
-        <translation>Mohawk</translation>
+        <translation>Могаукська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="541"/>
         <source>Moksha</source>
-        <translation>Moksha</translation>
+        <translation>Мокшанська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Mon-Khmer languages</source>
-        <translation>Austroasiatiska språk</translation>
+        <translation>Мон-кхмерські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="543"/>
         <source>Mongo</source>
-        <translation>Mongo</translation>
+        <translation>Монго</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Mossi</source>
-        <translation>Mossi</translation>
+        <translation>Мооре</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Multiple languages</source>
-        <translation>Flera språk</translation>
+        <translation>Багатомовність</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="546"/>
         <source>Munda languages</source>
-        <translation>Mundaspråk</translation>
+        <translation>Мунда мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="547"/>
         <source>N&apos;Ko</source>
-        <translation>N&apos;Ko</translation>
+        <translation>Нко</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Nahuatl languages</source>
-        <translation type="unfinished"/>
+        <translation>Науатль</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="549"/>
         <source>Neapolitan</source>
-        <translation>Neapolitanska</translation>
+        <translation>Неаполітанська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Nepal Bhasa/Newari</source>
-        <translation>Newari</translation>
+        <translation>Неварська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Nias</source>
-        <translation>Nias</translation>
+        <translation>Ніасська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Niger-Kordofanian languages</source>
-        <translation type="unfinished"/>
+        <translation>Нігеро-конголезькі мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Nilo-Saharan languages</source>
-        <translation>Nilo-sahariska språk</translation>
+        <translation>Ніло-сахарські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Niuean</source>
-        <translation type="unfinished"/>
+        <translation>Ніуе</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="555"/>
         <source>No linguistic content/Not applicable</source>
-        <translation type="unfinished"/>
+        <translation>Без мовного змісту / Не застосовується</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Nogai</source>
-        <translation type="unfinished"/>
+        <translation>Ногайська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="557"/>
         <source>Norse- Old</source>
-        <translation>Fornnordiska</translation>
+        <translation>Давньоскандинавська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="558"/>
         <source>North American Indian languages</source>
-        <translation>Nordindianspråk</translation>
+        <translation>Мови індіанців Північної Америки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Northern Frisian</source>
-        <translation>Nordfrisiska</translation>
+        <translation>Північна Фризька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
-        <translation>Nordsotho</translation>
+        <translation>Північна сото</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Nubian languages</source>
-        <translation>Nubiska språk</translation>
+        <translation>Нубійські языки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Nyamwezi</source>
-        <translation>Nyamwezi</translation>
+        <translation>Ньямвезі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Nyankole</source>
-        <translation>Nyankole</translation>
+        <translation>Ньянколе</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Nyoro</source>
-        <translation>Nyoro</translation>
+        <translation>Ньоро</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="565"/>
         <source>Nzima</source>
-        <translation>Nzima</translation>
+        <translation>Нзіма</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
-        <translation>Gammal occitanska (till 1500)</translation>
+        <translation>Давньоокситанська (до 1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
-        <translation type="unfinished"/>
+        <translation>Імперська арамійська (700-300 BCE)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="568"/>
         <source>Osage</source>
-        <translation>Osage</translation>
+        <translation>Осейдж</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Otomian languages</source>
-        <translation type="unfinished"/>
+        <translation>Мови Отомі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Pahlavi</source>
-        <translation type="unfinished"/>
+        <translation>Середньоперська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Palauan</source>
-        <translation>Palauiska</translation>
+        <translation>Палауська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Pangasinan</source>
-        <translation>Pangasinan</translation>
+        <translation>Панґасінанська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Papiamento</source>
-        <translation>Papiamento</translation>
+        <translation>Пап&apos;яменто</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Papuan languages</source>
-        <translation>Papuanska språk</translation>
+        <translation>Папуаські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Paraguayan Guaraní</source>
-        <translation>Guarani</translation>
+        <translation>Гуарані</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
-        <translation>Fornpersiska (ca.600-400 f.Kr.)</translation>
+        <translation>Давньоперська (ок.600-400 до н. е.)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Philippine languages</source>
-        <translation>Filippinska språk</translation>
+        <translation>Філіппінські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Phoenician</source>
-        <translation>Feniciska</translation>
+        <translation>Фінікійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Pohnpeian</source>
-        <translation type="unfinished"/>
+        <translation>Понпейська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Prakrit languages</source>
-        <translation>Prakrit språk</translation>
+        <translation>Пракрити</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Rajasthani</source>
-        <translation>Rajasthani</translation>
+        <translation>Раджастханська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Rapanui</source>
-        <translation>Rapa nui</translation>
+        <translation>Рапануйська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Rarotongan, Cook Islands Maori</source>
-        <translation>Rarotongesiska</translation>
+        <translation>Кукська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Reserved for local use</source>
-        <translation>Reserverad för lokalt bruk</translation>
+        <translation>Зарезервовано для місцевого використання</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Romance languages</source>
-        <translation>Romanska språk</translation>
+        <translation>Романські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Romany</source>
-        <translation>Romani</translation>
+        <translation>Ромська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Salishan languages</source>
-        <translation type="unfinished"/>
+        <translation>Салішські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Samaritan Aramaic</source>
-        <translation type="unfinished"/>
+        <translation>Самарітянин арамійський</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Sami languages</source>
-        <translation>Samiska språk</translation>
+        <translation>Саамські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Sandawe</source>
-        <translation>Sandawe</translation>
+        <translation>Сандаве</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Santali</source>
-        <translation>Santali</translation>
+        <translation>Санталі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Sasak</source>
-        <translation>Sasak</translation>
+        <translation>Сасакська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Scots</source>
-        <translation>Lågskotska</translation>
+        <translation>Шотландська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Selkup</source>
-        <translation>Selkupiska</translation>
+        <translation>Селькупська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Semitic languages</source>
-        <translation>Semitiska språk</translation>
+        <translation>Семітські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Serer</source>
-        <translation>Serer</translation>
+        <translation>Серер</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Shan</source>
-        <translation>Shan</translation>
+        <translation>Шанська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Sicilian</source>
-        <translation>Sicilianska</translation>
+        <translation>Сицилійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Sidamo</source>
-        <translation type="unfinished"/>
+        <translation>Сидамо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Sign Languages</source>
-        <translation>Teckenspråk</translation>
+        <translation>Жестова мова</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Siksika</source>
-        <translation>Siksika</translation>
+        <translation>Сіксіка</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Sino-Tibetan languages</source>
-        <translation>Sinotibetanska språk</translation>
+        <translation>Сино-тибетські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Siouan languages</source>
-        <translation>Siouxspråk</translation>
+        <translation>Сіуанські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Skolt Sami</source>
-        <translation>Skoltsamiska</translation>
+        <translation>Колтта-саамська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Slave (Athapascan)</source>
-        <translation type="unfinished"/>
+        <translation>Слейви</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Slavic languages</source>
-        <translation>Slaviska språk</translation>
+        <translation>Слов&apos;янські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Sogdian</source>
-        <translation>Sogdiska</translation>
+        <translation>Соґдійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Songhai languages</source>
-        <translation type="unfinished"/>
+        <translation>Сонгайські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Soninke</source>
-        <translation type="unfinished"/>
+        <translation>Сонінке</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Sorbian languages</source>
-        <translation>Sorbiska språk</translation>
+        <translation>Лужицькі мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="611"/>
         <source>South American Indian languages</source>
-        <translation>Sydindianspråk</translation>
+        <translation>Мови індіанців Південної Америки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Southern Altai</source>
-        <translation type="unfinished"/>
+        <translation>Південноалтайська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Southern Sami</source>
-        <translation>Sydsamiska</translation>
+        <translation>Південносаамська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Sranan Tongo</source>
-        <translation>Sranan</translation>
+        <translation>Сранан-тонго</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Sukuma</source>
-        <translation>Sukuma</translation>
+        <translation>Сукума</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Sumerian</source>
-        <translation>Sumeriska</translation>
+        <translation>Шумерська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Susu</source>
-        <translation>Susu</translation>
+        <translation>Сусу</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Alsatian, Swiss German, Alemannic</source>
-        <translation>Alemanniska</translation>
+        <translation>Ельзаський, Швейцарський, Алеманський діалекти</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Syriac</source>
-        <translation>Syriska</translation>
+        <translation>Сирійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Tai languages</source>
-        <translation>Taispråk</translation>
+        <translation>Тайські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Tamashek</source>
-        <translation type="unfinished"/>
+        <translation>Тамашек</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Tereno</source>
-        <translation type="unfinished"/>
+        <translation>Терена</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Tetum</source>
-        <translation>Tetum</translation>
+        <translation>Тетум</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Tigre</source>
-        <translation>Tigre</translation>
+        <translation>Тигре</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Timne</source>
-        <translation type="unfinished"/>
+        <translation>Темне</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Tiv</source>
-        <translation>Tiv</translation>
+        <translation>Тів</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Tlingit</source>
-        <translation>Tlingit</translation>
+        <translation>Тлінгітська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Tok Pisin</source>
-        <translation>Tok pisin</translation>
+        <translation>Ток-пісін</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Tokelau</source>
-        <translation>Tokelauanska</translation>
+        <translation>Токелау</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Tonga (Nyasa)</source>
-        <translation type="unfinished"/>
+        <translation>Тонганська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Tsimshian</source>
-        <translation>Tsimshian</translation>
+        <translation>Цимшианські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Tumbuka</source>
-        <translation>Tumbuka</translation>
+        <translation>Тумбука</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Tupi languages</source>
-        <translation type="unfinished"/>
+        <translation>Мова Тупі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Turkish- Ottoman (1500-1928)</source>
-        <translation>Osmanska (1500-1928)</translation>
+        <translation>Османська (1500-1928)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Tuvalu</source>
-        <translation>Tuvaluanska</translation>
+        <translation>Тувалуанська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Tuvinian</source>
-        <translation>Tuvinska</translation>
+        <translation>Тувинська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Udmurt</source>
-        <translation>Udmurtiska</translation>
+        <translation>Удмуртська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Ugaritic</source>
-        <translation>Ugaritiska</translation>
+        <translation>Угаритська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Umbundu</source>
-        <translation>Umbundu</translation>
+        <translation>Умбунду</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Uncoded languages</source>
-        <translation>Okodade språk</translation>
+        <translation>Некодовані мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Undetermined</source>
-        <translation>Obestämd</translation>
+        <translation>Невизначено</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Upper Sorbian</source>
-        <translation type="unfinished"/>
+        <translation>Верхньолужицька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Vai</source>
-        <translation>Vai</translation>
+        <translation>Ваі</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Votic</source>
-        <translation>Votiska</translation>
+        <translation>Водська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="645"/>
         <source>Wakashan languages</source>
-        <translation type="unfinished"/>
+        <translation>Вакашські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="646"/>
         <source>Waray</source>
-        <translation>Waray</translation>
+        <translation>Варайська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="647"/>
         <source>Washo</source>
-        <translation type="unfinished"/>
+        <translation>Уошо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="648"/>
         <source>Wolaitta, Wolaytta</source>
-        <translation type="unfinished"/>
+        <translation>Воламо, Волайта</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="649"/>
         <source>Yakut</source>
-        <translation type="unfinished"/>
+        <translation>Якутська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="650"/>
         <source>Yao</source>
-        <translation type="unfinished"/>
+        <translation>Яо</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="651"/>
         <source>Yapese</source>
-        <translation type="unfinished"/>
+        <translation>Япійська</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="652"/>
         <source>Yupik languages</source>
-        <translation type="unfinished"/>
+        <translation>Юпікські мови</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="653"/>
         <source>Zande languages</source>
-        <translation type="unfinished"/>
+        <translation>Занде</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="654"/>
         <source>Zapotec</source>
-        <translation>Zapotekiska</translation>
+        <translation>Сапотецька</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="655"/>
         <source>Zenaga</source>
-        <translation>Zenaga</translation>
+        <translation>Зенага</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="656"/>
         <source>Zuni</source>
-        <translation>Zuni</translation>
+        <translation>Зуні</translation>
     </message>
 </context>
 <context>
@@ -6395,7 +6393,7 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="14"/>
         <source>Language</source>
-        <translation>Språk</translation>
+        <translation>Мова</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="36"/>
@@ -6404,26 +6402,26 @@ Vill du spara dina ändringar?</translation>
 If a translation for specific word or phrase is not available it will be displayed in English.
 
 Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</source>
-        <translation>Du måste starta om Sigil efter att ha ändrat Användargränssnittets språk.
+        <translation>Потрібно перезапустити Sigil після зміни мови інтерфейсу користувача.
 
-Om en översättning för ett visst ord eller en viss fras inte är tillgänglig visas den på engelska.
+Якщо переклад певного слова чи фрази недоступний, вони відображатимуться англійською мовою.
 
-Använd Inställningar-&gt; Ordböcker för stavningskontroll för att ställa in Stavningskontrollens ordbok.</translation>
+Використовуйте Налаштування -&gt; Орфографічні Словники, щоб встановити словник перевірки орфографії.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="43"/>
         <source>User Interface Language:</source>
-        <translation>Användargränssnittets språk:</translation>
+        <translation>Мова інтерфейсу користувача:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="53"/>
         <source>Set the default language used by the Metadata Editor for new books.</source>
-        <translation>Ange standardspråket som används av Metadataredigeraren för nya böcker.</translation>
+        <translation>Встановити мову за замовчуванням, що використовується редактором метаданих для нових книг.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="56"/>
         <source>Default Language For Metadata:</source>
-        <translation>Standardspråk för metadata:</translation>
+        <translation>Мова за замовчуванням для МетаДаних:</translation>
     </message>
 </context>
 <context>
@@ -6431,41 +6429,41 @@ Använd Inställningar-&gt; Ordböcker för stavningskontroll för att ställa i
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="14"/>
         <source>Link StyleSheets</source>
-        <translation>Länka formatmallar</translation>
+        <translation>Зв&apos;язати з Таблицею Стилів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="43"/>
         <source>Move the selected stylesheets up in priority.
 
 Stylesheets that are listed first take precedence over later stylesheets.</source>
-        <translation>Flytta de valda formatmallarna upp i prioritet.
+        <translation>Перемістити вибрані таблиці стилів вгору за пріоритетом.
 
-Formatmallar som listas först har företräde framför senare formatmallar.</translation>
+Таблиці стилів, які перелічені спочатку, мають перевагу над пізнішими таблицями стилів.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="48"/>
         <source>Up</source>
-        <translation>Upp</translation>
+        <translation>Вгору</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="58"/>
         <source>Move the selected stylesheets down in priority.</source>
-        <translation>Flytta de markerade formatmallarna ner i prioritet.</translation>
+        <translation>Перемістити вибрані таблиці стилів вниз за пріоритетом.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="61"/>
         <source>Down</source>
-        <translation>Ner</translation>
+        <translation>Вниз</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="60"/>
         <source>Include</source>
-        <translation>Inkludera</translation>
+        <translation>Містить</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="61"/>
         <source>Stylesheet</source>
-        <translation>Formatmall</translation>
+        <translation>Таблиця Стилів</translation>
     </message>
 </context>
 <context>
@@ -6473,27 +6471,27 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="14"/>
         <source>Links</source>
-        <translation>Länkar</translation>
+        <translation>Посилання</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Lista endast de filnamn som innehåller texten du anger.</translation>
+        <translation>Вивести тільки файли, що містять введений мною текст</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="71"/>
         <source>File</source>
-        <translation>Fil</translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="72"/>
         <source>Line</source>
-        <translation>Rad</translation>
+        <translation>Рядок</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="73"/>
@@ -6503,69 +6501,69 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="74"/>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="75"/>
         <source>Target File</source>
-        <translation>Målfil</translation>
+        <translation>Цільовий Файл</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="76"/>
         <source>Target ID</source>
-        <translation>Mål-ID</translation>
+        <translation>Цільовий ID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="77"/>
         <source>Target Exists?</source>
-        <translation>Finns målet?</translation>
+        <translation>Адресат існує?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="78"/>
         <source>Target Text</source>
-        <translation>Måltext</translation>
+        <translation>Цільовий Текст</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="79"/>
         <source>Target&apos;s Target File</source>
-        <translation>Målets målfil</translation>
+        <translation>Цільовий Файл Адресата</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="80"/>
         <source>Target&apos;s Target ID</source>
-        <translation>Målets mål-ID</translation>
+        <translation>Цільовий ID Адресата</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="81"/>
         <source>Match?</source>
-        <translation>Träff?</translation>
+        <translation>Співпало?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="87"/>
         <source>Report shows all source and target links using the anchor tag &quot;a&quot;.</source>
-        <translation>Rapporten visar alla källänkar och mållänkar med ankartaggen &quot;a&quot;.</translation>
+        <translation>Звіт показує всі джерела та цільові посилання за допомогою якорного тега &quot;a&quot;.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="156"/>
         <source>n/a</source>
-        <translation>inga</translation>
+        <translation>n/a</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="159"/>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="227"/>
         <source>no</source>
-        <translation>nej</translation>
+        <translation>ні</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="166"/>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="229"/>
         <source>yes</source>
-        <translation>ja</translation>
+        <translation>так</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="343"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Spara rapport som kommaseparerad fil</translation>
+        <translation>Зберегти звіт як файл з комами роздільниками</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="356"/>
@@ -6575,7 +6573,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="356"/>
         <source>Cannot save report file.</source>
-        <translation>Det går inte att spara rapportfilen.</translation>
+        <translation>Не можу зберегти файл звіту.</translation>
     </message>
 </context>
 <context>
@@ -6583,189 +6581,189 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
         <source>untitled.epub[*] - Sigil</source>
-        <translation>utantitel.epub[*] - Sigil</translation>
+        <translation>untitled.epub[*] - Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="58"/>
         <source>&amp;File</source>
-        <translation>&amp;Arkiv</translation>
+        <translation>&amp;Файл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="62"/>
         <source>A&amp;dd</source>
-        <translation>L&amp;ägg till</translation>
+        <translation>Д&amp;одати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="88"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Redigera</translation>
+        <translation>Р&amp;едагувати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="92"/>
         <source>C&amp;hange Case</source>
-        <translation>Ä&amp;ndra stor/liten inledande bokstav</translation>
+        <translation>З&amp;мінити регістр</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="117"/>
         <source>&amp;Insert</source>
-        <translation>&amp;Infoga</translation>
+        <translation>&amp;Вставити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="121"/>
         <source>Cli&amp;p</source>
-        <translation>Klip&amp;p</translation>
+        <translation>Фраг&amp;мент</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="158"/>
         <source>&amp;Help</source>
-        <translation>&amp;Hjälp</translation>
+        <translation>&amp;Довідка</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="168"/>
         <source>For&amp;mat</source>
-        <translation>For&amp;mat</translation>
+        <translation>Фор&amp;мат</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="172"/>
         <source>&amp;Heading</source>
-        <translation>&amp;Rubrik</translation>
+        <translation>&amp;Заголовок</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="212"/>
         <source>&amp;View</source>
-        <translation>&amp;Visa</translation>
+        <translation>П&amp;ерегляд</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="216"/>
         <source>&amp;Toolbars</source>
-        <translation>&amp;Toolbars</translation>
+        <translation>Панель &amp;Інструментів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="228"/>
         <source>&amp;Search</source>
-        <translation>&amp;Sök</translation>
+        <translation>&amp;Пошук</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="232"/>
         <source>Current Fil&amp;e</source>
-        <translation>Aktuell fi&amp;l</translation>
+        <translation>Поточний Фа&amp;йл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="264"/>
         <source>&amp;Window</source>
-        <translation>&amp;Fönster</translation>
+        <translation>&amp;Вікно</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="276"/>
         <source>&amp;Tools</source>
-        <translation>&amp;Verktyg</translation>
+        <translation>&amp;Інструменти</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="280"/>
         <source>&amp;Table Of Contents</source>
-        <translation>&amp;Innehållsförteckning</translation>
+        <translation>&amp;Зміст</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="288"/>
         <source>Spe&amp;llcheck</source>
-        <translation>Sta&amp;vningskontroll</translation>
+        <translation>Право&amp;пис</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="302"/>
         <source>&amp;Index</source>
-        <translation>&amp;Index</translation>
+        <translation>&amp;Індекс</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="313"/>
         <source>Re&amp;format HTML</source>
-        <translation>&amp;Formatera om HTML</translation>
+        <translation>Пере&amp;форматувати HTML</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="320"/>
         <source>Epub&amp;3 Tools</source>
-        <translation>Epub&amp;3 verktyg</translation>
+        <translation>Інструменти Epub&amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="346"/>
         <source>Plugins</source>
-        <translation>Insticksmoduler</translation>
+        <translation>Плагіни</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="364"/>
         <location filename="../../MainUI/MainWindow.cpp" line="674"/>
         <source>File</source>
-        <translation>Fil</translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="379"/>
         <location filename="../../MainUI/MainWindow.cpp" line="335"/>
         <source>Edit</source>
-        <translation>Redigera</translation>
+        <translation>Редагувати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="400"/>
         <source>Insert</source>
-        <translation>Infoga</translation>
+        <translation>Вставити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="417"/>
         <source>Back</source>
-        <translation>Tillbaka</translation>
+        <translation>Назад</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="429"/>
         <source>Donate</source>
-        <translation>Donera</translation>
+        <translation>Допомогти грошима</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="441"/>
         <source>Tools</source>
-        <translation>Verktyg</translation>
+        <translation>Причандали</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="455"/>
         <source>Plugins Set 1</source>
-        <translation>Insticksmodulsuppsättning 1</translation>
+        <translation>Набір Плагінів 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="471"/>
         <source>Plugins Set 2</source>
-        <translation>Insticksmodulsuppsättning 2</translation>
+        <translation>Набір Плагінів 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="487"/>
         <source>Heading</source>
-        <translation>Rubrik</translation>
+        <translation>Заголовок</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="501"/>
         <source>set Heading Level of Selected Text</source>
-        <translation>ange rubriknivå för markerad text</translation>
+        <translation>Встановити стиль виділеного текста</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="514"/>
         <source>Format</source>
-        <translation>Format</translation>
+        <translation>Формат</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="531"/>
         <source>Align</source>
-        <translation>Justera</translation>
+        <translation>Вирівняти</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="546"/>
         <source>List</source>
-        <translation>Lista</translation>
+        <translation>Список</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="559"/>
         <source>Indent</source>
-        <translation>Stycke</translation>
+        <translation>Відступ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="572"/>
         <source>Change Case</source>
-        <translation>Ändra stor/liten inledande bokstav</translation>
+        <translation>Змінити регістр</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="582"/>
@@ -6775,31 +6773,31 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="585"/>
         <source>set Case of Selected Text</source>
-        <translation type="unfinished"/>
+        <translation>встановити регістр у виділеному тексті</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="595"/>
         <source>Text Direction</source>
-        <translation>Textriktningen</translation>
+        <translation>Напрямок тексту</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="609"/>
         <source>Clip Bar</source>
-        <translation type="unfinished"/>
+        <translation>Панель Фрагментів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="645"/>
         <source>&amp;New</source>
-        <translation>&amp;Ny</translation>
+        <translation>&amp;Новий</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="648"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Ny&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Новий&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Skapa en ny bok.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Створити нову книгу.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="653"/>
@@ -6809,16 +6807,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="662"/>
         <source>&amp;Save</source>
-        <translation>&amp;Spara</translation>
+        <translation>&amp;Зберегти</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="665"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spara&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Зберегти&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Spara den aktuella boken.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Зберегти поточну книгу.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="670"/>
@@ -6828,16 +6826,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="675"/>
         <source>Save &amp;As...</source>
-        <translation>Spara &amp;som...</translation>
+        <translation>Зберегти &amp;Як...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="678"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spara som&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Зберегти як&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Spara den aktuella boken med ett annat filnamn.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Зберегти поточну книгу з іншим ім&apos;ям.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="683"/>
@@ -6847,50 +6845,50 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="688"/>
         <source>Save A &amp;Copy...</source>
-        <translation>Spara en &amp;kopia...</translation>
+        <translation>Зберегти як &amp;копію...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="691"/>
         <source>Save a copy of your book to another file name.</source>
-        <translation>Spara en kopia av din bok till ett annat filnamn.</translation>
+        <translation>Зберегти копію книги з іншим ім&apos;ям файлу.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="700"/>
         <source>Cu&amp;t</source>
-        <translation>Klipp u&amp;t</translation>
+        <translation>Виріза&amp;ти</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="703"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Klipp ut&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вирізати&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Klipp ut den markerade texten från dokumentet och lägger den i urklipp.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вирізає вибраний текст з документа і поміщає його в буфер обміну.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="714"/>
         <source>&amp;Paste</source>
-        <translation>&amp;Klistra in</translation>
+        <translation>Вст&amp;авити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="717"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Klistra in&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вставити&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Klistrar in innehållet från urklipp i boken.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вставити вміст буфера обміну в книгу.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="724"/>
         <source>&amp;Closing Tag</source>
-        <translation>&amp;Avslutande tagg</translation>
+        <translation>&amp;Закриваючий тег</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="727"/>
         <source>Insert a closing tag in Code View.</source>
-        <translation>Infoga en avslutande tagg i Kodvy.</translation>
+        <translation>Вставити закриваючий тег в Браузері Коду.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="730"/>
@@ -6900,16 +6898,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="739"/>
         <source>&amp;Undo</source>
-        <translation>&amp;Ångra</translation>
+        <translation>В&amp;ідмінити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="742"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Ångra&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Відмінити&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ändrar ändringarna i föregående operation.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Скасовує зміни зроблені попередньою операцією.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="747"/>
@@ -6919,16 +6917,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="756"/>
         <source>&amp;Redo</source>
-        <translation>&amp;Gör om</translation>
+        <translation>&amp;Повернути</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="759"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Gör om&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Повернути&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Återställer ändringarna som återställts av föregående Ångra-åtgärd.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Відновлює зміни, скасовані попередньою дією &quot;Відмінити&quot;.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="764"/>
@@ -6938,58 +6936,58 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="773"/>
         <source>&amp;Copy</source>
-        <translation>&amp;Kopiera</translation>
+        <translation>&amp;Копіювати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="776"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kopiera&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Копіювати&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kopierar den markerade texten och lägger den i urklipp.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Копіювати вибраний текст і помістити його в буфер обміну.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="790"/>
         <source>Align &amp;Left</source>
-        <translation>&amp;Vänsterjustera</translation>
+        <translation>Вирівняти &amp;Ліворуч</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="793"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Vänsterjustera&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вирівняти ліворуч&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Justera stycket till vänster.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вирівняти абзац по лівому полю.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="807"/>
         <source>Align &amp;Right</source>
-        <translation>&amp;Högerjustera</translation>
+        <translation>Вирівняти &amp;Праворуч</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="810"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Högerjustera&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вирівняти праворуч&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Justera stycket till höger.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вирівняти абзац по правому полю.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="824"/>
         <source>&amp;Center</source>
-        <translation>&amp;Centrera</translation>
+        <translation>По &amp;Центру</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="827"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Centrera&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;По центру&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Centrerar stycket.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вирівняти абзац по центру.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="832"/>
@@ -6999,16 +6997,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="844"/>
         <source>&amp;Justify</source>
-        <translation>&amp;Justera</translation>
+        <translation>По &amp;ширині</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="847"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justera&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;По ширині&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Justera stycket till både vänster och höger marginaler.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вирівняти абзац по лівому та правому полям.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="852"/>
@@ -7018,16 +7016,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="864"/>
         <source>&amp;Bold</source>
-        <translation>&amp;Fet</translation>
+        <translation>&amp;Жирний</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="867"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Fet&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Жирний&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Gör den markerade texten fet.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Зробити вибраний текст жирним.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="872"/>
@@ -7037,16 +7035,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="884"/>
         <source>&amp;Italic</source>
-        <translation>&amp;Kursiv</translation>
+        <translation>&amp;Курсив</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="887"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kursiv&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Курсив&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Gör den markerade texten kursiv.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Зробити вибраний текст курсивом.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="892"/>
@@ -7056,16 +7054,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="901"/>
         <source>&amp;Open...</source>
-        <translation>&amp;Öppna...</translation>
+        <translation>&amp;Відкрити...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="904"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Öppna&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Відкрити&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Öppna en bok från disken.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Відкрити книгу з носія.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="909"/>
@@ -7075,16 +7073,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="921"/>
         <source>&amp;Underline</source>
-        <translation>&amp;Understryk</translation>
+        <translation>&amp;Підкреслений</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="924"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Understryk&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Підкреслений&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Stryk under den markerade texten.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Підкреслити лінією вибраний текст.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="929"/>
@@ -7094,12 +7092,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="938"/>
         <source>&amp;Quit</source>
-        <translation>&amp;Avsluta</translation>
+        <translation>&amp;Вихід</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="941"/>
         <source>Exit</source>
-        <translation>Avsluta</translation>
+        <translation>Вихід</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="944"/>
@@ -7109,40 +7107,40 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="953"/>
         <source>&amp;About...</source>
-        <translation>&amp;Om...</translation>
+        <translation>&amp;Про це...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="956"/>
         <source>Show information about Sigil.</source>
-        <translation>Visa information om Sigil.</translation>
+        <translation>Показати інформацію стосовно Sigil.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="961"/>
         <source>Add &amp;Cover...</source>
-        <translation>Lägg till &amp;omslag...</translation>
+        <translation>Додати &amp;Обкладинку...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="964"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lägg till omslag&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Додати Обкладинку&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Lägg till ett omslag.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;До структури книги додається файл з зображенням обкладинки.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="975"/>
         <source>&amp;Metadata Editor...</source>
-        <translation>&amp;Metadataredigerare...</translation>
+        <translation>&amp;Редактор МетаДаних...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="978"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadataredigerare&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Редактор МетаДаних&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Redigera och visa information om din bok, inklusive författaren och titeln.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Редагувати та відобразити інформацію про свою книгу, включаючи автора та назву.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="983"/>
@@ -7152,16 +7150,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="992"/>
         <source>&amp;Generate Table Of Contents...</source>
-        <translation>&amp;Generera Innehållsförteckning...</translation>
+        <translation>&amp;Генерація Змісту...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="995"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generera Innehållsförteckning&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Генерувати Зміст&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Skapa en ny innehållsförteckning från rubriker i din bok.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Створити новий Зміст із заголовків Вашої книги.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1000"/>
@@ -7171,40 +7169,40 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1005"/>
         <source>&amp;Edit Table Of Contents...</source>
-        <translation>&amp;Redigera Innehållsförteckning...</translation>
+        <translation>&amp;Редагувати Зміст...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1008"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redigera Innehållsförteckning&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Редагувати Зміст&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Redigera direkt den befintliga innehållsförteckningen.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Безпосередньо відредагувати існуючий зміст.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1019"/>
         <source>&amp;Split At Cursor</source>
-        <translation>&amp;Dela vid markören</translation>
+        <translation>&amp;Розділити по курсору</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1022"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Dela vid markören&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Розділити по курсору&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Dela den aktuella filen i två filer med markörplatsen som delningspunkt.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Розділити поточний файл на два файли, використовуючи розташування курсору як точку поділу.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1027"/>
         <source>Ctrl+Return</source>
-        <translation>Ctrl+Retur</translation>
+        <translation>Ctrl+Return</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1036"/>
         <source>&amp;File...</source>
-        <translation>&amp;Fil...</translation>
+        <translation>&amp;Файл...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1039"/>
@@ -7213,11 +7211,11 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can add files to your book by using the menu File - Add - Existing Files.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Infoga fil&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вставити Файл&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Välj bild-, video- eller ljudfiler från din bok för att infoga i texten.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Виберіть зображення, відео чи аудіо файли із своєї книги, які потрібно вставити в текст.&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Du kan lägga till filer i din bok med hjälp av menyn Arkiv - Lägg till - Befintliga filer.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ви можете додати файли до книги за допомогою меню Файл - Додати - Існуючі файли.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1046"/>
@@ -7227,16 +7225,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1055"/>
         <source>&amp;Special Character...</source>
-        <translation>&amp;Specialtecknet...</translation>
+        <translation>&amp;Спеціальний знак...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1058"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Infoga specialtecken&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вставити спеціальний знак&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Välj ett tecken att infoga i din text.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вибрати спеціальний символ та вставити у Ваш текст.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1069"/>
@@ -7248,51 +7246,51 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Infoga ID&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вставити ID&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Infoga eller redigera ett ankare med ett ID-namn som ska användas som länkmål.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вставити або відредагувати якір з назвою ідентифікатора, щоб використовувати його як адресата чи ціль посилання.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1083"/>
         <source>&amp;Link...</source>
-        <translation>&amp;Länk...</translation>
+        <translation>&amp;Посилання...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1086"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Infoga länk&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вставити посилання&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Infoga eller redigera ett ankare med en hyperlänk till ett mål.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вставити або відредагвати якір із гіперпосиланням на адресата чи ціль.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1100"/>
         <source>&amp;Numbered List</source>
-        <translation>&amp;Numrerad lista</translation>
+        <translation>&amp;Нумерований список</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1103"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numrering&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Нумерація&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Skapa en numrerad lista.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Створити нумерований список.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1117"/>
         <source>Bulle&amp;ted List</source>
-        <translation>&amp;Punktlista</translation>
+        <translation>Марк&amp;ований список</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1120"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Punkter&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Булліт&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Skapa en punktlista.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Створити маркований список.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1125"/>
@@ -7302,54 +7300,54 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1137"/>
         <source>Stri&amp;kethrough</source>
-        <translation>&amp;Genomstruken</translation>
+        <translation>Закре&amp;слений</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1140"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Genomstruken&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Закреслений&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Rita en linje genom den markerade texten.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Накреслити лінію через середину вибраного тексту.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1154"/>
         <source>&amp;Subscript</source>
-        <translation>&amp;Nedsänkt</translation>
+        <translation>Ни&amp;жній індекс</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1157"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nedsänkt&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Підрядковий символ&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ställ in den markerade texten något mindre och under den normala raden.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Встановити вибраний текст трохи менше і нижче нормального рядка.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1171"/>
         <source>Su&amp;perscript</source>
-        <translation>&amp;Upphöjt</translation>
+        <translation>Ве&amp;рхній індекс</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1174"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Upphöjt&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Надрядковий символ&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ställ in den markerade texten något mindre och ovanför den normala raden.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Встановити вибраний текст трохи менше і вище нормального рядка.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1185"/>
         <source>&amp;Print...</source>
-        <translation>&amp;Skriv ut...</translation>
+        <translation>&amp;Друк...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1188"/>
         <source>Print</source>
-        <translation>Skriv ut</translation>
+        <translation>Друк</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1191"/>
@@ -7359,18 +7357,18 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1200"/>
         <source>Print Pre&amp;view...</source>
-        <translation>&amp;Förhandsgranska...</translation>
+        <translation>Вигляд для &amp;Друку</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1203"/>
         <source>Print Preview</source>
-        <translation>Förhandsgranska</translation>
+        <translation>Перегляд перед друком</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1208"/>
         <location filename="../../Form_Files/main.ui" line="1211"/>
         <source>Close</source>
-        <translation>Stäng</translation>
+        <translation>Закрити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1214"/>
@@ -7380,12 +7378,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1223"/>
         <source>Zoom &amp;In</source>
-        <translation>Zooma &amp;in</translation>
+        <translation>&amp;Збільшити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1226"/>
         <source>Zoom In</source>
-        <translation>Zooma in</translation>
+        <translation>Збільшити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1229"/>
@@ -7395,12 +7393,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1238"/>
         <source>Zoom &amp;Out</source>
-        <translation>Zooma &amp;ut</translation>
+        <translation>Зм&amp;еншити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1241"/>
         <source>Zoom Out</source>
-        <translation>Zooma ut</translation>
+        <translation>Зменшити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1244"/>
@@ -7410,16 +7408,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1253"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
-        <translation>&amp;Hitta &amp;&amp; ersätt...</translation>
+        <translation>&amp;Знайти &amp;&amp; Замінити...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1256"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Hitta &amp;amp; ersätt&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Знайти &amp;amp; Замінити&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Hitta och ersätt text i dokumentet.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Знайти і замінити текст у документі.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1261"/>
@@ -7429,16 +7427,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1270"/>
         <source>Incre&amp;ase Indent</source>
-        <translation>Ök&amp;a indrag</translation>
+        <translation>Збіль&amp;шити відступ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1273"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Öka indrag&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Збільшити відступ&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Öka indragsnivån i stycket.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Збільшити рівень відступу абзацу.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1278"/>
@@ -7448,16 +7446,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1287"/>
         <source>&amp;Decrease Indent</source>
-        <translation>&amp;Minska indrag</translation>
+        <translation>&amp;Зменшити відступ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1290"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Minska indrag&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Зменшити відступ&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Minska indragsnivån i stycket.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Зменшити рівень відступу абзацу.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1295"/>
@@ -7468,7 +7466,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1304"/>
         <source>Te&amp;xt Direction LTR</source>
-        <translation>Te&amp;xtriktning VTH</translation>
+        <translation>Напрямок Тек&amp;сту ЗН</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1307"/>
@@ -7478,15 +7476,15 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction left to right.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Vänster-till-höger&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Зліва-Направо&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ställ in styckeriktningen åt vänster till höger.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Встановити напрямок тексту абзацу зліва направо.&lt;/p&gt;
     </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1320"/>
         <source>T&amp;ext Direction RTL</source>
-        <translation>T&amp;extriktning HTV</translation>
+        <translation>Напрямок Тек&amp;сту СН</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1323"/>
@@ -7496,15 +7494,15 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction right to left.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Höger-till-vänster&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Справа-Наліво&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ställ in styckeriktningen åt höger till vänster.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Встановити напрямок тексту абзацу справа наліво.&lt;/p&gt;
     </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1336"/>
         <source>Text Directi&amp;on Default</source>
-        <translation>Textri&amp;ktning standard</translation>
+        <translation>&amp;Напрямок тексту за замовчуванням</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1339"/>
@@ -7514,25 +7512,25 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction to inherit from default.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Standard&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;За замовчуванням&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ställ in styckeriktning att ärva från standard.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Встановити напрямок тексту абзацу успадкований за замовчуванням.&lt;/p&gt;
     </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1348"/>
         <source>Remove &amp;Formatting</source>
-        <translation>Ta bort &amp;formatering</translation>
+        <translation>Прибрати &amp;форматування</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1351"/>
         <source>Ctrl+Space</source>
-        <translation>Ctrl+Mellanslag</translation>
+        <translation>Ctrl+Space</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1360"/>
         <source>&amp;Lowercase</source>
-        <translation>&amp;Gemener</translation>
+        <translation>&amp;Мінускул</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1363"/>
@@ -7542,9 +7540,9 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to lowercase.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Gemener&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Нижній регістр&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ställ in markerad text till gemener.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Встановити вибраний текст в нижній регістр.&lt;/p&gt;
     </translation>
     </message>
     <message>
@@ -7555,7 +7553,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1379"/>
         <source>&amp;Uppercase</source>
-        <translation>&amp;Versaler</translation>
+        <translation>&amp;Прописні</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1382"/>
@@ -7565,9 +7563,9 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to uppercase.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Versaler&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Верхнього регістру&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ställ in markerad text till versaler.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Встановити вибраний текст у верхній регістр.&lt;/p&gt;
     </translation>
     </message>
     <message>
@@ -7578,7 +7576,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1398"/>
         <source>&amp;Titlecase</source>
-        <translation>&amp;Inledande versal</translation>
+        <translation>&amp;Прописні</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1401"/>
@@ -7588,15 +7586,15 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize the first letter of each word selected.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Inledande versal&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Великі літери&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kapitalisera den första bokstaven i varje ord som valts.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Прописати з великої літери кожне вибране слово.
     </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1414"/>
         <source>&amp;Capitalize</source>
-        <translation>&amp;Kapitalisera</translation>
+        <translation>&amp;Заголовна</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1417"/>
@@ -7606,20 +7604,20 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize only the first word of the selected text.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Kapitalisera&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;З Великої літери&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kapitalisera endast det första ordet i den markerade texten.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Прописати з великої літери тільки перше слово у вибраному тексті.
     </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1426"/>
         <source>Sigil Website...</source>
-        <translation>Sigils webbplats...</translation>
+        <translation>Sigil ВебСайт...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1431"/>
         <source>&amp;Next Tab</source>
-        <translation>&amp;Nästa flik</translation>
+        <translation>&amp;Наступна Вкладка</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1434"/>
@@ -7629,7 +7627,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1439"/>
         <source>&amp;Previous Tab</source>
-        <translation>&amp;Föregående flik</translation>
+        <translation>&amp;Попередня Вкладка</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1442"/>
@@ -7639,7 +7637,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1447"/>
         <source>&amp;Close Tab</source>
-        <translation>&amp;Stäng flik</translation>
+        <translation>&amp;Закрити Вкладку</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1450"/>
@@ -7649,12 +7647,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1455"/>
         <source>Split At &amp;Markers</source>
-        <translation>Dela vid &amp;markörer</translation>
+        <translation>Розділити по &amp;маркерам</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1458"/>
         <source>Split At Sigil split file markers</source>
-        <translation>Dela vid Sigils delnings filmarkörer</translation>
+        <translation>Розділити по Sigil-маркерам розділення файлу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1461"/>
@@ -7664,27 +7662,27 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1466"/>
         <source>Split &amp;Marker</source>
-        <translation>Dela &amp;markör</translation>
+        <translation>&amp;Маркер розділення</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1469"/>
         <source>Insert Sigil split file marker</source>
-        <translation>Infoga Sigil dela fil markör</translation>
+        <translation>Вставити Sigil-маркер розділення файлу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1472"/>
         <source>Ctrl+Shift+Return</source>
-        <translation>Ctrl+Shift+Retur</translation>
+        <translation>Ctrl+Shift+Return</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1477"/>
         <source>User &amp;Guide...</source>
-        <translation>Användar&amp;handbok...</translation>
+        <translation>Посібник &amp;користувача...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1480"/>
         <source>User Guide</source>
-        <translation>Användarhandbok</translation>
+        <translation>Посібник користувача</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1483"/>
@@ -7694,32 +7692,32 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1488"/>
         <source>&amp;Frequently Asked Questions...</source>
-        <translation>&amp;Vanliga frågor...</translation>
+        <translation>&amp;Часті запитання...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1491"/>
         <source>Frequently Asked Questions</source>
-        <translation>Vanliga frågor</translation>
+        <translation>Часті запитання</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1496"/>
         <source>&amp;Tutorials...</source>
-        <translation>&amp;Handledning...</translation>
+        <translation>&amp;Підручники...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1499"/>
         <source>Tutorials</source>
-        <translation>Handledning</translation>
+        <translation>Навчальні посібники</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1504"/>
         <source>Well-Formed Check &amp;EPUB</source>
-        <translation>Kontroll av välformad &amp;EPUB</translation>
+        <translation>Перевірка правильності формату &amp;EPUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1507"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Kontroll av välformad EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Kontrollera att dokumentet uppfyller minimikrav som krävs för att kunna analyseras. Detta tyder inte på överensstämmelse med relevanta epub-standarder.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Перевірка EPUB на правильність&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Переконатися, що ваш документ відповідає мінімуму, необхідному для успішного аналізу. Це не означає дотримання відповідних стандартів epub.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1510"/>
@@ -7729,7 +7727,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1515"/>
         <source>Validate Stylesheets With &amp;W3C</source>
-        <translation>Validera formatmalar med &amp;W3C</translation>
+        <translation>Перевірка Таблиць Стилів на &amp;W3C</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1518"/>
@@ -7739,24 +7737,24 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your CSS stylesheets comply with W3C standards using the online W3C CSS Validation Service.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validera formatmalar med W3C&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;W3C перевіряє Таблиці Стилів&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verifiera att dina CSS-formatmallar uppfyller W3C-standarder med hjälp av W3C CSS-valideringstjänsten på nätet.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Перевірити відповідність CSS-таблиць стандартам W3C за допомогою онлайн-служби W3C CSS Validation Service.&lt;/p&gt;
     </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1531"/>
         <source>&amp;Spellcheck...</source>
-        <translation>&amp;Stavningskontroll...</translation>
+        <translation>&amp;Орфо-перевірка...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1534"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Stavningskontroll&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Перевірка правопису&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Hitta alla felstavade ord och lägg till dem i en ordbok eller ignorera dem.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Знайти усі неправильно написані слова, після чого додати їх до словника або проігнорувати їх.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1539"/>
@@ -7766,22 +7764,22 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1547"/>
         <source>&amp;Highlight Misspelled Words</source>
-        <translation>&amp;Markera felstavade ord</translation>
+        <translation>&amp;Підкреслити слова з помилками</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1550"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
-        <translation>Aktivera eller inaktivera markering av felstavade ord i Kodvy.</translation>
+        <translation>Увімкнути або вимкнути підсвічування помилково написаних слів у Браузері Коду.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1555"/>
         <source>&amp;Next Misspelled Word</source>
-        <translation>&amp;Nästa felstavade ord</translation>
+        <translation>&amp;Наступне слово з помилкою</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1558"/>
         <source>Find the next misspelled word in the book.</source>
-        <translation>Hitta nästa felstavade ord i boken.</translation>
+        <translation>Знайти у книзі наступне неправильно написане слово.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1561"/>
@@ -7791,37 +7789,37 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1566"/>
         <source>&amp;Add Misspelled Word</source>
-        <translation>&amp;Lägg till felstavade ord</translation>
+        <translation>&amp;Додати слово з помилкою</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1569"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
-        <translation>Lägg till det aktuella felstavade ordet under caret i standardanvändarordlistan.</translation>
+        <translation>Додайте поточне неправильно написане слово до словника користувача за замовчуванням.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1574"/>
         <source>&amp;Ignore Misspelled Word</source>
-        <translation>&amp;Ignorera felstavade ord</translation>
+        <translation>&amp;Ігнорувати слово з помилкою</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1577"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
-        <translation>Ignorera det aktuella felstavade ordet under caret tills Sigil startas om.</translation>
+        <translation>Ігноруйте поточне неправильно написане слово, доки Sigil не перезапуститься.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1582"/>
         <source>&amp;Clear Ignored Words</source>
-        <translation>&amp;Rensa ignorerade ord</translation>
+        <translation>&amp;Позбутися проігнорованих слів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1585"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
-        <translation>Rensa för närvarande ignorerade ord från Stavningskontroll utan att behöva starta om Sigil.</translation>
+        <translation>Очистити список проігнорованих слів з перевірки правопису, не перезавантажуючи Sigil.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1590"/>
         <source>&amp;Index Editor...</source>
-        <translation>&amp;Indexredigerare...</translation>
+        <translation>&amp;Редактор Індексів...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1593"/>
@@ -7831,27 +7829,27 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1598"/>
         <source>&amp;Delete Unused Media Files...</source>
-        <translation>&amp;Ta bort oanvända mediefiler...</translation>
+        <translation>&amp;Видалити невикористані медіа-файли ...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1603"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
-        <translation>Ta bort &amp;oanvända formatmallsklasser...</translation>
+        <translation>Видалити &amp;невикористані класи Таблиць Стилів...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1608"/>
         <source>&amp;Reports...</source>
-        <translation>&amp;Rapporter...</translation>
+        <translation>&amp;Звіти...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1611"/>
         <source>Ctrl+Shift+R</source>
-        <translation>Ctrl+Skift+R</translation>
+        <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1620"/>
         <source>&amp;Donate...</source>
-        <translation>&amp;Donera...</translation>
+        <translation>&amp;Жертвувати...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1623"/>
@@ -7859,15 +7857,15 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
 </source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donera&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Допомогти грошима&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donera för att stöda Sigil.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Надати добровільну безповоротну допомогу на підтримку Sigil.&lt;/p&gt;
 </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1631"/>
         <source>Close &amp;Other Tabs</source>
-        <translation>Stäng &amp;andra flikar</translation>
+        <translation>Закрити &amp;інші Вкладки</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1634"/>
@@ -7877,7 +7875,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1639"/>
         <source>Go To &amp;Line...</source>
-        <translation>Gå till &amp;rad...</translation>
+        <translation>Перейти до &amp;Рядка...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1642"/>
@@ -7887,7 +7885,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1647"/>
         <source>Find &amp;Next</source>
-        <translation>Hitta &amp;nästa</translation>
+        <translation>Шукати &amp;Наступний</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1650"/>
@@ -7897,7 +7895,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1655"/>
         <source>Find &amp;Previous</source>
-        <translation>Hitta &amp;föregående</translation>
+        <translation>Шукати &amp;Попередній</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1658"/>
@@ -7907,7 +7905,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1663"/>
         <source>Replace</source>
-        <translation>Ersätt</translation>
+        <translation>Замінити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1666"/>
@@ -7917,7 +7915,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1671"/>
         <source>&amp;Replace/Find Next</source>
-        <translation>&amp;Ersätt/Hitta nästa</translation>
+        <translation>&amp;Замінити/Шукати Наступний</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1674"/>
@@ -7927,7 +7925,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1679"/>
         <source>R&amp;eplace/Find Previous</source>
-        <translation>E&amp;rsätt/Hitta föregående</translation>
+        <translation>З&amp;амінити/Шукати Попередній</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1682"/>
@@ -7937,7 +7935,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1687"/>
         <source>Replace &amp;All</source>
-        <translation>Ersätt &amp;alla</translation>
+        <translation>Замінити &amp;Все</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1690"/>
@@ -7947,7 +7945,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1695"/>
         <source>&amp;Count All</source>
-        <translation>&amp;Räkna alla</translation>
+        <translation>&amp;Порахувати Все</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1698"/>
@@ -7957,32 +7955,32 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1703"/>
         <source>Mar&amp;k Selected Text</source>
-        <translation>Mar&amp;kera vald text</translation>
+        <translation>Позна&amp;чити вибраний текст</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1711"/>
         <source>Find &amp;Next In File</source>
-        <translation>Hitta &amp;nästa i fil</translation>
+        <translation>Знайти &amp;наступне у файлі</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1716"/>
         <source>&amp;Replace Next In File</source>
-        <translation>&amp;Ersätt nästa i fil</translation>
+        <translation>&amp;Замінити наступне у файлі</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1721"/>
         <source>Replace &amp;All In File</source>
-        <translation>Ersätt &amp;alla i fil</translation>
+        <translation>Замінити &amp;Все у файлі</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1726"/>
         <source>&amp;Count All In File</source>
-        <translation>&amp;Räkna alla i fil</translation>
+        <translation>&amp;Порахувати Все у файлі</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1731"/>
         <source>&amp;Saved Searches...</source>
-        <translation>&amp;Sparade sökningar...</translation>
+        <translation>&amp;Зберегти знайдене...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1734"/>
@@ -7992,12 +7990,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1739"/>
         <source>&amp;Clip Editor...</source>
-        <translation>&amp;Klippredigerare...</translation>
+        <translation>&amp;Кліп-редактор...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1742"/>
         <source>Open the Clip Editor.</source>
-        <translation>Öppna Klippredigeraren.</translation>
+        <translation>Відкрити редактор фрагментів.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1745"/>
@@ -8007,12 +8005,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1750"/>
         <source>Clip &amp;1</source>
-        <translation>Klipp &amp;1</translation>
+        <translation>Фрагмент &amp;1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1753"/>
         <source>Insert Clip 1</source>
-        <translation>Infoga klipp 1</translation>
+        <translation>Вставити Фрагмент 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1756"/>
@@ -8022,12 +8020,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1761"/>
         <source>Clip &amp;2</source>
-        <translation>Klipp &amp;2</translation>
+        <translation>Фрагмент &amp;2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1764"/>
         <source>Insert Clip 2</source>
-        <translation>Infoga klipp 2</translation>
+        <translation>Вставити Фрагмент 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1767"/>
@@ -8037,12 +8035,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1772"/>
         <source>Clip &amp;3</source>
-        <translation>Klipp &amp;3</translation>
+        <translation>Фрагмент &amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1775"/>
         <source>Insert Clip 3</source>
-        <translation>Infoga klipp 3</translation>
+        <translation>Вставити Фрагмент 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1778"/>
@@ -8052,12 +8050,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1783"/>
         <source>Clip &amp;4</source>
-        <translation>Klipp &amp;4</translation>
+        <translation>Фрагмент &amp;4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1786"/>
         <source>Insert Clip 4</source>
-        <translation>Infoga klipp 4</translation>
+        <translation>Вставити Фрагмент 4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1789"/>
@@ -8067,12 +8065,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1794"/>
         <source>Clip &amp;5</source>
-        <translation>Klipp &amp;5</translation>
+        <translation>Фрагмент &amp;5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1797"/>
         <source>Insert Clip 5</source>
-        <translation>Infoga klipp 5</translation>
+        <translation>Вставити Фрагмент 5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1800"/>
@@ -8082,12 +8080,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1805"/>
         <source>Clip &amp;6</source>
-        <translation>Klipp &amp;6</translation>
+        <translation>Фрагмент &amp;6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1808"/>
         <source>Insert Clip 6</source>
-        <translation>Infoga klipp 6</translation>
+        <translation>Вставити Фрагмент 6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1811"/>
@@ -8097,12 +8095,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1816"/>
         <source>Clip &amp;7</source>
-        <translation>Klipp &amp;7</translation>
+        <translation>Фрагмент &amp;7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1819"/>
         <source>Insert Clip 7</source>
-        <translation>Infoga klipp 7</translation>
+        <translation>Вставити Фрагмент 7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1822"/>
@@ -8112,12 +8110,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1827"/>
         <source>Clip &amp;8</source>
-        <translation>Klipp &amp;8</translation>
+        <translation>Фрагмент &amp;8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1830"/>
         <source>Insert Clip 8</source>
-        <translation>Infoga klipp 8</translation>
+        <translation>Вставити Фрагмент 8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1833"/>
@@ -8127,12 +8125,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1838"/>
         <source>Clip &amp;9</source>
-        <translation>Klipp &amp;9</translation>
+        <translation>Фрагмент &amp;9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1841"/>
         <source>Insert Clip 9</source>
-        <translation>Infoga klipp 9</translation>
+        <translation>Вставити Фрагмент 9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1844"/>
@@ -8142,12 +8140,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1849"/>
         <source>Clip 1&amp;0</source>
-        <translation>Klipp 1&amp;0</translation>
+        <translation>Фрагмент 1&amp;0</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1852"/>
         <source>Insert Clip 10</source>
-        <translation>Infoga klipp 10</translation>
+        <translation>Вставити Фрагмент 10</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1855"/>
@@ -8157,107 +8155,107 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1860"/>
         <source>Clip 11</source>
-        <translation>Klipp 11</translation>
+        <translation>Фрагмент 11</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1863"/>
         <source>Insert Clip 11</source>
-        <translation>Infoga klipp 11</translation>
+        <translation>Вставити Фрагмент 11</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1868"/>
         <source>Clip 12</source>
-        <translation>Klipp 12</translation>
+        <translation>Фрагмент 12</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1871"/>
         <source>Insert Clip 12</source>
-        <translation>Infoga klipp 12</translation>
+        <translation>Вставити Фрагмент 12</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1876"/>
         <source>Clip 13</source>
-        <translation>Klipp 13</translation>
+        <translation>Фрагмент 13</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1879"/>
         <source>Insert Clip 13</source>
-        <translation>Infoga klipp 13</translation>
+        <translation>Вставити Фрагмент 13</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1884"/>
         <source>Clip 14</source>
-        <translation>Klipp 14</translation>
+        <translation>Фрагмент 14</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1887"/>
         <source>Insert Clip 14</source>
-        <translation>Infoga klipp 14</translation>
+        <translation>Вставити Фрагмент 14</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1892"/>
         <source>Clip 15</source>
-        <translation>Klipp 15</translation>
+        <translation>Фрагмент 15</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1895"/>
         <source>Insert Clip 15</source>
-        <translation>Infoga klipp 15</translation>
+        <translation>Вставити Фрагмент 15</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1900"/>
         <source>Clip 16</source>
-        <translation>Klipp 16</translation>
+        <translation>Фрагмент 16</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1903"/>
         <source>Insert Clip 16</source>
-        <translation>Infoga klipp 16</translation>
+        <translation>Вставити Фрагмент 16</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1908"/>
         <source>Clip 17</source>
-        <translation>Klipp 17</translation>
+        <translation>Фрагмент 17</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1911"/>
         <source>Insert Clip 17</source>
-        <translation>Infoga klipp 17</translation>
+        <translation>Вставити Фрагмент 17</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1916"/>
         <source>Clip 18</source>
-        <translation>Klipp 18</translation>
+        <translation>Фрагмент 18</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1919"/>
         <source>Insert Clip 18</source>
-        <translation>Infoga klipp 18</translation>
+        <translation>Вставити Фрагмент 18</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1924"/>
         <source>Clip 19</source>
-        <translation>Klipp 19</translation>
+        <translation>Фрагмент 19</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1927"/>
         <source>Insert Clip 19</source>
-        <translation>Infoga klipp 19</translation>
+        <translation>Вставити Фрагмент 19</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1932"/>
         <source>Clip 20</source>
-        <translation>Klipp 20</translation>
+        <translation>Фрагмент 20</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1935"/>
         <source>Insert Clip 20</source>
-        <translation>Infoga klipp 20</translation>
+        <translation>Вставити Фрагмент 20</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1940"/>
         <source>&amp;Preferences...</source>
-        <translation>&amp;Inställningar...</translation>
+        <translation>&amp;Налаштування…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1943"/>
@@ -8267,12 +8265,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1948"/>
         <source>&amp;Zoom Reset</source>
-        <translation>&amp;Zoom återställning</translation>
+        <translation>Початковий &amp;масштаб</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1951"/>
         <source>Zoom Reset</source>
-        <translation>Zoomåterställning</translation>
+        <translation>Повернутися до початкового масштабу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1954"/>
@@ -8282,16 +8280,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1966"/>
         <source>Heading &amp;1</source>
-        <translation>Rubrik &amp;1</translation>
+        <translation>Заголовок &amp;1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1969"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Rubrik 1&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заголовок 1&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formatera stycket som en rubrik på nivå 1.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматувати абзац як заголовок 1-го рівня.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1974"/>
@@ -8301,16 +8299,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="1986"/>
         <source>Heading &amp;2</source>
-        <translation>Rubrik &amp;2</translation>
+        <translation>Заголовок &amp;2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1989"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Rubrik 2&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заголовок 2&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formatera stycket som en rubrik på nivå 2.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматувати абзац як заголовок 2-го рівня.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1994"/>
@@ -8320,16 +8318,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2006"/>
         <source>Heading &amp;3</source>
-        <translation>Rubrik &amp;3</translation>
+        <translation>Заголовок &amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2009"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Rubrik 3&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заголовок 3&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formatera stycket som en rubrik på nivå 3.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматувати абзац як заголовок 3-го рівня.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2014"/>
@@ -8339,16 +8337,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2026"/>
         <source>Heading &amp;4</source>
-        <translation>Rubrik &amp;4</translation>
+        <translation>Заголовок &amp;4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2029"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Rubrik 4&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заголовок 4&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formatera stycket som en rubrik på nivå 4.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматувати абзац як заголовок 4-го рівня.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2034"/>
@@ -8358,16 +8356,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2046"/>
         <source>Heading &amp;5</source>
-        <translation>Rubrik &amp;5</translation>
+        <translation>Заголовок &amp;5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2049"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Rubrik 5&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заголовок 5&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formatera stycket som en rubrik på nivå 5.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматувати абзац як заголовок 5-го рівня.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2054"/>
@@ -8377,16 +8375,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2066"/>
         <source>Heading &amp;6</source>
-        <translation>Rubrik &amp;6</translation>
+        <translation>Заголовок &amp;6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2069"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Rubrik 6&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заголовок 6&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formatera stycket som en rubrik på nivå 6.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматувати абзац як заголовок 6-го рівня.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2074"/>
@@ -8396,16 +8394,16 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2086"/>
         <source>&amp;Normal</source>
-        <translation>&amp;Normal</translation>
+        <translation>Звичайний текст</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2089"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Stycke&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Абзац&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formatera stycke som ett normalt stycke.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматувати як звичайний текст.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2094"/>
@@ -8415,66 +8413,66 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2102"/>
         <source>&amp;Preserve Existing Attributes</source>
-        <translation>&amp;Bevara befintliga attribut</translation>
+        <translation>&amp;Збереження Існуючих Атрибутів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2105"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
-        <translation>När du använder denna stil, bevara alla befintliga attribut på taggen</translation>
+        <translation>При застосуванні цього стилю зберігаються всі існуючі атрибути тега</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2110"/>
         <source>Blank HTML File</source>
-        <translation>Tom HTML-fil</translation>
+        <translation>Бланк HTML-файлу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2113"/>
         <source>Add a new blank HTML file to the book.</source>
-        <translation>Lägg till en ny tom HTML-fil i boken.</translation>
+        <translation>Додати до книги новий порожній HTML-файл.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2122"/>
         <source>Existing Files...</source>
-        <translation>Befintliga filer...</translation>
+        <translation>Існуючі Файли...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2125"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lägg till befintliga filer&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Додати існуючі файли&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Lägg till filer från din dator till boken.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Додайте до книги файли зі свого комп’ютера.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2132"/>
         <source>Blank Stylesheet</source>
-        <translation>Tom formatmall</translation>
+        <translation>Бланк Таблиці Стилів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2135"/>
         <source>Add a new blank stylesheet to the book.</source>
-        <translation>Lägg till en ny tom formatmall i boken.</translation>
+        <translation>Додати до книги нову порожню Таблицю Стилів.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2140"/>
         <source>Blank SVG Image</source>
-        <translation>Tom SVG-bild</translation>
+        <translation>Бланк зображення SVG</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2143"/>
         <source>Add a new blank svg image file to the book.</source>
-        <translation>Lägg till en ny tom svg-bildfil i boken.</translation>
+        <translation>Додати до книги новий порожній файл зображення SVG.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2148"/>
         <source>Pre&amp;vious File</source>
-        <translation>För&amp;egående fil</translation>
+        <translation>Попе&amp;редній Файл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2151"/>
         <source>Open previous file of the same type.</source>
-        <translation>Öppna föregående fil av samma typ.</translation>
+        <translation>Відкрити попередній файл того ж типу.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2154"/>
@@ -8484,12 +8482,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2159"/>
         <source>Next &amp;File</source>
-        <translation>Nästa &amp;fil</translation>
+        <translation>Наступний &amp;Файл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2162"/>
         <source>Open next file of the same type.</source>
-        <translation>Öppna nästa fil av samma typ.</translation>
+        <translation>Відкрити наступний файл того ж типу.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2165"/>
@@ -8499,22 +8497,22 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2170"/>
         <source>&amp;Add To Index Editor</source>
-        <translation>&amp;Lägg till Indexredigerare</translation>
+        <translation>&amp;Додати до Редактора Індексів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2173"/>
         <source>Add the selected text to the Index Editor.</source>
-        <translation>Lägg till den markerade texten i Indexredigeraren.</translation>
+        <translation>Додати вибраний текст до Редактора Індексів.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2178"/>
         <source>&amp;Mark For Index</source>
-        <translation>&amp;Markera för index</translation>
+        <translation>&amp;Позначити як Індекс</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2181"/>
         <source>Mark the selected text for inclusion in the Index.</source>
-        <translation>Markera den markerade texten för inkludering i indexet.</translation>
+        <translation>Позначити вибраний текст для включення до Індекса.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2184"/>
@@ -8524,27 +8522,27 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2189"/>
         <source>&amp;Create Index</source>
-        <translation>&amp;Skapa index</translation>
+        <translation>&amp;Створити Індекс</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2192"/>
         <source>Generate a new Index HTML file.</source>
-        <translation>Generera en ny Index HTML-fil.</translation>
+        <translation>Генерувати новий індексний HTML-файл.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2197"/>
         <source>&amp;Create HTML Table Of Contents</source>
-        <translation>&amp;Skapa HTML-innehållsförteckning</translation>
+        <translation>&amp;Створити файл HTML зі Змістом</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2200"/>
         <source>Create a new HTML file using the current TOC.</source>
-        <translation>Skapa en ny HTML-fil med den aktuella Innehållsförteckningen.</translation>
+        <translation>Створити новий файл HTML, використовуючи поточний TOC.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2205"/>
         <source>Book&amp;mark Location</source>
-        <translation>Bok&amp;märk plats</translation>
+        <translation>Місце зак&amp;ладки</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2208"/>
@@ -8554,7 +8552,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2213"/>
         <source>&amp;Go To Link Or Style</source>
-        <translation>&amp;Gå till länk eller stil</translation>
+        <translation>&amp;Перейти до посилання або стилю</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2216"/>
@@ -8564,7 +8562,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2225"/>
         <source>&amp;Back</source>
-        <translation>&amp;Tillbaka</translation>
+        <translation>&amp;Назад</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2228"/>
@@ -8572,9 +8570,9 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
     </source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Tillbaka&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Назад&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Gå tillbaka till där du senast gick till en länk eller stil, eller bokmärkt din plats.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Повернутись туди, де ви востаннє перейшли за посиланням чи стилем, або зробили закладки свого місцезнаходження.&lt;/p&gt;
     </translation>
     </message>
     <message>
@@ -8585,7 +8583,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2239"/>
         <source>Edit/Paste From Clipboard &amp;History...</source>
-        <translation>Redigera/Klistra in från urklipps&amp;historiken...</translation>
+        <translation>Редагувати/Вставити з &amp;історії буфера обміну...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2242"/>
@@ -8595,7 +8593,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2247"/>
         <source>&amp;Delete Line</source>
-        <translation>&amp;Ta bort rad</translation>
+        <translation>&amp;Видалити рядок</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2250"/>
@@ -8605,62 +8603,62 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2255"/>
         <source>Manage Plugins</source>
-        <translation>Hantera insticksmoduler</translation>
+        <translation>Управління Плагінами</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2264"/>
         <source>Run Plugin 1</source>
-        <translation>Kör insticksmodul 1</translation>
+        <translation>Запустити Плагін 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2273"/>
         <source>Run Plugin 2</source>
-        <translation>Kör insticksmodul 2</translation>
+        <translation>Запустити Плагін 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2282"/>
         <source>Run Plugin 3</source>
-        <translation>Kör insticksmodul 3</translation>
+        <translation>Запустити Плагін 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2291"/>
         <source>Run Plugin 4</source>
-        <translation>Kör insticksmodul 4</translation>
+        <translation>Запустити Плагін 4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2300"/>
         <source>Run Plugin 5</source>
-        <translation>Kör insticksmodul 5</translation>
+        <translation>Запустити Плагін 5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2309"/>
         <source>Run Plugin 6</source>
-        <translation>Kör insticksmodul 6</translation>
+        <translation>Запустити Плагін 6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2318"/>
         <source>Run Plugin 7</source>
-        <translation>Kör insticksmodul 7</translation>
+        <translation>Запустити Плагін 7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2327"/>
         <source>Run Plugin 8</source>
-        <translation>Kör insticksmodul 8</translation>
+        <translation>Запустити Плагін 8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2336"/>
         <source>Run Plugin 9</source>
-        <translation>Kör insticksmodul 9</translation>
+        <translation>Запустити Плагін 9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2345"/>
         <source>Run Plugin 10</source>
-        <translation>Kör insticksmodul 10</translation>
+        <translation>Запустити Плагін 10</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2354"/>
         <source>Launch External Xhtml Editor</source>
-        <translation>Starta extern XHTML-redigerare</translation>
+        <translation>Запуск зовнішнього редактора Xhtml</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2357"/>
@@ -8670,77 +8668,77 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Form_Files/main.ui" line="2362"/>
         <source>Mend and &amp;Prettify All HTML Files</source>
-        <translation>Reparera och &amp;försköna alla HTML-filer</translation>
+        <translation>Виправити та &amp;відформатувати Код всіх HTML файлів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2367"/>
         <source>&amp;Mend All HTML Files</source>
-        <translation>&amp;Reparera alla HTML-filer</translation>
+        <translation>&amp;Виправити всі HTML файли</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2372"/>
         <source>&amp;Update Manifest Properties</source>
-        <translation>&amp;Uppdatera manifestets egenskaper</translation>
+        <translation>&amp;Оновити властивості Маніфесту</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2377"/>
         <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
-        <translation>Skapa &amp;NCX/Guide för epub2 e-läsenehter</translation>
+        <translation>Створити &amp;NCX/Посібник для epub2 рідерів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2382"/>
         <source>Remove the NCX and Guide</source>
-        <translation>Ta bort NCX och Guide</translation>
+        <translation>Видалити NCX та Посібник</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="323"/>
         <source>Input</source>
-        <translation>Inmatning</translation>
+        <translation>Ввод</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="329"/>
         <source>Output</source>
-        <translation>Utmatning</translation>
+        <translation>Вивід</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="341"/>
         <source>Validation</source>
-        <translation>Validering</translation>
+        <translation>Перевірка</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="402"/>
         <source>External XHtml Editor works only on Html Resources or OPF Resources!</source>
-        <translation>Externa XHtml-redigerare fungerar endast med Html-resurser eller OPF-resurser!</translation>
+        <translation>Зовнішній редактор XHtml працює лише з ресурсами Html або OPF!</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="409"/>
         <source>No External Xhtml Editor has been specified:  See Preferences</source>
-        <translation type="unfinished"/>
+        <translation>Жоден зовнішній редактор Xhtml не вказаний: дивитись Налаштування</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="416"/>
         <source>Specified External Xhtml Editor path does not exist</source>
-        <translation type="unfinished"/>
+        <translation>Вказаний шлях для зовнішнього редактора Xhtml не існує</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="460"/>
         <source>Executing External Xhtml Editor</source>
-        <translation type="unfinished"/>
+        <translation>Виконання зовнішнього редактора Xhtml</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="463"/>
         <source>Failed to Launch External Xhtml Editor</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося запустити зовнішній редактор Xhtml</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="557"/>
         <source>Navigation cancelled as location no longer exists.</source>
-        <translation>Navigering avbruten eftersom platsen inte längre existerar.</translation>
+        <translation>Навігація скасована, оскільки місцезнаходження більше не існує.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="574"/>
         <source>Location bookmarked.</source>
-        <translation>Plats bokmärkt.</translation>
+        <translation>Місце позначене закладкою.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="638"/>
@@ -8785,408 +8783,408 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
         <source>Are you sure you want to open this external link?
 
 %1</source>
-        <translation>Är du säker på att du vill öppna den här externa länken?
+        <translation>Ви впевнені, що хочете відкрити це зовнішнє посилання?
 
 %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="674"/>
         <source>was updated</source>
-        <translation>uppdaterades</translation>
+        <translation>було оновлено</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="681"/>
         <source>Warning</source>
-        <translation>Varning</translation>
+        <translation>Попередження</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="681"/>
         <source>The file was NOT well formed and may be corrupted.</source>
-        <translation>Filen var INTE välformad och kan vara skadad.</translation>
+        <translation>Файл НЕ був правильно сформований і може бути пошкоджений.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="709"/>
         <source>Opening this EPUB generated warnings.</source>
-        <translation>Öppnar denna EPUB:s genererade varningar.</translation>
+        <translation>При відкритті цього EPUB, створені попередження.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="711"/>
         <source>Select Show Details for more information.</source>
-        <translation>Välj Visa information för mer information.</translation>
+        <translation>Виберіть Показати деталі для отримання додаткової інформації.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="766"/>
         <source>Sigil is closing...</source>
-        <translation>Sigil stängs...</translation>
+        <translation>Sigil закривається...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="817"/>
         <source>New file created.</source>
-        <translation>Ny fil skapad.</translation>
+        <translation>Новий файл створено.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="838"/>
         <source>Open File</source>
-        <translation>Öppna fil</translation>
+        <translation>Відкрити файл</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="875"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
-        <translation>Den här filen finns inte längre. Klicka på OK för att ta bort den från menyn.
+        <translation>Цей файл більше не існує. Клацніть OK, щоб видалити його з меню.
 %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="945"/>
         <source>Save File</source>
-        <translation>Spara fil</translation>
+        <translation>Зберегти файл</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="999"/>
         <source>Save a Copy</source>
-        <translation>Spara en kopia</translation>
+        <translation>Зберегти як копію</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1062"/>
         <source>Go To Line</source>
-        <translation>Gå till rad</translation>
+        <translation>Перейти до рядка</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1062"/>
         <source>Line #</source>
-        <translation>Rad #</translation>
+        <translation>Рядок #</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1085"/>
         <source>Image does not exist: </source>
-        <translation>Bilden finns inte:</translation>
+        <translation>Зображення не існує:</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1147"/>
         <source>or</source>
-        <translation>eller</translation>
+        <translation>або</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1155"/>
         <source>No CSS styles named</source>
-        <translation>Inga CSS-stilar som heter</translation>
+        <translation>Немає назв стилів CSS</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1155"/>
         <source>found, or stylesheet not linked.</source>
-        <translation>hittad, eller formatmall inte länkad.</translation>
+        <translation>знайдено або таблиця стилів не пов’язана.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1232"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;p&gt;Гіперпосилання &lt;b&gt;%1&lt;/b&gt; знайдене у &lt;b&gt;%2&lt;/b&gt; не існує (і їх може бути більше). Розділення або злиття в цих умовах може призвести до розриву зв’язків або посилань.&lt;/p&gt;&lt;p&gt;Ви все ще хочете продовжувати?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1256"/>
         <source>Add Cover</source>
-        <translation>Lägg till omslag</translation>
+        <translation>Додати обкладинку</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1354"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
-        <translation>Oväntat fel. Endast bildfiler kan användas för omslaget.</translation>
+        <translation>Неочікувана помилка. Для обкладинки можуть використовуватися лише файли зображень.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1371"/>
         <source>Cover added.</source>
-        <translation>Omslag tillagt.</translation>
+        <translation>Обкладинку додано.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1380"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1397"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1429"/>
         <source>Not Available for epub2.</source>
-        <translation>Inte tillgänglig för epub2.</translation>
+        <translation>Недоступно для epub2.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
         <source>OPF Manifest Properties Updated.</source>
-        <translation>OPF-manifestets egenskaper uppdaterades.</translation>
+        <translation>Оновлені властивості маніфесту OPF.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1419"/>
         <source>NCX and Guide removed.</source>
-        <translation>NCX och Guide borttagna.</translation>
+        <translation>NCX та Посібник видалені.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1446"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1464"/>
         <source>NCX and Guide generation failed.</source>
-        <translation>NCX och Guide skapande misslyckats.</translation>
+        <translation>Помилка генерації NCX та Посібника.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1513"/>
         <source>NCX and Guide generated.</source>
-        <translation>NCX och Guide skapade.</translation>
+        <translation>NCX та Посібник сгенеровані.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1669"/>
         <source>Styles deleted.</source>
-        <translation>Stilar borttagna.</translation>
+        <translation>Стилі виделено.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1684"/>
         <source>Reports cancelled due to XML not well formed.</source>
-        <translation>Rapporter avbruten på grund av XML inte välformade.</translation>
+        <translation>Звіти скасовуються через неправильне формування XML.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1771"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
-        <translation>Ta bort oanvända mediefiler avbruten på grund av att XML inte är välformad.</translation>
+        <translation>Видалення невикористаних медіафайлів скасовано через неправильне формування XML.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1824"/>
         <source>Unused media files deleted.</source>
-        <translation>Oanvända mediefiler borttagna.</translation>
+        <translation>Невикористані медіа-файли видалено.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1826"/>
         <source>There are no unused image, video or audio files to delete.</source>
-        <translation>Det finns inga oanvända bild-, video- eller ljudfiler att ta bort.</translation>
+        <translation>Немає використаних файлів зображень, відео чи аудіо, які можна видалити.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1834"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
-        <translation>Ta bort oanvända stilar avbruten på grund av att XML inte är välformad.</translation>
+        <translation>Видалення невикористаних стилів скасовано через неправильне формування XML.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1851"/>
         <source>There are no unused stylesheet classes to delete.</source>
-        <translation>Det finns inga oanvända formatmallsklasser att ta bort.</translation>
+        <translation>Немає невикористаних класів таблиць стилів, які потрібно видалити.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1863"/>
         <source>You cannot insert a file at this position.</source>
-        <translation>Du kan inte infoga en fil i den här positionen.</translation>
+        <translation>Ви не можете вставити файл у цій позиції.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1870"/>
         <source>Insert File</source>
-        <translation>Infoga fil</translation>
+        <translation>Вставити Файл</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1915"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Filen &quot;%1&quot; finns inte.</translation>
+        <translation>Не існує файлу &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1966"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1987"/>
         <source>You cannot insert an id at this position.</source>
-        <translation>Du kan inte infoga ett id på denna position.</translation>
+        <translation>Ви не можете вставити ідентифікатор у цю позицію.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1982"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
-        <translation>ID är ogiltigt - måste börja med en bokstav, följt av bokstavsnummer _ : - eller .</translation>
+        <translation>ID недійсний — повинен починатися з літери, після чого можуть додаватися букви, цифри, знаки  &quot;-&quot;, &quot;_&quot;, &quot;:&quot;, або &quot;.&quot;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2000"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2018"/>
         <source>You cannot insert a link at this position.</source>
-        <translation>Du kan inte infoga en länk på denna position.</translation>
+        <translation>Ви не можете вставити посилання в цій позиції.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2013"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation>Länken är ogiltig - kan inte innehålla &quot;&lt;&quot; eller &quot;&gt;&quot;</translation>
+        <translation>Посилання недійсне - не може містити &apos;&lt;&apos; або &apos;&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2030"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
-        <translation>Du kan inte markera ett index på den här positionen eller utan att markera text.</translation>
+        <translation>Ви не можете позначити індекс у цій позиції або не вибравши текст.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2040"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation>Posten är ogiltig - kan inte innehålla &quot;&lt;&quot; eller &quot;&gt;&quot;</translation>
+        <translation>Запис недійсний - не може містити &apos;&lt;&apos; або &apos;&gt;&apos;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2045"/>
         <source>You cannot mark an index at this position.</source>
-        <translation>Du kan inte markera ett index på denna position.</translation>
+        <translation>Ви не можете позначити індекс на цій позиції.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2099"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2110"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2229"/>
         <source>Select the destination to paste into first.</source>
-        <translation>Välj den destination som ska klistras in först.</translation>
+        <translation>Виберіть місце призначення, що слід вставити спочатку.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2118"/>
         <source>Pasted clip entry %1.</source>
-        <translation>Klistrade in klippost %1.</translation>
+        <translation>Вставлено елемент фрагменту %1.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2276"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
-        <translation>En resurs vald och det finns ingen tidigare resurs att slå samman med.</translation>
+        <translation>Вибраний тільки один ресурс, і немає іншого ресурсу для злиття.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2283"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
-        <translation>Är du säker på att du vill slå samman de valda filerna?
-Denna åtgärd kan inte ångras.</translation>
+        <translation>Ви впевнені, що хочете об&apos;єднати вибрані файли?
+Цю дію неможливо відмінити.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2297"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
-        <translation>Sammanfogning avbruten: %1, XML är inte välformad.</translation>
+        <translation>Злиття скасовано: %1, XML неправильно сформований.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2302"/>
         <source>Merge cancelled due to XML not well formed.</source>
-        <translation>Sammanfogning avbruten på grund av att XML inte var välformade.</translation>
+        <translation>Злиття скасовано через неправильно сформований XML.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2326"/>
         <source>Cannot merge file %1</source>
-        <translation>Det går inte att sammanfoga filen %1</translation>
+        <translation>Неможливо об&apos;єднати файл %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2340"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
-        <translation>Sammanfogning klar. Du kan behöva regenerera eller redigera innehållsförteckningen.</translation>
+        <translation>Злиття успішно завершено. Можливо, вам доведеться заново створити або відредагувати зміст.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2358"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
-        <translation>Länka formatmallar avbruten: %1, XML inte välformad.</translation>
+        <translation>Зв&apos;язування з Таблицями Стилів скасовано: %1, XML неправильно сформований.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2483"/>
         <source>Word updated.</source>
-        <translation>Ordet uppdaterat.</translation>
+        <translation>Слово оновлено.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2557"/>
         <source>File(s) deleted.</source>
-        <translation>Fil/filer borttagna.</translation>
+        <translation>Файл(и) видалено.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2568"/>
         <source>Edit Table of Contents cancelled.</source>
-        <translation>Redigera innehållsförteckning avbruten.</translation>
+        <translation>Редагування Змісту скасовано.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2573"/>
         <source>Table Of Contents edited.</source>
-        <translation>Innehållsförteckning redigerad.</translation>
+        <translation>Зміст відредаговано.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2591"/>
         <source>Generate TOC cancelled.</source>
-        <translation>Generera innehållsförteckning avbruten.</translation>
+        <translation>Створення Змісту скасовано.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2616"/>
         <source>Table Of Contents generated.</source>
-        <translation>Innehållsförteckning genererad.</translation>
+        <translation>Зміст сформовано.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2618"/>
         <source>No Table Of Contents changes were necessary.</source>
-        <translation>Inga ändringar av innehållsförteckningen var nödvändiga.</translation>
+        <translation>Зміни Змісту не потрібні.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2762"/>
         <source>Text selection marked.</source>
-        <translation>Vald text markerad.</translation>
+        <translation>Вибраний текст позначений.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2764"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2782"/>
         <source>Text selection unmarked.</source>
-        <translation>Vald text avmarkerad.</translation>
+        <translation>Знято позначення вибраного тексту.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2831"/>
         <source>Metadata Editor cancelled.</source>
-        <translation>Metadata-redigerare avbruten.</translation>
+        <translation>Роботу Редактора МетаДаних скасовано.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2834"/>
         <source>Metadata edited.</source>
-        <translation>Metadata redigerad.</translation>
+        <translation>МетаДані відредаговані.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2924"/>
         <source>RunPlugin</source>
-        <translation>RunPlugin</translation>
+        <translation>ЗапуститиПлагін</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2949"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
-        <translation>Denna EPUB innehåller inga CSS-formatmallar att validera.</translation>
+        <translation>Цей EPUB не містить таблиць стилів CSS для перевірки.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3411"/>
         <source>Line: %1, Col: %2</source>
-        <translation>Rad: %1, Kol: %2</translation>
+        <translation>Рядок: %1, Стовпець: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3497"/>
         <source>File cannot be split at this position.</source>
-        <translation>Filen kan inte delas på denna position.</translation>
+        <translation>Файл неможливо розділити з цієї позиції.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3503"/>
         <source>Cannot split since it may not be an HTML file.</source>
-        <translation>Det går inte att dela eftersom det kanske inte är en HTML-fil.</translation>
+        <translation>Неможливо розділити, оскільки це може бути не HTML-файл.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3509"/>
         <source>The Nav file cannot be split.</source>
-        <translation>Nav-filen kan inte delas upp.</translation>
+        <translation>Файл Nav неможливо розділити.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3526"/>
         <source>Split completed.</source>
-        <translation>Delning klar.</translation>
+        <translation>Розділення завершено.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3544"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
-        <translation>Det går inte att dela eftersom minst en fil inte är en HTML-fil.</translation>
+        <translation>Неможливо розділити, оскільки принаймні один файл не є файлом HTML.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3550"/>
         <source>Cannot split: %1 XML is not well formed</source>
-        <translation>Det går inte att dela: %1 XML är inte välformad</translation>
+        <translation>Неможливо розділити: %1 XML неправильно сформований</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3556"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
-        <translation>Det går inte att dela eftersom minst en fil kanske inte är en HTML-fil.</translation>
+        <translation>Неможливо розділити, оскільки принаймні один файл може бути не HTML файлом.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3589"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
-        <translation>Delning klar. Du kan behöva uppdatera innehållsförteckningen.</translation>
+        <translation>Розділення завершено. Можливо, вам доведеться оновити Зміст.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3591"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
-        <translation>Inga delningsfilmarkörer hittades. Använd Infoga-&gt;Delningsmarkör.</translation>
+        <translation>Не знайдено маркерів розділення файлу. Використовуйте Вставити -&gt; Маркер розділення.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3787"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
-        <translation>Dokumentet har ändrats.
-Vill du spara dina ändringar?</translation>
+        <translation>В документ були внесені зміни.
+Ви хочете зберегти свої зміни?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3868"/>
         <source>No importer for file type: %1</source>
-        <translation>Ingen importör för filtyp: %1</translation>
+        <translation>Відсутній контейнер для типу файлу: %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3875"/>
@@ -9195,99 +9193,99 @@ Vill du spara dina ändringar?</translation>
 %1 (line %2: %3)
 
 Try setting the Clean Source preference to Mend XHTML Source Code on Open and reloading the file.</source>
-        <translation>Följande fil lästes inte in på grund av ogiltigt innehåll eller inte välformad XML:
+        <translation>Наступний файл не завантажений через недійсний вміст або неправильно сформований XML:
 
-%1 (Rad %2: %3)
+%1 (рядок %2: %3)
 
-Prova att ställa in Rensa källkod inställningen för att reparera XHTML-källkod på Öppna och läs om filen.</translation>
+Спробуйте налаштувати параметр Clean Source на &quot;Виправляти вихідний код XHTML при відкритті&quot; та перезавантажте файл.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3880"/>
         <source>Loading file...</source>
-        <translation>Läser in fil...</translation>
+        <translation>Завантаження файлу...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3894"/>
         <source>File loaded.</source>
-        <translation>Filen inläst.</translation>
+        <translation>Файл завантажено.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3921"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
-        <translation>Skaparen av den här filen har krypterat den med DRM. Sigil kan inte öppna sådana filer.</translation>
+        <translation>Той хто створив цей файл зашифрував його за допомогою DRM. Sigil не може відкрити такі файли.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3928"/>
         <source>Cannot load EPUB: %1</source>
-        <translation>Kan inte läsa in EPUB: %1</translation>
+        <translation>Неможливо завантажити EPUB: %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3932"/>
         <source>Cannot load file %1: %2</source>
-        <translation>Det går inte att läsa filen %1: %2</translation>
+        <translation>Неможливо завантажити файл %1: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3961"/>
         <source>Saving EPUB...</source>
-        <translation>Sparar EPUB...</translation>
+        <translation>Збереження EPUB...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3970"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
-        <translation>Sigil kan inte spara filer av typen %1.
-Vänligen välj ett annat format.</translation>
+        <translation>Sigil не може зберігати файли типу &quot;%1&quot;.
+Будь ласка, виберіть інший формат.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3995"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in data loss.
 
 Do you want to automatically mend the files before saving?</source>
-        <translation>Denna EPUB har HTML-filer som inte är välformade och dina nuvarande Rensa källa inställningar är inställda på att automatiskt reparera vid Spara. Att spara en fil som inte är välformad kommer att orsaka att den automatiskt repareras, vilket mycket sällan kan leda till dataförlust.
+        <translation>Цей EPUB містить файли HTML, які не сформовані належним чином, і Ваші поточні налаштування &quot;Clean Source&quot; налаштовані автоматично виправляти формат при збереженні. Збереження недостатньо сформованого файлу призведе до його автоматичного виправлення, що дуже рідко може призвести до втрати даних.
 
-Vill du automatiskt reparera filerna innan du sparar?</translation>
+Ви хочете,  автоматично виправляти формат  файлів перед збереженням?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4026"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
-        <translation>EPUB sparad, men alla HTML-filer är inte välformade.</translation>
+        <translation>EPUB збережено, але не всі файли HTML добре сформовані.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4028"/>
         <source>EPUB saved.</source>
-        <translation>EPUB sparad.</translation>
+        <translation>EPUB збережено.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4034"/>
         <source>Cannot save file %1: %2</source>
-        <translation>Det går inte att spara filen %1: %2</translation>
+        <translation>Неможливо зберегти файл %1: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4169"/>
         <source>EPUB files (*.epub)</source>
-        <translation>EPUB-filer (*.epub)</translation>
+        <translation>Файли EPUB (*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4170"/>
         <location filename="../../MainUI/MainWindow.cpp" line="4171"/>
         <location filename="../../MainUI/MainWindow.cpp" line="4172"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
-        <translation>HTML-filer (*.htm *.html *.xhtml)</translation>
+        <translation>Файли HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4173"/>
         <source>Text files (*.txt)</source>
-        <translation>Textfiler (*.txt)</translation>
+        <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4174"/>
         <source>All files (*.*)</source>
-        <translation>Alla filer (*.*)</translation>
+        <translation>Усі файли (*.*)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4182"/>
         <source>EPUB file (*.epub)</source>
-        <translation>EPUB-fil (*.epub)</translation>
+        <translation>Файл EPUB (*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4194"/>
@@ -9297,17 +9295,17 @@ Vill du automatiskt reparera filerna innan du sparar?</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4264"/>
         <source>Preserve existing heading attributes is now:</source>
-        <translation>Bevara befintliga rubrikattribut är nu:</translation>
+        <translation>Зберегти існуючі атрибути заголовка зараз:</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4265"/>
         <source>ON</source>
-        <translation>PÅ</translation>
+        <translation>ON</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4265"/>
         <source>OFF</source>
-        <translation>AV</translation>
+        <translation>OFF</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4290"/>
@@ -9320,2658 +9318,2658 @@ Vill du automatiskt reparera filerna innan du sparar?</translation>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>Abridger</source>
-        <translation type="unfinished"/>
+        <translation>Укладач скорочення</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>A person, family, or organization contributing to a resource by shortening or condensing the original work but leaving the nature and content of the original work substantially unchanged. For substantial modifications that result in the creation of a new work, see Author.</source>
-        <translation>En person, familj eller organisation som bidrar till en resurs genom att förkorta eller kondensera det ursprungliga arbetet men lämnar naturen och innehållet i det ursprungliga arbetet väsentligt oförändrat. För väsentliga ändringar som resulterar i skapandet av ett nytt arbete, se Författare.</translation>
+        <translation>Людина, колектив чи організація, яка вносить свій внесок у ресурс, скорочуючи або стискаючи оригінальний твір, але залишаючи характер і зміст оригінального твору істотно незмінними. Про суттєві зміни, які призводять до створення нового твору, див. Автор.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Actor</source>
-        <translation>Aktör</translation>
+        <translation>Актор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
-        <translation>Använd för en person eller organisation som huvudsakligen uppvisar skådespelande färdigheter i en musikalisk eller dramatisk presentation eller underhållning.</translation>
+        <translation>Використовується для людини чи організації, яка в основному демонструє акторські навички у музичній чи драматичній презентації чи розвагах.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Adapter</source>
-        <translation type="unfinished"/>
+        <translation>Адаптатор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
-        <translation>Använd för en person eller organisation som 1) omarbetar en musikalisk komposition, vanligtvis för ett annat medium eller 2) skriver om romaner eller berättelser för rörliga bilder eller annat audiovisuellt medium.</translation>
+        <translation>Використовується для людини чи організації, яка 1) перетворює музичну композицію, як правило, для іншого носія, або 2) переписує романи чи оповідання для кінофільмів чи іншого аудіовізуального носія.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Analyst</source>
-        <translation>Analytiker</translation>
+        <translation>Аналітик</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
-        <translation>Använd för en person eller organisation som granskar, undersöker och tolkar data eller information inom ett visst område.</translation>
+        <translation>Використовується для людини чи організації, яка переглядає, вивчає та інтерпретує дані чи інформацію в певній області.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Animator</source>
-        <translation>Animatör</translation>
+        <translation>Аніматор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
-        <translation>Använd för en person eller organisation som drar de tvådimensionella figurerna, manipulerar de tredimensionella objekten och/eller programmerar datorn för att flytta objekt och bilder för animerad filmbehandling. Animeringskameror, stativ, celluloidskärmar, OH-film och bläck är några av animatörens verktyg.</translation>
+        <translation>Використовується для людини чи організації, яка малює двовимірні фігури, маніпулює тривимірними об&apos;єктами та/або також програмує комп’ютер для переміщення предметів та зображень для обробки анімаційних фільмів. Анімаційні камери, підставки, целюлоїдні екрани, прозорі плівки та чорнила - це деякі інструменти аніматора.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Annotator</source>
-        <translation>Annotator</translation>
+        <translation>Анотатор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
-        <translation>Använd för en person som skriver manuskript anteckningar på ett tryckt objekt.</translation>
+        <translation>Використовується для людини, яка пише рукописні анотації на друковані матеріали.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>Appellant</source>
-        <translation>Klagande</translation>
+        <translation>Апелянт</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>A person or organization who appeals a lower court&apos;s decision.</source>
-        <translation>En person eller organisation som överklagar en lägre domstols beslut.</translation>
+        <translation>Особа чи організація, яка оскаржує рішення суду нижчої інстанції.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>Appellee</source>
-        <translation>Motpart</translation>
+        <translation>Відповідач за апеляцією</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>A person or organization against whom an appeal is taken.</source>
-        <translation>En person eller organisation mot vilken ett överklagande tas.</translation>
+        <translation>Людина або організація, проти якої подано апеляцію.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Applicant</source>
-        <translation>Sökande</translation>
+        <translation>Заявник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
-        <translation>Användning för en person eller organisation som är ansvarig för inlämning av en ansökan eller som är benämnd som berättigad till resultaten av behandlingen av ansökan (t.ex. utgivning av rättigheter, belöning, titel, position).</translation>
+        <translation>Використовується особу чи організацію, відповідальну за подання заяви, або яка названа правомочною за результатами обробки заяви (наприклад, надання прав, винагороди, звання, посади).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Architect</source>
-        <translation>Arkitekt</translation>
+        <translation>Архітектор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
-        <translation>Använd för en person eller organisation som designar strukturer eller övervakar deras konstruktion.</translation>
+        <translation>Використовується для людини чи організації, яка проектує конструкції або контролює їх будівництво.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Arranger</source>
-        <translation>Arrangör</translation>
+        <translation>Аранжувальник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
-        <translation>Använd för en person eller organisation som transkriberar en musikalisk komposition, vanligtvis för ett annat medium än originalet; i ett arrangemang förblir den musikaliska substansen väsentligen oförändrad.</translation>
+        <translation>Використовується для людини чи організації, яка транскрибує музичну композицію, зазвичай для іншого носія, ніж оригіналу; в аранжуванні музична субстанція залишається по суті незмінною.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Art copyist</source>
-        <translation type="unfinished"/>
+        <translation>Копіїст</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини (наприклад, художника чи скульптора), яка робить копії творів візуального мистецтва.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>Art director</source>
-        <translation>Konstregissör</translation>
+        <translation>Арт-директор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>A person contributing to a motion picture or television production by overseeing the artists and craftspeople who build the sets.</source>
-        <translation>En person som bidrar till en film eller TV-produktion genom att övervaka de konstnärer och hantverkare som bygger upp uppsättningar.</translation>
+        <translation>Людина, яка бере участь у кінофільмі чи телевізійній продукції, спостерігаючи за художниками та майстрами, які будують декороції.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Artist</source>
-        <translation>Artist</translation>
+        <translation>Художник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
-        <translation>Använd för en person (t. ex. en målare) eller organisation som tänker, och kanske också genomför, en original grafisk design eller konstverk, om specifika koder (t.ex. [egr], [etr]) inte önskas. För bokillustratörer, föredrar illustratör [ill].</translation>
+        <translation>Використовується для людини (наприклад, художника) або організацію, яка замислює і, можливо, також реалізує, оригінальний графічний дизайн або твір мистецтва, якщо конкретні коди (наприклад, [egr], [etr]) не бажані. Для ілюстраторів книг віддайте перевагу Illustrator [ill].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Artistic director</source>
-        <translation>Konstnärlig ledare</translation>
+        <translation>Художній керівник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
-        <translation>Använd för en person som ansvarar för att kontrollera utvecklingen av den konstnärliga stilen i en hel produktion, inklusive valet av verk som ska presenteras och urval av senior produktionspersonal.</translation>
+        <translation>Використовується для людини, відповідальної за контроль за розвитком художнього стилю цілої продукції, включаючи вибір творів, що підлягають презентуванню, та підбір старшого виробничого персоналу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Assignee</source>
-        <translation>Tilldelad</translation>
+        <translation>Правонаступник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
-        <translation>Använd för en person eller organisation till vilken en licens för utskrift eller publicering har överförts.</translation>
+        <translation>Використовується для особи чи організації, якій передано ліцензію на друк чи публікацію.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Associated name</source>
-        <translation>Associerat namn</translation>
+        <translation>Асоційована ім’я</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
-        <translation>Används för en person eller organisation som är associerad med eller hittad i en vara eller samling, som inte kan bestämmas som den för en tidigare ägare [fmo] eller annan utsedd relator som anger ursprung.</translation>
+        <translation>Використовується для особи чи організації, пов’язаних або знайдених у каталозі чи колекції, які не можна визначити як колишнього власника [fmo] чи іншого призначеного релятора, що вказує на першоджерело.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Attributed name</source>
-        <translation>Tilldelat namn</translation>
+        <translation>Можливий автор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
-        <translation>Använd för en författare, konstnär, o.s.v., relatera honom/henne till ett arbete för vilket det finns eller en gång var betydande auktoritet för att utse den personen som författare, skapare o.s.v. av arbetet.</translation>
+        <translation>Використовується для автора, художника, тощо, пов’язуючи його з твором, для якого або колись бува значна підстава для визначення цієї людини як автора, письменника, тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Auctioneer</source>
-        <translation>Auktionsutropare</translation>
+        <translation>Аукціоніст</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
-        <translation>Användning för en person eller organisation som ansvarar för uppskattning och offentlig auktionering av varor, särskilt böcker, konstnärliga verk o.s.v.</translation>
+        <translation>Використовується для особи чи організації, яка відповідає за оцінку та публічний аукціон товарів, зокрема книг, художніх творів тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Author</source>
-        <translation>Författare</translation>
+        <translation>Автор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
-        <translation>Använd för en person eller organisation som huvudsakligen ansvarar för det intellektuella eller konstnärliga innehållet i ett arbete, vanligtvis tryckt text. Denna term kan också användas när mer än en person eller ett organ bär sådant ansvar.</translation>
+        <translation>Використовується для людини чи організації, яка несе головну відповідальність за інтелектуальний чи художній зміст твору, як правило, друкованого тексту. Цей термін також може бути використаний, коли таку відповідальність несе більше ніж одна людина чи орган.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Author in quotations or text extracts</source>
-        <translation>Författare i citat eller textextrakt</translation>
+        <translation>Автор цитат або текстових витягів</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
-        <translation>Används för en person eller organisation vars arbete i stor utsträckning Citeras eller extraheras i verk som han eller hon inte bidrog direkt till. Sådana citat finns särskilt i utställningskataloger, samlingar av fotografier o.s.v.</translation>
+        <translation>Використовується для людини чи організації, чиї роботи значною мірою цитуються чи витягуються у творах, до яких він чи вона не робила безпосереднього внеску. Такі цитати зустрічаються, зокрема, у каталогах виставок, колекціях фотографій тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Author of afterword, colophon, etc.</source>
-        <translation>Författare till efterord, kolofon, o.s.v.</translation>
+        <translation>Автор післямови, колофона, тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
-        <translation>Använd för en person eller organisation som ansvarar för ett efterord, efterfas, kolofon, o.s.v. men vem är inte chefsförfattaren till ett arbete.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за післямову, допис, колофон, тощо, але хто не є головним автором твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Author of dialog</source>
-        <translation>Författare till dialog</translation>
+        <translation>Автор діалогу</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
-        <translation>Använd för en person eller organisation som ansvarar för dialogrutan eller talad kommentar för ett manus eller ljudinspelning.</translation>
+        <translation>Використовується для людини чи організації, відповідальної за діалог або промовний коментар для екранізації чи звукозапису.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Author of introduction, etc.</source>
-        <translation>Författare till introduktion o.s.v.</translation>
+        <translation>Автор вступу, тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
-        <translation>Använd för en person eller organisation som ansvarar för en introduktion, inledning, förord eller annan kritisk inledande fråga, men som inte är huvudförfattare.</translation>
+        <translation>Використовується для особи чи організації, яка відповідальна за вступ, передмову, пролог чи іншу критичну вступну інформацію, але хто не є головним автором.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Author of screenplay, etc.</source>
-        <translation>Författare till manus o.s.v.</translation>
+        <translation>Автор сценарію, тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
-        <translation>Använd för en person eller organisation som ansvarar för en film manus, dialog, talade kommentarer, o.s.v.</translation>
+        <translation>Використовується для особи чи організації, яка відповідальна за екранізацію кінофільму, діалог, усний коментар тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>Autographer</source>
-        <translation type="unfinished"/>
+        <translation>Людина яка дає автографи</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>A person whose manuscript signature appears on an item.</source>
-        <translation>En person vars manuskriptsignatur visas på ett objekt.</translation>
+        <translation>Людина, рукописний підпис якого з’являється на предметі.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Bibliographic antecedent</source>
-        <translation>Bibliografisk antecedent</translation>
+        <translation>Бібліографічний попередник, антецедент</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
-        <translation>Använd för en person eller organisation som ansvarar för ett arbete på vilket det arbete som representeras av katalogposten är baserat. Detta kan vara lämpligt för anpassningar, uppföljningar, fortsättningar, index, o.s.v.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за роботу, на якій базується робота, представлена в каталозі. Це може бути доречно для адаптацій, продовжень, продовжень, покажчиків тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Binder</source>
-        <translation>Bindare</translation>
+        <translation>Палітурник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
-        <translation>Använd för en person eller organisation som ansvarar för bindningen av tryckt eller manuskriptmaterial.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за підшивання/зшивання у політурку друкованих або рукописних матеріалів.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Binding designer</source>
-        <translation>Bindningsformgivare</translation>
+        <translation>Дизайнер палітурки</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
-        <translation>Använd för en person eller organisation som ansvarar för bindning av en bok, inklusive typ av bindning, vilken typ av material som används och eventuella dekorativa aspekter av bindningen.</translation>
+        <translation>Використовується для особи або організації, відповідальної за оформлення палітур книги, включаючи тип палітурки, тип використовуваних матеріалів та будь-які декоративні аспекти палітурки.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>Blurb writer</source>
-        <translation type="unfinished"/>
+        <translation>Автор рекламних написів книги</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>A person or organization responsible for writing a commendation or testimonial for a work, which appears on or within the publication itself, frequently on the back or dust jacket of print publications or on advertising material for all media.</source>
-        <translation>En person eller organisation som ansvarar för att skriva en rekommendation eller vittnesmål för ett arbete, som visas på eller inom själva publikationen, ofta på baksidan eller skyddsomslaget av tryckta publikationer eller på reklammaterial för alla medier.</translation>
+        <translation>Людина чи організація, відповідальна за написання рекламки або відгуку за твір, який часто з’являється на публікації або в межах неї, часто на задній або суперобкладинці друкованих видань або на рекламних матеріалах для всіх ЗМІ.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Book designer</source>
-        <translation>Bokdesigner</translation>
+        <translation>Дизайнер книг</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
-        <translation>Använd för en person eller organisation som ansvarar för hela den grafiska utformningen av en bok, inklusive arrangemang av typ och illustration, materialval och process som används.</translation>
+        <translation>Використовується для людини чи організації, відповідальної за весь графічний дизайн книги, включаючи композицію типу та ілюстрації, вибір матеріалів та використовуваний процес.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Book producer</source>
-        <translation>Bokproducent</translation>
+        <translation>Виробник книг</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
-        <translation>Använd för en person eller organisation som ansvarar för produktion av böcker och andra tryckta medier, om specifika koder (t.ex. [bkd], [egr], [tyd], [prt]) inte önskas.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за виробництво книг та інших друкованих носіїв інформації, якщо конкретні коди (наприклад, [bkd], [egr], [tyd], [prt]) не бажані.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Bookjacket designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизайнер суперобкладинки</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, які відповідальні за розробку гнучких обкладинок, розроблених для книги або опублікованих із нею, включаючи тип використовуваних матеріалів та будь-які декоративні аспекти книжкової куртки.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Bookplate designer</source>
-        <translation type="unfinished"/>
+        <translation>Дизайнер екслібрису</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, відповідальної за оформлення ідентифікаційної етикетки власника книги, яка найчастіше приклеюється до внутрішньої передньої обкладинки книги.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Bookseller</source>
-        <translation>Bokhandlare</translation>
+        <translation>Продавець книг</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
-        <translation>Använd för en person eller organisation som gör böcker och andra bibliografiska material tillgängliga för köp. Intresset för materialen är främst lukrativt.</translation>
+        <translation>Використовується для особи чи організації, яка робить книги та інші бібліографічні матеріали доступними для придбання. Інтерес до матеріалів є насамперед вигідним.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>Braille embosser</source>
-        <translation type="unfinished"/>
+        <translation>Витискач шрифту Брайля</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>A person, family, or organization involved in manufacturing a resource by embossing Braille cells using a stylus, special embossing printer, or other device.</source>
-        <translation type="unfinished"/>
+        <translation>Людина, колектив чи організація, яка бере участь у виробництві ресурсу шляхом тиснення шрифту Брайля за допомогою стилуса, спеціального принтера для тиснення чи іншого пристрою.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>Broadcaster</source>
-        <translation>Sändare</translation>
+        <translation>Диктор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>A person, family, or organization involved in broadcasting a resource to an audience via radio, television, webcast, etc.</source>
-        <translation>En person, familj eller organisation som är involverad i att sända en resurs till en publik via radio, TV, webbsändning o.s.v.</translation>
+        <translation>Людина, колектив чи організація, яка бере участь у трансляції ресурсу до аудиторії через радіо, телебачення, веб-трансляцію, тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Calligrapher</source>
-        <translation>Kalligraf</translation>
+        <translation>Каліграф</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
-        <translation>Använd för en person eller organisation som skriver i en konstnärlig hand, vanligtvis som en kopist och eller fängslare.</translation>
+        <translation>Використовується для людини чи організації, яка художньо пише рукою, як правило, як переписувач та чи ентузіаст.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Cartographer</source>
-        <translation>Kartograf</translation>
+        <translation>Картограф</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
-        <translation>Använd för en person eller organisation som ansvarar för skapandet av kartor och andra kartografiska material.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за створення карт та інших картографічних матеріалів.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>Caster</source>
-        <translation type="unfinished"/>
+        <translation>Ливарник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>A person, family, or organization involved in manufacturing a resource by pouring a liquid or molten substance into a mold and leaving it to solidify to take the shape of the mold.</source>
-        <translation>En person, familj eller organisation som är involverad i att tillverka en resurs genom att hälla en flytande eller smält substans i en form och lämna den för att stelna för att ta formen av formen.</translation>
+        <translation>Людина, колектив чи організація, яка бере участь у виробництві ресурсу, наливаючи рідку або розплавлену речовину у форму і залишаючи її твердіти, щоб прийняти форму форми.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Censor</source>
-        <translation type="unfinished"/>
+        <translation>Цензор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
-        <translation type="unfinished"/>
+        <translation>Використовується для цензора, офіційного чи приватного.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Choreographer</source>
-        <translation>Koreograf</translation>
+        <translation>Хореограф</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
-        <translation>Använd för en person eller organisation som komponerar eller arrangerar danser eller andra rörelser (t.ex. &quot;svärdets mästare&quot;) för en musikalisk eller dramatisk presentation eller underhållning.</translation>
+        <translation>Використовується для людини чи організації, яка складає або організовує танці або інші рухи (наприклад, &quot;майстер мечів&quot;) для музичної чи драматичної презентації чи розваг.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Cinematographer</source>
-        <translation>Filmfotograf</translation>
+        <translation>Кінооператор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
-        <translation>Använd för en person eller organisation som ansvarar för de bilder som tagits för en film. Filmfotografen arbetar under överinseende av en regissör och kan också kallas fotograferingschef. Förväxla inte med videograf.</translation>
+        <translation>Використовується для людини чи організації, яка відповідає за зображення, зняті для кінофільму. Кінематограф працює під керівництвом режисера, його також можна назвати директором фотографії. Не плутати з відеооператором.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Client</source>
-        <translation>Klient</translation>
+        <translation>Клієнт</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
-        <translation>Använd för en person eller organisation för vilken en annan person eller organisation agerar.</translation>
+        <translation>Використовується для особи чи організації, щодо якої діє інша особа чи організація.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>Collection registrar</source>
-        <translation type="unfinished"/>
+        <translation>Реєстратор колекцій</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>A curator who lists or inventories the items in an aggregate work such as a collection of items or works.</source>
-        <translation type="unfinished"/>
+        <translation>Куратор, який перераховує або інвентаризує предмети в сукупному творі, наприклад колекції предметів чи творів.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Collector</source>
-        <translation>Samlare</translation>
+        <translation>Колекціонер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
-        <translation>Använd för en person eller organisation som har samlat material från olika källor som har ordnats, beskrivits och katalogiserats som en samling. En samlare är varken skaparen av materialet eller en person till vilken manuskript i samlingen kan ha adresserats.</translation>
+        <translation>Використовується для людини чи організації, яка зібрала матеріали з різних джерел, які були упорядковані, описані та каталогізовані як колекція. Колекціонер не є ні автором матеріалу, ні людиною, до якої могли бути адресовані рукописи в колекції.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Collotyper</source>
-        <translation>Kollotypare</translation>
+        <translation>Фототипіст</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
-        <translation>Använd för en person eller organisation som ansvarar för produktion av fotografiska tryck från film eller annan kolloid som har bläckmottagande och bläckavvisande ytor.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за виробництво фототипів із плівки чи іншого колоїду, що має сприйнятливі до чорнила та відштовхувальні поверхні.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>Colorist</source>
-        <translation>Kolorist</translation>
+        <translation>Колорист</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>A person or organization responsible for applying color to drawings, prints, photographs, maps, moving images, etc.</source>
-        <translation>En person eller organisation som ansvarar för att applicera färg på ritningar, tryck, fotografier, kartor, rörliga bilder o.s.v.</translation>
+        <translation>Людина чи організація, відповідальна за нанесення кольорів на малюнки, відбитки, фотографії, карти, рухомі зображення тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Commentator</source>
-        <translation>Kommentator</translation>
+        <translation>Коментатор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
-        <translation>Använd för en person eller organisation som tillhandahåller tolkning, analys eller en diskussion om ämnet på en inspelning, film eller annat audiovisuellt medium.</translation>
+        <translation>Використовується для людини чи організації, яка надає інтерпретацію, аналіз чи обговорення теми на записі, кінофільмі чи іншому аудіовізуальному носії.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Commentator for written text</source>
-        <translation>Kommentator för skriftlig text</translation>
+        <translation>Автор коментарів або приміток</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
-        <translation>Använd för en person eller organisation som ansvarar för kommentaren eller förklarande anteckningar om en text. För författaren av manuskript anteckningar i en tryckt bok, använd Annotator [ann].</translation>
+        <translation>Використовується для особи чи організації, які відповідальні за коментарі чи пояснювальні примітки до тексту. Для написання рукописних анотацій у друкованій книзі використовуйте Annotator [ann].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Compiler</source>
-        <translation type="unfinished"/>
+        <translation>Укладач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, яка виробляє твір чи публікацію, вибираючи та збираючи матеріал із творів різних осіб чи органів.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Complainant</source>
-        <translation>Klagande</translation>
+        <translation>Позивач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
-        <translation>Används för den part som ansöker till domstolarna för prövning, vanligtvis i ett kapitalförfarande.</translation>
+        <translation>Використовується для сторони, яка звертається до судів за відшкодування збитків, як правило, в порядку власного капіталу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Complainant-appellant</source>
-        <translation>Klagande-sökande</translation>
+        <translation>Позивач-апелянт</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>Användning för en klagande som överklagar från en domstol eller jurisdiktion till en annan för att vända domen, vanligtvis i ett billighetsrättsförfarande.</translation>
+        <translation>Використовується для скаржника, який приймає апеляцію від одного суду чи юрисдикції до іншого, щоб скасувати рішення, як правило, у порядку власного капіталу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Complainant-appellee</source>
-        <translation>Klagande-motpart</translation>
+        <translation>Позивач-відповідач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>Användning för en klagande mot vilken ett överklagande tas från en domstol eller jurisdiktion till en annan för att vända domen, vanligtvis i ett billighetsrättsförfarande.</translation>
+        <translation>Використовується для скаржника, проти якого подається апеляція від одного суду чи юрисдикції до іншого для скасування рішення, як правило, у справі про власний капітал.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Composer</source>
-        <translation>Kompositör</translation>
+        <translation>Композитор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
-        <translation>Använd för en person eller organisation som skapar ett musikaliskt arbete, vanligtvis en musikstycke i manuskript eller tryckt form.</translation>
+        <translation>Використовується для людини чи організації, яка створює музичний твір, як правило, музичний твір у рукописному чи друкованому вигляді.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Compositor</source>
-        <translation>Sättare</translation>
+        <translation>Складальник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
-        <translation>Använd för en person eller organisation som ansvarar för skapandet av metall slug, eller formar av andra material, som används för att producera text och bilder i trycksaker.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за створення металевої слизи, або форми з інших матеріалів, що використовуються для отримання тексту та зображень у друкованій продукції.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Conceptor</source>
-        <translation type="unfinished"/>
+        <translation>Автор ідеі</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, відповідальної за оригінальну ідею, на якій базується твір, сюди входить науковий автор аудіовізуального предмета та концептор реклами.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Conductor</source>
-        <translation>Dirigent</translation>
+        <translation>Диригент</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
-        <translation>Använd för en person som leder en scengrupp (orkester, kör, opera, o.s.v.) i en musikalisk eller dramatisk presentation eller underhållning.</translation>
+        <translation>Використовується для людини, яка керує виконавською групою (оркестром, хором, оперою тощо) у музичній чи драматичній презентації чи розвагах.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>Conservator</source>
-        <translation>Konservator</translation>
+        <translation>Архіваріус</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>A person or organization responsible for documenting, preserving, or treating printed or manuscript material, works of art, artifacts, or other media.</source>
-        <translation>En person eller organisation som ansvarar för att dokumentera, bevara eller behandla tryckt eller manuskript material, konstverk, artefakter eller andra medier.</translation>
+        <translation>Особа чи організація, відповідальна за документування, збереження чи обробку друкованих або рукописних матеріалів, творів мистецтва, артефактів чи інших засобів масової інформації.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Consultant</source>
-        <translation>Konsult</translation>
+        <translation>Консультант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
-        <translation>Använd för en person eller organisation som är relevant för en resurs, som är uppmanad till professionell rådgivning eller tjänster inom ett specialiserat kunskapsområde eller utbildning.</translation>
+        <translation>Використовується для людини чи організації, що мають відношення до ресурсу, до якого звертаються за професійними порадами чи послугами в спеціалізованій галузі знань чи навчання.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Consultant to a project</source>
-        <translation>Konsult till ett projekt</translation>
+        <translation>Консультант проекту</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
-        <translation>Använd för en person eller organisation som är relevant för en resurs, som är engagerad specifikt för att ge en intellektuell översikt över en strategisk eller operativ uppgift och genom analys, specifikation eller instruktion, för att skapa eller föreslå en kostnadseffektiv åtgärd eller lösning.</translation>
+        <translation>Використовується для людини чи організації, що мають відношення до ресурсу, який спеціально займається інтелектуальним оглядом стратегічного чи оперативного завдання та шляхом аналізу, специфікації чи інструкції, щоб створити або запропонувати рентабельний хід дій чи рішення.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Contestant</source>
-        <translation>Tävlande</translation>
+        <translation>Сторона суперечки</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
-        <translation>Använd för den part som motsätter sig, motstår eller tvister, i en domstol, ett krav, beslut, resultat o.s.v.</translation>
+        <translation>Використовується для сторони, яка виступає проти, чинить опір чи спори, в судовому порядку, позові, рішенні, результаті, тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Contestant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Відповідач-апелянт</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для учасника, який подає апеляцію від одного суду чи юрисдикції до іншого, щоб скасувати рішення.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Contestant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Скаржник-відповідач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для учасника, проти якого подається апеляція з одного суду чи юрисдикції до іншого для скасування рішення.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Contestee</source>
-        <translation type="unfinished"/>
+        <translation>Сторона яка оспорює</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для того, щоб сторона, яка захищала позов, рішення, результат, тощо, виступила проти, протистояла чи оспорювалась у суді.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Contestee-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Оспорювач-апелянт</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для кандидата, який приймає апеляцію від одного суду або юрисдикції до іншого, щоб скасувати рішення.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Contestee-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Оспорювач-відповідач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для кандидата, проти якого подається апеляція від одного суду чи юрисдикції до іншого для скасування рішення.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Contractor</source>
-        <translation>Leverantör</translation>
+        <translation>Підрядчик</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
-        <translation>Använd för en person eller organisation som är relevant för en resurs, som ingår ett kontrakt med en annan person eller organisation för att utföra en viss uppgift.</translation>
+        <translation>Використовується для особи чи організації, що має відношення до ресурсу, яка укладає контракт з іншою особою чи організацією для виконання конкретного завдання.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Contributor</source>
-        <translation>Bidragsgivare</translation>
+        <translation>Співавтор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
-        <translation>Används för en person eller organisation vars arbete har bidragit till ett större arbete, såsom en antologi, seriell publikation eller annan sammanställning av enskilda verk. Använd inte om den enda funktionen i förhållande till ett verk är som författare, redaktör, kompilator eller översättare.</translation>
+        <translation>Використовується для людини чи організації, чиї роботи сприяли більшій роботі, наприклад, антології, серійній публікації чи іншій збірці окремих творів. Не використовуйте, якщо єдиною функцією стосовно твору є автор, редактор, упорядник чи перекладач.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Copyright claimant</source>
-        <translation>Upphovsrättssökande</translation>
+        <translation>Претендент на авторське право</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
-        <translation>Använd för en person eller organisation som anges som upphovsrättsinnehavare vid tidpunkten för registreringen. Upphovsrätt kan beviljas eller senare överföras till en annan person eller organisation, vid vilken tidpunkt sökanden blir upphovsrättsinnehavare.</translation>
+        <translation>Використовується для особи чи організації, зареєстрованих як власник авторських прав на момент реєстрації. Авторські права можуть бути надані або пізніше передані іншій особі чи організації, в цей час заявник стає власником авторських прав.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Copyright holder</source>
-        <translation>Upphovsrättsinnehavare</translation>
+        <translation>Власник авторських прав</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
-        <translation>Använd för en person eller organisation till vilken kopia och juridiska rättigheter har beviljats eller överförts för det intellektuella innehållet i ett arbete. Upphovsrättsinnehavaren, även om den inte nödvändigtvis är upphovsman till verket, har vanligtvis ensamrätt att ekonomiskt dra nytta av försäljning och användning av det verk som det tillhörande upphovsrättsskyddet gäller för.</translation>
+        <translation>Використовується для особи чи організації, якій надано чи передано копії та законні права інтелектуального змісту твору. Власник авторських прав, хоч і не обов&apos;язково творець твору, зазвичай має виключне право фінансово виграти від продажу та використання твору, на який поширюється пов&apos;язаний захист авторських прав.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Corrector</source>
-        <translation>Rättare</translation>
+        <translation>Коректор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
-        <translation>Använd för en person eller organisation som är en korrektor av manuskript, till exempel scriptorium-tjänstemannen som korrigerade arbetet med en skrivare. För trycksaker, använd korrekturläsare.</translation>
+        <translation>Використовується для людини чи організації, яка є коректором рукописів, наприклад, чиновник сценарію, який виправляв роботу писаря. Для друкованої продукції використовуйте коректор.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Correspondent</source>
-        <translation>Korrespondent</translation>
+        <translation>Кореспондент</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
-        <translation>Använd för en person eller organisation som var antingen författaren eller mottagaren av ett brev eller annan kommunikation.</translation>
+        <translation>Використовується для людини чи організації, яка була або письменником, або отримувачем листа чи іншого повідомлення.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Costume designer</source>
-        <translation>Kostymdesigner</translation>
+        <translation>Художник по костюмах</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
-        <translation>Använd för en person eller organisation som designar eller gör kostymer, fixar hår o.s.v., för en musikalisk eller dramatisk presentation eller underhållning.</translation>
+        <translation>Використовується для людини чи організації, яка розробляє або виготовляє костюми, закріплює волосся, тощо, для музичної чи драматичної презентації чи розваг.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>Court governed</source>
-        <translation type="unfinished"/>
+        <translation>Суд діє сообразно</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>A court governed by court rules, regardless of their official nature (e.g., laws, administrative regulations.)</source>
-        <translation type="unfinished"/>
+        <translation>Суд, який регулюється правилами суду, незалежно від їх офіційного характеру (наприклад, закони, адміністративні правила).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>Court reporter</source>
-        <translation>Domstolsreporter</translation>
+        <translation>Судовий секретар</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>A person, family, or organization contributing to a resource by preparing a court&apos;s opinions for publication.</source>
-        <translation>En person, familj eller organisation som bidrar till en resurs genom att förbereda en domstols åsikter för publicering.</translation>
+        <translation>Людина, колектив чи організація, яка бере участь у ресурсі, готуючи висновки суду до публікації.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Cover designer</source>
-        <translation>Omslagsdesigner</translation>
+        <translation>Дизайнер обкладинки</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
-        <translation>Använd för en person eller organisation som ansvarar för den grafiska utformningen av ett bokomslag, skivomslag, slipcase, låda, behållare o.s.v. För en person eller organisation som ansvarar för den grafiska utformningen av en hel bok, använd Bokdesigner; för skyddsomslag, använd skyddsomslagsdesigner.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за графічний дизайн обкладинки книги, обкладинки альбомів, футляра, коробки, контейнера, тощо. Для особи чи організації, відповідальної за графічний дизайн усієї книги, використовуйте Дизайнер книг; для суперобкладинок використовуйте Дизайнер Bookjacket.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Creator</source>
-        <translation>Skapare</translation>
+        <translation>Основний Автор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
-        <translation>Använd för en person eller organisation som ansvarar för det intellektuella eller konstnärliga innehållet i ett arbete.</translation>
+        <translation>Використовується для людини чи організації, відповідальної за інтелектуальний чи художній зміст твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Curator of an exhibition</source>
-        <translation type="unfinished"/>
+        <translation>Організатор виставки</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, відповідальної за планування та організацію виставки.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Dancer</source>
-        <translation>Dansare</translation>
+        <translation>Танцор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
-        <translation>Använd för en person eller organisation som huvudsakligen uppvisar dansförmåga i en musikalisk eller dramatisk presentation eller underhållning.</translation>
+        <translation>Використовується для людини чи організації, яка в основному демонструє навички танцю в музичній чи драматичній презентації чи розвазі.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Data contributor</source>
-        <translation>Databidragsgivare</translation>
+        <translation>Поставщик даних</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
-        <translation>Använd för en person eller organisation som lämnar in data för införande i en databas eller annan datainsamling.</translation>
+        <translation>Використовується для людини чи організації, яка подає дані для включення до бази даних чи іншого збору даних.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Data manager</source>
-        <translation>Datahanterare</translation>
+        <translation>Менеджер даних</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
-        <translation>Använd för en person eller organisation som ansvarar för att hantera databaser eller andra datakällor.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за управління базами даних або іншими джерелами даних.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Dedicatee</source>
-        <translation type="unfinished"/>
+        <translation>Кому Присвячується</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, якій присвячена книга, рукопис тощо (не отримувач подарунка).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Dedicator</source>
-        <translation type="unfinished"/>
+        <translation>Хто Присвячує</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для автора присвяту, яка може бути формальною заявою або в епістолярній чи віршованій формі.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Defendant</source>
-        <translation>Svarande</translation>
+        <translation>Відповідач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
-        <translation>Används för den part som försvarar eller förnekar anklagelser som görs i en rättsprocess och mot vilken befrielse eller indrivning söks i domstol, vanligtvis i en rättslig åtgärd.</translation>
+        <translation>Використовується для сторони, яка захищає або заперечує звинувачення, висунуті за позовом, і проти яких вимагається надання допомоги або стягнення у судах, як правило, у судовій справі.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Defendant-appellant</source>
-        <translation>Svarande-sökande</translation>
+        <translation>Відповідач-апелянт</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation>Använd för en svarande som överklagar från en domstol eller jurisdiktion till en annan för att vända domen, vanligtvis i en rättslig åtgärd.</translation>
+        <translation>Використовується для відповідача, який подає апеляцію від одного суду чи юрисдикції до іншого, щоб скасувати рішення суду, як правило, у судовій справі.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Defendant-appellee</source>
-        <translation>Svarande-motpart</translation>
+        <translation>Відповідач проти якого апеляція</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation>Användning för en svarande mot vilken ett överklagande tas från en domstol eller jurisdiktion till en annan för att vända domen, vanligtvis i en rättslig åtgärd.</translation>
+        <translation>Використовується для відповідача, проти якого подається апеляція від одного суду чи юрисдикції до іншого для скасування рішення, як правило, у судовій справі.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Degree grantor</source>
-        <translation type="unfinished"/>
+        <translation>Той хто надає вчену ступінь</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для організації, яка отримує наукову ступінь, для якої була представлена дисертація чи дисертація.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Delineator</source>
-        <translation type="unfinished"/>
+        <translation>Кресляр</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, що виконують технічні креслення з інших проектів.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Depicted</source>
-        <translation>Avbildad</translation>
+        <translation>Предмет зображення</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
-        <translation>Används för en enhet som avbildas eller porträtteras i ett verk, särskilt i ett konstverk.</translation>
+        <translation>Використовується для сутності, зображеної або зображеної у творі, особливо у творі мистецтва.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Depositor</source>
-        <translation>Insättare</translation>
+        <translation>Депозитор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
-        <translation>Använd för en person eller organisation som placerar material i fysisk förvaring av ett bibliotek eller förråd utan att överföra den juridiska titeln.</translation>
+        <translation>Використовується для особи чи організації, що розміщує матеріали під фізичною опікою бібліотеки чи сховища, не передаючи юридичну назву.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Designer</source>
-        <translation>Designer</translation>
+        <translation>Дизайнер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
-        <translation>Användning för en person eller organisation som ansvarar för konstruktionen om mer specifika koder (t.ex. [bkd], [tyd]) inte önskas.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за дизайн, якщо більш конкретні коди (наприклад, [bkd], [tyd]) не бажані.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Director</source>
-        <translation type="unfinished"/>
+        <translation>Режисер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, яка відповідає за загальне керівництво твором або контролює постановку вистави для сценічного, екранного чи звукозапису.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Dissertant</source>
-        <translation>Avhandlare</translation>
+        <translation>Дисертант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
-        <translation>Använd för en person som presenterar en avhandling för en högskoleexamen eller högre utbildningsgrad.</translation>
+        <translation>Використовується для особи, яка представляє дисертацію на здобуття наукового ступеня університету чи вищого рівня.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>Distribution place</source>
-        <translation>Distributionsplats</translation>
+        <translation>Місце дистрибуції</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>A place from which a resource, e.g., a serial, is distributed.</source>
-        <translation>En plats från vilken en resurs, t.ex. en serie, distribueras.</translation>
+        <translation>Місце, з якого поширюється ресурс, наприклад, серіал.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Distributor</source>
-        <translation>Distributör</translation>
+        <translation>Розповсюджувач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
-        <translation>Använd för en person eller organisation som har exklusiva eller delade marknadsföringsrättigheter för ett objekt.</translation>
+        <translation>Використовується для особи чи організації, яка має ексклюзивні або спільні права на маркетинг товару.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Donor</source>
-        <translation>Donator</translation>
+        <translation>Дарувальник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
-        <translation>Använd för en person eller organisation som är donator av en bok, manuskript o.s.v., till sin nuvarande ägare. Donatorer till tidigare ägare utses till Tidigare ägare [fmo] eller Inscriber [ins].</translation>
+        <translation>Використовується для особи чи організації, яка є дарує книги, рукописи, тощо, її теперішньому власнику. Донори попереднім власникам позначаються як колишній власник [fmo] або реєстратор [ins].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Draftsman</source>
-        <translation type="unfinished"/>
+        <translation>Рисувальник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка готує художні чи технічні малюнки.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Dubious author</source>
-        <translation>Tvivelaktig författare</translation>
+        <translation>Сумнівний автор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
-        <translation>Använd för en person eller organisation till vilken författarskap har tvivelaktigt eller felaktigt tillskrivits.</translation>
+        <translation>Використовується для особи чи організації, якій авторство було присвоєно сумнівно чи неправильно.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Editor</source>
-        <translation>Redigerare</translation>
+        <translation>Редактор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
-        <translation>Använd för en person eller organisation som förbereder sig för publicering ett verk som inte i första hand är hans/hennes egna, till exempel genom att belysa text, lägga till inledande eller annan kritisk fråga eller tekniskt styra en redaktion.</translation>
+        <translation>Використовується для людини чи організації, яка готує до публікації твір не в першу чергу свого власного, наприклад, з’ясовуючи текст, додаючи вступні чи інші критичні питання або технічно керуючи редакцією.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>Editor of compilation</source>
-        <translation>Redaktör för sammanställning</translation>
+        <translation>Редактор збірника</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>A person, family, or organization contributing to a collective or aggregate work by selecting and putting together works, or parts of works, by one or more creators. For compilations of data, information, etc., that result in new works, see compiler.</source>
-        <translation>En person, familj eller organisation som bidrar till ett kollektivt eller aggregerat arbete genom att välja och sätta ihop verk, eller delar av verk, av en eller flera skapare. För sammanställningar av data, information o.s.v., som resulterar i nya verk, se kompilator.</translation>
+        <translation>Людина, колектив чи організація, яка дає свій внесок у колективну чи сукупну роботу, вибираючи та складаючи твори або частини творів одним або кількома творцями. Про компіляції даних, інформації тощо, які призводять до нових робіт, див. Компілятор.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>Editor of moving image work</source>
-        <translation>Redaktör för rörligt bildarbete</translation>
+        <translation>Редактор рухомих зображень</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>A person, family, or organization responsible for assembling, arranging, and trimming film, video, or other moving image formats, including both visual and audio aspects.</source>
-        <translation>En person, familj eller organisation som ansvarar för montering, arrangering och trimning av film, video eller andra rörliga bildformat, inklusive både visuella och ljudaspekter.</translation>
+        <translation>Людина, колектив чи організація, відповідальна за збирання, упорядкування та обрізку фільмів, відео чи інших форматів рухомих зображень, включаючи як візуальні, так і аудіо аспекти.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Electrician</source>
-        <translation>Elektriker</translation>
+        <translation>Освітлювач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
-        <translation>Använd för en person som ansvarar för att inrätta en belysningsrigg och fokusera lamporna för en produktion, och kör belysningen på en prestanda.</translation>
+        <translation>Використовується для особи, відповідальної за встановлення освітлювальної установки та фокусування вогнів для виробництва, та керування освітленням на виставі.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Electrotyper</source>
-        <translation type="unfinished"/>
+        <translation>Виробник гальваностереотипів</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
-        <translation>Använd för en person eller organisation som skapar en dubbel utskriftsyta genom tryckgjutning och elektrodepositing av metall som sedan backas upp med bly för utskrift.</translation>
+        <translation>Використовується для людини або організації, яка створює дублюючу поверхню друку шляхом лиття під тиском та електроосадження металу, яке потім резервується свинцем для друку.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Engineer</source>
-        <translation>Konstruktör</translation>
+        <translation>Інженер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
-        <translation>Använd för en person eller organisation som ansvarar för teknisk planering och design, särskilt med konstruktion.</translation>
+        <translation>Використовується для людини чи організації, яка відповідає за технічне планування та проектування, особливо з будівництвом.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Engraver</source>
-        <translation>Gravör</translation>
+        <translation>Гравер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
-        <translation>Använd för en person eller organisation som skär bokstäver, siffror o.s.v. på en yta, såsom en trä-eller metallplatta, för utskrift.</translation>
+        <translation>Використовується для людини чи організації, яка вирізає букви, цифри тощо на поверхні, наприклад дерев’яну чи металеву тарілку, для друку.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Etcher</source>
-        <translation type="unfinished"/>
+        <translation>Офортист</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка виготовляє текст або зображення для друку, піддаючи металу, склу чи іншій поверхні підкислюючи кислоту чи корозійну дію якоїсь іншої речовини.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>Event place</source>
-        <translation type="unfinished"/>
+        <translation>Місце проведення заходів</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>A place where an event such as a conference or a concert took place.</source>
-        <translation type="unfinished"/>
+        <translation>Місце, де відбулася така подія, як конференція чи концерт.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Expert</source>
-        <translation>Expert</translation>
+        <translation>Експерт</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
-        <translation>Använd för en person eller organisation som ansvarar för beskrivningen och bedömningen av värdet av varor, särskilt sällsynta föremål, konstverk o.s.v.</translation>
+        <translation>Використовується для особи чи організації, що відповідає за опис та оцінку вартості товарів, особливо рідкісних предметів, творів мистецтва тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Facsimilist</source>
-        <translation type="unfinished"/>
+        <translation>Факсміліст</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Use for a person or organization that executed the facsimile.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, яка виконала факсиміле.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Field director</source>
-        <translation type="unfinished"/>
+        <translation>Керівник польових робіт</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини або організації, яка керує або контролює роботу, яку виконують для збору необроблених даних або для проведення досліджень у фактичних умовах чи середовищі (як правило, це стосується природних та соціальних наук).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>Film director</source>
-        <translation>Filmregissör</translation>
+        <translation> Кінорежисер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>A director responsible for the general management and supervision of a filmed performance.</source>
-        <translation>En direktör med ansvar för den allmänna ledningen och övervakningen av en filmad prestation.</translation>
+        <translation>Режисер, відповідальний за загальне керівництво та нагляд за знятим кінофільмом.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>Film distributor</source>
-        <translation>Filmdistributör</translation>
+        <translation>Кінодистриб&apos;ютор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>A person, family, or organization involved in distributing a moving image resource to theatres or other distribution channels.</source>
-        <translation>En person, familj eller organisation som är involverad i att distribuera en rörlig bildresurs till teatrar eller andra distributionskanaler.</translation>
+        <translation>Людина, колектив чи організація, яка бере участь у розповсюдженні ресурсу рухомих зображень у театрах чи інших каналах розповсюдження.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Film editor</source>
-        <translation>Filmredaktör</translation>
+        <translation>Режисер монтажу</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
-        <translation>Använd för en person eller organisation som är redaktör för en film. Denna term används oberoende av det medium på vilket filmbilden produceras eller tillverkas (t.ex. acetatfilm, videoband).</translation>
+        <translation>Використовується для людини чи організації, яка є редактором кінофільму. Цей термін використовується незалежно від середовища, на якому виробляється або виготовляється кінофільм (наприклад, ацетатна плівка, відеокасета).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>Film producer</source>
-        <translation>Filmproducent</translation>
+        <translation>Кінопродюсер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>A producer responsible for most of the business aspects of a film.</source>
-        <translation>En producent som ansvarar för de flesta affärsaspekter av en film.</translation>
+        <translation>Продюсер, відповідальний за більшість бізнес-аспектів фільму.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>Filmmaker</source>
-        <translation>Filmskapare</translation>
+        <translation>Виробник фільмів</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>A person, family or organization responsible for creating an independent or personal film. A filmmaker is individually responsible for the conception and execution of all aspects of the film.</source>
-        <translation>En person, familj eller organisation som ansvarar för att skapa en oberoende eller personlig film. En filmskapare är individuellt ansvarig för uppfattningen och utförandet av alla aspekter av filmen.</translation>
+        <translation>Людина, колектив чи організація, відповідальна за створення незалежного чи особистого фільму. Кінорежисер несе індивідуальну відповідальність за розробку та виконання всіх аспектів фільму.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>First party</source>
-        <translation type="unfinished"/>
+        <translation>Перший правовласник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, які визначені єдиною стороною або стороною першої частини. У разі передачі права - це цедент, передачу, ліцензіат, грантодавець тощо. Кілька сторін можуть бути названі спільно першою стороною.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Forger</source>
-        <translation>Förfalskare</translation>
+        <translation>Фальсифікатор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
-        <translation>Använd för en person eller organisation som gör eller imiterar något av värde eller betydelse, särskilt med avsikt att lura.</translation>
+        <translation>Використовується для людини чи організації, яка робить або наслідує щось цінне чи важливе, особливо з наміром обманути.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Former owner</source>
-        <translation>Tidigare ägare</translation>
+        <translation>Колишній власник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
-        <translation>Använd för en person eller organisation som ägde ett objekt när som helst tidigare. Inkluderar de som materialet en gång presenterades för. En person eller organisation som ger objektet till den nuvarande ägaren betecknas som Donator [dnr].</translation>
+        <translation>Використовується для особи чи організації, яка володіла предметом у будь-який час минулого. Включає тих, кому колись був представлений матеріал. Особа чи організація, яка передає предмет теперішньому власнику, позначається як донор [dnr].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Funder</source>
-        <translation>Finansiär</translation>
+        <translation>Інвестор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
-        <translation>Använd för en person eller organisation som tillhandahöll ekonomiskt stöd för produktion av arbetet.</translation>
+        <translation>Використовується для людини чи організації, яка надала фінансову підтримку для виробництва твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Geographic information specialist</source>
-        <translation>Geografisk information specialist</translation>
+        <translation>Спеціаліст з географічної інформації</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
-        <translation>Användning för en person som ansvarar för GIS (geografiskt informationssystem) utveckling och integration med global positioneringssystemdata.</translation>
+        <translation>Використовується для особи, відповідальної за розробку та інтеграцію географічної інформаційної системи (ГІС) з даними глобальної системи позиціонування.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Honoree</source>
-        <translation type="unfinished"/>
+        <translation>Об&apos;єкт честування</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації в пам’ять чи честь, кому дарується книга, рукопис тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Host</source>
-        <translation>Värd</translation>
+        <translation>Гість</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
-        <translation>Använd för en person som är inbjuden eller regelbundet leder ett program (ofta sänds) som inkluderar andra gäster, artister o.s.v. (t.ex. talkshow värd).</translation>
+        <translation>Використовується для людини, яку запрошують або регулярно ведуть програму (часто транслюється), яка включає інших гостей, виконавців тощо (наприклад, ведучого ток-шоу).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>Host institution</source>
-        <translation type="unfinished"/>
+        <translation>Приймаюча організація</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>An organization hosting the event, exhibit, conference, etc., which gave rise to a resource, but having little or no responsibility for the content of the resource.</source>
-        <translation type="unfinished"/>
+        <translation>Організація, яка приймає подію, виставку, конференцію тощо, яка породжувала ресурс, але не мала відповідальності за зміст ресурсу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Illuminator</source>
-        <translation type="unfinished"/>
+        <translation>Ілюстратор рукописів</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, відповідальної за оздоблення твору (особливо рукописного матеріалу) з дорогоцінними металами чи кольором, як правило, з витонченими конструкціями та мотивами.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Illustrator</source>
-        <translation>Illustratör</translation>
+        <translation>Ілюстратор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
-        <translation>Använd för en person eller organisation som uppfattar, och kanske också implementerar, en design eller illustration, vanligtvis att följa med en skriftlig text.</translation>
+        <translation>Використовується для людини чи організації, яка замислює, а можливо, також реалізує, дизайн чи ілюстрацію, як правило, для супроводу письмового тексту.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Inscriber</source>
-        <translation type="unfinished"/>
+        <translation>Автор напису даріння</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Use for a person who has written a statement of dedication or gift.</source>
-        <translation>Använd för en person som har skrivit ett uttalande om engagemang eller gåva.</translation>
+        <translation>Використовуйте для людини, яка написала напис про посвячення чи подарунок.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Instrumentalist</source>
-        <translation type="unfinished"/>
+        <translation>Інструменталіст</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка в основному грає на інструменті у музичній чи драматичній презентації чи розвагах.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Interviewee</source>
-        <translation>Intervjuad</translation>
+        <translation>Той у кого беруть інтерв&apos;ю</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
-        <translation>Använd för en person eller organisation som intervjuas vid ett samråd eller möte, vanligtvis av en reporter, opinionsundersökare eller någon annan informationsinsamlingsagent.</translation>
+        <translation>Використовується для особи чи організації, з якою проводять співбесіду на консультації чи зустрічі, як правило, репортером, опитувальником чи іншим агентом збору інформації.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Interviewer</source>
-        <translation>Intervjuare</translation>
+        <translation>Інтерв&apos;юєр</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
-        <translation>Använd för en person eller organisation som fungerar som reporter, opinionsundersökare eller annan informationsinsamlingsagent i ett samråd eller möte som involverar en eller flera individer.</translation>
+        <translation>Використовується для особи чи організації, яка виступає репортером, опитувачем чи іншим агентом збору інформації під час консультацій чи зустрічей за участю однієї чи кількох осіб.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Inventor</source>
-        <translation>Uppfinnare</translation>
+        <translation>Винахідник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
-        <translation>Använd för en person eller organisation som först producerar ett visst användbart föremål, eller utvecklar en ny process för att få ett känt föremål eller resultat.</translation>
+        <translation>Використовується для людини чи організації, яка вперше виготовляє певний корисний предмет, або розробляє новий процес отримання відомого предмета чи результату.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>Issuing body</source>
-        <translation>Utfärdande organ</translation>
+        <translation>Повномочний орган</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>A person, family or organization issuing a work, such as an official organ of the body.</source>
-        <translation>En person, familj eller organisation som utfärdar ett arbete, till exempel ett officiellt organ i kroppen.</translation>
+        <translation>Людина, колектив чи організація, яка видає твір, наприклад, офіційний орган органу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>Judge</source>
-        <translation>Domare</translation>
+        <translation>Суддя</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>A person who hears and decides on legal matters in court.</source>
-        <translation>En person som hör och beslutar om rättsliga frågor i domstol.</translation>
+        <translation>Особа, яка заслуховує та вирішує судові питання у судовому порядку.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>Jurisdiction governed</source>
-        <translation>Tillämplig jurisdiktion</translation>
+        <translation>Юрисдикція яка використовується</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>A jurisdiction governed by a law, regulation, etc., that was enacted by another jurisdiction.</source>
-        <translation>En jurisdiktion som regleras av en lag, förordning o.s.v., som antogs av en annan jurisdiktion.</translation>
+        <translation>Юрисдикція, що регулюється законом, постановою, тощо, яка була прийнята іншою юрисдикцією.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Laboratory</source>
-        <translation>Laboratorium</translation>
+        <translation>Лабораторія</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Use for an institution that provides scientific analyses of material samples.</source>
-        <translation>Används för en institution som tillhandahåller vetenskapliga analyser av materialprover.</translation>
+        <translation>Використовується для установи, яка забезпечує науковий аналіз проб матеріалу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Laboratory director</source>
-        <translation type="unfinished"/>
+        <translation>Керівник лабораторії</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка керує або контролює роботу, виконану в контрольованих умовах або оточенні.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Landscape architect</source>
-        <translation>Landskapsarkitekt</translation>
+        <translation>Ландшафтний архітектор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
-        <translation>Använd för en person eller organisation vars arbete innebär att samordna arrangemanget av befintliga och föreslagna markfunktioner och strukturer.</translation>
+        <translation>Використовується для людини чи організації, робота якої передбачає координацію розташування існуючих та запропонованих земельних особливостей та споруд.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Lead</source>
-        <translation type="unfinished"/>
+        <translation>Керівник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для вказівки, що людина чи організація несе основну відповідальність за певну діяльність чи починання. Використовуйте з іншим терміном або кодом релятора, щоб показати більшу важливість цієї людини чи організації стосовно цієї конкретної ролі. Якщо до одного заголовку присвоєно більше одного релетера, використовуйте провідний реле тільки в тому випадку, якщо він стосується всіх релеторів.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Lender</source>
-        <translation type="unfinished"/>
+        <translation>Позикодавець</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, яка дозволяє тимчасове використання книги, рукопису тощо, наприклад, для фотокопіювання чи мікрофільмування.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Libelant</source>
-        <translation>Förtalare</translation>
+        <translation>Позивач у морському та церковному судочинстві</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
-        <translation>Använd för den part som lämnar in ett förtal i ett kyrkligt eller amiralitetsfall.</translation>
+        <translation>Використовується для сторони, яка подає позов у справі церковного чи адміралтейського.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Libelant-appellant</source>
-        <translation>Förtalare-sökande</translation>
+        <translation>Позивач-апелянт</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation>Använd för ett förtal som tar ett överklagande från en kyrklig domstol eller amiralitet till en annan för att vända domen.</translation>
+        <translation>Використовується для позивача, який приймає апеляцію від одного церковного суду або адміралтейства до іншого, щоб скасувати рішення.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Libelant-appellee</source>
-        <translation>Förtal-motpart</translation>
+        <translation>Позивач-відповідач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation>Använd för ett förtal mot vilken ett överklagande tas från en kyrklig domstol eller amiralitet till en annan för att vända domen.</translation>
+        <translation>Використовується для позивача, проти якого подається апеляція від одного церковного суду або адміралтейства до іншого, щоб скасувати рішення.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Libelee</source>
-        <translation type="unfinished"/>
+        <translation>Відповідач у морському та церковному судочинстві</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для сторони, проти якої було порушено позов у церковному суді або адміралтействі.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Libelee-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Відповідач-апелянт</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для звільненої особи, яка приймає апеляцію від одного церковного суду або адміралтейства до іншого, щоб скасувати рішення.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Libelee-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Відповідач за апеляцією</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для звільненого, проти якого подається апеляція від одного церковного суду або адміралтейства до іншого, щоб скасувати рішення.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Librettist</source>
-        <translation type="unfinished"/>
+        <translation>Лібретист</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка є письменником тексту опери, ораторії тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Licensee</source>
-        <translation>Licensinnehavare</translation>
+        <translation>Ліцензіат</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
-        <translation>Använd för en person eller organisation som är en originalmottagare av rätten att skriva ut eller publicera.</translation>
+        <translation>Використовується для особи чи організації, яка є оригінальним одержувачем права на друк чи публікацію.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Licensor</source>
-        <translation>Licenstagare</translation>
+        <translation>Ліцензіар</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
-        <translation>Använd för person eller organisation som är en undertecknare av licensen, tryckningstillstånd, o.s.v.</translation>
+        <translation>Використовується для особи чи організації, яка є підписником ліцензії, імпріматуром тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Lighting designer</source>
-        <translation>Ljusdesigner</translation>
+        <translation>Дизайнер освітлення</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
-        <translation>Använd för en person eller organisation som utformar belysningssystemet för en teaterpresentation, underhållning, spelfilm o.s.v.</translation>
+        <translation>Використовується для людини чи організації, яка розробляє схему освітлення для театральної презентації, розваг, кінофільму тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Lithographer</source>
-        <translation>Litograf</translation>
+        <translation>Літограф</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
-        <translation>Använd för en person eller organisation som förbereder stenen eller plattan för litografisk utskrift, inklusive en grafisk konstnär som skapar en design direkt på ytan från vilken utskrift kommer att göras.</translation>
+        <translation>Використовується для людини або організації, яка готує камінь або плиту для літографічного друку, включаючи художника-графіку, що створює дизайн прямо на поверхні, з якої буде зроблено друк.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Lyricist</source>
-        <translation>Lyriker</translation>
+        <translation>Поет-пісняр</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
-        <translation>Använd för en person eller organisation som är en författare av texten i en låt.</translation>
+        <translation>Використовується для людини чи організації, яка є автором тексту пісні.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>Manufacture place</source>
-        <translation>Tillverkningsplats</translation>
+        <translation>Місце виготовлення</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>The place of manufacture (e.g., printing, duplicating, casting, etc.) of a resource in a published form.</source>
-        <translation>Tillverkningsplatsen (t.ex. tryckning, duplicering, gjutning o.s.v.) av en resurs i en publicerad form.</translation>
+        <translation>Місце виготовлення (наприклад, друкування, тиражування, лиття тощо) ресурсу в опублікованій формі.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Manufacturer</source>
-        <translation>Tillverkare</translation>
+        <translation>Виробник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
-        <translation>Använd för en person eller organisation som gör ett artefaktuellt arbete (ett objekt gjort eller modifierat av en eller flera personer). Exempel på artefaktuella verk inkluderar vaser, kanoner eller möbler.</translation>
+        <translation>Використовується для людини чи організації, яка виготовляє артефактичну роботу (предмет, виготовлений чи модифікований однією чи кількома особами). Приклади артефактичних робіт включають вази, гармати або предмети меблів.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>Marbler</source>
-        <translation type="unfinished"/>
+        <translation>Мраморщик</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>The entity responsible for marbling paper, cloth, leather, etc. used in construction of a resource.</source>
-        <translation type="unfinished"/>
+        <translation>Суб&apos;єкт, відповідальний за мармуровий папір, тканину, шкіру тощо, використовуваний для побудови ресурсу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Markup editor</source>
-        <translation type="unfinished"/>
+        <translation>Редактор розмітки</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, що виконують кодування SGML, HTML або XML розмітки метаданих, тексту тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>Medium</source>
-        <translation>Medium</translation>
+        <translation>Медіум</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>A person held to be a channel of communication between the earthly world and a different world.</source>
-        <translation>En person ansåg att vara en kommunikationskanal mellan den jordiska världen och en annan värld.</translation>
+        <translation>Людина, яка вважається каналом зв&apos;язку між земним та іншим світом.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Metadata contact</source>
-        <translation type="unfinished"/>
+        <translation>Укладач метаданих</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, яка відповідальна за складання та підтримку оригінального опису набору метаданих (наприклад, набору геопросторових метаданих).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Metal-engraver</source>
-        <translation type="unfinished"/>
+        <translation>Гравер по металу</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, відповідальної за прикраси, ілюстрації, листи тощо, вирізані на металевій поверхні для друку чи прикраси.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>Minute taker</source>
-        <translation type="unfinished"/>
+        <translation>Стенографіст, секретар</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>A person, family, or organization responsible for recording the minutes of a meeting.</source>
-        <translation type="unfinished"/>
+        <translation>Людина, колектив чи організація, відповідальна за запис протоколів наради.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Moderator</source>
-        <translation type="unfinished"/>
+        <translation>Модератор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини, яка веде програму (часто трансляцію), де обговорюються теми, як правило, за участі експертів у галузях, що стосуються дискусії.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Monitor</source>
-        <translation type="unfinished"/>
+        <translation>Наглядач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, яка здійснює нагляд за дотриманням договору та відповідає за звіт та контролює його розповсюдження. Іноді називають грантодавцем або контролюючим агентством.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Music copyist</source>
-        <translation type="unfinished"/>
+        <translation>Переписувач музики</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Use for a person who transcribes or copies musical notation</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини, яка переписує або копіює музичні нотації</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Musical director</source>
-        <translation type="unfinished"/>
+        <translation>Мизичний керівник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини, відповідальної за основні музичні рішення щодо постановки, включаючи координацію роботи композитора, редактора звуку та звукозмішувачів, вибору музикантів, організації та/або проведення звучання для репетицій та виступів.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Musician</source>
-        <translation type="unfinished"/>
+        <translation>Музикант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка виконує музику або сприяє музичному змісту твору, коли неможливо або бажано більш точно визначити функцію.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Narrator</source>
-        <translation type="unfinished"/>
+        <translation>Оповідач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи, яка є оратором, що стосується деталей діяння, події чи ходу подій.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>Onscreen presenter</source>
-        <translation type="unfinished"/>
+        <translation>Ведучий на екрані</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>A performer contributing to an expression of a work by appearing on screen in nonfiction moving image materials or introductions to fiction moving image materials to provide contextual or background information. Use when another term (e.g., Narrator, Host) is either not applicable or not desired.</source>
-        <translation type="unfinished"/>
+        <translation>Виконавець, що вносить свій вираз у твір, з&apos;являючись на екрані в нерухливих матеріалах рухомих зображень або введеннях у художні матеріали з рухомим зображенням, щоб надати контекстуальну чи довідкову інформацію. Використовуйте, коли інший термін (наприклад, Оповідач, Гість) або не застосовується, або не є бажаним.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Opponent</source>
-        <translation>Opponent</translation>
+        <translation>Опонент</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
-        <translation>Använd för en person eller organisation som är ansvarig för att motsätta sig en avhandling eller avhandling.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за протидію дисертації чи дисертації.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Organizer of meeting</source>
-        <translation>Arrangör av mötet</translation>
+        <translation>Організатор зустрічі</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
-        <translation>Använd för en person eller organisation som ansvarar för att organisera ett möte för vilket en vara är rapporten eller förfarandet.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за організацію зустрічі, щодо якої предмет є доповіддю або провадженням.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Originator</source>
-        <translation type="unfinished"/>
+        <translation>Ініціатор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка виконує роботу, тобто ім’я особи чи організації, пов’язане з інтелектуальним змістом твору. Ця категорія не включає видавця або особисту приналежність або спонсора, за винятком випадків, коли це також корпоративний автор.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Other</source>
-        <translation>Övrigt</translation>
+        <translation>Інші</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
-        <translation>Använd för relatorkoder från andra listor som inte har någon motsvarighet i MARC-listan eller för termer som inte har tilldelats en kod.</translation>
+        <translation>Використовується для реляторних кодів з інших списків, які не мають еквіваленту в списку MARC, або для термінів, яким не було призначено код.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Owner</source>
-        <translation>Ägare</translation>
+        <translation>Власник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
-        <translation>Använd för en person eller organisation som för närvarande äger ett objekt eller en samling.</translation>
+        <translation>Використовується для особи чи організації, яка наразі є власником предмета чи колекції.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>Panelist</source>
-        <translation type="unfinished"/>
+        <translation>Учасник дискусії</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source> performer contributing to a resource by participating in a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation type="unfinished"/>
+        <translation>виконавець, що надає ресурс, беручи участь у програмі (часто транслюється), де обговорюються теми, як правило, за участі експертів у галузях, що стосуються дискусії.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Papermaker</source>
-        <translation type="unfinished"/>
+        <translation>Виробник паперу</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, відповідальної за виробництво паперу, як правило, з дерева, тканини або іншого волокнистого матеріалу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Patent applicant</source>
-        <translation type="unfinished"/>
+        <translation>Патентний заявник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Use for a person or organization that applied for a patent.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи або організації, яка подала заявку на патент.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Patent holder</source>
-        <translation>Patentinnehavare</translation>
+        <translation>Власник патенту</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Use for a person or organization that was granted the patent referred to by the item. </source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи або організації, якій було надано патент, на який посилається цей товар.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Patron</source>
-        <translation>Beskyddare</translation>
+        <translation>Покровитель</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
-        <translation>Använd för en person eller organisation som ansvarar för driftsättning av ett arbete. Vanligtvis använder en beskyddare sina medel eller inflytande för att stödja konstnärers, författares arbete o.s.v. Detta inkluderar de som beställer och betalar för enskilda verk.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за введення в експлуатацію твору. Зазвичай меценат використовує свої засоби чи вплив для підтримки творчості художників, письменників тощо. Сюди входять ті, хто замовляє та оплачує окремі твори.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Performer</source>
-        <translation type="unfinished"/>
+        <translation>Виконавець</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка проявляє музичні чи акторські навички у музичній чи драматичній презентації чи розвагах, якщо конкретні коди для цих функцій ([act], [dnc], [itr], [voc], тощо) не використовуються . Якщо використовуються конкретні коди, [prf] використовується для особи, основна майстерність якої не відома і не визначена.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Permitting agency</source>
-        <translation>Tillståndsgivande organ</translation>
+        <translation>Дозвільне агентство</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
-        <translation>Använd för en myndighet (vanligtvis en statlig myndighet) som utfärdar tillstånd enligt vilket arbete utförs.</translation>
+        <translation>Використовується для органу влади (як правило, урядового органу), який видає дозволи, згідно з якими проводиться робота.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Photographer</source>
-        <translation>Fotograf</translation>
+        <translation>Фотограф</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
-        <translation>Använd för en person eller organisation som ansvarar för att ta fotografier, oavsett om de används i sin ursprungliga form eller som reproduktioner.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за фотографування, незалежно від того, використовуються вони в оригінальному вигляді або як репродукції.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Plaintiff</source>
-        <translation type="unfinished"/>
+        <translation>Обвинувач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для сторони, яка скаржиться або подає позов до суду в особистому позові, як правило, в судовому процесі.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Plaintiff-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Обвинувач-апелянт</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для позивача, який приймає апеляцію від одного суду чи юрисдикції до іншого, щоб скасувати рішення суду, як правило, у судовій справі.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Plaintiff-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Обвинувач проти якого апеляція</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для позивача, щодо якого подається апеляція від одного суду чи юрисдикції до іншого для скасування рішення, як правило, в судовому процесі.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Platemaker</source>
-        <translation>Plattskapare</translation>
+        <translation>Виробник печатних форм</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
-        <translation>Använd för en person eller organisation som ansvarar för produktion av plattor, vanligtvis för produktion av tryckta bilder och/eller text.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за виготовлення табличок, як правило, для виготовлення друкованих зображень та/або тексту.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>Praeses</source>
-        <translation>Preses</translation>
+        <translation>Президент</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>A person who is the faculty moderator of an academic disputation, normally proposing a thesis and participating in the ensuing disputation.</source>
-        <translation>En person som är fakultetsmoderator för en akademisk disputation, föreslår normalt en avhandling och deltar i den efterföljande disputationen.</translation>
+        <translation>Особа, яка є модератором академічної суперечки, яка зазвичай пропонує дисертацію та бере участь у суперечці, що випливає з неї.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>Presenter</source>
-        <translation>Presentatör</translation>
+        <translation>Ведучий</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>A person or organization mentioned in an &apos;X presents&apos; credit for moving image materials and who is associated with production, finance, or distribution in some way. A vanity credit; in early years, normally the head of a studio.</source>
-        <translation>En person eller organisation som nämns i en &quot;X presentation&quot; erkännande för rörliga bildmaterial och som är associerad med produktion, ekonomi eller distribution på något sätt. Ett personligt erkännande; under tidiga år, normalt chefen för en studio.</translation>
+        <translation>Людина чи організація, згадана у &quot;X представляє&quot;, які фактично не приймали участі у створенні матеріалів, що рухаються, та які пов’язуються із виробництвом, фінансами чи розповсюдженням. Кредит гонору; в перші роки, як правило, керівники студії.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Printer</source>
-        <translation>Utskrivare</translation>
+        <translation>Печатник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
-        <translation>Använd för en person eller organisation som skriver ut texter, vare sig från typ eller plattor.</translation>
+        <translation>Використовується для людини чи організації, яка друкує тексти, з будь-яких типів чи табличок.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Printer of plates</source>
-        <translation type="unfinished"/>
+        <translation>Печатник з печатних форм</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка друкує ілюстрації з табличок.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Printmaker</source>
-        <translation type="unfinished"/>
+        <translation>Художник-гравер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка робить рельєфну, глибоку чи планографічну поверхню друку.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Process contact</source>
-        <translation type="unfinished"/>
+        <translation>Організатор процесу</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини або організації, відповідальної за виконання або ініціювання процесу, як це робиться зі збиранням наборів метаданих.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Producer</source>
-        <translation type="unfinished"/>
+        <translation>Продюсер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується особу чи організацію, відповідальну за створення кінофільму, включаючи бізнес-аспекти, управління виробництвом та комерційний успіх твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>Production company</source>
-        <translation type="unfinished"/>
+        <translation>Продюсерська компанія</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Організація, яка відповідає за фінансове, технічне та організаційне управління виробництвом для сценичного, екранного, аудіозапису, телебачення, веб-трансляції, тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>Production designer</source>
-        <translation type="unfinished"/>
+        <translation>Художник-постановник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>A person or organization responsible for designing the overall visual appearance of a moving image production.</source>
-        <translation type="unfinished"/>
+        <translation>Людина чи організація, відповідальна за проектування загального візуального вигляду виробництва рухомих зображень.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Production manager</source>
-        <translation type="unfinished"/>
+        <translation>Керуючий виробництвом</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи, відповідальної за всі технічні та ділові питання на виробництві.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Production personnel</source>
-        <translation type="unfinished"/>
+        <translation>Виробничий персонал</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, пов’язані із виробництвом (реквізит, освітлення, спецефекти, тощо) музичної чи драматичної презентації чи розваги.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>Production place</source>
-        <translation type="unfinished"/>
+        <translation>Місце виробництва</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>The place of production (e.g., inscription, fabrication, construction, etc.) of a resource in an unpublished form.</source>
-        <translation type="unfinished"/>
+        <translation>Місце виробництва (наприклад, напис, виготовлення, будівництво тощо) ресурсу в неопублікованій формі.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Programmer</source>
-        <translation>Programmerare</translation>
+        <translation>Програміст</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
-        <translation>Använd för en person eller organisation som ansvarar för skapande och/eller underhåll av datorprogramdesigndokument, källkod och maskinkörbara digitala filer och stödjande dokumentation.</translation>
+        <translation>Використовується для особи чи організації, відповідальної за створення та/або підтримку конструкторських документів на комп&apos;ютерних програм, вихідний код та цифрові файли, що підтримуються машиною, та допоміжну документацію.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Project director</source>
-        <translation type="unfinished"/>
+        <translation>Керівник проекту</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується особу чи організацію, яка несе основну відповідальність за всі основні аспекти проекту, або керує дуже великим проектом, який вимагає відповідальності вищого рівня, або який несе загальну відповідальність за управління проектами, або забезпечує загальне керівництво керівнику проекту.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Proofreader</source>
-        <translation>Korrekturläsare</translation>
+        <translation>Коректор друкованого тексту</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
-        <translation>Använd för en person som korrigerar trycksaker. För manuskript, använd Corrector [crr].</translation>
+        <translation>Використовується для особи, яка виправляє друковані видання. Для рукописів використовуйте Коректор [crr].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>Provider</source>
-        <translation>Leverantör</translation>
+        <translation>Провайдер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>A person or organization who produces, publishes, manufactures, or distributes a resource if specific codes are not desired (e.g. [mfr], [pbl].)</source>
-        <translation>En person eller organisation som producerar, publicerar, tillverkar eller distribuerar en resurs om specifika koder inte önskas (t.ex. [mfr], [pbl].)</translation>
+        <translation>Людина чи організація, яка виробляє, публікує, виготовляє або поширює ресурс, якщо конкретні коди не бажані (наприклад, [mfr], [pbl].)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>Publication place </source>
-        <translation>Publikationsplats </translation>
+        <translation>Місце публікації</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>The place where a resource is published.</source>
-        <translation>Den plats där en resurs publiceras.</translation>
+        <translation>Місце, де публікується ресурс.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Publisher</source>
-        <translation>Förlag</translation>
+        <translation>Видавець</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка робить друковані матеріали, найчастіше текст, але також друковану музику, твори мистецтва тощо, доступними для публіки.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Publishing director</source>
-        <translation type="unfinished"/>
+        <translation>Директор видання</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка головує над розробкою колективної роботи, щоб забезпечити її узгодженість або наступність. Сюди входять головні редактори, літературні редактори, редактори серій тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Puppeteer</source>
-        <translation type="unfinished"/>
+        <translation>Кукловод</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка маніпулює, контролює чи спрямовує ляльок чи маріонет у музичній чи драматичній презентації чи розвагах.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>Radio director</source>
-        <translation type="unfinished"/>
+        <translation>Радіо-директор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>A director responsible for the general management and supervision of a radio program.</source>
-        <translation type="unfinished"/>
+        <translation>Директор, відповідальний за загальне управління та нагляд за радіопрограмою.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>Radio producer</source>
-        <translation type="unfinished"/>
+        <translation>Радіо-продюсер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>A producer responsible for most of the business aspects of a radio program.</source>
-        <translation type="unfinished"/>
+        <translation>Продюсер, відповідальний за більшість бізнес-аспектів радіопрограми.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Recipient</source>
-        <translation type="unfinished"/>
+        <translation>Отримувач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
-        <translation type="unfinished"/>
+        <translation>Використовуйте для людини чи організації, якій адресовано листування.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>Recording engineer</source>
-        <translation type="unfinished"/>
+        <translation>Інженер звукозапису</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, яка контролює технічні аспекти сеансу запису звуку чи відео.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>A person contributing to a resource by supervising the technical aspects of a sound or video recording session.</source>
-        <translation type="unfinished"/>
+        <translation>Людина, яка працює на ресурсі, контролюючи технічні аспекти сеансу запису звуку чи відео.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Redactor</source>
-        <translation type="unfinished"/>
+        <translation>Редактор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка пише або розробляє структуру для предмета, не несучи інтелектуальної відповідальності за його зміст.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Renderer</source>
-        <translation type="unfinished"/>
+        <translation>Виготовитель ескізів</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка готує креслення архітектурних проектів (тобто рендерінгу) в точній, зображувальній перспективі, щоб показати, як буде виглядати проект, коли буде завершено.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Reporter</source>
-        <translation type="unfinished"/>
+        <translation>Репортер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Use for a person or organization who writes or presents reports of news or current events on air or in print.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка пише або презентує повідомлення про новини або поточні події в ефірі чи друкованому вигляді.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Repository</source>
-        <translation type="unfinished"/>
+        <translation>Репозиторій</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для агентства, яке розміщує об’єкти даних або матеріальної культури та надає послуги для просування довгострокового, послідовного та спільного використання цих даних чи об&apos;єктів.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Research team head</source>
-        <translation type="unfinished"/>
+        <translation>Керівник науково-дослідної групи</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Use for a person who directed or managed a research project.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини, яка керує або керувала дослідницьким проектом.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Research team member</source>
-        <translation type="unfinished"/>
+        <translation>Член дослідницької групи</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини, яка брала участь у дослідницькому проекті, але роль якої не передбачала керівництва чи управління ним.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Researcher</source>
-        <translation type="unfinished"/>
+        <translation>Дослідник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Use for a person or organization responsible for performing research. </source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, відповідальної за проведення досліджень.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Respondent</source>
-        <translation type="unfinished"/>
+        <translation>Відповідач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для сторони, яка подає відповідь до судів відповідно до заяви про відшкодування збитків, як правило, у порядку власного капіталу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Respondent-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Відповідач-апелянт</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для відповідача, який звертається з апеляцією до суду чи іншої юрисдикції до іншого, щоб скасувати рішення, як правило, у порядку власного капіталу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>Respondent-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Відповідач проти якого апеляція</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для відповідача, проти якого подається апеляція від одного суду чи юрисдикції до іншого для скасування рішення, як правило, у справі про власний капітал.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Responsible party</source>
-        <translation type="unfinished"/>
+        <translation>Юридично відповідальна сторона</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Use for a person or organization legally responsible for the content of the published material.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, що несе юридичну відповідальність за зміст опублікованого матеріалу.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="330"/>
         <source>Restager</source>
-        <translation type="unfinished"/>
+        <translation>Постановщик</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="330"/>
         <source>Use for a person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, окрім оригінального хореографа чи режисера, відповідального за повторне створення хореографічного чи драматичного твору та який вносить мінімальний зміст.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>Restorationist</source>
-        <translation type="unfinished"/>
+        <translation>Реставратор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>A person, family, or organization responsible for the set of technical, editorial, and intellectual procedures aimed at compensating for the degradation of an item by bringing it back to a state as close as possible to its original condition.</source>
-        <translation type="unfinished"/>
+        <translation>Людина, колектив чи організація, відповідальна за сукупність технічних, редакційних та інтелектуальних процедур, спрямованих на компенсацію деградації предмета, повернення його до стану, максимально наближеного до його початкового стану.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Reviewer</source>
-        <translation type="unfinished"/>
+        <translation>Рецензент</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, відповідальної за перегляд книги, кінофільму, вистави тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Rubricator</source>
-        <translation type="unfinished"/>
+        <translation>Рубрикатор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, яка відповідальна за частини твору, часто заголовки або відкриття частин рукопису, які мають виразний колір, зазвичай червоний.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Scenarist</source>
-        <translation>Scenarioförfattare</translation>
+        <translation>Сценаріст</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Use for a person or organization who is the author of a motion picture screenplay.</source>
-        <translation>Använd för en person eller organisation som är författare till ett filmmanus.</translation>
+        <translation>Використовується для людини чи організації, яка є автором кіносценарію.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Scientific advisor</source>
-        <translation type="unfinished"/>
+        <translation>Науковий консультант</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка приносить наукову, педагогічну чи історичну компетенцію концепції та реалізації твору, особливо у випадку аудіовізуальних предметів.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>Scribe</source>
-        <translation type="unfinished"/>
+        <translation>Писарь</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини, яка є амануезісом, і для письменника власних рукописів. Для людини, яка виготовляє перо-факсиміле, використовуйте Факсиміліст [fac].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Sculptor</source>
-        <translation type="unfinished"/>
+        <translation>Скульптор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка моделює чи вирізає фігури, які є тривимірними зображеннями.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Second party</source>
-        <translation type="unfinished"/>
+        <translation>Сторона правонаступник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи чи організації, які визначені стороною другої частини. У випадку передачі права це правонаступник, правонаступник, ліцензіат, одержувач коштів та ін. Багато сторін можуть бути названі спільно другою стороною.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Secretary</source>
-        <translation type="unfinished"/>
+        <translation>Секретар</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Use for a person or organization who is a recorder, redactor, or other person responsible for expressing the views of a organization.</source>
-        <translation type="unfinished"/>
+        <translation>Використовуєтьсяйте для особи чи організації, яка є секретарем, редактором чи іншою особою, відповідальною за висловлення думок організації.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>Seller</source>
-        <translation>Försäljare</translation>
+        <translation>Продавець</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>A former owner of an item who sold that item to another owner.</source>
-        <translation>En tidigare ägare av ett objekt som sålde det objektet till en annan ägare.</translation>
+        <translation>Колишній власник предмета, який продав цей товар іншому власнику.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Set designer</source>
-        <translation type="unfinished"/>
+        <translation>Художник-декоратор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Use for a person or organization who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set.</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для людини чи організації, яка переводить грубі ескізи художнього директора у актуальні архітектурні споруди для театральної презентації, розваг, кінофільму тощо. Дизайнери оформляють детальні вказівки та технічні характеристики для побудови декорацій.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="342"/>
         <source>Setting</source>
-        <translation>Scensättning</translation>
+        <translation>Сеттінг</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="342"/>
         <source>An entity in which the activity or plot of a work takes place, e.g. a geographic place, a time period, a building, an event.</source>
-        <translation>En enhet där ett arbetes aktivitet eller komplott äger rum, t.ex. en geografisk plats, en tidsperiod, en byggnad, en händelse.</translation>
+        <translation>Суб’єкт, у якому відбувається діяльність чи сюжет твору, наприклад географічне місце, часовий період, будівля, подія.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Signer</source>
-        <translation type="unfinished"/>
+        <translation>Автор підпису</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</source>
-        <translation type="unfinished"/>
+        <translation>Використовується для особи, підпис якої з’являється без презентації чи іншої заяви, що свідчить про походження. Коли є заява про презентацію, використовуйте Inscriber [ins].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Singer</source>
-        <translation>Sångare</translation>
+        <translation>Співак</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</source>
-        <translation>Använd för en person eller organisation som använder sin röst med eller utan instrumentalt ackompanjemang för att producera musik. En prestation kan eller får inte innehålla faktiska ord.</translation>
+        <translation>Використовується для людини чи організації, яка використовує свій/її голос з інструментальним супроводом або без нього для створення музики. Виступ може включати або не містити фактичних слів.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>Sound designer</source>
-        <translation>Ljuddesignern</translation>
+        <translation>Звукорежисер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
-        <translation>Används för en person som producerar och återger ljudpoängen (både levande och inspelade), installation av mikrofoner, inställning av ljudnivåer och samordning av ljudkällor för en produktion.</translation>
+        <translation>Використовується для людини, яка виробляє та відтворює звуковий рейтинг (як живий, так і записаний), встановлення мікрофонів, налаштування рівня звуку та координацію джерел звуку для виробництва.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>Speaker</source>
-        <translation>Talare</translation>
+        <translation>Диктор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
-        <translation>Använd för en person som deltar i ett program (ofta sänds) och gör ett formaliserat bidrag eller presentation i allmänhet förberedd i förväg.</translation>
+        <translation>Використовується для людини, яка бере участь у програмі (часто транслюється) та робить формалізований внесок або презентацію, загалом підготовлену заздалегідь.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Sponsor</source>
-        <translation>Sponsor</translation>
+        <translation>Спонсор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
-        <translation>Använd för en person eller organisation som utfärdat ett kontrakt eller under vars överinseende ett arbete har skrivits, tryckts, publicerats o.s.v.</translation>
+        <translation>Використовується для особи чи організації, яка оформила договір або під егідою якого твір написано, надруковано, опубліковано тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>Stage director</source>
-        <translation>Scenregissör</translation>
+        <translation>Постановщик сцени</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>A person or organization contributing to a stage resource through the overall management and supervision of a performance.</source>
-        <translation>En person eller organisation som bidrar till en scenresurs genom övergripande förvaltning och övervakning av en prestation.</translation>
+        <translation>Людина чи організація, що вносить участь у сценічний ресурс шляхом загального управління та нагляду за виконанням.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Stage manager</source>
-        <translation>Scenchef</translation>
+        <translation>Помічник режисера</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
-        <translation>Använd för en person som ansvarar för allt som sker på ett prestationsstadium, och som fungerar som chef för alla besättningar och assistent till en regissör under repetitionerna.</translation>
+        <translation>Використовується для людини, яка відповідає за все, що відбувається на сцені вистави, і яка виконує функції начальника всіх екіпажів та помічника режисера під час репетицій.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Standards body</source>
-        <translation>Standardiseringsorgan</translation>
+        <translation>Установа стандартизації</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Use for an organization responsible for the development or enforcement of a standard.</source>
-        <translation>Använd för en organisation som ansvarar för utveckling eller tillämpning av en standard.</translation>
+        <translation>Використовується для організації, відповідальної за розробку або впровадження стандарту.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Stereotyper</source>
-        <translation>Stereotyper</translation>
+        <translation>Виготовитель стеретипів</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
-        <translation>Använd för en person eller organisation som skapar en ny platta för utskrift genom gjutning eller kopiering av en annan utskriftsyta.</translation>
+        <translation>Використовується для людини або організації, яка створює нову табличку для друку, формуючи або копіюючи іншу друкарську поверхню.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>Storyteller</source>
-        <translation>Berättare</translation>
+        <translation>Оповідач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
-        <translation>Använd för en person som förmedlar en historia med kreativ och/eller teatralisk tolkning.</translation>
+        <translation>Використовується для людини, що передає історію з творчою та/або театральною інтерпретацією.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Supporting host</source>
-        <translation>Stödvärd</translation>
+        <translation>Приймаюча сторона</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
-        <translation>Använd för en person eller organisation som stöder (genom att fördela anläggningar, personal eller andra resurser) ett projekt, program, möte, händelse, dataobjekt, materialkulturobjekt eller andra enheter som kan stödja.</translation>
+        <translation>Використовується для людини чи організації, яка підтримує (виділяючи засоби, персонал чи інші ресурси) проект, програму, зустріч, захід, об’єкти даних, об&apos;єкти матеріальної культури або інші організації, здатні підтримувати.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Surveyor</source>
-        <translation>Inspektör</translation>
+        <translation>Геодезист</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
-        <translation>Använd för en person eller organisation som gör mätningar av landområden o.s.v. för att bestämma plats, former och gränser.</translation>
+        <translation>Використовується для особи чи організації, яка проводить вимірювання земельних ділянок тощо, для визначення місця, форм та меж.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Teacher</source>
-        <translation>Lärare</translation>
+        <translation>Викладач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
-        <translation>Använd för en person som i samband med en resurs ger undervisning i ett intellektuellt ämne eller demonstrerar medan du undervisar fysiska färdigheter.</translation>
+        <translation>Використовується для людини, яка в контексті ресурсу дає інструкції з інтелектуального предмета або демонструє під час викладання фізичних навичок.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Technical director</source>
-        <translation>Teknisk direktör</translation>
+        <translation>Технічний директор</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
-        <translation>Använd för en person som i slutändan ansvarar för landskap, rekvisita, ljus och ljud för en produktion.</translation>
+        <translation>Використовується для людини, яка в кінцевому рахунку відповідає за декорації, реквізит, світло та звук для постановки.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>Television director</source>
-        <translation>Tv-regissör</translation>
+        <translation>Телережисер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>A director responsible for the general management and supervision of a television program.</source>
-        <translation>En direktör med ansvar för den allmänna förvaltningen och övervakningen av ett tv-program.</translation>
+        <translation>Директор, відповідальний за загальне управління та нагляд за телевізійною програмою.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>Television producer</source>
-        <translation>Tv-producent</translation>
+        <translation>Телепродюсер</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>A producer responsible for most of the business aspects of a television program.</source>
-        <translation>En producent som ansvarar för de flesta av affärsaspekterna av ett tv-program.</translation>
+        <translation>Продюсер, відповідальний за більшість бізнес-аспектів телевізійної програми.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>Thesis advisor</source>
-        <translation>Handledare</translation>
+        <translation>Науковий керівник</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
-        <translation>Använd för en person under vars överinseende en examen kandidat utvecklar och presenterar en avhandling, mémoire, eller text av en avhandling.</translation>
+        <translation>Використовується для людини, під керівництвом якої кандидат на ступінь розробляє та представляє дисертацію, мемоар або текст дисертації.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>Transcriber</source>
-        <translation>Transkriberare</translation>
+        <translation>Переписувач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
-        <translation>Använd för en person som förbereder en handskriven eller maskinskriven kopia från originalmaterial, inklusive från dikterat eller muntligt inspelat material. För tillverkare av penna-facsimiles, använd Facsimilist [fac].</translation>
+        <translation>Використовується для особи, яка готує рукописну або машинописну копію з оригінального матеріалу, у тому числі з диктованого чи усного записаного матеріалу. Для виробників ручок-факсимілей використовуйте Facsimilist [fac].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>Translator</source>
-        <translation>Översättare</translation>
+        <translation>Перекладач</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
-        <translation>Använd för en person eller organisation som tolkar en text från ett språk till ett annat, eller från en äldre form av ett språk till modern form.</translation>
+        <translation>Використовується для людини чи організації, яка переводить текст з однієї мови на іншу, або зі старої форми мови в сучасну форму.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Type designer</source>
-        <translation>Typdesigner</translation>
+        <translation>Розробник шрифту</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
-        <translation>Använd för en person eller organisation som utformade typytan som används i ett visst objekt.</translation>
+        <translation>Використовується для особи чи організації, яка розробила тип шруфту, який використовується в певному предметі.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>Typographer</source>
-        <translation>Typograf</translation>
+        <translation>Друкар</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
-        <translation>Använd för en person eller organisation som är primärt ansvarig för val och arrangemang av typ som används i ett objekt. Om typografen också ansvarar för andra aspekter av den grafiska utformningen av en bok (t.ex. Bokdesigner [bkd]) kan koder för båda funktionerna behövas.</translation>
+        <translation>Використовується для людини чи організації, яка головним чином відповідає за вибір та розташування типу, що використовується в предметі. Якщо типограф також відповідає за інші аспекти графічного дизайну книги (наприклад, Дизайнер книг [bkd]), можуть знадобитися коди для обох функцій.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="364"/>
         <source>University place</source>
-        <translation>Universitetsplats</translation>
+        <translation>Університет, кампус</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="364"/>
         <source>A place where a university that is associated with a resource is located, for example, a university where an academic dissertation or thesis was presented.</source>
-        <translation>En plats där ett universitet som är associerat med en resurs finns, till exempel ett universitet där en akademisk avhandling eller avhandling presenterades.</translation>
+        <translation>Місце, де знаходиться університет, пов’язаний з ресурсом, наприклад, університет, де була представлена академічна дисертація чи дисертація.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="365"/>
         <source>Videographer</source>
-        <translation>Videograf</translation>
+        <translation>Оператор-постановщик</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="365"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
-        <translation>Används för en person eller organisation som ansvarar för en videoproduktion, t.ex. videoinspelning av en scenproduktion i motsats till en kommersiell film. Videografen kan vara kameraoperatören eller övervaka en eller flera kameraoperatörer. Förväxla inte med filmfotograf.</translation>
+        <translation>Використовується для людини чи організації, яка займається відеовиробництвом, наприклад відеозапис сценічної постановки на відміну від комерційного кінофільму. Відеограф може бути оператором камери або може контролювати одного або декількох операторів камери. Не плутайте з кінематографістом.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="366"/>
         <source>Voice actor</source>
-        <translation>Ljudaktör</translation>
+        <translation>Актор озвучки</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="366"/>
         <source>An actor contributing to a resource by providing the voice for characters in radio and audio productions and for animated characters in moving image works, as well as by providing voice overs in radio and television commercials, dubbed resources, etc.</source>
-        <translation>En skådespelare som bidrar till en resurs genom att ge röst för tecken i radio- och ljudproduktioner och för animerade karaktärer i rörliga bildverk, samt genom att tillhandahålla röst overs i radio- och tv-reklamfilmer, dubbade resurser o.s.v.</translation>
+        <translation>Актор, котрий бере участь у ресурсі, надаючи голос персонажам у радіо- та аудіопродукціях та анімованих персонажів у творах з рухомим зображенням, а також надаючи голосові повідомлення у радіо- та телевізійних рекламних роликах, дубляжних ресурсах тощо.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="367"/>
         <source>Witness</source>
-        <translation>Vittne</translation>
+        <translation>Свідок</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="367"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
-        <translation>Använd för en person som verifierar sanningen av en händelse eller handling.</translation>
+        <translation>Використовуйте для людини, яка перевіряє правдивість події чи дії.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="368"/>
         <source>Wood-engraver</source>
-        <translation>Trägravör</translation>
+        <translation>Гравер по дереву</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="368"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
-        <translation>Använd för en person eller organisation som gör utskrifter genom att skära bilden i lättnad på slutet av ett träblock.</translation>
+        <translation>Використовується для людини або організації, яка робить відбитки, вирізаючи зображення рельєфно на кінці дерев&apos;яного блоку.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="369"/>
         <source>Woodcutter</source>
-        <translation>Träskärare</translation>
+        <translation>Ксилограф</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="369"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
-        <translation>Använd för en person eller organisation som gör utskrifter genom att skära bilden i lättnad på planksidan av ett träblock.</translation>
+        <translation>Використовуйте для людини чи організації, яка робить відбитки, вирізаючи зображення рельєфно на дошці з дерев&apos;яного блоку.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="370"/>
         <source>Writer of accompanying material</source>
-        <translation>Författare av medföljande material</translation>
+        <translation>Письменник супровідного матеріалу</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="370"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
-        <translation>Använd för en person eller organisation som skriver betydande material som åtföljer en ljudinspelning eller annat audiovisuellt material.</translation>
+        <translation>Використовується для особи чи організації, яка пише значні матеріали, які супроводжують звукозапис або інший аудіовізуальний матеріал.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="371"/>
         <source>Writer of added commentary</source>
-        <translation>Författare av tillagd kommentar</translation>
+        <translation>Автор доданого коментару</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="371"/>
         <source>A person, family, or organization contributing to an expression of a work by providing an interpretation or critical explanation of the original work.</source>
-        <translation>En person, familj eller organisation som bidrar till ett uttryck för ett arbete genom att tillhandahålla en tolkning eller kritisk förklaring av det ursprungliga arbetet.</translation>
+        <translation>Людина, родина чи організація, яка сприяє вираженню твору, надаючи інтерпретацію або критичне пояснення оригінального твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="372"/>
         <source>Writer of added lyrics</source>
-        <translation>Författare av tillsatta texter</translation>
+        <translation>Автор тексту пісні</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="372"/>
         <source>A writer of words added to an expression of a musical work. For lyric writing in collaboration with a composer to form an original work, see lyricist.</source>
-        <translation>En författare av ord läggs till ett uttryck för ett musikaliskt arbete. För textskrivning i samarbete med en kompositör för att bilda ett originalverk, se lyriker.</translation>
+        <translation>Письменник слів що додав вираз до музичного твору. Щодо написання лірики у співпраці з композитором, щоб створити оригінальний твір, див. поета-пісняра.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="373"/>
         <source>Writer of added text</source>
-        <translation>Författare av tillagd text</translation>
+        <translation>Автор доданого тексту</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="373"/>
         <source>A person, family, or organization contributing to a non-textual resource by providing text for the non-textual work (e.g., writing captions for photographs, descriptions of maps.)</source>
-        <translation>En person, familj eller organisation som bidrar till en icke-textuell resurs genom att tillhandahålla text för det icke-textuella arbetet (t.ex. skriva bildtexter för fotografier, beskrivningar av kartor.)</translation>
+        <translation>Людина, родина чи організація, яка надає внесок у нетекстовий ресурс, надаючи текст для нетекстової роботи (наприклад, написання підписів для фотографій, описів карт.)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="374"/>
         <source>Writer of introduction</source>
-        <translation>Författare av introduktion</translation>
+        <translation>Автор введення</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="374"/>
         <source>A person, family, or organization contributing to a resource by providing an introduction to the original work.</source>
-        <translation>En person, familj eller organisation som bidrar till en resurs genom att ge en introduktion till det ursprungliga arbetet.</translation>
+        <translation>Людина, родина чи організація, яка бере участь у ресурсі, надаючи ознайомлення з оригінальною роботою.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="375"/>
         <source>Writer of preface</source>
-        <translation>Författare av förord</translation>
+        <translation>Автор передмови</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="375"/>
         <source>A person, family, or organization contributing to a resource by providing a preface to the original work.</source>
-        <translation>En person, familj eller organisation som bidrar till en resurs genom att ge ett förord till det ursprungliga arbetet.</translation>
+        <translation>Людина, колектив чи організація, яка бере участь у ресурсі, надаючи передмову до оригінального твору.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="376"/>
         <source>Writer of supplementary textual content</source>
-        <translation>Författare av kompletterande textinnehåll</translation>
+        <translation>Автор додаткового тектстового вмісту</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="376"/>
         <source>A person, family, or organization contributing to a resource by providing supplementary textual content (e.g., an introduction, a preface) to the original work.</source>
-        <translation>En person, familj eller organisation som bidrar till en resurs genom att tillhandahålla kompletterande textinnehåll (t.ex. en introduktion, ett förord) till det ursprungliga arbetet.</translation>
+        <translation>Людина, колектив чи організація, що надає ресурс, надаючи додатковий текстовий вміст (наприклад, вступ, передмова) до оригінального твору.</translation>
     </message>
 </context>
 <context>
@@ -11979,689 +11977,689 @@ Vill du automatiskt reparera filerna innan du sparar?</translation>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="20"/>
         <source>MetaData Editor</source>
-        <translation type="unfinished"/>
+        <translation>Редактор МетаДаних</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="52"/>
         <source>Add a new metadata element.</source>
-        <translation>Lägg till ett nytt metadataelement.</translation>
+        <translation>Додати новий елемент МетаДаних.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="55"/>
         <source>Add Metadata</source>
-        <translation>Lägg till metadata</translation>
+        <translation>Додати МетаДані</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="62"/>
         <source>Remove a metadata element or property.</source>
-        <translation>Ta bort ett metadataelement eller en egenskap.</translation>
+        <translation>Видалити елемент або властивість МетаДаних.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="65"/>
         <source>Remove</source>
-        <translation>Ta bort</translation>
+        <translation>Вилучити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="72"/>
         <source>Add a new property or attribute to an existing metadata element.</source>
-        <translation>Lägg till en ny egenskap eller ett attribut till ett befintligt metadataelement.</translation>
+        <translation>Додайте нову властивість або атрибут до існуючого елемента МетаДаних.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="75"/>
         <source>Add Property</source>
-        <translation>Lägg till egenskap</translation>
+        <translation>Додати Властивість</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="97"/>
         <source>Move selected metadata element or property up.</source>
-        <translation>Flytta upp markerat metadataelement eller egenskap.</translation>
+        <translation>Перемістити вибраний елемент МетаДаних або властивість вгору.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="100"/>
         <location filename="../../Form_Files/MetaEditor.ui" line="113"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="110"/>
         <source>Move selected metadata element or property down.</source>
-        <translation>Flytta ned markerat metadataelement eller egenskap.</translation>
+        <translation>Перемістити вибраний елемент МетаДаних або властивість вниз.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="148"/>
         <source>Double-click in cell to edit its value.  Minimum metadata consists of main language, title, and at least one creator.</source>
-        <translation>Dubbelklicka i cellen för att redigera dess värde. Minsta metadata består av huvudspråk, titel och minst en skapare.</translation>
+        <translation>Двічі клацніть на полі, щоб відредагувати його значення. Мінімальні метадані складаються з основної мови, заголовка та принаймні одного автора.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="172"/>
         <source>Use OK to commit your metdata changes to the epub, otherwise use Cancel.</source>
-        <translation>Använd OK för att göra dina metdataändringar i epub:en, annars använd Avbryt.</translation>
+        <translation>Використовуйте ОК, щоб здійснити зміни ваших даних у epub, для іншого використовуйте Скасувати.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
         <source>Name</source>
-        <translation>Namn</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
         <source>Value</source>
-        <translation>Värde</translation>
+        <translation>Значення</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="171"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="239"/>
         <source>[ISBN here]</source>
-        <translation>[ISBN här]</translation>
+        <translation>[ISBN отут]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="175"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="244"/>
         <source>[ISSN here]</source>
-        <translation>[ISSN här]</translation>
+        <translation>[ISSN отут]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="179"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="249"/>
         <source>[DOI here]</source>
-        <translation>[DOI här]</translation>
+        <translation>[DOI отут]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="183"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="254"/>
         <source>[UUID here]</source>
-        <translation>[UUID här]</translation>
+        <translation>[UUID отут]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="194"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="272"/>
         <source>[Author name here]</source>
-        <translation>[Författarens namn här]</translation>
+        <translation>[Ім&apos;я автора отут]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="200"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="277"/>
         <source>[Creator name here]</source>
-        <translation>[Skaparens namn här]</translation>
+        <translation>[Ім&apos;я основного автора отут]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="204"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="281"/>
         <source>[Contributor name here]</source>
-        <translation>[Bidragsgivarens namn här]</translation>
+        <translation>[Імена співавторів отут]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="208"/>
         <source>[meta value here]</source>
-        <translation>[metavärde här]</translation>
+        <translation>[значення meta отут]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="259"/>
         <source>[Custom identifier here]</source>
-        <translation>[Anpassad identifierare här]</translation>
+        <translation>[Кастомний ідентифікатор отут]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="448"/>
         <source>[Place value here]</source>
-        <translation>[Platsvärde här]</translation>
+        <translation>[Помістити значення отут]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="483"/>
         <source>[Your value here]</source>
-        <translation>[Ditt värde här]</translation>
+        <translation>[Ваше значення отут]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="547"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <source>Author</source>
-        <translation>Författare</translation>
+        <translation>Автор</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="547"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <source>Represents a primary author of the book or publication</source>
-        <translation>Representerar en primär författare till boken eller publikationen</translation>
+        <translation>Представляє основного автора книги чи публікації</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="548"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="653"/>
         <source>Subject</source>
-        <translation>Ämne</translation>
+        <translation>Тема</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="548"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="653"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
-        <translation>En godtycklig fras eller sökord som beskriver ämnet i fråga. Använd flera ämneselement om det behövs.</translation>
+        <translation>Довільна фраза або ключове слово, що описує предмет, про який йде мова. Використовуйте декілька елементів &quot;теми&quot;, якщо це необхідно.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
         <source>Description</source>
-        <translation>Beskrivning</translation>
+        <translation>Опис</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
         <source>Description of the publication&apos;s content.</source>
-        <translation>Beskrivning av publikationens innehåll.</translation>
+        <translation>Опис вмісту публікації.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
         <source>Publisher</source>
-        <translation>Förlag</translation>
+        <translation>Видавець</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
         <source>An entity responsible for making the publication available.</source>
-        <translation>En enhet som ansvarar för att göra publikationen tillgänglig.</translation>
+        <translation>Суб&apos;єкт, відповідальний за видання публікації.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="551"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="656"/>
         <source>Date: Publication</source>
-        <translation>Datum: Publicering</translation>
+        <translation>Дата: Опубліковано</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="551"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="656"/>
         <source>The date of publication.</source>
-        <translation>Datum för publicering.</translation>
+        <translation>Дата публікації.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="552"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="657"/>
         <source>Date: Creation</source>
-        <translation>Datum: Skapande</translation>
+        <translation>Дата: Створено</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="552"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="657"/>
         <source>The date of creation.</source>
-        <translation>Datum för skapande.</translation>
+        <translation>Дата створення.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="553"/>
         <source>Date: Issued</source>
-        <translation type="unfinished"/>
+        <translation>Дата: Видано</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="553"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="658"/>
         <source>The date of modification.</source>
-        <translation>Datum för ändring.</translation>
+        <translation>Дата внесення змін.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="658"/>
         <source>Date: Modification</source>
-        <translation>Datum: Ändring</translation>
+        <translation>Дата: Внесення змін</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="555"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="659"/>
         <source>Type</source>
-        <translation>Typ</translation>
+        <translation>Тип</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="555"/>
         <source>Used to indicate that the given EPUB Publication is of a specialized type..</source>
-        <translation>Används för att indikera att den givna EPUB-publikationen är av en specialiserad typ..</translation>
+        <translation>Використовується для вказівки на те, що дана публікація EPUB має спеціалізований тип.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="660"/>
         <source>Format</source>
-        <translation>Format</translation>
+        <translation>Формат</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="660"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
-        <translation>Publikationens medietyp eller dimensioner. Bästa praxis är att använda ett värde från ett kontrollerat ordförråd (t.ex. MIME-medietyper).</translation>
+        <translation>Тип носія або розміри видання. Найкраща практика - використовувати значення керованого словника (наприклад, типів мультимедійних файлів MIME).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="557"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="661"/>
         <source>Source</source>
-        <translation>Källa</translation>
+        <translation>Джерело</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="557"/>
         <source>Identifies the related resource(s) from which this EPUB Publication is derived.</source>
-        <translation>Identifierar de relaterade resurser som denna EPUB-publikation härrör från.</translation>
+        <translation>Визначає пов&apos;язані ресурси (джерела), з яких походить ця публікація EPUB.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="662"/>
         <source>Language</source>
-        <translation>Språk</translation>
+        <translation>Мова</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
         <source>Specifies the language of the publication. Select from the dropdown menu</source>
-        <translation>Anger publikationens språk. Välj från rullgardinsmenyn</translation>
+        <translation>Вказує мову публікації. Виберіть з меню, що випадає</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="559"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
         <source>Relation</source>
-        <translation>Förbindelse</translation>
+        <translation>Відношення</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="559"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
-        <translation>En hänvisning till en relaterad resurs. Den rekommenderade bästa metoden är att identifiera den refererade resursen med hjälp av en sträng eller ett nummer som överensstämmer med ett formellt identifieringssystem.</translation>
+        <translation>Посилання на пов&apos;язаний ресурс. Рекомендована найкраща практика - ідентифікувати ресурс за допомогою рядка або числа, що відповідає формальній системі ідентифікації.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="560"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="664"/>
         <source>Coverage</source>
-        <translation>Täckning</translation>
+        <translation>Охоплення</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="560"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="664"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
-        <translation>Omfattningen eller omfattningen av innehållet i publikationens innehåll.</translation>
+        <translation>Ступінь або обсяг вмісту змісту публікації.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="665"/>
         <source>Rights</source>
-        <translation>Rättigheter</translation>
+        <translation>Права</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="665"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
-        <translation>Information om rättigheter som innehas i och över offentliggörandet. Rättighetsinformation omfattar ofta immateriella rättigheter, upphovsrätt och olika rättigheter. Om Rättighetsinslaget saknas får inga antaganden göras om några rättigheter som innehas i eller över offentliggörandet.</translation>
+        <translation>Інформація про права, що зберігаються у публікації та над нею. Інформація про права часто охоплює права інтелектуальної власності (IPR), авторські права та різні права власності. Якщо елемент «Права» відсутній, жодних припущень щодо будь-яких прав, що зберігаються в публікації або над нею, не можна робити.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="651"/>
         <source>Creator</source>
-        <translation>Skapare</translation>
+        <translation>Основний Автор</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>Representerar namnet på en person, organisation o.s.v. ansvarig för skapandet av innehållet i en EPUB-publikation. Egenskapen roll kan fästas på elementet för att ange vilken funktion skaparen spelade i skapandet av innehållet.</translation>
+        <translation>Представляє ім’я людини, організації, тощо, відповідальної за створення вмісту Публікації EPUB. Властивість ролі може бути приєднана до елемента, щоб вказати функцію, яку автор грав у створенні вмісту.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="563"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
         <source>Contributor</source>
-        <translation>Bidragsgivare</translation>
+        <translation>Співавтор</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="563"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>Representerar namnet på en person, organisation o.s.v. det spelade en sekundär roll i skapandet av innehållet i en EPUB-publikation. Egenskapen roll kan fästas på elementet för att ange vilken funktion skaparen spelade i skapandet av innehållet.</translation>
+        <translation>Представляє ім’я людини, організації, тощо, які відігравали другорядну роль у створенні змісту публікації EPUB. Властивість ролі може бути приєднана до елемента, щоб вказати функцію, яку автор грав у створенні вмісту.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
         <source>Belongs to Collection</source>
-        <translation>Tillhör samling</translation>
+        <translation>Належить до колекції</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
         <source>Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.</source>
-        <translation type="unfinished"/>
+        <translation>Визначає назву колекції, до якої належить Публікація EPUB. Публікація EPUB може належати до однієї або декількох колекцій.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
         <source>Title</source>
-        <translation>Titel</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
         <source>A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.</source>
-        <translation>En titel. En publikation kan ha endast en huvudtitel men kan ha många andra titeltyper. Dessa inkluderar huvud, undertext, kort, samling, utgåva och utökade titeltyper.</translation>
+        <translation>Назва видання. Видання може мати лише одну головну назву, але може мати численні інші типи заголовків. До них відносяться основні, підзаголовки, короткі, збірники, видання та розширені типи заголовків.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
         <source>Identifier: DOI</source>
-        <translation>Identifierare: DOI</translation>
+        <translation>Ідентифікатор: DOI</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
         <source>Digital Object Identifier associated with the given EPUB publication.</source>
-        <translation>Digital objektidentifierare associerad med den givna EPUB-publikationen.</translation>
+        <translation>Цифровий ідентифікатор об&apos;єкта, пов’язаний із даною публікацією EPUB.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="567"/>
         <source>Identifier: ISBN</source>
-        <translation>Identifierare: ISBN</translation>
+        <translation>Ідентифікатор: ISBN</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="567"/>
         <source>International Standard Book Number associated with the given EPUB publication.</source>
-        <translation>Internationell standard boknummer är förknippade med den givna EPUB-publikationen.</translation>
+        <translation>Міжнародний стандартний номер книги, пов’язаний із даною публікацією EPUB.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
         <source>Identifier: ISSN</source>
-        <translation>Identifierare: ISSN</translation>
+        <translation>Ідентифікатор: ISSN</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
         <source>International Standard Serial Number associated with the given EPUB publication.</source>
-        <translation>Internationell standard serienummer i samband med den givna EPUB-publikationen.</translation>
+        <translation>Міжнародний стандартний серійний номер, пов’язаний із даною публікацією EPUB.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="569"/>
         <source>Identifier: UUID</source>
-        <translation>Identifierare: UUID</translation>
+        <translation>Ідентифікатор: UUID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="569"/>
         <source>A Universally Unique Idenitifier generated for this EPUB publication.</source>
-        <translation>En universellt unik identifierare genereras för denna EPUB publikation.</translation>
+        <translation>Універсальний унікальний ідентифікатор, створений для цієї публікації EPUB.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="571"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
         <source>Custom Element</source>
-        <translation>Anpassat element</translation>
+        <translation>Елемент Користувача</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="571"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
         <source>[Custom element]</source>
-        <translation>[Anpassat element]</translation>
+        <translation>[Елемент Користувача]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="571"/>
         <source>An empty metadata element you can modify.</source>
-        <translation>Ett tomt metadataelement som du kan ändra.</translation>
+        <translation>Порожній елемент МетаДаних, який ви можете змінити.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
         <source>Meta Element (primary)</source>
-        <translation>Metaelement (primär)</translation>
+        <translation>Мета елемент (первинний)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
         <source>An empty primary meta element you can modify.</source>
-        <translation>Ett tomt primärt metaelement som du kan ändra.</translation>
+        <translation>Порожній основний мета-елемент, який ви можете змінити.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="598"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="701"/>
         <source>Id Attribute</source>
-        <translation>Id-attribut</translation>
+        <translation>Атрибут Id</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="598"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="701"/>
         <source>Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.</source>
-        <translation type="unfinished"/>
+        <translation>Необов&apos;язкова, як правило, коротка унікальна послідовність символів (рядок) ідентифікатора, яка використовується як атрибут у документі Package (opf).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="599"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>
         <source>XML Language</source>
-        <translation>XML-språk</translation>
+        <translation>Мова XML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="599"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:langauge, dc:date, or dc:identifier metadata elements.</source>
-        <translation type="unfinished"/>
+        <translation>Необов’язковий, атрибут мови. Використовує ті ж коди, що й dc: language. Не використовується для dc: langauge, dc: date або dc:identifier елементів МетаДаних.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="600"/>
         <source>Text Direction: rtl</source>
-        <translation type="unfinished"/>
+        <translation>Напрямок Тексту: СнН</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="600"/>
         <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation type="unfinished"/>
+        <translation>Необов’язковий атрибут тексту для цього елемента МетаДаних. справа-наліво (СнН). Не використовується для dc:language, dc:date або dc:identifier елементів МетаДаних.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="601"/>
         <source>Text Direction: ltr</source>
-        <translation type="unfinished"/>
+        <translation>Напрямок Тексту: ЗнН</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="601"/>
         <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation type="unfinished"/>
+        <translation>Необов’язковий атрибут тексту для цього елемента МетаДаних. зліва-направо (ЗнН). Не використовується для dc:language, dc:date або dc:identifier елементів МетаДаних.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="602"/>
         <source>Title Type: main</source>
-        <translation type="unfinished"/>
+        <translation>Тип заголовка: основний</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="602"/>
         <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
-        <translation type="unfinished"/>
+        <translation>Вказує, що асоційована назва є основною назвою видання. Має існувати лише одна головна назва.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="603"/>
         <source>Title Type: subtitle</source>
-        <translation type="unfinished"/>
+        <translation>Тип заголовка: підзаголовок</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="603"/>
         <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
-        <translation type="unfinished"/>
+        <translation>Вказує, що пов&apos;язаний заголовок є підзаголовком публікації, якщо така існує.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="604"/>
         <source>Title Type: short</source>
-        <translation type="unfinished"/>
+        <translation>Тип заголовка: короткий</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="604"/>
         <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
-        <translation type="unfinished"/>
+        <translation>Вказує, що пов’язана назва — це скорочена назва публікації, якщо така існує.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="605"/>
         <source>Title Type: collection</source>
-        <translation type="unfinished"/>
+        <translation>Тип заголовка: колекція</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="605"/>
         <source>Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.</source>
-        <translation>Anger att den tillhörande titeln är titeln på en samling som innehåller denna publikation tillhör, om en finns.</translation>
+        <translation>Вказує, що пов&apos;язаний заголовок — це назва колекції, до якої належить ця публікація, якщо така існує.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="606"/>
         <source>Title Type: edition</source>
-        <translation type="unfinished"/>
+        <translation>Тип заголовку: видання</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="606"/>
         <source>Indicates that the associated title is an edition title for this publications if one exists.</source>
-        <translation type="unfinished"/>
+        <translation>Вказує, що пов’язана назва — це назва видання для цих публікацій, якщо таке існує.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="607"/>
         <source>Title Type: expanded</source>
-        <translation type="unfinished"/>
+        <translation>Тип заголовка: розширений</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="607"/>
         <source>Indicates that the associated title is an expanded title for this publication if one exists.</source>
-        <translation type="unfinished"/>
+        <translation>Вказує, що пов’язаний заголовок — це розширений заголовок для цієї публікації, якщо такий існує.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="608"/>
         <source>Alternate Script</source>
-        <translation>Alternativt skript</translation>
+        <translation>Альтернативний сценарій</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="608"/>
         <source>Provides an alternate expression of the associated property value in a language and script identified by an alternate-language attribute.</source>
-        <translation type="unfinished"/>
+        <translation>Забезпечує альтернативне вираження асоційованого значення властивості у мові та сценарії, ідентифікованому атрибутом альтернативної мови.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="609"/>
         <source>Alternate Language</source>
-        <translation>Alternativt språk</translation>
+        <translation>Альтернативна мова</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="609"/>
         <source>Language code for the language used in the associated alternate-script property value.</source>
-        <translation>Språkkod för det språk som används i det associerade egenskapsvärdet för det alternativa skriptet.</translation>
+        <translation>Код мови для мови, що використовується у відповідному значенні властивості альтернативного сценарію.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
         <source>Collection Type: set</source>
-        <translation type="unfinished"/>
+        <translation>Тип колекції: набір, цикл</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
-        <translation>Egendom som används med tillhör-till-samling. Anger form eller karaktär av en samling. Värdet &quot;set &quot; bör användas för en ändlig samling av verk som tillsammans utgör en enda intellektuell enhet; vanligtvis utfärdas tillsammans och kan säljas som en enhet..</translation>
+        <translation>Властивість , яка використовується з &quot;belongs-to-collection&quot;. Позначає форму або характер колекції. Значення &quot;set&quot; слід використовувати для скінченної колекції творів, які разом становлять єдину інтелектуальну одиницю; як правило, випускаються разом і можуть продаватися як одиниця.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
         <source>Collection Type: series</source>
-        <translation type="unfinished"/>
+        <translation>Тип колекції: серія</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
-        <translation>Egenskap som används med tillhör-till-samling. Anger form eller karaktär av en samling. Värdet &quot;serie&quot; bör användas för en sekvens av relaterade verk som formellt identifieras som en grupp; vanligtvis öppnas-slutar med verk som utfärdats individuellt över tiden.</translation>
+        <translation>Властивість , яка використовується з &quot;belongs-to-collection&quot;. Позначає форму або характер колекції. Значення &apos;серія&apos; слід використовувати для послідовності пов&apos;язаних творів, які формально ідентифікуються як група; як правило, з безстроковими публікаціями або роботами, що випускаються індивідуально на протязі часу.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="612"/>
         <source>Display Sequence</source>
-        <translation type="unfinished"/>
+        <translation>Послідовність відображення</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="612"/>
         <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
-        <translation type="unfinished"/>
+        <translation>Позначає числове положення, в якому відображається поточна властивість відносно ідентичних властивостей метаданих (наприклад, вказується на порядок відображення декількох назв або декількох авторів).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="613"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="703"/>
         <source>File as</source>
-        <translation>Fil som</translation>
+        <translation>Файл як</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="613"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="703"/>
         <source>Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.</source>
-        <translation type="unfinished"/>
+        <translation>Надає нормалізовану форму пов&apos;язаної властивості для сортування. Зазвичай використовується з іменами автора, творця та дописувача.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="614"/>
         <source>Group Position</source>
-        <translation type="unfinished"/>
+        <translation>Позиція у групі</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="614"/>
         <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
-        <translation type="unfinished"/>
+        <translation>Позначає числове положення, в якому впорядковується публікація EPUB щодо інших творів, що належать до тієї ж групи (будь то всі публікації EPUB чи ні).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>Identifier Type</source>
-        <translation>Typ av Identifierare</translation>
+        <translation>Тип ідентифікатора</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
-        <translation type="unfinished"/>
+        <translation>Позначає форму або характер ідентифікатора. Коли значення типу ідентифікатора виводиться зі списку коду чи іншого формального перерахування, для ідентифікації його джерела слід використовувати атрибут схеми.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="616"/>
         <source>Meta Authority</source>
-        <translation>Metaauktoritet</translation>
+        <translation>МетаТег Authority</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="616"/>
         <source>Identifies the party or authority responsible for an instance of package metadata.</source>
-        <translation>Identifierar den part eller auktoritet som ansvarar för en instans av paketmetadata.</translation>
+        <translation>Визначає сторону чи орган, відповідальний за екземпляр метаданих пакета.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="617"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="704"/>
         <source>Role</source>
-        <translation>Roll</translation>
+        <translation>Роль</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="617"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="704"/>
         <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
-        <translation>Beskriver vilken typ av arbete som utförs av en skapare eller bidragsgivare (t.ex. att personen är författare eller redaktör för ett verk). Vanligtvis används med marc:relators schema för ett kontrollerat ordförråd.</translation>
+        <translation>Описує характер роботи, яку виконує творець або автор (наприклад, що людина є автором чи редактором твору). Зазвичай використовується схема marc:relators для керованої лексики.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="618"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="705"/>
         <source>Scheme</source>
-        <translation>System</translation>
+        <translation>Схема</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="618"/>
         <source>This attribute is typically added to dc:identifier, dc:source: dc:creator, or dc:contributor to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
-        <translation type="unfinished"/>
+        <translation>Цей атрибут зазвичай додається до dc:identifier, dc:source: dc:creator, або dc:contributor, щоб вказати на керовану систему лексики, що використовується (наприклад, marc:relators, щоб вказати дійсні значення для властивості ролі).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="619"/>
         <source>Source of Pagination</source>
-        <translation>Källa av paginering</translation>
+        <translation>Джерело Пагінації</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="619"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
-        <translation type="unfinished"/>
+        <translation>Вказує на унікальний аспект адаптованого джерельного ресурсу, який зберігався в даному випуску публікації EPUB. Ця специфікація визначає значення сторінки, що вказує на те, що вихідний елемент є джерелом властивостей розбиття сторінки, визначених у вмісті. Це значення слід встановлювати щоразу, коли включається пагинація та відомо джерело друку. Дійсні значення: pagination.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
         <source>Custom Property</source>
-        <translation type="unfinished"/>
+        <translation>Кастомна властивість</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
         <source>[Custom property/attribute]</source>
-        <translation>[Anpassad egenskap/attribut]</translation>
+        <translation>[Кастомна властивість/атрибут]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
         <source>An empty metadata property or attribute you can modify.</source>
-        <translation type="unfinished"/>
+        <translation>Порожня властивість або атрибут МетаДаних, які Ви можете змінити.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
-        <translation type="unfinished"/>
+        <translation>Основна назва видання epub. Може існувати лише одна назва.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="651"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation type="unfinished"/>
+        <translation>Представляє ім’я людини, організації, тощо, відповідальної за створення вмісту Публікації EPUB. Атрибути opf:role, opf:scheme та opf:file-as можуть бути приєднані до елемента, щоб вказати функцію, яку виконував автор при створенні вмісту.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
-        <translation>Representerar namnet på en person, organisation o.s.v. som spelade en sekundär roll i skapandet av innehållet i en EPUB-publikation&quot;</translation>
+        <translation>Представляє ім’я людини, організації, тощо, які відігравали другорядну роль у створенні вмісту публікації EPUB</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="659"/>
         <source>The nature or genre of the content of the resource.</source>
-        <translation>Arten eller genren av resursens innehåll.</translation>
+        <translation>Характер або жанр контенту ресурсу.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="661"/>
         <source>A reference to a resource from which the present publication is derived.</source>
-        <translation>En hänvisning till en resurs från vilken denna publikation härleds.</translation>
+        <translation>Посилання на ресурс, з якого походить ця публікація.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="662"/>
         <source>A language used in the publication. Choose a RFC5646 value.</source>
-        <translation>Ett språk som används i publikationen. Välj ett RFC5646-värde.</translation>
+        <translation>Мова, що використовується в публікації. Виберіть значення RFC5646</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
@@ -12669,107 +12667,107 @@ Vill du automatiskt reparera filerna innan du sparar?</translation>
         <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
         <source>Identifier</source>
-        <translation>Identifierare</translation>
+        <translation>Ідентифікатор</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
         <source>Digital Object Identifier</source>
-        <translation>Identifierare för digitala objekt</translation>
+        <translation>Цифровий ідентифікатор об&apos;єкта</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
         <source>International Standard Book Number</source>
-        <translation>Internationell standardboknummer</translation>
+        <translation>Міжнародний стандартний номер книги</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
         <source>International Standard Serial Number</source>
-        <translation>Internationell standardserienummer</translation>
+        <translation>Міжнародний стандартний серійний номер</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
         <source>Universally Unique Identifier</source>
-        <translation>Universell unik identifierare</translation>
+        <translation>Універсальний унікальний ідентифікатор</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="670"/>
         <source>Identifier: Custom</source>
-        <translation>Identifierare: Anpassad</translation>
+        <translation>Ідентифікатор: Custom</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="670"/>
         <source>A custom identifier based on a specified scheme</source>
-        <translation>En anpassad identifierare baserad på ett angivet schema</translation>
+        <translation>Ідентифікатор що настроюється або ідентифікатор користувача або кастомний на основі визначеної схеми</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="671"/>
         <source>Series</source>
-        <translation>Serier</translation>
+        <translation>Серія</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="671"/>
         <source>Series title or name (from calibre)</source>
-        <translation>Seriens titel eller namn (från calibre)</translation>
+        <translation>Назва серії або найменування (як в Calibre)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="672"/>
         <source>Series Index</source>
-        <translation>Serieindex</translation>
+        <translation>Індекс серії</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="672"/>
         <source>Index of this book in the series (from calibre)</source>
-        <translation>Index för denna bok i serien (från calibre)</translation>
+        <translation>Номер книги в серії (як в Calibre)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
         <source>Title for Sorting</source>
-        <translation>Titel för sortering</translation>
+        <translation>Назва для сортування</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
         <source>Version of ebook title to use for sorting (from calibre)</source>
-        <translation>Version av e-bok titel att använda för sortering (från calibre)</translation>
+        <translation>Версія назви електронної книги для сортування (як в Calibre)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
         <source>An empty element for you to modify</source>
-        <translation>Ett tomt element för dig att ändra</translation>
+        <translation>Порожній елемент, який ви можете змінити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation type="unfinished"/>
+        <translation>Необов’язковий, атрибут мови. Використовує ті ж коди, що й dc: language. Не використовується для dc: langauge, dc: date або dc:identifier елементів МетаДаних.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="705"/>
         <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, or UUID.</source>
-        <translation>Detta attribut läggs vanligtvis till i dc:identifierare för att ange vilken typ av identifierare som används: DOI, ISBN, ISSN eller UUID.</translation>
+        <translation>Цей атрибут зазвичай додається в dc:identifier, щоб вказати тип використовуваного ідентифікатора: DOI, ISBN, ISSN або UUID.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="706"/>
         <source>Event</source>
-        <translation>Händelse</translation>
+        <translation>Подія</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="706"/>
         <source>This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.</source>
-        <translation type="unfinished"/>
+        <translation>Цей атрибут зазвичай додається до елемента dc:date, щоб вказати тип дати: публікація, створення або внесення змін.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="707"/>
         <source>Custom Attribute</source>
-        <translation>Anpassat attribut</translation>
+        <translation>Кастомний Атрибут</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="707"/>
         <source>[Custom metadata property/attribute]</source>
-        <translation>[Anpassad metadataegenskap/attribut]</translation>
+        <translation>[Кастомна властивість/атрибут МетаДаних]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="707"/>
         <source>An empty metadata attribute you can modify.</source>
-        <translation>Ett tomt metadataattribut som du kan ändra.</translation>
+        <translation>Порожній атрибут МетаДаних, який ви можете змінити.</translation>
     </message>
 </context>
 <context>
@@ -12778,7 +12776,7 @@ Vill du automatiskt reparera filerna innan du sparar?</translation>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="159"/>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="161"/>
         <source>Start</source>
-        <translation>Börja</translation>
+        <translation>Старт</translation>
     </message>
 </context>
 <context>
@@ -12786,18 +12784,18 @@ Vill du automatiskt reparera filerna innan du sparar?</translation>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="595"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
-        <translation>Ett filnamn kan inte innehålla tecknet &quot;%1&quot;.</translation>
+        <translation>Ім&apos;я файлу не може містити символ &quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="606"/>
         <source>The filename cannot be empty.</source>
-        <translation>Filnamnet kan inte vara tomt.</translation>
+        <translation>Ім&apos;я файлу не може бути порожнім.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="613"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
-        <translation>Filnamnet &quot;%1&quot; används redan.
+        <translation>Ім&apos;я файлу &quot;%1&quot; вже використовується.
 </translation>
     </message>
 </context>
@@ -12806,12 +12804,12 @@ Vill du automatiskt reparera filerna innan du sparar?</translation>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1167"/>
         <source>[Title here]</source>
-        <translation>[Titel här]</translation>
+        <translation>[Назва отут]</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1173"/>
         <source>[Main title here]</source>
-        <translation>[Huvudtitel här]</translation>
+        <translation>[Основний заголовок отут]</translation>
     </message>
 </context>
 <context>
@@ -12819,27 +12817,27 @@ Vill du automatiskt reparera filerna innan du sparar?</translation>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="14"/>
         <source>Open With Application Name</source>
-        <translation>Öppna med programnamn</translation>
+        <translation>Відкрити за допомогою програми</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="20"/>
         <source>Enter the name to display in the Open With menu for this application:</source>
-        <translation>Ange det namn som ska visas i menyn Öppna med för det här programmet:</translation>
+        <translation>Введіть ім&apos;я для відображення в меню &quot;Відкрити за допомогою...&quot; для цієї програми:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="48"/>
         <source>Filename:</source>
-        <translation>Filnamn:</translation>
+        <translation>Ім&apos;я файлу:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="55"/>
         <source>Menu Name:</source>
-        <translation>Menynamn</translation>
+        <translation>Назва Меню:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="62"/>
         <source>No File</source>
-        <translation>Ingen fil</translation>
+        <translation>Файл відсутній</translation>
     </message>
 </context>
 <context>
@@ -12847,32 +12845,32 @@ Vill du automatiskt reparera filerna innan du sparar?</translation>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="14"/>
         <source>Plugin Runner</source>
-        <translation type="unfinished"/>
+        <translation>Засіб запуску Плагіна</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="28"/>
         <source>Plugin:</source>
-        <translation>Insticksmodul:</translation>
+        <translation>Плагін:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="48"/>
         <source>Start</source>
-        <translation>Börja</translation>
+        <translation>Старт</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="61"/>
         <source>Cancel</source>
-        <translation>Avbryt</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="90"/>
         <source>Message</source>
-        <translation>Meddelande</translation>
+        <translation>Повідомлення</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="103"/>
         <source>Details...</source>
-        <translation>Detaljer...</translation>
+        <translation>Детальніше...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="110"/>
@@ -12882,183 +12880,183 @@ Vill du automatiskt reparera filerna innan du sparar?</translation>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="139"/>
         <source>Status: </source>
-        <translation>Status: </translation>
+        <translation>Статус:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="104"/>
         <source>Error: A plugin by that name does not exist</source>
-        <translation>Fel: en insticksmodul med det namnet finns inte</translation>
+        <translation>Помилка: Плагін з такою назвою не існує</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="135"/>
         <source>Error: Interpreter</source>
-        <translation>Fel: Tolk</translation>
+        <translation>Помилка: Інтерпретатор</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="135"/>
         <source>has no path set</source>
-        <translation>har ingen sökväg inställd</translation>
+        <translation>не має встановленого шляху</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="148"/>
         <source>Installation Error: plugin launcher</source>
-        <translation>Installationsfel: insticksmodulsstartare</translation>
+        <translation>Помилка установки: запуск Плагіну</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="149"/>
         <source>does not exist</source>
-        <translation>finns inte</translation>
+        <translation>не існує</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="154"/>
         <source>Error: plugin engine</source>
-        <translation>Fel: insticksmodulsmotor</translation>
+        <translation>Помилка: рушій Плагінів</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="155"/>
         <source>is not supported (yet!)</source>
-        <translation>stöds inte (ännu!)</translation>
+        <translation>не підтримується (поки що!)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="161"/>
         <source>Status: ready</source>
-        <translation>Status: klar</translation>
+        <translation>Статус: готовність</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="223"/>
         <source>Error: plugin can not start</source>
-        <translation>Fel: insticksmodulen kan inte starta</translation>
+        <translation>Помилка: Плагін не може запуститися</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="376"/>
         <source>Status: running</source>
-        <translation>Status: körs</translation>
+        <translation>Статус: виконання</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="393"/>
         <source>Launcher process crashed</source>
-        <translation>Startarens process kraschade</translation>
+        <translation>Збій у запущенному Процесі</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="404"/>
         <source>Status: finished</source>
-        <translation>Status: färdig</translation>
+        <translation>Статус: закінчено</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="411"/>
         <source>Status: failed</source>
-        <translation>Status: misslyckades</translation>
+        <translation>Статус: неполадка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="417"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="426"/>
         <source>Status: No Changes Made</source>
-        <translation>Status: Inga ändringar gjorda</translation>
+        <translation>Статус: зміни відсутні</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="425"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
-        <translation>Fel: Insticksmodulen försökte ta bort den sista XHTML-filen .. avbryter ändringar</translation>
+        <translation>Помилка: Плагін намагався видалити останній XHTML-файл ... подальші зміни перервано</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="489"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="560"/>
         <source>Status:</source>
-        <translation>Status:</translation>
+        <translation>Статус:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="516"/>
         <source>Plugin failed to start</source>
-        <translation>Insticksmodulen kunde inte starta</translation>
+        <translation>Не вдалося запустити Плагін</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="524"/>
         <source>Status: error</source>
-        <translation>Status: fel</translation>
+        <translation>Статус: помилка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="538"/>
         <source>Plugin cancelled</source>
-        <translation>Insticksmodul avbruten</translation>
+        <translation>Плагін скасовано</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="539"/>
         <source>Status: cancelled</source>
-        <translation>Status: avbruten</translation>
+        <translation>Статус: скасовано</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="632"/>
         <source>Error Parsing Result XML:  </source>
-        <translation>Feltolkning av resultat XML:  </translation>
+        <translation>Помилка синтаксичного аналізу XML:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="689"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="704"/>
         <source>Status: checking</source>
-        <translation>Status: kontrollerar</translation>
+        <translation>Статус: перевірка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="693"/>
         <source>Incorrect XHTML:</source>
-        <translation>Felaktig XHTML:</translation>
+        <translation>Неправильний XHTML:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="693"/>
         <source>Line/Col</source>
-        <translation type="unfinished"/>
+        <translation>Рядок/Стовпець</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="720"/>
         <source>Check Report</source>
-        <translation>Kontrollrapport</translation>
+        <translation>Перевірити Звіт</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="721"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
-        <translation>Felaktig XHTML/XML upptäckt
-Är du säker på att du vill fortsätta?</translation>
+        <translation>Виявлено неправильний XHTML/XML
+Ви впевнені, що хочете продовжувати?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="739"/>
         <source>Status: cleaning up - deleting files</source>
-        <translation>Status: städar upp - tar bort filer</translation>
+        <translation>Статус: очищення — видалення файлів</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="772"/>
         <source>Status: deleting</source>
-        <translation>Status: tar bort</translation>
+        <translation>Статус: видалення</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="811"/>
         <source>Status: Loading</source>
-        <translation>Status: Läser in</translation>
+        <translation>Статус: Завантаження</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="822"/>
         <source>Input Plugin</source>
-        <translation>Inmatningsinsticksmodul</translation>
+        <translation>Ввести Плагін</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="823"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
-        <translation>Din nuvarande bok kommer att ersättas och förlora alla osparade ändringar ... Är du säker på att du vill fortsätta</translation>
+        <translation>Ваша поточна книга буде повністю замінена, можливо з втратою будь-яких незбережених змін ... Ви впевнені, що хочете продовжити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="849"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="863"/>
         <source>Status: adding</source>
-        <translation>Status: lägger till</translation>
+        <translation>Статус: додавання</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="902"/>
         <source>Status: cleaning up - modifying files</source>
-        <translation>Status: städar upp - ändrar filer</translation>
+        <translation>Статус: очищення - модифікація файлів</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="931"/>
         <source>Status: modifying</source>
-        <translation>Status: ändrar</translation>
+        <translation>Статус: модифікація</translation>
     </message>
 </context>
 <context>
@@ -13067,32 +13065,32 @@ Are you Sure You Want to Continue?</source>
         <location filename="../../Form_Files/PPluginWidget.ui" line="14"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="154"/>
         <source>Plugins</source>
-        <translation>Insticksmoduler</translation>
+        <translation>Плагіни</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="62"/>
         <source>Name</source>
-        <translation>Namn</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="67"/>
         <source>Version</source>
-        <translation>Version</translation>
+        <translation>Версія</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="72"/>
         <source>Author</source>
-        <translation>Författare</translation>
+        <translation>Автор</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="77"/>
         <source>Type</source>
-        <translation>Typ</translation>
+        <translation>Тип</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="82"/>
         <source>Interpreter</source>
-        <translation>Tolk</translation>
+        <translation>Інтерпретатор</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="96"/>
@@ -13102,152 +13100,152 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="115"/>
         <source>Auto</source>
-        <translation>Automatisk</translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="122"/>
         <source>Set</source>
-        <translation>Ställ in</translation>
+        <translation>Задати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="161"/>
         <source>Add Plugin</source>
-        <translation>Lägg till insticksmodul</translation>
+        <translation>Додати Плагін</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="168"/>
         <source>Remove All</source>
-        <translation>Ta bort alla</translation>
+        <translation>Вилучити Все</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="175"/>
         <source>Remove Plugin</source>
-        <translation>Ta bort insticksmodul</translation>
+        <translation>Вилучити Плагін</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="201"/>
         <source>Path to Interpreter Executable</source>
-        <translation>Sökväg till exekverbar tolk</translation>
+        <translation>Шлях до Інтерпретатора</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="211"/>
         <source>Should the bundled Python interpreter be used if present?</source>
-        <translation>Ska den medföljande Python-tolken användas om den är närvarande?</translation>
+        <translation>Використовувати інтерпретатор Python з комплекту, якщо він є?</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="214"/>
         <source>Use Bundled Python</source>
-        <translation>Använd medföljande Python</translation>
+        <translation>Використовувати вбудований Python</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="228"/>
         <source>Quick Launch Plugin Assignments</source>
-        <translation>Snabbstart insticksmodulsuppdrag</translation>
+        <translation>Призначення для швидкого запуску Плагіна</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="238"/>
         <source>Plugin 1:</source>
-        <translation>Insticksmodul 1:</translation>
+        <translation>Плагін 1:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="248"/>
         <source>Plugin 2:</source>
-        <translation>Insticksmodul 2:</translation>
+        <translation>Плагін 2:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="258"/>
         <source>Plugin 3:</source>
-        <translation>Insticksmodul 3:</translation>
+        <translation>Плагін 3:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="268"/>
         <source>Plugin 4:</source>
-        <translation>Insticksmodul 4:</translation>
+        <translation>Плагін 4:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="278"/>
         <source>Plugin 5:</source>
-        <translation>Insticksmodul 5:</translation>
+        <translation>Плагін 5:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="303"/>
         <source>Plugin 6:</source>
-        <translation>Insticksmodul 6:</translation>
+        <translation>Плагін 6:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="313"/>
         <source>Plugin 7:</source>
-        <translation>Insticksmodul 7:</translation>
+        <translation>Плагін 7:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="323"/>
         <source>Plugin 8:</source>
-        <translation>Insticksmodul 8:</translation>
+        <translation>Плагін 8:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="333"/>
         <source>Plugin 9:</source>
-        <translation>Insticksmodul 9:</translation>
+        <translation>Плагін 9:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="343"/>
         <source>Plugin 10:</source>
-        <translation>Insticksmodul 10:</translation>
+        <translation>Плагін 10:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="183"/>
         <source>Select Plugin Zip Archive</source>
-        <translation>Välj insticksmoduls zip-arkiv</translation>
+        <translation>Вибрати zip-архів Плагіну</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="183"/>
         <source>Plugin Files (*.zip)</source>
-        <translation>Insticksmodulsfiler (*.zip)</translation>
+        <translation>Файли Плагінів (*.zip)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="199"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
-        <translation>Fel: Insticksmodulens plugin.xml är ogiltig eller stöds inte av operativsystemet.</translation>
+        <translation>Помилка: Плагін plugin.xml недійсний або не підтримується у вашій операційній системі.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="202"/>
         <source>Warning: A plugin by that name already exists</source>
-        <translation>Varning: en insticksmodul med det namnet finns redan</translation>
+        <translation>Попередження: Плагін із таким іменем вже існує</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="205"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
-        <translation>Fel: Insticksmodulen kunde inte packas upp.</translation>
+        <translation>Помилка: Плагін не вдалося розпакувати.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="208"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation>Fel: Insticksmodulen är inte en giltig Sigil insticksmodul.</translation>
+        <translation>Помилка: Плагін не є дійсним плагіном Sigil.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="246"/>
         <source>Nothing is Selected.</source>
-        <translation>Inget är markerat.</translation>
+        <translation>Нічого не вибрано.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="294"/>
         <source>Remove All Plugins</source>
-        <translation>Ta bort alla insticksmoduler</translation>
+        <translation>Вилучити всі Плагіни</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="295"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
-        <translation>Är du säker på att du vill ta bort alla dina insticksmoduler?</translation>
+        <translation>Ви впевнені, що хочете видалити всі свої плагіни?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="347"/>
         <source>Select Interpreter</source>
-        <translation>Välj tolk</translation>
+        <translation>Вибрати Інтерпретатор</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="372"/>
         <source>Incorrect Interpreter Path selected</source>
-        <translation>Felaktig tolksökväg vald</translation>
+        <translation>Вибрано неправильний шлях для Інтерпретатора</translation>
     </message>
 </context>
 <context>
@@ -13255,7 +13253,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/Preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>Inställningar</translation>
+        <translation>Налаштування</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="102"/>
@@ -13265,12 +13263,12 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="102"/>
         <source>Changes will take effect when you restart Sigil.</source>
-        <translation>Ändringarna träder i kraft när du startar om Sigil.</translation>
+        <translation>Зміни набудуть чинності після перезапуску Sigil.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="174"/>
         <source>Open Preferences Location</source>
-        <translation>Öppna platsen för Inställningar</translation>
+        <translation>Відкрити місце розташування Налаштувань</translation>
     </message>
 </context>
 <context>
@@ -13278,44 +13276,44 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="14"/>
         <source>Preserve Entities</source>
-        <translation>Bevara enheter</translation>
+        <translation>Мненмоніка</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="32"/>
         <source>Entities to Preserve</source>
-        <translation>Enheter att bevara</translation>
+        <translation>Позначення для символів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="47"/>
         <source>Enter or paste entities to add to the list.
 Entities can be separated by lines, commas, or spaces.</source>
-        <translation>Ange eller klistra in enheter för att lägga till i listan.
-Enheter kan separeras med rader, kommatecken eller mellanslag.</translation>
+        <translation>Введіть або вставте позначення для символів, щоб додати їх до списку.
+Суб&apos;єкти можна розділити лініями, комами або пробілами.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="51"/>
         <source>Add</source>
-        <translation>Lägg till</translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="58"/>
         <source>Remove</source>
-        <translation>Ta bort</translation>
+        <translation>Вилучити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="65"/>
         <source>Remove All</source>
-        <translation>Ta bort alla</translation>
+        <translation>Вилучити все</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="65"/>
         <source>Add Entities</source>
-        <translation>Lägg till enheter</translation>
+        <translation>Додати Мнемоніку</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="65"/>
         <source>Entities:</source>
-        <translation>Enheter:</translation>
+        <translation>Мнемоніка:</translation>
     </message>
 </context>
 <context>
@@ -13324,27 +13322,27 @@ Enheter kan separeras med rader, kommatecken eller mellanslag.</translation>
         <location filename="../../MainUI/PreviewWindow.cpp" line="51"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="270"/>
         <source>Preview</source>
-        <translation>Förhandsgranskning</translation>
+        <translation>Переглянути</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="156"/>
         <source>Inspect Page</source>
-        <translation>Inspektera sida</translation>
+        <translation>Ревізувати Сторінку</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="159"/>
         <source>Select-All</source>
-        <translation>Välj-alla</translation>
+        <translation>Вибрати-Все</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="162"/>
         <source>Copy Selection To ClipBoard</source>
-        <translation>Kopiera markering till urklipp</translation>
+        <translation>Копіювати вибране у буфер обміну</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="165"/>
         <source>Update Preview Window</source>
-        <translation>Uppdatera förhandsgranskningsfönstret</translation>
+        <translation>Оновити вікно попереднього Перегляду</translation>
     </message>
 </context>
 <context>
@@ -13352,78 +13350,78 @@ Enheter kan separeras med rader, kommatecken eller mellanslag.</translation>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="1049"/>
         <source>Merging Files..</source>
-        <translation>Sammanfogar filer..</translation>
+        <translation>Об’єднання файлів...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/BookReports.cpp" line="53"/>
         <location filename="../../BookManipulation/BookReports.cpp" line="124"/>
         <source>Collecting classes...</source>
-        <translation>Samlar klasser...</translation>
+        <translation>Узагальнення класів...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/CleanSource.cpp" line="312"/>
         <source>Cleaning...</source>
-        <translation>Rensar...</translation>
+        <translation>Очищення...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Creating Index...</source>
-        <translation>Skapar Index...</translation>
+        <translation>Створення Індексу...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Cancel</source>
-        <translation>Avbryt</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="161"/>
         <location filename="../../Misc/OpenExternally.cpp" line="243"/>
         <source>Applications</source>
-        <translation>Program</translation>
+        <translation>Програми</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="171"/>
         <source>Select External Xhtml Editor</source>
-        <translation>Välj extern XHTML-redigerare</translation>
+        <translation>Вибрати зовнішній редактор Xhtml</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Reports.cpp" line="114"/>
         <source>Creating reports...</source>
-        <translation>Skapar rapporter...</translation>
+        <translation>Створення звіту...</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="111"/>
         <source>Cannot read EPUB: %1</source>
-        <translation>Kan inte läsa EPUB: %1</translation>
+        <translation>Неможливо прочитати EPUB: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="252"/>
         <source>The OPF file does not contain a valid spine.</source>
-        <translation>OPF-filen innehåller inte en giltig ryggrad.</translation>
+        <translation>Файл OPF не містить чинного списку потоку (spine).</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="253"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="863"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="866"/>
         <source>Sigil has created a new one for you.</source>
-        <translation>Sigil har skapat en ny för dig.</translation>
+        <translation>Sigil створив для вас нове.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="290"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
-        <translation>Fel tolkning av krypterings xml.
-Rad: %1 Kolumn %2- %3</translation>
+        <translation>Помилка синтаксичного аналізу шифрування xml.
+Рядок: %1 Стовпець %2 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="422"/>
         <source>Cannot unzip EPUB: %1</source>
-        <translation>Det går inte att packa upp EPUB: %1</translation>
+        <translation>Неможливо розпакувати EPUB: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="478"/>
         <source>Possible evil or corrupt epub file name: %1</source>
-        <translation>Eventuellt ont eller korrupt epub-filnamn: %1</translation>
+        <translation>Можливо невідповідне або пошкоджене ім’я файлу epub: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="505"/>
@@ -13431,86 +13429,86 @@ Rad: %1 Kolumn %2- %3</translation>
         <location filename="../../Importers/ImportEPUB.cpp" line="531"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="539"/>
         <source>Cannot extract file: %1</source>
-        <translation>Det går inte att extrahera filen: %1</translation>
+        <translation>Неможливо витягти файл: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="551"/>
         <source>Cannot open EPUB: %1</source>
-        <translation>Det går inte att öppna EPUB: %1</translation>
+        <translation>Неможливо відкрити EPUB: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="605"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
-        <translation>Det går inte att tolka filen conatiner.xml.
-Rad: %1 Kolumn %2- %3</translation>
+        <translation>Неможливо проаналізувати файл container.xml.
+Рядок: %1 Стовпець %2 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="617"/>
         <source>No appropriate OPF file found</source>
-        <translation>Ingen lämplig OPF-fil hittades</translation>
+        <translation>Не знайдено відповідного файлу OPF</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="668"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
-        <translation>Det går inte att läsa OPF-filen.
-Rad: %1 Kolumn %2 - %3</translation>
+        <translation>Не вдається прочитати файл OPF.
+Рядок: %1 Стовпець %2 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="765"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
-        <translation>OPF-manifestet innehåller dubbla id för: %1</translation>
+        <translation>Маніфест OPF містить повторювані ідентифікатори для: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="766"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
-        <translation>Ett tillfälligt id har tilldelats för att läsa in denna EPUB. Du bör redigera OPF-filen för att ta bort dubbleringen.</translation>
+        <translation>Для завантаження цього EPUB призначений тимчасовий ідентифікатор. Ви повинні відредагувати файл OPF, щоб видалити дублювання.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="816"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
-        <translation>OPF-filen identifierade inte NCX-filen korrekt.</translation>
+        <translation>Файл OPF неправильно ідентифікував файл NCX.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="817"/>
         <source>Sigil has used the following file as the NCX:</source>
-        <translation>Sigil har använt följande fil som NCX:</translation>
+        <translation>Sigil використовує наступний файл як NCX:</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="862"/>
         <source>The OPF file does not contain an NCX file.</source>
-        <translation>OPF-filen innehåller inte en NCX-fil.</translation>
+        <translation>Файл OPF не містить файл NCX.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="865"/>
         <source>The NCX file is not present in this EPUB.</source>
-        <translation>NCX-filen finns inte i denna EPUB.</translation>
+        <translation>Файл NCX відсутній у цьому EPUB.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="582"/>
         <source>Adding Existing Files..</source>
-        <translation>Lägger till befintliga filer..</translation>
+        <translation>Додавання існуючих файлів...</translation>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="253"/>
         <source>Open With</source>
-        <translation>Öppna med</translation>
+        <translation>Відкрити за допомогою</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="44"/>
         <source>Counting occurrences..</source>
-        <translation>Räknar förekomster..</translation>
+        <translation>Підрахунок входжень...</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="64"/>
         <source>Replacing search term...</source>
-        <translation>Ersätter sökterm...</translation>
+        <translation>Заміна пошукових термінів...</translation>
     </message>
     <message>
         <location filename="../../Misc/TOCHTMLWriter.cpp" line="105"/>
         <source>Table of Contents</source>
-        <translation>Innehållsförteckning</translation>
+        <translation>Зміст</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="97"/>
@@ -13520,45 +13518,45 @@ Rad: %1 Kolumn %2 - %3</translation>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="98"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
-        <translation>&lt;p&gt;En nyare version av Sigil är tillgänglig, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Vill du gå till hämtningssidan?&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Доступна нова версія Sigil, версія &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Ви хочете перейти на сторінку завантаження?&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="467"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation>Det går inte att läsa filen %1:
+        <translation>Неможливо прочитати файл %1:
 %2.</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="582"/>
         <source>Sigil has encountered a problem.</source>
-        <translation>Sigil har stött på ett problem.</translation>
+        <translation>У Sigil виникли проблеми.</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="583"/>
         <source>Sigil may need to close.</source>
-        <translation>Sigil kan behöva stängas.</translation>
+        <translation>Sigil, має закритися.</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="70"/>
         <source>Index</source>
-        <translation>Index</translation>
+        <translation>Індекс</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="210"/>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="276"/>
         <source>Invalid HTML file: %1</source>
-        <translation>Ogiltig HTML-fil: %1</translation>
+        <translation>Неприпустимий HTML-файл: %1</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="319"/>
         <source>Invalid OPF file: %1</source>
-        <translation>Ogiltig OPF-fil: %1</translation>
+        <translation>Неприпустимий OPF-файл: %1</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="344"/>
         <source>Invalid NCX file: %1</source>
-        <translation>Ogiltig NCX-fil: %1</translation>
+        <translation>Неприпустимий NCX-файл: %1</translation>
     </message>
 </context>
 <context>
@@ -13566,7 +13564,7 @@ Rad: %1 Kolumn %2 - %3</translation>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="20"/>
         <source>Rename Files</source>
-        <translation>Byt namn på filer</translation>
+        <translation>Перейменувати Файли</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="28"/>
@@ -13585,31 +13583,31 @@ current extensions will be kept.  If you just provide a file extension (e.g. .xh
 then only file extensions will be updated.  Be careful that any extension you use is 
 valid for all selected files.
 </source>
-        <translation>Ange det startnamn som ska användas för att byta namn på alla valda filer, t. ex.:
+        <translation>Введіть початкове ім’я для перейменування всіх вибраних файлів, наприклад:
 
     filename001
     filename08.xhtml
     .html
 
-Alla nummer i slutet av filnamnet du anger kommer att ersättas sekventiellt med 
-början på det angivna numret (standard är 1 om inget nummer tillhandahålls), med 
-ledande 0 läggs till för att matcha antalet siffror som används.
+Усі цифри в кінці введеного імені файла будуть замінені послідовно
+починаючи з вказаного числа (за замовчуванням - 1, якщо номер не вказано), з
+провідними доданими 0, щоб відповідати кількості використаних цифр.
 
-Om du tillhandahåller ett filtillägg kommer det att användas för alla filer, annars 
-kommer de aktuella tilläggen att behållas. Om du bara tillhandahåller en filändelse 
-(t.ex. .xhtml) så kommer endast filtillägget att uppdateras. Var försiktig så att alla tillägg 
-du använder är giltigt för alla valda filer.
+Якщо ви надаєте розширення файлу, воно буде використовуватися для всіх файлів, інакше
+поточні розширення будуть збережені. Якщо ви просто надаєте розширення файлу (наприклад, .xhtml)
+то буде оновлено лише розширення файлів. Будьте уважні, будь-яке розширення, яке ви використовуєте
+дійсно для всіх вибраних файлів.
 </translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="45"/>
         <source>Rename Files Starting At: </source>
-        <translation>Byt namn på filer som börjar på: </translation>
+        <translation>Перейменувати файли, починаючи з:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="52"/>
         <source>Section0001</source>
-        <translation>Avsnitt0001</translation>
+        <translation>Section0001</translation>
     </message>
 </context>
 <context>
@@ -13617,12 +13615,12 @@ du använder är giltigt för alla valda filer.
     <message>
         <location filename="../../Form_Files/Reports.ui" line="14"/>
         <source>Reports</source>
-        <translation>Rapporter</translation>
+        <translation>Звіти</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Reports.ui" line="51"/>
         <source>Refresh</source>
-        <translation>Uppdatera</translation>
+        <translation>Оновити</translation>
     </message>
 </context>
 <context>
@@ -13630,105 +13628,105 @@ du använder är giltigt för alla valda filer.
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="14"/>
         <source>Saved Searches</source>
-        <translation>Sparade sökningar</translation>
+        <translation>Результати пошуку збережені</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation>Filternamn:</translation>
+        <translation>Назва фільтру:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation>Filtrera alla:</translation>
+        <translation>Фільтр у всіх полях:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Lista endast de poster som innehåller texten du anger.</translation>
+        <translation>Вивести лише записи, що містять введений користувачем текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="65"/>
         <source>Load the selected entry into the Find &amp; Replace window.</source>
-        <translation>Läs in den valda posten i fönstret Sök och ersätt.</translation>
+        <translation>Завантажте вибраний запис у вікно &quot;Знайти та замінити&quot;.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="68"/>
         <source>Load Search</source>
-        <translation>Läs in sökning</translation>
+        <translation>Завантажити результати пошуку</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="91"/>
         <source>Run Find using the selected entry.
 If a group is selected, find the first entry in the list, 
 then if not found look for the second entry in the list, etc.</source>
-        <translation>Kör Sök med den valda posten.
-Om en grupp är markerad, hitta den första posten i listan, 
-sedan om inte hittat leta efter den andra posten i listan, o.s.v.</translation>
+        <translation>Запустіть &quot;Знайти&quot;, використовуючи вибраний запис.
+Якщо вибрана група, буде знайдено перший запис у списку,
+потім, якщо не знайдено, буде шукайти другий запис у списку, і т.д.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>Find</source>
-        <translation>Hitta</translation>
+        <translation>Знайти</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="103"/>
         <source>Run Replace using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace.</source>
-        <translation>Kör Ersätt med den markerade posten.
-Om en grupp väljs, slinga genom varje post
-och sluta vid den första framgångsrika ersättningen.</translation>
+        <translation>Запустити &quot;Замінити&quot;, використовуючи вибраний запис.
+Якщо вибрана група, проводиться цикл для кожного елементу
+і зупиниться на першій вдалій заміні.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="69"/>
         <source>Replace</source>
-        <translation>Ersätt</translation>
+        <translation>Замінити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="131"/>
         <source>Run Replace/Find using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace/find.</source>
-        <translation>Kör Ersätt/Hitta med den markerade posten.
-Om en grupp väljs, slinga genom varje post
-och sluta vid den första framgångsrika ersätt/hitta.</translation>
+        <translation>Запустити &quot;Знайти/Замінити&quot;, використовуючи вибраний запис.
+Якщо вибрана група, проводиться цикл для кожного елементу
+і зупиниться на знайденому або першій вдалій заміні.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="136"/>
         <source>Replace/Find</source>
-        <translation>Ersätt/Hitta</translation>
+        <translation>Замінити/Знайти</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="143"/>
         <source>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</source>
-        <translation>Kör Ersätt alla för de markerade posterna i den valda ordningen.
-Välj en grupp för att ersätta alla poster i gruppen i ordning.</translation>
+        <translation>Запустити &quot;Замінити все&quot; для вибраних записів у вибраному порядку.
+Виберіть групу, щоб замінити всі записи в групі за порядком.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="147"/>
         <source>Replace All</source>
-        <translation>Ersätt alla</translation>
+        <translation>Замінити Все</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="170"/>
         <source>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</source>
-        <translation>Kör Räkna alla för de markerade posterna i den valda ordningen,
-inklusive poster i valda grupper.</translation>
+        <translation>Запустити &quot;Порахувати все&quot; для вибраних записів у вибраному порядку,
+включаючи записи у вибраних групах.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
         <source>Count All</source>
-        <translation>Räkna alla</translation>
+        <translation>Порахувати все</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="199"/>
         <source>Move an entry up one level in the same group.</source>
-        <translation>Flytta en post upp en nivå i samma grupp.</translation>
+        <translation>Перемістіть елемент на один рівень вгору в тій же групі.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="202"/>
@@ -13736,112 +13734,112 @@ inklusive poster i valda grupper.</translation>
         <location filename="../../Form_Files/SearchEditor.ui" line="261"/>
         <location filename="../../Form_Files/SearchEditor.ui" line="291"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation>…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="229"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation>Flytta en post till nivån för sin överordnade.</translation>
+        <translation>Перемістити запис на рівень його батьків.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="258"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation>Du måste välja ett objekt direkt under en grupp för att flytta det till gruppen.</translation>
+        <translation>Ви повинні вибрати пункт безпосередньо під групою, щоб перемістити його до групи.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="288"/>
         <source>Move an entry down one level in the same group.</source>
-        <translation>Flytta en post ner en nivå i samma grupp.</translation>
+        <translation>Перемістіть елемент на один рівень вниз в тій же групі.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="354"/>
         <source>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</source>
-        <translation>Klicka på Tillämpa för att läsa in Sök och ersätt med den valda sökningen. Klicka på OK för att läsa in din sökning, spara dina data och stäng.</translation>
+        <translation>Натисніть &quot;Застосувати&quot;, щоб завантажити &quot;Знайти та замінити&quot; з вибраним пошуком. Натисніть кнопку ОК, щоб завантажити свій список пошуку, зберегти свої дані та закрити.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="62"/>
         <source>All searches default to Regex, All HTML Files, Down.</source>
-        <translation>Alla sökningar är standard till Regex, alla HTML-filer, Down.</translation>
+        <translation>Налаштування пошукового запиту за замовчуванням Regex, Усі HTML-файли, Вниз.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="63"/>
         <source>Hold Ctrl down while clicking Find, Replace, etc. to temporarily search only the Current File.</source>
-        <translation>Håll ned Ctrl medan du klickar på Sök, Ersätt, o.s.v. för att tillfälligt söka endast den aktuella filen.</translation>
+        <translation>Утримуйте клавішу Ctrl, при натисканні на кнопку &quot;Знайти&quot;, &quot;Замінити&quot;, тощо, щоб тимчасово шукати лише у поточному файлі.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="64"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>Högerklicka på en post för att se en snabbmeny med åtgärder.</translation>
+        <translation>Клацніть правою кнопкою миші на запис, щоб побачити контекстне меню дій.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="65"/>
         <source>You can also right click on the Find text box in the Find &amp; Replace window to select an entry.</source>
-        <translation>Du kan också högerklicka på Söktextrutan i fönstret Sök och ersätt för att välja en post.</translation>
+        <translation>Ви також можете клацнути правою кнопкою миші на текстовому полі «Знайти» у вікні «Знайти та замінити», щоб вибрати запис.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Name</source>
-        <translation>Namn</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Name of your entry or group.</source>
-        <translation>Namn på din post eller grupp.</translation>
+        <translation>Назва Вашого запису чи групи.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>The text to put into the Find box.</source>
-        <translation>Texten som ska läggas i Sökrutan.</translation>
+        <translation>Текст, який потрібно помістити у поле Знайти.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="69"/>
         <source>The text to put into the Replace box.</source>
-        <translation>Texten som ska läggas i rutan Ersätt.</translation>
+        <translation>Текст, який потрібно помістити у поле Замінити.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
         <source>Save</source>
-        <translation>Spara</translation>
+        <translation>Зберегти</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
         <source>Save your changes.</source>
-        <translation>Spara dina ändringar.</translation>
+        <translation>Зберегти зміни.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>Om några andra instanser av Sigil körs kommer de att uppdateras automatiskt med dina ändringar.</translation>
+        <translation>Якщо запущені інші екземпляри Sigil, вони будуть автоматично оновлені з вашими змінами.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="90"/>
         <source>Cannot save entries.</source>
-        <translation>Det går inte att spara poster.</translation>
+        <translation>Неможливо зберегти внесені записи.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="170"/>
         <source>Saved Searches loaded from file.</source>
-        <translation>Sparade sökningar inlästa från fil.</translation>
+        <translation>Збережені пошукові запити завантажені з файлу.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="206"/>
         <source>You cannot select more than one entry when using this action.</source>
-        <translation>Du kan inte välja mer än en post när du använder den här åtgärden.</translation>
+        <translation>Ви не можете вибрати більше одного запису при використанні цієї дії.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="214"/>
         <source>You cannot select a group for this action.</source>
-        <translation>Du kan inte välja en grupp för den här åtgärden.</translation>
+        <translation>Ви не можете вибрати групу для цієї дії.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="260"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation>Du kan inte välja en post och en grupp som innehåller posten.</translation>
+        <translation>Ви не можете вибрати запис та групу, що містить запис.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="343"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation>Du kan inte Kopiera eller Klippa ut grupper - använd dra-och-släpp.</translation>
+        <translation>Ви не можете копіювати або вирізати групи - використовуйте drag-and-drop.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="410"/>
@@ -13851,99 +13849,99 @@ inklusive poster i valda grupper.</translation>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="410"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>Är du säker på att du vill uppdatera alla poster? Detta kommer att skriva över eventuella osparade ändringar.</translation>
+        <translation>Ви впевнені, що хочете перезавантажити всі записи? Це перезапише всі незбережені зміни.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="426"/>
         <source>Import Search Entries</source>
-        <translation>Importera Sökposter</translation>
+        <translation>Імпорт пошукових запитів</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="499"/>
         <source>Export Selected Searches</source>
-        <translation>Exportera Valda sökningar</translation>
+        <translation>Експорт вибраних пошукових запитів</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="664"/>
         <source>Add Entry</source>
-        <translation>Lägg till en post</translation>
+        <translation>Додати запис</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="665"/>
         <source>Add Group</source>
-        <translation>Lägg till grupp</translation>
+        <translation>Додати Групу</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="666"/>
         <source>Edit</source>
-        <translation>Redigera</translation>
+        <translation>Редагувати</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="667"/>
         <source>Cut</source>
-        <translation>Klipp ut</translation>
+        <translation>Вирізати</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="668"/>
         <source>Copy</source>
-        <translation>Kopiera</translation>
+        <translation>Копіювати</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="669"/>
         <source>Paste</source>
-        <translation>Klistra in</translation>
+        <translation>Вставити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="670"/>
         <source>Delete</source>
-        <translation>Ta bort</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="671"/>
         <source>Import</source>
-        <translation>Importera</translation>
+        <translation>Імпорт</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="672"/>
         <source>Reload</source>
-        <translation>Uppdatera</translation>
+        <translation>Перезавантажити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="673"/>
         <source>Export</source>
-        <translation>Exportera</translation>
+        <translation>Експорт</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="674"/>
         <source>Export All</source>
-        <translation>Exportera alla</translation>
+        <translation>Експортувати все</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="675"/>
         <source>Collapse All</source>
-        <translation>Kollapsa alla</translation>
+        <translation>Згорнути все</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="676"/>
         <source>Expand All</source>
-        <translation>Expandera alla</translation>
+        <translation>Розгорнути все</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="753"/>
         <source>Search entries saved.</source>
-        <translation>Sökposter sparade.</translation>
+        <translation>Пошукові записи збережені.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="782"/>
         <source>Sigil: Saved Searches</source>
-        <translation>Sigil: Sparade sökningar</translation>
+        <translation>Sigil: Результати пошуку збережені</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="783"/>
         <source>The Search entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>Sökposterna kan ha ändrats.
-Vill du spara dina ändringar?</translation>
+        <translation>Пошукові записи, можливо, були змінені.
+Ви хочете зберегти свої зміни?</translation>
     </message>
 </context>
 <context>
@@ -13951,22 +13949,22 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
         <source>Name</source>
-        <translation>Namn</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="67"/>
         <source>Find</source>
-        <translation>Hitta</translation>
+        <translation>Знайти</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="68"/>
         <source>Replace</source>
-        <translation>Ersätt</translation>
+        <translation>Замінити</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="604"/>
         <source>Unable to create file %1</source>
-        <translation>Det gick inte att skapa filen %1</translation>
+        <translation>Неможливо створити файл %1</translation>
     </message>
 </context>
 <context>
@@ -13974,7 +13972,7 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../Form_Files/SelectCharacter.ui" line="14"/>
         <source>Insert Special Character</source>
-        <translation>Infoga specialtecken</translation>
+        <translation>Вставити спеціальний знак</translation>
     </message>
 </context>
 <context>
@@ -13982,84 +13980,84 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="14"/>
         <source>Insert File</source>
-        <translation>Infoga fil</translation>
+        <translation>Вставити Файл</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="46"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Lista endast de filnamn som innehåller texten du anger.</translation>
+        <translation>Вивести тільки файли, що містять введений мною текст</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="49"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="59"/>
         <source>Choose which image, video, or audio files from your computer to add to
 your book and automatically insert into your document.</source>
-        <translation>Välj vilken bild, video eller ljudfiler från datorn som du vill lägga till i
-din bok och automatiskt infoga i dokumentet.</translation>
+        <translation>Виберіть зображення, відео чи аудіофайли з комп’ютера, які потрібно додати у
+Вашу книгу та автоматично вставити у Ваш документ.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="63"/>
         <source>Other Files...</source>
-        <translation>Andra filer...</translation>
+        <translation>Інші Файли...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="129"/>
         <source>Thumbnail size:</source>
-        <translation>Miniatyrbildsstorlek:</translation>
+        <translation>Розмір мініатюри:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="81"/>
         <source>All</source>
-        <translation>Alla</translation>
+        <translation>Усьому</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="82"/>
         <source>Images</source>
-        <translation>Bilder</translation>
+        <translation>Зображення</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="83"/>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation>Відео</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="84"/>
         <source>Audio</source>
-        <translation>Ljud</translation>
+        <translation>Аудіо</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="128"/>
         <source>Files In the Book</source>
-        <translation>Filer i boken</translation>
+        <translation>Файли в книзі</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="131"/>
         <source>Thumbnails</source>
-        <translation>Miniatyrbilder</translation>
+        <translation>Мініатюри</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="287"/>
         <source>shades</source>
-        <translation>nyanser</translation>
+        <translation>тіні</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="287"/>
         <source>colors</source>
-        <translation>färger</translation>
+        <translation>кольори</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="288"/>
         <source>Grayscale</source>
-        <translation>Gråskala</translation>
+        <translation>Відтінки сірого</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="288"/>
         <source>Color</source>
-        <translation>Färg</translation>
+        <translation>Колір</translation>
     </message>
 </context>
 <context>
@@ -14067,34 +14065,34 @@ din bok och automatiskt infoga i dokumentet.</translation>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="14"/>
         <source>Select Target</source>
-        <translation>Välj mål</translation>
+        <translation>Вибрати Адресат</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="22"/>
         <source>List only the entries that match the text you enter.</source>
-        <translation>Lista endast de poster som matchar texten du anger.</translation>
+        <translation>Перелічені лише записи, які відповідають введеному тексту.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="25"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="58"/>
         <source>Enter the target URL for this hyperlink.  You can select or 
 double click on existing destinations in your book from the list above.</source>
-        <translation>Ange målwebbadressen för denna hyperlänk. Du kan markera eller 
-dubbelklicka på befintliga destinationer i din bok från listan ovan.</translation>
+        <translation>Введіть цільову URL-адресу цього гіперпосилання. Ви можете вибрати або
+двічі клацніть на існуючих місцях у вашій книзі зі списку вище.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="62"/>
         <source>Target:</source>
-        <translation>Mål:</translation>
+        <translation>Ціль:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectHyperlink.cpp" line="61"/>
         <source>Targets in the Book</source>
-        <translation>Mål i boken</translation>
+        <translation>Цілі в книзі</translation>
     </message>
 </context>
 <context>
@@ -14102,7 +14100,7 @@ dubbelklicka på befintliga destinationer i din bok från listan ovan.</translat
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="14"/>
         <source>Insert ID </source>
-        <translation>Infoga ID</translation>
+        <translation>Вставити ID </translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="22"/>
@@ -14111,11 +14109,11 @@ dubbelklicka på befintliga destinationer i din bok från listan ovan.</translat
 The dropdown box shows existing ID names in the current file.
 
 ID names must be unique and start with a letter.</source>
-        <translation>Ange ett ID-namn som ska användas som destination för hyperlänkar, anteckningar och innehållsförteckningsposter.
+        <translation>Введіть ідентифікаційне ім&apos;я, яке використовуватиметься як місце призначення для гіперпосилань, нотаток та записів TOC.
 
-Rullgardinsmenyn visar befintliga ID-namn i den aktuella filen.
+У контекстному списку відображаються існуючі імена ідентифікаторів у поточному файлі.
 
-ID-namn måste vara unika och börja med en bokstav.</translation>
+Імена ідентифікаторів повинні бути унікальними і починатись з літери.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="29"/>
@@ -14128,17 +14126,17 @@ ID-namn måste vara unika och börja med en bokstav.</translation>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="14"/>
         <source>Mark For Index</source>
-        <translation>Markera för index</translation>
+        <translation>Позначка для Індексу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="22"/>
         <source>Enter the index entry to create for the selected text.</source>
-        <translation>Ange indexposten för att skapa för den markerade texten.</translation>
+        <translation>Введіть індексний запис для створення з вибраного тексту.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="25"/>
         <source>Index Entry:</source>
-        <translation>Indexpost:</translation>
+        <translation>Записати індекс:</translation>
     </message>
 </context>
 <context>
@@ -14146,69 +14144,69 @@ ID-namn måste vara unika och börja med en bokstav.</translation>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="14"/>
         <source>Spellcheck Dictionaries</source>
-        <translation>Stavningskontrollsordböcker</translation>
+        <translation>Орфографічні Словники</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="34"/>
         <source>Dictionary:</source>
-        <translation>Ordbok:</translation>
+        <translation>Словник:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="64"/>
         <source>Highlight misspelled words in Code View.</source>
-        <translation>Markera felstavade ord i Kodvyn.</translation>
+        <translation>Підкреслювати слова з помилками у вікні Браузера Коду.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="67"/>
         <source>Highlight Misspelled Words</source>
-        <translation>Markera felstavade ord</translation>
+        <translation>Підкреслювати слова з помилками</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="74"/>
         <source>Check words with numbers in them.</source>
-        <translation>Kontrollera ord med siffror i dem.</translation>
+        <translation>Перевіряти слова які містять цифри.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="77"/>
         <source>Check Numbers</source>
-        <translation>Kontrollera nummer</translation>
+        <translation>Перевіряти числа</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="130"/>
         <source>User Dictionaries</source>
-        <translation>Användarordböcker</translation>
+        <translation>Словники користувача</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="138"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="222"/>
         <source>Add</source>
-        <translation>Lägg till</translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="145"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="213"/>
         <source>Rename</source>
-        <translation>Byt namn</translation>
+        <translation>Перейменувати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="152"/>
         <source>Copy</source>
-        <translation>Kopiera</translation>
+        <translation>Копіювати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="159"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="236"/>
         <source>Remove</source>
-        <translation>Ta bort</translation>
+        <translation>Вилучити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="162"/>
         <source>Remove the selected dictionary.
 
 You cannot remove the last dictionary.</source>
-        <translation>Ta bort den valda ordboken.
+        <translation>Вилучити вибраний словник.
 
-Du kan inte ta bort den sista ordboken.</translation>
+Ви не можете вилучити останній словник.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="189"/>
@@ -14217,71 +14215,71 @@ spell checking.
 
 Select a dictionary to display its words,
 and to make it the default dictionary.</source>
-        <translation>Markera vilka ordböcker som är aktiverade för
-stavningskontroll.
+        <translation>Позначте,  які словникі вибрані для
+перевірки орфографії.
 
-Välj en ordlista för att visa dess ord,
-och för att göra den till standard ordboken.</translation>
+Вибрати словник для відображення його слів,
+і зробити його словником за замовчуванням.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="203"/>
         <source>User Dictionary Word List</source>
-        <translation>Användarordbokens ordlista</translation>
+        <translation>Список слів Словника користувача</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="218"/>
         <source>Enter or paste words to add to the dictionary.
 Words can be separated by lines, commas, or spaces.</source>
-        <translation>Ange eller klistra in ord att lägga till i ordboken.
-Ord kan separeras med linjer, kommatecken eller mellanslag.</translation>
+        <translation>Введіть або вставте слова, які потрібно додати до словника.
+Слова можна розділити рядками, комами чи пробілами.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="229"/>
         <source>Edit</source>
-        <translation>Redigera</translation>
+        <translation>Редагувати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="243"/>
         <source>Remove All</source>
-        <translation>Ta bort alla</translation>
+        <translation>Вилучити Все</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="272"/>
         <source>The default dictionary is used when you add words to the
 default dictionary or use the shortcuts for Add Misspelled Words.</source>
-        <translation>Standard ordboken används när du lägger till ord i
-standard ordboken eller använd genvägar för att lägga till felstavade ord.</translation>
+        <translation>Словник за замовчуванням використовується, коли Ви додаєте слова до
+Словника за замовчуванням або використовуєте клавіатурні скорочення для додання помилкових слів.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="276"/>
         <source>Default Dictionary:</source>
-        <translation>Standard ordbok:</translation>
+        <translation>Словник за замовчуванням:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="283"/>
         <source>none</source>
-        <translation>inga</translation>
+        <translation>жоден</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="53"/>
         <source>Enable</source>
-        <translation>Aktivera</translation>
+        <translation>Дозволити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="54"/>
         <source>Dictionary</source>
-        <translation>Ordbok</translation>
+        <translation>Словник</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="110"/>
         <source>Add Dictionary</source>
-        <translation>Lägg till ordbok</translation>
+        <translation>Додати Словник</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="110"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="213"/>
         <source>Name:</source>
-        <translation>Namn:</translation>
+        <translation>Назва:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="124"/>
@@ -14290,38 +14288,38 @@ standard ordboken eller använd genvägar för att lägga till felstavade ord.</
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="234"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="253"/>
         <source>Error</source>
-        <translation>Fel</translation>
+        <translation>Помилка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="124"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="226"/>
         <source>A user dictionary already exists with this name!</source>
-        <translation>En användarordbok finns redan med detta namn!</translation>
+        <translation>Словник користувача з цим ім’ям вже існує!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="133"/>
         <source>Add Words</source>
-        <translation>Lägg till ord</translation>
+        <translation>Додати слова</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="133"/>
         <source>Words:</source>
-        <translation>Ord:</translation>
+        <translation>Слова:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="164"/>
         <source>Could not create file!</source>
-        <translation>Kunde inte skapa fil!</translation>
+        <translation>Не вдалося створити файл!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="234"/>
         <source>Could not rename file!</source>
-        <translation>Kunde inte byta namn på fil!</translation>
+        <translation>Не вдалося перейменувати файл!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="253"/>
         <source>You cannot delete the last dictionary.</source>
-        <translation>Du kan inte ta bort den sista ordlistan.</translation>
+        <translation>Ви не можете видалити останній словник.</translation>
     </message>
 </context>
 <context>
@@ -14329,83 +14327,83 @@ standard ordboken eller använd genvägar för att lägga till felstavade ord.</
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="14"/>
         <source>Spellcheck</source>
-        <translation>Stavningskontroll</translation>
+        <translation>Перевірка орфографії</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Lista endast de poster som innehåller texten du anger.</translation>
+        <translation>Вивести лише записи, що містять введений користувачем текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="58"/>
         <source>Ignore the selected words until Sigil
 is restarted or a new book is opened.</source>
-        <translation>Ignorera de markerade orden tills Sigil
-startas om eller en ny bok öppnas.</translation>
+        <translation>Ігнорувати вибрані слова, поки Sigil
+не буде перезапущено або не буде відкрита нова книга.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="532"/>
         <source>Ignore</source>
-        <translation>Ignorera</translation>
+        <translation>Ігнорувати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="91"/>
         <source>Add the selected words to the
 dictionary selected below.</source>
-        <translation>Lägg till de markerade orden i
-den valda ordboken nedan.</translation>
+        <translation>Додати вибрані слова до
+словника вибраного нижче.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="95"/>
         <source>Add To Dictionary:</source>
-        <translation>Lägg till i ordbok:</translation>
+        <translation>Додати до Словника</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="134"/>
         <source>Change all occurrences of the selected word  in
 HTML files to the word you select or type below.
 The selected word does not have to be misspelled.</source>
-        <translation>Ändra alla förekomster av det valda ordet i
-HTML-filer till ordet du väljer eller skriver nedan.
-Det valda ordet behöver inte stavas fel.</translation>
+        <translation>Змінити усі входження вибраного слова в
+HTML-файли до вибраного або введеного нижче слова.
+Вибране слово не потрібно вводити неправильно.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="139"/>
         <source>Change Selected Word To:</source>
-        <translation>Ändra valt ord till:</translation>
+        <translation>Замінити вибране слово на:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="181"/>
         <source>Show All Words</source>
-        <translation>Visa alla ord</translation>
+        <translation>Показати всі слова</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="188"/>
         <source>Sort words as AaBbCc instead of ABCabc.</source>
-        <translation>Sortera ord som AaBbCc istället för ABCabc.</translation>
+        <translation>Сортувати слова як AaBbCc замість ABCabc.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="191"/>
         <source>Case-Insensitive Sort</source>
-        <translation>Skiftlägesokänslig sortering</translation>
+        <translation>Сортувати без урахування Регістру</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="215"/>
         <source>Re-check the HTML files for misspelled words.
 Use if you edit any HTML files while Spellcheck is open.</source>
-        <translation>Kontrollera HTML-filerna för felstavade ord.
-Använd om du redigerar HTML-filer medan Stavningskontroll är öppen.</translation>
+        <translation>Повторно перевірте HTML-файли на наявність помилок в написанні слів.
+Використовуйте при редагуванні будь-якого HTML-файлу, в той час як перевірка орфографії працює.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="219"/>
         <source>Refresh</source>
-        <translation>Uppdatera</translation>
+        <translation>Оновити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="53"/>
@@ -14436,78 +14434,78 @@ Använd om du redigerar HTML-filer medan Stavningskontroll är öppen.</translat
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="177"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="216"/>
         <source>No words selected.</source>
-        <translation>Inga ord markerade.</translation>
+        <translation>Не вибрано слів.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="170"/>
         <source>Ignored word(s).</source>
-        <translation>Ignorerade ord.</translation>
+        <translation>Ігнорувати слово(а).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="205"/>
         <source>Added word(s) to dictionary.</source>
-        <translation>Lade till ord i ordboken.</translation>
+        <translation>Додати слово(а) до Словника.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="207"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
-        <translation>Lade till ord i ordboken. Ordboken är inte aktiverad i Inställningar.</translation>
+        <translation>Слово (слова) додані до словника. Словник не обрано у налаштуваннях.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="222"/>
         <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
-        <translation>Det nya ordet kan inte innehålla &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</translation>
+        <translation>Нове слово не може містити &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="233"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="301"/>
         <source>No</source>
-        <translation>Nej</translation>
+        <translation>Ні</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="252"/>
         <source>Word</source>
-        <translation>Ord</translation>
+        <translation>Слово</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="253"/>
         <source>Count</source>
-        <translation>Räkna</translation>
+        <translation>Рахувати</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="254"/>
         <source>Misspelled?</source>
-        <translation>Felstavat?</translation>
+        <translation>Орфографічна помилка?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="299"/>
         <source>Yes</source>
-        <translation>Ja</translation>
+        <translation>Так</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="314"/>
         <source>Misspelled Words</source>
-        <translation>Felstavade ord</translation>
+        <translation>Слова з помилками</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="314"/>
         <source>Total Unique Words</source>
-        <translation>Unika ord totalt</translation>
+        <translation>Всього унікальних слів</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="533"/>
         <source>Add to Dictionary</source>
-        <translation>Lägg till i ordbok</translation>
+        <translation>Додати до Словника</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="534"/>
         <source>Find in Text</source>
-        <translation>Hitta i texten</translation>
+        <translation>Пошук у Тексті</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="535"/>
         <source>Select All</source>
-        <translation>Välj alla</translation>
+        <translation>Вибрати все</translation>
     </message>
 </context>
 <context>
@@ -14515,52 +14513,52 @@ Använd om du redigerar HTML-filer medan Stavningskontroll är öppen.</translat
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="14"/>
         <source>Style Classes in CSS Files</source>
-        <translation>Formatklasser i CSS-filer</translation>
+        <translation>Класи стилів у файлах CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Lista endast de filnamn som innehåller texten du anger.</translation>
+        <translation>Вивести тільки файли, що містять введений мною текст</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Filter:</translation>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="86"/>
         <source>CSS File</source>
-        <translation>CSS-fil</translation>
+        <translation>Файл CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="87"/>
         <source>Class Selector</source>
-        <translation>Klassväljare</translation>
+        <translation>Селектор Класу</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="88"/>
         <source>Used In HTML File</source>
-        <translation>Används i HTML-fil</translation>
+        <translation>Використовується у файлі HTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="94"/>
         <source>&lt;p&gt;This is a list of the class based selectors in all CSS files and whether or not the selector was matched from a style in an HTML file.&lt;p&gt;</source>
-        <translation>&lt;p&gt;Detta är en lista över klassbaserade väljare i alla CSS-filer och huruvida väljaren matchades från en stil i en HTML-fil.&lt;p&gt;</translation>
+        <translation>&lt;p&gt;Це список селекторів на основі класів у всіх файлах CSS, незалежно від того, чи відповідає селектор стилю у файлі HTML чи ні.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="95"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
-        <translation>&lt;p&gt;NOTE:&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;ПРИМІТКА:&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="96"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;På grund av komplexiteten i CSS måste du kontrollera din kod manuellt för att vara säker på om en stil används eller inte.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Через складність CSS Ви повинні перевірити свій код вручну, щоб бути впевненим, використовується стиль чи ні.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="252"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Spara rapport som kommaseparerad fil</translation>
+        <translation>Зберегти звіт як файл з комами роздільниками</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="265"/>
@@ -14570,12 +14568,12 @@ Använd om du redigerar HTML-filer medan Stavningskontroll är öppen.</translat
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="265"/>
         <source>Cannot save report file.</source>
-        <translation>Det går inte att spara rapportfilen.</translation>
+        <translation>Не можу зберегти файл звіту.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="276"/>
         <source>Delete From Stylesheet</source>
-        <translation>Ta bort från formatmall</translation>
+        <translation>Видалити з Таблиці Стилів</translation>
     </message>
 </context>
 <context>
@@ -14583,7 +14581,7 @@ Använd om du redigerar HTML-filer medan Stavningskontroll är öppen.</translat
     <message>
         <location filename="../../Tabs/TabBar.cpp" line="80"/>
         <source>Close Other Tabs</source>
-        <translation>Stäng andra flikar</translation>
+        <translation>Закрити інші Вкладки</translation>
     </message>
 </context>
 <context>
@@ -14591,7 +14589,7 @@ Använd om du redigerar HTML-filer medan Stavningskontroll är öppen.</translat
     <message>
         <location filename="../../Tabs/TabManager.cpp" line="225"/>
         <source>Cannot edit file</source>
-        <translation>Det går inte att redigera filen</translation>
+        <translation>Неможливо редагувати файл</translation>
     </message>
 </context>
 <context>
@@ -14599,22 +14597,22 @@ Använd om du redigerar HTML-filer medan Stavningskontroll är öppen.</translat
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="42"/>
         <source>Table Of Contents</source>
-        <translation>Innehållsförteckning</translation>
+        <translation>Зміст</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="125"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Filen &quot;%1&quot; finns inte.</translation>
+        <translation>Не існує файлу &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="156"/>
         <source>Collapse All</source>
-        <translation>Kollapsa alla</translation>
+        <translation>Згорнути все</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="157"/>
         <source>Expand All</source>
-        <translation>Expandera alla</translation>
+        <translation>Розгорнути все</translation>
     </message>
 </context>
 <context>
@@ -14622,7 +14620,7 @@ Använd om du redigerar HTML-filer medan Stavningskontroll är öppen.</translat
     <message>
         <location filename="../../Tabs/TextTab.cpp" line="309"/>
         <source>Print %1</source>
-        <translation>Skriv ut %1</translation>
+        <translation>Друк %1</translation>
     </message>
 </context>
 <context>
@@ -14637,9 +14635,9 @@ Använd om du redigerar HTML-filer medan Stavningskontroll är öppen.</translat
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
-        <translation>Det begärda filnamnet innehåller icke-ASCII-tecken. Du bör endast använda ASCII-tecken i filnamn. Att använda icke-ASCII-tecken kan förhindra att EPUB:n att fungera med vissa läsenheter.
+        <translation>Назва файлу містить символи, які не входять до ASCII. В назві файлу можно використовувати тільки символи ASCII. Використання символів, відмінних від ASCII, може перешкодити роботі деяких EPUB-рідерів.
 
-Fortsätt använda det begärda filnamnet?</translation>
+Продовжити використання цієї назви файлу?</translation>
     </message>
 </context>
 <context>
@@ -14647,39 +14645,39 @@ Fortsätt använda det begärda filnamnet?</translation>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="44"/>
         <source>Validation Results</source>
-        <translation>Valideringsresultat</translation>
+        <translation>Результати перевірки</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="227"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="231"/>
         <source>N/A</source>
-        <translation>Inget</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="254"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>Message</source>
-        <translation>Meddelande</translation>
+        <translation>Повідомлення</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="255"/>
         <source>No problems found!</source>
-        <translation>Inga problem!</translation>
+        <translation>Проблем не знайдено!</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>File</source>
-        <translation>Fil</translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>Line</source>
-        <translation>Rad</translation>
+        <translation>Рядок</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="270"/>
         <source>Offset</source>
-        <translation>Kompensera</translation>
+        <translation>Зміщення</translation>
     </message>
 </context>
 <context>
@@ -14687,7 +14685,7 @@ Fortsätt använda det begärda filnamnet?</translation>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="20"/>
         <source>View Image</source>
-        <translation>Visa bild</translation>
+        <translation>Перегляд зображення</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="33"/>
@@ -14700,22 +14698,22 @@ Fortsätt använda det begärda filnamnet?</translation>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="42"/>
         <source>&lt;p&gt;The operation you requested cannot be performed because &lt;b&gt;%1&lt;/b&gt; is not a well-formed XML document.&lt;/p&gt;&lt;p&gt;An error was found &lt;b&gt;at or above line %2: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Manually&lt;/i&gt; option will let you fix the problem by hand.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Operationen du begärde kan inte utföras eftersom &lt;b&gt;%1&lt;/b&gt; är inte ett välformat XML-dokument.&lt;/p&gt;&lt;p&gt;Ett fel hittades &lt;b&gt;vid eller över raden %2: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Alternativet &lt;i&gt;Korrigera manuellt&lt;/i&gt; kommer att låta dig åtgärda problemet för hand.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Операція, яку Ви збирались виконати, не може бути виконана, оскільки &lt;b&gt;%1&lt;/b&gt; не є правильно сформованим документом XML.&lt;/p&gt;&lt;p&gt;Помилка знайдена&lt;b&gt;на або вище рядка %2: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Опція &lt;i&gt;Виправиту вручну&lt;/i&gt; дозволить вирішити проблему самотужки.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="47"/>
         <source>&lt;p&gt;The &lt;i&gt;Fix Automatically&lt;/i&gt; option will instruct Sigil to try to repair the document. &lt;b&gt;This option may lead to loss of data!&lt;/b&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Alternativet &lt;i&gt;Korrigera automatiskt&lt;/i&gt; kommer att instruera Sigil att försöka reparera dokumentet. &lt;b&gt;Detta alternativ kan leda till förlust av data!&lt;/b&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Опція &lt;i&gt;Виправити Автоматично&lt;/i&gt; доручить Sigil спробувати відновити документ. &lt;b&gt;Цей параметр може призвести до втрати даних!&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="54"/>
         <source>Fix &amp;Automatically</source>
-        <translation>Korrigera &amp;automatiskt</translation>
+        <translation>Виправити &amp;автоматично</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="56"/>
         <source>Fix &amp;Manually</source>
-        <translation>Korrigera &amp;manuellt</translation>
+        <translation>Виправити &amp;вручну</translation>
     </message>
 </context>
 <context>
@@ -14723,1267 +14721,1267 @@ Fortsätt använda det begärda filnamnet?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>quotation mark</source>
-        <translation>citationstecken</translation>
+        <translation>лапки</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="98"/>
         <source>ampersand</source>
-        <translation>et-tecken</translation>
+        <translation>амперсанд</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="99"/>
         <source>apostrophe</source>
-        <translation>apostrof</translation>
+        <translation>апостроф</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="100"/>
         <source>less-than sign</source>
-        <translation>mindre än tecken</translation>
+        <translation>знак менше</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="101"/>
         <source>greater-than sign</source>
-        <translation>större än tecken</translation>
+        <translation>знак більше</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="102"/>
         <source>no-break space</source>
-        <translation>ingen ny rad mellanslag</translation>
+        <translation>нерозривний пробіл</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="103"/>
         <source>inverted exclamation mark</source>
-        <translation>inverterat utropstecken</translation>
+        <translation>перевернутий знак оклику</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="104"/>
         <source>cent sign</source>
-        <translation>cent-tecken</translation>
+        <translation>знак цента</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="105"/>
         <source>pound sign</source>
-        <translation>pundtecken</translation>
+        <translation>знак фунта</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="106"/>
         <source>currency sign</source>
-        <translation>valutatecken</translation>
+        <translation>знак валюти</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="107"/>
         <source>yen sign</source>
-        <translation>yen-tecken</translation>
+        <translation>знак єни</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="108"/>
         <source>broken bar</source>
-        <translation type="unfinished"/>
+        <translation>розірвана вертикальна риска</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="109"/>
         <source>section sign</source>
-        <translation>avsnitt-tecken</translation>
+        <translation>символ параграфа</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="110"/>
         <source>diaeresis</source>
-        <translation>Trema</translation>
+        <translation>умлаут</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>copyright symbol</source>
-        <translation>copyright-symbol</translation>
+        <translation>символ авторського права</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="112"/>
         <source>feminine ordinal indicator</source>
-        <translation>feminin ordinär indikator</translation>
+        <translation>жіночий порядковий індикатор</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="113"/>
         <source>left-pointing double angle quotation mark</source>
-        <translation>citattecken för dubbel vinkel som pekar åt vänster</translation>
+        <translation>напрямлені вліво подвійні кутові лапки</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="114"/>
         <source>not sign</source>
-        <translation>signera inte</translation>
+        <translation>знак не</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="115"/>
         <source>soft hyphen</source>
-        <translation>mjukt bindestreck</translation>
+        <translation>м’який дефіс</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="116"/>
         <source>registered sign</source>
-        <translation>registrerat tecken</translation>
+        <translation>зареєстрований товарний знак</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="117"/>
         <source>macron</source>
-        <translation>makron</translation>
+        <translation>макрон</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="118"/>
         <source>degree symbol</source>
-        <translation>gradsymbolen</translation>
+        <translation>символ градусу</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="119"/>
         <source>plus-minus sign</source>
-        <translation>plus-minus tecken</translation>
+        <translation>знак плюс-мінус</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="120"/>
         <source>superscript two</source>
-        <translation>upphöjd två</translation>
+        <translation>надрядковий індекс два</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="121"/>
         <source>superscript three</source>
-        <translation>upphöjd tre</translation>
+        <translation>надрядковий індекс три</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="122"/>
         <source>acute accent</source>
-        <translation>akut accent</translation>
+        <translation>акут</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="123"/>
         <source>micro sign</source>
-        <translation>mikrotecken</translation>
+        <translation>знак мікро</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="124"/>
         <source>pilcrow sign</source>
-        <translation>alinea sign</translation>
+        <translation>знак абзацу</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="125"/>
         <source>middle dot</source>
-        <translation>halvhög punkt</translation>
+        <translation>інтерпункт</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="126"/>
         <source>cedilla</source>
-        <translation>cedilla</translation>
+        <translation>седиль</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="127"/>
         <source>superscript one</source>
-        <translation>upphöjd en</translation>
+        <translation>надрядковий індекс один</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="128"/>
         <source>masculine ordinal indicator</source>
-        <translation>maskulin ordinär indikator</translation>
+        <translation>чоловічий порядковий індикатор</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="129"/>
         <source>right-pointing double angle quotation mark</source>
-        <translation>högerpekande citattecken med dubbel vinkel</translation>
+        <translation>напрямлені вправо подвійні кутові лапки</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="130"/>
         <source>vulgar fraction one quarter</source>
-        <translation type="unfinished"/>
+        <translation>простий дріб «одна чверть»</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="131"/>
         <source>vulgar fraction one half</source>
-        <translation type="unfinished"/>
+        <translation>простий дріб «одна друга»</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="132"/>
         <source>vulgar fraction three quarters</source>
-        <translation type="unfinished"/>
+        <translation>простий дріб «одна третя»</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="133"/>
         <source>inverted question mark</source>
-        <translation>inverterat frågetecken</translation>
+        <translation>перевернутий знак питання</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="134"/>
         <source>Latin capital letter A with grave accent</source>
-        <translation>Latinsk versal A med grav accent</translation>
+        <translation>Латинська велика A з гравісом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="135"/>
         <source>Latin capital letter A with acute accent</source>
-        <translation>Latinsk versal A med akut accent</translation>
+        <translation>Латинська велика A з акутом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="136"/>
         <source>Latin capital letter A with circumflex</source>
-        <translation>Latinsk versal A med cirkumflex</translation>
+        <translation>Латинська велика A з циркумфлексом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="137"/>
         <source>Latin capital letter A with tilde</source>
-        <translation>Latinsk versal A med tilde</translation>
+        <translation>Латинська велика A з тильдою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="138"/>
         <source>Latin capital letter A with diaeresis</source>
-        <translation>Latinsk versal A med trema</translation>
+        <translation>Латинська велика A з тремою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="139"/>
         <source>Latin capital letter A with ring above</source>
-        <translation>Latinsk versal A med ring ovan</translation>
+        <translation>Латинська велика A з кільцем зверху</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="140"/>
         <source>Latin capital letter AE</source>
-        <translation>Latinsk versal AE</translation>
+        <translation>Латинська велика лігатура AE</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="141"/>
         <source>Latin capital letter C with cedilla</source>
-        <translation>Latinsk versal C med cedilj</translation>
+        <translation>Латинська велика C з седилею</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="142"/>
         <source>Latin capital letter E with grave accent</source>
-        <translation>Latinsk versal E med grav accent</translation>
+        <translation>Латинська велика E з гравісом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="143"/>
         <source>Latin capital letter E with acute accent</source>
-        <translation>Latinsk versal E med akut accent</translation>
+        <translation>Латинська велика E з акутом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="144"/>
         <source>Latin capital letter E with circumflex</source>
-        <translation>Latinsk versal E med cirkumflex</translation>
+        <translation>Латинська велика E з циркумфлексом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="145"/>
         <source>Latin capital letter E with diaeresis</source>
-        <translation>Latinsk versal E med trema</translation>
+        <translation>Латинська велика E з тремою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="146"/>
         <source>Latin capital letter I with grave accent</source>
-        <translation>Latinsk versal I med grav accent</translation>
+        <translation>Латинська велика I з гравісом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="147"/>
         <source>Latin capital letter I with acute accent</source>
-        <translation>Latinsk versal I med akut accent</translation>
+        <translation>Латинська велика I з акутом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="148"/>
         <source>Latin capital letter I with circumflex</source>
-        <translation>Latinsk versal I med cirkumflex</translation>
+        <translation>Латинська велика I з циркумфлексом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="149"/>
         <source>Latin capital letter I with diaeresis</source>
-        <translation>Latinsk versal I med trema</translation>
+        <translation>Латинська велика I з тремою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="150"/>
         <source>Latin capital letter Eth</source>
-        <translation type="unfinished"/>
+        <translation>Латинська велика літера «eth»</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="151"/>
         <source>Latin capital letter N with tilde</source>
-        <translation>Latinsk versal N med tilde</translation>
+        <translation>Латинська велика N з тильдою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="152"/>
         <source>Latin capital letter O with grave accent</source>
-        <translation>Latinsk versal O med grav accent</translation>
+        <translation>Латинська велика O з гравісом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="153"/>
         <source>Latin capital letter O with acute accent</source>
-        <translation>Latinsk versal O med akut accent</translation>
+        <translation>Латинська велика O з акутом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="154"/>
         <source>Latin capital letter O with circumflex</source>
-        <translation>Latinsk versal O med cirkumflex</translation>
+        <translation>Латинська велика O з циркумфлексом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="155"/>
         <source>Latin capital letter O with tilde</source>
-        <translation>Latinsk versal O med tilde</translation>
+        <translation>Латинська велика O з тильдою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="156"/>
         <source>Latin capital letter O with diaeresis</source>
-        <translation>Latinsk versal O med trema</translation>
+        <translation>Латинська велика O з тремою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="157"/>
         <source>multiplication sign</source>
-        <translation>multiplikationstecken</translation>
+        <translation>знак множення</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="158"/>
         <source>Latin capital letter O with stroke</source>
-        <translation>Latinsk versal O med streck</translation>
+        <translation>Латинська велика O діагонально перекреслена</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="159"/>
         <source>Latin capital letter U with grave accent</source>
-        <translation>Latinsk versal U med grav accent</translation>
+        <translation>Латинська велика U з гравісом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="160"/>
         <source>Latin capital letter U with acute accent</source>
-        <translation>Latinsk versal U med akut accent</translation>
+        <translation>Латинська велика U з акутом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="161"/>
         <source>Latin capital letter U with circumflex</source>
-        <translation>Latinsk versal U med cirkumflex</translation>
+        <translation>Латинська велика U з циркумфлексом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="162"/>
         <source>Latin capital letter U with diaeresis</source>
-        <translation>Latinsk versal U med trema</translation>
+        <translation>Латинська велика U з тремою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="163"/>
         <source>Latin capital letter Y with acute accent</source>
-        <translation>Latinsk versal Y med akut accent</translation>
+        <translation>Латинська велика Y з акутом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="164"/>
         <source>Latin capital letter THORN</source>
-        <translation>Latinsk versal TÖRN</translation>
+        <translation>Латинська велика літера Торн (THORN)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="165"/>
         <source>Latin small letter sharp s</source>
-        <translation type="unfinished"/>
+        <translation>Латинська літера есцет</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="166"/>
         <source>Latin small letter a with grave accent</source>
-        <translation>Latinsk gemen a med grav accent</translation>
+        <translation>латинська &quot;a&quot; з гравісом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="167"/>
         <source>Latin small letter a with acute accent</source>
-        <translation>Latinsk gemen a med akut accent</translation>
+        <translation>латинська &quot;a&quot; з акутом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="168"/>
         <source>Latin small letter a with circumflex</source>
-        <translation>Latinsk gemen a med cirkumflex</translation>
+        <translation>латинська &quot;a&quot; з циркумфлексом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="169"/>
         <source>Latin small letter a with tilde</source>
-        <translation>Latinsk gemen a med tilde</translation>
+        <translation>латинська &quot;a&quot; з тильдою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="170"/>
         <source>Latin small letter a with diaeresis</source>
-        <translation>Latinsk gemen a med trema</translation>
+        <translation>латинська &quot;a&quot; з тремою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="171"/>
         <source>Latin small letter a with ring above</source>
-        <translation>Latinsk gemen A med ring ovan</translation>
+        <translation>латинська &quot;a&quot; з кружком зверху</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="172"/>
         <source>Latin small letter ae</source>
-        <translation>Latinsk gemen ae</translation>
+        <translation>Латинська мала літера ае</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="173"/>
         <source>Latin small letter c with cedilla</source>
-        <translation>Latinsk gemen c med cedilj</translation>
+        <translation>латинська &quot;c&quot; седилья</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="174"/>
         <source>Latin small letter e with grave accent</source>
-        <translation>Latinsk gemen e med grav accent</translation>
+        <translation>латинська &quot;e&quot; з гравісом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="175"/>
         <source>Latin small letter e with acute accent</source>
-        <translation>Latinsk gemen e med akut accent</translation>
+        <translation>латинська &quot;e&quot; з акутом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="176"/>
         <source>Latin small letter e with circumflex</source>
-        <translation>Latinsk gemen e med cirkumflex</translation>
+        <translation>латинська &quot;e&quot; з циркумфлексом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="177"/>
         <source>Latin small letter e with diaeresis</source>
-        <translation>Latinsk gemen e med trema</translation>
+        <translation>латинська &quot;e&quot; з тремою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="178"/>
         <source>Latin small letter i with grave accent</source>
-        <translation>Latinsk gemen i med grav accent</translation>
+        <translation>латинська &quot;i&quot; з гравісом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="179"/>
         <source>Latin small letter i with acute accent</source>
-        <translation>Latinsk gemen i med akut accent</translation>
+        <translation>латинська &quot;i&quot; з акутом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="180"/>
         <source>Latin small letter i with circumflex</source>
-        <translation>Latinsk gemen i med cirkumflex</translation>
+        <translation>латинська &quot;i&quot; з циркумфлексом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="181"/>
         <source>Latin small letter i with diaeresis</source>
-        <translation>Latinsk gemen i med trema</translation>
+        <translation>латинська &quot;i&quot; з тремою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="182"/>
         <source>Latin small letter eth</source>
-        <translation type="unfinished"/>
+        <translation>латинська &quot;eth&quot;</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="183"/>
         <source>Latin small letter n with tilde</source>
-        <translation>Latinsk gemen n med tilde</translation>
+        <translation>латинська &quot;n&quot; з тильдою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="184"/>
         <source>Latin small letter o with grave accent</source>
-        <translation>Latinsk gemen o med grav accent</translation>
+        <translation>латинська &quot;o&quot; з гравісом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="185"/>
         <source>Latin small letter o with acute accent</source>
-        <translation>Latinsk gemen o med akut accent</translation>
+        <translation>латинська &quot;o&quot; з акутом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="186"/>
         <source>Latin small letter o with circumflex</source>
-        <translation>Latinsk gemen o med cirkumflex</translation>
+        <translation>латинська &quot;o&quot; з циркумфлексом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="187"/>
         <source>Latin small letter o with tilde</source>
-        <translation>Latinsk gemen o med tilde</translation>
+        <translation>латинська &quot;o&quot; з тильдою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="188"/>
         <source>Latin small letter o with diaeresis</source>
-        <translation>Latinsk gemen o med trema</translation>
+        <translation>латинська &quot;o&quot; з тремою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="189"/>
         <source>division sign</source>
-        <translation>divisionstecken</translation>
+        <translation>знак ділення</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="190"/>
         <source>Latin small letter o with stroke</source>
-        <translation>Latinsk gemen o med streck</translation>
+        <translation>латинська &quot;o&quot; діагонально перекреслена</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="191"/>
         <source>Latin small letter u with grave accent</source>
-        <translation>Latinsk gemen u med grav accent</translation>
+        <translation>латинська &quot;u&quot; з гравісом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="192"/>
         <source>Latin small letter u with acute accent</source>
-        <translation>Latinsk gemen u med akut accent</translation>
+        <translation>латинська &quot;u&quot; з акутом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="193"/>
         <source>Latin small letter u with circumflex</source>
-        <translation>Latinsk gemen u med cirkumflex</translation>
+        <translation>латинська &quot;u&quot; з циркумфлексом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="194"/>
         <source>Latin small letter u with diaeresis</source>
-        <translation>Latinsk gemen u med trema</translation>
+        <translation>латинська &quot;u&quot; з тремою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="195"/>
         <source>Latin small letter y with acute accent</source>
-        <translation>Latinsk gemen y med akut accent</translation>
+        <translation>латинська &quot;y&quot; з акутом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="196"/>
         <source>Latin small letter thorn</source>
-        <translation>Latinsk gemen törn</translation>
+        <translation>латинська літера «торн» (thorn)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="197"/>
         <source>Latin small letter y with diaeresis</source>
-        <translation>Latinsk gemen y med trema</translation>
+        <translation>латинська &quot;y&quot; з тремою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Latin capital ligature oe</source>
-        <translation>Latinsk versal ligatur oe</translation>
+        <translation>Латинська велика лігатура AE</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="199"/>
         <source>Latin small ligature oe</source>
-        <translation>Latinsk gemen ligatur oe</translation>
+        <translation>Латинська мала лігатура ае</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="200"/>
         <source>Latin capital letter s with caron</source>
-        <translation>Latinsk versal s med hake</translation>
+        <translation>Латинська велика S з птичкою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="201"/>
         <source>Latin small letter s with caron</source>
-        <translation>Latinsk gemen s med hake</translation>
+        <translation>латинська s з птичкою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>Latin capital letter y with diaeresis</source>
-        <translation>Latinsk versal y med trema</translation>
+        <translation>Латинська велика Y з двокрапкою</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="203"/>
         <source>Latin small letter f with hook</source>
-        <translation>Latinsk gemen oe</translation>
+        <translation>латинська f з хвостиком</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="204"/>
         <source>modifier letter circumflex accent</source>
-        <translation>modifierarbokstav cirkumflex accent</translation>
+        <translation>перевернута птичка, циркумфлекс</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="205"/>
         <source>small tilde</source>
-        <translation>liten tilde</translation>
+        <translation>мала тильда</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="206"/>
         <source>Greek capital letter Alpha</source>
-        <translation>Grekisk versal alfa</translation>
+        <translation>Грецька велика літера Альфа</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="207"/>
         <source>Greek capital letter Beta</source>
-        <translation>Grekisk versal beta</translation>
+        <translation>Грецька велика літера Бета</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="208"/>
         <source>Greek capital letter Gamma</source>
-        <translation>Grekisk versal gamma</translation>
+        <translation>Грецька велика літера Гамма</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="209"/>
         <source>Greek capital letter Delta</source>
-        <translation>Greek capital letter delta</translation>
+        <translation>Грецька велика літера Дельта</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="210"/>
         <source>Greek capital letter Epsilon</source>
-        <translation>Grekisk versal epsilon</translation>
+        <translation>Грецька велика літера Епсілон</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="211"/>
         <source>Greek capital letter Zeta</source>
-        <translation>Grekisk versal zeta</translation>
+        <translation>Грецька велика літера Зета</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="212"/>
         <source>Greek capital letter Eta</source>
-        <translation>Grekisk versal eta</translation>
+        <translation>Грецька велика літера Ета</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="213"/>
         <source>Greek capital letter Theta</source>
-        <translation>Grekisk versal theta</translation>
+        <translation>Грецька велика літера Тета</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="214"/>
         <source>Greek capital letter Iota</source>
-        <translation>Grekisk versal lota</translation>
+        <translation>Грецька велика літера Йота</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="215"/>
         <source>Greek capital letter Kappa</source>
-        <translation>Grekisk versal kappa</translation>
+        <translation>Грецька велика літера Каппа</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="216"/>
         <source>Greek capital letter Lambda</source>
-        <translation>Grekisk versal lambda</translation>
+        <translation>Грецька велика літера Лямбда</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="217"/>
         <source>Greek capital letter Mu</source>
-        <translation>Grekisk versal mu</translation>
+        <translation>Грецька велика літера Мю</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="218"/>
         <source>Greek capital letter Nu</source>
-        <translation>Grekisk versal nu</translation>
+        <translation>Грецька велика літера Ню</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="219"/>
         <source>Greek capital letter Xi</source>
-        <translation>Grekisk versal xi</translation>
+        <translation>Грецька велика літера Ксi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="220"/>
         <source>Greek capital letter Omicron</source>
-        <translation>Grekisk versal omikron</translation>
+        <translation>Грецька велика літера Омікрон</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="221"/>
         <source>Greek capital letter Pi</source>
-        <translation>Grekisk versal pi</translation>
+        <translation>Грецька велика літера Пі</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="222"/>
         <source>Greek capital letter Rho</source>
-        <translation>Grekisk versal rho</translation>
+        <translation>Грецька велика літера Ро</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="223"/>
         <source>Greek capital letter Sigma</source>
-        <translation>Grekisk versal sigma</translation>
+        <translation>Грецька велика літера Сигма</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="224"/>
         <source>Greek capital letter Tau</source>
-        <translation>Grekisk versal tau</translation>
+        <translation>Грецька велика літера Тау</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="225"/>
         <source>Greek capital letter Upsilon</source>
-        <translation>Grekisk versal upsilon</translation>
+        <translation>Грецька велика літера Іпсілон</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="226"/>
         <source>Greek capital letter Phi</source>
-        <translation>Grekisk versal phi</translation>
+        <translation>Грецька велика літера Фі</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="227"/>
         <source>Greek capital letter Chi</source>
-        <translation>Grekisk versal chi</translation>
+        <translation>Грецька велика літера Хі</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="228"/>
         <source>Greek capital letter Psi</source>
-        <translation>Grekisk versal psi</translation>
+        <translation>Грецька велика літера Псі</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="229"/>
         <source>Greek capital letter Omega</source>
-        <translation>Grekisk versal omega</translation>
+        <translation>Грецька велика літера Омега</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="230"/>
         <source>Greek small letter alpha</source>
-        <translation>Grekisk gemen alfa</translation>
+        <translation>Грецька мала літера альфа</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="231"/>
         <source>Greek small letter beta</source>
-        <translation>Grekisk gemen beta</translation>
+        <translation>Грецька мала літера бета</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="232"/>
         <source>Greek small letter gamma</source>
-        <translation>Grekisk gemen gamma</translation>
+        <translation>Грецька мала літера гамма</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="233"/>
         <source>Greek small letter delta</source>
-        <translation>Grekisk gemen delta</translation>
+        <translation>Грецька мала літера дельта</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="234"/>
         <source>Greek small letter epsilon</source>
-        <translation>Grekisk gemen epsilon</translation>
+        <translation>Грецька мала літера епсілон</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="235"/>
         <source>Greek small letter zeta</source>
-        <translation>Grekisk gemen zeta</translation>
+        <translation>Грецька мала літера зета</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="236"/>
         <source>Greek small letter eta</source>
-        <translation>Grekisk gemen eta</translation>
+        <translation>Грецька мала літера ета</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="237"/>
         <source>Greek small letter theta</source>
-        <translation>Grekisk gemen theta</translation>
+        <translation>Грецька мала літера тета</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="238"/>
         <source>Greek small letter iota</source>
-        <translation>Grekisk gemen iota</translation>
+        <translation>Грецька мала літера йота</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="239"/>
         <source>Greek small letter kappa</source>
-        <translation>Grekisk gemen kappa</translation>
+        <translation>Грецька мала літера каппа</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="240"/>
         <source>Greek small letter lambda</source>
-        <translation>Grekisk gemen lambda</translation>
+        <translation>Грецька мала літера лямбда</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="241"/>
         <source>Greek small letter mu</source>
-        <translation>Grekisk gemen mu</translation>
+        <translation>Грецька мала літера мю</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="242"/>
         <source>Greek small letter nu</source>
-        <translation>Grekisk gemen nu</translation>
+        <translation>Грецька мала літера ню</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="243"/>
         <source>Greek small letter xi</source>
-        <translation>Grekisk gemen xi</translation>
+        <translation>Грецька мала літера ксі</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="244"/>
         <source>Greek small letter omicron</source>
-        <translation>Grekisk gemen omikron</translation>
+        <translation>Грецька мала літера омікрон</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="245"/>
         <source>Greek small letter pi</source>
-        <translation>Grekisk gemen pi</translation>
+        <translation>Грецька мала літера пі</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="246"/>
         <source>Greek small letter rho</source>
-        <translation>Grekisk gemen rho</translation>
+        <translation>Грецька мала літера ро</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="247"/>
         <source>Greek small letter final sigma</source>
-        <translation type="unfinished"/>
+        <translation>Грецька мала літера заключна сигма</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="248"/>
         <source>Greek small letter sigma</source>
-        <translation>Grekisk gemen sigma</translation>
+        <translation>Грецька мала літера сигма</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="249"/>
         <source>Greek small letter tau</source>
-        <translation>Grekisk gemen tau</translation>
+        <translation>Грецька мала літера тау</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="250"/>
         <source>Greek small letter upsilon</source>
-        <translation>Grekisk gemen upsilon</translation>
+        <translation>Грецька маленька літера упсилон</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="251"/>
         <source>Greek small letter phi</source>
-        <translation>Grekisk gemen phi</translation>
+        <translation>Грецька мала літера фі</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="252"/>
         <source>Greek small letter chi</source>
-        <translation>Grekisk gemen chi</translation>
+        <translation>Грецька мала літера хі</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="253"/>
         <source>Greek small letter psi</source>
-        <translation>Grekisk gemen psi</translation>
+        <translation>Грецька мала літера псі</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="254"/>
         <source>Greek small letter omega</source>
-        <translation>Grekisk gemen omega</translation>
+        <translation>Грецька мала літера омега</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="255"/>
         <source>Greek theta symbol</source>
-        <translation>Grekisk theta-symbol</translation>
+        <translation>Грецький символ тета</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="256"/>
         <source>Greek Upsilon with hook symbol</source>
-        <translation>Grekiska upsilon med krok symbol</translation>
+        <translation>Грецький символ упсилон з гачком</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="257"/>
         <source>Greek pi symbol</source>
-        <translation>Grekiska symbolen pi</translation>
+        <translation>Грецький символ псі</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="258"/>
         <source>en space</source>
-        <translation>fyrkant halvlängd</translation>
+        <translation>пробіл довжини N</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="259"/>
         <source>em space</source>
-        <translation>fyrkant hellängd</translation>
+        <translation>пробіл довжини M</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="260"/>
         <source>thin space</source>
-        <translation>tunt utrymme</translation>
+        <translation>вузький пробіл</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="261"/>
         <source>zero-width non-joiner</source>
-        <translation type="unfinished"/>
+        <translation>роздільник нульової ширини</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="262"/>
         <source>zero-width joiner</source>
-        <translation type="unfinished"/>
+        <translation>з&apos;єднувач нульової ширини</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="263"/>
         <source>left-to-right mark</source>
-        <translation>vänster-till-höger märke</translation>
+        <translation>помітка зліва-направо</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="264"/>
         <source>right-to-left mark</source>
-        <translation>höger-till-vänster märke</translation>
+        <translation>помітка справа-наліво</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="265"/>
         <source>en dash</source>
-        <translation>kort tankstreck</translation>
+        <translation>коротке тире</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="266"/>
         <source>em dash</source>
-        <translation>långt tankstreck</translation>
+        <translation>довге тире</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="267"/>
         <source>left single quotation mark</source>
-        <translation>vänster enkelt citattecken</translation>
+        <translation>одинарні ліві лапки</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="268"/>
         <source>right single quotation mark</source>
-        <translation>höger enkelt citattecken</translation>
+        <translation>одинарні праві лапки</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="269"/>
         <source>single low-9 quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>одинарні low-9/нижні лапки</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="270"/>
         <source>left double quotation mark</source>
-        <translation>vänster dubbelt citattecken</translation>
+        <translation>подвійні верхні зовнішні лапки</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="271"/>
         <source>right double quotation mark</source>
-        <translation>höger dubbelt citattecken</translation>
+        <translation>подвійні верхні внутрішні лапки</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="272"/>
         <source>double low-9 quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>подвійні low-9/нижні лапки</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="273"/>
         <source>dagger, obelisk</source>
-        <translation>kors</translation>
+        <translation>друкарський хрестик</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="274"/>
         <source>double dagger, double obelisk</source>
-        <translation>dubbelkors</translation>
+        <translation>подвійний dagger</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="275"/>
         <source>bullet</source>
-        <translation>punkt</translation>
+        <translation>маркер списку</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="276"/>
         <source>horizontal ellipsis</source>
-        <translation>horisontella ellipser</translation>
+        <translation>горизонтальні три крапки</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="277"/>
         <source>per mille sign</source>
-        <translation>promille tecken</translation>
+        <translation>знак проміле</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="278"/>
         <source>prime</source>
-        <translation>prim</translation>
+        <translation>штрих</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="279"/>
         <source>double prime</source>
-        <translation>dubbelprim</translation>
+        <translation>подвійний штрих</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="280"/>
         <source>single left-pointing angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>кутова дужка вліво (бра)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="281"/>
         <source>single right-pointing angle quotation mark</source>
-        <translation type="unfinished"/>
+        <translation>кутова дужка вправо (кет)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="282"/>
         <source>overline</source>
-        <translation>överstreck</translation>
+        <translation>верхня риска</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="283"/>
         <source>fraction slash</source>
-        <translation>divisionstecken</translation>
+        <translation>похила риска</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="284"/>
         <source>euro sign</source>
-        <translation>eurotecken</translation>
+        <translation>знак євро</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="285"/>
         <source>black-letter capital I</source>
-        <translation type="unfinished"/>
+        <translation>чорна велика I</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="286"/>
         <source>script capital P</source>
-        <translation type="unfinished"/>
+        <translation>рукописна велика P</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="287"/>
         <source>black-letter capital R</source>
-        <translation type="unfinished"/>
+        <translation>чорна велика R</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="288"/>
         <source>trademark symbol</source>
-        <translation>varumärkessymbol</translation>
+        <translation>символ торгової марки</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="289"/>
         <source>alef symbol</source>
-        <translation type="unfinished"/>
+        <translation>символ алеф</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="290"/>
         <source>leftwards arrow</source>
-        <translation>vänster pil</translation>
+        <translation>вліво</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="291"/>
         <source>upwards arrow</source>
-        <translation>uppåt pil</translation>
+        <translation>вверх</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="292"/>
         <source>rightwards arrow</source>
-        <translation>höger pil</translation>
+        <translation>вправо</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="293"/>
         <source>downwards arrow</source>
-        <translation>nedåtpilen</translation>
+        <translation>вниз</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="294"/>
         <source>left right arrow</source>
-        <translation>vänster höger pil</translation>
+        <translation>влево-вправо</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="295"/>
         <source>downwards arrow with corner leftwards</source>
-        <translation>nedåtpil med hörn åt vänster</translation>
+        <translation>вниз з кутом вправо / повернення каретки</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="296"/>
         <source>leftwards double arrow</source>
-        <translation>vänster dubbelpil</translation>
+        <translation>подвійна стрілка вліво</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="297"/>
         <source>upwards double arrow</source>
-        <translation>uppåt dubbel pil</translation>
+        <translation>подвійна вверх</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="298"/>
         <source>rightwards double arrow</source>
-        <translation>höger dubbel pil</translation>
+        <translation>подвійна вправо</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="299"/>
         <source>downwards double arrow</source>
-        <translation>nedåt dubbelpil</translation>
+        <translation>подвійна вниз</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="300"/>
         <source>left right double arrow</source>
-        <translation>vänster höger dubbelpil</translation>
+        <translation>одвійна влево-вправо</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="301"/>
         <source>for all</source>
-        <translation>för alla</translation>
+        <translation>для всіх</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="302"/>
         <source>partial differential</source>
-        <translation type="unfinished"/>
+        <translation>частковий диференціал</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="303"/>
         <source>there exists</source>
-        <translation>det finns</translation>
+        <translation>існує</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="304"/>
         <source>empty set</source>
-        <translation>tom uppsättning</translation>
+        <translation>пуста множина / діаметр</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="305"/>
         <source>nabla</source>
-        <translation>nabla</translation>
+        <translation>набла</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="306"/>
         <source>element of</source>
-        <translation>element av</translation>
+        <translation>елемент з</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="307"/>
         <source>not an element of</source>
-        <translation>inte ett element av</translation>
+        <translation>не є елементом</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="308"/>
         <source>contains as member</source>
-        <translation>innehåller som medlem</translation>
+        <translation>містить у собі елемент</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="309"/>
         <source>n-ary product</source>
-        <translation type="unfinished"/>
+        <translation>n-арний добуток</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="310"/>
         <source>n-ary summation</source>
-        <translation type="unfinished"/>
+        <translation>n-арна сума</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="311"/>
         <source>minus sign</source>
-        <translation>minustecken</translation>
+        <translation>знак мінус</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="312"/>
         <source>asterisk operator</source>
-        <translation>asterisk operatör</translation>
+        <translation>зірочка</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="313"/>
         <source>square root</source>
-        <translation>kvadratrot</translation>
+        <translation>квадратний корінь</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="314"/>
         <source>proportional to</source>
-        <translation>proportionell mot</translation>
+        <translation>пропорційно до</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="315"/>
         <source>infinity</source>
-        <translation>oändlig</translation>
+        <translation>нескінченність</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="316"/>
         <source>angle</source>
-        <translation>vinkel</translation>
+        <translation>кут</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="317"/>
         <source>logical and</source>
-        <translation>logisk och</translation>
+        <translation>логічне та</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="318"/>
         <source>logical or</source>
-        <translation>logisk eller</translation>
+        <translation>логічне або</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="319"/>
         <source>intersection</source>
-        <translation type="unfinished"/>
+        <translation>перетин</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="320"/>
         <source>union</source>
-        <translation type="unfinished"/>
+        <translation>об&apos;єднання</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="321"/>
         <source>integral</source>
-        <translation>integral</translation>
+        <translation>інтеграл</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="322"/>
         <source>therefore sign</source>
-        <translation>förklaringstecken</translation>
+        <translation>знак випливає</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="323"/>
         <source>tilde operator</source>
-        <translation>tilde operatör</translation>
+        <translation>оператор тильда / подібно</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="324"/>
         <source>congruent to</source>
-        <translation>kongruent till</translation>
+        <translation>наближено дорівнює</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="325"/>
         <source>almost equal to</source>
-        <translation>nästan lika som</translation>
+        <translation>наближено (асимптотично) дорівнює</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="326"/>
         <source>not equal to</source>
-        <translation>inte lika med</translation>
+        <translation>не дорівнює</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="327"/>
         <source>identical to</source>
-        <translation>identisk med</translation>
+        <translation>ідентично</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="328"/>
         <source>less-than or equal to</source>
-        <translation>mindre än eller lika med</translation>
+        <translation>менше чи дорівнює</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="329"/>
         <source>greater-than or equal to</source>
-        <translation>större än eller lika med</translation>
+        <translation>більше чи дорівнює</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="330"/>
         <source>subset of</source>
-        <translation>delmängd av</translation>
+        <translation>підмножина</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="331"/>
         <source>superset of</source>
-        <translation>övermängd av</translation>
+        <translation>включає в себе</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="332"/>
         <source>not a subset of</source>
-        <translation>inte en delmängd av</translation>
+        <translation>не є підмножиною</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="333"/>
         <source>subset of or equal to</source>
-        <translation>delmängd av eller lika med</translation>
+        <translation>підмножина чи еквівалентно</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="334"/>
         <source>superset of or equal to</source>
-        <translation>övermängd av eller lika med</translation>
+        <translation>включає в себе чи еквівалентно</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="335"/>
         <source>circled plus</source>
-        <translation>inringat plus</translation>
+        <translation>пряма сума (плюс у кружечку)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="336"/>
         <source>circled times</source>
-        <translation>inringat gånger</translation>
+        <translation>векторний добуток (знак множення в кружечку)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="337"/>
         <source>up tack</source>
-        <translation type="unfinished"/>
+        <translation>перпендикуляр</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="338"/>
         <source>dot operator</source>
-        <translation type="unfinished"/>
+        <translation>оператор крапка</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="339"/>
         <source>left ceiling</source>
-        <translation type="unfinished"/>
+        <translation>ліва дужка округлення вверх</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="340"/>
         <source>right ceiling</source>
-        <translation type="unfinished"/>
+        <translation>права дужка округлення вверх</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="341"/>
         <source>left floor</source>
-        <translation type="unfinished"/>
+        <translation>ліва дужка округлення вниз</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="342"/>
         <source>right floor</source>
-        <translation type="unfinished"/>
+        <translation>права книжка округлення вниз</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="343"/>
         <source>left-pointing angle bracket</source>
-        <translation type="unfinished"/>
+        <translation>кутова дужка вліво</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="344"/>
         <source>right-pointing angle bracket</source>
-        <translation type="unfinished"/>
+        <translation>кутова дужка вправо</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="345"/>
         <source>lozenge</source>
-        <translation type="unfinished"/>
+        <translation>ромб</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="346"/>
         <source>black spade suit</source>
-        <translation type="unfinished"/>
+        <translation>закрашена масть піка</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="347"/>
         <source>black club suit</source>
-        <translation type="unfinished"/>
+        <translation>закрашена масть трефа</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="348"/>
         <source>black heart suit</source>
-        <translation type="unfinished"/>
+        <translation>закрашена масть чирва</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="349"/>
         <source>black diamond suit</source>
-        <translation type="unfinished"/>
+        <translation>закрашена масть бубна</translation>
     </message>
 </context>
 </TS>
