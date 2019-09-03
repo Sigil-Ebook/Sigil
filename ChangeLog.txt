@@ -18,7 +18,7 @@ Sigil-0.9.18
      - properly warn users if a multiple rendition epub (multiple OPF files) has been loaded
      - make Sigil's external XHtml editor work to pass an OPF file (see PageEdit new features)
      - Allow epub3 metadata editor to edit primary meta tags
-     - Replace buggy cssutils module used in plugins with our own drop-in rpelacement fork: css-parser
+     - Replace buggy cssutils module used in plugins with our own drop-in replacement fork: css-parser
      - Updated Mac, Windows, and Linux build documentation
 
 
