@@ -47,13 +47,13 @@ WebEngPage::WebEngPage(QObject *parent)
 
 bool WebEngPage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::NavigationType type, bool isMainFrame)
 {
-    if (type == QWebEnginePage::NavigationTypeLinkClicked) {
+    if ((type == QWebEnginePage::NavigationTypeLinkClicked) || (type == QWebEnginePage::NavigationTypeOther)) {
         DBG qDebug() << "acceptNavigationRequest " << url.toString() << " , " << type << " , " << isMainFrame;
         m_url = url;
 	QTimer::singleShot(20,this,SLOT(EmitLinkClicked()));
         return false;
     }
-    DBG qDebug() << " at end of acceptNavigationRequest with type: " << type;
+    DBG qDebug() << " Unhandled acceptNavigationRequest with type: " << type;
     return true;
 }
 
