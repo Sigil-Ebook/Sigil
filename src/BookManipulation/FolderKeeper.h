@@ -184,6 +184,8 @@ public:
 
     void RemoveNCXFromFolder();
 
+    QString GetLongestCommonPathForKey(const QString &key);
+
     /**
      * Returns the full path to the main folder of the publication.
      *
@@ -287,6 +289,8 @@ private:
 
     void CreateExtensionToMediaTypeMap();
 
+    void CreateKeyToLCPMap();
+
     /**
      * Dereferences two pointers and compares the values with "<".
      *
@@ -353,8 +357,7 @@ private:
     QString m_FullPathToStylesFolder;
     QString m_FullPathToMiscFolder;
     QHash<QString, QString> m_ExtToMType;
-
-
+    QHash<QString, QString> m_KeyToLCP;
 
 };
 

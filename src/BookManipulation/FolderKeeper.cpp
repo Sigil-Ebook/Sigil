@@ -102,6 +102,7 @@ FolderKeeper::FolderKeeper(QObject *parent)
     m_FullPathToMainFolder(m_TempFolder.GetPath())
 {
     CreateExtensionToMediaTypeMap();
+    CreateKeyToLCPMap();
     CreateFolderStructure();
     CreateInfrastructureFiles();
 }
@@ -586,4 +587,22 @@ void FolderKeeper::CreateExtensionToMediaTypeMap()
   m_ExtToMType[ "woff2"  ] = "font/woff2";
   m_ExtToMType[ "xpgt"  ] = "application/adobe-page-template+xml";
   m_ExtToMType[ "xhtml" ] = "application/xhtml+xml";
+}
+
+// Initializes m_Mimetypes
+void FolderKeeper::CreateKeyToLCPMap()
+{
+    // Note: m_FullPathToMainFolder **never** ends with a "/" see Misc/TempFolder.cpp
+    m_KeyToLCP[ "text"   ] = m_FullPathToMainFolder + "/OEBPS/Text";
+    m_KeyToLCP[ "styles" ] = m_FullPathToMainFolder + "/OEBPS/Styles";
+    m_KeyToLCP[ "images" ] = m_FullPathToMainFolder + "/OEBPS/Images";
+    m_KeyToLCP[ "fonts"  ] = m_FullPathToMainFolder + "/OEBPS/Fonts";
+    m_KeyToLCP[ "audio"  ] = m_FullPathToMainFolder + "/OEBPS/Audio";
+    m_KeyToLCP[ "video"  ] = m_FullPathToMainFolder + "/OEBPS/Video";
+    m_KeyToLCP[ "misc"   ] = m_FullPathToMainFolder + "/OEBPS/Misc";
+}
+
+QString FolderKeeper::GetLongestCommonPathForKey(const QString &key)
+{
+    return m_KeyToLCP.value(key, "");
 }

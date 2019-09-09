@@ -110,6 +110,10 @@ public:
      */
     QString GetRelativePathToOEBPS() const;
 
+    QString SegmentID(const QString &longest_common_path) const;
+
+    QString GetRelativePathFromResource(const Resource* start_resource) const;
+
     /**
      * Returns the resource's path relative to the publication's
      * root folder. Returned \em without leading "../" characters.
