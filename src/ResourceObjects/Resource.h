@@ -170,6 +170,16 @@ public:
     QString GetMediaType() const;
 
     /**
+     * gets and sets the resources Longest Common Path Group
+     */
+
+    void SetLCPGroup(const QString& );
+
+    QString GetLCPGroup() const;
+
+
+
+    /**
      * Returns a reference to the resource's ReadWriteLock.
      *
      * @return The resource's ReadWriteLock.
@@ -318,6 +328,7 @@ private:
      */
     QString m_MediaType;
 
+    QString m_LCPGroup;
 
     /**
      * The ReadWriteLock guarding access to the resource's data.

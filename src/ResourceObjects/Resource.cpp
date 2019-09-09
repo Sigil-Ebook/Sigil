@@ -170,6 +170,18 @@ QString Resource::GetMediaType() const
 }
 
 
+void Resource::SetLCPGroup(const QString& mgroup)
+{
+    m_LCPGroup = mgroup;
+}
+
+
+QString Resource::GetLCPGroup() const
+{
+  return m_LCPGroup;
+}
+
+
 QReadWriteLock &Resource::GetLock() const
 {
     return m_ReadWriteLock;
