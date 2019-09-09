@@ -600,17 +600,20 @@ void FolderKeeper::CreateExtensionToMediaTypeMap()
   m_ExtToMType[ "xhtml" ] = "application/xhtml+xml";
 }
 
-// Initializes m_Mimetypes
+// Hard codes Longest Common Path for the time being
+// Note all LCP paths **must** end with "/"
 void FolderKeeper::CreateKeyToLCPMap()
 {
     // Note: m_FullPathToMainFolder **never** ends with a "/" see Misc/TempFolder.cpp
-    m_KeyToLCP[ "text"   ] = m_FullPathToMainFolder + "/OEBPS/Text";
-    m_KeyToLCP[ "styles" ] = m_FullPathToMainFolder + "/OEBPS/Styles";
-    m_KeyToLCP[ "images" ] = m_FullPathToMainFolder + "/OEBPS/Images";
-    m_KeyToLCP[ "fonts"  ] = m_FullPathToMainFolder + "/OEBPS/Fonts";
-    m_KeyToLCP[ "audio"  ] = m_FullPathToMainFolder + "/OEBPS/Audio";
-    m_KeyToLCP[ "video"  ] = m_FullPathToMainFolder + "/OEBPS/Video";
-    m_KeyToLCP[ "misc"   ] = m_FullPathToMainFolder + "/OEBPS/Misc";
+    // Note all LCP paths **must** end with "/"
+    m_KeyToLCP[ "text"   ] = m_FullPathToMainFolder + "/OEBPS/Text/";
+    m_KeyToLCP[ "styles" ] = m_FullPathToMainFolder + "/OEBPS/Styles/";
+    m_KeyToLCP[ "images" ] = m_FullPathToMainFolder + "/OEBPS/Images/";
+    m_KeyToLCP[ "fonts"  ] = m_FullPathToMainFolder + "/OEBPS/Fonts/";
+    m_KeyToLCP[ "audio"  ] = m_FullPathToMainFolder + "/OEBPS/Audio/";
+    m_KeyToLCP[ "video"  ] = m_FullPathToMainFolder + "/OEBPS/Video/";
+    m_KeyToLCP[ "misc"   ] = m_FullPathToMainFolder + "/OEBPS/Misc/";
+    m_KeyToLCP[ "other"   ] = m_FullPathToMainFolder + "/";
 }
 
 QString FolderKeeper::GetLongestCommonPathForKey(const QString &key)
