@@ -110,7 +110,7 @@ public:
      */
     QString GetRelativePathToOEBPS() const;
 
-    QString SegmentID(const QString &longest_common_path) const;
+    QString SegmentID() const;
 
     QString GetRelativePathFromResource(const Resource* start_resource) const;
 
@@ -173,9 +173,9 @@ public:
      * gets and sets the resources Longest Common Path Group
      */
 
-    void SetLCPGroup(const QString& );
+    void SetLCP(const QString& );
 
-    QString GetLCPGroup() const;
+    QString GetLCP() const;
 
 
 
@@ -328,7 +328,7 @@ private:
      */
     QString m_MediaType;
 
-    QString m_LCPGroup;
+    QString m_LCP;
 
     /**
      * The ReadWriteLock guarding access to the resource's data.

@@ -154,7 +154,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
         QMutexLocker locker(&m_AccessMutex);
         QString filename  = GetUniqueFilenameVersion(QFileInfo(normalised_file_path).fileName());
         QString extension = QFileInfo(normalised_file_path).suffix().toLower();
-	QString lcpgroup;
+	QString lcppath;
 
         if (fullfilepath.contains(FILE_EXCEPTIONS)) {
             // This is a big hack that assumes the new and old filepaths use root paths
@@ -162,47 +162,48 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
             // a lot of the code to provide a more generalised interface.
             new_file_path = m_FullPathToMainFolder % fullfilepath.right(fullfilepath.size() - m_FullPathToMainFolder.size());
             resource = new Resource(m_FullPathToMainFolder, new_file_path);
-	    lcpgroup = "other";
+	    lcppath = m_KeyToLCP.value("other", "");
         } else if (MISC_TEXT_EXTENSIONS.contains(extension)) {
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
             resource = new MiscTextResource(m_FullPathToMainFolder, new_file_path);
-	    lcpgroup = "misc";
+	    lcppath = m_KeyToLCP.value("misc", "");
         } else if (AUDIO_EXTENSIONS.contains(extension) || AUDIO_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToAudioFolder + "/" + filename;
             resource = new AudioResource(m_FullPathToMainFolder, new_file_path);
-	    lcpgroup = "audio";
+	    lcppath = m_KeyToLCP.value("audio","");
         } else if (VIDEO_EXTENSIONS.contains(extension) || VIDEO_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToVideoFolder + "/" + filename;
             resource = new VideoResource(m_FullPathToMainFolder, new_file_path);
+	    lcppath = m_KeyToLCP.value("video","");
         } else if (IMAGE_EXTENSIONS.contains(extension) || IMAGE_MIMEYPES.contains(mimetype)) {
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
             resource = new ImageResource(m_FullPathToMainFolder, new_file_path);
-	    lcpgroup = "images";
+	    lcppath = m_KeyToLCP.value("images","");
         } else if (SVG_EXTENSIONS.contains(extension) || SVG_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
             resource = new SVGResource(m_FullPathToMainFolder, new_file_path);
-	    lcpgroup = "images";
+	    lcppath = m_KeyToLCP.value("images","");
         } else if (FONT_EXTENSIONS.contains(extension) || FONT_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToFontsFolder + "/" + filename;
             resource = new FontResource(m_FullPathToMainFolder, new_file_path);
-	    lcpgroup = "fonts";
+	    lcppath = m_KeyToLCP.value("fonts","");
         } else if (TEXT_EXTENSIONS.contains(extension) || TEXT_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToTextFolder + "/" + filename;
             resource = new HTMLResource(m_FullPathToMainFolder, new_file_path, m_Resources);
-	    lcpgroup = "text";
+	    lcppath = m_KeyToLCP.value("text","");
         } else if (STYLE_EXTENSIONS.contains(extension) || STYLE_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToStylesFolder + "/" + filename;
             resource = new CSSResource(m_FullPathToMainFolder, new_file_path);
-	    lcpgroup = "styles";
+	    lcppath = m_KeyToLCP.value("styles","");
         } else if (MISC_XML_EXTENSIONS.contains(extension) || MISC_XML_MIMETYPES.contains(mimetype)) {
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
             resource = new XMLResource(m_FullPathToMainFolder, new_file_path);
-	    lcpgroup = "misc";
+	    lcppath = m_KeyToLCP.value("misc","");
         } else {
             // Fallback mechanism
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
             resource = new Resource(m_FullPathToMainFolder, new_file_path);
-	    lcpgroup = "misc";
+	    lcppath = m_KeyToLCP.value("misc","");
         }
 
         m_Resources[ resource->GetIdentifier() ] = resource;
@@ -212,7 +213,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
         } else {
            resource->SetMediaType(m_ExtToMType.value(extension));
         }
-        resource->SetLCPGroup(lcpgroup);
+        resource->SetLCP(lcppath);
     }
     QFile::copy(fullfilepath, new_file_path);
 
