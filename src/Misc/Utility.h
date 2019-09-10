@@ -55,10 +55,6 @@ public:
     static QStringList LinuxHunspellDictionaryDirs();
 #endif
 
-    // Generate relative path to destination from starting directory path
-    // Both paths should be absolute and preferably cannonical
-    static QString relativePath(const QString & destination, const QString & starting_dir); 
-
     // Uses QUuid to generate a random UUID but also removes
     // the curly braces that QUuid::createUuid() adds
     static QString CreateUUID();
@@ -175,8 +171,18 @@ public:
     static bool UnZip(const QString &zippath, const QString &destdir);
     static QStringList ZipInspect(const QString &zippath);
 
+    // Generate relative path to destination from starting directory path
+    // Both paths should be absolute and preferably cannonical
+    static QString relativePath(const QString & destination, const QString & starting_dir); 
+
+    // works with absolute or book paths
     static QString longestCommonPath(const QStringList& filepaths, const QString& sep);
+
+    // works with absolute or book paths
     static QString resolveRelativeSegmentsInFilePath(const QString& file_path, const QString &sep);
+
+    // start_folder is the book path (internal to epub) to the starting folder
+    static QString buildBookPath(const QString& dest_relpath, const QString& start_folder);
 
 };
 

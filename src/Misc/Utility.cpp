@@ -138,43 +138,6 @@ QStringList Utility::LinuxHunspellDictionaryDirs()
 }
 #endif
 
-// Generate relative path to destination from starting directory path
-// Both paths should be absolute and preferably cannonical
-QString Utility::relativePath(const QString & destination, const QString & start_dir)
-{
-    QString dest(destination);
-    QString start(start_dir);
-    QChar sep = '/';
-
-    // remove any trailing path separators from both paths
-    while (dest.endsWith(sep)) dest.chop(1);
-    while (start.endsWith(sep)) start.chop(1);
-
-    QStringList dsegs = dest.split(sep, QString::KeepEmptyParts);
-    QStringList ssegs = start.split(sep, QString::KeepEmptyParts);
-    QStringList res;
-    int i = 0;
-    int nd = dsegs.size();
-    int ns = ssegs.size();
-    // skip over starting common path segments in both paths 
-    while (i < ns && i < nd && (dsegs.at(i) == ssegs.at(i))) {
-        i++;
-    }
-    // now "move up" for each remaining path segment in the starting directory
-    int p = i;
-    while (p < ns) {
-        res.append("..");
-        p++;
-    }
-    // And append the remaining path segments from the destination 
-    p = i;
-    while(p < nd) {
-        res.append(dsegs.at(p));
-        p++;
-    }
-    return res.join(sep);
-}
-
 
 // Uses QUuid to generate a random UUID but also removes
 // the curly braces that QUuid::createUuid() adds
@@ -904,6 +867,8 @@ QStringList Utility::ZipInspect(const QString &zippath)
     return filelist;
 }
 
+// some utilities for working with absolute and book relative paths
+
 QString Utility::longestCommonPath(const QStringList& filepaths, const QString& sep)
 {
     if (filepaths.isEmpty()) return QString();
@@ -922,11 +887,14 @@ QString Utility::longestCommonPath(const QStringList& filepaths, const QString& 
     return res.join(sep) + sep;
 }
 
+
+// works with absolute paths and book (internal to epub) paths
 QString Utility::resolveRelativeSegmentsInFilePath(const QString& file_path, const QString &sep)
 {
     const QStringList segs = file_path.split(sep);
     QStringList res;
     for (int i = 0; i < segs.length(); i++) {
+        // FIXME skip empty segments but not at the front when windows
         if (segs.at(i) == ".") continue;
         if (segs.at(i) == "..") {
             if (!res.isEmpty()) {
@@ -941,3 +909,51 @@ QString Utility::resolveRelativeSegmentsInFilePath(const QString& file_path, con
     return res.join(sep);
 }
 
+
+// Generate relative path to destination from starting directory path
+// Both paths should be absolute and preferably cannonical
+QString Utility::relativePath(const QString & destination, const QString & start_dir)
+{
+    QString dest(destination);
+    QString start(start_dir);
+    QChar sep = '/';
+
+    // remove any trailing path separators from both paths
+    while (dest.endsWith(sep)) dest.chop(1);
+    while (start.endsWith(sep)) start.chop(1);
+
+    QStringList dsegs = dest.split(sep, QString::KeepEmptyParts);
+    QStringList ssegs = start.split(sep, QString::KeepEmptyParts);
+    QStringList res;
+    int i = 0;
+    int nd = dsegs.size();
+    int ns = ssegs.size();
+    // skip over starting common path segments in both paths 
+    while (i < ns && i < nd && (dsegs.at(i) == ssegs.at(i))) {
+        i++;
+    }
+    // now "move up" for each remaining path segment in the starting directory
+    int p = i;
+    while (p < ns) {
+        res.append("..");
+        p++;
+    }
+    // And append the remaining path segments from the destination 
+    p = i;
+    while(p < nd) {
+        res.append(dsegs.at(p));
+        p++;
+    }
+    return res.join(sep);
+}
+
+// dest_relpath is the relative path to the destination file
+// start_folder is the *book path* (path internal to the epub) to the starting folder
+QString Utility::buildBookPath(const QString& dest_relpath, const QString& start_folder)
+{
+    QString bookpath(start_folder);
+    while (bookpath.endsWith("/")) bookpath.chop(1);
+    bookpath = bookpath + "/" + dest_relpath;
+    bookpath = resolveRelativeSegmentsInFilePath(bookpath, "/");
+    return bookpath;
+}
