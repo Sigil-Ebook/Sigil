@@ -98,9 +98,9 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     QHash<QString, QStringList> video_names_hash = m_Book->GetVideoInHTMLFiles();
     QHash<QString, QStringList> audio_names_hash = m_Book->GetAudioInHTMLFiles();
     foreach(HTMLResource *html_resource, m_HTMLResources) {
-        QString filepath = "../" + html_resource->GetRelativePathToOEBPS();
+      QString filepath = "../" + html_resource->GetRelativePath();
         QString path = html_resource->GetFullPath();
-        QString filename = html_resource->Filename();
+        QString filename = html_resource->SegmentID();
         QList<QStandardItem *> rowItems;
         // Filename
         QStandardItem *name_item = new QStandardItem();

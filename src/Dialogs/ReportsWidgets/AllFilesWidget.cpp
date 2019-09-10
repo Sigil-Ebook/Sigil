@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2017, 2018, 2019 Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2017 - 2019 Kevin B. Hendricks, Stratford, Ontario
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012, 2013 Dave Heiland
 **
@@ -88,7 +88,7 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QString fullpath = resource->GetFullPath();
         QString filepath = resource->GetRelativePath();
         QString directory = resource->GetFolder();
-        QString filename = resource->Filename();
+        QString file_segid = resource->SegmentID();
         QList<QStandardItem *> rowItems;
         QStandardItem *item;
         // Directory
@@ -97,7 +97,7 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems << item;
         // Filename
         item = new QStandardItem();
-        item->setText(filename);
+        item->setText(file_segid);
         item->setToolTip(filepath);
         rowItems << item;
         // File Size
@@ -206,8 +206,8 @@ void AllFilesWidget::DoubleClick()
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(1).first();
 
     if (index.row() != m_ItemModel->rowCount() - 1) {
-        QString filename = m_ItemModel->itemFromIndex(index)->text();
-        emit OpenFileRequest(filename, 1);
+        QString file_segmentid = m_ItemModel->itemFromIndex(index)->text();
+        emit OpenFileRequest(file_segmentid, 1);
     }
 }
 

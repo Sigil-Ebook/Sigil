@@ -87,24 +87,29 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         tr("Report shows all source and target links using the anchor tag \"a\".")
     );
 
-    QHash<QString, QList<XhtmlDoc::XMLElement>> links = m_Book->GetLinkElements();
+    // Key is book path of html file
+    QHash<QString, QList<XhtmlDoc::XMLElement> > links = m_Book->GetLinkElements();
+
+    // Key is book path of html file
     QHash<QString, QStringList> all_ids = m_Book->GetIdsInHTMLFiles();
+
+    // html_filenames is a list of html book paths
     QStringList html_filenames;
     foreach(Resource *resource, m_HTMLResources) {
-        html_filenames.append(resource->Filename());
+        html_filenames.append(resource->GetRelativePath());
     }
 
     foreach(Resource *resource, m_HTMLResources) {
-        QString filepath = "../" + resource->GetRelativePathToOEBPS();
+        QString filepath = resource->GetRelativePath();
         QString path = resource->GetFullPath();
-        QString filename = resource->Filename();
+        QString file_segid = resource->SegmentID();
 
-        foreach(XhtmlDoc::XMLElement element, links[filename]) {
+        foreach(XhtmlDoc::XMLElement element, links[filepath]) {
             QList<QStandardItem *> rowItems;
 
             // Source file
             QStandardItem *item = new QStandardItem();
-            QString source_file = filename;
+            QString source_file = file_segid;
             item->setText(source_file);
             item->setToolTip(filepath);
             rowItems << item;
@@ -135,9 +140,6 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
             bool is_target_file = false;
             if (url.scheme().isEmpty() || url.scheme() == "file") {
                 href_file = url.path();
-                if (href_file.startsWith("../Text/")) {
-                    href_file.replace("../Text/", "");
-                }
                 href_id = url.fragment();
                 is_target_file = true;
             } else {
@@ -154,15 +156,19 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 
             // Target exists in book
             QString target_valid = tr("n/a");
+	    QString bkpath;
             if (is_target_file) {
                 if (!href.isEmpty()) {
                     target_valid = tr("no");
-                    QString file = href_file;
-                    if (href_file.isEmpty()) {
-                        file = filename;
-                    }
-                    if (html_filenames.contains(file)) {
-                        if (href_id.isEmpty() || all_ids[file].contains(href_id)) {
+                    // first handle the case of local internal link (just fragment)
+		    if (href_file.isEmpty()) {
+		        bkpath = filepath;
+		    } else {
+                        // find bookpath of target
+		        bkpath = Utility::buildBookPath(href_file, resource->GetFolder());
+		    }	
+                    if (html_filenames.contains(bkpath)) {
+                        if (href_id.isEmpty() || all_ids[bkpath].contains(href_id)) {
                             target_valid = tr("yes");
                         }
                     }
@@ -178,11 +184,7 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
                 XhtmlDoc::XMLElement target;
                 bool found = false;
 
-                QString target_file = href_file;
-                if (target_file.isEmpty()) {
-                    target_file = filename;
-                }
-                foreach(XhtmlDoc::XMLElement target_element, links[target_file]) {
+                foreach(XhtmlDoc::XMLElement target_element, links[bkpath]) {
                     if (href_id == target_element.attributes["id"]) {
                         target = target_element;
                         found = true;
@@ -203,9 +205,6 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
                     QString target_href_id;
                     if (target_url.scheme().isEmpty() || target_url.scheme() == "file") {
                         target_href_file = target_url.path();
-                        if (target_href_file.startsWith("../Text/")) {
-                            target_href_file.replace("../Text/", "");
-                        }
                         target_href_id = target_url.fragment();
                     } else {
                         // Just show url
@@ -220,12 +219,16 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
                     item->setText(target_href_id);
                     rowItems << item;
 
+		    QString target_bkpath;
                     // Match - destination link points to source
                     if (target_href_file.isEmpty()) {
-                        target_href_file = target_file;
-                    }
+		        target_bkpath = bkpath;
+                    } else {
+		        Resource * res =  m_Book->GetFolderKeeper()->GetResourceByBookPath(bkpath);
+		        target_bkpath = Utility::buildBookPath(target_href_file, res->GetFolder());
+		    }
                     QString match = tr("no");
-                    if (!source_id.isEmpty() && !target_href_id.isEmpty() && source_file == target_href_file && source_id == target_href_id) {
+                    if (!source_id.isEmpty() && filepath == target_bkpath && source_id == target_href_id) {
                         match = tr("yes");
                     }
                     item = new QStandardItem();
@@ -287,9 +290,9 @@ void LinksWidget::DoubleClick()
     if (index.row() != m_ItemModel->rowCount() - 1) {
         // IMPORTANT:  file name is in column 0, and line number is in column 1
         // This should match order of header above
-        QString filename = m_ItemModel->item(index.row(), 0)->text();
+        QString file_segid = m_ItemModel->item(index.row(), 0)->text();
         QString lineno = m_ItemModel->item(index.row(), 1)->text();
-        emit OpenFileRequest(filename, lineno.toInt());
+        emit OpenFileRequest(file_segid, lineno.toInt());
     }
 }
 

@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015, 2016, 2017, 2018  Kevin B. Hendricks Stratford, ON, Canada 
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015 - 2019  Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2009 - 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -692,11 +692,11 @@ QHash <QString, QList<XhtmlDoc::XMLElement>> Book::GetLinkElements()
     QFuture<std::tuple<QString, QList<XhtmlDoc::XMLElement>>> future = QtConcurrent::mapped(html_resources, GetLinkElementsInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
-        QString filename;
+        QString bookpath;
         QList<XhtmlDoc::XMLElement> links;
-        std::tie(filename, links) = future.resultAt(i);
+        std::tie(bookpath, links) = future.resultAt(i);
         // Each target entry has a list of filenames that contain it
-        links_in_html[filename] = links;
+        links_in_html[bookpath] = links;
     }
 
     return links_in_html;
@@ -704,7 +704,7 @@ QHash <QString, QList<XhtmlDoc::XMLElement>> Book::GetLinkElements()
 
 std::tuple<QString, QList<XhtmlDoc::XMLElement>> Book::GetLinkElementsInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return std::make_tuple(html_resource->Filename(),
+    return std::make_tuple(html_resource->GetRelativePath(),
                       XhtmlDoc::GetTagsInDocument(html_resource->GetText(), "a"));
 }
 
@@ -739,11 +739,11 @@ QHash<QString, QStringList> Book::GetIdsInHTMLFiles()
     QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetIdsInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
-        QString filename;
+        QString bookpath;
         QStringList ids;
-        std::tie(filename, ids) = future.resultAt(i);
+        std::tie(bookpath, ids) = future.resultAt(i);
         // Each target entry has a list of filenames that contain it
-        ids_in_html[filename] = ids;
+        ids_in_html[bookpath] = ids;
     }
 
     return ids_in_html;
@@ -751,7 +751,7 @@ QHash<QString, QStringList> Book::GetIdsInHTMLFiles()
 
 std::tuple<QString, QStringList> Book::GetIdsInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return std::make_tuple(html_resource->Filename(),
+    return std::make_tuple(html_resource->GetRelativePath(),
                            XhtmlDoc::GetAllDescendantIDs(html_resource->GetText()));
 }
 
@@ -913,11 +913,13 @@ QHash<QString, QStringList> Book::GetHTMLFilesUsingImages()
     QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetImagesInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
-        QString html_filename;
+        QString html_bookpath;
         QStringList media_filenames;
-        std::tie(html_filename, media_filenames) = future.resultAt(i);
+        std::tie(html_bookpath, media_filenames) = future.resultAt(i);
         foreach(QString media_filename, media_filenames) {
-            html_files[media_filename].append(html_filename);
+	    Resource * resource = GetFolderKeeper()->GetResourceByBookPath(html_bookpath);
+            media_filename = Utility::buildBookPath(media_filename, resource->GetFolder());
+            html_files[media_filename].append(resource->SegmentID());
         }
     }
 
@@ -934,7 +936,7 @@ std::tuple<QString, QStringList> Book::GetMediaInHTMLFileMapped(HTMLResource *ht
 
 std::tuple<QString, QStringList> Book::GetImagesInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return std::make_tuple(html_resource->Filename(),
+  return std::make_tuple(html_resource->GetRelativePath(),
                            XhtmlDoc::GetAllMediaPathsFromMediaChildren(html_resource->GetText(), GIMAGE_TAGS));
 }
 

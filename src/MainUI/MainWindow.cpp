@@ -1691,9 +1691,9 @@ void MainWindow::ReportsDialog()
     m_Reports->activateWindow();
 }
 
-void MainWindow::OpenFile(QString filename, int line)
+void MainWindow::OpenFile(QString file_segmentid, int line)
 {
-    if (filename.isEmpty()) {
+    if (file_segmentid.isEmpty()) {
         return;
     }
 
@@ -1702,7 +1702,7 @@ void MainWindow::OpenFile(QString filename, int line)
     }
 
     try {
-        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceBySegmentID(file_segmentid);
         OpenResource(resource, line);
     } catch (ResourceDoesNotExist) {
         //
