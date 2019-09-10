@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **
@@ -42,7 +43,7 @@ QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QSharedPointer<Bo
     // Save each CSS file's text so we don't have to reload it when checking each HTML file
     QHash<QString, QString> css_text;
     foreach(CSSResource * css_resource, css_resources) {
-        QString css_filename = "../" + css_resource->GetRelativePathToOEBPS();
+        QString css_filename = css_resource->GetRelativePath();
 
         if (!css_text.contains(css_filename)) {
             css_text[css_filename] = css_resource->GetText();
@@ -65,9 +66,8 @@ QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QSharedPointer<Bo
             qApp->processEvents();
         }
 
-        QString html_filename = html_resource->Filename();
         // Get the unique list of classes in this file
-        QStringList classes_in_file = book->GetClassesInHTMLFile(html_filename);
+        QStringList classes_in_file = book->GetClassesInHTMLFile(html_resource);
         classes_in_file.removeDuplicates();
         // Get the linked stylesheets for this file
         QStringList linked_stylesheets = book->GetStylesheetsInHTMLFile(html_resource);
@@ -79,7 +79,7 @@ QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QSharedPointer<Bo
             QString class_part = class_name.split(".").at(1);
             // Save the details for found or not found classes
             BookReports::StyleData *class_usage = new BookReports::StyleData();
-            class_usage->html_filename = html_resource->Filename();
+            class_usage->html_filename = html_resource->SegmentID();
             class_usage->html_element_name = element_part;
             class_usage->html_class_name = class_part;
             // Look in each stylesheet
@@ -113,7 +113,7 @@ QList<BookReports::StyleData *> BookReports::GetAllHTMLClassUsage(QSharedPointer
     // Save each CSS file's text so we don't have to reload it when checking each HTML file
     QHash<QString, QString> css_text;
     foreach(CSSResource * css_resource, css_resources) {
-        QString css_filename = "../" + css_resource->GetRelativePathToOEBPS();
+        QString css_filename = css_resource->GetRelativePath();
 
         if (!css_text.contains(css_filename)) {
             css_text[css_filename] = css_resource->GetText();
@@ -136,9 +136,8 @@ QList<BookReports::StyleData *> BookReports::GetAllHTMLClassUsage(QSharedPointer
             qApp->processEvents();
         }
 
-        QString html_filename = html_resource->Filename();
         // Get the unique list of classes in this file
-        QStringList classes_in_file = book->GetClassesInHTMLFile(html_filename);
+        QStringList classes_in_file = book->GetClassesInHTMLFile(html_resource);
         classes_in_file.removeDuplicates();
         // Get the linked stylesheets for this file
         QStringList linked_stylesheets = book->GetStylesheetsInHTMLFile(html_resource);
@@ -158,7 +157,7 @@ QList<BookReports::StyleData *> BookReports::GetAllHTMLClassUsage(QSharedPointer
                         if (selector && (selector->classNames.count() > 0)) {
                             // Save the details for found or not found classes
                             BookReports::StyleData *class_usage = new BookReports::StyleData();
-                            class_usage->html_filename = html_resource->Filename();
+                            class_usage->html_filename = html_resource->SegmentID();
                             class_usage->html_element_name = element_part;
                             class_usage->html_class_name = class_part;
                             class_usage->css_filename = css_filename;
@@ -187,7 +186,7 @@ QList<BookReports::StyleData *> BookReports::GetCSSSelectorUsage(QSharedPointer<
         CSSInfo css_info(text, true);
         QList<CSSInfo::CSSSelector *> selectors = css_info.getClassSelectors();
         foreach(CSSInfo::CSSSelector * selector, selectors) {
-            QString css_filename = "../" + css_resource->GetRelativePathToOEBPS();
+            QString css_filename = css_resource->GetRelativePath();
             // Save the details for found or not found classes
             BookReports::StyleData *selector_usage = new BookReports::StyleData();
             selector_usage->css_filename = css_filename;

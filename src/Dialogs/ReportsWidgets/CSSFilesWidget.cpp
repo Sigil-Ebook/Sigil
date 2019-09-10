@@ -82,8 +82,8 @@ void CSSFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     // Get all a count of all the linked stylesheets
     QHash<QString, int> linked_stylesheets_hash;
     foreach(HTMLResource * html_resource, m_HTMLResources) {
-        QString html_filename = html_resource->Filename();
         // Get the linked stylesheets for this file
+        // linked_stylesheets now uses book paths to each stylesheets
         QStringList linked_stylesheets = m_Book->GetStylesheetsInHTMLFile(html_resource);
         foreach(QString stylesheet, linked_stylesheets) {
             if (linked_stylesheets.contains(stylesheet)) {
@@ -96,12 +96,12 @@ void CSSFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     double total_size = 0;
     int total_links = 0;
     foreach(CSSResource * css_resource, m_CSSResources) {
-        QString filepath = "../" + css_resource->GetRelativePathToOEBPS();
+        QString filepath = css_resource->GetRelativePath();
         QString path = css_resource->GetFullPath();
         QList<QStandardItem *> rowItems;
         // Filename
         QStandardItem *name_item = new QStandardItem();
-        name_item->setText(css_resource->Filename());
+        name_item->setText(css_resource->SegmentID());
         name_item->setToolTip(filepath);
         rowItems << name_item;
         // File Size

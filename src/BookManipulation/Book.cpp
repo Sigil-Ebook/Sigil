@@ -833,15 +833,9 @@ std::tuple<QString, QStringList> Book::GetClassesInHTMLFileMapped(HTMLResource *
                            XhtmlDoc::GetAllDescendantClasses(html_resource->GetText()));
 }
 
-QStringList Book::GetClassesInHTMLFile(QString filename)
+QStringList Book::GetClassesInHTMLFile(HTMLResource *html_resource)
 {
-    QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
-    foreach(HTMLResource *html_resource, html_resources) {
-        if (html_resource->Filename() == filename) {
-            return XhtmlDoc::GetAllDescendantClasses(html_resource->GetText());
-        }
-    }
-    return QStringList();
+    return XhtmlDoc::GetAllDescendantClasses(html_resource->GetText());
 }
 
 QHash<QString, QStringList> Book::GetImagesInHTMLFiles()
@@ -1032,9 +1026,15 @@ std::tuple<QString, QStringList> Book::GetStylesheetsInHTMLFileMapped(HTMLResour
 
 QStringList Book::GetStylesheetsInHTMLFile(HTMLResource *html_resource)
 {
-    return XhtmlDoc::GetLinkedStylesheets(html_resource->GetText());
+    // convert links relative to a html resource to their book paths
+    QStringList stylelinks = XhtmlDoc::GetLinkedStylesheets(html_resource->GetText());
+    QStringList results;
+    QString html_folder = html_resource->GetFolder();
+    foreach(QString stylelink, stylelinks) {
+       results.append(Utility::buildBookPath(stylelink, html_folder));
+    }
+    return results;
 }
-
 
 Resource *Book::MergeResources(QList<Resource *> resources)
 {

@@ -226,7 +226,7 @@ public:
 
     QHash<QString, QStringList> GetClassesInHTMLFiles();
     static std::tuple<QString, QStringList> GetClassesInHTMLFileMapped(HTMLResource *html_resource);
-    QStringList GetClassesInHTMLFile(QString filename);
+    QStringList GetClassesInHTMLFile(HTMLResource* html_resource);
 
     QSet<QString> GetWordsInHTMLFiles();
     static QStringList GetWordsInHTMLFileMapped(HTMLResource *html_resource);
