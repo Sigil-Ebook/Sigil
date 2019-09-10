@@ -301,18 +301,6 @@ QString FolderKeeper::GetUniqueFilenameVersion(const QString &filename) const
     return new_name + (!extension.isEmpty() ? ("." + extension) : QString());
 }
 
-
-QStringList FolderKeeper::GetSortedContentFilesList() const
-{
-    QStringList filelist;
-    foreach(Resource * resource, m_Resources.values()) {
-        filelist.append(resource->GetRelativePathToOEBPS());
-    }
-    filelist.sort();
-    return filelist;
-}
-
-
 QList<Resource *> FolderKeeper::GetResourceList() const
 {
     return m_Resources.values();

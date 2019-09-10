@@ -106,15 +106,6 @@ public:
     QString GetUniqueFilenameVersion(const QString &filename) const;
 
     /**
-     * Returns a sorted list of all the content filepaths.
-     * The paths returned are relative to the OEBPS directory,
-     * and the sort is alphabetical.
-     *
-     * @return The sorted filepaths.
-     */
-    QStringList GetSortedContentFilesList() const;
-
-    /**
      * Returns a list of all the resources in the book.
      * The order of the items is random.
      *
