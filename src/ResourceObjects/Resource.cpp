@@ -73,7 +73,7 @@ QString Resource::GetFolder() const
 }
 
 
-// Pathname of the file within the EPUB.
+// Pathname of the file within the EPUB.  Sometimes called the BookPath
 QString Resource::GetRelativePath() const
 {
     // Note m_MainFolder *never* ends with a path separator - see Misc/TempFolder.cpp
@@ -103,9 +103,9 @@ QString Resource::SegmentID() const
 // other resources to this resource
 QString Resource::GetRelativePathFromResource(const Resource* start_resource) const
 {
-    // we could use full paths here but if it works witl book relative paths then better encapsulation
-    // return Utility::realtivePath(start_resource->GetFullFolderPath(), m_FullFilePath);
-    return Utility::relativePath(start_resource->GetFolder(), GetRelativePath());
+    // should we use book paths here to better encapsulate things?
+    // return Utility::relativePath(start_resource->GetFolder(), GetRelativePath());
+    return Utility::relativePath(start_resource->GetFullFolderPath(), m_FullFilePath);
 } 
 
 QString Resource::GetRelativePathToRoot() const

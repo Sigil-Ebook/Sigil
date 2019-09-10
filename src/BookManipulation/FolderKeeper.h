@@ -166,6 +166,14 @@ public:
      */
     Resource *GetResourceByFilename(const QString &filename) const;
 
+    // this is O(n) but no filesystem is queried
+    // @throws ResourceDoesNotExist if the SegmentID is not found.
+    Resource *GetResourceBySegmentID(const QString &segmentid) const;
+
+    // this is O(1) as is held in a QHash m_Path2Resource
+    // @throws ResourceDoesNotExist if bookpath is not found.
+    Resource *GetResourceByBookPath(const QString &bookpath) const;
+
     /**
      * Returns the book's OPF file.
      *
@@ -327,6 +335,8 @@ private:
      * are the pointers to the actual resources.
      */
     QHash<QString, Resource *> m_Resources;
+
+    QHash<QString, Resource *> m_Path2Resource;
 
     /**
      * Ensures thread-safe access to the m_Resources hash.

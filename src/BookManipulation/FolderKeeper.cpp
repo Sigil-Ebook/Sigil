@@ -207,6 +207,11 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
         }
 
         m_Resources[ resource->GetIdentifier() ] = resource;
+
+	// Note:  m_FullPathToMainFolder **never** ends with a "/"
+	QString book_path = new_file_path.right(new_file_path.length() - m_FullPathToMainFolder.length() - 1);
+	m_Path2Resource[ book_path ] = resource;
+
         resource->SetEpubVersion(m_OPF->GetEpubVersion());
         if (!mimetype.isEmpty()) {
             resource->SetMediaType(mimetype);
@@ -341,6 +346,27 @@ Resource *FolderKeeper::GetResourceByFilename(const QString &filename) const
 }
 
 
+Resource *FolderKeeper::GetResourceBySegmentID(const QString &segmentid) const
+{
+    foreach(Resource *resource, m_Resources.values()) {
+        if (resource->SegmentID() == segmentid) {
+            return resource;
+        }
+    }
+    throw(ResourceDoesNotExist(segmentid.toStdString()));
+}
+
+// a Book path is the path from the m_MainFolder to that file
+Resource *FolderKeeper::GetResourceByBookPath(const QString &bookpath) const
+{
+    Resource * resource = m_Path2Resource.value(bookpath, NULL);
+    if (resource) {
+        return resource;
+    }
+    throw(ResourceDoesNotExist(bookpath.toStdString()));
+}
+
+
 OPFResource *FolderKeeper::GetOPF() const
 {
     return m_OPF;
@@ -426,6 +452,7 @@ QStringList FolderKeeper::GetAllFilenames() const
 void FolderKeeper::RemoveResource(const Resource *resource)
 {
     m_Resources.remove(resource->GetIdentifier());
+    m_Path2Resource.remove(resource->GetRelativePath());
 
     if (m_FSWatcher->files().contains(resource->GetFullPath())) {
         m_FSWatcher->removePath(resource->GetFullPath());
@@ -437,6 +464,12 @@ void FolderKeeper::RemoveResource(const Resource *resource)
 
 void FolderKeeper::ResourceRenamed(const Resource *resource, const QString &old_full_path)
 {
+    // Renaming means the resource book path has changed and so we need to update it
+    // Note:  m_FullPathToMainFolder **never** ends with a "/"                                                        
+    QString book_path = old_full_path.right(old_full_path.length() - m_FullPathToMainFolder.length() - 1);
+    Resource * res = m_Path2Resource[book_path];
+    m_Path2Resource.remove(book_path);
+    m_Path2Resource[resource->GetRelativePath()] = res;
     m_OPF->ResourceRenamed(resource, old_full_path);
 }
 
