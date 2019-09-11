@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -26,6 +26,8 @@
 #include "Exporters/NCXWriter.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/Resource.h"
+#include "ResourceObjects/NCXResource.h"
 #include "sigil_constants.h"
 
 NCXWriter::NCXWriter(const Book *book, QIODevice &device)
@@ -33,7 +35,8 @@ NCXWriter::NCXWriter(const Book *book, QIODevice &device)
     XMLWriter(book, device),
     m_Headings(),
     m_TOCRootEntry(TOCModel::TOCEntry()),
-    m_version(book->GetConstOPF()->GetEpubVersion())
+    m_version(book->GetConstOPF()->GetEpubVersion()),
+    m_ncxresource(book->GetConstNCX())
 
 {
     // Remove the Nav resource from list of HTMLResources if it exists (EPUB3)
@@ -51,7 +54,8 @@ NCXWriter::NCXWriter(const Book *book, QIODevice &device, TOCModel::TOCEntry toc
     :
     XMLWriter(book, device),
     m_TOCRootEntry(toc_root_entry),
-    m_version(book->GetConstOPF()->GetEpubVersion())
+    m_version(book->GetConstOPF()->GetEpubVersion()),
+    m_ncxresource(book->GetConstNCX())
 
 {
 }
@@ -151,7 +155,8 @@ void NCXWriter::WriteFallbackNavPoint()
     QList<HTMLResource *> html_resources = m_Book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(true);
     Q_ASSERT(!html_resources.isEmpty());
     m_Writer->writeEmptyElement("content");
-    m_Writer->writeAttribute("src", Utility::URLEncodePath(html_resources.at(0)->GetRelativePathToOEBPS()));
+    QString srcpath = html_resources.at(0)->GetRelativePathFromResource(m_ncxresource);
+    m_Writer->writeAttribute("src", Utility::URLEncodePath(srcpath));
     m_Writer->writeEndElement();
 }
 
@@ -172,7 +177,8 @@ TOCModel::TOCEntry NCXWriter::ConvertHeadingWalker(const Headings::Heading &head
 
     if (heading.include_in_toc) {
         toc_child.text = heading.text;
-        QString heading_file = heading.resource_file->GetRelativePathToOEBPS();
+        
+        QString heading_file = heading.resource_file->GetRelativePathFromResource(m_ncxresource);
         QString id_to_use = heading.id;
 
         // If this heading appears right after a section break,

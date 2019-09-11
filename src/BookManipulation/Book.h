@@ -100,6 +100,8 @@ public:
      */
     NCXResource *GetNCX();
 
+    const NCXResource *GetConstNCX() const;
+
     /**
      * Returns the book's publication identifier.
      *

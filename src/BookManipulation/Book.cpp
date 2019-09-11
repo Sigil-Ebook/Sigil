@@ -268,6 +268,12 @@ NCXResource *Book::GetNCX()
 }
 
 
+const NCXResource *Book::GetConstNCX() const
+{
+    return m_Mainfolder->GetNCX();
+}
+
+
 QString Book::GetPublicationIdentifier() const
 {
     return GetConstOPF()->GetMainIdentifierValue();
