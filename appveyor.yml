@@ -3,6 +3,7 @@ version: '0.9.18-{build}'
 branches:
   only:
   - master
+  - nomove
   - /\d+\.\d+\.\d+(-\d+)?/
   
 clone_folder: c:\project\sigil
@@ -57,6 +58,7 @@ matrix:
 
 
 only_commits:
+  message: /\[build\]/
   files:
     - CMakeLists.txt
     - appveyor.yml
