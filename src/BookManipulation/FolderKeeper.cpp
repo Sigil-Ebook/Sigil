@@ -373,7 +373,9 @@ NCXResource*FolderKeeper::AddNCXToFolder(const QString & version)
     m_NCX = new NCXResource(m_FullPathToMainFolder, m_FullPathToOEBPSFolder + "/" + NCX_FILE_NAME, this);
     m_NCX->SetMainID(m_OPF->GetMainIdentifierValue());
     m_NCX->SetEpubVersion(version);
+    m_NCX->SetLCP(m_KeyToLCP[ "ncx"]);
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
+    m_Path2Resource[ m_NCX->GetRelativePath() ] = m_NCX;
 
     // TODO: change from Resource* to const Resource&
     connect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
@@ -561,7 +563,9 @@ void FolderKeeper::CreateInfrastructureFiles()
     QString version = ss.defaultVersion();
     m_OPF = new OPFResource(m_FullPathToMainFolder, m_FullPathToOEBPSFolder + "/" + OPF_FILE_NAME, this);
     m_OPF->SetEpubVersion(version);
+    m_OPF->SetLCP(m_KeyToLCP[ "opf" ]);
     m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
+    m_Path2Resource[ m_OPF->GetRelativePath() ] = m_OPF;
     // note - ncx is optional on epub3 so do not create an ncx here
     // instead add it ony when needed
 
@@ -635,7 +639,9 @@ void FolderKeeper::CreateKeyToLCPMap()
     m_KeyToLCP[ "audio"  ] = m_FullPathToMainFolder + "/OEBPS/Audio/";
     m_KeyToLCP[ "video"  ] = m_FullPathToMainFolder + "/OEBPS/Video/";
     m_KeyToLCP[ "misc"   ] = m_FullPathToMainFolder + "/OEBPS/Misc/";
-    m_KeyToLCP[ "other"   ] = m_FullPathToMainFolder + "/";
+    m_KeyToLCP[ "other"  ] = m_FullPathToMainFolder + "/";
+    m_KeyToLCP[ "opf"    ] = m_FullPathToMainFolder + "/OEBPS/";
+    m_KeyToLCP[ "ncx"    ] = m_FullPathToMainFolder + "/OEBPS/";
 }
 
 QString FolderKeeper::GetLongestCommonPathForKey(const QString &key)
