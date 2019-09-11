@@ -184,6 +184,9 @@ public:
     // start_folder is the book path (internal to epub) to the starting folder
     static QString buildBookPath(const QString& dest_relpath, const QString& start_folder);
 
+    // both the "from" and "to" book paths are to FILES
+    static QString buildRelativePath(const QString &from_file_bkpath, const QString &to_file_bkpath);
+
 };
 
 #endif // UTILITY_H

@@ -957,3 +957,17 @@ QString Utility::buildBookPath(const QString& dest_relpath, const QString& start
     bookpath = resolveRelativeSegmentsInFilePath(bookpath, "/");
     return bookpath;
 }
+
+// This is the equivalent of Resource.cpp's GetRelativePathFromResource but using book paths
+QString Utility::buildRelativePath(const QString &from_file_bkpath, const QString & to_file_bkpath)
+{
+    // convert start_file_bkpath to start_dir by stripping off existing filename component
+    QString start_dir(from_file_bkpath);
+    int pos = start_dir.lastIndexOf('/');
+    if (pos > -1) { 
+        start_dir = start_dir.left(pos);
+    } else {
+        start_dir = "";
+    }
+    return relativePath(to_file_bkpath, start_dir);
+}   
