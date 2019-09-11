@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **
@@ -63,6 +64,7 @@ void SelectHyperlink::SetList()
     ui.list->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui.list->setModel(m_SelectHyperlinkModel);
     // Get the complete list of valid targets
+    // Key is the book path of the html file
     m_IDNames = m_Book->GetIdsInHTMLFiles();
     // Display in-file targets first, then in order
     AddEntry(m_CurrentHTMLResource);
@@ -79,8 +81,9 @@ void SelectHyperlink::AddEntry(Resource *resource)
         return;
     }
 
-    QString filename = resource->Filename();
-    QStringList ids = QStringList() << "" << m_IDNames[filename];
+    QString filename = resource->SegmentID();
+    QString bkpath = resource->GetRelativePath();
+    QStringList ids = QStringList() << "" << m_IDNames[bkpath];
     foreach(QString id, ids) {
         // Do not allow linking to index entries because they can be regenerated
         // and because they can take up a lot of room.
@@ -88,25 +91,24 @@ void SelectHyperlink::AddEntry(Resource *resource)
             continue;
         }
 
-        QString target = filename;
+        // filepath is a relative link from m_CurrentHTMLResource to resource
+	// target is a short unique name for this resource for use in table only
+        QString target;
         QString filepath;
-        // Only relative paths if inserting hyperlink not editing TOC
-        if (m_CurrentHTMLResource) {
-            filepath = "../";
-        }
-        filepath += resource->GetRelativePathToOEBPS();
-
+	if (!(m_CurrentHTMLResource == resource)) {
+	   filepath = resource->GetRelativePathFromResource(m_CurrentHTMLResource);
+	   filepath = filepath;
+	   target = filename;
+	}
+	
         if (!id.isEmpty()) {
-            QString fragment = "#" % id;
-            filepath.append(fragment);
+            QString fragment = "#" + id;
+	    target = target + fragment;
+	    filepath = filepath + fragment;
+	}
 
-            // Show the short version if this is the same file
-            if (m_CurrentHTMLResource && filename == m_CurrentHTMLResource->Filename()) {
-                target = fragment;
-            } else {
-                target.append(fragment);
-            }
-        }
+	if (target.isEmpty()) target = filename;
+	if (filepath.isEmpty()) filepath = "./";
 
         QList<QStandardItem *> rowItems;
         QStandardItem *target_item = new QStandardItem();
@@ -146,21 +148,13 @@ void SelectHyperlink::SelectText(QString &text)
         QString target = text;
 
         if (target.startsWith("#") && m_CurrentHTMLResource) {
-            target = m_CurrentHTMLResource->Filename() + text;
-        }
-
-        if (target.contains("/")) {
-            target = target.right(target.length() - target.lastIndexOf("/") - 1);
+            target = m_CurrentHTMLResource->SegmentID() + text;
         }
 
         for (int row = 0; row < root_item->rowCount(); row++) {
             QStandardItem *child = root_item->child(row, 0);
-            // Convert selection text to filename#fragment
+            // Convert selection text to proper href 
             QString selection = child->data().toString();
-
-            if (selection.contains("/")) {
-                selection = selection.right(selection.length() - selection.lastIndexOf("/") - 1);
-            }
 
             if (target == selection) {
                 ui.list->selectionModel()->select(m_SelectHyperlinkModel->index(row, 0, parent_index), QItemSelectionModel::Select | QItemSelectionModel::Rows);
@@ -218,12 +212,7 @@ void SelectHyperlink::DoubleClicked(const QModelIndex &index)
 void SelectHyperlink::Clicked(const QModelIndex &index)
 {
     QStandardItem *item = m_SelectHyperlinkModel->itemFromIndex(index);
-
-    if (item->text().startsWith("#")) {
-        ui.href->setText(item->text());
-    } else {
-        ui.href->setText(item->data().toString());
-    }
+    ui.href->setText(item->data().toString());
 }
 
 void SelectHyperlink::ReadSettings()
