@@ -58,7 +58,7 @@ matrix:
 
 
 only_commits:
-  message: /[build]/
+  message: /\[build\]/
   files:
     - CMakeLists.txt
     - appveyor.yml
