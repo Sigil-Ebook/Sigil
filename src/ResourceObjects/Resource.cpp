@@ -99,14 +99,24 @@ QString Resource::SegmentID() const
     return m_FullFilePath.right(m_FullFilePath.length() - m_LCP.length());
 }
 
-// Use to generate relative path from OPFResource, NCXResource, NavResource, and
-// other resources to this resource
+// Use to generate relative path **from** some **other** start_resource 
+// (OPFResource, NCXResource, NavResource, etc) "to" **this** resource
 QString Resource::GetRelativePathFromResource(const Resource* start_resource) const
 {
-    // should we use book paths here to better encapsulate things?
+    if (GetRelativePath() == start_resource->GetRelativePath()) return "";
     // return Utility::relativePath(GetRelativePath(), start_resource->GetFolder());
-  return Utility::relativePath(m_FullFilePath, start_resource->GetFullFolderPath());
+    return Utility::relativePath(m_FullFilePath, start_resource->GetFullFolderPath());
 } 
+
+// Use to generate relative path from **this** resource to  some **other** dest_resource
+QString Resource::GetRelativePathToResource(const Resource* dest_resource) const
+{
+    if (GetRelativePath() == dest_resource->GetRelativePath()) return "";
+    // return Utility::relativePath(dest_resource->GetRelativePath(), dest_resource->GetFolder());
+    return Utility::relativePath(dest_resource->GetFullPath(), GetFullFolderPath());
+} 
+
+
 
 QString Resource::GetRelativePathToRoot() const
 {
@@ -179,6 +189,11 @@ void Resource::SetLCP(const QString& longest_common_path)
 QString Resource::GetLCP() const
 {
   return m_LCP;
+}
+
+QString Resource::GetFullPathToBookFolder() const
+{
+   return m_MainFolder;
 }
 
 

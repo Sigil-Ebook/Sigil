@@ -113,6 +113,7 @@ public:
     QString SegmentID() const;
 
     QString GetRelativePathFromResource(const Resource* start_resource) const;
+    QString GetRelativePathToResource(const Resource* dest_resource) const;
 
     /**
      * Returns the resource's path relative to the publication's
@@ -177,7 +178,7 @@ public:
 
     QString GetLCP() const;
 
-
+    QString GetFullPathToBookFolder() const;
 
     /**
      * Returns a reference to the resource's ReadWriteLock.

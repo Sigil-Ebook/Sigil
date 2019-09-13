@@ -97,7 +97,7 @@ public:
 
     void AutoFixWellFormedErrors();
 
-    QStringList GetSpineOrderFilenames() const;
+    QStringList GetSpineOrderBookPaths() const;
 
     void SetItemRefLinear(Resource * resource, bool linear);
 
@@ -123,8 +123,6 @@ public:
      * @return A list of values
      */
     QList<QVariant> GetDCMetadataValues(QString text) const;
-
-    QString GetRelativePathToRoot() const;
 
     void SetNavResource(HTMLResource* nav);
     HTMLResource* GetNavResource() const;
@@ -225,8 +223,6 @@ private:
      * @param document The OPF DOM document.
      */
     void WriteIdentifier(const QString &metaname, const QString &metavalue, OPFParser &p);
-
-    QStringList GetRelativePathsToAllFilesInOEPBS() const;
 
     static QString GetOPFDefaultText(const QString &version);
 

@@ -416,12 +416,12 @@ QList<T *> FolderKeeper::ListResourceSort(const QList<T *> &resource_list)  cons
 template<> inline
 QList<HTMLResource *> FolderKeeper::ListResourceSort<HTMLResource>(const QList<HTMLResource *> &resource_list) const
 {
-    QStringList spine_order_filenames = GetOPF()->GetSpineOrderFilenames();
+    QStringList spine_order_filenames = GetOPF()->GetSpineOrderBookPaths();
     QList<HTMLResource *> htmls = resource_list;
     QList<HTMLResource *> sorted_htmls;
     foreach(const QString & spine_filename, spine_order_filenames) {
         for (int i = 0; i < htmls.count(); ++i) {
-            if (spine_filename == htmls[ i ]->Filename()) {
+            if (spine_filename == htmls[ i ]->GetRelativePath()) {
                 sorted_htmls.append(htmls.takeAt(i));
                 break;
             }
