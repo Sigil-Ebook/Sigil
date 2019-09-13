@@ -961,6 +961,9 @@ QString Utility::buildBookPath(const QString& dest_relpath, const QString& start
 // This is the equivalent of Resource.cpp's GetRelativePathFromResource but using book paths
 QString Utility::buildRelativePath(const QString &from_file_bkpath, const QString & to_file_bkpath)
 {
+    // handle special case of "from" and "to" being identical
+    if (from_file_bkpath == to_file_bkpath) return "";
+
     // convert start_file_bkpath to start_dir by stripping off existing filename component
     QString start_dir(from_file_bkpath);
     int pos = start_dir.lastIndexOf('/');

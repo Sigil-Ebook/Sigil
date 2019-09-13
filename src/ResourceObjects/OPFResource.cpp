@@ -799,8 +799,9 @@ QHash <QString, QString>  OPFResource::GetSemanticCodeForPaths()
   foreach(GuideEntry ge, p.m_guide) {
     QString href = ge.m_href;
     QStringList parts = href.split('#', QString::KeepEmptyParts);
+    QString bkpath = Utility::buildBookPath(parts.at(0),GetFolder());
     QString gtype = ge.m_type;
-    semantic_types[parts.at(0)] = gtype;
+    semantic_types[bkpath] = gtype;
   }
   return semantic_types;
 }
@@ -818,7 +819,8 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
         QString href = ge.m_href;
         QStringList parts = href.split('#', QString::KeepEmptyParts);
         QString gtype = ge.m_type;
-        semantic_types[parts.at(0)] = GuideItems::instance()->GetName(gtype);
+	QString bkpath = Utility::buildBookPath(parts.at(0),GetFolder());
+        semantic_types[bkpath] = GuideItems::instance()->GetName(gtype);
     }
 
     // Cover image semantics don't use reference
@@ -828,6 +830,7 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
         QString cover_id = me.m_atts.value(QString("content"),QString(""));
         ManifestEntry man = p.m_manifest.at(p.m_idpos[cover_id]);
         QString href = man.m_href;
+	href = Utility::buildBookPath(href, GetFolder());
         semantic_types[href] = GuideItems::instance()->GetName("cover");
     }
     return semantic_types;
@@ -1369,6 +1372,7 @@ QHash <QString, QString>  OPFResource::GetManifestPropertiesForPaths()
         QString href = me.m_href;
         if (me.m_atts.contains("properties")){
             QString properties = me.m_atts["properties"];
+	    href = Utility::buildBookPath(href,GetFolder());
             manifest_properties_all[href] = properties;
         }
     }

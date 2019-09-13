@@ -96,8 +96,8 @@ private:
     
     QList<NavTOCEntry> AddEditTOCEntry(TOCModel::TOCEntry & rentry, int lvl);
 
-    QString ConvertHREFToOEBPSRelative(const QString & href);
-    QString ConvertOEBPSToNavRelative(const QString & href);
+    QString ConvertHREFToBookPath(const QString & href);
+    QString ConvertBookPathToNavRelative(const QString & href);
     
     HTMLResource * m_NavResource;
 };

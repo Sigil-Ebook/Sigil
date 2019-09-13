@@ -1494,7 +1494,7 @@ void MainWindow::GenerateNCXGuideFromNav()
     foreach(Resource * resource, html_resources) {
 	HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
         if (html_resource) {
-	    QString respath = resource->GetRelativePathToOEBPS();
+	    QString respath = resource->GetRelativePath();
 	    if (nav_landmark_codes.contains(respath)) {
 	        QString landmark_code = nav_landmark_codes[respath];
                 QString guide_code =  Landmarks::instance()->GuideLandMapping(landmark_code);
@@ -1566,7 +1566,7 @@ void MainWindow::CreateIndex()
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
 
         if (html_resource) {
-            QString resource_path = html_resource->GetRelativePathToOEBPS();
+            QString resource_path = html_resource->GetRelativePath();
             QString semantic_code;
             if (semantic_types.contains(resource_path)) {
                 semantic_code = semantic_types[resource_path];
