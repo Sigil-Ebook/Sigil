@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -161,19 +161,4 @@ void NCXResource::FillWithDefaultText()
         SetText(TEMPLATE3_TEXT.arg(tr("Start")).arg(FIRST_SECTION_NAME));
       }
 }
-
-
-QString NCXResource::GetRelativePathToRoot() const
-{
-    QFileInfo info(GetFullPath());
-    QDir parent_dir = info.dir();
-    QString parent_name = parent_dir.dirName();
-    return parent_name + "/" + Filename();
-}
-
-QString NCXResource::GetRelativePathToOEBPS() const
-{
-    return Filename();
-}
-
 
