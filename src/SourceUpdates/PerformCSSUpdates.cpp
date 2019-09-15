@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2019      Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -45,6 +45,7 @@ QString PerformCSSUpdates::operator()()
 {
     QString result(m_Source);
     QString origDir = QFileInfo(m_CurrentPath).dir().path();
+    QString newbkpath = m_CSSUpdates.value(m_CurrentPath, "");
     const QList<QString> &keys = m_CSSUpdates.keys();
     int num_keys = keys.count();
     if (num_keys == 0) return result;
@@ -86,18 +87,15 @@ QString PerformCSSUpdates::operator()()
                             continue;
                         }
                         QString apath = Utility::URLDecodePath(frag_mo.captured(j));
-                        QString search_key = QDir::cleanPath(origDir + FORWARD_SLASH + apath);
-                        QString new_href;
-                        if (m_CSSUpdates.contains(search_key)) {
-                            new_href = m_CSSUpdates.value(search_key);
-                        }
-                        if (!new_href.isEmpty()) {
-                            new_href = Utility::URLEncodePath(new_href);
+                        QString dest_oldbkpath = Utility::buildBookPath(apath, origDir);
+                        QString dest_newbkpath = m_CSSUpdates.value(dest_oldbkpath,"");
+			if (!dest_newbkpath.isEmpty() && !newbkpath.isEmpty()) {
+			    QString new_href = Utility::buildRelativePath(newbkpath, dest_newbkpath);
+			    new_href = Utility::URLEncodePath(new_href);
                             // Replace the old url with the new one
                             fragment.replace(frag_mo.capturedStart(j), frag_mo.capturedLength(j), new_href);
                             changes_made = true;
                         }
-    
                     }
                     frag_start_index += frag_mo.capturedLength();
                     frag_mo = urls.match(fragment, frag_start_index);
