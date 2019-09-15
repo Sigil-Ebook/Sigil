@@ -334,7 +334,7 @@ bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> n
     QStringList not_renamed;
     QHash<QString, QString> update;
     foreach(Resource * resource, resources) {
-        const QString &old_bookrelpath = resource->GetRelativePathToRoot();
+        const QString &old_bookrelpath = resource->GetRelativePath();
         QString old_filename = resource->Filename();
         QString extension = old_filename.right(old_filename.length() - old_filename.lastIndexOf('.'));
 
@@ -362,7 +362,7 @@ bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> n
             continue;
         }
 
-        update[ old_bookrelpath ] = "../" + resource->GetRelativePathToOEBPS();
+        update[ old_bookrelpath ] = resource->GetRelativePath();
     }
 
     if (update.count() > 0) {

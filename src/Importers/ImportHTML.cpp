@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2019      Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -220,10 +220,10 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
             QString newpath;
 
             if (m_IgnoreDuplicates && current_filenames.contains(filename)) {
-                newpath = "../" + m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePathToOEBPS();
+                newpath = "../" + m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePath();
             } else {
                 Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath);
-                newpath = "../" + resource->GetRelativePathToOEBPS();
+                newpath = resource->GetRelativePath();
             }
 
             updates[ fullfilepath ] = newpath;
@@ -249,10 +249,10 @@ QHash<QString, QString> ImportHTML::LoadStyleFiles(const QStringList & file_path
             QString newpath;
 
             if (m_IgnoreDuplicates && current_filenames.contains(filename)) {
-                newpath = "../" + m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePathToOEBPS();
+                newpath = "../" + m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePath();
             } else {
                 Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath);
-                newpath = "../" + resource->GetRelativePathToOEBPS();
+                newpath = resource->GetRelativePath();
             }
 
             updates[ fullfilepath ] = newpath;

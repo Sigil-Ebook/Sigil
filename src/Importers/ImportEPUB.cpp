@@ -384,7 +384,7 @@ void ImportEPUB::ProcessFontFiles(const QList<Resource *> &resources,
         }
     }
     foreach(FontResource * font_resource, font_resources) {
-        QString match_path = "../" + font_resource->GetRelativePathToOEBPS();
+        QString match_path = font_resource->GetRelativePath();
         QString algorithm  = new_font_paths_to_algorithms.value(match_path);
 
         if (algorithm.isEmpty()) {
@@ -925,6 +925,7 @@ QHash<QString, QString> ImportEPUB::LoadFolderStructure()
 
 std::tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const QString &mimetype)
 {
+    // Use opf relative href to creae the book path (currentpath) for this file
     QString fullfilepath = QDir::cleanPath(QFileInfo(m_OPFFilePath).absolutePath() + "/" + path);
     QString currentpath = fullfilepath;
     currentpath = currentpath.remove(0,m_ExtractedFolderPath.length()+1);
@@ -934,7 +935,7 @@ std::tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const 
             m_NavResource = resource;
         }
         resource->SetCurrentBookRelPath(currentpath);
-        QString newpath = "../" + resource->GetRelativePathToOEBPS();
+        QString newpath = resource->GetRelativePath();
         return std::make_tuple(currentpath, newpath);
     } catch (FileDoesNotExist) {
         return std::make_tuple(UPDATE_ERROR_STRING, UPDATE_ERROR_STRING);

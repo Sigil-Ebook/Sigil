@@ -157,6 +157,7 @@ private:
     std::string                     m_utf8src;
     const QHash<QString, QString> & m_sourceupdates;
     std::string                     m_newcsslinks;
+    QString                         m_currentbkpath;
     QString                         m_currentdir;
     std::string                     m_newbody;
     QString                         m_version;
