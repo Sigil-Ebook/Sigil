@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -48,7 +48,6 @@ PerformXMLUpdates::PerformXMLUpdates(const QString &source,
 QString PerformXMLUpdates::operator()()
 {
     QString newsource = m_Source;
-    QString currentdir = QFileInfo(m_CurrentPath).dir().path();
 
     // serialize the hash for passing to python
     QStringList dictkeys = m_XMLUpdates.keys();
@@ -62,7 +61,7 @@ QString PerformXMLUpdates::operator()()
 
     QList<QVariant> args;
     args.append(QVariant(newsource));
-    args.append(QVariant(currentdir));
+    args.append(QVariant(m_CurrentPath));
     args.append(QVariant(dictkeys));
     args.append(QVariant(dictvals));
 

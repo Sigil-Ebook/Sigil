@@ -10,6 +10,7 @@ from urllib.parse import urlsplit
 from lxml import etree
 from io import BytesIO
 from opf_newparser import Opf_Parser
+from hrefutils import startingDir, buildBookPath, buildRelativePath
 
 
 ASCII_CHARS   = set(chr(x) for x in range(128))
@@ -252,8 +253,10 @@ def anchorNCXUpdatesAfterMerge(data, sink_filename, merged_names):
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
     return newdata
 
+def buildRelativePath(from_bkpath, to_bkpath):
+    
 
-def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
+def performNCXSourceUpdates(data, oldbkpath, keylist, valuelist):
     data = _remove_xml_header(data)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
@@ -268,15 +271,15 @@ def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
             src = tag["src"]
             if src.find(":") == -1:
                 parts = src.split('#')
-                url = parts[0]
+                ahref = unquoteurl(parts[0])
                 fragment = ""
                 if len(parts) > 1:
                     fragment = parts[1]
-                bookrelpath = os.path.join(currentdir, unquoteurl(url))
-                bookrelpath = os.path.normpath(bookrelpath)
-                bookrelpath = bookrelpath.replace(os.sep, "/")
-                if bookrelpath in updates:
-                    attribute_value = updates[bookrelpath]
+                oldtarget = buildBookPath(ahref, startingDir(oldbkpath))
+                if oldtarget in updates:
+                    newtarget = updates[oldtarget]
+                    newbkpath = updates[oldbkpath]
+                    attribute_value = buildRelativePath(newbkpath, newtarget)
                     if fragment != "":
                         attribute_value = attribute_value + "#" + fragment
                     attribute_value = quoteurl(attribute_value)
@@ -285,7 +288,7 @@ def performNCXSourceUpdates(data, currentdir, keylist, valuelist):
     return newdata
 
 
-def performOPFSourceUpdates(data, currentdir, keylist, valuelist):
+def performOPFSourceUpdates(data, oldbkpath, keylist, valuelist):
     data = _remove_xml_header(data)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
@@ -300,15 +303,15 @@ def performOPFSourceUpdates(data, currentdir, keylist, valuelist):
             href = tag["href"]
             if href.find(":") == -1 :
                 parts = href.split('#')
-                url = parts[0]
+                ahref = unquoteurl(parts[0])
                 fragment = ""
                 if len(parts) > 1:
                     fragment = parts[1]
-                bookrelpath = os.path.join(currentdir, unquoteurl(url))
-                bookrelpath = os.path.normpath(bookrelpath)
-                bookrelpath = bookrelpath.replace(os.sep, "/")
-                if bookrelpath in updates:
-                    attribute_value = updates[bookrelpath]
+                oldtarget = buildBookPath(ahref, startingDir(oldbkpath))
+                if oldtarget in updates:
+                    newtarget = updates[oldtarget]
+                    newbkpath = updates[oldbkpath]
+                    attribute_value = buildRelativePath(newbkpath, newtarget)
                     if fragment != "":
                         attribute_value = attribute_value + "#" + fragment
                     attribute_value = quoteurl(attribute_value)
@@ -320,7 +323,7 @@ def performOPFSourceUpdates(data, currentdir, keylist, valuelist):
 # Note xml_updates has paths relative to the OEBPS folder as base
 # As if they were meant only for OEBPS/content.opf and OEBPS/toc.ncx
 # So adjust them to be relative to the Misc directory where .smil files live in Sigil
-def performSMILUpdates(data, currentdir, keylist, valuelist):
+def performSMILUpdates(data, oldbkpath, keylist, valuelist):
     data = _remove_xml_header(data)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
@@ -337,15 +340,15 @@ def performSMILUpdates(data, currentdir, keylist, valuelist):
                 ref = tag[att]
                 if ref.find(":") == -1 :
                     parts = ref.split('#')
-                    url = parts[0]
+                    ahref = unquoteurl(parts[0])
                     fragment = ""
                     if len(parts) > 1:
                         fragment = parts[1]
-                    bookrelpath = os.path.join(currentdir, unquoteurl(url))
-                    bookrelpath = os.path.normpath(bookrelpath)
-                    bookrelpath = bookrelpath.replace(os.sep, "/")
-                    if bookrelpath in updates:
-                        attribute_value = updates[bookrelpath]
+                    oldtarget = buildBookPath(ahref, startingDir(oldbkpath))
+                    if oldtarget in updates:
+                        newtarget = updates[oldtarget]
+                        newbkpath = updates[oldbkpath]
+                        attribute_value = buildRelativePath(newbkpath, newtarget)
                         if fragment != "":
                             attribute_value = attribute_value + "#" + fragment
                         attribute_value = quoteurl(attribute_value)
@@ -356,7 +359,7 @@ def performSMILUpdates(data, currentdir, keylist, valuelist):
 # Note xml_updates has urls/iris relative to the OEBPS folder as base
 # As if they were meant only for OEBPS/content.opf and OEBPS/toc.ncx
 # So adjust them to be relative to the Misc directory where page-map.xml lives
-def performPageMapUpdates(data, currentdir, keylist, valuelist):
+def performPageMapUpdates(data, oldbkpath, keylist, valuelist):
     data = _remove_xml_header(data)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
@@ -373,15 +376,15 @@ def performPageMapUpdates(data, currentdir, keylist, valuelist):
                 ref = tag[att]
                 if ref.find(":") == -1 :
                     parts = ref.split('#')
-                    url = parts[0]
+                    ahref = unquoteurl(parts[0])
                     fragment = ""
                     if len(parts) > 1:
                         fragment = parts[1]
-                    bookrelpath = os.path.join(currentdir, unquoteurl(url))
-                    bookrelpath = os.path.normpath(bookrelpath)
-                    bookrelpath = bookrelpath.replace(os.sep, "/")
-                    if bookrelpath in updates:
-                        attribute_value = updates[bookrelpath]
+                    oldtarget = buildBookPath(ahref, startingDir(oldbkpath))
+                    if oldtarget in updates:
+                        newtarget = updates[oldtarget]
+                        newbkpath = updates[oldbkpath]
+                        attribute_value = buildRelativePath(newbkpath, newtarget)
                         if fragment != "":
                             attribute_value = attribute_value + "#" + fragment
                         attribute_value = quoteurl(attribute_value)

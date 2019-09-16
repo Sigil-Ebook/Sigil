@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -39,13 +40,12 @@ PerformNCXUpdates::PerformNCXUpdates(const QString &source,
 QString PerformNCXUpdates::operator()()
 {
   QString newsource = m_source;
-  QString currentdir = QFileInfo(m_CurrentPath).dir().path();
 
   // serialize the hash for passing to python
   QStringList dictkeys = m_XMLUpdates.keys();
   QStringList dictvals;
   foreach(QString key, dictkeys) {
-    dictvals.append(m_XMLUpdates.value(key));
+      dictvals.append(m_XMLUpdates.value(key));
   }
 
   int rv = 0;
@@ -53,7 +53,7 @@ QString PerformNCXUpdates::operator()()
 
   QList<QVariant> args;
   args.append(QVariant(m_source));
-  args.append(QVariant(currentdir));
+  args.append(QVariant(m_CurrentPath));
   args.append(QVariant(dictkeys));
   args.append(QVariant(dictvals));
 
@@ -65,10 +65,10 @@ QString PerformNCXUpdates::operator()()
                                        &rv,
                                        error_traceback);    
   if (rv != 0) {
-    Utility::DisplayStdWarningDialog(QString("error in xmlprocessor performNCXSourceUpdates: ") + QString::number(rv), 
+      Utility::DisplayStdWarningDialog(QString("error in xmlprocessor performNCXSourceUpdates: ") + QString::number(rv), 
                                      error_traceback);
-    // an error happened - make no changes
-    return newsource;
+      // an error happened - make no changes
+      return newsource;
   }
   return res.toString();
 }
