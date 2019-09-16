@@ -201,7 +201,8 @@ def repairXML(data, mtype="", indent_chars="  "):
     return newdata
 
 
-def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
+# this is used after a xhtml file split to update hrefs in the ncx
+def anchorNCXUpdates(data, ncx_bookpath, originating_bookpath, keylist, valuelist):
     data = _remove_xml_header(data)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
@@ -209,35 +210,32 @@ def anchorNCXUpdates(data, originating_filename, keylist, valuelist):
     id_dict = {}
     for i in range(0, len(keylist)):
         id_dict[ keylist[i] ] = valuelist[i]
+    startdir = startingDir(ncx_bookpath)
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=ebook_xml_empty_tags)
     soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
-    original_filename_with_relative_path = TEXT_FOLDER_NAME  + "/" + originating_filename
     for tag in soup.find_all("content"):
         if "src" in tag.attrs:
             src = tag["src"]
             if src.find(":") == -1:
                 parts = src.split('#')
-                if (parts is not None) and (len(parts) > 1) and (parts[0] == original_filename_with_relative_path) and (parts[1] != ""):
+                ahref = unquoteurl(parts[0])
+                # convert this href to its target bookpath
+                target_bookpath = buildBookPath(ahref,startdir)
+                if (parts is not None) and (len(parts) > 1) and (target_bookpath == originating_bookpath) and (parts[1] != ""):
                     fragment_id = parts[1]
                     if fragment_id in id_dict:
-                        attribute_value = TEXT_FOLDER_NAME + "/" + quoteurl(id_dict[fragment_id]) + "#" + fragment_id
-                        tag["src"] = attribute_value
+                        target_bookpath = id_dict[fragment_id]
+                        attribute_value = buildRelativePath(ncx_bookpath, target_bookpath) + "#" + fragment_id
+                        tag["src"] = quoteurl(attribute_value)
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
     return newdata
 
 
-def anchorNCXUpdatesAfterMerge(data, sink_filename, merged_names):
+def anchorNCXUpdatesAfterMerge(data, ncx_bookpath, sink_bookpath, merged_bookpaths):
     data = _remove_xml_header(data)
-    # build list of urls to rreplace
-    namelist = []
-    for fn in merged_names:
-        namelist.append(TEXT_FOLDER_NAME + "/" + fn)
-    # and build url of file to replace them with
-    sink_filename_with_relative_path = TEXT_FOLDER_NAME  + "/" + sink_filename
-
+    startdir = startingDir(ncx_bookpath)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
-    # rebuild serialized lookup dictionary
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=ebook_xml_empty_tags)
     soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
     for tag in soup.find_all("content"):
@@ -245,11 +243,14 @@ def anchorNCXUpdatesAfterMerge(data, sink_filename, merged_names):
             src = tag["src"]
             if src.find(":") == -1:
                 parts = src.split('#')
-                if (parts is not None) and (parts[0] in namelist):
-                    attribute_value = sink_filename_with_relative_path
-                    if len(parts) > 1 and parts[1] != "":
-                        attribute_value += "#" + parts[1]
-                    tag["src"] = attribute_value
+                if parts is not None:
+                    ahref = unquoteurl(parts[0])
+                    target_bookpath = buildBookPath(ahref, startdir)
+                    if target_bookpath in merged_bookpaths:
+                        attribute_value = buildRelativePath(ncx_bookpath, sink_bookpath)
+                        if len(parts) > 1 and parts[1] != "":
+                            attribute_value += "#" + parts[1]
+                        tag["src"] = quoteurl(attribute_value)
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
     return newdata
 

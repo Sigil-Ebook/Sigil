@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 - 2019  Kevin B. Hendricks Stratford, ON, Canada 
-**  Copyright (C) 2009 - 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019  Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -519,6 +519,8 @@ HTMLResource *Book::CreateSectionBreakOriginalResource(const QString &content, H
         return NULL;
 
     const QString originating_filename = originating_resource->Filename();
+    const QString originating_bookpath = originating_resource->GetRelativePath();
+
     int reading_order = GetOPF()->GetReadingOrder(originating_resource);
     Q_ASSERT(reading_order >= 0);
     QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
@@ -545,11 +547,11 @@ HTMLResource *Book::CreateSectionBreakOriginalResource(const QString &content, H
     html_resources.removeOne(new_resource);
     // Now, update references to the original file that are made in other files.
     // We can't assume that ids are unique in this case, and so need to use a different mechanism.
-    AnchorUpdates::UpdateExternalAnchors(html_resources, Utility::URLEncodePath(originating_filename), new_files);
+    AnchorUpdates::UpdateExternalAnchors(html_resources, originating_bookpath, new_files);
     // Update TOC entries as well if an NCX exists:
     NCXResource * ncx_resource = GetNCX();
     if (ncx_resource) {
-        AnchorUpdates::UpdateTOCEntries(ncx_resource, Utility::URLEncodePath(originating_filename), new_files);
+        AnchorUpdates::UpdateTOCEntries(ncx_resource, originating_bookpath, new_files);
     }
     SetModified(true);
     return new_resource;
@@ -558,6 +560,7 @@ HTMLResource *Book::CreateSectionBreakOriginalResource(const QString &content, H
 
 void Book::CreateNewSections(const QStringList &new_sections, HTMLResource *original_resource)
 {
+    const QString originating_bookpath = original_resource->GetRelativePath();
     int original_position = GetOPF()->GetReadingOrder(original_resource);
     Q_ASSERT(original_position >= 0);
     QString new_file_prefix = QFileInfo(original_resource->Filename()).baseName();
@@ -636,11 +639,11 @@ void Book::CreateNewSections(const QStringList &new_sections, HTMLResource *orig
     AnchorUpdates::UpdateAllAnchorsWithIDs(new_files);
     // Now, update references to the original file that are made in other files.
     // We can't assume that ids are unique in this case, and so need to use a different mechanism.
-    AnchorUpdates::UpdateExternalAnchors(other_files, Utility::URLEncodePath(original_resource->Filename()), new_files);
+    AnchorUpdates::UpdateExternalAnchors(other_files, original_resource->GetRelativePath(), new_files);
     // Update TOC entries as well if an NCX exists, they are optional on epub3
     NCXResource * ncx_resource = GetNCX();
     if (ncx_resource) {
-        AnchorUpdates::UpdateTOCEntries(ncx_resource, Utility::URLEncodePath(original_resource->Filename()), new_files);
+        AnchorUpdates::UpdateTOCEntries(ncx_resource, originating_bookpath, new_files);
     }
     GetOPF()->UpdateSpineOrder(html_resources);
     SetModified(true);
@@ -1065,7 +1068,7 @@ Resource *Book::MergeResources(QList<Resource *> resources)
     }
 
     QStringList new_bodies;
-    QList<QString> merged_filenames;
+    QList<QString> merged_bookpaths;
     QString version = sink_html_resource->GetEpubVersion();
     {
         GumboInterface gi = GumboInterface(sink_html_resource->GetText(), version);
@@ -1088,7 +1091,7 @@ Resource *Book::MergeResources(QList<Resource *> resources)
             // Get the html document for this source resource.
             GumboInterface ngi = GumboInterface(source_html_resource->GetText(), version);
             new_bodies << ngi.get_body_contents();
-            merged_filenames.append(Utility::URLEncodePath(source_resource->Filename()));
+            merged_bookpaths.append(source_resource->GetRelativePath());
         }
 
         if (failed_resource != NULL) {
@@ -1112,12 +1115,12 @@ Resource *Book::MergeResources(QList<Resource *> resources)
     // It is the user's responsibility to ensure that all ids used across the two merged files are unique.
     // Reconcile all references to the files that were merged.
     QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
-    AnchorUpdates::UpdateAllAnchors(html_resources, merged_filenames, sink_html_resource);
+    AnchorUpdates::UpdateAllAnchors(html_resources, merged_bookpaths, sink_html_resource);
     NCXResource * ncx_resource = GetNCX();
     if (ncx_resource) {
         AnchorUpdates::UpdateTOCEntriesAfterMerge(ncx_resource, 
-						  Utility::URLEncodePath(sink_html_resource->Filename()),
-						  merged_filenames);
+						  sink_html_resource->GetRelativePath(),
+						  merged_bookpaths);
     }
     SetModified(true);
     return NULL;
