@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019   Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -45,25 +45,21 @@ void AnchorUpdates::UpdateAllAnchorsWithIDs(const QList<HTMLResource *> &html_re
 }
 
 
-void AnchorUpdates::UpdateExternalAnchors(const QList<HTMLResource *> &html_resources, const QString &originating_filename, const QList<HTMLResource *> new_files)
+void AnchorUpdates::UpdateExternalAnchors(const QList<HTMLResource *> &html_resources, const QString &originating_bookpath, const QList<HTMLResource *> new_files)
 {
     const QHash<QString, QString> &ID_locations = GetIDLocations(new_files);
-    QtConcurrent::blockingMap(html_resources, std::bind(UpdateExternalAnchorsInOneFile, std::placeholders::_1, originating_filename, ID_locations));
+    QtConcurrent::blockingMap(html_resources, std::bind(UpdateExternalAnchorsInOneFile, std::placeholders::_1, originating_bookpath, ID_locations));
 }
 
 
-void AnchorUpdates::UpdateAllAnchors(const QList<HTMLResource *> &html_resources, const QStringList &originating_filenames, HTMLResource *new_file)
+// used to update after merge of html_resources into new_file
+void AnchorUpdates::UpdateAllAnchors(const QList<HTMLResource *> &html_resources, const QStringList &originating_bookpaths, HTMLResource *sink_res)
 {
     QList<HTMLResource *> new_files;
-    new_files.append(new_file);
+    new_files.append(sink_res);
     const QHash<QString, QString> &ID_locations = GetIDLocations(new_files);
-
-    QList<QString> originating_filename_links;
-    foreach(QString originating_filename, originating_filenames) {
-        originating_filename_links.append("../" % TEXT_FOLDER_NAME % "/" % originating_filename);
-    }
-    const QString &new_filename_with_relative_path = "../" % TEXT_FOLDER_NAME % "/" % Utility::URLEncodePath(new_file->Filename());
-    QtConcurrent::blockingMap(html_resources, std::bind(UpdateAllAnchorsInOneFile, std::placeholders::_1, originating_filename_links, ID_locations, new_filename_with_relative_path));
+    QString sink_bookpath = sink_res->GetRelativePath();
+    QtConcurrent::blockingMap(html_resources, std::bind(UpdateAllAnchorsInOneFile, std::placeholders::_1, originating_bookpaths, ID_locations, sink_bookpath));
 }
 
 
@@ -74,11 +70,11 @@ QHash<QString, QString> AnchorUpdates::GetIDLocations(const QList<HTMLResource *
 
     for (int i = 0; i < IDs_in_files.count(); ++i) {
         QList<QString> file_element_IDs;
-        QString resource_filename;
-        std::tie(resource_filename, file_element_IDs) = IDs_in_files.at(i);
+        QString resource_bookpath;
+        std::tie(resource_bookpath, file_element_IDs) = IDs_in_files.at(i);
 
         for (int j = 0; j < file_element_IDs.count(); ++j) {
-            ID_locations[ file_element_IDs.at(j) ] = resource_filename;
+            ID_locations[ file_element_IDs.at(j) ] = resource_bookpath;
         }
     }
 
@@ -95,22 +91,22 @@ std::tuple<QString, QList<QString>> AnchorUpdates::GetOneFileIDs(HTMLResource *h
     GumboInterface gi = GumboInterface(newsource, version);
     gi.parse();
     QList<QString> ids = gi.get_all_values_for_attribute(QString("id"));
-    return std::make_tuple(html_resource->Filename(), ids);
+    return std::make_tuple(html_resource->GetRelativePath(), ids);
 }
 
 
 void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
         const QHash<QString, QString> ID_locations)
 {
-    qDebug() << "in UpdateAnchorsInOneFile";
-    qDebug() << "ID_locations" << ID_locations;
+    // qDebug() << "in UpdateAnchorsInOneFile";
+    // qDebug() << "ID_locations" << ID_locations;
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
     QString version = html_resource->GetEpubVersion();
     GumboInterface gi = GumboInterface(html_resource->GetText(), version);
     gi.parse();
     const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);
-    const QString &resource_filename = html_resource->Filename();
+    const QString &resource_bookpath = html_resource->GetRelativePath();
     bool is_changed = false;
 
     for (int i = 0; i < anchor_nodes.length(); ++i) {
@@ -118,30 +114,26 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
         if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
             QString href = QString::fromUtf8(attr->value);
+	    href = Utility::URLDecodePath(href);
             QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
 
             if (parts.length() > 1) {
                 QString fragment_id = href.right(href.size() - (parts.at(0).length() + 1));
 		QString base_href = parts.at(0);
                 QString file_id = ID_locations.value(fragment_id);
-		qDebug() << "fragment_id" << fragment_id;
-		qDebug() << "file_id" << file_id;
-		qDebug() << "resource_filename" << resource_filename;
-		qDebug() << "base_href" << base_href;
+		// qDebug() << "fragment_id" << fragment_id;
+		// qDebug() << "file_id" << file_id;
+		// qDebug() << "resource_bookpath" << resource_bookpath;
+		// qDebug() << "base_href" << base_href;
 
                 // If the ID is in a different file, update the link
-                if (file_id != resource_filename && !file_id.isEmpty()) {
-                    QString attribute_value = QString("../")
-                                              .append(TEXT_FOLDER_NAME)
-                                              .append("/")
-                                              .append(Utility::URLEncodePath(file_id))
-                                              .append("#")
-                                              .append(fragment_id);
+                if (file_id != resource_bookpath && !file_id.isEmpty()) {
+		    QString attribute_value = Utility::buildRelativePath(resource_bookpath, file_id) + "#" + fragment_id;
+		    attribute_value = Utility::URLEncodePath(attribute_value);
                     gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
                     is_changed = true;
-                } else if (file_id == resource_filename && !base_href.contains(file_id)) {
-		    // this is a local internal link that that has the wrong base_href
-		    // fix it
+                } else if ((file_id == resource_bookpath) && !base_href.isEmpty()) {
+		    // this is a local internal link that needs to be fixed
                     QString attribute_value = QString("#").append(fragment_id);
                     gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
                     is_changed = true;
@@ -156,15 +148,16 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
 }
 
 
-void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, const QString &originating_filename, const QHash<QString, QString> ID_locations)
+void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, const QString &originating_bookpath, const QHash<QString, QString> ID_locations)
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
     QString version = html_resource->GetEpubVersion();
+    QString startdir = html_resource->GetFolder();
     GumboInterface gi = GumboInterface(html_resource->GetText(), version);
     gi.parse();
     const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);
-    QString original_filename_with_relative_path = "../" % TEXT_FOLDER_NAME % "/" % originating_filename;
+
     bool is_changed = false;
 
     for (int i = 0; i < anchor_nodes.length(); ++i) {
@@ -176,17 +169,17 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
         // First, we find the hrefs that are relative and contain a fragment id.
         if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
             QString href = QString::fromUtf8(attr->value);
+	    href = Utility::URLDecodePath(href);
             QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
+	    QString target_bookpath = Utility::buildBookPath(parts.at(0),startdir);
 
             // If the href pointed to the original file then update the file_id.
-            if (parts.length() > 1 && parts.at(0) == original_filename_with_relative_path && !parts.at(1).isEmpty()) {
+            if (parts.length() > 1 && target_bookpath == originating_bookpath && !parts.at(1).isEmpty()) {
                 QString fragment_id = href.right(href.size() - (parts.at(0).length() + 1));
-                QString attribute_value = QString("../")
-                                          .append(TEXT_FOLDER_NAME)
-                                          .append("/")
-                                          .append(Utility::URLEncodePath(ID_locations.value(fragment_id)))
-                                          .append("#")
-                                          .append(fragment_id);
+		target_bookpath = ID_locations.value(fragment_id);
+                QString attribute_value = Utility::buildRelativePath(html_resource->GetRelativePath(), target_bookpath);
+                attribute_value = attribute_value + "#" + fragment_id;
+		attribute_value = Utility::URLEncodePath(attribute_value);
                 gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
                 is_changed = true;
             }
@@ -199,13 +192,17 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
 }
 
 
+// walk all links in html_resource and look for any that end with a bookpath in
+// originating_bookpaths and change it to be in the sink resource which is a 
+// product of the merge
 void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
-        const QList<QString> &originating_filename_links,
+        const QList<QString> &originating_bookpaths,
         const QHash<QString, QString> ID_locations,
-        const QString &new_filename)
+	const QString & sink_bookpath)
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
+    QString startdir = html_resource->GetFolder();
     QString version = html_resource->GetEpubVersion();
     GumboInterface gi = GumboInterface(html_resource->GetText(), version);
     gi.parse();
@@ -219,26 +216,20 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
         // We find the hrefs that are relative and contain an href.
         if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
             QString href = QString::fromUtf8(attr->value);
+	    href = Utility::URLDecodePath(href);
 
-            // Is this href in the form "originating_filename#fragment_id" or "originating_filename" or "#fragment_id"?
+            // Does this href point to a bookpath in the originating_bookpaths
             QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
-
-            // If the href pointed to the original file then update the file_id.
-            if (originating_filename_links.contains(parts.at(0))) {
-                if (parts.count() == 1 || parts.at(1).isEmpty()) {
-                    // This is a straight href with no anchor fragment
-                  gumbo_attribute_set_value(attr, new_filename.toUtf8().constData());
-                } else {
-                    // Rather than using parts.at(1) we will allow a # being part of the anchor
-                    QString fragment_id = href.right(href.size() - (parts.at(0).length() + 1));
-                    QString attribute_value = QString("../")
-                                              .append(TEXT_FOLDER_NAME)
-                                              .append("/")
-                                              .append(Utility::URLEncodePath(ID_locations.value(fragment_id)))
-                                              .append("#")
-                                              .append(fragment_id);
-                    gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
-                }
+	    QString target_bookpath = Utility::buildBookPath(parts.at(0), startdir);
+	    if (originating_bookpaths.contains(target_bookpath)) {
+		QString attribute_value = Utility::buildRelativePath(html_resource->GetRelativePath(), sink_bookpath);
+		QString fragment_id;
+		if (parts.count() > 1) fragment_id = parts.at(1);
+                if (!fragment_id.isEmpty()) {
+		    attribute_value = attribute_value + "#" + fragment_id;
+		}
+		attribute_value = Utility::URLEncodePath(attribute_value);
+                gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
                 is_changed = true;
             }
         }
@@ -250,8 +241,8 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
 }
 
 
-// use this after a split
-void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &originating_filename, const QList<HTMLResource *> new_files)
+// use this after a split to update changed links in the NCX
+void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &originating_bookpath, const QList<HTMLResource *> new_files)
 {
     
     // this routine should only be run on epub2
@@ -265,13 +256,15 @@ void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &o
     }
     QWriteLocker locker(&ncx_resource->GetLock());
     QString source = ncx_resource->GetText();
+    QString ncx_bookpath = ncx_resource->GetRelativePath();
 
     int rv = 0;
     QString error_traceback;
 
     QList<QVariant> args;
     args.append(QVariant(source));
-    args.append(QVariant(originating_filename));
+    args.append(QVariant(ncx_bookpath));
+    args.append(QVariant(originating_bookpath));
     args.append(QVariant(dictkeys));
     args.append(QVariant(dictvals));
 
@@ -293,21 +286,23 @@ void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &o
 
 
 // use this after a merge
-void AnchorUpdates::UpdateTOCEntriesAfterMerge(NCXResource *ncx_resource, const QString &sink_filename, const QStringList & merged_filenames)
+void AnchorUpdates::UpdateTOCEntriesAfterMerge(NCXResource *ncx_resource, const QString &sink_bookpath, const QStringList & merged_bookpaths)
 {
     
     // this routine should only be run on epub2
     Q_ASSERT(ncx_resource);
     QWriteLocker locker(&ncx_resource->GetLock());
     QString source = ncx_resource->GetText();
+    QString ncx_bookpath = ncx_resource->GetRelativePath();
 
     int rv = 0;
     QString error_traceback;
 
     QList<QVariant> args;
     args.append(QVariant(source));
-    args.append(QVariant(sink_filename));
-    args.append(QVariant(merged_filenames));
+    args.append(QVariant(ncx_bookpath));
+    args.append(QVariant(sink_bookpath));
+    args.append(QVariant(merged_bookpaths));
 
     EmbeddedPython * epython  = EmbeddedPython::instance();
 

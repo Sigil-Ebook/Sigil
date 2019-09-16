@@ -254,8 +254,6 @@ def anchorNCXUpdatesAfterMerge(data, ncx_bookpath, sink_bookpath, merged_bookpat
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
     return newdata
 
-def buildRelativePath(from_bkpath, to_bkpath):
-    
 
 def performNCXSourceUpdates(data, oldbkpath, keylist, valuelist):
     data = _remove_xml_header(data)
