@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2019  Kevin B. Hendricks  Stratford, Ontario Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -159,10 +159,9 @@ std::tuple <QHash<QString, QString>,
     for (int i = 0; i < num_keys; ++i) {
         QString key_path = keys.at(i);
         QString extension = QFileInfo(key_path).suffix().toLower();
-        // The OPF and NCX files are in the OEBPS folder along with the content folders.
-        // This means that the "../" prefix is unnecessary and wrong.
-
-        xml_updates[ key_path ] = QString(html_updates.value(key_path)).remove(QRegularExpression("^../"));
+        // The OPF and NCX files can be in any location, this needs
+        // to be properly handled
+        xml_updates[ key_path ] = QString(html_updates.value(key_path));
 
         // Font file updates are CSS updates, not HTML updates
         // Actually with SVG font-face-uri tag and epub3 this is no longer true
@@ -244,7 +243,7 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
     // non_well_formed will only be set if the user has chosen not to have
     // the file auto fixed.
     if (non_well_formed.contains(html_resource)) {
-        return QString("%1: %2").arg(NON_WELL_FORMED_MESSAGE).arg(html_resource->Filename());
+        return QString("%1: %2").arg(NON_WELL_FORMED_MESSAGE).arg(html_resource->GetRelativePath());
     }
 
     try {
@@ -273,11 +272,11 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         // It would be great if we could just let this exception bubble up,
         // but we can't since QtConcurrent doesn't let exceptions cross threads.
         // So we just leave the old source in the resource.
-        return QString(QObject::tr("Invalid HTML file: %1")).arg(html_resource->Filename());
+        return QString(QObject::tr("Invalid HTML file: %1")).arg(html_resource->GetRelativePath());
     } catch (QString err) {
-        return QString("%1: %2").arg(err).arg(html_resource->Filename());
+        return QString("%1: %2").arg(err).arg(html_resource->GetRelativePath());
     } catch (...) {
-        return QString("Cannot perform HTML updates there was an unrecoverable error: %1").arg(html_resource->Filename());
+        return QString("Cannot perform HTML updates there was an unrecoverable error: %1").arg(html_resource->GetRelativePath());
     }
 }
 
@@ -316,7 +315,7 @@ QString UniversalUpdates::UpdateOPFFile(OPFResource *opf_resource,
         // It would be great if we could just let this exception bubble up,
         // but we can't since QtConcurrent doesn't let exceptions cross threads.
         // So we just leave the old source in the resource.
-        return QString(QObject::tr("Invalid OPF file: %1")).arg(opf_resource->Filename());
+        return QString(QObject::tr("Invalid OPF file: %1")).arg(opf_resource->GetRelativePath());
     }
 }
 
@@ -341,6 +340,6 @@ QString UniversalUpdates::UpdateNCXFile(NCXResource *ncx_resource,
         // It would be great if we could just let this exception bubble up,
         // but we can't since QtConcurrent doesn't let exceptions cross threads.
         // So we just leave the old source in the resource.
-        return QString(QObject::tr("Invalid NCX file: %1")).arg(ncx_resource->Filename());
+        return QString(QObject::tr("Invalid NCX file: %1")).arg(ncx_resource->GetRelativePath());
     }
 }
