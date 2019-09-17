@@ -223,6 +223,8 @@ public:
      */
     QStringList GetAllFilenames() const;
 
+    QStringList GetAllBookPaths() const;
+
     /**
      * Registers certain file types to be watched for external modifications.
      */

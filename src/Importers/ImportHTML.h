@@ -31,6 +31,7 @@ class HTMLResource;
 class CSSResource;
 class QDomDocument;
 
+
 class ImportHTML : public Importer
 {
 
@@ -49,6 +50,8 @@ public:
     // Reads and parses the file
     // and returns the created Book.
     virtual QSharedPointer<Book> GetBook(bool extract_metadata=true);
+
+    const QStringList& GetAddedBookPaths();
 
 private:
 
@@ -85,6 +88,8 @@ private:
     QString m_CachedSource;
    
     QString m_EpubVersion;
+
+    QStringList m_AddedBookPaths;
 };
 
 #endif // IMPORTHTML_H

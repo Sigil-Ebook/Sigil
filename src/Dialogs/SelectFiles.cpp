@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2017-2019  Kevin B, Hendricks, Stratford, ON Canada
-**  Copyright (C) 2012, 2013 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012, 2013 Dave Heiland
+**  Copyright (C) 2017-2019 Kevin B, Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012-2013 Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -148,11 +148,11 @@ void SelectFiles::SetImages()
             continue;
         }
 
-        QString filepath = "../" + resource->GetRelativePathToOEBPS();
+        QString filepath = resource->GetRelativePath();
         QList<QStandardItem *> rowItems;
         QStandardItem *name_item = new QStandardItem();
-        name_item->setText(resource->Filename());
-        name_item->setToolTip(filepath);
+        name_item->setText(filepath);
+        name_item->setToolTip(resource->SegmentID());
         name_item->setData(static_cast<int>(type), Qt::UserRole);
         name_item->setData(resource->GetFullPath(), Qt::UserRole + 1);
         name_item->setEditable(false);

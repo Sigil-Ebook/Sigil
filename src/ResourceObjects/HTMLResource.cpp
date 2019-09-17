@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON, Canada 
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -102,7 +102,13 @@ void HTMLResource::SaveToDisk(bool book_wide_save)
 
 QStringList HTMLResource::GetLinkedStylesheets()
 {
-    return XhtmlDoc::GetLinkedStylesheets(GetText());
+    QStringList hreflist = XhtmlDoc::GetLinkedStylesheets(GetText());
+    QString startdir = GetFolder();
+    QStringList stylesheet_bookpaths;
+    foreach(QString ahref, hreflist) {
+        stylesheet_bookpaths << Utility::buildBookPath(ahref,startdir); 
+    }
+    return stylesheet_bookpaths;
 }
 
 

@@ -557,17 +557,18 @@ void BookBrowser::CreateIndexCSSFile()
 
 QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
 {
-    QStringList added_files;
+    QStringList added_book_paths;
 
     QString filter_string = "";
     if (!QFileInfo(m_LastFolderOpen).exists()) {
         m_LastFolderOpen = "";
     }
 
+    // filepaths are full absolute file paths to the files to be added
     QStringList filepaths = QFileDialog::getOpenFileNames(this, tr("Add Existing Files"), m_LastFolderOpen, filter_string);
 
     if (filepaths.isEmpty()) {
-        return added_files;
+        return added_book_paths;
     }
 
     m_LastFolderOpen = QFileInfo(filepaths.first()).absolutePath();
@@ -648,7 +649,8 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
         }
 
         if (QFileInfo(filepath).fileName() == "page-map.xml") {
-          m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath, true, QString("application/oebps-page-map+xml"));
+            Resource * res = m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath, true, QString("application/oebps-page-map+xml"));
+	    added_book_paths << res->GetRelativePath(); 
         } else if (TEXT_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
             ImportHTML html_import(filepath);
             XhtmlDoc::WellFormedError error = html_import.CheckValidToLoad();
@@ -663,9 +665,10 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
             // this call merely mutates our Book.
             bool extract_metadata = false;
             html_import.GetBook(extract_metadata);
-            Resource *added_resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+	    QStringList importedbookpaths = html_import.GetAddedBookPaths();
+            Resource *added_resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(importedbookpaths.at(0));
             HTMLResource *added_html_resource = qobject_cast<HTMLResource *>(added_resource);
-
+	    added_book_paths.append(importedbookpaths);
             if (current_html_resource && added_html_resource) {
                 m_Book->MoveResourceAfter(added_html_resource, current_html_resource);
                 current_html_resource = added_html_resource;
@@ -679,6 +682,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
             }
         } else {
             Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath);
+            added_book_paths << resource->GetRelativePath();
 	    // if replacing a cover image, set the cover image semantics
 	    if (CoverImageSemanticsSet) {
 		ImageResource* new_image_resource = qobject_cast<ImageResource *>(resource);
@@ -693,7 +697,6 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
             }
         }
 
-        added_files.append(filepath);
     }
 
     if (!invalid_filenames.isEmpty()) {
@@ -703,7 +706,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
                              .arg(invalid_filenames.join("\n")));
     }
 
-    if (!added_files.isEmpty()) {
+    if (!added_book_paths.isEmpty()) {
         QApplication::setOverrideCursor(Qt::WaitCursor);
         emit ResourcesAdded();
 
@@ -717,7 +720,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
         QApplication::restoreOverrideCursor();
     }
 
-    return added_files;
+    return added_book_paths;
 }
 
 void BookBrowser::SaveAsUrl(const QUrl &url)

@@ -66,7 +66,7 @@ PluginRunner::PluginRunner(TabManager *tabMgr, QWidget *parent)
     // build hashes of href (book root relative path) to resources
     QList<Resource *> resources = m_book->GetFolderKeeper()->GetResourceList();
     foreach (Resource * resource, resources) {
-        QString href = resource->GetRelativePathToRoot();
+        QString href = resource->GetRelativePath();
         if (resource->Type() == Resource::HTMLResourceType) {
             m_xhtmlFiles[href] = resource;
         }
@@ -209,7 +209,7 @@ void PluginRunner::writeSigilCFG()
     cfg << m_mainWindow->GetCurrentFilePath();
     QList <Resource *> selected_resources = m_bookBrowser->AllSelectedResources();
     foreach(Resource * resource, selected_resources) {
-        cfg << resource->GetRelativePathToRoot();
+        cfg << resource->GetRelativePath();
     }
     Utility::WriteUnicodeTextFile(cfg.join("\n"), m_outputDir + "/sigil.cfg");
 }
@@ -876,7 +876,7 @@ bool PluginRunner::addFiles(const QStringList &files)
             HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
             html_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
             // remember to add this new file to the list of remaining xhtml resources
-            QString href = resource->GetRelativePathToRoot();
+            QString href = resource->GetRelativePath();
             m_xhtmlFiles[href] = resource;
             m_hrefToRes[href] = resource;
         } else if (resource->Type() == Resource::CSSResourceType) {

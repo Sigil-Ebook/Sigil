@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -58,7 +59,7 @@ void EncryptionXmlWriter::WriteEncryptedData(const FontResource *font_resource)
     m_Writer->writeAttribute("Algorithm", algorithm);
     m_Writer->writeStartElement("enc:CipherData");
     m_Writer->writeEmptyElement("enc:CipherReference");
-    m_Writer->writeAttribute("URI", font_resource->GetRelativePathToRoot());
+    m_Writer->writeAttribute("URI", font_resource->GetRelativePath());
     m_Writer->writeEndElement();
     m_Writer->writeEndElement();
 }

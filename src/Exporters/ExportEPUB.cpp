@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -293,7 +294,7 @@ void ExportEPUB::ObfuscateFonts(const QString &fullfolderpath)
             continue;
         }
 
-        QString font_path = fullfolderpath + "/" + font_resource->GetRelativePathToRoot();
+        QString font_path = fullfolderpath + "/" + font_resource->GetRelativePath();
 
         if (algorithm == ADOBE_FONT_ALGO_ID) {
             FontObfuscation::ObfuscateFile(font_path, algorithm, uuid_id);

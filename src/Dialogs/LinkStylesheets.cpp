@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
@@ -71,13 +72,13 @@ void LinkStylesheets::CreateStylesheetsModel()
 // Inserts the specified heading into the model
 void LinkStylesheets::InsertStylesheetIntoModel(std::pair<QString, bool> stylesheet_pair)
 {
-    QStandardItem *item_filename       = new QStandardItem(stylesheet_pair.first);
+    QStandardItem *item_bookpath       = new QStandardItem(stylesheet_pair.first);
     QStandardItem *item_included_check = new QStandardItem();
     item_included_check->setEditable(false);
     item_included_check->setCheckable(true);
-    item_filename->setEditable(false);
-    item_filename->setDragEnabled(false);
-    item_filename->setDropEnabled(false);
+    item_bookpath->setEditable(false);
+    item_bookpath->setDragEnabled(false);
+    item_bookpath->setDropEnabled(false);
 
     if (stylesheet_pair.second) {
         item_included_check->setCheckState(Qt::Checked);
@@ -86,7 +87,7 @@ void LinkStylesheets::InsertStylesheetIntoModel(std::pair<QString, bool> stylesh
     }
 
     QList<QStandardItem *> items;
-    items << item_included_check << item_filename;
+    items << item_included_check << item_bookpath;
     m_StylesheetsModel.invisibleRootItem()->appendRow(items);
 }
 

@@ -717,28 +717,40 @@ std::tuple<QString, QList<XhtmlDoc::XMLElement>> Book::GetLinkElementsInHTMLFile
                       XhtmlDoc::GetTagsInDocument(html_resource->GetText(), "a"));
 }
 
-
 QStringList Book::GetStyleUrlsInHTMLFiles()
 {
-    QStringList images_in_html;
+    QStringList media_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(false);
     QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetStyleUrlsInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
-        QString filename;
-        QStringList images;
-        std::tie(filename, images) = future.resultAt(i);
+        QString bookpath;
+        QStringList media_bookpaths;
+        std::tie(bookpath, media_bookpaths) = future.resultAt(i);
         // Each target entry has a list of filenames that contain it
-        images_in_html.append(images);
+        media_in_html.append(media_bookpaths);
     }
-
-    return images_in_html;
+    return media_in_html;
 }
 
 std::tuple<QString, QStringList> Book::GetStyleUrlsInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return std::make_tuple(html_resource->Filename(),
-                           XhtmlDoc::GetAllDescendantStyleUrls(html_resource->GetText()));
+    QString html_bookpath = html_resource->GetRelativePath();
+    QString startdir = html_resource->GetFolder();
+    // we need to convert this hreflist to bookpaths if possible
+    QStringList urllist = XhtmlDoc::GetAllDescendantStyleUrls(html_resource->GetText());
+    QStringList bookpaths;
+    QRegularExpression url_file_search("url\\s*\\(\\s*['\"]?([^\\(\\)'\"]*)[\"']?\\)");
+    foreach (QString url, urllist) {
+        QRegularExpressionMatch match = url_file_search.match(url);
+        if (match.hasMatch()) {
+	    QString ahref = match.captured(1);
+            if (ahref.indexOf(":") == -1) {
+	        bookpaths << Utility::buildBookPath(ahref, startdir);
+            }
+        }
+    }
+    return std::make_tuple(html_bookpath, bookpaths);
 }
 
 QHash<QString, QStringList> Book::GetIdsInHTMLFiles()
@@ -903,11 +915,11 @@ QHash<QString, QStringList> Book::GetHTMLFilesUsingMedia()
     QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetMediaInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
-        QString html_filename;
-        QStringList media_filenames;
-        std::tie(html_filename, media_filenames) = future.resultAt(i);
-        foreach(QString media_filename, media_filenames) {
-            html_files[media_filename].append(html_filename);
+        QString html_bookpath;
+        QStringList media_bookpaths;
+        std::tie(html_bookpath, media_bookpaths) = future.resultAt(i);
+        foreach(QString media_bookpath, media_bookpaths) {
+            html_files[media_bookpath].append(html_bookpath);
         }
     }
 
@@ -935,12 +947,19 @@ QHash<QString, QStringList> Book::GetHTMLFilesUsingImages()
     return html_files;
 }
 
-
 std::tuple<QString, QStringList> Book::GetMediaInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return std::make_tuple(html_resource->Filename(),
-                           XhtmlDoc::GetAllMediaPathsFromMediaChildren(html_resource->GetText(), 
-                                                                       GIMAGE_TAGS + GVIDEO_TAGS + GAUDIO_TAGS));
+    QString html_bookpath = html_resource->GetRelativePath();
+    QString startdir = html_resource->GetFolder();
+    QStringList media_hrefs = XhtmlDoc::GetAllMediaPathsFromMediaChildren(html_resource->GetText(), 
+                                                                       GIMAGE_TAGS + GVIDEO_TAGS + GAUDIO_TAGS);
+    QStringList media_bookpaths;
+    foreach(QString ahref, media_hrefs) {
+        if (ahref.indexOf(":") == -1) {
+            media_bookpaths << Utility::buildBookPath(ahref, startdir);
+	}
+    }
+    return std::make_tuple(html_bookpath, media_bookpaths);
 }
 
 std::tuple<QString, QStringList> Book::GetImagesInHTMLFileMapped(HTMLResource *html_resource)

@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2017 - 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2017-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -436,6 +436,16 @@ QStringList FolderKeeper::GetAllFilenames() const
         filelist.append(resource->Filename());
     }
     return filelist;
+}
+
+
+QStringList FolderKeeper::GetAllBookPaths() const
+{
+    QStringList bookpaths;
+    foreach(Resource *resource, m_Resources.values()) {
+        bookpaths.append(resource->GetRelativePath());
+    }
+    return bookpaths;
 }
 
 

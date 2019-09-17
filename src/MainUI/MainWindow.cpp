@@ -1106,20 +1106,11 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
         QStringList stylesheets = GetStylesheetsAlreadyLinked(current_resource);
         bool found_match = false;
         CSSResource *first_css_resource = 0;
-        foreach(QString pathname, stylesheets) {
-            // Check whether the stylesheet contains this style
-            CSSResource *css_resource = NULL;
-            foreach(Resource * resource, css_resources) {
-                if (pathname == QString("../" + resource->GetRelativePathToOEBPS())) {
-                    // We have our resource matching this stylesheet.
-                    css_resource = dynamic_cast<CSSResource *>(resource);
-
-                    if (!first_css_resource) {
-                        first_css_resource = css_resource;
-                    }
-
-                    break;
-                }
+        foreach(QString bookpath, stylesheets) {
+	    Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
+	    CSSResource *css_resource = qobject_cast<CSSResource*>( resource ); 
+            if (!first_css_resource) {
+                first_css_resource = css_resource;
             }
             if (css_resource) {
                 CSSInfo css_info(css_resource->GetText(), true);
@@ -1254,15 +1245,15 @@ void MainWindow::AddCover()
     // Get just images, not svg files.
     QList<Resource *> image_resources = m_Book->GetFolderKeeper()->GetResourceListByType(Resource::ImageResourceType);
     QString title = tr("Add Cover");
+    // SelectFiles returns the bookpaths of all selected resources
     SelectFiles select_files(title, image_resources, m_LastInsertedFile, this);
-
+    
     if (select_files.exec() == QDialog::Accepted) {
         if (select_files.IsInsertFromDisk()) {
-            QStringList filenames = m_BookBrowser->AddExisting(false, true);
-            // Convert full path to filename.
-            foreach(QString filename, filenames) {
-                QString internal_filename = filename.right(filename.length() - filename.lastIndexOf("/") - 1);
-                selected_files.append(internal_filename);
+	    // m_BookBrowser->AddExisting returns the full file paths
+            QStringList added_book_paths = m_BookBrowser->AddExisting(false, true);
+            foreach(QString bookpath, added_book_paths) {
+                selected_files.append(bookpath);
             }
         } else {
             selected_files = select_files.SelectedImages();
@@ -1271,7 +1262,7 @@ void MainWindow::AddCover()
     if (selected_files.count() == 0) {
         return;
     }
-    QString image_filename = selected_files.first();
+    QString image_bookpath = selected_files.first();
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
@@ -1318,7 +1309,7 @@ void MainWindow::AddCover()
     }
 
     try {
-        Resource *image_resource = m_Book->GetFolderKeeper()->GetResourceByFilename(image_filename);
+        Resource *image_resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(image_bookpath);
 
         // Set cover semantics
         if (version.startsWith('3')) {
@@ -1334,7 +1325,7 @@ void MainWindow::AddCover()
             }
 
             // Add the filename and dimensions of the image to the HTML source.
-            QString image_relative_path = "../" + image_resource->GetRelativePathToOEBPS();
+            QString image_relative_path = image_resource->GetRelativePathFromResource(html_cover_resource);
             QImage img(image_resource->GetFullPath());
             QString text = html_cover_resource->GetText();
             QString width = QString::number(img.width());
@@ -1772,45 +1763,58 @@ void MainWindow::DeleteUnusedMedia()
         return;
     }
 
+    QRegularExpression url_file_search("url\\s*\\(\\s*['\"]?([^\\(\\)'\"]*)[\"']?\\)");
+
     QList<Resource *> resources;
+    // hash key is media bookpath which returns a list of all html bookpaths that use it
     QHash<QString, QStringList> html_files_hash = m_Book->GetHTMLFilesUsingMedia();
 
     // Get file urls from HTML inline styles
-    QStringList style_urls = m_Book->GetStyleUrlsInHTMLFiles();
+    QStringList style_bookpaths = m_Book->GetStyleUrlsInHTMLFiles();
 
     // Get files urls from CSS files
     QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
     foreach(Resource *resource, css_resources) {
-        CSSResource *css_resource = dynamic_cast<CSSResource *>(resource);
+        CSSResource *css_resource = qobject_cast<CSSResource *>(resource);
+        QString startdir = css_resource->GetFolder();
         CSSInfo css_info(css_resource->GetText(), true);
-
-        style_urls.append(css_info.getAllPropertyValues(""));
+	QStringList urllist = css_info.getAllPropertyValues("");
+	foreach (QString url, urllist) {
+	    QRegularExpressionMatch match = url_file_search.match(url);
+	    if (match.hasMatch()) {
+                QString ahref = match.captured(1);
+                if (ahref.indexOf(":") == -1) {
+	            style_bookpaths << Utility::buildBookPath(ahref, startdir);
+                }
+	    }
+	}
     }
+
     // Get file urls from HTML CSS files
     QList<Resource *> html_resources = GetAllHTMLResources();
     foreach(Resource *resource, html_resources) {
-        HTMLResource *html_resource = dynamic_cast<HTMLResource *>(resource);
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        QString startdir = html_resource->GetFolder();
         CSSInfo css_info(html_resource->GetText(), false);
-
-        style_urls.append(css_info.getAllPropertyValues(""));
+	QStringList urllist = css_info.getAllPropertyValues("");
+	foreach (QString url, urllist) {
+	    QRegularExpressionMatch match = url_file_search.match(url);
+	    if (match.hasMatch()) {
+                QString ahref = match.captured(1);
+                if (ahref.indexOf(":") == -1) {
+	            style_bookpaths << Utility::buildBookPath(ahref, startdir);
+                }
+	    }
+	}
     }
 
-    style_urls.removeDuplicates();
-
-    QStringList style_url_files;
-    QRegularExpression url_file_search("url\\s*\\(\\s*['\"]?([^\\(\\)'\"]*)[\"']?\\)");
-    foreach (QString url, style_urls) {
-        QRegularExpressionMatch match = url_file_search.match(url);
-        if (match.hasMatch()) {
-            style_url_files.append(match.captured(1));
-        }
-    }
+    style_bookpaths.removeDuplicates();
 
     foreach(Resource * resource, m_BookBrowser->AllMediaResources()) {
-        QString filepath = "../" + resource->GetRelativePathToOEBPS();
+        QString filepath = resource->GetRelativePath();
 
         // Include the file in the list to delete if it was not referenced
-        if (html_files_hash[filepath].count() == 0 && !style_url_files.contains(filepath)) {
+        if (html_files_hash[filepath].count() == 0 && !style_bookpaths.contains(filepath)) {
             // If used as cover image, consider it referenced.
             ImageResource *image_resource = qobject_cast<ImageResource *>(resource);
             if (!image_resource || !m_Book->GetOPF()->IsCoverImage(image_resource)) {
@@ -1880,6 +1884,7 @@ void MainWindow::InsertFileDialog()
     }
 }
 
+// selected_files is a list of existing book paths
 void MainWindow::InsertFiles(const QStringList &selected_files)
 {
     if (!selected_files.isEmpty()) {
@@ -1889,13 +1894,17 @@ void MainWindow::InsertFiles(const QStringList &selected_files)
             return;
         }
 
+	HTMLResource* tab_resource = qobject_cast<HTMLResource *>(flow_tab->GetLoadedResource());
+	if (!tab_resource) {
+	    return;
+	}
+
         if (flow_tab->InsertFileEnabled()) {
             foreach(QString selected_file, selected_files) {
                 try {
-                    Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(selected_file);
-                    QString relative_path = "../" + resource->GetRelativePathToOEBPS();
-
-                    QString filename = relative_path.right(relative_path.length() - relative_path.lastIndexOf("/") - 1);
+                    Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(selected_file);
+                    QString relative_path = resource->GetRelativePathFromResource(tab_resource);
+		    QString filename = resource->Filename();
                     if (filename.contains(".")) {
                         filename = filename.left(filename.lastIndexOf("."));
                     }
@@ -2355,7 +2364,7 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
             continue;
         }
         if (!h->FileIsWellFormed()) {
-            QMessageBox::warning(this, tr("Sigil"), tr("Link Stylesheets cancelled: %1, XML not well formed.").arg(h->Filename()));
+            QMessageBox::warning(this, tr("Sigil"), tr("Link Stylesheets cancelled: %1, XML not well formed.").arg(h->SegmentID()));
             return;
         }
     }
@@ -2490,27 +2499,27 @@ QList<std::pair<QString, bool>> MainWindow::GetStylesheetsMap(QList<Resource *> 
     QList<std::pair<QString, bool>> stylesheet_map;
     QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
     // Use the first resource to get a list of known linked stylesheets in order.
-    QStringList checked_linked_paths = GetStylesheetsAlreadyLinked(resources.at(0));
+    QStringList checked_linked_bookpaths = GetStylesheetsAlreadyLinked(resources.at(0));
     // Then only consider them included if every selected resource includes
     // the same stylesheets in the same order.
     foreach(Resource * valid_resource, resources) {
-        QStringList linked_paths = GetStylesheetsAlreadyLinked(valid_resource);
-        foreach(QString path, checked_linked_paths) {
-            if (!linked_paths.contains(path)) {
-                checked_linked_paths.removeOne(path);
+        QStringList linked_bookpaths = GetStylesheetsAlreadyLinked(valid_resource);
+        foreach(QString bookpath, checked_linked_bookpaths) {
+            if (!linked_bookpaths.contains(bookpath)) {
+                checked_linked_bookpaths.removeOne(bookpath);
             }
         }
     }
     // Save the paths included in all resources in order
-    foreach(QString path, checked_linked_paths) {
-        stylesheet_map.append(std::make_pair(path, true));
+    foreach(QString bookpath, checked_linked_bookpaths) {
+        stylesheet_map.append(std::make_pair(bookpath, true));
     }
     // Save all the remaining paths and mark them not included
     foreach(Resource * resource, css_resources) {
-        QString pathname = "../" + resource->GetRelativePathToOEBPS();
+        QString abookpath = resource->GetRelativePath();
 
-        if (!checked_linked_paths.contains(pathname)) {
-            stylesheet_map.append(std::make_pair(pathname, false));
+        if (!checked_linked_bookpaths.contains(abookpath)) {
+            stylesheet_map.append(std::make_pair(abookpath, false));
         }
     }
     return stylesheet_map;
@@ -2523,14 +2532,12 @@ QStringList MainWindow::GetStylesheetsAlreadyLinked(Resource *resource)
     QStringList linked_stylesheets;
     QStringList existing_stylesheets;
     foreach(Resource * css_resource, m_BookBrowser->AllCSSResources()) {
-        //existing_stylesheets.append( css_resource->Filename() );
-        existing_stylesheets.append("../" + css_resource->GetRelativePathToOEBPS());
+        existing_stylesheets.append(css_resource->GetRelativePath());
     }
-    foreach(QString pathname, html_resource->GetLinkedStylesheets()) {
-        pathname = Utility::URLDecodePath(pathname);
+    foreach(QString bookpath, html_resource->GetLinkedStylesheets()) {
         // Only list the stylesheet if it exists in the book
-        if (existing_stylesheets.contains(pathname)) {
-            linked_stylesheets.append(pathname);
+        if (existing_stylesheets.contains(bookpath)) {
+            linked_stylesheets.append(bookpath);
         }
     }
     return linked_stylesheets;

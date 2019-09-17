@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019      Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -43,6 +43,7 @@
 #include "ResourceObjects/CSSResource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
+#include "ResourceObjects/Resource.h"
 #include "SourceUpdates/PerformHTMLUpdates.h"
 #include "SourceUpdates/UniversalUpdates.h"
 #include "sigil_constants.h"
@@ -76,6 +77,11 @@ XhtmlDoc::WellFormedError ImportHTML::CheckValidToLoad()
     return XhtmlDoc::WellFormedErrorForSource(LoadSource());
 }
 
+// should be call after GetBook to get book paths to what was added
+const QStringList& ImportHTML::GetAddedBookPaths()
+{
+    return m_AddedBookPaths;
+}
 
 // Reads and parses the file
 // and returns the created Book
@@ -94,6 +100,7 @@ QSharedPointer<Book> ImportHTML::GetBook(bool extract_metadata)
             HTMLResource * nav_resource = m_Book->CreateEmptyNavFile(true);
             m_Book->GetOPF()->SetNavResource(nav_resource);
             m_Book->GetOPF()->SetItemRefLinear(nav_resource, false);
+	    m_AddedBookPaths << nav_resource->GetRelativePath();
         }
     }
     return m_Book;
@@ -147,6 +154,7 @@ HTMLResource *ImportHTML::CreateHTMLResource()
     Utility::WriteUnicodeTextFile("TEMP_SOURCE", fullfilepath);
     HTMLResource *resource = qobject_cast<HTMLResource *>(m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath));
     resource->SetCurrentBookRelPath(m_FullFilePath);
+    m_AddedBookPaths << resource->GetRelativePath();
     return resource;
 }
 
@@ -220,10 +228,11 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
             QString newpath;
 
             if (m_IgnoreDuplicates && current_filenames.contains(filename)) {
-                newpath = "../" + m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePath();
+                newpath = m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePath();
             } else {
                 Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath);
                 newpath = resource->GetRelativePath();
+                m_AddedBookPaths << newpath;
             }
 
             updates[ fullfilepath ] = newpath;
@@ -249,10 +258,11 @@ QHash<QString, QString> ImportHTML::LoadStyleFiles(const QStringList & file_path
             QString newpath;
 
             if (m_IgnoreDuplicates && current_filenames.contains(filename)) {
-                newpath = "../" + m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePath();
+                newpath = m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePath();
             } else {
                 Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath);
                 newpath = resource->GetRelativePath();
+                m_AddedBookPaths << newpath;
             }
 
             updates[ fullfilepath ] = newpath;

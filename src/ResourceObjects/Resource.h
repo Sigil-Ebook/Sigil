@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -102,26 +102,11 @@ public:
 
     QString GetRelativePath() const;
 
-    /**
-     * Returns the resource's path relative to the OEBPS folder.
-     * Returned \em without leading "../" characters.
-     *
-     * @return The resource's path relative to the OEBPS folder.
-     */
-    QString GetRelativePathToOEBPS() const;
-
     QString SegmentID() const;
 
     QString GetRelativePathFromResource(const Resource* start_resource) const;
-    QString GetRelativePathToResource(const Resource* dest_resource) const;
 
-    /**
-     * Returns the resource's path relative to the publication's
-     * root folder. Returned \em without leading "../" characters.
-     *
-     * @return The root-relative path.
-     */
-    virtual QString GetRelativePathToRoot() const;
+    QString GetRelativePathToResource(const Resource* dest_resource) const;
 
     /**
      * Returns the resource's full file path.
