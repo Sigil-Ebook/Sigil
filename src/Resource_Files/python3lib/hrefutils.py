@@ -42,6 +42,8 @@ def buildRelativePath(from_bkpath, to_bkpath):
 
 
 def buildBookPath(dest_relpath, start_folder):
+    if start_folder == "" or start_folder.strip() == "": 
+        return dest_relpath;
     bookpath = start_folder.rstrip('/') + '/' + dest_relpath
     return resolveRelativeSegmentsInFilePath(bookpath)
 
@@ -85,12 +87,26 @@ def main():
     print(buildRelativePath(p1,p2))
     print('    ')
 
-    p1 = 'OEBPS/Text/book1/'
-    p2 = '../../Images/image.png'
+    p1 = '../../Images/image.png'
+    p2 = 'OEBPS/Text/book1/'
     print('Testing buildBookPath(destination_href, start_dir)')
     print('    destination_href: ',p1)
     print('    starting_dir:     ',p2)
-    print(buildBookPath(p2, p1))
+    print(buildBookPath(p1, p2))
+    print('    ')
+
+    p1 = 'image.png'
+    p2 = ''
+    print('Testing buildBookPath(destination_href, start_dir)')
+    print('    destination_href: ',p1)
+    print('    starting_dir:     ',p2)
+    print(buildBookPath(p1, p2))
+    print('    ')
+
+    p1 = 'content.opf'
+    print('Testing startingDir(bookpath')
+    print('    bookpath: ',p1)
+    print('"'+ startingDir(p1)+'"')
     print('    ')
     return 0
 
