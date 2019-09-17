@@ -113,9 +113,10 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
     foreach(XMLResource * xml_resource, xml_resources) {
         QString mtype = xml_resource->GetMediaType();
         QString currentpath = xml_resource->GetCurrentBookRelPath();
+	QString new_bookpath = xml_resource->GetRelativePath();
         QString version = xml_resource->GetEpubVersion();
         const QString &source = Utility::ReadUnicodeTextFile(xml_resource->GetFullPath());
-        xml_resource->SetText(PerformXMLUpdates(source, xml_updates, currentpath, mtype)());
+        xml_resource->SetText(PerformXMLUpdates(source, new_bookpath, xml_updates, currentpath, mtype)());
         xml_resource->SetCurrentBookRelPath("");
         xml_resource->SaveToDisk();
     }
@@ -306,8 +307,9 @@ QString UniversalUpdates::UpdateOPFFile(OPFResource *opf_resource,
     QWriteLocker locker(&opf_resource->GetLock());
     const QString &source = opf_resource->GetText();
     QString currentpath = opf_resource->GetCurrentBookRelPath();
+    QString new_bookpath = opf_resource->GetRelativePath();
     try {
-        QString newsource = PerformOPFUpdates(source, xml_updates, currentpath)();
+        QString newsource = PerformOPFUpdates(source, new_bookpath, xml_updates, currentpath)();
         opf_resource->SetText(newsource);
         opf_resource->SetCurrentBookRelPath("");
         return QString();
@@ -330,9 +332,10 @@ QString UniversalUpdates::UpdateNCXFile(NCXResource *ncx_resource,
     QWriteLocker locker(&ncx_resource->GetLock());
     const QString &source = ncx_resource->GetText();
     QString currentpath = ncx_resource->GetCurrentBookRelPath();
+    QString new_bookpath = ncx_resource->GetRelativePath();
 
     try {
-        QString newsource = PerformNCXUpdates(source, xml_updates, currentpath)();
+        QString newsource = PerformNCXUpdates(source, new_bookpath, xml_updates, currentpath)();
         ncx_resource->SetText(CleanSource::PrettifyDOCTYPEHeader(newsource));
         ncx_resource->SetCurrentBookRelPath("");
         return QString();

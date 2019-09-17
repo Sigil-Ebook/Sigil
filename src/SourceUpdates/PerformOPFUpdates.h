@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -30,6 +31,7 @@ class PerformOPFUpdates
 public:
 
     PerformOPFUpdates(const QString &source,
+		      const QString &newbookpath,
                       const QHash<QString, QString> &xml_updates,
                       const QString& currentpath);
 
@@ -40,6 +42,7 @@ public:
     const QHash<QString, QString> &m_XMLUpdates;
     const QString& m_CurrentPath;
     const QString& m_source;
+    const QString& m_newbookpath;
 
 };
 

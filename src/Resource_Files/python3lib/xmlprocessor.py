@@ -255,7 +255,7 @@ def anchorNCXUpdatesAfterMerge(data, ncx_bookpath, sink_bookpath, merged_bookpat
     return newdata
 
 
-def performNCXSourceUpdates(data, oldbkpath, keylist, valuelist):
+def performNCXSourceUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
     data = _remove_xml_header(data)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
@@ -277,7 +277,6 @@ def performNCXSourceUpdates(data, oldbkpath, keylist, valuelist):
                 oldtarget = buildBookPath(ahref, startingDir(oldbkpath))
                 if oldtarget in updates:
                     newtarget = updates[oldtarget]
-                    newbkpath = updates[oldbkpath]
                     attribute_value = buildRelativePath(newbkpath, newtarget)
                     if fragment != "":
                         attribute_value = attribute_value + "#" + fragment
@@ -287,7 +286,7 @@ def performNCXSourceUpdates(data, oldbkpath, keylist, valuelist):
     return newdata
 
 
-def performOPFSourceUpdates(data, oldbkpath, keylist, valuelist):
+def performOPFSourceUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
     data = _remove_xml_header(data)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
@@ -309,7 +308,6 @@ def performOPFSourceUpdates(data, oldbkpath, keylist, valuelist):
                 oldtarget = buildBookPath(ahref, startingDir(oldbkpath))
                 if oldtarget in updates:
                     newtarget = updates[oldtarget]
-                    newbkpath = updates[oldbkpath]
                     attribute_value = buildRelativePath(newbkpath, newtarget)
                     if fragment != "":
                         attribute_value = attribute_value + "#" + fragment
@@ -322,7 +320,7 @@ def performOPFSourceUpdates(data, oldbkpath, keylist, valuelist):
 # Note xml_updates has paths relative to the OEBPS folder as base
 # As if they were meant only for OEBPS/content.opf and OEBPS/toc.ncx
 # So adjust them to be relative to the Misc directory where .smil files live in Sigil
-def performSMILUpdates(data, oldbkpath, keylist, valuelist):
+def performSMILUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
     data = _remove_xml_header(data)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
@@ -346,7 +344,6 @@ def performSMILUpdates(data, oldbkpath, keylist, valuelist):
                     oldtarget = buildBookPath(ahref, startingDir(oldbkpath))
                     if oldtarget in updates:
                         newtarget = updates[oldtarget]
-                        newbkpath = updates[oldbkpath]
                         attribute_value = buildRelativePath(newbkpath, newtarget)
                         if fragment != "":
                             attribute_value = attribute_value + "#" + fragment
@@ -358,7 +355,7 @@ def performSMILUpdates(data, oldbkpath, keylist, valuelist):
 # Note xml_updates has urls/iris relative to the OEBPS folder as base
 # As if they were meant only for OEBPS/content.opf and OEBPS/toc.ncx
 # So adjust them to be relative to the Misc directory where page-map.xml lives
-def performPageMapUpdates(data, oldbkpath, keylist, valuelist):
+def performPageMapUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
     data = _remove_xml_header(data)
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
@@ -382,7 +379,6 @@ def performPageMapUpdates(data, oldbkpath, keylist, valuelist):
                     oldtarget = buildBookPath(ahref, startingDir(oldbkpath))
                     if oldtarget in updates:
                         newtarget = updates[oldtarget]
-                        newbkpath = updates[oldbkpath]
                         attribute_value = buildRelativePath(newbkpath, newtarget)
                         if fragment != "":
                             attribute_value = attribute_value + "#" + fragment

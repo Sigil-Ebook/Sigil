@@ -29,10 +29,8 @@
 #include "sigil_constants.h"
 
 
-
-
-
 PerformXMLUpdates::PerformXMLUpdates(const QString &source,
+				     const QString &newbookpath,
                                      const QHash<QString, QString> &xml_updates,
                                      const QString &currentpath,
                                      const QString &mtype)
@@ -40,7 +38,8 @@ PerformXMLUpdates::PerformXMLUpdates(const QString &source,
     m_Source(source),
     m_XMLUpdates(xml_updates),
     m_CurrentPath(currentpath),
-    m_MediaType(mtype)
+    m_MediaType(mtype),
+    m_newbookpath(newbookpath)
 {
 }
 
@@ -61,6 +60,7 @@ QString PerformXMLUpdates::operator()()
 
     QList<QVariant> args;
     args.append(QVariant(newsource));
+    args.append(QVariant(m_newbookpath));
     args.append(QVariant(m_CurrentPath));
     args.append(QVariant(dictkeys));
     args.append(QVariant(dictvals));

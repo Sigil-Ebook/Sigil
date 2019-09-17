@@ -901,6 +901,7 @@ QString Utility::resolveRelativeSegmentsInFilePath(const QString& file_path, con
 	        res.removeLast();
             } else {
 	        qDebug() << "Error resolving relative path segments";
+		qDebug() << "original file path: " << file_path;
             }
         } else {
             res << segs.at(i);
