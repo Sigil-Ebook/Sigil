@@ -30,6 +30,7 @@ class PerformHTMLUpdates
 public:
 
     PerformHTMLUpdates(const QString &source,
+		       const QString &newbookpath,
                        const QHash<QString, QString> &html_updates,
                        const QHash<QString, QString> &css_updates, 
                        const QString& currentpath,
@@ -48,6 +49,7 @@ private:
     const QString& m_CurrentPath;
     const QString& m_source;
     const QString& m_version;
+    const QString& m_newbookpath;
 };
 
 #endif // PERFORMHTMLUPDATES_H

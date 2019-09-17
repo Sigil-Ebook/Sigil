@@ -186,7 +186,8 @@ void ImportHTML::UpdateFiles(HTMLResource *html_resource,
     QFutureSynchronizer<void> sync;
     sync.addFuture(QtConcurrent::map(css_resources,
                                      std::bind(UniversalUpdates::LoadAndUpdateOneCSSFile, std::placeholders::_1, css_updates)));
-    html_resource->SetText(PerformHTMLUpdates(newsource, html_updates, css_updates, currentpath, version)());
+    QString newbookpath = html_resource->GetRelativePath();
+    html_resource->SetText(PerformHTMLUpdates(newsource, newbookpath, html_updates, css_updates, currentpath, version)());
     html_resource->SetCurrentBookRelPath("");
     sync.waitForFinished();
 }

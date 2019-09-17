@@ -199,7 +199,8 @@ QString UniversalUpdates::UpdateOneHTMLFile(HTMLResource *html_resource,
         QString version = html_resource->GetEpubVersion();
         QString source = html_resource->GetText();
         QString newsource = source;
-        newsource = PerformHTMLUpdates(newsource, html_updates, css_updates, currentpath, version)();
+	QString newbookpath = html_resource->GetRelativePath();
+        newsource = PerformHTMLUpdates(newsource, newbookpath, html_updates, css_updates, currentpath, version)();
         html_resource->SetText(newsource);
         html_resource->SetCurrentBookRelPath("");
         return QString();
@@ -239,6 +240,7 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
     }
 
     QString currentpath = html_resource->GetCurrentBookRelPath();
+    QString newbookpath = html_resource->GetRelativePath();
     QString version = html_resource->GetEpubVersion();
 
     // non_well_formed will only be set if the user has chosen not to have
@@ -260,7 +262,7 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
             throw QObject::tr(NON_WELL_FORMED_MESSAGE);
         }
 
-        source = PerformHTMLUpdates(source, html_updates, css_updates, currentpath, version)();
+        source = PerformHTMLUpdates(source, newbookpath, html_updates, css_updates, currentpath, version)();
         html_resource->SetCurrentBookRelPath("");
         // For files that are valid we need to do a second clean becasue PerformHTMLUpdates) will remove
         // the formatting.

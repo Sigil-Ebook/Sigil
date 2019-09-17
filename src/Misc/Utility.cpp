@@ -954,7 +954,11 @@ QString Utility::buildBookPath(const QString& dest_relpath, const QString& start
 {
     QString bookpath(start_folder);
     while (bookpath.endsWith("/")) bookpath.chop(1);
-    bookpath = bookpath + "/" + dest_relpath;
+    if (!bookpath.isEmpty()) { 
+        bookpath = bookpath + "/" + dest_relpath;
+    } else {
+        bookpath = dest_relpath;
+    }
     bookpath = resolveRelativeSegmentsInFilePath(bookpath, "/");
     return bookpath;
 }

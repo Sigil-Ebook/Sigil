@@ -1295,7 +1295,9 @@ Book::NewSectionResult Book::CreateOneNewSection(NewSection section_info,
         html_resource->SetText(CleanSource::Mend(section_info.source, version));
     } else {
         QString currentpath = html_resource->GetCurrentBookRelPath();
+	QString newbookpath = html_resource->GetRelativePath();
         html_resource->SetText(PerformHTMLUpdates(CleanSource::Mend(section_info.source, version),
+					     newbookpath,
                                              html_updates, QHash<QString, QString>(), 
                                              currentpath, version)() );
         html_resource->SetCurrentBookRelPath("");

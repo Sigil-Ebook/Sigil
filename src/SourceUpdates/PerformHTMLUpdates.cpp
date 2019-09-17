@@ -26,6 +26,7 @@
 #include "SourceUpdates/PerformHTMLUpdates.h"
 
 PerformHTMLUpdates::PerformHTMLUpdates(const QString &source,
+                                       const QString &newbookpath,
                                        const QHash<QString, QString> &html_updates,
                                        const QHash<QString, QString> &css_updates,
                                        const QString& currentpath,
@@ -35,7 +36,8 @@ PerformHTMLUpdates::PerformHTMLUpdates(const QString &source,
   m_CSSUpdates(css_updates),
   m_CurrentPath(currentpath),
   m_source(source),
-  m_version(version)
+  m_version(version),
+  m_newbookpath(newbookpath)
 {
 }
 
@@ -46,12 +48,12 @@ QString PerformHTMLUpdates::operator()()
     { 
         GumboInterface gi = GumboInterface(newsource, m_version, m_HTMLUpdates);
         gi.parse();
-        newsource = gi.perform_source_updates(m_CurrentPath);
+        newsource = gi.perform_source_updates(m_CurrentPath, m_newbookpath);
     }
     if (!m_CSSUpdates.isEmpty()) {
         GumboInterface gi = GumboInterface(newsource, m_version, m_CSSUpdates);
         gi.parse();
-        newsource = gi.perform_style_updates(m_CurrentPath);
+        newsource = gi.perform_style_updates(m_CurrentPath, m_newbookpath);
     }
     return CleanSource::CharToEntity(newsource, m_version);
 }
