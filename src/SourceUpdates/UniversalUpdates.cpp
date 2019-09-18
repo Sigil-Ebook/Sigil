@@ -221,8 +221,9 @@ void UniversalUpdates::UpdateOneCSSFile(CSSResource *css_resource,
     }
     QWriteLocker locker(&css_resource->GetLock());
     QString currentpath = css_resource->GetCurrentBookRelPath();
-    const QString &source = css_resource->GetText();
-    css_resource->SetText(PerformCSSUpdates(source, css_updates, currentpath)());
+    const QString source = css_resource->GetText();
+    const QString newbookpath = css_resource->GetRelativePath();
+    css_resource->SetText(PerformCSSUpdates(source, newbookpath, css_updates, currentpath)());
     css_resource->SetCurrentBookRelPath("");
 }
 
@@ -292,8 +293,9 @@ void UniversalUpdates::LoadAndUpdateOneCSSFile(CSSResource *css_resource,
     }
 
     QString currentpath = css_resource->GetCurrentBookRelPath();
+    QString newbookpath = css_resource->GetRelativePath();
     const QString &source = Utility::ReadUnicodeTextFile(css_resource->GetFullPath());
-    css_resource->SetText(PerformCSSUpdates(source, css_updates, currentpath)());
+    css_resource->SetText(PerformCSSUpdates(source, newbookpath, css_updates, currentpath)());
     css_resource->SetCurrentBookRelPath("");
     css_resource->SaveToDisk();
 }
