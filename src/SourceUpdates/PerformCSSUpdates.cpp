@@ -49,6 +49,7 @@ QString PerformCSSUpdates::operator()()
 {
     QString result(m_Source);
     QString origDir = QFileInfo(m_CurrentPath).dir().path();
+    QString destfile = QFileInfo(m_newbookpath).fileName();
     const QList<QString> &keys = m_CSSUpdates.keys();
     int num_keys = keys.count();
     if (num_keys == 0) return result;
@@ -94,6 +95,7 @@ QString PerformCSSUpdates::operator()()
                         QString dest_newbkpath = m_CSSUpdates.value(dest_oldbkpath,"");
 			if (!dest_newbkpath.isEmpty() && !m_newbookpath.isEmpty()) {
 			    QString new_href = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
+			    if (new_href.isEmpty()) new_href = destfile;
 			    new_href = Utility::URLEncodePath(new_href);
                             // Replace the old url with the new one
                             fragment.replace(frag_mo.capturedStart(j), frag_mo.capturedLength(j), new_href);

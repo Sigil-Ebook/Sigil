@@ -836,6 +836,9 @@ std::string GumboInterface::update_attribute_value(const std::string &attvalue)
     if (!dest_newbkpath.isEmpty() && !m_newbookpath.isEmpty()) {
         QString new_href = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
         new_href += fragment;
+        // if empty then internal link to the top
+	if (new_href.isEmpty()) new_href = QFileInfo(dest_newbkpath).fileName();
+	// if (new_href.isEmpty()) new_href="#";
         new_href = Utility::URLEncodePath(new_href);
         result =  new_href.toStdString();
     } 
@@ -868,6 +871,7 @@ std::string GumboInterface::update_style_urls(const std::string &source)
 	    QString dest_newbkpath = m_sourceupdates.value(dest_oldbkpath,"");
 	    if (!dest_newbkpath.isEmpty() && !m_newbookpath.isEmpty()) {
 		QString new_href = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
+		if (new_href.isEmpty()) new_href = QFileInfo(dest_newbkpath).fileName();
 		new_href = Utility::URLEncodePath(new_href);
                 result.replace(mo.capturedStart(i), mo.capturedLength(i), new_href);
             }
