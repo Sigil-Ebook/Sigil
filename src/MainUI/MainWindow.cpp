@@ -307,7 +307,7 @@ void MainWindow::loadPluginsMenu()
     updateToolTipsOnPluginIcons();
 
     QStringList keys = plugins.keys();
-    keys.sort();
+    keys.sort(Qt::CaseInsensitive);
     m_pluginList = keys;
 
     foreach(QString key, keys) {
