@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -158,8 +159,8 @@ public:
     Resource *GetResourceByFilename(const QString &filename) const;
 
     // this is O(n) but no filesystem is queried
-    // @throws ResourceDoesNotExist if the SegmentID is not found.
-    Resource *GetResourceBySegmentID(const QString &segmentid) const;
+    // @throws ResourceDoesNotExist if the ShortPathName is not found.
+    Resource *GetResourceByShortPathName(const QString &shortpathname) const;
 
     // this is O(1) as is held in a QHash m_Path2Resource
     // @throws ResourceDoesNotExist if bookpath is not found.

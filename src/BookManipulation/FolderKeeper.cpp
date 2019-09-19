@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2017-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -334,14 +334,14 @@ Resource *FolderKeeper::GetResourceByFilename(const QString &filename) const
 }
 
 
-Resource *FolderKeeper::GetResourceBySegmentID(const QString &segmentid) const
+Resource *FolderKeeper::GetResourceByShortPathName(const QString &shortpathname) const
 {
     foreach(Resource *resource, m_Resources.values()) {
-        if (resource->SegmentID() == segmentid) {
+        if (resource->ShortPathName() == shortpathname) {
             return resource;
         }
     }
-    throw(ResourceDoesNotExist(segmentid.toStdString()));
+    throw(ResourceDoesNotExist(shortpathname.toStdString()));
 }
 
 // a Book path is the path from the m_MainFolder to that file

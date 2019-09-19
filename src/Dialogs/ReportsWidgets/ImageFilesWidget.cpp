@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2018 - 2019 Kevin Hendricks, Statford, ON 
-**  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2015-2019 Kevin Hendricks, Statford, ON 
+**  Copyright (C) 2012      Dave Heiland
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -113,7 +113,7 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QList<QStandardItem *> rowItems;
         // Filename
         QStandardItem *name_item = new QStandardItem();
-        name_item->setText(resource->SegmentID());
+        name_item->setText(resource->ShortPathName());
         name_item->setToolTip(filepath);
         name_item->setData(filepath);
         rowItems << name_item;

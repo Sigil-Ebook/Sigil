@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2017-2019 Kevin B, Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2019 Kevin B, Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -152,7 +152,7 @@ void SelectFiles::SetImages()
         QList<QStandardItem *> rowItems;
         QStandardItem *name_item = new QStandardItem();
         name_item->setText(filepath);
-        name_item->setToolTip(resource->SegmentID());
+        name_item->setToolTip(resource->ShortPathName());
         name_item->setData(static_cast<int>(type), Qt::UserRole);
         name_item->setData(resource->GetFullPath(), Qt::UserRole + 1);
         name_item->setEditable(false);

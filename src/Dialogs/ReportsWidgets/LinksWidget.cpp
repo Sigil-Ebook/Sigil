@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2013 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2013 Dave Heiland
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2013      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -102,14 +102,14 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     foreach(Resource *resource, m_HTMLResources) {
         QString filepath = resource->GetRelativePath();
         QString path = resource->GetFullPath();
-        QString file_segid = resource->SegmentID();
+        QString file_spname = resource->ShortPathName();
 
         foreach(XhtmlDoc::XMLElement element, links[filepath]) {
             QList<QStandardItem *> rowItems;
 
             // Source file
             QStandardItem *item = new QStandardItem();
-            QString source_file = file_segid;
+            QString source_file = file_spname;
             item->setText(source_file);
             item->setToolTip(filepath);
             rowItems << item;
@@ -290,9 +290,9 @@ void LinksWidget::DoubleClick()
     if (index.row() != m_ItemModel->rowCount() - 1) {
         // IMPORTANT:  file name is in column 0, and line number is in column 1
         // This should match order of header above
-        QString file_segid = m_ItemModel->item(index.row(), 0)->text();
+        QString file_spname = m_ItemModel->item(index.row(), 0)->text();
         QString lineno = m_ItemModel->item(index.row(), 1)->text();
-        emit OpenFileRequest(file_segid, lineno.toInt());
+        emit OpenFileRequest(file_spname, lineno.toInt());
     }
 }
 

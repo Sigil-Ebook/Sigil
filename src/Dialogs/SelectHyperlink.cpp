@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -81,7 +81,7 @@ void SelectHyperlink::AddEntry(Resource *resource)
         return;
     }
 
-    QString filename = resource->SegmentID();
+    QString filename = resource->ShortPathName();
     QString bkpath = resource->GetRelativePath();
     QStringList ids = QStringList() << "" << m_IDNames[bkpath];
     foreach(QString id, ids) {
@@ -148,7 +148,7 @@ void SelectHyperlink::SelectText(QString &text)
         QString target = text;
 
         if (target.startsWith("#") && m_CurrentHTMLResource) {
-            target = m_CurrentHTMLResource->SegmentID() + text;
+	  target = m_CurrentHTMLResource->ShortPathName() + text;
         }
 
         for (int row = 0; row < root_item->rowCount(); row++) {

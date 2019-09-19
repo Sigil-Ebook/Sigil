@@ -940,7 +940,7 @@ QHash<QString, QStringList> Book::GetHTMLFilesUsingImages()
         foreach(QString media_filename, media_filenames) {
 	    Resource * resource = GetFolderKeeper()->GetResourceByBookPath(html_bookpath);
             media_filename = Utility::buildBookPath(media_filename, resource->GetFolder());
-            html_files[media_filename].append(resource->SegmentID());
+            html_files[media_filename].append(resource->ShortPathName());
         }
     }
 

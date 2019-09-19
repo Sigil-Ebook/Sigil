@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2019 Doug Massay
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2019      Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -1682,9 +1682,9 @@ void MainWindow::ReportsDialog()
     m_Reports->activateWindow();
 }
 
-void MainWindow::OpenFile(QString file_segmentid, int line)
+void MainWindow::OpenFile(QString file_shortpathname, int line)
 {
-    if (file_segmentid.isEmpty()) {
+    if (file_shortpathname.isEmpty()) {
         return;
     }
 
@@ -1693,7 +1693,7 @@ void MainWindow::OpenFile(QString file_segmentid, int line)
     }
 
     try {
-        Resource *resource = m_Book->GetFolderKeeper()->GetResourceBySegmentID(file_segmentid);
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByShortPathName(file_shortpathname);
         OpenResource(resource, line);
     } catch (ResourceDoesNotExist) {
         //
@@ -2364,7 +2364,7 @@ void MainWindow::LinkStylesheetsToResources(QList <Resource *> resources)
             continue;
         }
         if (!h->FileIsWellFormed()) {
-            QMessageBox::warning(this, tr("Sigil"), tr("Link Stylesheets cancelled: %1, XML not well formed.").arg(h->SegmentID()));
+            QMessageBox::warning(this, tr("Sigil"), tr("Link Stylesheets cancelled: %1, XML not well formed.").arg(h->ShortPathName()));
             return;
         }
     }

@@ -102,7 +102,7 @@ public:
 
     QString GetRelativePath() const;
 
-    QString SegmentID() const;
+    QString ShortPathName() const;
 
     QString GetRelativePathFromResource(const Resource* start_resource) const;
 

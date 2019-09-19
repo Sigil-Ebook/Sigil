@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2018, 2019 Kevin B. Hendricks, Stratford, ON
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -100,7 +100,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     foreach(HTMLResource *html_resource, m_HTMLResources) {
       QString filepath = "../" + html_resource->GetRelativePath();
         QString path = html_resource->GetFullPath();
-        QString filename = html_resource->SegmentID();
+        QString filename = html_resource->ShortPathName();
         QList<QStandardItem *> rowItems;
         // Filename
         QStandardItem *name_item = new QStandardItem();
