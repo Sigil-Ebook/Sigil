@@ -215,11 +215,13 @@ QHash<QString, QString> ImportHTML::LoadFolderStructure(const QString &source)
 }
 
 
+// note file_paths here are hrefs to media files from the html file being imported 
+// that should be imported as well
+
 QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_paths)
 {
     QHash<QString, QString> updates;
     QDir folder(QFileInfo(m_FullFilePath).absoluteDir());
-    QStringList current_filenames = m_Book->GetFolderKeeper()->GetAllFilenames();
     // Load the media files (images, video, audio) into the book and
     // update all references with new urls
     foreach(QString file_path, file_paths) {
@@ -227,9 +229,10 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
             QString filename = QFileInfo(file_path).fileName();
             QString fullfilepath  = QFileInfo(folder, file_path).absoluteFilePath();
             QString newpath;
+            QString existing_book_path = m_Book->GetFolderKeeper()->GetBookPathByPathEnd(filename);
 
-            if (m_IgnoreDuplicates && current_filenames.contains(filename)) {
-                newpath = m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePath();
+            if (m_IgnoreDuplicates && !existing_book_path.isEmpty()) {
+	        newpath = newpath = existing_book_path;
             } else {
                 Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath);
                 newpath = resource->GetRelativePath();
@@ -251,15 +254,15 @@ QHash<QString, QString> ImportHTML::LoadStyleFiles(const QStringList & file_path
 {
     QHash<QString, QString> updates;
     QDir folder(QFileInfo(m_FullFilePath).absoluteDir());
-    QStringList current_filenames = m_Book->GetFolderKeeper()->GetAllFilenames();
     foreach(QString file_path, file_paths) {
         try {
             QString filename = QFileInfo(file_path).fileName();
             QString fullfilepath  = QFileInfo(folder, file_path).absoluteFilePath();
             QString newpath;
+	    QString existing_book_path = m_Book->GetFolderKeeper()->GetBookPathByPathEnd(filename);
 
-            if (m_IgnoreDuplicates && current_filenames.contains(filename)) {
-                newpath = m_Book->GetFolderKeeper()->GetResourceByFilename(filename)->GetRelativePath();
+            if (m_IgnoreDuplicates && !existing_book_path.isEmpty()) {
+	        newpath = existing_book_path;
             } else {
                 Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath);
                 newpath = resource->GetRelativePath();

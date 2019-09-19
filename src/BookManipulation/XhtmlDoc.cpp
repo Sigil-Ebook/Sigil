@@ -542,6 +542,7 @@ GumboNode *XhtmlDoc::GetAncestorIDElement(GumboInterface &gi, GumboNode *node)
 }
 
 
+// the returned media paths are the href attribute values url decoded
 QStringList XhtmlDoc::GetPathsToMediaFiles(const QString &source)
 {
   QList<GumboTag> tags = QList<GumboTag>() << GIMAGE_TAGS << GVIDEO_TAGS << GAUDIO_TAGS;

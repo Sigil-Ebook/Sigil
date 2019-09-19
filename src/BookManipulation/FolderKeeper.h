@@ -166,6 +166,9 @@ public:
     // @throws ResourceDoesNotExist if bookpath is not found.
     Resource *GetResourceByBookPath(const QString &bookpath) const;
 
+    // this is O(n) but no filesystem is queried
+    QString GetBookPathByPathEnd(const QString& path_end) const;
+    
     /**
      * Returns the book's OPF file.
      *

@@ -344,6 +344,20 @@ Resource *FolderKeeper::GetResourceByShortPathName(const QString &shortpathname)
     throw(ResourceDoesNotExist(shortpathname.toStdString()));
 }
 
+// Not guaranteed to be unique or to be found
+// if not found returns an empty string
+QString FolderKeeper::GetBookPathByPathEnd(const QString& path_end) const
+{
+    foreach(Resource *resource, m_Resources.values()) {
+        QString bookpath = resource->GetRelativePath();
+        if (bookpath.endsWith(path_end)) {
+            return bookpath ;
+        }
+    }
+    return "";
+}
+
+
 // a Book path is the path from the m_MainFolder to that file
 Resource *FolderKeeper::GetResourceByBookPath(const QString &bookpath) const
 {
