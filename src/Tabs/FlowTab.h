@@ -147,6 +147,8 @@ public:
 
     QString GetFilename();
 
+    QString GetShortPathName();
+
     bool BoldChecked();
     bool ItalicChecked();
     bool UnderlineChecked();

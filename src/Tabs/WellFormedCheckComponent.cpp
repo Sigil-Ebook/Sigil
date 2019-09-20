@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -105,7 +106,7 @@ void WellFormedCheckComponent::DisplayErrorMessage()
                                QString::number(m_LastError.line) :
                                "N/A";
     QString full_message = m_Message
-                           .arg(m_Content->GetFilename(), error_line, m_LastError.message);
+                           .arg(m_Content->GetShortPathName(), error_line, m_LastError.message);
 
     m_AutoFixButton->setVisible(true);
     full_message.append(m_AutoFixMessage);

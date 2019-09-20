@@ -615,6 +615,11 @@ QString FlowTab::GetFilename()
     return ContentTab::GetFilename();
 }
 
+QString FlowTab::GetShortPathName()
+{
+    return ContentTab::GetShortPathName();
+}
+
 bool FlowTab::IsDataWellFormed()
 {
     // The content has been changed or was in a not well formed state when last checked.

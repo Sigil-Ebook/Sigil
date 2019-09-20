@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -51,6 +51,12 @@ ContentTab::~ContentTab()
 QString ContentTab::GetFilename()
 {
     return m_Resource->Filename();
+}
+
+
+QString ContentTab::GetShortPathName()
+{
+    return m_Resource->ShortPathName();
 }
 
 

@@ -65,6 +65,8 @@ public:
      */
     QString GetFilename();
 
+    QString GetShortPathName();
+
     /**
      * Returns the icon appropriate for the displayed resource.
      *

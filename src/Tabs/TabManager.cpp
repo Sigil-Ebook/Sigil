@@ -248,7 +248,7 @@ void TabManager::OpenResource(Resource *resource,
         AddNewContentTab(new_tab, precede_current_tab);
         emit ShowStatusMessageRequest("");
     } else {
-        QString message = tr("Cannot edit file") + ": " + resource->Filename();
+        QString message = tr("Cannot edit file") + ": " + resource->ShortPathName();
         emit ShowStatusMessageRequest(message);
     }
 
@@ -375,7 +375,7 @@ void TabManager::CloseTab(int tab_index, bool force)
 void TabManager::UpdateTabName(ContentTab *renamed_tab)
 {
     Q_ASSERT(renamed_tab);
-    setTabText(indexOf(renamed_tab), renamed_tab->GetFilename());
+    setTabText(indexOf(renamed_tab), renamed_tab->GetShortPathName());
 }
 
 void TabManager::SetFocusInTab()
@@ -586,9 +586,9 @@ bool TabManager::AddNewContentTab(ContentTab *new_tab, bool precede_current_tab)
         // This is still broken in Qt 5.12.2 
         // elided text is wrong when icon image present (hides most of elided text)
         // icon image still overlaps with name of tab if ElideNone is used
-        idx = addTab(new_tab, new_tab->GetFilename());
+        idx = addTab(new_tab, new_tab->GetShortPathName());
 #else
-        idx = addTab(new_tab, new_tab->GetIcon(), new_tab->GetFilename());
+        idx = addTab(new_tab, new_tab->GetIcon(), new_tab->GetShortPathName());
 #endif
 
         setCurrentWidget(new_tab);
@@ -600,13 +600,13 @@ bool TabManager::AddNewContentTab(ContentTab *new_tab, bool precede_current_tab)
         // This is still broken in Qt 5.12.2
         // elided text is wrong when icon image present image (hides most of elided text)
         // icon image still overlaps with name of tab if ElideNone is used
-        idx = insertTab(currentIndex(), new_tab, new_tab->GetFilename());
+        idx = insertTab(currentIndex(), new_tab, new_tab->GetShortPathName());
 #else
-        idx = insertTab(currentIndex(), new_tab, new_tab->GetIcon(), new_tab->GetFilename());
+        idx = insertTab(currentIndex(), new_tab, new_tab->GetIcon(), new_tab->GetShortPathName());
 #endif
 
     }
-    setTabToolTip(idx, new_tab->GetFilename());
+    setTabToolTip(idx, new_tab->GetShortPathName());
 
     connect(new_tab, SIGNAL(DeleteMe(ContentTab *)), this, SLOT(DeleteTab(ContentTab *)));
     connect(new_tab, SIGNAL(TabRenamed(ContentTab *)), this, SLOT(UpdateTabName(ContentTab *)));
