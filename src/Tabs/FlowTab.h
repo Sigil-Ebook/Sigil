@@ -252,6 +252,8 @@ public slots:
     void HighlightWord(QString word, int pos);
     void RefreshSpellingHighlighting();
 
+    void HandleViewImage(const QUrl &url);
+
 signals:
 
     void SelectionChanged();

@@ -36,6 +36,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/Resource.h"
 
 static const QString SETTINGS_GROUP = "reports";
 static const QString DEFAULT_REPORT_FILE = "HTMLFilesReport.csv";

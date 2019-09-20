@@ -346,11 +346,12 @@ Resource *FolderKeeper::GetResourceByShortPathName(const QString &shortpathname)
 
 // Not guaranteed to be unique or to be found
 // if not found returns an empty string
+// uses a case insensitive match since can be used on case insensitive file systems
 QString FolderKeeper::GetBookPathByPathEnd(const QString& path_end) const
 {
     foreach(Resource *resource, m_Resources.values()) {
         QString bookpath = resource->GetRelativePath();
-        if (bookpath.endsWith(path_end)) {
+        if (bookpath.endsWith(path_end, Qt::CaseInsensitive)) {
             return bookpath ;
         }
     }

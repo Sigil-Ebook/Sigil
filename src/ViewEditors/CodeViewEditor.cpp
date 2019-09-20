@@ -1,11 +1,11 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Doug Massay
-**  Copyright (C) 2015 - 2019 Kevin B. Hendricks Stratford, ON Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012, 2013 Dave Heiland
-**  Copyright (C) 2012 Grant Drake
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>, Nokia Corporation
+**  Copyright (C) 2019      Doug Massay
+**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012-2013 Dave Heiland
+**  Copyright (C) 2012      Grant Drake
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>, Nokia Corporation
 **
 **  This file is part of Sigil.
 **
@@ -1582,6 +1582,7 @@ void CodeViewEditor::GoToLinkOrStyle()
             emit LinkClicked(QUrl(url_name));
         }
     } else if (IsPositionInOpeningTag()) {
+        qDebug() << "we are here";
         GoToStyleDefinition();
     } else {
         emit ShowStatusMessageRequest(tr("You must be in an opening HTML tag to use this feature."));

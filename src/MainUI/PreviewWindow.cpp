@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin Hendricks, Doug Massay
-**  Copyright (C) 2012 Dave Heiland, John Schember
+**  Copyright (C) 2015-2019 Kevin Hendricks, Doug Massay
+**  Copyright (C) 2012      Dave Heiland, John Schember
 **
 **  This file is part of Sigil.
 **
@@ -362,7 +362,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 
 void PreviewWindow::LinkClicked(const QUrl &url)
 {
-    DBG qDebug() << "in PreviewWindow LinkClicked with url :" << url.toString();
+    qDebug() << "in PreviewWindow LinkClicked with url :" << url.toString();
 
     if (url.toString().isEmpty()) {
         return;

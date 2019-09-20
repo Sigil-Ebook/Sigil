@@ -234,18 +234,26 @@ void BookBrowser::RenumberTOC()
 
 Resource *BookBrowser::GetUrlResource(const QUrl &url)
 {
-    const QString &filename = QFileInfo(url.path()).fileName();
-
-    try {
-        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
-        return resource;
-    } catch (ResourceDoesNotExist) {
-        Utility::DisplayStdErrorDialog(tr("The file \"%1\" does not exist.").arg(filename));
+    QString bookpath;
+    if (url.scheme() == "book") {
+        // handle our own internal links (strip root / from absolute path to make it relative)
+        bookpath = url.path().remove(0,1);
+    } else if (url.scheme() == "file") {
+        QString fullfilepath = url.toLocalFile();
+        QString main_folder_path = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
+        // Note main_folder_path *never* ends with a path separator - see Misc/TempFolder.cpp
+        bookpath = fullfilepath.right(fullfilepath.length() - main_folder_path.length() - 1);
     }
-
+    if (!bookpath.isEmpty()) {
+        try {
+            Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
+            return resource;
+        } catch (ResourceDoesNotExist) {
+            Utility::DisplayStdErrorDialog(tr("The file \"%1\" does not exist.").arg(bookpath));
+        }
+    }
     return NULL;
 }
-
 
 void BookBrowser::EmitResourceActivated(const QModelIndex &index)
 {
@@ -572,7 +580,6 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
     }
 
     m_LastFolderOpen = QFileInfo(filepaths.first()).absolutePath();
-    QStringList current_filenames = m_Book->GetFolderKeeper()->GetAllFilenames();
     QStringList invalid_filenames;
     HTMLResource *current_html_resource = qobject_cast<HTMLResource *>(GetCurrentResource());
     Resource *open_resource = NULL;
@@ -614,8 +621,9 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
 
         QString filename = QFileInfo(filepath).fileName();
 	bool CoverImageSemanticsSet = false;
+	QString existing_book_path = m_Book->GetFolderKeeper()->GetBookPathByPathEnd(filename);
 
-        if (current_filenames.contains(filename, Qt::CaseInsensitive )) {
+        if (!existing_book_path.isEmpty()) {
             // If this is an image prompt to replace it.
             if (IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
                 SVG_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
@@ -631,7 +639,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
                 }
 
                 try {
-                    Resource *old_resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+                    Resource *old_resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(existing_book_path);
 		    ImageResource* image_resource = qobject_cast<ImageResource *>(old_resource);
 		    if (image_resource) {
 		        CoverImageSemanticsSet = m_Book->GetOPF()->IsCoverImage(image_resource);

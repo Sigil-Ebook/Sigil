@@ -532,7 +532,7 @@ void MainWindow::ResetLinkOrStyleBookmark()
 
 void MainWindow::ResetLocationBookmark(MainWindow::LocationBookmark *locationBookmark)
 {
-    locationBookmark->filename.clear();
+    locationBookmark->bookpath.clear();
     ui.actionGoBackFromLinkOrStyle->setEnabled(false);
 }
 
@@ -544,12 +544,12 @@ void MainWindow::GoBackFromLinkOrStyle()
 
 void MainWindow::GoToBookmark(MainWindow::LocationBookmark *locationBookmark)
 {
-    if (locationBookmark->filename.isEmpty()) {
+    if (locationBookmark->bookpath.isEmpty()) {
         return;
     }
 
     try {
-        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(locationBookmark->filename);
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(locationBookmark->bookpath);
         OpenResource(resource, -1, locationBookmark->cv_cursor_position, locationBookmark->bv_caret_location_update);
         ShowMessageOnStatusBar();
     } catch (ResourceDoesNotExist) {
@@ -584,10 +584,10 @@ void MainWindow::BookmarkLinkOrStyleLocation()
     }
 
     Resource *current_resource = tab->GetLoadedResource();
-    m_LinkOrStyleBookmark->filename = current_resource->Filename();
+    m_LinkOrStyleBookmark->bookpath = current_resource->GetRelativePath();
     m_LinkOrStyleBookmark->cv_cursor_position = tab->GetCursorPosition();
     m_LinkOrStyleBookmark->bv_caret_location_update = tab->GetCaretLocationUpdate();
-    ui.actionGoBackFromLinkOrStyle->setEnabled(!m_LinkOrStyleBookmark->filename.isEmpty());
+    ui.actionGoBackFromLinkOrStyle->setEnabled(!m_LinkOrStyleBookmark->bookpath.isEmpty());
 }
 
 void MainWindow::ScrollCVToFragment(const QString &fragment)
@@ -616,7 +616,8 @@ void MainWindow::OpenUrl(const QUrl &url)
 
     BookmarkLinkOrStyleLocation();
 
-    if (url.scheme().isEmpty() || url.scheme() == "file") {
+    // note: TabManager generates book: urls and PreviewWindow generates file: urls
+    if (url.scheme() == "book" || url.scheme() == "file") {
         Resource *resource = m_BookBrowser->GetUrlResource(url);
 
         if (resource == NULL) {
@@ -1068,21 +1069,21 @@ void MainWindow::GoToLine()
 
 void MainWindow::ViewImageDialog(const QUrl &url)
 {
+    if (url.scheme() != "book") return;
+
     // non-modal dialog
     m_ViewImage->show();
     m_ViewImage->raise();
     m_ViewImage->activateWindow();
 
-    QString image_path = url.toString();
-    QString filename = QFileInfo(image_path).fileName();
-
+    QString image_bookpath = url.path().remove(0,1);
     try {
-        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(image_bookpath);
         if (resource->Type() == Resource::ImageResourceType || resource->Type() == Resource::SVGResourceType) {
             m_ViewImage->ShowImage(resource->GetFullPath());
         }
     } catch (ResourceDoesNotExist) {
-        QMessageBox::warning(this, tr("Sigil"), tr("Image does not exist: ") + image_path);
+        QMessageBox::warning(this, tr("Sigil"), tr("Image does not exist: ") + image_bookpath);
     }
 }
 
@@ -1700,7 +1701,7 @@ void MainWindow::OpenFile(QString file_shortpathname, int line)
     }
 }
 
-
+// note the files_to_delete is a list of Resource ShortPathNames
 void MainWindow::DeleteFilenames(QStringList files_to_delete)
 {
     if (files_to_delete.count() <= 0) {
@@ -1708,9 +1709,9 @@ void MainWindow::DeleteFilenames(QStringList files_to_delete)
     }
 
     QList <Resource *> resources;
-    foreach(QString filename, files_to_delete) {
+    foreach(QString file_spname, files_to_delete) {
         try {
-            Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+            Resource *resource = m_Book->GetFolderKeeper()->GetResourceByShortPathName(file_spname);
             resources.append(resource);
         } catch (ResourceDoesNotExist) {
             continue;
@@ -4158,12 +4159,10 @@ float MainWindow::SliderRangeToZoomFactor(int slider_range_value)
     }
 }
 
-void MainWindow::SetInsertedFileWatchResourceFile(const QString &pathname)
+void MainWindow::SetInsertedFileWatchResourceFile(const QString &bookpath)
 {
-    QString filename = QFileInfo(pathname).fileName();
-
     try {
-        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
         m_Book->GetFolderKeeper()->WatchResourceFile(resource);
     } catch (ResourceDoesNotExist) {
         // nothing

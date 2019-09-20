@@ -154,7 +154,7 @@ public:
      * The location of the last bookmark.
      */
     struct LocationBookmark {
-        QString filename;
+        QString bookpath;
         QString bv_caret_location_update;
         int cv_cursor_position;
     };

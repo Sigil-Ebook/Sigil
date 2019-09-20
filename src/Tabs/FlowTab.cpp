@@ -248,6 +248,27 @@ void FlowTab::ResourceModified()
     EmitUpdatePreview();
 }
 
+void FlowTab::HandleViewImage(const QUrl &url) 
+{
+    QString url_string = url.toString();
+
+    if (url_string.isEmpty()) {
+      return;
+    }
+    if (url_string.indexOf(':') != -1) return;
+
+    // we have a relative url, so build an internal
+    // book: scheme url book:///bookpath#fragment
+    QString attpath = Utility::URLDecodePath(url_string);
+    QString dest_bookpath;
+    if (attpath.isEmpty()) return;
+
+    QString startdir = m_HTMLResource->GetFolder();
+    dest_bookpath = Utility::buildBookPath(attpath, startdir);
+    url_string = "book:///" + dest_bookpath;
+    emit ViewImageRequest(QUrl(url_string));
+}
+
 void FlowTab::LinkedResourceModified()
 {
     // MainWindow::clearMemoryCaches();
@@ -1131,7 +1152,7 @@ void FlowTab::ConnectCodeViewSignalsToSlots()
     connect(m_wCodeView, SIGNAL(selectionChanged()), this, SIGNAL(SelectionChanged()));
     connect(m_wCodeView, SIGNAL(FocusLost(QWidget *)), this, SLOT(LeaveEditor(QWidget *)));
     connect(m_wCodeView, SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
-    connect(m_wCodeView, SIGNAL(ViewImage(const QUrl &)), this, SIGNAL(ViewImageRequest(const QUrl &)));
+    connect(m_wCodeView, SIGNAL(ViewImage(const QUrl &)), this, SLOT(HandleViewImage(const QUrl &)));
     connect(m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
     connect(m_wCodeView, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)), this, SIGNAL(OpenIndexEditorRequest(IndexEditorModel::indexEntry *)));
     connect(m_wCodeView, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString &, const QString &)), this, SIGNAL(GoToLinkedStyleDefinitionRequest(const QString &, const QString &)));
