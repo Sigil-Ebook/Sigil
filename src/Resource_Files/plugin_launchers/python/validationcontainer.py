@@ -41,14 +41,14 @@ class ValidationContainer(OutputContainer):
         self.results = []
         super(ValidationContainer, self).__init__(wrapper, debug)
 
-    def add_result(self, restype, filename, linenumber, message):
+    def add_result(self, restype, bookpath, linenumber, message):
         if isinstance(linenumber, int):
             linenumber = "%d" % linenumber
-        self.results.append(ValidationResult(restype, filename, linenumber, "-1", message))
+        self.results.append(ValidationResult(restype, bookpath, linenumber, "-1", message))
 
-    def add_extended_result(self, restype, filename, linenumber, charoffset, message):
+    def add_extended_result(self, restype, bookpath, linenumber, charoffset, message):
         if isinstance(linenumber, int):
             linenumber = "%d" % linenumber
         if isinstance(charoffset, int):
             charoffset = "%d" % charoffset
-        self.results.append(ValidationResult(restype, filename, linenumber, charoffset, message))
+        self.results.append(ValidationResult(restype, bookpath, linenumber, charoffset, message))

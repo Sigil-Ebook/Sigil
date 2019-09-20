@@ -178,7 +178,7 @@ TOCModel::TOCEntry NCXWriter::ConvertHeadingWalker(const Headings::Heading &head
     if (heading.include_in_toc) {
         toc_child.text = heading.text;
         
-        QString heading_file = heading.resource_file->GetRelativePathFromResource(m_ncxresource);
+        QString heading_file = heading.resource_file->GetRelativePath();
         QString id_to_use = heading.id;
 
         // If this heading appears right after a section break,
@@ -199,7 +199,9 @@ TOCModel::TOCEntry NCXWriter::ConvertHeadingWalker(const Headings::Heading &head
 }
 
 
-
+// Note TOCModel::TOCEntry target is now a book path with a possible fragment added
+// This allows mixing targets created from the Nav and the NCX to both be properly
+// represented in a TOCEntry since they are properly converted to book paths
 void NCXWriter::WriteNavPoint(const TOCModel::TOCEntry &entry, int &play_order)
 {
     m_Writer->writeStartElement("navPoint");
@@ -211,7 +213,8 @@ void NCXWriter::WriteNavPoint(const TOCModel::TOCEntry &entry, int &play_order)
     m_Writer->writeTextElement("text", entry.text.simplified());
     m_Writer->writeEndElement();
     m_Writer->writeEmptyElement("content");
-    m_Writer->writeAttribute("src", entry.target);
+    QString srctarget = ConvertBookPathToNCXRelative(entry.target);
+    m_Writer->writeAttribute("src", srctarget);
     foreach(TOCModel::TOCEntry child, entry.children) {
         WriteNavPoint(child, play_order);
     }
@@ -242,4 +245,20 @@ void NCXWriter::TOCDepthWalker(const TOCModel::TOCEntry &entry , int &current_de
         int new_current_depth = current_depth;
         TOCDepthWalker(child_entry, new_current_depth, max_depth);
     }
+}
+
+
+QString NCXWriter::ConvertBookPathToNCXRelative(const QString & bookpath) 
+{
+    QString ncx_bkpath = m_ncxresource->GetRelativePath();
+    // split off any fragment added to bookpath destination
+    QStringList pieces = bookpath.split('#', QString::KeepEmptyParts);
+    QString dest_bkpath = pieces.at(0);
+    QString fragment = "";
+    if (pieces.size() > 1) fragment = pieces.at(1);
+    QString new_href = Utility::buildRelativePath(ncx_bkpath, dest_bkpath);
+    if (!fragment.isEmpty()) {
+        new_href = new_href + "#" + fragment;
+    }
+    return new_href;
 }

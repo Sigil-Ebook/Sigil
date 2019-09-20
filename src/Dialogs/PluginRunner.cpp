@@ -624,7 +624,7 @@ bool PluginRunner::processResultXML()
                     vcharoffset = -1;
                 }
 
-                m_validationResults.append(ValidationResult(vtype, attr.value("filename").toString(), vlinenumber, vcharoffset, attr.value("message").toString()));
+                m_validationResults.append(ValidationResult(vtype, attr.value("bookpath").toString(), vlinenumber, vcharoffset, attr.value("message").toString()));
             }
         }
     }

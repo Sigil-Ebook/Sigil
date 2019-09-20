@@ -739,6 +739,7 @@ QList<NavTOCEntry> NavProcessor::AddEditTOCEntry(TOCModel::TOCEntry & entry, int
 QString NavProcessor::ConvertHREFToBookPath(const QString & nav_rel_href) 
 {
     QString bookpath;
+    if (nav_rel_href.indexOf(":") != -1) return nav_rel_href;
     // split off any fragment
     QStringList pieces = nav_rel_href.split('#', QString::KeepEmptyParts);
     QString basepath = pieces.at(0);

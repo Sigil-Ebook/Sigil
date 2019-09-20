@@ -322,18 +322,6 @@ Resource *FolderKeeper::GetResourceByIdentifier(const QString &identifier) const
     return m_Resources[ identifier ];
 }
 
-
-Resource *FolderKeeper::GetResourceByFilename(const QString &filename) const
-{
-    foreach(Resource *resource, m_Resources.values()) {
-        if (resource->Filename() == filename) {
-            return resource;
-        }
-    }
-    throw(ResourceDoesNotExist(filename.toStdString()));
-}
-
-
 Resource *FolderKeeper::GetResourceByShortPathName(const QString &shortpathname) const
 {
     foreach(Resource *resource, m_Resources.values()) {

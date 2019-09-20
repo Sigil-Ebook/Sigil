@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2014 John Schember <john@nachtimwald.com> 
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2014      John Schember <john@nachtimwald.com> 
 **
 **  This file is part of Sigil.
 **
@@ -23,19 +24,19 @@
 
 #include "Misc/ValidationResult.h"
 
-ValidationResult::ValidationResult(ValidationResult::ResType type, const QString &filename, int linenumber, const QString &message)
+ValidationResult::ValidationResult(ValidationResult::ResType type, const QString &bookpath, int linenumber, const QString &message)
 {
     m_type       = type;
-    m_filename   = filename;
+    m_bookpath   = bookpath;
     m_linenumber = linenumber;
     m_charoffset = -1;
     m_message    = message;
 }
 
-ValidationResult::ValidationResult(ValidationResult::ResType type, const QString &filename, int linenumber, int charoffset, const QString &message)
+ValidationResult::ValidationResult(ValidationResult::ResType type, const QString &bookpath, int linenumber, int charoffset, const QString &message)
 {
     m_type       = type;
-    m_filename   = filename;
+    m_bookpath   = bookpath;
     m_linenumber = linenumber;
     m_charoffset = charoffset;
     m_message    = message;
@@ -50,9 +51,9 @@ ValidationResult::ResType ValidationResult::Type()
 	return m_type;
 }
 
-QString ValidationResult::Filename()
+QString ValidationResult::BookPath()
 {
-	return m_filename;
+	return m_bookpath;
 }
 
 int ValidationResult::LineNumber()

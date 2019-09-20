@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019      Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -103,6 +103,7 @@ private:
 
     TOCModel::TOCEntry ConvertHeadingWalker(const Headings::Heading &heading);
 
+    QString ConvertBookPathToNCXRelative(const QString & bookpath); 
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES

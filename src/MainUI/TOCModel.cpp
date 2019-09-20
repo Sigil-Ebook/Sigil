@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019  Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -55,15 +55,15 @@ void TOCModel::SetBook(QSharedPointer<Book> book)
 }
 
 
-QUrl TOCModel::GetUrlForIndex(const QModelIndex &index)
+QString TOCModel::GetBookPathForIndex(const QModelIndex &index)
 {
     QStandardItem *item = itemFromIndex(index);
 
     if (!item) {
-        return QUrl();
+        return QString();
     }
 
-    return item->data().toUrl();
+    return item->data().toString();
 }
 
 
@@ -168,7 +168,8 @@ TOCModel::TOCEntry TOCModel::ParseNavPoint(QXmlStreamReader &ncx)
                 // Compress whitespace that pretty-print may add.
                 current.text = ncx.text().toString().simplified();
             } else if (ncx.name() == "content") {
-                current.target = Utility::URLDecodePath(ncx.attributes().value("", "src").toString());
+                QString href = Utility::URLDecodePath(ncx.attributes().value("", "src").toString());
+                current.target = ConvertHREFToBookPath(href);
             } else if (ncx.name() == "navPoint") {
                 current.children.append(ParseNavPoint(ncx));
             }
@@ -195,7 +196,7 @@ void TOCModel::AddEntryToParentItem(const TOCEntry &entry, QStandardItem *parent
 {
     Q_ASSERT(parent);
     QStandardItem *item = new QStandardItem(entry.text);
-    item->setData(QUrl(entry.target));
+    item->setData(entry.target);
     item->setToolTip(entry.target);
     item->setEditable(false);
     item->setDragEnabled(false);
@@ -204,4 +205,27 @@ void TOCModel::AddEntryToParentItem(const TOCEntry &entry, QStandardItem *parent
     foreach(const TOCModel::TOCEntry & child_entry, entry.children) {
         AddEntryToParentItem(child_entry, item);
     }
+}
+
+
+QString TOCModel::ConvertHREFToBookPath(const QString &ahref)
+{
+    QString bookpath;
+    if (ahref.indexOf(":") != -1) return ahref;
+    // split off any fragment
+    NCXResource* ncxres = m_Book->GetNCX();
+    QStringList pieces = ahref.split('#', QString::KeepEmptyParts);
+    QString basepath = pieces.at(0);
+    QString fragment = "";
+    if (pieces.size() > 1) fragment = pieces.at(1);
+    // handle special cases first                                                                                   
+    if (basepath == "./" || basepath.isEmpty()) {
+        // this link ends in the ncx itself                                                                         
+        bookpath = ncxres->GetRelativePath();
+        if (!fragment.isEmpty()) bookpath = bookpath + "#" + fragment;
+        return bookpath;
+    }
+    bookpath = Utility::buildBookPath(basepath, ncxres->GetFolder());
+    if (!fragment.isEmpty()) bookpath = bookpath + "#" + fragment;
+    return bookpath;
 }

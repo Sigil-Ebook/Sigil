@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2014 John Schember <john@nachtimwald.com> 
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2014      John Schember <john@nachtimwald.com> 
 **
 **  This file is part of Sigil.
 **
@@ -34,19 +35,19 @@ public:
     };
 
     // Use int to allow negative values to indicate if field is valid or not for linenumber and charoffset
-    ValidationResult(ValidationResult::ResType type, const QString &filename, int linenumber, const QString &message);
-    ValidationResult(ValidationResult::ResType type, const QString &filename, int linenumber, int charoffset, const QString &message);
+    ValidationResult(ValidationResult::ResType type, const QString &bookpath, int linenumber, const QString &message);
+    ValidationResult(ValidationResult::ResType type, const QString &bookpath, int linenumber, int charoffset, const QString &message);
     ~ValidationResult();
 
     ValidationResult::ResType Type();
-    QString Filename();
+    QString BookPath();
     int LineNumber();
     int CharOffset();
     QString Message();
 
 private:
     ValidationResult::ResType m_type;
-    QString m_filename;
+    QString m_bookpath;
     int m_linenumber;
     int m_charoffset;
     QString m_message;

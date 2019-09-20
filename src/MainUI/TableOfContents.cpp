@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019   Kevin B Hendricks, Stratford, Ontario Canada 
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2016-2019 Kevin B Hendricks, Stratford, Ontario Canada 
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -107,23 +107,25 @@ void TableOfContents::RenumberTOCContents()
 
 void TableOfContents::ItemClickedHandler(const QModelIndex &index)
 {
-    QUrl url         = m_TOCModel->GetUrlForIndex(index);
-    QString filename = QFileInfo(url.path()).fileName();
-
+    QString bookpath = m_TOCModel->GetBookPathForIndex(index);
+    QStringList pieces = bookpath.split('#', QString::KeepEmptyParts);
+    QString dest_bkpath = pieces.at(0);
+    QString fragment = "";
+    if (pieces.size() > 1) fragment = pieces.at(1);
     int line = -1;
 
     // If no id, go to the top of the page
-    if (url.fragment().isEmpty()) {
+    if (fragment.isEmpty()) {
         line = 1;
     }
 
     try {
-        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByFilename(filename);
-        emit OpenResourceRequest(resource, line, -1, QString(), url.fragment());
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(dest_bkpath);
+        emit OpenResourceRequest(resource, line, -1, QString(), fragment);
     } catch (ResourceDoesNotExist) {
         Utility::DisplayStdErrorDialog(
             tr("The file \"%1\" does not exist.")
-            .arg(filename)
+            .arg(dest_bkpath)
         );
     }
 }

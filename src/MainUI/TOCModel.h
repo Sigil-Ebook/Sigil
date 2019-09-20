@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2016-2019 Kevin B Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -69,7 +69,7 @@ public:
      * @param index The model index of an item.
      * @return The target URL of the item.
      */
-    QUrl GetUrlForIndex(const QModelIndex &index);
+    QString GetBookPathForIndex(const QModelIndex &index);
 
     /**
      * Forces the recreation of the model
@@ -92,8 +92,8 @@ public:
         QString text;
 
         /**
-         * The raw value of the "src" attribute, pointing to
-         * the actual target of the entry (note: there may be a fragment!).
+         * A Book Path representing the target of the src attribute
+         * (note: there may be a fragment!).
          */
         QString target;
 
@@ -147,7 +147,7 @@ private:
      * @param ncx_source The NCX source code.
      * @return The root TOCEntry.
      */
-    static TOCEntry ParseNCX(const QString &ncx_source);
+    TOCEntry ParseNCX(const QString &ncx_source);
 
     /**
      * Parses an NCX navPoint element. Calls itself recursively
@@ -156,7 +156,9 @@ private:
      * @param ncx The QXmlStreamReader reading an NCX file positioned
      *            on a navPoint element.
      */
-    static TOCEntry ParseNavPoint(QXmlStreamReader &ncx);
+    TOCEntry ParseNavPoint(QXmlStreamReader &ncx);
+
+    QString ConvertHREFToBookPath(const QString& ahref);
 
     /**
      * Builds the actual display model from the tree of TOCEntries.
@@ -169,7 +171,7 @@ private:
      * Adds the provided entry as an item child to the provided parent.
      * Calls itself recursively if the entry has children of it's own.
      */
-    static void AddEntryToParentItem(const TOCEntry &entry, QStandardItem *parent);
+    void AddEntryToParentItem(const TOCEntry &entry, QStandardItem *parent);
 
 
     ///////////////////////////////

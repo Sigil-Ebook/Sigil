@@ -145,19 +145,6 @@ public:
      */
     Resource *GetResourceByIdentifier(const QString &identifier) const;
 
-    /**
-     * Returns the resource with the given filename.
-     * @note NOTE THAT RESOURCE FILENAMES CAN CHANGE,
-     *       while identifiers don't. Also, retrieving
-     *       resources by identifier is O(1), this is O(n)
-     *       (and a \b very slow O(n) since we query the filesystem).
-     * @throws ResourceDoesNotExist if the filename is not found.
-     *
-     * @param filename The filename to search for.
-     * @return The searched-for resource.
-     */
-    Resource *GetResourceByFilename(const QString &filename) const;
-
     // this is O(n) but no filesystem is queried
     // @throws ResourceDoesNotExist if the ShortPathName is not found.
     Resource *GetResourceByShortPathName(const QString &shortpathname) const;
