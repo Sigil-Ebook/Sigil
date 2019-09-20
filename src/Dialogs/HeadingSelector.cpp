@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -660,8 +660,8 @@ void HeadingSelector::InsertHeadingIntoModel(Headings::Heading &heading, QStanda
     item_heading->setData(QVariant::fromValue(wrap));
     // Apparently using \n in the string means you don't have to replace < with &lt; or > with &gt;
     // QString html = XhtmlDoc::GetDomNodeAsString(*heading.element).remove("xmlns=\"http://www.w3.org/1999/xhtml\"");
-    // item_heading->setToolTip(heading.resource_file->Filename() + ":\n\n" + html);
-    item_heading->setToolTip(heading.resource_file->Filename() + ":\n\n");
+    // item_heading->setToolTip(heading.resource_file->ShortPathName() + ":\n\n" + html);
+    item_heading->setToolTip(heading.resource_file->ShortPathName() + ":\n\n");
     QList<QStandardItem *> items;
     items << item_heading << heading_level << heading_included_check;
     parent_item->appendRow(items);

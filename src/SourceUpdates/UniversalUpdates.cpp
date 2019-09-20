@@ -208,7 +208,7 @@ QString UniversalUpdates::UpdateOneHTMLFile(HTMLResource *html_resource,
         // It would be great if we could just let this exception bubble up,
         // but we can't since QtConcurrent doesn't let exceptions cross threads.
         // So we just leave the old source in the resource.
-        return QString(QObject::tr("Invalid HTML file: %1")).arg(html_resource->Filename());
+        return QString(QObject::tr("Invalid HTML file: %1")).arg(html_resource->ShortPathName());
     }
 }
 

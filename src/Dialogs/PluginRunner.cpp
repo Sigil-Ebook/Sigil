@@ -769,7 +769,7 @@ bool PluginRunner::deleteFiles(const QStringList &files)
             continue;
         }
         if (resource) {
-            ui.statusLbl->setText(tr("Status: deleting") + " " + resource->Filename());
+            ui.statusLbl->setText(tr("Status: deleting") + " " + resource->ShortPathName());
 
             if (tabResources.contains(resource)) {
                 m_tabManager->CloseTabForResource(resource);

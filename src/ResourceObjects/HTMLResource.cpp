@@ -139,6 +139,7 @@ QStringList HTMLResource::SplitOnSGFSectionMarkers()
 }
 
 
+// returns a list of book paths
 QStringList HTMLResource::GetPathsToLinkedResources()
 {
     QStringList linked_resources;
@@ -148,7 +149,7 @@ QStringList HTMLResource::GetPathsToLinkedResources()
     GumboInterface gi = GumboInterface(GetText(),GetEpubVersion());
     gi.parse();
     QList<GumboTag> tags;
-    tags << GUMBO_TAG_IMG << GUMBO_TAG_LINK;
+    tags << GUMBO_TAG_IMG << GUMBO_TAG_LINK << GUMBO_TAG_AUDIO << GUMBO_TAG_VIDEO;
     const QList<GumboNode*> linked_rsc_nodes = gi.get_all_nodes_with_tags(tags);
     for (int i = 0; i < linked_rsc_nodes.count(); ++i) {
         GumboNode* node = linked_rsc_nodes.at(i);
@@ -162,12 +163,18 @@ QStringList HTMLResource::GetPathsToLinkedResources()
         }
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
         if (attr) {
-            linked_resources.append(QString::fromUtf8(attr->value));
+	    QString attpath = Utility::URLDecodePath(QString::fromUtf8(attr->value));
+	    if (attpath.indexOf(":") == -1) {
+	        linked_resources.append(Utility::buildBookPath(attpath,GetFolder()));
+	    }
             continue;
         }
         attr = gumbo_get_attribute(&node->v.element.attributes, "src");
         if (attr) {
-            linked_resources.append(QString::fromUtf8(attr->value));
+	    QString attpath = Utility::URLDecodePath(QString::fromUtf8(attr->value));
+	    if (attpath.indexOf(":") == -1) {
+	        linked_resources.append(Utility::buildBookPath(attpath,GetFolder()));
+	    }
         }
     }
     return linked_resources;
@@ -176,22 +183,21 @@ QStringList HTMLResource::GetPathsToLinkedResources()
 
 void HTMLResource::TrackNewResources(const QStringList &filepaths)
 {
-    QStringList filenames;
+    QStringList bookpaths;
     QStringList linkedResourceIDs;
-    foreach(QString filepath, filepaths) {
-        filenames.append(QFileInfo(filepath).fileName());
+    foreach(QString bkpath, filepaths) {
+        bookpaths.append(bkpath);
     }
     foreach(Resource * resource, m_Resources.values()) {
         disconnect(resource, SIGNAL(ResourceUpdatedOnDisk()),    this, SIGNAL(LinkedResourceUpdated()));
         disconnect(resource, SIGNAL(Deleted(const Resource *)), this, SIGNAL(LinkedResourceUpdated()));
 
-        if (filenames.contains(resource->Filename())) {
+        if (bookpaths.contains(resource->GetRelativePath())) {
             linkedResourceIDs.append(resource->GetIdentifier());
         }
     }
     foreach(QString resource_id, linkedResourceIDs) {
         Resource *resource = m_Resources.value(resource_id);
-
         if (resource) {
             connect(resource, SIGNAL(ResourceUpdatedOnDisk()),    this, SIGNAL(LinkedResourceUpdated()));
             connect(resource, SIGNAL(Deleted(const Resource *)), this, SIGNAL(LinkedResourceUpdated()));
