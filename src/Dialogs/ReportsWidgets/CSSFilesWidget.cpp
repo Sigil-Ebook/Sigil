@@ -99,7 +99,7 @@ void CSSFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QString filepath = css_resource->GetRelativePath();
         QString path = css_resource->GetFullPath();
         QList<QStandardItem *> rowItems;
-        // Filename
+        // ShortPathName
         QStandardItem *name_item = new QStandardItem();
         name_item->setText(css_resource->ShortPathName());
         name_item->setToolTip(filepath);
@@ -204,8 +204,8 @@ void CSSFilesWidget::DoubleClick()
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
 
     if (index.row() != m_ItemModel->rowCount() - 1) {
-        QString filename = m_ItemModel->itemFromIndex(index)->text();
-        emit OpenFileRequest(filename, 1);
+        QString filespname = m_ItemModel->itemFromIndex(index)->text();
+        emit OpenFileRequest(filespname, 1);
     }
 }
 
@@ -215,7 +215,11 @@ void CSSFilesWidget::Delete()
 
     if (ui.fileTree->selectionModel()->hasSelection()) {
         foreach(QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
-            files_to_delete.append(m_ItemModel->itemFromIndex(index)->text());
+	    QString file_spname = m_ItemModel->itemFromIndex(index)->text();
+	    QString bookpath = m_Book->GetFolderKeeper()->GetBookPathByPathEnd(file_spname);
+	    if (!bookpath.isEmpty()) {
+	        files_to_delete.append(bookpath);
+	    }
         }
     }
 

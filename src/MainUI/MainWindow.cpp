@@ -1683,9 +1683,11 @@ void MainWindow::ReportsDialog()
     m_Reports->activateWindow();
 }
 
-void MainWindow::OpenFile(QString file_shortpathname, int line)
+// This routine wil accept file_path of ShortPathName() or 
+// of a book path GetRelativePath() as both are unique
+void MainWindow::OpenFile(QString file_path, int line)
 {
-    if (file_shortpathname.isEmpty()) {
+    if (file_path.isEmpty()) {
         return;
     }
 
@@ -1694,14 +1696,18 @@ void MainWindow::OpenFile(QString file_shortpathname, int line)
     }
 
     try {
-        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByShortPathName(file_shortpathname);
-        OpenResource(resource, line);
+        QString bookpath = m_Book->GetFolderKeeper()->GetBookPathByPathEnd(file_path);
+	if (!bookpath.isEmpty()) {
+            Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(file_path);
+            OpenResource(resource, line);
+	}
     } catch (ResourceDoesNotExist) {
         //
     }
 }
 
-// note the files_to_delete is a list of Resource ShortPathNames
+// note the files_to_delete is a list of Resource Book Paths
+// for safety
 void MainWindow::DeleteFilenames(QStringList files_to_delete)
 {
     if (files_to_delete.count() <= 0) {
@@ -1709,9 +1715,9 @@ void MainWindow::DeleteFilenames(QStringList files_to_delete)
     }
 
     QList <Resource *> resources;
-    foreach(QString file_spname, files_to_delete) {
+    foreach(QString file_path, files_to_delete) {
         try {
-            Resource *resource = m_Book->GetFolderKeeper()->GetResourceByShortPathName(file_spname);
+            Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(file_path);
             resources.append(resource);
         } catch (ResourceDoesNotExist) {
             continue;

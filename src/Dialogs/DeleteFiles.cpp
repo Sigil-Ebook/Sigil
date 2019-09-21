@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -25,6 +26,7 @@
 
 static const QString SETTINGS_GROUP      = "delete_files";
 
+// files_to_delete are book paths and only bookpaths for safety
 DeleteFiles::DeleteFiles(QStringList files_to_delete, QWidget *parent)
     :
     QDialog(parent),
@@ -34,16 +36,16 @@ DeleteFiles::DeleteFiles(QStringList files_to_delete, QWidget *parent)
     ConnectSignals();
     SetUpTable();
     ReadSettings();
-    foreach(QString filename, m_FilesToDelete) {
+    foreach(QString filepath, m_FilesToDelete) {
         QList<QStandardItem *> rowItems;
         // Checkbox
         QStandardItem *checkbox_item = new QStandardItem();
         checkbox_item->setCheckable(true);
         checkbox_item->setCheckState(Qt::Checked);
         rowItems << checkbox_item;
-        // Filename
+        // File Path
         QStandardItem *file_item = new QStandardItem();
-        file_item->setText(filename);
+        file_item->setText(filepath);
         rowItems << file_item;
 
         for (int i = 0; i < rowItems.count(); i++) {
@@ -83,8 +85,8 @@ void DeleteFiles::SaveFilesToDelete()
         bool checked = m_Model.itemFromIndex(m_Model.index(row, 0))->checkState() == Qt::Checked;
 
         if (!checked) {
-            QString filename  = m_Model.data(m_Model.index(row, 1)).toString();
-            m_FilesToDelete.removeOne(filename);
+            QString filepath  = m_Model.data(m_Model.index(row, 1)).toString();
+            m_FilesToDelete.removeOne(filepath);
         }
     }
 }
@@ -120,8 +122,10 @@ void DeleteFiles::WriteSettings()
 
 void DeleteFiles::DoubleClick(const QModelIndex index)
 {
-    QString filename = m_Model.item(index.row(), 1)->text();
-    emit OpenFileRequest(filename, 1);
+    QString filepath = m_Model.item(index.row(), 1)->text();
+    // MainWindow OpenFile() will handle a ShortPathName or a Book Path
+    // since both are unique
+    emit OpenFileRequest(filepath, 1);
 }
 
 void DeleteFiles::ConnectSignals()

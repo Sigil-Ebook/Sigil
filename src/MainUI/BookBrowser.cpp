@@ -406,7 +406,7 @@ QList <Resource *> BookBrowser::ValidSelectedResources()
     QList <Resource *> all_resources = m_OPFModel->GetResourceListInFolder(resource_type);
     foreach(Resource * all_resource, all_resources) {
         foreach(Resource * resource, resources) {
-            if (all_resource->Filename() == resource->Filename()) {
+            if (all_resource->ShortPathName() == resource->ShortPathName()) {
                 sorted_resources.append(all_resource);
                 break;
             }
@@ -798,7 +798,7 @@ void BookBrowser::SaveAsFiles()
 
     bool files_exist = false;
     foreach(Resource * resource, resources) {
-        QString fullfilepath = dirname + "/" + resource->Filename();
+        QString fullfilepath = dirname + "/" + resource->ShortPathName();
 
         if (QFileInfo(fullfilepath).exists()) {
             files_exist = true;
@@ -822,7 +822,7 @@ void BookBrowser::SaveAsFiles()
     foreach(Resource * resource, resources) {
         resource->SaveToDisk();
         QString source = resource->GetFullPath();
-        QString destination = dirname + "/" + resource->Filename();
+        QString destination = dirname + "/" + resource->ShortPathName();
 
         if (QFileInfo(destination).exists()) {
             if (!QFileInfo(destination).isFile()) {
@@ -1114,9 +1114,10 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
 
     QStringList files_to_delete;
     foreach(Resource * resource, resources) {
-        files_to_delete.append(resource->Filename());
+        files_to_delete.append(resource->GetRelativePath());
     }
     // Confirm and select which files to delete
+    // Note: DeleteFiles requires bookpaths for safety
     DeleteFiles delete_files(files_to_delete, this);
     connect(&delete_files, SIGNAL(OpenFileRequest(QString, int)), this, SIGNAL(OpenFileRequest(QString, int)));
 
@@ -1133,7 +1134,7 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     foreach(Resource * resource, resources) {
-        if (!files_to_delete.contains(resource->Filename())) {
+      if (!files_to_delete.contains(resource->GetRelativePath())) {
             resources.removeOne(resource);
         }
     }
@@ -1208,7 +1209,7 @@ Resource *BookBrowser::ResourceToSelectAfterRemove(QList<Resource *> selected_re
     foreach(Resource * all_resource, all_resources) {
         bool found = false;
         foreach(Resource * selected_resource, selected_resources) {
-            if (all_resource->Filename() == selected_resource->Filename()) {
+            if (all_resource->GetRelativePath() == selected_resource->GetRelativePath()) {
                 in_delete = true;
                 found = true;
                 break;
