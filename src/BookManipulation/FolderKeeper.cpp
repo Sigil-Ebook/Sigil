@@ -92,6 +92,10 @@ static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
                                      "   </rootfiles>\n"
                                      "</container>\n";
 
+const QString OPF_FILE_NAME            = "content.opf";
+
+const QString NCX_FILE_NAME            = "toc.ncx";
+
 
 FolderKeeper::FolderKeeper(QObject *parent)
     :

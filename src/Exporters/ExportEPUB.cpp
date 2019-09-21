@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -56,13 +56,10 @@
 const QString BODY_START = "<\\s*body[^>]*>";
 const QString BODY_END   = "</\\s*body\\s*>";
 
-const QString OPF_FILE_NAME            = "content.opf";
-const QString NCX_FILE_NAME            = "toc.ncx";
 const QString CONTAINER_XML_FILE_NAME  = "container.xml";
 const QString ENCRYPTION_XML_FILE_NAME = "encryption.xml";
 
 static const QString METAINF_FOLDER_SUFFIX = "/META-INF";
-static const QString OEBPS_FOLDER_SUFFIX   = "/OEBPS";
 
 static const char * EPUB_MIME_DATA = "application/epub+zip";
 
