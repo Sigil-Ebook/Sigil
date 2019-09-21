@@ -28,8 +28,6 @@
 //const QString IDPF_FONT_ALGO_ID          = "http://www.idpf.org/2008/embedding";
 
 const QString PluginRunner::SEP = QString(QChar(31));
-const QString PluginRunner::OPFFILEINFO = "OEBPS/content.opf" + SEP + SEP + "application/oebps-package+xml";
-const QString PluginRunner::NCXFILEINFO = "OEBPS/toc.ncx" + SEP + SEP + "application/x-dtbncx+xml";
 const QStringList PluginRunner::CHANGESTAGS = QStringList() << "deleted" << "added" << "modified";
 
 
@@ -50,7 +48,7 @@ PluginRunner::PluginRunner(TabManager *tabMgr, QWidget *parent)
     m_book = m_mainWindow->GetCurrentBook();
     m_bookBrowser = m_mainWindow->GetBookBrowser();
     m_bookRoot = m_book->GetFolderKeeper()->GetFullPathToMainFolder();
-
+    
     // set default font obfuscation algorithm to use
     // ADOBE_FONT_ALGO_ID or IDPF_FONT_ALGO_ID ??
     QList<Resource *> fonts = m_book->GetFolderKeeper()->GetResourceListByType(Resource::FontResourceType);
@@ -904,6 +902,8 @@ bool PluginRunner::modifyFiles(const QStringList &files)
     QStringList newfiles;
     QString modifyopf;
     QString modifyncx;
+    QString OPFFILEINFO = m_book->GetConstOPF()->GetRelativePath() + SEP + SEP + "application/oebps-package+xml";
+    QString NCXFILEINFO = m_book->GetConstNCX()->GetRelativePath() + SEP + SEP +  "application/x-dtbncx+xml";
     foreach (QString fileinfo, files) {
         if (fileinfo == OPFFILEINFO) {
             modifyopf = fileinfo;

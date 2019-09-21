@@ -1,9 +1,9 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2011, 2012  John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012  Dave Heiland
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2011-2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -671,7 +671,7 @@ bool FindReplace::IsCurrentFileInHTMLSelection()
 
     if (current_html_resource) {
         foreach(Resource * resource, resources) {
-            if (resource->Filename() == current_html_resource->Filename()) {
+            if (resource->GetRelativePath() == current_html_resource->GetRelativePath()) {
                 found = true;
                 break;
             }
@@ -868,7 +868,7 @@ HTMLResource *FindReplace::GetNextHTMLResource(HTMLResource *current_resource, S
     // Find the current resource in the selected/all html entries
     int i = 0;
     foreach(Resource * resource, resources) {
-        if (resource->Filename() == current_resource->Filename()) {
+        if (resource->GetRelativePath() == current_resource->GetRelativePath()) {
             current_reading_order = i;
             break;
         }

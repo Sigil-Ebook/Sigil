@@ -39,10 +39,6 @@ static const QString NAV_PAGELIST_PATTERN = "\\s*<!--\\s*SIGIL_REPLACE_PAGELIST_
 static const QString NAV_LANDMARKS_PATTERN = "\\s*<!--\\s*SIGIL_REPLACE_LANDMARKS_HERE\\s*-->\\s*";
 static const QString NAV_TOC_PATTERN = "\\s*<!--\\s*SIGIL_REPLACE_TOC_HERE\\s*-->\\s*";
 
-static const QStringList SIGIL_FOLDERS = QStringList() << "Images" << "Fonts" << "Text" << "Styles" 
-                                                       << "Audio" << "Video" << "Misc";
-
-
 NavProcessor::NavProcessor(HTMLResource * nav_resource)
   : m_NavResource(nav_resource)
 {
