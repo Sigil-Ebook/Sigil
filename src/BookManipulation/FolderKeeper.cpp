@@ -647,6 +647,7 @@ void FolderKeeper::CreateExtensionToMediaTypeMap()
 // Note all LCP paths **must** end with "/"
 void FolderKeeper::CreateKeyToLCPMap()
 {
+    if (!m_KeyToLCP.isEmpty()) return;
     // Note: m_FullPathToMainFolder **never** ends with a "/" see Misc/TempFolder.cpp
     // Note all LCP paths **must** end with "/"
     m_KeyToLCP[ "text"   ] = m_FullPathToMainFolder + "/OEBPS/Text/";
@@ -656,12 +657,13 @@ void FolderKeeper::CreateKeyToLCPMap()
     m_KeyToLCP[ "audio"  ] = m_FullPathToMainFolder + "/OEBPS/Audio/";
     m_KeyToLCP[ "video"  ] = m_FullPathToMainFolder + "/OEBPS/Video/";
     m_KeyToLCP[ "misc"   ] = m_FullPathToMainFolder + "/OEBPS/Misc/";
-    m_KeyToLCP[ "other"  ] = m_FullPathToMainFolder + "/";
-    m_KeyToLCP[ "opf"    ] = m_FullPathToMainFolder + "/OEBPS/";
     m_KeyToLCP[ "ncx"    ] = m_FullPathToMainFolder + "/OEBPS/";
+    m_KeyToLCP[ "opf"    ] = m_FullPathToMainFolder + "/OEBPS/";
+    m_KeyToLCP[ "other"  ] = m_FullPathToMainFolder + "/";
 }
 
 QString FolderKeeper::GetLongestCommonPathForKey(const QString &key)
 {
+    CreateKeyToLCPMap();
     return m_KeyToLCP.value(key, "");
 }

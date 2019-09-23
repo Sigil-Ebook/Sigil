@@ -87,30 +87,6 @@ void OPFModel::SetBook(QSharedPointer<Book> book)
 {
     m_Book = book;
     connect(this, SIGNAL(BookContentModified()), m_Book.data(), SLOT(SetModified()));
-    // set each type to show as tooltip if longest common path
-    QString mainfolder = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
-    QString tooltip;
-    tooltip = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("text");
-    m_TextFolderItem->setToolTip(tooltip.right(tooltip.length() - mainfolder.length() - 1));
-
-    tooltip = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("styles");
-    m_StylesFolderItem->setToolTip(tooltip.right(tooltip.length() - mainfolder.length() - 1));
-
-    tooltip = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("images");
-    m_ImagesFolderItem->setToolTip(tooltip.right(tooltip.length() - mainfolder.length() - 1));
-
-    tooltip = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("fonts");
-    m_FontsFolderItem->setToolTip(tooltip.right(tooltip.length() - mainfolder.length() - 1));
-
-    tooltip = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("audio");
-    m_AudioFolderItem->setToolTip(tooltip.right(tooltip.length() - mainfolder.length() - 1));
-
-    tooltip = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("video");
-    m_VideoFolderItem->setToolTip(tooltip.right(tooltip.length() - mainfolder.length() - 1));
-
-    tooltip = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("misc");
-    m_MiscFolderItem->setToolTip(tooltip.right(tooltip.length() - mainfolder.length() - 1));
-    
     Refresh();
 }
 
