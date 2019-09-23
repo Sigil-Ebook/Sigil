@@ -4,15 +4,8 @@
 
 import sys
 import os
-from urllib.parse import unquote
 from quickparser import QuickXHTMLParser
-
-# unquotes url/iri
-def unquoteurl(href):
-    if isinstance(href,bytes):
-        href = href.decode('utf-8')
-    href = unquote(href)
-    return href
+from hrefutils import quoteurl, unquoteurl, startingDir, buildBookPath, buildRelativePath, relativePath
 
 _epubtype_guide_map = {
      'acknowledgements' : 'acknowledgments',
@@ -63,7 +56,9 @@ _epubtype_guide_map = {
 
 
 # parse the current nav.xhtml to extract toc, pagelist, and landmarks
-def parse_nav(qp, navdata, navname):
+# note all hrefs, src  are in unquoted form when they are stored
+# note all hrefs, src, have been converted to be relative to newdir
+def parse_nav(qp, navdata, navbkpath, newdir):
     qp.setContent(navdata)
     toclist = []
     pagelist = []
@@ -75,6 +70,8 @@ def parse_nav(qp, navdata, navname):
     href = None
     title = ""
     play = 0
+    navdir = startingDir(navbkpath)
+
     for txt, tp, tname, ttype, tattr in qp.parse_iter():
         if txt is not None:
             if ".a." in tp or tp.endswith(".a"):
@@ -97,27 +94,22 @@ def parse_nav(qp, navdata, navname):
                 continue
             if tname == "a" and ttype == "begin":
                 href = tattr.get("href", "")
-                # nav lives in OEBPS/Text in Sigil
-                # ncx lives in OEBPS/ in Sigil
-                # So fixup href's to be what they need to be for the ncx
-                # Also work with it in quoted form
-                if href.startswith("./"):  
-                    href= href[2:]
-                    if href == "":
-                        href = "Text/" + navname
+                href = unquoteurl(href)
+                if href.find(":") == -1:
+                    # first strip off any fragment
+                    fragment = ""
+                    if href.find("#") != -1:
+                        href, fragment = href.split("#")
+                    # find destination bookpath
+                    if href.startwith("./"): href=href[2:]
+                    if href = "":
+                        destbkpath = navbkpath
                     else:
-                        href = "Text/" + href
-                elif href.startswith("#"):
-                    href = "Text/" + navname + href
-                elif href.startswith("../"): 
-                    href = href[3:]
-                    fold = href.split("/")[0]
-                    if fold not in ("Images","Fonts","Text","Styles","Audio","Video","Misc"):
-                        href = "Text/" + href
-                else:
-                    fold = href.split("/")[0]
-                    if fold not in ("Images","Fonts","Text","Styles","Audio","Video","Misc"):
-                        href = "Text/" + href
+                        destbkpath = buildBookPath(href, navdir)
+                    # create relative path to destbkpath from newdir
+                    href = relativePath(destbkpath, newdir)
+                    if fragment != "":
+                        href = href + "#" + fragment
                 epubtype = tattr.get("epub:type", None)
                 continue
             if tname == "a" and ttype == "end":
@@ -130,7 +122,6 @@ def parse_nav(qp, navdata, navname):
                 elif nav_type == "landmarks":
                     if epubtype is not None:
                         gtype = _epubtype_guide_map.get(epubtype, None)
-                        href = unquoteurl(href)
                         landmarks.append((gtype, href, title))
                 title = ""
                 continue
@@ -170,7 +161,7 @@ def build_ncx(doctitle, mainid, maxlvl, pgcnt, toclist, pagelist):
         ncxres.append(space + '  <navLabel>\n')
         ncxres.append(space + '    <text>' + title + '</text>\n')
         ncxres.append(space + '  </navLabel>\n')
-        ncxres.append(space + '  <content src="' + href + '" />\n')
+        ncxres.append(space + '  <content src="' + quoteurl(href) + '" />\n')
         plvl = lvl
     # now finish off any open navpoints
     while plvl > 0:
@@ -187,7 +178,7 @@ def build_ncx(doctitle, mainid, maxlvl, pgcnt, toclist, pagelist):
             target += ' value="' + title + '">\n'
             ncxres.append(target)
             ncxres.append(ind*2 + '<navLabel><text>' + title + '</text></navLabel>\n')
-            ncxres.append(ind*2 + '<content src="' + href + '" />\n')
+            ncxres.append(ind*2 + '<content src="' + quoteurl(href) + '" />\n')
             ncxres.append(ind + '</pageTarget>\n')
         ncxres.append('</pageList>\n')
     # now close it off
@@ -196,13 +187,13 @@ def build_ncx(doctitle, mainid, maxlvl, pgcnt, toclist, pagelist):
 
 
 # the entry points
-def generateNCX(navdata, navname, doctitle, mainid):
+def generateNCX(navdata, navbkpath, ncxdir, doctitle, mainid):
     has_error = False
     # main id must exactly match used in the opf
     # if mainid.startswith("urn:uuid:"): mainid = mainid[9:]
     # try:
     qp = QuickXHTMLParser()
-    toclist, pagelist, landmarks, maxlvl, pgcnt = parse_nav(qp, navdata, navname)
+    toclist, pagelist, landmarks, maxlvl, pgcnt = parse_nav(qp, navdata, navbkpath, ncxdir)
     ncxdata = build_ncx(doctitle, mainid, maxlvl, pgcnt, toclist, pagelist)
     # except:
     #     has_error = True
@@ -210,44 +201,10 @@ def generateNCX(navdata, navname, doctitle, mainid):
     # if has_error:
     #     return ""
     return ncxdata
- 
-
-def generateGuideEntries(navdata, navname):
-    has_error = False
-    try:
-        qp = QuickXHTMLParser()
-        toclist, pagelist, landmarks, maxlvl, pgcnt = parse_nav(qp, navdata, navname)
-    except:
-        has_error = True
-        pass
-    if has_error:
-        return [("","","")]
-    return landmarks
-
 
 def main():
     argv = sys.argv
-    if argv[1] is None:
-        sys.exit(0)
-
-    if not os.path.exists(argv[1]):
-        sys.exit(0)
-
-    navname = os.path.basename(argv[1])
-    navdata = ""
-    with open(argv[1], 'rb') as f:
-        navdata = f.read().decode('utf-8',errors='replace')
-
-    ncxdata = generateNCX(navdata, navname, "This is a Test", "some_uuid_mess")
-    print(ncxdata)
-
-    guide = generateGuideEntries(navdata, navname)
-    print(guide)
     return 0
 
-# def main():
-#     print("I reached main when I should not have\n")
-#     return -1
-    
 if __name__ == '__main__':
     sys.exit(main())

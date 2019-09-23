@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -137,9 +137,11 @@ QList<BookReports::StyleData *> BookReports::GetAllHTMLClassUsage(QSharedPointer
         }
 
         // Get the unique list of classes in this file
+	// list of element_name.class_name
         QStringList classes_in_file = book->GetClassesInHTMLFile(html_resource);
         classes_in_file.removeDuplicates();
         // Get the linked stylesheets for this file
+	// returned as list of bookpaths to the stylesheets
         QStringList linked_stylesheets = book->GetStylesheetsInHTMLFile(html_resource);
         // Look at each class from the HTML file
         foreach(QString class_name, classes_in_file) {
@@ -148,6 +150,7 @@ QList<BookReports::StyleData *> BookReports::GetAllHTMLClassUsage(QSharedPointer
             QString element_part = class_name.split(".").at(0);
             QString class_part = class_name.split(".").at(1);
             // Look in each stylesheet
+	    // css_filename here is a bookpath as used above
             foreach(QString css_filename, linked_stylesheets) {
                 if (css_text.contains(css_filename)) {
                     CSSInfo css_info(css_text[css_filename], true);
@@ -157,9 +160,11 @@ QList<BookReports::StyleData *> BookReports::GetAllHTMLClassUsage(QSharedPointer
                         if (selector && (selector->classNames.count() > 0)) {
                             // Save the details for found or not found classes
                             BookReports::StyleData *class_usage = new BookReports::StyleData();
-                            class_usage->html_filename = html_resource->ShortPathName();
+			    // html_filename is a book path
+                            class_usage->html_filename = html_resource->GetRelativePath();
                             class_usage->html_element_name = element_part;
                             class_usage->html_class_name = class_part;
+			    // css_filename is a book path
                             class_usage->css_filename = css_filename;
                             class_usage->css_selector_text = selector->groupText;
                             class_usage->css_selector_position = selector->position;

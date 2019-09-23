@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -39,8 +40,8 @@ DeleteStyles::DeleteStyles(QHash<QString, QList<CSSInfo::CSSSelector *>> css_sty
 
     while (stylesheets.hasNext()) {
         stylesheets.next();
-        QString css_short_filename = stylesheets.key();
-        css_short_filename = css_short_filename.right(css_short_filename.length() - css_short_filename.lastIndexOf('/') - 1);
+	// css_filename has been converted to a book path
+        QString css_filename = stylesheets.key();
         foreach(CSSInfo::CSSSelector * s, stylesheets.value()) {
             QList<QStandardItem *> rowItems;
             // Checkbox
@@ -50,7 +51,7 @@ DeleteStyles::DeleteStyles(QHash<QString, QList<CSSInfo::CSSSelector *>> css_sty
             rowItems << checkbox_item;
             // Filename
             QStandardItem *file_item = new QStandardItem();
-            file_item->setText(css_short_filename);
+            file_item->setText(css_filename);
             file_item->setData(QString::number(s->line));
             rowItems << file_item;
             // Class

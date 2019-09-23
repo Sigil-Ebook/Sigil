@@ -672,7 +672,7 @@ void MainWindow::OpenResourceAndWaitUntilLoaded(Resource *resource,
 void MainWindow::ResourceUpdatedFromDisk(Resource *resource)
 {
     SettingsStore ss;
-    QString message = QString(tr("File")) + " " + resource->Filename() + " " + tr("was updated") + ".";
+    QString message = QString(tr("File")) + " " + resource->ShortPathName() + " " + tr("was updated") + ".";
     int duration = 10000;
 
     if (resource->Type() == Resource::HTMLResourceType) {
@@ -1427,17 +1427,18 @@ void MainWindow::GenerateNCXGuideFromNav()
 
     // find existing nav document if there is one
     HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
-    QString navname = "";
+    QString navbkpath = "";
     QString navdata = "";
     if (nav_resource) {
         navdata = CleanSource::Mend(nav_resource->GetText(),"3.0");
-        navname = nav_resource->Filename();
+        navbkpath = nav_resource->GetRelativePath();
     }
 
     if ((!nav_resource) || navdata.isEmpty()) {
         ShowMessageOnStatusBar(tr("NCX and Guide generation failed."));
         QApplication::restoreOverrideCursor();
     }
+
 
     QList<QVariant> mvalues = m_Book->GetConstOPF()->GetDCMetadataValues("dc:title");
     QString doctitle = "UNKNOWN";
@@ -1446,9 +1447,15 @@ void MainWindow::GenerateNCXGuideFromNav()
     } 
     QString mainid = m_Book->GetConstOPF()->GetMainIdentifierValue();
 
+    // figure out book path to the folder that *will* contain the ncx
+    QString mainfolder = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
+    QString ncxdir = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("ncx");
+    ncxdir = ncxdir.right(ncxdir.length() - mainfolder.length() - 1);
+
     // Now build the ncx in python in a separate thread since may be an long job
     PythonRoutines pr;
-    QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::GenerateNcxInPython, navdata, navname, doctitle, mainid);
+    QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::GenerateNcxInPython, navdata, 
+						navbkpath, ncxdir, doctitle, mainid);
     future.waitForFinished();
     QString ncxdata = future.result();
 
@@ -1624,15 +1631,16 @@ void MainWindow::CreateIndex()
 
 void MainWindow::DeleteReportsStyles(QList<BookReports::StyleData *> reports_styles_to_delete)
 {
+    // html_filename and css_filename fields in StyleData have been converted to bookpaths
+
     // Convert the styles to CSS Selectors
     QHash<QString, QList<CSSInfo::CSSSelector *>> css_styles_to_delete;
     foreach(BookReports::StyleData * report_style, reports_styles_to_delete) {
         CSSInfo::CSSSelector *selector = new CSSInfo::CSSSelector();
         selector->groupText = report_style->css_selector_text;
         selector->line = report_style->css_selector_line;
-        QString css_short_filename = report_style->css_filename;
-        css_short_filename = css_short_filename.right(css_short_filename.length() - css_short_filename.lastIndexOf('/') - 1);
-        css_styles_to_delete[css_short_filename].append(selector);
+        QString css_filename = report_style->css_filename;
+        css_styles_to_delete[css_filename].append(selector);
     }
     // Confirm which styles to delete
     DeleteStyles delete_styles(css_styles_to_delete, this);
@@ -1726,7 +1734,7 @@ void MainWindow::DeleteFilenames(QStringList files_to_delete)
     RemoveResources(resources);
 }
 
-bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSelector *> css_selectors)
+bool MainWindow::DeleteCSSStyles(const QString &bookpath, QList<CSSInfo::CSSSelector *> css_selectors)
 {
     // Save our tabs data as we will be modifying the underlying resources
     SaveTabData();
@@ -1735,7 +1743,7 @@ bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSele
     // Try our CSS resources first as most likely place for a style
     QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
     foreach(Resource * resource, css_resources) {
-        if (resource->Filename() == filename) {
+        if (resource->GetRelativePath() == bookpath) {
             CSSResource *css_resource = qobject_cast<CSSResource *>(resource);
             is_found = true;
             is_modified = css_resource->DeleteCSStyles(css_selectors);
@@ -1747,7 +1755,7 @@ bool MainWindow::DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSele
         // Try an inline style instead
         QList<Resource *> html_resources = GetAllHTMLResources();
         foreach(Resource * resource, html_resources) {
-            if (resource->Filename() == filename) {
+            if (resource->GetRelativePath() == bookpath) {
                 HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
                 is_modified = html_resource->DeleteCSStyles(css_selectors);
                 break;
@@ -1911,6 +1919,8 @@ void MainWindow::InsertFiles(const QStringList &selected_files)
                 try {
                     Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(selected_file);
                     QString relative_path = resource->GetRelativePathFromResource(tab_resource);
+
+		    // extract just the filename without extension to create a text label
 		    QString filename = resource->Filename();
                     if (filename.contains(".")) {
                         filename = filename.left(filename.lastIndexOf("."));
@@ -2310,7 +2320,7 @@ void MainWindow::MergeResources(QList <Resource *> resources)
             continue;
         }
         if (!h->FileIsWellFormed()) {
-            QMessageBox::warning(this, tr("Sigil"), tr("Merge cancelled: %1, XML not well formed.").arg(h->Filename()));
+            QMessageBox::warning(this, tr("Sigil"), tr("Merge cancelled: %1, XML not well formed.").arg(h->ShortPathName()));
             return;
         }
     }
@@ -2339,7 +2349,7 @@ void MainWindow::MergeResources(QList <Resource *> resources)
 
     if (failed_resource != NULL) {
         QApplication::restoreOverrideCursor();
-        QMessageBox::critical(this, tr("Sigil"), tr("Cannot merge file %1").arg(failed_resource->Filename()));
+        QMessageBox::critical(this, tr("Sigil"), tr("Cannot merge file %1").arg(failed_resource->ShortPathName()));
         QApplication::setOverrideCursor(Qt::WaitCursor);
         resource_to_open = failed_resource;
     } else {
@@ -2420,7 +2430,7 @@ void MainWindow::FindWord(QString word)
         Resource *resource = flow_tab->GetLoadedResource();
         if (resource->Type() == Resource::HTMLResourceType) {
             current_html_resource = qobject_cast<HTMLResource *>(resource);
-            current_html_filename = current_html_resource->Filename();
+            current_html_filename = current_html_resource->ShortPathName();
         }
     }
 
@@ -2430,7 +2440,7 @@ void MainWindow::FindWord(QString word)
     QList<Resource *> resources = GetAllHTMLResources();
     int passed_current = false;
     foreach(Resource *resource, resources) {
-        if (!passed_current && resource->Filename() != current_html_filename) {
+        if (!passed_current && resource->ShortPathName() != current_html_filename) {
             continue;
         }
         passed_current = true;
@@ -2438,7 +2448,7 @@ void MainWindow::FindWord(QString word)
     }
     foreach(Resource * resource, resources) {
         html_resources.append(resource);
-        if (resource->Filename() == current_html_filename) {
+        if (resource->ShortPathName() == current_html_filename) {
             break;
         }
     }
@@ -2453,7 +2463,7 @@ void MainWindow::FindWord(QString word)
         int start_pos = 0;
         // Reset the start to current cursor position only if this is the
         // first time we are in the current file.
-        if (resource->Filename() == current_html_filename) {
+        if (resource->ShortPathName() == current_html_filename) {
             if (!done_current) {
                 FlowTab *flow_tab = GetCurrentFlowTab();
                 if (flow_tab) {
@@ -2466,7 +2476,7 @@ void MainWindow::FindWord(QString word)
 
         int found_pos = HTMLSpellCheck::WordPosition(text, word, start_pos);
         if (found_pos >= 0) {
-            if (resource->Filename() != current_html_filename) {
+            if (resource->ShortPathName() != current_html_filename) {
                 OpenResourceAndWaitUntilLoaded(resource, -1, found_pos);
             }
             FlowTab *flow_tab = GetCurrentFlowTab();
@@ -3561,7 +3571,7 @@ void MainWindow::SplitOnSGFSectionMarkers()
 
         // Check if data is well formed before splitting.
         if (!html_resource->FileIsWellFormed()) {
-            QMessageBox::warning(this, tr("Sigil"), tr("Cannot split: %1 XML is not well formed").arg(html_resource->Filename()));
+            QMessageBox::warning(this, tr("Sigil"), tr("Cannot split: %1 XML is not well formed").arg(html_resource->ShortPathName()));
             return;
         }
 

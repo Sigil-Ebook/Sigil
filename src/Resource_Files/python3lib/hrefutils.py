@@ -5,6 +5,38 @@
 import sys
 import os
 
+from urllib.parse import unquote
+from urllib.parse import urlsplit
+
+ASCII_CHARS   = set(chr(x) for x in range(128))
+URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+                    'abcdefghijklmnopqrstuvwxyz'
+                    '0123456789' '#' '_.-/~')
+IRI_UNSAFE = ASCII_CHARS - URL_SAFE
+
+# returns a quoted IRI (not a URI)                                                                                     
+def quoteurl(href):
+    if isinstance(href,bytes):
+        href = href.decode('utf-8')
+    (scheme, netloc, path, query, fragment) = urlsplit(href, scheme="", allow_fragments=True)
+    if scheme != "":
+        scheme += "://"
+        href = href[len(scheme):]
+    result = []
+    for char in href:
+        if char in IRI_UNSAFE:
+            char = "%%%02x" % ord(char)
+        result.append(char)
+    return scheme + ''.join(result)
+
+# unquotes url/iri                                                                                                     
+def unquoteurl(href):
+    if isinstance(href,bytes):
+        href = href.decode('utf-8')
+    href = unquote(href)
+    return href
+
+
 def relativePath(to_bkpath, start_dir):
     # remove any trailing path separators from both paths
     dsegs = to_bkpath.rstrip('/').split('/')

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016, Kevin B. Hendricks, Stratofrd, Ontario
+**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -40,10 +40,8 @@ public:
 
     PythonRoutines() {};
 
-    QString GenerateNcxInPython(const QString &navdata, const QString &navname,
-                                const QString &doctitle, const QString & mainid);
-
-    QList<QStringList> UpdateGuideFromNavInPython(const QString &navdata, const QString &navname);
+    QString GenerateNcxInPython(const QString &navdata, const QString &navbkpath,
+                                const QString &ncx_dir, const QString &doctitle, const QString & mainid);
 
     MetadataPieces GetMetadataInPython(const QString& opfdata, const QString& version);
     QString SetNewMetadataInPython(const MetadataPieces& mdp, const QString& opfdata, const QString& version);

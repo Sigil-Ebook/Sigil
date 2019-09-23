@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016, Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -27,15 +27,17 @@
 #include "Misc/PythonRoutines.h"
 
 
-QString PythonRoutines::GenerateNcxInPython(const QString &navdata, const QString &navname, 
-                                            const QString &doctitle, const QString & mainid)
+QString PythonRoutines::GenerateNcxInPython(const QString &navdata, const QString &navbkpath, 
+                                            const QString &ncxdir, const QString &doctitle, 
+					    const QString & mainid)
 {
     QString results;
     int rv = -1;
     QString error_traceback;
     QList<QVariant> args;
     args.append(QVariant(navdata));
-    args.append(QVariant(navname));
+    args.append(QVariant(navbkpath));
+    args.append(QVariant(ncxdir));
     args.append(QVariant(doctitle));
     args.append(QVariant(mainid));
 
@@ -51,39 +53,6 @@ QString PythonRoutines::GenerateNcxInPython(const QString &navdata, const QStrin
     }
     return results;
 }
-
-
-QList<QStringList> PythonRoutines::UpdateGuideFromNavInPython(const QString &navdata, const QString &navname)
-{
-    QList<QStringList> results;
-    int rv = -1;
-    QString error_traceback;
-    QList<QVariant> args;
-    args.append(QVariant(navdata));
-    args.append(QVariant(navname));
-
-    EmbeddedPython * epython  = EmbeddedPython::instance();
-
-    QVariant res = epython->runInPython( QString("ncxgenerator"),
-                                         QString("generateGuideEntries"),
-                                         args,
-                                         &rv,
-                                         error_traceback);
-    if (rv == 0) {
-        QList<QVariant> lst = res.toList();
-        foreach(QVariant qv, lst) {
-            results.append(qv.toStringList());
-        }
-        return results;
-    }
-
-    // The return value is the following sequence of value stored in a list 
-    // (guide_type, href (unquoted), title)  
-    QStringList gentry = QStringList() << "" << "" << "";
-    results.append(gentry);
-    return results;
-}
-
 
 
 MetadataPieces PythonRoutines::GetMetadataInPython(const QString& opfdata, const QString& version) 
