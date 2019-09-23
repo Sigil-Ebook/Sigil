@@ -99,7 +99,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     QHash<QString, QStringList> video_names_hash = m_Book->GetVideoInHTMLFiles();
     QHash<QString, QStringList> audio_names_hash = m_Book->GetAudioInHTMLFiles();
     foreach(HTMLResource *html_resource, m_HTMLResources) {
-      QString filepath = "../" + html_resource->GetRelativePath();
+        QString filepath = html_resource->GetRelativePath();
         QString path = html_resource->GetFullPath();
         QString filename = html_resource->ShortPathName();
         QList<QStandardItem *> rowItems;
@@ -129,7 +129,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems << misspelled_item;
         // Images
         NumericItem *image_item = new NumericItem();
-        QStringList image_names = image_names_hash[filename];
+        QStringList image_names = image_names_hash[filepath];
         total_images += image_names.count();
         image_item->setText(QString::number(image_names.count()));
         if (!image_names.isEmpty()) {
@@ -138,7 +138,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems << image_item;
         // Video
         NumericItem *video_item = new NumericItem();
-        QStringList video_names = video_names_hash[filename];
+        QStringList video_names = video_names_hash[filepath];
         total_video += video_names.count();
         video_item->setText(QString::number(video_names.count()));
         if (!video_names.isEmpty()) {
@@ -147,7 +147,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems << video_item;
         // Audio
         NumericItem *audio_item = new NumericItem();
-        QStringList audio_names = audio_names_hash[filename];
+        QStringList audio_names = audio_names_hash[filepath];
         total_audio += audio_names.count();
         audio_item->setText(QString::number(audio_names.count()));
         if (!audio_names.isEmpty()) {
@@ -156,7 +156,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems << audio_item;
         // Linked Stylesheets
         NumericItem *stylesheet_item = new NumericItem();
-        QStringList stylesheet_names = stylesheet_names_hash[filename];
+        QStringList stylesheet_names = stylesheet_names_hash[filepath];
         total_stylesheets += stylesheet_names.count();
         stylesheet_item->setText(QString::number(stylesheet_names.count()));
         if (!stylesheet_names.isEmpty()) {

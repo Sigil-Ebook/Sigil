@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -187,6 +188,7 @@ public:
     // both the "from" and "to" book paths are to FILES
     static QString buildRelativePath(const QString &from_file_bkpath, const QString &to_file_bkpath);
 
+    static std::pair<QString, QString> parseHREF(const QString &relative_href);
 };
 
 #endif // UTILITY_H

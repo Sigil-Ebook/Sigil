@@ -87,6 +87,30 @@ void OPFModel::SetBook(QSharedPointer<Book> book)
 {
     m_Book = book;
     connect(this, SIGNAL(BookContentModified()), m_Book.data(), SLOT(SetModified()));
+    // set each type to show as tooltip if longest common path
+    QString mainfolder = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
+    QString tooltip;
+    tooltip = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("text");
+    m_TextFolderItem->setToolTip(tooltip.right(tooltip.length() - mainfolder.length() - 1));
+
+    tooltip = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("styles");
+    m_StylesFolderItem->setToolTip(tooltip.right(tooltip.length() - mainfolder.length() - 1));
+
+    tooltip = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("images");
+    m_ImagesFolderItem->setToolTip(tooltip.right(tooltip.length() - mainfolder.length() - 1));
+
+    tooltip = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("fonts");
+    m_FontsFolderItem->setToolTip(tooltip.right(tooltip.length() - mainfolder.length() - 1));
+
+    tooltip = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("audio");
+    m_AudioFolderItem->setToolTip(tooltip.right(tooltip.length() - mainfolder.length() - 1));
+
+    tooltip = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("video");
+    m_VideoFolderItem->setToolTip(tooltip.right(tooltip.length() - mainfolder.length() - 1));
+
+    tooltip = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("misc");
+    m_MiscFolderItem->setToolTip(tooltip.right(tooltip.length() - mainfolder.length() - 1));
+    
     Refresh();
 }
 
@@ -306,9 +330,9 @@ void OPFModel::ItemChangedHandler(QStandardItem *item)
         const QString &new_filename = item->text();
         Resource *resource = m_Book->GetFolderKeeper()->GetResourceByIdentifier(identifier);
 
-        if (new_filename != resource->Filename()) {
+        if (new_filename != resource->ShortPathName()) {
             if (!Utility::use_filename_warning(new_filename)) {
-                item->setText(resource->Filename());
+	        item->setText(resource->ShortPathName());
                 return;
             }
             RenameResource(resource, new_filename);
@@ -335,7 +359,7 @@ bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> n
     QHash<QString, QString> update;
     foreach(Resource * resource, resources) {
         const QString &old_bookrelpath = resource->GetRelativePath();
-        QString old_filename = resource->Filename();
+        QString old_filename = resource->ShortPathName();
         QString extension = old_filename.right(old_filename.length() - old_filename.lastIndexOf('.'));
 
         QString new_filename = new_filenames.first();
@@ -351,14 +375,14 @@ bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> n
         }
 
         if (!FilenameIsValid(old_filename, new_filename_with_extension)) {
-            not_renamed.append(resource->Filename());
+            not_renamed.append(resource->ShortPathName());
             continue;
         }
 
         bool rename_success = resource->RenameTo(new_filename_with_extension);
 
         if (!rename_success) {
-            not_renamed.append(resource->Filename());
+            not_renamed.append(resource->ShortPathName());
             continue;
         }
 
@@ -398,10 +422,10 @@ void OPFModel::InitializeModel()
     }
 
     foreach(Resource * resource, resources) {
-        AlphanumericItem *item = new AlphanumericItem(resource->Icon(), resource->Filename());
+        AlphanumericItem *item = new AlphanumericItem(resource->Icon(), resource->ShortPathName());
         item->setDropEnabled(false);
         item->setData(resource->GetIdentifier());
-        QString tooltip = resource->Filename();
+        QString tooltip = resource->ShortPathName();
         QString path = resource->GetRelativePath();
 
         if (semantic_type_all.contains(path)) {
@@ -422,7 +446,7 @@ void OPFModel::InitializeModel()
 
             item->setData(reading_order, READING_ORDER_ROLE);
             // Remove the extension for alphanumeric sorting
-            QString name = resource->Filename().left(resource->Filename().lastIndexOf('.'));
+            QString name = resource->ShortPathName().left(resource->ShortPathName().lastIndexOf('.'));
             item->setData(name, ALPHANUMERIC_ORDER_ROLE);
             m_TextFolderItem->appendRow(item);
         } else if (resource->Type() == Resource::CSSResourceType) {
@@ -619,5 +643,3 @@ bool OPFModel::FilenameIsValid(const QString &old_filename, const QString &new_f
 
     return true;
 }
-
-

@@ -979,3 +979,17 @@ QString Utility::buildRelativePath(const QString &from_file_bkpath, const QStrin
     }
     return relativePath(to_file_bkpath, start_dir);
 }   
+
+std::pair<QString, QString> Utility::parseHREF(const QString &relative_href)
+{
+    QString fragment;
+    QString attpath = relative_href;
+    int fragpos = attpath.lastIndexOf("#");
+    // fragment will include any # if one exists
+    if (fragpos != -1) {
+        fragment = attpath.mid(fragpos, -1);
+        attpath = attpath.mid(0, fragpos);
+    }
+    if (attpath.startsWith("./")) attpath = attpath.mid(2,-1);
+    return std::make_pair(attpath, fragment);
+}

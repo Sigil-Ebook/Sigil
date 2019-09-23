@@ -518,8 +518,10 @@ HTMLResource *Book::CreateSectionBreakOriginalResource(const QString &content, H
     if (originating_resource == NULL)
         return NULL;
 
-    const QString originating_filename = originating_resource->Filename();
     const QString originating_bookpath = originating_resource->GetRelativePath();
+
+    // use this to get file extension for renaming purposes
+    const QString originating_filename = originating_resource->Filename();
 
     int reading_order = GetOPF()->GetReadingOrder(originating_resource);
     Q_ASSERT(reading_order >= 0);
@@ -681,7 +683,6 @@ void Book::ReformatAllHTML(bool to_valid)
 
 Resource *Book::PreviousResource(Resource *resource)
 {
-    const QString defunct_filename = resource->Filename();
     QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
     HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
     int previous_file_reading_order = html_resources.indexOf(html_resource) - 1;
@@ -719,18 +720,18 @@ std::tuple<QString, QList<XhtmlDoc::XMLElement>> Book::GetLinkElementsInHTMLFile
 
 QStringList Book::GetStyleUrlsInHTMLFiles()
 {
-    QStringList media_in_html;
+    QStringList styles_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(false);
     QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetStyleUrlsInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
         QString bookpath;
-        QStringList media_bookpaths;
-        std::tie(bookpath, media_bookpaths) = future.resultAt(i);
+        QStringList style_bookpaths;
+        std::tie(bookpath, style_bookpaths) = future.resultAt(i);
         // Each target entry has a list of filenames that contain it
-        media_in_html.append(media_bookpaths);
+        styles_in_html.append(style_bookpaths);
     }
-    return media_in_html;
+    return styles_in_html;
 }
 
 std::tuple<QString, QStringList> Book::GetStyleUrlsInHTMLFileMapped(HTMLResource *html_resource)
@@ -813,11 +814,11 @@ QHash<QString, QStringList> Book::GetHrefsInHTMLFiles()
     QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetHrefsInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
-        QString filename;
+        QString bookpath;
         QStringList hrefs;
-        std::tie(filename, hrefs) = future.resultAt(i);
+        std::tie(bookpath, hrefs) = future.resultAt(i);
         // Each target entry has a list of filenames that contain it
-        hrefs_in_html[filename] = hrefs;
+        hrefs_in_html[bookpath] = hrefs;
     }
 
     return hrefs_in_html;
@@ -825,33 +826,8 @@ QHash<QString, QStringList> Book::GetHrefsInHTMLFiles()
 
 std::tuple<QString, QStringList> Book::GetHrefsInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return std::make_tuple(html_resource->Filename(),
+    return std::make_tuple(html_resource->GetRelativePath(),
                            XhtmlDoc::GetAllDescendantHrefs(html_resource->GetText()));
-}
-
-QHash<QString, QStringList> Book::GetClassesInHTMLFiles()
-{
-    QHash<QString, QStringList> classes_in_html;
-    const QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(false);
-
-    QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetClassesInHTMLFileMapped);
-    for (int i = 0; i < future.results().count(); i++) {
-        QString filename;
-        QStringList class_names;
-        std::tie(filename, class_names) = future.resultAt(i);
-        // Each class entry has a list of filenames that contain it
-        foreach(QString class_name, class_names) {
-            classes_in_html[class_name].append(filename);
-        }
-    }
-
-    return classes_in_html;
-}
-
-std::tuple<QString, QStringList> Book::GetClassesInHTMLFileMapped(HTMLResource *html_resource)
-{
-    return std::make_tuple(html_resource->Filename(),
-                           XhtmlDoc::GetAllDescendantClasses(html_resource->GetText()));
 }
 
 QStringList Book::GetClassesInHTMLFile(HTMLResource *html_resource)
@@ -861,50 +837,47 @@ QStringList Book::GetClassesInHTMLFile(HTMLResource *html_resource)
 
 QHash<QString, QStringList> Book::GetImagesInHTMLFiles()
 {
-    QHash<QString, QStringList> media_in_html;
+    QHash<QString, QStringList> images_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(false);
     QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetImagesInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
-        QString filename;
-        QStringList media_files;
-        std::tie(filename, media_files) = future.resultAt(i);
-        media_in_html[filename] = media_files;
+        QString bookpath;
+        QStringList image_files;
+        std::tie(bookpath, image_files) = future.resultAt(i);
+        images_in_html[bookpath] = image_files;
     }
-
-    return media_in_html;
+    return images_in_html;
 }
 
 QHash<QString, QStringList> Book::GetVideoInHTMLFiles()
 {
-    QHash<QString, QStringList> media_in_html;
+    QHash<QString, QStringList> video_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(false);
     QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetVideoInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
-        QString filename;
-        QStringList media_files;
-        std::tie(filename, media_files) = future.resultAt(i);
-        media_in_html[filename] = media_files;
+        QString bookpath;
+        QStringList video_files;
+        std::tie(bookpath, video_files) = future.resultAt(i);
+        video_in_html[bookpath] = video_files;
     }
-
-    return media_in_html;
+    return video_in_html;
 }
 
 QHash<QString, QStringList> Book::GetAudioInHTMLFiles()
 {
-    QHash<QString, QStringList> media_in_html;
+    QHash<QString, QStringList> audio_in_html;
     const QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(false);
     QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetAudioInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
-        QString filename;
-        QStringList media_files;
-        std::tie(filename, media_files) = future.resultAt(i);
-        media_in_html[filename] = media_files;
+        QString bookpath;
+        QStringList audio_files;
+        std::tie(bookpath, audio_files) = future.resultAt(i);
+        audio_in_html[bookpath] = audio_files;
     }
-
-    return media_in_html;
+    return audio_in_html;
 }
 
 QHash<QString, QStringList> Book::GetHTMLFilesUsingMedia()
@@ -964,20 +937,44 @@ std::tuple<QString, QStringList> Book::GetMediaInHTMLFileMapped(HTMLResource *ht
 
 std::tuple<QString, QStringList> Book::GetImagesInHTMLFileMapped(HTMLResource *html_resource)
 {
-  return std::make_tuple(html_resource->GetRelativePath(),
-                           XhtmlDoc::GetAllMediaPathsFromMediaChildren(html_resource->GetText(), GIMAGE_TAGS));
+    QString html_bookpath = html_resource->GetRelativePath();
+    QString startdir = html_resource->GetFolder();
+    QStringList image_hrefs = XhtmlDoc::GetAllMediaPathsFromMediaChildren(html_resource->GetText(), GIMAGE_TAGS);
+    QStringList image_bookpaths;
+    foreach(QString ahref, image_hrefs) {
+        if (ahref.indexOf(":") == -1) {
+	    image_bookpaths << Utility::buildBookPath(ahref, startdir);
+        }
+    }
+    return std::make_tuple(html_bookpath, image_bookpaths);
 }
 
 std::tuple<QString, QStringList> Book::GetVideoInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return std::make_tuple(html_resource->Filename(),
-                      XhtmlDoc::GetAllMediaPathsFromMediaChildren(html_resource->GetText(), GVIDEO_TAGS));
+    QString html_bookpath = html_resource->GetRelativePath();
+    QString startdir = html_resource->GetFolder();
+    QStringList video_hrefs = XhtmlDoc::GetAllMediaPathsFromMediaChildren(html_resource->GetText(), GVIDEO_TAGS);
+    QStringList video_bookpaths;
+    foreach(QString ahref, video_hrefs) {
+        if (ahref.indexOf(":") == -1) {
+	    video_bookpaths << Utility::buildBookPath(ahref, startdir);
+        }
+    }
+    return std::make_tuple(html_bookpath, video_bookpaths);
 }
 
 std::tuple<QString, QStringList> Book::GetAudioInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return std::make_tuple(html_resource->Filename(),
-                           XhtmlDoc::GetAllMediaPathsFromMediaChildren(html_resource->GetText(), GAUDIO_TAGS));
+    QString html_bookpath = html_resource->GetRelativePath();
+    QString startdir = html_resource->GetFolder();
+    QStringList audio_hrefs = XhtmlDoc::GetAllMediaPathsFromMediaChildren(html_resource->GetText(), GAUDIO_TAGS);
+    QStringList audio_bookpaths;
+    foreach(QString ahref, audio_hrefs) {
+        if (ahref.indexOf(":") == -1) {
+	    audio_bookpaths << Utility::buildBookPath(ahref, startdir);
+        }
+    }
+    return std::make_tuple(html_bookpath, audio_bookpaths);
 }
 
 QList<HTMLResource *> Book::GetNonWellFormedHTMLFiles()
@@ -1039,19 +1036,26 @@ QHash<QString, QStringList> Book::GetStylesheetsInHTMLFiles()
     QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetStylesheetsInHTMLFileMapped);
 
     for (int i = 0; i < future.results().count(); i++) {
-        QString filename;
+        QString bookpath;
         QStringList links;
-        std::tie(filename, links) = future.resultAt(i);
-        links_in_html[filename] = links;
+        std::tie(bookpath, links) = future.resultAt(i);
+        links_in_html[bookpath] = links;
     }
-
     return links_in_html;
 }
 
 std::tuple<QString, QStringList> Book::GetStylesheetsInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return std::make_tuple(html_resource->Filename(),
-                      XhtmlDoc::GetLinkedStylesheets(html_resource->GetText()));
+    QString html_bookpath = html_resource->GetRelativePath();
+    QString startdir = html_resource->GetFolder();
+    QStringList link_hrefs = XhtmlDoc::GetLinkedStylesheets(html_resource->GetText());
+    QStringList link_bookpaths;
+    foreach(QString ahref, link_hrefs) {
+        if (ahref.indexOf(":") == -1) {
+            link_bookpaths << Utility::buildBookPath(ahref, startdir);
+        }
+    }
+    return std::make_tuple(html_bookpath, link_bookpaths);
 }
 
 QStringList Book::GetStylesheetsInHTMLFile(HTMLResource *html_resource)
@@ -1200,49 +1204,40 @@ void Book::SetModified(bool modified)
 std::tuple<bool, QString, QString> Book::HasUndefinedURLFragments()
 {
     QList<HTMLResource *> html_resources = GetHTMLResources();
-    QStringList html_filenames;
     bool hasUndefinedUrlFrags = false;
 
+    QString html_bookpaths;
     foreach(HTMLResource *html_resource, html_resources) {
-        html_filenames.append(html_resource->Filename());
+        html_bookpaths.append(html_resource->GetRelativePath());
     }
 
-    QString filename = QString();
-    QString href = QString();
-    QString href_file = QString();
-    QString href_id = QString();
-    QString file = QString();
-
+    // The key to both here is now a bookpath
     QHash<QString, QStringList> links = GetRelLinksInAllFiles(html_resources);
     QHash<QString, QStringList> all_ids = GetIDsInAllFiles(html_resources);
 
     foreach(HTMLResource *html_resource, html_resources) {
-        filename = html_resource->Filename();
-        foreach(href, links[filename]) {
-            QUrl url(href);
-            bool is_target_file = false;
-            if (url.scheme().isEmpty() || url.scheme() == "file") {
-                href_file = url.fileName();
-                href_id = url.fragment();
-                is_target_file = true;
-            }
+        QString bookpath = html_resource->GetRelativePath();
+	QString htmldir = html_resource->GetFolder();
+        foreach(QString ahref, links[bookpath]) {
+	    // each links is relative to the bookpath resource and already unquoted
+            // convert this href to a bookpath href
+	    std::pair<QString,QString> hrefparts = Utility::parseHREF(ahref);
+	    QString attpath = hrefparts.first;
+	    QString dest_bookpath;
+	    if (attpath.isEmpty()) {
+	        dest_bookpath = bookpath;
+	    } else {
+	        dest_bookpath = Utility::buildBookPath(attpath, htmldir);
+	    }
+	    QString dest_id = hrefparts.second;
+	    if (dest_id.startsWith("#")) dest_id = dest_id.mid(1,-1);
 
-            if (is_target_file && !href_id.isEmpty()) {
-                file = href_file;
-                if (href_file.isEmpty()) {
-                    file = filename;
-                }
-                if (html_filenames.contains(file) && !all_ids[file].contains(href_id)) {
-                    hasUndefinedUrlFrags = true;
-                    break;
-                }
-            }
-        }
-        if (hasUndefinedUrlFrags) {
-            break;
+	    if (html_bookpaths.contains(dest_bookpath) && !all_ids[dest_bookpath].contains(dest_id)) {
+		    return std::make_tuple(true, ahref, bookpath);
+	    }
         }
     }
-    return std::make_tuple(hasUndefinedUrlFrags, href, filename);
+    return std::make_tuple(false, QString(), QString());
 }
 
 QHash<QString, QStringList> Book::GetRelLinksInAllFiles(const QList<HTMLResource *> &html_resources)
@@ -1309,10 +1304,12 @@ Book::NewSectionResult Book::CreateOneNewSection(NewSection section_info,
     return section;
 }
 
+// Links hrefs are unquoted but otherwise untouched 
 QPair<QString, QStringList> Book::GetRelLinksInOneFile(HTMLResource *html_resource)
 {
     Q_ASSERT(html_resource);
     QReadLocker locker(&html_resource->GetLock());
+    QString htmldir = html_resource->GetFolder();
     GumboInterface gi = GumboInterface(html_resource->GetText(), html_resource->GetEpubVersion());
     gi.parse();
     QPair<QString, QStringList> link_pair;
@@ -1321,13 +1318,13 @@ QPair<QString, QStringList> Book::GetRelLinksInOneFile(HTMLResource *html_resour
     for (int i = 0; i < anchor_nodes.length(); ++i) {
         GumboNode* node = anchor_nodes.at(i);
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
-
         // We find the hrefs that are relative and contain an href.
         if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
-            hreflist.append(QString::fromUtf8(attr->value));
+	    QString attpath = Utility::URLDecodePath(QString::fromStdString(attr->value));
+            hreflist.append(attpath);
         }
     }
-    link_pair.first = html_resource->Filename();
+    link_pair.first = html_resource->GetRelativePath();
     link_pair.second = hreflist;
     return link_pair;
 }
@@ -1343,7 +1340,7 @@ QPair<QString, QStringList> Book::GetOneFileIDs(HTMLResource *html_resource)
     gi.parse();
     QPair<QString, QStringList> id_pair;
     QStringList ids = gi.get_all_values_for_attribute(QString("id"));
-    id_pair.first = html_resource->Filename();
+    id_pair.first = html_resource->GetRelativePath();
     id_pair.second = ids;
     return id_pair;
 }

@@ -824,14 +824,15 @@ std::string GumboInterface::update_attribute_value(const std::string &attvalue)
     std::string result = attvalue;
     if (attvalue.find(":") != std::string::npos) return attvalue;
     QString attpath = Utility::URLDecodePath(QString::fromStdString(attvalue));
-    int fragpos = attpath.lastIndexOf(POUND_SIGN);
-    bool has_fragment = fragpos != -1;
-    QString fragment = "";
-    if (has_fragment) {
-        fragment = attpath.mid(fragpos, -1);
-        attpath = attpath.mid(0, fragpos);
+    std::pair<QString, QString> parts = Utility::parseHREF(attpath);
+    QString fragment = parts.second;
+    attpath = parts.first;
+    QString dest_oldbkpath;
+    if (attpath.isEmpty()) {
+        dest_oldbkpath = m_currentbkpath;
+    } else {
+        dest_oldbkpath = Utility::buildBookPath(attpath, m_currentdir);
     }
-    QString dest_oldbkpath = Utility::buildBookPath(attpath, m_currentdir); 
     QString dest_newbkpath = m_sourceupdates.value(dest_oldbkpath,"");
     if (!dest_newbkpath.isEmpty() && !m_newbookpath.isEmpty()) {
         QString new_href = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
