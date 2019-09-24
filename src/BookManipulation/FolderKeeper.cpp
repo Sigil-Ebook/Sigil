@@ -40,28 +40,13 @@
 #include "Misc/Utility.h"
 #include "Misc/OpenExternally.h"
 #include "Misc/SettingsStore.h"
-
-const QStringList IMAGE_EXTENSIONS = QStringList() << "jpg"   << "jpeg"  << "png"
-                                     << "gif"   << "tif"   << "tiff"
-                                     << "bm"    << "bmp";
-const QStringList SVG_EXTENSIONS = QStringList() << "svg";
-const QStringList SMIL_EXTENSIONS = QStringList() << "smil";
-const QStringList JPG_EXTENSIONS = QStringList()   << "jpg"   << "jpeg";
-const QStringList TIFF_EXTENSIONS = QStringList()  << "tif"  << "tiff";
+#include "Misc/MediaTypes.h"
 
 // Exception for non-standard Apple files in META-INF.
 // container.xml and encryption.xml will be rewritten
 // on export. Other files in this directory are passed
 // through untouched.
 const QRegularExpression FILE_EXCEPTIONS("META-INF");
-
-const QStringList MISC_TEXT_EXTENSIONS = QStringList()  << "txt"  << "js";
-const QStringList MISC_XML_EXTENSIONS  = QStringList() << "smil" << "xpgt" << "pls";
-const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"   << "otf" << "woff" << "woff2";
-const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html"  << "htm";
-const QStringList STYLE_EXTENSIONS     = QStringList() << "css";
-const QStringList AUDIO_EXTENSIONS     = QStringList() << "aac" << "m4a" << "mp3" << "mpeg" << "mpg" << "oga" << "ogg";
-const QStringList VIDEO_EXTENSIONS     = QStringList() << "m4v" << "mp4" << "mov" << "ogv" << "webm" << "vtt" << "ttml";
 
 const QString IMAGE_FOLDER_NAME = "Images";
 const QString FONT_FOLDER_NAME  = "Fonts";
@@ -71,19 +56,6 @@ const QString AUDIO_FOLDER_NAME = "Audio";
 const QString VIDEO_FOLDER_NAME = "Video";
 const QString MISC_FOLDER_NAME  = "Misc";
 
-const QStringList IMAGE_MIMEYPES     = QStringList() << "image/gif" << "image/jpeg" << "image/png";
-const QStringList SVG_MIMETYPES      = QStringList() << "image/svg+xml";
-const QStringList TEXT_MIMETYPES     = QStringList() << "application/xhtml+xml" << "application/x-dtbook+xml";
-const QStringList STYLE_MIMETYPES    = QStringList() << "text/css";
-const QStringList FONT_MIMETYPES     = QStringList() << "application/x-font-ttf" << "application/x-font-opentype" << 
-                                                        "application/vnd.ms-opentype" << "application/font-woff" << 
-                                                        "application/font-sfnt" << "font/woff2";
-const QStringList AUDIO_MIMETYPES    = QStringList() << "audio/mpeg" << "audio/mp3" << "audio/ogg" << "audio/mp4";
-const QStringList VIDEO_MIMETYPES    = QStringList() << "video/mp4" << "video/ogg" << "video/webm" << 
-                                                        "text/vtt" << "application/ttml+xml" ;
-const QStringList MISC_XML_MIMETYPES = QStringList() << "application/oebps-page-map+xml" <<  "application/smil+xml" <<
-                                                        "application/adobe-page-template+xml" <<
-                                                        "application/vnd.adobe-page-template+xml" << "application/pls+xml";
 
 static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                                      "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
@@ -93,7 +65,6 @@ static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
                                      "</container>\n";
 
 const QString OPF_FILE_NAME            = "content.opf";
-
 const QString NCX_FILE_NAME            = "toc.ncx";
 
 
@@ -105,7 +76,6 @@ FolderKeeper::FolderKeeper(QObject *parent)
     m_FSWatcher(new QFileSystemWatcher()),
     m_FullPathToMainFolder(m_TempFolder.GetPath())
 {
-    CreateExtensionToMediaTypeMap();
     CreateKeyToLCPMap();
     CreateFolderStructure();
     CreateInfrastructureFiles();
@@ -133,6 +103,27 @@ FolderKeeper::~FolderKeeper()
     }
 }
 
+QString FolderKeeper::DetermineFileGroup(const QString &filepath, const QString &mimetype)
+{
+    QFileInfo fi(filepath);
+    QString fileName = fi.fileName();
+    QString extension = fi.suffix().toLower();
+    QString mt = mimetype;
+
+    if (filepath.contains(FILE_EXCEPTIONS)) return "other";
+
+    MediaTypes * MTMaps = MediaTypes::instance();
+
+    if (mt.isEmpty()) {
+        mt = MTMaps->GetMediaTypeFromExtension(extension, "");
+        if (mt.isEmpty()) return "other";
+    }
+    
+    QString file_group = MTMaps->GetGroupFromMediaType(mt, "other").toLower();
+    return file_group;
+}
+
+// This routine should never process the opf or the ncx as they are special cased elsewhere in FolderKeeper
 Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool update_opf, const QString &mimetype)
 {
     if (!QFileInfo(fullfilepath).exists()) {
@@ -158,51 +149,58 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
         QMutexLocker locker(&m_AccessMutex);
         QString filename  = GetUniqueFilenameVersion(QFileInfo(normalised_file_path).fileName());
         QString extension = QFileInfo(normalised_file_path).suffix().toLower();
-	QString lcppath;
+	QString mt = mimetype;
+	if (mt.isEmpty()) {
+	    mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
+	}
+        QString group = DetermineFileGroup(normalised_file_path, mt);
+	QString resdesc = MediaTypes::instance()->GetResourceDescFromMediaType(mt, "Resource");
+	QString lcppath = m_KeyToLCP.value(group);
 
         if (fullfilepath.contains(FILE_EXCEPTIONS)) {
+	    // This is used for all files inside the META-INF directory
             // This is a big hack that assumes the new and old filepaths use root paths
             // of the same length. I can't see how to fix this without refactoring
             // a lot of the code to provide a more generalised interface.
             new_file_path = m_FullPathToMainFolder % fullfilepath.right(fullfilepath.size() - m_FullPathToMainFolder.size());
             resource = new Resource(m_FullPathToMainFolder, new_file_path);
-	    lcppath = m_KeyToLCP.value("other", "");
-        } else if (MISC_TEXT_EXTENSIONS.contains(extension)) {
+
+        } else if (resdesc == "MiscTextResource") {
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
             resource = new MiscTextResource(m_FullPathToMainFolder, new_file_path);
-	    lcppath = m_KeyToLCP.value("misc", "");
-        } else if (AUDIO_EXTENSIONS.contains(extension) || AUDIO_MIMETYPES.contains(mimetype)) {
+
+        } else if (resdesc == "AudioResource") {
             new_file_path = m_FullPathToAudioFolder + "/" + filename;
             resource = new AudioResource(m_FullPathToMainFolder, new_file_path);
-	    lcppath = m_KeyToLCP.value("audio","");
-        } else if (VIDEO_EXTENSIONS.contains(extension) || VIDEO_MIMETYPES.contains(mimetype)) {
+
+        } else if (resdesc == "VideoResource") {
             new_file_path = m_FullPathToVideoFolder + "/" + filename;
             resource = new VideoResource(m_FullPathToMainFolder, new_file_path);
-	    lcppath = m_KeyToLCP.value("video","");
-        } else if (IMAGE_EXTENSIONS.contains(extension) || IMAGE_MIMEYPES.contains(mimetype)) {
+
+        } else if (resdesc == "ImageResource") {
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
             resource = new ImageResource(m_FullPathToMainFolder, new_file_path);
-	    lcppath = m_KeyToLCP.value("images","");
-        } else if (SVG_EXTENSIONS.contains(extension) || SVG_MIMETYPES.contains(mimetype)) {
+
+        } else if (resdesc == "SVGResource") {
             new_file_path = m_FullPathToImagesFolder + "/" + filename;
             resource = new SVGResource(m_FullPathToMainFolder, new_file_path);
-	    lcppath = m_KeyToLCP.value("images","");
-        } else if (FONT_EXTENSIONS.contains(extension) || FONT_MIMETYPES.contains(mimetype)) {
+
+        } else if (resdesc == "FontResource") {
             new_file_path = m_FullPathToFontsFolder + "/" + filename;
             resource = new FontResource(m_FullPathToMainFolder, new_file_path);
-	    lcppath = m_KeyToLCP.value("fonts","");
-        } else if (TEXT_EXTENSIONS.contains(extension) || TEXT_MIMETYPES.contains(mimetype)) {
+
+        } else if (resdesc == "HTMLResource") {
             new_file_path = m_FullPathToTextFolder + "/" + filename;
             resource = new HTMLResource(m_FullPathToMainFolder, new_file_path, m_Resources);
-	    lcppath = m_KeyToLCP.value("text","");
-        } else if (STYLE_EXTENSIONS.contains(extension) || STYLE_MIMETYPES.contains(mimetype)) {
+
+        } else if (resdesc == "CSSResource") {
             new_file_path = m_FullPathToStylesFolder + "/" + filename;
             resource = new CSSResource(m_FullPathToMainFolder, new_file_path);
-	    lcppath = m_KeyToLCP.value("styles","");
-        } else if (MISC_XML_EXTENSIONS.contains(extension) || MISC_XML_MIMETYPES.contains(mimetype)) {
+
+        } else if (resdesc == "XMLResource") {
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
             resource = new XMLResource(m_FullPathToMainFolder, new_file_path);
-	    lcppath = m_KeyToLCP.value("misc","");
+
         } else {
             // Fallback mechanism
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
@@ -217,11 +215,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
 	m_Path2Resource[ book_path ] = resource;
 
         resource->SetEpubVersion(m_OPF->GetEpubVersion());
-        if (!mimetype.isEmpty()) {
-            resource->SetMediaType(mimetype);
-        } else {
-           resource->SetMediaType(m_ExtToMType.value(extension));
-        }
+        resource->SetMediaType(mt);
         resource->SetLCP(lcppath);
     }
     QFile::copy(fullfilepath, new_file_path);
@@ -598,49 +592,6 @@ void FolderKeeper::CreateInfrastructureFiles()
     connect(m_FSWatcher, SIGNAL(fileChanged(const QString &)),
             this,        SLOT(ResourceFileChanged(const QString &)), Qt::DirectConnection);
     Utility::WriteUnicodeTextFile(CONTAINER_XML, m_FullPathToMetaInfFolder + "/container.xml");
-}
-
-
-
-// Initializes m_Mimetypes
-void FolderKeeper::CreateExtensionToMediaTypeMap()
-{
-  m_ExtToMType[ "bm"    ] = "image/bmp";
-  m_ExtToMType[ "bmp"   ] = "image/bmp";
-  m_ExtToMType[ "css"   ] = "text/css";
-  m_ExtToMType[ "gif"   ] = "image/gif";
-  m_ExtToMType[ "htm"   ] = "application/xhtml+xml";
-  m_ExtToMType[ "html"  ] = "application/xhtml+xml";
-  m_ExtToMType[ "jpeg"  ] = "image/jpeg";
-  m_ExtToMType[ "jpg"   ] = "image/jpeg";
-  m_ExtToMType[ "js"    ] = "application/javascript";
-  // m_ExtToMType[ "js"    ] = "text/javascript";
-  m_ExtToMType[ "mp3"   ] = "audio/mpeg";
-  m_ExtToMType[ "m4a"   ] = "audio/mp4";
-  m_ExtToMType[ "mp4"   ] = "video/mp4";
-  m_ExtToMType[ "m4v"   ] = "video/mp4";
-  m_ExtToMType[ "ncx"   ] = "application/x-dtbncx+xml";
-  m_ExtToMType[ "oga"   ] = "audio/ogg";
-  m_ExtToMType[ "ogg"   ] = "audio/ogg";
-  m_ExtToMType[ "ogv"   ] = "video/ogg";
-  m_ExtToMType[ "opf"   ] = "application/oebps-package+xml";
-  m_ExtToMType[ "otf"   ] = "application/vnd.ms-opentype";
-  // m_ExtToMType[ "otf"   ] = "application/font-sfnt";
-  m_ExtToMType[ "pls"   ] = "application/pls+xml";
-  m_ExtToMType[ "png"   ] = "image/png";
-  m_ExtToMType[ "smil"  ] = "application/smil+xml";
-  m_ExtToMType[ "svg"   ] = "image/svg+xml";
-  m_ExtToMType[ "tif"   ] = "image/tiff";
-  m_ExtToMType[ "tiff"  ] = "image/tiff";
-  m_ExtToMType[ "ttf"   ] = "application/x-font-ttf";
-  m_ExtToMType[ "ttc"   ] = "application/x-font-truetype-collection";
-  m_ExtToMType[ "ttml"  ] = "application/ttml+xml";
-  m_ExtToMType[ "vtt"   ] = "text/vtt";
-  m_ExtToMType[ "webm"  ] = "video/webm";
-  m_ExtToMType[ "woff"  ] = "application/font-woff";
-  m_ExtToMType[ "woff2"  ] = "font/woff2";
-  m_ExtToMType[ "xpgt"  ] = "application/adobe-page-template+xml";
-  m_ExtToMType[ "xhtml" ] = "application/xhtml+xml";
 }
 
 // Hard codes Longest Common Path for the time being

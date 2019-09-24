@@ -1,6 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2015  Kevin B. Hendricks, Stratford ON
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford ON
+**  Copyright (C) 2013      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -238,20 +240,9 @@ private:
 
     QString ValidatePackageVersion(const QString &source);
 
-    /**
-     * Initializes m_Mimetypes.
-     */
-    void CreateMimetypes();
-
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
-
-    /**
-     * A mapping between file extensions
-     * and appropriate MIME types.
-     */
-    QHash<QString, QString> m_Mimetypes;
 
     HTMLResource * m_NavResource;
     bool m_WarnedAboutVersion;

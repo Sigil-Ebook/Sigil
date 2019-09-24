@@ -38,6 +38,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/GuideItems.h"
 #include "Misc/Landmarks.h"
+#include "Misc/MediaTypes.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/ImageResource.h"
 #include "ResourceObjects/NCXResource.h"
@@ -124,7 +125,6 @@ OPFResource::OPFResource(const QString &mainfolder, const QString &fullfilepath,
     m_NavResource(NULL),
     m_WarnedAboutVersion(false)
 {
-    CreateMimetypes();
     FillWithDefaultText();
     // Make sure the file exists on disk.
     // Among many reasons, this also solves the problem
@@ -1188,51 +1188,9 @@ QString OPFResource::GetResourceMimetype(const Resource *resource) const
 
 QString OPFResource::GetFileMimetype(const QString &filepath) const
 {
-    return m_Mimetypes.value(QFileInfo(filepath).suffix().toLower(), FALLBACK_MIMETYPE);
-}
-
-
-// Initializes m_Mimetypes
-void OPFResource::CreateMimetypes()
-{
-    m_Mimetypes[ "jpg"   ] = "image/jpeg";
-    m_Mimetypes[ "jpeg"  ] = "image/jpeg";
-    m_Mimetypes[ "png"   ] = "image/png";
-    m_Mimetypes[ "gif"   ] = "image/gif";
-    m_Mimetypes[ "tif"   ] = "image/tiff";
-    m_Mimetypes[ "tiff"  ] = "image/tiff";
-    m_Mimetypes[ "bm"    ] = "image/bmp";
-    m_Mimetypes[ "bmp"   ] = "image/bmp";
-    m_Mimetypes[ "svg"   ] = "image/svg+xml";
-    m_Mimetypes[ "ncx"   ] = NCX_MIMETYPE;
-    // We convert all HTML document types to XHTML
-    m_Mimetypes[ "xml"   ] = "application/xhtml+xml";
-    // m_Mimetypes[ "xml"   ] = "application/oebs-page-map+xml";
-    m_Mimetypes[ "xhtml" ] = "application/xhtml+xml";
-    m_Mimetypes[ "html"  ] = "application/xhtml+xml";
-    m_Mimetypes[ "htm"   ] = "application/xhtml+xml";
-    m_Mimetypes[ "css"   ] = "text/css";
-    m_Mimetypes[ "mp3"   ] = "audio/mpeg";
-    m_Mimetypes[ "oga"   ] = "audio/ogg";
-    m_Mimetypes[ "ogg"   ] = "audio/ogg";
-    m_Mimetypes[ "m4a"   ] = "audio/mp4";
-    m_Mimetypes[ "mp4"   ] = "video/mp4";
-    m_Mimetypes[ "m4v"   ] = "video/mp4";
-    m_Mimetypes[ "ogv"   ] = "video/ogg";
-    m_Mimetypes[ "webm"  ] = "video/webm";
-    m_Mimetypes[ "smil"  ] = "application/smil+xml";
-    m_Mimetypes[ "pls"   ] = "application/pls+xml";
-    m_Mimetypes[ "xpgt"  ] = "application/adobe-page-template+xml";
-    m_Mimetypes[ "js"    ] = "application/javascript";
-    // m_Mimetypes[ "js"    ] = "text/javascript";
-    m_Mimetypes[ "otf"   ] = "application/vnd.ms-opentype";
-    // m_Mimetypes[ "otf"   ] = "application/font-sfnt";
-    m_Mimetypes[ "ttf"   ] = "application/x-font-ttf";
-    m_Mimetypes[ "ttc"   ] = "application/x-font-truetype-collection";
-    m_Mimetypes[ "woff"  ] = "application/font-woff";
-    m_Mimetypes[ "woff2"  ] = "font/woff2";
-    m_Mimetypes[ "vtt"   ] = "text/vtt";
-    m_Mimetypes[ "ttml"  ] = "application/ttml+xml";
+    MediaTypes * MTMap = MediaTypes::instance();
+    QString extension = QFileInfo(filepath).suffix().toLower();
+    return MTMap->GetMediaTypeFromExtension(extension, FALLBACK_MIMETYPE);
 }
 
 

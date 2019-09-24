@@ -72,6 +72,10 @@ public:
      */
     ~FolderKeeper();
 
+
+    QString DetermineFileGroup(const QString &filepath, const QString &mimetype);
+
+
     /**
      * Adds a content file to the book folder and returns the
      * corresponding Resource object. The file type is recognized
@@ -279,8 +283,6 @@ private:
      */
     void CreateInfrastructureFiles();
 
-    void CreateExtensionToMediaTypeMap();
-
     void CreateKeyToLCPMap();
 
     /**
@@ -350,9 +352,8 @@ private:
     QString m_FullPathToTextFolder;
     QString m_FullPathToStylesFolder;
     QString m_FullPathToMiscFolder;
-    QHash<QString, QString> m_ExtToMType;
-    QHash<QString, QString> m_KeyToLCP;
 
+    QHash<QString, QString> m_KeyToLCP;
 };
 
 

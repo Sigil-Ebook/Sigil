@@ -322,6 +322,8 @@ set( MISC_FILES
     Misc/PythonRoutines.cpp
     Misc/TextDocument.h
     Misc/TextDocument.cpp
+    Misc/MediaTypes.cpp
+    Misc/MediaTypes.h
     )
 
 set( MISC_EDITORS_FILES
