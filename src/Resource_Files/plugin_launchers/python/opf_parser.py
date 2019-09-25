@@ -43,10 +43,11 @@ _OPF_PARENT_TAGS = ['package', 'metadata', 'dc-metadata', 'x-metadata', 'manifes
 
 class Opf_Parser(object):
 
-    def __init__(self, opf_path, debug = False):
+    def __init__(self, opf_path, opf_bookpath, debug = False):
         self._debug = debug
         opf_path = pathof(opf_path)
         self.opfname = os.path.basename(opf_path)
+        self.opf_bookpath = opf_bookpath
         self.opf = None
         with open(opf_path,'rb') as fp:
             self.opf = fp.read().decode('utf-8')
@@ -55,9 +56,14 @@ class Opf_Parser(object):
         self.metadata_attr = None
         self.metadata = []
         self.cover_id = None
+
         self.manifest_id_to_href = {}
-        self.manifest_id_to_mime = {}
         self.href_to_manifest_id = {}
+
+        self.manifest_id_to_bookpath = {}
+        self.bookpath_to_manifest_id = {}
+
+        self.manifest_id_to_mime = {}
         self.manifest_id_to_properties = {}
         self.manifest_id_to_fallback = {}
         self.manifest_id_to_overlay = {}
@@ -65,7 +71,18 @@ class Opf_Parser(object):
         self.spine_ppd = None
         self.guide = []
         self.bindings = []
+        
+        self.text = []
+        self.styles = []
+        self.images = []
+        self.fonts = []
+        self.audio = []
+        self.video = []
+        self.misc = []
+        self.other = []
+
         self._parseData()
+
 
     # OPF tag iterator
     def _opf_tag_iter(self):

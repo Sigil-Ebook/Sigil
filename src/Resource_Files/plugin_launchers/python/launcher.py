@@ -252,10 +252,15 @@ def main(argv=unicode_argv()):
 
     # load and parse opf if present
     op = None
-    opf_path = os.path.join(ebook_root,'OEBPS','content.opf')
+    cfg = ''
+    with open(os.path.join(outdir, 'sigil.cfg'), 'rb') as f:
+        cfg = f.read().decode('utf-8')
+    cfg = cfg.replace("\r", "")
+    cfg_lst = cfg.split("\n")
+    opfbookpath = cfg_lst.at(0)
+    opf_path = os.path.join(ebook_root, opfbookpath.replace("/", os.sep))
     if unipath.exists(opf_path) and unipath.isfile(opf_path):
-        op = Opf_Parser(opf_path)
-
+        op = Opf_Parser(opf_path, opfbookpath)
     # create a wrapper for record keeping and safety
     rk = Wrapper(ebook_root, outdir, op, plugin_dir, plugin_name)
 

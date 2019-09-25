@@ -85,6 +85,36 @@ def startingDir(file_path):
     ssegs.pop()
     return '/'.join(ssegs)
 
+    
+def longestCommonPath(bookpaths):
+    # handle special cases
+    if len(bookpaths) == 0: return ""
+    if len(bookpaths) == 1: return startingDir(bookpaths[0]) + '/'
+    # split all paths into segment lists
+    fpaths = []
+    seglen = []
+    for bookpath in bookpaths:
+        segs = bookpath.split('/')
+        seglen.append(len(segs))
+        fpaths.append(segs)
+    minlen = min(seglen)
+    res = []
+    numpaths = len(fpaths)
+    # build up list of common path segments in res
+    for i in range(minlen):
+        amatch = True
+        aseg = fpaths[0][i]
+        j = 1;
+        while(amatch and j < numpaths):
+            amatch = aseg == fpaths[j][i]
+            j += 1
+        if amatch:
+            res.append(fpaths[0][i])
+        else: 
+            break
+    if not res or len(res) == 0:
+        return ""
+    return '/'.join(res) + '/'
 
 
 def main():
@@ -140,7 +170,18 @@ def main():
     print('    bookpath: ',p1)
     print('"'+ startingDir(p1)+'"')
     print('    ')
+
+    bookpaths = []
+    bookpaths.append('OEBPS/book1/text/chapter1.xhtml')
+    bookpaths.append('OEBPS/book1/html/chapter2.xhtml')
+    bookpaths.append('OEBPS/book2/text/chapter3.xhtml')
+    print('Testing longestCommonPath(bookpaths)')
+    print('    bookpaths: ',bookpaths)
+    print('"'+ longestCommonPath(bookpaths)+'"')
+    print('    ')
+
     return 0
+
 
 if __name__ == '__main__':
     sys.exit(main())

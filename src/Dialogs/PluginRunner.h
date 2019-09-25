@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2014
+ **  Copyright (C) 2014-2019 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **

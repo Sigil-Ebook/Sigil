@@ -143,6 +143,7 @@ class Wrapper(object):
         self.outdir = pathof(outdir)
 
         # initialize the sigil cofiguration info passed in outdir with sigil.cfg
+        self.opfbookpath = None
         self.appdir = None
         self.usrsupdir = None
         # Location of directory containing hunspell dictionaries on Linux
@@ -161,7 +162,8 @@ class Wrapper(object):
             cfg = f.read().decode('utf-8')
         cfg = cfg.replace("\r", "")
         cfg_lst = cfg.split("\n")
-        if len(cfg_lst) >= 2:
+        if len(cfg_lst) >= 7:
+            self.opfbookpath = cfg_list.pop(0)
             self.appdir = cfg_lst.pop(0)
             self.usrsupdir = cfg_lst.pop(0)
             if not sys.platform.startswith('darwin') and not sys.platform.startswith('win'):
