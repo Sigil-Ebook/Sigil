@@ -868,22 +868,41 @@ QStringList Utility::ZipInspect(const QString &zippath)
 }
 
 // some utilities for working with absolute and book relative paths
-
 QString Utility::longestCommonPath(const QStringList& filepaths, const QString& sep)
 {
+    // handle special cases
     if (filepaths.isEmpty()) return QString();
     if (filepaths.length() == 1) return QFileInfo(filepaths.at(0)).absolutePath() + sep;
-    QStringList fpaths(filepaths);
-    fpaths.sort();
-    const QStringList segs1 = fpaths.at(0).split(sep);
-    const QStringList segs2 = fpaths.at(1).split(sep);
+    
+    // split each path into its component segments
+    QList<QStringList> fpaths;
+    int minlen = -1;
+    foreach(QString apath, filepaths) {
+        QStringList segs = apath.split(sep);
+        int n = segs.length();
+        if (minlen == -1) minlen = n;
+        if (n < minlen) minlen = n;
+        fpaths.append(segs);
+    }
+
+    // now build up the results
     QStringList res;
-    int i = 0;
-    while((i < segs1.length()) && (i < segs2.length()) && (segs1.at(i) == segs2.at(i))) {
-        res.append(segs1.at(i));
-        i++; 
-    } 
-    if (res.length() == 0) return sep;
+    int numpaths = fpaths.length();
+    for(int i=0; i < minlen; i++) {
+        QString aseg = fpaths.at(0).at(i);
+        bool amatch = true;
+        int j = 1;
+        while(amatch && j < numpaths) {
+            amatch = (aseg == fpaths.at(j).at(i));
+            j++;
+        }
+        if (amatch) {
+            res << aseg;
+        } else {
+            break;
+        }
+    }
+    if (res.isEmpty()) return "";
     return res.join(sep) + sep;
 }
 
