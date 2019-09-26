@@ -910,8 +910,8 @@ QString Utility::longestCommonPath(const QStringList& filepaths, const QString& 
     if (filepaths.length() == 1) return QFileInfo(filepaths.at(0)).absolutePath() + sep;
     QStringList fpaths(filepaths);
     fpaths.sort();
-    const QStringList segs1 = fpaths.at(0).split(sep);
-    const QStringList segs2 = fpaths.at(1).split(sep);
+    const QStringList segs1 = fpaths.first().split(sep);
+    const QStringList segs2 = fpaths.last().split(sep);
     QStringList res;
     int i = 0;
     while((i < segs1.length()) && (i < segs2.length()) && (segs1.at(i) == segs2.at(i))) {
