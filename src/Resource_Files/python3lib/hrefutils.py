@@ -90,28 +90,14 @@ def longestCommonPath(bookpaths):
     # handle special cases
     if len(bookpaths) == 0: return ""
     if len(bookpaths) == 1: return startingDir(bookpaths[0]) + '/'
-    # split all paths into segment lists
-    fpaths = []
-    seglen = []
-    for bookpath in bookpaths:
-        segs = bookpath.split('/')
-        seglen.append(len(segs))
-        fpaths.append(segs)
-    minlen = min(seglen)
+    fpaths = bookpaths
+    fpaths.sort()
+    segs1 = fpaths[0].split('/')
+    segs2 = fpaths[-1].split('/')
     res = []
-    numpaths = len(fpaths)
-    # build up list of common path segments in res
-    for i in range(minlen):
-        amatch = True
-        aseg = fpaths[0][i]
-        j = 1;
-        while(amatch and j < numpaths):
-            amatch = aseg == fpaths[j][i]
-            j += 1
-        if amatch:
-            res.append(fpaths[0][i])
-        else: 
-            break
+    for s1, s2 in zip(segs1, segs2):
+        if s1 != s2: break
+        res.append(s1)
     if not res or len(res) == 0:
         return ""
     return '/'.join(res) + '/'
