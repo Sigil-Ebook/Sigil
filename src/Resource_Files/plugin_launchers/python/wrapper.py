@@ -86,7 +86,6 @@ mime_base_map = {
 PROTECTED_FILES = [
     'mimetype',
     'META-INF/container.xml',
-    'OEBPS/content.opf'
 ]
 
 TEXT_MIMETYPES = [
@@ -172,7 +171,6 @@ class Wrapper(object):
         if self.op is not None:
             # copy in data from parsing of initial opf
             self.opf_dir = op.opf_dir
-            self.opfname = op.opfname
             self.id_to_href = op.get_manifest_id_to_href_dict().copy()
             self.id_to_mime = op.get_manifest_id_to_mime_dict().copy()
             self.id_to_props = op.get_manifest_id_to_properties_dict().copy()
@@ -316,7 +314,7 @@ class Wrapper(object):
 
     def write_opf(self):
         if self.op is not None:
-            filepath = pathof(os.path.join(self.outdir, 'OEBPS', self.opfname))
+            filepath = pathof(os.path.join(self.outdir, self.opfbookpath.split("/"))
             base = os.path.dirname(filepath)
             if not unipath.exists(base):
                 os.makedirs(base)
@@ -377,7 +375,7 @@ class Wrapper(object):
                     raise Exception('Improper Spine Linear Attribute')
             spine.append((sid, linear, properties))
         self.spine = spine
-        self.modified['OEBPS/content.opf'] = 'file'
+        self.modified[self.opfbookpath] = 'file'
 
     def getspine_epub3(self):
         return self.spine
@@ -400,7 +398,7 @@ class Wrapper(object):
                 properties = properties.lower()
             spine.append((sid, linear, properties))
         self.spine = spine
-        self.modified['OEBPS/content.opf'] = 'file'
+        self.modified[self.opfbookpath] = 'file'
 
     def getbindings_epub3(self):
         return self.bindings
@@ -418,7 +416,7 @@ class Wrapper(object):
                 raise WrapperException('Handler not in Manifest')
             bindings.append((mtype, handler))
         self.bindings = bindings
-        self.modified['OEBPS/content.opf'] = 'file'
+        self.modified[self.opfbookpath] = 'file'
 
     def spine_insert_before(self, pos, sid, linear, properties=None):
         sid = unicode_str(sid)
@@ -435,7 +433,7 @@ class Wrapper(object):
             self.spine.append((sid, linear, properties))
         else:
             self.spine = self.spine[0:pos] + [(sid, linear, properties)] + self.spine[pos:]
-        self.modified['OEBPS/content.opf'] = 'file'
+        self.modified[self.opfbookpath] = 'file'
 
     def getspine_ppd(self):
         return self.spine_ppd
@@ -445,7 +443,7 @@ class Wrapper(object):
         if ppd not in ['rtl', 'ltr', None]:
             raise WrapperException('incorrect page-progression direction')
         self.spine_ppd = ppd
-        self.modified['OEBPS/content.opf'] = 'file'
+        self.modified[self.opfbookpath] = 'file'
 
     def setspine_itemref_epub3_attributes(idref, linear, properties):
         idref = unicode_str(idref)
@@ -463,7 +461,7 @@ class Wrapper(object):
         if pos == -1:
             raise WrapperException('that idref is not exist in the spine')
         self.spine[pos] = (sid, linear, properties)
-        self.modified['OEBPS/content.opf'] = 'file'
+        self.modified[self.opfbookpath] = 'file'
 
 
     # routines to get and set the guide
@@ -487,7 +485,7 @@ class Wrapper(object):
                 raise WrapperException('guide href not in manifest')
             guide.append((type, title, href))
         self.guide = guide
-        self.modified['OEBPS/content.opf'] = 'file'
+        self.modified[self.opfbookpath] = 'file'
 
 
     # routines to get and set metadata xml fragment
@@ -497,7 +495,7 @@ class Wrapper(object):
 
     def setmetadataxml(self, new_metadata):
         self.metadataxml = unicode_str(new_metadata)
-        self.modified['OEBPS/content.opf'] = 'file'
+        self.modified[self.opfbookpath] = 'file'
 
 
     # routines to get and set the package tag
@@ -513,7 +511,7 @@ class Wrapper(object):
         if version != self.epub_version:
             raise WrapperException('Illegal to change the package version attribute')
         self.package_tag = pkgtag
-        self.modified['OEBPS/content.opf'] = 'file'
+        self.modified[self.opfbookpath] = 'file'
 
 
     # routines to manipulate files in the manifest (updates the opf automagically)
@@ -603,7 +601,7 @@ class Wrapper(object):
         self.id_to_over[uniqueid] = overlay
         self.href_to_id[href] = uniqueid
         self.added.append(uniqueid)
-        self.modified['OEBPS/content.opf'] = 'file'
+        self.modified[self.opfbookpath] = 'file'
         return uniqueid
 
     def deletefile(self, id):
@@ -647,7 +645,7 @@ class Wrapper(object):
             self.setspine_epub3(new_spine)
         if add_to_deleted:
             self.deleted.append(('manifest', id, href))
-            self.modified['OEBPS/content.opf'] = 'file'
+            self.modified[self.opfbookpath] = 'file'
         del self.id_to_filepath[id]
 
     def set_manifest_epub3_attributes(self, id, properties=None, fallback=None, overlay=None):
@@ -669,7 +667,7 @@ class Wrapper(object):
         self.id_to_props[id] = properties
         self.id_to_fall[id] = fallback
         self.id_to_over[id] = overlay
-        self.modified['OEBPS/content.opf'] = 'file'
+        self.modified[self.opfbookpath] = 'file'
 
 
     # helpful mapping routines for file info from the opf manifest
@@ -728,7 +726,7 @@ class Wrapper(object):
         if id not in self.other and id in self.id_to_href:
             raise WrapperException('Incorrect interface routine - use readfile')
         # handle special case of trying to read the opf after it has been modified
-        if id == "OEBPS/content.opf":
+        if id == self.opfbookpath:
             if id in self.modified:
                 return self.build_opf()
         filepath = self.book_href_to_filepath.get(id, None)
@@ -761,7 +759,7 @@ class Wrapper(object):
         filepath = self.book_href_to_filepath.get(id, None)
         if filepath is None:
             raise WrapperException('Book href does not exist')
-        if id in PROTECTED_FILES:
+        if id in PROTECTED_FILES or id == self.opfbookpath:
             raise WrapperException('Attempt to modify protected file')
         filepath = os.path.join(self.outdir, filepath)
         base = os.path.dirname(filepath)
@@ -805,7 +803,7 @@ class Wrapper(object):
         filepath = self.book_href_to_filepath.get(id, None)
         if filepath is None:
             raise WrapperException('Book href does not exist')
-        if id in PROTECTED_FILES:
+        if id in PROTECTED_FILES or id == self.opfbookpath:
             raise WrapperException('attempt to delete protected file')
         add_to_deleted = True
         # if file was added or modified delete file from outdir
