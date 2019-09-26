@@ -157,7 +157,7 @@ class ProcessScript(object):
         if script_type == "edit":
             for ftype, id, href in container._w.deleted:
                 if ftype == 'manifest':
-                    bookhref = 'OEBPS/' + href
+                    bookhref = container._w.id_to_bookpath[id]
                     mime = container._w.getmime(bookhref)
                 else:
                     bookhref = id
@@ -166,9 +166,8 @@ class ProcessScript(object):
                 self.wrapout.append('<deleted href="%s" id="%s" media-type="%s" />\n' % (quoteurl(bookhref), id, mime))
         if script_type in ['input', 'edit']:
             for id in container._w.added:
-                if id in container._w.id_to_href:
-                    href = container._w.id_to_href[id]
-                    bookhref = 'OEBPS/' + href
+                if id in container._w.id_to_bookpath:
+                    bookhref = container._w.id_to_bookpath[id]
                     mime = container._w.id_to_mime[id]
                 else:
                     bookhref = id
@@ -177,9 +176,8 @@ class ProcessScript(object):
                 self.wrapout.append('<added href="%s" id="%s" media-type="%s" />\n' % (quoteurl(bookhref), id, mime))
         if script_type == 'edit':
             for id in container._w.modified:
-                if id in container._w.id_to_href:
-                    href = container._w.id_to_href[id]
-                    bookhref = 'OEBPS/' + href
+                if id in container._w.id_to_bookpath:
+                    bookhref = container._w.id_to_bookpath[id]
                     mime = container._w.id_to_mime[id]
                 else:
                     bookhref = id

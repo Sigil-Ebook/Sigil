@@ -77,13 +77,13 @@ class Opf_Parser(object):
         
         # determine longestCommonPaths for each logical grouping (folder) type
         self.lcp = {}
-        self.lcp['text'] = []
-        self.lcp['styles'] = []
-        self.lcp['images'] = []
-        self.lcp['fonts'] = []
-        self.lcp['audio'] = []
-        self.lcp['video'] = []
-        self.lcp['misc'] = []
+        self.lcp['Text'] = []
+        self.lcp['Styles'] = []
+        self.lcp['Images'] = []
+        self.lcp['Fonts'] = []
+        self.lcp['Audio'] = []
+        self.lcp['Video'] = []
+        self.lcp['Misc'] = []
         self.group_paths = {}
 
         self._parseData()
@@ -165,7 +165,7 @@ class Opf_Parser(object):
                     bookpath = buildBookPath(href, self.opf_dir)
                 self.manifest_id_to_bookpath[id] = bookpath
                 self.manifest_id_to_mime[id] = mtype
-                group = mime_group_map.get(mtype,'').lower()
+                group = mime_group_map.get(mtype,'')
                 if bookpath != "" and group != "":
                      self.lcp[group].append(bookpath)
                 self.manifest_id_to_properties[id] = properties
@@ -200,6 +200,17 @@ class Opf_Parser(object):
         for key in self.lcp.keys():
             pathlst = self.lcp[key]
             self.group_paths[key] = longestCommonPath(pathlst)
+        # Fill in any empty group paths by finding common
+        # path across all group paths and building from there
+        glst = []
+        for key in self.group_paths:
+            if self.group_paths[key] != "":
+                glst.append(self.group_paths[key])
+        base_path = longestCommonPath(glst)
+        for key in self.group_paths:
+            if self.group_paths[key] == "":
+                del self.group_paths[key]
+                self.group_paths[key] = base_path + key + "/"
 
     # parse and return either leading text or the next tag
     def _parseopf(self):
