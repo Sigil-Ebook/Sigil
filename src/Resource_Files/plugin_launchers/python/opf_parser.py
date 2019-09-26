@@ -26,10 +26,11 @@
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from __future__ import unicode_literals, division, absolute_import, print_function
-from compatibility_utils import unquoteurl
-from unipath import pathof
 
 import sys, os
+from unipath import pathof
+from hrefutils import unquoteurl, buildBookPath, startingDir, longestCommonPath
+from hrefutils import ext_mime_map, mime_group_map
 
 SPECIAL_HANDLING_TAGS = {
     '?xml'     : ('xmlheader', -1), 
@@ -48,6 +49,7 @@ class Opf_Parser(object):
         opf_path = pathof(opf_path)
         self.opfname = os.path.basename(opf_path)
         self.opf_bookpath = opf_bookpath
+        self.opf_dir = startingDir(opf_bookpath)
         self.opf = None
         with open(opf_path,'rb') as fp:
             self.opf = fp.read().decode('utf-8')
@@ -57,29 +59,32 @@ class Opf_Parser(object):
         self.metadata = []
         self.cover_id = None
 
+        # let downstream invert any invertable dictionaries when needed
         self.manifest_id_to_href = {}
-        self.href_to_manifest_id = {}
-
         self.manifest_id_to_bookpath = {}
-        self.bookpath_to_manifest_id = {}
 
+        # create non-invertable dictionaries
         self.manifest_id_to_mime = {}
         self.manifest_id_to_properties = {}
         self.manifest_id_to_fallback = {}
         self.manifest_id_to_overlay = {}
+
+        # spine and guide
         self.spine = []
         self.spine_ppd = None
         self.guide = []
         self.bindings = []
         
-        self.text = []
-        self.styles = []
-        self.images = []
-        self.fonts = []
-        self.audio = []
-        self.video = []
-        self.misc = []
-        self.other = []
+        # determine longestCommonPaths for each logical grouping (folder) type
+        self.lcp = {}
+        self.lcp['text'] = []
+        self.lcp['styles'] = []
+        self.lcp['images'] = []
+        self.lcp['fonts'] = []
+        self.lcp['audio'] = []
+        self.lcp['video'] = []
+        self.lcp['misc'] = []
+        self.group_paths = {}
 
         self._parseData()
 
@@ -146,13 +151,23 @@ class Opf_Parser(object):
                 mtype = tattr.pop("media-type",'')
                 if mtype == "text/html":
                     mtype = "application/xhtml+xml"
+                if mtype not in mime_group_map:
+                    print("****Opf_Parser Warning****: Unknown MediaType: ",mtype)
                 href = unquoteurl(href)
                 properties = tattr.pop("properties",None)
                 fallback = tattr.pop("fallback",None)
                 overlay = tattr.pop("media-overlay",None)
+                # external resources are now allowed in the opf under epub3
+                # we can ignore fragments here as these are links to files
                 self.manifest_id_to_href[id] = href
+                bookpath = ""
+                if href.find(":") == -1:
+                    bookpath = buildBookPath(href, self.opf_dir)
+                self.manifest_id_to_bookpath[id] = bookpath
                 self.manifest_id_to_mime[id] = mtype
-                self.href_to_manifest_id[href] = id
+                group = mime_group_map.get(mtype,'').lower()
+                if bookpath != "" and group != "":
+                     self.lcp[group].append(bookpath)
                 self.manifest_id_to_properties[id] = properties
                 self.manifest_id_to_fallback[id] = fallback
                 self.manifest_id_to_overlay[id] = overlay
@@ -181,6 +196,10 @@ class Opf_Parser(object):
                 handler = tattr.pop("handler","")
                 self.bindings.append((mtype, handler))
                 continue
+        # now calculate the lcp for each grouping
+        for key in self.lcp.keys():
+            pathlst = self.lcp[key]
+            self.group_paths[key] = longestCommonPath(pathlst)
 
     # parse and return either leading text or the next tag
     def _parseopf(self):
@@ -331,8 +350,8 @@ class Opf_Parser(object):
     def get_manifest_id_to_mime_dict(self):
         return self.manifest_id_to_mime
 
-    def get_href_to_manifest_id_dict(self):
-        return self.href_to_manifest_id
+    def get_manifest_id_to_bookpath_dict(self):
+        return self.manifest_id_to_bookpath
 
     def get_manifest_id_to_properties_dict(self):
         return self.manifest_id_to_properties
@@ -342,6 +361,9 @@ class Opf_Parser(object):
 
     def get_manifest_id_to_overlay_dict(self):
         return self.manifest_id_to_overlay
+
+    def get_group_paths(self):
+        return self.group_paths
 
     def get_spine_ppd(self):
         return self.spine_ppd
@@ -357,3 +379,77 @@ class Opf_Parser(object):
     # list of (media-type, handler)
     def get_bindings(self):
         return self.bindings
+
+
+def main():
+    argv = sys.argv
+
+    opfpath = None
+    data = None
+    if len(argv) > 1:
+        filepath = argv[1]
+    if filepath:
+        op = Opf_Parser(filepath, 'OEBPS/content.opf')
+
+        print('Epub Version')
+        print(op.get_epub_version())
+        print (' ')
+
+        print('Package Tag')
+        print(op.get_package_tag())
+        print (' ')
+
+        print('Metadata')
+        print(op.get_metadataxml())
+        print (' ')
+
+        print('Guide')
+        for gentry in op.get_guide():
+            print('    ',gentry)
+        print (' ')
+
+        print('Spine')
+        for spentry in op.get_spine():
+            print('    ',spentry)
+        print (' ')
+
+        print('Group Paths')
+        d = op.get_group_paths()
+        for k, v in d.items():
+            print('    ', k, ' : ', v)
+        print (' ')
+
+        print('Dict: id to href')
+        d = op.get_manifest_id_to_href_dict()
+        for k, v in d.items():
+            print('    ', k, ' : ', v)
+        print (' ')
+
+        print('Dict: id to mime')
+        d = op.get_manifest_id_to_mime_dict()
+        for k, v in d.items():
+            print('    ', k, ' : ', v)
+        print (' ')
+
+        print('Dict: id to bookpath')
+        d = op.get_manifest_id_to_bookpath_dict()
+        for k, v in d.items():
+            print('    ', k, ' : ', v)
+        print (' ')
+
+        print('Dict: id to properties')
+        d = op.get_manifest_id_to_properties_dict()
+        for k, v in d.items():
+            print('    ', k, ' : ', v)
+        print (' ')
+
+        print('Dict: id to overlay')
+        d = op.get_manifest_id_to_overlay_dict()
+        for k, v in d.items():
+            print('    ', k, ' : ', v)
+        print (' ')
+
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(main())

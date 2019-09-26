@@ -26,16 +26,22 @@
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from __future__ import unicode_literals, division, absolute_import, print_function
+
+
 from compatibility_utils import PY3, PY2, text_type, binary_type, utf8_str, unicode_str, iswindows, quoteurl, unquoteurl
 
 import sys
 import os
+
+from hrefutils import quoteurl, unquoteurl, buildBookPath, startingDir, buildRelativePath
+from hrefutils import ext_mime_map, mime_group_map
+
 import re
 import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20190826
+_launcher_version=20190926
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
@@ -47,37 +53,6 @@ _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''
 _guide_types = ['cover','title-page','toc','index','glossary','acknowledgements',
                 'bibliography','colophon','copyright-page','dedication',
                 'epigraph','foreward','loi','lot','notes','preface','text']
-
-ext_mime_map = {
-                '.jpg'   : 'image/jpeg',
-                '.jpeg'  : 'image/jpeg',
-                '.png'   : 'image/png',
-                '.gif'   : 'image/gif',
-                '.svg'   : 'image/svg+xml',
-                '.xhtml' : 'application/xhtml+xml',
-                '.html'  : 'application/xhtml+xml',
-                '.htm'   : 'application/xhtml+xml',
-                '.otf'   : 'application/vnd.ms-opentype',
-                #'.otf'  : 'application/x-font-opentype',
-                #'.otf'  : 'application/font-sfnt',
-                '.ttf'   : 'application/x-font-ttf',
-                '.woff'  : 'application/font-woff',
-                '.woff2' : 'font/woff2',
-                '.mp3'   : 'audio/mpeg',
-                '.m4a'   : 'audio/mp4',
-                '.mp4'   : 'video/mp4',
-                '.m4v'   : 'video/mp4',
-                '.css'   : 'text/css',
-                '.ncx'   : 'application/x-dtbncx+xml',
-                '.xml'   : 'application/oebs-page-map+xml',
-                '.opf'   : 'application/oebps-package+xml',
-                '.smil'  : 'application/smil+xml',
-                '.pls'   : 'application/pls+xml',
-                '.xpgt'  : 'application/adobe-page-template+xml',
-                #'.js'   : 'text/javascript',
-                '.js'    : 'application/javascript',
-                '.epub'  : 'application/epub+zip',
-                }
 
 mime_base_map = {
                 'image/jpeg'                              : 'Images',
@@ -178,10 +153,12 @@ class Wrapper(object):
         # dictionaries used to map opf manifest information
         self.id_to_href = {}
         self.id_to_mime = {}
-        self.href_to_id = {}
         self.id_to_props = {}
         self.id_to_fall = {}
         self.id_to_over = {}
+        self.id_to_bookpath = {}
+        self.href_to_id = {}
+        self.bookpath_to_id = {}
         self.spine_ppd = None
         self.spine = []
         self.guide = []
@@ -194,22 +171,27 @@ class Wrapper(object):
         self.op = op
         if self.op is not None:
             # copy in data from parsing of initial opf
+            self.opf_dir = op.opf_dir
             self.opfname = op.opfname
             self.id_to_href = op.get_manifest_id_to_href_dict().copy()
             self.id_to_mime = op.get_manifest_id_to_mime_dict().copy()
-            self.href_to_id = op.get_href_to_manifest_id_dict().copy()
             self.id_to_props = op.get_manifest_id_to_properties_dict().copy()
             self.id_to_fall = op.get_manifest_id_to_fallback_dict().copy()
             self.id_to_over = op.get_manifest_id_to_overlay_dict().copy()
+            self.id_to_bookpath = op.get_manifest_id_to_bookpath_dict().copy()
+            self.group_paths = op.get_group_paths().copy()
             self.spine_ppd = op.get_spine_ppd()
             self.spine = op.get_spine()
             self.guide = op.get_guide()
             self.package_tag = op.get_package_tag()
             self.epub_version = op.get_epub_version()
             self.bindings = op.get_bindings()
+            self.metadataxml = op.get_metadataxml()
+            # invert key dictionaries
+            self.href_to_id = {v: k for k, v in self.id_to_href.items()}
+            self.bookpath_to_id = {v: k for k, v in self.id_to_bookpath.items()}
             # self.metadata = op.get_metadata()
             # self.metadata_attr = op.get_metadata_attr()
-            self.metadataxml = op.get_metadataxml()
         self.other = []  # non-manifest file information
         self.id_to_filepath = {}
         self.book_href_to_filepath = {}
@@ -225,10 +207,7 @@ class Wrapper(object):
             # spec requires all text including filenames to be in NFC form.
             book_href = unicodedata.normalize('NFC', book_href)
             # if book_href file in manifest convert to manifest id
-            id = None
-            if book_href.startswith('OEBPS/'):
-                href = book_href[6:]
-                id = self.href_to_id.get(href,None)
+            id = self.bookpath_to_id.get(book_href,None)
             if id is None:
                 self.other.append(book_href)
                 self.book_href_to_filepath[book_href] = filepath
