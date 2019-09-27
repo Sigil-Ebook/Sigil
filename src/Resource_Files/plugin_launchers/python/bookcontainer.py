@@ -431,7 +431,7 @@ class BookContainer(object):
     # return a bookpath for the file pointed to by the href
     # from the specified bookpath starting directory
     def build_bookpath(self, href, starting_dir):
-        return self._w.build_bookpath(href, startingdir)
+        return self._w.build_bookpath(href, starting_dir)
 
     # returns the href relative path from source bookpath to target bookpath
     def get_relativepath(self, from_bookpath, to_bookpath):
