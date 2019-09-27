@@ -255,7 +255,7 @@ def main(argv=unicode_argv()):
         cfg = f.read().decode('utf-8')
     cfg = cfg.replace("\r", "")
     cfg_lst = cfg.split("\n")
-    opfbookpath = cfg_lst.at(0)
+    opfbookpath = cfg_lst[0]
     opf_path = os.path.join(ebook_root, opfbookpath.replace("/", os.sep))
     if unipath.exists(opf_path) and unipath.isfile(opf_path):
         op = Opf_Parser(opf_path, opfbookpath)

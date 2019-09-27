@@ -41,11 +41,13 @@ class ValidationContainer(OutputContainer):
         self.results = []
         super(ValidationContainer, self).__init__(wrapper, debug)
 
+    # revised from filename to bookpath
     def add_result(self, restype, bookpath, linenumber, message):
         if isinstance(linenumber, int):
             linenumber = "%d" % linenumber
         self.results.append(ValidationResult(restype, bookpath, linenumber, "-1", message))
 
+    # revised from filename to bookpath
     def add_extended_result(self, restype, bookpath, linenumber, charoffset, message):
         if isinstance(linenumber, int):
             linenumber = "%d" % linenumber
