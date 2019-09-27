@@ -229,8 +229,11 @@ def main(argv=unicode_argv()):
     script_module = os.path.splitext(os.path.basename(target_file))[0]
 
     # remap cssutils to css_parser
-    import css_parser
-    sys.modules['cssutils'] = css_parser
+    try:
+        import css_parser
+        sys.modules['cssutils'] = css_parser
+    except ImportError:
+        pass
 
     # do basic sanity checking anyway
     if script_type not in SUPPORTED_SCRIPT_TYPES:

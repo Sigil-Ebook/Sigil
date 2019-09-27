@@ -79,8 +79,8 @@ def epub_zip_up_book_contents(ebook_path, epub_filepath):
     outzip.close()
 
 
-def build_container_xml(relative_path_to_opf):
-    opf_path = unicode_str(relative_path_to_opf)
+def build_container_xml(bookpath_to_opf):
+    opf_path = unicode_str(bookpath_to_opf)
     container = '<?xml version="1.0" encoding="UTF-8"?>\n'
     container += '<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">\n'
     container += '    <rootfiles>\n'
