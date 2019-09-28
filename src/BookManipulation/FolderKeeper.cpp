@@ -119,7 +119,7 @@ QString FolderKeeper::DetermineFileGroup(const QString &filepath, const QString 
         if (mt.isEmpty()) return "other";
     }
     
-    QString file_group = MTMaps->GetGroupFromMediaType(mt, "other").toLower();
+    QString file_group = MTMaps->GetGroupFromMediaType(mt, "other");
     return file_group;
 }
 
@@ -601,13 +601,13 @@ void FolderKeeper::CreateKeyToLCPMap()
     if (!m_KeyToLCP.isEmpty()) return;
     // Note: m_FullPathToMainFolder **never** ends with a "/" see Misc/TempFolder.cpp
     // Note all LCP paths **must** end with "/"
-    m_KeyToLCP[ "text"   ] = m_FullPathToMainFolder + "/OEBPS/Text/";
-    m_KeyToLCP[ "styles" ] = m_FullPathToMainFolder + "/OEBPS/Styles/";
-    m_KeyToLCP[ "images" ] = m_FullPathToMainFolder + "/OEBPS/Images/";
-    m_KeyToLCP[ "fonts"  ] = m_FullPathToMainFolder + "/OEBPS/Fonts/";
-    m_KeyToLCP[ "audio"  ] = m_FullPathToMainFolder + "/OEBPS/Audio/";
-    m_KeyToLCP[ "video"  ] = m_FullPathToMainFolder + "/OEBPS/Video/";
-    m_KeyToLCP[ "misc"   ] = m_FullPathToMainFolder + "/OEBPS/Misc/";
+    m_KeyToLCP[ "Text"   ] = m_FullPathToMainFolder + "/OEBPS/Text/";
+    m_KeyToLCP[ "Styles" ] = m_FullPathToMainFolder + "/OEBPS/Styles/";
+    m_KeyToLCP[ "Images" ] = m_FullPathToMainFolder + "/OEBPS/Images/";
+    m_KeyToLCP[ "Fonts"  ] = m_FullPathToMainFolder + "/OEBPS/Fonts/";
+    m_KeyToLCP[ "Audio"  ] = m_FullPathToMainFolder + "/OEBPS/Audio/";
+    m_KeyToLCP[ "Video"  ] = m_FullPathToMainFolder + "/OEBPS/Video/";
+    m_KeyToLCP[ "Misc"   ] = m_FullPathToMainFolder + "/OEBPS/Misc/";
     m_KeyToLCP[ "ncx"    ] = m_FullPathToMainFolder + "/OEBPS/";
     m_KeyToLCP[ "opf"    ] = m_FullPathToMainFolder + "/OEBPS/";
     m_KeyToLCP[ "other"  ] = m_FullPathToMainFolder + "/";

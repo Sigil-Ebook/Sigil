@@ -58,8 +58,8 @@ static const QString OPF_NCX_EDIT_WARNING_KEY = SETTINGS_GROUP + "-opfncx-warnin
 static const int COLUMN_INDENTATION = 10;
 
 // This needs to be kept in sync with FolderKeeper
-const QStringList folderkeys = QStringList() << "text" << "styles" << "images" << "fonts" <<
-					        "audio" << "video" << "misc"  << "ncx" << "opf";
+const QStringList folderkeys = QStringList() << "Text" << "Styles" << "Images" << "Fonts" <<
+					        "Audio" << "Video" << "Misc"  << "ncx" << "opf";
 
 BookBrowser::BookBrowser(QWidget *parent)
     :
