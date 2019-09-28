@@ -443,10 +443,8 @@ class BookContainer(object):
         return self._w.addbookpath(uniqueid, bookpath, data, mime)
 
     # functions for converting from  manifest id to bookpath and back
-    def bookpath_to_id(self, bookpath, ow):
-        bookpath = unicode_str(bookpath)
-        return self._w.map_bookpath_to_id.get(bookpath,ow)
+    def bookpath_to_id(self, bookpath, ow=None):
+        return self._w.map_bookpath_to_id(bookpath,ow)
 
-    def id_to_bookpath(self, id, ow):
-        id = unicode_str(id)
+    def id_to_bookpath(self, id, ow=None):
         return self._w.map_id_to_bookpath(id, ow)
