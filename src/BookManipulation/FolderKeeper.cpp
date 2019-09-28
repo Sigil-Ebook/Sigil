@@ -205,7 +205,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
             // Fallback mechanism
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
             resource = new Resource(m_FullPathToMainFolder, new_file_path);
-	    lcppath = m_KeyToLCP.value("misc","");
+	    lcppath = m_KeyToLCP.value("Misc","");
         }
 
         m_Resources[ resource->GetIdentifier() ] = resource;
@@ -599,18 +599,17 @@ void FolderKeeper::CreateInfrastructureFiles()
 void FolderKeeper::CreateKeyToLCPMap()
 {
     if (!m_KeyToLCP.isEmpty()) return;
-    // Note: m_FullPathToMainFolder **never** ends with a "/" see Misc/TempFolder.cpp
     // Note all LCP paths **must** end with "/"
-    m_KeyToLCP[ "Text"   ] = m_FullPathToMainFolder + "/OEBPS/Text/";
-    m_KeyToLCP[ "Styles" ] = m_FullPathToMainFolder + "/OEBPS/Styles/";
-    m_KeyToLCP[ "Images" ] = m_FullPathToMainFolder + "/OEBPS/Images/";
-    m_KeyToLCP[ "Fonts"  ] = m_FullPathToMainFolder + "/OEBPS/Fonts/";
-    m_KeyToLCP[ "Audio"  ] = m_FullPathToMainFolder + "/OEBPS/Audio/";
-    m_KeyToLCP[ "Video"  ] = m_FullPathToMainFolder + "/OEBPS/Video/";
-    m_KeyToLCP[ "Misc"   ] = m_FullPathToMainFolder + "/OEBPS/Misc/";
-    m_KeyToLCP[ "ncx"    ] = m_FullPathToMainFolder + "/OEBPS/";
-    m_KeyToLCP[ "opf"    ] = m_FullPathToMainFolder + "/OEBPS/";
-    m_KeyToLCP[ "other"  ] = m_FullPathToMainFolder + "/";
+    m_KeyToLCP[ "Text"   ] = "OEBPS/Text/";
+    m_KeyToLCP[ "Styles" ] = "OEBPS/Styles/";
+    m_KeyToLCP[ "Images" ] = "OEBPS/Images/";
+    m_KeyToLCP[ "Fonts"  ] = "OEBPS/Fonts/";
+    m_KeyToLCP[ "Audio"  ] = "OEBPS/Audio/";
+    m_KeyToLCP[ "Video"  ] = "OEBPS/Video/";
+    m_KeyToLCP[ "Misc"   ] = "OEBPS/Misc/";
+    m_KeyToLCP[ "ncx"    ] = "OEBPS/";
+    m_KeyToLCP[ "opf"    ] = "OEBPS/";
+    m_KeyToLCP[ "other"  ] = "";
 }
 
 QString FolderKeeper::GetLongestCommonPathForKey(const QString &key)
