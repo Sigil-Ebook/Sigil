@@ -161,7 +161,7 @@ void ValidationResultsView::ResultDoubleClicked(QTableWidgetItem *item)
         return;
     }
 
-    QString bookpath = path_item->text();
+    QString shortname = path_item->text();
     QTableWidgetItem *line_item = m_ResultTable->item(row, 1);
     QTableWidgetItem *offset_item = m_ResultTable->item(row, 2);
 
@@ -174,7 +174,7 @@ void ValidationResultsView::ResultDoubleClicked(QTableWidgetItem *item)
     int charoffset = offset_item->text().toInt();
 
     try {
-        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByShortPathName(shortname);
         // if character offset info exists, use it in preference to just the line number
         if (charoffset != -1) {
             emit OpenResourceRequest(resource, line, charoffset, QString());
@@ -221,7 +221,9 @@ void ValidationResultsView::DisplayResults(const QList<ValidationResult> &result
 
         m_ResultTable->insertRow(rownum);
 
-        QString path = result.BookPath();
+	Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(result.BookPath());
+	QString path = resource->ShortPathName();
+	
         item = new QTableWidgetItem(RemoveEpubPathPrefix(path));
         item->setBackground(row_brush);
         m_ResultTable->setItem(rownum, 0, item);
