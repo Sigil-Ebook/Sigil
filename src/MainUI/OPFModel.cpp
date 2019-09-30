@@ -25,7 +25,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFileIconProvider>
 #include <QMessageBox>
-
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "MainUI/OPFModel.h"
@@ -303,10 +302,14 @@ void OPFModel::ItemChangedHandler(QStandardItem *item)
     const QString &identifier = item->data().toString();
 
     if (!identifier.isEmpty()) {
-        const QString &new_filename = item->text();
+        // extract just the filename from the ShortPathName
+        QString new_filename = item->text();
+        if (!new_filename.isEmpty()) {
+	    new_filename = new_filename.split('/').last();
+        }
         Resource *resource = m_Book->GetFolderKeeper()->GetResourceByIdentifier(identifier);
 
-        if (new_filename != resource->ShortPathName()) {
+        if (new_filename != resource->Filename()) {
             if (!Utility::use_filename_warning(new_filename)) {
 	        item->setText(resource->ShortPathName());
                 return;
@@ -335,7 +338,7 @@ bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> n
     QHash<QString, QString> update;
     foreach(Resource * resource, resources) {
         const QString &old_bookrelpath = resource->GetRelativePath();
-        QString old_filename = resource->ShortPathName();
+        QString old_filename = resource->Filename();
         QString extension = old_filename.right(old_filename.length() - old_filename.lastIndexOf('.'));
 
         QString new_filename = new_filenames.first();
@@ -403,6 +406,12 @@ void OPFModel::InitializeModel()
         item->setData(resource->GetIdentifier());
         QString tooltip = resource->ShortPathName();
         QString path = resource->GetRelativePath();
+	if (resource->Type() == Resource::FontResourceType) {
+	    FontResource* font_res = qobject_cast<FontResource *>(resource);
+	    if (font_res) {
+	        tooltip = tooltip + " (" + font_res->GetDescription() + ")";
+	    }
+	}
 
         if (semantic_type_all.contains(path)) {
             tooltip += " (" + semantic_type_all[path] + ")";

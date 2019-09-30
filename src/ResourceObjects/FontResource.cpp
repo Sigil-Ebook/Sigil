@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -18,6 +19,9 @@
 **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
 **
 *************************************************************************/
+
+#include <QRawFont>
+#include <QFont>
 
 #include "Misc/Utility.h"
 #include "ResourceObjects/FontResource.h"
@@ -39,6 +43,24 @@ QString FontResource::GetObfuscationAlgorithm() const
     return m_ObfuscationAlgorithm;
 }
 
+QString FontResource::GetDescription() const
+{
+    QRawFont rawfont(GetFullPath(), 16.0);
+    QString desc = rawfont.familyName();
+    QString weight_name;
+    if (rawfont.weight()      <  QFont::ExtraLight) weight_name = "Thin";
+    else if (rawfont.weight() <  QFont::Light)      weight_name = "ExtraLight";
+    else if (rawfont.weight() <  QFont::Normal)     weight_name = "Light";
+    else if (rawfont.weight() <  QFont::Medium)     weight_name = "Normal";
+    else if (rawfont.weight() <  QFont::DemiBold)   weight_name = "Medium";
+    else if (rawfont.weight() <  QFont::Bold)       weight_name = "DemiBold";
+    else if (rawfont.weight() <  QFont::ExtraBold)  weight_name = "Bold";
+    else if (rawfont.weight() <  QFont::Black)      weight_name = "ExtraBold";
+    else if (rawfont.weight() >= QFont::Black)      weight_name = "Black";
+    desc = desc + " " + weight_name;
+    desc = desc + " " + rawfont.styleName();
+    return desc;
+}
 
 void FontResource::SetObfuscationAlgorithm(const QString &algorithm)
 {

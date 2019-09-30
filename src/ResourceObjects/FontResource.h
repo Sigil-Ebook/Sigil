@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -47,6 +48,8 @@ public:
     virtual ResourceType Type() const;
 
     QString GetObfuscationAlgorithm() const;
+
+    QString GetDescription() const;
 
     void SetObfuscationAlgorithm(const QString &algorithm);
 

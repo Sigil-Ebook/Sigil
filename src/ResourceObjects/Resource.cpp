@@ -62,8 +62,15 @@ QString Resource::GetIdentifier() const
 
 QString Resource::Filename() const
 {
+#if 0  
+    // accessing the file system just to extract a file name is very slow
+    // especially when we know this resource path ends with a filename
     return QFileInfo(m_FullFilePath).fileName();
+#else
+    return GetRelativePath().split('/').last();
+#endif
 }
+
 
 
 // relative path of the resource's directory within the EPUB (a book path to the folder)
