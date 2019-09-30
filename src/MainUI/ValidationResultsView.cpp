@@ -220,9 +220,14 @@ void ValidationResultsView::DisplayResults(const QList<ValidationResult> &result
         }
 
         m_ResultTable->insertRow(rownum);
-
-	Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(result.BookPath());
-	QString path = resource->ShortPathName();
+ 
+	QString path;
+	try {
+	    Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(result.BookPath());
+	    path = resource->ShortPathName();
+	} catch (ResourceDoesNotExist) {
+	    path = "***Invalid Book Path Provided ***";
+	}
 	
         item = new QTableWidgetItem(RemoveEpubPathPrefix(path));
         item->setBackground(row_brush);
