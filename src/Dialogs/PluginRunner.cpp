@@ -921,11 +921,17 @@ bool PluginRunner::modifyFiles(const QStringList &files)
 {
     ui.statusLbl->setText(tr("Status: cleaning up - modifying files"));
     // rearrange list to force content.opf and toc.ncx modifications to be done last
+    qDebug() << files;
     QStringList newfiles;
     QString modifyopf;
     QString modifyncx;
     QString OPFFILEINFO = m_book->GetConstOPF()->GetRelativePath() + SEP + SEP + "application/oebps-package+xml";
-    QString NCXFILEINFO = m_book->GetConstNCX()->GetRelativePath() + SEP + SEP +  "application/x-dtbncx+xml";
+    // Under epub3 there may not be an ncx resource
+    QString NCXFILEINFO = "NO_NCX_EXISTS";
+    const NCXResource * ncxres = m_book->GetConstNCX();
+    if (ncxres) {
+        NCXFILEINFO = ncxres->GetRelativePath() + SEP + SEP +  "application/x-dtbncx+xml";
+    }
     foreach (QString fileinfo, files) {
         if (fileinfo == OPFFILEINFO) {
             modifyopf = fileinfo;
