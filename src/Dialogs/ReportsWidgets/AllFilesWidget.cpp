@@ -98,6 +98,7 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         // Filename
         item = new QStandardItem();
         item->setText(file_spname);
+	item->setData(filepath);
         item->setToolTip(filepath);
         rowItems << item;
         // File Size
@@ -206,8 +207,8 @@ void AllFilesWidget::DoubleClick()
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(1).first();
 
     if (index.row() != m_ItemModel->rowCount() - 1) {
-        QString file_spname = m_ItemModel->itemFromIndex(index)->text();
-        emit OpenFileRequest(file_spname, 1);
+        QString filepath = m_ItemModel->itemFromIndex(index)->data().toString();
+        emit OpenFileRequest(filepath, 1);
     }
 }
 

@@ -107,6 +107,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QStandardItem *name_item = new QStandardItem();
         name_item->setText(filename);
         name_item->setToolTip(filepath);
+	name_item->setData(filepath);
         rowItems << name_item;
         // File Size
         double ffsize = QFile(path).size() / 1024.0;
@@ -277,8 +278,8 @@ void HTMLFilesWidget::DoubleClick()
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
 
     if (index.row() != m_ItemModel->rowCount() - 1) {
-        QString filename = m_ItemModel->itemFromIndex(index)->text();
-        emit OpenFileRequest(filename, 1);
+        QString filepath = m_ItemModel->itemFromIndex(index)->data().toString();
+        emit OpenFileRequest(filepath, 1);
     }
 }
 

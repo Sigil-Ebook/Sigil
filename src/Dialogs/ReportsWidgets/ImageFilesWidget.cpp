@@ -393,7 +393,7 @@ void ImageFilesWidget::DoubleClick()
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
 
     if (index.row() != m_ItemModel->rowCount() - 1) {
-        QString filename = m_ItemModel->itemFromIndex(index)->data().toString();
+        QString filename = m_ItemModel->itemFromIndex(index)->text();
         emit FindTextInTags(filename);
     }
 }
@@ -404,8 +404,7 @@ void ImageFilesWidget::Delete()
 
     if (ui.fileTree->selectionModel()->hasSelection()) {
         foreach(QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
-	    QString file_spname = m_ItemModel->itemFromIndex(index)->text();
-	    QString bookpath = m_Book->GetFolderKeeper()->GetBookPathByPathEnd(file_spname);
+	    QString bookpath = m_ItemModel->itemFromIndex(index)->data().toString();
 	    if (!bookpath.isEmpty()) {
 	        files_to_delete.append(bookpath);
 	    }

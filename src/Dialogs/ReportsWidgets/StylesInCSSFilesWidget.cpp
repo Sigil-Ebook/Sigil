@@ -107,6 +107,7 @@ void StylesInCSSFilesWidget::AddTableData(const QList<BookReports::StyleData *> 
         QString css_short_filename = selector_usage->css_filename;
         css_short_filename = css_short_filename.right(css_short_filename.length() - css_short_filename.lastIndexOf('/') - 1);
         filename_item->setText(css_short_filename);
+	filename_item->setData(selector_usage->css_filename);
         filename_item->setToolTip(selector_usage->css_filename);
         rowItems << filename_item;
         // Selector
@@ -164,9 +165,9 @@ void StylesInCSSFilesWidget::FilterEditTextChangedSlot(const QString &text)
 void StylesInCSSFilesWidget::DoubleClick()
 {
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
-    QString filename = m_ItemModel->itemFromIndex(index)->text();
+    QString bookpath = m_ItemModel->itemFromIndex(index)->data().toString();
     int line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
-    emit OpenFileRequest(filename, line);
+    emit OpenFileRequest(bookpath, line);
 }
 
 void StylesInCSSFilesWidget::Delete()
@@ -174,9 +175,9 @@ void StylesInCSSFilesWidget::Delete()
     QString style_names;
     QHash<QString, QStringList> stylesheet_styles;
     foreach(QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
-        QString filename = m_ItemModel->itemFromIndex(index)->text();
+        QString bookpath = m_ItemModel->itemFromIndex(index)->data().toString();
         QString name = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text();
-        stylesheet_styles[filename].append(name);
+        stylesheet_styles[bookpath].append(name);
     }
     int count = 0;
     QHashIterator<QString, QStringList> it_stylesheet_styles(stylesheet_styles);
@@ -194,7 +195,7 @@ void StylesInCSSFilesWidget::Delete()
     QList<BookReports::StyleData *> styles_to_delete;
     foreach(QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
         BookReports::StyleData *style = new BookReports::StyleData();
-        style->css_filename = m_ItemModel->itemFromIndex(index)->text();
+        style->css_filename = m_ItemModel->itemFromIndex(index)->data().toString();
         style->css_selector_text = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text();
         style->css_selector_line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
         styles_to_delete.append(style);

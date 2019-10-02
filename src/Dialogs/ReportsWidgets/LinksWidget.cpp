@@ -112,6 +112,7 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
             QString source_file = file_spname;
             item->setText(source_file);
             item->setToolTip(filepath);
+	    item->setData(filepath);
             rowItems << item;
 
             // Source Line Number
@@ -290,9 +291,9 @@ void LinksWidget::DoubleClick()
     if (index.row() != m_ItemModel->rowCount() - 1) {
         // IMPORTANT:  file name is in column 0, and line number is in column 1
         // This should match order of header above
-        QString file_spname = m_ItemModel->item(index.row(), 0)->text();
+        QString bookpath = m_ItemModel->item(index.row(), 0)->data().toString();
         QString lineno = m_ItemModel->item(index.row(), 1)->text();
-        emit OpenFileRequest(file_spname, lineno.toInt());
+        emit OpenFileRequest(bookpath, lineno.toInt());
     }
 }
 
