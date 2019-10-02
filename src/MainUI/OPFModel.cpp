@@ -404,7 +404,7 @@ void OPFModel::InitializeModel()
         AlphanumericItem *item = new AlphanumericItem(resource->Icon(), resource->ShortPathName());
         item->setDropEnabled(false);
         item->setData(resource->GetIdentifier());
-        QString tooltip = resource->ShortPathName();
+        QString tooltip = resource->GetRelativePath();
         QString path = resource->GetRelativePath();
 	if (resource->Type() == Resource::FontResourceType) {
 	    FontResource* font_res = qobject_cast<FontResource *>(resource);
