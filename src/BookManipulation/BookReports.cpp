@@ -79,7 +79,7 @@ QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QSharedPointer<Bo
             QString class_part = class_name.split(".").at(1);
             // Save the details for found or not found classes
             BookReports::StyleData *class_usage = new BookReports::StyleData();
-            class_usage->html_filename = html_resource->ShortPathName();
+            class_usage->html_filename = html_resource->GetRelativePath();
             class_usage->html_element_name = element_part;
             class_usage->html_class_name = class_part;
             // Look in each stylesheet

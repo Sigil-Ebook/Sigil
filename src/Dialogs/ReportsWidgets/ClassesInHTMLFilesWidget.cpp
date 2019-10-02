@@ -110,7 +110,15 @@ void ClassesInHTMLFilesWidget::AddTableData(const QList<BookReports::StyleData *
         QList<QStandardItem *> rowItems;
         // File name
         QStandardItem *filename_item = new QStandardItem();
-        filename_item->setText(class_usage->html_filename);
+	QString bookpath = class_usage->html_filename;
+        QString shortname = bookpath.split('/').last();
+	try {
+	    Resource * res = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
+	    shortname = res->ShortPathName();
+	} catch (ResourceDoesNotExist) {
+	} 
+        filename_item->setText(shortname);
+	filename_item->setData(bookpath);
         rowItems << filename_item;
         // Element name
         QStandardItem *element_name_item = new QStandardItem();
@@ -175,8 +183,8 @@ void ClassesInHTMLFilesWidget::FilterEditTextChangedSlot(const QString &text)
 void ClassesInHTMLFilesWidget::DoubleClick()
 {
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
-    QString filename = m_ItemModel->itemFromIndex(index)->text();
-    emit OpenFileRequest(filename, 1);
+    QString bookpath = m_ItemModel->itemFromIndex(index)->data().toString();
+    emit OpenFileRequest(bookpath, 1);
 }
 
 void ClassesInHTMLFilesWidget::Save()
