@@ -76,7 +76,7 @@ FolderKeeper::FolderKeeper(QObject *parent)
     m_FSWatcher(new QFileSystemWatcher()),
     m_FullPathToMainFolder(m_TempFolder.GetPath())
 {
-    CreateKeyToLCPMap();
+    CreateGroupToDefaultFolderMap();
     CreateFolderStructure();
     CreateInfrastructureFiles();
 }
@@ -155,7 +155,6 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
 	}
         QString group = DetermineFileGroup(normalised_file_path, mt);
 	QString resdesc = MediaTypes::instance()->GetResourceDescFromMediaType(mt, "Resource");
-	QString lcppath = m_KeyToLCP.value(group);
 
         if (fullfilepath.contains(FILE_EXCEPTIONS)) {
 	    // This is used for all files inside the META-INF directory
@@ -205,7 +204,6 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
             // Fallback mechanism
             new_file_path = m_FullPathToMiscFolder + "/" + filename;
             resource = new Resource(m_FullPathToMainFolder, new_file_path);
-	    lcppath = m_KeyToLCP.value("Misc","");
         }
 
         m_Resources[ resource->GetIdentifier() ] = resource;
@@ -216,7 +214,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
 
         resource->SetEpubVersion(m_OPF->GetEpubVersion());
         resource->SetMediaType(mt);
-        resource->SetLCP(lcppath);
+        resource->SetShortPathName(filename);
     }
     QFile::copy(fullfilepath, new_file_path);
 
@@ -335,7 +333,7 @@ QString FolderKeeper::GetBookPathByPathEnd(const QString& path_end) const
 }
 
 
-// a Book path is the path from the m_MainFolder to that file
+// a Book path is the path from the m_MainFolder to that file O(1) as a hash
 Resource *FolderKeeper::GetResourceByBookPath(const QString &bookpath) const
 {
     Resource * resource = m_Path2Resource.value(bookpath, NULL);
@@ -364,7 +362,7 @@ NCXResource*FolderKeeper::AddNCXToFolder(const QString & version)
     m_NCX = new NCXResource(m_FullPathToMainFolder, m_FullPathToOEBPSFolder + "/" + NCX_FILE_NAME, this);
     m_NCX->SetMainID(m_OPF->GetMainIdentifierValue());
     m_NCX->SetEpubVersion(version);
-    m_NCX->SetLCP(m_KeyToLCP[ "ncx"]);
+    m_NCX->SetShortPathName(NCX_FILE_NAME);
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
     m_Path2Resource[ m_NCX->GetRelativePath() ] = m_NCX;
 
@@ -564,7 +562,7 @@ void FolderKeeper::CreateInfrastructureFiles()
     QString version = ss.defaultVersion();
     m_OPF = new OPFResource(m_FullPathToMainFolder, m_FullPathToOEBPSFolder + "/" + OPF_FILE_NAME, this);
     m_OPF->SetEpubVersion(version);
-    m_OPF->SetLCP(m_KeyToLCP[ "opf" ]);
+    m_OPF->SetShortPathName(OPF_FILE_NAME);
     m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
     m_Path2Resource[ m_OPF->GetRelativePath() ] = m_OPF;
     // note - ncx is optional on epub3 so do not create an ncx here
@@ -585,25 +583,91 @@ void FolderKeeper::CreateInfrastructureFiles()
 }
 
 // Hard codes Longest Common Path for the time being
-// Note all LCP paths **must** end with "/"
-void FolderKeeper::CreateKeyToLCPMap()
+// Note all paths **must** end with "/"
+void FolderKeeper::CreateGroupToDefaultFolderMap()
 {
-    if (!m_KeyToLCP.isEmpty()) return;
-    // Note all LCP paths **must** end with "/"
-    m_KeyToLCP[ "Text"   ] = "OEBPS/Text/";
-    m_KeyToLCP[ "Styles" ] = "OEBPS/Styles/";
-    m_KeyToLCP[ "Images" ] = "OEBPS/Images/";
-    m_KeyToLCP[ "Fonts"  ] = "OEBPS/Fonts/";
-    m_KeyToLCP[ "Audio"  ] = "OEBPS/Audio/";
-    m_KeyToLCP[ "Video"  ] = "OEBPS/Video/";
-    m_KeyToLCP[ "Misc"   ] = "OEBPS/Misc/";
-    m_KeyToLCP[ "ncx"    ] = "OEBPS/";
-    m_KeyToLCP[ "opf"    ] = "OEBPS/";
-    m_KeyToLCP[ "other"  ] = "";
+    if (!m_GrpToFold.isEmpty()) return;
+    // Note all paths **must** end with "/"
+    m_GrpToFold[ "Text"   ] = "OEBPS/Text/";
+    m_GrpToFold[ "Styles" ] = "OEBPS/Styles/";
+    m_GrpToFold[ "Images" ] = "OEBPS/Images/";
+    m_GrpToFold[ "Fonts"  ] = "OEBPS/Fonts/";
+    m_GrpToFold[ "Audio"  ] = "OEBPS/Audio/";
+    m_GrpToFold[ "Video"  ] = "OEBPS/Video/";
+    m_GrpToFold[ "Misc"   ] = "OEBPS/Misc/";
+    m_GrpToFold[ "ncx"    ] = "OEBPS/";
+    m_GrpToFold[ "opf"    ] = "OEBPS/";
+    m_GrpToFold[ "other"  ] = "";
 }
 
-QString FolderKeeper::GetLongestCommonPathForKey(const QString &key)
+QString FolderKeeper::GetDefaultFolderForGroup(const QString &group)
 {
-    CreateKeyToLCPMap();
-    return m_KeyToLCP.value(key, "");
+    CreateGroupToDefaultFolderMap();
+    return m_GrpToFold.value(group, "");
+}
+
+
+QString FolderKeeper::buildShortName(const QString &bookpath, int lvl)
+{
+    QStringList pieces = bookpath.split('/');
+    if (lvl == 1) return pieces.last();
+    int n =  pieces.length();
+    if (lvl >= n) return "^" + bookpath;
+    for (int i=lvl; i < n; i++) pieces.removeFirst();
+    return pieces.join('/');
+}
+
+
+void FolderKeeper::updateShortPathNames()
+{
+    QStringList bookpaths = GetAllBookPaths();
+
+    QHash<QString,QString>BookToSPN;
+    QHash<QString, QStringList> NameToBooks;
+    QSet<QString> DupSet;
+    int lvl = 1;
+
+    // assign filenames as initial short names and create set of duplicate
+    // filenames to make unique
+    foreach(QString bkpath, bookpaths) {
+        QString aname = buildShortName(bkpath, lvl);
+        BookToSPN[bkpath] = aname;
+        if (NameToBooks.contains(aname)) {
+            DupSet.insert(aname);
+            NameToBooks[aname].append(bkpath);
+        } else {
+            NameToBooks[aname] = QStringList() << bkpath;
+        }
+    }
+
+    // now work just through any to-do list of duplicates
+    // until all duplicates are gone
+    QStringList todolst = DupSet.toList();
+    while(!todolst.isEmpty()) {
+        DupSet.clear();
+        lvl++;
+        foreach(QString aname, todolst) {
+            QStringList bklst = NameToBooks[aname];
+            NameToBooks.remove(aname);
+            foreach(QString bkpath, bklst) {
+	        QString newname = buildShortName(bkpath, lvl);
+	        BookToSPN[bkpath] = newname;
+	        if (NameToBooks.contains(newname)) {
+	            DupSet.insert(newname);
+	            NameToBooks[newname].append(bkpath);
+	        } else {
+	            NameToBooks[newname] = QStringList() << bkpath;
+	        }
+            }
+        }
+        todolst = DupSet.toList();
+    }
+    // now set the short path name for each resource
+    foreach(QString bookpath, bookpaths) {
+        Resource * resource = GetResourceByBookPath(bookpath);
+	QString shortname = BookToSPN[bookpath];
+	if (resource->ShortPathName() != shortname) {
+	    resource->SetShortPathName(shortname);
+	}
+    }
 }

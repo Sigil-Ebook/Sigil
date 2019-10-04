@@ -1449,7 +1449,7 @@ void MainWindow::GenerateNCXGuideFromNav()
 
     // figure out book path to the folder that *will* contain the ncx
     QString mainfolder = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
-    QString ncxdir = m_Book->GetFolderKeeper()->GetLongestCommonPathForKey("ncx");
+    QString ncxdir = m_Book->GetFolderKeeper()->GetDefaultFolderForGroup("ncx");
     ncxdir = ncxdir.right(ncxdir.length() - mainfolder.length() - 1);
 
     // Now build the ncx in python in a separate thread since may be an long job

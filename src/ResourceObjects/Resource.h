@@ -159,9 +159,7 @@ public:
      * gets and sets the resources Longest Common Path Group
      */
 
-    void SetLCP(const QString& );
-
-    QString GetLCP() const;
+    void SetShortPathName(const QString& );
 
     QString GetFullPathToBookFolder() const;
 
@@ -314,7 +312,8 @@ private:
      */
     QString m_MediaType;
 
-    QString m_LCP;
+
+    QString m_ShortName;
 
     /**
      * The ReadWriteLock guarding access to the resource's data.

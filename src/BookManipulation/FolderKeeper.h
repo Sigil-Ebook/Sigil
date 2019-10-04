@@ -174,7 +174,7 @@ public:
 
     void RemoveNCXFromFolder();
 
-    QString GetLongestCommonPathForKey(const QString &key);
+    QString GetDefaultFolderForGroup(const QString &key);
 
     /**
      * Returns the full path to the main folder of the publication.
@@ -215,6 +215,8 @@ public:
     QStringList GetAllFilenames() const;
 
     QStringList GetAllBookPaths() const;
+
+    void updateShortPathNames();
 
     /**
      * Registers certain file types to be watched for external modifications.
@@ -279,7 +281,9 @@ private:
      */
     void CreateInfrastructureFiles();
 
-    void CreateKeyToLCPMap();
+    void CreateGroupToDefaultFolderMap();
+
+    QString buildShortName(const QString &bookpath, int lvl);
 
     /**
      * Dereferences two pointers and compares the values with "<".
@@ -349,7 +353,7 @@ private:
     QString m_FullPathToStylesFolder;
     QString m_FullPathToMiscFolder;
 
-    QHash<QString, QString> m_KeyToLCP;
+    QHash<QString, QString> m_GrpToFold;
 };
 
 
