@@ -48,17 +48,30 @@ QString FontResource::GetDescription() const
     QRawFont rawfont(GetFullPath(), 16.0);
     QString desc = rawfont.familyName();
     QString weight_name;
-    if (rawfont.weight()      <  QFont::ExtraLight) weight_name = "Thin";
-    else if (rawfont.weight() <  QFont::Light)      weight_name = "ExtraLight";
-    else if (rawfont.weight() <  QFont::Normal)     weight_name = "Light";
-    else if (rawfont.weight() <  QFont::Medium)     weight_name = "Normal";
-    else if (rawfont.weight() <  QFont::DemiBold)   weight_name = "Medium";
-    else if (rawfont.weight() <  QFont::Bold)       weight_name = "DemiBold";
-    else if (rawfont.weight() <  QFont::ExtraBold)  weight_name = "Bold";
-    else if (rawfont.weight() <  QFont::Black)      weight_name = "ExtraBold";
-    else if (rawfont.weight() >= QFont::Black)      weight_name = "Black";
-    desc = desc + " " + weight_name;
-    desc = desc + " " + rawfont.styleName();
+    QString style_name;
+    if (rawfont.weight() <  QFont::ExtraLight)      weight_name = " Thin";
+    else if (rawfont.weight() <  QFont::Light)      weight_name = " ExtraLight";
+    else if (rawfont.weight() <  QFont::Normal)     weight_name = " Light";
+    else if (rawfont.weight() <  QFont::Medium)     weight_name = "";
+    else if (rawfont.weight() <  QFont::DemiBold)   weight_name = " Medium";
+    else if (rawfont.weight() <  QFont::Bold)       weight_name = " DemiBold";
+    else if (rawfont.weight() <  QFont::ExtraBold)  weight_name = " Bold";
+    else if (rawfont.weight() <  QFont::Black)      weight_name = " ExtraBold";
+    else if (rawfont.weight() >= QFont::Black)      weight_name = " Black";
+    if (desc != "") {
+        if (desc.contains(weight_name)) weight_name = "";
+        desc = desc + weight_name;
+    }
+
+#ifdef Q_OS_WIN32
+    if (rawfont.style()      == QFont::StyleItalic)  style_name = " Italic";
+    else if (rawfont.style() == QFont::StyleOblique) style_name = " Oblique";
+    else style_name = "";
+#else
+    style_name = " " + rawfont.styleName();
+#endif
+    if (desc != "") desc = desc + style_name;
+    else desc = tr("No reliable font data");
     return desc;
 }
 
