@@ -628,6 +628,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
 
         QString filename = QFileInfo(filepath).fileName();
 	bool CoverImageSemanticsSet = false;
+	// try to see if an existing file has this filename and allow overwriting
 	QString existing_book_path = m_Book->GetFolderKeeper()->GetBookPathByPathEnd(filename);
 
         if (!existing_book_path.isEmpty()) {

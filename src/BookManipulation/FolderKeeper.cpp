@@ -320,16 +320,6 @@ Resource *FolderKeeper::GetResourceByIdentifier(const QString &identifier) const
     return m_Resources[ identifier ];
 }
 
-Resource *FolderKeeper::GetResourceByShortPathName(const QString &shortpathname) const
-{
-    foreach(Resource *resource, m_Resources.values()) {
-        if (resource->ShortPathName() == shortpathname) {
-            return resource;
-        }
-    }
-    throw(ResourceDoesNotExist(shortpathname.toStdString()));
-}
-
 // Not guaranteed to be unique or to be found
 // if not found returns an empty string
 // uses a case insensitive match since can be used on case insensitive file systems

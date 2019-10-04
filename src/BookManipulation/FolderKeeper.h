@@ -149,10 +149,6 @@ public:
      */
     Resource *GetResourceByIdentifier(const QString &identifier) const;
 
-    // this is O(n) but no filesystem is queried
-    // @throws ResourceDoesNotExist if the ShortPathName is not found.
-    Resource *GetResourceByShortPathName(const QString &shortpathname) const;
-
     // this is O(1) as is held in a QHash m_Path2Resource
     // @throws ResourceDoesNotExist if bookpath is not found.
     Resource *GetResourceByBookPath(const QString &bookpath) const;

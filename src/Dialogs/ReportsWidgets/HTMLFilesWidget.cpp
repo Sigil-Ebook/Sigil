@@ -357,11 +357,8 @@ void HTMLFilesWidget::Delete()
 
     if (ui.fileTree->selectionModel()->hasSelection()) {
         foreach(QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
-	    QString file_spname = m_ItemModel->itemFromIndex(index)->text();
-	    QString bookpath = m_Book->GetFolderKeeper()->GetBookPathByPathEnd(file_spname);
-	    if (!bookpath.isEmpty()) {
-	        files_to_delete.append(bookpath);
-	    }
+	    QString bookpath = m_ItemModel->itemFromIndex(index)->data().toString();
+	    files_to_delete.append(bookpath);
         }
     }
 

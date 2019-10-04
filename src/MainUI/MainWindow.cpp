@@ -1691,11 +1691,10 @@ void MainWindow::ReportsDialog()
     m_Reports->activateWindow();
 }
 
-// This routine wil accept file_path of ShortPathName() or 
-// of a book path GetRelativePath() as both are unique
-void MainWindow::OpenFile(QString file_path, int line)
+// This routine accepts a file_path that is a book path
+void MainWindow::OpenFile(QString bookpath, int line)
 {
-    if (file_path.isEmpty()) {
+    if (bookpath.isEmpty()) {
         return;
     }
 
@@ -1704,11 +1703,8 @@ void MainWindow::OpenFile(QString file_path, int line)
     }
 
     try {
-        QString bookpath = m_Book->GetFolderKeeper()->GetBookPathByPathEnd(file_path);
-	if (!bookpath.isEmpty()) {
-            Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(file_path);
-            OpenResource(resource, line);
-	}
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
+        OpenResource(resource, line);
     } catch (ResourceDoesNotExist) {
         //
     }
