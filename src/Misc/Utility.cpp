@@ -33,6 +33,9 @@
 #include <time.h>
 #include <string>
 
+#include <utility>
+#include <vector>
+
 #include <QApplication>
 #include <QtCore/QDir>
 #include <QtCore/QFile>
@@ -1036,4 +1039,25 @@ std::pair<QString, QString> Utility::parseHREF(const QString &relative_href)
     }
     if (attpath.startsWith("./")) attpath = attpath.mid(2,-1);
     return std::make_pair(attpath, fragment);
+}
+
+
+bool Utility::sort_pair_in_reverse(const std::pair<int,QString> &a, const std::pair<int,QString> &b)
+{
+    return (a.first > b.first);
+}
+
+QStringList Utility::sortByCounts(const QStringList &folderlst, const QList<int> &countlst)
+{
+    std::vector< std::pair<int , QString> > vec;
+    int i = 0;
+    foreach(QString afolder, folderlst) {
+        vec.push_back(std::make_pair(countlst.at(i++), afolder));
+    }
+    std::sort(vec.begin(), vec.end(), sort_pair_in_reverse);
+    QStringList sortedlst;
+    for(int j=0; j < vec.size(); j++) {
+        sortedlst << vec[j].second;
+    }
+    return sortedlst;
 }

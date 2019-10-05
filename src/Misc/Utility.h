@@ -189,8 +189,12 @@ public:
     static QString buildRelativePath(const QString &from_file_bkpath, const QString &to_file_bkpath);
 
     static std::pair<QString, QString> parseHREF(const QString &relative_href);
-};
 
+    // sort list of strings by list of counts in a decreasing fashion, highest count first
+    static bool sort_pair_in_reverse(const std::pair<int,QString> &a, const std::pair<int,QString> &b);
+    static QStringList sortByCounts(const QStringList &folderlst, const QList<int> &countlst);
+
+};
 #endif // UTILITY_H
 
 
