@@ -174,7 +174,8 @@ public:
 
     void RemoveNCXFromFolder();
 
-    QString GetDefaultFolderForGroup(const QString &key);
+    QStringList GetFoldersForGroup(const QString &group);
+    QString GetDefaultFolderForGroup(const QString &group);
 
     /**
      * Returns the full path to the main folder of the publication.
@@ -281,7 +282,8 @@ private:
      */
     void CreateInfrastructureFiles();
 
-    void CreateGroupToDefaultFolderMap();
+    void CreateGroupToFoldersMap();
+    void SetGroupFolders(const QStringList &bookpaths, const QStringList &mtypes);
 
     QString buildShortName(const QString &bookpath, int lvl);
 
@@ -353,7 +355,7 @@ private:
     QString m_FullPathToStylesFolder;
     QString m_FullPathToMiscFolder;
 
-    QHash<QString, QString> m_GrpToFold;
+    QHash<QString, QStringList> m_GrpToFold;
 };
 
 

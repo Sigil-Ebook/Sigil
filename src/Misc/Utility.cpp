@@ -1010,6 +1010,19 @@ QString Utility::buildBookPath(const QString& dest_relpath, const QString& start
     return bookpath;
 }
 
+// no ending path separator
+QString Utility::startingDir(const QString &file_bookpath)
+{
+    QString start_dir(file_bookpath);
+    int pos = start_dir.lastIndexOf('/');
+    if (pos > -1) { 
+        start_dir = start_dir.left(pos);
+    } else {
+        start_dir = "";
+    }
+    return start_dir;
+}
+
 // This is the equivalent of Resource.cpp's GetRelativePathFromResource but using book paths
 QString Utility::buildRelativePath(const QString &from_file_bkpath, const QString & to_file_bkpath)
 {
@@ -1017,14 +1030,7 @@ QString Utility::buildRelativePath(const QString &from_file_bkpath, const QStrin
     if (from_file_bkpath == to_file_bkpath) return "";
 
     // convert start_file_bkpath to start_dir by stripping off existing filename component
-    QString start_dir(from_file_bkpath);
-    int pos = start_dir.lastIndexOf('/');
-    if (pos > -1) { 
-        start_dir = start_dir.left(pos);
-    } else {
-        start_dir = "";
-    }
-    return relativePath(to_file_bkpath, start_dir);
+    return relativePath(to_file_bkpath, startingDir(from_file_bkpath));
 }   
 
 std::pair<QString, QString> Utility::parseHREF(const QString &relative_href)

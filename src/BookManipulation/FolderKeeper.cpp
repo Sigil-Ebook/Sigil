@@ -42,6 +42,10 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/MediaTypes.h"
 
+
+const QStringList groupA = QStringList() << "Text"<<"Styles"<<"Images"<<"Audio"<<"Fonts"<<"Video"<<"Misc";
+
+
 // Exception for non-standard Apple files in META-INF.
 // container.xml and encryption.xml will be rewritten
 // on export. Other files in this directory are passed
@@ -76,7 +80,7 @@ FolderKeeper::FolderKeeper(QObject *parent)
     m_FSWatcher(new QFileSystemWatcher()),
     m_FullPathToMainFolder(m_TempFolder.GetPath())
 {
-    CreateGroupToDefaultFolderMap();
+    CreateGroupToFoldersMap();
     CreateFolderStructure();
     CreateInfrastructureFiles();
 }
@@ -584,26 +588,31 @@ void FolderKeeper::CreateInfrastructureFiles()
 
 // Hard codes Longest Common Path for the time being
 // Note all paths **must** end with "/"
-void FolderKeeper::CreateGroupToDefaultFolderMap()
+void FolderKeeper::CreateGroupToFoldersMap()
 {
     if (!m_GrpToFold.isEmpty()) return;
-    // Note all paths **must** end with "/"
-    m_GrpToFold[ "Text"   ] = "OEBPS/Text/";
-    m_GrpToFold[ "Styles" ] = "OEBPS/Styles/";
-    m_GrpToFold[ "Images" ] = "OEBPS/Images/";
-    m_GrpToFold[ "Fonts"  ] = "OEBPS/Fonts/";
-    m_GrpToFold[ "Audio"  ] = "OEBPS/Audio/";
-    m_GrpToFold[ "Video"  ] = "OEBPS/Video/";
-    m_GrpToFold[ "Misc"   ] = "OEBPS/Misc/";
-    m_GrpToFold[ "ncx"    ] = "OEBPS/";
-    m_GrpToFold[ "opf"    ] = "OEBPS/";
-    m_GrpToFold[ "other"  ] = "";
+    // Note all valid paths **must** end with "/"
+    m_GrpToFold[ "Text"   ] = QStringList() << "OEBPS/Text/";
+    m_GrpToFold[ "Styles" ] = QStringList() << "OEBPS/Styles/";
+    m_GrpToFold[ "Images" ] = QStringList() << "OEBPS/Images/";
+    m_GrpToFold[ "Fonts"  ] = QStringList() << "OEBPS/Fonts/";
+    m_GrpToFold[ "Audio"  ] = QStringList() << "OEBPS/Audio/";
+    m_GrpToFold[ "Video"  ] = QStringList() << "OEBPS/Video/";
+    m_GrpToFold[ "Misc"   ] = QStringList() << "OEBPS/Misc/";
+    m_GrpToFold[ "ncx"    ] = QStringList() << "OEBPS/";
+    m_GrpToFold[ "opf"    ] = QStringList() << "OEBPS/";
+    m_GrpToFold[ "other"  ] = QStringList() << "";
+}
+
+QStringList FolderKeeper::GetFoldersForGroup(const QString &group)
+{
+    CreateGroupToFoldersMap();
+    return m_GrpToFold.value(group, QStringList() << "");
 }
 
 QString FolderKeeper::GetDefaultFolderForGroup(const QString &group)
 {
-    CreateGroupToDefaultFolderMap();
-    return m_GrpToFold.value(group, "");
+    return GetFoldersForGroup(group).first();
 }
 
 
@@ -670,4 +679,67 @@ void FolderKeeper::updateShortPathNames()
 	    resource->SetShortPathName(shortname);
 	}
     }
+}
+
+
+void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringList &mtypes)
+{
+    QHash< QString, QStringList > group_folder;
+    QHash< QString, QList<int> > group_count;
+    QStringList mediatypes = mtypes;
+
+    // walk bookpaths and mtypes to determine folders
+    // actually being used according to the opf
+    int i = 0;
+    foreach(QString bookpath, bookpaths) {
+        QString mtype = mtypes.at(i);
+        QString group = MediaTypes::instance()->GetGroupFromMediaType(mtype, "other");
+        QStringList folderlst = group_folder.value(group,QStringList());
+        QList<int> countlst = group_count.value(group, QList<int>());
+        QString sdir = Utility::startingDir(bookpath);
+        if (!folderlst.contains(sdir)) {
+            folderlst << sdir;
+            countlst << 1;
+        } else {
+            int pos = folderlst.indexOf(sdir);
+            countlst.replace(pos, countlst.at(pos) + 1);
+        }
+        group_folder[group] = folderlst;
+        group_count[group] = countlst;
+        i++;
+    }
+
+    // finally sort each group's list of folders by number 
+    // of files of that type in each folder.
+    // the default folder for that group will be the first
+    QStringList dirlst;
+    bool use_lower_case = false;
+    QStringList keys = group_folder.keys();
+    foreach(QString group, keys) {
+        QStringList folderlst = group_folder[group];
+        QList<int> countlst = group_count[group];
+        QStringList sortedlst = Utility::sortByCounts(folderlst, countlst);
+        group_folder[group] = sortedlst;
+        if (groupA.contains(group)) {
+            QString afolder = sortedlst.at(0);
+            if (afolder.indexOf(group.toLower()) > -1) use_lower_case = true;
+        }
+        dirlst << sortedlst.at(0);
+    }
+
+    // now back fill any missing group folders value
+    QString commonbase = Utility::longestCommonPath(dirlst, "/");
+    foreach(QString group, groupA) {
+        QStringList folderlst = group_folder.value(group, QStringList());
+        QString gname = group;
+        if (use_lower_case) gname = gname.toLower();
+        if (folderlst.isEmpty()) {
+            folderlst << commonbase + gname;
+            group_folder[group] = folderlst;
+        }
+    }
+
+    // update m_GrpToFold with result
+    m_GrpToFold.clear();
+    m_GrpToFold = group_folder;
 }
