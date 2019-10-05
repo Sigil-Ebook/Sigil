@@ -52,7 +52,7 @@ QString FontResource::GetDescription() const
     if (rawfont.weight() <  QFont::ExtraLight)      weight_name = " Thin";
     else if (rawfont.weight() <  QFont::Light)      weight_name = " ExtraLight";
     else if (rawfont.weight() <  QFont::Normal)     weight_name = " Light";
-    else if (rawfont.weight() <  QFont::Medium)     weight_name = "";
+    else if (rawfont.weight() <  QFont::Medium)     weight_name = " Normal";
     else if (rawfont.weight() <  QFont::DemiBold)   weight_name = " Medium";
     else if (rawfont.weight() <  QFont::Bold)       weight_name = " DemiBold";
     else if (rawfont.weight() <  QFont::ExtraBold)  weight_name = " Bold";
