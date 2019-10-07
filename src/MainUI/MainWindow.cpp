@@ -3856,9 +3856,13 @@ void MainWindow::ResourcesAddedOrDeleted()
 
 void MainWindow::CreateNewBook()
 {
+    SettingsStore ss;
+    QString version = ss.defaultVersion();
     QSharedPointer<Book> new_book = QSharedPointer<Book>(new Book());
+    // immediately after creating a new book, you must
+    // add a proper OPF to it *before* doing anything else
+    new_book->GetFolderKeeper()->AddOPFToFolder(version);
     new_book->CreateEmptyHTMLFile();
-    QString version = new_book->GetConstOPF()->GetEpubVersion();
     if (version.startsWith('3')) {
         HTMLResource * nav_resource = new_book->CreateEmptyNavFile(true);
         new_book->GetOPF()->SetNavResource(nav_resource);

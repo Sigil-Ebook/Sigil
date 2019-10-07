@@ -87,6 +87,12 @@ const QStringList& ImportHTML::GetAddedBookPaths()
 // and returns the created Book
 QSharedPointer<Book> ImportHTML::GetBook(bool extract_metadata)
 {
+    // First handle any new created Books by making sure there is 
+    // an OPF in the current Book
+    if (!m_Book->GetConstOPF()) {
+        m_Book->GetFolderKeeper()->AddOPFToFolder(m_EpubVersion);
+    } 
+
     QString source = LoadSource();
     if (extract_metadata) {
         LoadMetadata(source);

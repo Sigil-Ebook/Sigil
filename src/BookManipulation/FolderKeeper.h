@@ -90,7 +90,8 @@ public:
      */
     Resource *AddContentFileToFolder(const QString &fullfilepath,
                                      bool update_opf = true,
-                                     const QString &mimetype = QString());
+                                     const QString &mimetype = QString(),
+				     const QString &bookpth = QString());
 
     /**
      * Returns the highest reading order number present in the book.
@@ -156,6 +157,7 @@ public:
     // this is O(n) but no filesystem is queried
     QString GetBookPathByPathEnd(const QString& path_end) const;
     
+    OPFResource* AddOPFToFolder(const QString &version, const QString& bookpath=QString());
     /**
      * Returns the book's OPF file.
      *
@@ -170,7 +172,7 @@ public:
      */
     NCXResource *GetNCX() const;
 
-    NCXResource* AddNCXToFolder(const QString & version);
+    NCXResource* AddNCXToFolder(const QString &version, const QString& bookpath=QString());
 
     void RemoveNCXFromFolder();
 

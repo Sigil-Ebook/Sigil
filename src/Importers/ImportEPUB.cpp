@@ -121,7 +121,6 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    // These mutate the m_Book object
     LocateOPF();
     m_opfDir = QFileInfo(m_OPFFilePath).dir();
     // These mutate the m_Book object
@@ -661,6 +660,9 @@ void ImportEPUB::ReadOPF()
                               .arg(opf_reader.errorString());
         throw (EPUBLoadParseError(error.toStdString()));
     }
+
+    //Important!  The OPF Resource in the new book must be created now before adding to it in any way
+    m_Book->GetFolderKeeper()->AddOPFToFolder(m_PackageVersion);
 
     // Ensure we have an NCX available
     LocateOrCreateNCX(ncx_id_on_spine);

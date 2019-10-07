@@ -61,12 +61,12 @@ const QString VIDEO_FOLDER_NAME = "Video";
 const QString MISC_FOLDER_NAME  = "Misc";
 
 
-static const QString CONTAINER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-                                     "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
-                                     "    <rootfiles>\n"
-                                     "        <rootfile full-path=\"OEBPS/content.opf\" media-type=\"application/oebps-package+xml\"/>\n"
-                                     "   </rootfiles>\n"
-                                     "</container>\n";
+static const QString CONTAINER_XML       = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+        "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
+        "    <rootfiles>\n"
+        "        <rootfile full-path=\"%1\" media-type=\"application/oebps-package+xml\"/>\n"
+        "   </rootfiles>\n"
+	"</container>\n";
 
 const QString OPF_FILE_NAME            = "content.opf";
 const QString NCX_FILE_NAME            = "toc.ncx";
@@ -128,7 +128,7 @@ QString FolderKeeper::DetermineFileGroup(const QString &filepath, const QString 
 }
 
 // This routine should never process the opf or the ncx as they are special cased elsewhere in FolderKeeper
-Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool update_opf, const QString &mimetype)
+Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool update_opf, const QString &mimetype, const QString &bookpath)
 {
     if (!QFileInfo(fullfilepath).exists()) {
         throw(FileDoesNotExist(fullfilepath.toStdString()));
@@ -360,17 +360,48 @@ NCXResource *FolderKeeper::GetNCX() const
     return m_NCX;
 }
 
-
-NCXResource*FolderKeeper::AddNCXToFolder(const QString & version)
+OPFResource*FolderKeeper::AddOPFToFolder(const QString &version, const QString &bookpath)
 {
-    m_NCX = new NCXResource(m_FullPathToMainFolder, m_FullPathToOEBPSFolder + "/" + NCX_FILE_NAME, this);
+    QString OPFBookPath = "OEBPS/content.opf";
+    if (!bookpath.isEmpty()) {
+        OPFBookPath = bookpath;
+    }
+    QDir folder(m_FullPathToMainFolder);
+    folder.mkpath(Utility::startingDir(OPFBookPath));
+    m_OPF = new OPFResource(m_FullPathToMainFolder, m_FullPathToMainFolder + "/" + OPFBookPath, this);
+    m_OPF->SetEpubVersion(version);
+    m_OPF->SetShortPathName(OPFBookPath.split('/').last());
+    m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
+    m_Path2Resource[ m_OPF->GetRelativePath() ] = m_OPF;
+
+    connect(m_OPF, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
+    // For ResourceAdded, the connection has to be DirectConnection,                                     
+    // otherwise the default of AutoConnection screws us when                                            
+    // AddContentFileToFolder is called from multiple threads.                                           
+    connect(this,  SIGNAL(ResourceAdded(const Resource *)),
+	    m_OPF, SLOT(AddResource(const Resource *)), Qt::DirectConnection);
+    connect(this,  SIGNAL(ResourceRemoved(const Resource *)),
+	    m_OPF, SLOT(RemoveResource(const Resource *)));
+    folder.mkdir("META-INF");
+    Utility::WriteUnicodeTextFile(CONTAINER_XML.arg(OPFBookPath), m_FullPathToMainFolder + "/META-INF/container.xml");
+    return m_OPF;
+}
+
+
+NCXResource*FolderKeeper::AddNCXToFolder(const QString & version, const QString &bookpath)
+{
+    QString NCXBookPath = "OEBPS/toc.ncx";
+    if (!bookpath.isEmpty()) {
+        NCXBookPath = bookpath;
+    }
+    QDir folder(m_FullPathToMainFolder);
+    folder.mkpath(Utility::startingDir(NCXBookPath));
+    m_NCX = new NCXResource(m_FullPathToMainFolder, m_FullPathToMainFolder + "/" + NCXBookPath, this);
     m_NCX->SetMainID(m_OPF->GetMainIdentifierValue());
     m_NCX->SetEpubVersion(version);
-    m_NCX->SetShortPathName(NCX_FILE_NAME);
+    m_NCX->SetShortPathName(NCXBookPath.split('/').last());
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
     m_Path2Resource[ m_NCX->GetRelativePath() ] = m_NCX;
-
-    // TODO: change from Resource* to const Resource&
     connect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
     return m_NCX;
 }
@@ -564,15 +595,13 @@ void FolderKeeper::CreateInfrastructureFiles()
 {
     SettingsStore ss;
     QString version = ss.defaultVersion();
+#if 0
     m_OPF = new OPFResource(m_FullPathToMainFolder, m_FullPathToOEBPSFolder + "/" + OPF_FILE_NAME, this);
     m_OPF->SetEpubVersion(version);
     m_OPF->SetShortPathName(OPF_FILE_NAME);
     m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
     m_Path2Resource[ m_OPF->GetRelativePath() ] = m_OPF;
-    // note - ncx is optional on epub3 so do not create an ncx here
-    // instead add it ony when needed
 
-    // TODO: change from Resource* to const Resource&
     connect(m_OPF, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
     // For ResourceAdded, the connection has to be DirectConnection,
     // otherwise the default of AutoConnection screws us when
@@ -581,9 +610,10 @@ void FolderKeeper::CreateInfrastructureFiles()
             m_OPF, SLOT(AddResource(const Resource *)), Qt::DirectConnection);
     connect(this,  SIGNAL(ResourceRemoved(const Resource *)),
             m_OPF, SLOT(RemoveResource(const Resource *)));
+#endif
+
     connect(m_FSWatcher, SIGNAL(fileChanged(const QString &)),
             this,        SLOT(ResourceFileChanged(const QString &)), Qt::DirectConnection);
-    Utility::WriteUnicodeTextFile(CONTAINER_XML, m_FullPathToMetaInfFolder + "/container.xml");
 }
 
 // Hard codes Longest Common Path for the time being
