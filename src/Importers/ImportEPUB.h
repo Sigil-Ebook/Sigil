@@ -206,7 +206,8 @@ private:
      * even though that's explicitly forbidden by the spec. So we use this
      * to make sure we don't load such files multiple times.
      */
-    QSet<QString> m_ManifestFilePaths;
+    QStringList m_ManifestFilePaths;
+    QStringList m_ManifestMediaTypes;
 
     QSet<QString> m_ZipFilePaths;
 
@@ -246,6 +247,8 @@ private:
      * The value of the opf package version tag
      */
     QString m_PackageVersion;
+
+    bool m_LoadEpubAsIs;
 
 };
 

@@ -999,6 +999,7 @@ QString Utility::relativePath(const QString & destination, const QString & start
 // start_folder is the *book path* (path internal to the epub) to the starting folder
 QString Utility::buildBookPath(const QString& dest_relpath, const QString& start_folder)
 {
+    qDebug() << "in buildBookPath: " << dest_relpath << start_folder;
     QString bookpath(start_folder);
     while (bookpath.endsWith("/")) bookpath.chop(1);
     if (!bookpath.isEmpty()) { 

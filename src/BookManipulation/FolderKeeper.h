@@ -197,6 +197,8 @@ public:
 
     void updateShortPathNames();
 
+    void SetGroupFolders(const QStringList &bookpaths, const QStringList &mtypes);
+
     /**
      * Registers certain file types to be watched for external modifications.
      */
@@ -261,7 +263,6 @@ private:
     void CreateInfrastructureFiles();
 
     void CreateGroupToFoldersMap();
-    void SetGroupFolders(const QStringList &bookpaths, const QStringList &mtypes);
 
     QString buildShortName(const QString &bookpath, int lvl);
 

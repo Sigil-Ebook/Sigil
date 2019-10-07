@@ -96,8 +96,12 @@ ImportEPUB::ImportEPUB(const QString &fullfilepath)
       m_ExtractedFolderPath(m_TempFolder.GetPath()),
       m_HasSpineItems(false),
       m_NCXNotInManifest(false),
-      m_NavResource(NULL)
+      m_NavResource(NULL),
+      m_LoadEpubAsIs(false)
 {
+    if (qEnvironmentVariableIsSet("SIGIL_LOAD_EPUB_AS_IS")) {
+        m_LoadEpubAsIs = true;
+    }
 }
 
 // Reads and parses the file
@@ -127,7 +131,14 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
     ReadOPF();
     AddObfuscatedButUndeclaredFonts(encrypted_files);
     AddNonStandardAppleXML();
+    if (m_LoadEpubAsIs) {
+        m_Book->GetFolderKeeper()->SetGroupFolders(m_ManifestFilePaths, m_ManifestMediaTypes);
+    }
     LoadInfrastructureFiles();
+    if (m_LoadEpubAsIs) {
+        m_Book->GetFolderKeeper()->updateShortPathNames();
+    }
+
     // Check for files missing in the Manifest and create warning
     QStringList notInManifest;
     foreach(QString file_path, m_ZipFilePaths) {
@@ -189,10 +200,14 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
         QApplication::setOverrideCursor(Qt::WaitCursor);
     }
 
-    const QStringList load_errors = UniversalUpdates::PerformUniversalUpdates(false, resources, updates, non_well_formed);
+    QStringList load_errors;
 
-    Q_FOREACH (QString err, load_errors) {
-        AddLoadWarning(QString("%1").arg(err));
+    if (!updates.isEmpty()) {
+        load_errors = UniversalUpdates::PerformUniversalUpdates(false, resources, updates, non_well_formed);
+
+        Q_FOREACH (QString err, load_errors) {
+            AddLoadWarning(QString("%1").arg(err));
+        }
     }
 
     ProcessFontFiles(resources, updates, encrypted_files);
@@ -360,17 +375,24 @@ void ImportEPUB::ProcessFontFiles(const QList<Resource *> &resources,
     }
 
     QHash<QString, QString> new_font_paths_to_algorithms;
-    foreach(QString old_update_path, updates.keys()) {
-        if (!FONT_EXTENSIONS.contains(QFileInfo(old_update_path).suffix().toLower())) {
-            continue;
-        }
+    if (!updates.isEmpty()) {
+        foreach(QString old_update_path, updates.keys()) {
+            if (!FONT_EXTENSIONS.contains(QFileInfo(old_update_path).suffix().toLower())) {
+                continue;
+            }
 
-        QString new_update_path = updates[ old_update_path ];
-        foreach(QString old_encrypted_path, encrypted_files.keys()) {
-            if (old_update_path == old_encrypted_path) {
-                new_font_paths_to_algorithms[ new_update_path ] = encrypted_files[ old_encrypted_path ];
+            QString new_update_path = updates[ old_update_path ];
+            foreach(QString old_encrypted_path, encrypted_files.keys()) {
+                if (old_update_path == old_encrypted_path) {
+                    new_font_paths_to_algorithms[ new_update_path ] = encrypted_files[ old_encrypted_path ];
+                }
             }
         }
+    } else {
+        //  This is an as is loaded epub so the old encrypted paths are still valid
+        foreach(QString old_encrypted_path, encrypted_files.keys()) {
+	    new_font_paths_to_algorithms[ old_encrypted_path ] = encrypted_files[ old_encrypted_path ];
+	}
     }
     foreach(FontResource * font_resource, font_resources) {
         QString match_path = font_resource->GetRelativePath();
@@ -661,8 +683,13 @@ void ImportEPUB::ReadOPF()
         throw (EPUBLoadParseError(error.toStdString()));
     }
 
+    
     //Important!  The OPF Resource in the new book must be created now before adding to it in any way
-    m_Book->GetFolderKeeper()->AddOPFToFolder(m_PackageVersion);
+    QString bookpath;
+    if (m_LoadEpubAsIs) {
+        bookpath = m_OPFFilePath.right(m_OPFFilePath.length() - m_ExtractedFolderPath.length() - 1);
+    }
+    m_Book->GetFolderKeeper()->AddOPFToFolder(m_PackageVersion, bookpath);
 
     // Ensure we have an NCX available
     LocateOrCreateNCX(ncx_id_on_spine);
@@ -736,7 +763,6 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
 
     // find the epub root relative file path from the opf location and the item href
     QString file_path = m_opfDir.absolutePath() + "/" + href;
-    // qDebug() << "creating manifest file path from: " << file_path;
     file_path = Utility::resolveRelativeSegmentsInFilePath(file_path,"/");
     file_path = file_path.remove(0, m_ExtractedFolderPath.length() + 1); 
     
@@ -763,6 +789,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
             m_Files[ id ] = href;
             m_FileMimetypes[ id ] = type;
             m_ManifestFilePaths << file_path;
+	    m_ManifestMediaTypes << type;
 
             // store information about any nav document
             if (properties.contains("nav")) {
@@ -773,6 +800,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     } else {
         m_NcxCandidates[ id ] = href;
 	m_ManifestFilePaths << file_path;
+	m_ManifestMediaTypes << type;
     }
 }
 
@@ -785,7 +813,14 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
 
     // if epub2 must have an ncx
     if (m_PackageVersion.startsWith('2')) {
-        m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion);
+        QString bookpath;
+        if (m_LoadEpubAsIs) {
+            ncx_href = m_NcxCandidates[ m_NCXId ];
+            m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
+	    m_NCXFilePath = Utility::resolveRelativeSegmentsInFilePath(m_NCXFilePath, "/");
+	    bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
+	}
+        m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
     }
 
     // Handle various failure conditions, such as:
@@ -795,6 +830,8 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
     // - ncx not in spine or manifest item (create a new one)
     if (!m_NCXId.isEmpty()) {
         ncx_href = m_NcxCandidates[ m_NCXId ];
+        m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
+	m_NCXFilePath = Utility::resolveRelativeSegmentsInFilePath(m_NCXFilePath, "/");
     } else {
         // Search for the ncx in the manifest by looking for files with
         // a .ncx extension.
@@ -815,10 +852,15 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
     }
     if (!ncx_href.isEmpty()) {
         m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
-
+	m_NCXFilePath = Utility::resolveRelativeSegmentsInFilePath(m_NCXFilePath, "/");
+	QString bookpath;
 	if (QFile::exists(m_NCXFilePath) && m_PackageVersion.startsWith('3')) {
+	    if (m_LoadEpubAsIs) {
+	        bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
+	    }
+
 	    // only ask folderkeeper to create an NCX if an ncx already exists in this epub3
-            m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion);
+            m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
 	}
     }
 
@@ -907,7 +949,9 @@ QHash<QString, QString> ImportEPUB::LoadFolderStructure()
 
     for (int i = 0; i < num_futures; ++i) {
         std::tuple<QString, QString> result = futures.at(i).result();
-        updates[std::get<0>(result)] = std::get<1>(result);
+	if (std::get<0>(result) != std::get<1>(result)) {
+	    updates[std::get<0>(result)] = std::get<1>(result);
+	}
     }
 
     updates.remove(UPDATE_ERROR_STRING);
@@ -922,7 +966,11 @@ std::tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const 
     QString currentpath = fullfilepath;
     currentpath = currentpath.remove(0,m_ExtractedFolderPath.length()+1);
     try {
-        Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath, false, mimetype);
+        QString bookpath;
+        if (m_LoadEpubAsIs) {
+	    bookpath = currentpath;
+	}
+        Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath, false, mimetype, bookpath);
         if (path == m_NavHref) {
             m_NavResource = resource;
         }

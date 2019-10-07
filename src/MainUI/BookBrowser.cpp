@@ -129,10 +129,19 @@ void BookBrowser::RefreshCounts()
     int  mainfolder_length = m_Book->GetFolderKeeper()->GetFullPathToMainFolder().length();
     for (int i = 0; i < m_OPFModel->invisibleRootItem()->rowCount(); i++) {
         QStandardItem *folder = m_OPFModel->invisibleRootItem()->child(i);
-        QString tooltip = m_Book->GetFolderKeeper()->GetDefaultFolderForGroup(folderkeys.at(i));
-	tooltip = tooltip.right(tooltip.length() - mainfolder_length - 1);
-        int count = folder->rowCount();
-        tooltip = tooltip + " " + QString(tr("%n file(s)","", count));
+	QString tooltip;
+	QString key = folderkeys.at(i);
+	if (key == "ncx") {
+	    const Resource* res = m_Book->GetConstNCX();
+	    if (res) tooltip = res->GetRelativePath();
+	} else if (key == "opf") {
+	    const Resource* res = m_Book->GetConstOPF();
+	    tooltip = res->GetRelativePath();
+	} else {
+            tooltip = m_Book->GetFolderKeeper()->GetDefaultFolderForGroup(folderkeys.at(i));
+            int count = folder->rowCount();
+            tooltip = tooltip + " " + QString(tr("%n file(s)","", count));
+	}
         folder->setToolTip(tooltip);
     }
 }
