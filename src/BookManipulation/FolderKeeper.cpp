@@ -159,9 +159,9 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
 
         if (!bookpath.isEmpty()) {
             // use the specified bookpath to determine file location
-	    new_file_path = m_FullPathToMainFolder + "/" + bookpath;
 	    QDir folder(m_FullPathToMainFolder);
 	    folder.mkpath(Utility::startingDir(bookpath));
+	    new_file_path = m_FullPathToMainFolder + "/" + bookpath;
         } else {
             // Rename files that start with a '.'
             // These merely introduce needless difficulties
@@ -169,7 +169,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
                 norm_file_path = fi.absolutePath() % "/" % filename.right(filename.size() - 1);
             }
             filename  = GetUniqueFilenameVersion(QFileInfo(norm_file_path).fileName());
-	    new_file_path = "";
+	    new_file_path = m_FullPathToMainFolder + "/" + GetDefaultFolderForGroup(group) + filename;
         }
 
         if (fullfilepath.contains(FILE_EXCEPTIONS)) {
@@ -179,46 +179,27 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
             // a lot of the code to provide a more generalised interface.
             new_file_path = m_FullPathToMainFolder % fullfilepath.right(fullfilepath.size() - m_FullPathToMainFolder.size());
             resource = new Resource(m_FullPathToMainFolder, new_file_path);
-
         } else if (resdesc == "MiscTextResource") {
-            if (new_file_path.isEmpty()) new_file_path = m_FullPathToMiscFolder + "/" + filename;
             resource = new MiscTextResource(m_FullPathToMainFolder, new_file_path);
-
         } else if (resdesc == "AudioResource") {
-            if (new_file_path.isEmpty()) new_file_path = m_FullPathToAudioFolder + "/" + filename;
             resource = new AudioResource(m_FullPathToMainFolder, new_file_path);
-
         } else if (resdesc == "VideoResource") {
-            if (new_file_path.isEmpty()) new_file_path = m_FullPathToVideoFolder + "/" + filename;
             resource = new VideoResource(m_FullPathToMainFolder, new_file_path);
-
         } else if (resdesc == "ImageResource") {
-            if (new_file_path.isEmpty()) new_file_path = m_FullPathToImagesFolder + "/" + filename;
             resource = new ImageResource(m_FullPathToMainFolder, new_file_path);
-
         } else if (resdesc == "SVGResource") {
-            if (new_file_path.isEmpty()) new_file_path = m_FullPathToImagesFolder + "/" + filename;
             resource = new SVGResource(m_FullPathToMainFolder, new_file_path);
-
         } else if (resdesc == "FontResource") {
-            if (new_file_path.isEmpty()) new_file_path = m_FullPathToFontsFolder + "/" + filename;
             resource = new FontResource(m_FullPathToMainFolder, new_file_path);
-
         } else if (resdesc == "HTMLResource") {
-            if (new_file_path.isEmpty()) new_file_path = m_FullPathToTextFolder + "/" + filename;
             resource = new HTMLResource(m_FullPathToMainFolder, new_file_path, m_Resources);
-
         } else if (resdesc == "CSSResource") {
-            if (new_file_path.isEmpty()) new_file_path = m_FullPathToStylesFolder + "/" + filename;
             resource = new CSSResource(m_FullPathToMainFolder, new_file_path);
-
         } else if (resdesc == "XMLResource") {
-            if (new_file_path.isEmpty()) new_file_path = m_FullPathToMiscFolder + "/" + filename;
             resource = new XMLResource(m_FullPathToMainFolder, new_file_path);
-
         } else {
             // Fallback mechanism
-            if (new_file_path.isEmpty()) new_file_path = m_FullPathToMiscFolder + "/" + filename;
+	    new_file_path = m_FullPathToMainFolder + "/" + GetDefaultFolderForGroup("Misc") + filename;
             resource = new Resource(m_FullPathToMainFolder, new_file_path);
         }
 
