@@ -115,50 +115,62 @@ QString FolderKeeper::DetermineFileGroup(const QString &filepath, const QString 
     QString mt = mimetype;
 
     if (filepath.contains(FILE_EXCEPTIONS)) return "other";
-
-    MediaTypes * MTMaps = MediaTypes::instance();
-
     if (mt.isEmpty()) {
-        mt = MTMaps->GetMediaTypeFromExtension(extension, "");
+        mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
         if (mt.isEmpty()) return "other";
     }
-    
-    QString file_group = MTMaps->GetGroupFromMediaType(mt, "other");
-    return file_group;
+    return MediaTypes::instance()->GetGroupFromMediaType(mt, "other");
 }
 
-// This routine should never process the opf or the ncx as they are special cased elsewhere in FolderKeeper
-Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool update_opf, const QString &mimetype, const QString &bookpath)
+// This routine should never process the opf or the ncx as they 
+// are special cased elsewhere in FolderKeeper
+Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool update_opf, 
+					       const QString &mimetype, const QString &bookpath)
 {
     if (!QFileInfo(fullfilepath).exists()) {
         throw(FileDoesNotExist(fullfilepath.toStdString()));
     }
 
-    QString new_file_path;
-    QString normalised_file_path = fullfilepath;
-    Resource *resource = NULL;
-    // Rename files that start with a '.'
-    // These merely introduce needless difficulties
-    QFileInfo fileInformation(normalised_file_path);
-    QString fileName = fileInformation.fileName();
+    // initialize base file information
+    QString norm_file_path = fullfilepath;
+    QFileInfo fi(norm_file_path);
+    QString filename = fi.fileName();
 
-    if (fileName.left(1) == ".") {
-        normalised_file_path = fileInformation.absolutePath() % "/" % fileName.right(fileName.size() - 1);
+    // make sure mediatype is properly assigned
+    QString mt = mimetype;
+    if (mt.isEmpty()) {
+        QString extension = fi.suffix().toLower();
+	mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
     }
 
-    // We need to lock here because otherwise
-    // several threads can get the same "unique" name.
-    // After we deal with the resource hash, other threads can continue.
+    QString group = DetermineFileGroup(norm_file_path, mt);
+    QString resdesc = MediaTypes::instance()->GetResourceDescFromMediaType(mt, "Resource");
+
+    Resource *resource = NULL;
+
+    QString new_file_path;
+    // lock for GetUniqueFilenameVersion() until the 
+    // resource with that file name has been created
+    // and added tot he list of all resources so it
+    // will return that this filename is now taken
     {
+
         QMutexLocker locker(&m_AccessMutex);
-        QString filename  = GetUniqueFilenameVersion(QFileInfo(normalised_file_path).fileName());
-        QString extension = QFileInfo(normalised_file_path).suffix().toLower();
-	QString mt = mimetype;
-	if (mt.isEmpty()) {
-	    mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
-	}
-        QString group = DetermineFileGroup(normalised_file_path, mt);
-	QString resdesc = MediaTypes::instance()->GetResourceDescFromMediaType(mt, "Resource");
+
+        if (!bookpath.isEmpty()) {
+            // use the specified bookpath to determine file location
+	    new_file_path = m_FullPathToMainFolder + "/" + bookpath;
+	    QDir folder(m_FullPathToMainFolder);
+	    folder.mkpath(Utility::startingDir(bookpath));
+        } else {
+            // Rename files that start with a '.'
+            // These merely introduce needless difficulties
+            if (filename.left(1) == ".") {
+                norm_file_path = fi.absolutePath() % "/" % filename.right(filename.size() - 1);
+            }
+            filename  = GetUniqueFilenameVersion(QFileInfo(norm_file_path).fileName());
+	    new_file_path = "";
+        }
 
         if (fullfilepath.contains(FILE_EXCEPTIONS)) {
 	    // This is used for all files inside the META-INF directory
@@ -169,57 +181,60 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
             resource = new Resource(m_FullPathToMainFolder, new_file_path);
 
         } else if (resdesc == "MiscTextResource") {
-            new_file_path = m_FullPathToMiscFolder + "/" + filename;
+            if (new_file_path.isEmpty()) new_file_path = m_FullPathToMiscFolder + "/" + filename;
             resource = new MiscTextResource(m_FullPathToMainFolder, new_file_path);
 
         } else if (resdesc == "AudioResource") {
-            new_file_path = m_FullPathToAudioFolder + "/" + filename;
+            if (new_file_path.isEmpty()) new_file_path = m_FullPathToAudioFolder + "/" + filename;
             resource = new AudioResource(m_FullPathToMainFolder, new_file_path);
 
         } else if (resdesc == "VideoResource") {
-            new_file_path = m_FullPathToVideoFolder + "/" + filename;
+            if (new_file_path.isEmpty()) new_file_path = m_FullPathToVideoFolder + "/" + filename;
             resource = new VideoResource(m_FullPathToMainFolder, new_file_path);
 
         } else if (resdesc == "ImageResource") {
-            new_file_path = m_FullPathToImagesFolder + "/" + filename;
+            if (new_file_path.isEmpty()) new_file_path = m_FullPathToImagesFolder + "/" + filename;
             resource = new ImageResource(m_FullPathToMainFolder, new_file_path);
 
         } else if (resdesc == "SVGResource") {
-            new_file_path = m_FullPathToImagesFolder + "/" + filename;
+            if (new_file_path.isEmpty()) new_file_path = m_FullPathToImagesFolder + "/" + filename;
             resource = new SVGResource(m_FullPathToMainFolder, new_file_path);
 
         } else if (resdesc == "FontResource") {
-            new_file_path = m_FullPathToFontsFolder + "/" + filename;
+            if (new_file_path.isEmpty()) new_file_path = m_FullPathToFontsFolder + "/" + filename;
             resource = new FontResource(m_FullPathToMainFolder, new_file_path);
 
         } else if (resdesc == "HTMLResource") {
-            new_file_path = m_FullPathToTextFolder + "/" + filename;
+            if (new_file_path.isEmpty()) new_file_path = m_FullPathToTextFolder + "/" + filename;
             resource = new HTMLResource(m_FullPathToMainFolder, new_file_path, m_Resources);
 
         } else if (resdesc == "CSSResource") {
-            new_file_path = m_FullPathToStylesFolder + "/" + filename;
+            if (new_file_path.isEmpty()) new_file_path = m_FullPathToStylesFolder + "/" + filename;
             resource = new CSSResource(m_FullPathToMainFolder, new_file_path);
 
         } else if (resdesc == "XMLResource") {
-            new_file_path = m_FullPathToMiscFolder + "/" + filename;
+            if (new_file_path.isEmpty()) new_file_path = m_FullPathToMiscFolder + "/" + filename;
             resource = new XMLResource(m_FullPathToMainFolder, new_file_path);
 
         } else {
             // Fallback mechanism
-            new_file_path = m_FullPathToMiscFolder + "/" + filename;
+            if (new_file_path.isEmpty()) new_file_path = m_FullPathToMiscFolder + "/" + filename;
             resource = new Resource(m_FullPathToMainFolder, new_file_path);
         }
 
         m_Resources[ resource->GetIdentifier() ] = resource;
 
-	// Note:  m_FullPathToMainFolder **never** ends with a "/"
-	QString book_path = new_file_path.right(new_file_path.length() - m_FullPathToMainFolder.length() - 1);
-	m_Path2Resource[ book_path ] = resource;
-
+        // Note:  m_FullPathToMainFolder **never** ends with a "/"
+	QString book_path = bookpath;
+	if (book_path.isEmpty()) {
+            book_path = new_file_path.right(new_file_path.length() - m_FullPathToMainFolder.length() - 1);
+	}
+        m_Path2Resource[ book_path ] = resource;
         resource->SetEpubVersion(m_OPF->GetEpubVersion());
         resource->SetMediaType(mt);
         resource->SetShortPathName(filename);
     }
+
     QFile::copy(fullfilepath, new_file_path);
 
     if (QThread::currentThread() != QApplication::instance()->thread()) {
