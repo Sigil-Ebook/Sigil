@@ -52,14 +52,6 @@ const QStringList groupA = QStringList() << "Text"<<"Styles"<<"Images"<<"Audio"<
 // through untouched.
 const QRegularExpression FILE_EXCEPTIONS("META-INF");
 
-const QString IMAGE_FOLDER_NAME = "Images";
-const QString FONT_FOLDER_NAME  = "Fonts";
-const QString TEXT_FOLDER_NAME  = "Text";
-const QString STYLE_FOLDER_NAME = "Styles";
-const QString AUDIO_FOLDER_NAME = "Audio";
-const QString VIDEO_FOLDER_NAME = "Video";
-const QString MISC_FOLDER_NAME  = "Misc";
-
 
 static const QString CONTAINER_XML       = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
         "<container version=\"1.0\" xmlns=\"urn:oasis:names:tc:opendocument:xmlns:container\">\n"
@@ -67,10 +59,6 @@ static const QString CONTAINER_XML       = "<?xml version=\"1.0\" encoding=\"UTF
         "        <rootfile full-path=\"%1\" media-type=\"application/oebps-package+xml\"/>\n"
         "   </rootfiles>\n"
 	"</container>\n";
-
-const QString OPF_FILE_NAME            = "content.opf";
-const QString NCX_FILE_NAME            = "toc.ncx";
-
 
 FolderKeeper::FolderKeeper(QObject *parent)
     :
@@ -81,8 +69,8 @@ FolderKeeper::FolderKeeper(QObject *parent)
     m_FullPathToMainFolder(m_TempFolder.GetPath())
 {
     CreateGroupToFoldersMap();
-    CreateFolderStructure();
-    CreateInfrastructureFiles();
+    connect(m_FSWatcher, SIGNAL(fileChanged(const QString &)),
+            this,        SLOT(ResourceFileChanged(const QString &)), Qt::DirectConnection);
 }
 
 
@@ -145,10 +133,12 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
 
     QString group = DetermineFileGroup(norm_file_path, mt);
     QString resdesc = MediaTypes::instance()->GetResourceDescFromMediaType(mt, "Resource");
+    QDir folder(m_FullPathToMainFolder);
 
     Resource *resource = NULL;
-
     QString new_file_path;
+
+
     // lock for GetUniqueFilenameVersion() until the 
     // resource with that file name has been created
     // and added tot he list of all resources so it
@@ -159,8 +149,9 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
 
         if (!bookpath.isEmpty()) {
             // use the specified bookpath to determine file location
-	    QDir folder(m_FullPathToMainFolder);
-	    folder.mkpath(Utility::startingDir(bookpath));
+	    if (!Utility::startingDir(bookpath).isEmpty()) {
+	        folder.mkpath(Utility::startingDir(bookpath));
+	    }
 	    new_file_path = m_FullPathToMainFolder + "/" + bookpath;
         } else {
             // Rename files that start with a '.'
@@ -169,6 +160,9 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
                 norm_file_path = fi.absolutePath() % "/" % filename.right(filename.size() - 1);
             }
             filename  = GetUniqueFilenameVersion(QFileInfo(norm_file_path).fileName());
+	    if (!GetDefaultFolderForGroup(group).isEmpty()) {
+	        folder.mkpath(GetDefaultFolderForGroup(group));
+	    }
 	    new_file_path = m_FullPathToMainFolder + "/" + GetDefaultFolderForGroup(group) + filename;
         }
 
@@ -527,62 +521,6 @@ void FolderKeeper::ResumeWatchingResources()
     }
 }
 
-// The required folder structure is this:
-//	 META-INF
-//	 OEBPS
-//	    Images
-//	    Fonts
-//	    Text
-//          Styles
-//          Misc
-void FolderKeeper::CreateFolderStructure()
-{
-    QDir folder(m_FullPathToMainFolder);
-    folder.mkdir("META-INF");
-    folder.mkdir("OEBPS");
-    folder.mkpath("OEBPS/" + AUDIO_FOLDER_NAME);
-    folder.mkpath("OEBPS/" + VIDEO_FOLDER_NAME);
-    folder.mkpath("OEBPS/" + IMAGE_FOLDER_NAME);
-    folder.mkpath("OEBPS/" + FONT_FOLDER_NAME);
-    folder.mkpath("OEBPS/" + TEXT_FOLDER_NAME);
-    folder.mkpath("OEBPS/" + STYLE_FOLDER_NAME);
-    folder.mkpath("OEBPS/" + MISC_FOLDER_NAME);
-    m_FullPathToMetaInfFolder = m_FullPathToMainFolder + "/META-INF";
-    m_FullPathToOEBPSFolder   = m_FullPathToMainFolder + "/OEBPS";
-    m_FullPathToAudioFolder   = m_FullPathToOEBPSFolder + "/" + AUDIO_FOLDER_NAME;
-    m_FullPathToVideoFolder   = m_FullPathToOEBPSFolder + "/" + VIDEO_FOLDER_NAME;
-    m_FullPathToImagesFolder  = m_FullPathToOEBPSFolder + "/" + IMAGE_FOLDER_NAME;
-    m_FullPathToFontsFolder   = m_FullPathToOEBPSFolder + "/" + FONT_FOLDER_NAME;
-    m_FullPathToTextFolder    = m_FullPathToOEBPSFolder + "/" + TEXT_FOLDER_NAME;
-    m_FullPathToStylesFolder  = m_FullPathToOEBPSFolder + "/" + STYLE_FOLDER_NAME;
-    m_FullPathToMiscFolder    = m_FullPathToOEBPSFolder + "/" + MISC_FOLDER_NAME;
-}
-
-
-void FolderKeeper::CreateInfrastructureFiles()
-{
-    SettingsStore ss;
-    QString version = ss.defaultVersion();
-#if 0
-    m_OPF = new OPFResource(m_FullPathToMainFolder, m_FullPathToOEBPSFolder + "/" + OPF_FILE_NAME, this);
-    m_OPF->SetEpubVersion(version);
-    m_OPF->SetShortPathName(OPF_FILE_NAME);
-    m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
-    m_Path2Resource[ m_OPF->GetRelativePath() ] = m_OPF;
-
-    connect(m_OPF, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
-    // For ResourceAdded, the connection has to be DirectConnection,
-    // otherwise the default of AutoConnection screws us when
-    // AddContentFileToFolder is called from multiple threads.
-    connect(this,  SIGNAL(ResourceAdded(const Resource *)),
-            m_OPF, SLOT(AddResource(const Resource *)), Qt::DirectConnection);
-    connect(this,  SIGNAL(ResourceRemoved(const Resource *)),
-            m_OPF, SLOT(RemoveResource(const Resource *)));
-#endif
-
-    connect(m_FSWatcher, SIGNAL(fileChanged(const QString &)),
-            this,        SLOT(ResourceFileChanged(const QString &)), Qt::DirectConnection);
-}
 
 // Hard codes Longest Common Path for the time being
 // Note all paths **must** end with "/"
@@ -695,6 +633,7 @@ void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringLi
         QStringList folderlst = group_folder.value(group,QStringList());
         QList<int> countlst = group_count.value(group, QList<int>());
         QString sdir = Utility::startingDir(bookpath);
+	if (!sdir.isEmpty()) sdir = sdir + "/";
         if (!folderlst.contains(sdir)) {
             folderlst << sdir;
             countlst << 1;
@@ -724,15 +663,15 @@ void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringLi
         }
         dirlst << sortedlst.at(0);
     }
-
-    // now back fill any missing group folders value
+    // now back fill any missing group folders
     QString commonbase = Utility::longestCommonPath(dirlst, "/");
+    if (commonbase == "/") commonbase ="";
     foreach(QString group, groupA) {
         QStringList folderlst = group_folder.value(group, QStringList());
         QString gname = group;
         if (use_lower_case) gname = gname.toLower();
         if (folderlst.isEmpty()) {
-            folderlst << commonbase + gname;
+            folderlst << commonbase + gname + "/";
             group_folder[group] = folderlst;
         }
     }

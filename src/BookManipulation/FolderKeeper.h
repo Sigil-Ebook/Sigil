@@ -251,17 +251,6 @@ private slots:
 
 private:
 
-    /**
-     * Creates the required subfolders of each book.
-     */
-    void CreateFolderStructure();
-
-    /**
-     * Creates the book's infrastructure files, like
-     * the NCX and the OPF.
-     */
-    void CreateInfrastructureFiles();
-
     void CreateGroupToFoldersMap();
 
     QString buildShortName(const QString &bookpath, int lvl);

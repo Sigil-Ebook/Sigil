@@ -875,7 +875,7 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
         // the file does not physically exist.  We need to create a new one.
 
         if ( m_PackageVersion.startsWith('2') ) {
-            m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % NCX_FILE_NAME;
+	    m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() + "/toc.ncx";
 
             // Create a new file for the NCX.
             NCXResource ncx_resource(m_ExtractedFolderPath, m_NCXFilePath, NULL);
