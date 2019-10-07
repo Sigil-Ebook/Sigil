@@ -230,13 +230,6 @@ Book::~Book()
 }
 
 
-QUrl Book::GetBaseUrl() const
-{
-    return QUrl::fromLocalFile(m_Mainfolder->GetFullPathToTextFolder() + "/");
-}
-
-
-
 FolderKeeper *Book::GetFolderKeeper()
 {
     return m_Mainfolder;

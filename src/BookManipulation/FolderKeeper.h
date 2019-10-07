@@ -187,30 +187,6 @@ public:
     QString GetFullPathToMainFolder() const;
 
     /**
-     * Returns the full path to the OEBPS folder of the publication.
-     *
-     * @return The full path.
-     */
-    QString GetFullPathToOEBPSFolder() const;
-
-    /**
-     * Returns the full path to the Text folder of the publication.
-     *
-     * @return The full path.
-     */
-    QString GetFullPathToTextFolder() const;
-
-    /**
-     * Returns the full path to the Image folder of the publication.
-     *
-     * @return The full path.
-     */
-    QString GetFullPathToImageFolder() const;
-
-    QString GetFullPathToAudioFolder() const;
-    QString GetFullPathToVideoFolder() const;
-
-    /**
      * Returns a list of all the resource filenames in the book.
      *
      * @return The filename list.

@@ -59,13 +59,6 @@ public:
     ~Book();
 
     /**
-     * Returns the base url of the book.
-     * This is the location of the text folder
-     * within the main folder.
-     */
-    QUrl GetBaseUrl() const;
-
-    /**
      * Returns the FolderKeeper instance.
      *
      * @return A reference to the FolderKeeper instance of the Book.

@@ -425,34 +425,6 @@ QString FolderKeeper::GetFullPathToMainFolder() const
 }
 
 
-QString FolderKeeper::GetFullPathToOEBPSFolder() const
-{
-    return m_FullPathToOEBPSFolder;
-}
-
-
-QString FolderKeeper::GetFullPathToTextFolder() const
-{
-    return m_FullPathToTextFolder;
-}
-
-
-QString FolderKeeper::GetFullPathToImageFolder() const
-{
-    return m_FullPathToImagesFolder;
-}
-
-QString FolderKeeper::GetFullPathToAudioFolder() const
-{
-    return m_FullPathToAudioFolder;
-}
-
-QString FolderKeeper::GetFullPathToVideoFolder() const
-{
-    return m_FullPathToVideoFolder;
-}
-
-
 QStringList FolderKeeper::GetAllFilenames() const
 {
     QStringList filelist;
