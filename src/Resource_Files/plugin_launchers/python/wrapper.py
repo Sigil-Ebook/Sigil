@@ -242,10 +242,24 @@ class Wrapper(object):
 
     # ----------
 
+    # routine to detect if the current epub is in Sigil standard epub form
+    def epub_is_standard(self):
+        groups = ["Text", "Styles", "Fonts", "Images", "Audio", "Video", "Misc"]
+        paths = ["OEBPS/Text", "OEBPS/Styles", "OEBPS/Fonts", "OEBPS/Images", "OEBPS/Audio", "OEBPS/Video", "OEBPS/Misc"]
+        std_epub = self.opfbookpath == "OEBPS/content.opf"
+        tocid = self.gettocid()
+        if tocid is not None:
+            std_epub = std_epub and self.id_to_bookpath[tocid] == "OEBPS/toc.ncx";
+        if self.epub_version.startswith("2"):
+            std_epub = std_epub and tocid is not None
+        for g, p in zip(groups, paths):
+            folders = self.group_paths[g]
+            std_epub = std_epub and folders[0] == p and len(folders) == 1
+        return std_epub
 
 
     # routines to rebuild the opf on the fly from current information
-
+        
     def build_package_starttag(self):
         return self.package_tag
 
@@ -588,7 +602,10 @@ class Wrapper(object):
         if mime == "application/x-dtbncx+xml" and self.epub_version.startswith("2"):
             raise WrapperException('Can not add or remove an ncx under epub2')
         group = mime_group_map.get(mime,"Misc")
-        bookpath = self.group_paths[group] + basename
+        default_path = self.group_paths[group][0]
+        bookpath = basename
+        if default_path != "":
+            bookpath = default_path + "/" + basename
         href = buildRelativePath(self.opfbookpath, bookpath)
         if href in self.href_to_id:
             raise WrapperException('Basename already exists')
@@ -955,3 +972,4 @@ class Wrapper(object):
             lib_dir = unipath.abspath(self.appdir)
             lib_name = 'libhunspell.so'
         return os.path.join(lib_dir, lib_name)
+

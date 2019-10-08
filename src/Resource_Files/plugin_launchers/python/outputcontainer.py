@@ -59,6 +59,9 @@ class OutputContainer(object):
     def epub_version(self):
         return self._w.getepubversion()
 
+    def epub_is_standard(self):
+        return self._w.epub_is_standard()
+
     @property
     def sigil_ui_lang(self):
         if self._w.sigil_ui_lang is None:

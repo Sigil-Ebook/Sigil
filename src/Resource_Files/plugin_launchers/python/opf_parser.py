@@ -42,6 +42,14 @@ SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment']
 
 _OPF_PARENT_TAGS = ['package', 'metadata', 'dc-metadata', 'x-metadata', 'manifest', 'spine', 'tours', 'guide', 'bindings']
 
+def build_short_name(bookpath, lvl):
+    pieces = bookpath.split("/")
+    if lvl == 1: return pieces.pop()
+    n = len(pieces)
+    if lvl >= n: return "^" + bookpath
+    pieces = pieces[n-lvl:n]
+    return "/".join(pieces)
+    
 class Opf_Parser(object):
 
     def __init__(self, opf_path, opf_bookpath, debug = False):
@@ -75,17 +83,17 @@ class Opf_Parser(object):
         self.guide = []
         self.bindings = []
         
-        # determine longestCommonPaths for each logical grouping (folder) type
-        self.lcp = {}
-        self.lcp['Text'] = []
-        self.lcp['Styles'] = []
-        self.lcp['Images'] = []
-        self.lcp['Fonts'] = []
-        self.lcp['Audio'] = []
-        self.lcp['Video'] = []
-        self.lcp['Misc'] = []
-        self.group_paths = {}
+        # determine folder structure
+        self.group_folder = {}
+        self.group_count = {}
+        self.group_folder["epub"] = ['META-INF']
+        self.group_count["epub"] = [1]
+        self.group_folder["opf"] = [self.opf_dir]
+        self.group_count["opf"] = [1]
 
+        # self.bookpaths = []
+        # self.bookpaths.append(self.opf_bookpath)
+        
         self._parseData()
 
 
@@ -157,17 +165,30 @@ class Opf_Parser(object):
                 properties = tattr.pop("properties",None)
                 fallback = tattr.pop("fallback",None)
                 overlay = tattr.pop("media-overlay",None)
+
                 # external resources are now allowed in the opf under epub3
                 # we can ignore fragments here as these are links to files
                 self.manifest_id_to_href[id] = href
+
                 bookpath = ""
                 if href.find(":") == -1:
                     bookpath = buildBookPath(href, self.opf_dir)
                 self.manifest_id_to_bookpath[id] = bookpath
                 self.manifest_id_to_mime[id] = mtype
+                # self.bookpaths.append(bookpath)
                 group = mime_group_map.get(mtype,'')
                 if bookpath != "" and group != "":
-                     self.lcp[group].append(bookpath)
+                    folderlst = self.group_folder.get(group,[])
+                    countlst = self.group_count.get(group,[])
+                    sdir = startingDir(bookpath)
+                    if sdir not in folderlst:
+                        folderlst.append(sdir)
+                        countlst.append(1)
+                    else:
+                        pos = folderlst.index(sdir)
+                        countlst[pos] = countlst[pos] + 1
+                    self.group_folder[group] = folderlst
+                    self.group_count[group] = countlst
                 self.manifest_id_to_properties[id] = properties
                 self.manifest_id_to_fallback[id] = fallback
                 self.manifest_id_to_overlay[id] = overlay
@@ -196,21 +217,68 @@ class Opf_Parser(object):
                 handler = tattr.pop("handler","")
                 self.bindings.append((mtype, handler))
                 continue
-        # now calculate the lcp for each grouping
-        for key in self.lcp.keys():
-            pathlst = self.lcp[key]
-            self.group_paths[key] = longestCommonPath(pathlst)
-        # Fill in any empty group paths by finding common
-        # path across all group paths and building from there
-        glst = []
-        for key in self.group_paths:
-            if self.group_paths[key] != "":
-                glst.append(self.group_paths[key])
-        base_path = longestCommonPath(glst)
-        for key in self.group_paths:
-            if self.group_paths[key] == "":
-                del self.group_paths[key]
-                self.group_paths[key] = base_path + key + "/"
+
+        # determine unique ShortPathName for each bookpath
+        # start with filename and work back up the folders
+        # spn = {}
+        # dupset = set()
+        # nameset = {}
+        # lvl = 1
+        # for bkpath in self.bookpaths:
+        #     aname = build_short_name(bkpath, lvl)
+        #     spn[bkpath] = aname
+        #     if aname in nameset:
+        #         dupset.add(aname)
+        #         nameset[aname].append(bkpath)
+        #     else:
+        #         nameset[aname]=[bkpath]
+        #
+        # now work just through any to-do list of duplicates
+        # until all duplicates are gone
+        #
+        # todolst = list(dupset)
+        # while(todolst):
+        #     dupset = set()
+        #     lvl += 1
+        #     for aname in todolst:
+        #         bklst = nameset[aname]
+        #         del nameset[aname]
+        #         for bkpath in bklst:
+        #             newname = build_short_name(bkpath, lvl)
+        #             spn[bkpath] = newname
+        #             if newname in nameset:
+        #                 dupset.add(newname)
+        #                 nameset[newname].append(bkpath)
+        #             else:
+        #                 nameset[newname] = [bkpath]
+        #     todolst = list(dupset)
+
+        # finally sort by number of files in dir to find default folders for each group
+        dirlst = []
+        use_lower_case = False
+        for group in self.group_folder.keys():
+            folders = self.group_folder[group]
+            cnts = self.group_count[group]
+            folders = [x for _,x in sorted(zip(cnts,folders), reverse=True)]
+            self.group_folder[group] = folders
+            if group in ["Text", "Styles", "Images", "Audio", "Fonts", "Video", "Misc"]:
+                afolder = folders[0]
+                if afolder.find(group.lower()) > -1:
+                    use_lower_case = True
+                dirlst.append(folders[0])
+
+        # now back fill any missing values
+        # commonbase will end with a / if it exists
+        commonbase = longestCommonPath(dirlst)
+        for group in ["Styles", "Images", "Audio", "Fonts", "Video", "Misc"]:
+            folders = self.group_folder.get(group,[])
+            gname = group
+            if use_lower_case:
+                gname = gname.lower()
+            if not folders:
+                folders = [commonbase + gname]
+                self.group_folder[group] = folders
+      
 
     # parse and return either leading text or the next tag
     def _parseopf(self):
@@ -373,9 +441,6 @@ class Opf_Parser(object):
     def get_manifest_id_to_overlay_dict(self):
         return self.manifest_id_to_overlay
 
-    def get_group_paths(self):
-        return self.group_paths
-
     def get_spine_ppd(self):
         return self.spine_ppd
 
@@ -390,6 +455,10 @@ class Opf_Parser(object):
     # list of (media-type, handler)
     def get_bindings(self):
         return self.bindings
+
+    def get_group_paths(self):
+        return self.group_folder
+
 
 
 def main():
@@ -424,12 +493,6 @@ def main():
             print('    ',spentry)
         print (' ')
 
-        print('Group Paths')
-        d = op.get_group_paths()
-        for k, v in d.items():
-            print('    ', k, ' : ', v)
-        print (' ')
-
         print('Dict: id to href')
         d = op.get_manifest_id_to_href_dict()
         for k, v in d.items():
@@ -456,6 +519,12 @@ def main():
 
         print('Dict: id to overlay')
         d = op.get_manifest_id_to_overlay_dict()
+        for k, v in d.items():
+            print('    ', k, ' : ', v)
+        print (' ')
+
+        print('Group Paths')
+        d = op.get_group_paths()
         for k, v in d.items():
             print('    ', k, ' : ', v)
         print (' ')
