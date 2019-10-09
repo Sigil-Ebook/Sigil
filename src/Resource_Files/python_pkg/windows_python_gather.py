@@ -45,7 +45,7 @@ if include_pyqt5:
     sipfiles = glob.glob(pyqt_sip_path)
     if sipfiles:
         for sipfile in sipfiles:
-            PYQT_MODULES.append(os.path.basename(sipfiles))
+            PYQT_MODULES.append(os.path.basename(sipfile))
 
 
 
