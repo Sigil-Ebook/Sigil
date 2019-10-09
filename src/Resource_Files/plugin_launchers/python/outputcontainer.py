@@ -244,14 +244,10 @@ class OutputContainer(object):
         for book_href in self._w.selected:
             id_type = 'other'
             id = book_href
-            href = book_href
-            if href.startswith('OEBPS/'):
-                href = href[6:]
-            if href in self._w.href_to_id:
-                id = self._w.href_to_id[href]
-                id_type = 'manifest'
+            if book_href in self._w.bookpath_to_id:
+                id_type= 'manifest'
+                id = self._w.bookpath_to_id[book_href]
             yield id_type, id
-
 
     # miscellaneous routines
 

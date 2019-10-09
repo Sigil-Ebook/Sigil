@@ -736,7 +736,7 @@ class Wrapper(object):
         overlay = unicode_str(overlay)
         if overlay is not None and overlay == "":
             overlay = None
-        if id not in self.id_to_hrefs:
+        if id not in self.id_to_href:
             raise WrapperException('Id does not exist in manifest')
         del self.id_to_props[id]
         del self.id_to_fall[id]

@@ -102,7 +102,7 @@ def parse_nav(qp, navdata, navbkpath, newdir):
                         href, fragment = href.split("#")
                     # find destination bookpath
                     if href.startwith("./"): href=href[2:]
-                    if href = "":
+                    if href == "":
                         destbkpath = navbkpath
                     else:
                         destbkpath = buildBookPath(href, navdir)
