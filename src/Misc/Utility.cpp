@@ -763,7 +763,7 @@ bool Utility::UnZip(const QString &zippath, const QString &destpath)
                     dir.mkpath(qfile_name);
                     continue;
                 } else {
-                    dir.mkpath(qfile_info.path());
+		    if (!qfile_info.path().isEmpty()) dir.mkpath(qfile_info.path());
                 }
 
                 // Open the file entry in the archive for reading.

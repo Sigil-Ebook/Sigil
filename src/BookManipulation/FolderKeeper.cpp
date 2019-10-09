@@ -357,7 +357,8 @@ OPFResource*FolderKeeper::AddOPFToFolder(const QString &version, const QString &
         OPFBookPath = bookpath;
     }
     QDir folder(m_FullPathToMainFolder);
-    folder.mkpath(Utility::startingDir(OPFBookPath));
+    QString sdir = Utility::startingDir(OPFBookPath);
+    if (!sdir.isEmpty()) folder.mkpath(sdir);
     m_OPF = new OPFResource(m_FullPathToMainFolder, m_FullPathToMainFolder + "/" + OPFBookPath, this);
     m_OPF->SetEpubVersion(version);
     m_OPF->SetShortPathName(OPFBookPath.split('/').last());
@@ -365,9 +366,9 @@ OPFResource*FolderKeeper::AddOPFToFolder(const QString &version, const QString &
     m_Path2Resource[ m_OPF->GetRelativePath() ] = m_OPF;
 
     connect(m_OPF, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
-    // For ResourceAdded, the connection has to be DirectConnection,                                     
-    // otherwise the default of AutoConnection screws us when                                            
-    // AddContentFileToFolder is called from multiple threads.                                           
+    // For ResourceAdded, the connection has to be DirectConnection,
+    // otherwise the default of AutoConnection screws us when
+    // AddContentFileToFolder is called from multiple threads.
     connect(this,  SIGNAL(ResourceAdded(const Resource *)),
 	    m_OPF, SLOT(AddResource(const Resource *)), Qt::DirectConnection);
     connect(this,  SIGNAL(ResourceRemoved(const Resource *)),
@@ -385,7 +386,8 @@ NCXResource*FolderKeeper::AddNCXToFolder(const QString & version, const QString 
         NCXBookPath = bookpath;
     }
     QDir folder(m_FullPathToMainFolder);
-    folder.mkpath(Utility::startingDir(NCXBookPath));
+    QString sdir = Utility::startingDir(NCXBookPath);
+    if (!sdir.isEmpty()) folder.mkpath(sdir);
     m_NCX = new NCXResource(m_FullPathToMainFolder, m_FullPathToMainFolder + "/" + NCXBookPath, this);
     m_NCX->SetMainID(m_OPF->GetMainIdentifierValue());
     m_NCX->SetEpubVersion(version);

@@ -501,7 +501,7 @@ void ImportEPUB::ExtractContainer()
                     dir.mkpath(qfile_name);
                     continue;
                 } else {
-                    dir.mkpath(qfile_info.path());
+		    if (!qfile_info.path().isEmpty()) dir.mkpath(qfile_info.path());
 		    // add it to the list of files found inside the zip
 		    if (cp437_file_name.isEmpty()) {
 		        m_ZipFilePaths << qfile_name;
