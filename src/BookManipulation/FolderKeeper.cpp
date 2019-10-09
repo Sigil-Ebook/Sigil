@@ -163,7 +163,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
 	    if (!GetDefaultFolderForGroup(group).isEmpty()) {
 	        folder.mkpath(GetDefaultFolderForGroup(group));
 	    }
-	    new_file_path = m_FullPathToMainFolder + "/" + GetDefaultFolderForGroup(group) + filename;
+	    new_file_path = m_FullPathToMainFolder + "/" + GetDefaultFolderForGroup(group) + "/" + filename;
         }
 
         if (fullfilepath.contains(FILE_EXCEPTIONS)) {
@@ -193,7 +193,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
             resource = new XMLResource(m_FullPathToMainFolder, new_file_path);
         } else {
             // Fallback mechanism
-	    new_file_path = m_FullPathToMainFolder + "/" + GetDefaultFolderForGroup("Misc") + filename;
+	    new_file_path = m_FullPathToMainFolder + "/" + GetDefaultFolderForGroup("Misc") + "/" + filename;
             resource = new Resource(m_FullPathToMainFolder, new_file_path);
         }
 
@@ -524,21 +524,20 @@ void FolderKeeper::ResumeWatchingResources()
 }
 
 
-// Hard codes Longest Common Path for the time being
-// Note all paths **must** end with "/"
+// Note all paths do NOT end with "/"
 void FolderKeeper::CreateGroupToFoldersMap()
 {
     if (!m_GrpToFold.isEmpty()) return;
     // Note all valid paths **must** end with "/"
-    m_GrpToFold[ "Text"   ] = QStringList() << "OEBPS/Text/";
-    m_GrpToFold[ "Styles" ] = QStringList() << "OEBPS/Styles/";
-    m_GrpToFold[ "Images" ] = QStringList() << "OEBPS/Images/";
-    m_GrpToFold[ "Fonts"  ] = QStringList() << "OEBPS/Fonts/";
-    m_GrpToFold[ "Audio"  ] = QStringList() << "OEBPS/Audio/";
-    m_GrpToFold[ "Video"  ] = QStringList() << "OEBPS/Video/";
-    m_GrpToFold[ "Misc"   ] = QStringList() << "OEBPS/Misc/";
-    m_GrpToFold[ "ncx"    ] = QStringList() << "OEBPS/";
-    m_GrpToFold[ "opf"    ] = QStringList() << "OEBPS/";
+    m_GrpToFold[ "Text"   ] = QStringList() << "OEBPS/Text";
+    m_GrpToFold[ "Styles" ] = QStringList() << "OEBPS/Styles";
+    m_GrpToFold[ "Images" ] = QStringList() << "OEBPS/Images";
+    m_GrpToFold[ "Fonts"  ] = QStringList() << "OEBPS/Fonts";
+    m_GrpToFold[ "Audio"  ] = QStringList() << "OEBPS/Audio";
+    m_GrpToFold[ "Video"  ] = QStringList() << "OEBPS/Video";
+    m_GrpToFold[ "Misc"   ] = QStringList() << "OEBPS/Misc";
+    m_GrpToFold[ "ncx"    ] = QStringList() << "OEBPS";
+    m_GrpToFold[ "opf"    ] = QStringList() << "OEBPS";
     m_GrpToFold[ "other"  ] = QStringList() << "";
 }
 
@@ -619,7 +618,7 @@ void FolderKeeper::updateShortPathNames()
     }
 }
 
-
+// fyi - generates folder paths that do NOT end with a "/"
 void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringList &mtypes)
 {
     QHash< QString, QStringList > group_folder;
@@ -635,7 +634,6 @@ void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringLi
         QStringList folderlst = group_folder.value(group,QStringList());
         QList<int> countlst = group_count.value(group, QList<int>());
         QString sdir = Utility::startingDir(bookpath);
-	if (!sdir.isEmpty()) sdir = sdir + "/";
         if (!folderlst.contains(sdir)) {
             folderlst << sdir;
             countlst << 1;
@@ -673,7 +671,7 @@ void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringLi
         QString gname = group;
         if (use_lower_case) gname = gname.toLower();
         if (folderlst.isEmpty()) {
-            folderlst << commonbase + gname + "/";
+            folderlst << commonbase + gname;
             group_folder[group] = folderlst;
         }
     }
