@@ -14,6 +14,7 @@ env:
 branches:
   only:
   - master
+  - nomove
   - /\d+\.\d+\.\d+(-\d+)?/
 
 git:
