@@ -39,11 +39,13 @@ if include_pyqt5:
     # Catch older sip.pyd versions in site packages root
     site_packages.extend([('sip.pyd', 'f'), ('PyQt5', 'd')])
     # Catch newer versions of PyQt5-sip that include architecture data in sip filename
-    pyqt_sip_path = os.path.join(site_dest, 'PyQt5')
+    site_pkg_dir = os.path.join(sys.prefix, 'Lib', 'site-packages')
+    pyqt_sip_path = os.path.join(site_pkg_dir, 'PyQt5')
     pyqt_sip_path = pyqt_sip_path + '/sip*.pyd'
     sipfiles = glob.glob(pyqt_sip_path)
     if sipfiles:
-        PYQT_MODULES.extend(sipfiles)
+        for sipfile in sipfiles:
+            PYQT_MODULES.append(os.path.basename(sipfiles))
 
 
 
