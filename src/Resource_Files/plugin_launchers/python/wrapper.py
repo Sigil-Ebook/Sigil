@@ -791,6 +791,18 @@ class Wrapper(object):
         id = unicode_str(id)
         return self.id_to_over.get(id, ow)
 
+    # new in Sigil 1.0
+    # returns a sorted folder list for that group
+    # valid groups: Text, Styles, Images, Fonts, Audio, Video, ncx, opf, Misc
+    def map_group_to_folders(self, group, ow):
+        group = unicode_str(group)
+        return self.group_paths.get(group, ow)
+
+    # new in Sigil 1.0
+    def map_mediatype_to_group(self, mtype, ow):
+        mtype = unicode_str(mtype)
+        return mime_group_map.get(mtype, ow)
+
 
     # routines to work on ebook files that are not part of an opf manifest
     # their "id" is actually their unique relative path from book root

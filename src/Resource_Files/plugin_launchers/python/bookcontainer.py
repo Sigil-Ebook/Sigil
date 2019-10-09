@@ -448,3 +448,11 @@ class BookContainer(object):
 
     def id_to_bookpath(self, id, ow=None):
         return self._w.map_id_to_bookpath(id, ow)
+
+    # valid groups: Text, Styles, Images, Fonts, Audio, Video, ncx, opf, Misc
+    # returns a sorted folder list of ebook paths for a group
+    def group_to_folders(self, group, ow=None):
+        return self._w.map_group_to_folders(group, ow)
+
+    def mediatype_to_group(self, mediatype, ow=None):
+        return self._w.map_mediatype_to_group(mediatype, ow)
