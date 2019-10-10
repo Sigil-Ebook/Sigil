@@ -143,6 +143,8 @@ set( DIALOG_FILES
     Dialogs/OpenWithName.h
     Dialogs/SelectCharacter.cpp
     Dialogs/SelectCharacter.h
+    Dialogs/SelectFolder.cpp
+    Dialogs/SelectFolder.h
     Dialogs/SelectHyperlink.cpp
     Dialogs/SelectHyperlink.h
     Dialogs/SelectId.cpp
@@ -435,6 +437,7 @@ set( UI_FILES
     Form_Files/DeleteStyles.ui
     Form_Files/OpenWithName.ui
     Form_Files/SelectCharacter.ui
+    Form_Files/SelectFolder.ui
     Form_Files/SelectHyperlink.ui
     Form_Files/SelectId.ui
     Form_Files/SelectIndexTitle.ui
