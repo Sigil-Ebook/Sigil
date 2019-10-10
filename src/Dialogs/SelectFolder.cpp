@@ -29,6 +29,7 @@
 #include "Misc/SettingsStore.h"
 
 static QString SETTINGS_GROUP = "select_folder";
+static QString PLACEHOLDER = "<epub root>";
 
 SelectFolder::SelectFolder(QString group, QSharedPointer<Book> book, QWidget *parent)
     :
@@ -51,7 +52,11 @@ void SelectFolder::SetList()
 {
     QStringList folders = m_Book->GetFolderKeeper()->GetFoldersForGroup(m_group);
     foreach(QString folder, folders) {
-        ui.fold->addItem(folder);
+        if (folder.isEmpty()) {
+	    ui.fold->addItem(PLACEHOLDER);
+        } else{ 
+            ui.fold->addItem(folder);
+        }
     }
     // Set default id name
     ui.fold->setEditText(m_SelectedText);
@@ -60,6 +65,7 @@ void SelectFolder::SetList()
 
 QString SelectFolder::GetFolder()
 {
+    if (m_SelectedText == PLACEHOLDER) m_SelectedText = "";
     return m_SelectedText;
 }
 

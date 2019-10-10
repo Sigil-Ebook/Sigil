@@ -1125,6 +1125,19 @@ void BookBrowser::MoveSelected()
     }
 
     QString folder_path = select_folder.GetFolder();
+    // Make sure folder_path is valid if abort
+    bool valid_path = folder_path.indexOf("..") == -1;
+    valid_path = valid_path && folder_path.indexOf("\\") == -1;
+    valid_path = valid_path && !folder_path.startsWith("/");
+    valid_path = valid_path && !folder_path.startsWith("./");
+    valid_path = valid_path && !folder_path.startsWith(".");
+    valid_path = valid_path && folder_path.indexOf("/.") == -1;
+
+    if (!valid_path) {
+        Utility::DisplayStdErrorDialog(
+	    tr("Destination Folder has invalid path \"%1\"").arg(folder_path));
+	return;  
+    }
 
     // Make sure that any new folder gets created
     QString MainFolder = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
