@@ -373,7 +373,9 @@ bool Utility::ForceCopyFile(const QString &fullinpath, const QString &fulloutpat
 }
 
 
-bool Utility::MoveFile(const QString &oldfilepath, const QString &newfilepath)
+// Needed to add the S to this routine name to prevent collisions on Windows
+// We had to do the same thing for DeleteFile earlier
+bool Utility::SMoveFile(const QString &oldfilepath, const QString &newfilepath)
 {
     // Make sure the path exists, otherwise very
     // bad things could happen

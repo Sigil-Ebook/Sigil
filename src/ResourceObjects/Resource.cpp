@@ -221,7 +221,7 @@ bool Resource::MoveTo(const QString &new_bookpath)
     {
         QWriteLocker locker(&m_ReadWriteLock);
 	new_path = GetFullPathToBookFolder() + "/" + new_bookpath;
-        successful = Utility::MoveFile(m_FullFilePath, new_path);
+        successful = Utility::SMoveFile(m_FullFilePath, new_path);
     }
 
     if (successful) {

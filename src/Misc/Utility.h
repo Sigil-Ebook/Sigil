@@ -93,7 +93,7 @@ public:
 
     static bool ForceCopyFile(const QString &fullinpath, const QString &fulloutpath);
 
-    static bool MoveFile(const QString &oldfilepath, const QString &newfilepath);
+    static bool SMoveFile(const QString &oldfilepath, const QString &newfilepath);
 
     static bool RenameFile(const QString &oldfilepath, const QString &newfilepath);
 
