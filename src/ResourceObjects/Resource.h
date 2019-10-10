@@ -185,6 +185,15 @@ public:
      */
     virtual bool RenameTo(const QString &new_filename);
 
+
+    /**
+     * Moves the resource.
+     *
+     * @param new_bookpath The new bookpath.
+     * @return \c true if the operation was successful.
+     */
+    virtual bool MoveTo(const QString &new_bookpath);
+
     /**
      * Deletes the resource.
      *
@@ -223,6 +232,13 @@ signals:
      * @param resource The resource's that was renamed.
      */
     void Renamed(const Resource *resource, QString old_full_path);
+
+    /**
+     * Emitted whenever the resource changes location.
+     *
+     * @param resource The resource's that was moved.
+     */
+    void Moved(const Resource *resource, QString old_full_path);
 
     /**
      * Emitted when the resource has been scheduled for deletion.

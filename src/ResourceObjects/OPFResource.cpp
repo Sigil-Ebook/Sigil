@@ -953,6 +953,33 @@ void OPFResource::ResourceRenamed(const Resource *resource, QString old_full_pat
 }
 
 
+void OPFResource::ResourceMoved(const Resource *resource, QString old_full_path)
+{
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    // first convert old_full_path to old_bkpath
+    QString old_bkpath = old_full_path.right(old_full_path.length() - GetFullPathToBookFolder().length() - 1);
+    QString old_href = Utility::buildRelativePath(GetRelativePath(), old_bkpath);
+    // a move should not impact the id so leave the old unique manifest id unchanged
+    for (int i=0; i < p.m_manifest.count(); ++i) {
+        QString href = p.m_manifest.at(i).m_href;
+        if (href == old_href) {
+            ManifestEntry me = p.m_manifest.at(i);
+            QString old_me_href = me.m_href;
+            me.m_href = GetRelativePathToResource(resource);
+            p.m_idpos[me.m_id] = i;
+            p.m_hrefpos.remove(old_me_href);
+            p.m_hrefpos[me.m_href] = i;
+            p.m_manifest.replace(i, me);
+            break;
+        }
+    }
+    UpdateText(p);
+}
+
+
 int OPFResource::GetCoverMeta(const OPFParser& p) const
 {
     for (int i = 0; i < p.m_metadata.count(); ++i) {

@@ -242,7 +242,10 @@ private slots:
      * Tell the OPF object to updated itself,
      * and (optionally) register the new file with the FS watcher.
      */
+
     void ResourceRenamed(const Resource *resource, const QString &old_full_path);
+
+    void ResourceMoved(const Resource *resource, const QString &old_full_path);
 
     /**
      * Called by the FSWatcher when a watched file has changed on disk.

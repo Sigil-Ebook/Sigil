@@ -207,7 +207,27 @@ bool Resource::RenameTo(const QString &new_filename)
     if (successful) {
         QString old_path = m_FullFilePath;
         m_FullFilePath = new_path;
+	SetShortPathName(new_filename);
         emit Renamed(this, old_path);
+    }
+
+    return successful;
+}
+
+bool Resource::MoveTo(const QString &new_bookpath)
+{
+    QString new_path;
+    bool successful = false;
+    {
+        QWriteLocker locker(&m_ReadWriteLock);
+	new_path = GetFullPathToBookFolder() + "/" + new_bookpath;
+        successful = Utility::MoveFile(m_FullFilePath, new_path);
+    }
+
+    if (successful) {
+        QString old_path = m_FullFilePath;
+        m_FullFilePath = new_path;
+        emit Moved(this, old_path);
     }
 
     return successful;

@@ -35,6 +35,7 @@
 #include "Dialogs/DeleteFiles.h"
 #include "Dialogs/RenameTemplate.h"
 #include "Dialogs/AddSemantics.h"
+#include "Dialogs/SelectFolder.h"
 #include "Importers/ImportHTML.h"
 #include "MainUI/BookBrowser.h"
 #include "MainUI/MainWindow.h"
@@ -43,6 +44,7 @@
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
+#include "Misc/MediaTypes.h"
 #include "Misc/OpenExternally.h"
 #include "Misc/GuideItems.h"
 #include "Misc/Landmarks.h"
@@ -72,7 +74,8 @@ BookBrowser::BookBrowser(QWidget *parent)
     m_OpenWithContextMenu(new QMenu(this)),
     m_openWithMapper(new QSignalMapper(this)),
     m_LastContextMenuType(Resource::GenericResourceType),
-    m_RenamedResource(NULL)
+    m_RenamedResource(NULL),
+    m_MovedResource(NULL)
 {
     m_FontObfuscationContextMenu->setTitle(tr("Font Obfuscation"));
     m_OpenWithContextMenu->setTitle(tr("Open With"));
@@ -181,6 +184,19 @@ void BookBrowser::SelectRenamedResource()
     // Make sure Book Browser has focus so keyboard navigation works as expected
     qobject_cast<QWidget *>(m_TreeView)->setFocus();
     m_RenamedResource = NULL;
+}
+
+void BookBrowser::SelectMovedResource()
+{
+    if (m_MovedResource == NULL) {
+        return;
+    }
+
+    // Set the selection to the resource that was being renamed
+    UpdateSelection(m_MovedResource);
+    // Make sure Book Browser has focus so keyboard navigation works as expected
+    qobject_cast<QWidget *>(m_TreeView)->setFocus();
+    m_MovedResource = NULL;
 }
 
 void BookBrowser::UpdateSelection(Resource *resource)
@@ -295,6 +311,7 @@ void BookBrowser::OpenContextMenu(const QPoint &point)
     m_Delete->setEnabled(true);
     m_Merge->setEnabled(true);
     m_Rename->setEnabled(true);
+    m_Move->setEnabled(true);
 }
 
 QList <Resource *> BookBrowser::ValidSelectedHTMLResources()
@@ -925,6 +942,22 @@ void BookBrowser::Rename()
     }
 }
 
+void BookBrowser::Move()
+{
+    QList <Resource *> resources = ValidSelectedResources();
+
+    if (resources.isEmpty()) {
+        return;
+    }
+
+    if (resources.count() == 1) {
+        // Save the resource so it can be re-selected
+        m_MovedResource = GetCurrentResource();
+    }
+
+    MoveSelected();
+}
+
 QString BookBrowser::GetFirstAvailableTemplateName(QString base, QString number_string)
 {
     int number = number_string.toInt();
@@ -1067,6 +1100,70 @@ void BookBrowser::RenameSelected()
 
     // Rename the resources
     m_OPFModel->RenameResourceList(resources, new_filenames);
+
+    SelectResources(resources);
+    m_TreeView->verticalScrollBar()->setSliderPosition(scrollY);
+}
+
+
+void BookBrowser::MoveSelected()
+{
+    QList <Resource *> resources = ValidSelectedResources();
+
+    if (resources.isEmpty()) {
+        return;
+    }
+
+    QString mediatype = resources.first()->GetMediaType();
+    QString group = MediaTypes::instance()->GetGroupFromMediaType(mediatype);
+
+    SelectFolder select_folder(group, m_Book, this);
+
+    // Get the destination folder from the user
+    if (select_folder.exec() != QDialog::Accepted) {
+        return;
+    }
+
+    QString folder_path = select_folder.GetFolder();
+
+    // Make sure that any new folder gets created
+    QString MainFolder = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
+    QDir epub_root(MainFolder);
+    if (!folder_path.isEmpty()) {
+        epub_root.mkpath(folder_path);
+    }
+
+    // Get the list of moves that will be done
+    int resources_count = resources.count();
+    
+    QStringList new_bookpaths;
+    QStringList existing_bookpaths = m_Book->GetFolderKeeper()->GetAllBookPaths();
+    int num = 0;
+
+    for (int i = 0; i < resources_count; i++) {
+        QString filename = resources[i]->Filename();
+	QString newbookpath = filename;
+	if (!folder_path.isEmpty()) {
+	    newbookpath = folder_path + "/" + filename;
+	}
+
+        // Stop if the new bookpath already exists or will be used by a different entry
+        if (existing_bookpaths.contains(newbookpath) || new_bookpaths.contains(newbookpath)) {
+            QMessageBox::critical(this, tr("Sigil"), tr("Cannot move files since this would result in duplicate filenames."));
+            return;
+        }
+
+        new_bookpaths.append(newbookpath);
+
+        num++;
+    }
+
+
+    // After a move we want to keep the resources in the identical position.
+    int scrollY = m_TreeView->verticalScrollBar()->value();
+
+    // Move the resources
+    m_OPFModel->MoveResourceList(resources, new_bookpaths);
 
     SelectResources(resources);
     m_TreeView->verticalScrollBar()->setSliderPosition(scrollY);
@@ -1469,6 +1566,7 @@ void BookBrowser::CreateContextMenuActions()
     m_CopyHTML                = new QAction(tr("Add Copy"),              this);
     m_CopyCSS                 = new QAction(tr("Add Copy"),              this);
     m_Rename                  = new QAction(tr("Rename") + "...",        this);
+    m_Move                    = new QAction(tr("Move") + "...",          this);
     m_Delete                  = new QAction(tr("Delete") + "...",        this);
     m_CoverImage              = new QAction(tr("Cover Image"),           this);
     m_Merge                   = new QAction(tr("Merge"),                 this);
@@ -1500,6 +1598,9 @@ void BookBrowser::CreateContextMenuActions()
     m_Rename->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_R));
     m_Rename->setToolTip(tr("Rename selected file(s)"));
     sm->registerAction(this, m_Rename, "MainWindow.BookBrowser.Rename");
+    // m_Move->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_R));
+    m_Move->setToolTip(tr("Move selected file(s) to a new folder"));
+    sm->registerAction(this, m_Move, "MainWindow.BookBrowser.Move");
     m_LinkStylesheets->setToolTip(tr("Link Stylesheets to selected file(s)."));
     sm->registerAction(this, m_LinkStylesheets, "MainWindow.BookBrowser.LinkStylesheets");
     m_AddSemantics->setToolTip(tr("Add Semantics to selected file(s)."));
@@ -1510,6 +1611,7 @@ void BookBrowser::CreateContextMenuActions()
     addAction(m_Delete);
     addAction(m_Merge);
     addAction(m_Rename);
+    addAction(m_Move);
     addAction(m_LinkStylesheets);
     addAction(m_AddSemantics);
 }
@@ -1545,6 +1647,7 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
             m_Delete->setEnabled(m_LastContextMenuType != Resource::HTMLResourceType ||
                                  (AllHTMLResources().count() > 1 && resources.count() != item_count));
             m_ContextMenu->addAction(m_Rename);
+	    m_ContextMenu->addAction(m_Move);
         }
         if (resource->Type() == Resource::HTMLResourceType) {
             m_ContextMenu->addAction(m_Merge);
@@ -1564,6 +1667,7 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
 
         if (resource->Type() == Resource::NCXResourceType) {
             m_ContextMenu->addAction(m_RenumberTOC);
+	    m_ContextMenu->addAction(m_Move);
         }
 
         if (resource->Type() == Resource::CSSResourceType) {
@@ -1721,6 +1825,8 @@ void BookBrowser::ConnectSignalsToSlots()
             this,        SLOT(OpenContextMenu(const QPoint &)));
     connect(m_OPFModel, SIGNAL(ResourceRenamed()),
             this,        SLOT(SelectRenamedResource()));
+    connect(m_OPFModel, SIGNAL(ResourceMoved()),
+            this,        SLOT(SelectMovedResource()));
     connect(m_SelectAll,               SIGNAL(triggered()), this, SLOT(SelectAll()));
     connect(m_CopyHTML,                SIGNAL(triggered()), this, SLOT(CopyHTML()));
     connect(m_CopyCSS,                 SIGNAL(triggered()), this, SLOT(CopyCSS()));
@@ -1731,6 +1837,7 @@ void BookBrowser::ConnectSignalsToSlots()
     connect(m_AddNewSVG,               SIGNAL(triggered()), this, SLOT(AddNewSVG()));
     connect(m_AddExisting,             SIGNAL(triggered()), this, SLOT(AddExisting()));
     connect(m_Rename,                  SIGNAL(triggered()), this, SLOT(Rename()));
+    connect(m_Move,                    SIGNAL(triggered()), this, SLOT(Move()));
     connect(m_Delete,                  SIGNAL(triggered()), this, SLOT(Delete()));
     connect(m_CoverImage,              SIGNAL(triggered()), this, SLOT(SetCoverImage()));
     connect(m_Merge,                   SIGNAL(triggered()), this, SLOT(Merge()));

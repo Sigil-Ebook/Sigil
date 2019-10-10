@@ -230,7 +230,9 @@ QList<NavTOCEntry> NavProcessor::GetNodeTOC(GumboInterface & gi, const GumboNode
                             NavTOCEntry te;
                             te.lvl = lvl;
                             GumboAttribute* hrefattr = gumbo_get_attribute(&li_child->v.element.attributes, "href");
-                            if (hrefattr) te.href = Utility::URLDecodePath(QString::fromUtf8(hrefattr->value));
+                            if (hrefattr) { 
+			        te.href = Utility::URLDecodePath(QString::fromUtf8(hrefattr->value));
+			    }
                             te.title = Utility::DecodeXML(gi.get_local_text_of_node(li_child));
                             toclist.append(te);
                         } else if (li_child->v.element.tag == GUMBO_TAG_OL) {

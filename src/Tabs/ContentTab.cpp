@@ -37,6 +37,7 @@ ContentTab::ContentTab(Resource *resource, QWidget *parent)
 {
     connect(resource, SIGNAL(Deleted(const Resource *)),          this, SLOT(UnderlyingResourceDeleted()));
     connect(resource, SIGNAL(Renamed(const Resource *, QString)), this, SLOT(EmitTabRenamed()));
+    connect(resource, SIGNAL(Moved(const Resource *, QString)), this, SLOT(EmitTabRenamed()));
     m_Layout->setContentsMargins(0, 0, 0, 0);
     setLayout(m_Layout);
 }

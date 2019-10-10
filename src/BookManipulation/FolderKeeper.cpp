@@ -220,6 +220,8 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
             this,     SLOT(RemoveResource(const Resource *)), Qt::DirectConnection);
     connect(resource, SIGNAL(Renamed(const Resource *, QString)),
             this,     SLOT(ResourceRenamed(const Resource *, QString)), Qt::DirectConnection);
+    connect(resource, SIGNAL(Moved(const Resource *, QString)),
+            this,     SLOT(ResourceMoved(const Resource *, QString)), Qt::DirectConnection);
 
     if (update_opf) {
         emit ResourceAdded(resource);
@@ -459,6 +461,17 @@ void FolderKeeper::ResourceRenamed(const Resource *resource, const QString &old_
     m_Path2Resource.remove(book_path);
     m_Path2Resource[resource->GetRelativePath()] = res;
     m_OPF->ResourceRenamed(resource, old_full_path);
+}
+
+void FolderKeeper::ResourceMoved(const Resource *resource, const QString &old_full_path)
+{
+    // Renaming means the resource book path has changed and so we need to update it
+    // Note:  m_FullPathToMainFolder **never** ends with a "/"                                                        
+    QString book_path = old_full_path.right(old_full_path.length() - m_FullPathToMainFolder.length() - 1);
+    Resource * res = m_Path2Resource[book_path];
+    m_Path2Resource.remove(book_path);
+    m_Path2Resource[resource->GetRelativePath()] = res;
+    m_OPF->ResourceMoved(resource, old_full_path);
 }
 
 void FolderKeeper::ResourceFileChanged(const QString &path) const

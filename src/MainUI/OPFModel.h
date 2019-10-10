@@ -159,6 +159,13 @@ public:
     bool RenameResource(Resource *resource, const QString &new_filename);
     bool RenameResourceList(QList<Resource *> resources, QList<QString> new_filenames);
 
+    /**
+     * Moves the selected resources
+     *
+     * @return Whether move succeeded or not
+     */
+    bool MoveResourceList(QList<Resource *> resources, QList<QString> new_bookpaths);
+
 signals:
 
     /**
@@ -170,6 +177,13 @@ signals:
      * Emitted after a rename of a file is attempted.
      */
     void ResourceRenamed();
+
+    /**
+     * Emitted after a move of a file is attempted.
+     */
+    void ResourceMoved();
+
+
 
 private slots:
 
@@ -236,6 +250,18 @@ private:
      * @return \c true if the filename is valid.
      */
     bool FilenameIsValid(const QString &old_filename, const QString &new_filename);
+
+    /**
+     * Determines if a bookpath is valid. If it is not,
+     * an error dialog is presented to the user informing
+     * him of the reason why.
+     *
+     * @param old_bookpath The old bookpath of the file.
+     * @param new_bookpath The requested new bookpath of the file.
+     * @return \c true if the bookpath is valid.
+     */
+    bool BookPathIsValid(const QString &old_bookpath, const QString &new_bookpath);
+
 
 
     ///////////////////////////////

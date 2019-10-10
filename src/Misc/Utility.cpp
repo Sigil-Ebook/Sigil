@@ -373,6 +373,30 @@ bool Utility::ForceCopyFile(const QString &fullinpath, const QString &fulloutpat
 }
 
 
+bool Utility::MoveFile(const QString &oldfilepath, const QString &newfilepath)
+{
+    // Make sure the path exists, otherwise very
+    // bad things could happen
+    if (!QFileInfo(oldfilepath).exists()) {
+        return false;
+    }
+
+    // Ensure that the newfilepath doesn't already exist but due to case insenstive file systems
+    // check if we are actually renaming to an identical path with a different case.
+    if (QFileInfo(newfilepath).exists() && QFileInfo(oldfilepath) != QFileInfo(newfilepath)) {
+        return false;
+    }
+
+    // copy file from old file path to new file path
+    bool success = QFile::copy(oldfilepath, newfilepath);
+    // if and only if copy succeeds then delete old file 
+    if (success) {
+        Utility::SDeleteFile(oldfilepath);
+    }
+    return success;
+}
+
+
 bool Utility::RenameFile(const QString &oldfilepath, const QString &newfilepath)
 {
     // Make sure the path exists, otherwise very
@@ -959,11 +983,15 @@ QString Utility::resolveRelativeSegmentsInFilePath(const QString& file_path, con
 
 
 // Generate relative path to destination from starting directory path
-// Both paths should be absolute and preferably cannonical
+// Both paths should be cannonical
 QString Utility::relativePath(const QString & destination, const QString & start_dir)
 {
     QString dest(destination);
     QString start(start_dir);
+
+    // first handle the special case
+    if (start_dir.isEmpty()) return destination;
+
     QChar sep = '/';
 
     // remove any trailing path separators from both paths

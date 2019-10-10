@@ -25,6 +25,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFileIconProvider>
 #include <QMessageBox>
+#include <QDebug>
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "MainUI/OPFModel.h"
@@ -302,22 +303,25 @@ void OPFModel::ItemChangedHandler(QStandardItem *item)
     const QString &identifier = item->data().toString();
 
     if (!identifier.isEmpty()) {
+
+        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByIdentifier(identifier);
+
         // extract just the filename from the ShortPathName
         QString new_filename = item->text();
         if (!new_filename.isEmpty()) {
 	    new_filename = new_filename.split('/').last();
         }
-        Resource *resource = m_Book->GetFolderKeeper()->GetResourceByIdentifier(identifier);
 
         if (new_filename != resource->Filename()) {
             if (!Utility::use_filename_warning(new_filename)) {
 	        item->setText(resource->ShortPathName());
                 return;
             }
+	    qDebug() << "OPFModel rename resource to " << new_filename;
             RenameResource(resource, new_filename);
-        }
-    }
+	}
 
+    }
     emit ResourceRenamed();
 }
 
@@ -358,6 +362,7 @@ bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> n
             continue;
         }
 
+	qDebug() << "OPFModel RenameResourceList " << new_filename_with_extension;
         bool rename_success = resource->RenameTo(new_filename_with_extension);
 
         if (!rename_success) {
@@ -377,6 +382,48 @@ bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> n
     QApplication::restoreOverrideCursor();
 
     if (not_renamed.isEmpty()) {
+        return true;
+    }
+
+    return false;
+}
+
+bool OPFModel::MoveResourceList(QList<Resource *> resources, QList<QString> new_bookpaths)
+{
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    QStringList not_moved;
+    QHash<QString, QString> update;
+    foreach(Resource * resource, resources) {
+        const QString &oldbookpath = resource->GetRelativePath();
+        QString filename = resource->Filename();
+        QString newbookpath = new_bookpaths.first();
+        new_bookpaths.removeFirst();
+
+
+        if (!BookPathIsValid(oldbookpath, newbookpath)) {
+            not_moved.append(oldbookpath);
+            continue;
+        }
+
+        bool move_success = resource->MoveTo(newbookpath);
+
+        if (!move_success) {
+            not_moved.append(oldbookpath);
+            continue;
+        }
+
+        update[ oldbookpath ] = resource->GetRelativePath();
+    }
+
+    if (update.count() > 0) {
+        UniversalUpdates::PerformUniversalUpdates(true, m_Book->GetFolderKeeper()->GetResourceList(), update);
+        emit BookContentModified();
+    }
+
+    Refresh();
+    QApplication::restoreOverrideCursor();
+
+    if (not_moved.isEmpty()) {
         return true;
     }
 
@@ -622,6 +669,28 @@ bool OPFModel::FilenameIsValid(const QString &old_filename, const QString &new_f
         Utility::DisplayStdErrorDialog(
             tr("The filename \"%1\" is already in use.\n")
             .arg(new_filename)
+        );
+        return false;
+    }
+
+    return true;
+}
+
+
+bool OPFModel::BookPathIsValid(const QString &old_bookpath, const QString &new_bookpath)
+{
+    QStringList existing_bookpaths = m_Book->GetFolderKeeper()->GetAllBookPaths();
+    if (new_bookpath.isEmpty()) {
+        Utility::DisplayStdErrorDialog(
+            tr("The book path cannot be empty.")
+        );
+        return false;
+    }
+
+    if (existing_bookpaths.contains(new_bookpath)) {
+        Utility::DisplayStdErrorDialog(
+            tr("That book path/ filename \"%1\" is already in use.\n")
+            .arg(new_bookpath)
         );
         return false;
     }
