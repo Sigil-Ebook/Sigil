@@ -867,7 +867,7 @@ bool PluginRunner::addFiles(const QStringList &files)
                 QString inpath = m_outputDir + "/" + href;
                 QFileInfo fi(inpath);
                 ui.statusLbl->setText(tr("Status: adding") + " " + fi.fileName());
-	        ncx_resource = m_book->GetFolderKeeper()->AddNCXToFolder(version);
+	        ncx_resource = m_book->GetFolderKeeper()->AddNCXToFolder(version, href);
 		ncx_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
 		ncx_resource->SaveToDisk();
 		// now add it to the opf with the preferred id
@@ -882,10 +882,9 @@ bool PluginRunner::addFiles(const QStringList &files)
         QFileInfo fi(inpath);
         ui.statusLbl->setText(tr("Status: adding") + " " + fi.fileName());
 
-        Resource *resource = m_book->GetFolderKeeper()->AddContentFileToFolder(inpath,false);
+        Resource *resource = m_book->GetFolderKeeper()->AddContentFileToFolder(inpath,false, href);
 
         // AudioResource, VideoResource, FontResource, ImageResource do not appear to be cached
-
         // For new Editable Resources must do the equivalent of the InitialLoad
         // Order is important as some resource types inherit from other resource types
 
