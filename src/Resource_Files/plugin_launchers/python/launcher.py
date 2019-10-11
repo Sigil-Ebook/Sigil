@@ -157,7 +157,7 @@ class ProcessScript(object):
         if script_type == "edit":
             for ftype, id, href in container._w.deleted:
                 if ftype == 'manifest':
-                    bookhref = container._w.id_to_bookpath[id]
+                    bookhref = href
                     mime = container._w.getmime(bookhref)
                 else:
                     bookhref = id

@@ -721,7 +721,7 @@ class Wrapper(object):
         if was_modified:
             self.setspine_epub3(new_spine)
         if add_to_deleted:
-            self.deleted.append(('manifest', id, href))
+            self.deleted.append(('manifest', id, bookpath))
             self.modified[self.opfbookpath] = 'file'
         del self.id_to_filepath[id]
 
