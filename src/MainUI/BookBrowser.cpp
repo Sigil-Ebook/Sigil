@@ -1132,7 +1132,9 @@ void BookBrowser::MoveSelected()
     valid_path = valid_path && !folder_path.startsWith("./");
     valid_path = valid_path && !folder_path.startsWith(".");
     valid_path = valid_path && folder_path.indexOf("/.") == -1;
-
+    valid_path = valid_path && !folder_path.startsWith("META-INF");
+    valid_path = valid_path && folder_path.indexOf("META-INF") == -1;
+    
     if (!valid_path) {
         Utility::DisplayStdErrorDialog(
 	    tr("Destination Folder has invalid path \"%1\"").arg(folder_path));

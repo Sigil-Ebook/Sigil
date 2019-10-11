@@ -43,6 +43,8 @@ SelectFolder::SelectFolder(QString group, QSharedPointer<Book> book, QWidget *pa
     QCompleter *qc = ui.fold->completer();
     qc->setCaseSensitivity(Qt::CaseSensitive);
 
+    ui.fold->setInsertPolicy(QComboBox::NoInsert);
+
     connectSignalsSlots();
     ReadSettings();
     SetList();
