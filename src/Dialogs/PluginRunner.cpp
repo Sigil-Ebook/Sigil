@@ -882,7 +882,7 @@ bool PluginRunner::addFiles(const QStringList &files)
         QFileInfo fi(inpath);
         ui.statusLbl->setText(tr("Status: adding") + " " + fi.fileName());
 
-        Resource *resource = m_book->GetFolderKeeper()->AddContentFileToFolder(inpath,false, href);
+        Resource *resource = m_book->GetFolderKeeper()->AddContentFileToFolder(inpath,false, mime, href);
 
         // AudioResource, VideoResource, FontResource, ImageResource do not appear to be cached
         // For new Editable Resources must do the equivalent of the InitialLoad
