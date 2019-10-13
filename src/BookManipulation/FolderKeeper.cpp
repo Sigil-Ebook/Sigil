@@ -385,9 +385,16 @@ OPFResource*FolderKeeper::AddOPFToFolder(const QString &version, const QString &
 	    m_OPF, SLOT(AddResource(const Resource *)), Qt::DirectConnection);
     connect(this,  SIGNAL(ResourceRemoved(const Resource *)),
 	    m_OPF, SLOT(RemoveResource(const Resource *)));
-    folder.mkdir("META-INF");
-    Utility::WriteUnicodeTextFile(CONTAINER_XML.arg(OPFBookPath), m_FullPathToMainFolder + "/META-INF/container.xml");
+    UpdateContainerXML(m_FullPathToMainFolder, OPFBookPath);
     return m_OPF;
+}
+
+
+void FolderKeeper::UpdateContainerXML(const QString& FullPathToMainFolder, const QString& opfbookpath)
+{
+    QDir folder(FullPathToMainFolder);
+    folder.mkpath("META-INF");
+    Utility::WriteUnicodeTextFile(CONTAINER_XML.arg(opfbookpath), FullPathToMainFolder + "/META-INF/container.xml");
 }
 
 

@@ -157,7 +157,10 @@ public:
     // this is O(n) but no filesystem is queried
     QString GetBookPathByPathEnd(const QString& path_end) const;
     
+
     OPFResource* AddOPFToFolder(const QString &version, const QString& bookpath=QString());
+    static void UpdateContainerXML(const QString &FullPathToMainFolder, const QString& opfbookpath);
+
     /**
      * Returns the book's OPF file.
      *
