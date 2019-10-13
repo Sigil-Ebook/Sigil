@@ -63,6 +63,7 @@ mime_group_map = {
     'application/xhtml+xml'                   : 'Text',
     'application/x-dtbook+xml'                : 'Text',
     'application/x-font-ttf'                  : 'Fonts',
+    'application/x-font-otf'                  : 'Fonts',
     'application/x-font-opentype'             : 'Fonts',
     'application/vnd.ms-opentype'             : 'Fonts',
     'application/font-sfnt'                   : 'Fonts',

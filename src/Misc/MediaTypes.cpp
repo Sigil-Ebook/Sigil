@@ -150,6 +150,7 @@ void MediaTypes::SetMTypeToGroupMap()
     m_MTypeToGroup[ "application/xhtml+xml"                   ] = "Text";
     m_MTypeToGroup[ "application/x-dtbook+xml"                ] = "Text";
     m_MTypeToGroup[ "application/x-font-ttf"                  ] = "Fonts";
+    m_MTypeToGroup[ "application/x-font-otf"                  ] = "Fonts";
     m_MTypeToGroup[ "application/x-font-opentype"             ] = "Fonts";
     m_MTypeToGroup[ "application/vnd.ms-opentype"             ] = "Fonts";
     m_MTypeToGroup[ "application/font-sfnt"                   ] = "Fonts";
