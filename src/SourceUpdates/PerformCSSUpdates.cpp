@@ -92,7 +92,8 @@ QString PerformCSSUpdates::operator()()
                         }
                         QString apath = Utility::URLDecodePath(frag_mo.captured(j));
                         QString dest_oldbkpath = Utility::buildBookPath(apath, origDir);
-                        QString dest_newbkpath = m_CSSUpdates.value(dest_oldbkpath,"");
+			// targets may not have moved but we may have
+                        QString dest_newbkpath = m_CSSUpdates.value(dest_oldbkpath,dest_oldbkpath);
 			if (!dest_newbkpath.isEmpty() && !m_newbookpath.isEmpty()) {
 			    QString new_href = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
 			    if (new_href.isEmpty()) new_href = destfile;

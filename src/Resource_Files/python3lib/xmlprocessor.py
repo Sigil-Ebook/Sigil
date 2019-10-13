@@ -275,13 +275,12 @@ def performNCXSourceUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
                 if len(parts) > 1:
                     fragment = parts[1]
                 oldtarget = buildBookPath(ahref, startingDir(oldbkpath))
-                if oldtarget in updates:
-                    newtarget = updates[oldtarget]
-                    attribute_value = buildRelativePath(newbkpath, newtarget)
-                    if fragment != "":
-                        attribute_value = attribute_value + "#" + fragment
-                    attribute_value = quoteurl(attribute_value)
-                    tag["src"] = attribute_value
+                newtarget = updates.get(oldtarget, oldtarget)
+                attribute_value = buildRelativePath(newbkpath, newtarget)
+                if fragment != "":
+                    attribute_value = attribute_value + "#" + fragment
+                attribute_value = quoteurl(attribute_value)
+                tag["src"] = attribute_value
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
     return newdata
 
@@ -306,13 +305,12 @@ def performOPFSourceUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
                 if len(parts) > 1:
                     fragment = parts[1]
                 oldtarget = buildBookPath(ahref, startingDir(oldbkpath))
-                if oldtarget in updates:
-                    newtarget = updates[oldtarget]
-                    attribute_value = buildRelativePath(newbkpath, newtarget)
-                    if fragment != "":
-                        attribute_value = attribute_value + "#" + fragment
-                    attribute_value = quoteurl(attribute_value)
-                    tag["href"] = attribute_value
+                newtarget = updates.get(oldtarget, oldtarget)
+                attribute_value = buildRelativePath(newbkpath, newtarget)
+                if fragment != "":
+                    attribute_value = attribute_value + "#" + fragment
+                attribute_value = quoteurl(attribute_value)
+                tag["href"] = attribute_value
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
     return newdata
 
@@ -342,13 +340,12 @@ def performSMILUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
                     if len(parts) > 1:
                         fragment = parts[1]
                     oldtarget = buildBookPath(ahref, startingDir(oldbkpath))
-                    if oldtarget in updates:
-                        newtarget = updates[oldtarget]
-                        attribute_value = buildRelativePath(newbkpath, newtarget)
-                        if fragment != "":
-                            attribute_value = attribute_value + "#" + fragment
-                        attribute_value = quoteurl(attribute_value)
-                        tag[att] = attribute_value
+                    newtarget = updates.get(oldtarget, oldtarget)
+                    attribute_value = buildRelativePath(newbkpath, newtarget)
+                    if fragment != "":
+                        attribute_value = attribute_value + "#" + fragment
+                    attribute_value = quoteurl(attribute_value)
+                    tag[att] = attribute_value
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
     return newdata
 
@@ -377,13 +374,12 @@ def performPageMapUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
                     if len(parts) > 1:
                         fragment = parts[1]
                     oldtarget = buildBookPath(ahref, startingDir(oldbkpath))
-                    if oldtarget in updates:
-                        newtarget = updates[oldtarget]
-                        attribute_value = buildRelativePath(newbkpath, newtarget)
-                        if fragment != "":
-                            attribute_value = attribute_value + "#" + fragment
-                        attribute_value = quoteurl(attribute_value)
-                        tag[att] = attribute_value
+                    newtarget = updates.get(oldtarget, oldtarget)
+                    attribute_value = buildRelativePath(newbkpath, newtarget)
+                    if fragment != "":
+                        attribute_value = attribute_value + "#" + fragment
+                    attribute_value = quoteurl(attribute_value)
+                    tag[att] = attribute_value
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars="  ")
     return newdata
 
