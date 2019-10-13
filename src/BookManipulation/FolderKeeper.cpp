@@ -107,7 +107,17 @@ QString FolderKeeper::DetermineFileGroup(const QString &filepath, const QString 
         mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
         if (mt.isEmpty()) return "other";
     }
-    return MediaTypes::instance()->GetGroupFromMediaType(mt, "other");
+    QString group = MediaTypes::instance()->GetGroupFromMediaType(mt, "");
+    if (group.isEmpty()) {
+        // try again just in case provided mediatype is wrong and use the one based
+        // on the file extension only this time
+        mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
+	if (!mt.isEmpty()) {
+            group = MediaTypes::instance()->GetGroupFromMediaType(mt, "");
+	}
+    }
+    if (group.isEmpty()) group = "other";
+    return group;
 }
 
 // This routine should never process the opf or the ncx as they 
