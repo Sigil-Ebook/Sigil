@@ -24,6 +24,7 @@
 
 #include "Dialogs/AddSemantics.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 
 static const QString SETTINGS_GROUP = "add_semantics";
 
@@ -51,7 +52,8 @@ AddSemantics::AddSemantics(const QHash<QString, DescriptiveInfo> &infomap, const
         m_Name2Code[name] = code;
         names.append(name);
     }
-    names.sort();
+    names = Utility::LocaleAwareSort(names);
+
     foreach(QString name, names) {
         ui.lwProperties->addItem(name);
     }

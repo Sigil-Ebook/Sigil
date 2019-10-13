@@ -55,6 +55,7 @@
 #include <QRegularExpressionMatch>
 #include <QFile>
 #include <QFileInfo>
+#include <QCollator>
 #include <QDebug>
 
 #include "sigil_constants.h"
@@ -1096,4 +1097,15 @@ QStringList Utility::sortByCounts(const QStringList &folderlst, const QList<int>
         sortedlst << vec[j].second;
     }
     return sortedlst;
+}
+
+QStringList Utility::LocaleAwareSort(QStringList &names)
+{
+  SettingsStore ss;
+  QLocale uiLocale(ss.uiLanguage());
+  QCollator uiCollator(uiLocale);
+  uiCollator.setCaseSensitivity(Qt::CaseInsensitive);
+  // use uiCollator.compare(s1, s2)
+  std::sort(names.begin(), names.end(), uiCollator);
+  return names;
 }

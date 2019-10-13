@@ -198,6 +198,9 @@ public:
     static bool sort_pair_in_reverse(const std::pair<int,QString> &a, const std::pair<int,QString> &b);
     static QStringList sortByCounts(const QStringList &folderlst, const QList<int> &countlst);
 
+    // perform a locale aware string sort
+    static QStringList LocaleAwareSort(QStringList &names);
+
 };
 #endif // UTILITY_H
 
