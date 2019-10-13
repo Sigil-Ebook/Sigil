@@ -34,6 +34,7 @@
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
+#include "BookManipulation/FolderKeeper.h"
 #include "Misc/Utility.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/GuideItems.h"
@@ -133,10 +134,15 @@ OPFResource::OPFResource(const QString &mainfolder, const QString &fullfilepath,
 }
 
 
+// just renaming the opf (but not moving it) should not trigger
+// a need for other source updates
 bool OPFResource::RenameTo(const QString &new_filename)
 {
-    // The user is not allowed to rename the OPF file.
-    return false;
+    bool successful = Resource::RenameTo(new_filename);
+    if (successful) {
+        FolderKeeper::UpdateContainerXML(GetFullPathToBookFolder(), GetRelativePath());
+    }
+    return successful;
 }
 
 

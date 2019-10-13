@@ -928,9 +928,9 @@ void BookBrowser::Rename()
 
     Resource::ResourceType resource_type = resources.first()->Type();
 
-    if (resource_type == Resource::OPFResourceType || resource_type == Resource::NCXResourceType) {
-        return;
-    }
+    // if (resource_type == Resource::OPFResourceType || resource_type == Resource::NCXResourceType) {
+    //     return;
+    // }
 
     if (resources.count() == 1) {
         // Save the resource so it can be re-selected
@@ -1680,8 +1680,14 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
             SetupFontObfuscationMenu();
         }
 
+        if (resource->Type() == Resource::OPFResourceType) {
+            m_ContextMenu->addAction(m_Rename);
+	    m_ContextMenu->addAction(m_Move);
+        }
+
         if (resource->Type() == Resource::NCXResourceType) {
             m_ContextMenu->addAction(m_RenumberTOC);
+            m_ContextMenu->addAction(m_Rename);
 	    m_ContextMenu->addAction(m_Move);
         }
 

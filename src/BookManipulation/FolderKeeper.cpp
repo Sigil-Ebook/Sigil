@@ -385,6 +385,10 @@ OPFResource*FolderKeeper::AddOPFToFolder(const QString &version, const QString &
 	    m_OPF, SLOT(AddResource(const Resource *)), Qt::DirectConnection);
     connect(this,  SIGNAL(ResourceRemoved(const Resource *)),
 	    m_OPF, SLOT(RemoveResource(const Resource *)));
+    connect(m_OPF, SIGNAL(Renamed(const Resource *, QString)),
+            this,     SLOT(ResourceRenamed(const Resource *, QString)), Qt::DirectConnection);
+    connect(m_OPF, SIGNAL(Moved(const Resource *, QString)),
+            this,     SLOT(ResourceMoved(const Resource *, QString)), Qt::DirectConnection);
     UpdateContainerXML(m_FullPathToMainFolder, OPFBookPath);
     return m_OPF;
 }
@@ -414,6 +418,11 @@ NCXResource*FolderKeeper::AddNCXToFolder(const QString & version, const QString 
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
     m_Path2Resource[ m_NCX->GetRelativePath() ] = m_NCX;
     connect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
+    connect(m_NCX, SIGNAL(Renamed(const Resource *, QString)),
+            this,     SLOT(ResourceRenamed(const Resource *, QString)), Qt::DirectConnection);
+    connect(m_NCX, SIGNAL(Moved(const Resource *, QString)),
+            this,     SLOT(ResourceMoved(const Resource *, QString)), Qt::DirectConnection);
+
     return m_NCX;
 }
 
@@ -424,6 +433,10 @@ void FolderKeeper::RemoveNCXFromFolder()
         return;
     }
     disconnect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
+    disconnect(m_NCX, SIGNAL(Renamed(const Resource *, QString)),
+	       this,     SLOT(ResourceRenamed(const Resource *, QString)));
+    disconnect(m_NCX, SIGNAL(Moved(const Resource *, QString)),
+	       this,     SLOT(ResourceMoved(const Resource *, QString)));
     RemoveResource(m_NCX);    
     m_NCX = NULL;
     return;
@@ -477,7 +490,9 @@ void FolderKeeper::ResourceRenamed(const Resource *resource, const QString &old_
     Resource * res = m_Path2Resource[book_path];
     m_Path2Resource.remove(book_path);
     m_Path2Resource[resource->GetRelativePath()] = res;
-    m_OPF->ResourceRenamed(resource, old_full_path);
+    if (resource != m_OPF) {
+        m_OPF->ResourceRenamed(resource, old_full_path);
+    }
 }
 
 void FolderKeeper::ResourceMoved(const Resource *resource, const QString &old_full_path)

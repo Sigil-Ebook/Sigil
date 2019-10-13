@@ -90,11 +90,12 @@ NCXResource::NCXResource(const QString &mainfolder, const QString &fullfilepath,
     SaveToDisk();
 }
 
-
+// a rename of the ncx should only need updating in the opf
+// which should happen automagically via signals and slots here
 bool NCXResource::RenameTo(const QString &new_filename)
 {
-    // The user is not allowed to rename the NCX file.
-    return false;
+    bool successful = Resource::RenameTo(new_filename);
+    return successful;
 }
 
 

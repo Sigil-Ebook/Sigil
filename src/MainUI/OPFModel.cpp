@@ -363,8 +363,21 @@ bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> n
         }
 
 	qDebug() << "OPFModel RenameResourceList " << new_filename_with_extension;
-        bool rename_success = resource->RenameTo(new_filename_with_extension);
-
+	bool rename_success;
+	// special case the OPFResource and the NCXResource
+	if (resource->Type() == Resource::OPFResourceType) {
+	    OPFResource* opfres = qobject_cast<OPFResource*>(resource);
+	    if (opfres) {
+	        rename_success = opfres->RenameTo(new_filename_with_extension);
+	    }
+	} else if (resource->Type() == Resource::NCXResourceType) {
+	    NCXResource* ncxres = qobject_cast<NCXResource*>(resource);
+	    if (ncxres) {
+	        rename_success = ncxres->RenameTo(new_filename_with_extension);
+	    }
+	} else {
+            rename_success = resource->RenameTo(new_filename_with_extension);
+	}
         if (!rename_success) {
             not_renamed.append(resource->ShortPathName());
             continue;
@@ -500,7 +513,7 @@ void OPFModel::InitializeModel()
             m_VideoFolderItem->appendRow(item);
         } else if (resource->Type() == Resource::OPFResourceType ||
                    resource->Type() == Resource::NCXResourceType) {
-            item->setEditable(false);
+            item->setEditable(true);
             item->setDragEnabled(false);
             appendRow(item);
         } else {
