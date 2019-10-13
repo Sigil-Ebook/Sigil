@@ -99,6 +99,15 @@ bool NCXResource::RenameTo(const QString &new_filename)
 }
 
 
+// a move of the ncx should need updating in the ncx and opf
+// which should happen automagically via signals and slots here
+bool NCXResource::MoveTo(const QString &newbookpath)
+{
+    bool successful = Resource::MoveTo(newbookpath);
+    return successful;
+}
+
+
 Resource::ResourceType NCXResource::Type() const
 {
     return Resource::NCXResourceType;

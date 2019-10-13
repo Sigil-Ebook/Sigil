@@ -54,6 +54,8 @@ public:
 
     virtual bool RenameTo(const QString &new_filename);
 
+    virtual bool MoveTo(const QString &newbookpath);
+
     virtual ResourceType Type() const;
 
     virtual QString GetText() const;

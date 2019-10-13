@@ -136,9 +136,22 @@ OPFResource::OPFResource(const QString &mainfolder, const QString &fullfilepath,
 
 // just renaming the opf (but not moving it) should not trigger
 // a need for other source updates
+// but we will need to rewrite the META-INF/container.xml
 bool OPFResource::RenameTo(const QString &new_filename)
 {
     bool successful = Resource::RenameTo(new_filename);
+    if (successful) {
+        FolderKeeper::UpdateContainerXML(GetFullPathToBookFolder(), GetRelativePath());
+    }
+    return successful;
+}
+
+
+// moving the opf should trigger a need for many source updates
+// and the need to rewrite the META-INF/container.xml
+bool OPFResource::MoveTo(const QString &newbookpath)
+{
+    bool successful = Resource::MoveTo(newbookpath);
     if (successful) {
         FolderKeeper::UpdateContainerXML(GetFullPathToBookFolder(), GetRelativePath());
     }

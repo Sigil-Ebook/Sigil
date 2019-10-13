@@ -47,6 +47,8 @@ public:
 
     virtual bool RenameTo(const QString &new_filename);
 
+    virtual bool MoveTo(const QString &newbookpath);
+
     virtual ResourceType Type() const;
 
     void SetMainID(const QString &main_id);

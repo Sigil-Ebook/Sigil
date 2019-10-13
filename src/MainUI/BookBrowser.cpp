@@ -1655,7 +1655,7 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
     if (resource) {
         m_ContextMenu->addSeparator();
 
-        // Delete and Rename
+        // Normal case handle Delete, Rename, and Move
         if (m_LastContextMenuType != Resource::OPFResourceType &&
             m_LastContextMenuType != Resource::NCXResourceType) {
             m_ContextMenu->addAction(m_Delete);

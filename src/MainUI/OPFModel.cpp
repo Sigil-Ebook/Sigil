@@ -418,7 +418,21 @@ bool OPFModel::MoveResourceList(QList<Resource *> resources, QList<QString> new_
             continue;
         }
 
-        bool move_success = resource->MoveTo(newbookpath);
+	bool move_success;
+	// special case the OPFResource and the NCXResource
+	if (resource->Type() == Resource::OPFResourceType) {
+	    OPFResource* opfres = qobject_cast<OPFResource*>(resource);
+	    if (opfres) {
+	        move_success = opfres->MoveTo(newbookpath);
+	    }
+	} else if (resource->Type() == Resource::NCXResourceType) {
+	    NCXResource* ncxres = qobject_cast<NCXResource*>(resource);
+	    if (ncxres) {
+	        move_success = ncxres->MoveTo(newbookpath);
+	    }
+	} else {
+            move_success = resource->MoveTo(newbookpath);
+	}
 
         if (!move_success) {
             not_moved.append(oldbookpath);
