@@ -957,15 +957,21 @@ void OPFResource::ResourceRenamed(const Resource *resource, QString old_full_pat
             break;
         }
     }
-
+    if (resource->Type() == Resource::NCXResourceType) {
+        // handle updating the ncx id on the spine if ncx renamed
+        QString ncx_id = p.m_spineattr.m_atts.value(QString("toc"),"");
+	if (new_id != ncx_id) {
+	    p.m_spineattr.m_atts[QString("toc")] = new_id;
+	}
+    }
     if (resource->Type() == Resource::ImageResourceType) {
         // Change meta entry for cover if necessary
         // Check using IDs since file is already renamed
-      if (IsCoverImageCheck(old_id, p)) {
+        if (IsCoverImageCheck(old_id, p)) {
             // Add will automatically replace an existing id
             // Assumes only one cover but removing duplicates
             // can cause timing issues
-        AddCoverMetaForImage(resource, p);
+            AddCoverMetaForImage(resource, p);
         }
     }
     UpdateText(p);
