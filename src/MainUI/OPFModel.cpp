@@ -317,7 +317,6 @@ void OPFModel::ItemChangedHandler(QStandardItem *item)
 	        item->setText(resource->ShortPathName());
                 return;
             }
-	    qDebug() << "OPFModel rename resource to " << new_filename;
             RenameResource(resource, new_filename);
 	}
 
@@ -362,7 +361,6 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
             continue;
         }
 
-	qDebug() << "OPFModel RenameResourceList " << new_filename_with_extension;
 	bool rename_success;
 	// special case the OPFResource and the NCXResource
 	if (resource->Type() == Resource::OPFResourceType) {
@@ -531,6 +529,7 @@ void OPFModel::InitializeModel()
                    resource->Type() == Resource::NCXResourceType) {
             item->setEditable(true);
             item->setDragEnabled(false);
+	    item->setToolTip(resource->GetRelativePath());
             appendRow(item);
         } else {
             item->setDragEnabled(false);

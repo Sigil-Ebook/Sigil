@@ -387,7 +387,6 @@ void MainWindow::unloadPluginsMenu()
 void MainWindow::StandardizeEpub()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    qDebug() << "In StandardizeEpub";
     // first standardize the opf and ncx names
     QList<Resource*> resources;
     QStringList newfilenames;
@@ -395,13 +394,11 @@ void MainWindow::StandardizeEpub()
     if (opfname != "content.opf") {
         resources << m_Book->GetOPF();
         newfilenames << "content.opf";
-	qDebug() << "    renaming opf from " << opfname;
     }
     NCXResource * ncx = m_Book->GetNCX();
     if (ncx && (ncx->Filename() != "toc.ncx")) {
         resources << m_Book->GetNCX();
         newfilenames << "toc.ncx";
-	qDebug() << "    renaming ncx from " << ncx->Filename();
     }
     if (!newfilenames.isEmpty()) {
         m_BookBrowser->RenameResourceList(resources, newfilenames);
@@ -441,7 +438,6 @@ void MainWindow::FixDuplicateFilenames()
         UsedSet.insert(aname);
     }
     foreach(QString bkpath, problem_bookpaths) {
-        qDebug() << "    problem_bookpath: " << bkpath;
         QString aname = bkpath.split('/').last().toLower();
         QString newname = m_Book->GetFolderKeeper()->GetUniqueFilenameVersion(aname);
         Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bkpath);
@@ -470,7 +466,6 @@ void MainWindow::MoveContentFilesToStdFolders()
             newbookpath = stdfolder + "/" + filename;
         }
         if (newbookpath != resource->GetRelativePath()) {
-	    qDebug() << "    will move: " << resource->GetRelativePath() << " to " << newbookpath;
 	    // remember to create the destination directory if needed
 	    if (!stdfolder.isEmpty()) {
 	        epub_root.mkpath(stdfolder);

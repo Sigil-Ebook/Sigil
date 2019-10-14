@@ -28,7 +28,6 @@
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QProgressDialog>
 #include <QtWidgets/QScrollBar>
-#include <QDebug>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -61,7 +60,7 @@ static const int COLUMN_INDENTATION = 10;
 
 // This needs to be kept in sync with FolderKeeper
 const QStringList folderkeys = QStringList() << "Text" << "Styles" << "Images" << "Fonts" <<
-					        "Audio" << "Video" << "Misc"  << "ncx" << "opf";
+					        "Audio" << "Video" << "Misc"  << "na" << "na";
 
 BookBrowser::BookBrowser(QWidget *parent)
     :
@@ -134,18 +133,12 @@ void BookBrowser::RefreshCounts()
         QStandardItem *folder = m_OPFModel->invisibleRootItem()->child(i);
 	QString tooltip;
 	QString key = folderkeys.at(i);
-	if (key == "ncx") {
-	    const Resource* res = m_Book->GetConstNCX();
-	    if (res) tooltip = res->GetRelativePath();
-	} else if (key == "opf") {
-	    const Resource* res = m_Book->GetConstOPF();
-	    tooltip = res->GetRelativePath();
-	} else {
+	if (key != "na") {
             tooltip = m_Book->GetFolderKeeper()->GetDefaultFolderForGroup(folderkeys.at(i));
             int count = folder->rowCount();
             tooltip = tooltip + " " + QString(tr("%n file(s)","", count));
+            folder->setToolTip(tooltip);
 	}
-        folder->setToolTip(tooltip);
     }
 }
 
