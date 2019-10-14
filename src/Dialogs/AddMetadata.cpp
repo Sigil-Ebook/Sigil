@@ -25,6 +25,7 @@
 
 #include "Dialogs/AddMetadata.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 
 static const QString SETTINGS_GROUP = "add_metadata";
 
@@ -45,7 +46,7 @@ AddMetadata::AddMetadata(const QHash<QString, DescriptiveInfo> &metainfo, QWidge
         m_Name2Code[name] = code;
         names.append(name);
     }
-    names.sort();
+    names = Utility::LocaleAwareSort(names);
     foreach(QString name, names) {
         ui.lwProperties->addItem(name);
     }
