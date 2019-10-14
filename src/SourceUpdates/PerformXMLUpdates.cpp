@@ -74,7 +74,8 @@ QString PerformXMLUpdates::operator()()
         } else if (m_MediaType == "application/oebps-page-map+xml")  {
             routine = "performPageMapUpdates";
         } else {
-            // We allow editing, but currently have no python parsing/repair/link-updating routines. Make no changes.
+            // We allow editing, but currently have no python parsing/repair/link-updating routines. 
+	    // Make no changes.
             // application/adobe-page-template+xml, application/vnd.adobe-page-template+xml, "application/pls+xml"
             return newsource;
         }
