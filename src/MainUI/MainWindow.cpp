@@ -78,6 +78,7 @@
 #include "Misc/HTMLSpellCheck.h"
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/Landmarks.h"
+#include "Misc/MediaTypes.h"
 #include "Misc/OpenExternally.h"
 #include "Misc/Plugin.h"
 #include "Misc/PluginDB.h"
@@ -382,6 +383,107 @@ void MainWindow::unloadPluginsMenu()
         disconnect(pa, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
     }
 }
+
+void MainWindow::StandardizeEpub()
+{
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    qDebug() << "In StandardizeEpub";
+    // first standardize the opf and ncx names
+    QList<Resource*> resources;
+    QStringList newfilenames;
+    QString opfname = m_Book->GetOPF()->Filename();
+    if (opfname != "content.opf") {
+        resources << m_Book->GetOPF();
+        newfilenames << "content.opf";
+	qDebug() << "    renaming opf from " << opfname;
+    }
+    NCXResource * ncx = m_Book->GetNCX();
+    if (ncx && (ncx->Filename() != "toc.ncx")) {
+        resources << m_Book->GetNCX();
+        newfilenames << "toc.ncx";
+	qDebug() << "    renaming ncx from " << ncx->Filename();
+    }
+    if (!newfilenames.isEmpty()) {
+        m_BookBrowser->RenameResourceList(resources, newfilenames);
+    }
+    // Handle any other name conflicts
+    FixDuplicateFilenames();
+
+    // Finally move all content to their standard folders if need be
+    MoveContentFilesToStdFolders();
+
+    // Update what is needed
+    m_Book->GetFolderKeeper()->updateShortPathNames();
+    QList<Resource*> allresources = m_Book->GetFolderKeeper()->GetResourceList();
+    QStringList bookpaths;
+    QStringList mtypes;
+    foreach(Resource* res, allresources) {
+        bookpaths << res->GetRelativePath();
+        mtypes << res->GetMediaType();
+    }
+    m_Book->GetFolderKeeper()->SetGroupFolders(bookpaths, mtypes);
+    m_BookBrowser->Refresh();
+    m_Book->SetModified();
+    QApplication::restoreOverrideCursor();
+}
+
+void MainWindow::FixDuplicateFilenames()
+{
+  QStringList bookpaths = m_Book->GetFolderKeeper()->GetAllBookPaths();
+    QStringList problem_bookpaths;
+    QSet<QString>UsedSet;
+  
+    foreach(QString bkpath, bookpaths) {
+        QString aname =bkpath.split('/').last().toLower();
+        if (UsedSet.contains(aname)) {
+            problem_bookpaths << bkpath;
+        }
+        UsedSet.insert(aname);
+    }
+    foreach(QString bkpath, problem_bookpaths) {
+        qDebug() << "    problem_bookpath: " << bkpath;
+        QString aname = bkpath.split('/').last().toLower();
+        QString newname = m_Book->GetFolderKeeper()->GetUniqueFilenameVersion(aname);
+        Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bkpath);
+        QList<Resource*> resources = QList<Resource*>() << resource;
+        QStringList newfilenames = QStringList() << newname;
+        m_BookBrowser->RenameResourceList(resources, newfilenames);
+    }
+    return;
+}
+
+
+void MainWindow::MoveContentFilesToStdFolders()
+{
+    QList<Resource*> resources = m_Book->GetFolderKeeper()->GetResourceList();
+    QList<Resource*> resources_to_move;
+    QStringList newbookpaths;
+    QString MainFolder = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
+    QDir epub_root(MainFolder);
+    foreach(Resource* resource, resources) {
+        QString group = MediaTypes::instance()->GetGroupFromMediaType(resource->GetMediaType(), "other");
+        if ((group == "other") || group.isEmpty()) continue;
+        QString stdfolder = m_Book->GetFolderKeeper()->GetStdFolderForGroup(group);
+        QString filename = resource->Filename();
+        QString newbookpath = filename;
+        if (!stdfolder.isEmpty()) {
+            newbookpath = stdfolder + "/" + filename;
+        }
+        if (newbookpath != resource->GetRelativePath()) {
+	    qDebug() << "    will move: " << resource->GetRelativePath() << " to " << newbookpath;
+	    // remember to create the destination directory if needed
+	    if (!stdfolder.isEmpty()) {
+	        epub_root.mkpath(stdfolder);
+	    }
+            resources_to_move << resource;
+            newbookpaths << newbookpath;
+        }
+    }
+    if (!newbookpaths.isEmpty()) {
+        m_BookBrowser->MoveResourceList(resources_to_move, newbookpaths); 
+    }
+}
+
 
 void MainWindow::launchExternalXEditor()
 {
@@ -4489,6 +4591,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionNewCSSFile, "MainWindow.NewCSSFile");
     sm->registerAction(this, ui.actionNewSVGFile, "MainWindow.NewSVGFile");
     sm->registerAction(this, ui.actionAddExistingFile, "MainWindow.AddExistingFile");
+    sm->registerAction(this, ui.actionStandardize, "MainWindow.StandardizeEpub");
     sm->registerAction(this, ui.actionOpen, "MainWindow.Open");
 #ifndef Q_OS_MAC
     sm->registerAction(this, ui.actionClose, "MainWindow.Close");
@@ -5045,6 +5148,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionNewCSSFile,    SIGNAL(triggered()), m_BookBrowser, SLOT(AddNewCSS()));
     connect(ui.actionNewSVGFile,    SIGNAL(triggered()), m_BookBrowser, SLOT(AddNewSVG()));
     connect(ui.actionAddExistingFile,   SIGNAL(triggered()), m_BookBrowser, SLOT(AddExisting()));
+    connect(ui.actionStandardize,   SIGNAL(triggered()), this, SLOT(StandardizeEpub()));
     connect(ui.actionSave,          SIGNAL(triggered()), this, SLOT(Save()));
     connect(ui.actionSaveAs,        SIGNAL(triggered()), this, SLOT(SaveAs()));
     connect(ui.actionSaveACopy,     SIGNAL(triggered()), this, SLOT(SaveACopy()));

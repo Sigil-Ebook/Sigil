@@ -326,6 +326,7 @@
     <addaction name="actionAddCover"/>
     <addaction name="actionMetaEditor"/>
     <addaction name="menuTOC"/>
+    <addaction name="actionStandardize" />
     <addaction name="menuIndex"/>
     <addaction name="separator"/>
     <addaction name="menuSpellCheckMenu"/>
@@ -1212,6 +1213,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+W</string>
+   </property>
+  </action>
+  <action name="actionStandardize">
+   <property name="text">
+    <string>Standardize Epub</string>
+   </property>
+   <property name="toolTip">
+    <string>Convert Epub to Sigil Standard Form</string>
    </property>
   </action>
   <action name="actionZoomIn">

@@ -157,14 +157,14 @@ public:
      * @return Whether rename succeeded or not
      */
     bool RenameResource(Resource *resource, const QString &new_filename);
-    bool RenameResourceList(QList<Resource *> resources, QList<QString> new_filenames);
+    bool RenameResourceList(const QList<Resource *> &resources, const QStringList &new_filenames);
 
     /**
      * Moves the selected resources
      *
      * @return Whether move succeeded or not
      */
-    bool MoveResourceList(QList<Resource *> resources, QList<QString> new_bookpaths);
+    bool MoveResourceList(const QList<Resource *> &resources, const QStringList &new_bookpaths);
 
 signals:
 

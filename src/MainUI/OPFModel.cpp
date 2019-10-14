@@ -335,18 +335,18 @@ bool OPFModel:: RenameResource(Resource *resource, const QString &new_filename)
     return RenameResourceList(resources, filenames);
 }
 
-bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> new_filenames)
+bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QStringList &new_filenames)
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
     QStringList not_renamed;
     QHash<QString, QString> update;
+    int i = 0;
     foreach(Resource * resource, resources) {
         const QString &old_bookrelpath = resource->GetRelativePath();
         QString old_filename = resource->Filename();
         QString extension = old_filename.right(old_filename.length() - old_filename.lastIndexOf('.'));
 
-        QString new_filename = new_filenames.first();
-        new_filenames.removeFirst();
+        QString new_filename = new_filenames.at(i++);
         QString new_filename_with_extension = new_filename;
 
         if (!new_filename.contains('.')) {
@@ -401,19 +401,19 @@ bool OPFModel:: RenameResourceList(QList<Resource *> resources, QList<QString> n
     return false;
 }
 
-bool OPFModel::MoveResourceList(QList<Resource *> resources, QList<QString> new_bookpaths)
+bool OPFModel::MoveResourceList(const QList<Resource *> &resources, const QStringList &new_bookpaths)
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
     QStringList not_moved;
     QHash<QString, QString> update;
+    int i = 0;
     foreach(Resource * resource, resources) {
         const QString &oldbookpath = resource->GetRelativePath();
         QString filename = resource->Filename();
-        QString newbookpath = new_bookpaths.first();
-        new_bookpaths.removeFirst();
-
+        QString newbookpath = new_bookpaths.at(i++);
 
         if (!BookPathIsValid(oldbookpath, newbookpath)) {
+	    qDebug() << "OPFModel: invalid bookpath " << oldbookpath, newbookpath;
             not_moved.append(oldbookpath);
             continue;
         }
@@ -436,9 +436,11 @@ bool OPFModel::MoveResourceList(QList<Resource *> resources, QList<QString> new_
 
         if (!move_success) {
             not_moved.append(oldbookpath);
+	    qDebug() << "OPFModel: not moved " << oldbookpath;
             continue;
         }
 
+	resource->SetCurrentBookRelPath(oldbookpath);
         update[ oldbookpath ] = resource->GetRelativePath();
     }
 

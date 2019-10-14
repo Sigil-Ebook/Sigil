@@ -231,6 +231,8 @@ public slots:
 
     void launchExternalXEditor();
 
+    void StandardizeEpub();
+
 signals:
     void SettingsChanged();
 
@@ -807,6 +809,9 @@ private:
     void BreakTabConnections(ContentTab *tab);
 
     void SetupPreviewTimer();
+
+    void FixDuplicateFilenames();
+    void MoveContentFilesToStdFolders();
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES

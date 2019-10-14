@@ -918,6 +918,20 @@ void BookBrowser::OpenWithEditor(int slotnum) const
     }
 }
 
+// automate wholesale renaming
+void BookBrowser::RenameResourceList(const QList<Resource*> &resources, const QStringList &newfilenames)
+{
+    m_OPFModel->RenameResourceList(resources, newfilenames);
+    // Refresh();
+}
+
+// automate wholesale moves
+void BookBrowser::MoveResourceList(const QList<Resource*> &resources, const QStringList & newbookpaths)
+{
+    m_OPFModel->MoveResourceList(resources, newbookpaths);
+    // Refresh();
+}
+
 void BookBrowser::Rename()
 {
     QList <Resource *> resources = ValidSelectedResources();

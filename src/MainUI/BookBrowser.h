@@ -118,6 +118,16 @@ public:
 
     void AddFile(QString filepath);
 
+    /**
+     *  Allow automatic renaming of resources
+     */
+    void RenameResourceList(const QList<Resource *> &resources, const QStringList &newfilenames);
+
+    /**
+     *  Allow automatic moving of resources
+     */
+    void MoveResourceList(const QList<Resource *> &resources, const QStringList &newbookpaths);
+ 
 public slots:
 
     /**

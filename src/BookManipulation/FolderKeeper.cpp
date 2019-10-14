@@ -151,7 +151,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
 
     // lock for GetUniqueFilenameVersion() until the 
     // resource with that file name has been created
-    // and added tot he list of all resources so it
+    // and added to the list of all resources so it
     // will return that this filename is now taken
     {
 
@@ -373,6 +373,7 @@ OPFResource*FolderKeeper::AddOPFToFolder(const QString &version, const QString &
     if (!sdir.isEmpty()) folder.mkpath(sdir);
     m_OPF = new OPFResource(m_FullPathToMainFolder, m_FullPathToMainFolder + "/" + OPFBookPath, this);
     m_OPF->SetEpubVersion(version);
+    m_OPF->SetMediaType("application/oebps-package+xml");
     m_OPF->SetShortPathName(OPFBookPath.split('/').last());
     m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
     m_Path2Resource[ m_OPF->GetRelativePath() ] = m_OPF;
@@ -414,6 +415,7 @@ NCXResource*FolderKeeper::AddNCXToFolder(const QString & version, const QString 
     m_NCX = new NCXResource(m_FullPathToMainFolder, m_FullPathToMainFolder + "/" + NCXBookPath, this);
     m_NCX->SetMainID(m_OPF->GetMainIdentifierValue());
     m_NCX->SetEpubVersion(version);
+    m_NCX->SetMediaType("application/x-dtbncx+xml");
     m_NCX->SetShortPathName(NCXBookPath.split('/').last());
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
     m_Path2Resource[ m_NCX->GetRelativePath() ] = m_NCX;
@@ -570,10 +572,32 @@ void FolderKeeper::ResumeWatchingResources()
 
 
 // Note all paths do NOT end with "/"
+void FolderKeeper::CreateStdGroupToFoldersMap()
+{
+    if (!m_StdGrpToFold.isEmpty()) return;
+    m_StdGrpToFold[ "Text"   ] = QStringList() << "OEBPS/Text";
+    m_StdGrpToFold[ "Styles" ] = QStringList() << "OEBPS/Styles";
+    m_StdGrpToFold[ "Images" ] = QStringList() << "OEBPS/Images";
+    m_StdGrpToFold[ "Fonts"  ] = QStringList() << "OEBPS/Fonts";
+    m_StdGrpToFold[ "Audio"  ] = QStringList() << "OEBPS/Audio";
+    m_StdGrpToFold[ "Video"  ] = QStringList() << "OEBPS/Video";
+    m_StdGrpToFold[ "Misc"   ] = QStringList() << "OEBPS/Misc";
+    m_StdGrpToFold[ "ncx"    ] = QStringList() << "OEBPS";
+    m_StdGrpToFold[ "opf"    ] = QStringList() << "OEBPS";
+    m_StdGrpToFold[ "other"  ] = QStringList() << "";
+}
+
+QString FolderKeeper::GetStdFolderForGroup(const QString &group)
+{
+  CreateStdGroupToFoldersMap();
+  return m_StdGrpToFold.value(group, QStringList() << "").first();
+}
+
+
+// Note all paths do NOT end with "/"
 void FolderKeeper::CreateGroupToFoldersMap()
 {
     if (!m_GrpToFold.isEmpty()) return;
-    // Note all valid paths **must** end with "/"
     m_GrpToFold[ "Text"   ] = QStringList() << "OEBPS/Text";
     m_GrpToFold[ "Styles" ] = QStringList() << "OEBPS/Styles";
     m_GrpToFold[ "Images" ] = QStringList() << "OEBPS/Images";
@@ -586,11 +610,13 @@ void FolderKeeper::CreateGroupToFoldersMap()
     m_GrpToFold[ "other"  ] = QStringList() << "";
 }
 
+
 QStringList FolderKeeper::GetFoldersForGroup(const QString &group)
 {
     CreateGroupToFoldersMap();
     return m_GrpToFold.value(group, QStringList() << "");
 }
+
 
 QString FolderKeeper::GetDefaultFolderForGroup(const QString &group)
 {

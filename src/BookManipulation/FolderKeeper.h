@@ -182,6 +182,8 @@ public:
     QStringList GetFoldersForGroup(const QString &group);
     QString GetDefaultFolderForGroup(const QString &group);
 
+    QString GetStdFolderForGroup(const QString &group);
+
     /**
      * Returns the full path to the main folder of the publication.
      *
@@ -259,6 +261,8 @@ private:
 
     void CreateGroupToFoldersMap();
 
+    void CreateStdGroupToFoldersMap();
+
     QString buildShortName(const QString &bookpath, int lvl);
 
     /**
@@ -316,20 +320,10 @@ private:
     QFileSystemWatcher *m_FSWatcher;
     QStringList m_SuspendedWatchedFiles;
 
-    // Full paths to all the folders in the publication
     QString m_FullPathToMainFolder;
-    QString m_FullPathToMetaInfFolder;
-    QString m_FullPathToOEBPSFolder;
-
-    QString m_FullPathToAudioFolder;
-    QString m_FullPathToVideoFolder;
-    QString m_FullPathToImagesFolder;
-    QString m_FullPathToFontsFolder;
-    QString m_FullPathToTextFolder;
-    QString m_FullPathToStylesFolder;
-    QString m_FullPathToMiscFolder;
 
     QHash<QString, QStringList> m_GrpToFold;
+    QHash<QString, QStringList> m_StdGrpToFold;
 };
 
 
