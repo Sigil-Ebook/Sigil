@@ -75,9 +75,21 @@ QString MediaTypes::GetGroupFromMediaType(const QString &media_type, const QStri
     return m_MTypeToGroup.value(media_type, fallback);
 }
 
+// epub devs use wrong mediatypes just about everyplace so try to be 
+// robust to unknown mediatypes if they fit known patterns
 QString MediaTypes::GetResourceDescFromMediaType(const QString &media_type, const QString &fallback)
 {
-    return m_MTypeToRDesc.value(media_type, fallback);
+    QString desc = m_MTypeToRDesc.value(media_type, "");
+    if (desc.isEmpty()) {
+        if (media_type.startsWith("image/")) desc = "ImageResource";
+        if (media_type.startsWith("application/font")) desc = "FontResource";
+        if (media_type.startsWith("application/x-font")) desc = "FontResource";
+        if (media_type.startsWith("font/"))  desc = "FontResource";
+        if (media_type.startsWith("audio/")) desc = "AudioResource";
+        if (media_type.startsWith("video/")) desc = "VideoResource";
+    }
+    if (desc.isEmpty()) return fallback;
+    return desc;
 }
 
 
