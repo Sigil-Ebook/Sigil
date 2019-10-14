@@ -198,6 +198,7 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "image/tiff"                              ] = "ImageResource";
     m_MTypeToRDesc[ "image/svg+xml"                           ] = "SVGResource";
     m_MTypeToRDesc[ "application/x-font-ttf"                  ] = "FontResource";
+    m_MTypeToRDesc[ "application/x-font-otf"                  ] = "FontResource";
     m_MTypeToRDesc[ "application/x-font-opentype"             ] = "FontResource";
     m_MTypeToRDesc[ "application/vnd.ms-opentype"             ] = "FontResource";
     m_MTypeToRDesc[ "application/font-sfnt"                   ] = "FontResource";
