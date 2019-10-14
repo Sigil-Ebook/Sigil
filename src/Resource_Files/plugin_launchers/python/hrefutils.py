@@ -87,6 +87,7 @@ mime_group_map = {
     'application/smil+xml'                    : 'Misc',
     'application/adobe-page-template+xml'     : 'Misc',
     'application/vnd.adobe-page-template+xml' : 'Misc',
+    'application/vnd.adobe.page-template+xml' : 'Misc',
     'text/javascript'                         : 'Misc',
     'application/javascript'                  : 'Misc',
     'application/pls+xml'                     : 'Misc',

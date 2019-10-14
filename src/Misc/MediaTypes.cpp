@@ -198,6 +198,7 @@ void MediaTypes::SetMTypeToGroupMap()
     m_MTypeToGroup[ "application/smil+xml"                    ] = "Misc";
     m_MTypeToGroup[ "application/adobe-page-template+xml"     ] = "Misc";
     m_MTypeToGroup[ "application/vnd.adobe-page-template+xml" ] = "Misc";
+    m_MTypeToGroup[ "application/vnd.adobe.page-template+xml" ] = "Misc";
     m_MTypeToGroup[ "text/javascript"                         ] = "Misc";
     m_MTypeToGroup[ "application/javascript"                  ] = "Misc";
     m_MTypeToGroup[ "application/pls+xml"                     ] = "Misc";
@@ -243,6 +244,7 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "application/smil+xml"                    ] = "XMLResource";
     m_MTypeToRDesc[ "application/adobe-page-template+xml"     ] = "XMLResource";
     m_MTypeToRDesc[ "application/vnd.adobe-page-template+xml" ] = "XMLResource";
+    m_MTypeToRDesc[ "application/vnd.adobe.page-template+xml" ] = "XMLResource";
     m_MTypeToRDesc[ "application/pls+xml"                     ] = "XMLResource";
     m_MTypeToRDesc[ "text/javascript"                         ] = "MiscTextResource";
     m_MTypeToRDesc[ "application/javascript"                  ] = "MiscTextResource";
