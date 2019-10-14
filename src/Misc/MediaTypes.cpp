@@ -72,7 +72,18 @@ QString MediaTypes::GetMediaTypeFromExtension(const QString &extension, const QS
 
 QString MediaTypes::GetGroupFromMediaType(const QString &media_type, const QString &fallback)
 {
-    return m_MTypeToGroup.value(media_type, fallback);
+    QString group = m_MTypeToGroup.value(media_type, "");
+    if (group.isEmpty()) {
+        if (media_type.startsWith("image/")) group = "Images";
+        if (media_type.startsWith("application/font")) group = "Fonts";
+        if (media_type.startsWith("application/x-font")) group = "Fonts";
+        if (media_type.startsWith("font/"))  group = "Fonts";
+        if (media_type.startsWith("audio/")) group = "Audio";
+        if (media_type.startsWith("video/")) group = "Video";
+	if (media_type.contains("adobe") && media_type.contains("template")) group = "Misc";
+    }
+    if (group.isEmpty()) return fallback;
+    return group;
 }
 
 // epub devs use wrong mediatypes just about everyplace so try to be 
@@ -87,6 +98,7 @@ QString MediaTypes::GetResourceDescFromMediaType(const QString &media_type, cons
         if (media_type.startsWith("font/"))  desc = "FontResource";
         if (media_type.startsWith("audio/")) desc = "AudioResource";
         if (media_type.startsWith("video/")) desc = "VideoResource";
+	if (media_type.contains("adobe") && media_type.contains("template")) desc = "XMLResource";
     }
     if (desc.isEmpty()) return fallback;
     return desc;
@@ -140,7 +152,7 @@ void MediaTypes::SetExtToMTypeMap()
     m_ExtToMType[ "woff"  ] = "application/font-woff";
     m_ExtToMType[ "woff2" ] = "font/woff2";
     m_ExtToMType[ "xhtml" ] = "application/xhtml+xml";
-    m_ExtToMType[ "xml"   ] = "application/oebps-page-map+xml";
+    m_ExtToMType[ "xml"   ] = "";
     m_ExtToMType[ "xpgt"  ] = "application/adobe-page-template+xml";
     // m_ExtToMType[ "js"   ] = "text/javascript";
     // m_ExtToMType[ "otf"  ] = "application/x-font-opentype";
