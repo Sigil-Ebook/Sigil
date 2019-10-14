@@ -870,7 +870,12 @@ std::string GumboInterface::update_style_urls(const std::string &source)
             }
             if (mo.captured(i).indexOf(":") != -1) continue;
             QString apath = Utility::URLDecodePath(mo.captured(i));
-	    QString dest_oldbkpath = Utility::buildBookPath(apath, m_currentdir);
+	    QString dest_oldbkpath;
+	    if (apath.isEmpty()) {
+	      dest_oldbkpath = m_currentbkpath;
+	    } else {
+	      dest_oldbkpath = Utility::buildBookPath(apath, m_currentdir);
+	    }
             // note destination may not have moved but we still need to update
             // the link
             QString dest_newbkpath = m_sourceupdates.value(dest_oldbkpath, dest_oldbkpath);
@@ -881,7 +886,7 @@ std::string GumboInterface::update_style_urls(const std::string &source)
                 result.replace(mo.capturedStart(i), mo.capturedLength(i), new_href);
             }
         }
-        start_index += mo.capturedLength();
+	start_index = mo.capturedEnd();
         mo = reference.match(result, start_index);
     } while (mo.hasMatch());
 

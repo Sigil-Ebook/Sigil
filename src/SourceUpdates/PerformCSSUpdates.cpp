@@ -113,7 +113,7 @@ QString PerformCSSUpdates::operator()()
             }
 
         }
-        start_index += mo.capturedLength();
+        start_index = mo.capturedEnd();
         mo = reference.match(result, start_index);
     } while (mo.hasMatch());
 
