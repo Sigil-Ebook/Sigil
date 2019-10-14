@@ -1217,10 +1217,10 @@
   </action>
   <action name="actionStandardize">
    <property name="text">
-    <string>Standardize Epub</string>
+    <string>Restructure Epub to Sigil Norm</string>
    </property>
    <property name="toolTip">
-    <string>Convert Epub to Sigil Standard Form</string>
+    <string>Restructure Epub to Sigil Standard Form</string>
    </property>
   </action>
   <action name="actionZoomIn">
