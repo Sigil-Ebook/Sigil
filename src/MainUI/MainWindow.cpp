@@ -2746,9 +2746,11 @@ void MainWindow::CreateHTMLTOC()
 
     QString version = m_Book->GetOPF()->GetEpubVersion();
 
+    CSSResource* css_resource;
     bool found_css = false;
     foreach(Resource *resource, m_BookBrowser->AllCSSResources()) {
         if (resource->Filename() == SGC_TOC_CSS_FILENAME) {
+            css_resource = qobject_cast<CSSResource *> (resource);
             found_css = true;
         }
     }
@@ -2761,10 +2763,10 @@ void MainWindow::CreateHTMLTOC()
             // Need to make sure InitialLoad is done in newly added css resource object to prevent
             // blank css issues after a save to disk
             Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(css_path);
-            CSSResource *css_resource = qobject_cast<CSSResource *> (resource);
+            css_resource = qobject_cast<CSSResource *> (resource);
             css_resource->InitialLoad();
         } else {
-            m_BookBrowser->CreateHTMLTOCCSSFile();
+            css_resource = m_BookBrowser->CreateHTMLTOCCSSFile();
         }
     }
 
@@ -2777,9 +2779,7 @@ void MainWindow::CreateHTMLTOC()
     QList<Resource *> resources = GetAllHTMLResources();
 
     foreach(Resource * resource, resources) {
-
         HTMLResource *htmlResource = qobject_cast<HTMLResource *>(resource);
-
         if (htmlResource) {
 
 	    htmlResources.append(htmlResource);
@@ -2813,7 +2813,9 @@ void MainWindow::CreateHTMLTOC()
         htmlResources.insert(0, tocResource);
         m_Book->GetOPF()->UpdateSpineOrder(htmlResources);
     }
-    TOCHTMLWriter toc(m_TableOfContents->GetRootEntry());
+    TOCHTMLWriter toc(tocResource->GetRelativePath(), 
+		      css_resource->GetRelativePath(),
+		      m_TableOfContents->GetRootEntry());
     tocResource->SetText(toc.WriteXML(version));
 
     // Setting a semantic on a resource that already has it set will remove the semantic.

@@ -35,6 +35,7 @@ class HTMLResource;
 class ImageResource;
 class OPFModel;
 class Resource;
+class CSSResource;
 class QAction;
 class QMenu;
 class QModelIndex;
@@ -172,7 +173,7 @@ public slots:
     void AddNewHTML();
     void AddNewCSS();
     void AddNewSVG();
-    void CreateHTMLTOCCSSFile();
+    CSSResource* CreateHTMLTOCCSSFile();
     void CreateIndexCSSFile();
     /**
      * Implements the Add Existing context menu action functionality.

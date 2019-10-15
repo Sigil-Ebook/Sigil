@@ -573,12 +573,13 @@ void BookBrowser::AddNewSVG()
     Refresh();
 }
 
-void BookBrowser::CreateHTMLTOCCSSFile()
+CSSResource* BookBrowser::CreateHTMLTOCCSSFile()
 {
     CSSResource *css_resource = m_Book->CreateHTMLTOCCSSFile();
     m_OPFModel->RenameResource(css_resource, SGC_TOC_CSS_FILENAME);
     emit BookContentModified();
     Refresh();
+    return css_resource;
 }
 
 void BookBrowser::CreateIndexCSSFile()

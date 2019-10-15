@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
@@ -33,7 +34,9 @@ class QXmlStreamWriter;
 class TOCHTMLWriter
 {
 public:
-    TOCHTMLWriter(TOCModel::TOCEntry toc_root_entry);
+    TOCHTMLWriter(const QString& toc_bookpath, 
+		  const QString& css_bookpath, 
+		  TOCModel::TOCEntry toc_root_entry);
     ~TOCHTMLWriter();
 
     QString WriteXML(const QString &version);
@@ -46,6 +49,8 @@ private:
     QXmlStreamWriter *m_Writer;
 
     TOCModel::TOCEntry m_TOCRootEntry;
+    QString m_TOCBookPath;
+    QString m_CSSBookPath;
 };
 
 #endif // TOCHTMLWRITER_H

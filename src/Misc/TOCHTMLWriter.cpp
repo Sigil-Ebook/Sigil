@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2012      Dave Heiland
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -25,13 +25,18 @@
 
 #include "TOCHTMLWriter.h"
 #include "sigil_constants.h"
+#include "Misc/Utility.h"
 
 const QString SGC_TOC_CSS_FILENAME = "sgc-toc.css";
 
-TOCHTMLWriter::TOCHTMLWriter(TOCModel::TOCEntry toc_root_entry)
+TOCHTMLWriter::TOCHTMLWriter(const QString &toc_bookpath,
+			     const QString &css_bookpath, 
+			     TOCModel::TOCEntry toc_root_entry)
     :
     m_Writer(0),
-    m_TOCRootEntry(toc_root_entry)
+    m_TOCRootEntry(toc_root_entry),
+    m_TOCBookPath(toc_bookpath),
+    m_CSSBookPath(css_bookpath)
 {
 }
 
@@ -84,7 +89,8 @@ void TOCHTMLWriter::WriteHead()
 
     // TOC
     m_Writer->writeStartElement("link");
-    m_Writer->writeAttribute("href", "../Styles/" % SGC_TOC_CSS_FILENAME);
+    QString href = Utility::buildRelativePath(m_TOCBookPath, m_CSSBookPath);
+    m_Writer->writeAttribute("href", href);
     m_Writer->writeAttribute("rel", "stylesheet");
     m_Writer->writeAttribute("type", "text/css");
     m_Writer->writeEndElement();
@@ -117,7 +123,16 @@ void TOCHTMLWriter::WriteEntries(TOCModel::TOCEntry parent_entry, int level)
         m_Writer->writeCharacters("\n");
         m_Writer->writeCharacters("  ");
         m_Writer->writeStartElement("a");
-        m_Writer->writeAttribute("href", "../" + entry.target);
+	// entry.target is now a full bookpath that may have a fragment
+	QString href = entry.target;
+	// only process internal not external hrefs
+	if (href.indexOf(":") == -1) {
+	    std::pair<QString, QString> pieces = Utility::parseHREF(entry.target);
+	    QString fragment = pieces.second;
+	    href = Utility::buildRelativePath(m_TOCBookPath, pieces.first);
+	    if (!fragment.isEmpty()) href = href + fragment;
+	}
+        m_Writer->writeAttribute("href", href);
         m_Writer->writeCharacters(entry.text);
         m_Writer->writeEndElement();
         m_Writer->writeCharacters("\n");
