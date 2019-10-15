@@ -384,8 +384,14 @@ bool Utility::SMoveFile(const QString &oldfilepath, const QString &newfilepath)
         return false;
     }
 
+    // check if these are identical files on the file system
+    // and if so no copy and delete sequence is needed
+    if (QFileInfo(oldfilepath) == QFileInfo(newfilepath)) {
+        return true;
+    }
+
     // Ensure that the newfilepath doesn't already exist but due to case insenstive file systems
-    // check if we are actually renaming to an identical path with a different case.
+    // check if we are actually moving to an identical path with a different case.
     if (QFileInfo(newfilepath).exists() && QFileInfo(oldfilepath) != QFileInfo(newfilepath)) {
         return false;
     }

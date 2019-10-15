@@ -406,6 +406,33 @@ void MainWindow::StandardizeEpub()
     // Handle any other name conflicts
     FixDuplicateFilenames();
 
+    // handle case insensitive filesystems and clashing directory names
+    bool fs_case_sensitive = false;
+    QString mainfolder = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
+    QString apath = mainfolder + "/oebps/images";
+    QString bpath = mainfolder + "/OEBPS/Images";
+    if (QFileInfo(apath) != QFileInfo(bpath)) {
+        fs_case_sensitive = true;
+    }
+    qDebug() << "file system is case sensitive: " << fs_case_sensitive;
+
+    if (!fs_case_sensitive) {
+        // opf is first to handle OEBPS before fighting with its subdirectories
+        QStringList groups = QStringList() << "opf" << "Text" << "Styles" << "Images" 
+	                                   << "Fonts" << "Audio" << "Video" << "Misc";
+        // try renaming all matching existing directories to what we want
+        QDir mf(mainfolder);
+        foreach(QString group, groups) {
+	    QString folderpath = m_Book->GetFolderKeeper()->GetStdFolderForGroup(group);
+	    apath = mainfolder + "/" + folderpath.toLower();
+	    bpath = mainfolder + "/" + folderpath;
+	    if (QFileInfo(apath).exists() && QFileInfo(apath).isDir()) {
+	        bool result = mf.rename(folderpath.toLower(), folderpath);
+		qDebug() << "rename directory: " << folderpath << result;
+	    }
+        }
+    }
+
     // Finally move all content to their standard folders if need be
     MoveContentFilesToStdFolders();
 
