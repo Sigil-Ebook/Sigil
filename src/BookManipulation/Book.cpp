@@ -1199,7 +1199,7 @@ std::tuple<bool, QString, QString> Book::HasUndefinedURLFragments()
     QList<HTMLResource *> html_resources = GetHTMLResources();
     bool hasUndefinedUrlFrags = false;
 
-    QString html_bookpaths;
+    QStringList html_bookpaths;
     foreach(HTMLResource *html_resource, html_resources) {
         html_bookpaths.append(html_resource->GetRelativePath());
     }
@@ -1225,8 +1225,11 @@ std::tuple<bool, QString, QString> Book::HasUndefinedURLFragments()
 	    QString dest_id = hrefparts.second;
 	    if (dest_id.startsWith("#")) dest_id = dest_id.mid(1,-1);
 
-	    if (html_bookpaths.contains(dest_bookpath) && !all_ids[dest_bookpath].contains(dest_id)) {
+	    if (!dest_id.isEmpty()) {
+	        if (html_bookpaths.contains(dest_bookpath) && !all_ids[dest_bookpath].contains(dest_id)) {
+	            qDebug() << "huh: " << bookpath << dest_bookpath << dest_id << hrefparts.second;
 		    return std::make_tuple(true, ahref, bookpath);
+	        }
 	    }
         }
     }
