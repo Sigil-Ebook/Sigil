@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2018, 2019 Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2018-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -109,10 +109,9 @@ private:
     /**
      * Loads the referenced files into the main folder of the book.
      *
-     * @return A hash with keys being old references (URLs) to resources,
-     *         and values being the new references to those resources.
+     * @return success 
      */
-    QHash<QString, QString> LoadFolderStructure();
+    bool LoadFolderStructure();
 
     /**
      * Loads a single file.
@@ -161,7 +160,6 @@ private:
     void AddNonStandardAppleXML();
 
     void ProcessFontFiles(const QList<Resource *> &resources,
-                          const QHash<QString, QString> &updates,
                           const QHash<QString, QString> &encrypted_files);
 
     /**
@@ -248,9 +246,6 @@ private:
      */
     QString m_PackageVersion;
 
-    bool m_LoadEpubAsIs;
-
 };
 
 #endif // IMPORTEPUB_H
-
