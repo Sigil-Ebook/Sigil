@@ -386,7 +386,46 @@ void MainWindow::unloadPluginsMenu()
 
 void MainWindow::StandardizeEpub()
 {
+    SaveTabData();
+
+    // ask to be sure
+    QMessageBox::StandardButton button_pressed;
+    button_pressed = QMessageBox::warning(this, tr("Sigil"), 
+				      tr("Are you sure you want to restructure this epub?\nThis action cannot be reversed."), 
+				      QMessageBox::Ok | QMessageBox::Cancel);
+    if (button_pressed != QMessageBox::Ok) {
+      return;
+    }
+    
     QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // perform well-formed check on all the html resources
+    QList<HTMLResource *> htmlresources = m_Book->GetHTMLResources();
+    foreach (HTMLResource * hresource, htmlresources) {
+        if (!hresource->FileIsWellFormed()) {
+	    QMessageBox::warning(this, tr("Sigil"), 
+				 tr("Restructure cancelled: %1, XML not well formed.").arg(hresource->ShortPathName()));
+	    return;
+        }
+    }
+    // make sure opf is in good shape as well
+    OPFResource* opfresource = m_Book->GetOPF();
+    if (!opfresource->FileIsWellFormed()) {
+        QMessageBox::warning(this, tr("Sigil"),
+			     tr("Restructure cancelled: %1, XML not well formed.").arg(opfresource->ShortPathName()));
+        return;
+    }
+    // ditto for ncx if one exists
+    NCXResource* ncxresource = m_Book->GetNCX();
+    if (ncxresource && !ncxresource->FileIsWellFormed()) {
+        QMessageBox::warning(this, tr("Sigil"),
+			     tr("Restructure cancelled: %1, XML not well formed.").arg(ncxresource->ShortPathName()));
+        return;
+    }
+    // we really should parse validate each css file here but
+    // since we update css files using regular expressions, the full 
+    // parseability is really not critical
+
     // first standardize the opf and ncx names
     QList<Resource*> resources;
     QStringList newfilenames;
@@ -403,7 +442,7 @@ void MainWindow::StandardizeEpub()
     if (!newfilenames.isEmpty()) {
         m_BookBrowser->RenameResourceList(resources, newfilenames);
     }
-    // Handle any other name conflicts
+    // handle any other name conflicts
     FixDuplicateFilenames();
 
     // handle case insensitive filesystems and clashing directory names
@@ -433,10 +472,10 @@ void MainWindow::StandardizeEpub()
         }
     }
 
-    // Finally move all content to their standard folders if need be
+    // finally move all content to their standard folders if need be
     MoveContentFilesToStdFolders();
 
-    // Update what is needed
+    // update what is needed
     m_Book->GetFolderKeeper()->updateShortPathNames();
     QList<Resource*> allresources = m_Book->GetFolderKeeper()->GetResourceList();
     QStringList bookpaths;
@@ -449,6 +488,7 @@ void MainWindow::StandardizeEpub()
     m_BookBrowser->Refresh();
     m_Book->SetModified();
     QApplication::restoreOverrideCursor();
+    ShowMessageOnStatusBar(tr("Restructure completed."));
 }
 
 void MainWindow::FixDuplicateFilenames()
