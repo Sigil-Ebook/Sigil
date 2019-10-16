@@ -172,8 +172,11 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
             filename  = GetUniqueFilenameVersion(QFileInfo(norm_file_path).fileName());
 	    if (!GetDefaultFolderForGroup(group).isEmpty()) {
 	        folder.mkpath(GetDefaultFolderForGroup(group));
+	        new_file_path = m_FullPathToMainFolder + "/" + GetDefaultFolderForGroup(group) + "/" + filename;
+	    } else {
+	        new_file_path = m_FullPathToMainFolder + "/" + filename;
 	    }
-	    new_file_path = m_FullPathToMainFolder + "/" + GetDefaultFolderForGroup(group) + "/" + filename;
+	    
         }
 
         if (fullfilepath.contains(FILE_EXCEPTIONS)) {
