@@ -341,7 +341,7 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
     QHash<QString, QString> update;
     int i = 0;
     foreach(Resource * resource, resources) {
-        const QString &old_bookrelpath = resource->GetRelativePath();
+        QString old_bookpath = resource->GetRelativePath();
         QString old_filename = resource->Filename();
         QString extension = old_filename.right(old_filename.length() - old_filename.lastIndexOf('.'));
 
@@ -356,7 +356,7 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
             continue;
         }
 
-        if (!FilenameIsValid(old_filename, new_filename_with_extension)) {
+        if (!FilenameIsValid(old_bookpath, new_filename_with_extension)) {
             not_renamed.append(resource->ShortPathName());
             continue;
         }
@@ -381,7 +381,7 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
             continue;
         }
 
-        update[ old_bookrelpath ] = resource->GetRelativePath();
+        update[ old_bookpath ] = resource->GetRelativePath();
     }
 
     if (update.count() > 0) {
@@ -672,7 +672,7 @@ void OPFModel::SortHTMLFilesByAlphanumeric(QList <QModelIndex> index_list)
 }
 
 
-bool OPFModel::FilenameIsValid(const QString &old_filename, const QString &new_filename)
+bool OPFModel::FilenameIsValid(const QString &old_bookpath, const QString &new_filename)
 {
     foreach(QChar character, new_filename) {
         if (FORBIDDEN_FILENAME_CHARS.contains(character)) {
@@ -693,14 +693,16 @@ bool OPFModel::FilenameIsValid(const QString &old_filename, const QString &new_f
         return false;
     }
 
-    if (new_filename != m_Book->GetFolderKeeper()->GetUniqueFilenameVersion(new_filename)) {
+    // now validate proposed new bookpath does not already exist 
+    // even on case insensitive filesystem as many e-readers and devices have
+    QString sdir = Utility::startingDir(old_bookpath);
+    QString proposed_bookpath = sdir.isEmpty() ? new_filename : sdir + "/" + new_filename;
+    const QStringList existing_bookpaths = m_Book->GetFolderKeeper()->GetAllBookPaths();
+    if (existing_bookpaths.contains(proposed_bookpath, Qt::CaseInsensitive)) {
         Utility::DisplayStdErrorDialog(
-            tr("The filename \"%1\" is already in use.\n")
-            .arg(new_filename)
-        );
+	    tr("The filename \"%1\" is already in use.\n").arg(new_filename));
         return false;
     }
-
     return true;
 }
 
@@ -717,7 +719,7 @@ bool OPFModel::BookPathIsValid(const QString &old_bookpath, const QString &new_b
 
     if (existing_bookpaths.contains(new_bookpath)) {
         Utility::DisplayStdErrorDialog(
-            tr("That book path/ filename \"%1\" is already in use.\n")
+            tr("That book path \"%1\" is already in use.\n")
             .arg(new_bookpath)
         );
         return false;

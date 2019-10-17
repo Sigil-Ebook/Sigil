@@ -241,15 +241,15 @@ private:
     void ClearModel();
 
     /**
-     * Determines if a filename is valid. If it is not,
+     * Determines if a new filename is valid. If it is not,
      * an error dialog is presented to the user informing
      * him of the reason why.
      *
-     * @param old_filename The old filename of the file.
+     * @param old_bookpath The old bookpath of the file.
      * @param new_filename The requested new filename of the file.
      * @return \c true if the filename is valid.
      */
-    bool FilenameIsValid(const QString &old_filename, const QString &new_filename);
+    bool FilenameIsValid(const QString &old_bookpath, const QString &new_filename);
 
     /**
      * Determines if a bookpath is valid. If it is not,

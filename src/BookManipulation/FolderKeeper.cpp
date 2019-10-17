@@ -498,6 +498,7 @@ void FolderKeeper::ResourceRenamed(const Resource *resource, const QString &old_
     if (resource != m_OPF) {
         m_OPF->ResourceRenamed(resource, old_full_path);
     }
+    updateShortPathNames();
 }
 
 void FolderKeeper::ResourceMoved(const Resource *resource, const QString &old_full_path)
@@ -509,6 +510,7 @@ void FolderKeeper::ResourceMoved(const Resource *resource, const QString &old_fu
     m_Path2Resource.remove(book_path);
     m_Path2Resource[resource->GetRelativePath()] = res;
     m_OPF->ResourceMoved(resource, old_full_path);
+    updateShortPathNames();
 }
 
 void FolderKeeper::ResourceFileChanged(const QString &path) const

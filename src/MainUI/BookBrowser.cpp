@@ -432,7 +432,7 @@ QList <Resource *> BookBrowser::ValidSelectedResources()
     QList <Resource *> all_resources = m_OPFModel->GetResourceListInFolder(resource_type);
     foreach(Resource * all_resource, all_resources) {
         foreach(Resource * resource, resources) {
-            if (all_resource->ShortPathName() == resource->ShortPathName()) {
+	    if (all_resource->GetRelativePath() == resource->GetRelativePath()) {
                 sorted_resources.append(all_resource);
                 break;
             }
@@ -935,10 +935,6 @@ void BookBrowser::Rename()
     }
 
     Resource::ResourceType resource_type = resources.first()->Type();
-
-    // if (resource_type == Resource::OPFResourceType || resource_type == Resource::NCXResourceType) {
-    //     return;
-    // }
 
     if (resources.count() == 1) {
         // Save the resource so it can be re-selected
