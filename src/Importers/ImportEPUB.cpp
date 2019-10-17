@@ -131,8 +131,6 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
 
     LoadInfrastructureFiles();
 
-    m_Book->GetFolderKeeper()->updateShortPathNames();
-
     // Check for files missing in the Manifest and create warning
     QStringList notInManifest;
     foreach(QString file_path, m_ZipFilePaths) {
@@ -150,6 +148,7 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
     }
 
     LoadFolderStructure();
+
     const QList<Resource *> resources = m_Book->GetFolderKeeper()->GetResourceList();
 
     // We're going to check all html files until we find one that isn't well formed then we'll prompt
@@ -241,6 +240,9 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
         AddLoadWarning(QObject::tr("The OPF file does not contain a valid spine.") % "\n" %
                        QObject::tr("Sigil has created a new one for you."));
     }
+
+    // update the ShortPathNames to reflect any name duplication
+    m_Book->GetFolderKeeper()->updateShortPathNames();
 
     // If we have modified the book to add spine attribute, manifest item or NCX mark as changed.
     m_Book->SetModified(GetLoadWarnings().count() > 0);
