@@ -991,6 +991,7 @@ private:
 
     QStringList m_pluginList;
     bool m_SaveCSS;
+    bool m_IsClosing;
 
     QList<QAction*> m_qlactions;
     /**

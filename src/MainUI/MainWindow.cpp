@@ -192,7 +192,8 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_menuPluginsEdit(NULL),
     m_menuPluginsValidation(NULL),
     m_pluginList(QStringList()),
-    m_SaveCSS(false)
+    m_SaveCSS(false),
+    m_IsClosing(false)
 {
     ui.setupUi(this);
 
@@ -915,9 +916,11 @@ void MainWindow::closeEvent(QCloseEvent *event)
     DBG qDebug() << "in close event before maybe save";
 
     // stop any further UpdatePreview timer actions
+    // and prevent UpdatePage from running
     if (m_PreviewTimer.isActive()) {
         m_PreviewTimer.stop();
     }
+    m_IsClosing = true;
 
     // this should be done first to save all geometry
     // and can not hurt even if close is later ignored
@@ -958,6 +961,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
         event->accept();
     } else {
         event->ignore();
+	m_IsClosing = false;
     }
 }
 
@@ -3520,6 +3524,9 @@ void MainWindow::ScrollPreview()
 
 void MainWindow::UpdatePreview()
 {
+
+    if (m_IsClosing) return;
+
     m_PreviewTimer.stop();
 
     DBG qDebug() << "MW: UpdatePreview()";
