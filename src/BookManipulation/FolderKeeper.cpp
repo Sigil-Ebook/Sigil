@@ -122,8 +122,11 @@ QString FolderKeeper::DetermineFileGroup(const QString &filepath, const QString 
 
 // This routine should never process the opf or the ncx as they 
 // are special cased elsewhere in FolderKeeper
-Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool update_opf, 
-					       const QString &mimetype, const QString &bookpath)
+Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, 
+					       bool update_opf, 
+					       const QString &mimetype, 
+					       const QString &bookpath,
+					       const QString &folderpath)
 {
     if (!QFileInfo(fullfilepath).exists()) {
         throw(FileDoesNotExist(fullfilepath.toStdString()));
@@ -158,25 +161,28 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, bool
         QMutexLocker locker(&m_AccessMutex);
 
         if (!bookpath.isEmpty()) {
-            // use the specified bookpath to determine file location
+            // use the specified bookpath to determine both file name and location
 	    if (!Utility::startingDir(bookpath).isEmpty()) {
 	        folder.mkpath(Utility::startingDir(bookpath));
 	    }
 	    new_file_path = m_FullPathToMainFolder + "/" + bookpath;
         } else {
+	    // Use either the provided folder path or the default folder to store the file
+ 
             // Rename files that start with a '.'
             // These merely introduce needless difficulties
             if (filename.left(1) == ".") {
                 norm_file_path = fi.absolutePath() % "/" % filename.right(filename.size() - 1);
             }
             filename  = GetUniqueFilenameVersion(QFileInfo(norm_file_path).fileName());
-	    if (!GetDefaultFolderForGroup(group).isEmpty()) {
-	        folder.mkpath(GetDefaultFolderForGroup(group));
-	        new_file_path = m_FullPathToMainFolder + "/" + GetDefaultFolderForGroup(group) + "/" + filename;
+	    QString folder_to_use = folderpath;
+	    if (folder_to_use == "\\") folder_to_use = GetDefaultFolderForGroup(group);
+	    if (!folder_to_use.isEmpty()) {
+	        folder.mkpath(folder_to_use);
+	        new_file_path = m_FullPathToMainFolder + "/" + folder_to_use + "/" + filename;
 	    } else {
 	        new_file_path = m_FullPathToMainFolder + "/" + filename;
 	    }
-	    
         }
 
         if (fullfilepath.contains(FILE_EXCEPTIONS)) {

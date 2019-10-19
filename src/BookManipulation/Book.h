@@ -134,7 +134,7 @@ public:
      *
      * @return A reference to the created HTMLResource file.
      */
-    HTMLResource *CreateNewHTMLFile();
+    HTMLResource *CreateNewHTMLFile(const QString &folder_path = QString("\\"));
 
     /**
      * Moves the first resource to after the second resource
@@ -366,6 +366,9 @@ private:
 
         // Extension to use for the filename.
         QString file_extension;
+
+        // ebook relative folder path where the new section should be placed
+        QString folder_path;
 
     };
 

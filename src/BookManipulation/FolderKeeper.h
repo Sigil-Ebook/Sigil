@@ -85,13 +85,16 @@ public:
      * @param update_opf If set to \c true, then the OPF will be notified
      *                   that a file was added. This will add entries in the
      *                   OPF manifest and potentially the spine as well.
-     * @param mimetype The mimetype for the associated file.
+     * @param mimetype   The mimetype for the associated file.
+     * @param bookpath   The ebook root file relative href
+     * @param folderpath The ebook root folder relative href
      * @return The newly created resource.
      */
     Resource *AddContentFileToFolder(const QString &fullfilepath,
                                      bool update_opf = true,
                                      const QString &mimetype = QString(),
-				     const QString &bookpth = QString());
+				     const QString &bookpath = QString(),
+				     const QString &folderpath = QString("\\"));
 
     /**
      * Returns the highest reading order number present in the book.

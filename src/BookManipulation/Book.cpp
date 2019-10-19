@@ -325,14 +325,17 @@ QList<HTMLResource *> Book::GetHTMLResources()
     return m_Mainfolder->GetResourceTypeList<HTMLResource>(false);
 }
 
-HTMLResource *Book::CreateNewHTMLFile()
+HTMLResource *Book::CreateNewHTMLFile(const QString &folder_path)
 {
     TempFolder tempfolder;
     QString fullfilepath = tempfolder.GetPath() + "/" + GetFirstUniqueSectionName();
     Utility::WriteUnicodeTextFile(PLACEHOLDER_TEXT, fullfilepath);
-    
-    HTMLResource *html_resource = qobject_cast<HTMLResource *>(m_Mainfolder->AddContentFileToFolder(fullfilepath, 
-                                                                        true, QString("application/xhtml+xml")));
+    Resource * resource = m_Mainfolder->AddContentFileToFolder(fullfilepath, 
+                                                               true, 
+							       QString("application/xhtml+xml"),
+							       QString(),
+							       folder_path);
+    HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
     SetModified(true);
     return html_resource;
 }
@@ -516,12 +519,15 @@ HTMLResource *Book::CreateSectionBreakOriginalResource(const QString &content, H
     // use this to get file extension for renaming purposes
     const QString originating_filename = originating_resource->Filename();
 
+    // use this to get folder path for new resource
+    const QString folder_path = Utility::startingDir(originating_bookpath);
+
     int reading_order = GetOPF()->GetReadingOrder(originating_resource);
     Q_ASSERT(reading_order >= 0);
     QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
     QString old_extension = originating_filename.right(originating_filename.length() - originating_filename.lastIndexOf("."));
     originating_resource->RenameTo(GetFirstUniqueSectionName(old_extension));
-    HTMLResource *new_resource = CreateNewHTMLFile();
+    HTMLResource *new_resource = CreateNewHTMLFile(folder_path);
     QString version = GetOPF()->GetEpubVersion();
     new_resource->RenameTo(originating_filename);
     new_resource->SetText(CleanSource::Mend(content, version));
@@ -560,6 +566,7 @@ void Book::CreateNewSections(const QStringList &new_sections, HTMLResource *orig
     Q_ASSERT(original_position >= 0);
     QString new_file_prefix = QFileInfo(original_resource->Filename()).baseName();
     QString file_extension = "." + QFileInfo(original_resource->Filename()).suffix();
+    QString folder_path = Utility::startingDir(original_resource->GetRelativePath());
 
     if (new_sections.isEmpty()) {
         return;
@@ -589,6 +596,7 @@ void Book::CreateNewSections(const QStringList &new_sections, HTMLResource *orig
         sectionInfo.new_file_prefix = new_file_prefix;
         sectionInfo.file_suffix = i;
         sectionInfo.file_extension = file_extension;
+	sectionInfo.folder_path = folder_path;
         sync.addFuture(
             QtConcurrent::run(
                 this,
@@ -1278,7 +1286,12 @@ Book::NewSectionResult Book::CreateOneNewSection(NewSection section_info,
     QString filename = section_info.new_file_prefix % "_" % QString("%1").arg(section_info.file_suffix + 1, 4, 10, QChar('0')) + section_info.file_extension;
     QString fullfilepath = section_info.temp_folder_path + "/" + filename;
     Utility::WriteUnicodeTextFile("PLACEHOLDER", fullfilepath);
-    HTMLResource *html_resource = qobject_cast<HTMLResource *>(m_Mainfolder->AddContentFileToFolder(fullfilepath));
+    Resource * resource = m_Mainfolder->AddContentFileToFolder(fullfilepath, 
+							       true, 
+							       QString(), 
+							       QString(), 
+							       section_info.folder_path);
+    HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
     Q_ASSERT(html_resource);
     QString version = html_resource->GetEpubVersion();
 
