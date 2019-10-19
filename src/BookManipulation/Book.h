@@ -134,7 +134,7 @@ public:
      *
      * @return A reference to the created HTMLResource file.
      */
-    HTMLResource *CreateNewHTMLFile(const QString &folder_path = QString("\\"));
+    HTMLResource *CreateNewHTMLFile(const QString &folderpath = QString("\\"));
 
     /**
      * Moves the first resource to after the second resource
@@ -145,27 +145,27 @@ public:
      * Creates a new HTMLResource file with a basic XHTML structure.
      * The file on disk has only placeholder text.
      */
-    HTMLResource *CreateEmptyHTMLFile();
+    HTMLResource *CreateEmptyHTMLFile(const QString &folderpath = QString("\\"));
 
     /**
      * Creates a new HTML Nav file with a basic nav structure.
      */
-    HTMLResource *CreateEmptyNavFile(bool update_opf = false);
+    HTMLResource *CreateEmptyNavFile(bool update_opf = false, const QString &folderpath=QString("\\"));
 
     /**
      * Creates a new HTMLResource file with a basic XHTML structure
      * inserted after the given resource.
      * The file on disk has only placeholder text.
      */
-    HTMLResource *CreateEmptyHTMLFile(HTMLResource *resource);
+    HTMLResource *CreateEmptyHTMLFile(HTMLResource *resource, const QString &folderpath = QString("\\"));
 
     /**
      * Creates a new CSSResource file with no stored data.
      * The file on disk is empty.
      */
-    CSSResource *CreateEmptyCSSFile();
+    CSSResource *CreateEmptyCSSFile(const QString &folderpath = QString("\\"));
 
-    SVGResource *CreateEmptySVGFile();
+    SVGResource *CreateEmptySVGFile(const QString &folderpath = QString("\\"));
 
     HTMLResource *CreateHTMLCoverFile(QString text);
 

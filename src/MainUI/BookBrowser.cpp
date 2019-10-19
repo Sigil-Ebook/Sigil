@@ -506,9 +506,11 @@ void BookBrowser::CopyHTML()
         return;
     }
 
+    QString destfolder = Utility::startingDir(current_resource->GetRelativePath());
+
     HTMLResource *current_html_resource = qobject_cast<HTMLResource *>(current_resource);
     // Create an empty file
-    HTMLResource *new_html_resource = m_Book->CreateEmptyHTMLFile(current_html_resource);
+    HTMLResource *new_html_resource = m_Book->CreateEmptyHTMLFile(current_html_resource, destfolder);
     m_Book->MoveResourceAfter(new_html_resource, current_html_resource);
     // Copy the text from the current file
     new_html_resource->SetText(current_html_resource->GetText());
@@ -524,7 +526,8 @@ void BookBrowser::AddNewHTML()
 {
     Resource *current_resource = GetCurrentResource();
     HTMLResource *current_html_resource = qobject_cast<HTMLResource *>(current_resource);
-    HTMLResource *new_html_resource = m_Book->CreateEmptyHTMLFile(current_html_resource);
+    QString destfolder = Utility::startingDir(current_html_resource->GetRelativePath());
+    HTMLResource *new_html_resource = m_Book->CreateEmptyHTMLFile(current_html_resource, destfolder);
 
     if (current_resource != NULL) {
         m_Book->MoveResourceAfter(new_html_resource, current_html_resource);
@@ -545,8 +548,10 @@ void BookBrowser::CopyCSS()
     }
 
     CSSResource *current_css_resource = qobject_cast<CSSResource *>(current_resource);
+    QString destfolder = Utility::startingDir(current_resource->GetRelativePath());
+
     // Create an empty file
-    CSSResource *new_resource = m_Book->CreateEmptyCSSFile();
+    CSSResource *new_resource = m_Book->CreateEmptyCSSFile(destfolder);
     // Copy the text from the current file
     new_resource->SetText(current_css_resource->GetText());
     // Open the new file in a tab

@@ -341,9 +341,9 @@ HTMLResource *Book::CreateNewHTMLFile(const QString &folder_path)
 }
 
 
-HTMLResource *Book::CreateEmptyHTMLFile()
+HTMLResource *Book::CreateEmptyHTMLFile(const QString &folderpath)
 {
-    HTMLResource *html_resource = CreateNewHTMLFile();
+    HTMLResource *html_resource = CreateNewHTMLFile(folderpath);
     QString version = html_resource->GetEpubVersion();
     if (version.startsWith('2')) {
         html_resource->SetText(EMPTY_HTML_FILE);
@@ -355,7 +355,7 @@ HTMLResource *Book::CreateEmptyHTMLFile()
 }
 
 
-HTMLResource *Book::CreateEmptyNavFile(bool update_opf)
+HTMLResource *Book::CreateEmptyNavFile(bool update_opf, const QString &folderpath)
 {
     bool found_css = false;
     QList<Resource*> resources = GetFolderKeeper()->GetResourceTypeAsGenericList<CSSResource>(false);
@@ -365,8 +365,8 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf)
             break;
         }
     }
-    // If NAV CSS file does not exist look for a default file                                                              
-    // in preferences directory and if none create one.                                                                         
+    // If NAV CSS file does not exist look for a default file
+    // in preferences directory and if none create one.
     if (!found_css) {
         TempFolder tempfolder;
         QString css_path = Utility::DefinePrefsDir() + "/" + SGC_NAV_CSS_FILENAME;
@@ -374,17 +374,23 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf)
             css_path = tempfolder.GetPath() + "/" + SGC_NAV_CSS_FILENAME;
             Utility::WriteUnicodeTextFile(SGC_NAV_CSS_FILE, css_path);
         }
-        Resource * resource = GetFolderKeeper()->AddContentFileToFolder(css_path, update_opf, "text/css");
+        Resource * resource = m_Mainfolder->AddContentFileToFolder(css_path, 
+								   update_opf, 
+								   "text/css");
         CSSResource *css_resource = qobject_cast<CSSResource *> (resource);
-        // Need to make sure InitialLoad is done in newly added css resource object to prevent                              
-        // blank css issues after a save to disk                                                                            
+        // Need to make sure InitialLoad is done in newly added css resource object to prevent
+        // blank css issues after a save to disk
         if (css_resource) css_resource->InitialLoad();       
     }
 
     TempFolder tempfolder;
     QString fullfilepath = tempfolder.GetPath() + "/" + HTML_NAV_FILENAME;;
     Utility::WriteUnicodeTextFile(PLACEHOLDER_TEXT, fullfilepath);
-    Resource * resource = m_Mainfolder->AddContentFileToFolder(fullfilepath, update_opf, "application/xhtml+xml");
+    Resource * resource = m_Mainfolder->AddContentFileToFolder(fullfilepath,
+							       update_opf, 
+							       "application/xhtml+xml",
+							       QString(),
+							       folderpath);
     HTMLResource * html_resource = qobject_cast<HTMLResource *>(resource);
     SettingsStore ss;
     QString defaultLanguage = ss.defaultMetadataLang();
@@ -403,9 +409,9 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf)
 }
 
 
-HTMLResource *Book::CreateEmptyHTMLFile(HTMLResource *resource)
+HTMLResource *Book::CreateEmptyHTMLFile(HTMLResource *resource, const QString &folderpath)
 {
-    HTMLResource *new_resource = CreateNewHTMLFile();
+    HTMLResource *new_resource = CreateNewHTMLFile(folderpath);
     QString version = new_resource->GetEpubVersion();
     if (version.startsWith('2')) {
         new_resource->SetText(EMPTY_HTML_FILE);
@@ -487,23 +493,33 @@ CSSResource *Book::CreateIndexCSSFile()
     return css_resource;
 }
 
-CSSResource *Book::CreateEmptyCSSFile()
+CSSResource *Book::CreateEmptyCSSFile(const QString &folderpath)
 {
     TempFolder tempfolder;
     QString fullfilepath = tempfolder.GetPath() + "/" + m_Mainfolder->GetUniqueFilenameVersion(FIRST_CSS_NAME);
     Utility::WriteUnicodeTextFile("", fullfilepath);
-    CSSResource *css_resource = qobject_cast<CSSResource *>(m_Mainfolder->AddContentFileToFolder(fullfilepath));
+    Resource * resource = m_Mainfolder->AddContentFileToFolder(fullfilepath,
+							       true,
+							       "text/css",
+							       QString(),
+							       folderpath);
+    CSSResource *css_resource = qobject_cast<CSSResource *>(resource);
     SetModified(true);
     return css_resource;
 }
 
 
-SVGResource *Book::CreateEmptySVGFile()
+SVGResource *Book::CreateEmptySVGFile(const QString& folderpath)
 {
     TempFolder tempfolder;
     QString fullfilepath = tempfolder.GetPath() + "/" + m_Mainfolder->GetUniqueFilenameVersion(FIRST_SVG_NAME);
     Utility::WriteUnicodeTextFile("", fullfilepath);
-    SVGResource *svg_resource = qobject_cast<SVGResource *>(m_Mainfolder->AddContentFileToFolder(fullfilepath));
+    Resource * resource = m_Mainfolder->AddContentFileToFolder(fullfilepath,
+                                                               true,
+                                                               "image/svg+xml",
+                                                               QString(),
+                                                               folderpath);
+    SVGResource *svg_resource = qobject_cast<SVGResource *>(resource);
     SetModified(true);
     return svg_resource;
 }
