@@ -791,3 +791,14 @@ void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringLi
     m_GrpToFold.clear();
     m_GrpToFold = group_folder;
 }
+
+void FolderKeeper::PerformInitialLoads()
+{
+    QList<Resource *> resources = GetResourceList();
+    foreach(Resource * resource, resources) {
+        TextResource * text_resource = qobject_cast<TextResource*>(resource);
+	if (text_resource) {
+	    text_resource->InitialLoad();
+	}
+    }
+}

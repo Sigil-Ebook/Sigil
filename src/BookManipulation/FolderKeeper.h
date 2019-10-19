@@ -205,6 +205,8 @@ public:
 
     void updateShortPathNames();
 
+    void PerformInitialLoads();
+
     void SetGroupFolders(const QStringList &bookpaths, const QStringList &mtypes);
 
     /**

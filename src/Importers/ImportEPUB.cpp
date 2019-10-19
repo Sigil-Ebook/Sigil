@@ -244,6 +244,10 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
     // update the ShortPathNames to reflect any name duplication
     m_Book->GetFolderKeeper()->updateShortPathNames();
 
+    // since we no longer run universal updates we should run 
+    // InitialLoad on all TextResources to make sure everything gets loaded
+    m_Book->GetFolderKeeper()->PerformInitialLoads();
+
     // If we have modified the book to add spine attribute, manifest item or NCX mark as changed.
     m_Book->SetModified(GetLoadWarnings().count() > 0);
     QApplication::restoreOverrideCursor();
