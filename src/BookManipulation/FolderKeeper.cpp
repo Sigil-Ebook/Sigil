@@ -635,6 +635,7 @@ QString FolderKeeper::GetDefaultFolderForGroup(const QString &group)
 }
 
 
+#if 0
 QString FolderKeeper::buildShortName(const QString &bookpath, int lvl)
 {
     QStringList pieces = bookpath.split('/');
@@ -699,6 +700,34 @@ void FolderKeeper::updateShortPathNames()
 	}
     }
 }
+#else
+void FolderKeeper::updateShortPathNames()
+{
+    QStringList bookpaths = GetAllBookPaths();
+    QSet<QString> UsedSet;
+    QSet<QString> DupSet;
+
+    // assign filenames as initial short names and create set of duplicate
+    // filenames to make unique
+    foreach(QString bkpath, bookpaths) {
+        QString aname = bkpath.split("/").last();
+	if (UsedSet.contains(aname)) DupSet.insert(aname);
+	UsedSet.insert(aname);
+    }
+    // if not a duplicate name, use the filename as the short path name
+    // otherwise use the full bookpath
+    foreach(QString bkpath, bookpaths) {
+        QString shortname = bkpath.split("/").last();
+	if (DupSet.contains(shortname)) {
+	    shortname = bkpath;
+	}
+        Resource * resource = GetResourceByBookPath(bkpath);
+	if (resource->ShortPathName() != shortname) {
+	    resource->SetShortPathName(shortname);
+	}
+    }
+}
+#endif
 
 // fyi - generates folder paths that do NOT end with a "/"
 void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringList &mtypes)

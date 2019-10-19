@@ -1571,7 +1571,7 @@ void BookBrowser::SetupTreeView()
 
     m_TreeView->setIndentation(COLUMN_INDENTATION);
     m_TreeView->setHeaderHidden(true);
-    // m_TreeView->setTextElideMode(Qt::ElideLeft);
+    m_TreeView->setTextElideMode(Qt::ElideLeft);
 }
 
 
