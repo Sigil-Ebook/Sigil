@@ -268,7 +268,7 @@ private:
 
     void CreateStdGroupToFoldersMap();
 
-    // QString buildShortName(const QString &bookpath, int lvl);
+    QString buildShortName(const QString &bookpath, int lvl);
 
     /**
      * Dereferences two pointers and compares the values with "<".

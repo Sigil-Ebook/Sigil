@@ -635,7 +635,7 @@ QString FolderKeeper::GetDefaultFolderForGroup(const QString &group)
 }
 
 
-#if 0
+#if 1
 QString FolderKeeper::buildShortName(const QString &bookpath, int lvl)
 {
     QStringList pieces = bookpath.split('/');
@@ -695,6 +695,7 @@ void FolderKeeper::updateShortPathNames()
     foreach(QString bookpath, bookpaths) {
         Resource * resource = GetResourceByBookPath(bookpath);
 	QString shortname = BookToSPN[bookpath];
+	if (shortname.startsWith('^')) shortname = shortname.remove(0,1);
 	if (resource->ShortPathName() != shortname) {
 	    resource->SetShortPathName(shortname);
 	}

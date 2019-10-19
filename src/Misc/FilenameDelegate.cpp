@@ -36,12 +36,13 @@ bool FilenameDelegate::eventFilter(QObject *object, QEvent *event)
     if (event->type() == QEvent::FocusIn) {
         if (QLineEdit *edit = qobject_cast<QLineEdit *>(object)) {
             QString text = edit->text();
+	    text = text.split('/').last();
             int pos = text.lastIndexOf('.');
 
             if (pos == -1) {
                 pos = text.length();
             }
-
+	    edit->setText(text);
             edit->setSelection(0, pos);
 
 	    // Due to bug introduced into Qt sometime after version 5.6
