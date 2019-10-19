@@ -831,7 +831,7 @@ void BookBrowser::SaveAsFiles()
 
     bool files_exist = false;
     foreach(Resource * resource, resources) {
-        QString fullfilepath = dirname + "/" + resource->ShortPathName();
+        QString fullfilepath = dirname + "/" + resource->Filename();
 
         if (QFileInfo(fullfilepath).exists()) {
             files_exist = true;
@@ -855,7 +855,7 @@ void BookBrowser::SaveAsFiles()
     foreach(Resource * resource, resources) {
         resource->SaveToDisk();
         QString source = resource->GetFullPath();
-        QString destination = dirname + "/" + resource->ShortPathName();
+        QString destination = dirname + "/" + resource->Filename();
 
         if (QFileInfo(destination).exists()) {
             if (!QFileInfo(destination).isFile()) {
