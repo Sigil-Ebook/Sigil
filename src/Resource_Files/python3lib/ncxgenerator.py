@@ -202,6 +202,19 @@ def generateNCX(navdata, navbkpath, ncxdir, doctitle, mainid):
     #     return ""
     return ncxdata
 
+def generateGuideEntries(navdata, navbkpath, opfdir):
+     has_error = False
+     try:
+         qp = QuickXHTMLParser()
+         toclist, pagelist, landmarks, maxlvl, pgcnt = parse_nav(qp, navdata, navbkpath, opfdir)
+     except:
+         has_error = True
+         pass
+     if has_error:
+         return [("","","")]
+     return landmarks
+
+
 def main():
     argv = sys.argv
     return 0
