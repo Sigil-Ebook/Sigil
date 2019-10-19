@@ -101,7 +101,7 @@ def parse_nav(qp, navdata, navbkpath, newdir):
                     if href.find("#") != -1:
                         href, fragment = href.split("#")
                     # find destination bookpath
-                    if href.startwith("./"): href=href[2:]
+                    if href.startswith("./"): href=href[2:]
                     if href == "":
                         destbkpath = navbkpath
                     else:
