@@ -460,7 +460,7 @@ QString PreviewWindow::fixup_fullscreen_svg_images(QString &text)
     GumboNode* body_node  = body_tags.at(0);
 
     // loop through immediate children of body ignore script and style tags
-    // make sure div is only child of body
+    // make sure div or svg is only child of body
     QStringList child_names;
     int elcount = 0;
     GumboVector* children = &body_node->v.element.children;
@@ -475,9 +475,11 @@ QString PreviewWindow::fixup_fullscreen_svg_images(QString &text)
 	    if (elcount > 1) break;
         }
     }
-    if ((elcount != 1) || (child_names.at(0) != "div")) return newtext;
+    const QStringList allowed_tags = QStringList() << "div" << "svg"; 
+    if ((elcount != 1) || !allowed_tags.contains(child_names.at(0))) return newtext;
     
-    // verify body -> div -> svg -> image structure exists (ignoring script and style tags)
+    // verify either body->div->svg->image or body->svg->image 
+    // structure exists (ignoring script and style tags)
     GumboNode* anode = image_node;
     QStringList path_pieces = QStringList() << QString::fromStdString(gi.get_tag_name(anode));
     while (anode && !((anode->type == GUMBO_NODE_ELEMENT) && (anode->v.element.tag == GUMBO_TAG_BODY))) {
@@ -488,7 +490,8 @@ QString PreviewWindow::fixup_fullscreen_svg_images(QString &text)
         }
         anode = myparent;
     }
-    if (path_pieces.join(",") != "body,div,svg,image") return newtext;
+    const QString apath = path_pieces.join(",");
+    if ((apath != "body,div,svg,image") && (apath != "body,svg,image")) return newtext;
     
     // finally check if svg height and width attributes are both "100%"
     // and if so change them to 100vh and 100vw respectively
