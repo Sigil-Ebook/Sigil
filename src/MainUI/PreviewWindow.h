@@ -94,6 +94,7 @@ private:
     void LoadSettings();
     void ConnectSignalsToSlots();
     void UpdateWindowTitle();
+    QString fixup_fullscreen_svg_images(QString &text);
 
     QWidget *m_MainWidget;
     QVBoxLayout *m_Layout;

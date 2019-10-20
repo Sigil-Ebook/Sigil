@@ -36,6 +36,7 @@
 
 #include "MainUI/PreviewWindow.h"
 #include "Dialogs/Inspector.h"
+#include "Misc/GumboInterface.h"
 #include "Misc/SleepFunctions.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -225,6 +226,8 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
             text.insert(endheadpos, inject_mathjax);
         }
     }
+
+    text = fixup_fullscreen_svg_images(text);
 
     m_Filepath = filename_url;
     m_Preview->CustomSetDocument(filename_url, text);
@@ -438,3 +441,64 @@ void PreviewWindow::ConnectSignalsToSlots()
     connect(m_Inspector,     SIGNAL(finished(int)),   this, SLOT(InspectorClosed(int)));
 }
 
+QString PreviewWindow::fixup_fullscreen_svg_images(QString &text) 
+{
+    QString newtext = text;
+    GumboInterface gi = GumboInterface(newtext, "any_version");
+
+    QList<GumboNode*> image_tags = gi.get_all_nodes_with_tag(GUMBO_TAG_IMAGE);
+    if (image_tags.count() != 1) return newtext;
+
+    QList<GumboNode*> svg_tags = gi.get_all_nodes_with_tag(GUMBO_TAG_SVG);
+    if (svg_tags.count() != 1) return newtext;
+
+    QList<GumboNode*> body_tags = gi.get_all_nodes_with_tag(GUMBO_TAG_BODY);
+    if (body_tags.count() != 1) return newtext;
+    
+    GumboNode* image_node = image_tags.at(0);
+    GumboNode* svg_node   = svg_tags.at(0);
+    GumboNode* body_node  = body_tags.at(0);
+
+    // loop through immediate children of body ignore script and style tags
+    // make sure div is only child of body
+    QStringList child_names;
+    int elcount = 0;
+    GumboVector* children = &body_node->v.element.children;
+    for (unsigned int i = 0; i < children->length; ++i) {
+        GumboNode* child = static_cast<GumboNode*>(children->data[i]);
+        if (child->type == GUMBO_NODE_ELEMENT) {
+	    QString name = QString::fromStdString(gi.get_tag_name(child));
+	    if ((name != "script") && (name != "style")) {
+	        child_names << name;
+	        elcount++;
+	    }
+	    if (elcount > 1) break;
+        }
+    }
+    if ((elcount != 1) || (child_names.at(0) != "div")) return newtext;
+    
+    // verify body -> div -> svg -> image structure exists (ignoring script and style tags)
+    GumboNode* anode = image_node;
+    QStringList path_pieces = QStringList() << QString::fromStdString(gi.get_tag_name(anode));
+    while (anode && !((anode->type == GUMBO_NODE_ELEMENT) && (anode->v.element.tag == GUMBO_TAG_BODY))) {
+        GumboNode* myparent = anode->parent;
+        QString parent_name = QString::fromStdString(gi.get_tag_name(myparent));
+        if ((parent_name != "script") && (parent_name != "style")) {
+	    path_pieces.prepend(parent_name);
+        }
+        anode = myparent;
+    }
+    if (path_pieces.join(",") != "body,div,svg,image") return newtext;
+    
+    // finally check if svg height and width attributes are both "100%"
+    // and if so change them to 100vh and 100vw respectively
+    QHash<QString,QString> svgatts = gi.get_attributes_of_node(svg_node);
+    if ((svgatts.value("width","") == "100%") && (svgatts.value("height","") == "100%")) {
+        GumboAttribute* attr = gumbo_get_attribute(&svg_node->v.element.attributes, "width");
+        if (attr) gumbo_attribute_set_value(attr, "100vw");
+        attr = gumbo_get_attribute(&svg_node->v.element.attributes, "height");
+        if (attr) gumbo_attribute_set_value(attr, "100vh");
+	newtext = gi.getxhtml();
+    }
+    return newtext;
+}
