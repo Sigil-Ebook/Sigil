@@ -526,6 +526,8 @@ void BookBrowser::AddNewHTML()
 {
     Resource *current_resource = GetCurrentResource();
     HTMLResource *current_html_resource = qobject_cast<HTMLResource *>(current_resource);
+    if (!current_html_resource) return;
+
     QString destfolder = Utility::startingDir(current_html_resource->GetRelativePath());
     HTMLResource *new_html_resource = m_Book->CreateEmptyHTMLFile(current_html_resource, destfolder);
 
