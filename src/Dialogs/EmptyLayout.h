@@ -39,7 +39,7 @@ class EmptyLayout : public QDialog, private Ui::EmptyLayout
 public:
     EmptyLayout(const QString &version, QWidget *parent = 0);
 
-    ~EmptyLayout() { };
+    ~EmptyLayout();
 
     static QStringList GetPathsToFilesInFolder(const QString&fullfolderpath, const QString &basepath);
 

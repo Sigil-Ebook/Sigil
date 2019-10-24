@@ -138,6 +138,15 @@ EmptyLayout::EmptyLayout(const QString &epubversion, QWidget *parent)
 }
 
 
+EmptyLayout::~EmptyLayout()
+{
+    // to prevent errors with Windows fs watchers
+    // delete the model first *before* 
+    // m_TmpFolder destructor is invoked.
+    if (m_fsmodel) delete m_fsmodel;
+}
+
+
 void EmptyLayout::setupMarkersMenu()
 {
     QAction * act;
@@ -290,12 +299,26 @@ void EmptyLayout::saveData()
     }
     m_BookPaths = bookpaths;
     WriteSettings();
+    // Windows has issues removing or deleting files while the file
+    // watcher is running and QFileSystemModel made private disabling the watcher
+    // So try manually removing the EpubRoot folder via the QFileSystemModel
+    QModelIndex index = m_fsmodel->index(m_MainFolder + "/EpubRoot");
+    if (index.isValid()) {
+        m_fsmodel->remove(index);
+    }
     QDialog::accept();
 }
 
 
 void EmptyLayout::reject()
 {
+    // Windows has issues removing or deleting files while the file
+    // watcher is running and QFileSystemModel made private disabling the watcher
+    // So try manually removing the EpubRoot folder via the QFileSystemModel
+    QModelIndex index = m_fsmodel->index(m_MainFolder + "/EpubRoot");
+    if (index.isValid()) {
+        m_fsmodel->remove(index);
+    }
     WriteSettings();
     m_BookPaths = QStringList();
     QDialog::reject();
