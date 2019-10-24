@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019  Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -41,11 +42,12 @@ public:
      * Results are in order of increasing priority of result to display.
      */
     enum ResultAction {
-        ResultAction_None = 0,               /**< Default, no further action required */
-        ResultAction_RefreshSpelling,        /**< Refresh spelling highlighting on any open tabs */
-        ResultAction_ReloadTabs,             /**< All tabs need to be reloaded. */
-        ResultAction_RestartSigil,           /**< Warn user that Sigil needs to be restarted. */
-        ResultAction_RefreshClipHistoryLimit /**< Reload cliboard history saving limit */
+        ResultAction_None = 0,                /**< Default, no further action required */
+        ResultAction_RefreshSpelling,         /**< Refresh spelling highlighting on any open tabs */
+        ResultAction_ReloadTabs,              /**< All tabs need to be reloaded. */
+        ResultAction_RestartSigil,            /**< Warn user that Sigil needs to be restarted. */
+        ResultAction_RefreshClipHistoryLimit, /**< Reload cliboard history saving limit */
+        ResultAction_RefreshBookBrowser       /**< Refresh BookBrowser window */
     };
 
     /**

@@ -3135,6 +3135,9 @@ void MainWindow::PreferencesDialog()
 
     if (preferences.isReloadTabsRequired()) {
         m_TabManager->ReopenTabs();
+        m_BookBrowser->Refresh();
+    } else if (preferences.isRefreshBookBrowserRequired()) {
+        m_BookBrowser->Refresh();
     } else if (preferences.isRefreshSpellingHighlightingRequired()) {
         RefreshSpellingHighlighting();
         // Make sure menu state is set
@@ -3164,6 +3167,9 @@ void MainWindow::ManagePluginsDialog()
     // other preferences may have been changed as well
     if (preferences.isReloadTabsRequired()) {
         m_TabManager->ReopenTabs();
+	m_BookBrowser->Refresh();
+    } else if (preferences.isRefreshBookBrowserRequired()) {
+        m_BookBrowser->Refresh();
     } else if (preferences.isRefreshSpellingHighlightingRequired()) {
         RefreshSpellingHighlighting();
         // Make sure menu state is set

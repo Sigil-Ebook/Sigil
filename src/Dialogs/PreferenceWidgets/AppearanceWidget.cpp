@@ -88,6 +88,7 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
 {
     SettingsStore settings;
     settings.setAppearancePrefsTabIndex(ui.tabAppearance->currentIndex());
+    settings.setShowFullPathOn(ui.ShowFullPath->isChecked() ? 1 : 0);
     SettingsStore::PreviewAppearance PVAppearance;
     PVAppearance.font_family_standard     = ui.cbPreviewFontStandard->currentText();
     PVAppearance.font_family_serif        = ui.cbPreviewFontSerif->currentText();
@@ -160,7 +161,9 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
         (m_codeViewAppearance.xhtml_html_comment_color     != codeViewAppearance.xhtml_html_comment_color)) {
         return PreferencesWidget::ResultAction_ReloadTabs;
     }
-
+    if (m_ShowFullPathOn != (ui.ShowFullPath->isChecked() ? 1 : 0)) {
+        return PreferencesWidget::ResultAction_RefreshBookBrowser;
+    }
     return PreferencesWidget::ResultAction_None;
 }
 
@@ -168,6 +171,8 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
 {
     SettingsStore settings;
     ui.tabAppearance->setCurrentIndex(settings.appearancePrefsTabIndex());
+    m_ShowFullPathOn = settings.showFullPathOn();
+    ui.ShowFullPath->setChecked(settings.showFullPathOn());
     SettingsStore::PreviewAppearance PVAppearance = settings.previewAppearance();
     SettingsStore::CodeViewAppearance codeViewAppearance = settings.codeViewAppearance();
     SettingsStore::SpecialCharacterAppearance specialCharacterAppearance = settings.specialCharacterAppearance();

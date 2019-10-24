@@ -30,6 +30,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "MainUI/OPFModel.h"
 #include "MainUI/OPFModelItem.h"
+#include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -314,8 +315,12 @@ void OPFModel::ItemChangedHandler(QStandardItem *item)
 
         if (new_filename != resource->Filename()) {
             if (!Utility::use_filename_warning(new_filename)) {
-	        // item->setText(resource->ShortPathName());
-	        item->setText(resource->GetRelativePath());
+	        SettingsStore ss;
+		if (ss.showFullPathOn()) {
+	            item->setText(resource->GetRelativePath());
+		} else {
+	            item->setText(resource->ShortPathName());
+		}
                 return;
             }
             RenameResource(resource, new_filename);
@@ -340,6 +345,7 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
     QApplication::setOverrideCursor(Qt::WaitCursor);
     QStringList not_renamed;
     QHash<QString, QString> update;
+    SettingsStore ss;
     int i = 0;
     foreach(Resource * resource, resources) {
         QString old_bookpath = resource->GetRelativePath();
@@ -358,8 +364,12 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
         }
 
         if (!FilenameIsValid(old_bookpath, new_filename_with_extension)) {
-	    // not_renamed.append(resource->ShortPathName());
-	    not_renamed.append(resource->GetRelativePath());
+	    if (ss.showFullPathOn()) {
+	        not_renamed.append(resource->GetRelativePath());
+	    } else {
+	        not_renamed.append(resource->ShortPathName());
+	    }
+
             continue;
         }
 
@@ -379,8 +389,11 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
             rename_success = resource->RenameTo(new_filename_with_extension);
 	}
         if (!rename_success) {
-	    // not_renamed.append(resource->ShortPathName());
-            not_renamed.append(resource->GetRelativePath());
+	    if (ss.showFullPathOn()) {
+		not_renamed.append(resource->GetRelativePath());
+	    } else {
+		not_renamed.append(resource->ShortPathName());
+	    }
             continue;
         }
 
@@ -469,6 +482,7 @@ void OPFModel::InitializeModel()
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
     QHash <QString, QString> semantic_type_all;
     QHash <QString, QString> manifest_properties_all;
+    SettingsStore ss;
     if (version.startsWith('3')) {
         NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
         semantic_type_all = navproc.GetLandmarkNameForPaths();
@@ -478,8 +492,12 @@ void OPFModel::InitializeModel()
     }
 
     foreach(Resource * resource, resources) {
-        // AlphanumericItem *item = new AlphanumericItem(resource->Icon(), resource->ShortPathName());
-        AlphanumericItem *item = new AlphanumericItem(resource->Icon(), resource->GetRelativePath());
+        AlphanumericItem * item;
+        if (ss.showFullPathOn()) {
+            item = new AlphanumericItem(resource->Icon(), resource->GetRelativePath());
+        } else {
+            item = new AlphanumericItem(resource->Icon(), resource->ShortPathName());
+	}
         item->setDropEnabled(false);
         item->setData(resource->GetIdentifier());
         QString tooltip = resource->GetRelativePath();
@@ -509,8 +527,12 @@ void OPFModel::InitializeModel()
 
             item->setData(reading_order, READING_ORDER_ROLE);
             // Remove the extension for alphanumeric sorting
-            // QString name = resource->ShortPathName().left(resource->ShortPathName().lastIndexOf('.'));
-            QString name = resource->GetRelativePath().left(resource->GetRelativePath().lastIndexOf('.'));
+	    QString name;
+            if (ss.showFullPathOn()) {
+                name = resource->GetRelativePath().left(resource->GetRelativePath().lastIndexOf('.'));
+	    } else {
+                name = resource->ShortPathName().left(resource->ShortPathName().lastIndexOf('.'));
+	    }
             item->setData(name, ALPHANUMERIC_ORDER_ROLE);
             m_TextFolderItem->appendRow(item);
         } else if (resource->Type() == Resource::CSSResourceType) {

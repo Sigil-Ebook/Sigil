@@ -368,6 +368,37 @@ if a sans-serif font-family specified in your CSS</string>
          </layout>
         </widget>
        </item>
+       
+       <item>
+        <widget class="QGroupBox" name="groupBox_3a">
+         <property name="toolTip">
+          <string>Determine if the BookBrowser should show full paths</string>
+         </property>
+         <property name="title">
+          <string> Control BookBrowser Appearance.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3a">
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="ShowFullPath">
+            <property name="toolTip">
+             <string>Check to make BookBrowser show full paths.</string>
+            </property>
+            <property name="text">
+             <string>BookBrowser should show full paths.</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+
        <item>
         <spacer name="verticalSpacer">
          <property name="orientation">

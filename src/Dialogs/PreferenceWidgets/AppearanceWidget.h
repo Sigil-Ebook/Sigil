@@ -56,6 +56,7 @@ private:
 
     SettingsStore::CodeViewAppearance m_codeViewAppearance;
     QColor m_currentColor;
+    int m_ShowFullPathOn;
 
     Ui::AppearanceWidget ui;
 };

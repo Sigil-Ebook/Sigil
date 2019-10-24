@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2011, 2012, 2013  John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012, 2013  Dave Heiland
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2011-2013 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012-2013 Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -135,6 +136,8 @@ public:
     int remoteOn();
 
     int javascriptOn();
+
+    int showFullPathOn();
 
     int cleanOn();
 
@@ -323,6 +326,8 @@ public slots:
     void setRemoteOn(int on);
 
     void setJavascriptOn(int on);
+
+    void setShowFullPathOn(int on);
 
     void setCleanOn(int on);
 

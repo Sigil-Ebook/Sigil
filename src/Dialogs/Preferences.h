@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -69,6 +70,10 @@ public:
      * Check this after dialog closes to determine if clipboard history saving limit needs updated.
      */
     bool isRefreshClipHistoryLimitRequired();
+    /**
+     * Check this after dialog closes to determine if BookBrowser needs to be refeshed
+     */
+    bool isRefreshBookBrowserRequired();
 
     void makeActive(int);
 
@@ -115,6 +120,7 @@ private:
     bool m_reloadTabs;
     bool m_restartSigil;
     bool m_refreshClipHistoryLimit;
+    bool m_refreshBookBrowser;
 
     Ui::Preferences ui;
 };
