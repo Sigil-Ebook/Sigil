@@ -634,6 +634,12 @@ QString FolderKeeper::GetDefaultFolderForGroup(const QString &group)
     return GetFoldersForGroup(group).first();
 }
 
+void FolderKeeper::SetFoldersForGroup(const QString &group, const QStringList &folders)
+{
+    CreateGroupToFoldersMap();
+    m_GrpToFold[group] = folders;
+}
+
 
 #if 1
 QString FolderKeeper::buildShortName(const QString &bookpath, int lvl)

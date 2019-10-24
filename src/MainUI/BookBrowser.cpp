@@ -526,12 +526,13 @@ void BookBrowser::AddNewHTML()
 {
     Resource *current_resource = GetCurrentResource();
     HTMLResource *current_html_resource = qobject_cast<HTMLResource *>(current_resource);
-    if (!current_html_resource) return;
-
-    QString destfolder = Utility::startingDir(current_html_resource->GetRelativePath());
+    QString destfolder = "\\";
+    if (current_html_resource) {
+        destfolder = Utility::startingDir(current_html_resource->GetRelativePath());
+    }
     HTMLResource *new_html_resource = m_Book->CreateEmptyHTMLFile(current_html_resource, destfolder);
 
-    if (current_resource != NULL) {
+    if ((current_resource != NULL) && (current_html_resource != NULL)) {
         m_Book->MoveResourceAfter(new_html_resource, current_html_resource);
     }
 
@@ -1157,6 +1158,13 @@ void BookBrowser::MoveSelected()
     QDir epub_root(MainFolder);
     if (!folder_path.isEmpty()) {
         epub_root.mkpath(folder_path);
+    }
+
+    // if a new path tell FolderKeeper to add it
+    QStringList group_folders = m_Book->GetFolderKeeper()->GetFoldersForGroup(group);
+    if (!group_folders.contains(folder_path)) {
+        group_folders << folder_path;
+        m_Book->GetFolderKeeper()->SetFoldersForGroup(group, group_folders);
     }
 
     // Get the list of moves that will be done

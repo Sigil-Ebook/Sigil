@@ -183,8 +183,9 @@ public:
     void RemoveNCXFromFolder();
 
     QStringList GetFoldersForGroup(const QString &group);
-    QString GetDefaultFolderForGroup(const QString &group);
+    void SetFoldersForGroup(const QString &group, const QStringList &folders);
 
+    QString GetDefaultFolderForGroup(const QString &group);
     QString GetStdFolderForGroup(const QString &group);
 
     /**
