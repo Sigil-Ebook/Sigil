@@ -58,7 +58,6 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
     // handle the 10 assignable plugin buttons
     QHash<QString, Plugin*> plugins = pdb->all_plugins();
     QStringList keys = plugins.keys();
-    keys.sort();
     QStringList pluginmap;
     QStringList pnames;
     foreach(QComboBox* cb, m_qlcbxs) {
@@ -137,7 +136,7 @@ void PluginWidget::readSettings()
     }
 
     QStringList keys = plugins.keys();
-    keys.sort();
+    keys.sort(Qt::CaseInsensitive);
     QStringList items = QStringList() << "";
     items.append(keys);
     foreach(QComboBox* cb, m_qlcbxs) {
