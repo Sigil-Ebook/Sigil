@@ -233,6 +233,8 @@ public slots:
 
     void StandardizeEpub();
 
+    void CreateEpubLayout();
+
 signals:
     void SettingsChanged();
 

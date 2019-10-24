@@ -355,7 +355,7 @@ HTMLResource *Book::CreateEmptyHTMLFile(const QString &folderpath)
 }
 
 
-HTMLResource *Book::CreateEmptyNavFile(bool update_opf, const QString &folderpath)
+HTMLResource *Book::CreateEmptyNavFile(bool update_opf, const QString &folderpath, const QString& navname)
 {
     bool found_css = false;
     QList<Resource*> resources = GetFolderKeeper()->GetResourceTypeAsGenericList<CSSResource>(false);
@@ -384,7 +384,7 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf, const QString &folderpat
     }
 
     TempFolder tempfolder;
-    QString fullfilepath = tempfolder.GetPath() + "/" + HTML_NAV_FILENAME;;
+    QString fullfilepath = tempfolder.GetPath() + "/" + navname;
     Utility::WriteUnicodeTextFile(PLACEHOLDER_TEXT, fullfilepath);
     Resource * resource = m_Mainfolder->AddContentFileToFolder(fullfilepath,
 							       update_opf, 

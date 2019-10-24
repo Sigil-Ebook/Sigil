@@ -327,6 +327,7 @@
     <addaction name="actionMetaEditor"/>
     <addaction name="menuTOC"/>
     <addaction name="actionStandardize" />
+    <addaction name="actionCustomLayout" />
     <addaction name="menuIndex"/>
     <addaction name="separator"/>
     <addaction name="menuSpellCheckMenu"/>
@@ -2384,6 +2385,11 @@
   <action name="actionNCXGuideFromNav">
    <property name="text">
     <string>Generate &amp;NCX/Guide for epub2 e-readers</string>
+   </property>
+  </action>
+  <action name="actionCustomLayout">
+   <property name="text">
+    <string>Create a Custom Empty Epub.</string>
    </property>
   </action>
   <action name="actionRemoveNCXGuide">

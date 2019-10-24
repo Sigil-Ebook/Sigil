@@ -53,6 +53,7 @@
 #include "Dialogs/ClipboardHistorySelector.h"
 #include "Dialogs/DeleteStyles.h"
 #include "Dialogs/EditTOC.h"
+#include "Dialogs/EmptyLayout.h"
 #include "Dialogs/HeadingSelector.h"
 #include "Dialogs/LinkStylesheets.h"
 #include "Dialogs/MetaEditor.h"
@@ -1196,6 +1197,83 @@ bool MainWindow::SaveACopy()
     m_SaveACopyFilename = filename;
     return SaveFile(filename, false);
 }
+
+
+void MainWindow::CreateEpubLayout()
+{
+    SettingsStore ss;
+    QString version = ss.defaultVersion();
+
+    EmptyLayout edesign(version, this);
+    edesign.exec();
+
+    QStringList bookpaths = edesign.GetBookPaths();
+    if (bookpaths.isEmpty()) {
+        ShowMessageOnStatusBar(tr("Epub layout discarded."));
+        return;
+    }
+ 
+    // extract the information we need from the bookpaths
+    QString opfbookpath;
+    QString ncxbookpath;
+    QString navfile;
+    QString navdir;
+    QStringList textdirs;
+    QStringList mtypes;
+    foreach(QString bkpath, bookpaths) {
+        QString filename = bkpath.split("/").last();
+        QString extension = filename.split(".").last();
+        QString folder = Utility::startingDir(bkpath);
+	QString mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension);
+	mtypes << mt;
+	if (filename.endsWith(".opf")) opfbookpath = bkpath;
+	if (filename.endsWith(".ncx")) ncxbookpath = bkpath;
+	if (filename.endsWith(".xhtml")) {
+	    if (filename == "marker.xhtml") {
+	        textdirs << folder;
+	    } else {
+	        navdir = folder;
+		navfile = filename;
+	    }
+	}
+    }
+
+    if (MaybeSaveDialogSaysProceed()) {
+        QSharedPointer<Book> new_book = QSharedPointer<Book>(new Book());
+
+        // immediately after creating a new book, you must
+        // add a proper OPF to it *before* doing anything else
+        new_book->GetFolderKeeper()->AddOPFToFolder(version, opfbookpath);
+
+        // Set Group Folders from bookpaths
+	new_book->GetFolderKeeper()->SetGroupFolders(bookpaths, mtypes);
+
+	// create a single text file in each location
+	foreach(QString textfolder, textdirs) {
+            new_book->CreateEmptyHTMLFile(textfolder);
+	}
+
+	// handle nav / ncx
+        if (version.startsWith('3')) {
+	    HTMLResource * nav_resource = new_book->CreateEmptyNavFile(true, navdir, navfile);
+            new_book->GetOPF()->SetNavResource(nav_resource);
+            new_book->GetOPF()->SetItemRefLinear(nav_resource, false);
+	    // ncx is optional in epub3
+	    if (!ncxbookpath.isEmpty()) {
+	        new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath);
+	    }
+	    
+        } else {
+	    new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath);
+        }
+        SetNewBook(new_book);
+        new_book->SetModified(false);
+        m_SaveACopyFilename = "";
+        UpdateUiWithCurrentFile("");
+    }
+    ShowMessageOnStatusBar(tr("Custom epub layout created."));
+}
+
 
 void MainWindow::Exit()
 {
@@ -4663,6 +4741,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionNewSVGFile, "MainWindow.NewSVGFile");
     sm->registerAction(this, ui.actionAddExistingFile, "MainWindow.AddExistingFile");
     sm->registerAction(this, ui.actionStandardize, "MainWindow.StandardizeEpub");
+    sm->registerAction(this, ui.actionCustomLayout, "MainWindow.CustomLayout");
     sm->registerAction(this, ui.actionOpen, "MainWindow.Open");
 #ifndef Q_OS_MAC
     sm->registerAction(this, ui.actionClose, "MainWindow.Close");
@@ -5219,7 +5298,6 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionNewCSSFile,    SIGNAL(triggered()), m_BookBrowser, SLOT(AddNewCSS()));
     connect(ui.actionNewSVGFile,    SIGNAL(triggered()), m_BookBrowser, SLOT(AddNewSVG()));
     connect(ui.actionAddExistingFile,   SIGNAL(triggered()), m_BookBrowser, SLOT(AddExisting()));
-    connect(ui.actionStandardize,   SIGNAL(triggered()), this, SLOT(StandardizeEpub()));
     connect(ui.actionSave,          SIGNAL(triggered()), this, SLOT(Save()));
     connect(ui.actionSaveAs,        SIGNAL(triggered()), this, SLOT(SaveAs()));
     connect(ui.actionSaveACopy,     SIGNAL(triggered()), this, SLOT(SaveACopy()));
@@ -5253,6 +5331,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionSigilWebsite,  SIGNAL(triggered()), this, SLOT(SigilWebsite()));
     connect(ui.actionAbout,         SIGNAL(triggered()), this, SLOT(AboutDialog()));
     // Tools
+    connect(ui.actionStandardize,   SIGNAL(triggered()), this, SLOT(StandardizeEpub()));
+    connect(ui.actionCustomLayout,  SIGNAL(triggered()), this, SLOT(CreateEpubLayout()));
     connect(ui.actionAddCover,      SIGNAL(triggered()), this, SLOT(AddCover()));
     connect(ui.actionMetaEditor,    SIGNAL(triggered()), this, SLOT(MetaEditorDialog()));
     connect(ui.actionWellFormedCheckEpub,  SIGNAL(triggered()), this, SLOT(WellFormedCheckEpub()));

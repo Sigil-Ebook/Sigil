@@ -139,6 +139,8 @@ set( DIALOG_FILES
     Dialogs/DeleteStyles.h
     Dialogs/EditTOC.cpp
     Dialogs/EditTOC.h
+    Dialogs/EmptyLayout.cpp
+    Dialogs/EmptyLayout.h
     Dialogs/OpenWithName.cpp
     Dialogs/OpenWithName.h
     Dialogs/SelectCharacter.cpp
@@ -443,6 +445,7 @@ set( UI_FILES
     Form_Files/SelectIndexTitle.ui
     Form_Files/SelectFiles.ui
     Form_Files/MetaEditor.ui
+    Form_Files/EmptyLayout.ui
     Form_Files/AddMetadata.ui
     Form_Files/AddSemantics.ui
     Form_Files/About.ui

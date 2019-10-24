@@ -306,7 +306,7 @@ void OPFModel::ItemChangedHandler(QStandardItem *item)
 
         Resource *resource = m_Book->GetFolderKeeper()->GetResourceByIdentifier(identifier);
 
-        // extract just the filename from the ShortPathName
+        // extract just the filename from the ShortPathName or BookPath
         QString new_filename = item->text();
         if (!new_filename.isEmpty()) {
 	    new_filename = new_filename.split('/').last();
@@ -314,7 +314,8 @@ void OPFModel::ItemChangedHandler(QStandardItem *item)
 
         if (new_filename != resource->Filename()) {
             if (!Utility::use_filename_warning(new_filename)) {
-	        item->setText(resource->ShortPathName());
+	        // item->setText(resource->ShortPathName());
+	        item->setText(resource->GetRelativePath());
                 return;
             }
             RenameResource(resource, new_filename);
@@ -357,7 +358,8 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
         }
 
         if (!FilenameIsValid(old_bookpath, new_filename_with_extension)) {
-            not_renamed.append(resource->ShortPathName());
+	    // not_renamed.append(resource->ShortPathName());
+	    not_renamed.append(resource->GetRelativePath());
             continue;
         }
 
@@ -377,7 +379,8 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
             rename_success = resource->RenameTo(new_filename_with_extension);
 	}
         if (!rename_success) {
-            not_renamed.append(resource->ShortPathName());
+	    // not_renamed.append(resource->ShortPathName());
+            not_renamed.append(resource->GetRelativePath());
             continue;
         }
 
@@ -475,7 +478,8 @@ void OPFModel::InitializeModel()
     }
 
     foreach(Resource * resource, resources) {
-        AlphanumericItem *item = new AlphanumericItem(resource->Icon(), resource->ShortPathName());
+        // AlphanumericItem *item = new AlphanumericItem(resource->Icon(), resource->ShortPathName());
+        AlphanumericItem *item = new AlphanumericItem(resource->Icon(), resource->GetRelativePath());
         item->setDropEnabled(false);
         item->setData(resource->GetIdentifier());
         QString tooltip = resource->GetRelativePath();
@@ -505,7 +509,8 @@ void OPFModel::InitializeModel()
 
             item->setData(reading_order, READING_ORDER_ROLE);
             // Remove the extension for alphanumeric sorting
-            QString name = resource->ShortPathName().left(resource->ShortPathName().lastIndexOf('.'));
+            // QString name = resource->ShortPathName().left(resource->ShortPathName().lastIndexOf('.'));
+            QString name = resource->GetRelativePath().left(resource->GetRelativePath().lastIndexOf('.'));
             item->setData(name, ALPHANUMERIC_ORDER_ROLE);
             m_TextFolderItem->appendRow(item);
         } else if (resource->Type() == Resource::CSSResourceType) {
