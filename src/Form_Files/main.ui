@@ -2389,7 +2389,7 @@
   </action>
   <action name="actionCustomLayout">
    <property name="text">
-    <string>Create a Custom Empty Epub.</string>
+    <string>Create a Custom Empty Epub</string>
    </property>
   </action>
   <action name="actionRemoveNCXGuide">

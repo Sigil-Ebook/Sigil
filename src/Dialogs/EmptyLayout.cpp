@@ -274,14 +274,14 @@ void EmptyLayout::saveData()
         if (apath.endsWith(".xhtml") && !apath.contains("marker.xhtml")) numnav++;
     }
     QStringList Errors;
-    if (numopf != 1) Errors << tr("There should be a single OPF");
-    if (numtxt < 1)  Errors << tr("There should be at least one xhtml marker");
-    if (numimg < 1)  Errors << tr("There should be at least one image marker");
-    if (numcss < 1)  Errors << tr("There should be at least one css marker");
+    if (numopf != 1) Errors << tr("Multiple or missing OPF.");
+    if (numtxt < 1)  Errors << tr("At least one xhtml marker must exist.");
+    if (numimg < 1)  Errors << tr("At least one image marker must exist.");
+    if (numcss < 1)  Errors << tr("At least one css marker must exist.");
     if (m_EpubVersion.startsWith("2")) {
-        if (numncx != 1) Errors << tr("There should be a single NCX");
+        if (numncx != 1) Errors << tr("Multiple or Missing NCX.");
     } else {
-        if (numnav != 1) Errors << tr("There should be a single NAV");
+        if (numnav != 1) Errors << tr("Multiple or Missing NAV.");
     }
     if (!Errors.isEmpty()) {
         QString error_message = Errors.join('\n');
