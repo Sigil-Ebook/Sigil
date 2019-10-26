@@ -208,7 +208,9 @@ public:
 
     void PerformInitialLoads();
 
-    void SetGroupFolders(const QStringList &bookpaths, const QStringList &mtypes);
+    void RefreshGroupFolders();
+
+    void SetGroupFolders(const QStringList &bookpaths, const QStringList &mtypes, bool update_only = false);
 
     /**
      * Registers certain file types to be watched for external modifications.

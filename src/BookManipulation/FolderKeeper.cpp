@@ -737,7 +737,7 @@ void FolderKeeper::updateShortPathNames()
 #endif
 
 // fyi - generates folder paths that do NOT end with a "/"
-void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringList &mtypes)
+void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringList &mtypes, bool update_only)
 {
     QHash< QString, QStringList > group_folder;
     QHash< QString, QList<int> > group_count;
@@ -781,16 +781,29 @@ void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringLi
         }
         dirlst << sortedlst.at(0);
     }
-    // now back fill any missing group folders
-    QString commonbase = Utility::longestCommonPath(dirlst, "/");
-    if (commonbase == "/") commonbase ="";
-    foreach(QString group, groupA) {
-        QStringList folderlst = group_folder.value(group, QStringList());
-        QString gname = group;
-        if (use_lower_case) gname = gname.toLower();
-        if (folderlst.isEmpty()) {
-            folderlst << commonbase + gname;
-            group_folder[group] = folderlst;
+
+    if (update_only) {
+        // do not drop an empty folders as they may be filled later
+        foreach(QString group, groupA) {
+	    QStringList folderlst = group_folder.value(group, QStringList());
+	    QStringList current_folders = GetFoldersForGroup(group);
+	    foreach(QString folder, current_folders) {
+	        if (!folderlst.contains(folder)) folderlst << folder;
+	    }
+	    group_folder[group] = folderlst;
+        }
+    } else {
+        // now back fill any missing group folders
+        QString commonbase = Utility::longestCommonPath(dirlst, "/");
+        if (commonbase == "/") commonbase ="";
+        foreach(QString group, groupA) {
+	    QStringList folderlst = group_folder.value(group, QStringList());
+	    QString gname = group;
+	    if (use_lower_case) gname = gname.toLower();
+	    if (folderlst.isEmpty()) {
+	        folderlst << commonbase + gname;
+	        group_folder[group] = folderlst;
+	    }
         }
     }
 
@@ -798,6 +811,20 @@ void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringLi
     m_GrpToFold.clear();
     m_GrpToFold = group_folder;
 }
+
+
+void FolderKeeper::RefreshGroupFolders()
+{
+    QList<Resource*> resources = GetResourceList();
+    QStringList bookpaths;
+    QStringList mtypes;
+    foreach(Resource * resource, resources) {
+        bookpaths << resource->GetRelativePath();
+        mtypes << resource->GetMediaType();
+    }
+    SetGroupFolders(bookpaths, mtypes, true);
+}
+
 
 void FolderKeeper::PerformInitialLoads()
 {

@@ -236,6 +236,9 @@ signals:
 
     void ResourcesDeleted();
 
+    void ResourcesMoved();
+
+
     /**
      * Wired to the current MainWindow::UpdateBrowserSelectionToTab signal.
      */

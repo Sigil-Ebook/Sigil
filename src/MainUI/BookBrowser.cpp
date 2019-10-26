@@ -1201,6 +1201,7 @@ void BookBrowser::MoveSelected()
 
     SelectResources(resources);
     m_TreeView->verticalScrollBar()->setSliderPosition(scrollY);
+    emit ResourcesMoved();
 }
 
 

@@ -45,7 +45,7 @@
 #include "Misc/SettingsStore.h"
 #include "Dialogs/EmptyLayout.h"
 
-// ftypes and fmarks shoud be kept in sync
+// ftypes and fmarks should be kept in sync
 static const QStringList FTypes = QStringList() << QObject::tr("Xhtml files") << QObject::tr("Style files") 
                                                 << QObject::tr("Image files") << QObject::tr("Font files") 
 						<< QObject::tr("Audio files") << QObject::tr("Video files") 
@@ -328,6 +328,10 @@ void EmptyLayout::reject()
 void EmptyLayout::updateActions()
 {
     bool hasSelection = !view->selectionModel()->selection().isEmpty();
+    if (hasSelection) {
+        QModelIndex index = view->selectionModel()->currentIndex();
+        QModelIndex epub_root_index = m_fsmodel->index(m_MainFolder + "/EpubRoot");
+    }
     delButton->setEnabled(hasSelection);
     addButton->setEnabled(hasSelection);
     renameButton->setEnabled(hasSelection);

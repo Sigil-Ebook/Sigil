@@ -2202,9 +2202,9 @@ void MainWindow::InsertFilesFromDisk()
 
     // We must disconnect the ResourcesAdded signal to avoid LoadTabContent being called
     // which results in the inserted image being cleared from the BV page immediately.
-    disconnect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeleted()));
+    disconnect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeletedOrMoved()));
     QStringList filenames = m_BookBrowser->AddExisting(true);
-    connect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeleted()));
+    connect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeletedOrMoved()));
     // Since we disconnected the signal we will have missed forced clearing of cache
     MainWindow::clearMemoryCaches();
     QStringList internal_filenames;
@@ -2877,7 +2877,7 @@ void MainWindow::GenerateToc()
     if (is_headings_changed || is_toc_changed) {
         // Reload the current tab to see visual impact if user changed heading level(s)
         // It might not have been the current tab, but what the heck, possible user has the NCX open even.
-        ResourcesAddedOrDeleted();
+        ResourcesAddedOrDeletedOrMoved();
         m_Book.data()->SetModified();
         ShowMessageOnStatusBar(tr("Table Of Contents generated."));
     } else {
@@ -4095,13 +4095,16 @@ void MainWindow::SetNewBook(QSharedPointer<Book> new_book)
     connect(m_Book.data(),     SIGNAL(ModifiedStateChanged(bool)), this, SLOT(setWindowModified(bool)));
     connect(m_Book.data(),     SIGNAL(ResourceUpdatedFromDiskRequest(Resource *)), this, SLOT(ResourceUpdatedFromDisk(Resource *)));
     connect(m_BookBrowser,     SIGNAL(ShowStatusMessageRequest(const QString &, int)), this, SLOT(ShowMessageOnStatusBar(const QString &, int)));
-    connect(m_BookBrowser,     SIGNAL(ResourcesDeleted()), this, SLOT(ResourcesAddedOrDeleted()));
-    connect(m_BookBrowser,     SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeleted()));
+    connect(m_BookBrowser,     SIGNAL(ResourcesDeleted()), this, SLOT(ResourcesAddedOrDeletedOrMoved()));
+    connect(m_BookBrowser,     SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeletedOrMoved()));
+    connect(m_BookBrowser,     SIGNAL(ResourcesMoved()), this, SLOT(ResourcesAddedOrDeletedOrMoved()));
 }
 
-void MainWindow::ResourcesAddedOrDeleted()
+void MainWindow::ResourcesAddedOrDeletedOrMoved()
 {
-    MainWindow::clearMemoryCaches();
+    // MainWindow::clearMemoryCaches();
+
+    m_Book->GetFolderKeeper()->RefreshGroupFolders();
 
     // Make sure currently visible tab is updated immediately
     FlowTab *flow_tab = GetCurrentFlowTab();

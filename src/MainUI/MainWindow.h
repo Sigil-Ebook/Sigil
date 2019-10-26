@@ -227,7 +227,7 @@ public slots:
 
     void runPlugin(QAction *action);
 
-    void ResourcesAddedOrDeleted();
+    void ResourcesAddedOrDeletedOrMoved();
 
     void launchExternalXEditor();
 
