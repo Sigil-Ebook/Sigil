@@ -65,7 +65,10 @@ EmptyLayout::EmptyLayout(const QString &epubversion, QWidget *parent)
   : QDialog(parent),
     m_MainFolder(m_TempFolder.GetPath()),
     m_EpubVersion(epubversion),
-    m_BookPaths(QStringList())
+    m_BookPaths(QStringList()),
+    m_hasOPF(false),
+    m_hasNCX(false),
+    m_hasNAV(false)
 {
     setupUi(this);
     m_filemenu = new QMenu(this);
@@ -190,7 +193,7 @@ void EmptyLayout::addFolder()
         m_fsmodel->mkdir(index, newname);
     }
     view->expand(index);
-    // view->clearSelection();
+    updateActions();
 }
 
 
@@ -203,10 +206,13 @@ void EmptyLayout::addFile(QAction * act)
         QString fpath = m_fsmodel->filePath(index) + "/" + filedata;
 	QFile afile(fpath);
 	if (afile.open(QFile::WriteOnly)) afile.close(); 
+        if (filedata == "content.opf") m_hasOPF=true;
+        if (filedata == "toc.ncx") m_hasNCX=true;
+        if (filedata == "nav.xhtml") m_hasNAV=true;
 	QFileInfo file_info = m_fsmodel->fileInfo(m_fsmodel->index(fpath));
     }
     view->expand(index);
-    // view->clearSelection();
+    updateActions();
 }
 
 
@@ -240,7 +246,7 @@ void EmptyLayout::renameCurrent()
 	}
         view->expand(index.parent());
     }
-    // view->clearSelection();
+    updateActions();
 }
 
 
@@ -257,10 +263,15 @@ void EmptyLayout::deleteCurrent()
     } else {
        QModelIndex parent = index.parent();
        bool success = m_fsmodel->remove(index);
+       if (success) {
+	   if (current_name.endsWith(".opf")) m_hasOPF = false;
+           if (current_name.endsWith(".ncx")) m_hasNCX = false;
+	   if (!current_name.startsWith("marker.") && current_name.endsWith(".xhtml")) m_hasNAV = false;
+       }
        if (!success) qDebug() << "file removal failed";
        view->expand(parent);
     }
-    // view->clearSelection();
+    updateActions();
 }
 
 
@@ -328,15 +339,30 @@ void EmptyLayout::reject()
 void EmptyLayout::updateActions()
 {
     bool hasSelection = !view->selectionModel()->selection().isEmpty();
-    if (hasSelection) {
-        QModelIndex index = view->selectionModel()->currentIndex();
-        QModelIndex epub_root_index = m_fsmodel->index(m_MainFolder + "/EpubRoot");
+    QModelIndex index = view->selectionModel()->currentIndex();
+    bool hasCurrent = index.isValid();
+    QString name = "";
+    if (hasCurrent) {
+	name = m_fsmodel->filePath(index).split("/").last();
     }
-    delButton->setEnabled(hasSelection);
+    bool isFile = name.startsWith("marker.") || name.endsWith(".opf") || name.endsWith(".ncx");
+    bool isEpubRoot = name == "EpubRoot";
+    bool isMarker = name.startsWith("marker.");
+    delButton->setEnabled(hasSelection && !isEpubRoot);
     addButton->setEnabled(hasSelection);
-    renameButton->setEnabled(hasSelection);
-    addFileButton->setEnabled(hasSelection);
-    // bool hasCurrent = view->selectionModel()->currentIndex().isValid();
+    renameButton->setEnabled(hasSelection && !isEpubRoot && !isMarker);
+    addFileButton->setEnabled(hasSelection && !isFile);
+
+    // finally enable and disable file marker menu items
+    QList<QAction *> menuacts = m_filemenu->actions();
+    foreach(QAction * act, menuacts) {
+        bool enable = true;
+        QString filedata = act->data().toString();
+	if ((filedata == "content.opf") && m_hasOPF) enable = false;
+	if ((filedata == "toc.ncx") && m_hasNCX) enable = false;
+	if ((filedata == "nav.xhtml") && m_hasNAV) enable = false;
+	act->setEnabled(enable);
+    }
 }
 
 

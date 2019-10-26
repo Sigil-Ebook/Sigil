@@ -71,6 +71,9 @@ private slots:
     QString m_MainFolder;
     QString m_EpubVersion;
     QStringList m_BookPaths;
+    bool m_hasOPF;
+    bool m_hasNCX;
+    bool m_hasNAV;
 };
 
 #endif // EMPTYLAYOUT_H
