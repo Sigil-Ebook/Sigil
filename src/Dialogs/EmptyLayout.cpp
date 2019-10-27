@@ -348,8 +348,9 @@ void EmptyLayout::updateActions()
     bool isFile = name.startsWith("marker.") || name.endsWith(".opf") || name.endsWith(".ncx");
     bool isEpubRoot = name == "EpubRoot";
     bool isMarker = name.startsWith("marker.");
+    bool isOPFNCXNAV = name.endsWith(".opf") || name.endsWith(".ncx") || (name.endsWith(".xhtml") && !isMarker);
     delButton->setEnabled(hasSelection && !isEpubRoot);
-    addButton->setEnabled(hasSelection);
+    addButton->setEnabled(hasSelection && !isMarker && !isOPFNCXNAV);
     renameButton->setEnabled(hasSelection && !isEpubRoot && !isMarker);
     addFileButton->setEnabled(hasSelection && !isFile);
 
