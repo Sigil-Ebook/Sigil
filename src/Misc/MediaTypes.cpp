@@ -38,7 +38,7 @@ const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html" << "
 const QStringList STYLE_EXTENSIONS     = QStringList() << "css";
 const QStringList AUDIO_EXTENSIONS     = QStringList() << "aac"   << "m4a"  << "mp3" << "mpeg" << "mpg" << "oga" << "ogg";
 const QStringList VIDEO_EXTENSIONS     = QStringList() << "m4v"   << "mp4"  << "mov" << "ogv"  << "webm" << "vtt" << "ttml";
-const QStringList IMAGE_MIMEYPES       = QStringList() << "image/gif" << "image/jpeg" << "image/png";
+const QStringList IMAGE_MIMEYPES       = QStringList() << "image/gif" << "image/jpeg" << "image/png" << "image/webp" << "image/tiff";
 const QStringList SVG_MIMETYPES        = QStringList() << "image/svg+xml";
 const QStringList TEXT_MIMETYPES       = QStringList() << "application/xhtml+xml" << "application/x-dtbook+xml";
 const QStringList STYLE_MIMETYPES      = QStringList() << "text/css";
@@ -149,6 +149,7 @@ void MediaTypes::SetExtToMTypeMap()
     m_ExtToMType[ "txt"   ] = "text/plain";
     m_ExtToMType[ "vtt"   ] = "text/vtt";
     m_ExtToMType[ "webm"  ] = "video/webm";
+    m_ExtToMType[ "webp"  ] = "image/webp";
     m_ExtToMType[ "woff"  ] = "application/font-woff";
     m_ExtToMType[ "woff2" ] = "font/woff2";
     m_ExtToMType[ "xhtml" ] = "application/xhtml+xml";
@@ -171,6 +172,7 @@ void MediaTypes::SetMTypeToGroupMap()
     m_MTypeToGroup[ "image/svg+xml"                           ] = "Images";
     m_MTypeToGroup[ "image/bmp"                               ] = "Images";
     m_MTypeToGroup[ "image/tiff"                              ] = "Images";
+    m_MTypeToGroup[ "image/webp"                              ] = "Images";
     m_MTypeToGroup[ "application/xhtml+xml"                   ] = "Text";
     m_MTypeToGroup[ "application/x-dtbook+xml"                ] = "Text";
     m_MTypeToGroup[ "application/x-font-ttf"                  ] = "Fonts";
@@ -221,6 +223,7 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "image/gif"                               ] = "ImageResource";
     m_MTypeToRDesc[ "image/bmp"                               ] = "ImageResource";
     m_MTypeToRDesc[ "image/tiff"                              ] = "ImageResource";
+    m_MTypeToRDesc[ "image/webp"                              ] = "ImageResource";
     m_MTypeToRDesc[ "image/svg+xml"                           ] = "SVGResource";
     m_MTypeToRDesc[ "application/x-font-ttf"                  ] = "FontResource";
     m_MTypeToRDesc[ "application/x-font-otf"                  ] = "FontResource";
