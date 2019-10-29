@@ -43,6 +43,8 @@
 #include <QDebug>
 
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
+
 #include "Dialogs/EmptyLayout.h"
 
 // ftypes and fmarks should be kept in sync
@@ -309,7 +311,27 @@ void EmptyLayout::saveData()
         return;
     }
     m_BookPaths = bookpaths;
+
+    // allow the user to set this layout as Sigil's default empty epub layout
+    bool make_default = QMessageBox::Yes == QMessageBox::warning(this, tr("Sigil"),
+				   tr("Do you want to set this layout as the default empty"
+				      "Epub layout for Sigil?\n\n"),
+				   QMessageBox::Yes|QMessageBox::No);
+
+    if (make_default) {
+        // create a sigil_empty_epub.ini file in Sigil Preferences folder
+        QString empty_epub_ini_path = Utility::DefinePrefsDir() + "/" + "sigil_empty_epub.ini";
+	SettingsStore ss(empty_epub_ini_path);
+	const QString SETTINGS_GROUP = "bookpaths";
+	const QString KEY_BOOKPATHS = SETTINGS_GROUP + "/" + "empty_epub_bookpaths";
+	while (!ss.group().isEmpty()) {
+	    ss.endGroup();
+	}
+	ss.setValue(KEY_BOOKPATHS, bookpaths);
+    }
+
     WriteSettings();
+
     // Windows has issues removing or deleting files while the file
     // watcher is running and QFileSystemModel made private disabling the watcher
     // So try manually removing the EpubRoot folder via the QFileSystemModel

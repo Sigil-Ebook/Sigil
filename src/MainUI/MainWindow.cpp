@@ -1213,65 +1213,10 @@ void MainWindow::CreateEpubLayout()
         return;
     }
  
-    // extract the information we need from the bookpaths
-    QString opfbookpath;
-    QString ncxbookpath;
-    QString navfile;
-    QString navdir;
-    QStringList textdirs;
-    QStringList mtypes;
-    foreach(QString bkpath, bookpaths) {
-        QString filename = bkpath.split("/").last();
-        QString extension = filename.split(".").last();
-        QString folder = Utility::startingDir(bkpath);
-	QString mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension);
-	mtypes << mt;
-	if (filename.endsWith(".opf")) opfbookpath = bkpath;
-	if (filename.endsWith(".ncx")) ncxbookpath = bkpath;
-	if (filename.endsWith(".xhtml")) {
-	    if (filename == "marker.xhtml") {
-	        textdirs << folder;
-	    } else {
-	        navdir = folder;
-		navfile = filename;
-	    }
-	}
-    }
-
     if (MaybeSaveDialogSaysProceed()) {
-        QSharedPointer<Book> new_book = QSharedPointer<Book>(new Book());
-
-        // immediately after creating a new book, you must
-        // add a proper OPF to it *before* doing anything else
-        new_book->GetFolderKeeper()->AddOPFToFolder(version, opfbookpath);
-
-        // Set Group Folders from bookpaths
-	new_book->GetFolderKeeper()->SetGroupFolders(bookpaths, mtypes);
-
-	// create a single text file in each location
-	foreach(QString textfolder, textdirs) {
-            new_book->CreateEmptyHTMLFile(textfolder);
-	}
-
-	// handle nav / ncx
-        if (version.startsWith('3')) {
-	    HTMLResource * nav_resource = new_book->CreateEmptyNavFile(true, navdir, navfile);
-            new_book->GetOPF()->SetNavResource(nav_resource);
-            new_book->GetOPF()->SetItemRefLinear(nav_resource, false);
-	    // ncx is optional in epub3
-	    if (!ncxbookpath.isEmpty()) {
-	        new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath);
-	    }
-	    
-        } else {
-	    new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath);
-        }
-        SetNewBook(new_book);
-        new_book->SetModified(false);
-        m_SaveACopyFilename = "";
-        UpdateUiWithCurrentFile("");
+        CreateNewBook(bookpaths);
     }
-    ShowMessageOnStatusBar(tr("Custom epub layout created."));
+    ShowMessageOnStatusBar(tr("New epub created."));
 }
 
 
@@ -4114,21 +4059,112 @@ void MainWindow::ResourcesAddedOrDeletedOrMoved()
 }
 
 
-void MainWindow::CreateNewBook()
+void MainWindow::CreateNewBook(const QStringList &book_paths)
 {
-    SettingsStore ss;
-    QString version = ss.defaultVersion();
+    QString version;
+    {
+        SettingsStore ss;
+        version = ss.defaultVersion();
+    }
+
+    QStringList bookpaths(book_paths);
+
+    if (bookpaths.isEmpty()) {
+        // Check to see if a default empty epub layout already exists
+        // and if so use that in place of the standard one
+        QString empty_epub_ini_path = Utility::DefinePrefsDir() + "/" + "sigil_empty_epub.ini";
+        if (QFile::exists(empty_epub_ini_path)) {
+            SettingsStore ss(empty_epub_ini_path);
+            const QString SETTINGS_GROUP = "bookpaths";
+	    const QString KEY_BOOKPATHS = SETTINGS_GROUP + "/" + "empty_epub_bookpaths";
+	    while (!ss.group().isEmpty()) {
+	        ss.endGroup();
+	    }
+            bookpaths = ss.value(KEY_BOOKPATHS,QStringList()).toStringList();
+        }
+    }
+
+    bool is_valid = false;
+
+    if (!bookpaths.isEmpty()) {
+
+        // Check if minimally valid
+        bool hasOPF = false;   bool hasNCX = false;
+        bool hasNAV = false;   bool hasTEXT = false;
+        bool hasSTYLE = false;
+        foreach(QString bkpath, bookpaths) {
+            if (bkpath.endsWith(".opf")) hasOPF = true;
+            if (bkpath.endsWith(".ncx")) hasNCX = true;
+            if (bkpath.endsWith("marker.css")) hasSTYLE = true;
+            if (bkpath.endsWith("marker.xhtml")) hasTEXT = true;
+	    if (bkpath.endsWith(".xhtml") && !bkpath.endsWith("marker.xhtml")) hasNAV = true;
+        }
+        if (version.startsWith('3')) {
+            is_valid = hasOPF && hasNAV && hasTEXT && hasSTYLE;
+        } else {
+            is_valid = hasOPF && hasNCX && hasTEXT;
+        }
+    }
+
+    if (bookpaths.isEmpty() || !is_valid) {
+        // these define the layout of a standard sigil epub
+        bookpaths.clear();
+        bookpaths << "OEBPS/content.opf"      << "OEBPS/Text/marker.xhtml" << "OEBPS/Styles/marker.css"
+                  << "OEBPS/Fonts/marker.otf" << "OEBPS/Images/marker.jpg" << "OEBPS/Audio/marker.mp3"
+                  << "OEBPS/Video/marker.mp4" << "OEBPS/Misc/marker.xml";
+	if (version.startsWith('2')) {
+	    bookpaths << "OEBPS/toc.ncx";
+	} else {
+            bookpaths << "OEBPS/Text/nav.xhtml" << "OEBPS/Misc/marker.js";
+	}
+    }
+
+    // extract the information we need from the bookpaths
+    QString opfbookpath;
+    QString ncxbookpath;
+    QString navfile;
+    QString navdir;
+    QStringList textdirs;
+    QStringList mtypes;
+    foreach(QString bkpath, bookpaths) {
+        QString filename = bkpath.split("/").last();
+        QString extension = filename.split(".").last();
+        QString folder = Utility::startingDir(bkpath);
+        QString mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension);
+        mtypes << mt;
+        if (filename.endsWith(".opf")) opfbookpath = bkpath;
+        if (filename.endsWith(".ncx")) ncxbookpath = bkpath;
+        if (filename.endsWith("marker.xhtml")) textdirs << folder;
+	if (filename.endsWith(".xhtml") && !filename.endsWith("marker.xhtml")) {
+	    navdir = folder;
+	    navfile = filename;
+        }
+    }
+
     QSharedPointer<Book> new_book = QSharedPointer<Book>(new Book());
     // immediately after creating a new book, you must
     // add a proper OPF to it *before* doing anything else
-    new_book->GetFolderKeeper()->AddOPFToFolder(version);
-    new_book->CreateEmptyHTMLFile();
+    new_book->GetFolderKeeper()->AddOPFToFolder(version, opfbookpath);
+
+    // Set Group Folders from bookpaths
+    new_book->GetFolderKeeper()->SetGroupFolders(bookpaths, mtypes);
+
+    // create a single text file in each location
+    foreach(QString textfolder, textdirs) {
+      new_book->CreateEmptyHTMLFile(textfolder);
+    }
+
+    // handle nav / ncx
     if (version.startsWith('3')) {
-        HTMLResource * nav_resource = new_book->CreateEmptyNavFile(true);
+        HTMLResource * nav_resource = new_book->CreateEmptyNavFile(true, navdir, navfile);
         new_book->GetOPF()->SetNavResource(nav_resource);
         new_book->GetOPF()->SetItemRefLinear(nav_resource, false);
+        // ncx is optional in epub3
+        if (!ncxbookpath.isEmpty()) {
+	    new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath);
+        }
     } else {
-        NCXResource * ncx_resource = new_book->GetFolderKeeper()->AddNCXToFolder(version);
+        new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath);
     }
     SetNewBook(new_book);
     new_book->SetModified(false);

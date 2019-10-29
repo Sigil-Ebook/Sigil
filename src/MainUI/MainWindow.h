@@ -680,7 +680,7 @@ private:
      * Creates a new, empty book and replaces
      * the current one with it.
      */
-    void CreateNewBook();
+    void CreateNewBook(const QStringList &book_paths=QStringList());
 
     /**
      * Saves the current book to the file specified.
