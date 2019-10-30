@@ -329,10 +329,9 @@ void PluginRunner::startPlugin()
         env.insert("PATH", QDir::toNativeSeparators(QCoreApplication::applicationDirPath() + PATH_LIST_DELIM + env.value("PATH")));
         // Set bundled Python environment.
         m_process.setProcessEnvironment(env);
-        // If launched by another program, the new working directory could mess with how the
-        // bundled interpreter finds/loads PyQt5. So set it manually to the bundled interpreter's directory.
-        m_process.setWorkingDirectory(QDir::toNativeSeparators(QFileInfo(m_enginePath).absolutePath()));
     }
+    //Whether bundled or external, set working dir to the directory of the interpreter being used.
+    m_process.setWorkingDirectory(QDir::toNativeSeparators(QFileInfo(m_enginePath).absolutePath()));
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     QString appdir = QCoreApplication::applicationDirPath();
     if (settings.useBundledInterp()) {  // Linux bundled Python settings
