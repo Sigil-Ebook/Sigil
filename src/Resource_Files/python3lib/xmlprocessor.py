@@ -329,7 +329,7 @@ def performSMILUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
     xml_empty_tags = ["text", "audio"]
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=xml_empty_tags)
     soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
-    for tag in soup.find_all(["body","seq","text","audio"]):
+    for tag in soup.find_all(["body","seq","text","audio","smil","par"]):
         for att in ["src", "epub:textref"]:
             if att in tag.attrs :
                 ref = tag[att]
