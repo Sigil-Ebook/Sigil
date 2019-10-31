@@ -314,7 +314,7 @@ void EmptyLayout::saveData()
 
     // allow the user to set this layout as Sigil's default empty epub layout
     bool make_default = QMessageBox::Yes == QMessageBox::warning(this, tr("Sigil"),
-				   tr("Do you want to set this layout as the default empty"
+				   tr("Do you want to set this layout as the default empty "
 				      "Epub layout for Sigil?\n\n"),
 				   QMessageBox::Yes|QMessageBox::No);
 
