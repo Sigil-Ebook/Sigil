@@ -48,12 +48,12 @@
 #include "Dialogs/EmptyLayout.h"
 
 // ftypes and fmarks should be kept in sync
-static const QStringList FTypes = QStringList() << QObject::tr("Xhtml files") << QObject::tr("Style files") 
-                                                << QObject::tr("Image files") << QObject::tr("Font files") 
-						<< QObject::tr("Audio files") << QObject::tr("Video files") 
-						<< QObject::tr("Javascript files") << QObject::tr("Misc files")
-                                                << QObject::tr("OPF file") << QObject::tr("NCX file") 
-                                                << QObject::tr("Nav file");
+static const QStringList FTypes = QStringList() << QT_TR_NOOP("Xhtml files") << QT_TR_NOOP("Style files") 
+                                                << QT_TR_NOOP("Image files") << QT_TR_NOOP("Font files") 
+						<< QT_TR_NOOP("Audio files") << QT_TR_NOOP("Video files") 
+						<< QT_TR_NOOP("Javascript files") << QT_TR_NOOP("Misc files")
+                                                << QT_TR_NOOP("OPF file") << QT_TR_NOOP("NCX file") 
+                                                << QT_TR_NOOP("Nav file");
 
 static const QStringList FMarks = QStringList() << "marker.xhtml" << "marker.css" 
 						<< "marker.jpg" << "marker.otf" << "marker.mp3" 
@@ -159,7 +159,7 @@ void EmptyLayout::setupMarkersMenu()
     foreach(QString filetype, FTypes) {
         QString mark = FMarks.at(i++);
 	if (!m_EpubVersion.startsWith("3") && ((mark == "marker.js") || (mark == "nav.xhtml"))) continue;
-        act = m_filemenu->addAction(filetype);
+        act = m_filemenu->addAction(tr(filetype));
         act->setData(mark);
     }
 }
