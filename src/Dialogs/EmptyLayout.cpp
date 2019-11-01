@@ -159,7 +159,7 @@ void EmptyLayout::setupMarkersMenu()
     foreach(QString filetype, FTypes) {
         QString mark = FMarks.at(i++);
 	if (!m_EpubVersion.startsWith("3") && ((mark == "marker.js") || (mark == "nav.xhtml"))) continue;
-        act = m_filemenu->addAction(tr(filetype.Utf8().constData()));
+        act = m_filemenu->addAction(tr(filetype.toUtf8().constData()));
         act->setData(mark);
     }
 }
