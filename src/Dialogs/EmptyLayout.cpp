@@ -48,12 +48,12 @@
 #include "Dialogs/EmptyLayout.h"
 
 // ftypes and fmarks should be kept in sync
-static const QStringList FTypes = QStringList() << QT_TR_NOOP("Xhtml files") << QT_TR_NOOP("Style files") 
-                                                << QT_TR_NOOP("Image files") << QT_TR_NOOP("Font files") 
-						<< QT_TR_NOOP("Audio files") << QT_TR_NOOP("Video files") 
-						<< QT_TR_NOOP("Javascript files") << QT_TR_NOOP("Misc files")
-                                                << QT_TR_NOOP("OPF file") << QT_TR_NOOP("NCX file") 
-                                                << QT_TR_NOOP("Nav file");
+static const QStringList FTypes = QStringList() << QT_TRANSLATE_NOOP("EmptyLayout", "Xhtml files") << QT_TRANSLATE_NOOP("EmptyLayout", "Style files") 
+                                                << QT_TRANSLATE_NOOP("EmptyLayout", "Image files") << QT_TRANSLATE_NOOP("EmptyLayout", "Font files") 
+						<< QT_TRANSLATE_NOOP("EmptyLayout", "Audio files") << QT_TRANSLATE_NOOP("EmptyLayout", "Video files") 
+						<< QT_TRANSLATE_NOOP("EmptyLayout", "Javascript files") << QT_TRANSLATE_NOOP("EmptyLayout", "Misc files")
+                                                << QT_TRANSLATE_NOOP("EmptyLayout", "OPF file") << QT_TRANSLATE_NOOP("EmptyLayout", "NCX file") 
+                                                << QT_TRANSLATE_NOOP("EmptyLayout", "Nav file");
 
 static const QStringList FMarks = QStringList() << "marker.xhtml" << "marker.css" 
 						<< "marker.jpg" << "marker.otf" << "marker.mp3" 
