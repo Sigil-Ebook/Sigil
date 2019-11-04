@@ -1672,6 +1672,61 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
+        <source>Xhtml files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
+        <source>Style files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="147"/>
+        <source>Image files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="147"/>
+        <source>Font files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="148"/>
+        <source>Audio files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="148"/>
+        <source>Video files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="149"/>
+        <source>Javascript files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="149"/>
+        <source>Misc files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="150"/>
+        <source>OPF file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="150"/>
+        <source>NCX file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="151"/>
+        <source>Nav file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="193"/>
         <source>Add a Folder</source>
         <translation type="unfinished"></translation>
@@ -1748,7 +1803,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="317"/>
-        <source>Do you want to set this layout as the default emptyEpub layout for Sigil?
+        <source>Do you want to set this layout as the default empty Epub layout for Sigil?
 
 </source>
         <translation type="unfinished"></translation>
@@ -13022,132 +13077,132 @@ Do you want to automatically mend the files before saving?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="396"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="395"/>
         <source>Status: running</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="413"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="412"/>
         <source>Launcher process crashed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="424"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
         <source>Status: finished</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="431"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="430"/>
         <source>Status: failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="437"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="446"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="436"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="445"/>
         <source>Status: No Changes Made</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="445"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="444"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="509"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="580"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="508"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
         <source>Status:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="536"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="535"/>
         <source>Plugin failed to start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="544"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="543"/>
         <source>Status: error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="558"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="557"/>
         <source>Plugin cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="559"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="558"/>
         <source>Status: cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="652"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="651"/>
         <source>Error Parsing Result XML:  </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="709"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="724"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="708"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="723"/>
         <source>Status: checking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="713"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="712"/>
         <source>Incorrect XHTML:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="713"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="712"/>
         <source>Line/Col</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="740"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="739"/>
         <source>Check Report</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="741"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="740"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="759"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="758"/>
         <source>Status: cleaning up - deleting files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="792"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="791"/>
         <source>Status: deleting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="831"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="830"/>
         <source>Status: Loading</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="842"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="841"/>
         <source>Input Plugin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="843"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="842"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="869"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="883"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="868"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="882"/>
         <source>Status: adding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="921"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="920"/>
         <source>Status: cleaning up - modifying files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="958"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="957"/>
         <source>Status: modifying</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13466,62 +13521,7 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="51"/>
-        <source>Xhtml files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="51"/>
-        <source>Style files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="52"/>
-        <source>Image files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="52"/>
-        <source>Font files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="53"/>
-        <source>Audio files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="53"/>
-        <source>Video files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="54"/>
-        <source>Javascript files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="54"/>
-        <source>Misc files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="55"/>
-        <source>OPF file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="55"/>
-        <source>NCX file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="56"/>
-        <source>Nav file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="100"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="88"/>
         <source>Custom Epub Layout Designer</source>
         <translation type="unfinished"></translation>
     </message>
