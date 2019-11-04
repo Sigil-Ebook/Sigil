@@ -31,7 +31,7 @@ NON_BREAKING_INLINE_TAGS = ("a","abbr","acronym","b","bdo","big","br",
     "ruby","rt","s","samp","select","small","span","strike","strong",
     "sub","sup","textarea","tt","u","var","wbr","mbp:nu")
 
-PRESERVE_WHITESPACE_TAGS = ("pre","textarea","script","style")
+PRESERVE_WHITESPACE_TAGS = ("code","pre","textarea","script","style")
 
 VOID_TAGS = ("area","base","basefont","bgsound","br","col","command",
     "embed","event-source","frame","hr","img","input","keygen",

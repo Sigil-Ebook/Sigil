@@ -44,7 +44,7 @@ static std::unordered_set<std::string> nonbreaking_inline  = {
 
 
 static std::unordered_set<std::string> preserve_whitespace = {
-  "pre","textarea","script","style"
+  "code", "pre","textarea","script","style"
 };
 
 
