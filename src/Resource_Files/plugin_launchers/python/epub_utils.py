@@ -89,33 +89,34 @@ def build_container_xml(bookpath_to_opf):
     return container
 
 
+# mangled_fonts is a list of the book paths to the font files to be mangled
 def build_adobe_encryption_xml(mangled_fonts):
     encryption = ''
     if mangled_fonts is not None and len(mangled_fonts) > 0:
         encryption = '<encryption xmlns="urn:oasis:names:tc:opendocument:xmlns:container" \
             xmlns:enc="http://www.w3.org/2001/04/xmlenc#" xmlns:deenc="http://ns.adobe.com/digitaleditions/enc">\n'
-        for fontfile in mangled_fonts:
+        for fontbkpath in mangled_fonts:
             encryption += '  <enc:EncryptedData>\n'
             encryption += '    <enc:EncryptionMethod Algorithm="http://ns.adobe.com/pdf/enc#RC"/>\n'
             encryption += '    <enc:CipherData>\n'
-            encryption += '      <enc:CipherReference URI="OEBPS/Fonts/' + fontfile + '"/>\n'
+            encryption += '      <enc:CipherReference URI="' + fontbkpath + '"/>\n'
             encryption += '    </enc:CipherData>\n'
             encryption += '  </enc:EncryptedData>\n'
         encryption += '</encryption>\n'
     return encryption
 
 
-# mangeled_fonts is a simple list of Font file names (no href or path needed)
+# mangeled_fonts is a list of book paths to the font files to be mangled
 def build_idpf_encryption_xml(mangled_fonts):
     encryption = ''
     if mangled_fonts is not None and len(mangled_fonts) > 0:
         encryption = '<encryption xmlns="urn:oasis:names:tc:opendocument:xmlns:container" \
             xmlns:enc="http://www.w3.org/2001/04/xmlenc#">\n'
-        for fontfile in mangled_fonts:
+        for fontbkpath in mangled_fonts:
             encryption += '  <enc:EncryptedData>\n'
             encryption += '    <enc:EncryptionMethod Algorithm="http://www.idpf.org/2008/embedding"/>\n'
             encryption += '    <enc:CipherData>\n'
-            encryption += '      <enc:CipherReference URI="OEBPS/Fonts/' + fontfile + '"/>\n'
+            encryption += '      <enc:CipherReference URI="' + fontbkpath + '"/>\n'
             encryption += '    </enc:CipherData>\n'
             encryption += '  </enc:EncryptedData>\n'
         encryption += '</encryption>\n'
