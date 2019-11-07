@@ -41,7 +41,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20190927
+_launcher_version=20191108
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 

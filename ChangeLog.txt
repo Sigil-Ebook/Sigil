@@ -1,3 +1,24 @@
+Sigil-0.9.991 (pre1.0 Alpha Release)
+    Bug Fixes:
+      - handle javascript location.href style in Preview 
+      - use CaseInsensitive sort in Plugins menu (Thank you BeckDTP)
+      - use Locale aware sort routines for AddMetadata, and MetaData Names (Thankyou Doitsu)
+      - recognize x-font-otf style media types
+      - recognize vnd.adobe.page-template+xml media type
+      - recognize webp images media type
+      - improve updating of smil xml files when moved
+      - preserve whitespace inside the code element when prettifying
+      - try again to prevent timer events during MainWindow close that causes random crashes on exit on macOS
+      - fix svg cover images to use 100vh and 100vx in Preview
+
+    New Features:
+      - completely reworked most of Sigil's internals to now load all Epubs in their "as-is" state 
+           and fully allow editing and plugins to work
+      - added Tools menu item to standardize an epub to Sigil norm.
+      - added Tools menu item to allow user to design a custom empty epub and make it default
+      - added font tooltips that describe each font by mousing over in BookBrowser (with improvements by BeckyDTP)
+
+
 Sigil-0.9.18
     Bug Fixes:
      - fix bug in macOS that caused spurious warnings about missing file in the manifest
