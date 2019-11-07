@@ -89,7 +89,7 @@ def build_container_xml(bookpath_to_opf):
     return container
 
 
-# mangled_fonts is a list of the book paths to the font files to be mangled
+# mangled_fonts is a list of the book paths to the font files to be (de)mangled
 def build_adobe_encryption_xml(mangled_fonts):
     encryption = ''
     if mangled_fonts is not None and len(mangled_fonts) > 0:
@@ -106,7 +106,7 @@ def build_adobe_encryption_xml(mangled_fonts):
     return encryption
 
 
-# mangeled_fonts is a list of book paths to the font files to be mangled
+# mangled_fonts is a list of book paths to the font files to be (de)mangled
 def build_idpf_encryption_xml(mangled_fonts):
     encryption = ''
     if mangled_fonts is not None and len(mangled_fonts) > 0:
@@ -123,7 +123,6 @@ def build_idpf_encryption_xml(mangled_fonts):
     return encryption
 
 
-# mangeled_fonts is a simple list of Font file names (no href or path needed)
 def Adobe_encryption_key(uid):
     # strip it down to simple valid hex characters
     # being careful to generate a string of 16 bytes in length
