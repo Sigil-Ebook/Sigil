@@ -43,7 +43,9 @@
 #include "Misc/MediaTypes.h"
 
 
-const QStringList groupA = QStringList() << "Text"<<"Styles"<<"Images"<<"Audio"<<"Fonts"<<"Video"<<"Misc";
+static const QStringList groupA = QStringList() << "Text"<<"Styles"<<"Images"<<"Fonts"<<"Audio"<<"Video"<<"Misc" << "opf" << "ncx";
+
+static const QStringList groupB = QStringList() << "Text"<<"Styles"<<"Images"<<"Fonts"<<"Audio"<<"Video"<<"Misc";
 
 
 // Exception for non-standard Apple files in META-INF.
@@ -775,7 +777,7 @@ void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringLi
         QList<int> countlst = group_count[group];
         QStringList sortedlst = Utility::sortByCounts(folderlst, countlst);
         group_folder[group] = sortedlst;
-        if (groupA.contains(group)) {
+        if (groupB.contains(group)) {
             QString afolder = sortedlst.at(0);
             if (afolder.indexOf(group.toLower()) > -1) use_lower_case = true;
         }

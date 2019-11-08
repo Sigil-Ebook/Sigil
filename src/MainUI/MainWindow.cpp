@@ -1637,11 +1637,7 @@ void MainWindow::GenerateNCXGuideFromNav()
         doctitle = mvalues.at(0).toString();
     } 
     QString mainid = m_Book->GetConstOPF()->GetMainIdentifierValue();
-
-    // figure out book path to the folder that *will* contain the ncx
-    QString mainfolder = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
     QString ncxdir = m_Book->GetFolderKeeper()->GetDefaultFolderForGroup("ncx");
-    ncxdir = ncxdir.right(ncxdir.length() - mainfolder.length() - 1);
 
     // Now build the ncx in python in a separate thread since may be an long job
     PythonRoutines pr;
@@ -4111,10 +4107,8 @@ void MainWindow::CreateNewBook(const QStringList &book_paths)
         bookpaths.clear();
         bookpaths << "OEBPS/content.opf"      << "OEBPS/Text/marker.xhtml" << "OEBPS/Styles/marker.css"
                   << "OEBPS/Fonts/marker.otf" << "OEBPS/Images/marker.jpg" << "OEBPS/Audio/marker.mp3"
-                  << "OEBPS/Video/marker.mp4" << "OEBPS/Misc/marker.xml";
-	if (version.startsWith('2')) {
-	    bookpaths << "OEBPS/toc.ncx";
-	} else {
+                  << "OEBPS/Video/marker.mp4" << "OEBPS/Misc/marker.xml" << "OEBPS/toc.ncx";
+	if (version.startsWith('3')) {
             bookpaths << "OEBPS/Text/nav.xhtml" << "OEBPS/Misc/marker.js";
 	}
     }
@@ -4159,10 +4153,7 @@ void MainWindow::CreateNewBook(const QStringList &book_paths)
         HTMLResource * nav_resource = new_book->CreateEmptyNavFile(true, navdir, navfile);
         new_book->GetOPF()->SetNavResource(nav_resource);
         new_book->GetOPF()->SetItemRefLinear(nav_resource, false);
-        // ncx is optional in epub3
-        if (!ncxbookpath.isEmpty()) {
-	    new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath);
-        }
+        // ncx is optional in epub3 so wait until user asks for it to be generated before creating it
     } else {
         new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath);
     }

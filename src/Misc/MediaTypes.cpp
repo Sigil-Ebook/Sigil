@@ -153,7 +153,7 @@ void MediaTypes::SetExtToMTypeMap()
     m_ExtToMType[ "woff"  ] = "application/font-woff";
     m_ExtToMType[ "woff2" ] = "font/woff2";
     m_ExtToMType[ "xhtml" ] = "application/xhtml+xml";
-    m_ExtToMType[ "xml"   ] = "";
+    m_ExtToMType[ "xml"   ] = "application/oebps-page-map+xml";
     m_ExtToMType[ "xpgt"  ] = "application/adobe-page-template+xml";
     // m_ExtToMType[ "js"   ] = "text/javascript";
     // m_ExtToMType[ "otf"  ] = "application/x-font-opentype";
@@ -243,7 +243,7 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "video/webm"                              ] = "VideoResource";
     m_MTypeToRDesc[ "text/vtt"                                ] = "VideoResource";
     m_MTypeToRDesc[ "application/ttml+xml"                    ] = "VideoResource";
-    m_MTypeToRDesc[ "application/oebs-page-map+xml"           ] = "XMLResource";
+    m_MTypeToRDesc[ "application/oebps-page-map+xml"          ] = "XMLResource";
     m_MTypeToRDesc[ "application/smil+xml"                    ] = "XMLResource";
     m_MTypeToRDesc[ "application/adobe-page-template+xml"     ] = "XMLResource";
     m_MTypeToRDesc[ "application/vnd.adobe-page-template+xml" ] = "XMLResource";
