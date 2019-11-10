@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 Kevin B. Hendricks, John Schember
+**  Copyright (C) 2015-2019 Kevin B. Hendricks
+**  Copyright (C) 2015      John Schember
 **
 **  This file is part of Sigil.
 **
@@ -32,11 +33,11 @@ PackageEntry::PackageEntry(const QString& version, const QString& uniqueid,
     : m_version(version), m_uniqueid(uniqueid)
 {
     int n = keylist.size();
-	if (n == vallist.size()) {
+    if (n == vallist.size()) {
         for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
         }
-	}
+    }
 }
 
 PackageEntry::PackageEntry(const QVariant& qv)
@@ -80,11 +81,11 @@ QString PackageEntry::convert_to_xml() const
 MetaNSEntry::MetaNSEntry(const QStringList& keylist, const QStringList& vallist) 
 {
     int n = keylist.size();
-	if (n == vallist.size()) {
-		for (int i=0; i < n; i++) {
+    if (n == vallist.size()) {
+	for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
-		}
 	}
+    }
 }
 
 MetaNSEntry::MetaNSEntry(const QVariant& qv)
@@ -126,11 +127,11 @@ MetaEntry::MetaEntry(const QString& name, const QString& content,
     : m_name(name), m_content(content)
 {
     int n = keylist.size();
-	if (n == vallist.size()) {
-		for (int i=0; i < n; i++) {
+    if (n == vallist.size()) {
+        for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
-		}
 	}
+    }
 }
 
 MetaEntry::MetaEntry(const QVariant& qv)
@@ -179,11 +180,11 @@ ManifestEntry::ManifestEntry(const QString& id, const QString& href, const QStri
 : m_id(id), m_href(href), m_mtype(mtype)
 {
     int n = keylist.size();
-	if (n == vallist.size()) {
-		for (int i=0; i < n; i++) {
+    if (n == vallist.size()) {
+	for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
-		}
 	}
+    }
 }
 
 ManifestEntry::ManifestEntry(const QVariant& qv)
@@ -228,11 +229,11 @@ QString ManifestEntry::convert_to_xml() const
 SpineAttrEntry::SpineAttrEntry(const QStringList& keylist, const QStringList& vallist) 
 {
     int n = keylist.size();
-	if (n == vallist.size()) {
-		for (int i=0; i < n; i++) {
+    if (n == vallist.size()) {
+	for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
-		}
 	}
+    }
 }
 
 SpineAttrEntry::SpineAttrEntry(const QVariant& qv)
@@ -273,11 +274,11 @@ SpineEntry::SpineEntry(const QString& idref, const QStringList& keylist, const Q
 : m_idref(idref)
 {
     int n = keylist.size();
-	if (n == vallist.size()) {
-		for (int i=0; i < n; i++) {
+    if (n == vallist.size()) {
+	for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
-		}
 	}
+    }
 }
 
 SpineEntry::SpineEntry(const QVariant& qv)
@@ -364,122 +365,122 @@ BindingsEntry::BindingsEntry(const QVariant& qv)
 
 QString BindingsEntry::convert_to_xml() const
 {
-  QStringList xmlres;
-  xmlres << "    <mediaType  media-type=\"" + m_mtype + "\"";
-  xmlres << " handler=\"" + m_handler + "\"";
-  xmlres << "/>\n";
-  return xmlres.join(QString(""));
+    QStringList xmlres;
+    xmlres << "    <mediaType  media-type=\"" + m_mtype + "\"";
+    xmlres << " handler=\"" + m_handler + "\"";
+    xmlres << "/>\n";
+    return xmlres.join(QString(""));
 }
 
 
 void OPFParser::parse(const QString& source)
 {
-  int rv = 0;
-  QString traceback;
+    int rv = 0;
+    QString traceback;
 
-  QList<QVariant> args;
-  args.append(QVariant(source));
-  EmbeddedPython* epp = EmbeddedPython::instance();
-  QVariant res = epp->runInPython( QString("opf_newparser"), QString("parseopf"), args, &rv, traceback, true);
-  if (rv) fprintf(stderr, "setext parseropf error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    QList<QVariant> args;
+    args.append(QVariant(source));
+    EmbeddedPython* epp = EmbeddedPython::instance();
+    QVariant res = epp->runInPython( QString("opf_newparser"), QString("parseopf"), args, &rv, traceback, true);
+    if (rv) fprintf(stderr, "setext parseropf error %d traceback %s\n",rv, traceback.toStdString().c_str());
 
-  PyObjectPtr mpo = PyObjectPtr(res);
+    PyObjectPtr mpo = PyObjectPtr(res);
 
-  args.clear();
-  res = epp->callPyObjMethod(mpo, QString("get_package"), args, &rv, traceback);
-  if (rv) fprintf(stderr, "setext package error %d traceback %s\n",rv, traceback.toStdString().c_str());
-  m_package = PackageEntry(res);
+    args.clear();
+    res = epp->callPyObjMethod(mpo, QString("get_package"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext package error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_package = PackageEntry(res);
 
-  res = epp->callPyObjMethod(mpo, QString("get_metadata_attr"), args, &rv, traceback);
-  if (rv) fprintf(stderr, "setext meta_attr error %d traceback %s\n",rv, traceback.toStdString().c_str());
-  m_metans = MetaNSEntry(res);
+    res = epp->callPyObjMethod(mpo, QString("get_metadata_attr"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext meta_attr error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_metans = MetaNSEntry(res);
 
-  res = epp->callPyObjMethod(mpo, QString("get_metadata"), args, &rv, traceback);
-  if (rv) fprintf(stderr, "setext metadata error %d traceback %s\n",rv, traceback.toStdString().c_str());
-  m_metadata.clear();
-  QList<QVariant> lst = res.toList();
-  foreach(QVariant qv, lst) {
-    m_metadata.append(MetaEntry(qv));
-  }
+    res = epp->callPyObjMethod(mpo, QString("get_metadata"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext metadata error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_metadata.clear();
+    QList<QVariant> lst = res.toList();
+    foreach(QVariant qv, lst) {
+        m_metadata.append(MetaEntry(qv));
+    }
 
-  m_idpos.clear();
-  m_hrefpos.clear();
+    m_idpos.clear();
+    m_hrefpos.clear();
 
-  res = epp->callPyObjMethod(mpo, QString("get_manifest"), args, &rv, traceback);
-  if (rv) fprintf(stderr, "setext manifest error %d traceback %s\n",rv, traceback.toStdString().c_str());
-  m_manifest.clear();
-  lst = res.toList();
-  for (int i = 0; i < lst.count(); i++) {
-    ManifestEntry me = ManifestEntry(lst.at(i));
-    m_idpos[me.m_id] = i;
-    m_hrefpos[me.m_href] = i;
-    m_manifest.append(me);
-  }
+    res = epp->callPyObjMethod(mpo, QString("get_manifest"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext manifest error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_manifest.clear();
+    lst = res.toList();
+    for (int i = 0; i < lst.count(); i++) {
+        ManifestEntry me = ManifestEntry(lst.at(i));
+        m_idpos[me.m_id] = i;
+        m_hrefpos[me.m_href] = i;
+        m_manifest.append(me);
+    }
 
-  res = epp->callPyObjMethod(mpo, QString("get_spine_attr"), args, &rv, traceback);
-  if (rv) fprintf(stderr, "setext spineattr error %d traceback %s\n",rv, traceback.toStdString().c_str());
-  m_spineattr = SpineAttrEntry(res);
+    res = epp->callPyObjMethod(mpo, QString("get_spine_attr"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext spineattr error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_spineattr = SpineAttrEntry(res);
 
-  res = epp->callPyObjMethod(mpo, QString("get_spine"), args, &rv, traceback);
-  if (rv) fprintf(stderr, "setext spine error %d traceback %s\n",rv, traceback.toStdString().c_str());
-  m_spine.clear();
-  lst = res.toList();
-  foreach(QVariant qv, lst) {
-    m_spine.append(SpineEntry(qv));
-  }
+    res = epp->callPyObjMethod(mpo, QString("get_spine"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext spine error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_spine.clear();
+    lst = res.toList();
+    foreach(QVariant qv, lst) {
+        m_spine.append(SpineEntry(qv));
+    }
 
-  res = epp->callPyObjMethod(mpo, QString("get_guide"), args, &rv, traceback);
-  if (rv) fprintf(stderr, "setext guide error %d traceback %s\n",rv, traceback.toStdString().c_str());
-  m_guide.clear();
-  lst = res.toList();
-  foreach(QVariant qv, lst) {
-    m_guide.append(GuideEntry(qv));
-  }
+    res = epp->callPyObjMethod(mpo, QString("get_guide"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext guide error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_guide.clear();
+    lst = res.toList();
+    foreach(QVariant qv, lst) {
+        m_guide.append(GuideEntry(qv));
+    }
 
-  res = epp->callPyObjMethod(mpo, QString("get_bindings"), args, &rv, traceback);
-  if (rv) fprintf(stderr, "setext bindings error %d traceback %s\n",rv, traceback.toStdString().c_str());
-  m_bindings.clear();
-  lst = res.toList();
-  foreach(QVariant qv, lst) {
-    m_bindings.append(BindingsEntry(qv));
-  }
+    res = epp->callPyObjMethod(mpo, QString("get_bindings"), args, &rv, traceback);
+    if (rv) fprintf(stderr, "setext bindings error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    m_bindings.clear();
+    lst = res.toList();
+    foreach(QVariant qv, lst) {
+        m_bindings.append(BindingsEntry(qv));
+    }
 }
 
 
 QString OPFParser::convert_to_xml() const
 {
-  QStringList xmlres;
-  xmlres <<  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-  xmlres << m_package.convert_to_xml();
-  xmlres << m_metans.convert_to_xml();
-  foreach (MetaEntry me, m_metadata) {
-    xmlres << me.convert_to_xml();
-  }
-  xmlres << "  </metadata>\n";
-  xmlres << "  <manifest>\n";
-  foreach (ManifestEntry me, m_manifest) {
-    xmlres << me.convert_to_xml();
-  }
-  xmlres << "  </manifest>\n";
-  xmlres << m_spineattr.convert_to_xml();
-  foreach(SpineEntry sp, m_spine) {
-    xmlres << sp.convert_to_xml();
-  }
-  xmlres << "  </spine>\n";
-  if (m_guide.size() > 0) {
-    xmlres << "  <guide>\n";
-    foreach(GuideEntry ge, m_guide) {
-      xmlres << ge.convert_to_xml();
+    QStringList xmlres;
+    xmlres <<  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+    xmlres << m_package.convert_to_xml();
+    xmlres << m_metans.convert_to_xml();
+    foreach (MetaEntry me, m_metadata) {
+        xmlres << me.convert_to_xml();
     }
-    xmlres << "  </guide>\n";
-  }
-  if ((m_bindings.size() > 0) && (!m_package.m_version.startsWith("2"))) {
-    xmlres << "  <bindings>\n";
-    foreach(BindingsEntry be, m_bindings) {
-      xmlres << be.convert_to_xml();
+    xmlres << "  </metadata>\n";
+    xmlres << "  <manifest>\n";
+    foreach (ManifestEntry me, m_manifest) {
+        xmlres << me.convert_to_xml();
     }
-    xmlres << "  </bindings>\n";
-  }
-  xmlres << "</package>\n";
-  return xmlres.join("");
+    xmlres << "  </manifest>\n";
+    xmlres << m_spineattr.convert_to_xml();
+    foreach(SpineEntry sp, m_spine) {
+        xmlres << sp.convert_to_xml();
+    }
+    xmlres << "  </spine>\n";
+    if (m_guide.size() > 0) {
+        xmlres << "  <guide>\n";
+        foreach(GuideEntry ge, m_guide) {
+            xmlres << ge.convert_to_xml();
+        }
+        xmlres << "  </guide>\n";
+    }
+    if ((m_bindings.size() > 0) && (!m_package.m_version.startsWith("2"))) {
+        xmlres << "  <bindings>\n";
+        foreach(BindingsEntry be, m_bindings) {
+            xmlres << be.convert_to_xml();
+        }
+        xmlres << "  </bindings>\n";
+    }
+    xmlres << "</package>\n";
+    return xmlres.join("");
 }

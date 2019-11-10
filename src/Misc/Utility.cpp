@@ -559,6 +559,12 @@ QString Utility::URLEncodePath(const QString &path)
         scheme = scheme + "://";
         newpath.remove(0, scheme.length());
     }
+
+    // some very poorly written software uses xml escaping of the 
+    // "&" instead of url encoding when building hrefs
+    // So run xmldecode first to convert them to normal characters before 
+    // url encoding them
+    newpath = DecodeXML(newpath);
     QByteArray encoded_url = QUrl::toPercentEncoding(newpath, QByteArray("/#"));
     return scheme + QString::fromUtf8(encoded_url.constData(), encoded_url.count());
 }
@@ -566,7 +572,13 @@ QString Utility::URLEncodePath(const QString &path)
 
 QString Utility::URLDecodePath(const QString &path)
 {
-    return QUrl::fromPercentEncoding(path.toUtf8());
+    QString apath(path);
+    // some very poorly written software uses xml-escape on hrefs
+    // instead of properly url encoding them, so look for the
+    // the "&" character which should *not* exist if properly
+    // url encoded and if found try to xml decode them first
+    apath = DecodeXML(apath);
+    return QUrl::fromPercentEncoding(apath.toUtf8());
 }
 
 

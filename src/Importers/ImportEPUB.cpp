@@ -724,7 +724,9 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     QString type = opf_reader->attributes().value("", "media-type").toString();
     QString properties = opf_reader->attributes().value("", "properties").toString();
     // Paths are percent encoded in the OPF, we use "normal" paths internally.
+    qDebug() << "raw href is: " << href;
     href = Utility::URLDecodePath(href);
+    qDebug() << "fix href is: " << href;
     QString extension = QFileInfo(href).suffix().toLower();
 
     // find the epub root relative file path from the opf location and the item href
