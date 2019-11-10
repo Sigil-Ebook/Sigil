@@ -268,8 +268,10 @@ class Opf_Parser(object):
                 dirlst.append(folders[0])
 
         # now back fill any missing values
-        # commonbase will end with a / if it exists
+        # commonbase will end with a /
         commonbase = longestCommonPath(dirlst)
+        if commonbase == "/":
+            commonbase = ""
         for group in ["Styles", "Images", "Audio", "Fonts", "Video", "Misc"]:
             folders = self.group_folder.get(group,[])
             gname = group
