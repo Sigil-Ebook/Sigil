@@ -375,7 +375,11 @@ NCXResource *FolderKeeper::GetNCX() const
 
 OPFResource*FolderKeeper::AddOPFToFolder(const QString &version, const QString &bookpath)
 {
-    QString OPFBookPath = "OEBPS/content.opf";
+    QString opfdir = GetDefaultFolderForGroup("opf");
+    QString OPFBookPath = "content.opf";
+    if (!opfdir.isEmpty()) {
+        OPFBookPath = opfdir + "/" + "content.opf";
+    }
     if (!bookpath.isEmpty()) {
         OPFBookPath = bookpath;
     }
@@ -416,7 +420,11 @@ void FolderKeeper::UpdateContainerXML(const QString& FullPathToMainFolder, const
 
 NCXResource*FolderKeeper::AddNCXToFolder(const QString & version, const QString &bookpath)
 {
-    QString NCXBookPath = "OEBPS/toc.ncx";
+    QString ncxdir = GetDefaultFolderForGroup("ncx");
+    QString NCXBookPath = "toc.ncx";
+    if (!ncxdir.isEmpty()) {
+        NCXBookPath = ncxdir + "/" + "toc.ncx";
+    }
     if (!bookpath.isEmpty()) {
         NCXBookPath = bookpath;
     }
