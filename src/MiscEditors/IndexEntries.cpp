@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -53,11 +54,11 @@ QStandardItem *IndexEntries::GetRootItem()
     return m_BookIndexRootItem;
 }
 
-void IndexEntries::AddOneEntry(QString text, QString filename, QString index_id_value)
+void IndexEntries::AddOneEntry(QString text, QString bookpath, QString index_id_value)
 {
     QStandardItem *parent_item = m_BookIndexRootItem;
     QStringList names = text.split("/", QString::SkipEmptyParts);
-    names.append(filename % "#" % index_id_value);
+    names.append(bookpath % "#" % index_id_value);
     // Add names in heirachary
     foreach(QString name, names) {
         bool found = false;
@@ -70,7 +71,7 @@ void IndexEntries::AddOneEntry(QString text, QString filename, QString index_id_
                 break;
             }
             // If not already in tree, add the entry in sorted order
-            // Only sort categories - leave filename#id (last child) in order found
+            // Only sort categories - leave bookpath#id (last child) in order found
             else if (parent_item->child(0, 0)->rowCount() && (name.toLower().localeAwareCompare(parent_item->child(r, 0)->text().toLower()) < 0)) {
                 insert_at_row = r ;
                 break;

@@ -31,7 +31,7 @@
 class IndexHTMLWriter
 {
 public:
-    IndexHTMLWriter();
+    IndexHTMLWriter(const QString &index_bookpath, const QString &css_bookpath);
 
     QString WriteXML(const QString &version);
 
@@ -39,6 +39,9 @@ private:
     void WriteEntries(QStandardItem *parent_item = NULL);
 
     QString m_IndexHTMLFile;
+
+    QString m_IndexBookPath;
+    QString m_CSSBookPath;
 };
 
 #endif // INDEXWRITER_H

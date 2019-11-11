@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -40,7 +41,7 @@ public:
 
     QStandardItem  *GetRootItem();
 
-    void AddOneEntry(QString text, QString filename, QString index_id_value);
+    void AddOneEntry(QString text, QString bookpath, QString index_id_value);
 
 private:
     IndexEntries();

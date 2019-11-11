@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2012      Dave Heiland
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -20,6 +21,7 @@
 **
 *************************************************************************/
 
+#include "Misc/Utility.h"
 #include "MiscEditors/IndexHTMLWriter.h"
 #include "MiscEditors/IndexEntries.h"
 #include "sigil_constants.h"
@@ -34,7 +36,7 @@ static const QString TEMPLATE_BEGIN_TEXT =
     "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
     "<head>\n"
     "<title>Index</title>\n"
-    "<link href=\"../Styles/" % SGC_INDEX_CSS_FILENAME % "\" rel=\"stylesheet\" type=\"text/css\" />\n"
+    "<link href=\"%1\" rel=\"stylesheet\" type=\"text/css\" />\n"
     "</head>\n"
     "<body>\n";
 
@@ -44,7 +46,7 @@ static const QString TEMPLATE3_BEGIN_TEXT =
     "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:epub=\"http://www.idpf.org/2007/ops\">\n"
     "<head>\n"
     "<title>Index</title>\n"
-    "<link href=\"../Styles/" % SGC_INDEX_CSS_FILENAME % "\" rel=\"stylesheet\" type=\"text/css\" />\n"
+    "<link href=\"%1\" rel=\"stylesheet\" type=\"text/css\" />\n"
     "</head>\n"
     "<body>\n";
 
@@ -53,18 +55,21 @@ static const QString TEMPLATE_END_TEXT =
     "</html>\n";
 
 
-IndexHTMLWriter::IndexHTMLWriter()
+IndexHTMLWriter::IndexHTMLWriter(const QString &index_bookpath, const QString &css_bookpath)
     :
-    m_IndexHTMLFile(QString())
+    m_IndexHTMLFile(QString()),
+    m_IndexBookPath(index_bookpath),
+    m_CSSBookPath(css_bookpath)
 {
 }
 
 QString IndexHTMLWriter::WriteXML(const QString &version)
 {
+    QString stylehref = Utility::URLEncodePath(Utility::buildRelativePath(m_IndexBookPath, m_CSSBookPath));
     if (version.startsWith('2')) {
-        m_IndexHTMLFile += TEMPLATE_BEGIN_TEXT;
+        m_IndexHTMLFile += TEMPLATE_BEGIN_TEXT.arg(stylehref);
     } else {
-        m_IndexHTMLFile += TEMPLATE3_BEGIN_TEXT;
+        m_IndexHTMLFile += TEMPLATE3_BEGIN_TEXT.arg(stylehref);
     }
     m_IndexHTMLFile += "<div class=\"sgc-index-title\">";
     m_IndexHTMLFile += QObject::tr("Index");
@@ -121,13 +126,17 @@ void IndexHTMLWriter::WriteEntries(QStandardItem *parent_item)
         for (int j = 0; j < item->rowCount(); j++) {
             // If the entry has no children then its a target id.
             if (item->child(j, 0)->rowCount() == 0) {
-                QString target = "../Text/" % item->child(j, 0)->text();
+		QString target = item->child(j,0)->text();
+	        std::pair<QString,QString> parts = Utility::parseHREF(target);
+                QString fragment = parts.second;
+                target = Utility::buildRelativePath(m_IndexBookPath, parts.first);
+		if (!fragment.isEmpty()) target = target + fragment;
+		target = Utility::URLEncodePath(target);
                 if (ref_count > 1) {
                     m_IndexHTMLFile += ", ";
                 }
                 m_IndexHTMLFile += "<a href=\"" % target % "\">" % QString::number(ref_count) % "</a>";
                 ref_count++;
-
             }
         }
 

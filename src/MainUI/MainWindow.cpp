@@ -1705,23 +1705,34 @@ void MainWindow::CreateIndex()
     SaveTabData();
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    // If Index CSS file does not exist create one.
+    // First handle the css file for the index
     bool found_css = false;
-    foreach(Resource *resource, m_BookBrowser->AllCSSResources()) {
+    Resource * styleresource = NULL;
+
+    QList<Resource*> style_resources = m_Book->GetFolderKeeper()->GetResourceTypeAsGenericList<CSSResource>(false);
+    foreach(Resource *resource, style_resources) {
         if (resource->Filename() == SGC_INDEX_CSS_FILENAME) {
+            styleresource = resource;
             found_css = true;
+            break;
         }
     }
-
-    // If Index CSS file does not exist look for a default file
+    // If CSS file does not exist look for a default file
     // in preferences directory and if none create one.
     if (!found_css) {
+        TempFolder tempfolder;
         QString css_path = Utility::DefinePrefsDir() + "/" + SGC_INDEX_CSS_FILENAME;
-        if (QFile::exists(css_path)) {
-            m_BookBrowser->AddFile(css_path);
-        } else {
-            m_BookBrowser->CreateIndexCSSFile();
+        if (!QFile::exists(css_path)) {
+            css_path = tempfolder.GetPath() + "/" + SGC_INDEX_CSS_FILENAME;
+	    Utility::WriteUnicodeTextFile(SGC_INDEX_CSS_FILENAME, css_path);
         }
+        styleresource = m_Book->GetFolderKeeper()->AddContentFileToFolder(css_path,
+                                                                          true,
+                                                                          "text/css");
+        CSSResource *css_resource = qobject_cast<CSSResource *> (styleresource);
+        // Need to make sure InitialLoad is done in newly added css resource object to prevent
+        // blank css issues after a save to disk
+        if (css_resource) css_resource->InitialLoad();
     }
 
     // get semantic (guide/landmark) information for all resources
@@ -1742,6 +1753,7 @@ void MainWindow::CreateIndex()
                     "text" << "volume"; 
 
     HTMLResource *index_resource = NULL;
+
     QList<HTMLResource *> html_resources;
 
     // Turn the list of Resources that are really HTMLResources to a real list
@@ -1779,8 +1791,6 @@ void MainWindow::CreateIndex()
     if (index_resource == NULL) {
         index_resource = m_Book->CreateEmptyHTMLFile();
         index_resource->RenameTo(HTML_INDEX_FILE);
-        // html_resources.append(index_resource);
-        // OPF Already Updated // m_Book->GetOPF()->UpdateSpineOrder(html_resources);
     }
 
     // Make sure you not indexing the index page itself
@@ -1797,8 +1807,12 @@ void MainWindow::CreateIndex()
         return;
     }
 
+    // Collect the information to fill int the appropriate templates
+    QString indexbookpath = index_resource->GetRelativePath();
+    QString stylebookpath = styleresource->GetRelativePath();
+
     // Write out the HTML index file.
-    IndexHTMLWriter index;
+    IndexHTMLWriter index(indexbookpath, stylebookpath);
     index_resource->SetText(index.WriteXML(version));
 
     // Normally Setting a semantic on a resource that already has it set will remove the semantic.

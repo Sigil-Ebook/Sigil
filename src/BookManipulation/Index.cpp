@@ -161,13 +161,13 @@ bool Index::CreateIndexEntry(const QString text, HTMLResource *html_resource, QS
             QString index_entry = entry->index_entry;
             if (index_entry.isEmpty()) {
                 // If no index text, use the pattern
-                IndexEntries::instance()->AddOneEntry(index_pattern, html_resource->ShortPathName(), index_id_value);
+	        IndexEntries::instance()->AddOneEntry(index_pattern, html_resource->GetRelativePath(), index_id_value);
             } else if (entry->index_entry.endsWith("/")) {
                 // If index text is a category then append the pattern
-                IndexEntries::instance()->AddOneEntry(index_entry + index_pattern, html_resource->ShortPathName(), index_id_value);
+	        IndexEntries::instance()->AddOneEntry(index_entry + index_pattern, html_resource->GetRelativePath(), index_id_value);
             } else {
                 // Use the given index text
-                IndexEntries::instance()->AddOneEntry(index_entry, html_resource->ShortPathName(), index_id_value);
+	        IndexEntries::instance()->AddOneEntry(index_entry, html_resource->GetRelativePath(), index_id_value);
             }
         }
     }
