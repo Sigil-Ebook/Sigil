@@ -4147,6 +4147,7 @@ void MainWindow::CreateNewBook(const QStringList &book_paths)
         mtypes << mt;
         finalpaths << bkpath;
     }
+    QString first_textdir = textdirs.first();
 
     QSharedPointer<Book> new_book = QSharedPointer<Book>(new Book());
     // immediately after creating a new book, you must
@@ -4158,17 +4159,17 @@ void MainWindow::CreateNewBook(const QStringList &book_paths)
 
     // create a single text file in each location
     foreach(QString textfolder, textdirs) {
-      new_book->CreateEmptyHTMLFile(textfolder);
+        new_book->CreateEmptyHTMLFile(textfolder);
     }
 
     // handle nav / ncx
     if (version.startsWith('3')) {
-        HTMLResource * nav_resource = new_book->CreateEmptyNavFile(true, navdir, navfile);
+        HTMLResource * nav_resource = new_book->CreateEmptyNavFile(true, navdir, navfile, first_textdir);
         new_book->GetOPF()->SetNavResource(nav_resource);
         new_book->GetOPF()->SetItemRefLinear(nav_resource, false);
         // ncx is optional in epub3 so wait until user asks for it to be generated before creating it
     } else {
-        new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath);
+        new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath, first_textdir);
     }
     SetNewBook(new_book);
     new_book->SetModified(false);

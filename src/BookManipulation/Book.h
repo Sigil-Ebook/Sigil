@@ -152,7 +152,8 @@ public:
      */
     HTMLResource *CreateEmptyNavFile(bool update_opf = false, 
 				     const QString &folderpath=QString("\\"), 
-				     const QString &navname=QString("nav.xhtml"));
+				     const QString &navname=QString("nav.xhtml"),
+				     const QString &first_textdir=QString("\\"));
 
     /**
      * Creates a new HTMLResource file with a basic XHTML structure

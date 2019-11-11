@@ -355,7 +355,10 @@ HTMLResource *Book::CreateEmptyHTMLFile(const QString &folderpath)
 }
 
 
-HTMLResource *Book::CreateEmptyNavFile(bool update_opf, const QString &folderpath, const QString& navname)
+HTMLResource *Book::CreateEmptyNavFile(bool update_opf,
+				       const QString &folderpath,
+				       const QString &navname,
+				       const QString &first_textdir)
 {
     bool found_css = false;
     Resource * styleresource = NULL;
@@ -397,9 +400,10 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf, const QString &folderpat
     // get the informtion we need to correctly fill the template
     QString navbookpath = resource->GetRelativePath();
     QString navstylebookpath = styleresource->GetRelativePath();
+    QString textdir = GetFolderKeeper()->GetDefaultFolderForGroup("Text");
+    if (first_textdir != "\\") textdir = first_textdir;
     QString first_section_bookpath = FIRST_SECTION_NAME;
-    QString folder = GetFolderKeeper()->GetDefaultFolderForGroup("Text");
-    if (!folder.isEmpty()) first_section_bookpath = folder + "/" + FIRST_SECTION_NAME;
+    if (!textdir.isEmpty()) first_section_bookpath = textdir + "/" + FIRST_SECTION_NAME;
     QString stylehref = Utility::URLEncodePath(Utility::buildRelativePath(navbookpath, navstylebookpath));
     QString texthref = Utility::URLEncodePath(Utility::buildRelativePath(navbookpath, first_section_bookpath));
     

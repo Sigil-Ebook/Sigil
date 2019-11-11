@@ -418,7 +418,9 @@ void FolderKeeper::UpdateContainerXML(const QString& FullPathToMainFolder, const
 }
 
 
-NCXResource*FolderKeeper::AddNCXToFolder(const QString & version, const QString &bookpath)
+NCXResource*FolderKeeper::AddNCXToFolder(const QString & version, 
+					 const QString &bookpath, 
+					 const QString &first_textdir)
 {
     QString ncxdir = GetDefaultFolderForGroup("ncx");
     QString NCXBookPath = "toc.ncx";
@@ -428,6 +430,8 @@ NCXResource*FolderKeeper::AddNCXToFolder(const QString & version, const QString 
     if (!bookpath.isEmpty()) {
         NCXBookPath = bookpath;
     }
+    QString textdir = GetDefaultFolderForGroup("Text");
+    if (first_textdir != "\\") textdir = first_textdir;
     QDir folder(m_FullPathToMainFolder);
     QString sdir = Utility::startingDir(NCXBookPath);
     if (!sdir.isEmpty()) folder.mkpath(sdir);
@@ -436,7 +440,7 @@ NCXResource*FolderKeeper::AddNCXToFolder(const QString & version, const QString 
     m_NCX->SetEpubVersion(version);
     m_NCX->SetMediaType("application/x-dtbncx+xml");
     m_NCX->SetShortPathName(NCXBookPath.split('/').last());
-    m_NCX->FillWithDefaultText(GetDefaultFolderForGroup("Text"));
+    m_NCX->FillWithDefaultText(textdir);
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
     m_Path2Resource[ m_NCX->GetRelativePath() ] = m_NCX;
     connect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));

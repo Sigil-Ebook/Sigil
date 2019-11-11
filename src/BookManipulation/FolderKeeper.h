@@ -178,7 +178,9 @@ public:
      */
     NCXResource *GetNCX() const;
 
-    NCXResource* AddNCXToFolder(const QString &version, const QString& bookpath=QString());
+    NCXResource* AddNCXToFolder(const QString &version,
+				const QString& bookpath=QString(),
+				const QString& first_textdir=QString("\\"));
 
     void RemoveNCXFromFolder();
 
