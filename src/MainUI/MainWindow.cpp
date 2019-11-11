@@ -170,7 +170,6 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     c_LoadFilters(GetLoadFiltersMap()),
     m_headingMapper(new QSignalMapper(this)),
     m_casingChangeMapper(new QSignalMapper(this)),
-    m_pluginMapper(new QSignalMapper(this)),
     m_SearchEditor(new SearchEditor(this)),
     m_ClipEditor(new ClipEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
@@ -240,7 +239,6 @@ MainWindow::~MainWindow()
     if (m_IndexEditor) delete m_IndexEditor;
     if (m_ClipEditor) delete m_ClipEditor;
     if (m_SearchEditor) delete m_SearchEditor;
-    if (m_pluginMapper) delete m_pluginMapper;
     if (m_casingChangeMapper) delete m_casingChangeMapper;
     if (m_headingMapper) delete m_headingMapper;
     if (m_lbZoomLabel) delete m_lbZoomLabel;
@@ -273,11 +271,14 @@ void MainWindow::loadPluginsMenu()
     // Setup up for quick launch of plugins
     int i = 0;
     foreach(QAction* pa, m_qlactions){
-        connect(pa, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
-        m_pluginMapper->setMapping(pa, i);
-	i++;
+        // Use the new signal/slot syntax and use a lambda to
+        // eliminate the need for the obsoleted QSignalMapper.
+        // [captured variables]() {...anonymous processing to do...;}
+        connect(pa, &QAction::triggered, this, [this,i]() {
+            MainWindow::QuickLaunchPlugin(i);
+        });
+	    i++;
     }
-    connect(m_pluginMapper, SIGNAL(mapped(int)), this, SLOT(QuickLaunchPlugin(int)));
 
     QHash<QString, Plugin *> plugins = pdb->all_plugins();
 
@@ -379,10 +380,8 @@ void MainWindow::unloadPluginsMenu()
         }
     }
     disconnect(m_actionManagePlugins, SIGNAL(triggered()), this, SLOT(ManagePluginsDialog()));
-    disconnect(m_pluginMapper, SIGNAL(mapped(int)), this, SLOT(QuickLaunchPlugin(int)));
     foreach(QAction * pa, m_qlactions) {
-        m_pluginMapper->removeMappings(pa);
-        disconnect(pa, SIGNAL(triggered()), m_pluginMapper, SLOT(map()));
+        disconnect(pa, &QAction::triggered, this, nullptr);
     }
 }
 
