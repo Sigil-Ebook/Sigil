@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada 
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -56,10 +57,7 @@ public:
     bool GenerateNCXFromBookContents(const Book *book);
     void GenerateNCXFromTOCContents(const Book *book, TOCModel *toc_model);
     void GenerateNCXFromTOCEntries(const Book *book, TOCModel::TOCEntry toc_root_entry);
-
-private:
-
-    void FillWithDefaultText();
+    void FillWithDefaultText(const QString &default_text_folder);
 
 };
 

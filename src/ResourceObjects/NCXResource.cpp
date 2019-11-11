@@ -29,6 +29,7 @@
 #include "Exporters/NCXWriter.h"
 #include "ResourceObjects/NCXResource.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 #include "sigil_constants.h"
 
 static const QString TEMPLATE_TEXT =
@@ -50,7 +51,7 @@ static const QString TEMPLATE_TEXT =
     "  <navLabel>\n"
     "    <text>%1</text>\n"
     "  </navLabel>\n"
-    "  <content src=\"Text/%2\" />\n"
+    "  <content src=\"%2\" />\n"
     "</navPoint>\n"
     "</navMap>\n"
     "</ncx>";
@@ -74,7 +75,7 @@ static const QString TEMPLATE3_TEXT =
     "  <navLabel>\n"
     "    <text>%1</text>\n"
     "  </navLabel>\n"
-    "  <content src=\"Text/%2\" />\n"
+    "  <content src=\"%2\" />\n"
     "</navPoint>\n"
     "</navMap>\n"
     "</ncx>";
@@ -83,11 +84,7 @@ static const QString TEMPLATE3_TEXT =
 NCXResource::NCXResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
     : XMLResource(mainfolder, fullfilepath, parent)
 {
-    FillWithDefaultText();
-    // Make sure the file exists on disk.
-    // Among many reasons, this also solves the problem
-    // with the Book Browser not displaying an icon for this resource.
-    SaveToDisk();
+    FillWithDefaultText("OEBPS/Text");
 }
 
 // a rename of the ncx should only need updating in the opf
@@ -161,14 +158,25 @@ void NCXResource::GenerateNCXFromTOCEntries(const Book *book, TOCModel::TOCEntry
 }
 
 
-void NCXResource::FillWithDefaultText()
+void NCXResource::FillWithDefaultText(const QString &default_text_folder)
 {
-    SettingsStore ss;
-    QString version = ss.defaultVersion();
+    QString version = GetEpubVersion();
+    if (version.isEmpty()) {
+        SettingsStore ss;
+        version = ss.defaultVersion();
+    }
+    QString ncxbookpath = GetRelativePath();
+    QString first_section_bookpath = FIRST_SECTION_NAME;
+    if (!default_text_folder.isEmpty()) first_section_bookpath = default_text_folder + "/" + FIRST_SECTION_NAME;
+    QString texthref = Utility::URLEncodePath(Utility::buildRelativePath(ncxbookpath, first_section_bookpath));
     if (version.startsWith('2')) {
-        SetText(TEMPLATE_TEXT.arg(tr("Start")).arg(FIRST_SECTION_NAME));
-      } else {
-        SetText(TEMPLATE3_TEXT.arg(tr("Start")).arg(FIRST_SECTION_NAME));
-      }
+        SetText(TEMPLATE_TEXT.arg(tr("Start")).arg(texthref));
+    } else {
+        SetText(TEMPLATE3_TEXT.arg(tr("Start")).arg(texthref));
+    }
+    // Make sure the file exists on disk.
+    // Among many reasons, this also solves the problem
+    // with the Book Browser not displaying an icon for this resource.
+    SaveToDisk();
 }
 

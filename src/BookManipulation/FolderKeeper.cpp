@@ -428,6 +428,7 @@ NCXResource*FolderKeeper::AddNCXToFolder(const QString & version, const QString 
     m_NCX->SetEpubVersion(version);
     m_NCX->SetMediaType("application/x-dtbncx+xml");
     m_NCX->SetShortPathName(NCXBookPath.split('/').last());
+    m_NCX->FillWithDefaultText(GetDefaultFolderForGroup("Text"));
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
     m_Path2Resource[ m_NCX->GetRelativePath() ] = m_NCX;
     connect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
