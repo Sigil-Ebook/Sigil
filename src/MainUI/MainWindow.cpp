@@ -1629,6 +1629,18 @@ void MainWindow::GenerateNCXGuideFromNav()
         QApplication::restoreOverrideCursor();
     }
 
+    NCXResource * ncx_resource = m_Book->GetNCX();
+    // generate a new empty NCX if one does not exist in this epub3
+    if (!ncx_resource) {
+        ncx_resource = m_Book->GetFolderKeeper()->AddNCXToFolder(version);
+	// We manually created an NCX file because there wasn't one in the manifest.
+        // Need to create a new manifest id for it.
+        // and take that manifest id and add it to the spine attribute
+        QString NCXId = m_Book->GetOPF()->AddNCXItem(ncx_resource->GetFullPath(),"ncx");
+	m_Book->GetOPF()->UpdateNCXOnSpine(NCXId);
+    }
+
+    QString ncxdir = Utility::startingDir(ncx_resource->GetRelativePath());
 
     QList<QVariant> mvalues = m_Book->GetConstOPF()->GetDCMetadataValues("dc:title");
     QString doctitle = "UNKNOWN";
@@ -1636,7 +1648,6 @@ void MainWindow::GenerateNCXGuideFromNav()
         doctitle = mvalues.at(0).toString();
     } 
     QString mainid = m_Book->GetConstOPF()->GetMainIdentifierValue();
-    QString ncxdir = m_Book->GetFolderKeeper()->GetDefaultFolderForGroup("ncx");
 
     // Now build the ncx in python in a separate thread since may be an long job
     PythonRoutines pr;
@@ -1651,21 +1662,10 @@ void MainWindow::GenerateNCXGuideFromNav()
         return;
     }
 
-    NCXResource * ncx_resource = m_Book->GetNCX();
-    // generate a new empty NCX if one does not exist in this epub3
-    if (!ncx_resource) {
-        ncx_resource = m_Book->GetFolderKeeper()->AddNCXToFolder(version);
-	// We manually created an NCX file because there wasn't one in the manifest.
-        // Need to create a new manifest id for it.
-        // and take that manifest id and add it to the spine attribute
-        QString NCXId = m_Book->GetOPF()->AddNCXItem(ncx_resource->GetFullPath(),"ncx");
-	m_Book->GetOPF()->UpdateNCXOnSpine(NCXId);
-    }
     ncx_resource->SetText(ncxdata);
     ncx_resource->SaveToDisk();
 
     // now create the opf guide from the nav
-
     // start by clearing whatever old info is in the guide now
     m_Book->GetOPF()->ClearSemanticCodesInGuide();
 
