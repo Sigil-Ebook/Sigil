@@ -4130,19 +4130,22 @@ void MainWindow::CreateNewBook(const QStringList &book_paths)
     QString navdir;
     QStringList textdirs;
     QStringList mtypes;
+    QStringList finalpaths;
     foreach(QString bkpath, bookpaths) {
         QString filename = bkpath.split("/").last();
         QString extension = filename.split(".").last();
         QString folder = Utility::startingDir(bkpath);
         QString mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension);
-        mtypes << mt;
         if (filename.endsWith(".opf")) opfbookpath = bkpath;
         if (filename.endsWith(".ncx")) ncxbookpath = bkpath;
         if (filename.endsWith("marker.xhtml")) textdirs << folder;
 	if (filename.endsWith(".xhtml") && !filename.endsWith("marker.xhtml")) {
 	    navdir = folder;
 	    navfile = filename;
-        }
+            continue;
+	}
+        mtypes << mt;
+        finalpaths << bkpath;
     }
 
     QSharedPointer<Book> new_book = QSharedPointer<Book>(new Book());
@@ -4151,7 +4154,7 @@ void MainWindow::CreateNewBook(const QStringList &book_paths)
     new_book->GetFolderKeeper()->AddOPFToFolder(version, opfbookpath);
 
     // Set Group Folders from bookpaths
-    new_book->GetFolderKeeper()->SetGroupFolders(bookpaths, mtypes);
+    new_book->GetFolderKeeper()->SetGroupFolders(finalpaths, mtypes);
 
     // create a single text file in each location
     foreach(QString textfolder, textdirs) {
