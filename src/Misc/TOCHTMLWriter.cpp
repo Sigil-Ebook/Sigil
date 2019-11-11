@@ -132,6 +132,7 @@ void TOCHTMLWriter::WriteEntries(TOCModel::TOCEntry parent_entry, int level)
 	    href = Utility::buildRelativePath(m_TOCBookPath, pieces.first);
 	    if (!fragment.isEmpty()) href = href + fragment;
 	}
+        href = Utility::URLEncodePath(href);
         m_Writer->writeAttribute("href", href);
         m_Writer->writeCharacters(entry.text);
         m_Writer->writeEndElement();
