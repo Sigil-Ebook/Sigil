@@ -1720,15 +1720,12 @@ void MainWindow::CreateIndex()
     // If CSS file does not exist look for a default file
     // in preferences directory and if none create one.
     if (!found_css) {
-        TempFolder tempfolder;
         QString css_path = Utility::DefinePrefsDir() + "/" + SGC_INDEX_CSS_FILENAME;
         if (!QFile::exists(css_path)) {
-            css_path = tempfolder.GetPath() + "/" + SGC_INDEX_CSS_FILENAME;
-	    Utility::WriteUnicodeTextFile(SGC_INDEX_CSS_FILENAME, css_path);
-        }
-        styleresource = m_Book->GetFolderKeeper()->AddContentFileToFolder(css_path,
-                                                                          true,
-                                                                          "text/css");
+            styleresource = m_BookBrowser->CreateIndexCSSFile();
+        } else {
+            styleresource = m_Book->GetFolderKeeper()->AddContentFileToFolder(css_path, true, "text/css");
+	}
         CSSResource *css_resource = qobject_cast<CSSResource *> (styleresource);
         // Need to make sure InitialLoad is done in newly added css resource object to prevent
         // blank css issues after a save to disk

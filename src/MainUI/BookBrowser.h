@@ -117,7 +117,7 @@ public:
      */
     void UpdateSelection(Resource *resource);
 
-    void AddFile(QString filepath);
+    Resource* AddFile(QString filepath);
 
     /**
      *  Allow automatic renaming of resources
@@ -174,7 +174,7 @@ public slots:
     void AddNewCSS();
     void AddNewSVG();
     CSSResource* CreateHTMLTOCCSSFile();
-    void CreateIndexCSSFile();
+    CSSResource* CreateIndexCSSFile();
     /**
      * Implements the Add Existing context menu action functionality.
      */

@@ -478,11 +478,12 @@ int BookBrowser::ValidSelectedItemCount()
     return count;
 }
 
-void BookBrowser::AddFile(QString filepath)
+Resource* BookBrowser::AddFile(QString filepath)
 {
-    m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath);
+    Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath);
     emit BookContentModified();
     Refresh();
+    return resource;
 }
 
 void BookBrowser::AddNew()
@@ -590,12 +591,13 @@ CSSResource* BookBrowser::CreateHTMLTOCCSSFile()
     return css_resource;
 }
 
-void BookBrowser::CreateIndexCSSFile()
+CSSResource* BookBrowser::CreateIndexCSSFile()
 {
     CSSResource *css_resource = m_Book->CreateIndexCSSFile();
     m_OPFModel->RenameResource(css_resource, SGC_INDEX_CSS_FILENAME);
     emit BookContentModified();
     Refresh();
+    return css_resource;
 }
 
 QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
