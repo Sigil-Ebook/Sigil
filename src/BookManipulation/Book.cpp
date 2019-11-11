@@ -88,7 +88,7 @@ const QString EMPTY_NAV_FILE_START =
     "<head>\n"
     "  <title></title>\n"
     "  <meta charset=\"utf-8\" />\n"
-    "  <link href=\"../Styles/%3\" rel=\"stylesheet\" type=\"text/css\"/>"
+    "  <link href=\"%3\" rel=\"stylesheet\" type=\"text/css\"/>"
     "</head>\n"
     "<body epub:type=\"frontmatter\">\n";
 
@@ -97,7 +97,7 @@ const QString EMPTY_NAV_FILE_TOC =
     "    <h1>%1</h1>\n"
     "    <ol>\n"
     "      <li>\n"
-    "        <a href=\"../Text/%2\">%3</a>\n"
+    "        <a href=\"%2\">%3</a>\n"
     "      </li>\n"
     "    </ol>\n"
     "  </nav>\n";
@@ -358,9 +358,11 @@ HTMLResource *Book::CreateEmptyHTMLFile(const QString &folderpath)
 HTMLResource *Book::CreateEmptyNavFile(bool update_opf, const QString &folderpath, const QString& navname)
 {
     bool found_css = false;
+    Resource * styleresource = NULL;
     QList<Resource*> resources = GetFolderKeeper()->GetResourceTypeAsGenericList<CSSResource>(false);
     foreach(Resource *resource, resources) {
         if (resource->Filename() == SGC_NAV_CSS_FILENAME) {
+	    styleresource = resource;
             found_css = true;
             break;
         }
@@ -374,10 +376,10 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf, const QString &folderpat
             css_path = tempfolder.GetPath() + "/" + SGC_NAV_CSS_FILENAME;
             Utility::WriteUnicodeTextFile(SGC_NAV_CSS_FILE, css_path);
         }
-        Resource * resource = m_Mainfolder->AddContentFileToFolder(css_path, 
-								   update_opf, 
-								   "text/css");
-        CSSResource *css_resource = qobject_cast<CSSResource *> (resource);
+        styleresource = m_Mainfolder->AddContentFileToFolder(css_path, 
+							     update_opf, 
+							     "text/css");
+        CSSResource *css_resource = qobject_cast<CSSResource *> (styleresource);
         // Need to make sure InitialLoad is done in newly added css resource object to prevent
         // blank css issues after a save to disk
         if (css_resource) css_resource->InitialLoad();       
@@ -391,6 +393,16 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf, const QString &folderpat
 							       "application/xhtml+xml",
 							       QString(),
 							       folderpath);
+
+    // get the informtion we need to correctly fill the template
+    QString navbookpath = resource->GetRelativePath();
+    QString navstylebookpath = styleresource->GetRelativePath();
+    QString first_section_bookpath = FIRST_SECTION_NAME;
+    QString folder = GetFolderKeeper()->GetDefaultFolderForGroup("Text");
+    if (!folder.isEmpty()) first_section_bookpath = folder + "/" + FIRST_SECTION_NAME;
+    QString stylehref = Utility::URLEncodePath(Utility::buildRelativePath(navbookpath, navstylebookpath));
+    QString texthref = Utility::URLEncodePath(Utility::buildRelativePath(navbookpath, first_section_bookpath));
+    
     HTMLResource * html_resource = qobject_cast<HTMLResource *>(resource);
     SettingsStore ss;
     QString defaultLanguage = ss.defaultMetadataLang();
@@ -398,8 +410,8 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf, const QString &folderpat
     QString guidetitle = Landmarks::instance()->GetName("landmarks");
     QString start = tr("Start");
     QString navtext = 
-        EMPTY_NAV_FILE_START.arg(defaultLanguage).arg(defaultLanguage).arg(SGC_NAV_CSS_FILENAME) +
-        EMPTY_NAV_FILE_TOC.arg(navtitle).arg(FIRST_SECTION_NAME).arg(start) + 
+        EMPTY_NAV_FILE_START.arg(defaultLanguage).arg(defaultLanguage).arg(stylehref) +
+        EMPTY_NAV_FILE_TOC.arg(navtitle).arg(texthref).arg(start) + 
         EMPTY_NAV_FILE_LANDMARKS.arg(guidetitle).arg(navtitle) +
         EMPTY_NAV_FILE_END;
     html_resource->SetText(navtext);
