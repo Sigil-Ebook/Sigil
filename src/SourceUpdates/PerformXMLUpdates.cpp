@@ -24,6 +24,7 @@
 #include <QFileInfo>
 #include <QDir>
 #include <QStringList>
+
 #include "Misc/Utility.h"
 #include "SourceUpdates/PerformXMLUpdates.h"
 #include "sigil_constants.h"
@@ -52,7 +53,7 @@ QString PerformXMLUpdates::operator()()
     QStringList dictkeys = m_XMLUpdates.keys();
     QStringList dictvals;
     foreach(QString key, dictkeys) {
-      dictvals.append(m_XMLUpdates.value(key));
+        dictvals.append(m_XMLUpdates.value(key));
     }
 
     int rv = 0;

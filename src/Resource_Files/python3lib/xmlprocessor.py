@@ -325,7 +325,7 @@ def performSMILUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
     # rebuild serialized lookup dictionary of xml_updates, properly adjusted
     updates = {}
     for i in range(0, len(keylist)):
-        updates[ keylist[i] ] = "../" + valuelist[i]
+        updates[ keylist[i] ] = valuelist[i]
     xml_empty_tags = ["text", "audio"]
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=xml_empty_tags)
     soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
@@ -359,7 +359,7 @@ def performPageMapUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
     # rebuild serialized lookup dictionary of xml_updates properly adjusted
     updates = {}
     for i in range(0, len(keylist)):
-        updates[ keylist[i] ] = "../" + valuelist[i]
+        updates[ keylist[i] ] = valuelist[i]
     xml_empty_tags = ["page"]
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=xml_empty_tags)
     soup = BeautifulSoup(data, features=None, from_encoding="utf-8", builder=xmlbuilder)
