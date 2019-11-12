@@ -355,6 +355,9 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
         QString new_filename = new_filenames.at(i++);
         QString new_filename_with_extension = new_filename;
 
+        // do not rename files in META-INF
+	if (old_bookpath.startsWith("META-INF/")) continue;
+
         if (!new_filename.contains('.')) {
             new_filename_with_extension.append(extension);
         }
@@ -425,6 +428,9 @@ bool OPFModel::MoveResourceList(const QList<Resource *> &resources, const QStrin
         const QString &oldbookpath = resource->GetRelativePath();
         QString filename = resource->Filename();
         QString newbookpath = new_bookpaths.at(i++);
+
+        // do not move files out of META-INF
+	if (oldbookpath.startsWith("META-INF/")) continue;
 
         if (!BookPathIsValid(oldbookpath, newbookpath)) {
 	    qDebug() << "OPFModel: invalid bookpath " << oldbookpath, newbookpath;
