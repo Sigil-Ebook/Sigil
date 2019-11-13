@@ -53,6 +53,9 @@ TabManager::TabManager(QWidget *parent)
     connect(this, SIGNAL(currentChanged(int)),         this, SLOT(EmitTabChanged()));
     connect(this, SIGNAL(tabCloseRequested(int)),      this, SLOT(CloseTab(int)));
     setDocumentMode(true);
+
+    // re-enable tab drag and drop as a test to see if last commit helped
+#if 0    
     // QTabBar has a bug when a user "presses and flicks" on a non current tab it will cause it 
     // to setCurrentIndex() but during EmitTabChanged() it then may allows the resulting mouseMoveEvent
     // be processed on the same index that is being set in setCurrentIndex which causes a crash.
@@ -63,6 +66,10 @@ TabManager::TabManager(QWidget *parent)
     } else {
         setMovable(false);
     }
+#else
+    setMovable(true);
+#endif
+
     setTabsClosable(true);
     // setElideMode(Qt::ElideRight); this is the default after qt-5.6
     setUsesScrollButtons(true);
