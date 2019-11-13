@@ -341,10 +341,11 @@ void TabManager::MakeCentralTab(ContentTab *tab)
 void TabManager::EmitTabChanged()
 {
     ContentTab *current_tab = qobject_cast<ContentTab *>(currentWidget());
-
-    if (m_LastContentTab.data() != current_tab) {
-        emit TabChanged(m_LastContentTab.data(), current_tab);
-        m_LastContentTab = QPointer<ContentTab>(current_tab);
+    if (current_tab) {
+        if (m_LastContentTab.data() != current_tab) {
+            emit TabChanged(m_LastContentTab.data(), current_tab);
+            m_LastContentTab = QPointer<ContentTab>(current_tab);
+        }
     }
 }
 
@@ -352,7 +353,15 @@ void TabManager::EmitTabChanged()
 void TabManager::DeleteTab(ContentTab *tab_to_delete)
 {
     Q_ASSERT(tab_to_delete);
+    // to prevent segfaults, disconnect and reconnect the currentChanged()
+    // signal and invoke EmitTabChanged() manually after QTabBar::removeTab(int) 
+    // completes because QTabBar::setCurrentIndex(int) somehow invokes processEvents()
+    // ***BEFORE*** properly setting the current index
+    disconnect(this, SIGNAL(currentChanged(int)), this, SLOT(EmitTabChanged()));
     removeTab(indexOf(tab_to_delete));
+    connect(this, SIGNAL(currentChanged(int)), this, SLOT(EmitTabChanged()));
+    EmitTabChanged();
+
     tab_to_delete->deleteLater();
 }
 
@@ -367,7 +376,7 @@ void TabManager::CloseTab(int tab_index, bool force)
     }
 
     ContentTab *tab = qobject_cast<ContentTab *>(widget(tab_index));
-    tab->Close();
+    if (tab) tab->Close();
     emit TabCountChanged();
 }
 

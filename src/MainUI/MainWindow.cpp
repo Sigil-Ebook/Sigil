@@ -5657,6 +5657,14 @@ void MainWindow::BreakTabConnections(ContentTab *tab)
         return;
     }
 
+    // first disconnect tab from us
+    disconnect(this, 0, tab, 0);
+    if (tab) disconnect(tab, 0, this, 0);
+    if (tab) disconnect(tab, 0, m_Book.data(), 0);
+    if (tab) disconnect(tab, 0, m_BookBrowser, 0);
+    if (tab) disconnect(tab, 0, m_ClipboardHistorySelector, 0);
+
+    // next disconnect it from ui.actions
     disconnect(ui.actionUndo,                      0, tab, 0);
     disconnect(ui.actionRedo,                      0, tab, 0);
     disconnect(ui.actionCut,                       0, tab, 0);
@@ -5691,9 +5699,5 @@ void MainWindow::BreakTabConnections(ContentTab *tab)
     disconnect(ui.actionPrint,                     0, tab, 0);
     disconnect(ui.actionAddToIndex,                0, tab, 0);
     disconnect(ui.actionMarkForIndex,              0, tab, 0);
-    disconnect(tab,                                0, this, 0);
-    disconnect(tab,                                0, m_Book.data(), 0);
-    disconnect(tab,                                0, m_BookBrowser, 0);
-    disconnect(tab,                                0, m_ClipboardHistorySelector, 0);
 }
 
