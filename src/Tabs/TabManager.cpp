@@ -370,6 +370,9 @@ void TabManager::EmitTabChanged(int new_index)
             emit TabChanged(m_LastContentTab, current_tab);
             m_LastContentTab = current_tab;
         }
+    } else {
+        // this should not happen but we do not want stale info in this pointer
+        m_LastContentTab = NULL;
     }
 }
 
@@ -389,6 +392,9 @@ void TabManager::DeleteTab(ContentTab *tab_to_delete)
     if (new_tab) {
         emit TabChanged(tab_to_delete, new_tab);
         m_LastContentTab = new_tab;
+    } else {
+        // this should not happen but we do not want stale info in this pointer
+        m_LastContentTab = NULL;
     }
     tab_to_delete->deleteLater();
 }
@@ -615,6 +621,12 @@ bool TabManager::AddNewContentTab(ContentTab *new_tab, bool precede_current_tab)
     if (new_tab == NULL) {
         return false;
     }
+
+    // before adding a tab make sure m_LastContentTab has been
+    // properly updated to reflect the current tab
+    ContentTab *old_tab = qobject_cast<ContentTab *>(currentWidget());
+    m_LastContentTab = old_tab;
+
     int idx = -1;
     if (!precede_current_tab) {
 
@@ -629,7 +641,9 @@ bool TabManager::AddNewContentTab(ContentTab *new_tab, bool precede_current_tab)
 #endif
 
         setCurrentWidget(new_tab);
+
         new_tab->setFocus();
+
     } else {
 
 #if defined(Q_OS_MAC)

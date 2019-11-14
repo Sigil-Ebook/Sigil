@@ -365,7 +365,7 @@ void ImageTab::CreateContextMenuActions()
 void ImageTab::ConnectSignalsToSlots()
 {
     connect(m_Resource, SIGNAL(ResourceUpdatedOnDisk()), this, SLOT(RefreshContent()));
-    connect(m_Resource, SIGNAL(Deleted(Resource)), this, SLOT(Close()));
+    connect(m_Resource, SIGNAL(Deleted(const Resource *)), this, SLOT(Close()));
     connect(m_WebView, SIGNAL(customContextMenuRequested(const QPoint &)),  this, SLOT(OpenContextMenu(const QPoint &)));
     connect(m_OpenWith,       SIGNAL(triggered()),   this, SLOT(openWith()));
     connect(m_OpenWithEditor0, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
