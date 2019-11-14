@@ -23,6 +23,7 @@
 
 #include <QApplication>
 #include <QtCore/QFileInfo>
+#include <QEventLoop>
 #include <QImage>
 #include <QPixmap>
 #include <QtWidgets/QLayout>
@@ -297,7 +298,7 @@ void SelectFiles::SetPreviewImage()
         details = QString("%2x%3px | %4 KB | %5%6").arg(img.width()).arg(img.height())
                   .arg(fsize).arg(grayscale_color).arg(colorsInfo);
 
-        MainWindow::clearMemoryCaches();
+        // MainWindow::clearMemoryCaches();
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
         QString html = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
         m_PreviewLoaded = false;
@@ -317,7 +318,7 @@ void SelectFiles::SetPreviewImage()
     } else if (resource_type == Resource::AudioResourceType) {
         QString html;
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
-        MainWindow::clearMemoryCaches();
+        // MainWindow::clearMemoryCaches();
         html = AUDIO_HTML_BASE.arg(resourceUrl.toString());
         m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
@@ -329,7 +330,7 @@ void SelectFiles::SetPreviewImage()
     // because setHtml loads external resources asynchronously
     if (loading_resources) {
         while(!IsPreviewLoaded()) {
-            qApp->processEvents();
+            qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
         }
     }
     ui.Details->setText(details);
