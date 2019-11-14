@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -25,7 +25,6 @@
 #define TABMANAGER_H
 
 #include <QtCore/QUrl>
-#include <QtCore/QPointer>
 #include <QtWidgets/QTabWidget>
 
 #include "MainUI/MainWindow.h"
@@ -190,7 +189,7 @@ private slots:
     /**
      * Emits the TabChanged signal.
      */
-    void EmitTabChanged();
+    void EmitTabChanged(int new_index);
 
     /**
      * Deletes the specified tab.
@@ -286,7 +285,7 @@ private:
      * Stores a reference to the tab used before the current one.
      * Needed for the TabChanged signal.
      */
-    QPointer<ContentTab> m_LastContentTab;
+    ContentTab* m_LastContentTab;
 
     bool m_CheckWellFormedErrors;
 
