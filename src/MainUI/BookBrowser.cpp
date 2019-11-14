@@ -610,7 +610,14 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
     }
 
     // filepaths are full absolute file paths to the files to be added
-    QStringList filepaths = QFileDialog::getOpenFileNames(this, tr("Add Existing Files"), m_LastFolderOpen, filter_string);
+    QStringList filepaths = QFileDialog::getOpenFileNames(this, 
+							  tr("Add Existing Files"), 
+							  m_LastFolderOpen, 
+							  filter_string
+#ifdef Q_OS_MAC
+							  , NULL, QFileDialog::DontUseNativeDialog
+#endif
+                                                          );
 
     if (filepaths.isEmpty()) {
         return added_book_paths;
@@ -800,7 +807,10 @@ void BookBrowser::SaveAsFile(Resource *resource)
                           tr("Save As File"),
                           save_path,
                           filter_string,
-                          &default_filter
+			  &default_filter
+#ifdef Q_OS_MAC
+			  , QFileDialog::DontUseNativeDialog
+#endif    
                                                       );
 
     if (destination.isEmpty()) {
@@ -828,7 +838,11 @@ void BookBrowser::SaveAsFiles()
     QList <Resource *> resources = ValidSelectedResources();
     QString dirname = QFileDialog::getExistingDirectory(this,
                       tr("Choose the directory to save the files to"),
-                      m_LastFolderSaveAs);
+                      m_LastFolderSaveAs
+#ifdef Q_OS_MAC
+							, QFileDialog::DontUseNativeDialog | QFileDialog::ShowDirsOnly 
+#endif
+							);
 
     if (dirname.isEmpty()) {
         return;
