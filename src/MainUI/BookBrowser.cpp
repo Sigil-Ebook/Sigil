@@ -609,14 +609,18 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
         m_LastFolderOpen = "";
     }
 
+    QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = options | QFileDialog::DontUseNativeDialog;
+#endif
+    
     // filepaths are full absolute file paths to the files to be added
     QStringList filepaths = QFileDialog::getOpenFileNames(this, 
 							  tr("Add Existing Files"), 
 							  m_LastFolderOpen, 
-							  filter_string
-#ifdef Q_OS_MAC
-							  , NULL, QFileDialog::DontUseNativeDialog
-#endif
+							  filter_string,
+							  NULL,
+							  options
                                                           );
 
     if (filepaths.isEmpty()) {
@@ -803,15 +807,18 @@ void BookBrowser::SaveAsFile(Resource *resource)
     QString save_path = m_LastFolderSaveAs + "/" + filename;
     QString filter_string = "";
     QString default_filter = "";
+    QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = options | QFileDialog::DontUseNativeDialog;
+#endif
+    
     QString destination = QFileDialog::getSaveFileName(this,
                           tr("Save As File"),
                           save_path,
                           filter_string,
-			  &default_filter
-#ifdef Q_OS_MAC
-			  , QFileDialog::DontUseNativeDialog
-#endif    
-                                                      );
+			  &default_filter,
+                          options
+						       );
 
     if (destination.isEmpty()) {
         return;
@@ -836,12 +843,16 @@ void BookBrowser::SaveAsFile(Resource *resource)
 void BookBrowser::SaveAsFiles()
 {
     QList <Resource *> resources = ValidSelectedResources();
-    QString dirname = QFileDialog::getExistingDirectory(this,
-                      tr("Choose the directory to save the files to"),
-                      m_LastFolderSaveAs
+    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ShowDirsOnly;
 #ifdef Q_OS_MAC
-							, QFileDialog::DontUseNativeDialog | QFileDialog::ShowDirsOnly 
+    options = options | QFileDialog::DontUseNativeDialog;
 #endif
+
+    QString dirname = QFileDialog::getExistingDirectory(
+		      this,
+                      tr("Choose the directory to save the files to"),
+		      m_LastFolderSaveAs,
+                      options
 							);
 
     if (dirname.isEmpty()) {

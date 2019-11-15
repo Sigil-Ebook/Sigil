@@ -249,12 +249,17 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
                                        + " (*)"
 #endif
                                        ;
+    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails;
+#ifdef Q_OS_MAC
+    options = options | QFileDialog::DontUseNativeDialog;
+#endif
+
     const QString selectedFile = QFileDialog::getOpenFileName(0,
                                  QObject::tr("Open With"),
                                  last_editor,
                                  NAME_FILTER,
                                  0,
-                                 QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails);
+				 options);
 
     if (!selectedFile.isEmpty()) {
         // Let the user choose a friendly menu name for the application

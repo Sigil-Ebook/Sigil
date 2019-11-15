@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -291,10 +292,17 @@ void IndexEditor::Open()
 {
     // Get the filename to open
     QString filter_string = tr("Index files: *.ini *.txt (*.ini *.txt)");
+    QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = options | QFileDialog::DontUseNativeDialog;
+#endif
+
     QString filename = QFileDialog::getOpenFileName(this,
                        tr("Load Entries From File"),
                        m_LastFolderOpen,
-                       filter_string
+		       filter_string, 
+		       NULL,
+                       options
                                                    );
 
     // Load the file and save the last folder opened
@@ -325,11 +333,17 @@ void IndexEditor::SaveAs()
     // Get the filename to use
     QString filter_string = "*." % FILE_EXTENSION;
     QString default_filter = "*";
+    QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = options | QFileDialog::DontUseNativeDialog;
+#endif
+
     QString filename = QFileDialog::getSaveFileName(this,
                        tr("Save Entries to File"),
                        m_LastFolderOpen,
                        filter_string,
-                       &default_filter
+		       &default_filter,
+                       options
                                                    );
 
     if (filename.isEmpty()) {

@@ -98,7 +98,8 @@ static void file_open()
                        "Open File",
                        "~",
                        filter_string,
-                       &default_filter
+		       &default_filter,
+		       QFileDialog::DontUseNativeDialog
                                                    );
 
     if (!filename.isEmpty()) {

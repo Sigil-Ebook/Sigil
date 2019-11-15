@@ -366,10 +366,17 @@ void ClipEditor::Import()
 
     // Get the filename to import from
     QString filter_string = "*." % FILE_EXTENSION;
+    QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = options | QFileDialog::DontUseNativeDialog;
+#endif
+
     QString filename = QFileDialog::getOpenFileName(this,
                        tr("Import Entries"),
                        m_LastFolderOpen,
-                       filter_string
+		       filter_string,
+		       NULL,
+                       options
                                                    );
 
     // Load the file and save the last folder opened
@@ -440,11 +447,17 @@ void ClipEditor::ExportItems(QList<QStandardItem *> items)
     // Get the filename to use
     QString filter_string = "*." % FILE_EXTENSION;
     QString default_filter = "*";
+    QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = options | QFileDialog::DontUseNativeDialog;
+#endif
+
     QString filename = QFileDialog::getSaveFileName(this,
                        tr("Export Selected Entries"),
                        m_LastFolderOpen,
                        filter_string,
-                       &default_filter
+		       &default_filter,
+                       options
                                                    );
 
     if (filename.isEmpty()) {

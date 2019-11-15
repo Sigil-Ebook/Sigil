@@ -1003,11 +1003,16 @@ void MainWindow::Open()
             filter_string += filter + ";;";
         }
         QString default_filter = c_LoadFilters.value("epub");
+	QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+	options = options | QFileDialog::DontUseNativeDialog;
+#endif
         QString filename = QFileDialog::getOpenFileName(this,
                            tr("Open File"),
                            m_LastFolderOpen,
                            filter_string,
-                           &default_filter
+			   &default_filter,
+			   options
                                                        );
 
         if (!filename.isEmpty()) {
@@ -1109,17 +1114,18 @@ bool MainWindow::SaveAs()
         save_path       = m_LastFolderOpen + "/" + QFileInfo(m_CurrentFilePath).completeBaseName() + ".epub";
         default_filter  = c_SaveFilters.value("epub");
     }
+    QFileDialog::Options options = QFileDialog::Options();
+#if !defined(Q_OS_WIN32)
+    options = options | QFileDialog::DontUseNativeDialog;
+#endif
+
 
     QString filename = QFileDialog::getSaveFileName(this,
                        tr("Save File"),
                        save_path,
                        filter_string,
-#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-                       & default_filter,
-                       QFileDialog::DontUseNativeDialog
-#else
-                       & default_filter
-#endif
+                       &default_filter,
+                       options
                                                    );
 
     // QFileDialog cancelled
@@ -1164,16 +1170,16 @@ bool MainWindow::SaveACopy()
     filters.removeDuplicates();
     QString filter_string = "*.epub";
     QString default_filter  = "*.epub";
+    QFileDialog::Options options = QFileDialog::Options();
+#if !defined(Q_OS_WIN32)
+    options = options | QFileDialog::DontUseNativeDialog;
+#endif
     QString filename = QFileDialog::getSaveFileName(this,
                        tr("Save a Copy"),
                        m_SaveACopyFilename,
                        filter_string,
-#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-                       & default_filter,
-                       QFileDialog::DontUseNativeDialog
-#else
-                       & default_filter
-#endif
+		       &default_filter,
+                       options
                                                    );
 
     // QFileDialog cancelled

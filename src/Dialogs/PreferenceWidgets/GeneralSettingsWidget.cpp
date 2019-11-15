@@ -167,12 +167,17 @@ void GeneralSettingsWidget::setXEditorPath()
                                        + " (*)"
 #endif
       ;
+    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails;
+#ifdef Q_OS_MAC
+    options = options | QFileDialog::DontUseNativeDialog;
+#endif
+
     QString xeditorPath = QFileDialog::getOpenFileName(0,
 						       QObject::tr("Select External Xhtml Editor"),
 						       LAST_LOCATION,
 						       NAME_FILTER,
 						       0,
-						       QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails);
+                                                       options);
     ui.lineEdit7->setText(xeditorPath);
 }
 
@@ -198,7 +203,15 @@ void GeneralSettingsWidget::autoTempFolder()
 
 void GeneralSettingsWidget::setTempFolder()
 {
-    QString name = QFileDialog::getExistingDirectory(this, tr("Select Folder for Temporary Files"));
+    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ShowDirsOnly;
+#ifdef Q_OS_MAC
+    options = options | QFileDialog::DontUseNativeDialog;
+#endif
+
+    QString name = QFileDialog::getExistingDirectory(this, 
+						     tr("Select Folder for Temporary Files"),
+						     QString(),
+						     options);
     if (name.isEmpty()) {
         return;
     }
