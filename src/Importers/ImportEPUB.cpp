@@ -103,7 +103,7 @@ ImportEPUB::ImportEPUB(const QString &fullfilepath)
 // and returns the created Book
 QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
 {
-    QList<XMLResource *> non_well_formed;
+    QList<HTMLResource *> non_well_formed;
     SettingsStore ss;
 
     if (!Utility::IsFileReadable(m_FullFilePath)) {
@@ -185,10 +185,14 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
                 tr("Sigil"),
                 tr("This EPUB has HTML files that are not well formed. "
                    "Sigil can attempt to automatically fix these files, although this "
-                   "can result in data loss.\n\n"
+                   "can result in minor data loss.\n\n"
                    "Do you want to automatically fix the files?"),
-                QMessageBox::Yes|QMessageBox::No)
-           ) {
+                QMessageBox::Yes|QMessageBox::No)) 
+        {
+	    foreach(HTMLResource* htmlres, non_well_formed) {
+		QString fixed_text = CleanSource::Mend(htmlres->GetText(),htmlres->GetEpubVersion());
+                htmlres->SetText(fixed_text);
+	    }
             non_well_formed.clear();
         }
         QApplication::setOverrideCursor(Qt::WaitCursor);
