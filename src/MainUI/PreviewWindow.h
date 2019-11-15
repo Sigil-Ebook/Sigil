@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2012 Dave Heiland, John Schember
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2012      Dave Heiland, John Schember
 **
 **  This file is part of Sigil.
 **
@@ -94,7 +94,7 @@ private:
     void LoadSettings();
     void ConnectSignalsToSlots();
     void UpdateWindowTitle();
-    QString fixup_fullscreen_svg_images(QString &text);
+    bool fixup_fullscreen_svg_images(const QString &text);
 
     QWidget *m_MainWidget;
     QVBoxLayout *m_Layout;

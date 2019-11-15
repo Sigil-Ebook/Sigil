@@ -227,7 +227,29 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
         }
     }
 
-    text = fixup_fullscreen_svg_images(text);
+    if (fixup_fullscreen_svg_images(text)) {
+        QRegularExpression svg_height("<\\s*svg\\s[^>]*height\\s*=\\s*[\"'](100%)[\"'][^>]*>",
+				                   QRegularExpression::CaseInsensitiveOption |
+				                   QRegularExpression::MultilineOption | 
+                                                   QRegularExpression::DotMatchesEverythingOption);
+        QRegularExpressionMatch hmo = svg_height.match(text, 0);
+        if (hmo.hasMatch()) {
+	    int bp = hmo.capturedStart(1);
+            int n = hmo.capturedLength(1);
+	    text = text.replace(bp, n, "100vh"); 
+	}
+
+        QRegularExpression svg_width("<\\s*svg\\s[^>]*width\\s*=\\s*[\"'](100%)[\"'][^>]*>",
+				                   QRegularExpression::CaseInsensitiveOption |
+				                   QRegularExpression::MultilineOption | 
+                                                   QRegularExpression::DotMatchesEverythingOption);
+        QRegularExpressionMatch wmo = svg_width.match(text, 0);
+        if (wmo.hasMatch()) {
+	    int bp = wmo.capturedStart(1);
+            int n = wmo.capturedLength(1);
+	    text = text.replace(bp, n, "100vw"); 
+	}
+    }
 
     m_Filepath = filename_url;
     m_Preview->CustomSetDocument(filename_url, text);
@@ -441,19 +463,20 @@ void PreviewWindow::ConnectSignalsToSlots()
     connect(m_Inspector,     SIGNAL(finished(int)),   this, SLOT(InspectorClosed(int)));
 }
 
-QString PreviewWindow::fixup_fullscreen_svg_images(QString &text) 
+// Note: You can not use gumbo to perform the replacement as being
+// a repair parser, it will fix all kinds of mistakes hiding the errors
+bool PreviewWindow::fixup_fullscreen_svg_images(const QString &text) 
 {
-    QString newtext = text;
-    GumboInterface gi = GumboInterface(newtext, "any_version");
+    GumboInterface gi = GumboInterface(text, "any_version");
 
     QList<GumboNode*> image_tags = gi.get_all_nodes_with_tag(GUMBO_TAG_IMAGE);
-    if (image_tags.count() != 1) return newtext;
+    if (image_tags.count() != 1) return false;
 
     QList<GumboNode*> svg_tags = gi.get_all_nodes_with_tag(GUMBO_TAG_SVG);
-    if (svg_tags.count() != 1) return newtext;
+    if (svg_tags.count() != 1) return false;
 
     QList<GumboNode*> body_tags = gi.get_all_nodes_with_tag(GUMBO_TAG_BODY);
-    if (body_tags.count() != 1) return newtext;
+    if (body_tags.count() != 1) return false;
     
     GumboNode* image_node = image_tags.at(0);
     GumboNode* svg_node   = svg_tags.at(0);
@@ -476,7 +499,7 @@ QString PreviewWindow::fixup_fullscreen_svg_images(QString &text)
         }
     }
     const QStringList allowed_tags = QStringList() << "div" << "svg"; 
-    if ((elcount != 1) || !allowed_tags.contains(child_names.at(0))) return newtext;
+    if ((elcount != 1) || !allowed_tags.contains(child_names.at(0))) return false;
     
     // verify either body->div->svg->image or body->svg->image 
     // structure exists (ignoring script and style tags)
@@ -491,17 +514,13 @@ QString PreviewWindow::fixup_fullscreen_svg_images(QString &text)
         anode = myparent;
     }
     const QString apath = path_pieces.join(",");
-    if ((apath != "body,div,svg,image") && (apath != "body,svg,image")) return newtext;
+    if ((apath != "body,div,svg,image") && (apath != "body,svg,image")) return false;
     
     // finally check if svg height and width attributes are both "100%"
     // and if so change them to 100vh and 100vw respectively
     QHash<QString,QString> svgatts = gi.get_attributes_of_node(svg_node);
     if ((svgatts.value("width","") == "100%") && (svgatts.value("height","") == "100%")) {
-        GumboAttribute* attr = gumbo_get_attribute(&svg_node->v.element.attributes, "width");
-        if (attr) gumbo_attribute_set_value(attr, "100vw");
-        attr = gumbo_get_attribute(&svg_node->v.element.attributes, "height");
-        if (attr) gumbo_attribute_set_value(attr, "100vh");
-	newtext = gi.getxhtml();
+	return true;
     }
-    return newtext;
+    return false;
 }
