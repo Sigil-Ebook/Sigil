@@ -183,6 +183,9 @@ void MediaTypes::SetMTypeToGroupMap()
     m_MTypeToGroup[ "application/font-woff"                   ] = "Fonts";
     m_MTypeToGroup[ "application/font-sfnt"                   ] = "Fonts";
     m_MTypeToGroup[ "font/woff2"                              ] = "Fonts";
+    m_MTypeToGroup[ "font/woff"                               ] = "Fonts";
+    m_MTypeToGroup[ "font/otf"                                ] = "Fonts";
+    m_MTypeToGroup[ "font/ttf"                                ] = "Fonts";
     m_MTypeToGroup[ "application/x-font-truetype-collection"  ] = "Fonts";
     m_MTypeToGroup[ "audio/mpeg"                              ] = "Audio";
     m_MTypeToGroup[ "audio/mp3"                               ] = "Audio";
@@ -233,6 +236,9 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "application/font-woff"                   ] = "FontResource";
     m_MTypeToRDesc[ "application/font-sfnt"                   ] = "FontResource";
     m_MTypeToRDesc[ "font/woff2"                              ] = "FontResource";
+    m_MTypeToRDesc[ "font/woff"                               ] = "FontResource";
+    m_MTypeToRDesc[ "font/otf"                                ] = "FontResource";
+    m_MTypeToRDesc[ "font/ttf"                                ] = "FontResource";
     m_MTypeToRDesc[ "application/x-font-truetype-collection"  ] = "FontResource";
     m_MTypeToRDesc[ "audio/mpeg"                              ] = "AudioResource";
     m_MTypeToRDesc[ "audio/mp3"                               ] = "AudioResource";
