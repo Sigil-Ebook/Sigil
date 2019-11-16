@@ -175,6 +175,8 @@ void MediaTypes::SetMTypeToGroupMap()
     m_MTypeToGroup[ "image/webp"                              ] = "Images";
     m_MTypeToGroup[ "application/xhtml+xml"                   ] = "Text";
     m_MTypeToGroup[ "application/x-dtbook+xml"                ] = "Text";
+    m_MTypeToGroup[ "application/x-truetype-font"             ] = "Fonts";
+    m_MTypeToGroup[ "application/x-opentype-font"             ] = "Fonts";
     m_MTypeToGroup[ "application/x-font-ttf"                  ] = "Fonts";
     m_MTypeToGroup[ "application/x-font-otf"                  ] = "Fonts";
     m_MTypeToGroup[ "application/x-font-opentype"             ] = "Fonts";
@@ -200,6 +202,8 @@ void MediaTypes::SetMTypeToGroupMap()
     m_MTypeToGroup[ "application/x-dtbncx+xml"                ] = "ncx";
     m_MTypeToGroup[ "application/oebps-package+xml"           ] = "opf";
     m_MTypeToGroup[ "application/oebps-page-map+xml"          ] = "Misc";
+    m_MTypeToGroup[ "application/vnd.adobe-page-map+xml"      ] = "Misc";
+    m_MTypeToGroup[ "application/adobe-page-map+xml"          ] = "Misc";
     m_MTypeToGroup[ "application/smil+xml"                    ] = "Misc";
     m_MTypeToGroup[ "application/adobe-page-template+xml"     ] = "Misc";
     m_MTypeToGroup[ "application/vnd.adobe-page-template+xml" ] = "Misc";
@@ -231,6 +235,8 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "application/x-font-ttf"                  ] = "FontResource";
     m_MTypeToRDesc[ "application/x-font-otf"                  ] = "FontResource";
     m_MTypeToRDesc[ "application/x-font-opentype"             ] = "FontResource";
+    m_MTypeToRDesc[ "application/x-truetype-font"             ] = "FontResource";
+    m_MTypeToRDesc[ "application/x-opentype-font"             ] = "FontResource";
     m_MTypeToRDesc[ "application/vnd.ms-opentype"             ] = "FontResource";
     m_MTypeToRDesc[ "application/font-sfnt"                   ] = "FontResource";
     m_MTypeToRDesc[ "application/font-woff"                   ] = "FontResource";
@@ -250,6 +256,8 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "text/vtt"                                ] = "VideoResource";
     m_MTypeToRDesc[ "application/ttml+xml"                    ] = "VideoResource";
     m_MTypeToRDesc[ "application/oebps-page-map+xml"          ] = "XMLResource";
+    m_MTypeToRDesc[ "application/vnd.adobe-page-map+xml"      ] = "XMLResource";
+    m_MTypeToRDesc[ "application/adobe-page-map+xml"          ] = "XMLResource";
     m_MTypeToRDesc[ "application/smil+xml"                    ] = "XMLResource";
     m_MTypeToRDesc[ "application/adobe-page-template+xml"     ] = "XMLResource";
     m_MTypeToRDesc[ "application/vnd.adobe-page-template+xml" ] = "XMLResource";

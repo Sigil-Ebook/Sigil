@@ -107,7 +107,7 @@ QString FolderKeeper::DetermineFileGroup(const QString &filepath, const QString 
     if (filepath.contains(FILE_EXCEPTIONS)) return "other";
     if (mt.isEmpty()) {
         mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
-        if (mt.isEmpty()) return "other";
+        if (mt.isEmpty()) return "Misc";
     }
     QString group = MediaTypes::instance()->GetGroupFromMediaType(mt, "");
     if (group.isEmpty()) {
@@ -118,7 +118,7 @@ QString FolderKeeper::DetermineFileGroup(const QString &filepath, const QString 
             group = MediaTypes::instance()->GetGroupFromMediaType(mt, "");
 	}
     }
-    if (group.isEmpty()) group = "other";
+    if (group.isEmpty()) group = "Misc";
     return group;
 }
 
@@ -139,11 +139,17 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
     QFileInfo fi(norm_file_path);
     QString filename = fi.fileName();
 
-    // make sure mediatype is properly assigned
+    // check if mediatype is recognized
     QString mt = mimetype;
+    if (!mt.isEmpty() && (MediaTypes::instance()->GetGroupFromMediaType(mt, "") == "")) {
+        qDebug() << "Warning: unrecognized mediatype in OPF: " << mimetype;
+        mt = "";
+    }
+
+    // try using the extension to determine the mediatype
     if (mt.isEmpty()) {
         QString extension = fi.suffix().toLower();
-	mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
+	mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, mimetype);
     }
 
     QString group = DetermineFileGroup(norm_file_path, mt);
@@ -213,8 +219,8 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
         } else if (resdesc == "XMLResource") {
             resource = new XMLResource(m_FullPathToMainFolder, new_file_path);
         } else {
-            // Fallback mechanism
-	    new_file_path = m_FullPathToMainFolder + "/" + GetDefaultFolderForGroup("Misc") + "/" + filename;
+            // Fallback mechanism - follow previous setting of new_file_path
+            // But make it a generic Resource
             resource = new Resource(m_FullPathToMainFolder, new_file_path);
         }
 
