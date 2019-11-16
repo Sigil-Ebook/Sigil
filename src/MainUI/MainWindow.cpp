@@ -922,14 +922,13 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }
     m_IsClosing = true;
 
-    // this should be done first to save all geometry
-    // and can not hurt even if close is later ignored
-    WriteSettings();
-
 
     if (MaybeSaveDialogSaysProceed()) {
 
         DBG qDebug() << "in close event after maybe save";
+
+        // this should be done first to save all geometry
+        WriteSettings();
 
         ShowMessageOnStatusBar(tr("Sigil is closing..."));
 
@@ -3863,14 +3862,10 @@ void MainWindow::ReadSettings()
 
     if (!m_LastWindowSize.isNull()) {
         restoreGeometry(m_LastWindowSize);
-
-        if (isMaximized) {
-            setWindowState(windowState() | Qt::WindowMaximized);
-        }
     }
 
     // it is recommended to invoke processEvents between restoreGeometry and restoreState
-    // to work around some window restore issues
+    // to work around some window restore issues see QTBUG
     qApp->processEvents();
 
     // The positions of all the toolbars and dock widgets
@@ -3878,6 +3873,10 @@ void MainWindow::ReadSettings()
 
     if (!toolbars.isNull()) {
         restoreState(toolbars);
+    }
+
+    if (isMaximized) {
+        setWindowState(windowState() | Qt::WindowMaximized);
     }
 
     // The last folder used for saving and opening files
@@ -3984,6 +3983,13 @@ void MainWindow::WriteSettings()
     DBG qDebug() << "In WriteSettings with maximized " << isMaximized();
     DBG qDebug() << "In WriteSettings with LastWindowSize " << m_LastWindowSize;
 
+    // if maxmimized, return the window to its normal state after recording this
+    // fact in settings and before saving the geometry to work around bugs saving 
+    // and restoring states of dockwidgets
+    if (isMaximized()) {
+	setWindowState(Qt::WindowNoState);
+    }
+
     if (!m_LastWindowSize.isEmpty()) {
         settings.setValue("geometry", m_LastWindowSize);
     } else {
@@ -3994,8 +4000,10 @@ void MainWindow::WriteSettings()
             settings.setValue("geometry", saveGeometry());
 	}
     }
+
     // The positions of all the toolbars and dock widgets
     settings.setValue("toolbars", saveState());
+
     // The last folders used for saving and opening files
     settings.setValue("lastfolderopen",  m_LastFolderOpen);
     // The list of recent files
