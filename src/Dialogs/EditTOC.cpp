@@ -28,9 +28,11 @@
 #include "Dialogs/EditTOC.h"
 #include "Dialogs/SelectHyperlink.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NavProcessor.h"
+#include "ResourceObjects/Resource.h"
 #include "sigil_constants.h"
 
 static const QString SETTINGS_GROUP   = "edit_toc";
@@ -43,8 +45,18 @@ EditTOC::EditTOC(QSharedPointer<Book> book, QList<Resource *> resources, QWidget
     m_Resources(resources),
     m_TableOfContents(new QStandardItemModel(this)),
     m_ContextMenu(new QMenu(this)),
-    m_TOCModel(new TOCModel(this))
+    m_TOCModel(new TOCModel(this)),
+    m_BaseResource(NULL)
 {
+    // first determine the base resource pointer we will be working with
+    //  is it the ncx or the nav
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    if (version.startsWith("3")) {
+	m_BaseResource = m_Book->GetConstOPF()->GetNavResource();
+    } else {
+	m_BaseResource = m_Book->GetNCX();
+    }
+
     // Remove the Nav resource from list of HTMLResources if it exists (EPUB3)
     HTMLResource* nav_resource = m_Book->GetConstOPF()->GetNavResource();
     if (nav_resource) {
@@ -361,10 +373,12 @@ void EditTOC::SelectTarget()
 
     QStandardItem *item = m_TableOfContents->itemFromIndex(index);
 
-    SelectHyperlink select_target(item->text(), NULL, m_Resources, m_Book, this);
+    SelectHyperlink select_target(item->text(), m_BaseResource, "toc", m_Resources, m_Book, this);
 
     if (select_target.exec() == QDialog::Accepted) {
-        item->setText(select_target.GetTarget());
+	QString href = select_target.GetTarget();
+	QString bookpath = Utility::buildBookPath(href, m_BaseResource->GetFolder()); 
+        item->setText(bookpath);
     }
 }
 

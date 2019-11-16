@@ -23,15 +23,22 @@
 
 #include "Dialogs/SelectHyperlink.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/Resource.h"
 #include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
 
 static QString SETTINGS_GROUP = "select_hyperlink";
 
-SelectHyperlink::SelectHyperlink(QString default_href, HTMLResource *html_resource, QList<Resource *> resources, QSharedPointer<Book> book, QWidget *parent)
+SelectHyperlink::SelectHyperlink(QString default_href, 
+				 Resource *base_resource, 
+				 const QString & restype,
+				 QList<Resource *> resources, 
+				 QSharedPointer<Book> book, 
+				 QWidget *parent)
     :
     QDialog(parent),
-    m_CurrentHTMLResource(html_resource),
+    m_CurrentResource(base_resource),
+    m_restype(restype),
     m_DefaultTarget(default_href),
     m_SavedTarget(QString()),
     m_Resources(resources),
@@ -66,10 +73,12 @@ void SelectHyperlink::SetList()
     // Get the complete list of valid targets
     // Key is the book path of the html file
     m_IDNames = m_Book->GetIdsInHTMLFiles();
-    // Display in-file targets first, then in order
-    AddEntry(m_CurrentHTMLResource);
+    if (m_restype == "html") {
+        // Display in-file targets first, then in order
+        AddEntry(m_CurrentResource);
+    }
     foreach(Resource * resource, m_Resources) {
-        if (resource != m_CurrentHTMLResource) {
+        if (resource != m_CurrentResource) {
             AddEntry(resource);
         }
     }
@@ -91,13 +100,12 @@ void SelectHyperlink::AddEntry(Resource *resource)
             continue;
         }
 
-        // filepath is a relative link from m_CurrentHTMLResource to resource
+        // filepath is a relative link from m_CurrentResource to resource
 	// target is a short unique name for this resource for use in table only
         QString target;
         QString filepath;
-	if (!(m_CurrentHTMLResource == resource)) {
-	   filepath = resource->GetRelativePathFromResource(m_CurrentHTMLResource);
-	   filepath = filepath;
+	if (!(m_CurrentResource == resource)) {
+	   filepath = resource->GetRelativePathFromResource(m_CurrentResource);
 	   target = filename;
 	}
 	
@@ -147,8 +155,8 @@ void SelectHyperlink::SelectText(QString &text)
         // Convert search text to filename#fragment
         QString target = text;
 
-        if (target.startsWith("#") && m_CurrentHTMLResource) {
-	  target = m_CurrentHTMLResource->ShortPathName() + text;
+        if (target.startsWith("#") && m_CurrentResource && m_restype == "html") {
+	    target = m_CurrentResource->ShortPathName() + text;
         }
 
         for (int row = 0; row < root_item->rowCount(); row++) {

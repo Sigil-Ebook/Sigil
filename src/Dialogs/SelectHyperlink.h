@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **
@@ -38,7 +39,9 @@ class SelectHyperlink: public QDialog
     Q_OBJECT
 
 public:
-    SelectHyperlink(QString href, HTMLResource *html_resource, QList<Resource *> resources, QSharedPointer<Book> book, QWidget *parent = 0);
+    SelectHyperlink(QString href, Resource *base_resource, 
+                    const QString &restype,  QList<Resource *> resources, 
+                    QSharedPointer<Book> book, QWidget *parent = 0);
 
     void SetList();
 
@@ -64,7 +67,8 @@ private:
 
     void SelectText(QString &text);
 
-    HTMLResource *m_CurrentHTMLResource;
+    Resource *m_CurrentResource;
+    QString m_restype;
 
     QString m_DefaultTarget;
     QString m_SavedTarget;

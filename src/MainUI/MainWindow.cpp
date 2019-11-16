@@ -2230,7 +2230,7 @@ void MainWindow::InsertHyperlink()
 
     HTMLResource *html_resource = qobject_cast<HTMLResource *>(flow_tab->GetLoadedResource());
     QList<Resource *> resources = GetAllHTMLResources() + m_BookBrowser->AllMediaResources();
-    SelectHyperlink select_hyperlink(href, html_resource, resources, m_Book, this);
+    SelectHyperlink select_hyperlink(href, html_resource, "html", resources, m_Book, this);
 
     if (select_hyperlink.exec() == QDialog::Accepted) {
         QString target = select_hyperlink.GetTarget();

@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2013 Dave Heiland
+**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -39,6 +39,7 @@
 
 class Book;
 class QStandardItem;
+class Resource;
 
 class EditTOC : public QDialog
 {
@@ -115,6 +116,8 @@ private:
     QAction *m_MoveUp;
 
     TOCModel *m_TOCModel;
+
+    Resource * m_BaseResource;
 
     Ui::EditTOC ui;
 };
