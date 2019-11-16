@@ -922,13 +922,15 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }
     m_IsClosing = true;
 
+   // this should be done first to save all geometry
+   // extra saves should not be an issue if the window close is abandoned
+   WriteSettings();
+
+
 
     if (MaybeSaveDialogSaysProceed()) {
 
         DBG qDebug() << "in close event after maybe save";
-
-        // this should be done first to save all geometry
-        WriteSettings();
 
         ShowMessageOnStatusBar(tr("Sigil is closing..."));
 
@@ -3862,6 +3864,9 @@ void MainWindow::ReadSettings()
 
     if (!m_LastWindowSize.isNull()) {
         restoreGeometry(m_LastWindowSize);
+        if (isMaximized) {
+            setWindowState(windowState() | Qt::WindowMaximized);
+        }
     }
 
     // it is recommended to invoke processEvents between restoreGeometry and restoreState
@@ -3873,10 +3878,6 @@ void MainWindow::ReadSettings()
 
     if (!toolbars.isNull()) {
         restoreState(toolbars);
-    }
-
-    if (isMaximized) {
-        setWindowState(windowState() | Qt::WindowMaximized);
     }
 
     // The last folder used for saving and opening files
@@ -3982,13 +3983,6 @@ void MainWindow::WriteSettings()
     settings.setValue("maximized", isMaximized());
     DBG qDebug() << "In WriteSettings with maximized " << isMaximized();
     DBG qDebug() << "In WriteSettings with LastWindowSize " << m_LastWindowSize;
-
-    // if maxmimized, return the window to its normal state after recording this
-    // fact in settings and before saving the geometry to work around bugs saving 
-    // and restoring states of dockwidgets
-    if (isMaximized()) {
-	setWindowState(Qt::WindowNoState);
-    }
 
     if (!m_LastWindowSize.isEmpty()) {
         settings.setValue("geometry", m_LastWindowSize);
