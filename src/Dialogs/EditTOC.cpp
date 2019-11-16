@@ -372,11 +372,17 @@ void EditTOC::SelectTarget()
     }
 
     QStandardItem *item = m_TableOfContents->itemFromIndex(index);
-
-    SelectHyperlink select_target(item->text(), m_BaseResource, "toc", m_Resources, m_Book, this);
+    // convert bookpath (epub root relative href) to relative to ncx or nav as appropriate
+    QString ahref = item->text();
+    if (ahref.indexOf(':') == -1) {
+        std::pair<QString,QString> parts = Utility::parseHREF(ahref);
+        ahref = Utility::buildRelativePath(m_BaseResource->GetRelativePath(), parts.first) + parts.second;
+    }
+    SelectHyperlink select_target(ahref, m_BaseResource, "toc", m_Resources, m_Book, this);
 
     if (select_target.exec() == QDialog::Accepted) {
 	QString href = select_target.GetTarget();
+        // now convert ncx or nav realtive path back to bookpath 9epub root relative)
 	QString bookpath = Utility::buildBookPath(href, m_BaseResource->GetFolder()); 
         item->setText(bookpath);
     }
