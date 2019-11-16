@@ -3869,6 +3869,10 @@ void MainWindow::ReadSettings()
         }
     }
 
+    // it is recommended to invoke processEvents between restoreGeometry and restoreState
+    // to work around some window restore issues
+    qApp->processEvents();
+
     // The positions of all the toolbars and dock widgets
     QByteArray toolbars = settings.value("toolbars").toByteArray();
 
