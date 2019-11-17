@@ -4180,6 +4180,9 @@ void MainWindow::CreateNewBook(const QStringList &book_paths)
         new_book->GetOPF()->SetNavResource(nav_resource);
         new_book->GetOPF()->SetItemRefLinear(nav_resource, false);
         // ncx is optional in epub3 so wait until user asks for it to be generated before creating it
+        // if (!ncxbookpath.isEmpty()) {
+        //     new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath, first_textdir);
+	// }
     } else {
         new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath, first_textdir);
     }
