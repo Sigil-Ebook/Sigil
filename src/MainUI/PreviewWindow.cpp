@@ -292,7 +292,13 @@ void PreviewWindow::UpdateWindowTitle()
     if ((m_Preview) && m_Preview->isVisible()) {
         int height = m_Preview->height();
         int width = m_Preview->width();
-        setWindowTitle(tr("Preview") + " (" + QString::number(width) + "x" + QString::number(height) + ")");
+        QString filename;
+        if (!m_Filepath.isEmpty()) {
+            filename = QFileInfo(m_Filepath).fileName();
+	}
+        setWindowTitle(tr("Preview") + 
+		       " (" + QString::number(width) + "x" + QString::number(height) + ") " +
+		       filename);
     }
 }
 
