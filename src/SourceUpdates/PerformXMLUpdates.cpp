@@ -72,7 +72,8 @@ QString PerformXMLUpdates::operator()()
     if (MISC_XML_MIMETYPES.contains(m_MediaType)) {
         if (m_MediaType == "application/smil+xml") {
             routine = "performSMILUpdates";
-        } else if (m_MediaType == "application/oebps-page-map+xml")  {
+        } else if ((m_MediaType == "application/oebps-page-map+xml") || 
+		   (m_MediaType == "application/vnd.adobe-page-map+xml"))  {
             routine = "performPageMapUpdates";
         } else {
             // We allow editing, but currently have no python parsing/repair/link-updating routines. 

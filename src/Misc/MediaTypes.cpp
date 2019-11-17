@@ -48,9 +48,12 @@ const QStringList FONT_MIMETYPES       = QStringList() << "application/x-font-tt
 const QStringList AUDIO_MIMETYPES      = QStringList() << "audio/mpeg" << "audio/mp3" << "audio/ogg" << "audio/mp4";
 const QStringList VIDEO_MIMETYPES      = QStringList() << "video/mp4" << "video/ogg" << "video/webm" 
                                                        << "text/vtt" << "application/ttml+xml";
-const QStringList MISC_XML_MIMETYPES   = QStringList() << "application/oebps-page-map+xml" <<  "application/smil+xml" 
-						       << "application/adobe-page-template+xml" << "application/vnd.adobe.page-template+xml"
-						       << "application/vnd.adobe-page-template+xml" << "application/pls+xml";
+const QStringList MISC_XML_MIMETYPES   = QStringList() << "application/oebps-page-map+xml" 
+                                                       << "application/vnd.adobe-page-map+xml"
+						       << "application/smil+xml" 
+						       << "application/adobe-page-template+xml" 
+						       << "application/vnd.adobe-page-template+xml" 
+                                                       << "application/pls+xml";
 
 
 MediaTypes *MediaTypes::m_instance = 0;
