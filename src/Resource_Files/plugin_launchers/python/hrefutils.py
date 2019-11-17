@@ -8,6 +8,9 @@ import os
 from urllib.parse import unquote
 from urllib.parse import urlsplit
 
+# default to using the preferred media-types ffrom the epub 3.2 spec
+# https://www.w3.org/publishing/epub3/epub-spec.html#sec-cmt-supported
+
 ext_mime_map = {
     '.bm'    : 'image/bmp',
     '.bmp'   : 'image/bmp',
@@ -28,60 +31,69 @@ ext_mime_map = {
     '.ogg'   : 'audio/ogg',
     '.ogv'   : 'video/ogg',
     '.opf'   : 'application/oebps-package+xml',
-    '.otf'   : 'application/vnd.ms-opentype',
+    '.otf'   : 'font/otf',
     '.pls'   : 'application/pls+xml',
     '.png'   : 'image/png',
     '.smil'  : 'application/smil+xml',
     '.svg'   : 'image/svg+xml',
     '.tif'   : 'image/tiff',
     '.tiff'  : 'image/tiff',
-    '.ttc'   : 'application/x-font-truetype-collection',
-    '.ttf'   : 'application/x-font-ttf',
+    '.ttc'   : 'font/collection',
+    '.ttf'   : 'font/ttf',
     '.ttml'  : 'application/ttml+xml',
     '.txt'   : 'text/plain',
     '.vtt'   : 'text/vtt',
     '.webm'  : 'video/webm',
     '.webp'  : 'image/webp',
-    '.woff'  : 'application/font-woff',
+    '.woff'  : 'font/woff',
     '.woff2' : 'font/woff2',
     '.xhtml' : 'application/xhtml+xml',
     '.xml'   : 'application/oebps-page-map+xml',
-    '.xpgt'  : 'application/adobe-page-template+xml',
+    '.xpgt'  : 'application/vnd.adobe-page-template+xml',
     #'.js'    : = "text/javascript',
     #'.otf'   : 'application/x-font-opentype',
     #'.otf'   : 'application/font-sfnt',
 }
 
 
+# deprecated font mediatypes
+# See https://www.iana.org/assignments/media-types/media-types.xhtml#font
+
 mime_group_map = {
     'image/jpeg'                              : 'Images',
     'image/png'                               : 'Images',
     'image/gif'                               : 'Images',
     'image/svg+xml'                           : 'Images',
-    'image/bmp'                               : 'Images',
-    'image/tiff'                              : 'Images',
-    'image/webp'                              : 'Images',
+    'image/bmp'                               : 'Images', # not a core media type
+    'image/tiff'                              : 'Images', # not a core media type
+    'image/webp'                              : 'Images', # not a core media type
     'text/html'                               : 'Text',
     'application/xhtml+xml'                   : 'Text',
     'application/x-dtbook+xml'                : 'Text',
-    'application/x-font-ttf'                  : 'Fonts',
-    'application/x-truetype-font'             : 'Fonts',
-    'application/x-font-otf'                  : 'Fonts',
-    'application/x-opentype-font'             : 'Fonts',
-    'application/x-font-opentype'             : 'Fonts',
-    'application/vnd.ms-opentype'             : 'Fonts',
-    'application/font-sfnt'                   : 'Fonts',
-    'application/font-woff'                   : 'Fonts',
-    'application/font-sfnt'                   : 'Fonts',
     'font/woff2'                              : 'Fonts',
     'font/woff'                               : 'Fonts',
     'font/ttf'                                : 'Fonts',
     'font/otf'                                : 'Fonts',
-    'application/x-font-truetype-collection'  : 'Fonts',
+    'font/sfnt'                               : 'Fonts',
+    'font/collection'                         : 'Fonts',
+    'application/vnd.ms-opentype'             : 'Fonts',
+    'application/font-sfnt'                   : 'Fonts',  # deprecated
+    'application/font-ttf'                    : 'Fonts',  # deprecated
+    'application/font-otf'                    : 'Fonts',  # deprecated
+    'application/font-woff'                   : 'Fonts',  # deprecated
+    'application/font-woff2'                  : 'Fonts',  # deprecated
+    'application/x-font-ttf'                  : 'Fonts',  # deprecated
+    'application/x-truetype-font'             : 'Fonts',  # deprecated
+    'application/x-opentype-font'             : 'Fonts',  # deprecated
+    'application/x-font-ttf'                  : 'Fonts',  # deprecated
+    'application/x-font-otf'                  : 'Fonts',  # deprecated
+    'application/x-font-opentype'             : 'Fonts',  # deprecated
+    'application/x-font-truetype'             : 'Fonts',  # deprecated
+    'application/x-font-truetype-collection'  : 'Fonts',  # deprecated
     'audio/mpeg'                              : 'Audio',
     'audio/mp3'                               : 'Audio',
     'audio/mp4'                               : 'Audio',
-    'audio/ogg'                               : 'Audio',
+    'audio/ogg'                               : 'Audio',  # not a core media type 
     'video/mp4'                               : 'Video',
     'video/ogg'                               : 'Video',
     'video/webm'                              : 'Video',
@@ -92,11 +104,10 @@ mime_group_map = {
     'application/oebps-package+xml'           : 'opf',
     'application/oebps-page-map+xml'          : 'Misc',
     'application/vnd.adobe-page-map+xml'      : 'Misc',
-    'application/adobe-page-map+xml'          : 'Misc',
+    'application/vnd.adobe.page-map+xml'      : 'Misc',
     'application/smil+xml'                    : 'Misc',
     'application/adobe-page-template+xml'     : 'Misc',
     'application/vnd.adobe-page-template+xml' : 'Misc',
-    'application/vnd.adobe.page-template+xml' : 'Misc',
     'text/javascript'                         : 'Misc',
     'application/javascript'                  : 'Misc',
     'application/pls+xml'                     : 'Misc',

@@ -178,6 +178,7 @@ void MediaTypes::SetMTypeToGroupMap()
 
     m_MTypeToGroup[ "application/xhtml+xml"                   ] = "Text";
     m_MTypeToGroup[ "application/x-dtbook+xml"                ] = "Text";
+    m_MTypeToGroup[ "text/html"                               ] = "Text";
 
     m_MTypeToGroup[ "font/woff2"                              ] = "Fonts";
     m_MTypeToGroup[ "font/woff"                               ] = "Fonts";
@@ -243,6 +244,7 @@ void MediaTypes::SetMTypeToRDescMap()
     }
     m_MTypeToRDesc[ "application/xhtml+xml"                   ] = "HTMLResource";
     m_MTypeToRDesc[ "application/x-dtbook+xml"                ] = "HTMLResource";  // not a core media type
+    m_MTypeToRDesc[ "text/html"                               ] = "HTMLResource";  // not a core media type
 
     m_MTypeToRDesc[ "text/css"                                ] = "CSSResource";
 
@@ -274,8 +276,8 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "application/x-font-truetype"             ] = "FontResource";
     m_MTypeToRDesc[ "application/x-truetype-font"             ] = "FontResource";
     m_MTypeToRDesc[ "application/x-opentype-font"             ] = "FontResource";
-    m_MTypeToRDesc[ "application/font-ttf"                   ] = "FontResource";
-    m_MTypeToRDesc[ "application/font-otf"                   ] = "FontResource";
+    m_MTypeToRDesc[ "application/font-ttf"                    ] = "FontResource";
+    m_MTypeToRDesc[ "application/font-otf"                    ] = "FontResource";
     m_MTypeToRDesc[ "application/font-sfnt"                   ] = "FontResource";
     m_MTypeToRDesc[ "application/font-woff"                   ] = "FontResource";
     m_MTypeToRDesc[ "application/font-woff2"                  ] = "FontResource";
