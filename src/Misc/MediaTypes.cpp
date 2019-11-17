@@ -117,6 +117,8 @@ void MediaTypes::SetExtToMTypeMap()
     if (!m_ExtToMType.isEmpty()) {
         return;
     }
+    // default to using the preferred media-types ffrom the epub 3.2 spec
+    // https://www.w3.org/publishing/epub3/epub-spec.html#sec-cmt-supported
     m_ExtToMType[ "bm"    ] = "image/bmp";
     m_ExtToMType[ "bmp"   ] = "image/bmp";
     m_ExtToMType[ "css"   ] = "text/css";
@@ -136,28 +138,25 @@ void MediaTypes::SetExtToMTypeMap()
     m_ExtToMType[ "ogg"   ] = "audio/ogg";
     m_ExtToMType[ "ogv"   ] = "video/ogg";
     m_ExtToMType[ "opf"   ] = "application/oebps-package+xml";
-    m_ExtToMType[ "otf"   ] = "application/vnd.ms-opentype";
+    m_ExtToMType[ "otf"   ] = "font/otf";
     m_ExtToMType[ "pls"   ] = "application/pls+xml";
     m_ExtToMType[ "png"   ] = "image/png";
     m_ExtToMType[ "smil"  ] = "application/smil+xml";
     m_ExtToMType[ "svg"   ] = "image/svg+xml";
     m_ExtToMType[ "tif"   ] = "image/tiff";
     m_ExtToMType[ "tiff"  ] = "image/tiff";
-    m_ExtToMType[ "ttc"   ] = "application/x-font-truetype-collection";
-    m_ExtToMType[ "ttf"   ] = "application/x-font-ttf";
+    m_ExtToMType[ "ttc"   ] = "font/collection";
+    m_ExtToMType[ "ttf"   ] = "font/ttf";
     m_ExtToMType[ "ttml"  ] = "application/ttml+xml";
     m_ExtToMType[ "txt"   ] = "text/plain";
     m_ExtToMType[ "vtt"   ] = "text/vtt";
     m_ExtToMType[ "webm"  ] = "video/webm";
     m_ExtToMType[ "webp"  ] = "image/webp";
-    m_ExtToMType[ "woff"  ] = "application/font-woff";
+    m_ExtToMType[ "woff"  ] = "font/woff";
     m_ExtToMType[ "woff2" ] = "font/woff2";
     m_ExtToMType[ "xhtml" ] = "application/xhtml+xml";
     m_ExtToMType[ "xml"   ] = "application/oebps-page-map+xml";
-    m_ExtToMType[ "xpgt"  ] = "application/adobe-page-template+xml";
-    // m_ExtToMType[ "js"   ] = "text/javascript";
-    // m_ExtToMType[ "otf"  ] = "application/x-font-opentype";
-    // m_ExtToMType[ "otf"  ] = "application/font-sfnt";
+    m_ExtToMType[ "xpgt"  ] = "application/vnd.adobe-page-template+xml";
 }
 
 
@@ -173,44 +172,63 @@ void MediaTypes::SetMTypeToGroupMap()
     m_MTypeToGroup[ "image/bmp"                               ] = "Images";
     m_MTypeToGroup[ "image/tiff"                              ] = "Images";
     m_MTypeToGroup[ "image/webp"                              ] = "Images";
+
     m_MTypeToGroup[ "application/xhtml+xml"                   ] = "Text";
     m_MTypeToGroup[ "application/x-dtbook+xml"                ] = "Text";
+
+    m_MTypeToGroup[ "font/woff2"                              ] = "Fonts";
+    m_MTypeToGroup[ "font/woff"                               ] = "Fonts";
+    m_MTypeToGroup[ "font/otf"                                ] = "Fonts";
+    m_MTypeToGroup[ "font/ttf"                                ] = "Fonts";
+    m_MTypeToGroup[ "font/sfnt"                               ] = "Fonts";
+    m_MTypeToGroup[ "font/collection"                         ] = "Fonts";
+    m_MTypeToGroup[ "application/vnd.ms-opentype"             ] = "Fonts";
+
+    // deprecated font mediatypes
+    // See https://www.iana.org/assignments/media-types/media-types.xhtml#font
+    m_MTypeToGroup[ "application/font-ttf"                    ] = "Fonts";
+    m_MTypeToGroup[ "application/font-otf"                    ] = "Fonts";
+    m_MTypeToGroup[ "application/font-sfnt"                   ] = "Fonts";
+    m_MTypeToGroup[ "application/font-woff"                   ] = "Fonts";
+    m_MTypeToGroup[ "application/font-woff2"                  ] = "Fonts";
     m_MTypeToGroup[ "application/x-truetype-font"             ] = "Fonts";
     m_MTypeToGroup[ "application/x-opentype-font"             ] = "Fonts";
     m_MTypeToGroup[ "application/x-font-ttf"                  ] = "Fonts";
     m_MTypeToGroup[ "application/x-font-otf"                  ] = "Fonts";
     m_MTypeToGroup[ "application/x-font-opentype"             ] = "Fonts";
-    m_MTypeToGroup[ "application/vnd.ms-opentype"             ] = "Fonts";
-    m_MTypeToGroup[ "application/font-sfnt"                   ] = "Fonts";
-    m_MTypeToGroup[ "application/font-woff"                   ] = "Fonts";
-    m_MTypeToGroup[ "application/font-sfnt"                   ] = "Fonts";
-    m_MTypeToGroup[ "font/woff2"                              ] = "Fonts";
-    m_MTypeToGroup[ "font/woff"                               ] = "Fonts";
-    m_MTypeToGroup[ "font/otf"                                ] = "Fonts";
-    m_MTypeToGroup[ "font/ttf"                                ] = "Fonts";
+    m_MTypeToGroup[ "application/x-font-truetype"             ] = "Fonts";
     m_MTypeToGroup[ "application/x-font-truetype-collection"  ] = "Fonts";
+
     m_MTypeToGroup[ "audio/mpeg"                              ] = "Audio";
     m_MTypeToGroup[ "audio/mp3"                               ] = "Audio";
     m_MTypeToGroup[ "audio/mp4"                               ] = "Audio";
     m_MTypeToGroup[ "audio/ogg"                               ] = "Audio";
+
     m_MTypeToGroup[ "video/mp4"                               ] = "Video";
     m_MTypeToGroup[ "video/ogg"                               ] = "Video";
     m_MTypeToGroup[ "video/webm"                              ] = "Video";
     m_MTypeToGroup[ "text/vtt"                                ] = "Video";
     m_MTypeToGroup[ "application/ttml+xml"                    ] = "Video";
+
     m_MTypeToGroup[ "text/css"                                ] = "Styles";
+
     m_MTypeToGroup[ "application/x-dtbncx+xml"                ] = "ncx";
+
     m_MTypeToGroup[ "application/oebps-package+xml"           ] = "opf";
+
     m_MTypeToGroup[ "application/oebps-page-map+xml"          ] = "Misc";
     m_MTypeToGroup[ "application/vnd.adobe-page-map+xml"      ] = "Misc";
-    m_MTypeToGroup[ "application/adobe-page-map+xml"          ] = "Misc";
+
     m_MTypeToGroup[ "application/smil+xml"                    ] = "Misc";
+    m_MTypeToGroup[ "application/pls+xml"                     ] = "Misc";
+
     m_MTypeToGroup[ "application/adobe-page-template+xml"     ] = "Misc";
     m_MTypeToGroup[ "application/vnd.adobe-page-template+xml" ] = "Misc";
-    m_MTypeToGroup[ "application/vnd.adobe.page-template+xml" ] = "Misc";
-    m_MTypeToGroup[ "text/javascript"                         ] = "Misc";
+
     m_MTypeToGroup[ "application/javascript"                  ] = "Misc";
-    m_MTypeToGroup[ "application/pls+xml"                     ] = "Misc";
+    m_MTypeToGroup[ "text/javascript"                         ] = "Misc";
+
+
     m_MTypeToGroup[ "text/plain"                              ] = "Misc";
 }
 
@@ -221,50 +239,65 @@ void MediaTypes::SetMTypeToRDescMap()
         return;
     }
     m_MTypeToRDesc[ "application/xhtml+xml"                   ] = "HTMLResource";
-    m_MTypeToRDesc[ "application/x-dtbook+xml"                ] = "HTMLResource";
+    m_MTypeToRDesc[ "application/x-dtbook+xml"                ] = "HTMLResource";  // not a core media type
+
     m_MTypeToRDesc[ "text/css"                                ] = "CSSResource";
+
     m_MTypeToRDesc[ "application/oebps-package+xml"           ] = "OPFResource";
     m_MTypeToRDesc[ "application/x-dtbncx+xml"                ] = "NCXResource";
+
     m_MTypeToRDesc[ "image/jpeg"                              ] = "ImageResource";
     m_MTypeToRDesc[ "image/png"                               ] = "ImageResource";
     m_MTypeToRDesc[ "image/gif"                               ] = "ImageResource";
-    m_MTypeToRDesc[ "image/bmp"                               ] = "ImageResource";
-    m_MTypeToRDesc[ "image/tiff"                              ] = "ImageResource";
-    m_MTypeToRDesc[ "image/webp"                              ] = "ImageResource";
+    m_MTypeToRDesc[ "image/bmp"                               ] = "ImageResource";  // not a core media type
+    m_MTypeToRDesc[ "image/tiff"                              ] = "ImageResource";  // not a core media type
+    m_MTypeToRDesc[ "image/webp"                              ] = "ImageResource";  // not a core media type
+
     m_MTypeToRDesc[ "image/svg+xml"                           ] = "SVGResource";
-    m_MTypeToRDesc[ "application/x-font-ttf"                  ] = "FontResource";
-    m_MTypeToRDesc[ "application/x-font-otf"                  ] = "FontResource";
-    m_MTypeToRDesc[ "application/x-font-opentype"             ] = "FontResource";
-    m_MTypeToRDesc[ "application/x-truetype-font"             ] = "FontResource";
-    m_MTypeToRDesc[ "application/x-opentype-font"             ] = "FontResource";
-    m_MTypeToRDesc[ "application/vnd.ms-opentype"             ] = "FontResource";
-    m_MTypeToRDesc[ "application/font-sfnt"                   ] = "FontResource";
-    m_MTypeToRDesc[ "application/font-woff"                   ] = "FontResource";
-    m_MTypeToRDesc[ "application/font-sfnt"                   ] = "FontResource";
+
     m_MTypeToRDesc[ "font/woff2"                              ] = "FontResource";
     m_MTypeToRDesc[ "font/woff"                               ] = "FontResource";
     m_MTypeToRDesc[ "font/otf"                                ] = "FontResource";
     m_MTypeToRDesc[ "font/ttf"                                ] = "FontResource";
+    m_MTypeToRDesc[ "application/vnd.ms-opentype"             ] = "FontResource";
+    m_MTypeToRDesc[ "font/collection"                         ] = "FontResource";  // not a core media type
+
+    // All of these are now deprecated
+    // See: https://www.iana.org/assignments/media-types/media-types.xhtml#font
     m_MTypeToRDesc[ "application/x-font-truetype-collection"  ] = "FontResource";
+    m_MTypeToRDesc[ "application/x-font-ttf"                  ] = "FontResource";
+    m_MTypeToRDesc[ "application/x-font-otf"                  ] = "FontResource";
+    m_MTypeToRDesc[ "application/x-font-opentype"             ] = "FontResource";
+    m_MTypeToRDesc[ "application/x-font-truetype"             ] = "FontResource";
+    m_MTypeToRDesc[ "application/x-truetype-font"             ] = "FontResource";
+    m_MTypeToRDesc[ "application/x-opentype-font"             ] = "FontResource";
+    m_MTypeToRDesc[ "application/font-ttf"                   ] = "FontResource";
+    m_MTypeToRDesc[ "application/font-otf"                   ] = "FontResource";
+    m_MTypeToRDesc[ "application/font-sfnt"                   ] = "FontResource";
+    m_MTypeToRDesc[ "application/font-woff"                   ] = "FontResource";
+    m_MTypeToRDesc[ "application/font-woff2"                  ] = "FontResource";
+
     m_MTypeToRDesc[ "audio/mpeg"                              ] = "AudioResource";
     m_MTypeToRDesc[ "audio/mp3"                               ] = "AudioResource";
     m_MTypeToRDesc[ "audio/mp4"                               ] = "AudioResource";
-    m_MTypeToRDesc[ "audio/ogg"                               ] = "AudioResource";
-    m_MTypeToRDesc[ "video/mp4"                               ] = "VideoResource";
+    m_MTypeToRDesc[ "audio/ogg"                               ] = "AudioResource";  // not a core media type
+
+    m_MTypeToRDesc[ "video/mp4"                               ] = "VideoResource";  
     m_MTypeToRDesc[ "video/ogg"                               ] = "VideoResource";
     m_MTypeToRDesc[ "video/webm"                              ] = "VideoResource";
     m_MTypeToRDesc[ "text/vtt"                                ] = "VideoResource";
     m_MTypeToRDesc[ "application/ttml+xml"                    ] = "VideoResource";
-    m_MTypeToRDesc[ "application/oebps-page-map+xml"          ] = "XMLResource";
-    m_MTypeToRDesc[ "application/vnd.adobe-page-map+xml"      ] = "XMLResource";
-    m_MTypeToRDesc[ "application/adobe-page-map+xml"          ] = "XMLResource";
+
     m_MTypeToRDesc[ "application/smil+xml"                    ] = "XMLResource";
-    m_MTypeToRDesc[ "application/adobe-page-template+xml"     ] = "XMLResource";
-    m_MTypeToRDesc[ "application/vnd.adobe-page-template+xml" ] = "XMLResource";
-    m_MTypeToRDesc[ "application/vnd.adobe.page-template+xml" ] = "XMLResource";
     m_MTypeToRDesc[ "application/pls+xml"                     ] = "XMLResource";
-    m_MTypeToRDesc[ "text/javascript"                         ] = "MiscTextResource";
+
+    m_MTypeToRDesc[ "application/oebps-page-map+xml"          ] = "XMLResource";  // not a core media type
+    m_MTypeToRDesc[ "application/vnd.adobe-page-map+xml"      ] = "XMLResource";  // not a core media type
+    m_MTypeToRDesc[ "application/adobe-page-template+xml"     ] = "XMLResource";  // not a core media type
+    m_MTypeToRDesc[ "application/vnd.adobe-page-template+xml" ] = "XMLResource";  // not a core media type
+
     m_MTypeToRDesc[ "application/javascript"                  ] = "MiscTextResource";
-    m_MTypeToRDesc[ "text/plain"                              ] = "MiscTextResource";
+    m_MTypeToRDesc[ "text/javascript"                         ] = "MiscTextResource";
+    m_MTypeToRDesc[ "text/plain"                              ] = "MiscTextResource";  // not a core media type
 }
 

@@ -51,6 +51,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/CleanSource.h"
 #include "Importers/ImportEPUB.h"
+#include "Misc/MediaTypes.h"
 #include "Misc/FontObfuscation.h"
 #include "Misc/HTMLEncodingResolver.h"
 #include "Misc/QCodePage437Codec.h"
@@ -730,6 +731,15 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     // Paths are percent encoded in the OPF, we use "normal" paths internally.
     href = Utility::URLDecodePath(href);
     QString extension = QFileInfo(href).suffix().toLower();
+
+    // validate the media type if we can, and warn otherwise
+    QString group = MediaTypes::instance()->GetGroupFromMediaType(type,"");
+    QString ext_mtype = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
+    if (type.isEmpty() || group.isEmpty()) {
+	const QString load_warning = QObject::tr("The OPF uses an unrecognized media type \"%1\" for file \"%2\"").arg(type).arg(QFileInfo(href).fileName()) +
+	    " - " + QObject::tr("A temporary media type of \"%1\" has been assigned. You should edit your OPF file to fix this problem.").arg(ext_mtype);
+        AddLoadWarning(load_warning);
+    }
 
     // find the epub root relative file path from the opf location and the item href
     QString file_path = m_opfDir.absolutePath() + "/" + href;
