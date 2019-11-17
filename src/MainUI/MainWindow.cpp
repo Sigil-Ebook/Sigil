@@ -915,18 +915,19 @@ void MainWindow::closeEvent(QCloseEvent *event)
 {
     DBG qDebug() << "in close event before maybe save";
 
+    m_IsClosing = true;
+
     // stop any further UpdatePreview timer actions
     // and prevent UpdatePage from running
     if (m_PreviewTimer.isActive()) {
         m_PreviewTimer.stop();
     }
-    m_IsClosing = true;
-
-   // this should be done first to save all geometry
-   // extra saves should not be an issue if the window close is abandoned
-   WriteSettings();
+    disconnect(&m_PreviewTimer, SIGNAL(timeout()), this, SLOT(UpdatePreview()));
 
 
+    // this should be done first to save all geometry
+    // extra saves should not be an issue if the window close is abandoned
+    WriteSettings();
 
     if (MaybeSaveDialogSaysProceed()) {
 
@@ -962,6 +963,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
         event->accept();
     } else {
         event->ignore();
+	SetupPreviewTimer();
 	m_IsClosing = false;
     }
 }
@@ -4011,14 +4013,11 @@ void MainWindow::WriteSettings()
 
 bool MainWindow::MaybeSaveDialogSaysProceed()
 {
-
-#ifndef Q_OS_MAC
     // Make sure that any tabs currently about to be drawn etc get a chance to do so.
     // or else the process of closing/creating a new book will crash with Qt object errors.
     // Particularly a problem if open a large tab in Preview prior to the action
-    // due to QWebInspector
+    // due to QWebInspector, QTimer timeouts etc
     qApp->processEvents();
-#endif 
 
     if (isWindowModified()) {
         QMessageBox::StandardButton button_pressed;
