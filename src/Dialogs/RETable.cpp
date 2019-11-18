@@ -64,6 +64,8 @@ void RETable::SetTable(const QList<Resource*> &resources)
         ui.tableWidget->setItem(r, 1, new QTableWidgetItem(apath));
         r++;
     }
+    ui.tableWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    ui.tableWidget->resizeColumnsToContents();
     ui.tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 

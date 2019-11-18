@@ -24,13 +24,15 @@
 
 static QString SETTINGS_GROUP = "re_renamer";
 
-RERenamer::RERenamer(QWidget *parent)
+RERenamer::RERenamer(const QString &retext, const QString& replacetext, QWidget *parent)
     :
     QDialog(parent),
     m_REText(QString()),
     m_ReplaceText(QString())
 {
     ui.setupUi(this);
+    ui.rexLineEdit->setText(retext);
+    ui.repLineEdit->setText(replacetext);
     connectSignalsSlots();
     ReadSettings();
 }

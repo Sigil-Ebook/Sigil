@@ -995,21 +995,34 @@ void BookBrowser::REXRename()
 
     Resource::ResourceType resource_type = resources.first()->Type();
 
-    // Get the regular expression and its replacement from the user
-    RERenamer renamer(this);
-    if (renamer.exec() != QDialog::Accepted) {
-        return;
-    }
-    QString retext = renamer.GetREText();
-    QString replacetext = renamer.GetReplaceText();
+    QString retext;
+    QString replacetext;
+    int trycnt = 4;
+    bool done = false;
+    QStringList new_filenames;
 
-    // Now make sure the user approves of the name changes
-    RETable renametable(resources, retext, replacetext, this);
-    if (renametable.exec() != QDialog::Accepted) {
-        return;
+    while(!done && (trycnt > 0)) {
+
+        // Get the regular expression and its replacement from the user
+        RERenamer renamer(retext, replacetext,this);
+        if (renamer.exec() != QDialog::Accepted) {
+            return;
+        }
+
+        retext = renamer.GetREText();
+        replacetext = renamer.GetReplaceText();
+
+        // Now make sure the user approves of the name changes
+        RETable renametable(resources, retext, replacetext, this);
+        if (renametable.exec() != QDialog::Accepted) {
+            trycnt--;
+        } else {
+	    new_filenames = renametable.GetNewNames();
+            done = true;
+	}
     }
-    
-    QStringList new_filenames = renametable.GetNewNames();
+
+    if (!done) return;
 
     // After a rename we want to keep the resources in the identical position.
     int scrollY = m_TreeView->verticalScrollBar()->value();

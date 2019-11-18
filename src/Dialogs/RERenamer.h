@@ -32,7 +32,7 @@ class RERenamer: public QDialog
     Q_OBJECT
 
 public:
-    RERenamer(QWidget *parent = 0);
+    RERenamer(const QString &retext, const QString &replacetext, QWidget *parent = 0);
     QString GetREText();
     QString GetReplaceText();
 

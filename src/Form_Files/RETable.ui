@@ -30,6 +30,12 @@
    </property>
   </widget>
   <widget class="QTableWidget" name="tableWidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>1</verstretch>
+    </sizepolicy>
+   </property>
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -41,14 +47,17 @@
    <property name="minimumSize">
     <size>
      <width>201</width>
-     <height>0</height>
+     <height>o</height>
     </size>
    </property>
-   <property name="rowCount">
-    <number>0</number>
+   <property name="cornerButtonEnabled">
+    <bool>true</bool>
    </property>
-   <attribute name="horizontalHeaderMinimumSectionSize">
-    <number>250</number>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderCascadingSectionResizes">
+    <bool>true</bool>
    </attribute>
    <column>
     <property name="text">
