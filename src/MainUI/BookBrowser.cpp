@@ -35,6 +35,8 @@
 #include "Dialogs/RenameTemplate.h"
 #include "Dialogs/AddSemantics.h"
 #include "Dialogs/SelectFolder.h"
+#include "Dialogs/RERenamer.h"
+#include "Dialogs/RETable.h"
 #include "Importers/ImportHTML.h"
 #include "MainUI/BookBrowser.h"
 #include "MainUI/MainWindow.h"
@@ -304,6 +306,7 @@ void BookBrowser::OpenContextMenu(const QPoint &point)
     m_Delete->setEnabled(true);
     m_Merge->setEnabled(true);
     m_Rename->setEnabled(true);
+    m_RERename->setEnabled(true);
     m_Move->setEnabled(true);
 }
 
@@ -961,6 +964,7 @@ void BookBrowser::MoveResourceList(const QList<Resource*> &resources, const QStr
     // Refresh();
 }
 
+
 void BookBrowser::Rename()
 {
     QList <Resource *> resources = ValidSelectedResources();
@@ -980,6 +984,43 @@ void BookBrowser::Rename()
         RenameSelected();
     }
 }
+
+void BookBrowser::REXRename()
+{
+    QList <Resource *> resources = ValidSelectedResources();
+
+    if (resources.isEmpty()) {
+        return;
+    }
+
+    Resource::ResourceType resource_type = resources.first()->Type();
+
+    // Get the regular expression and its replacement from the user
+    RERenamer renamer(this);
+    if (renamer.exec() != QDialog::Accepted) {
+        return;
+    }
+    QString retext = renamer.GetREText();
+    QString replacetext = renamer.GetReplaceText();
+
+    // Now make sure the user approves of the name changes
+    RETable renametable(resources, retext, replacetext, this);
+    if (renametable.exec() != QDialog::Accepted) {
+        return;
+    }
+    
+    QStringList new_filenames = renametable.GetNewNames();
+
+    // After a rename we want to keep the resources in the identical position.
+    int scrollY = m_TreeView->verticalScrollBar()->value();
+
+    // Rename the resources
+    m_OPFModel->RenameResourceList(resources, new_filenames);
+
+    SelectResources(resources);
+    m_TreeView->verticalScrollBar()->setSliderPosition(scrollY);
+}
+
 
 void BookBrowser::Move()
 {
@@ -1629,6 +1670,7 @@ void BookBrowser::CreateContextMenuActions()
     m_CopyHTML                = new QAction(tr("Add Copy"),              this);
     m_CopyCSS                 = new QAction(tr("Add Copy"),              this);
     m_Rename                  = new QAction(tr("Rename") + "...",        this);
+    m_RERename                = new QAction(tr("RegEx Rename") + "...",  this);
     m_Move                    = new QAction(tr("Move") + "...",          this);
     m_Delete                  = new QAction(tr("Delete") + "...",        this);
     m_CoverImage              = new QAction(tr("Cover Image"),           this);
@@ -1661,6 +1703,8 @@ void BookBrowser::CreateContextMenuActions()
     m_Rename->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_R));
     m_Rename->setToolTip(tr("Rename selected file(s)"));
     sm->registerAction(this, m_Rename, "MainWindow.BookBrowser.Rename");
+    m_RERename->setToolTip(tr("Use Regular Expressions to Rename selected file(s)"));
+    sm->registerAction(this, m_Rename, "MainWindow.BookBrowser.RERename");
     // m_Move->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_R));
     m_Move->setToolTip(tr("Move selected file(s) to a new folder"));
     sm->registerAction(this, m_Move, "MainWindow.BookBrowser.Move");
@@ -1674,6 +1718,7 @@ void BookBrowser::CreateContextMenuActions()
     addAction(m_Delete);
     addAction(m_Merge);
     addAction(m_Rename);
+    addAction(m_RERename);
     addAction(m_Move);
     addAction(m_LinkStylesheets);
     addAction(m_AddSemantics);
@@ -1710,6 +1755,7 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
             m_Delete->setEnabled(m_LastContextMenuType != Resource::HTMLResourceType ||
                                  (AllHTMLResources().count() > 1 && resources.count() != item_count));
             m_ContextMenu->addAction(m_Rename);
+            m_ContextMenu->addAction(m_RERename);
 	    m_ContextMenu->addAction(m_Move);
         }
         if (resource->Type() == Resource::HTMLResourceType) {
@@ -1906,6 +1952,7 @@ void BookBrowser::ConnectSignalsToSlots()
     connect(m_AddNewSVG,               SIGNAL(triggered()), this, SLOT(AddNewSVG()));
     connect(m_AddExisting,             SIGNAL(triggered()), this, SLOT(AddExisting()));
     connect(m_Rename,                  SIGNAL(triggered()), this, SLOT(Rename()));
+    connect(m_RERename,                SIGNAL(triggered()), this, SLOT(REXRename()));
     connect(m_Move,                    SIGNAL(triggered()), this, SLOT(Move()));
     connect(m_Delete,                  SIGNAL(triggered()), this, SLOT(Delete()));
     connect(m_CoverImage,              SIGNAL(triggered()), this, SLOT(SetCoverImage()));

@@ -143,6 +143,10 @@ set( DIALOG_FILES
     Dialogs/EmptyLayout.h
     Dialogs/OpenWithName.cpp
     Dialogs/OpenWithName.h
+    Dialogs/RERenamer.cpp
+    Dialogs/RERenamer.h
+    Dialogs/RETable.cpp
+    Dialogs/RETable.h
     Dialogs/SelectCharacter.cpp
     Dialogs/SelectCharacter.h
     Dialogs/SelectFolder.cpp
@@ -438,6 +442,8 @@ set( UI_FILES
     Form_Files/DeleteFiles.ui
     Form_Files/DeleteStyles.ui
     Form_Files/OpenWithName.ui
+    Form_Files/RERenamer.ui
+    Form_Files/RETable.ui
     Form_Files/SelectCharacter.ui
     Form_Files/SelectFolder.ui
     Form_Files/SelectHyperlink.ui

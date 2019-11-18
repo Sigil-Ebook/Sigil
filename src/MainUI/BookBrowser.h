@@ -287,6 +287,11 @@ private slots:
     void Rename();
 
     /**
+     * Implements the Regular Expression Rename context menu action functionality.
+     */
+    void REXRename();
+
+    /**
      * Implements the Move context menu action functionality.
      */
     void Move();
@@ -488,6 +493,7 @@ private:
     QAction *m_AddNewSVG;
     QAction *m_AddExisting;
     QAction *m_Rename;
+    QAction *m_RERename;
     QAction *m_Move;
     QAction *m_Delete;
     QAction *m_Merge;
