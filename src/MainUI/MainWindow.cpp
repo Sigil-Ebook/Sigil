@@ -123,6 +123,7 @@ static const QString USER_GUIDE_URL = "http://sigil-ebook.com/documentation";
 
 static const QString BOOK_BROWSER_NAME            = "bookbrowser";
 static const QString FIND_REPLACE_NAME            = "findreplace";
+static const QString TAB_MANAGER_NAME             = "tabmgr";
 static const QString VALIDATION_RESULTS_VIEW_NAME = "validationresultsname";
 static const QString TABLE_OF_CONTENTS_NAME       = "tableofcontents";
 static const QString PREVIEW_WINDOW_NAME          = "previewwindow";
@@ -3870,6 +3871,11 @@ void MainWindow::ReadSettings()
             setWindowState(windowState() | Qt::WindowMaximized);
         }
     }
+    // handle Find and Replace and Tab Manager geometry separately
+    QByteArray FRGeometry = settings.value("find_replace_geometry").toByteArray();
+    QByteArray TMGeometry = settings.value("tab_manager_geometry").toByteArray();
+    if (!FRGeometry.isNull()) m_FindReplace->restoreGeometry(FRGeometry);
+    if (!TMGeometry.isNull()) m_TabManager->restoreGeometry(TMGeometry);
 
     // it is recommended to invoke processEvents between restoreGeometry and restoreState
     // to work around some window restore issues see QTBUG
@@ -3996,6 +4002,10 @@ void MainWindow::WriteSettings()
             settings.setValue("geometry", saveGeometry());
 	}
     }
+
+    // handle Find and Replace and Tab Manager geometry separately
+    settings.setValue("find_replace_geometry", m_FindReplace->saveGeometry());
+    settings.setValue("tab_manager_geometry", m_TabManager->saveGeometry());
 
     // The positions of all the toolbars and dock widgets
     settings.setValue("toolbars", saveState());
@@ -4707,6 +4717,8 @@ void MainWindow::ExtendUI()
     QFrame *frame = new QFrame(this);
     QLayout *layout = new QVBoxLayout(frame);
     frame->setLayout(layout);
+    m_TabManager->setObjectName(TAB_MANAGER_NAME);
+    m_FindReplace->setObjectName("FIND_REPLACE_NAME");
     layout->addWidget(m_TabManager);
     layout->addWidget(m_FindReplace);
     layout->setContentsMargins(0, 0, 0, 0);
