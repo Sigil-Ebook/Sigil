@@ -974,6 +974,8 @@ private:
      * Workaround for Qt 4.8 bug, to track the last known window size when not maximized.
      */
     QByteArray m_LastWindowSize;
+    QByteArray m_LastTMSize;
+    QByteArray m_LastFRSize;
 
     QTimer m_PreviewTimer;
 

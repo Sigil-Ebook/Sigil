@@ -185,6 +185,8 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     m_LastPasteTarget(NULL),
     m_ZoomPreview(false),
     m_LastWindowSize(QByteArray()),
+    m_LastTMSize(QByteArray()),
+    m_LastFRSize(QByteArray()),
     m_PreviousHTMLResource(NULL),
     m_PreviousHTMLText(QString()),
     m_PreviousHTMLLocation(QList<ElementIndex>()),
@@ -897,6 +899,8 @@ void MainWindow::moveEvent(QMoveEvent *event)
     // Workaround for Qt 4.8 bug - see WriteSettings() for details.
     if (!isMaximized()) {
         m_LastWindowSize = saveGeometry();
+        m_LastTMSize = m_TabManager->saveGeometry();
+        m_LastFRSize = m_FindReplace->saveGeometry();
     }
 
     QMainWindow::moveEvent(event);
@@ -907,6 +911,8 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     // Workaround for Qt 4.8 bug - see WriteSettings() for details.
     if (!isMaximized()) {
         m_LastWindowSize = saveGeometry();
+        m_LastTMSize = m_TabManager->saveGeometry();
+        m_LastFRSize = m_FindReplace->saveGeometry();
     }
 
     QMainWindow::resizeEvent(event);
@@ -3864,14 +3870,15 @@ void MainWindow::ReadSettings()
     // it afterwards (if last state was maximized) to ensure on correct screen.
     bool isMaximized = settings.value("maximized", false).toBool();
     m_LastWindowSize = settings.value("geometry").toByteArray();
-
+    m_LastTMSize = settings.value("tab_manager_geometry").toByteArray();
+    m_LastFRSize = settings.value("find_replace_geometry").toByteArray();
     if (!m_LastWindowSize.isNull()) {
         restoreGeometry(m_LastWindowSize);
+
         // handle Find and Replace and Tab Manager geometry separately
-        QByteArray FRGeometry = settings.value("find_replace_geometry").toByteArray();
-        QByteArray TMGeometry = settings.value("tab_manager_geometry").toByteArray();
-        if (!FRGeometry.isNull()) m_FindReplace->restoreGeometry(FRGeometry);
-        if (!TMGeometry.isNull()) m_TabManager->restoreGeometry(TMGeometry);
+        if (!m_LastTMSize.isNull()) m_TabManager->restoreGeometry(m_LastTMSize);
+        if (!m_LastFRSize.isNull()) m_FindReplace->restoreGeometry(m_LastFRSize);
+
         if (isMaximized) {
             setWindowState(windowState() | Qt::WindowMaximized);
         }
@@ -3991,9 +3998,14 @@ void MainWindow::WriteSettings()
     settings.setValue("maximized", isMaximized());
     DBG qDebug() << "In WriteSettings with maximized " << isMaximized();
     DBG qDebug() << "In WriteSettings with LastWindowSize " << m_LastWindowSize;
+    DBG qDebug() << "In WriteSettings with LastTMSize " << m_LastTMSize;
+    DBG qDebug() << "In WriteSettings with LastFRSize " << m_LastFRSize;
 
     if (!m_LastWindowSize.isEmpty()) {
         settings.setValue("geometry", m_LastWindowSize);
+        // handle Find and Replace and Tab Manager geometry separately
+        if (!m_LastTMSize.isEmpty()) settings.setValue("tab_manager_geometry", m_LastTMSize);
+        if (!m_LastFRSize.isEmpty()) settings.setValue("find_replace_geometry", m_LastFRSize);
     } else {
         // handle the case where we have not moved or resized anything
         // but we are not maximized
