@@ -3212,7 +3212,7 @@ void MainWindow::UpdateMWState(bool set_tab_state)
 
     if (type == Resource::HTMLResourceType) {
         if (set_tab_state) {
-            FlowTab *ftab = dynamic_cast<FlowTab *>(tab);
+            FlowTab *ftab = qobject_cast<FlowTab *>(tab);
 
             if (ftab) {
                 ftab->ReloadTabIfPending();
@@ -4294,7 +4294,6 @@ void MainWindow::SetValidationResults(const QList<ValidationResult> &results)
 bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filename)
 {
     SettingsStore ss;
-    bool not_well_formed = false;
 
     try {
         ShowMessageOnStatusBar(tr("Saving EPUB..."), 0);
@@ -4315,14 +4314,14 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
 
         QApplication::setOverrideCursor(Qt::WaitCursor);
 
-        QList <HTMLResource *> resources;
+        QList <HTMLResource *> broken_resources;
+        bool not_well_formed = false;
         Q_FOREACH(Resource * r, GetAllHTMLResources()) {
-            HTMLResource *t = dynamic_cast<HTMLResource *>(r);
+            HTMLResource *t = qobject_cast<HTMLResource *>(r);
             if (t) {
-                resources.append(t);
                 if (!XhtmlDoc::IsDataWellFormed(t->GetText())) {
                     not_well_formed = true;
-                    break;
+                    broken_resources.append(t);
                 }
             }
         }
@@ -4334,18 +4333,25 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
                                 tr("This EPUB has HTML files that are not well formed and "
                                    "your current Clean Source preferences are set to automatically mend on Save. "
                                    "Saving a file that is not well formed will cause it to be automatically "
-                                   "fixed, which very rarely may result in data loss.\n\n"
+                                   "fixed, which very rarely may result in some data loss.\n\n"
                                    "Do you want to automatically mend the files before saving?"),
                                 QMessageBox::Yes|QMessageBox::No);
                 QApplication::setOverrideCursor(Qt::WaitCursor);
                 if (auto_fix) {
-                    CleanSource::ReformatAll(resources, CleanSource::Mend);
+                    CleanSource::ReformatAll(broken_resources, CleanSource::Mend);
                     not_well_formed = false;
                 }
-            } else {
-                CleanSource::ReformatAll(resources, CleanSource::Mend);
             }
         }
+#if 0 
+	else {
+            if (not_well_formed) {
+                // they have broken xhtml resources but do NOT have clean 
+                // on save set. Should we be doing anything here?  
+                // We do warn them at the end.
+	    }
+	}
+#endif
 
         ExporterFactory().GetExporter(fullfilepath, m_Book)->WriteBook();
 

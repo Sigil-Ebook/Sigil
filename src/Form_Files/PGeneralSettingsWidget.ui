@@ -56,17 +56,17 @@ when creating new or empty Epubs in Sigil.</string>
    <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="toolTip">
-      <string>Choose when your HTML code is automatically 
+      <string>Choose when your not well formed HTML code is automatically 
 mended.</string>
      </property>
      <property name="title">
-      <string>Mend XHTML Source Code On:</string>
+      <string>Mend Not Well Formed HTML Source Code On:</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
        <widget class="QCheckBox" name="MendOnOpen">
         <property name="toolTip">
-         <string>Mend when opening an Epub or HTML file.</string>
+         <string>Mend Not Well Formed HTML when opening an Epub or HTML file.</string>
         </property>
         <property name="text">
          <string>Open</string>
@@ -76,7 +76,7 @@ mended.</string>
       <item row="1" column="0">
        <widget class="QCheckBox" name="MendOnSave">
         <property name="toolTip">
-         <string>Mend when saving an Epub.</string>
+         <string>Mend Not Well Formed HTML when saving an Epub.</string>
         </property>
         <property name="text">
          <string>Save</string>
