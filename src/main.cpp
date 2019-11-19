@@ -161,7 +161,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
                 QWidget *widget = QApplication::focusWidget();
 
                 if (widget) {
-                    QPlainTextEdit *textEdit = dynamic_cast<QPlainTextEdit *>(widget);
+                    QPlainTextEdit *textEdit = qobject_cast<QPlainTextEdit *>(widget);
 
                     if (textEdit) {
                         QTimer::singleShot(RETRY_DELAY_MS, textEdit, SLOT(copy()));
@@ -169,14 +169,14 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
                     }
 
                     // Same issue can happen on a QLineEdit / QComboBox
-                    QLineEdit *lineEdit = dynamic_cast<QLineEdit *>(widget);
+                    QLineEdit *lineEdit = qobject_cast<QLineEdit *>(widget);
 
                     if (lineEdit) {
                         QTimer::singleShot(RETRY_DELAY_MS, lineEdit, SLOT(copy()));
                         break;
                     }
 
-                    QComboBox *comboBox = dynamic_cast<QComboBox *>(widget);
+                    QComboBox *comboBox = qobject_cast<QComboBox *>(widget);
 
                     if (comboBox) {
                         QTimer::singleShot(RETRY_DELAY_MS, comboBox->lineEdit(), SLOT(copy()));

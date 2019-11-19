@@ -701,7 +701,7 @@ void FlowTab::SplitSection()
     }
 
     QWidget *mainWindow_w = Utility::GetMainWindow();
-    MainWindow *mainWindow = dynamic_cast<MainWindow *>(mainWindow_w);
+    MainWindow *mainWindow = qobject_cast<MainWindow *>(mainWindow_w);
     if (!mainWindow) {
         Utility::DisplayStdErrorDialog("Could not determine main window.");
         return;
@@ -729,7 +729,7 @@ void FlowTab::InsertSGFSectionMarker()
     }
 
     QWidget *mainWindow_w = Utility::GetMainWindow();
-    MainWindow *mainWindow = dynamic_cast<MainWindow *>(mainWindow_w);
+    MainWindow *mainWindow = qobject_cast<MainWindow *>(mainWindow_w);
     if (!mainWindow) {
         Utility::DisplayStdErrorDialog("Could not determine main window.");
         return;

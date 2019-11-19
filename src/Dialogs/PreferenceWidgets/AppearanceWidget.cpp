@@ -277,7 +277,7 @@ void AppearanceWidget::newSliderValue(int value) {
     settings.setMainMenuIconSize(double(ui.iconSizeSlider->value())/10);
 
     QWidget *mainWindow_w = Utility::GetMainWindow();
-    MainWindow *mainWindow = dynamic_cast<MainWindow *>(mainWindow_w);
+    MainWindow *mainWindow = qobject_cast<MainWindow *>(mainWindow_w);
     mainWindow->sizeMenuIcons();
 }
 

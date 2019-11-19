@@ -3396,7 +3396,7 @@ void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
     QString original_text;
     QString new_text;
     QWidget *mainWindow_w = Utility::GetMainWindow();
-    MainWindow *mainWindow = dynamic_cast<MainWindow *>(mainWindow_w);
+    MainWindow *mainWindow = qobject_cast<MainWindow *>(mainWindow_w);
     if (!mainWindow) {
         Utility::DisplayStdErrorDialog("Could not determine main window.");
         return;
