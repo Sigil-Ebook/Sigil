@@ -3867,15 +3867,15 @@ void MainWindow::ReadSettings()
 
     if (!m_LastWindowSize.isNull()) {
         restoreGeometry(m_LastWindowSize);
+        // handle Find and Replace and Tab Manager geometry separately
+        QByteArray FRGeometry = settings.value("find_replace_geometry").toByteArray();
+        QByteArray TMGeometry = settings.value("tab_manager_geometry").toByteArray();
+        if (!FRGeometry.isNull()) m_FindReplace->restoreGeometry(FRGeometry);
+        if (!TMGeometry.isNull()) m_TabManager->restoreGeometry(TMGeometry);
         if (isMaximized) {
             setWindowState(windowState() | Qt::WindowMaximized);
         }
     }
-    // handle Find and Replace and Tab Manager geometry separately
-    QByteArray FRGeometry = settings.value("find_replace_geometry").toByteArray();
-    QByteArray TMGeometry = settings.value("tab_manager_geometry").toByteArray();
-    if (!FRGeometry.isNull()) m_FindReplace->restoreGeometry(FRGeometry);
-    if (!TMGeometry.isNull()) m_TabManager->restoreGeometry(TMGeometry);
 
     // it is recommended to invoke processEvents between restoreGeometry and restoreState
     // to work around some window restore issues see QTBUG
@@ -4000,12 +4000,11 @@ void MainWindow::WriteSettings()
         if (!isMaximized()) {
 	    DBG qDebug() << "In WriteSettings but it had no LastWindowSize ";
             settings.setValue("geometry", saveGeometry());
+            // handle Find and Replace and Tab Manager geometry separately
+            settings.setValue("find_replace_geometry", m_FindReplace->saveGeometry());
+            settings.setValue("tab_manager_geometry", m_TabManager->saveGeometry());
 	}
     }
-
-    // handle Find and Replace and Tab Manager geometry separately
-    settings.setValue("find_replace_geometry", m_FindReplace->saveGeometry());
-    settings.setValue("tab_manager_geometry", m_TabManager->saveGeometry());
 
     // The positions of all the toolbars and dock widgets
     settings.setValue("toolbars", saveState());
