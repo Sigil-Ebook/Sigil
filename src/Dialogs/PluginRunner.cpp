@@ -560,8 +560,9 @@ void PluginRunner::cancelPlugin()
 	    m_process.kill();
             m_process.waitForFinished(-1);
         }
+	#else
+	    m_process.kill();
 	#endif
-	m_process.kill();    
     }
     ui.okButton->setEnabled(true);
 
