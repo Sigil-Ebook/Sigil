@@ -555,7 +555,13 @@ void PluginRunner::cancelPlugin()
 {
     // qDebug() << "in cancelPlugin()";
     if (m_process.state() == QProcess::Running) {
-        m_process.kill();
+        #if defined(Q_OS_WIN32)
+	if (!m_process.waitForFinished(-1)) {
+	    m_process.kill();
+            m_process.waitForFinished(-1);
+        }
+	#endif
+	m_process.kill();    
     }
     ui.okButton->setEnabled(true);
 
