@@ -543,9 +543,17 @@ void PluginRunner::processError(QProcess::ProcessError error)
     ui.statusLbl->setText(tr("Status: error"));
 }
 
+// should cover both escape key use and using x to close the runner dialog
+void PluginRunner::reject()
+{
+    // qDebug() << "in reject";
+    cancelPlugin();
+    QDialog::reject();
+}
 
 void PluginRunner::cancelPlugin()
 {
+    // qDebug() << "in cancelPlugin()";
     if (m_process.state() == QProcess::Running) {
         m_process.kill();
     }
@@ -919,7 +927,7 @@ bool PluginRunner::modifyFiles(const QStringList &files)
 {
     ui.statusLbl->setText(tr("Status: cleaning up - modifying files"));
     // rearrange list to force content.opf and toc.ncx modifications to be done last
-    qDebug() << files;
+    // qDebug() << files;
     QStringList newfiles;
     QString modifyopf;
     QString modifyncx;
