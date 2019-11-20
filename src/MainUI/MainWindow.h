@@ -263,6 +263,8 @@ protected:
 
 private slots:
 
+    void RestoreLastNormalGeometry();
+
     void AddCover();
 
     /**

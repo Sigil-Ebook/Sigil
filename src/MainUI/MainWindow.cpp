@@ -31,6 +31,8 @@
 #include <QFuture>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QImage>
+#include <QGuiApplication>
+#include <QScreen>
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QInputDialog>
 #include <QtWidgets/QMessageBox>
@@ -897,7 +899,11 @@ void MainWindow::showEvent(QShowEvent *event)
 }
 
 bool MainWindow::isMaxOrFull() {
-    return isMaximized() || isFullScreen();
+    QSize wsize = size(); 
+    QRect s = qApp->primaryScreen()->geometry();
+    bool result = isMaximized() || isFullScreen();
+    result = result || ((wsize.height() == s.height()) && (wsize.width() == s.width()));
+    return result; 
 }
 
 void MainWindow::moveEvent(QMoveEvent *event)
@@ -921,10 +927,14 @@ void MainWindow::moveEvent(QMoveEvent *event)
     QMainWindow::moveEvent(event);
 }
 
+// unfortunately this is invoked during the resize to full or maximize before
+// those states are actually true
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
     qDebug() << "in resizeEvent with maximized or full" << isMaxOrFull();
-
+    qDebug() << "old size: " << event->oldSize();
+    qDebug() << "new size: " << event->size();
+    qDebug() << "primary screen total size: " << qApp->primaryScreen()->geometry();
     // Workaround for Qt 4.8 bug - see WriteSettings() for details.
     if (!isMaxOrFull()) {
         m_LastWindowSize = saveGeometry();
@@ -3895,14 +3905,14 @@ void MainWindow::ReadSettings()
     bool MaximizedState = settings.value("maximized", false).toBool();
     bool FullScreenState = settings.value("fullscreen", false).toBool();
     m_LastWindowSize = settings.value("geometry").toByteArray();
-    m_LastTMSize = settings.value("tab_manager_geometry").toByteArray();
-    m_LastFRSize = settings.value("find_replace_geometry").toByteArray();
+    m_LastTMSize = settings.value("tab_manager_rect", QByteArray()).toByteArray();
+    m_LastFRSize = settings.value("find_replace_geometry", QByteArray()).toByteArray();
     if (!m_LastWindowSize.isNull()) {
         restoreGeometry(m_LastWindowSize);
 
         // handle Find and Replace and Tab Manager geometry separately
-        if (!m_LastTMSize.isNull()) m_TabManager->restoreGeometry(m_LastTMSize);
-        if (!m_LastFRSize.isNull()) m_FindReplace->restoreGeometry(m_LastFRSize);
+        if (!m_LastTMSize.isEmpty()) m_TabManager->restoreGeometry(m_LastTMSize);
+        if (!m_LastFRSize.isEmpty()) m_FindReplace->restoreGeometry(m_LastFRSize);
 
         if (MaximizedState) {
             setWindowState(windowState() | Qt::WindowMaximized);
@@ -4059,8 +4069,8 @@ void MainWindow::WriteSettings()
 	    DBG qDebug() << "In WriteSettings but it had no LastWindowSize ";
             settings.setValue("geometry", saveGeometry());
             // handle Find and Replace and Tab Manager geometry separately
-            settings.setValue("find_replace_geometry", m_FindReplace->saveGeometry());
-            settings.setValue("tab_manager_geometry", m_TabManager->saveGeometry());
+            settings.setValue("find_replace_geometry", m_FindReplace->geometry());
+            settings.setValue("tab_manager_geometry", m_TabManager->geometry());
 	}
     }
 
@@ -5378,6 +5388,18 @@ void MainWindow::LoadInitialFile(const QString &openfilepath, bool is_internal)
     }
 }
 
+void MainWindow::RestoreLastNormalGeometry()
+{
+    // record the current sizes before changing then as they
+    // are updated in the resize event
+    QByteArray WindowSize = m_LastWindowSize;
+    QByteArray TMSize = m_LastTMSize;
+    QByteArray FRSize = m_LastFRSize;
+    if (!WindowSize.isEmpty()) restoreGeometry(WindowSize);
+    if (!TMSize.isEmpty()) m_TabManager->restoreGeometry(TMSize);
+    if (!FRSize.isEmpty()) m_FindReplace->restoreGeometry(FRSize);
+}
+
 void MainWindow::changeEvent(QEvent *e) 
 {
     qDebug() << "changeEvent: " << e;
@@ -5399,8 +5421,9 @@ void MainWindow::changeEvent(QEvent *e)
         } else if (isFullScreen()) {
 	    qDebug() << "Main Window new state: fullscreen";
 	} else {
-            // NORMAL/MAXIMIZED ETC
+            // NORMAL
 	    qDebug() << "Main Window new state: normal";
+	    QTimer::singleShot(0, this, SLOT(RestoreLastNormalGeometry()));
         }
     }
     if (e->type() == QEvent::ActivationChange) {
