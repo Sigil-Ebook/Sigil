@@ -104,6 +104,9 @@ public:
     MainWindow(const QString &openfilepath = QString(), bool is_internal = false, QWidget *parent = 0, Qt::WindowFlags flags = 0);
     ~MainWindow();
 
+    // returns true if MainWindow is Maximized or is FullScreen
+    bool isMaxOrFull();
+
     /**
      * The book currently being edited.
      *
