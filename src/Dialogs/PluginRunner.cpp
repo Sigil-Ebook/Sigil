@@ -555,8 +555,15 @@ void PluginRunner::cancelPlugin()
 {
     // qDebug() << "in cancelPlugin()";
     if (m_process.state() == QProcess::Running) {
+        m_process.terminate();
+    }
+    m_process.waitForFinished(2000);
+
+    if (m_process.state() == QProcess::Running) {
         m_process.kill();
     }
+    m_process.waitForFinished(2000);
+
     ui.okButton->setEnabled(true);
 
     ui.progressBar->setRange(0,100);
