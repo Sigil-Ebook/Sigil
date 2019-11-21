@@ -263,6 +263,8 @@ protected:
 
 private slots:
 
+    void UpdateLastSizes();
+
     void RestoreLastNormalGeometry();
 
     void AddCover();
@@ -981,6 +983,7 @@ private:
     QByteArray m_LastWindowSize;
     QByteArray m_LastTMSize;
     QByteArray m_LastFRSize;
+    bool       m_PendingLastSizeUpdate;
 
     QTimer m_PreviewTimer;
 
