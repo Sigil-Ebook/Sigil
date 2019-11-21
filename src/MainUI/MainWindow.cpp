@@ -900,15 +900,16 @@ void MainWindow::showEvent(QShowEvent *event)
 
 bool MainWindow::isMaxOrFull() {
     QSize wsize = size(); 
-    QRect s = qApp->primaryScreen()->geometry();
+    QRect s = qApp->primaryScreen()->availableGeometry();
     bool result = isMaximized() || isFullScreen();
-    result = result || ((wsize.height() == s.height()) && (wsize.width() == s.width()));
+    result = result || ((wsize.height() >= s.height()) && (wsize.width() >= s.width()));
     return result; 
 }
 
 void MainWindow::moveEvent(QMoveEvent *event)
 {
-    qDebug() << "in moveEvent with maximized or full" << isMaxOrFull();
+    qDebug() << "------";
+    qDebug() << "In moveEvent with maximized or full" << isMaxOrFull();
 
     // Workaround for Qt 4.8 bug - see WriteSettings() for details.
     if (!isMaxOrFull()) {
@@ -931,10 +932,13 @@ void MainWindow::moveEvent(QMoveEvent *event)
 // those states are actually true
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
-    qDebug() << "in resizeEvent with maximized or full" << isMaxOrFull();
+    qDebug() << "------";
+    qDebug() << "in ResizeEvent with maximized or full" << isMaxOrFull();
     qDebug() << "old size: " << event->oldSize();
     qDebug() << "new size: " << event->size();
     qDebug() << "primary screen total size: " << qApp->primaryScreen()->geometry();
+    qDebug() << "primary screen available size: " << qApp->primaryScreen()->availableGeometry();
+
     // Workaround for Qt 4.8 bug - see WriteSettings() for details.
     if (!isMaxOrFull()) {
         m_LastWindowSize = saveGeometry();
@@ -3905,20 +3909,16 @@ void MainWindow::ReadSettings()
     bool MaximizedState = settings.value("maximized", false).toBool();
     bool FullScreenState = settings.value("fullscreen", false).toBool();
     m_LastWindowSize = settings.value("geometry").toByteArray();
-    m_LastTMSize = settings.value("tab_manager_rect", QByteArray()).toByteArray();
-    m_LastFRSize = settings.value("find_replace_geometry", QByteArray()).toByteArray();
-    if (!m_LastWindowSize.isNull()) {
-        restoreGeometry(m_LastWindowSize);
-
-        // handle Find and Replace and Tab Manager geometry separately
-        if (!m_LastTMSize.isEmpty()) m_TabManager->restoreGeometry(m_LastTMSize);
-        if (!m_LastFRSize.isEmpty()) m_FindReplace->restoreGeometry(m_LastFRSize);
-
-        if (MaximizedState) {
-            setWindowState(windowState() | Qt::WindowMaximized);
-        } else if (FullScreenState) {
-            setWindowState(windowState() | Qt::WindowFullScreen);
-        }
+    m_LastTMSize = settings.value("tab_manager_rect").toByteArray();
+    m_LastFRSize = settings.value("find_replace_geometry").toByteArray();
+    if (!m_LastWindowSize.isEmpty()) restoreGeometry(m_LastWindowSize);
+    if (!m_LastTMSize.isEmpty()) m_TabManager->restoreGeometry(m_LastTMSize);
+    if (!m_LastFRSize.isEmpty()) m_FindReplace->restoreGeometry(m_LastFRSize);
+    
+    if (MaximizedState) {
+        setWindowState(windowState() | Qt::WindowMaximized);
+    } else if (FullScreenState) {
+        setWindowState(windowState() | Qt::WindowFullScreen);
     }
 
     // it is recommended to invoke processEvents between restoreGeometry and restoreState
@@ -3932,6 +3932,7 @@ void MainWindow::ReadSettings()
         restoreState(toolbars);
     }
 
+    qDebug() << "------";
     qDebug() << "In ReadSettings after restoreState with maximized " << isMaximized();
     qDebug() << "In ReadSettings after restoreState with fullscreen " << isFullScreen();
     QRect r = geometry();
@@ -5395,14 +5396,23 @@ void MainWindow::RestoreLastNormalGeometry()
     QByteArray WindowSize = m_LastWindowSize;
     QByteArray TMSize = m_LastTMSize;
     QByteArray FRSize = m_LastFRSize;
+    qDebug() << "------";
+    qDebug() << "In RestoreLastNormalGeometry";
     if (!WindowSize.isEmpty()) restoreGeometry(WindowSize);
     if (!TMSize.isEmpty()) m_TabManager->restoreGeometry(TMSize);
     if (!FRSize.isEmpty()) m_FindReplace->restoreGeometry(FRSize);
+    QRect r = geometry();
+    qDebug() << "main window: " << r.x() << r.y() << r.width() << r.height();
+    r = m_TabManager->geometry();
+    qDebug() << "tab manager: " << r.x() << r.y() << r.width() << r.height();
+    r = m_FindReplace->geometry();
+    qDebug() << "find replace: " << r.x() << r.y() << r.width() << r.height();
 }
 
 void MainWindow::changeEvent(QEvent *e) 
 {
-    qDebug() << "changeEvent: " << e;
+    qDebug() << "------";
+    qDebug() << "In ChangeEvent: " << e;
     if(e->type() == QEvent::WindowStateChange) {
 	const QWindowStateChangeEvent* wsevent = static_cast<QWindowStateChangeEvent*>(e);
         qDebug() << "old state" << wsevent->oldState();
@@ -5428,7 +5438,19 @@ void MainWindow::changeEvent(QEvent *e)
     }
     if (e->type() == QEvent::ActivationChange) {
         if(isActiveWindow()) {
+            qDebug() << "------";
 	    qDebug() << "Main Window is transitioning from inactive to active";
+            if (!isMaxOrFull()) {
+                m_LastWindowSize = saveGeometry();
+                m_LastTMSize = m_TabManager->saveGeometry();
+                m_LastFRSize = m_FindReplace->saveGeometry();
+            }
+            QRect r = geometry();
+            qDebug() << "main window: " << r.x() << r.y() << r.width() << r.height();
+            r = m_TabManager->geometry();
+            qDebug() << "tab manager: " << r.x() << r.y() << r.width() << r.height();
+            r = m_FindReplace->geometry();
+            qDebug() << "find replace: " << r.x() << r.y() << r.width() << r.height();
 	} else {
 	    qDebug() << "Main Window is transitioning from active to inactive";
         }
