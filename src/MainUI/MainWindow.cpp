@@ -902,7 +902,7 @@ bool MainWindow::isMaxOrFull() {
     QSize wsize = size(); 
     QRect s = qApp->primaryScreen()->availableGeometry();
     bool result = isMaximized() || isFullScreen();
-    result = result || ((wsize.height() >= s.height()) && (wsize.width() >= s.width()));
+    result = result || ((wsize.height() >= (s.height() - 50)) && (wsize.width() >= s.width()));
     return result; 
 }
 
