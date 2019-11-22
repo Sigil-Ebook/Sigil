@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin Hendricks, Doug Massay
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2019 Doug Massay
 **  Copyright (C) 2012      Dave Heiland, John Schember
 **
 **  This file is part of Sigil.
@@ -31,6 +32,8 @@
 #include <QDir>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QStylePainter>
+#include <QStyleOptionFrame>
 #include <QTimer>
 #include <QDebug>
 
@@ -56,6 +59,7 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_Preview(new ViewPreview(this)),
     m_Inspector(new Inspector(this)),
     m_Filepath(QString()),
+    m_titleText(QString()),
     m_updatingPage(false)
 {
     SetupView();
@@ -119,6 +123,22 @@ void PreviewWindow::showEvent(QShowEvent * event)
     QDockWidget::showEvent(event);
     raise();
     emit Shown();
+}
+
+void PreviewWindow::paintEvent(QPaintEvent *event)
+{
+    // Allow title text to be set independently of tab text
+    // (when QDockWidget is tabified).
+    QStylePainter painter(this);
+    if (isFloating()) {
+        QStyleOptionFrame options;
+        options.initFrom(this);
+        painter.drawPrimitive(QStyle::PE_FrameDockWidget, options);
+    }
+    QStyleOptionDockWidget options;
+    initStyleOption(&options);
+    options.title = titleText();
+    painter.drawControl(QStyle::CE_DockWidgetTitle, options);
 }
 
 bool PreviewWindow::IsVisible()
@@ -296,10 +316,26 @@ void PreviewWindow::UpdateWindowTitle()
         if (!m_Filepath.isEmpty()) {
             filename = QFileInfo(m_Filepath).fileName();
 	}
-        setWindowTitle(tr("Preview") + 
+        setTitleText(tr("Preview") + 
 		       " (" + QString::number(width) + "x" + QString::number(height) + ") " +
 		       filename);
     }
+}
+
+// Set DockWidget titlebar text independently of tab text
+// (when QDockWidget is tabified)
+void PreviewWindow::setTitleText(const QString &text)
+{
+    m_titleText = text;
+    repaint();
+}
+
+const QString PreviewWindow::titleText()
+{
+    if (m_titleText.isEmpty()) {
+        return windowTitle();
+    }
+    return m_titleText;
 }
 
 QList<ElementIndex> PreviewWindow::GetCaretLocation()
