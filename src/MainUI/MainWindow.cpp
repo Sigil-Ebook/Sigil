@@ -223,6 +223,7 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     ChangeSignalsWhenTabChanges(NULL, m_TabManager->GetCurrentContentTab());
     LoadInitialFile(openfilepath, is_internal);
     loadPluginsMenu();
+   
 }
 
 MainWindow::~MainWindow()
@@ -5494,6 +5495,7 @@ void MainWindow::changeEvent(QEvent *e)
             DebugCurrentWidgetSizes();
 
             m_SaveLastEnabled = true;
+            m_PendingLastSizeUpdate = true;
             UpdateLastSizes();
 
 	} else {
