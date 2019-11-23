@@ -3947,17 +3947,19 @@ void MainWindow::ReadSettings()
 
     // we should probably not restore geometry of a maximized window here
     // since it would restore the normal geometry
-#if 0
-    if (!m_LastWindowSize.isEmpty()) restoreGeometry(m_LastWindowSize);
-#else
+
     if (!MaximizedState && !FullScreenState) {
         if (!m_LastWindowSize.isEmpty()) restoreGeometry(m_LastWindowSize);
-    }
-#endif
+    } 
+
 
     if (MaximizedState) {
+        QRect maxsize = settings.value("max_mw_geometry", QApplication::desktop()->availableGeometry(this)).toRect();
+        setGeometry(maxsize);
         setWindowState(windowState() | Qt::WindowMaximized);
     } else if (FullScreenState) {
+        QRect maxsize = settings.value("max_mw_geometry", QApplication::desktop()->screenGeometry(this)).toRect();
+        setGeometry(maxsize);
         setWindowState(windowState() | Qt::WindowFullScreen);
     }
 
@@ -5486,10 +5488,10 @@ void MainWindow::changeEvent(QEvent *e)
 	    }
             m_FirstTime = false;
 
+            DebugCurrentWidgetSizes();
+
             m_SaveLastEnabled = true;
             UpdateLastSizes();
-
-            DebugCurrentWidgetSizes();
 
 	} else {
 	    qDebug() << "Main Window is transitioning from active to inactive";
