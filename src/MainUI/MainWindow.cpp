@@ -904,19 +904,24 @@ void MainWindow::showEvent(QShowEvent *event)
 void MainWindow::DebugCurrentWidgetSizes() 
 {
     qDebug() << "visible: " << isVisible();
-    qDebug() << "maximized: " << isMaximized() << " full screen: " << isFullScreen();
+    qDebug() << "maximized: " << isMaximized();
+    qDebug() << "full screen: " << isFullScreen();
+
     QRect r = geometry();
     qDebug() << "main window: " << r.x() << r.y() << r.width() << r.height();
-    r = m_TabManager->geometry();
-    qDebug() << "tab manager: " << r.x() << r.y() << r.width() << r.height();
-    r = m_FindReplace->geometry();
-    qDebug() << "find replace: " << r.x() << r.y() << r.width() << r.height();
+
     r = centralWidget()->geometry();
     qDebug() << "central widget: " << r.x() << r.y() << r.width() << r.height();
+
+    r = m_TabManager->geometry();
+    qDebug() << "tab manager: " << r.x() << r.y() << r.width() << r.height();
+
+    r = m_FindReplace->geometry();
+    qDebug() << "find replace: " << r.x() << r.y() << r.width() << r.height();
 }
 
-// somehow this routine needs to detect that screen has
-// been maximized or made fullscreen before that WindowState
+// somehow this routine needs to detect that the mainwindow has
+// been maximized or made fullscreen *before* that WindowState
 // has been set.
 bool MainWindow::isMaxOrFull() {
     bool result = isMaximized() || isFullScreen();
@@ -998,9 +1003,9 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
         DBG qDebug() << "in close event after maybe save";
 
-        ShowMessageOnStatusBar(tr("Sigil is closing..."));
-
         m_SaveLastEnabled = false;
+
+        ShowMessageOnStatusBar(tr("Sigil is closing..."));
 
         KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
         sm->removeActionsOf(this);
@@ -3939,7 +3944,10 @@ void MainWindow::ReadSettings()
     bool FullScreenState = settings.value("fullscreen", false).toBool();
 
     m_LastWindowSize = settings.value("geometry",QByteArray()).toByteArray();
-#if 1
+
+    // we should probably not restore geometry of a maximized window here
+    // since it would restore the normal geometry
+#if 0
     if (!m_LastWindowSize.isEmpty()) restoreGeometry(m_LastWindowSize);
 #else
     if (!MaximizedState && !FullScreenState) {
@@ -5409,6 +5417,7 @@ void MainWindow::UpdateLastSizes() {
 
     if (m_SaveLastEnabled) {
         if (!isMaxOrFull()) {
+            qDebug() << "recording last sizes";
             m_LastWindowSize = saveGeometry();
         }
     }
@@ -5474,8 +5483,8 @@ void MainWindow::changeEvent(QEvent *e)
                 if (!m_LastState.isEmpty()) {
                     restoreState(m_LastState);
 		}
-                m_FirstTime = false;
 	    }
+            m_FirstTime = false;
 
             m_SaveLastEnabled = true;
             UpdateLastSizes();
