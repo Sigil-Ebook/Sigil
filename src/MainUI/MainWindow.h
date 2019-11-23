@@ -196,6 +196,7 @@ public:
 
     QString GetCurrentFilePath();
 
+    void DebugCurrentWidgetSizes();
 
 public slots:
 
@@ -981,9 +982,10 @@ private:
      * Workaround for Qt 4.8 bug, to track the last known window size when not maximized.
      */
     QByteArray m_LastWindowSize;
-    QByteArray m_LastTMSize;
-    QByteArray m_LastFRSize;
-    bool       m_PendingLastSizeUpdate;
+    QByteArray m_LastState;
+    bool m_FirstTime;
+    bool m_PendingLastSizeUpdate;
+    bool m_SaveLastEnabled;
 
     QTimer m_PreviewTimer;
 
