@@ -3963,7 +3963,7 @@ void MainWindow::ReadSettings()
     // has the proper geometry to match what was saved and has been
     // properly resized (see QTBUG-46620 and QTBUG-16252)
     // So delay restore until the first time the widget is made active
-    m_LastState = settings.value("toolbars").toByteArray();
+    m_LastState = settings.value("toolbars",QByteArray()).toByteArray();
 
     // The last folder used for saving and opening files
     m_LastFolderOpen  = settings.value("lastfolderopen", QDir::homePath()).toString();
@@ -5423,7 +5423,7 @@ void MainWindow::UpdateLastSizes() {
 // so keep the code
 void MainWindow::RestoreLastNormalGeometry()
 {
-#ifdef Q_OS_WIN32
+#if 0 //def Q_OS_WIN32
     // record the current sizes before changing then as they
     // are updated in the resize event
     QByteArray WindowSize = m_LastWindowSize;
@@ -5459,7 +5459,7 @@ void MainWindow::changeEvent(QEvent *e)
 	} else {
             // NORMAL
 	    qDebug() << "Main Window new state: normal";
-#ifdef Q_OS_WIN32
+#if 0 //def Q_OS_WIN32
             // This is still be needed for windows to restore after maximize
 	    QTimer::singleShot(0, this, SLOT(RestoreLastNormalGeometry()));
 #endif
