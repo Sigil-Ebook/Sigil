@@ -893,14 +893,7 @@ void MainWindow::ShowLastOpenFileWarnings()
 void MainWindow::showEvent(QShowEvent *event)
 {
     m_IsInitialLoad = false;
-#if 0
-    if (m_FirstTime) {
-        if (!m_LastState.isEmpty()) {
-            restoreState(m_LastState);
-	}
-        m_FirstTime = false;
-    }
-#endif
+
     QMainWindow::showEvent(event);
 
     if (!m_LastOpenFileWarnings.isEmpty()) {
@@ -5430,12 +5423,13 @@ void MainWindow::UpdateLastSizes() {
 // so keep the code
 void MainWindow::RestoreLastNormalGeometry()
 {
-#if 0
+#ifdef Q_OS_WIN32
     // record the current sizes before changing then as they
     // are updated in the resize event
     QByteArray WindowSize = m_LastWindowSize;
     qDebug() << "------";
     qDebug() << "In RestoreLastNormalGeometry";
+
     // prevent any resulting move or resize from being recorded here
     m_SaveLastEnabled = false;
     if (!WindowSize.isEmpty()) restoreGeometry(WindowSize);
@@ -5465,8 +5459,8 @@ void MainWindow::changeEvent(QEvent *e)
 	} else {
             // NORMAL
 	    qDebug() << "Main Window new state: normal";
-#if 0
-            // This may still be needed for windows so keep the code around
+#ifdef Q_OS_WIN32
+            // This is still be needed for windows to restore after maximize
 	    QTimer::singleShot(0, this, SLOT(RestoreLastNormalGeometry()));
 #endif
         }
