@@ -1003,8 +1003,6 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
         DBG qDebug() << "in close event after maybe save";
 
-        m_SaveLastEnabled = false;
-
         ShowMessageOnStatusBar(tr("Sigil is closing..."));
 
         KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
@@ -1041,6 +1039,8 @@ void MainWindow::closeEvent(QCloseEvent *event)
     } else {
         event->ignore();
 	SetupPreviewTimer();
+        // re-enable the ability to record good last normal sizes
+        m_SaveLastEnabled = true;
 	m_IsClosing = false;
     }
 }
@@ -4069,6 +4069,10 @@ void MainWindow::WriteSettings()
 {
     qDebug() << "------";
     qDebug() << "In WriteSettings";
+
+    // disable recording any last sizes as exiting
+    m_SaveLastEnabled = false;
+
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
     // The size of the window and it's full screen status
@@ -4080,7 +4084,6 @@ void MainWindow::WriteSettings()
     settings.setValue("fullscreen",isFullScreen());
 
     DebugCurrentWidgetSizes();
-    m_SaveLastEnabled = false;
 
     // if currently not maximized and not full screen, just save what we have now
     if (!isMaximized() && !isFullScreen()) {
