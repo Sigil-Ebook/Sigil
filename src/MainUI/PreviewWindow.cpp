@@ -338,6 +338,13 @@ const QString PreviewWindow::titleText()
     return m_titleText;
 }
 
+// Needed to update Preview's title when undocked on some platforms
+void PreviewWindow::previewFloated(bool wasFloated) {
+    if (wasFloated) {
+        UpdateWindowTitle();
+    }
+}
+
 QList<ElementIndex> PreviewWindow::GetCaretLocation()
 {
     DBG qDebug() << "PreviewWindow in GetCaretLocation";
@@ -503,6 +510,7 @@ void PreviewWindow::ConnectSignalsToSlots()
     connect(m_copyAction,    SIGNAL(triggered()),     this, SLOT(CopyPreview()));
     connect(m_reloadAction,  SIGNAL(triggered()),     this, SLOT(ReloadPreview()));
     connect(m_Inspector,     SIGNAL(finished(int)),   this, SLOT(InspectorClosed(int)));
+    connect(this,     SIGNAL(topLevelChanged(bool)),   this, SLOT(previewFloated(bool)));
 }
 
 // Note: You can not use gumbo to perform the replacement as being

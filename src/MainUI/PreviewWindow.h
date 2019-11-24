@@ -70,6 +70,7 @@ public slots:
      * @param text The title to use.
      */
     void setTitleText(const QString &text);
+    void previewFloated(bool wasFloated);
 
 signals:
     void Shown();
@@ -89,7 +90,7 @@ signals:
      * @param url The URL to open.
      */
     void ScrollToFragmentRequest(const QString &fragment);
- 
+
 
 protected:
     virtual void hideEvent(QHideEvent* event);
