@@ -327,6 +327,7 @@ void PreviewWindow::UpdateWindowTitle()
 void PreviewWindow::setTitleText(const QString &text)
 {
     m_titleText = text;
+    qDebug() << "In setTitleText: " << text;
     repaint();
 }
 
@@ -340,7 +341,9 @@ const QString PreviewWindow::titleText()
 
 // Needed to update Preview's title when undocked on some platforms
 void PreviewWindow::previewFloated(bool wasFloated) {
+    qDebug() << "In previewFloated (pre-if): " << wasFloated;
     if (wasFloated) {
+        qDebug() << "In previewFloated: (post-if)" << wasFloated;
         UpdateWindowTitle();
     }
 }
