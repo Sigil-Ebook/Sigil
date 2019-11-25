@@ -62,6 +62,7 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_titleText(QString()),
     m_updatingPage(false)
 {
+    setWindowTitle(tr("Preview"));
     SetupView();
     LoadSettings();
     ConnectSignalsToSlots();
@@ -130,6 +131,7 @@ void PreviewWindow::paintEvent(QPaintEvent *event)
     // Allow title text to be set independently of tab text
     // (when QDockWidget is tabified).
     QStylePainter painter(this);
+
     if (isFloating()) {
         QStyleOptionFrame options;
         options.initFrom(this);
@@ -319,6 +321,12 @@ void PreviewWindow::UpdateWindowTitle()
         setTitleText(tr("Preview") + 
 		       " (" + QString::number(width) + "x" + QString::number(height) + ") " +
 		       filename);
+    }
+    qDebug() << "QDockWidget" << isFloating() << isVisible();
+    if (isFloating()) {
+        setWindowTitle(titleText());
+    } else {
+        setWindowTitle(tr("Preview"));
     }
 }
 
