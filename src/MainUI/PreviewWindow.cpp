@@ -322,7 +322,7 @@ void PreviewWindow::UpdateWindowTitle()
 		       " (" + QString::number(width) + "x" + QString::number(height) + ") " +
 		       filename);
     }
-    qDebug() << "QDockWidget" << isFloating() << isVisible();
+    // qDebug() << "QDockWidget" << isFloating() << isVisible();
     if (isFloating()) {
         setWindowTitle(titleText());
     } else {
@@ -335,7 +335,7 @@ void PreviewWindow::UpdateWindowTitle()
 void PreviewWindow::setTitleText(const QString &text)
 {
     m_titleText = text;
-    qDebug() << "In setTitleText: " << text;
+    // qDebug() << "In setTitleText: " << text;
     repaint();
 }
 
@@ -349,9 +349,9 @@ const QString PreviewWindow::titleText()
 
 // Needed to update Preview's title when undocked on some platforms
 void PreviewWindow::previewFloated(bool wasFloated) {
-    qDebug() << "In previewFloated (pre-if): " << wasFloated;
+    // qDebug() << "In previewFloated (pre-if): " << wasFloated;
     if (wasFloated) {
-        qDebug() << "In previewFloated: (post-if)" << wasFloated;
+        // qDebug() << "In previewFloated: (post-if)" << wasFloated;
         UpdateWindowTitle();
     }
 }
@@ -447,7 +447,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 
 void PreviewWindow::LinkClicked(const QUrl &url)
 {
-    qDebug() << "in PreviewWindow LinkClicked with url :" << url.toString();
+    DBG qDebug() << "in PreviewWindow LinkClicked with url :" << url.toString();
 
     if (url.toString().isEmpty()) {
         return;
