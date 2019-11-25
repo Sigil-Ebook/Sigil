@@ -109,6 +109,7 @@
 #include "Tabs/TabManager.h"
 #include "MainUI/MainApplication.h"
 
+#define DWINGEO if(0)
 #define DBG if(0)
 
 static const int TEXT_ELIDE_WIDTH   = 300;
@@ -239,8 +240,8 @@ MainWindow::~MainWindow()
         m_ViewImage = NULL;
     }
 
-#ifdef Q_OS_MAC
-    DBG qDebug() << "In MainWindow destructor in mac only part";
+#if 0 //Q_OS_MAC thi should not be needed as these are all children of the MainWindow
+    // DBG qDebug() << "In MainWindow destructor in mac only part";
     if (m_ClipboardHistorySelector) delete m_ClipboardHistorySelector;
     if (m_LinkOrStyleBookmark) delete m_LinkOrStyleBookmark;
     if (m_Reports) delete m_Reports;
@@ -464,7 +465,7 @@ void MainWindow::StandardizeEpub()
     if (QFileInfo(apath) != QFileInfo(bpath)) {
         fs_case_sensitive = true;
     }
-    qDebug() << "file system is case sensitive: " << fs_case_sensitive;
+    DBG qDebug() << "file system is case sensitive: " << fs_case_sensitive;
 
     if (!fs_case_sensitive) {
         // opf is first to handle OEBPS before fighting with its subdirectories
@@ -478,7 +479,7 @@ void MainWindow::StandardizeEpub()
 	    bpath = mainfolder + "/" + folderpath;
 	    if (QFileInfo(apath).exists() && QFileInfo(apath).isDir()) {
 	        bool result = mf.rename(folderpath.toLower(), folderpath);
-		qDebug() << "rename directory: " << folderpath << result;
+		DBG qDebug() << "rename directory: " << folderpath << result;
 	    }
         }
     }
@@ -904,21 +905,23 @@ void MainWindow::showEvent(QShowEvent *event)
 
 void MainWindow::DebugCurrentWidgetSizes() 
 {
-    qDebug() << "visible: " << isVisible();
-    qDebug() << "maximized: " << isMaximized();
-    qDebug() << "full screen: " << isFullScreen();
+    DWINGEO {
+        qDebug() << "visible: " << isVisible();
+        qDebug() << "maximized: " << isMaximized();
+        qDebug() << "full screen: " << isFullScreen();
 
-    QRect r = geometry();
-    qDebug() << "main window: " << r.x() << r.y() << r.width() << r.height();
+        QRect r = geometry();
+        qDebug() << "main window: " << r.x() << r.y() << r.width() << r.height();
 
-    r = centralWidget()->geometry();
-    qDebug() << "central widget: " << r.x() << r.y() << r.width() << r.height();
+        r = centralWidget()->geometry();
+        qDebug() << "central widget: " << r.x() << r.y() << r.width() << r.height();
 
-    r = m_TabManager->geometry();
-    qDebug() << "tab manager: " << r.x() << r.y() << r.width() << r.height();
+        r = m_TabManager->geometry();
+        qDebug() << "tab manager: " << r.x() << r.y() << r.width() << r.height();
 
-    r = m_FindReplace->geometry();
-    qDebug() << "find replace: " << r.x() << r.y() << r.width() << r.height();
+        r = m_FindReplace->geometry();
+        qDebug() << "find replace: " << r.x() << r.y() << r.width() << r.height();
+    }
 }
 
 // somehow this routine needs to detect that the mainwindow has
@@ -936,18 +939,18 @@ bool MainWindow::isMaxOrFull() {
 
 void MainWindow::moveEvent(QMoveEvent *event)
 {
-    qDebug() << "------";
-    qDebug() << "In moveEvent with maximized or full" << isMaxOrFull();
+    DWINGEO qDebug() << "------";
+    DWINGEO qDebug() << "In moveEvent with maximized or full" << isMaxOrFull();
 
     // Workaround for Qt bug - see WriteSettings() for details.
     if (!m_PendingLastSizeUpdate && !isMaxOrFull()) {
-        qDebug() << "issuing a LastSizeUpdate request";
+        DWINGEO qDebug() << "issuing a LastSizeUpdate request";
 	m_PendingLastSizeUpdate = true;
         // delay long enough for WindowState to be properly set if Maximized or FullScreened
 	QTimer::singleShot(1000, this, SLOT(UpdateLastSizes()));
     }
 
-    DebugCurrentWidgetSizes();
+    DWINGEO DebugCurrentWidgetSizes();
 
     QMainWindow::moveEvent(event);
 }
@@ -962,22 +965,22 @@ void MainWindow::moveEvent(QMoveEvent *event)
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
-    qDebug() << "------";
-    qDebug() << "in ResizeEvent with maximized or full" << isMaxOrFull();
-    qDebug() << "old size: " << event->oldSize();
-    qDebug() << "new size: " << event->size();
-    qDebug() << "primary screen total size: " << qApp->primaryScreen()->geometry();
-    qDebug() << "primary screen available size: " << qApp->primaryScreen()->availableGeometry();
+    DWINGEO qDebug() << "------";
+    DWINGEO qDebug() << "in ResizeEvent with maximized or full" << isMaxOrFull();
+    DWINGEO qDebug() << "old size: " << event->oldSize();
+    DWINGEO qDebug() << "new size: " << event->size();
+    DWINGEO qDebug() << "primary screen total size: " << qApp->primaryScreen()->geometry();
+    DWINGEO qDebug() << "primary screen available size: " << qApp->primaryScreen()->availableGeometry();
 
     // Workaround for Qt bug - see WriteSettings() for details.
     if (!m_PendingLastSizeUpdate && !isMaxOrFull()) {
-        qDebug() << "issuing a LastSizeUpdate request";
+        DWINGEO qDebug() << "issuing a LastSizeUpdate request";
         m_PendingLastSizeUpdate = true;
         // delay long enough for WindowState to be properly set if Maximize or FullScreen
         QTimer::singleShot(1000, this, SLOT(UpdateLastSizes()));
     }
 
-    DebugCurrentWidgetSizes();
+    DWINGEO DebugCurrentWidgetSizes();
 
     QMainWindow::resizeEvent(event);
 }
@@ -1004,6 +1007,13 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
         DBG qDebug() << "in close event after maybe save";
 
+#ifdef Q_OS_MAC
+        // since we are closing this window, disconnect signals that might be invoked
+        // by a user during closing operations to help prevent segfaults on close
+	disconnect(ui.actionNew,           SIGNAL(triggered()), this, SLOT(New()));
+	disconnect(ui.actionOpen,          SIGNAL(triggered()), this, SLOT(Open()));
+	disconnect(ui.actionPreferences,   SIGNAL(triggered()), this, SLOT(PreferencesDialog()));
+#endif
         ShowMessageOnStatusBar(tr("Sigil is closing..."));
 
         KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
@@ -3932,8 +3942,8 @@ void MainWindow::UpdateBrowserSelectionToTab()
 
 void MainWindow::ReadSettings()
 {
-    qDebug() << "------";
-    qDebug() << "In ReadSettings";
+    DWINGEO qDebug() << "------";
+    DWINGEO qDebug() << "In ReadSettings";
     SettingsStore settings;
     ui.actionAutoSpellCheck->setChecked(settings.spellCheck());
     emit SettingsChanged();
@@ -3964,10 +3974,10 @@ void MainWindow::ReadSettings()
         setWindowState(windowState() | Qt::WindowFullScreen);
     }
 
-    qDebug() << "------";
-    qDebug() << "In ReadSettings before restoreState";
+    DWINGEO qDebug() << "------";
+    DWINGEO qDebug() << "In ReadSettings before restoreState";
 
-    DebugCurrentWidgetSizes();
+    DWINGEO DebugCurrentWidgetSizes();
 
     // The positions of all the toolbars and dock widgets
     // The dockwidgets  will only "restore" properly if the widget already
@@ -4068,8 +4078,8 @@ void MainWindow::ReadSettings()
 
 void MainWindow::WriteSettings()
 {
-    qDebug() << "------";
-    qDebug() << "In WriteSettings";
+    DWINGEO qDebug() << "------";
+    DWINGEO qDebug() << "In WriteSettings";
 
     // disable recording any last sizes as exiting
     m_SaveLastEnabled = false;
@@ -4084,7 +4094,7 @@ void MainWindow::WriteSettings()
     settings.setValue("maximized", isMaximized());
     settings.setValue("fullscreen",isFullScreen());
 
-    DebugCurrentWidgetSizes();
+    DBG DebugCurrentWidgetSizes();
 
     // if currently not maximized and not full screen, just save what we have now
     if (!isMaximized() && !isFullScreen()) {
@@ -5414,21 +5424,21 @@ void MainWindow::LoadInitialFile(const QString &openfilepath, bool is_internal)
 
 // Workaround for Long term Qt restore geometry bug - see WriteSettings() for details.
 void MainWindow::UpdateLastSizes() {
-    qDebug() << "------";
-    qDebug() << "In UpdateLastSizes";
-    qDebug() << "Pending: " << m_PendingLastSizeUpdate;
-    qDebug() << "Enabled: " << m_SaveLastEnabled;
+    DWINGEO qDebug() << "------";
+    DWINGEO qDebug() << "In UpdateLastSizes";
+    DWINGEO qDebug() << "Pending: " << m_PendingLastSizeUpdate;
+    DWINGEO qDebug() << "Enabled: " << m_SaveLastEnabled;
 
     if (!m_PendingLastSizeUpdate) return;
 
     if (m_SaveLastEnabled) {
         if (!isMaxOrFull()) {
-            qDebug() << "recording last sizes";
+            DWINGEO qDebug() << "recording last sizes";
             m_LastWindowSize = saveGeometry();
         }
     }
 
-    DebugCurrentWidgetSizes();
+    DWINGEO DebugCurrentWidgetSizes();
 
     m_PendingLastSizeUpdate = false;
 
@@ -5442,38 +5452,38 @@ void MainWindow::RestoreLastNormalGeometry()
     // record the current sizes before changing then as they
     // are updated in the resize event
     QByteArray WindowSize = m_LastWindowSize;
-    qDebug() << "------";
-    qDebug() << "In RestoreLastNormalGeometry";
+    DWINGEO qDebug() << "------";
+    DWINGEO qDebug() << "In RestoreLastNormalGeometry";
 
     // prevent any resulting move or resize from being recorded here
     m_SaveLastEnabled = false;
     if (!WindowSize.isEmpty()) restoreGeometry(WindowSize);
     m_SaveLastEnabled=true;
 
-    DebugCurrentWidgetSizes();
+    DWINGEO DebugCurrentWidgetSizes();
 #endif
 }
 
 void MainWindow::changeEvent(QEvent *e) 
 {
-    qDebug() << "------";
-    qDebug() << "In ChangeEvent: " << e;
+    DWINGEO qDebug() << "------";
+    DWINGEO qDebug() << "In ChangeEvent: " << e;
     if(e->type() == QEvent::WindowStateChange) {
 	const QWindowStateChangeEvent* wsevent = static_cast<QWindowStateChangeEvent*>(e);
-        qDebug() << "old state" << wsevent->oldState();
+        DWINGEO qDebug() << "old state" << wsevent->oldState();
 
-        DebugCurrentWidgetSizes();
+        DWINGEO DebugCurrentWidgetSizes();
 
         if(isMinimized()) {
             // MINIMIZED
-	    qDebug() << "Main Window new state: minimized";
+	    DWINGEO qDebug() << "Main Window new state: minimized";
         } else if (isMaximized()) {
-	    qDebug() << "Main Window new state: maximized";
+	    DWINGEO qDebug() << "Main Window new state: maximized";
         } else if (isFullScreen()) {
-	    qDebug() << "Main Window new state: fullscreen";
+	    DWINGEO qDebug() << "Main Window new state: fullscreen";
 	} else {
             // NORMAL
-	    qDebug() << "Main Window new state: normal";
+	    DWINGEO qDebug() << "Main Window new state: normal";
 #if 1  //def Q_OS_WIN32
             // This is still be needed for Windows and Linux to restore after maximize
 	    QTimer::singleShot(0, this, SLOT(RestoreLastNormalGeometry()));
@@ -5482,8 +5492,8 @@ void MainWindow::changeEvent(QEvent *e)
     }
     if (e->type() == QEvent::ActivationChange) {
         if(isActiveWindow()) {
-            qDebug() << "------";
-	    qDebug() << "Main Window is transitioning from inactive to active: " << isMaxOrFull();
+            DWINGEO qDebug() << "------";
+	    DWINGEO qDebug() << "Main Window is transitioning from inactive to active: " << isMaxOrFull();
 
             if (m_FirstTime) {
                 if (!m_LastState.isEmpty()) {
@@ -5492,14 +5502,14 @@ void MainWindow::changeEvent(QEvent *e)
 	    }
             m_FirstTime = false;
 
-            DebugCurrentWidgetSizes();
+            DWINGEO DebugCurrentWidgetSizes();
 
             m_SaveLastEnabled = true;
             m_PendingLastSizeUpdate = true;
             UpdateLastSizes();
 
 	} else {
-	    qDebug() << "Main Window is transitioning from active to inactive";
+	    DWINGEO qDebug() << "Main Window is transitioning from active to inactive";
         }
     }
 
