@@ -987,9 +987,8 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    DBG qDebug() << "in close event before maybe save";
-
     m_IsClosing = true;
+
 
     // stop any further UpdatePreview timer actions
     // and prevent UpdatePage from running
@@ -998,6 +997,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }
     disconnect(&m_PreviewTimer, SIGNAL(timeout()), this, SLOT(UpdatePreview()));
 
+    DBG qDebug() << "in close event before maybe save";
 
     // this should be done first to save all geometry
     // extra saves should not be an issue if the window close is abandoned
@@ -3178,6 +3178,8 @@ void MainWindow::AboutDialog()
 
 void MainWindow::PreferencesDialog()
 {
+    if (m_IsClosing) return;
+
     Preferences preferences(this);
     preferences.exec();
 
@@ -3208,6 +3210,8 @@ void MainWindow::PreferencesDialog()
 
 void MainWindow::ManagePluginsDialog()
 {
+    if (m_IsClosing) return;
+
     Preferences preferences(this);
     preferences.makeActive(Preferences::PluginsPrefs);
     preferences.exec();
@@ -4793,7 +4797,7 @@ void MainWindow::PlatformSpecificTweaks()
     //}
     // Set the action because they are not automatically put in the right place as of Qt 5.1.
     ui.actionAbout->setMenuRole(QAction::AboutRole);
-    ui.actionPreferences->setMenuRole(QAction::PreferencesRole);
+    // ui.actionPreferences->setMenuRole(QAction::PreferencesRole);
 #endif
     sizeMenuIcons();
 }
