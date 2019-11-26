@@ -81,6 +81,7 @@ static void file_new()
 {
     MainWindow *w = GetMainWindow(QStringList());
     w->show();
+    QApplication::setActiveWindow(w);
 }
 
 static void file_open()
@@ -415,6 +416,7 @@ int main(int argc, char *argv[])
             VerifyPlugins();
             MainWindow *widget = GetMainWindow(arguments);
             widget->show();
+            QApplication::setActiveWindow(widget);
             return app.exec();
         }
     } catch (std::exception &e) {

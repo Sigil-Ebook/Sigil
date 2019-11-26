@@ -1069,6 +1069,7 @@ void MainWindow::New()
 #ifdef Q_OS_MAC
         MainWindow *new_window = new MainWindow();
         new_window->show();
+	QApplication::setActiveWindow(new_window);
 #else
         CreateNewBook();
 #endif
@@ -1110,6 +1111,7 @@ void MainWindow::Open()
 #ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(filename);
             new_window->show();
+	    QApplication::setActiveWindow(new_window);
 #else
             LoadFile(filename);
 #endif
@@ -1152,6 +1154,7 @@ void MainWindow::OpenRecentFile()
 #ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(filename);
             new_window->show();
+	    QApplication::setActiveWindow(new_window);
 #else
             LoadFile(filename);
 #endif

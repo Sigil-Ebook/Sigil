@@ -846,6 +846,8 @@ bool PluginRunner::addFiles(const QStringList &files)
 #ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(epubPath, true);
             new_window->show();
+            // will this be allowed if PluginRunner is Application Modal
+	    QApplication::setActiveWindow(new_window);
 #else
             // For Linux and Windows will replace current book
             // So Throw Up a Dialog to See if they want to proceed
