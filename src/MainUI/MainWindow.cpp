@@ -652,11 +652,8 @@ void MainWindow::runPlugin(QAction *action)
         pname = altname;
     }
 #endif
-    // QApplication keeps a single modalWindowList across multiple main
-    // windows and this list is not updated until the modeal dialog is deleted
-    PluginRunner * prunner = new PluginRunner(m_TabManager, this);
-    prunner->exec(pname);
-    delete prunner;
+    PluginRunner prunner(m_TabManager, this);
+    prunner.exec(pname);
 }
 
 void MainWindow::SelectResources(QList<Resource *> resources)
@@ -2408,9 +2405,8 @@ void MainWindow::QuickLaunchPlugin(int i)
         if (m_pluginList.contains(pname)) {
 	    // QApplication keeps a single modalWindowList across multiple main
 	    // windows and this list is not updated until modal dialog is deleted
-            PluginRunner * prunner = new PluginRunner(m_TabManager, this);
-            prunner->exec(pname);
-            delete prunner;
+            PluginRunner prunner(m_TabManager, this);
+            prunner.exec(pname);
         }
     }
 }
@@ -3189,21 +3185,21 @@ void MainWindow::PreferencesDialog()
     // QApplication keeps a single modalWindowList across multiple main
     // windows and this list is not updated until modal dialog is deleted
   
-    Preferences * prefers = new Preferences(this);
-    prefers->exec();
+    Preferences prefers(this);
+    prefers.exec();
 
-    if (prefers->isReloadTabsRequired()) {
+    if (prefers.isReloadTabsRequired()) {
         m_TabManager->ReopenTabs();
         m_BookBrowser->Refresh();
-    } else if (prefers->isRefreshBookBrowserRequired()) {
+    } else if (prefers.isRefreshBookBrowserRequired()) {
         m_BookBrowser->Refresh();
-    } else if (prefers->isRefreshSpellingHighlightingRequired()) {
+    } else if (prefers.isRefreshSpellingHighlightingRequired()) {
         RefreshSpellingHighlighting();
         // Make sure menu state is set
         SettingsStore settings;
         ui.actionAutoSpellCheck->setChecked(settings.spellCheck());
     }
-    if (prefers->isRefreshClipHistoryLimitRequired()) {
+    if (prefers.isRefreshClipHistoryLimitRequired()) {
         SettingsStore settings;
         m_ClipboardHistoryLimit = settings.clipboardHistoryLimit();
     }
@@ -3212,8 +3208,6 @@ void MainWindow::PreferencesDialog()
         // To ensure any font size changes are immediately applied.
         m_SelectCharacter->show();
     }
-
-    delete prefers;
 
     updateToolTipsOnPluginIcons();
 }
@@ -3223,23 +3217,23 @@ void MainWindow::ManagePluginsDialog()
 {
     if (m_IsClosing) return;
 
-    Preferences *  prefers = new Preferences(this);
-    prefers->makeActive(Preferences::PluginsPrefs);
-    prefers->exec();
+    Preferences prefers(this);
+    prefers.makeActive(Preferences::PluginsPrefs);
+    prefers.exec();
 
     // other preferences may have been changed as well
-    if (prefers->isReloadTabsRequired()) {
+    if (prefers.isReloadTabsRequired()) {
         m_TabManager->ReopenTabs();
 	m_BookBrowser->Refresh();
-    } else if (prefers->isRefreshBookBrowserRequired()) {
+    } else if (prefers.isRefreshBookBrowserRequired()) {
         m_BookBrowser->Refresh();
-    } else if (prefers->isRefreshSpellingHighlightingRequired()) {
+    } else if (prefers.isRefreshSpellingHighlightingRequired()) {
         RefreshSpellingHighlighting();
         // Make sure menu state is set
         SettingsStore settings;
         ui.actionAutoSpellCheck->setChecked(settings.spellCheck());
     }
-    if (prefers->isRefreshClipHistoryLimitRequired()) {
+    if (prefers.isRefreshClipHistoryLimitRequired()) {
         SettingsStore settings;
         m_ClipboardHistoryLimit = settings.clipboardHistoryLimit();
     }
@@ -3248,8 +3242,6 @@ void MainWindow::ManagePluginsDialog()
         // To ensure any font size changes are immediately applied.
         m_SelectCharacter->show();
     }
-
-    delete prefers;
 
     loadPluginsMenu();
 }
