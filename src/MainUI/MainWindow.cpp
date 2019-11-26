@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2019      Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
