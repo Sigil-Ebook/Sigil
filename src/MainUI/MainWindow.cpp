@@ -240,7 +240,7 @@ MainWindow::~MainWindow()
         m_ViewImage = NULL;
     }
 
-#if 0 //Q_OS_MAC thi should not be needed as these are all children of the MainWindow
+#ifdef Q_OS_MAC  // speeds cleaningup of old modal dialogs
     // DBG qDebug() << "In MainWindow destructor in mac only part";
     if (m_ClipboardHistorySelector) delete m_ClipboardHistorySelector;
     if (m_LinkOrStyleBookmark) delete m_LinkOrStyleBookmark;
@@ -652,8 +652,11 @@ void MainWindow::runPlugin(QAction *action)
         pname = altname;
     }
 #endif
-    PluginRunner prunner(m_TabManager, this);
-    prunner.exec(pname);
+    // QApplication keeps a single modalWindowList across multiple main
+    // windows and this list is not updated until the modeal dialog is deleted
+    PluginRunner * prunner = new PluginRunner(m_TabManager, this);
+    prunner->exec(pname);
+    delete prunner;
 }
 
 void MainWindow::SelectResources(QList<Resource *> resources)
@@ -2403,8 +2406,11 @@ void MainWindow::QuickLaunchPlugin(int i)
     if ((i >= 0) && (namemap.count() > i)) {
         QString pname = namemap.at(i);
         if (m_pluginList.contains(pname)) {
-            PluginRunner prunner(m_TabManager, this);
-            prunner.exec(pname);
+	    // QApplication keeps a single modalWindowList across multiple main
+	    // windows and this list is not updated until modal dialog is deleted
+            PluginRunner * prunner = new PluginRunner(m_TabManager, this);
+            prunner->exec(pname);
+            delete prunner;
         }
     }
 }
@@ -3180,21 +3186,24 @@ void MainWindow::PreferencesDialog()
 {
     if (m_IsClosing) return;
 
-    Preferences preferences(this);
-    preferences.exec();
+    // QApplication keeps a single modalWindowList across multiple main
+    // windows and this list is not updated until modal dialog is deleted
+  
+    Preferences * prefers = new Preferences(this);
+    prefers->exec();
 
-    if (preferences.isReloadTabsRequired()) {
+    if (prefers->isReloadTabsRequired()) {
         m_TabManager->ReopenTabs();
         m_BookBrowser->Refresh();
-    } else if (preferences.isRefreshBookBrowserRequired()) {
+    } else if (prefers->isRefreshBookBrowserRequired()) {
         m_BookBrowser->Refresh();
-    } else if (preferences.isRefreshSpellingHighlightingRequired()) {
+    } else if (prefers->isRefreshSpellingHighlightingRequired()) {
         RefreshSpellingHighlighting();
         // Make sure menu state is set
         SettingsStore settings;
         ui.actionAutoSpellCheck->setChecked(settings.spellCheck());
     }
-    if (preferences.isRefreshClipHistoryLimitRequired()) {
+    if (prefers->isRefreshClipHistoryLimitRequired()) {
         SettingsStore settings;
         m_ClipboardHistoryLimit = settings.clipboardHistoryLimit();
     }
@@ -3203,6 +3212,8 @@ void MainWindow::PreferencesDialog()
         // To ensure any font size changes are immediately applied.
         m_SelectCharacter->show();
     }
+
+    delete prefers;
 
     updateToolTipsOnPluginIcons();
 }
@@ -3212,23 +3223,23 @@ void MainWindow::ManagePluginsDialog()
 {
     if (m_IsClosing) return;
 
-    Preferences preferences(this);
-    preferences.makeActive(Preferences::PluginsPrefs);
-    preferences.exec();
+    Preferences *  prefers = new Preferences(this);
+    prefers->makeActive(Preferences::PluginsPrefs);
+    prefers->exec();
 
     // other preferences may have been changed as well
-    if (preferences.isReloadTabsRequired()) {
+    if (prefers->isReloadTabsRequired()) {
         m_TabManager->ReopenTabs();
 	m_BookBrowser->Refresh();
-    } else if (preferences.isRefreshBookBrowserRequired()) {
+    } else if (prefers->isRefreshBookBrowserRequired()) {
         m_BookBrowser->Refresh();
-    } else if (preferences.isRefreshSpellingHighlightingRequired()) {
+    } else if (prefers->isRefreshSpellingHighlightingRequired()) {
         RefreshSpellingHighlighting();
         // Make sure menu state is set
         SettingsStore settings;
         ui.actionAutoSpellCheck->setChecked(settings.spellCheck());
     }
-    if (preferences.isRefreshClipHistoryLimitRequired()) {
+    if (prefers->isRefreshClipHistoryLimitRequired()) {
         SettingsStore settings;
         m_ClipboardHistoryLimit = settings.clipboardHistoryLimit();
     }
@@ -3237,6 +3248,8 @@ void MainWindow::ManagePluginsDialog()
         // To ensure any font size changes are immediately applied.
         m_SelectCharacter->show();
     }
+
+    delete prefers;
 
     loadPluginsMenu();
 }
