@@ -652,8 +652,11 @@ void MainWindow::runPlugin(QAction *action)
         pname = altname;
     }
 #endif
-    PluginRunner prunner(m_TabManager, this);
-    prunner.exec(pname);
+    {
+        PluginRunner prunner(m_TabManager, this);
+        prunner.exec(pname);
+    }
+    qApp->processEvents();
 }
 
 void MainWindow::SelectResources(QList<Resource *> resources)
@@ -1069,7 +1072,7 @@ void MainWindow::New()
 #ifdef Q_OS_MAC
         MainWindow *new_window = new MainWindow();
         new_window->show();
-	QApplication::setActiveWindow(new_window);
+	new_window->activateWindow();
 #else
         CreateNewBook();
 #endif
@@ -1111,7 +1114,8 @@ void MainWindow::Open()
 #ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(filename);
             new_window->show();
-	    QApplication::setActiveWindow(new_window);
+	    new_window->activateWindow();
+	    qApp->processEvents();
 #else
             LoadFile(filename);
 #endif
@@ -1154,7 +1158,9 @@ void MainWindow::OpenRecentFile()
 #ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(filename);
             new_window->show();
-	    QApplication::setActiveWindow(new_window);
+	    new_window->activateWindow();
+            qApp->processEvents();
+
 #else
             LoadFile(filename);
 #endif
@@ -2408,8 +2414,11 @@ void MainWindow::QuickLaunchPlugin(int i)
         if (m_pluginList.contains(pname)) {
 	    // QApplication keeps a single modalWindowList across multiple main
 	    // windows and this list is not updated until modal dialog is deleted
-            PluginRunner prunner(m_TabManager, this);
-            prunner.exec(pname);
+            { 
+                PluginRunner prunner(m_TabManager, this);
+                prunner.exec(pname);
+	    }
+            qApp->processEvents();
         }
     }
 }

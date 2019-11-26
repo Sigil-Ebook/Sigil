@@ -81,7 +81,8 @@ static void file_new()
 {
     MainWindow *w = GetMainWindow(QStringList());
     w->show();
-    QApplication::setActiveWindow(w);
+    w->activateWindow();
+    QCoreApplication::processEvents();
 }
 
 static void file_open()
