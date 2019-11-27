@@ -22,7 +22,7 @@
 *************************************************************************/
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QProgressDialog>
-#include <QDebug>
+// #include <QDebug>
 
 #include "Dialogs/Reports.h"
 #include "Misc/SettingsStore.h"
@@ -119,7 +119,7 @@ Reports::~Reports()
 
 void Reports::CreateReports(QSharedPointer<Book> book)
 {
-    qDebug() << "Setting Up Progress Dialog";
+    // qDebug() << "Setting Up Progress Dialog";
     // Display progress dialog
     QProgressDialog progress(QObject::tr("Creating reports..."), 0, 0, REPORT_TYPES.count(), NULL);
     int progress_value = 0;
@@ -129,7 +129,7 @@ void Reports::CreateReports(QSharedPointer<Book> book)
     foreach(QString report_type, REPORT_TYPES) {
         progress.setValue(++progress_value);
         qApp->processEvents();
-        qDebug() << "Creating Report: " << report_type;
+        // qDebug() << "Creating Report: " << report_type;
         CreateReport(book, report_type);
     }
     progress.setValue(REPORT_TYPES.count());
