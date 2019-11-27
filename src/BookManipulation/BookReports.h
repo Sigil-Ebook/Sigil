@@ -46,9 +46,21 @@ public:
         int css_selector_position;
     };
 
-    static QList<BookReports::StyleData *> GetHTMLClassUsage(QSharedPointer<Book> book, bool show_progress = false);
-    static QList<BookReports::StyleData *> GetAllHTMLClassUsage(QSharedPointer<Book> book, bool show_progress = false);
-    static QList<BookReports::StyleData *> GetCSSSelectorUsage(QSharedPointer<Book> book, const QList<BookReports::StyleData *> html_classes_usage);
+    static QList<BookReports::StyleData *> GetHTMLClassUsage(QSharedPointer<Book> book, 
+							     bool show_progress = false);
+
+    static QList<BookReports::StyleData *> ClassesUsedInHTMLFileMapped(HTMLResource* html_resource, 
+								       const QHash<QString,QString> &css_text);
+
+    static QList<BookReports::StyleData *> GetAllHTMLClassUsage(QSharedPointer<Book> book, 
+								bool show_progress = false);
+
+    static QList<BookReports::StyleData *> AllClassesUsedInHTMLFileMapped(HTMLResource* html_resource, 
+									  const QHash<QString, QString> &css_text);
+
+
+    static QList<BookReports::StyleData *> GetCSSSelectorUsage(QSharedPointer<Book> book, 
+							       const QList<BookReports::StyleData *> html_classes_usage);
 };
 
 #endif // BOOKREPORTS_H

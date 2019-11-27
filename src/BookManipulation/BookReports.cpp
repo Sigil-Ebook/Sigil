@@ -28,88 +28,110 @@
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QProgressDialog>
+#include <QtCore/QFutureSynchronizer>
+#include <QtConcurrent/QtConcurrent>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/BookReports.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Misc/CSSInfo.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
+
+
+
+// These GetHTMLClassUsage and GetAllHTMLClassUsage may look identical but they are not
+
 
 QList<BookReports::StyleData *> BookReports::GetHTMLClassUsage(QSharedPointer<Book> book, bool show_progress)
 {
     QList<HTMLResource *> html_resources = book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(false);
     QList<CSSResource *> css_resources = book->GetFolderKeeper()->GetResourceTypeList<CSSResource>(false);
-    QList<BookReports::StyleData *> html_classes_usage;
+
     // Save each CSS file's text so we don't have to reload it when checking each HTML file
     QHash<QString, QString> css_text;
     foreach(CSSResource * css_resource, css_resources) {
         QString css_filename = css_resource->GetRelativePath();
-
         if (!css_text.contains(css_filename)) {
             css_text[css_filename] = css_resource->GetText();
         }
     }
 
-    // Display progress dialog
-    QProgressDialog progress(QObject::tr("Collecting classes..."), 0, 0, html_resources.count(), QApplication::activeWindow());
-    int progress_value = 0;
-    if (show_progress) {
-        progress.setMinimumDuration(0);
-        progress.setValue(progress_value);
-        qApp->processEvents();
+    QList<BookReports::StyleData*> html_classes_usage;
+
+    QFuture< QList<BookReports::StyleData*> > usage_future;
+    usage_future = QtConcurrent::mapped(html_resources, 
+					std::bind(ClassesUsedInHTMLFileMapped, 
+						  std::placeholders::_1, css_text));
+
+    for (int i = 0; i < usage_future.results().count(); i++) {
+        html_classes_usage.append(usage_future.resultAt(i));
+    }
+        
+    return html_classes_usage;
+}
+
+
+QList<BookReports::StyleData *> BookReports::ClassesUsedInHTMLFileMapped(HTMLResource* html_resource, const QHash<QString, QString> &css_text)
+{
+    QList<BookReports::StyleData *> html_classes_usage;
+
+    // Get the unique list of classes in this file
+    // list of element_name.class_name
+    QStringList classes_in_file = XhtmlDoc::GetAllDescendantClasses(html_resource->GetText());
+    classes_in_file.removeDuplicates();
+
+    // Get the linked stylesheets for this file
+    // returned as list of bookpaths to the stylesheets
+    QStringList linked_stylesheets;
+    QStringList stylelinks = XhtmlDoc::GetLinkedStylesheets(html_resource->GetText());
+    QString html_folder = html_resource->GetFolder();
+    // convert links relative to a html resource to their book paths
+    foreach(QString stylelink, stylelinks) {
+	linked_stylesheets.append(Utility::buildBookPath(stylelink, html_folder));
     }
 
-    // Check each file for classes to look for in inline and linked stylesheets
-    foreach(HTMLResource * html_resource, html_resources) {
-        if (show_progress) {
-            progress.setValue(progress_value++);
-            qApp->processEvents();
-        }
-
-        // Get the unique list of classes in this file
-        QStringList classes_in_file = book->GetClassesInHTMLFile(html_resource);
-        classes_in_file.removeDuplicates();
-        // Get the linked stylesheets for this file
-        QStringList linked_stylesheets = book->GetStylesheetsInHTMLFile(html_resource);
-        // Look at each class from the HTML file
-        foreach(QString class_name, classes_in_file) {
-            QString found_location;
-            QString selector_text;
-            QString element_part = class_name.split(".").at(0);
-            QString class_part = class_name.split(".").at(1);
-            // Save the details for found or not found classes
-            BookReports::StyleData *class_usage = new BookReports::StyleData();
-            class_usage->html_filename = html_resource->GetRelativePath();
-            class_usage->html_element_name = element_part;
-            class_usage->html_class_name = class_part;
-            // Look in each stylesheet
-            foreach(QString css_filename, linked_stylesheets) {
-                if (css_text.contains(css_filename)) {
-                    CSSInfo css_info(css_text[css_filename], true);
-                    CSSInfo::CSSSelector *selector = css_info.getCSSSelectorForElementClass(element_part, class_part);
-
-                    // If class matched a selector in a linked stylesheet, we're done
-                    if (selector && (selector->classNames.count() > 0)) {
-                        class_usage->css_filename = css_filename;
-                        class_usage->css_selector_text = selector->groupText;
-                        class_usage->css_selector_position = selector->position;
-                        class_usage->css_selector_line = selector->line;
-                        break;
-                    }
+    // Look at each class from the HTML file
+    foreach(QString class_name, classes_in_file) {
+        QString found_location;
+        QString selector_text;
+        QString element_part = class_name.split(".").at(0);
+        QString class_part = class_name.split(".").at(1);
+	// Save the details for found or not found classes
+	BookReports::StyleData *class_usage = new BookReports::StyleData();
+	class_usage->html_filename = html_resource->GetRelativePath();
+	class_usage->html_element_name = element_part;
+	class_usage->html_class_name = class_part;
+	// Look in each stylesheet
+	// css_filename here is a bookpath as used above
+        foreach(QString css_filename, linked_stylesheets) {
+            if (css_text.contains(css_filename)) {
+                CSSInfo css_info(css_text[css_filename], true);
+		CSSInfo::CSSSelector *selector = css_info.getCSSSelectorForElementClass(element_part, class_part);
+                // If class matched a selector in a linked stylesheet, we're done
+                if (selector && (selector->classNames.count() > 0)) {
+		    // css_filename is a book path
+                    class_usage->css_filename = css_filename;
+                    class_usage->css_selector_text = selector->groupText;
+                    class_usage->css_selector_position = selector->position;
+                    class_usage->css_selector_line = selector->line;
+                    break;
                 }
-            }
-            html_classes_usage.append(class_usage);
-        }
+	    }
+	}
+        html_classes_usage.append(class_usage);
     }
     return html_classes_usage;
 }
+
+
 
 // needed because one use of a class in html can actually match more than one selector with same specificity
 QList<BookReports::StyleData *> BookReports::GetAllHTMLClassUsage(QSharedPointer<Book> book, bool show_progress)
 {
     QList<HTMLResource *> html_resources = book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(false);
     QList<CSSResource *> css_resources = book->GetFolderKeeper()->GetResourceTypeList<CSSResource>(false);
-    QList<BookReports::StyleData *> html_classes_usage;
+
     // Save each CSS file's text so we don't have to reload it when checking each HTML file
     QHash<QString, QString> css_text;
     foreach(CSSResource * css_resource, css_resources) {
@@ -120,57 +142,67 @@ QList<BookReports::StyleData *> BookReports::GetAllHTMLClassUsage(QSharedPointer
         }
     }
 
-    // Display progress dialog
-    QProgressDialog progress(QObject::tr("Collecting classes..."), 0, 0, html_resources.count(), QApplication::activeWindow());
-    int progress_value = 0;
-    if (show_progress) {
-        progress.setMinimumDuration(0);
-        progress.setValue(progress_value);
-        qApp->processEvents();
+    QList<BookReports::StyleData*> html_classes_usage;
+
+    QFuture< QList<BookReports::StyleData*> > usage_future;
+    usage_future = QtConcurrent::mapped(html_resources, 
+					std::bind(AllClassesUsedInHTMLFileMapped, 
+						  std::placeholders::_1, css_text));
+
+    for (int i = 0; i < usage_future.results().count(); i++) {
+        html_classes_usage.append(usage_future.resultAt(i));
+    }
+        
+    return html_classes_usage;
+}
+
+
+QList<BookReports::StyleData *> BookReports::AllClassesUsedInHTMLFileMapped(HTMLResource* html_resource, const QHash<QString, QString> &css_text)
+{
+    QList<BookReports::StyleData *> html_classes_usage;
+
+    // Get the unique list of classes in this file
+    // list of element_name.class_name
+    QStringList classes_in_file = XhtmlDoc::GetAllDescendantClasses(html_resource->GetText());
+    classes_in_file.removeDuplicates();
+
+    // Get the linked stylesheets for this file
+    // returned as list of bookpaths to the stylesheets
+    QStringList linked_stylesheets;
+    QStringList stylelinks = XhtmlDoc::GetLinkedStylesheets(html_resource->GetText());
+    QString html_folder = html_resource->GetFolder();
+    // convert links relative to a html resource to their book paths
+    foreach(QString stylelink, stylelinks) {
+	linked_stylesheets.append(Utility::buildBookPath(stylelink, html_folder));
     }
 
-    // Check each file for classes to look for in inline and linked stylesheets
-    foreach(HTMLResource * html_resource, html_resources) {
-        if (show_progress) {
-            progress.setValue(progress_value++);
-            qApp->processEvents();
-        }
-
-        // Get the unique list of classes in this file
-	// list of element_name.class_name
-        QStringList classes_in_file = book->GetClassesInHTMLFile(html_resource);
-        classes_in_file.removeDuplicates();
-        // Get the linked stylesheets for this file
-	// returned as list of bookpaths to the stylesheets
-        QStringList linked_stylesheets = book->GetStylesheetsInHTMLFile(html_resource);
-        // Look at each class from the HTML file
-        foreach(QString class_name, classes_in_file) {
-            QString found_location;
-            QString selector_text;
-            QString element_part = class_name.split(".").at(0);
-            QString class_part = class_name.split(".").at(1);
-            // Look in each stylesheet
-	    // css_filename here is a bookpath as used above
-            foreach(QString css_filename, linked_stylesheets) {
-                if (css_text.contains(css_filename)) {
-                    CSSInfo css_info(css_text[css_filename], true);
-                    QList<CSSInfo::CSSSelector *> selectors = css_info.getAllCSSSelectorsForElementClass(element_part, class_part);
-                    foreach(CSSInfo::CSSSelector * selector, selectors) {
-                        // If class matched a selector in a linked stylesheet, we're done
-                        if (selector && (selector->classNames.count() > 0)) {
-                            // Save the details for found or not found classes
-                            BookReports::StyleData *class_usage = new BookReports::StyleData();
-			    // html_filename is a book path
-                            class_usage->html_filename = html_resource->GetRelativePath();
-                            class_usage->html_element_name = element_part;
-                            class_usage->html_class_name = class_part;
-			    // css_filename is a book path
-                            class_usage->css_filename = css_filename;
-                            class_usage->css_selector_text = selector->groupText;
-                            class_usage->css_selector_position = selector->position;
-                            class_usage->css_selector_line = selector->line;
-                            html_classes_usage.append(class_usage);
-                        }
+    // Look at each class from the HTML file
+    foreach(QString class_name, classes_in_file) {
+        QString found_location;
+        QString selector_text;
+        QString element_part = class_name.split(".").at(0);
+        QString class_part = class_name.split(".").at(1);
+        // Look in each stylesheet
+	// css_filename here is a bookpath as used above
+        foreach(QString css_filename, linked_stylesheets) {
+            if (css_text.contains(css_filename)) {
+                CSSInfo css_info(css_text[css_filename], true);
+                QList<CSSInfo::CSSSelector *> selectors = css_info.getAllCSSSelectorsForElementClass(element_part, class_part);
+                foreach(CSSInfo::CSSSelector * selector, selectors) {
+                    // If class matched a selector in a linked stylesheet, we're done
+                    if (selector && (selector->classNames.count() > 0)) {
+                        // Save the details for found or not found classes
+                        BookReports::StyleData *class_usage = new BookReports::StyleData();
+			// html_filename is a book path
+                        class_usage->html_filename = html_resource->GetRelativePath();
+                        class_usage->html_element_name = element_part;
+                        class_usage->html_class_name = class_part;
+			// css_filename is a book path
+                        class_usage->css_filename = css_filename;
+                        class_usage->css_selector_text = selector->groupText;
+                        class_usage->css_selector_position = selector->position;
+                        class_usage->css_selector_line = selector->line;
+                        html_classes_usage.append(class_usage);
                     }
                 }
             }

@@ -98,6 +98,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     QHash<QString, QStringList> image_names_hash = m_Book->GetImagesInHTMLFiles();
     QHash<QString, QStringList> video_names_hash = m_Book->GetVideoInHTMLFiles();
     QHash<QString, QStringList> audio_names_hash = m_Book->GetAudioInHTMLFiles();
+    QHash<QString, std::pair<int, int> > word_count_hash = m_Book->GetSpellWordCountsInHTMLFiles();
     foreach(HTMLResource *html_resource, m_HTMLResources) {
         QString filepath = html_resource->GetRelativePath();
         QString path = html_resource->GetFullPath();
@@ -117,16 +118,15 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         size_item->setText(fsize);
         rowItems << size_item;
         // All words
-        int all_words = HTMLSpellCheck::CountAllWords(html_resource->GetText());
-        total_all_words += all_words;
+	std::pair<int, int> counts = word_count_hash[filepath];
+        total_all_words += counts.first;
         NumericItem *words_item = new NumericItem();
-        words_item->setText(QString::number(all_words));
+        words_item->setText(QString::number(counts.first));
         rowItems << words_item;
         // Misspelled words
-        int misspelled_words = HTMLSpellCheck::CountMisspelledWords(html_resource->GetText());
-        total_misspelled_words += misspelled_words;
+        total_misspelled_words += counts.second;
         NumericItem *misspelled_item = new NumericItem();
-        misspelled_item->setText(QString::number(misspelled_words));
+        misspelled_item->setText(QString::number(counts.second));
         rowItems << misspelled_item;
         // Images
         NumericItem *image_item = new NumericItem();

@@ -1977,8 +1977,12 @@ void MainWindow::DeleteReportsStyles(QList<BookReports::StyleData *> reports_sty
 
 void MainWindow::ReportsDialog()
 {
-    SaveTabData();
+    ShowMessageOnStatusBar(tr("Reports Being Generated."));
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
     // since we do report file sizes, we have to flush all changes to disk
+    SaveTabData();
     m_Book->GetFolderKeeper()->SuspendWatchingResources();
     m_Book->SaveAllResourcesToDisk();
     m_Book->GetFolderKeeper()->ResumeWatchingResources();
@@ -1987,8 +1991,13 @@ void MainWindow::ReportsDialog()
         QMessageBox::warning(this, tr("Sigil"), tr("Reports cancelled due to XML not well formed."));
         return;
     }
-    // non-modal dialog
+
+    qDebug() << "Creating All of the Reports";
     m_Reports->CreateReports(m_Book);
+    
+    QApplication::restoreOverrideCursor();
+
+    // non-modal dialog
     m_Reports->show();
     m_Reports->raise();
     m_Reports->activateWindow();

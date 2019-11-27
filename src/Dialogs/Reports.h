@@ -36,7 +36,7 @@
 /**
  *
  * The reports are exposed are instances of ReportsWidget. They are loaded
- * and dynamically displayed based upon which one is seleted.
+ * and dynamically displayed based upon which one is selected.
  */
 class Reports : public QDialog
 {
@@ -47,6 +47,7 @@ public:
     ~Reports();
 
     void CreateReports(QSharedPointer<Book> book);
+    void CreateReport(QSharedPointer<Book> book, const QString report_type );
 
 signals:
     void Refresh();

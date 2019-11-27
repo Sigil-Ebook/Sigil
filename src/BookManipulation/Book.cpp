@@ -883,6 +883,31 @@ QHash<QString, QStringList> Book::GetImagesInHTMLFiles()
     return images_in_html;
 }
 
+QHash< QString, std::pair<int,int> > Book::GetSpellWordCountsInHTMLFiles()
+{
+    QHash< QString, std::pair<int,int> > words_in_html;
+    const QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(false);
+    QFuture<std::tuple<QString, std::pair<int,int> > > future = QtConcurrent::mapped(html_resources, GetWordCountsInHTMLFileMapped);
+    for (int i = 0; i < future.results().count(); i++) {
+        QString bookpath;
+	std::pair<int, int> word_counts;
+        std::tie(bookpath, word_counts) = future.resultAt(i);
+        words_in_html[bookpath] = word_counts;
+    }
+    return words_in_html;
+}
+
+
+std::tuple<QString, std::pair<int,int> > Book::GetWordCountsInHTMLFileMapped(HTMLResource *html_resource)
+{
+    QString html_bookpath = html_resource->GetRelativePath();
+    std::pair<int,int> counts;
+    counts.first = HTMLSpellCheck::CountAllWords(html_resource->GetText());
+    counts.second = HTMLSpellCheck::CountMisspelledWords(html_resource->GetText());
+    return std::make_tuple(html_bookpath, counts);
+}
+
+
 QHash<QString, QStringList> Book::GetVideoInHTMLFiles()
 {
     QHash<QString, QStringList> video_in_html;
@@ -1013,14 +1038,23 @@ std::tuple<QString, QStringList> Book::GetAudioInHTMLFileMapped(HTMLResource *ht
 QList<HTMLResource *> Book::GetNonWellFormedHTMLFiles()
 {
     QList<HTMLResource *> malformed_resources;
-
-    foreach (HTMLResource *h, m_Mainfolder->GetResourceTypeList<HTMLResource>(false)) {
-      if (!IsDataWellFormed(h)) {
-            malformed_resources << h;
-        }
+    QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(false);
+    QFuture< std::pair<HTMLResource*, bool> > well_future;
+    well_future = QtConcurrent::mapped(html_resources, ResourceWellFormedMap);
+    for (int i = 0; i < well_future.results().count(); i++) {
+	std::pair<HTMLResource*, bool> res = well_future.resultAt(i);
+        if (!res.second) malformed_resources << res.first;
     }
-
     return malformed_resources;
+}
+
+std::pair<HTMLResource*, bool> Book::ResourceWellFormedMap(HTMLResource * html_resource) {
+    std::pair<HTMLResource*, bool> res;
+    res.first = html_resource;
+    XhtmlDoc::WellFormedError error = XhtmlDoc::WellFormedErrorForSource(html_resource->GetText(),
+                                                                         html_resource->GetEpubVersion());
+    res.second = (error.line == -1);
+    return res;
 }
 
 QSet<QString> Book::GetWordsInHTMLFiles()
