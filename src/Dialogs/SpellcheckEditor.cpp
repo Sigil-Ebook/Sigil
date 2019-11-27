@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2012, 2013 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012, 2013 Dave Heiland
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012-2013 Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -305,10 +306,13 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
         m_SpellcheckEditorModel->invisibleRootItem()->appendRow(row_items);
     }
 
-    // Since sortIndicator calls this routine, must disconnect/reconnect while resorting
-    disconnect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+    // Changing the sortIndicator order should not cause the entire wordlist to be regenerated
+    // disconnect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+
     ui.SpellcheckEditorTree->header()->setSortIndicator(sort_column, sort_order);
-    connect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+
+    // Changing the sortIndicator order should not cause the entire wordlist to be regenerated
+    // connect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
 
 
     ui.SpellcheckEditorTree->header()->setToolTip("<table><tr><td>" % tr("Misspelled Words") % ":</td><td>" % QString::number(total_misspelled_words) % "</td></tr><tr><td>" % tr("Total Unique Words") % ":</td><td>" % QString::number(unique_words.count()) % "</td></tr></table>");
@@ -499,10 +503,15 @@ void SpellcheckEditor::ReadSettings()
         if (!settings.value(SORT_ORDER).toBool()) {
             sort_order = Qt::DescendingOrder;
         }
-        // Since sortIndicator calls this routine, must disconnect/reconnect while resorting
-        disconnect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+
+
+        // Changing the  sortIndicator should not cause the entire wordlist to be regenerated!
+        // disconnect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+
         ui.SpellcheckEditorTree->header()->setSortIndicator(sort_column, sort_order);
-        connect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+
+        // Changing the  sortIndicator should not cause the entire wordlist to be regenerated!
+        // connect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
     }
 
     settings.endGroup();
@@ -585,10 +594,13 @@ void SpellcheckEditor::ConnectSignalsSlots()
     connect(ui.ChangeAll, SIGNAL(clicked()), this, SLOT(ChangeAll()));
     connect(ui.SpellcheckEditorTree, SIGNAL(customContextMenuRequested(const QPoint &)),
             this,        SLOT(OpenContextMenu(const QPoint &)));
-    connect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)),
-            this, SLOT(Sort(int, Qt::SortOrder)));
-    connect(m_Ignore,       SIGNAL(triggered()), this, SLOT(Ignore()));
-    connect(m_Add,      SIGNAL(triggered()), this, SLOT(Add()));
+
+    // Changing the sortIndicator order should not cause the entire wordlist to be regenerated
+    // connect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)),
+    //         this, SLOT(Sort(int, Qt::SortOrder)));
+
+    connect(m_Ignore,    SIGNAL(triggered()), this, SLOT(Ignore()));
+    connect(m_Add,       SIGNAL(triggered()), this, SLOT(Add()));
     connect(m_Find,      SIGNAL(triggered()), this, SLOT(FindSelectedWord()));
     connect(m_SelectAll, SIGNAL(triggered()), this, SLOT(SelectAll()));
     connect(ui.SpellcheckEditorTree, SIGNAL(doubleClicked(const QModelIndex &)),
