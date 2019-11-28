@@ -41,9 +41,45 @@
           <item row="0" column="1">
           
             <layout class="QGridLayout" name="gridLayout">
-            
+
               <item row="0" column="0">
-                <spacer name="verticalSpacer_2">
+                <spacer name="verticalSpacer_01">
+                  <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                    <size>
+                      <width>20</width>
+                      <height>60</height>
+                    </size>
+                  </property>
+                </spacer>
+              </item>
+
+              <item row="1" column="0">
+                <widget class="QPushButton" name="loadButton">
+                  <property name="toolTip">
+                    <string>Load a previously saved design from an ini file.</string>
+                  </property>
+                  <property name="text">
+                    <string>Load</string>
+                  </property>
+                </widget>
+              </item>
+
+              <item row="2" column="0">
+                <widget class="QPushButton" name="saveButton">
+                  <property name="toolTip">
+                    <string>Save the current design to an ini file.</string>
+                  </property>
+                  <property name="text">
+                    <string>Save</string>
+                  </property>
+                </widget>
+              </item>
+
+              <item row="3" column="0">
+                <spacer name="verticalSpacer_02">
                   <property name="orientation">
                     <enum>Qt::Vertical</enum>
                   </property>
@@ -56,7 +92,7 @@
                 </spacer>
               </item>
 
-              <item row="1" column="0">
+              <item row="4" column="0">
                 <widget class="QPushButton" name="addButton">
                   <property name="toolTip">
                     <string>Add a new folder to parent.</string>
@@ -67,7 +103,7 @@
                 </widget>
               </item>
 
-              <item row="2" column="0">
+              <item row="5" column="0">
                 <widget class="QPushButton" name="addFileButton">
                   <property name="toolTip">
                     <string>Add an allowed file type marker to an existing folder.</string>
@@ -78,7 +114,7 @@
                 </widget>
               </item>
 
-              <item row="3" column="0">
+              <item row="6" column="0">
                 <widget class="QPushButton" name="delButton">
                   <property name="toolTip">
                     <string>Remove an existing file type marker or folder.</string>
@@ -89,7 +125,7 @@
                 </widget>
               </item>
 
-              <item row="4" column="0">
+              <item row="7" column="0">
                 <widget class="QPushButton" name="renameButton">
                   <property name="toolTip">
                     <string>Rename a folder or OPF, NCX or Nav marker.</string>
@@ -100,15 +136,15 @@
                 </widget>
               </item>
 
-              <item row="5" column="0">
-                <spacer name="verticalSpacer">
+              <item row="8" column="0">
+                <spacer name="verticalSpacer_03">
                   <property name="orientation">
                     <enum>Qt::Vertical</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                     <size>
                       <width>20</width>
-                      <height>40</height>
+                      <height>60</height>
                     </size>
                   </property>
                 </spacer>

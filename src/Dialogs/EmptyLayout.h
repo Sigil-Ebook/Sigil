@@ -59,6 +59,9 @@ private slots:
     void renameCurrent();
     void saveData();
 
+    void loadDesign();
+    void saveDesign();
+
  private:
     void ReadSettings();
     void WriteSettings();
@@ -74,6 +77,8 @@ private slots:
     bool m_hasOPF;
     bool m_hasNCX;
     bool m_hasNAV;
+    QString m_LastDirSaved;
+    QString m_LastFileSaved;
 };
 
 #endif // EMPTYLAYOUT_H

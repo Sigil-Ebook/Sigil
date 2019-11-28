@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include <QDialog>
+#include <QFileDialog>
 #include <QInputDialog>
 #include <QMenu>
 #include <QAction>
@@ -94,9 +95,7 @@ EmptyLayout::EmptyLayout(const QString &epubversion, QWidget *parent)
     // do not allow inline file folder name editing
     view->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
-    if (!isVisible()) {
-        ReadSettings();
-    }
+    ReadSettings();
 
     // Set up a popup menu with allowed file types
     setupMarkersMenu();
@@ -105,6 +104,8 @@ EmptyLayout::EmptyLayout(const QString &epubversion, QWidget *parent)
     addFileButton->setMenu(m_filemenu);
     
     // connect signals to slots
+    connect(loadButton,    SIGNAL(clicked()),           this, SLOT(loadDesign()));
+    connect(saveButton,    SIGNAL(clicked()),           this, SLOT(saveDesign()));
     connect(delButton,     SIGNAL(clicked()),           this, SLOT(deleteCurrent()));
     connect(addButton,     SIGNAL(clicked()),           this, SLOT(addFolder()));
     connect(renameButton,  SIGNAL(clicked()),           this, SLOT(renameCurrent()));
@@ -182,6 +183,113 @@ QString EmptyLayout::GetInput(const QString& title, const QString& prompt, const
         result = dinput.textValue();
     }
     return result;
+}
+
+
+void EmptyLayout::loadDesign()
+{
+    QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = options | QFileDialog::DontUseNativeDialog;
+#endif
+    QString inipath = QFileDialog::getOpenFileName(this, 
+                                                   tr("Select previously saved layout design ini File"), 
+                                                   m_LastDirSaved, 
+                                                   tr("Settings Files (*.ini)"),
+                                                   NULL,
+                                                   options);
+
+    if (inipath.isEmpty()) return;
+    if (!QFile::exists(inipath)) return;
+   
+    QStringList bookpaths;
+    {
+        SettingsStore ss(inipath);
+        const QString SETTINGS_GROUP = "bookpaths";
+        const QString KEY_BOOKPATHS = SETTINGS_GROUP + "/" + "empty_epub_bookpaths";
+        while (!ss.group().isEmpty()) {
+	    ss.endGroup();
+        }
+        bookpaths = ss.value(KEY_BOOKPATHS,QStringList()).toStringList();
+    }
+
+    if (bookpaths.isEmpty()) return;
+
+    // now clear out any current design by deleting "/EpubRoot"
+ 
+   // Windows has issues removing or deleting files while the file
+    // watcher is running and QFileSystemModel made private disabling the watcher
+    // So try manually removing the EpubRoot folder via the QFileSystemModel
+    QModelIndex index = m_fsmodel->index(m_MainFolder + "/EpubRoot");
+    if (index.isValid()) {
+        m_fsmodel->remove(index);
+    }
+
+    // make target root folder
+    QDir mfolder(m_MainFolder);
+    mfolder.mkdir("EpubRoot");
+
+    QDir epubroot(m_MainFolder + "/EpubRoot");
+
+    foreach(QString bkpath, bookpaths) {
+        if (bkpath.startsWith('/')) bkpath.remove(0,1);
+	QString fullfilepath = m_MainFolder + "/EpubRoot" + "/" + bkpath;
+        QString sdir = Utility::startingDir(bkpath);
+        if (!sdir.isEmpty()) {
+            // make all dirs relative to epubroot to be safe
+            epubroot.mkpath(sdir);
+	}
+        // use the equivalent of "touch" to create files
+	QFile afile(fullfilepath);
+	if (afile.open(QFile::WriteOnly)) afile.close();
+    }
+
+    view->setCurrentIndex(m_fsmodel->index(m_MainFolder + "/EpubRoot"));
+    view->expandAll();
+    updateActions();
+}
+
+
+void EmptyLayout::saveDesign()
+{
+    QString fullfolderpath = m_MainFolder + "/EpubRoot";
+    QString basepath = fullfolderpath;
+    QStringList bookpaths = GetPathsToFilesInFolder(fullfolderpath, basepath);
+
+    QString filter_string = "*.ini;;*.*";
+    QString default_filter = "ini";
+    QString save_path = m_LastDirSaved + "/" + m_LastFileSaved;
+
+    QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = options | QFileDialog::DontUseNativeDialog;
+#endif
+
+    QString destination = QFileDialog::getSaveFileName(this,
+						       tr("Save current design to an ini File"),
+						       save_path,
+						       filter_string,
+						       &default_filter,
+                                                       options);
+    if (destination.isEmpty()) {
+        return;
+    }
+
+    // force destination setting store destructor to invoked before routine exits
+    { 
+        SettingsStore ss(destination);
+        const QString SETTINGS_GROUP = "bookpaths";
+        const QString KEY_BOOKPATHS = SETTINGS_GROUP + "/" + "empty_epub_bookpaths";
+        while (!ss.group().isEmpty()) {
+	    ss.endGroup();
+        }
+        ss.setValue(KEY_BOOKPATHS, bookpaths);
+    }
+
+    m_LastDirSaved = QFileInfo(destination).absolutePath();
+    m_LastFileSaved = QFileInfo(destination).fileName();
+
+    WriteSettings();
 }
 
 
@@ -393,6 +501,10 @@ void EmptyLayout::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
+
+    m_LastDirSaved = settings.value("lastdirsaved", Utility::DefinePrefsDir()).toString();
+    m_LastFileSaved = settings.value("lastfilesaved", "layoutdesign.ini").toString();
+
     // The size of the window and it's full screen status
     QByteArray geometry = settings.value("geometry").toByteArray();
 
@@ -407,6 +519,9 @@ void EmptyLayout::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
+    settings.setValue("lastdirsaved", m_LastDirSaved);
+    settings.setValue("lastfilesaved", m_LastFileSaved);
+
     // The size of the window and it's full screen status
     settings.setValue("geometry", saveGeometry());
     settings.endGroup();
