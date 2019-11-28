@@ -201,7 +201,7 @@ void EmptyLayout::loadDesign()
 
     if (inipath.isEmpty()) return;
     if (!QFile::exists(inipath)) return;
-   
+ 
     QStringList bookpaths;
     {
         SettingsStore ss(inipath);
@@ -225,6 +225,13 @@ void EmptyLayout::loadDesign()
         m_fsmodel->remove(index);
     }
 
+    // initialize to empty state
+    m_hasOPF = false;
+    m_hasNCX = false;
+    m_hasNAV = false;
+    m_BookPaths = QStringList();
+
+  
     // make target root folder
     QDir mfolder(m_MainFolder);
     mfolder.mkdir("EpubRoot");
@@ -232,6 +239,9 @@ void EmptyLayout::loadDesign()
     QDir epubroot(m_MainFolder + "/EpubRoot");
 
     foreach(QString bkpath, bookpaths) {
+        if (bkpath.endsWith(".opf")) m_hasOPF = true;
+        if (bkpath.endsWith(".ncx")) m_hasNCX = true;
+        if (bkpath.endsWith(".xhtml") && !bkpath.contains("marker.xhtml")) m_hasNAV = true;
         if (bkpath.startsWith('/')) bkpath.remove(0,1);
 	QString fullfilepath = m_MainFolder + "/EpubRoot" + "/" + bkpath;
         QString sdir = Utility::startingDir(bkpath);
