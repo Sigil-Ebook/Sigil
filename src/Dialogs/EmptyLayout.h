@@ -61,7 +61,7 @@ private slots:
 
     void loadDesign();
     void saveDesign();
-    bool removeQFSMDir(const QString& dirName);
+    // bool removeQFSMDir(const QString& dirName);
     bool cleanEpubRoot();
 
  private:

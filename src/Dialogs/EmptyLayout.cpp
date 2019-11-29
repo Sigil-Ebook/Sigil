@@ -185,6 +185,7 @@ QString EmptyLayout::GetInput(const QString& title, const QString& prompt, const
     return result;
 }
 
+#if 0
 // Windows:: If we use m_fsModel->remove() on the index of the EpubRoot,
 // Windows successfully deletes that folder and its contents but the 
 // QTreeView is left in a very very broken state making it useless
@@ -225,23 +226,32 @@ bool EmptyLayout::removeQFSMDir(const QString& dirName)
     }
     return result;
 }
+#endif
 
 bool EmptyLayout::cleanEpubRoot()
 {
+    // first hide the view
+    view->hide();
+    
+    delete m_fsmodel;
+    m_fsmodel = NULL;
+
+    // Delete the EpubRoot
     QString adir = m_MainFolder + "/EpubRoot";
-    bool success = removeQFSMDir(adir);
-
+    QDir eroot(adir);
+    bool success = eroot.removeRecursively();
     if (!success) qDebug() << "Error:: Attempt to remove EpubRoot failed";
-
+    
+    // remake Epubroot
+    QDir mfolder(m_MainFolder);
+    mfolder.mkdir("EpubRoot");
+    
     // initialize to empty state
     m_hasOPF = false;
     m_hasNCX = false;
     m_hasNAV = false;
     m_BookPaths = QStringList();
 
-    // Now make the empty epubroot folder the current index
-    QModelIndex epubindex = m_fsmodel->index(m_MainFolder + "/EpubRoot");
-    view->setCurrentIndex(epubindex);
     return success;
 }
 
@@ -277,45 +287,58 @@ void EmptyLayout::loadDesign()
 
     cleanEpubRoot();
 
-    QApplication::processEvents();
-
-    // now use QFileSystemModel commands to load the new design
+    // first write the files you have loaded
+    QDir eroot(m_MainFolder + "/EpubRoot");
     foreach(QString bkpath, bookpaths) {
         // update the current state 
         if (bkpath.endsWith(".opf")) m_hasOPF = true;
         if (bkpath.endsWith(".ncx")) m_hasNCX = true;
         if (bkpath.endsWith(".xhtml") && !bkpath.contains("marker.xhtml")) m_hasNAV = true;
         if (bkpath.startsWith('/')) bkpath.remove(0,1);
-
-	// split the bookpath into component segments
-        QStringList segments = bkpath.split('/');
-
-        // create any needed folders up to the filename
-        QString apath = m_MainFolder + "/EpubRoot";
-        for (int i=0; i < segments.count()-1; i++) {
-	    QModelIndex index = m_fsmodel->index(apath);
-            QDir cdir = m_fsmodel->fileInfo(index).dir();
-            if (!cdir.exists(segments.at(i))) {
-	        m_fsmodel->mkdir(index, segments.at(i));
-                qDebug() << "created directory: " << apath + "/" + segments.at(i);
-	    }
-            apath = apath + "/" + segments.at(i);
-	}
-
+	QString sdir = Utility::startingDir(bkpath);
+        if (!sdir.isEmpty()) eroot.mkpath(sdir);
         // now we are finally ready to create the file itself
         // use the equivalent of "touch" to create files
 	QString fpath = m_MainFolder + "/EpubRoot" + "/" + bkpath;
 	QFile afile(fpath);
 	if (afile.open(QFile::WriteOnly)) afile.close();
-	QFileInfo file_info = m_fsmodel->fileInfo(m_fsmodel->index(fpath));
-	qDebug() << "created file: " << file_info.absoluteFilePath();
     }
 
-    QApplication::processEvents();
+    // Now finally create a new Model and reset the view
+    m_fsmodel = new QFileSystemModel();
+    m_fsmodel->setReadOnly(false);
+    m_fsmodel->setFilter(QDir::NoDotAndDotDot | QDir::AllDirs | QDir::Files);
+    m_fsmodel->setRootPath(m_MainFolder);
 
+    // re - initialize QTreeView for our model
+    view->reset();
+    view->setModel(m_fsmodel);
+    const QModelIndex rootIndex = m_fsmodel->index(m_MainFolder);
+    if (rootIndex.isValid()) {
+        view->setRootIndex(rootIndex);
+    }
+
+#if 1
+    view->setAnimated(false);
+    view->setIndentation(20);
+    view->setSortingEnabled(true);
+    const QSize availableSize = QApplication::desktop()->availableGeometry(view).size();
+    view->resize(availableSize / 2);
+    view->setColumnWidth(0, view->width() / 3);
+    view->setWindowTitle(QObject::tr("Custom Epub Layout Designer"));
+    view->setRootIsDecorated(true);
+    // column 0 is name, 1 is size, 2 is kind, 3 is date modified
+    view->hideColumn(1);
+    view->hideColumn(3);
+    view->setHeaderHidden(false);
+    // do not allow inline file folder name editing
+    view->setEditTriggers(QAbstractItemView::NoEditTriggers);
+#endif
+
+    view->show();
     QModelIndex index = m_fsmodel->index(m_MainFolder + "/EpubRoot");
     view->setCurrentIndex(index);
-    view->expand(index);
+    view->expandAll();
     updateActions();
 }
 
@@ -509,9 +532,7 @@ void EmptyLayout::saveData()
     }
 
     WriteSettings();
-
     cleanEpubRoot();
-
     QDialog::accept();
 }
 
@@ -519,8 +540,8 @@ void EmptyLayout::saveData()
 void EmptyLayout::reject()
 {
 
-    cleanEpubRoot();
     WriteSettings();
+    cleanEpubRoot();
     QDialog::reject();
 }
 
