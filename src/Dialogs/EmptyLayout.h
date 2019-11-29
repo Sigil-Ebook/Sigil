@@ -61,6 +61,7 @@ private slots:
 
     void loadDesign();
     void saveDesign();
+    bool cleanEpubRoot();
 
  private:
     void ReadSettings();
