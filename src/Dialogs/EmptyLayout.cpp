@@ -215,22 +215,36 @@ void EmptyLayout::loadDesign()
 
     if (bookpaths.isEmpty()) return;
 
+
+
     // now clear out any current design by deleting "/EpubRoot"
+    const QModelIndex rootIndex = m_fsmodel->index(QDir::cleanPath(m_MainFolder));
+    view->setCurrentIndex(rootIndex);
  
-   // Windows has issues removing or deleting files while the file
+    // Windows has issues removing or deleting files while the file
     // watcher is running and QFileSystemModel made private disabling the watcher
     // So try manually removing the EpubRoot folder via the QFileSystemModel
+    // and try it repeatedly
+    int attempts = 10;
+    bool success = false;
     QModelIndex index = m_fsmodel->index(m_MainFolder + "/EpubRoot");
-    if (index.isValid()) {
-        m_fsmodel->remove(index);
+    while (!success && (attempts-- > 0)) {
+        if (index.isValid()) {
+            success = m_fsmodel->remove(index);
+            if (!success) {
+                qDebug() << "Warning:: Attempt to remove epub root folder failed";
+	    }
+        }
     }
-
+    if (!success) {
+        qDebug() << "Error: Attempt to remove epub root folder failed after 10 attempts";
+    }
+    
     // initialize to empty state
     m_hasOPF = false;
     m_hasNCX = false;
     m_hasNAV = false;
     m_BookPaths = QStringList();
-
   
     // make target root folder
     QDir mfolder(m_MainFolder);
@@ -450,26 +464,53 @@ void EmptyLayout::saveData()
 
     WriteSettings();
 
+    // now clear out any current design by deleting "/EpubRoot"
+    const QModelIndex rootIndex = m_fsmodel->index(QDir::cleanPath(m_MainFolder));
+    view->setCurrentIndex(rootIndex);
+
     // Windows has issues removing or deleting files while the file
     // watcher is running and QFileSystemModel made private disabling the watcher
     // So try manually removing the EpubRoot folder via the QFileSystemModel
+    // and try it repeatedly
+    int attempts = 10;
+    bool success = false;
     QModelIndex index = m_fsmodel->index(m_MainFolder + "/EpubRoot");
-    if (index.isValid()) {
-        m_fsmodel->remove(index);
+    while (!success && (attempts-- > 0)) {
+        if (index.isValid()) {
+            success = m_fsmodel->remove(index);
+            if (!success) {
+                qDebug() << "Warning:: Attempt to remove epub root folder failed";
+            }
+        }
     }
+    if (!success) qDebug() << "Error: Attempt to remove epub root folder failed after 10 attempts";
+
     QDialog::accept();
 }
 
 
 void EmptyLayout::reject()
 {
+    // now clear out any current design by deleting "/EpubRoot"
+    const QModelIndex rootIndex = m_fsmodel->index(QDir::cleanPath(m_MainFolder));
+    view->setCurrentIndex(rootIndex);
+
     // Windows has issues removing or deleting files while the file
     // watcher is running and QFileSystemModel made private disabling the watcher
     // So try manually removing the EpubRoot folder via the QFileSystemModel
+    // and try it repeatedly
+    int attempts = 10;
+    bool success = false;
     QModelIndex index = m_fsmodel->index(m_MainFolder + "/EpubRoot");
-    if (index.isValid()) {
-        m_fsmodel->remove(index);
+    while (!success && (attempts-- > 0)) {
+        if (index.isValid()) {
+            success = m_fsmodel->remove(index);
+            if (!success) {
+                qDebug() << "Warning:: Attempt to remove epub root folder failed";
+            }
+        }
     }
+    if (!success) qDebug() << "Error: Attempt to remove epub root folder failed after 10 attempts";
     WriteSettings();
     m_BookPaths = QStringList();
     QDialog::reject();
