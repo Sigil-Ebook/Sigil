@@ -117,9 +117,6 @@ EmptyLayout::EmptyLayout(const QString &epubversion, QWidget *parent)
             SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)), 
             this, SLOT(updateActions()));
 
-    connect(m_fsmodel, SIGNAL(fileRenamed(const QString&, const QString&, const QString&)),
-	    this, SLOT(fileWasRenamed(const QString&, const QString&, const QString&)));
-
     // assign basic shortcuts
     delButton->     setShortcut(QKeySequence(Qt::ControlModifier + Qt::ShiftModifier + Qt::Key_Delete));
     addButton->     setShortcut(QKeySequence("Ctrl+Shift+D"));
@@ -166,12 +163,6 @@ void EmptyLayout::setupMarkersMenu()
 }
 
 
-void EmptyLayout::fileWasRenamed(const QString &apath, const QString &oldname, const QString &newname)
-{
-    qDebug() << "Signal a file was renamed " << apath << oldname << newname;
-}
-
-
 QString EmptyLayout::GetInput(const QString& title, const QString& prompt, const QString& initvalue)
 {
     QString result;
@@ -185,54 +176,21 @@ QString EmptyLayout::GetInput(const QString& title, const QString& prompt, const
     return result;
 }
 
-#if 0
-// Windows:: If we use m_fsModel->remove() on the index of the EpubRoot,
-// Windows successfully deletes that folder and its contents but the 
-// QTreeView is left in a very very broken state making it useless
-// So we are trying a recursive removal routine that uses the QFileSystemModel
-// itself to handle the deletes one by one in the hopes that it works
-// on Windows
-bool EmptyLayout::removeQFSMDir(const QString& dirName)
-{
-    bool result = true;
-    QDir dir(dirName);
-
-    if (dir.exists(dirName)) {
-        foreach(QFileInfo info, dir.entryInfoList(QDir::NoDotAndDotDot | 
-						  QDir::System | 
-						  QDir::Hidden  | 
-						  QDir::AllDirs | 
-						  QDir::Files, 
-						  QDir::DirsFirst)) {
-            if (info.isDir()) {
-                result = removeQFSMDir(info.absoluteFilePath());
-
-            } else {
-                QModelIndex index = m_fsmodel->index(info.absoluteFilePath());
-	        result = m_fsmodel->remove(index);
-                qDebug() << "removed: " << info.absoluteFilePath() << result;
-            }
-
-            if (!result) {
-                return result;
-            }
-        }
-        // now use rmdir to remove this empty directory (unless it is the epub root)
-        if (dirName != m_MainFolder + "/EpubRoot") {
-          QModelIndex index = m_fsmodel->index(dirName);
-          result = m_fsmodel->rmdir(index);
-          qDebug() << "removed dir: " << dirName << result;
-	}
-    }
-    return result;
-}
-#endif
 
 bool EmptyLayout::cleanEpubRoot()
 {
     // first hide the view
     view->hide();
+
+    disconnect(view->selectionModel(),
+            SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)), 
+            this, SLOT(updateActions()));
     
+    QItemSelectionModel *m = view->selectionModel();
+    // Using NULL here sets the model to QAbstractItemModelPrivate::staticEmptyModel() (see source)
+    view->setModel(NULL);
+    delete m;
+
     delete m_fsmodel;
     m_fsmodel = NULL;
 
@@ -311,14 +269,17 @@ void EmptyLayout::loadDesign()
     m_fsmodel->setRootPath(m_MainFolder);
 
     // re - initialize QTreeView for our model
-    view->reset();
+    // view->reset();
+
+    QItemSelectionModel * m = view->selectionModel();
     view->setModel(m_fsmodel);
+    if (m) delete m;
+
     const QModelIndex rootIndex = m_fsmodel->index(m_MainFolder);
     if (rootIndex.isValid()) {
         view->setRootIndex(rootIndex);
     }
 
-#if 1
     view->setAnimated(false);
     view->setIndentation(20);
     view->setSortingEnabled(true);
@@ -333,7 +294,10 @@ void EmptyLayout::loadDesign()
     view->setHeaderHidden(false);
     // do not allow inline file folder name editing
     view->setEditTriggers(QAbstractItemView::NoEditTriggers);
-#endif
+
+    connect(view->selectionModel(),
+            SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)), 
+            this, SLOT(updateActions()));
 
     view->show();
     QModelIndex index = m_fsmodel->index(m_MainFolder + "/EpubRoot");

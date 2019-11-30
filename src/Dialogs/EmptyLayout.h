@@ -46,7 +46,6 @@ public:
     QStringList GetBookPaths() { return m_BookPaths; };
 
 public slots:
-    void fileWasRenamed(const QString& apath, const QString &oldname, const QString &newname);
     void updateActions();
 
 protected slots:
@@ -61,7 +60,6 @@ private slots:
 
     void loadDesign();
     void saveDesign();
-    // bool removeQFSMDir(const QString& dirName);
     bool cleanEpubRoot();
 
  private:
