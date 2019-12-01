@@ -1,0 +1,22 @@
+--- qtwebengine/src/3rdparty/chromium/third_party/blink/renderer/core/editing/commands/insert_paragraph_separator_command.cc.orig	2019-12-01 12:08:41.000000000 -0500
++++ qtwebengine/src/3rdparty/chromium/third_party/blink/renderer/core/editing/commands/insert_paragraph_separator_command.cc	2019-12-01 12:10:28.000000000 -0500
+@@ -115,7 +115,8 @@
+       original_enclosing_block->HasTagName(h2Tag) ||
+       original_enclosing_block->HasTagName(h3Tag) ||
+       original_enclosing_block->HasTagName(h4Tag) ||
+-      original_enclosing_block->HasTagName(h5Tag)) {
++      original_enclosing_block->HasTagName(h5Tag) ||
++      original_enclosing_block->HasTagName(h6Tag)) {
+     return;
+   }
+ 
+@@ -142,7 +143,8 @@
+          enclosing_block->HasTagName(h2Tag) ||
+          enclosing_block->HasTagName(h3Tag) ||
+          enclosing_block->HasTagName(h4Tag) ||
+-         enclosing_block->HasTagName(h5Tag);
++         enclosing_block->HasTagName(h5Tag) ||
++         enclosing_block->HasTagName(h6Tag);
+ }
+ 
+ void InsertParagraphSeparatorCommand::GetAncestorsInsideBlock(
