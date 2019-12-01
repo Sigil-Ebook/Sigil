@@ -1,3 +1,28 @@
+pre-1.0
+    Bug Fixes:
+      - All bugs reported in alpha release have been fixed. 
+        Special thanks to Vroni, BeckEBook, Doitsu, Odamizu, 
+        Un_Pogaz, snarkophilus, and many others who ran tests and reported bugs.
+      - Fix for crash on macOS opening Preferences following New MainWindow
+      - Workaround Qt bug in restoreState after maximize with Find and Replace open
+      - Fix logic to identify and store window geometry when normal (not maximized)
+      - Fix handling of plugin dialog being closed or aborted / cancelled
+      - Prevent Preview timer related crashes on closing MainWindow on macOS
+      - Update and harden media types recognition
+      - Use non-native QFileDialogs on macOS to workaround Qt bugs
+      - Fix crash of fast Tab closing on all platforms
+      - Prevent whitespace inside code tags from being changed when prettifying
+
+    New Features:
+      - Add Load/Save capability for the Custom Empty Epub Layout Designer
+      - Large speedups in Reports using QtConcurrent
+      - Speedups in Spellcheck Dialog sorting
+      - Add File Name to Preview Window title
+      - Add Regular Expression File Renamer to BookBrowser context menu
+      - Mend on Open or Save only touch/repair non-wellformed files
+      - Re-enable Drag and Drop of Tabs
+
+
 Sigil-0.9.991 (pre1.0 Alpha Release)
     Bug Fixes:
       - handle javascript location.href style in Preview 
