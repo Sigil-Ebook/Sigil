@@ -900,10 +900,6 @@ void MainWindow::showEvent(QShowEvent *event)
     m_IsInitialLoad = false;
 
     QMainWindow::showEvent(event);
-
-    if (!m_LastOpenFileWarnings.isEmpty()) {
-        QTimer::singleShot(0, this, SLOT(ShowLastOpenFileWarnings()));
-    }
 }
 
 void MainWindow::DebugCurrentWidgetSizes() 
@@ -3993,7 +3989,6 @@ void MainWindow::ReadSettings()
         if (!m_LastWindowSize.isEmpty()) restoreGeometry(m_LastWindowSize);
     } 
 
-
     if (MaximizedState) {
         QRect maxsize = settings.value("max_mw_geometry", QApplication::desktop()->availableGeometry(this)).toRect();
         setGeometry(maxsize);
@@ -5532,6 +5527,11 @@ void MainWindow::changeEvent(QEvent *e)
 	    }
             m_FirstTime = false;
 
+            // moved here from showEvent to make sure it comes after state restoration
+            if (!m_LastOpenFileWarnings.isEmpty()) {
+                QTimer::singleShot(0, this, SLOT(ShowLastOpenFileWarnings()));
+            }
+
             DWINGEO DebugCurrentWidgetSizes();
 
             m_SaveLastEnabled = true;
@@ -5931,4 +5931,3 @@ void MainWindow::BreakTabConnections(ContentTab *tab)
     disconnect(ui.actionAddToIndex,                0, tab, 0);
     disconnect(ui.actionMarkForIndex,              0, tab, 0);
 }
-
