@@ -1582,7 +1582,7 @@ void CodeViewEditor::GoToLinkOrStyle()
             emit LinkClicked(QUrl(url_name));
         }
     } else if (IsPositionInOpeningTag()) {
-        qDebug() << "we are here";
+        // qDebug() << "we are here";
         GoToStyleDefinition();
     } else {
         emit ShowStatusMessageRequest(tr("You must be in an opening HTML tag to use this feature."));
