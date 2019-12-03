@@ -24,6 +24,7 @@
 #include <QtWidgets/QLayout>
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QtWebEngineWidgets/QWebEngineSettings>
+#include <QtWebEngineWidgets/QWebEngineProfile>
 
 #include "MainUI/MainWindow.h"
 #include "Dialogs/ViewImage.h"
@@ -54,10 +55,11 @@ ViewImage::~ViewImage()
 
 void ViewImage::ShowImage(QString path)
 {
-    MainWindow::clearMemoryCaches();
+    ui.webView->page()->profile()->clearHttpCache();
     const QUrl resourceUrl = QUrl::fromLocalFile(path);
-    QString html = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
-    ui.webView->setHtml(html, resourceUrl);
+    const QString imagehtml = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
+    ui.webView->setHtml(imagehtml, resourceUrl);
+    QApplication::processEvents();
 }
 
 void ViewImage::ReadSettings()

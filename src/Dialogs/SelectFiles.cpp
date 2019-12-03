@@ -51,7 +51,7 @@ const QString IMAGE_HTML_BASE_PREVIEW =
     "img { display: block; margin-left: auto; margin-right: auto; border-style: solid; border-width: 1px; max-width: 95%; max-height: 95%}"
     "</style>"
     "<body>"
-    "<div><img src=\"%2\" /></div>"
+    "<div><img src=\"%1\" /></div>"
     "</body>"
     "</html>";
 

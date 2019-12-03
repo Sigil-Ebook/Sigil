@@ -22,12 +22,6 @@
   <layout class="QVBoxLayout" name="layout">
    <item>
     <widget class="QWebEngineView" name="webView">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
      <property name="url">
       <url>
        <string>about:blank</string>
