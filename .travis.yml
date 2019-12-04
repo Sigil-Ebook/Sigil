@@ -7,8 +7,8 @@ env:
   global:
     - HOMEBREW_NO_AUTO_UPDATE=1
     - MACOSX_DEPLOYMENT_TARGET=10.12
-    - QT_URL=https://raw.githubusercontent.com/kevinhendricks/BuildSigilOnMac/master/Qt5.12.3/Qt512.tar.xz
-    - PYTHON_URL=https://raw.githubusercontent.com/kevinhendricks/BuildSigilOnMac/master/Python/Python.framework.tar.xz
+    - QT_URL=https://github.com/kevinhendricks/BuildSigilOnMac/releases/download/for_sigil_1.0.0/Qt5126.tar.xz
+    - PYTHON_URL=https://github.com/kevinhendricks/BuildSigilOnMac/releases/download/for_sigil_1.0.0/Python.framework.tar.xz
     - PY_VER=3.7
 
 branches:
@@ -27,14 +27,14 @@ install:
   - cd ~
   # Retrieve custom Qt
   - wget $QT_URL
-  - tar xzf Qt512.tar.xz
-  - export MYQTHOME=${HOME}/Qt512
+  - tar xzf Qt5126.tar.xz
+  - export MYQTHOME=${HOME}/Qt5126
   # Add custom Qt to path
   - export PATH=${PATH}:${MYQTHOME}/bin
   # macdeployqt looks for qt plugins in a hard-coded compile-time location
-  - sudo mkdir -p /Users/kbhend/Qt512
+  - sudo mkdir -p /Users/kbhend/Qt5126
   - sudo chown -R travis /Users/kbhend/
-  - cp -R ~/Qt512/plugins /Users/kbhend/Qt512
+  - cp -R ~/Qt5126/plugins /Users/kbhend/Qt5126
   # Retrieve custom Python
   - mkdir Frameworks
   - cd ./Frameworks
