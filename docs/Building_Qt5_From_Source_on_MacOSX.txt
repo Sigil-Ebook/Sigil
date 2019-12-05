@@ -8,7 +8,7 @@
 # directly from source.
 
 # We do highly recommend you use the same Qt versions as official Sigil builds on Mac OS X.
-# which is now Qt 5.12.3 or later
+# which is now Qt 5.12.6 or later
 
 # These instructions will lead you through building from source
 # FIRST:  make sure you have XCode 10 or later installed and the Command Line Tools
@@ -63,36 +63,33 @@ make
 sudo make install
 
 
-# Building Qt5.12.3 from source
+# Building Qt5.12.5 from source
 # -----------------------------
 
-# download qt-everywhere-src-5.12.3.tar.xz directly from Qt
-# from:  http://download.qt.io/archive/qt/5.12/5.12.3/single/
+# download qt-everywhere-src-5.12.6.tar.xz directly from Qt
+# from:  http://download.qt.io/archive/qt/5.12/5.12.6/single/
 
 # and then unpack it
 # Note to get unxz - you may need to download and build xz-5.2.4.tar.gz
 # see the docs on building a relocatable python for instruction on building xz
 
-unxz qt-everywhere-src-5.12.3.tar.xz
-tar -xvf qt-everywhere-src-5.12.3.tar
+unxz qt-everywhere-src-5.12.6.tar.xz
+tar -xvf qt-everywhere-src-5.12.6.tar
 
-cd qt-everywhere-src-5.12.3
+cd qt-everywhere-src-5.12.6
 
-# now copy 3 required patches from Sigil/docs/ into this directory
+# now copy 2 required patches from Sigil/docs/ into this directory
 
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.3_avoid_qtabbar_segfault.patch ./
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.3_final_fix_close_tab_icon.patch ./
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.3_webengine_backport.patch ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_avoid_qtabbar_segfault.patch ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_fix_h6_insertParagraph.patch./
 
-# apply a backported fix from Qt 5.12.4 related deleting old page in QtWebEngine
-patch -p0 < ./qt512.3_webengine_backport.patch
+# apply mouse press and flick on qtabbar tab fix to prevent segfault
+# https://bugreports.qt.io/browse/QTBUG-74478
+patch -p0 < ./qt512.6_avoid_qtabbar_segfault.patch
 
-# then apply mouse press and flick on qtabbar tab fix to prevent segfault
-patch -p0 < ./qt512.3_avoid_qtabbar_segfault.patch
-
-# then apply a backported fix from Qt5.12.4 to prevent the loss of tab close icon for macOS
-patch -p0 < ./qt512.3_final_fix_close_tab_icon.patch
-
+# then apply an obvious fix for insertParagraph execcommand and h6 (see w3c spec)
+# https://bugreports.qt.io/browse/QTBUG-79778
+patch -p0 < ./qt512.6_fix_h6_insertParagraph.patch
 
 # this is the new minimum supported by Qt 5.12.X
 export MACOSX_DEPLOYMENT_TARGET=10.12
@@ -101,21 +98,21 @@ export MACOSX_DEPLOYMENT_TARGET=10.12
 # Create a destination directory to house your complete Qt binary in your home directory
 # to be similar to how stock Qt does it
 cd ~/
-mkdir Qt512
+mkdir Qt5126
 
 # Now return and create a shadow build inside a new directory to keep your Qt 5.12.X sources clean
 cd ${MYQTSRC}
-mkdir buildqt
-cd buildqt
+mkdir buildqt5126
+cd buildqt5126
 
 
 # Remember to include the -webengine-proprietary-codecs configure switch
 
-../qt-everywhere-src-5.12.3/configure --prefix=/Users/${USER}/Qt512 -webengine-proprietary-codecs -opensource -nomake examples -nomake tests
+../qt-everywhere-src-5.12.6/configure --prefix=/Users/${USER}/Qt5126 -webengine-proprietary-codecs -opensource -nomake examples -nomake tests
 
 # note the build itself can take a couple of hours depending on memory available, disk and cpus used
 make -j4
 make install
 
-# After the install phase completes your newly built Qt should exist in ~/Qt512 ready to be used
+# After the install phase completes your newly built Qt should exist in ~/Qt5126 ready to be used
 # to build Sigil and PageEdit

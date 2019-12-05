@@ -162,13 +162,14 @@ sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
 # We will now use this just-built Python3.7 interpreter to install PyQt5 and sip.
 
 # **** Important: versions of PyQt5 and sip must be selected to match with the Qt version
-# **** In these instructions we are using Qt 5.12.3 and therefore need sip-4.19.17 and PyQt5_gpl-5.12.2
+# **** In these instructions we are using Qt 5.12.6 and therefore need:
+# **** sip-4.19.18 and PyQt5_gpl-5.12.3
 
 
-# Building sip-4.19.17 from source and installing it into your Python Interpreter
+# Building sip-4.19.18 from source and installing it into your Python Interpreter
 
-# From https://sourceforge.net/projects/pyqt/files/sip/
-# Download sip-4.19.17.tar.gz
+# From https://www.riverbankcomputing.com/software/pyqt/download5
+# Download sip-4.19.18.tar.gz
 
 # More detailed build instructions can be found here:
 #    http://pyqt.sourceforge.net/Docs/sip4/installation.html
@@ -177,17 +178,17 @@ sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
 export PATH=${MYDEST}/Python.framework/Versions/3.7/bin:${PATH}
 which python3
 
-tar -zxvf sip-4.19.17.tar.gz
-cd sip-4.19.17
+tar -zxvf sip-4.19.18.tar.gz
+cd sip-4.19.18
 python3 ./configure.py --deployment-target=10.12 --sip-module=PyQt5.sip
 make
 sudo make install
 
 
-# Building PyQt5 for Qt-5.12.3 from source and installing it into your Python Interpreter
+# Building PyQt5 for Qt-5.12.6 from source and installing it into your Python Interpreter
 
-# From https://sourceforge.net/projects/pyqt/files/PyQt5/
-# Download PyQt5_gpl-5.12.2.tar.gz
+# From https://www.riverbankcomputing.com/software/pyqt/download5
+# Download PyQt5_gpl-5.12.3.tar.gz
 
 # More detailed build instructions can be found here: 
 #    http://pyqt.sourceforge.net/Docs/PyQt5/installation.html#building-and-installing-from-source
@@ -196,15 +197,15 @@ sudo make install
 export PATH=${MYDEST}/Python.framework/Versions/3.7/bin:${PATH}
 which python3
 
-# Must have the Qt5.12.3 bin directory in the path to specify which Qt to use
+# Must have the Qt5.12.6 bin directory in the path to specify which Qt to use
 # See Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt
-export PATH=/Users/${USER}/Qt512/bin:${PATH}
+export PATH=/Users/${USER}/Qt5126/bin:${PATH}
 which qmake
 
 export MACOSX_DEPLOYMENT_TARGET=10.12
 
-tar -zxvf PyQt5_gpl-5.12.2.tar.gz
-cd PyQt5_gpl-5.12.2
+tar -zxvf PyQt5_gpl-5.12.3.tar.gz
+cd PyQt5_gpl-5.12.3
 python3 ./configure.py --confirm-license --no-docstrings --no-stubs 
 make -j4
 sudo make install
