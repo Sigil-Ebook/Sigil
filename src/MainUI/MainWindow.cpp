@@ -2990,8 +2990,7 @@ void MainWindow::CreateHTMLTOC()
     HTMLResource *navResource = m_Book->GetOPF()->GetNavResource();
     QList<HTMLResource *> htmlResources;
 
-    // Turn the list of Resources that are really HTMLResources to a real list
-    // of HTMLResources.
+    // list is built in spine order by the BookBrowser
     QList<Resource *> resources = GetAllHTMLResources();
 
     foreach(Resource * resource, resources) {
@@ -3003,17 +3002,19 @@ void MainWindow::CreateHTMLTOC()
             // prevent the nav resource from being chosen or used for an html toc
             if (htmlResource != navResource) {
 
-                // if epub2, check if this is an existing toc file
-		if (!version.startsWith('3')) {
-                    if (m_Book->GetOPF()->GetGuideSemanticCodeForResource(htmlResource) == "toc") {
-                        tocResource = htmlResource;
-		    }
+		// Check if this is an existing HTML toc file.
+		QString semantic_code;
+		if (version.startsWith('3')) {
+		    NavProcessor navproc(navResource);
+		    semantic_code = navproc.GetLandmarkCodeForResource(htmlResource);
+		} else {
+		    semantic_code = m_Book->GetOPF()->GetGuideSemanticCodeForResource(htmlResource);
 		}
-
-                // alternatively check if it matches our standard HTML_TOC filename
-                if (resource->Filename() == HTML_TOC_FILE && tocResource == NULL) {
-                    tocResource = htmlResource;
-                }
+		if (semantic_code == "toc") {
+		    tocResource = htmlResource;
+		} else if (resource->Filename() == HTML_TOC_FILE && tocResource == NULL) {
+		    tocResource = htmlResource;
+		}
             }
         }
     }
@@ -3034,10 +3035,15 @@ void MainWindow::CreateHTMLTOC()
 		      m_TableOfContents->GetRootEntry());
     tocResource->SetText(toc.WriteXML(version));
 
+    // For epub3 now allow multiple landmarks with the toc semantic set, this is legal as long
+    // as only the toc nav exists uniquely
+
     // Setting a semantic on a resource that already has it set will remove the semantic.
     // Unless you pass toggle as false as the final parameter
-    // In epub3 only the nav should be marked as the toc so do not set this landmark in the nav
-    if (!version.startsWith('3')) {
+    if (version.startsWith('3')) {
+	NavProcessor navproc(navResource);
+	navproc.AddLandmarkCode(tocResource, "toc", false);
+    } else {
         m_Book->GetOPF()->AddGuideSemanticCode(tocResource, "toc", false);
     }
     m_Book->SetModified();

@@ -496,6 +496,10 @@ void NavProcessor::AddLandmarkCode(const Resource *resource, QString new_code, b
             le.etype = new_code;
             le.title = title;
             le.href = ConvertBookPathToNavRelative(resource->GetRelativePath());
+            // special case the nav setting the toc semantic on itself
+	    if ((resource == m_NavResource) && (new_code == "toc")) {
+                le.href = "#toc";
+	    }
             landlist.append(le);
         }
     } else {

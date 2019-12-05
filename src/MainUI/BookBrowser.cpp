@@ -1525,14 +1525,13 @@ void BookBrowser::AddSemanticCode()
             codes = addmeaning.GetSelectedEntries();
             if (!codes.isEmpty()) {
                 QString new_code = codes.at(0);
-		// do not allow a user to change any semantics on the nav resource as it
-		// must be set to "toc"
-		if (html_resource != nav_resource) {
+		// do allow a user to change only the toc semantics on the nav resource
+		if ((html_resource != nav_resource) || (new_code == "toc")) {
                     NavProcessor navproc(nav_resource);
                     navproc.AddLandmarkCode(html_resource, new_code);
                     m_OPFModel->Refresh();
                     emit BookContentModified();
-		}
+		} 
             }
         }
     } else {
