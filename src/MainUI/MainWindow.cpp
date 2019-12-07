@@ -1585,6 +1585,12 @@ void MainWindow::AddCover()
         }
     }
 
+    if (html_cover_resource != NULL) {
+	if (!ProceedToOverwrite(tr("Cover"), html_cover_resource->ShortPathName())) {
+	    html_cover_resource = NULL;
+	}
+    }
+
     // Populate the HTML cover file with the necessary text.
     // If a template file exists, use its text for the cover source.
     QString text = HTML_COVER_SOURCE;
@@ -1877,6 +1883,12 @@ void MainWindow::CreateIndex()
             } else if (resource->Filename() == HTML_INDEX_FILE && html_resource == NULL) {
                 index_resource = html_resource;
             }
+        }
+    }
+
+    if (index_resource != NULL) {
+        if (!ProceedToOverwrite(tr("Index"), index_resource->ShortPathName())) {
+            index_resource = NULL;
         }
     }
 
@@ -3018,11 +3030,19 @@ void MainWindow::CreateHTMLTOC()
             }
         }
     }
+ 
+    if (tocResource != NULL) {
+        if (!ProceedToOverwrite(tr("HTML Table of Contents"), tocResource->ShortPathName())) {
+            tocResource = NULL;
+	}
+    }
+
     // If you found an existing one, close the tab so the focus 
     // saving doesn't overwrite the text we are replacing in the resource.
     if (tocResource != NULL) {
         m_TabManager->CloseTabForResource(tocResource);
     }
+
     // Create the an HTMLResource for the TOC if it doesn't exit.
     if (tocResource == NULL) {
         tocResource = m_Book->CreateEmptyHTMLFile();
@@ -4179,6 +4199,18 @@ bool MainWindow::MaybeSaveDialogSaysProceed()
     return true;
 }
 
+
+bool MainWindow::ProceedToOverwrite(const QString& description, const QString &filename)
+{
+    QMessageBox::StandardButton button_pressed;
+    button_pressed = QMessageBox::warning(this,
+					  tr("Sigil"),
+					  tr("An existing ") + description + tr(" file has been found. " ) + 
+					  tr("Should Sigil overwrite this file? ") + filename,
+					  QMessageBox::Yes | QMessageBox::No);
+    if (button_pressed == QMessageBox::Yes) return true;
+    return false;
+}
 
 void MainWindow::SetNewBook(QSharedPointer<Book> new_book)
 {
