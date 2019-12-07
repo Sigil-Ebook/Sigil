@@ -40,7 +40,7 @@ Once again: `sudo apt-get install cmake` will get you what you need on Debian ty
 ## <a name="qt5"/>Getting Qt5
 You can use one of the official precompiled Qt binaries higher than Qt5.9.x at this time. 5.12.3 recommended
 
-Download a binary installer from the [official Qt website](http://download.qt.io/archive/qt/). Sigil requires Qt5.9.4 or higher. Look for the version that's appropriate for your architecture (qt-opensource-linux-***x86***-5.12.x.run or qt-opensource-linux-***x64***-5.12.x.run). Make sure its executable bit is set and launch it with administrative privileges to install it in its default location of /opt/Qt5.12.x (which is what I recommend). Or install it wherever you like--but just note that my command line examples later are going to assume the location of /opt/Qt5.12.x. Adjust accordingly if you choose different location.
+Download a binary installer from the [official Qt website](http://download.qt.io/archive/qt/). Sigil requires Qt5.9.4 or higher. Look for the version that's appropriate for your architecture (qt-opensource-linux-***x86***-5.12.x.run or qt-opensource-linux-***x64***-5.12.x.run). Make sure its executable bit is set and launch it with administrative privileges to install it in its default location of /opt/Qt5.12.x (which is what I recommend). Or install it wherever you like--but just note that my command line examples later are going to assume the location of /opt/Qt5.12.x. Adjust accordingly if you choose different location. Make sure you install the QWebEngine component.
 
 
 ## <a name="python"/>Getting Python 3.4
