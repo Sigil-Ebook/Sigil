@@ -677,7 +677,7 @@ private:
      */
     bool MaybeSaveDialogSaysProceed();
 
-    bool ProceedToOverwrite(const QString &description, const QString &filename );
+    bool ProceedToOverwrite(const QString &msg, const QString &filename );
 
     /**
      * Makes the provided book the current one.

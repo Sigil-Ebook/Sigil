@@ -1586,7 +1586,8 @@ void MainWindow::AddCover()
     }
 
     if (html_cover_resource != NULL) {
-	if (!ProceedToOverwrite(tr("Cover"), html_cover_resource->ShortPathName())) {
+        QString msg = tr("An existing Cover file has been found.");
+	if (!ProceedToOverwrite(msg, html_cover_resource->ShortPathName())) {
 	    html_cover_resource = NULL;
 	}
     }
@@ -1887,7 +1888,8 @@ void MainWindow::CreateIndex()
     }
 
     if (index_resource != NULL) {
-        if (!ProceedToOverwrite(tr("Index"), index_resource->ShortPathName())) {
+        QString msg = tr("An existing Index file has been found.");
+        if (!ProceedToOverwrite(msg, index_resource->ShortPathName())) {
             index_resource = NULL;
         }
     }
@@ -3032,7 +3034,9 @@ void MainWindow::CreateHTMLTOC()
     }
  
     if (tocResource != NULL) {
-        if (!ProceedToOverwrite(tr("HTML Table of Contents"), tocResource->ShortPathName())) {
+
+        QString msg = tr("An existing HTML Table of Contents file has been found.");
+        if (!ProceedToOverwrite(msg, tocResource->ShortPathName())) {
             tocResource = NULL;
 	}
     }
@@ -4200,13 +4204,13 @@ bool MainWindow::MaybeSaveDialogSaysProceed()
 }
 
 
-bool MainWindow::ProceedToOverwrite(const QString& description, const QString &filename)
+bool MainWindow::ProceedToOverwrite(const QString& msg, const QString &filename)
 {
     QMessageBox::StandardButton button_pressed;
     button_pressed = QMessageBox::warning(this,
 					  tr("Sigil"),
-					  tr("An existing ") + description + tr(" file has been found. " ) + 
-					  tr("Should Sigil overwrite this file? ") + filename,
+				          msg + " " +  
+				          tr("Should Sigil overwrite this file?") + " " + filename,
 					  QMessageBox::Yes | QMessageBox::No);
     if (button_pressed == QMessageBox::Yes) return true;
     return false;
