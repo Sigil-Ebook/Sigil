@@ -748,6 +748,8 @@ endfunction(QUERY_QMAKE)
 
 # For Mac, add frameworks and make a DMG
 if( APPLE )
+    query_qmake(QT_INSTALL_TRANSLATIONS QT_TRANSLATIONS_DIR)
+
     if(CMAKE_GENERATOR STREQUAL Xcode)
         set( WORK_DIR "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release" )
     else()
@@ -772,6 +774,18 @@ if( APPLE )
                         WORKING_DIRECTORY ${WORK_DIR})
 
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.qm ${WORK_DIR}/Sigil.app/Contents/translations/ )
+    foreach( QM ${QM_FILES} )
+        # Copy Qt's qm files that coincide with the above
+        # message( "QM = ${QM}")
+        string( REGEX REPLACE "(.*)(sigil_)(.*)(\\.qm)" "\\1;\\2;\\3;\\4" PATH_ELEMENTS "${QM}" )
+        list( GET PATH_ELEMENTS 2 LANG_ID )
+        # message( "LANG_ID = ${LANG_ID}")
+        set( QTBASE_QM ${QT_TRANSLATIONS_DIR}/qtbase_${LANG_ID}.qm )
+        # message( "QTBASE_QM = ${QTBASE_QM}" )
+        if ( EXISTS ${QTBASE_QM} )
+            add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${QTBASE_QM} ${WORK_DIR}/Sigil.app/Contents/translations/ )
+        endif()
+    endforeach( QM )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Resource_Files/dictionaries/* ${WORK_DIR}/Sigil.app/Contents/hunspell_dictionaries )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/plugin_launchers/python/* ${WORK_DIR}/Sigil.app/Contents/plugin_launchers/python )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/* ${WORK_DIR}/Sigil.app/Contents/python3lib )
