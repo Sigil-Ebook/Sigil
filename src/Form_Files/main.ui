@@ -580,9 +580,10 @@
     <bool>false</bool>
    </attribute>
    <widget class="QToolButton" name="tbCase">
-    <property name="text">
-     <string>aA</string>
-    </property>
+    <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/case-change_48px.png</normaloff>:/main/case-change_48px.png</iconset>
+   </property>
     <property name="toolTip">
      <string>set Case of Selected Text</string>
     </property>

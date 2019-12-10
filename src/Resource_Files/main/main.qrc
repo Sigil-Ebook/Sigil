@@ -2,6 +2,9 @@
     <qresource prefix="/main">
         <file>back-to-link-style_22px.png</file>
         <file>back-to-link-style_48px.png</file>
+        <file>case-change_16px.png</file>
+        <file>case-change_22px.png</file>
+        <file>case-change_48px.png</file>
         <file>chevron-down_16px.png</file>
         <file>chevron-up_16px.png</file>
         <file>document-add_16px.png</file>

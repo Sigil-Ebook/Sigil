@@ -5160,11 +5160,13 @@ void MainWindow::ExtendUI()
     // Change Case QToolButton
     ui.tbCase->setPopupMode(QToolButton::InstantPopup);
 
+#if 0
     // stop gap until an icon can be made
     ui.tbCase->setToolButtonStyle(Qt::ToolButtonTextOnly);
     QFont font = ui.tbCase->font();
     font.setPointSize(18);
     ui.tbCase->setFont(font);
+#endif
 
     ExtendIconSizes();
     UpdateClipsUI();
@@ -5357,6 +5359,11 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/format-case-capitalize_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/format-case-capitalize_22px.png"));
     ui.actionCasingCapitalize->setIcon(icon);
+
+    icon = ui.tbCase->icon();
+    icon.addFile(QString::fromUtf8(":/main/case-change_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/case-change_22px.png"));
+    ui.tbCase->setIcon(icon);
 
     icon = ui.actionTextDirectionLTR->icon();
     icon.addFile(QString::fromUtf8(":/main/format-direction-ltr_16px.png"));
