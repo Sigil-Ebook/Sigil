@@ -2424,172 +2424,352 @@ mended.</source>
 <context>
     <name>GuideItems</name>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="110"/>
+        <location filename="../../Misc/GuideItems.cpp" line="111"/>
         <source>Acknowledgements</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="110"/>
+        <location filename="../../Misc/GuideItems.cpp" line="111"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="111"/>
+        <location filename="../../Misc/GuideItems.cpp" line="112"/>
+        <source>Afterword [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="112"/>
+        <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="113"/>
+        <source>Appendix [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="113"/>
+        <source>Supplemental information.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="114"/>
+        <source>Back Matter [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="114"/>
+        <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="115"/>
         <source>Bibliography</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="111"/>
+        <location filename="../../Misc/GuideItems.cpp" line="115"/>
         <source>A list of works cited.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="112"/>
+        <location filename="../../Misc/GuideItems.cpp" line="116"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="112"/>
+        <location filename="../../Misc/GuideItems.cpp" line="116"/>
         <source>The start of the main text content of a publication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="113"/>
+        <location filename="../../Misc/GuideItems.cpp" line="117"/>
         <source>Colophon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="113"/>
+        <location filename="../../Misc/GuideItems.cpp" line="117"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="114"/>
+        <location filename="../../Misc/GuideItems.cpp" line="118"/>
+        <source>Conclusion [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="118"/>
+        <source>An ending section that typically wraps up the work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="119"/>
+        <source>Contributors [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="119"/>
+        <source>A list of contributors to the work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="120"/>
         <source>Copyright Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="114"/>
+        <location filename="../../Misc/GuideItems.cpp" line="120"/>
         <source>The copyright page of the work.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="115"/>
+        <location filename="../../Misc/GuideItems.cpp" line="121"/>
         <source>Cover</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="115"/>
+        <location filename="../../Misc/GuideItems.cpp" line="121"/>
         <source>The publications cover(s), jacket information, etc.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="116"/>
+        <location filename="../../Misc/GuideItems.cpp" line="122"/>
         <source>Dedication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="116"/>
+        <location filename="../../Misc/GuideItems.cpp" line="122"/>
         <source>An inscription addressed to one or several particular person(s).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="117"/>
+        <location filename="../../Misc/GuideItems.cpp" line="123"/>
+        <source>Epilogue [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="123"/>
+        <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="124"/>
         <source>Epigraph</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="117"/>
+        <location filename="../../Misc/GuideItems.cpp" line="124"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="118"/>
+        <location filename="../../Misc/GuideItems.cpp" line="125"/>
+        <source>Errata [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="125"/>
+        <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="126"/>
         <source>Foreword</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="118"/>
+        <location filename="../../Misc/GuideItems.cpp" line="126"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="119"/>
+        <location filename="../../Misc/GuideItems.cpp" line="127"/>
+        <source>Front Matter [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="127"/>
+        <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="128"/>
         <source>Glossary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="119"/>
+        <location filename="../../Misc/GuideItems.cpp" line="128"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="120"/>
+        <location filename="../../Misc/GuideItems.cpp" line="129"/>
+        <source>Half Title Page [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="129"/>
+        <source>The half title page of the work which carries just the title itself.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="130"/>
+        <source>Imprimatur [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="130"/>
+        <source>A formal statement authorizing the publication of the work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="131"/>
+        <source>Imprint [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="131"/>
+        <source>Information relating to the publication or distribution of the work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="132"/>
         <source>Index</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="120"/>
+        <location filename="../../Misc/GuideItems.cpp" line="132"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="121"/>
+        <location filename="../../Misc/GuideItems.cpp" line="133"/>
+        <source>Introduction [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="133"/>
+        <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="134"/>
         <source>List of Illustrations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="121"/>
+        <location filename="../../Misc/GuideItems.cpp" line="134"/>
         <source>A listing of illustrations included in the work.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="122"/>
+        <location filename="../../Misc/GuideItems.cpp" line="135"/>
+        <source>List of Audio Clips [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="135"/>
+        <source>A listing of audio clips included in the work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="136"/>
         <source>List of Tables</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="122"/>
+        <location filename="../../Misc/GuideItems.cpp" line="136"/>
         <source>A listing of tables included in the work.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="123"/>
+        <location filename="../../Misc/GuideItems.cpp" line="137"/>
+        <source>List of Video Clips [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="137"/>
+        <source>A listing of video clips included in the work.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="138"/>
         <source>Notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="123"/>
+        <location filename="../../Misc/GuideItems.cpp" line="138"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="124"/>
+        <location filename="../../Misc/GuideItems.cpp" line="139"/>
+        <source>Other Credits [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="139"/>
+        <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="140"/>
+        <source>Preamble [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="140"/>
+        <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="141"/>
         <source>Preface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="124"/>
+        <location filename="../../Misc/GuideItems.cpp" line="141"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="125"/>
+        <location filename="../../Misc/GuideItems.cpp" line="142"/>
+        <source>Prologue [other.]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="142"/>
+        <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="143"/>
+        <source>Rear Notes (other.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="143"/>
+        <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/GuideItems.cpp" line="144"/>
         <source>Title Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="125"/>
+        <location filename="../../Misc/GuideItems.cpp" line="144"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="126"/>
+        <location filename="../../Misc/GuideItems.cpp" line="145"/>
         <source>Table of Contents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="126"/>
+        <location filename="../../Misc/GuideItems.cpp" line="145"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
         <translation type="unfinished"></translation>
     </message>
