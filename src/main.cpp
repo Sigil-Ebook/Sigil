@@ -240,12 +240,18 @@ int main(int argc, char *argv[])
 #if QT_VERSION >= 0x050900
     QCoreApplication::setAttribute(Qt::AA_DisableShaderDiskCache);
 #endif
- 
-#if 0   // On recent processors with multiple cores this leads to over 40 threads at times
-        // We prevent Qt from constantly creating and deleting threads.
-        // Using a negative number forces the threads to stay around;
-        // that way, we always have a steady number of threads ready to do work.
-        QThreadPool::globalInstance()->setExpiryTimeout(-1);
+
+    // Disable ? as Sigil does not use QWhatsThis
+#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
+    QCoreApplication::setAttribute(Qt::AA_DisableWindowContextHelpButton);
+#endif
+
+    // On recent processors with multiple cores this leads to over 40 threads at times
+#if 0   
+    // We prevent Qt from constantly creating and deleting threads.
+    // Using a negative number forces the threads to stay around;
+    // that way, we always have a steady number of threads ready to do work.
+    QThreadPool::globalInstance()->setExpiryTimeout(-1);
 #endif
 
     MainApplication app(argc, argv);
