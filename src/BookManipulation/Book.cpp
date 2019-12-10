@@ -52,14 +52,14 @@ static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\
                                         "  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n\n"
                                         "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
                                         "<head>\n"
-                                        "<title></title>\n"
-                                        "</head>\n"
+                                        "  <title></title>\n"
+                                        "</head>\n\n"
                                         "<body>\n"
 
                                         // The "nbsp" is here so that the user starts writing
                                         // inside the <p> element; if it's not here, webkit
                                         // inserts text _outside_ the <p> element
-                                        "<p>&nbsp;</p>\n"
+                                        "  <p>&nbsp;</p>\n"
                                         "</body>\n"
                                         "</html>";
 
@@ -67,14 +67,14 @@ static const QString EMPTY_HTML5_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8
                                         "<!DOCTYPE html>\n\n"
                                         "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:epub=\"http://www.idpf.org/2007/ops\">\n"
                                         "<head>\n"
-                                        "<title></title>\n"
-                                        "</head>\n"
+                                        "  <title></title>\n"
+                                        "</head>\n\n"
                                         "<body>\n"
 
                                         // The numeric entity for nbsp is here so that the user starts writing
                                         // inside the <p> element; if it's not here, webkit
                                         // inserts text _outside_ the <p> element, Epub3 requires numeric entities
-                                        "<p>&#160;</p>\n"
+                                        "  <p>&#160;</p>\n"
                                         "</body>\n"
                                         "</html>";
 
