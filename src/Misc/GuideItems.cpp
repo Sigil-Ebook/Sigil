@@ -123,6 +123,7 @@ void GuideItems::SetGuideItemsMap()
 	tr("Epilogue [other.]") << "other.epilogue" << tr("A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.") <<
         tr("Epigraph") << "epigraph" << tr("A quotation that is pertinent but not integral to the text.") <<
 	tr("Errata [other.]") << "other.errata" << tr("Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.") <<
+	tr("Footnotes [other.]") << "other.footnotes" << tr("A collection of notes appearing at the bottom of a page.") <<
         tr("Foreword") << "foreword" << tr("An introductory section that precedes the work, typically not written by the work's author.") <<
 	tr("Front Matter [other.]") << "other.frontmatter" << tr("Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.") <<
         tr("Glossary") << "glossary" << tr("An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.") <<
@@ -140,7 +141,7 @@ void GuideItems::SetGuideItemsMap()
 	tr("Preamble [other.]") << "other.preamble" << tr("A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work's content") <<
         tr("Preface") << "preface" << tr("An introductory section that precedes the work, typically written by the work's author.") <<
 	tr("Prologue [other.]") << "other.prologue" << tr("An introductory section that sets the background to a story, typically part of the narrative.") <<
-	tr("Rear Notes (other.") << "other.rearnotes" << tr("A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.") <<
+	tr("Rear Notes [other.]") << "other.rearnotes" << tr("A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.") <<
         tr("Title Page") << "title-page" << tr("A page at the beginning of a book giving its title, authors, publisher and other publication information.") <<
         tr("Table of Contents") << "toc" << tr("A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work's frontmatter, or at the beginning of a section.");
 
