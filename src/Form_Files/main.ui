@@ -67,7 +67,15 @@
      <addaction name="actionNewCSSFile"/>
      <addaction name="actionNewSVGFile"/>
     </widget>
-    <addaction name="actionNew"/>
+    <widget class="QMenu" name="menuNew">
+     <property name="title">
+      <string>New</string>
+     </property>
+     <addaction name="actionNew"/>
+     <addaction name="actionNewEpub2"/>
+     <addaction name="actionNewEpub3"/>
+    </widget>
+    <addaction name="menuNew" />
     <addaction name="actionOpen"/>
     <addaction name="separator"/>
     <addaction name="menuAdd"/>
@@ -650,12 +658,34 @@
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</string>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new default book.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+N</string>
    </property>
   </action>
+  <action name="actionNewEpub2">
+   <property name="text">
+    <string>ePub2</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub2&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub2 book.&lt;/p&gt;</string>
+   </property>
+  </action>
+
+  <action name="actionNewEpub3">
+   <property name="text">
+    <string>ePub3</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub3&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub3 book.&lt;/p&gt;</string>
+   </property>
+  </action>
+
   <action name="actionSave">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">

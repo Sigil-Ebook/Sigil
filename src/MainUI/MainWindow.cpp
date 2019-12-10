@@ -153,7 +153,11 @@ static const QString CUSTOM_PREVIEW_STYLE_FILENAME = "custom_preview_style.css";
 
 QStringList MainWindow::s_RecentFiles = QStringList();
 
-MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *parent, Qt::WindowFlags flags)
+MainWindow::MainWindow(const QString &openfilepath, 
+		       const QString version,
+		       bool is_internal,
+		       QWidget *parent,
+		       Qt::WindowFlags flags)
     :
     QMainWindow(parent, flags),
     m_LastOpenFileWarnings(QStringList()),
@@ -222,7 +226,7 @@ MainWindow::MainWindow(const QString &openfilepath, bool is_internal, QWidget *p
     CreateRecentFilesActions();
     UpdateRecentFileActions();
     ChangeSignalsWhenTabChanges(NULL, m_TabManager->GetCurrentContentTab());
-    LoadInitialFile(openfilepath, is_internal);
+    LoadInitialFile(openfilepath, version, is_internal);
     loadPluginsMenu();
    
 }
@@ -1009,7 +1013,9 @@ void MainWindow::closeEvent(QCloseEvent *event)
 #ifdef Q_OS_MAC
         // since we are closing this window, disconnect signals that might be invoked
         // by a user during closing operations to help prevent segfaults on close
-	disconnect(ui.actionNew,           SIGNAL(triggered()), this, SLOT(New()));
+	disconnect(ui.actionNew,           SIGNAL(triggered()), this, SLOT(NewDefault()));
+	disconnect(ui.actionNewEpub2,      SIGNAL(triggered()), this, SLOT(NewEpub2()));
+	disconnect(ui.actionNewEpub3,      SIGNAL(triggered()), this, SLOT(NewEpub3()));
 	disconnect(ui.actionOpen,          SIGNAL(triggered()), this, SLOT(Open()));
 	disconnect(ui.actionPreferences,   SIGNAL(triggered()), this, SLOT(PreferencesDialog()));
 #endif
@@ -1055,8 +1061,13 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }
 }
 
+// quick and dirty way to map various actions for New()
+// we could move these to exist only in the header
+void MainWindow::NewDefault() { New("");    }
+void MainWindow::NewEpub2()   { New("2.0"); }
+void MainWindow::NewEpub3()   { New("3.0"); }
 
-void MainWindow::New()
+void MainWindow::New(const QString version)
 {
     // The nasty IFDEFs are here to enable the multi-document
     // interface on the Mac; Lin and Win just use multiple
@@ -1066,11 +1077,11 @@ void MainWindow::New()
 #endif
     {
 #ifdef Q_OS_MAC
-        MainWindow *new_window = new MainWindow();
+        MainWindow *new_window = new MainWindow("", version);
         new_window->show();
 	new_window->activateWindow();
 #else
-        CreateNewBook();
+        CreateNewBook(version);
 #endif
     }
 
@@ -1315,7 +1326,7 @@ void MainWindow::CreateEpubLayout()
     }
  
     if (MaybeSaveDialogSaysProceed()) {
-        CreateNewBook(bookpaths);
+        CreateNewBook(version, bookpaths);
     }
     ShowMessageOnStatusBar(tr("New epub created."));
 }
@@ -4254,12 +4265,12 @@ void MainWindow::ResourcesAddedOrDeletedOrMoved()
 }
 
 
-void MainWindow::CreateNewBook(const QStringList &book_paths)
+void MainWindow::CreateNewBook(const QString version, const QStringList &book_paths)
 {
-    QString version;
-    {
+    QString epubversion = version;
+    if (epubversion.isEmpty()) {
         SettingsStore ss;
-        version = ss.defaultVersion();
+        epubversion = ss.defaultVersion();
     }
 
     QStringList bookpaths(book_paths);
@@ -4294,7 +4305,7 @@ void MainWindow::CreateNewBook(const QStringList &book_paths)
             if (bkpath.endsWith("marker.xhtml")) hasTEXT = true;
 	    if (bkpath.endsWith(".xhtml") && !bkpath.endsWith("marker.xhtml")) hasNAV = true;
         }
-        if (version.startsWith('3')) {
+        if (epubversion.startsWith('3')) {
             is_valid = hasOPF && hasNAV && hasTEXT && hasSTYLE;
         } else {
             is_valid = hasOPF && hasNCX && hasTEXT;
@@ -4307,7 +4318,7 @@ void MainWindow::CreateNewBook(const QStringList &book_paths)
         bookpaths << "OEBPS/content.opf"      << "OEBPS/Text/marker.xhtml" << "OEBPS/Styles/marker.css"
                   << "OEBPS/Fonts/marker.otf" << "OEBPS/Images/marker.jpg" << "OEBPS/Audio/marker.mp3"
                   << "OEBPS/Video/marker.mp4" << "OEBPS/Misc/marker.xml" << "OEBPS/toc.ncx";
-	if (version.startsWith('3')) {
+	if (epubversion.startsWith('3')) {
             bookpaths << "OEBPS/Text/nav.xhtml" << "OEBPS/Misc/marker.js";
 	}
     }
@@ -4341,7 +4352,7 @@ void MainWindow::CreateNewBook(const QStringList &book_paths)
     QSharedPointer<Book> new_book = QSharedPointer<Book>(new Book());
     // immediately after creating a new book, you must
     // add a proper OPF to it *before* doing anything else
-    new_book->GetFolderKeeper()->AddOPFToFolder(version, opfbookpath);
+    new_book->GetFolderKeeper()->AddOPFToFolder(epubversion, opfbookpath);
 
     // Set Group Folders from bookpaths
     new_book->GetFolderKeeper()->SetGroupFolders(finalpaths, mtypes);
@@ -4352,7 +4363,7 @@ void MainWindow::CreateNewBook(const QStringList &book_paths)
     }
 
     // handle nav / ncx
-    if (version.startsWith('3')) {
+    if (epubversion.startsWith('3')) {
         HTMLResource * nav_resource = new_book->CreateEmptyNavFile(true, navdir, navfile, first_textdir);
         new_book->GetOPF()->SetNavResource(nav_resource);
         new_book->GetOPF()->SetItemRefLinear(nav_resource, false);
@@ -4361,7 +4372,7 @@ void MainWindow::CreateNewBook(const QStringList &book_paths)
         //     new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath, first_textdir);
 	// }
     } else {
-        new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath, first_textdir);
+        new_book->GetFolderKeeper()->AddNCXToFolder(epubversion, ncxbookpath, first_textdir);
     }
     SetNewBook(new_book);
     new_book->SetModified(false);
@@ -4985,7 +4996,9 @@ void MainWindow::ExtendUI()
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
     // Note: shortcut action Ids should not be translated.
     // File
-    sm->registerAction(this, ui.actionNew, "MainWindow.New");
+    sm->registerAction(this, ui.actionNew, "MainWindow.NewDefault");
+    sm->registerAction(this, ui.actionNewEpub2, "MainWindow.NewEpub2");
+    sm->registerAction(this, ui.actionNewEpub3, "MainWindow.NewEpub3");
     sm->registerAction(this, ui.actionNewHTMLFile, "MainWindow.NewHTMLFile");
     sm->registerAction(this, ui.actionNewCSSFile, "MainWindow.NewCSSFile");
     sm->registerAction(this, ui.actionNewSVGFile, "MainWindow.NewSVGFile");
@@ -5487,12 +5500,12 @@ void MainWindow::ExtendIconSizes()
 }
 
 
-void MainWindow::LoadInitialFile(const QString &openfilepath, bool is_internal)
+void MainWindow::LoadInitialFile(const QString &openfilepath, const QString version, bool is_internal)
 {
     if (!openfilepath.isEmpty()) {
         LoadFile(QFileInfo(openfilepath).absoluteFilePath(), is_internal);
     } else {
-        CreateNewBook();
+        CreateNewBook(version);
     }
 }
 
@@ -5622,7 +5635,9 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionHeadingNormal, SIGNAL(triggered()), m_headingMapper, SLOT(map()));
     m_headingMapper->setMapping(ui.actionHeadingNormal, "Normal");
     // File
-    connect(ui.actionNew,           SIGNAL(triggered()), this, SLOT(New()));
+    connect(ui.actionNew,           SIGNAL(triggered()), this, SLOT(NewDefault()));
+    connect(ui.actionNewEpub2,      SIGNAL(triggered()), this, SLOT(NewEpub2()));
+    connect(ui.actionNewEpub3,      SIGNAL(triggered()), this, SLOT(NewEpub3()));
     connect(ui.actionOpen,          SIGNAL(triggered()), this, SLOT(Open()));
     connect(ui.actionNewHTMLFile,   SIGNAL(triggered()), m_BookBrowser, SLOT(AddNewHTML()));
     connect(ui.actionNewCSSFile,    SIGNAL(triggered()), m_BookBrowser, SLOT(AddNewCSS()));

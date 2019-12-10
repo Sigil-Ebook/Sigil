@@ -101,7 +101,11 @@ public:
      * @param parent The window's parent object.
      * @param flags The flags used to modify window behavior.
      */
-    MainWindow(const QString &openfilepath = QString(), bool is_internal = false, QWidget *parent = 0, Qt::WindowFlags flags = 0);
+    MainWindow(const QString &openfilepath = QString(), 
+	       const QString version = QString(),
+	       bool is_internal = false, 
+	       QWidget *parent = 0, 
+	       Qt::WindowFlags flags = 0);
     ~MainWindow();
 
     // returns true if MainWindow is Maximized or is FullScreen
@@ -270,10 +274,14 @@ private slots:
 
     void AddCover();
 
+
     /**
      * Implements New action functionality.
      */
-    void New();
+    void New(const QString version = QString());
+    void NewDefault();
+    void NewEpub2();
+    void NewEpub3();
 
     /**
      * Implements Open action functionality.
@@ -690,7 +698,7 @@ private:
      * Creates a new, empty book and replaces
      * the current one with it.
      */
-    void CreateNewBook(const QStringList &book_paths=QStringList());
+    void CreateNewBook(const QString version=QString(), const QStringList &book_paths=QStringList());
 
     /**
      * Saves the current book to the file specified.
@@ -799,7 +807,7 @@ private:
      *
      * @param openfilepath The path to the file to load. Can be empty.
      */
-    void LoadInitialFile(const QString &openfilepath, bool is_internal = false);
+    void LoadInitialFile(const QString &openfilepath, const QString version=QString(), bool is_internal = false);
 
     /**
      * Connects all the required signals to their slots.

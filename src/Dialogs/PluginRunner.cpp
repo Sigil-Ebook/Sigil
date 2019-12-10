@@ -850,7 +850,7 @@ bool PluginRunner::addFiles(const QStringList &files)
             // Preferences Dialog is invoked in that New Window before focus is outside
             // of the Plugin Runner and in the new Window.  The segfault is due
             // to stale pointers in qApplication::modalWindowList().
-            MainWindow *new_window = new MainWindow(epubPath, true);
+            MainWindow *new_window = new MainWindow(epubPath, "", true);
             new_window->show();
             // will this be allowed if PluginRunner is Application Modal
 	    new_window->activateWindow();
