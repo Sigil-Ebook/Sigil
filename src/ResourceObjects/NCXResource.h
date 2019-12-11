@@ -42,7 +42,10 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    NCXResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent = NULL);
+    NCXResource(const QString &mainfolder, 
+		const QString &fullfilepath, 
+                const QString &version = QString(),
+		QObject *parent = NULL);
 
     // inherited
 
@@ -57,7 +60,7 @@ public:
     bool GenerateNCXFromBookContents(const Book *book);
     void GenerateNCXFromTOCContents(const Book *book, TOCModel *toc_model);
     void GenerateNCXFromTOCEntries(const Book *book, TOCModel::TOCEntry toc_root_entry);
-    void FillWithDefaultText(const QString &default_text_folder);
+    void FillWithDefaultText(const QString &version, const QString &default_text_folder);
 
 };
 

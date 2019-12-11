@@ -121,12 +121,15 @@ static const QString TEMPLATE3_TEXT =
     "</package>";
 
 
-OPFResource::OPFResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
+OPFResource::OPFResource(const QString &mainfolder, 
+			 const QString &fullfilepath, 
+			 const QString &version, 
+			 QObject *parent)
   : XMLResource(mainfolder, fullfilepath, parent),
     m_NavResource(NULL),
     m_WarnedAboutVersion(false)
 {
-    FillWithDefaultText();
+    FillWithDefaultText(version);
     // Make sure the file exists on disk.
     // Among many reasons, this also solves the problem
     // with the Book Browser not displaying an icon for this resource.
@@ -1210,12 +1213,15 @@ QString OPFResource::GetOPFDefaultText(const QString &version)
 }
 
 
-void OPFResource::FillWithDefaultText()
+void OPFResource::FillWithDefaultText(const QString &version)
 {
-    SettingsStore ss;
-    QString version = ss.defaultVersion();
-    SetEpubVersion(version);
-    SetText(GetOPFDefaultText(version));
+    QString epubversion = version;
+    if (epubversion.isEmpty()) {
+        SettingsStore ss;
+        epubversion = ss.defaultVersion();
+    }
+    SetEpubVersion(epubversion);
+    SetText(GetOPFDefaultText(epubversion));
 }
 
 

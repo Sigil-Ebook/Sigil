@@ -81,10 +81,13 @@ static const QString TEMPLATE3_TEXT =
     "</ncx>";
 
 
-NCXResource::NCXResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
+NCXResource::NCXResource(const QString &mainfolder, 
+			 const QString &fullfilepath, 
+			 const QString & version, 
+			 QObject *parent)
     : XMLResource(mainfolder, fullfilepath, parent)
 {
-    FillWithDefaultText("OEBPS/Text");
+    FillWithDefaultText(version, "OEBPS/Text");
 }
 
 // a rename of the ncx should only need updating in the opf
@@ -158,18 +161,18 @@ void NCXResource::GenerateNCXFromTOCEntries(const Book *book, TOCModel::TOCEntry
 }
 
 
-void NCXResource::FillWithDefaultText(const QString &default_text_folder)
+void NCXResource::FillWithDefaultText(const QString &version, const QString &default_text_folder)
 {
-    QString version = GetEpubVersion();
-    if (version.isEmpty()) {
+    QString epubversion = version;
+    if (epubversion.isEmpty()) {
         SettingsStore ss;
-        version = ss.defaultVersion();
+        epubversion = ss.defaultVersion();
     }
     QString ncxbookpath = GetRelativePath();
     QString first_section_bookpath = FIRST_SECTION_NAME;
     if (!default_text_folder.isEmpty()) first_section_bookpath = default_text_folder + "/" + FIRST_SECTION_NAME;
     QString texthref = Utility::URLEncodePath(Utility::buildRelativePath(ncxbookpath, first_section_bookpath));
-    if (version.startsWith('2')) {
+    if (epubversion.startsWith('2')) {
         SetText(TEMPLATE_TEXT.arg(tr("Start")).arg(texthref));
     } else {
         SetText(TEMPLATE3_TEXT.arg(tr("Start")).arg(texthref));

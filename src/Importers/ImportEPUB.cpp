@@ -864,8 +864,10 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
     // Create a new file for the NCX in the *Extracted Folder* Path
     // We are relying on an identifier being set from the metadata.
     // It might not have one if the book does not have the urn:uuid: format.
-    NCXResource ncx_resource(m_ExtractedFolderPath, m_NCXFilePath, NULL);
+    NCXResource ncx_resource(m_ExtractedFolderPath, m_NCXFilePath, m_PackageVersion, NULL);
     ncx_resource.SetEpubVersion(m_PackageVersion);
+    // put it beside the OPF file
+    ncx_resource.FillWithDefaultText(m_PackageVersion, QFileInfo(m_OPFFilePath).absolutePath());
     if (!m_UuidIdentifierValue.isEmpty()) {
         ncx_resource.SetMainID(m_UuidIdentifierValue);
     }

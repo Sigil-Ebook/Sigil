@@ -392,8 +392,7 @@ OPFResource*FolderKeeper::AddOPFToFolder(const QString &version, const QString &
     QDir folder(m_FullPathToMainFolder);
     QString sdir = Utility::startingDir(OPFBookPath);
     if (!sdir.isEmpty()) folder.mkpath(sdir);
-    m_OPF = new OPFResource(m_FullPathToMainFolder, m_FullPathToMainFolder + "/" + OPFBookPath, this);
-    m_OPF->SetEpubVersion(version);
+    m_OPF = new OPFResource(m_FullPathToMainFolder, m_FullPathToMainFolder + "/" + OPFBookPath, version, this);
     m_OPF->SetMediaType("application/oebps-package+xml");
     m_OPF->SetShortPathName(OPFBookPath.split('/').last());
     m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
@@ -424,7 +423,7 @@ void FolderKeeper::UpdateContainerXML(const QString& FullPathToMainFolder, const
 }
 
 
-NCXResource*FolderKeeper::AddNCXToFolder(const QString & version, 
+NCXResource*FolderKeeper::AddNCXToFolder(const QString &version, 
 					 const QString &bookpath, 
 					 const QString &first_textdir)
 {
@@ -441,11 +440,11 @@ NCXResource*FolderKeeper::AddNCXToFolder(const QString & version,
     QDir folder(m_FullPathToMainFolder);
     QString sdir = Utility::startingDir(NCXBookPath);
     if (!sdir.isEmpty()) folder.mkpath(sdir);
-    m_NCX = new NCXResource(m_FullPathToMainFolder, m_FullPathToMainFolder + "/" + NCXBookPath, this);
+    m_NCX = new NCXResource(m_FullPathToMainFolder, m_FullPathToMainFolder + "/" + NCXBookPath, version, this);
     m_NCX->SetEpubVersion(version);
     m_NCX->SetMediaType("application/x-dtbncx+xml");
     m_NCX->SetShortPathName(NCXBookPath.split('/').last());
-    m_NCX->FillWithDefaultText(textdir);
+    m_NCX->FillWithDefaultText(version, textdir);
     m_NCX->SetMainID(m_OPF->GetMainIdentifierValue());
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
     m_Path2Resource[ m_NCX->GetRelativePath() ] = m_NCX;

@@ -48,7 +48,7 @@ public:
      *                     resource is representing.
      * @param parent The object's parent.
      */
-    OPFResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent = NULL);
+    OPFResource(const QString &mainfolder, const QString &fullfilepath, const QString &version=QString(), QObject *parent = NULL);
 
     // inherited
 
@@ -232,7 +232,7 @@ private:
 
     static QString GetOPFDefaultText(const QString &version);
 
-    void FillWithDefaultText();
+    void FillWithDefaultText(const QString &version=QString());
 
     QString GetUniqueID(const QString &preferred_id, const OPFParser &p) const;
 
