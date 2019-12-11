@@ -12,6 +12,7 @@ pre-1.0
       - Use non-native QFileDialogs on macOS to workaround Qt bugs
       - Fix crash of fast Tab closing on all platforms
       - Prevent whitespace inside code tags from being changed when prettifying
+      - replace case change "text icon" with actual sizable icon (Thank you BeckyEbook)
 
     New Features:
       - Add Load/Save capability for the Custom Empty Epub Layout Designer
@@ -21,6 +22,8 @@ pre-1.0
       - Add Regular Expression File Renamer to BookBrowser context menu
       - Mend on Open or Save only touch/repair non-wellformed files
       - Re-enable Drag and Drop of Tabs
+      - Add menus/icons for "New ePub2" and "New ePub3" to ease creation of empty epubs (icons courtesy of BeckyEbook)
+      - Extend ePub2 Guide Semantics to include many of the "other.*" codes common to ePub3 as well
 
 
 Sigil-0.9.991 (pre1.0 Alpha Release)
