@@ -69,7 +69,7 @@
     </widget>
     <widget class="QMenu" name="menuNew">
      <property name="title">
-      <string>New</string>
+      <string>&amp;New</string>
      </property>
      <addaction name="actionNew"/>
      <addaction name="actionNewEpub2"/>
@@ -380,6 +380,8 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionNew"/>
+   <addaction name="actionNewEpub2"/>
+   <addaction name="actionNewEpub3"/>
    <addaction name="actionOpen"/>
    <addaction name="actionAddExistingFile"/>
    <addaction name="actionSave"/>
@@ -653,7 +655,7 @@
      <normaloff>:/main/document-new_48px.png</normaloff>:/main/document-new_48px.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;New</string>
+    <string>New Default</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
@@ -664,9 +666,14 @@
     <string>Ctrl+N</string>
    </property>
   </action>
+
   <action name="actionNewEpub2">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/document-new-epub2_48px.png</normaloff>:/main/document-new-epub2_48px.png</iconset>
+   </property>
    <property name="text">
-    <string>ePub2</string>
+    <string>ePub&amp;2</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub2&lt;/b&gt;&lt;/p&gt;
@@ -676,8 +683,12 @@
   </action>
 
   <action name="actionNewEpub3">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/document-new-epub3_48px.png</normaloff>:/main/document-new-epub3_48px.png</iconset>
+   </property>
    <property name="text">
-    <string>ePub3</string>
+    <string>ePub&amp;3</string>
    </property>
    <property name="toolTip">
     <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub3&lt;/b&gt;&lt;/p&gt;

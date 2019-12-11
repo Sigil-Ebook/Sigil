@@ -5238,6 +5238,16 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/document-new_22px.png"));
     ui.actionNew->setIcon(icon);
 
+    icon = ui.actionNewEpub2->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-new-epub2_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/document-new-epub2_22px.png"));
+    ui.actionNewEpub2->setIcon(icon);
+
+    icon = ui.actionNewEpub3->icon();
+    icon.addFile(QString::fromUtf8(":/main/document-new-epub3_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/document-new-epub3_22px.png"));
+    ui.actionNewEpub3->setIcon(icon);
+
     icon = ui.actionAddExistingFile->icon();
     icon.addFile(QString::fromUtf8(":/main/document-add_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/document-add_22px.png"));
