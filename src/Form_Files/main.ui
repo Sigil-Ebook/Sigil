@@ -379,7 +379,6 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionNew"/>
    <addaction name="actionNewEpub2"/>
    <addaction name="actionNewEpub3"/>
    <addaction name="actionOpen"/>
