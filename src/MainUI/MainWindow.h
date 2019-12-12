@@ -951,7 +951,6 @@ private:
      */
     QSignalMapper *m_headingMapper;
     QSignalMapper *m_casingChangeMapper;
-    QSignalMapper *m_pluginMapper;
 
     /**
      * The Search Manager dialog
