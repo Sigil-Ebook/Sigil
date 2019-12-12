@@ -179,7 +179,7 @@ MainWindow::MainWindow(const QString &openfilepath,
     m_lbZoomLabel(NULL),
     c_SaveFilters(GetSaveFiltersMap()),
     c_LoadFilters(GetLoadFiltersMap()),
-    m_headingMapper(new QSignalMapper(this)),
+    m_headingActionGroup(new QActionGroup(this)),
     m_casingChangeMapper(new QSignalMapper(this)),
     m_SearchEditor(new SearchEditor(this)),
     m_ClipEditor(new ClipEditor(this)),
@@ -254,7 +254,7 @@ MainWindow::~MainWindow()
     if (m_ClipEditor) delete m_ClipEditor;
     if (m_SearchEditor) delete m_SearchEditor;
     if (m_casingChangeMapper) delete m_casingChangeMapper;
-    if (m_headingMapper) delete m_headingMapper;
+    if (m_headingActionGroup) delete m_headingActionGroup;
     if (m_lbZoomLabel) delete m_lbZoomLabel;
     if (m_slZoomSlider) delete m_slZoomSlider;
     if (m_ValidationResultsView) delete m_ValidationResultsView;
@@ -4776,9 +4776,17 @@ void MainWindow::SelectEntryOnHeadingToolbar(const QString &element_name)
     }
 }
 
-void MainWindow::ApplyHeadingStyleToTab(const QString &heading_type)
+void MainWindow::ApplyHeadingStyleToTab(QAction* act)
 {
     FlowTab *flow_tab = GetCurrentFlowTab();
+
+    QString heading_type;
+    QString name = act->objectName();
+    if (name == "actionHeadingNormal") {
+        heading_type = "Normal";
+    } else {
+        heading_type = name[ name.count() - 1 ];
+    }
 
     if (flow_tab) {
         flow_tab->HeadingStyle(heading_type, m_preserveHeadingAttributes);
@@ -4887,6 +4895,13 @@ void MainWindow::ExtendUI()
     m_qlactions.append(ui.actionPlugin8);
     m_qlactions.append(ui.actionPlugin9);
     m_qlactions.append(ui.actionPlugin10);
+    
+    // initialize action group from tbHeadings QToolButton actions
+    foreach(QAction* ha, ui.tbHeadings->actions()) {
+        if (!ha->isSeparator()) {
+            m_headingActionGroup->addAction(ha);
+        }
+    }
 
     m_FindReplace->ShowHide();
     // We want a nice frame around the tab manager
@@ -5626,21 +5641,6 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_PreviewWindow, SIGNAL(OpenUrlRequest(const QUrl &)), this, SLOT(OpenUrl(const QUrl &)));
     connect(m_PreviewWindow, SIGNAL(ScrollToFragmentRequest(const QString &)), this, SLOT(ScrollCVToFragment(const QString &)));
     connect(qApp, SIGNAL(focusChanged(QWidget *, QWidget *)), this, SLOT(ApplicationFocusChanged(QWidget *, QWidget *)));
-    // Setup signal mapping for heading actions.
-    connect(ui.actionHeading1, SIGNAL(triggered()), m_headingMapper, SLOT(map()));
-    m_headingMapper->setMapping(ui.actionHeading1, "1");
-    connect(ui.actionHeading2, SIGNAL(triggered()), m_headingMapper, SLOT(map()));
-    m_headingMapper->setMapping(ui.actionHeading2, "2");
-    connect(ui.actionHeading3, SIGNAL(triggered()), m_headingMapper, SLOT(map()));
-    m_headingMapper->setMapping(ui.actionHeading3, "3");
-    connect(ui.actionHeading4, SIGNAL(triggered()), m_headingMapper, SLOT(map()));
-    m_headingMapper->setMapping(ui.actionHeading4, "4");
-    connect(ui.actionHeading5, SIGNAL(triggered()), m_headingMapper, SLOT(map()));
-    m_headingMapper->setMapping(ui.actionHeading5, "5");
-    connect(ui.actionHeading6, SIGNAL(triggered()), m_headingMapper, SLOT(map()));
-    m_headingMapper->setMapping(ui.actionHeading6, "6");
-    connect(ui.actionHeadingNormal, SIGNAL(triggered()), m_headingMapper, SLOT(map()));
-    m_headingMapper->setMapping(ui.actionHeadingNormal, "Normal");
     // File
     connect(ui.actionNew,           SIGNAL(triggered()), this, SLOT(NewDefault()));
     connect(ui.actionNewEpub2,      SIGNAL(triggered()), this, SLOT(NewEpub2()));
@@ -5724,7 +5724,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionZoomOut,       SIGNAL(triggered()), this, SLOT(ZoomOut()));
     connect(ui.actionZoomReset,     SIGNAL(triggered()), this, SLOT(ZoomReset()));
     connect(ui.actionHeadingPreserveAttributes, SIGNAL(triggered(bool)), this, SLOT(SetPreserveHeadingAttributes(bool)));
-    connect(m_headingMapper,      SIGNAL(mapped(const QString &)),  this,   SLOT(ApplyHeadingStyleToTab(const QString &)));
+    connect(m_headingActionGroup,   SIGNAL(triggered(QAction*)), this, SLOT(ApplyHeadingStyleToTab(QAction*)));
     // Window
     connect(ui.actionNextTab,       SIGNAL(triggered()), m_TabManager, SLOT(NextTab()));
     connect(ui.actionPreviousTab,   SIGNAL(triggered()), m_TabManager, SLOT(PreviousTab()));

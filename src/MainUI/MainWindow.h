@@ -57,6 +57,7 @@ class QLabel;
 class QSignalMapper;
 class QSlider;
 class QTimer;
+class QActionGroup;
 class FindReplace;
 class TabManager;
 class BookBrowser;
@@ -621,7 +622,7 @@ private slots:
     void MarkSelection();
     void ClearMarkedText(ContentTab *old_tab = NULL);
 
-    void ApplyHeadingStyleToTab(const QString &heading_type);
+    void ApplyHeadingStyleToTab(QAction* act);
     void SetPreserveHeadingAttributes(bool new_state);
 
     void GoBackFromLinkOrStyle();
@@ -949,7 +950,6 @@ private:
     /**
      * Collects signals and sends specific parameters to the connected slots.
      */
-    QSignalMapper *m_headingMapper;
     QSignalMapper *m_casingChangeMapper;
 
     /**
@@ -1017,6 +1017,8 @@ private:
     bool m_IsClosing;
 
     QList<QAction*> m_qlactions;
+    
+    QActionGroup *m_headingActionGroup;
     /**
      * Holds all the widgets Qt Designer created for us.
      */
