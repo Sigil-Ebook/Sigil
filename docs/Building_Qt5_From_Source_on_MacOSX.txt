@@ -78,18 +78,41 @@ tar -xvf qt-everywhere-src-5.12.6.tar
 
 cd qt-everywhere-src-5.12.6
 
-# now copy 2 required patches from Sigil/docs/ into this directory
+# now copy 6 required patches from Sigil/docs/ into this directory
 
 cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_avoid_qtabbar_segfault.patch ./
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_fix_h6_insertParagraph.patch./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_fix_h6_insertParagraph.patch ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_backport_009abcd_fix.patch ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_fix_missing_macos_menubar.patch ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_remove_bad_QWindow_workaround.patch ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_synchronize_activation_events.patch ./
 
 # apply mouse press and flick on qtabbar tab fix to prevent segfault
-# https://bugreports.qt.io/browse/QTBUG-74478
+# See https://bugreports.qt.io/browse/QTBUG-74478
 patch -p0 < ./qt512.6_avoid_qtabbar_segfault.patch
 
 # then apply an obvious fix for insertParagraph execcommand and h6 (see w3c spec)
-# https://bugreports.qt.io/browse/QTBUG-79778
+# See https://bugreports.qt.io/browse/QTBUG-79778
 patch -p0 < ./qt512.6_fix_h6_insertParagraph.patch
+
+# the remaining patches are ONLY important for Qt on macOS
+
+# apply backported fix for handling qwidget platform surface events properly
+# See https://bugreports.qt.io/browse/QTBUG-69289
+patch -p0 < ./qt512.6_backport_009abcd_fix.patch
+
+# apply workaround to prevent missing macos application menu items
+# See https://bugreports.qt.io/browse/QTBUG-80795
+patch -p0 < ./qt512.6_fix_missing_macos_menubar.patch
+
+# apply patch to remove broken crash prevention workaround in Qt 5.12.5 and later
+# See https://bugreports.qt.io/browse/QTBUG-75326
+patch -p0 < ./qt512.6_remove_bad_QWindow_workaround.patch
+
+# apply a better fix to prevent the crashes
+# See https://bugreports.qt.io/browse/QTBUG-66536 and https://bugreports.qt.io/browse/QTBUG-75326
+patch -p0 < ./qt512.6_synchronize_activation_events.patch
+
 
 # this is the new minimum supported by Qt 5.12.X
 export MACOSX_DEPLOYMENT_TARGET=10.12

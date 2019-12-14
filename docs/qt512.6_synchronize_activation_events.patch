@@ -1,0 +1,12 @@
+--- qtbase/src/plugins/platforms/cocoa/qnsview.mm.orig	2019-12-12 09:10:56.000000000 -0500
++++ qtbase/src/plugins/platforms/cocoa/qnsview.mm	2019-12-12 09:14:09.000000000 -0500
+@@ -306,7 +306,8 @@
+     if ([self isTransparentForUserInput])
+         return NO;
+     if (!m_platformWindow->windowIsPopupType())
+-        QWindowSystemInterface::handleWindowActivated([self topLevelWindow]);
++        QWindowSystemInterface::handleWindowActivated<QWindowSystemInterface::SynchronousDelivery>([self topLevelWindow]);
++        // See: Gerrit Code Review 260208, was QWindowSystemInterface::handleWindowActivated([self topLevelWindow]);
+     return YES;
+ }
+ 
