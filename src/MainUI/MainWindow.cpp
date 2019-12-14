@@ -211,7 +211,6 @@ MainWindow::MainWindow(const QString &openfilepath,
     m_IsClosing(false)
 {
     ui.setupUi(this);
-
     // Telling Qt to delete this window
     // from memory when it is closed
     setAttribute(Qt::WA_DeleteOnClose);
@@ -228,7 +227,6 @@ MainWindow::MainWindow(const QString &openfilepath,
     ChangeSignalsWhenTabChanges(NULL, m_TabManager->GetCurrentContentTab());
     LoadInitialFile(openfilepath, version, is_internal);
     loadPluginsMenu();
-   
 }
 
 MainWindow::~MainWindow()
@@ -988,6 +986,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     QMainWindow::resizeEvent(event);
 }
 
+
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     m_IsClosing = true;
@@ -1047,8 +1046,8 @@ void MainWindow::closeEvent(QCloseEvent *event)
             m_PreviewWindow->hide();
         }
 
-        // macOSX can not be left in fullscreen mode upon exit
 #ifdef Q_OS_MAC
+        // macOSX can not be left in fullscreen mode upon exit
         if (isFullScreen()) setWindowState(windowState() & ~Qt::WindowFullScreen);
 #endif
         event->accept();
@@ -4870,7 +4869,8 @@ void MainWindow::PlatformSpecificTweaks()
     //    toolbar->setIconSize(QSize(32, 32));
     //}
     // Set the action because they are not automatically put in the right place as of Qt 5.1.
-    ui.actionAbout->setMenuRole(QAction::AboutRole);
+    // These can now be specified in the main.ui file
+    // ui.actionAbout->setMenuRole(QAction::AboutRole);
     // ui.actionPreferences->setMenuRole(QAction::PreferencesRole);
 #endif
     sizeMenuIcons();

@@ -977,6 +977,9 @@
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/process-stop_48px.png</normaloff>:/main/process-stop_48px.png</iconset>
    </property>
+   <property name="menuRole">
+     <enum>QAction::QuitRole</enum>
+   </property>
    <property name="text">
     <string>&amp;Quit</string>
    </property>
@@ -991,6 +994,9 @@
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/help-browser_48px.png</normaloff>:/main/help-browser_48px.png</iconset>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::AboutRole</enum>
    </property>
    <property name="text">
     <string>&amp;About...</string>
@@ -1987,6 +1993,9 @@
    </property>
   </action>
   <action name="actionPreferences">
+   <property name="menuRole">
+    <enum>QAction::PreferencesRole</enum>
+   </property>
    <property name="text">
     <string>&amp;Preferences...</string>
    </property>

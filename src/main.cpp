@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2019  Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2018-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -60,6 +60,9 @@ static const int RETRY_DELAY_MS = 5;
 #include <QFileDialog>
 #include <QKeySequence>
 #include <QAction>
+#include <QIcon>
+#include "Dialogs/About.h"
+#include "Dialogs/Preferences.h"
 extern void disableWindowTabbing();
 extern void removeMacosSpecificMenuItems();
 #endif
@@ -77,6 +80,25 @@ static MainWindow *GetMainWindow(const QStringList &arguments)
 }
 
 #ifdef Q_OS_MAC
+
+static void AboutDialog()
+{
+    About about;
+    about.exec();
+}
+
+static void PreferencesDialog()
+{
+    Preferences prefers;
+    prefers.exec();
+}
+
+static void AppExit()
+{
+    qApp->closeAllWindows();
+    qApp->quit();
+}
+
 static void file_new()
 {
     MainWindow *w = GetMainWindow(QStringList());
@@ -373,51 +395,84 @@ int main(int argc, char *argv[])
             // Normal startup
 
 #ifdef Q_OS_MAC
-            // Work around QTBUG-62193 and QTBUG-65245 and others where menubar
+            // Try to Work around QTBUG-62193 and QTBUG-65245 and others where menubar
 	    // menu items are lost under File and Sigil menus and where
 	    // Quit menu gets lost when deleting other windows first
 
-	    // Now we Create and show a frameless translucent QMainWindow to hold
-	    // the menubar.  Note: macOS has a single menubar attached at 
-	    // the top of the screen that all mainwindows share.
-
             app.setQuitOnLastWindowClosed(false);
 
-	    Qt::WindowFlags flags = Qt::Window | Qt::FramelessWindowHint;
-	    QMainWindow * basemw = new QMainWindow(NULL, flags);
-	    basemw->setAttribute(Qt::WA_TranslucentBackground, true);
+            // Create a viable Global MacOS QMenuBar
+            QMenuBar *mac_bar = new QMenuBar(0);
 
-            QMenuBar *mac_menu = new QMenuBar(0);
+            QIcon icon;
+
+            // Create the Application Menu
+            QMenu *app_menu = new QMenu("Sigil");
+
+            // Quit
+	    QAction* appquit_action = new QAction(QObject::tr("Quit"));
+            appquit_action->setMenuRole(QAction::QuitRole);
+            appquit_action->setShortcut(QKeySequence("Ctrl+Q"));
+            icon = appquit_action->icon();
+	    icon.addFile(QString::fromUtf8(":/main/process-stop_16px.png"));
+	    icon.addFile(QString::fromUtf8(":/main/process-stop_22px.png"));
+	    icon.addFile(QString::fromUtf8(":/main/process-stop_48px.png"));
+            appquit_action->setIcon(icon);
+            QObject::connect(appquit_action, &QAction::triggered, AppExit);
+	    app_menu->addAction(appquit_action);
+
+            // About
+	    QAction* about_action = new QAction(QObject::tr("About"));
+            about_action->setMenuRole(QAction::AboutRole);
+            icon = about_action->icon();
+	    icon.addFile(QString::fromUtf8(":/main/help-browser_16px.png"));
+	    icon.addFile(QString::fromUtf8(":/main/help-browser_22px.png"));
+	    icon.addFile(QString::fromUtf8(":/main/help-browser_48px.png"));
+            about_action->setIcon(icon);
+            QObject::connect(about_action, &QAction::triggered, AboutDialog);
+	    app_menu->addAction(about_action);
+
+            // Preferences
+	    QAction* prefs_action = new QAction(QObject::tr("Preferences"));
+            prefs_action->setMenuRole(QAction::PreferencesRole);
+            QObject::connect(prefs_action, &QAction::triggered, PreferencesDialog);
+	    app_menu->addAction(prefs_action);
+
+            mac_bar->addMenu(app_menu);
+
+            // now create a File Menu
             QMenu *file_menu = new QMenu("File");
 
-	    // New
-            QAction * new_action = new QAction("New");
+            // New
+            QAction * new_action = new QAction(QObject::tr("New"));
             new_action->setShortcut(QKeySequence("Ctrl+N"));
+	    icon = new_action->icon();
+	    icon.addFile(QString::fromUtf8(":/main/document-new_16px.png"));
+	    icon.addFile(QString::fromUtf8(":/main/document-new_22px.png"));
+	    icon.addFile(QString::fromUtf8(":/main/document-new_48px.png"));
+	    new_action->setIcon(icon);
             QObject::connect(new_action, &QAction::triggered, file_new);
-	    file_menu ->addAction(new_action);
+	    file_menu->addAction(new_action);
 
             // Open
-	    QAction* open_action = new QAction("Open");
+	    QAction* open_action = new QAction(QObject::tr("Open"));
             open_action->setShortcut(QKeySequence("Ctrl+O"));
+	    icon = open_action->icon();
+	    icon.addFile(QString::fromUtf8(":/main/document-open_16px.png"));
+	    icon.addFile(QString::fromUtf8(":/main/document-open_22px.png"));
+	    icon.addFile(QString::fromUtf8(":/main/document-open_48px.png"));
+	    open_action->setIcon(icon);
             QObject::connect(open_action, &QAction::triggered, file_open);
-	    file_menu ->addAction(open_action);
+	    file_menu->addAction(open_action);
 
             // Quit - force add of a secondary quit menu to the file menu
-	    QAction* quit_action = new QAction("Quit");
+	    QAction* quit_action = new QAction(QObject::tr("Quit"));
             quit_action->setMenuRole(QAction::NoRole);
             quit_action->setShortcut(QKeySequence("Ctrl+Q"));
             QObject::connect(quit_action, &QAction::triggered, qApp->quit);
-	    file_menu ->addAction(quit_action);
+	    file_menu->addAction(quit_action);
 
-            mac_menu->addMenu(file_menu);
-            
-	    // Application specific quit menu
-	    // according to Qt docs this is the right way to add an application
-	    // quit menu - but it does not work and will still sometimes get lost
-	    mac_menu->addAction("quit");
-
-	    basemw->setMenuBar(mac_menu);
-            basemw->show();
+            mac_bar->addMenu(file_menu);
 #endif
 
             VerifyPlugins();
