@@ -404,10 +404,11 @@ int main(int argc, char *argv[])
             // Create a viable Global MacOS QMenuBar
             QMenuBar *mac_bar = new QMenuBar(0);
 
-            QIcon icon;
 
             // Create the Application Menu
             QMenu *app_menu = new QMenu("Sigil");
+
+            QIcon icon;
 
             // Quit
 	    QAction* appquit_action = new QAction(QObject::tr("Quit"));
