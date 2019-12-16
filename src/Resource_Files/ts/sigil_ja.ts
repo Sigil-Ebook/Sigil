@@ -1,35 +1,35 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja" version="2.1">
 <context>
     <name>About</name>
     <message>
         <location filename="../../Form_Files/About.ui" line="14"/>
         <source>About</source>
-        <translation>О программе</translation>
+        <translation>情報</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
         <source>The EPUB Editor</source>
-        <translation>Редактор EPUB</translation>
+        <translation>EPUBエディター</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="70"/>
         <source>General</source>
-        <translation>Общая информация</translation>
+        <translation>全般</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="107"/>
         <source>Homepage:</source>
-        <translation>Сайт программы:</translation>
+        <translation>ホームページ:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="143"/>
         <source>Version:</source>
-        <translation>Версия:</translation>
+        <translation>バージョン:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="170"/>
         <source>Loaded Qt:</source>
-        <translation>Версия Qt:</translation>
+        <translation>ロード中のQt:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="200"/>
@@ -39,17 +39,17 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="218"/>
         <source>Build time:</source>
-        <translation>Время сборки:</translation>
+        <translation>ビルド日時:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="245"/>
         <source>License:</source>
-        <translation>Лицензия:</translation>
+        <translation>ライセンス:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="255"/>
         <source>Authors</source>
-        <translation>Авторы</translation>
+        <translation>作者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="41"/>
@@ -59,32 +59,32 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer(s)</source>
-        <translation>Сопровождающие</translation>
+        <translation>メンテナー</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="56"/>
         <source>Previous Maintainer(s)</source>
-        <translation>Предыдущие сопровождающие</translation>
+        <translation>過去のメンテナー</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
         <source>Code Contributors</source>
-        <translation>Соавторы кода</translation>
+        <translation>ソースコード貢献者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="68"/>
         <source>Translators</source>
-        <translation>Переводчики</translation>
+        <translation>翻訳者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="70"/>
         <source>Original Creator</source>
-        <translation>Создатель проекта</translation>
+        <translation>オリジナルの作者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>retired</source>
-        <translation>на пенсии</translation>
+        <translation>引退した</translation>
     </message>
 </context>
 <context>
@@ -92,12 +92,12 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
         <source>Add metadata property</source>
-        <translation>Добавить поле метаданных</translation>
+        <translation>メタデータのプロパティを追加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="50"/>
         <source>Metadata description</source>
-        <translation>Описание метаданных</translation>
+        <translation>メタデータの詳細</translation>
     </message>
 </context>
 <context>
@@ -105,12 +105,12 @@
     <message>
         <location filename="../../Form_Files/AddSemantics.ui" line="14"/>
         <source>Add Semantic Property</source>
-        <translation>Добавить семантическое свойство</translation>
+        <translation>セマンティック属性を追加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddSemantics.ui" line="56"/>
         <source>Description of Semantic Properties</source>
-        <translation>Описание семантических свойств</translation>
+        <translation>セマンティック属性の説明</translation>
     </message>
 </context>
 <context>
@@ -118,57 +118,57 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="14"/>
         <source>All Files</source>
-        <translation>Все файлы</translation>
+        <translation>すべてのファイル</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Перечислить только имена файлов, которые содержат текст, введённый вами.</translation>
+        <translation>入力したテキストを含むファイル名のみリスト表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Фильтр:</translation>
+        <translation>フィルター:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="73"/>
         <source>Directory</source>
-        <translation>Каталог</translation>
+        <translation>ディレクトリ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="74"/>
         <source>Name</source>
-        <translation>Название</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="75"/>
         <source>File Size (KB)</source>
-        <translation>Размер файла (КБ)</translation>
+        <translation>ファイルサイズ(KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="76"/>
         <source>Type</source>
-        <translation>Тип</translation>
+        <translation>タイプ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="77"/>
         <source>Semantics</source>
-        <translation>Семантика</translation>
+        <translation>セマンティクス</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="79"/>
         <source>Properties</source>
-        <translation>Свойства</translation>
+        <translation>プロパティ</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="149"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n файл</numerusform><numerusform>%n файла</numerusform><numerusform>%n файлов</numerusform><numerusform>%n файлов</numerusform></translation>
+        <translation><numerusform>%n 個のファイル</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="267"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Сохранить отчёт как файл с разделителями запятыми</translation>
+        <translation>カンマ区切りのファイルとしてレポートを保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="281"/>
@@ -178,32 +178,32 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="281"/>
         <source>Cannot save report file.</source>
-        <translation>Не удалось сохранить файл отчёта.</translation>
+        <translation>レポートファイルを保存できません。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="306"/>
         <source>Image</source>
-        <translation>Изображение</translation>
+        <translation>画像</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="311"/>
         <source>Audio</source>
-        <translation>Аудио</translation>
+        <translation>オーディオ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="316"/>
         <source>Video</source>
-        <translation>Видео</translation>
+        <translation>動画</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="321"/>
         <source>Font</source>
-        <translation>Шрифт</translation>
+        <translation>フォント</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="348"/>
         <source>Unknown</source>
-        <translation>Неизвестно</translation>
+        <translation>不明</translation>
     </message>
 </context>
 <context>
@@ -211,249 +211,249 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="14"/>
         <source>Appearance</source>
-        <translation>Облик приложения</translation>
+        <translation>外観</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="24"/>
         <source>Fonts / Colors</source>
-        <translation>Шрифты / Цвета</translation>
+        <translation>フォント/カラー</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="30"/>
         <source>Preview:</source>
-        <translation>Предпросмотр:</translation>
+        <translation>プレビュー:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="39"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation>Если шрифт для вашей страницы не указан в CSS, следующий шрифт будет использоваться для отображения в Sigil. Эти шрифты не будут использоваться в вашей настоящей книге.</translation>
+        <translation>ページのCSSでフォントが指定されていない場合は、Sigil内での表示では以下のフォントを使用します。これらのフォントは実際の電子書籍では使用されません。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="59"/>
         <source>Default font size to be used for Preview
 if no font-size specified in your CSS</source>
-        <translation>Размер шрифта по умолчанию для Preview
-если в CSS не указан размер шрифта</translation>
+        <translation>CSSでフォントサイズが指定されていない場合は、
+プレビューでデフォルトのフォントサイズが使用されます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="63"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="197"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="313"/>
         <source>Font Size:</source>
-        <translation>Кегль шрифта:</translation>
+        <translation>フォントサイズ:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="93"/>
         <source>Default font family to be used for Preview
 if no font-family specified in your CSS</source>
-        <translation>Семейство шрифтов по умолчанию для Preview
-если в CSS не указано семейство шрифтов</translation>
+        <translation>CSSでフォントファミリが指定されていない場合は、
+プレビューでデフォルトのフォントファミリが使用されます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="97"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="227"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="346"/>
         <source>Standard Font:</source>
-        <translation>Шрифт по умолчанию:</translation>
+        <translation>標準フォント:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="107"/>
         <source>Default font family to be used for Preview
 if a serif font-family specified in your CSS</source>
-        <translation>Семейство шрифтов по умолчанию для Preview
-если в CSS указано семейство шрифтов serif</translation>
+        <translation>CSSでセリフのフォントファミリが指定されている場合は、
+プレビューでデフォルトのフォントファミリが使用されます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="111"/>
         <source>Serif Font:</source>
-        <translation>Шрифт с засечками:</translation>
+        <translation>セリフフォント:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="121"/>
         <source>Default font family to be used for Preview
 if a sans-serif font-family specified in your CSS</source>
-        <translation>Семейство шрифтов по умолчанию для Preview
-если в CSS указано семейство шрифтов sans-serif</translation>
+        <translation>CSSでサンセリフのフォントファミリが指定されている場合は、
+プレビューでデフォルトのフォントファミリが使用されます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="125"/>
         <source>Sans-Serif Font:</source>
-        <translation>Шрифт без засечек:</translation>
+        <translation>サンセリフフォント:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="171"/>
         <source>CSS / Code View:</source>
-        <translation>CSS / Просмотр кода:</translation>
+        <translation>CSS/コードビュー:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="181"/>
         <source>Item Colors:</source>
-        <translation>Цвета элементов:</translation>
+        <translation>アイテムの色:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="194"/>
         <source>Font size to be used for text in Code View.</source>
-        <translation>Размер шрифта, используемый для текста при просмотре кода.</translation>
+        <translation>コードビューでテキストに使用するフォントサイズ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="224"/>
         <source>Font family to be used for text in Code View.</source>
-        <translation>Семейство шрифтов, которые будут использоваться для текста в окне просмотра кода.</translation>
+        <translation>コードビューでテキストに使用するフォントの種類</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="263"/>
         <source>Select an alternative color for this display item</source>
-        <translation>Выберите альтернативный цвет для отображения этого элемента</translation>
+        <translation>この表示アイテムに対する代わりの色を選択してください</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="266"/>
         <source>Custom Color...</source>
-        <translation>Свой цвет...</translation>
+        <translation>カスタムカラー...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="296"/>
         <source>Insert Special Characters:</source>
-        <translation>Вставка специальных символов:</translation>
+        <translation>特殊文字を挿入:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="310"/>
         <source>Font size to be used for Insert Special Characters window</source>
-        <translation>Размер шрифта, используемый для окна вставки специальных символов</translation>
+        <translation>&quot;特殊文字を挿入&quot;ウィンドウで使用するフォントサイズ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="343"/>
         <source>Font family to be used for Insert Special Characters window</source>
-        <translation>Семейство шрифтов, которые будут использоваться для окна вставки специальных символов</translation>
+        <translation>&quot;特殊文字を挿入&quot;ウィンドウで使用するフォントの種類</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="375"/>
         <source>Determine if the BookBrowser should show full paths</source>
-        <translation>Определите, должен ли БукБраузер показывать полные пути</translation>
+        <translation>ブックブラウザーにフルパスを表示するかどうかを決定します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="378"/>
         <source> Control BookBrowser Appearance.</source>
-        <translation>Управление внешним видом БукБраузера.</translation>
+        <translation>ブックブラウザーの外観をコントロールします。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="387"/>
         <source>Check to make BookBrowser show full paths.</source>
-        <translation>Установите флажок, чтобы БукБраузер показывал полные пути.</translation>
+        <translation>ブックブラウザーにフルパスが表示されるようにするには、チェックします。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="390"/>
         <source>BookBrowser should show full paths.</source>
-        <translation>БукБраузер должен показывать полные пути.</translation>
+        <translation>ブックブラウザーにフルパスが表示されます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="419"/>
         <source>Menus</source>
-        <translation>Основное меню</translation>
+        <translation>メニュー</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="425"/>
         <source>Main Menu Icon Size</source>
-        <translation>Размер иконок основного меню</translation>
+        <translation>メインメニューのアイコンサイズ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="431"/>
         <source>Adjust the size of the icons in the main menu.</source>
-        <translation>Настройте размер иконок основного меню.</translation>
+        <translation>メインメニューのアイコンのサイズを調整します</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="507"/>
         <source>Reset all fonts and colors to the default values</source>
-        <translation>Восстановить значения по умолчанию для всех шрифтов и цветов</translation>
+        <translation>すべてのフォントと色をデフォルト値にリセットします</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="510"/>
         <source>Reset All</source>
-        <translation>Восстановить всё</translation>
+        <translation>すべてリセット</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="210"/>
         <source>Background</source>
-        <translation>Фон</translation>
+        <translation>背景色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="211"/>
         <source>Foreground</source>
-        <translation>Передний план</translation>
+        <translation>前景色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="212"/>
         <source>CSS Comment</source>
-        <translation>Комментарий в CSS</translation>
+        <translation>CSS コメント</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="213"/>
         <source>CSS Property</source>
-        <translation>Свойство в CSS</translation>
+        <translation>CSS プロパティー</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="214"/>
         <source>CSS Quote</source>
-        <translation>Кавычка в CSS</translation>
+        <translation>CSSクォート</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="215"/>
         <source>CSS Selector</source>
-        <translation>Селектор в CSS</translation>
+        <translation>CSS 選択子</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="216"/>
         <source>CSS Value</source>
-        <translation>Значение в CSS</translation>
+        <translation>CSS 値</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="217"/>
         <source>Line Highlight</source>
-        <translation>Подсветка строки</translation>
+        <translation>行ハイライト</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="218"/>
         <source>Line# Background</source>
-        <translation>Фон номера строки</translation>
+        <translation>行番号の背景色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="219"/>
         <source>Line# Foreground</source>
-        <translation>Передний план номера строки</translation>
+        <translation>行番号の前景色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="220"/>
         <source>Selection Background</source>
-        <translation>Фон выделения</translation>
+        <translation>選択箇所の背景色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="221"/>
         <source>Selection Foreground</source>
-        <translation>Передний план выделения</translation>
+        <translation>選択箇所の前景色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="222"/>
         <source>Spelling Underline</source>
-        <translation>Подчёркивание при проверке орфографии</translation>
+        <translation>ミススペルの下線</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="223"/>
         <source>XHTML Attribute Name</source>
-        <translation>Название атрибута XHTML</translation>
+        <translation>XHTML属性名</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="224"/>
         <source>XHTML Attribute Value</source>
-        <translation>Значение атрибута XHTML</translation>
+        <translation>XHTML属性値</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="225"/>
         <source>XHTML CSS</source>
-        <translation>CSS XHTML</translation>
+        <translation>XHTML CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="226"/>
         <source>XHTML CSS Comment</source>
-        <translation>Комментарий CSS XHTML</translation>
+        <translation>XHTML CSSコメント</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="227"/>
@@ -463,17 +463,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="228"/>
         <source>XHTML Entity</source>
-        <translation>Объект XHTML</translation>
+        <translation>XHTMLエンティティ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="229"/>
         <source>XHTML HTML Tag</source>
-        <translation>Тэг XHTML HTML</translation>
+        <translation>XHTML HTMLタグ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="230"/>
         <source>XHTML HTML Comment</source>
-        <translation>Комментарий XHTML HTML</translation>
+        <translation>XHTML HTMLコメント</translation>
     </message>
 </context>
 <context>
@@ -481,7 +481,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="415"/>
         <source>Start</source>
-        <translation>Начало</translation>
+        <translation>開始</translation>
     </message>
 </context>
 <context>
@@ -489,24 +489,24 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="69"/>
         <source>Book Browser</source>
-        <translation>Структура книги</translation>
+        <translation>ブックブラウザー</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="81"/>
         <source>Font Obfuscation</source>
-        <translation>Обфускация шрифта</translation>
+        <translation>フォント難読化</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="82"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1698"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1820"/>
         <source>Open With</source>
-        <translation>Открыть с помощью...</translation>
+        <translation>アプリケーションから開く</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/BookBrowser.cpp" line="141"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n файл</numerusform><numerusform>%n файла</numerusform><numerusform>%n файлов</numerusform><numerusform>%n файлов</numerusform></translation>
+        <translation><numerusform>%n 個のファイル</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="244"/>
@@ -522,290 +522,291 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="244"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
-        <translation>Вы уверены, что хотите отсортировать выбранные файлы по алфавиту и порядку чисел?</translation>
+        <translation>本当に選択されたファイルをアルファベット順にソートしますか?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="244"/>
         <source>This action cannot be reversed.</source>
-        <translation>Это действие нельзя будет отменить.</translation>
+        <translation>このアクションは元に戻せません</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="279"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Файл &quot;%1&quot; не существует.</translation>
+        <translation>ファイル &quot;%1&quot; は存在しません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="622"/>
         <source>Add Existing Files</source>
-        <translation>Добавить существующие файлы</translation>
+        <translation>既存のファイルを追加</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="659"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
-        <translation>Файл не является изображением и поэтому не может быть использован:
+        <translation>ファイルが画像でないので使用できません:
 
-&quot;%1&quot;.</translation>
+&quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="668"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
-        <translation>Файл не является изображением, видео или аудио, и поэтому не может быть вставлен:
+        <translation>マルチメディアファイル(画像、動画、オーディオ)でないので挿入できません:
 
-&quot;%1&quot;.</translation>
+&quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="686"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation>Медиафайл &quot;%1&quot; уже есть в книге.
+        <translation>マルチメディアファイル &quot;%1&quot; がブック中にすでに存在します。
 
-Нажмите ОК для замены.</translation>
+OKを押して置換しますか?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="701"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
-        <translation>Не удалось удалить или переместить файл  &quot;%1&quot;.</translation>
+        <translation>ファイル &quot;%1&quot; を削除または上書きできません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="706"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
-        <translation>Не удалось загрузить &quot;%1&quot;
+        <translation>&quot;%1&quot; を読み込めません。
 
-Файл с таким именем уже есть в книге.</translation>
+この名前のファイルは、ブック中にすでに存在します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="765"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
-        <translation>Следующие файлы не были загружены из-за недействительного содержимого или ошибок в структуре XML:
+        <translation>次のファイルは、無効なコンテンツまたは整形式でないXMLのため、ロードされませんでした:
 
 %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="779"/>
         <source>File(s) added.</source>
-        <translation>Файл(ов) добавлено.</translation>
+        <translation>ファイルを追加しました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="819"/>
         <source>Save As File</source>
-        <translation>Сохранить как файл</translation>
+        <translation>ファイルに保存</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="842"/>
         <source>Unable to save the file.</source>
-        <translation>Не удалось сохранить этот файл.</translation>
+        <translation>ファイルに保存できませんでした。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="856"/>
         <source>Choose the directory to save the files to</source>
-        <translation>Выберите папку для сохранения файлов на</translation>
+        <translation>ファイルを保存するディレクトリを選択</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="878"/>
         <source>One or more files already exists.  OK to overwrite?</source>
-        <translation>Один или несколько файлов уже существуют. Нажмите OK, чтобы заменить.</translation>
+        <translation>すでに1つ以上のファイルが存在します。OKを押して上書きしますか?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="895"/>
         <source>Unable to save files.  Destination may be a directory.</source>
-        <translation>Невозможно сохранить файлы. Конечный объект может быть каталогом.</translation>
+        <translation>ファイルに保存できません。保存先がディレクトリのようです。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="903"/>
         <source>Unable to save files.</source>
-        <translation>Невозможно сохранить файлы.</translation>
+        <translation>ファイルを保存できません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1162"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
-        <translation>Невозможно переименовать файлы, так как это приведёт к дублированию имён файлов.</translation>
+        <translation>ファイル名が重複するため、ファイル名を変更できません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1233"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
-        <translation>У папки назначения недопустимый путь &quot;%1&quot;</translation>
+        <translation>コピー先フォルダのパス &quot;%1&quot; が無効です。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1267"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
-        <translation>Невозможно переместить файлы, так как это приведёт к дублированию имён файлов.</translation>
+        <translation>ファイル名が重複するため、ファイルを移動できません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1314"/>
         <source>The Nav document can not be removed.</source>
-        <translation>Невозможно удалить документ Nav.</translation>
+        <translation>Navドキュメントを削除できません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
         <source>The NCX can not be removed.</source>
-        <translation>NCX не может быть удалён.</translation>
+        <translation>NCXを削除できません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1329"/>
         <source>The OPF is required for epub and can not be removed.</source>
-        <translation>OPF требуется для EPUB и не может быть удалён.</translation>
+        <translation>OPFはepubに必要であり、削除できません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1338"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
-        <translation>Вы не можете удалить все файлы HTML.
-Должен остаться хотя бы один.</translation>
+        <translation>HTMLをすべて削除することはできません。
+少なくとも常に一つは必要です。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1479"/>
         <source>Unable to set file as cover image.</source>
-        <translation>Невозможно установить файл как изображение обложки.</translation>
+        <translation>ファイルを表紙画像として設定できません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1677"/>
         <source>Select All</source>
-        <translation>Выбрать всё</translation>
+        <translation>すべて選択</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1678"/>
         <source>Add Blank HTML File</source>
-        <translation>Добавить пустой файл HTML</translation>
+        <translation>空のHTMLファイルを追加</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1679"/>
         <source>Add Blank Stylesheet</source>
-        <translation>Добавить пустой стиль</translation>
+        <translation>空のスタイルシートを追加</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1680"/>
         <source>Add Blank SVG Image</source>
-        <translation>Добавить пустое изображение SVG</translation>
+        <translation>空のSVG画像を追加</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1681"/>
         <source>Add Existing Files...</source>
-        <translation>Добавить существующие файлы…</translation>
+        <translation>既存のファイルを追加...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1682"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1683"/>
         <source>Add Copy</source>
-        <translation>Добавить копию</translation>
+        <translation>コピーを追加</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1684"/>
         <source>Rename</source>
-        <translation>Переименовать</translation>
+        <translation>名前を変更</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1685"/>
         <source>RegEx Rename</source>
-        <translation>Переименовать RegEx</translation>
+        <translation>正規表現で名前を変更</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1686"/>
         <source>Move</source>
-        <translation>Переместить</translation>
+        <translation>移動</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1687"/>
         <source>Delete</source>
-        <translation>Удалить</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1688"/>
         <source>Cover Image</source>
-        <translation>Изображение обложки</translation>
+        <translation>表紙の画像</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1689"/>
         <source>Merge</source>
-        <translation>Объединить</translation>
+        <translation>マージ</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1690"/>
         <source>None</source>
-        <translation>Никакие</translation>
+        <translation>なし
+</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1691"/>
         <source>Use Adobe&apos;s Method</source>
-        <translation>Способ Adobe</translation>
+        <translation>Adobe方式を利用</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1692"/>
         <source>Use IDPF&apos;s Method</source>
-        <translation>Способ IDPF</translation>
+        <translation>IDPF方式を利用</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1693"/>
         <source>Sort</source>
-        <translation>Отсортировать</translation>
+        <translation>ソート</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1694"/>
         <source>Renumber TOC Entries</source>
-        <translation>Перенумеровать элементы оглавления</translation>
+        <translation>目次のエントリーの数字をつけ直す</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1695"/>
         <source>Link Stylesheets...</source>
-        <translation>Связать с таблицей стилей...</translation>
+        <translation>スタイルシートにリンク...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1696"/>
         <source>Add Semantics...</source>
-        <translation>Добавить семантику...</translation>
+        <translation>セマンティクスを追加...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1697"/>
         <source>Validate with W3C</source>
-        <translation>Проверить с помощью W3C</translation>
+        <translation>W3Cで検証</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1699"/>
         <source>Save As</source>
-        <translation>Сохранить как</translation>
+        <translation>名前を付けて保存</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1713"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
-        <translation>Слияние с предыдущим файлом или объединение нескольких файлов в один.</translation>
+        <translation>前のファイルとマージするか、複数のファイルを1つにマージします。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1716"/>
         <source>Rename selected file(s)</source>
-        <translation>Переименовать выбранные файлы</translation>
+        <translation>選択したファイルの名前を変更します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1718"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
-        <translation>Используйте регулярные выражения для переименования выбранных файлов</translation>
+        <translation>正規表現を使用して、選択したファイルの名前を変更します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1721"/>
         <source>Move selected file(s) to a new folder</source>
-        <translation>Переместить выбранный файл(ы) в новую папку </translation>
+        <translation>選択したファイルを新しいフォルダーに移動します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1723"/>
         <source>Link Stylesheets to selected file(s).</source>
-        <translation>Связать с таблицей стилей в выбранных файлах.</translation>
+        <translation>スタイルシートを選択したファイルにリンクします。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1725"/>
         <source>Add Semantics to selected file(s).</source>
-        <translation>Добавить семантику в выбранные файлы.</translation>
+        <translation>選択したファイルにセマンティクスを追加します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1855"/>
         <source>Other Application</source>
-        <translation>Другое приложение</translation>
+        <translation>他のアプリケーション</translation>
     </message>
 </context>
 <context>
@@ -813,47 +814,47 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="14"/>
         <source>CSS Files</source>
-        <translation>Файлы CSS</translation>
+        <translation>CSSファイル</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Перечислить только имена файлов, которые содержат текст, введённый вами.</translation>
+        <translation>入力したテキストを含むファイル名のみリスト表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Фильтр:</translation>
+        <translation>フィルター:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="75"/>
         <source>Name</source>
-        <translation>Имя</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="76"/>
         <source>Size (KB)</source>
-        <translation>Размер (КБ)</translation>
+        <translation>サイズ (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="77"/>
         <source>Times Used</source>
-        <translation>Использовано раз</translation>
+        <translation>使用回数</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="143"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n файл</numerusform><numerusform>%n файла</numerusform><numerusform>%n файлов</numerusform><numerusform>%n файлов</numerusform></translation>
+        <translation><numerusform>%n 個のファイル</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="147"/>
         <source>KB</source>
-        <translation>КБ</translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="280"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Сохранить отчёт как файл с разделителями запятыми</translation>
+        <translation>カンマ区切りのファイルとしてレポートを保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="294"/>
@@ -863,12 +864,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="294"/>
         <source>Cannot save report file.</source>
-        <translation>Не удалось сохранить файл отчёта.</translation>
+        <translation>レポートファイルを保存できません。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="305"/>
         <source>Delete From Book</source>
-        <translation>Удалить из книги</translation>
+        <translation>本から削除</translation>
     </message>
 </context>
 <context>
@@ -876,17 +877,17 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="99"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation>Sigil пошлёт ваши данные CSS в &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</translation>
+        <translation>Sigilは、スタイルシートのデータを &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C 検証サービス&lt;/a&gt; に送ります。</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="100"/>
         <source>This page should disappear once loaded after 3 seconds.</source>
-        <translation>Эта страница должна исчезнуть после загрузки, через 3 секунды.</translation>
+        <translation>このページは読み込まれて3秒後に表示されなくなります。</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="101"/>
         <source>If your browser does not have javascript enabled, click on the button below.</source>
-        <translation>Если в вашем браузере отключён javascript, нажмите кнопку ниже.</translation>
+        <translation>あなたのブラウザーでJavaScriptが有効でない場合、以下のボタンをクリックしてください。</translation>
     </message>
 </context>
 <context>
@@ -894,57 +895,57 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="14"/>
         <source>Characters in HTML Files</source>
-        <translation>Символы в файлах HTML</translation>
+        <translation>HTMLファイル中の文字列</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Перечислить только имена файлов, которые содержат текст, введённый вами.</translation>
+        <translation>入力したテキストを含むファイル名のみリスト表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Фильтр:</translation>
+        <translation>フィルター:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="76"/>
         <source>Characters:</source>
-        <translation>Символы:</translation>
+        <translation>文字列:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="78"/>
         <source>Character</source>
-        <translation>Символ</translation>
+        <translation>文字</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="79"/>
         <source>Decimal</source>
-        <translation>Десятичный</translation>
+        <translation>10進数</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="80"/>
         <source>Hexadecimal</source>
-        <translation>Шестнадцатеричный</translation>
+        <translation>16進数</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="81"/>
         <source>Entity Name</source>
-        <translation>Имя Объекта</translation>
+        <translation>エンティティ名</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="82"/>
         <source>Entity Description</source>
-        <translation>Описание</translation>
+        <translation>エンティティの詳細</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="88"/>
         <source>&lt;p&gt;This is a list of the characters used in all HTML files.&lt;p&gt;</source>
-        <translation>&lt;p&gt;Это список символов, используемых в HTML-файлах.&lt;p&gt;</translation>
+        <translation>&lt;p&gt;これはHTMLファイル中で使用されている文字列のリストです。&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="254"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Сохранить отчёт как файл с разделителями запятыми</translation>
+        <translation>カンマ区切りのファイルとしてレポートを保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="268"/>
@@ -954,7 +955,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="268"/>
         <source>Cannot save report file.</source>
-        <translation>Не удалось сохранить файл отчёта.</translation>
+        <translation>レポートファイルを保存できません。</translation>
     </message>
 </context>
 <context>
@@ -962,62 +963,62 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="14"/>
         <source>Style Classes in HTML Files</source>
-        <translation>Классы стилей в файлах HTML</translation>
+        <translation>HTMLファイル中のスタイルクラス</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Перечислить только имена файлов, которые содержат текст, введённый вами.</translation>
+        <translation>入力したテキストを含むファイル名のみリスト表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Фильтр:</translation>
+        <translation>フィルター:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="83"/>
         <source>HTML File</source>
-        <translation>Файл HTML</translation>
+        <translation>HTMLファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="84"/>
         <source>Element</source>
-        <translation>Элемент</translation>
+        <translation>要素</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="85"/>
         <source>Class</source>
-        <translation>Класс</translation>
+        <translation>クラス</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="86"/>
         <source>Matched Selector</source>
-        <translation>Селектор совпадений</translation>
+        <translation>マッチセレクター</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
         <source>Found In</source>
-        <translation>Где обнаружено</translation>
+        <translation>以下で定義</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="93"/>
         <source>&lt;p&gt;This is a list of the style classes used in all HTML files and whether or not the style matched a selector in a linked stylesheet.&lt;p&gt;</source>
-        <translation>&lt;p&gt;Это список классов стилей, используемых во всех HTML-файлах и соответствует ли стиль селектору в связанной таблице стилей или нет.&lt;p&gt;</translation>
+        <translation>&lt;p&gt;これは、すべてのHTMLファイルで使用されるスタイルクラスの一覧で、そのスタイルがリンクされたスタイルシートのセレクタと一致するかどうかを示します。&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="94"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
-        <translation>&lt;p&gt;ВНИМАНИЕ:&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;NOTE:&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="95"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Из-за сложностей CSS необходимо проверить код вручную, чтобы быть уверенным, используется ли стиль или нет.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;CSSは複雑なため、スタイルが使用されているかどうかを確認するために、コードを手動でチェックする必要があります。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="242"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Сохранить отчёт как файл с разделителями запятыми</translation>
+        <translation>カンマ区切りのファイルとしてレポートを保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="256"/>
@@ -1027,7 +1028,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="256"/>
         <source>Cannot save report file.</source>
-        <translation>Не удалось сохранить файл отчёта.</translation>
+        <translation>レポートファイルを保存できません。</translation>
     </message>
 </context>
 <context>
@@ -1036,49 +1037,49 @@ There always has to be at least one.</source>
         <location filename="../../Form_Files/ClipEditor.ui" line="14"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="538"/>
         <source>Clip Editor</source>
-        <translation>Редактор фрагментов</translation>
+        <translation>クリップエディター</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation>Фильтровать по названию:</translation>
+        <translation>フィルター名:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation>Фильтровать по всем полям:</translation>
+        <translation>すべてフィルター:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Показать только записи, содержащие введённый вами текст.</translation>
+        <translation>入力したテキストを含むエントリーのみリスト表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="65"/>
         <source>Paste the selected entry into the active window.</source>
-        <translation>Вставить выделенную запись в активное окно.</translation>
+        <translation>選択したエントリーをアクティブなウィンドウに貼り付けます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="68"/>
         <source>Paste Clip</source>
-        <translation>Вставить фрагмент</translation>
+        <translation>クリップを貼り付け</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="91"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="649"/>
         <source>Add Entry</source>
-        <translation>Добавить фрагмент</translation>
+        <translation>エントリーを追加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="98"/>
         <location filename="../../Dialogs/ClipEditor.cpp" line="650"/>
         <source>Add Group</source>
-        <translation>Добавить группу</translation>
+        <translation>グループを追加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="123"/>
         <source>Move an entry up one entry in the same group.</source>
-        <translation>Переместить элемент на одну позицию вверх в той же группе.</translation>
+        <translation>エントリーを同じグループ内で1つ上のエントリーに移動します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="126"/>
@@ -1091,82 +1092,82 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="153"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation>Переместить запись на уровень родительского элемента.</translation>
+        <translation>エントリーをその親のレベルに移動します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="182"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation>Вы должны выбрать пункт непосредственно под группой, чтобы переместить его в группу.</translation>
+        <translation>グループに移動するには、グループのすぐ下にあるアイテムを選択する必要があります。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="212"/>
         <source>Move an entry down one in the group.</source>
-        <translation>Переместить элемент на одну позицию вниз в группе.</translation>
+        <translation>エントリーをグループ内で1つ下に移動します。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>Щёлкните правой кнопкой мыши на элементе, чтобы увидеть контекстное меню действий.</translation>
+        <translation>エントリーの上で右クリックするとアクションのコンテキストメニューが表示されます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="74"/>
         <source>You can also right click in your document to select an entry.</source>
-        <translation>Вы также можете щёлкнуть правой кнопкой мыши в документе, чтобы выбрать элемент.</translation>
+        <translation>ドキュメント内で右クリックして、エントリーを選択することもできます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Name</source>
-        <translation>Название</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Name of your entry or group.</source>
-        <translation>Название фрагмента или группы.</translation>
+        <translation>エントリーまたはグループの名前。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Text</source>
-        <translation>Текст</translation>
+        <translation>テキスト</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>The text to insert. The text is treated like a Regex replacement expression so \1 can be used to insert the text selected in Code View when you paste the clip.</source>
-        <translation>Текст для вставки. Текст рассматривается как регулярное выражение, \1 поэтому может быть использован для вставки текста, выбранного в окне Просмотра кода, когда вы вставляете фрагмент.</translation>
+        <translation>挿入するテキストを指定します。テキストは正規表現の置換式と同様に扱われるため、クリップを貼り付けるときに、\1 を使用して、コードビューで選択したテキストを挿入できます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save</source>
-        <translation>Сохранить</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save your changes.</source>
-        <translation>Сохранить все изменения.</translation>
+        <translation>変更点を保存します。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>Если запущены другие экземпляры Sigil, они будут автоматически обновляться с вашими изменениями.</translation>
+        <translation>Sigilの他のインスタンスが実行されている場合は、変更内容が自動的に更新されます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="91"/>
         <source>Cannot save entries.</source>
-        <translation>Невозможно сохранить предустановки.</translation>
+        <translation>エントリーを保存できません。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="135"/>
         <source>Clip entries loaded from file.</source>
-        <translation>Фрагменты загружены из файла.</translation>
+        <translation>クリップエントリーをファイルから読み込みました。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="195"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation>Вы не можете выбрать элемент и группу, содержащую элемент.</translation>
+        <translation>エントリーおよびエントリーを含むグループは選択できません。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="282"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation>Вы не можете копировать или вырезать группы — используйте перетаскивание.</translation>
+        <translation>グループのコピーや切り取りはできません。ドラッグアンドドロップを使用してください。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="354"/>
@@ -1176,99 +1177,99 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="354"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>Вы уверены, что хотите перезагрузить все элементы? Это перезапишет любые несохранённые изменения.</translation>
+        <translation>すべてのエントリーを再読み込みしますか?これにより、保存されていない変更が上書きされます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="375"/>
         <source>Import Entries</source>
-        <translation>Импортировать фрагменты</translation>
+        <translation>エントリーのインポート</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="456"/>
         <source>Export Selected Entries</source>
-        <translation>Экспортировать выбранные фрагменты</translation>
+        <translation>選択したエントリーをエクスポート</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ClipEditor.cpp" line="538"/>
         <source>CSS entries added: %n</source>
-        <translation><numerusform>CSS-записей добавлено: %n</numerusform><numerusform>CSS-записей добавлено: %n</numerusform><numerusform>CSS-записей добавлено: %n</numerusform><numerusform>CSS-записей добавлено: %n</numerusform></translation>
+        <translation><numerusform>CSSエントリーが追加されました。: %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="651"/>
         <source>Edit</source>
-        <translation>Изменить</translation>
+        <translation>編集</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="652"/>
         <source>Cut</source>
-        <translation>Вырезать</translation>
+        <translation>切り取り</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="653"/>
         <source>Copy</source>
-        <translation>Скопировать</translation>
+        <translation>コピー</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="654"/>
         <source>Paste</source>
-        <translation>Вставить</translation>
+        <translation>貼り付け</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="655"/>
         <source>Delete</source>
-        <translation>Удалить</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="656"/>
         <source>Import</source>
-        <translation>Импортировать</translation>
+        <translation>インポート</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="657"/>
         <source>Reload</source>
-        <translation>Перезагрузить</translation>
+        <translation>再読み込み</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="658"/>
         <source>Export</source>
-        <translation>Экспортировать</translation>
+        <translation>エクスポート</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="659"/>
         <source>Export All</source>
-        <translation>Экспортировать всё</translation>
+        <translation>すべてエクスポート</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="660"/>
         <source>Collapse All</source>
-        <translation>Свернуть всё</translation>
+        <translation>すべて閉じる</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="661"/>
         <source>Expand All</source>
-        <translation>Развернуть всё</translation>
+        <translation>すべて開く</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="662"/>
         <source>Autofill</source>
-        <translation>Заполнить автоматически</translation>
+        <translation>オートフィル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="742"/>
         <source>Clip entries saved.</source>
-        <translation>Фрагменты сохранены.</translation>
+        <translation>クリップエントリーを保存しました。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="771"/>
         <source>Sigil: Clip Editor</source>
-        <translation>Sigil: Редактор фрагментов</translation>
+        <translation>Sigil: クリップエディター</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="772"/>
         <source>The Clip entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>Фрагменты сохранены.
-Сохранить изменения?</translation>
+        <translation>クリップエントリーが変更されている可能性があります。
+変更を保存しますか?</translation>
     </message>
 </context>
 <context>
@@ -1276,17 +1277,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="65"/>
         <source>Name</source>
-        <translation>Название</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="66"/>
         <source>Text</source>
-        <translation>Текст</translation>
+        <translation>テキスト</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="680"/>
         <source>Unable to create file %1</source>
-        <translation>Невозможно создать файл %1</translation>
+        <translation>ファイル %1 を作成できません</translation>
     </message>
 </context>
 <context>
@@ -1294,22 +1295,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/ClipboardHistorySelector.ui" line="14"/>
         <source>Select Text to Paste</source>
-        <translation>Выберите текст для вставки</translation>
+        <translation>貼り付けるテキストを選択</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipboardHistorySelector.ui" line="20"/>
         <source>Recent clipboards:</source>
-        <translation>Недавно в буфере обмена:</translation>
+        <translation>最近のクリップボード:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="340"/>
         <source>Paste</source>
-        <translation>Вставить</translation>
+        <translation>貼り付け</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="342"/>
         <source>Save</source>
-        <translation>Сохранить</translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
@@ -1317,17 +1318,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="34"/>
         <source>Clips</source>
-        <translation>Фрагменты</translation>
+        <translation>クリップ</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="99"/>
         <source>Collapse All</source>
-        <translation>Свернуть всё</translation>
+        <translation>すべて閉じる</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="100"/>
         <source>Expand All</source>
-        <translation>Развернуть всё</translation>
+        <translation>すべて広げる</translation>
     </message>
 </context>
 <context>
@@ -1335,112 +1336,112 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="428"/>
         <source>Cannot insert closing tag at this position.</source>
-        <translation>Невозможно вставить сюда закрывающий тег.</translation>
+        <translation>この位置には終了タグを挿入できません。</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="437"/>
         <source>No open tags found at this position.</source>
-        <translation>В этой позиции не найдено открывающих тегов.</translation>
+        <translation>この位置に開始タグが見つかりません。</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1220"/>
         <source>Add To Default Dictionary</source>
-        <translation>Добавить в словарь по умолчанию</translation>
+        <translation>デフォルトの辞書に追加</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1233"/>
         <source>Add To Dictionary</source>
-        <translation>Добавить в словарь</translation>
+        <translation>辞書に追加</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1250"/>
         <source>Ignore</source>
-        <translation>Проигнорировать</translation>
+        <translation>無視</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1312"/>
         <source>Reformat CSS</source>
-        <translation>Переформатировать CSS</translation>
+        <translation>CSSを再フォーマット</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1313"/>
         <source>Multiple Lines Per Style</source>
-        <translation>Стиль в несколько строк</translation>
+        <translation>各スタイルを複数行で定義</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1314"/>
         <source>Single Line Per Style</source>
-        <translation>Стиль в одну строку</translation>
+        <translation>各スタイルを1行で定義</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1339"/>
         <source>Reformat HTML</source>
-        <translation>Переформатировать HTML</translation>
+        <translation>HTMLを再フォーマット</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1340"/>
         <source>Mend and Prettify Code</source>
-        <translation>Исправить и отформатировать код</translation>
+        <translation>コードを修正して整形表示</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1341"/>
         <source>Mend and Prettify Code - All HTML Files</source>
-        <translation>Исправить и отформатировать код - все HTML-файлы</translation>
+        <translation>すべてのHTMLファイルで、コードを修正して整形表示</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1342"/>
         <source>Mend Code</source>
-        <translation>Исправить код</translation>
+        <translation>コードを修正</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1343"/>
         <source>Mend Code - All HTML Files</source>
-        <translation>Исправить код - все HTML-файлы</translation>
+        <translation>すべてのHTMLファイルで、コードを修正</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1373"/>
         <source>Go To Link Or Style</source>
-        <translation>Перейти к ссылке или стилю</translation>
+        <translation>リンクまたはスタイルに進む</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1396"/>
         <source>View Image</source>
-        <translation>Просмотреть изображение</translation>
+        <translation>画像を表示</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1397"/>
         <source>Open Tab For Image</source>
-        <translation>Открыть вкладку для изображения</translation>
+        <translation>画像をタブで開く</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1423"/>
         <source>Mark Selected Text</source>
-        <translation>Отметить выделенный текст</translation>
+        <translation>選択されたテキストをマークする</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1425"/>
         <source>Unmark Marked Text</source>
-        <translation>Снять пометку с текста</translation>
+        <translation>マークされたテキストのマークを外す</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1451"/>
         <source>Clips</source>
-        <translation>Фрагменты</translation>
+        <translation>クリップ</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1461"/>
         <source>Add To Clips</source>
-        <translation>Добавить во фрагменты</translation>
+        <translation>クリップに追加</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1588"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
-        <translation>Вы должны быть в открывающем HTML-теге, чтобы использовать эту функцию.</translation>
+        <translation>この機能を使用するには、HTML開始タグ内にいる必要があります</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1598"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
-        <translation>Вы должны быть внутри открывающего HTML-тега, чтобы использовать эту функцию.</translation>
+        <translation>この機能を使用するには、HTML開始タグの内側にいる必要があります。</translation>
     </message>
 </context>
 <context>
@@ -1448,22 +1449,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="57"/>
         <source>Background</source>
-        <translation>Задний план</translation>
+        <translation>背景色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="59"/>
         <source>Foreground</source>
-        <translation>Передний план</translation>
+        <translation>前景色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="61"/>
         <source>Selection Background</source>
-        <translation>Фон выделения</translation>
+        <translation>選択箇所の背景色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="63"/>
         <source>Selection Foreground</source>
-        <translation>Передний план выделения</translation>
+        <translation>選択箇所の前景色</translation>
     </message>
 </context>
 <context>
@@ -1471,22 +1472,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/DeleteFiles.ui" line="14"/>
         <source>Delete Files</source>
-        <translation>Удалить файлы</translation>
+        <translation>ファイルを削除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="68"/>
         <source>Delete Marked Files</source>
-        <translation>Удалить отмеченные файлы</translation>
+        <translation>マークされたファイルを削除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="69"/>
         <source>Delete</source>
-        <translation>Удалить</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="70"/>
         <source>File</source>
-        <translation>Файл</translation>
+        <translation>ファイル</translation>
     </message>
 </context>
 <context>
@@ -1494,27 +1495,27 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/DeleteStyles.ui" line="14"/>
         <source>Delete Styles</source>
-        <translation>Удалить стили</translation>
+        <translation>スタイルを削除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="80"/>
         <source>Delete Marked Styles</source>
-        <translation>Удалить отмеченные стили</translation>
+        <translation>マークされたスタイルを削除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="81"/>
         <source>Delete</source>
-        <translation>Удалить</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="82"/>
         <source>File</source>
-        <translation>Файл</translation>
+        <translation>ファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="83"/>
         <source>Style</source>
-        <translation>Стиль</translation>
+        <translation>スタイル</translation>
     </message>
 </context>
 <context>
@@ -1522,55 +1523,55 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="14"/>
         <source>Edit Table Of Contents</source>
-        <translation>Редактировать Оглавление</translation>
+        <translation>目次を編集</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="52"/>
         <source>Insert a blank entry above the currently selected entry.</source>
-        <translation>Вставить пустой элемент выше текущего выбранного элемента.</translation>
+        <translation>現在選択されているエントリーの上に空のエントリーを挿入します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="55"/>
         <source>Add Above</source>
-        <translation>Добавить над</translation>
+        <translation>上に追加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="62"/>
         <source>Add a blank entry below the currently selected entry.</source>
-        <translation>Добавить пустой элемент ниже текущего выбранного элемента.</translation>
+        <translation>現在選択されているエントリーの下に空のエントリーを追加します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="65"/>
         <source>Add Below</source>
-        <translation>Добавить под</translation>
+        <translation>下に追加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="72"/>
         <source>Delete the selected TOC entry</source>
-        <translation>Удалить выбранный элемент оглавления</translation>
+        <translation>選択した目次エントリーを削除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="75"/>
         <location filename="../../Dialogs/EditTOC.cpp" line="464"/>
         <source>Delete</source>
-        <translation>Удалить</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="82"/>
         <source>Set the destination of the TOC entry from a list of valid targets in the book.</source>
-        <translation>Установите место в тексте для элемента оглавления из списка допустимых мест в книге.</translation>
+        <translation>ブック内の有効なターゲットのリストから、TOCエントリーの移動先を設定します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="85"/>
         <source>Select Target</source>
-        <translation>Выбор цели</translation>
+        <translation>ターゲットを選択</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="110"/>
         <source>Decrease the heading level of the selected entry.
 You can also use the left arrow key.</source>
-        <translation>Уменьшить уровень заголовка выбранной записи.
-Вы также можете использовать клавишу со стрелкой влево.</translation>
+        <translation>選択したエントリーの見出しレベルを下げます。
+左矢印キーを使用することもできます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="126"/>
@@ -1582,43 +1583,43 @@ You can also use the left arrow key.</source>
         <location filename="../../Form_Files/EditTOC.ui" line="148"/>
         <source>Increase the heading level of the selected entry.
 You can also use the right arrow key.</source>
-        <translation>Увеличить уровень заголовка выбранной записи.
-Вы также можете использовать клавишу со стрелкой вправо.</translation>
+        <translation>選択したエントリの見出しレベルを上げます。
+右矢印キーを使用することもできます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="97"/>
         <source>TOC Entry</source>
-        <translation>Элемент</translation>
+        <translation>目次エントリー</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="98"/>
         <source>Target</source>
-        <translation>Цель</translation>
+        <translation>ターゲット</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="463"/>
         <source>Rename</source>
-        <translation>Переименовать</translation>
+        <translation>名前を変更</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="471"/>
         <source>Move Up</source>
-        <translation>Вверх</translation>
+        <translation>上に移動</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="472"/>
         <source>Move Down</source>
-        <translation>Вниз</translation>
+        <translation>下に移動</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="478"/>
         <source>Expand All</source>
-        <translation>Развернуть всё</translation>
+        <translation>すべて開く</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="479"/>
         <source>Collapse All</source>
-        <translation>Свернуть всё</translation>
+        <translation>すべて閉じる</translation>
     </message>
 </context>
 <context>
@@ -1626,7 +1627,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Misc/EmbeddedPython.cpp" line="617"/>
         <source>Embedded Python Error</source>
-        <translation>Ошибка встроенного Python&apos;a</translation>
+        <translation>埋め込みPythonエラー</translation>
     </message>
 </context>
 <context>
@@ -1634,67 +1635,67 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="22"/>
         <source>Design Custom Epub Layout</source>
-        <translation>Дизайн оформления Epub</translation>
+        <translation>カスタムEpubレイアウトのデザイン</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="62"/>
         <source>Load a previously saved design from an ini file.</source>
-        <translation>Загрузить ранее сохранённые настройки из файла ini.</translation>
+        <translation>以前に保存したデザインをiniファイルから読み込みます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="65"/>
         <source>Load</source>
-        <translation>Загрузка</translation>
+        <translation>読み込み</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="73"/>
         <source>Save the current design to an ini file.</source>
-        <translation>Сохранить текущие настройки в файл ini.</translation>
+        <translation>現在のデザインをiniファイルに保存します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="76"/>
         <source>Save</source>
-        <translation>Сохранить</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="98"/>
         <source>Add a new folder to parent.</source>
-        <translation>Добавить новую папку в родительский каталог.</translation>
+        <translation>新しいフォルダーを親に追加します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="101"/>
         <source>Add Folder</source>
-        <translation>Добавить Папку</translation>
+        <translation>フォルダーを追加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="109"/>
         <source>Add an allowed file type marker to an existing folder.</source>
-        <translation>Добавить допустимый маркер типа файла в существующую папку.</translation>
+        <translation>許可されたファイルタイプのマーカーを既存のフォルダーに追加します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="112"/>
         <source>Add Marker</source>
-        <translation>Добавить Маркер</translation>
+        <translation>マーカーを追加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="120"/>
         <source>Remove an existing file type marker or folder.</source>
-        <translation>Удалить существующий маркер типа файла или папку.</translation>
+        <translation>既存のファイルタイプのマーカーまたはフォルダーを削除します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="123"/>
         <source>Remove</source>
-        <translation>Удалить</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="131"/>
         <source>Rename a folder or OPF, NCX or Nav marker.</source>
-        <translation>Переименовать папку или OPF, NCX или Nav маркер.</translation>
+        <translation>フォルダー、またはOPF、NCX、Navマーカーの名前を変更します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="134"/>
         <source>Rename</source>
-        <translation>Переименовать</translation>
+        <translation>名前を変更</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="167"/>
@@ -1702,155 +1703,155 @@ You can also use the right arrow key.</source>
 the types of files that can be stored in each folder.  
 The file type markers can also be used to specify 
 locations and names for the OPF, NCX and/or Nav.</source>
-        <translation>Добавить папки/подпапки и маркеры файлов, определяющие
-типы файлов, которые можно хранить в каждой папке.
-Маркеры типа файла также могут быть использованы для указания
-местоположения и названия для OPF, NCX и/или Nav.</translation>
+        <translation>各フォルダーに格納できるファイルタイプを決定する
+フォルダー/サブフォルダー、およびファイルマーカーを追加します。
+ファイルタイプのマーカーを使用して、OPF、NCX、Navの場所と名前を
+指定することもできます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="179"/>
         <source>Use OK to commit your custom epub design, otherwise use Cancel.</source>
-        <translation>Используйте OK, чтобы зафиксировать свой собственный дизайн epub, в противном случае используйте Отмена.</translation>
+        <translation>[OK]をクリックしてカスタムepubデザインをコミットするか、[キャンセル]をクリックします。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="144"/>
         <source>Xhtml files</source>
-        <translation>Файлы Xhtml</translation>
+        <translation>Xhtmlファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="144"/>
         <source>Style files</source>
-        <translation>Файлы Стилей</translation>
+        <translation>スタイルファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="145"/>
         <source>Image files</source>
-        <translation>Файлы изображений</translation>
+        <translation>画像ファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="145"/>
         <source>Font files</source>
-        <translation>Файлы шрифтов</translation>
+        <translation>フォントファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
         <source>Audio files</source>
-        <translation>Аудио файлы</translation>
+        <translation>オーディオファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
         <source>Video files</source>
-        <translation>Видео файлы</translation>
+        <translation>動画ファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="147"/>
         <source>Javascript files</source>
-        <translation>Файлы JavaScript</translation>
+        <translation>Javascriptファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="147"/>
         <source>Misc files</source>
-        <translation>Прочие файлы</translation>
+        <translation>その他のファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="148"/>
         <source>OPF file</source>
-        <translation>Файл OPF</translation>
+        <translation>OPFファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="148"/>
         <source>NCX file</source>
-        <translation>Файл NCX</translation>
+        <translation>NCXファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="149"/>
         <source>Nav file</source>
-        <translation>Файл Nav</translation>
+        <translation>Navファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="224"/>
         <source>Select previously saved layout design ini File</source>
-        <translation>Выбрать ранее сохранённый файл настроек ini</translation>
+        <translation>以前に保存したレイアウトデザイン用のiniファイルを選択します</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="226"/>
         <source>Settings Files (*.ini)</source>
-        <translation>Файлы настроек (*.ini)</translation>
+        <translation>設定ファイル (*.ini)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="326"/>
         <source>Save current design to an ini File</source>
-        <translation>Сохранить текущие настройки в файл ini.</translation>
+        <translation>現在のデザインをiniファイルに保存します</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="358"/>
         <source>Add a Folder</source>
-        <translation>Добавить Папку</translation>
+        <translation>フォルダーを追加</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="358"/>
         <source>New Folder Name?</source>
-        <translation>Имя новой папки?</translation>
+        <translation>新しいフォルダー名を入力</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="358"/>
         <source>untitled_folder</source>
-        <translation>папка_без_названия</translation>
+        <translation>folder</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="395"/>
         <source>Rename a Folder</source>
-        <translation>Переименовать папку</translation>
+        <translation>フォルダー名を変更</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="395"/>
         <source>New Name for Folder?</source>
-        <translation>Новое имя для папки?</translation>
+        <translation>変更するフォルダー名を入力</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="406"/>
         <source>Rename a File</source>
-        <translation>Переименовать файл</translation>
+        <translation>ファイル名を変更</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="406"/>
         <source>New Name for File?</source>
-        <translation>Новое имя для файла?</translation>
+        <translation>変更するファイル名を入力</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="464"/>
         <source>A single OPF file is required.</source>
-        <translation>Требуется файл OPF.</translation>
+        <translation>単一のOPFファイルが必要です。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="465"/>
         <source>At least one xhtml marker must exist.</source>
-        <translation>Должен существовать хотя бы один маркер xhtml.</translation>
+        <translation>少なくとも1つのxhtmlマーカーが存在する必要があります。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="466"/>
         <source>At least one image marker must exist.</source>
-        <translation>Должен существовать хотя бы один маркер изображения.</translation>
+        <translation>少なくとも1つの画像マーカーが存在する必要があります。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="467"/>
         <source>At least one css marker must exist.</source>
-        <translation>Должен существовать хотя бы один маркер css.</translation>
+        <translation>少なくとも1つのcssマーカーが存在する必要があります。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="469"/>
         <source>A single NCX file is required.</source>
-        <translation>Требуется файл NCX.</translation>
+        <translation>単一のNCXファイルが必要です。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="471"/>
         <source>A single NAV file is required.</source>
-        <translation>Требуется файл NAV.</translation>
+        <translation>単一のNAVファイルが必要です。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="475"/>
         <source>Errors Detected</source>
-        <translation>Обнаружены ошибки</translation>
+        <translation>エラーが検出されました</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="481"/>
@@ -1862,7 +1863,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <source>Do you want to set this layout as the default empty Epub layout for Sigil?
 
 </source>
-        <translation>Вы хотите установить это оформление как оформление бланка Epub по умолчанию для Sigil?
+        <translation>このレイアウトを Sigilのデフォルトの空のEpubレイアウトとして設定しますか?
 
 </translation>
     </message>
@@ -1872,12 +1873,12 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="20"/>
         <source>Find &amp; Replace</source>
-        <translation>Поиск и замена</translation>
+        <translation>検索と置換</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="55"/>
         <source>Hide Find and Replace</source>
-        <translation>Скрыть поиск и заменить</translation>
+        <translation>検索と置換を隠す</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="61"/>
@@ -1888,69 +1889,69 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="103"/>
         <source>Show/Hide Advanced Options</source>
-        <translation>Показать/Скрыть дополнительные параметры</translation>
+        <translation>詳細オプションを表示/隠す</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="152"/>
         <source>Find:</source>
-        <translation>Найти:</translation>
+        <translation>検索:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="184"/>
         <source>Find next match.</source>
-        <translation>Найти следующее совпадение.</translation>
+        <translation>次にマッチするものを検索します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="190"/>
         <source>Find</source>
-        <translation>Найти</translation>
+        <translation>検索</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="203"/>
         <source>Replace highlighted match (if any),
 then find the Next match in Code View.</source>
-        <translation>Заменить выбранное совпадение (если таковые имеются),
-затем найти следующее совпадение в окне Просмотра кода.</translation>
+        <translation>コードビューでマッチしたもの(があれば)置換し
+次にマッチするものを検索します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="210"/>
         <source>Replace/Find</source>
-        <translation>Найти и заменить</translation>
+        <translation>置換/検索</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="217"/>
         <source>Replace:</source>
-        <translation>Заменить на:</translation>
+        <translation>置換:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="249"/>
         <source>Replace highlighted match (if any) in Code View.</source>
-        <translation>Заменить выбранное совпадение (если таковые имеются) в окне Просмотра кода.</translation>
+        <translation>コードビューでマッチしたもの(があれば)置換します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="255"/>
         <source>Replace</source>
-        <translation>Заменить</translation>
+        <translation>置換</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="268"/>
         <source>Replace all matches in Code View.</source>
-        <translation>Заменить все совпадения в окне Просмотра кода.</translation>
+        <translation>コードビューでマッチしたものすべてを置換します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="274"/>
         <source>Replace All</source>
-        <translation>Заменить всё</translation>
+        <translation>すべて置換</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="281"/>
         <source>Options:</source>
-        <translation>Параметры:</translation>
+        <translation>オプション:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="293"/>
         <source>For Regex searches, prefix your search with (?s).</source>
-        <translation>При использовании регулярных выражений задаёт префикс (?s).</translation>
+        <translation>正規表現検索で、検索語の前に(?s)を追加します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="299"/>
@@ -1960,96 +1961,96 @@ then find the Next match in Code View.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="306"/>
         <source>For Regex searches, prefix your search with (?U).</source>
-        <translation>При использовании регулярных выражений задаёт префикс (?U).</translation>
+        <translation>正規表現検索で、検索語の前に(?U)を追加します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="312"/>
         <source>Minimal Match</source>
-        <translation>Минимальное совпадение</translation>
+        <translation>最小一致</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="319"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
-        <translation>При использовании регулярных выражений экранирует escape-символы, выделенные, когда открывается поиск.</translation>
+        <translation>正規表現検索で、検索を開くときに、選択範囲をトークン化/エスケープします。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="325"/>
         <source>Auto-Tokenise</source>
-        <translation>Автоэкранирование</translation>
+        <translation>自動トークン化</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="332"/>
         <source>Search from current position to end of the 
 current file or book, and then wrap to the
 other end to continue searching.</source>
-        <translation>Поиск от текущей позиции до конца
-текущего файла или книги, затем переход в
-начало, для продолжения поиска.</translation>
+        <translation>現在の位置から、ファイルまたはブックの端まで
+検索し、もう一方の端から折り返して
+検索を続けます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="337"/>
         <source>Wrap</source>
-        <translation>Искать везде</translation>
+        <translation>折り返し</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="371"/>
         <source>Count all matches in Code View.</source>
-        <translation>Подсчитать все совпадения в окне Просмотра кода.</translation>
+        <translation>コードビューでマッチしたものすべての数を数えます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="377"/>
         <source>Count All</source>
-        <translation>Посчитать всё</translation>
+        <translation>すべてカウント</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="384"/>
         <source>Mode:</source>
-        <translation>Режим:</translation>
+        <translation>モード:</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="179"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1431"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1432"/>
         <source>Current File</source>
-        <translation>Текущий файл</translation>
+        <translation>現在のファイル</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="334"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1254"/>
         <source>Matches found: %n</source>
-        <translation><numerusform>Совпадений найдено: %n</numerusform><numerusform>Совпадений найдено: %n</numerusform><numerusform>Совпадений найдено: %n</numerusform><numerusform>Совпадений найдено: %n</numerusform></translation>
+        <translation><numerusform>一致が見つかりました。: %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="418"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1278"/>
         <source>No replacements made</source>
-        <translation>Замен не выполнено</translation>
+        <translation>置換するものはありませんでした</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="420"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1280"/>
         <source>Replacements made: %n</source>
-        <translation><numerusform>Произведено подстановок: %n</numerusform><numerusform>Произведено подстановок: %n</numerusform><numerusform>Произведено подстановок: %n</numerusform><numerusform>Произведено подстановок: %n</numerusform></translation>
+        <translation><numerusform>置換が行われました。: %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="617"/>
         <source>No matches found</source>
-        <translation>Больше нет совпадений</translation>
+        <translation>一致が見つかりません</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1132"/>
         <source>This tab cannot be searched</source>
-        <translation>Поиск в этой вкладке невозможен</translation>
+        <translation>このタブは検索できません</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1164"/>
         <source>Unnamed search loaded</source>
-        <translation>Загружен поиск без имени</translation>
+        <translation>名前のない検索が読み込まれました</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1167"/>
         <source>Loaded</source>
-        <translation>Загружено</translation>
+        <translation>読み込みました</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1180"/>
@@ -2058,121 +2059,121 @@ other end to continue searching.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="1238"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1264"/>
         <source>No searches selected</source>
-        <translation>Поиск не выбран</translation>
+        <translation>検索が選択されていません</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1421"/>
         <source>What to search for</source>
-        <translation>Что искать</translation>
+        <translation>検索対象</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1422"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
         <source>Normal</source>
-        <translation>Обычный</translation>
+        <translation>通常</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
         <source>Case in-sensitive search of exactly what you type.</source>
-        <translation>Поиск без учёта регистра именно того, что вы печатаете.</translation>
+        <translation>入力した内容を大文字と小文字を区別せずに検索します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1424"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Case Sensitive</source>
-        <translation>С учётом регистра</translation>
+        <translation>大文字小文字を区別</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Case sensitive search of exactly what you type.</source>
-        <translation>Поиск с учётом регистра именно того, что вы печатаете.</translation>
+        <translation>入力した内容を大文字と小文字を区別して検索します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
         <source>Regex</source>
-        <translation>Регулярные выражения</translation>
+        <translation>正規表現</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
-        <translation>Поиск по шаблону, с использованием синтаксиса регулярных выражений.</translation>
+        <translation>正規表現の構文を使用してパターン検索します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1430"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1442"/>
         <source>Where to search</source>
-        <translation>Где искать</translation>
+        <translation>検索場所</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1432"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
-        <translation>Ограничить поиск или замену открытым файлом. Удерживайте клавишу Ctrl при нажатии любой кнопки поиска, чтобы временно ограничить поиск только в текущем файле.</translation>
+        <translation>検索や置換を、開いているファイルに制限します。 Ctrlキーを押しながら検索ボタンをクリックすると、検索を一時的に現在のファイルに制限します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1433"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
         <source>All HTML Files</source>
-        <translation>Все файлы HTML</translation>
+        <translation>すべてのHTMLファイル</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
         <source>Find or replace in all HTML files in Code View.</source>
-        <translation>Найти или заменить во всех HTML-файлах в окне Просмотра кода.</translation>
+        <translation>コード ビューで、すべてのHTMLファイルを検索または置換します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1435"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1436"/>
         <source>Selected HTML Files</source>
-        <translation>Выбранные HTML-файлы</translation>
+        <translation>選択されたHTMLファイル</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1436"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
-        <translation>Ограничить поиск и замену HTML-файлами выбранными в окне Структура Книги в представлении &quot;Код&quot;.</translation>
+        <translation>コードビューの検索または置換を、ブックブラウザーで選択されたHTMLファイルに制限します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1438"/>
         <source>To restrict search to selected text, use Search&amp;rarr;Mark Selected Text.</source>
-        <translation>Чтобы ограничить поиск выбранным текстом, используйте Поиск&amp;rarr;Пометить выделенный текст.</translation>
+        <translation>検索対象を、選択されたテキストに制限するには、[検索]→[選択されたテキストをマーク]を使用します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1443"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1444"/>
         <source>Marked Text</source>
-        <translation>Отмеченный текст</translation>
+        <translation>マークされたテキスト</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1444"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
-        <translation>Ограничить поиск и замену в выделенном тексте после Поиск&amp;rarr;Пометить выделенный текст. Очищается, если вы используете Отменить, вводите текст или изменяете режим просмотра или вкладку.</translation>
+        <translation>検索や置換を、[検索]→[選択されたテキストをマーク]でマークされたテキストに制限します。[元に戻す]や、テキスト入力、ビューやタブの変更を行うと、クリアされます。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1448"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
         <source>Up</source>
-        <translation>Вверх</translation>
+        <translation>上へ</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1449"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1453"/>
         <source>Down</source>
-        <translation>Вниз</translation>
+        <translation>下へ</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1450"/>
         <source>Direction to search</source>
-        <translation>Направление поиска</translation>
+        <translation>検索する方向</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
         <source>Search for the previous match from your current position.</source>
-        <translation>Поиск предыдущего совпадения от текущей позиции.</translation>
+        <translation>現在の位置から前の一致を検索します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1453"/>
         <source>Search for the next match from your current position.</source>
-        <translation>Поиск следующего совпадения от текущей позиции.</translation>
+        <translation>現在の位置から次の一致を検索します。</translation>
     </message>
 </context>
 <context>
@@ -2180,12 +2181,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="58"/>
         <source>Tokenise Selection</source>
-        <translation>Экранированный выбор</translation>
+        <translation>トークン化の選択</translation>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="71"/>
         <source>Save Search</source>
-        <translation>Сохранить поиск</translation>
+        <translation>検索を保存</translation>
     </message>
 </context>
 <context>
@@ -2193,7 +2194,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Tabs/FlowTab.cpp" line="853"/>
         <source>Print %1</source>
-        <translation>Печать %1</translation>
+        <translation>%1 を印刷</translation>
     </message>
 </context>
 <context>
@@ -2201,7 +2202,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../ResourceObjects/FontResource.cpp" line="74"/>
         <source>No reliable font data</source>
-        <translation>Нет достоверных данных шрифта</translation>
+        <translation>信頼できるフォントデータがありません</translation>
     </message>
 </context>
 <context>
@@ -2209,230 +2210,229 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="14"/>
         <source>General Settings</source>
-        <translation>Основные настройки</translation>
+        <translation>全般の設定</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="20"/>
         <source>Choose which version of Epub to use
 when creating new or empty Epubs in Sigil.</source>
-        <translation>Выберите какую версию EPUB использовать
-при создании новых или незаполненных EPUB в Sigil.</translation>
+        <translation>使用するEpubのバージョンを選択してください。
+（Sigilで新しいまたは空のEpubを作成する場合の）</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="24"/>
         <source>Create New or Empty Epubs as:</source>
-        <translation>Создавать новые или незаполненные EPUB как:</translation>
+        <translation>新規または空のEPUB作成時の形式:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="30"/>
         <source>Epub Version 2.</source>
-        <translation>EPUB версия 2</translation>
+        <translation>EPUBバージョン2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="33"/>
         <source>Version 2</source>
-        <translation>Версия 2</translation>
+        <translation>バージョン2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="43"/>
         <source>Epub Version 3.</source>
-        <translation>EPUB версия 3</translation>
+        <translation>EPUBバージョン3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="46"/>
         <source>Version 3</source>
-        <translation>Версия 3</translation>
+        <translation>バージョン3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="59"/>
         <source>Choose when your not well formed HTML code is automatically 
 mended.</source>
-        <translation>Выберите, когда автоматически исправлять Ваш некорректный  
-HTML-код.</translation>
+        <translation>整形式でないHTMLコードを自動で修正する場合に選択します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="63"/>
         <source>Mend Not Well Formed HTML Source Code On:</source>
-        <translation>Исправить некорректный исходный код HTML на:</translation>
+        <translation>整形式でないHTMLソースコードを修正する:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="69"/>
         <source>Mend Not Well Formed HTML when opening an Epub or HTML file.</source>
-        <translation>Исправить некорректный HTML при открытии Epub или HTML-файла.</translation>
+        <translation>EpubまたはHTMLファイルを開くときに、整形式でないHTMLを修正します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="72"/>
         <source>Open</source>
-        <translation>Открыть</translation>
+        <translation>開く</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="79"/>
         <source>Mend Not Well Formed HTML when saving an Epub.</source>
-        <translation>Исправить некорректный HTML перед сохранением EPUB.</translation>
+        <translation>Epubを保存するときに、整形式でないHTMLを修正します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="82"/>
         <source>Save</source>
-        <translation>Сохранить</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="92"/>
         <source>Determine if Epubs are allowed to access non-multimedia remote resources.</source>
-        <translation>Определите, разрешать ли EPUB доступ к немультимедийных удалённым ресурсам.</translation>
+        <translation>EPUBが、マルチメディア以外のリモートリソースにアクセスすることを許可するかどうかを決定します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="95"/>
         <source> Control Access by Epubs to non-multimedia remote resources.</source>
-        <translation>Контроль доступа EPUB к немультимедийным удалённым ресурсам.</translation>
+        <translation>EPUBによる、マルチメディア以外のリモートリソースへのアクセスを制御する</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="104"/>
         <source>Check to allow Epubs to access non-multimedia remote resources.</source>
-        <translation>Установите флажок, чтобы разрешить EPUB доступ к немультимедийных удалённым ресурсам.</translation>
+        <translation>EPUBが、マルチメディア以外のリモートリソースにアクセスすることを許可する場合にチェックします。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="107"/>
         <source>Epubs may access all remote resources types.</source>
-        <translation>Разрешить EPUB доступ к удалённым ресурсам любого типа.</translation>
+        <translation>EPUBが、すべてのリモートリソースタイプにアクセスすることを許可する</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="120"/>
         <source>Determine if javascript is allowed to be used by Epubs</source>
-        <translation>Определяет, разрешено ли использование JavaScript книгой EPUBs</translation>
+        <translation>EPUBが、JavaScriptを利用することを許可するかどうかを決定します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="123"/>
         <source> Control Use of Javascript by Epubs.</source>
-        <translation>Управление использованием JavaScript книгой EPUBs.</translation>
+        <translation>EPUBによる、JavaScriptの利用を制御する</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="132"/>
         <source>Check to allow Epubs to use javascript.</source>
-        <translation>Установите флажок, чтобы разрешить книгам EPUBs использовать JavaScript.</translation>
+        <translation>EPUBが、JavaScriptを利用することを許可する場合にチェックします。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="135"/>
         <source>Epubs may use javascript.</source>
-        <translation>Epub могут использовать javascript.</translation>
+        <translation>EPUBが、JavaScriptを利用することを許可する</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="154"/>
         <source>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</source>
-        <translation>Уровень CSS, указывающийся для инструмента проверки таблиц стилей W3C (EPUB2)</translation>
+        <translation>W3Cスタイルシート検証ツール（EPUB2）に指定するCSSレベル</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="157"/>
         <source>EPUB2 W3C Stylesheet Validation Level:</source>
-        <translation>EPUB 2 уровень для проверки таблицы стилей W3C:</translation>
+        <translation>EPUB2 W3Cスタイルシート検証レベル：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="166"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB2</source>
-        <translation>W3C-валидатор таблиц стилей будет использовать CSS2 для EPUB2</translation>
+        <translation>W3Cスタイルシート検証ツールは、EPUB2にCSSレベル2を使用します</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="169"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="226"/>
         <source>CSS Level 2</source>
-        <translation>CSS2</translation>
+        <translation>CSSレベル2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="176"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB2</source>
-        <translation>W3C-валидатор таблиц стилей будет использовать CSS2.1 для EPUB2</translation>
+        <translation>W3Cスタイルシート検証ツールは、EPUB2にCSSレベル2.1を使用します</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="179"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="236"/>
         <source>CSS Level 2.1</source>
-        <translation>CSS2.1</translation>
+        <translation>CSSレベル2.1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="189"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB2</source>
-        <translation>W3C-валидатор таблиц стилей будет использовать CSS3 для EPUB2</translation>
+        <translation>W3Cスタイルシート検証ツールは、EPUB2にCSSレベル3を使用します</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="192"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="249"/>
         <source>CSS Level 3</source>
-        <translation>CSS3</translation>
+        <translation>CSSレベル3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="211"/>
         <source>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</source>
-        <translation>Уровень CSS, указывающийся для инструмента проверки таблиц стилей W3C (EPUB3)</translation>
+        <translation>W3C スタイルシート検証ツール (EPUB3) に指定する CSS レベル</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="214"/>
         <source>EPUB3 W3C Stylesheet Validation Level:</source>
-        <translation>EPUB3 уровень для проверки таблицы стилей W3C:</translation>
+        <translation>EPUB3 W3Cスタイルシート検証レベル：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="223"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB3</source>
-        <translation>W3C-валидатор таблиц стилей будет использовать CSS2 для EPUB3</translation>
+        <translation>W3Cスタイルシート検証ツールは、EPUB3にCSSレベル2を使用します</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="233"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB3</source>
-        <translation>W3C-валидатор таблиц стилей будет использовать CSS2.1 для EPUB3</translation>
+        <translation>W3Cスタイルシート検証ツールは、EPUB3にCSSレベル2.1を使用します</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="246"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB3</source>
-        <translation>W3C-валидатор таблиц стилей будет использовать CSS3 для EPUB3</translation>
+        <translation>W3Cスタイルシート検証ツールは、EPUB3にCSSレベル3を使用します</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="262"/>
         <source>Number of clipboard history items to save between sessions (0 disables):</source>
-        <translation>Количество элементов истории буфера обмена, сохраняемое между сессиями (0 — не сохранять):</translation>
+        <translation>セッション間で保存するクリップボード履歴アイテムの数（0は無効）：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="274"/>
         <source>Use to limit (or disable) clipboard history saving between sessions</source>
-        <translation>Используйте для ограничения (или запрета) сохранения буфера обмена между сессиями</translation>
+        <translation>セッション間で保存するクリップボード履歴を制限（または無効化）するために使用します</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="306"/>
         <source>Set Folder where temporary files should be created</source>
-        <translation>Выберите папку для создания временных файлов</translation>
+        <translation>一時ファイルが作成されるフォルダーを指定</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="317"/>
         <source>Auto</source>
-        <translation>Стандартная</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="324"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="354"/>
         <source>Browse</source>
-        <translation>Выбрать</translation>
+        <translation>参照</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="336"/>
         <source>Set your preferred alternative external xhtml editor</source>
-        <translation>Установите предпочитаемый Вами альтернативный внешний редактор xhtml</translation>
+        <translation>任意の外部XHTMLエディタを設定</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="347"/>
         <source>clear</source>
-        <translation>Очистить</translation>
+        <translation>クリア</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="192"/>
         <source>Incorrect Path for External Xhtml Editor selected</source>
-        <translation>Выбран неправильный путь для внешнего редактора Xhtml</translation>
+        <translation>外部XHTMLエディタのパスが正しくありません</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="212"/>
         <source>Select Folder for Temporary Files</source>
-        <translation>Выберите папку для временных файлов</translation>
+        <translation>一時ファイル用のフォルダを選択</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="229"/>
         <source>Incorrect Folder for Temporary Files selected</source>
-        <translation>Выбрана неверная папка для временных файлов</translation>
+        <translation>選択した一時ファイル用のフォルダが正しくありません</translation>
     </message>
 </context>
 <context>
@@ -2440,362 +2440,362 @@ HTML-код.</translation>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="111"/>
         <source>Acknowledgements</source>
-        <translation>Благодарности</translation>
+        <translation>謝辞</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="111"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
-        <translation>Отрывок, содержащий благодарности всем вовлечённым в создании книги.</translation>
+        <translation>作業の実現に関与するエンティティへの謝辞を含む一節。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="112"/>
         <source>Afterword [other.]</source>
-        <translation>Послесловие [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="112"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation>Заключительное слово автора или важной для произведения личности, обычно содержит историю создания, значимость событий или раскрывает события выясненные позже.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="113"/>
         <source>Appendix [other.]</source>
-        <translation>Приложение [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="113"/>
         <source>Supplemental information.</source>
-        <translation>Дополнительная информация.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="114"/>
         <source>Back Matter [other.]</source>
-        <translation>Конечные материалы [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="114"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
-        <translation>Вспомогательные материалы, печатаемые после основного содержания, такие как указатели, приложения и т.п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="115"/>
         <source>Bibliography</source>
-        <translation>Библиография</translation>
+        <translation>参考文献</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="115"/>
         <source>A list of works cited.</source>
-        <translation>Перечень цитируемых работ.</translation>
+        <translation>引用された作品のリスト。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="116"/>
         <source>Text</source>
-        <translation>Текст</translation>
+        <translation>テキスト</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="116"/>
         <source>The start of the main text content of a publication.</source>
-        <translation>Начало основного текстового содержания издания.</translation>
+        <translation>出版物のメインテキストコンテンツの開始。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="117"/>
         <source>Colophon</source>
-        <translation>Колофон</translation>
+        <translation>奥付</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="117"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
-        <translation>Краткое описание, обычно находится в конце публикации, содержащие производственные заметки, относящиеся к этому изданию.</translation>
+        <translation>通常、出版物の最後に置かれる簡単な説明。エディションに関連する制作ノートを説明します。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="118"/>
         <source>Conclusion [other.]</source>
-        <translation>Заключение [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="118"/>
         <source>An ending section that typically wraps up the work.</source>
-        <translation>Последняя секция, обычно подводящая итоги произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="119"/>
         <source>Contributors [other.]</source>
-        <translation>Соавторы [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="119"/>
         <source>A list of contributors to the work.</source>
-        <translation>Список соавторов работы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="120"/>
         <source>Copyright Page</source>
-        <translation>Страница авторских прав</translation>
+        <translation>著作権ページ</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="120"/>
         <source>The copyright page of the work.</source>
-        <translation>Страница книги с описанием авторских прав.</translation>
+        <translation>作品の著作権ページ。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="121"/>
         <source>Cover</source>
-        <translation>Обложка</translation>
+        <translation>表紙</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="121"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation>Обложки изданий, информация на обложках и т.д.</translation>
+        <translation>出版物の表紙やブックカバー情報など</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="122"/>
         <source>Dedication</source>
-        <translation>Посвящение</translation>
+        <translation>献辞</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="122"/>
         <source>An inscription addressed to one or several particular person(s).</source>
-        <translation>Надпись, адресуемая одному или нескольким определённым людям.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="123"/>
         <source>Epilogue [other.]</source>
-        <translation>Эпилог [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="123"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
-        <translation>Заключительная часть, обычно описывающая более поздние, чем остальное произведение, события, но всё ещё являющаяся частью повествования.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="124"/>
         <source>Epigraph</source>
-        <translation>Эпиграф</translation>
+        <translation>題辞</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="124"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation>Цитата, которая уместна, но не является неотъемлемой частью текста.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="125"/>
         <source>Errata [other.]</source>
-        <translation>Список опечаток [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="125"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
-        <translation>Обнаруженные ошибки — в печатных работах, обычно, отдельный листок-вкладыш, иногда страница, содержащие исправления в работе.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="126"/>
         <source>Footnotes [other.]</source>
-        <translation>Сноски [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="126"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
-        <translation>Множество записок расположенных внизу страницы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="127"/>
         <source>Foreword</source>
-        <translation>Предисловие</translation>
+        <translation>序文</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="127"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation>Введение, предшествующее работе, но, как правило, написанное не автором произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="128"/>
         <source>Front Matter [other.]</source>
-        <translation>Начальные материалы [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="128"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
-        <translation>Предваряющий текст к основному содержимому публикации, такой как оглавление, благодарности и т.п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="129"/>
         <source>Glossary</source>
-        <translation>Глоссарий</translation>
+        <translation>用語集</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="129"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
-        <translation>Список терминов в алфавитном порядке из определённой области знаний с определениями этих терминов.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="130"/>
         <source>Half Title Page [other.]</source>
-        <translation>Шмуцтитул [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="130"/>
         <source>The half title page of the work which carries just the title itself.</source>
-        <translation>Шмуцтитул произведения, который содержит только название.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="131"/>
         <source>Imprimatur [other.]</source>
-        <translation>Имприматур [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="131"/>
         <source>A formal statement authorizing the publication of the work.</source>
-        <translation>Официальное заявление о разрешении на публикацию работы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="132"/>
         <source>Imprint [other.]</source>
-        <translation>Импринт [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="132"/>
         <source>Information relating to the publication or distribution of the work.</source>
-        <translation>Информация, относящаяся к публикации или распространению работы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="133"/>
         <source>Index</source>
-        <translation>Указатель</translation>
+        <translation>索引</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="133"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
-        <translation>Подробный список, обычно в алфавитном порядке, конкретной информации содержащейся в публикации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="134"/>
         <source>Introduction [other.]</source>
-        <translation>Предисловие [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="134"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
-        <translation>Раздел в начале работы, обычно вводящий читателя в сферу или характер содержимого произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="135"/>
         <source>List of Illustrations</source>
-        <translation>Список иллюстраций</translation>
+        <translation>イラスト一覧</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="135"/>
         <source>A listing of illustrations included in the work.</source>
-        <translation>Список иллюстраций включённых в произведение.</translation>
+        <translation>作品に含まれているイラストの一覧。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="136"/>
         <source>List of Audio Clips [other.]</source>
-        <translation>Список аудиоклипов [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="136"/>
         <source>A listing of audio clips included in the work.</source>
-        <translation>Перечень аудиодорожек, включённых в произведение.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="137"/>
         <source>List of Tables</source>
-        <translation>Список таблиц</translation>
+        <translation>テーブル一覧</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="137"/>
         <source>A listing of tables included in the work.</source>
-        <translation>Список таблиц включённых в произведение.</translation>
+        <translation>作品に含まれているテーブルの一覧。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="138"/>
         <source>List of Video Clips [other.]</source>
-        <translation>Список видеоклипов [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="138"/>
         <source>A listing of video clips included in the work.</source>
-        <translation>Перечень видео отрывков, включённых в произведение.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="139"/>
         <source>Notes</source>
-        <translation>Примечания</translation>
+        <translation>備考</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="139"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
-        <translation>Коллекция сносок. Может быть использована для сносок внизу страницы, затекстовых, сносок на полях, внутритекстовых и подобных. Статус: нежелательно — заменено на: &quot;footnotes&quot;, &quot;rearnotes&quot;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="140"/>
         <source>Other Credits [other.]</source>
-        <translation>Иные благодарности [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="140"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
-        <translation>Благодарности за ранее опубликованные части работы, авторские права на иллюстрации и разрешение на цитирование материалов, защищённых авторским правом.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="141"/>
         <source>Preamble [other.]</source>
-        <translation>Преамбула [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="141"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
-        <translation>Раздел в начале, обычно содержащий вводный и/или пояснительный текст относительно объёма или характера содержания произведения</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="142"/>
         <source>Preface</source>
-        <translation>Предисловие</translation>
+        <translation>はじめに</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="142"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation>Вводный раздел, предшествующий работе, как правило, написанный автором произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="143"/>
         <source>Prologue [other.]</source>
-        <translation>Пролог [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="143"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
-        <translation>Вводный раздел, который описывает предысторию событий, как правило, часть повествования.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="144"/>
         <source>Rear Notes [other.]</source>
-        <translation>Примечания [другое.]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="144"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
-        <translation>Приложения или заметки, помещённые в конце (после) произведения, или в конце раздела.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="145"/>
         <source>Title Page</source>
-        <translation>Титульная страница</translation>
+        <translation>タイトルページ</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="145"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
-        <translation>Страница в начале книги, включающая её название, имена авторов, издателя и другую информацию публикации.</translation>
+        <translation>本の冒頭にある、タイトル、著者、出版社、その他の出版情報を示すページ。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="146"/>
         <source>Table of Contents</source>
-        <translation>Оглавление</translation>
+        <translation>目次</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="146"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
-        <translation>Оглавление — это список заголовков разделов книги или документа, в порядке их появления в тексте. Обычно указывается в начале работы или раздела.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2803,82 +2803,82 @@ HTML-код.</translation>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="14"/>
         <source>HTML Files</source>
-        <translation>Файлы HTML</translation>
+        <translation>HTMLファイル</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Перечислить только имена файлов, которые содержат текст, введённый вами.</translation>
+        <translation>入力したテキストを含むファイル名のみリスト表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Фильтр:</translation>
+        <translation>フィルター:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="75"/>
         <source>Name</source>
-        <translation>Название</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="76"/>
         <source>File Size (KB)</source>
-        <translation>Размер файла (КБ)</translation>
+        <translation>ファイルサイズ(KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="77"/>
         <source>All Words</source>
-        <translation>Все слова</translation>
+        <translation>全単語数</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="78"/>
         <source>Misspelled Words</source>
-        <translation>Слова с ошибками</translation>
+        <translation>ミススペル単語</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="79"/>
         <source>Images</source>
-        <translation>Изображения</translation>
+        <translation>画像</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="80"/>
         <source>Video</source>
-        <translation>Видео</translation>
+        <translation>動画</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="81"/>
         <source>Audio</source>
-        <translation>Аудио</translation>
+        <translation>オーディオ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="82"/>
         <source>Stylesheets</source>
-        <translation>Таблицы стилей</translation>
+        <translation>スタイルシート</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="83"/>
         <source>Well Formed</source>
-        <translation>Без ошибок</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="173"/>
         <source>Yes</source>
-        <translation>Да</translation>
+        <translation>はい</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="173"/>
         <source>No</source>
-        <translation>Нет</translation>
+        <translation>いいえ</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="192"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n файл</numerusform><numerusform>%n файла</numerusform><numerusform>%n файлов</numerusform><numerusform>%n файлов</numerusform></translation>
+        <translation><numerusform>%n 個のファイル</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="338"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Сохранить отчёт как файл с разделителями запятыми</translation>
+        <translation>カンマ区切りのファイルとしてレポートを保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="352"/>
@@ -2888,12 +2888,12 @@ HTML-код.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="352"/>
         <source>Cannot save report file.</source>
-        <translation>Не удалось сохранить файл отчёта.</translation>
+        <translation>レポートファイルを保存できません。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="377"/>
         <source>Delete From Book</source>
-        <translation>Удалить из книги</translation>
+        <translation>本から削除</translation>
     </message>
 </context>
 <context>
@@ -2901,105 +2901,106 @@ HTML-код.</translation>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="14"/>
         <source>Generate Table Of Contents</source>
-        <translation>Создание оглавления</translation>
+        <translation>目次の生成</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="52"/>
         <source>Change the name of the entry in the TOC.
 The heading&apos;s title attribute will be updated in the document.</source>
-        <translation>Измените имя элемента в оглавлении.
-Атрибут названия заголовка в документе обновится.</translation>
+        <translation>TOCのエントリーの名前を変更します。
+見出しのtitle属性はドキュメント内で更新されます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="975"/>
         <source>Rename</source>
-        <translation>Переименовать</translation>
+        <translation>名前を変更</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="81"/>
         <source>Decrease the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
 You can also use the left arrow key.</source>
-        <translation>Уменьшить уровень заголовка выбранного элемента на 1.
-Тег заголовка в документе обновится.
-Вы также можете использовать клавишу со стрелкой влево.</translation>
+        <translation>選択したエントリーの見出しレベルを1つ下げます。
+見出しタグが文書内で更新されます。
+左矢印キーを使用することもできます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="96"/>
         <source>Increase the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
 You can also use the right arrow key.</source>
-        <translation>Увеличить уровень заголовка выбранного элемента на 1.
-Тег заголовка в документе обновится.
-Вы также можете использовать клавишу со стрелкой вправо.</translation>
+        <translation>選択したエントリーの見出しレベルを1つ上げます。
+見出しタグが文書内で更新されます。
+右矢印キーを使用することもできます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="130"/>
         <source>Only display the items that will be added to the Table Of Contents.
 Check or uncheck an entry to determine if it will be added to the TOC.</source>
-        <translation>Отображать только те элементы, которые будут добавлены в Содержание.
-Поставьте или снимите галочку у элемента, чтобы определить, будет ли она добавлена в оглавлении.</translation>
+        <translation>目次に追加される項目のみを表示します。
+エントリーをオンまたはオフにして、TOCに追加するかどうかを決定します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="134"/>
         <source>Show TOC items only</source>
-        <translation>Показывать только элементы оглавления</translation>
+        <translation>目次のアイテムのみ表示</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="153"/>
         <source>Quickly mark which headings are included in the TOC.
 You can then check or uncheck individual headings in the list above.</source>
-        <translation>Быстро обозначить, какие заголовки включены в оглавление.
-Вы можете поставить или снять флажки у отдельных заголовков в списке выше.</translation>
+        <translation>目次に含まれる見出しをすばやくマークします。
+その後、上記のリストで、個々の見出しをオンまたはオフにできます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="618"/>
         <source>Level</source>
-        <translation>Уровень</translation>
+        <translation>レベル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <source>Included</source>
-        <translation>Включено</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <source>Hidden</source>
-        <translation>Скрыто</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="617"/>
         <source>TOC Entry / Heading Title</source>
-        <translation>Элемент оглавления / Заголовок</translation>
+        <translation>目次エントリー/見出しタイトル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="619"/>
         <source>Include</source>
-        <translation>Использовать</translation>
+        <translation>含める</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="838"/>
         <source>Up to level</source>
-        <translation>До уровня</translation>
+        <translation>レベル以下:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="840"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
-        <translation>&lt;Выберите включаемые в оглавление заголовки&gt;</translation>
+        <translation>&lt;目次に含める見出しを選択&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="843"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="904"/>
         <source>None</source>
-        <translation>Никакие</translation>
+        <translation>なし
+</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="849"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="902"/>
         <source>All</source>
-        <translation>Все</translation>
+        <translation>すべて</translation>
     </message>
 </context>
 <context>
@@ -3007,77 +3008,77 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="14"/>
         <source>Image Files</source>
-        <translation>Файлы изображений</translation>
+        <translation>画像ファイル</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Перечислить только имена файлов, которые содержат текст, введённый вами.</translation>
+        <translation>入力したテキストを含むファイル名のみリスト表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Фильтр:</translation>
+        <translation>フィルター:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="76"/>
         <source>Thumbnail size:</source>
-        <translation>Размер миниатюры:</translation>
+        <translation>サムネイルサイズ:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="88"/>
         <source>Name</source>
-        <translation>Название</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="89"/>
         <source>File Size (KB)</source>
-        <translation>Размер файла (КБ)</translation>
+        <translation>ファイルサイズ(KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="90"/>
         <source>Times Used</source>
-        <translation>Использовано раз</translation>
+        <translation>使用回数</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="91"/>
         <source>Width</source>
-        <translation>Ширина</translation>
+        <translation>幅</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="92"/>
         <source>Height</source>
-        <translation>Высота</translation>
+        <translation>高さ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="93"/>
         <source>Pixels</source>
-        <translation>Пикселов</translation>
+        <translation>ピクセル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="94"/>
         <source>Color</source>
-        <translation>Цвет</translation>
+        <translation>カラー</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="97"/>
         <source>Image</source>
-        <translation>Изображение</translation>
+        <translation>画像</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="184"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n файл</numerusform><numerusform>%n файла</numerusform><numerusform>%n файлов</numerusform><numerusform>%n файлов</numerusform></translation>
+        <translation><numerusform>%n 個のファイル</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="188"/>
         <source>KB</source>
-        <translation>КБ</translation>
+        <translation>KB</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Сохранить отчёт как файл с разделителями запятыми</translation>
+        <translation>カンマ区切りのファイルとしてレポートを保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="350"/>
@@ -3087,12 +3088,12 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="350"/>
         <source>Cannot save report file.</source>
-        <translation>Не удалось сохранить файл отчёта.</translation>
+        <translation>レポートファイルを保存できません。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="425"/>
         <source>Delete From Book</source>
-        <translation>Удалить из книги</translation>
+        <translation>本から削除</translation>
     </message>
 </context>
 <context>
@@ -3100,49 +3101,49 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="179"/>
         <source>shades</source>
-        <translation>оттенков</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="179"/>
         <source>colors</source>
-        <translation>цветов</translation>
+        <translation>カラー</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="180"/>
         <source>Grayscale</source>
-        <translation>В градациях серого</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="180"/>
         <source>Color</source>
-        <translation>Цветное</translation>
+        <translation>カラー</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="295"/>
         <location filename="../../Tabs/ImageTab.cpp" line="353"/>
         <location filename="../../Tabs/ImageTab.cpp" line="356"/>
         <source>Open With</source>
-        <translation>Открыть с помощью...</translation>
+        <translation>アプリケーションから開く</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="331"/>
         <source>Other Application</source>
-        <translation>Другое приложение</translation>
+        <translation>他のアプリケーション</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="354"/>
         <source>Save As</source>
-        <translation>Сохранить как</translation>
+        <translation>名前を付けて保存</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="355"/>
         <source>Copy Image</source>
-        <translation>Копировать изображение</translation>
+        <translation>画像をコピー</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="403"/>
         <source>Print %1</source>
-        <translation>Напечатать %1</translation>
+        <translation>%1 を印刷</translation>
     </message>
 </context>
 <context>
@@ -3150,7 +3151,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="148"/>
         <source>Files exist in epub that are not listed in the manifest, they will be ignored</source>
-        <translation>Файлы включённые в epub,  но не перечисленные в манифесте, будут проигнорированы</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="186"/>
@@ -3162,19 +3163,17 @@ You can then check or uncheck individual headings in the list above.</source>
         <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in minor data loss.
 
 Do you want to automatically fix the files?</source>
-        <translation>В этом EPUB есть HTML-файлы, имеющие ошибки в структуре. Sigil может попытаться автоматически исправить эти файлы, хотя это может привести к незначительной потере данных.
-
-Вы хотите автоматически исправить файлы?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="557"/>
         <source>Epub has missing or improperly specified OPF.</source>
-        <translation>OPF отсутствует или неверно сформирован.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="597"/>
         <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
-        <translation>Этот файл epub содержит множественные представления (несколько файлов OPF). Редактирование файла в Sigil приведёт к созданию обычной версии epub с использованием основного (первого) найденного OPF-файла.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3183,93 +3182,93 @@ Do you want to automatically fix the files?</source>
         <location filename="../../Form_Files/IndexEditor.ui" line="14"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
         <source>Index Editor</source>
-        <translation>Редактор указателя</translation>
+        <translation>インデックスエディター</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation>Фильтр:</translation>
+        <translation>フィルター:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Показать только записи, содержащие введённый вами текст.</translation>
+        <translation>入力したテキストを含むエントリーのみリスト表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="55"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="435"/>
         <source>Add Entry</source>
-        <translation>Добавить запись</translation>
+        <translation>エントリーを追加</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>Щёлкните правой кнопкой мыши на элементе, чтобы увидеть контекстное меню действий.</translation>
+        <translation>エントリーの上で右クリックするとアクションのコンテキストメニューが表示されます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="68"/>
         <source>You can also right click in your document to add selected text to the Index.</source>
-        <translation>Вы также можете щёлкнуть правой кнопкой мыши в документе, чтобы добавить выделенный текст в Указатель.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>Text to Include</source>
-        <translation>Включаемый текст</translation>
+        <translation>索引付けするテキスト</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>The pattern to match in your document, e.g. &quot;Gutenberg&quot;. This is a regex pattern so &quot;(?i)Gutenberg&quot; ignores case when matching.</source>
-        <translation>Шаблон для совпадений в документе, например, &quot;Гутенберг&quot;. Это шаблон регулярного выражения, так &quot;(?i)Гутенберг&quot; игнорирует регистр при сопоставлении.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="71"/>
         <source>Index Entries</source>
-        <translation>Запись в указателе</translation>
+        <translation>インデックスエントリー</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="71"/>
         <source>The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using &apos;/&apos; after a level name, e.g. &quot;Books/Fantasy/Alice in Wonderland&quot; or &quot;Books/Fantasy/&quot;.</source>
-        <translation>Элемент указателя. Оставьте пустым, если хотите использовать текст как есть, или введите отображаемый текст. Чтобы создать многоуровневые элементы, используйте &quot;/&quot; после имени уровня, например, &quot;Книги/Фэнтези/Алиса в стране чудес&quot; или &quot;Книги/Фэнтези/&quot;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
         <source>Save</source>
-        <translation>Сохранить</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
         <source>Save your changes.</source>
-        <translation>Сохранить все изменения.</translation>
+        <translation>変更点を保存します。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>Если запущены другие экземпляры Sigil, они будут автоматически обновляться с вашими изменениями.</translation>
+        <translation>Sigilの他のインスタンスが実行されている場合は、変更内容が自動的に更新されます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="85"/>
         <source>Cannot save entries.</source>
-        <translation>Невозможно сохранить предустановки.</translation>
+        <translation>エントリーを保存できません。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="127"/>
         <source>Index entries loaded from file.</source>
-        <translation>Элементы указателя загружаются из файла.</translation>
+        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
         <source>Entries added: %n</source>
-        <translation><numerusform>Записей добавлено: %n</numerusform><numerusform>Записей добавлено: %n</numerusform><numerusform>Записей добавлено: %n</numerusform><numerusform>Записей добавлено: %n</numerusform></translation>
+        <translation><numerusform>エントリーが追加されました。: %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="294"/>
         <source>Index files: *.ini *.txt (*.ini *.txt)</source>
-        <translation>Файлы указателя : *.ini *.txt (*.ini *.txt)</translation>
+        <translation>インデックスファイル: *.ini *.txt (*.ini *.txt)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="301"/>
         <source>Load Entries From File</source>
-        <translation>Загрузка из файла</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="319"/>
@@ -3279,79 +3278,78 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="319"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>Вы уверены, что хотите перезагрузить все элементы? Это перезапишет любые несохранённые изменения.</translation>
+        <translation>すべてのエントリーを再読み込みしますか?これにより、保存されていない変更が上書きされます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="342"/>
         <source>Save Entries to File</source>
-        <translation>Сохранить данные в файл</translation>
+        <translation>エントリーをファイルに保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="436"/>
         <source>Edit</source>
-        <translation>Изменить</translation>
+        <translation>編集</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="437"/>
         <source>Cut</source>
-        <translation>Вырезать</translation>
+        <translation>切り取り</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="438"/>
         <source>Copy</source>
-        <translation>Скопировать</translation>
+        <translation>コピー</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="439"/>
         <source>Paste</source>
-        <translation>Вставить</translation>
+        <translation>貼り付け</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="440"/>
         <source>Delete</source>
-        <translation>Удалить</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="441"/>
         <source>Autofill</source>
-        <translation>Заполнить автоматически</translation>
+        <translation>オートフィル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="442"/>
         <source>Open</source>
-        <translation>Открыть</translation>
+        <translation>開く</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="443"/>
         <source>Reload</source>
-        <translation>Перезагрузить</translation>
+        <translation>再読み込み</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="444"/>
         <source>Save As</source>
-        <translation>Сохранить как</translation>
+        <translation>名前を付けて保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="445"/>
         <source>Select All</source>
-        <translation>Выбрать всё</translation>
+        <translation>すべて選択</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="520"/>
         <source>Index entries saved.</source>
-        <translation>Элементы указателя сохранены.</translation>
+        <translation>インデックスエントリーを保存しました。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="549"/>
         <source>Sigil: Index Editor</source>
-        <translation>Редактор указателя</translation>
+        <translation>Sigil: インデックスエディター</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="550"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>Указатель был изменён.
-Сохранить изменения?</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3359,17 +3357,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="61"/>
         <source>Text to Include</source>
-        <translation>Включаемый текст</translation>
+        <translation>索引付けするテキスト</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="62"/>
         <source>Index Entries</source>
-        <translation>Записи в указателе</translation>
+        <translation>インデックスエントリー</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="347"/>
         <source>Unable to create file %1</source>
-        <translation>Невозможно создать файл %1</translation>
+        <translation>ファイル %1 を作成できません</translation>
     </message>
 </context>
 <context>
@@ -3377,12 +3375,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/Inspector.cpp" line="43"/>
         <source>Inspect Page or Element</source>
-        <translation>Обследовать страницу или элемент</translation>
+        <translation>ページまたは要素の検査</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Inspector.cpp" line="89"/>
         <source>The Inspector functionality is not supported before Qt 5.11</source>
-        <translation>Функциональность Инспектора не поддерживается до Qt 5.11</translation>
+        <translation>インスペクタ機能は、Qt 5.11 以前ではサポートされていません。</translation>
     </message>
 </context>
 <context>
@@ -3390,78 +3388,78 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="14"/>
         <source>Keyboard Shortcuts</source>
-        <translation>Клавиатурные комбинации</translation>
+        <translation>キーボードショートカット</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="34"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Показать только записи, содержащие введённый вами текст.</translation>
+        <translation>入力したテキストを含むエントリーのみリスト表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="37"/>
         <source>Filter: </source>
-        <translation>Фильтр: </translation>
+        <translation>フィルター:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="62"/>
         <source>Name</source>
-        <translation>Название</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="67"/>
         <source>Shortcut</source>
-        <translation>Комбинация</translation>
+        <translation>ショートカット</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="72"/>
         <source>Description</source>
-        <translation>Описание</translation>
+        <translation>詳細</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="82"/>
         <source>Reset all to default</source>
-        <translation>Сбросить всё до исходных значений</translation>
+        <translation>すべてデフォルトにリセット</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="85"/>
         <source>Reset All</source>
-        <translation>Сбросить до исходных</translation>
+        <translation>すべてリセット</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="115"/>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="125"/>
         <source>Press the key combination you want to use.</source>
-        <translation>Нажмите сочетание клавиш, которое вы хотите использовать.</translation>
+        <translation>使用したいキーの組み合わせを押してください</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="118"/>
         <source>Shortcut:</source>
-        <translation>Горячая клавиша:</translation>
+        <translation>ショートカット:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="141"/>
         <source>Assign this keyboard shortcut, overriding any conflicting usages.</source>
-        <translation>Назначить это сочетание клавиш, отвергая любые конфликтующие использования.</translation>
+        <translation>このキーボードショートカットを割り当て、キーが衝突する場合は上書きします。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="144"/>
         <source>Assign</source>
-        <translation>Назначить</translation>
+        <translation>割り当て</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="160"/>
         <source>Remove this keyboard shortcut.</source>
-        <translation>Удалить эту комбинацию.</translation>
+        <translation>このキーボードショートカットを削除する</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="163"/>
         <source>Remove</source>
-        <translation>Удалить</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="343"/>
         <source>Conflicts with: &lt;b&gt;</source>
-        <translation>Конфликт с: &lt;b&gt;</translation>
+        <translation>以下と衝突: &lt;b&gt;</translation>
     </message>
 </context>
 <context>
@@ -3469,482 +3467,482 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="117"/>
         <source>Acknowledgments</source>
-        <translation>Благодарности</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="117"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
-        <translation>Отрывок содержащий благодарности всем вовлечённым в создании книги.</translation>
+        <translation>作業の実現に関与するエンティティへの謝辞を含む一節。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="118"/>
         <source>Afterword</source>
-        <translation>Заключение</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="118"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation>Заключительное слово автора или важной для произведения личности, обычно содержит историю создания, значимость событий или раскрывает события выясненные позже.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="119"/>
         <source>Annotation</source>
-        <translation>Аннотация</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="119"/>
         <source>Explanatory information about passages in the work. Status: Deprecated</source>
-        <translation>Пояснительная информация к отрывкам работы. Статус: устаревшее.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="120"/>
         <source>Appendix</source>
-        <translation>Приложение</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="120"/>
         <source>Supplemental information.</source>
-        <translation>Дополнительная информация.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="121"/>
         <source>Assessment</source>
-        <translation>Проверочная работа</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="121"/>
         <source>A test, quiz, or other activity that helps measure a student&apos;s understanding of what is being taught.</source>
-        <translation>Контрольная или проверочная работа, или другой род деятельности позволяющий оценить понимание студентом того, чему его обучают.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="122"/>
         <source>Back Matter</source>
-        <translation>Колофон</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="122"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
-        <translation>Вспомогательные материалы, печатаемые после основного содержания, такие как указатели, приложения и т.п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="123"/>
         <source>Bibliography</source>
-        <translation>Библиография</translation>
+        <translation>参考文献</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="123"/>
         <source>A list of works cited.</source>
-        <translation>Перечень цитируемых работ.</translation>
+        <translation>引用された作品のリスト。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="124"/>
         <source>Body Matter</source>
-        <translation>Основной текст</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="124"/>
         <source>The main content of a publication.</source>
-        <translation>Основное содержание публикации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="125"/>
         <source>Chapter</source>
-        <translation>Глава</translation>
+        <translation>チャプター</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="125"/>
         <source>A major structural division of a piece of writing.</source>
-        <translation>Основное структурное подразделение написанного.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="126"/>
         <source>Colophon</source>
-        <translation>Колофон</translation>
+        <translation>奥付</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="126"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
-        <translation>Краткое описание, обычно находится в конце публикации, содержащие производственные заметки, относящиеся к этому изданию.</translation>
+        <translation>通常、出版物の最後に置かれる簡単な説明。エディションに関連する制作ノートを説明します。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="127"/>
         <source>Conclusion</source>
-        <translation>Вывод</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="127"/>
         <source>An ending section that typically wraps up the work.</source>
-        <translation>Последняя секция, обычно подводящая итоги произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="128"/>
         <source>Contributors</source>
-        <translation>Соавторы</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="128"/>
         <source>A list of contributors to the work.</source>
-        <translation>Список соавторов работы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="129"/>
         <source>Copyright Page</source>
-        <translation>Страница авторских прав</translation>
+        <translation>著作権ページ</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="129"/>
         <source>The copyright page of the work.</source>
-        <translation>Страница книги с описанием авторских прав.</translation>
+        <translation>作品の著作権ページ。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="130"/>
         <source>Cover</source>
-        <translation>Обложка</translation>
+        <translation>表紙</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="130"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation>Обложка (-и) изданий, информация на обложках и т.д.</translation>
+        <translation>出版物の表紙やブックカバー情報など</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="131"/>
         <source>Dedication</source>
-        <translation>Посвящение</translation>
+        <translation>献辞</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="131"/>
         <source>An inscription addressed to one or several particular person(s).</source>
-        <translation>Надпись, адресуемая одному или нескольким определённым людям.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="132"/>
         <source>Division</source>
-        <translation>Раздел</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="132"/>
         <source>A major structural division that may also appear as a substructure of a part (esp. in legislation).</source>
-        <translation>Основная структурная часть, может быть оформлена как подраздел (характерно для нормативно-правовых актов).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="133"/>
         <source>Epigraph</source>
-        <translation>Эпиграф</translation>
+        <translation>題辞</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="133"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation>Цитата, которая уместна, но не является неотъемлемой частью текста.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="134"/>
         <source>Epilogue</source>
-        <translation>Эпилог</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="134"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
-        <translation>Заключительная часть, обычно описывающая более поздние, чем остальное произведение, события, но всё ещё являющаяся частью повествования.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="135"/>
         <source>Errata</source>
-        <translation>Опечатка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="135"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
-        <translation>Обнаруженные ошибки — в печатных работах, обычно, отдельный листок-вкладыш, иногда страница, содержащие исправления в работе.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="136"/>
         <source>Footnotes</source>
-        <translation>Сноски</translation>
+        <translation>脚注</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="136"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
-        <translation>Множество записок расположенных внизу страницы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="137"/>
         <source>Foreword</source>
-        <translation>Предисловие</translation>
+        <translation>序文</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="137"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation>Введение, предшествующее работе, но, как правило, написанное не автором произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="138"/>
         <source>Front Matter</source>
-        <translation>Введение</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="138"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
-        <translation>Предваряющий текст к основному содержимому публикации, такой как оглавление, благодарности и т.п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="139"/>
         <source>Glossary</source>
-        <translation>Глоссарий</translation>
+        <translation>用語集</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="139"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
-        <translation>Список терминов в алфавитном порядке из определённой области знаний с определениями этих терминов.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="140"/>
         <source>Half Title Page</source>
-        <translation>Шмуцтитул</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="140"/>
         <source>The half title page of the work which carries just the title itself.</source>
-        <translation>Шмуцтитул произведения, который содержит только название.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="141"/>
         <source>Imprimatur</source>
-        <translation>Разрешение на издание</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="141"/>
         <source>A formal statement authorizing the publication of the work.</source>
-        <translation>Официальное заявление о разрешении на публикацию работы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="142"/>
         <source>Imprint</source>
-        <translation>Отпечатано</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="142"/>
         <source>Information relating to the publication or distribution of the work.</source>
-        <translation>Информация, относящаяся к публикации или распространению работы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="143"/>
         <source>Index</source>
-        <translation>Оглавление</translation>
+        <translation>索引</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="143"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
-        <translation>Подробный список, обычно в алфавитном порядке, конкретной информации содержащейся в публикации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="144"/>
         <source>Introduction</source>
-        <translation>Введение</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="144"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
-        <translation>Раздел в начале работы, обычно вводящий читателя в сферу или характер содержимого произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="145"/>
         <source>Landmarks</source>
-        <translation>Пометки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="145"/>
         <source>A collection of references to well-known/recurring components within the publication</source>
-        <translation>Перечень ссылок на известные или повторяющиеся компоненты в публикации</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="146"/>
         <source>List of Audio Clips</source>
-        <translation>Список аудиодорожек</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="146"/>
         <source>A listing of audio clips included in the work.</source>
-        <translation>Перечень аудиодорожек, включённых в произведение.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="147"/>
         <source>List of Illustrations</source>
-        <translation>Список иллюстраций</translation>
+        <translation>イラスト一覧</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="147"/>
         <source>A listing of illustrations included in the work.</source>
-        <translation>Список иллюстраций, включённых в произведение.</translation>
+        <translation>作品に含まれているイラストの一覧。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="148"/>
         <source>List of Tables</source>
-        <translation>Список таблиц</translation>
+        <translation>テーブル一覧</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="148"/>
         <source>A listing of tables included in the work.</source>
-        <translation>Список таблиц, включённых в произведение.</translation>
+        <translation>作品に含まれているテーブルの一覧。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="149"/>
         <source>List of Video Clips</source>
-        <translation>Список видео отрывков</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="149"/>
         <source>A listing of video clips included in the work.</source>
-        <translation>Перечень видео отрывков, включённых в произведение.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="150"/>
         <source>Notice</source>
-        <translation>Уведомление</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="150"/>
         <source>Information that requires special attention, and that must not be skipped or suppressed. Examples include: alert, warning, caution, danger, important.</source>
-        <translation>Информация, требующая особого внимания, которую нельзя пропустить или скрыть. Например: оповещение, предупреждение, предостережение, опасность, важное.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="151"/>
         <source>Other Credits</source>
-        <translation>Иные благодарности</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="151"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
-        <translation>Благодарности за ранее опубликованные части работы, авторские права на иллюстрации и разрешение на цитирование материалов, защищённых авторским правом.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="152"/>
         <source>Page List</source>
-        <translation>Список страниц</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="152"/>
         <source>A list of references to pagebreaks (start locations) from a print version of the ebook</source>
-        <translation>Список ссылок на разрывы страниц (местоположения начал) из печатной версии электронной книги</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="153"/>
         <source>Part</source>
-        <translation>Часть</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="153"/>
         <source>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</source>
-        <translation>Основное структурное разделение произведения, обычно включающее набор связанных глав.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>Preamble</source>
-        <translation>Преамбула</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
-        <translation>Раздел в начале, обычно содержащий вводный и/или пояснительный текст относительно объёма или характера содержания произведения</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>Preface</source>
-        <translation>Предисловие</translation>
+        <translation>はじめに</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation>Вводный раздел, предшествующий работе, как правило, написанный автором произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>Prologue</source>
-        <translation>Пролог</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
-        <translation>Вводный раздел, который описывает предысторию событий, как правило, часть повествования.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>Questions and Answers</source>
-        <translation>Вопросы и ответы</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>A question and answer section.</source>
-        <translation>Секция вопросов и ответов.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>Rear Notes</source>
-        <translation>Приложения, указатели</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
-        <translation>Приложения или заметки, помещённые в конце (после) произведения, или в конце раздела.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>Revision History</source>
-        <translation>История Изменений</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>A record of changes made to a work.</source>
-        <translation>Перечень изменений сделанных в работе.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>Subchapter</source>
-        <translation>Подраздел</translation>
+        <translation>サブチャプター</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>A major sub-division of a chapter.</source>
-        <translation>Крупное подразделение главы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>Title Page</source>
-        <translation>Титульная страница</translation>
+        <translation>タイトルページ</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
-        <translation>Страница в начале книги, включающая её название, имена авторов, издателя и другую информацию публикации.</translation>
+        <translation>本の冒頭にある、タイトル、著者、出版社、その他の出版情報を示すページ。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>Table of Contents</source>
-        <translation>Оглавление</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
-        <translation>Оглавление — это список заголовков разделов книги или документа, в порядке их появления в тексте. Обычно указывается в начале работы или раздела.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>Volume</source>
-        <translation>Том</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>A component of a collection.</source>
-        <translation>Элемент коллекции.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>Warning</source>
-        <translation>Предупреждение</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
-        <translation>Предупреждение или предостережение об особом содержании. Статус: осуждается — должно быть заменено на «уведомление».</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3952,32 +3950,32 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="85"/>
         <source>Abkhazian</source>
-        <translation>Абхазский</translation>
+        <translation>アブハズ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="86"/>
         <source>Afar</source>
-        <translation>Афарский</translation>
+        <translation>アファール語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="87"/>
         <source>Afrikaans</source>
-        <translation>Африкаанс</translation>
+        <translation>アフリカーンス語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="88"/>
         <source>Akan</source>
-        <translation>Аканский</translation>
+        <translation>アカン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="89"/>
         <source>Albanian</source>
-        <translation>Албанский</translation>
+        <translation>アルバニア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="90"/>
         <source>Amharic</source>
-        <translation>Амхарский</translation>
+        <translation>アムハラ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="91"/>
@@ -3997,205 +3995,205 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Arabic</source>
-        <translation>Арабский</translation>
+        <translation>アラビア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="92"/>
         <source>Algeria</source>
-        <translation>Алжир</translation>
+        <translation>アルジェリア</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="93"/>
         <source>Bahrain</source>
-        <translation>Бахрейн</translation>
+        <translation>バーレーン</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="94"/>
         <source>Egypt</source>
-        <translation>Египет</translation>
+        <translation>エジプト</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="95"/>
         <source>Iraq</source>
-        <translation>Ирак</translation>
+        <translation>イラク</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="96"/>
         <source>Jordan</source>
-        <translation>Иордания</translation>
+        <translation>ヨルダン</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="97"/>
         <source>Kuwait</source>
-        <translation>Кувейт</translation>
+        <translation>クウェート</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="98"/>
         <source>Lebanon</source>
-        <translation>Ливан</translation>
+        <translation>レバノン</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="99"/>
         <source>Libya</source>
-        <translation>Ливия</translation>
+        <translation>リビア</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="100"/>
         <source>Morocco</source>
-        <translation>Марокко</translation>
+        <translation>モロッコ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="101"/>
         <source>Oman</source>
-        <translation>Оман</translation>
+        <translation>オマーン</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="102"/>
         <source>Qatar</source>
-        <translation>Катар</translation>
+        <translation>カタール</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="103"/>
         <source>Syria</source>
-        <translation>Сирия</translation>
+        <translation>シリア</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="104"/>
         <source>Tunisia</source>
-        <translation>Тунис</translation>
+        <translation>チュニジア</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <source>United Arab Emirates</source>
-        <translation>ОАЭ</translation>
+        <translation>アラブ首長国連邦</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Yemen</source>
-        <translation>Йемен</translation>
+        <translation>イエメン</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="107"/>
         <source>Aragonese</source>
-        <translation>Арагонский</translation>
+        <translation>アラゴン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Armenian</source>
-        <translation>Армянский</translation>
+        <translation>アルメニア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="109"/>
         <source>Assamese</source>
-        <translation>Ассамский</translation>
+        <translation>アッサム語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="110"/>
         <source>Avaric</source>
-        <translation>Аварский</translation>
+        <translation>アバル語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="111"/>
         <source>Avestan</source>
-        <translation>Авестийский</translation>
+        <translation>アベスター語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="112"/>
         <source>Aymara</source>
-        <translation>Аймарский</translation>
+        <translation>アイマラ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="113"/>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Azerbaijani</source>
-        <translation>Азербайджанский</translation>
+        <translation>アゼルバイジャン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Azerbaijan</source>
-        <translation>Азербайджан</translation>
+        <translation>アゼルバイジャン</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="115"/>
         <source>Bambara</source>
-        <translation>Бамана</translation>
+        <translation>バンバラ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="116"/>
         <source>Bashkir</source>
-        <translation>Башкирский</translation>
+        <translation>バシキール語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="117"/>
         <source>Basque</source>
-        <translation>Баскский</translation>
+        <translation>バスク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="118"/>
         <source>Belarusian</source>
-        <translation>Белорусский</translation>
+        <translation>ベラルーシ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="119"/>
         <source>Bengali</source>
-        <translation>Бенгали</translation>
+        <translation>ベンガル語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="120"/>
         <source>Bihari</source>
-        <translation>Бихарский</translation>
+        <translation>ビハール語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="121"/>
         <source>Bislama</source>
-        <translation>Бислама</translation>
+        <translation>ビスラマ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Bosnian</source>
-        <translation>Боснийский</translation>
+        <translation>ボスニア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="123"/>
         <source>Breton</source>
-        <translation>Бретонский</translation>
+        <translation>ブリュターニュ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Bulgarian</source>
-        <translation>Болгарский</translation>
+        <translation>ブルガリア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="125"/>
         <source>Burmese</source>
-        <translation>Бирманский</translation>
+        <translation>ビルマ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="126"/>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Catalan</source>
-        <translation>Каталонский</translation>
+        <translation>カタロニア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <location filename="../../Misc/Language.cpp" line="312"/>
         <source>Spain</source>
-        <translation>Испания</translation>
+        <translation>スペイン</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Central Khmer</source>
-        <translation>Кхмерский, центральный</translation>
+        <translation>中央クメール</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="129"/>
         <source>Chamorro</source>
-        <translation>Чаморро</translation>
+        <translation>チャモロ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Chechen</source>
-        <translation>Чеченский</translation>
+        <translation>チェチェン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="131"/>
@@ -4205,106 +4203,106 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Chinese</source>
-        <translation>Китайский</translation>
+        <translation>中国語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="132"/>
         <source>China</source>
-        <translation>Китай</translation>
+        <translation>中国</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="133"/>
         <source>Hong Kong</source>
-        <translation>Гонконг</translation>
+        <translation>香港</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Macau</source>
-        <translation>Макао</translation>
+        <translation>マカオ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Singapore</source>
-        <translation>Сингапур</translation>
+        <translation>シンガポール</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Taiwan</source>
-        <translation>Тайвань</translation>
+        <translation>台湾</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Church Slavic</source>
-        <translation>Церковно-славянский</translation>
+        <translation>教会スラブ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="138"/>
         <source>Chuvash</source>
-        <translation>Чувашский</translation>
+        <translation>チュバシュ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Cornish</source>
-        <translation>Корнуольский</translation>
+        <translation>コーンウォール語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Corsican</source>
-        <translation>Корсиканский</translation>
+        <translation>コルシカ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="141"/>
         <source>Cree</source>
-        <translation>Кри</translation>
+        <translation>クリー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="142"/>
         <source>Croatian</source>
-        <translation>Хорватский</translation>
+        <translation>クロアチア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Czech</source>
-        <translation>Чешский</translation>
+        <translation>チェコ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="144"/>
         <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Danish</source>
-        <translation>Датский</translation>
+        <translation>デンマーク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Denmark</source>
-        <translation>Дания</translation>
+        <translation>デンマーク</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Dhivehi</source>
-        <translation>Мальдивский</translation>
+        <translation>ディベヒ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="147"/>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Dutch</source>
-        <translation>Голландский</translation>
+        <translation>オランダ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <source>Belgium</source>
-        <translation>Бельгия</translation>
+        <translation>ベルギー</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Netherlands</source>
-        <translation>Нидерланды</translation>
+        <translation>オランダ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Dzongkha</source>
-        <translation>Дзонгка (Бутан)</translation>
+        <translation>ゾンカ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="151"/>
@@ -4321,99 +4319,99 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>English</source>
-        <translation>Английский</translation>
+        <translation>英語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="152"/>
         <source>Australia</source>
-        <translation>Австралия</translation>
+        <translation>オーストラリア</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Belize</source>
-        <translation>Белиз</translation>
+        <translation>ベリーズ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="154"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Canada</source>
-        <translation>Канада</translation>
+        <translation>カナダ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Caribbean</source>
-        <translation>Карибы</translation>
+        <translation>カリブ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="156"/>
         <source>Great Britain</source>
-        <translation>Великобритания</translation>
+        <translation>イギリス</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="157"/>
         <source>India</source>
-        <translation>Индия</translation>
+        <translation>インド</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="158"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Ireland</source>
-        <translation>Ирландия</translation>
+        <translation>アイルランド</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Jamaica</source>
-        <translation>Джамайка</translation>
+        <translation>ジャマイカ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Phillippines</source>
-        <translation>Филлипины</translation>
+        <translation>フィリピン</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="161"/>
         <source>Trinidad</source>
-        <translation>Тринидад</translation>
+        <translation>トリニダード</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <source>South Africa</source>
-        <translation>Южная Африка</translation>
+        <translation>南アフリカ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>United States</source>
-        <translation>США</translation>
+        <translation>アメリカ合衆国</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="164"/>
         <source>Esperanto</source>
-        <translation>Эсперанто</translation>
+        <translation>エスペラント</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Estonian</source>
-        <translation>Эстонский</translation>
+        <translation>エストニア</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="166"/>
         <source>Ewe</source>
-        <translation>Эве</translation>
+        <translation>エウェ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="167"/>
         <source>Faroese</source>
-        <translation>Фарерский</translation>
+        <translation>フェロー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="168"/>
         <source>Fijian</source>
-        <translation>Фиджи</translation>
+        <translation>フィジー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="169"/>
         <source>Finnish</source>
-        <translation>Финский</translation>
+        <translation>フィンランド語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="170"/>
@@ -4423,56 +4421,56 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <source>French</source>
-        <translation>Французский</translation>
+        <translation>フランス語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="173"/>
         <source>France</source>
-        <translation>Франция</translation>
+        <translation>フランス</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Luxembourg</source>
-        <translation>Люксембург</translation>
+        <translation>ルクセンブルク</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Switzerland</source>
-        <translation>Швейцария</translation>
+        <translation>スイス</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="176"/>
         <source>Fulah</source>
-        <translation>Фула</translation>
+        <translation>ラフニ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Gaelic</source>
-        <translation>Гаэльский</translation>
+        <translation>ゲール語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <source>Scotland</source>
-        <translation>Шотландия</translation>
+        <translation>スコットランド</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Galician</source>
-        <translation>Галицийский</translation>
+        <translation>ガリシア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="180"/>
         <source>Ganda</source>
-        <translation>Ганда</translation>
+        <translation>ガンダ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="181"/>
         <source>Georgian</source>
-        <translation>Грузинский</translation>
+        <translation>グルジア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="182"/>
@@ -4482,568 +4480,568 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <source>German</source>
-        <translation>Немецкий</translation>
+        <translation>ドイツ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="183"/>
         <source>Austria</source>
-        <translation>Австрия</translation>
+        <translation>オーストリア</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="184"/>
         <source>Germany</source>
-        <translation>Германия</translation>
+        <translation>ドイツ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="185"/>
         <source>Liechtenstein</source>
-        <translation>Лихтенштейн</translation>
+        <translation>リヒテンシュタイン</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Greek, Modern</source>
-        <translation>Греция</translation>
+        <translation>ギリシャ(現代)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="189"/>
         <source>Greek</source>
-        <translation>Греческий</translation>
+        <translation>ギリシャ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="190"/>
         <source>Guarani</source>
-        <translation>Гуарани</translation>
+        <translation>グアラニ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="191"/>
         <source>Gujarati</source>
-        <translation>Гуджарати</translation>
+        <translation>グジャラート語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="192"/>
         <source>Haitian</source>
-        <translation>Гаитянский</translation>
+        <translation>ハイチ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Hausa</source>
-        <translation>Хауса</translation>
+        <translation>ハウサ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Hebrew</source>
-        <translation>Иврит</translation>
+        <translation>ヘブライ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="195"/>
         <source>Herero</source>
-        <translation>Эреро</translation>
+        <translation>ヘレロ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="196"/>
         <source>Hindi</source>
-        <translation>Хинди</translation>
+        <translation>台湾</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="197"/>
         <source>Hiri Motu</source>
-        <translation>Хири-моту</translation>
+        <translation>ヒリモツ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="198"/>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Hungarian</source>
-        <translation>Венгерский</translation>
+        <translation>ハンガリー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Hungary</source>
-        <translation>Венгрия</translation>
+        <translation>ハンガリー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Icelandic</source>
-        <translation>Исландский</translation>
+        <translation>アイスランド語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="201"/>
         <source>Ido</source>
-        <translation>Идо</translation>
+        <translation>イド語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="202"/>
         <source>Igbo</source>
-        <translation>Ибо</translation>
+        <translation>イボ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Indonesian</source>
-        <translation>Индонезийский</translation>
+        <translation>インドネシア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="204"/>
         <source>Indonesian - Indonesia</source>
-        <translation>Индонезийский - Индонезия</translation>
+        <translation>インドネシア語 - インドネシア</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="205"/>
         <source>Interlingua</source>
-        <translation>Интерлингва</translation>
+        <translation>インターリングア</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Interlingue</source>
-        <translation>Окциденталь</translation>
+        <translation>インターリング</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="207"/>
         <source>Inuktitut</source>
-        <translation>Инуктитут</translation>
+        <translation>イヌクティトゥト語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="208"/>
         <source>Inupiaq</source>
-        <translation>Инупиак</translation>
+        <translation>イヌピアク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Irish</source>
-        <translation>Галльский (Ирландия)</translation>
+        <translation>アイルランド語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="210"/>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Italian</source>
-        <translation>Итальянский</translation>
+        <translation>イタリア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Italy</source>
-        <translation>Италия</translation>
+        <translation>イタリア</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Japanese</source>
-        <translation>Японский</translation>
+        <translation>日本語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Javanese</source>
-        <translation>Яванский</translation>
+        <translation>ジャワ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="215"/>
         <source>Kalaallisut</source>
-        <translation>Калаалисут</translation>
+        <translation>カラーリット語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="216"/>
         <source>Kannada</source>
-        <translation>Каннада</translation>
+        <translation>カンナダ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="217"/>
         <source>Kanuri</source>
-        <translation>Канури</translation>
+        <translation>カヌリ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Kashmiri</source>
-        <translation>Кашмирский</translation>
+        <translation>カシミール語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Kazakh</source>
-        <translation>Казахский</translation>
+        <translation>カザフ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="220"/>
         <source>Kikuyu</source>
-        <translation>Кикую</translation>
+        <translation>キクユ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Kinyarwanda</source>
-        <translation>Киньяруанда</translation>
+        <translation>キニヤルワンダ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Kirghiz</source>
-        <translation>Киргизский</translation>
+        <translation>キルギス語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Komi</source>
-        <translation>Коми</translation>
+        <translation>コミ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="224"/>
         <source>Kongo</source>
-        <translation>Конго</translation>
+        <translation>コンゴ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Korean</source>
-        <translation>Корейский</translation>
+        <translation>韓国語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Kuanyama</source>
-        <translation>Кваньяма</translation>
+        <translation>クワニャマ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Kurdish</source>
-        <translation>Курдский</translation>
+        <translation>クルド語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Lao</source>
-        <translation>Лао</translation>
+        <translation>ラオ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Latin</source>
-        <translation>Латинский</translation>
+        <translation>ラテン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="230"/>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Latvian</source>
-        <translation>Латышский</translation>
+        <translation>ラトビア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Latvia</source>
-        <translation>Латвия</translation>
+        <translation>ラトビア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Limburgan</source>
-        <translation>Лимбургский</translation>
+        <translation>リンブルフ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="233"/>
         <source>Lingala</source>
-        <translation>Лингала</translation>
+        <translation>リンガラ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="234"/>
         <source>Lithuanian</source>
-        <translation>Литовский</translation>
+        <translation>リトアニア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="235"/>
         <source>Luba-Katanga</source>
-        <translation>Луба-катанга</translation>
+        <translation>ルバ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Luxembourgish</source>
-        <translation>Люксембургский</translation>
+        <translation>ルクセンブルク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Macedonian</source>
-        <translation>Македонский</translation>
+        <translation>マケドニア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Malagasy</source>
-        <translation>Мальгашский</translation>
+        <translation>マラガシ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="239"/>
         <source>Malayalam</source>
-        <translation>Малайялам</translation>
+        <translation>マラヤーラム語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="240"/>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Malay</source>
-        <translation>Малайский</translation>
+        <translation>マレー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Brunei</source>
-        <translation>Бруней</translation>
+        <translation>ブルネイ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Malaysia</source>
-        <translation>Малайзия</translation>
+        <translation>マレーシア</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Maltese</source>
-        <translation>Мальтийский</translation>
+        <translation>マルタ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Manx</source>
-        <translation>Манкс</translation>
+        <translation>マン島語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="245"/>
         <source>Maori</source>
-        <translation>Маори</translation>
+        <translation>マオリ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="246"/>
         <source>Marathi</source>
-        <translation>Марати</translation>
+        <translation>マラーティー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Marshallese</source>
-        <translation>Маршалльский</translation>
+        <translation>マーシャル語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Mongolian</source>
-        <translation>Монгольский</translation>
+        <translation>モンゴル語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Nauru</source>
-        <translation>Науру</translation>
+        <translation>ナウル語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="250"/>
         <source>Navajo</source>
-        <translation>Навахо</translation>
+        <translation>ナバホ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Ndebele</source>
-        <translation>Ндебеле</translation>
+        <translation>ンデベレ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <source>North</source>
-        <translation>Север</translation>
+        <translation>北</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>South</source>
-        <translation>Юг</translation>
+        <translation>南</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Ndonga</source>
-        <translation>Ндонга</translation>
+        <translation>ンドンガ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Nepali</source>
-        <translation>Непальский</translation>
+        <translation>ネパール語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Northern, Sami</source>
-        <translation>Северносаамский</translation>
+        <translation>北サーミ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="256"/>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Norwegian</source>
-        <translation>Норвежский</translation>
+        <translation>ノルウェー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Bokmal</source>
-        <translation>Букмол</translation>
+        <translation>ブークモール</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Nynorsk</source>
-        <translation>Нюнорск</translation>
+        <translation>ニーノシュク</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="259"/>
         <source>Nyanja</source>
-        <translation>Ньянджа</translation>
+        <translation>ニャンジャ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="260"/>
         <source>Occitan</source>
-        <translation>Французский (диалект Occitan)</translation>
+        <translation>オック語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="261"/>
         <source>Ojibwa</source>
-        <translation>Оджибва</translation>
+        <translation>オジブワ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Oriya</source>
-        <translation>Ория</translation>
+        <translation>ドイツ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="263"/>
         <source>Oromo</source>
-        <translation>Оромо</translation>
+        <translation>オロモ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="264"/>
         <source>Ossetian</source>
-        <translation>Осетинский</translation>
+        <translation>オセット語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Pali</source>
-        <translation>Пали</translation>
+        <translation>パリ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="266"/>
         <source>Panjabi</source>
-        <translation>Панджаби</translation>
+        <translation>パンジャブ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Persian</source>
-        <translation>Персидский</translation>
+        <translation>ペルシャ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="268"/>
         <source>Polish</source>
-        <translation>Польский</translation>
+        <translation>ポーランド語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Portuguese</source>
-        <translation>Португальский</translation>
+        <translation>ポルトガル語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Brazil</source>
-        <translation>Бразилия</translation>
+        <translation>ブラジル</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Portugal</source>
-        <translation>Португалия</translation>
+        <translation>ポルトガル</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Pushto</source>
-        <translation>Пушту</translation>
+        <translation>パシュトー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="273"/>
         <source>Quechua</source>
-        <translation>Кечуа</translation>
+        <translation>ケチュア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="274"/>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Romanian</source>
-        <translation>Румынский</translation>
+        <translation>ルーマニア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Moldova</source>
-        <translation>Молдова</translation>
+        <translation>モルドバ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Romania</source>
-        <translation>Румыния</translation>
+        <translation>ルーマニア</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Romansh</source>
-        <translation>Ретороманский диалект</translation>
+        <translation>ロマンシュ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Rundi</source>
-        <translation>Рунди</translation>
+        <translation>ルンディ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="279"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Russian</source>
-        <translation>Русский</translation>
+        <translation>ロシア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Samoan</source>
-        <translation>Самоа</translation>
+        <translation>サモア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="282"/>
         <source>Sango</source>
-        <translation>Санго</translation>
+        <translation>サンゴ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="283"/>
         <source>Sanskrit</source>
-        <translation>Санскрит</translation>
+        <translation>サンスクリット語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="284"/>
         <source>Sardinian</source>
-        <translation>Сардинийский</translation>
+        <translation>サルデーニャ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="285"/>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Serbian</source>
-        <translation>Сербский</translation>
+        <translation>セルビア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Serbia</source>
-        <translation>Сербия</translation>
+        <translation>セルビア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Shona</source>
-        <translation>Схона</translation>
+        <translation>ショナ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Sichuan Yi</source>
-        <translation>Сычуаньский И</translation>
+        <translation>四川イ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="289"/>
         <source>Sindhi</source>
-        <translation>Синдхи</translation>
+        <translation>シンド語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Sinhala</source>
-        <translation>Сингальский</translation>
+        <translation>シンハラ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Slovak</source>
-        <translation>Словацкий</translation>
+        <translation>スロバキア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Slovenian</source>
-        <translation>Словенский</translation>
+        <translation>スロベニア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Somali</source>
-        <translation>Сомалийский</translation>
+        <translation>ソマリ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="294"/>
         <source>Sotho, Southern</source>
-        <translation>Сесото</translation>
+        <translation>南ソト語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="295"/>
@@ -5067,1812 +5065,1812 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Spanish</source>
-        <translation>Испанский</translation>
+        <translation>スペイン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Argentina</source>
-        <translation>Аргентина</translation>
+        <translation>アルゼンチン</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="297"/>
         <source>Bolivia</source>
-        <translation>Боливия</translation>
+        <translation>ボリビア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Chile</source>
-        <translation>Чили</translation>
+        <translation>チリ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Columbia</source>
-        <translation>Колумбия</translation>
+        <translation>コロンビア</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Costa Rica</source>
-        <translation>Коста-Рика</translation>
+        <translation>コスタリカ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Dominican Republic</source>
-        <translation>Доминиканская республика</translation>
+        <translation>ドミニカ共和国</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Ecuador</source>
-        <translation>Эквадор</translation>
+        <translation>エクアドル</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="303"/>
         <source>El Salvador</source>
-        <translation>Сальвадор</translation>
+        <translation>エルサルバドル</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="304"/>
         <source>Guatemala</source>
-        <translation>Гватемала</translation>
+        <translation>グアテマラ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="305"/>
         <source>Honduras</source>
-        <translation>Гондурас</translation>
+        <translation>ホンジュラス</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Mexico</source>
-        <translation>Мексика</translation>
+        <translation>メキシコ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="307"/>
         <source>Nicaragua</source>
-        <translation>Никарагуа</translation>
+        <translation>ニカラグア</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Panama</source>
-        <translation>Панама</translation>
+        <translation>パナマ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Paraguay</source>
-        <translation>Парагвай</translation>
+        <translation>パラグアイ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Peru</source>
-        <translation>Перу</translation>
+        <translation>ペルー</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="311"/>
         <source>Puerto Rico</source>
-        <translation>Пуэрто-Рико</translation>
+        <translation>プエルトリコ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <source>Uruguay</source>
-        <translation>Уругвай</translation>
+        <translation>ウルグアイ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Venezuela</source>
-        <translation>Венесуэла</translation>
+        <translation>ベネズエラ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="315"/>
         <source>Sundanese</source>
-        <translation>Сунданский</translation>
+        <translation>スーダン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Swahili</source>
-        <translation>Суахили</translation>
+        <translation>スワヒリ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Swati</source>
-        <translation>Свати</translation>
+        <translation>スワジ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="318"/>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Swedish</source>
-        <translation>Шведский</translation>
+        <translation>スウェーデン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Finland</source>
-        <translation>Финландия</translation>
+        <translation>フィンランド</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Sweden</source>
-        <translation>Швеция</translation>
+        <translation>スウェーデン</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Tagalog</source>
-        <translation>Тагалог</translation>
+        <translation>タガログ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Tahitian</source>
-        <translation>Таитянский</translation>
+        <translation>タヒチ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Tajik</source>
-        <translation>Таджикский</translation>
+        <translation>タジク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Tamil</source>
-        <translation>Тамильский</translation>
+        <translation>タミル語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Tatar</source>
-        <translation>Татарский</translation>
+        <translation>タタール語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Telugu</source>
-        <translation>Телугу</translation>
+        <translation>テルグ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="327"/>
         <source>Thai</source>
-        <translation>Тайский</translation>
+        <translation>タイ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Tibetan</source>
-        <translation>Тибетский</translation>
+        <translation>チベット語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Tigrinya</source>
-        <translation>Тигринья</translation>
+        <translation>ティグリニア語 </translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Tonga</source>
-        <translation>Тонга</translation>
+        <translation>トンガ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Tsonga</source>
-        <translation>Тсонга</translation>
+        <translation>ツォンガ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="332"/>
         <source>Tswana</source>
-        <translation>Тсвана</translation>
+        <translation>ツワナ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Turkish</source>
-        <translation>Турецкий</translation>
+        <translation>トルコ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Turkey</source>
-        <translation>Турция</translation>
+        <translation>トルコ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="335"/>
         <source>Turkmen</source>
-        <translation>Туркменский</translation>
+        <translation>トルクメン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Twi</source>
-        <translation>Тви</translation>
+        <translation>トウィ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Uighur</source>
-        <translation>Уйгурский</translation>
+        <translation>ウイグル語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="338"/>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Ukrainian</source>
-        <translation>Украинский</translation>
+        <translation>ウクライナ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Ukraine</source>
-        <translation>Украина</translation>
+        <translation>ウクライナ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Urdu</source>
-        <translation>Урду</translation>
+        <translation>ウルドゥー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="341"/>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Uzbek</source>
-        <translation>Узбекский</translation>
+        <translation>ウズベク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Uzbekistan</source>
-        <translation>Узбекистан</translation>
+        <translation>ウズベキスタン</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="343"/>
         <source>Venda</source>
-        <translation>Венда</translation>
+        <translation>ベンダ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Vietnamese</source>
-        <translation>Вьетнамский</translation>
+        <translation>ベトナム語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Volapuk</source>
-        <translation>Волапюк</translation>
+        <translation>ヴォラピュク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Walloon</source>
-        <translation>Валлонский</translation>
+        <translation>ワロン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="347"/>
         <source>Welsh</source>
-        <translation>Уэльский</translation>
+        <translation>ウェールズ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="348"/>
         <source>Western Frisian</source>
-        <translation>Фризийский</translation>
+        <translation>西フリジア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="349"/>
         <source>Wolof</source>
-        <translation>Уолоф</translation>
+        <translation>ウォロフ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="350"/>
         <source>Xhosa</source>
-        <translation>Кшоса</translation>
+        <translation>ホサ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="351"/>
         <source>Yiddish</source>
-        <translation>Идиш</translation>
+        <translation>イディッシュ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Yoruba</source>
-        <translation>Йоруба</translation>
+        <translation>ヨルバ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="353"/>
         <source>Zhuang</source>
-        <translation>Чжуанг</translation>
+        <translation>チワン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Zulu</source>
-        <translation>Зулусский</translation>
+        <translation>ズールー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="355"/>
         <source>Achinese</source>
-        <translation>Ачехский</translation>
+        <translation>アチェ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="356"/>
         <source>Acoli</source>
-        <translation>Ачоли</translation>
+        <translation>アチョリ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="357"/>
         <source>Adangme</source>
-        <translation>Адангме</translation>
+        <translation>アダグメ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="358"/>
         <source>Adygei, Adyghe</source>
-        <translation>Адыгейский, Адыгея</translation>
+        <translation>アディゲ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="359"/>
         <source>Afrihili</source>
-        <translation>Африхили</translation>
+        <translation>アフリヒリ</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="360"/>
         <source>Afro-Asiatic languages</source>
-        <translation>Афро-азиатские языки</translation>
+        <translation>アフロ・アジア語族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="361"/>
         <source>Ainu</source>
-        <translation>Айну</translation>
+        <translation>アイヌ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Akkadian</source>
-        <translation>Аккадский</translation>
+        <translation>アッカド語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="363"/>
         <source>Aleut</source>
-        <translation>Алеутский</translation>
+        <translation>アリュート語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="364"/>
         <source>Algonquian languages</source>
-        <translation>Алгонкинские языки</translation>
+        <translation>アルゴンキン語族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="365"/>
         <source>Altaic languages</source>
-        <translation>Алтайские языки</translation>
+        <translation>アルタイ諸言語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="366"/>
         <source>Angika</source>
-        <translation>Ангика</translation>
+        <translation>アンガ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="367"/>
         <source>Apache languages</source>
-        <translation>Апачские языки</translation>
+        <translation>アパッチ語族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="368"/>
         <source>Arapaho</source>
-        <translation>Арапахо</translation>
+        <translation>アラパホ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="369"/>
         <source>Arawak</source>
-        <translation>Аравак</translation>
+        <translation>アラワク語族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="370"/>
         <source>Aromanian, Arumanian, Macedo-Romanian</source>
-        <translation>Арумынский, Армянский, Маседо-румынский</translation>
+        <translation>アルーマニア語、マケド・ルーマニア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="371"/>
         <source>Artificial languages</source>
-        <translation>Искусственные языки</translation>
+        <translation>人工言語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="372"/>
         <source>Asturian, Asturleonese, Bable, Leonese</source>
-        <translation>Астурийский, Астурлеонский, Леонский</translation>
+        <translation>アストゥリアス語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="373"/>
         <source>Athapascan languages</source>
-        <translation>Атабаскские языки</translation>
+        <translation>アサパスカ語族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="374"/>
         <source>Australian languages</source>
-        <translation>Австралийские языки</translation>
+        <translation>オーストラリア先住民語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="375"/>
         <source>Austronesian languages</source>
-        <translation>Австронезийские языки</translation>
+        <translation>オーストロネシア語族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="376"/>
         <source>Awadhi</source>
-        <translation>Авадхи</translation>
+        <translation>アワディー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="377"/>
         <source>Balinese</source>
-        <translation>Балийский</translation>
+        <translation>バリ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="378"/>
         <source>Baltic languages</source>
-        <translation>Балтийские языки</translation>
+        <translation>バルト語派</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="379"/>
         <source>Baluchi</source>
-        <translation>Белуджи</translation>
+        <translation>バルーチー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="380"/>
         <source>Bamileke languages</source>
-        <translation>Язык бамилеке</translation>
+        <translation>バミレケ諸語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="381"/>
         <source>Banda languages</source>
-        <translation>Языки банда</translation>
+        <translation>バンダ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="382"/>
         <source>Bantu languages</source>
-        <translation>Бантоидные языки</translation>
+        <translation>バントゥ諸語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="383"/>
         <source>Basa</source>
-        <translation>Баса</translation>
+        <translation>バサ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="384"/>
         <source>Batak languages</source>
-        <translation>Батакские языки</translation>
+        <translation>バタク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="385"/>
         <source>Bedawiyet, Beja</source>
-        <translation>Бедауйе, Беджа</translation>
+        <translation>ベジャ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="386"/>
         <source>Bemba</source>
-        <translation>Бемба</translation>
+        <translation>ベンバ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="387"/>
         <source>Berber languages</source>
-        <translation>Берберские языки</translation>
+        <translation>ベルベル語派</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="388"/>
         <source>Bhojpuri</source>
-        <translation>Бходжпури</translation>
+        <translation>ボージュプリー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="389"/>
         <source>Bikol</source>
-        <translation>Бикольский</translation>
+        <translation>ビコル小語群</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="390"/>
         <source>Bilin, Blin</source>
-        <translation>Билин, Блин</translation>
+        <translation>ビリン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="391"/>
         <source>Bini, Edo</source>
-        <translation>Бини, Эдо</translation>
+        <translation>ビニ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="392"/>
         <source>Bliss, Blissymbols, Blissymbolics</source>
-        <translation>Блисс, Блиссимволика</translation>
+        <translation>ブリスシンボル</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="393"/>
         <source>Braj</source>
-        <translation>Брадж</translation>
+        <translation>ブラジ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="394"/>
         <source>Buginese</source>
-        <translation>Бугийский</translation>
+        <translation>ブギス語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="395"/>
         <source>Buriat</source>
-        <translation>Бурятский</translation>
+        <translation>ブリヤート語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="396"/>
         <source>Caddo</source>
-        <translation>Каддо</translation>
+        <translation>カド語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="397"/>
         <source>Caucasian languages</source>
-        <translation>Кавказские языки</translation>
+        <translation>カフカース諸語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="398"/>
         <source>Cebuano</source>
-        <translation>Кебуано</translation>
+        <translation>セブアノ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="399"/>
         <source>Celtic languages</source>
-        <translation>Кельтские языки</translation>
+        <translation>ケルト語派</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="400"/>
         <source>Central American Indian languages</source>
-        <translation>Центральные индейские языки</translation>
+        <translation>中米インディアン諸語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="401"/>
         <source>Chagatai</source>
-        <translation>Чагатая</translation>
+        <translation>チャガタイ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="402"/>
         <source>Chamic languages</source>
-        <translation>Чамские языки</translation>
+        <translation>チャム諸語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="403"/>
         <source>Cherokee</source>
-        <translation>Чероки</translation>
+        <translation>チェロキー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="404"/>
         <source>Cheyenne</source>
-        <translation>Шайенн</translation>
+        <translation>シャイアン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="405"/>
         <source>Chibcha</source>
-        <translation>Чибча</translation>
+        <translation>チブチャ語族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="406"/>
         <source>Chinook jargon</source>
-        <translation>Чинук жаргон</translation>
+        <translation>チヌーク・ジャーゴン</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="407"/>
         <source>Chipewyan, Dene Suline</source>
-        <translation>Чипевиан</translation>
+        <translation>チペワイアン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="408"/>
         <source>Choctaw</source>
-        <translation>Чокто</translation>
+        <translation>チョクトー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="409"/>
         <source>Chuukese</source>
-        <translation>Чукотский</translation>
+        <translation>チューク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="410"/>
         <source>Classical Nepal Bhasa/Newari, Old Newari</source>
-        <translation>Неварский</translation>
+        <translation>古典ネワール語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="411"/>
         <source>Classical Syriac</source>
-        <translation>Классический сирийский</translation>
+        <translation>古典シリア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="412"/>
         <source>Coptic</source>
-        <translation>Коптский</translation>
+        <translation>コプト語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="413"/>
         <source>Creek</source>
-        <translation>Крикский</translation>
+        <translation>クリーク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="414"/>
         <source>Creoles and pidgins</source>
-        <translation>Креолы и пиджины</translation>
+        <translation>クレオル諸語及びピジン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="415"/>
         <source>Creoles and pidgins- English based</source>
-        <translation>Контактные языки на английской основе</translation>
+        <translation>英語系クレオル諸語及びピジン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="416"/>
         <source>Creoles and pidgins- French-based</source>
-        <translation>Контактные языки на французской основе</translation>
+        <translation>フランス語系クレオル諸語及びピジン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="417"/>
         <source>Creoles and pidgins- Portuguese-based</source>
-        <translation>Контактные языки на португальской основе</translation>
+        <translation>ポルトガル語系クレオル諸語及びピジン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="418"/>
         <source>Crimean Tatar/Turkish</source>
-        <translation>Крымско-татарский / Турецкий</translation>
+        <translation>クリム・タタール/トルコ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="419"/>
         <source>Cushitic languages</source>
-        <translation>Кушитские языки</translation>
+        <translation>クシュ語派</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="420"/>
         <source>Dakota</source>
-        <translation>Дакота</translation>
+        <translation>ダコタ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="421"/>
         <source>Dargwa</source>
-        <translation>Даргинский</translation>
+        <translation>ダルグワ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="422"/>
         <source>Delaware</source>
-        <translation>Делавэр</translation>
+        <translation>デラウェア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="423"/>
         <source>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</source>
-        <translation>Зазаки</translation>
+        <translation>ザザキ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="424"/>
         <source>Dinka</source>
-        <translation>Динка</translation>
+        <translation>ディンカ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="425"/>
         <source>Dogri</source>
-        <translation>Догри</translation>
+        <translation>ドーグリー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="426"/>
         <source>Dogrib</source>
-        <translation>Догриб</translation>
+        <translation>ドグリブ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="427"/>
         <source>Dravidian languages</source>
-        <translation>дравидийские языки</translation>
+        <translation>ドラビダ語族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="428"/>
         <source>Duala</source>
-        <translation>Дуала</translation>
+        <translation>ドゥアラ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="429"/>
         <source>Dutch- Middle (ca.1050-1350)</source>
-        <translation>Средненидерландский (ок. 1050-1350)</translation>
+        <translation>中期オランダ語(ca.1050-1350)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="430"/>
         <source>Dyula</source>
-        <translation>Дюла</translation>
+        <translation>ジュラ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="431"/>
         <source>Eastern Frisian</source>
-        <translation>Восточнофризский</translation>
+        <translation>東フリジア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="432"/>
         <source>Efik</source>
-        <translation>Эфик</translation>
+        <translation>エフィック語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="433"/>
         <source>Egyptian (Ancient)</source>
-        <translation>Египетский (Древний)</translation>
+        <translation>エジプト語(古代)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="434"/>
         <source>Ekajuk</source>
-        <translation>Экаджук</translation>
+        <translation>エカジュク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="435"/>
         <source>Elamite</source>
-        <translation>Эламский</translation>
+        <translation>エラム語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="436"/>
         <source>English- Middle (1100-1500)</source>
-        <translation>Среднеанглийский (1100-1500)</translation>
+        <translation>英語-中世 (1100-1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="437"/>
         <source>English- Old (ca.450-1100)</source>
-        <translation>Древнеанглийский (ок. 450-1100)</translation>
+        <translation>英語-古代 (ca.450-1100)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="438"/>
         <source>Erzya</source>
-        <translation>Эрзя</translation>
+        <translation>エルジャ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="439"/>
         <source>Ewondo</source>
-        <translation>Эвондо</translation>
+        <translation>エウォンド語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="440"/>
         <source>Fang</source>
-        <translation>Фанг</translation>
+        <translation>ファン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="441"/>
         <source>Fanti</source>
-        <translation>Фанти</translation>
+        <translation>ファンテ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="442"/>
         <source>Filipino, Pilipino</source>
-        <translation>Филиппинский, пилипино</translation>
+        <translation>フィリピノ語、ピリピノ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="443"/>
         <source>Finno-Ugrian languages</source>
-        <translation>Финно-угорские языки</translation>
+        <translation>フィン・ウゴル語派</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="444"/>
         <source>Fon</source>
-        <translation>Фон</translation>
+        <translation>フォン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="445"/>
         <source>French- Middle (ca.1400-1600)</source>
-        <translation>Среднефранцузский (ок. 1400-1600)</translation>
+        <translation>中期フランス語(ca.1400-1600)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="446"/>
         <source>French- Old (842-ca.1400)</source>
-        <translation>Древнефранцузский (842-ок.1400)</translation>
+        <translation>古フランス語(842-ca.1400)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="447"/>
         <source>Friulian</source>
-        <translation>Фриули</translation>
+        <translation>フリウリ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="448"/>
         <source>Ga</source>
-        <translation>Джорджия</translation>
+        <translation>ガー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="449"/>
         <source>Galibi Carib</source>
-        <translation>Карибский</translation>
+        <translation>カリブ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="450"/>
         <source>Gayo</source>
-        <translation>Гайо</translation>
+        <translation>ガヨ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="451"/>
         <source>Gbaya</source>
-        <translation>Гбайя</translation>
+        <translation>グバヤ方言群</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="452"/>
         <source>Geez</source>
-        <translation>Геэз</translation>
+        <translation>ゲエズ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="453"/>
         <source>German- Middle High (ca.1050-1500)</source>
-        <translation>Средневерхненемецкий (ок.1050-1500)</translation>
+        <translation>中高ドイツ語(ca.1050-1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="454"/>
         <source>German- Old High (ca.750-1050)</source>
-        <translation>Древневерхненемецкий (ок.750-1050)</translation>
+        <translation>古高ドイツ語(ca.750-1050)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="455"/>
         <source>Germanic languages</source>
-        <translation>Германские языки</translation>
+        <translation>ゲルマン語派</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="456"/>
         <source>Gilbertese</source>
-        <translation>Гильбертский</translation>
+        <translation>キリバス語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="457"/>
         <source>Gondi</source>
-        <translation>Гонди</translation>
+        <translation>ゴーンディー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="458"/>
         <source>Gorontalo</source>
-        <translation>Горонтало</translation>
+        <translation>ゴロンタロ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="459"/>
         <source>Gothic</source>
-        <translation>Готический</translation>
+        <translation>ゴート語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="460"/>
         <source>Grebo</source>
-        <translation>Гребо</translation>
+        <translation>グレボ小語群</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="461"/>
         <source>Greek- Ancient (to 1453)</source>
-        <translation>Древнегреческий (до 1453)</translation>
+        <translation>古代ギリシア語(to 1453)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="462"/>
         <source>Gwich&apos;in</source>
-        <translation>Гвичин</translation>
+        <translation>クチン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="463"/>
         <source>Haida</source>
-        <translation>Хайда</translation>
+        <translation>ハイダ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="464"/>
         <source>Hawaiian</source>
-        <translation>Гавайский</translation>
+        <translation>ハワイ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="465"/>
         <source>Hiligaynon</source>
-        <translation>Хилигайнон</translation>
+        <translation>ヒリガイノン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="466"/>
         <source>Himachali, Western Pahari languages</source>
-        <translation>Химачали, Языки Западного пахари</translation>
+        <translation>ヒマチャリー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="467"/>
         <source>Hittite</source>
-        <translation>Хеттский</translation>
+        <translation>ヒッタイト語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="468"/>
         <source>Hmong, Mong</source>
-        <translation>Хмонг, Монг</translation>
+        <translation>フモン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="469"/>
         <source>Hupa</source>
-        <translation>Хупа</translation>
+        <translation>フーパ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="470"/>
         <source>Iban</source>
-        <translation>Ибан</translation>
+        <translation>イバン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="471"/>
         <source>Ijo languages</source>
-        <translation>Иджоидные языки</translation>
+        <translation>イジョー方言群</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="472"/>
         <source>Iloko</source>
-        <translation>Илоко</translation>
+        <translation>イロカノ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="473"/>
         <source>Inari Sami</source>
-        <translation>Инари Сами</translation>
+        <translation>イナリ・サーミ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="474"/>
         <source>Indic languages</source>
-        <translation>Индийские языки</translation>
+        <translation>インド語派</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="475"/>
         <source>Indo-European languages</source>
-        <translation>Индоевропейские языки</translation>
+        <translation>インド・ヨーロッパ語族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="476"/>
         <source>Ingush</source>
-        <translation>Ингушский</translation>
+        <translation>イングシ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="477"/>
         <source>Iranian languages</source>
-        <translation>Иранские языки</translation>
+        <translation>イラン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="478"/>
         <source>Irish- Middle (900-1200)</source>
-        <translation>Среднеирландский (900-1200)</translation>
+        <translation>中期アイルランド語(900-1200)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="479"/>
         <source>Irish- Old (to 900)</source>
-        <translation>Древнеирландский (до 900)</translation>
+        <translation>古アイルランド語(to 900)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="480"/>
         <source>Iroquoian languages</source>
-        <translation>Ирокезские языки</translation>
+        <translation>イロコイ語族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="481"/>
         <source>Jingpho, Kachin</source>
-        <translation>Качинский, цзинпо</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="482"/>
         <source>Judeo-Arabic</source>
-        <translation>Иудейско-арабский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="483"/>
         <source>Judeo-Persian</source>
-        <translation>Иудейско-персидский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="484"/>
         <source>Kabardian</source>
-        <translation>Кабардинский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="485"/>
         <source>Kabyle</source>
-        <translation>Кабильский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="486"/>
         <source>Kalmyk, Oirat</source>
-        <translation>Калмыцкий, Ойратский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="487"/>
         <source>Kamba</source>
-        <translation>Камба</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="488"/>
         <source>Kapampangan, Pampanga</source>
-        <translation>Капампанганский, Пампанга</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="489"/>
         <source>Kara-Kalpak</source>
-        <translation>Каракалпак</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="490"/>
         <source>Karachay-Balkar</source>
-        <translation>Карачаево-балкарский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="491"/>
         <source>Karelian</source>
-        <translation>Карельский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="492"/>
         <source>Karen languages</source>
-        <translation>Каренские языки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="493"/>
         <source>Kashubian</source>
-        <translation>Кашубский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="494"/>
         <source>Kawi</source>
-        <translation>Кави</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="495"/>
         <source>Khasi</source>
-        <translation>Хаси</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="496"/>
         <source>Khoisan languages</source>
-        <translation>Койсанские языки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="497"/>
         <source>Khotanese, Sakan</source>
-        <translation>Хотанский, Сакан</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="498"/>
         <source>Kimbundu</source>
-        <translation>Кимбунду</translation>
+        <translation>キンブンドゥー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="499"/>
         <source>Klingon, tlhIngan-Hol</source>
-        <translation>Клингонский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="500"/>
         <source>Konkani</source>
-        <translation>Конкани</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="501"/>
         <source>Kosraean</source>
-        <translation>Косяэ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="502"/>
         <source>Kpelle</source>
-        <translation>Кпелле</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="503"/>
         <source>Kru languages</source>
-        <translation>языки Крю</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="504"/>
         <source>Kumyk</source>
-        <translation>Кумыкский</translation>
+        <translation>クムク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="505"/>
         <source>Kurukh</source>
-        <translation>Курукхский</translation>
+        <translation>クルク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="506"/>
         <source>Kutenai</source>
-        <translation>Кутенаи</translation>
+        <translation>クーテナイ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="507"/>
         <source>Ladino</source>
-        <translation>Ладино</translation>
+        <translation>ユダヤ・スペイン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="508"/>
         <source>Lahnda</source>
-        <translation>Лахнда</translation>
+        <translation>ラーンダー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="509"/>
         <source>Lamba</source>
-        <translation>Ламба</translation>
+        <translation>ランバ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="510"/>
         <source>Land Dayak languages</source>
-        <translation>Ланд-даякские языки</translation>
+        <translation>ダヤク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="511"/>
         <source>Lezghian</source>
-        <translation>Лезгинский</translation>
+        <translation>レズギ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="512"/>
         <source>Lojban</source>
-        <translation>Ложбан</translation>
+        <translation>ロジバン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="513"/>
         <source>German-Low, Low Saxon</source>
-        <translation>Нижненемецкий</translation>
+        <translation>低地ドイツ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="514"/>
         <source>Lower Sorbian</source>
-        <translation>Нижнелужицкий</translation>
+        <translation>下ソルブ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="515"/>
         <source>Lozi</source>
-        <translation>Лози</translation>
+        <translation>ロズィ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="516"/>
         <source>Luba-Lulua</source>
-        <translation>Луба-лулуа</translation>
+        <translation>ルバ・ルルア小語群ルバ・ルルア小語群</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="517"/>
         <source>Luiseno</source>
-        <translation>Луисеньо</translation>
+        <translation>ルバ・ルルア小語群</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="518"/>
         <source>Lule Sami</source>
-        <translation>Луле Сами</translation>
+        <translation>ルレ・サーミ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="519"/>
         <source>Lunda</source>
-        <translation>Лунда</translation>
+        <translation>ルンダ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="520"/>
         <source>Luo (Kenya and Tanzania)</source>
-        <translation>Ло (Кения и Танзания)</translation>
+        <translation>ルオ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="521"/>
         <source>Lushai</source>
-        <translation>Лушаи</translation>
+        <translation>ルシャイ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="522"/>
         <source>Madurese</source>
-        <translation>Мадурский</translation>
+        <translation>マドゥラ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="523"/>
         <source>Magahi</source>
-        <translation>Магахи</translation>
+        <translation>マガヒー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="524"/>
         <source>Maithili</source>
-        <translation>Майтхили</translation>
+        <translation>マイティリー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="525"/>
         <source>Makasar</source>
-        <translation>Макасаре</translation>
+        <translation>マカッサル語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="526"/>
         <source>Manchu</source>
-        <translation>Маньчжурский</translation>
+        <translation>満州語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="527"/>
         <source>Mandar</source>
-        <translation>Мандарский</translation>
+        <translation>マンダル語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="528"/>
         <source>Mandingo</source>
-        <translation>Мандинго</translation>
+        <translation>マンデ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="529"/>
         <source>Manipuri</source>
-        <translation>Манипури</translation>
+        <translation>マニプル語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="530"/>
         <source>Manobo languages</source>
-        <translation>языки Манобо</translation>
+        <translation>マノボ語族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="531"/>
         <source>Mapuche/Mapudungun</source>
-        <translation>Мапуче/Мапудунгун</translation>
+        <translation>アラウコ語族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="532"/>
         <source>Mari</source>
-        <translation>Марийский</translation>
+        <translation>マリ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="533"/>
         <source>Marwari</source>
-        <translation>Марварский</translation>
+        <translation>マールワーリー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="534"/>
         <source>Masai</source>
-        <translation>Масаи</translation>
+        <translation>マサイ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="535"/>
         <source>Mayan languages</source>
-        <translation>языки Майя</translation>
+        <translation>マヤ語族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="536"/>
         <source>Mende</source>
-        <translation>Менде</translation>
+        <translation>メンデ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="537"/>
         <source>Mi&apos;kmaq, Micmac</source>
-        <translation>Микмак</translation>
+        <translation>ミクマック語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="538"/>
         <source>Minangkabau</source>
-        <translation>Минангкабау</translation>
+        <translation>ミナンカバウ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="539"/>
         <source>Mirandese</source>
-        <translation>Мирандийский</translation>
+        <translation>ミランダ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Mohawk</source>
-        <translation>Могаукский</translation>
+        <translation>モホーク語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="541"/>
         <source>Moksha</source>
-        <translation>Мокша</translation>
+        <translation>モクシャ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Mon-Khmer languages</source>
-        <translation>Мон-кхмерские языки</translation>
+        <translation>モン・クメール語派</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="543"/>
         <source>Mongo</source>
-        <translation>Монго</translation>
+        <translation>モンゴ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Mossi</source>
-        <translation>Мооре</translation>
+        <translation>モシ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Multiple languages</source>
-        <translation>Поддержка нескольких языков</translation>
+        <translation>複数言語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="546"/>
         <source>Munda languages</source>
-        <translation>языки Манда</translation>
+        <translation>ムンダー諸語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="547"/>
         <source>N&apos;Ko</source>
-        <translation>Нко</translation>
+        <translation>ンコ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Nahuatl languages</source>
-        <translation>языки Науатле</translation>
+        <translation>ナワトル語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="549"/>
         <source>Neapolitan</source>
-        <translation>Неаполитанский</translation>
+        <translation>ナポリ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Nepal Bhasa/Newari</source>
-        <translation>Неварский, непал бхаша</translation>
+        <translation>ネワール語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Nias</source>
-        <translation>Ниас</translation>
+        <translation>ニアス語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Niger-Kordofanian languages</source>
-        <translation>Кордофанские языки</translation>
+        <translation>ニジェール・コルドファン語族</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Nilo-Saharan languages</source>
-        <translation>языки Нило-Сахары</translation>
+        <translation>ナイル・サハラ言語群</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Niuean</source>
-        <translation>Ниуэ</translation>
+        <translation>ニウエー語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="555"/>
         <source>No linguistic content/Not applicable</source>
-        <translation>Нет языкового содержания / Не применяется</translation>
+        <translation>言語的内容なし</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Nogai</source>
-        <translation>Ногайский</translation>
+        <translation>ノガイ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="557"/>
         <source>Norse- Old</source>
-        <translation>Старый язык норси</translation>
+        <translation>古ノルド語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="558"/>
         <source>North American Indian languages</source>
-        <translation>Языки североамериканских индейцев</translation>
+        <translation>北米インディアン諸語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Northern Frisian</source>
-        <translation>Фризский северный</translation>
+        <translation>北フリジア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
-        <translation>Северный сото, педи, сепеди</translation>
+        <translation>北ソト語,セペディ語,ペディ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Nubian languages</source>
-        <translation>Нубийские языки</translation>
+        <translation>ヌビア語群</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Nyamwezi</source>
-        <translation>Ньямвези</translation>
+        <translation>ニャムウェズィ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Nyankole</source>
-        <translation>Ньянколе</translation>
+        <translation>ニャンコレ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Nyoro</source>
-        <translation>Ньоро</translation>
+        <translation>ニョロ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="565"/>
         <source>Nzima</source>
-        <translation>Нзима</translation>
+        <translation>ンジマ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
-        <translation>Древнеокситанский/Провансальский (до 1500)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
-        <translation>Арамейский императорский (700-300 до н. э.)</translation>
+        <translation>アラム語(700-300 BCE)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="568"/>
         <source>Osage</source>
-        <translation>Осейдж</translation>
+        <translation>オセージ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Otomian languages</source>
-        <translation>языки Отоми</translation>
+        <translation>オトミ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Pahlavi</source>
-        <translation>Пехлеви</translation>
+        <translation>中期ペルシア語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Palauan</source>
-        <translation>Палау</translation>
+        <translation>パラオ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Pangasinan</source>
-        <translation>Пангасинан</translation>
+        <translation>パンガシナン語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Papiamento</source>
-        <translation>Папьяменто</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Papuan languages</source>
-        <translation>Папуасские языки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Paraguayan Guaraní</source>
-        <translation>Парагвайский гуарани</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
-        <translation>Старый персидский (ок.600-400 г. до р.х.)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Philippine languages</source>
-        <translation>Филиппинские языки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Phoenician</source>
-        <translation>Финикийский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Pohnpeian</source>
-        <translation>Понпейский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Prakrit languages</source>
-        <translation>Языки Пракриты</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Rajasthani</source>
-        <translation>Раджастхани</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Rapanui</source>
-        <translation>Рапануи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Rarotongan, Cook Islands Maori</source>
-        <translation>Кукский язык, маори островов Кука</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Reserved for local use</source>
-        <translation>Зарезервировано для местного использования</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Romance languages</source>
-        <translation>Романские языки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Romany</source>
-        <translation>Цыганский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Salishan languages</source>
-        <translation>Салишские языки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Samaritan Aramaic</source>
-        <translation>Самарянин Арамейский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Sami languages</source>
-        <translation>Языки Сами</translation>
+        <translation>サーミ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Sandawe</source>
-        <translation>Сандаве</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Santali</source>
-        <translation>Сантали</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Sasak</source>
-        <translation>Сасаки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Scots</source>
-        <translation>Шотландский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Selkup</source>
-        <translation>Селькуп</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Semitic languages</source>
-        <translation>Семитские языки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Serer</source>
-        <translation>Серер</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Shan</source>
-        <translation>Шань</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Sicilian</source>
-        <translation>Сицилийский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Sidamo</source>
-        <translation>Сидамо</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Sign Languages</source>
-        <translation>Амслен</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Siksika</source>
-        <translation>Блэкфут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Sino-Tibetan languages</source>
-        <translation>Сино-тибетские языки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Siouan languages</source>
-        <translation>языки Сиу</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Skolt Sami</source>
-        <translation>Сами Сколт</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Slave (Athapascan)</source>
-        <translation>Слейви (Атабаскский)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Slavic languages</source>
-        <translation>Славянские языки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Sogdian</source>
-        <translation>Согдийский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Songhai languages</source>
-        <translation>Сонгайские языки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Soninke</source>
-        <translation>Сонинке</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Sorbian languages</source>
-        <translation>Сербские языки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="611"/>
         <source>South American Indian languages</source>
-        <translation>языки южноамериканских индейцев</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Southern Altai</source>
-        <translation>Южный Алтай</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Southern Sami</source>
-        <translation>Южносаамский</translation>
+        <translation>南サーミ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Sranan Tongo</source>
-        <translation>Сранан-тонго</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Sukuma</source>
-        <translation>Сукума</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Sumerian</source>
-        <translation>Шумерский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Susu</source>
-        <translation>Сусу</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Alsatian, Swiss German, Alemannic</source>
-        <translation>Эльзасский, швейцарский немецкий, алеманский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Syriac</source>
-        <translation>Сирийский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Tai languages</source>
-        <translation>Тайские языки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Tamashek</source>
-        <translation>Тамашек</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Tereno</source>
-        <translation>Терено</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Tetum</source>
-        <translation>Тетум</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Tigre</source>
-        <translation>Тигре</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Timne</source>
-        <translation>Темне</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Tiv</source>
-        <translation>Тив</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Tlingit</source>
-        <translation>Тлингит</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Tok Pisin</source>
-        <translation>Ток писин</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Tokelau</source>
-        <translation>Токелау</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Tonga (Nyasa)</source>
-        <translation>Тонга (Ньяса)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Tsimshian</source>
-        <translation>Цимшиан</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Tumbuka</source>
-        <translation>Тумбука</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Tupi languages</source>
-        <translation>языки Тупи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Turkish- Ottoman (1500-1928)</source>
-        <translation>Турецко-Османский (1500-1928)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Tuvalu</source>
-        <translation>Тувалу</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Tuvinian</source>
-        <translation>Тувинский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Udmurt</source>
-        <translation>Удмуртский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Ugaritic</source>
-        <translation>Угаритский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Umbundu</source>
-        <translation>Умбунду</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Uncoded languages</source>
-        <translation>Некодированные языки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Undetermined</source>
-        <translation>Не определено</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Upper Sorbian</source>
-        <translation>Верхнесербский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Vai</source>
-        <translation>Вай</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Votic</source>
-        <translation>Водский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="645"/>
         <source>Wakashan languages</source>
-        <translation>Вакашские языки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="646"/>
         <source>Waray</source>
-        <translation>Варайский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="647"/>
         <source>Washo</source>
-        <translation>Уашо</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="648"/>
         <source>Wolaitta, Wolaytta</source>
-        <translation>Воламо, волайта</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="649"/>
         <source>Yakut</source>
-        <translation>Якутский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="650"/>
         <source>Yao</source>
-        <translation>Яо</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="651"/>
         <source>Yapese</source>
-        <translation>Япский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="652"/>
         <source>Yupik languages</source>
-        <translation>Языки Юпик</translation>
+        <translation>ユピック語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="653"/>
         <source>Zande languages</source>
-        <translation>Языки Занде</translation>
+        <translation>ザンデ語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="654"/>
         <source>Zapotec</source>
-        <translation>Сапотеки</translation>
+        <translation>サポテック語</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="655"/>
         <source>Zenaga</source>
-        <translation>Зенага</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="656"/>
         <source>Zuni</source>
-        <translation>Зуньи</translation>
+        <translation>ズニ語</translation>
     </message>
 </context>
 <context>
@@ -6880,7 +6878,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="14"/>
         <source>Language</source>
-        <translation>Язык</translation>
+        <translation>言語</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="36"/>
@@ -6889,26 +6887,26 @@ Do you want to save your changes?</source>
 If a translation for specific word or phrase is not available it will be displayed in English.
 
 Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</source>
-        <translation>Вы должны перезагрузить Sigil после изменения языка интерфейса.
+        <translation>ユーザーインターフェース言語を切り替えた後にSigilを再起動する必要があります。
 
-Если перевод для некоторых слов или фраз не доступен, они будут отображаться на английском.
+特定の単語またはフレーズが翻訳されていない場合は、英語で表示されます。
 
-Используйте Настройки-&gt;Проверка орфографии, чтобы установить орфографические словари.</translation>
+設定-&gt;スペルチェック辞書でスペルチェック辞書を設定してください。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="43"/>
         <source>User Interface Language:</source>
-        <translation>Язык пользовательского интерфейса:</translation>
+        <translation>ユーザーインターフェース言語:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="53"/>
         <source>Set the default language used by the Metadata Editor for new books.</source>
-        <translation>Установить язык по умолчанию, используемый в редакторе метаданных для новых книг.</translation>
+        <translation>新しいブック向けにメタデータエディターで使用するデフォルトの言語を設定します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="56"/>
         <source>Default Language For Metadata:</source>
-        <translation>Язык для метаданных по умолчанию:</translation>
+        <translation>メタデータのデフォルト言語:</translation>
     </message>
 </context>
 <context>
@@ -6916,41 +6914,41 @@ Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</s
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="14"/>
         <source>Link StyleSheets</source>
-        <translation>Связать с таблицами стилей</translation>
+        <translation>スタイルシートにリンク</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="43"/>
         <source>Move the selected stylesheets up in priority.
 
 Stylesheets that are listed first take precedence over later stylesheets.</source>
-        <translation>Увеличение приоритета выбранных стилей.
+        <translation>選択されたスタイルシートの優先度を上げます。
 
-Стили, которые перечислены в первую очередь, имеют приоритет над остальными.</translation>
+最初にリスト表示されるスタイルシートはレイヤーのスタイルシートに勝ります。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="48"/>
         <source>Up</source>
-        <translation>Выше</translation>
+        <translation>上へ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="58"/>
         <source>Move the selected stylesheets down in priority.</source>
-        <translation>Уменьшить приоритет выбранных таблиц стилей.</translation>
+        <translation>選択されたスタイルシートの優先度を下げます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="61"/>
         <source>Down</source>
-        <translation>Ниже</translation>
+        <translation>下へ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="61"/>
         <source>Include</source>
-        <translation>Использовать</translation>
+        <translation>含める</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="62"/>
         <source>Stylesheet</source>
-        <translation>Таблица стилей</translation>
+        <translation>スタイルシート</translation>
     </message>
 </context>
 <context>
@@ -6958,27 +6956,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="14"/>
         <source>Links</source>
-        <translation>Ссылки</translation>
+        <translation>リンク</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Перечислить только имена файлов, которые содержат текст, введённый вами.</translation>
+        <translation>入力したテキストを含むファイル名のみリスト表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Фильтр:</translation>
+        <translation>フィルター:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="71"/>
         <source>File</source>
-        <translation>Файл</translation>
+        <translation>ファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="72"/>
         <source>Line</source>
-        <translation>Строка</translation>
+        <translation>行</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="73"/>
@@ -6988,69 +6986,69 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="74"/>
         <source>Text</source>
-        <translation>Текст</translation>
+        <translation>テキスト</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="75"/>
         <source>Target File</source>
-        <translation>Цель</translation>
+        <translation>ターゲットファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="76"/>
         <source>Target ID</source>
-        <translation>ID цели</translation>
+        <translation>ターゲットID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="77"/>
         <source>Target Exists?</source>
-        <translation>Существует?</translation>
+        <translation>ターゲットが存在しますか?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="78"/>
         <source>Target Text</source>
-        <translation>Текст цели</translation>
+        <translation>ターゲットテキスト</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="79"/>
         <source>Target&apos;s Target File</source>
-        <translation>Цель цели</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="80"/>
         <source>Target&apos;s Target ID</source>
-        <translation>ID цели цели</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="81"/>
         <source>Match?</source>
-        <translation>Совпадение?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="87"/>
         <source>Report shows all source and target links using the anchor tag &quot;a&quot;.</source>
-        <translation>Отчёт показывает все исходные и целевые ссылки, использующие якорный тег &quot;a&quot;.</translation>
+        <translation>レポート: すべてのソースとターゲットはアンカータグ&quot;a&quot;を使用しています。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="159"/>
         <source>n/a</source>
-        <translation>н/д</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="163"/>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="231"/>
         <source>no</source>
-        <translation>нет</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="173"/>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="233"/>
         <source>yes</source>
-        <translation>да</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="352"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Сохранить отчёт как файл с разделителями запятыми</translation>
+        <translation>カンマ区切りのファイルとしてレポートを保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="366"/>
@@ -7060,7 +7058,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="366"/>
         <source>Cannot save report file.</source>
-        <translation>Не удалось сохранить файл отчёта.</translation>
+        <translation>レポートファイルを保存できません。</translation>
     </message>
 </context>
 <context>
@@ -7068,218 +7066,218 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
         <source>untitled.epub[*] - Sigil</source>
-        <translation>без_имени.epub[*] - Sigil</translation>
+        <translation>untitled.epub[*] - Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="58"/>
         <source>&amp;File</source>
-        <translation>&amp;Файл</translation>
+        <translation>ファイル(&amp;F)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="62"/>
         <source>A&amp;dd</source>
-        <translation>&amp;Добавить</translation>
+        <translation>追加(&amp;D)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="88"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Правка</translation>
+        <translation>編集(&amp;E)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="92"/>
         <source>C&amp;hange Case</source>
-        <translation>Сменить &amp;регистр</translation>
+        <translation>大文字小文字の切替え(&amp;H)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="117"/>
         <source>&amp;Insert</source>
-        <translation>Вст&amp;авка</translation>
+        <translation>挿入(&amp;I)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="121"/>
         <source>Cli&amp;p</source>
-        <translation>Фрагмент</translation>
+        <translation>クリップ(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="158"/>
         <source>&amp;Help</source>
-        <translation>&amp;Справка</translation>
+        <translation>ヘルプ(&amp;H)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="168"/>
         <source>For&amp;mat</source>
-        <translation>Фор&amp;мат</translation>
+        <translation>書式(&amp;M)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="172"/>
         <source>&amp;Heading</source>
-        <translation>&amp;Заголовок</translation>
+        <translation>見出し(&amp;H)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="212"/>
         <source>&amp;View</source>
-        <translation>&amp;Вид</translation>
+        <translation>表示(&amp;V)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="216"/>
         <source>&amp;Toolbars</source>
-        <translation>Панели &amp;инструментов</translation>
+        <translation>ツールバー(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="228"/>
         <source>&amp;Search</source>
-        <translation>По&amp;иск</translation>
+        <translation>検索(&amp;S)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="232"/>
         <source>Current Fil&amp;e</source>
-        <translation>Текущий &amp;файл</translation>
+        <translation>現在のファイル(&amp;E)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="264"/>
         <source>&amp;Window</source>
-        <translation>&amp;Окно</translation>
+        <translation>ウィンドウ(&amp;W)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="276"/>
         <source>&amp;Tools</source>
-        <translation>С&amp;ервис</translation>
+        <translation>ツール(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="280"/>
         <source>&amp;Table Of Contents</source>
-        <translation>О&amp;главление</translation>
+        <translation>目次(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="288"/>
         <source>Spe&amp;llcheck</source>
-        <translation>&amp;Проверка орфографии</translation>
+        <translation>スペルチェック(&amp;L)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="302"/>
         <source>&amp;Index</source>
-        <translation>&amp;Указатель</translation>
+        <translation>インデックス(&amp;I)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="313"/>
         <source>Re&amp;format HTML</source>
-        <translation>Переформатировать HTML</translation>
+        <translation>HTMLの再フォーマット(&amp;F)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="320"/>
         <source>Epub&amp;3 Tools</source>
-        <translation>Инструменты для Epub&amp;3</translation>
+        <translation>Epub3ツール(&amp;3)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="348"/>
         <source>Plugins</source>
-        <translation>Модули</translation>
+        <translation>プラグイン</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="366"/>
         <location filename="../../MainUI/MainWindow.cpp" line="854"/>
         <source>File</source>
-        <translation>Файл</translation>
+        <translation>ファイル</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="381"/>
         <location filename="../../MainUI/MainWindow.cpp" line="350"/>
         <source>Edit</source>
-        <translation>Правка</translation>
+        <translation>編集</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="402"/>
         <source>Insert</source>
-        <translation>Вставка</translation>
+        <translation>挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="419"/>
         <source>Back</source>
-        <translation>Назад</translation>
+        <translation>戻る</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="431"/>
         <source>Donate</source>
-        <translation>Пожертвовать проекту</translation>
+        <translation>寄付</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="443"/>
         <source>Tools</source>
-        <translation>Сервис</translation>
+        <translation>ツール</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="457"/>
         <source>Plugins Set 1</source>
-        <translation>Набор модулей 1</translation>
+        <translation>プラグイン設定 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="473"/>
         <source>Plugins Set 2</source>
-        <translation>Набор модулей 2</translation>
+        <translation>プラグイン設定 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="489"/>
         <source>Heading</source>
-        <translation>Заголовок</translation>
+        <translation>見出し</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="503"/>
         <source>set Heading Level of Selected Text</source>
-        <translation>Установить стиль выделенного текста.</translation>
+        <translation>選択したテキストの見出しレベルを設定</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="516"/>
         <source>Format</source>
-        <translation>Формат</translation>
+        <translation>書式</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="533"/>
         <source>Align</source>
-        <translation>Выравнивание</translation>
+        <translation>テキスト揃え</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="548"/>
         <source>List</source>
-        <translation>Списки</translation>
+        <translation>リスト</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="561"/>
         <source>Indent</source>
-        <translation>Отступ</translation>
+        <translation>インデント</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="574"/>
         <source>Change Case</source>
-        <translation>Сменить регистр</translation>
+        <translation>大文字小文字の切替え</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="588"/>
         <source>set Case of Selected Text</source>
-        <translation>установить регистр символов в выделенном тексте</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="598"/>
         <source>Text Direction</source>
-        <translation>Направление текста</translation>
+        <translation>テキストの方向</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="612"/>
         <source>Clip Bar</source>
-        <translation>Панель фрагментов</translation>
+        <translation>クリップバー</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="648"/>
         <source>&amp;New</source>
-        <translation>&amp;Создать</translation>
+        <translation>新規(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="651"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Создать&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;新規&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Создать новую книгу.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;新しい本を作成します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="656"/>
@@ -7289,16 +7287,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="665"/>
         <source>&amp;Save</source>
-        <translation>&amp;Сохранить</translation>
+        <translation>保存(&amp;S)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="668"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Сохранить&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;保存&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Сохранить эту книгу.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;現在の本を保存します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="673"/>
@@ -7308,16 +7306,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="678"/>
         <source>Save &amp;As...</source>
-        <translation>Сохранить &amp;как…</translation>
+        <translation>名前を付けて保存(&amp;A)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="681"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Сохранить как&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;名前を付けて保存&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Сохранить эту книгу в файл с другим именем.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;現在の本と異なるファイル名を付けて保存します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="686"/>
@@ -7327,50 +7325,50 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="691"/>
         <source>Save A &amp;Copy...</source>
-        <translation>Сохранить &amp;копию...</translation>
+        <translation>コピーを保存(&amp;C)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="694"/>
         <source>Save a copy of your book to another file name.</source>
-        <translation>Сохранить копию книги под другим именем файла</translation>
+        <translation>ブックのコピーを他のファイル名で保存します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="703"/>
         <source>Cu&amp;t</source>
-        <translation>В&amp;ырезать</translation>
+        <translation>切り取り(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="706"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вырезать&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;カット&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вырезает выделенный текст из документа и помещает его в буфер обмена.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;ドキュメントから選択されたテキストを切り出してクリップボードに出力します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="717"/>
         <source>&amp;Paste</source>
-        <translation>&amp;Вставить</translation>
+        <translation>貼り付け(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="720"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вставить&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;貼り付け&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вставить содержимое буфера обмена в книгу.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;クリップボードから本に内容を貼り付けます。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="727"/>
         <source>&amp;Closing Tag</source>
-        <translation>&amp;Закрывающий тэг</translation>
+        <translation>終了タグ(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="730"/>
         <source>Insert a closing tag in Code View.</source>
-        <translation>Вставить закрывающий тег в окне Просмотра кода.</translation>
+        <translation>コードビューに終了タグを挿入します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="733"/>
@@ -7380,16 +7378,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="742"/>
         <source>&amp;Undo</source>
-        <translation>&amp;Отменить</translation>
+        <translation>元に戻す(&amp;U)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="745"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Отменить&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;元に戻す&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отменяет предыдущее действие.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;直前に行った操作の変更点を元に戻します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="750"/>
@@ -7399,16 +7397,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="759"/>
         <source>&amp;Redo</source>
-        <translation>В&amp;ернуть</translation>
+        <translation>やり直す(&amp;R)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="762"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вернуть&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;やり直す&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Восстанавливает изменения, отменённые предыдущим действием Отменить.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;直前に行った「元に戻す」操作で元に戻した変更点を復活させます。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="767"/>
@@ -7418,58 +7416,58 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="776"/>
         <source>&amp;Copy</source>
-        <translation>&amp;Скопировать</translation>
+        <translation>コピー(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="779"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Копировать&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;コピー&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Копирует выделенный текст из документа и помещает его в буфер обмена.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;選択されたテキストをコピーしてクリップボードに出力します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="793"/>
         <source>Align &amp;Left</source>
-        <translation>Выровнять в&amp;лево</translation>
+        <translation>左揃え(&amp;L)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="796"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Выровнять по левому краю&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;左揃え&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Выравнивание содержимого по левому краю.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;段落を左に揃えます。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="810"/>
         <source>Align &amp;Right</source>
-        <translation>Выровнять в&amp;право</translation>
+        <translation>右揃え(&amp;R)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="813"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Выровнять по правому краю&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;右揃え&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Выравнивание содержимого по правому краю.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;段落を右に揃えます。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="827"/>
         <source>&amp;Center</source>
-        <translation>Выровнять по &amp;центру</translation>
+        <translation>中央揃え(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="830"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Выровнять по центру&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;中央揃え&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Выравнивание содержимого по центру.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;段落を中央に揃えます。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="835"/>
@@ -7479,16 +7477,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="847"/>
         <source>&amp;Justify</source>
-        <translation>Выровнять по &amp;ширине</translation>
+        <translation>両端揃え(&amp;J)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="850"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Выровнять по ширине&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;両端揃え&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Выравнивание содержимого по ширине.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;段落を左右両方のマージンに揃えます。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="855"/>
@@ -7498,16 +7496,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="867"/>
         <source>&amp;Bold</source>
-        <translation>Полу&amp;жирный</translation>
+        <translation>太字(&amp;B)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="870"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Полужирный&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;太字&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Применение полужирного начертания к выделенному тексту.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;選択されたテキストを太字にします。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="875"/>
@@ -7517,16 +7515,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="887"/>
         <source>&amp;Italic</source>
-        <translation>&amp;Курсив</translation>
+        <translation>イタリック(&amp;I)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="890"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Курсив&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;イタリック&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Применение курсивного начертания к выделенному тексту..&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;選択されたテキストをイタリックにします。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="895"/>
@@ -7536,16 +7534,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="904"/>
         <source>&amp;Open...</source>
-        <translation>&amp;Открыть…</translation>
+        <translation>開く(&amp;O)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="907"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Открыть&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;開く&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Открыть книгу с диска.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;ディスクから本を開きます。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="912"/>
@@ -7555,16 +7553,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="924"/>
         <source>&amp;Underline</source>
-        <translation>Под&amp;чёркивание</translation>
+        <translation>下線(&amp;U)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="927"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Подчёркнутый&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;下線&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подчёркивание выделенного теста.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;選択されたテキストに下線を引きます。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="932"/>
@@ -7574,12 +7572,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="941"/>
         <source>&amp;Quit</source>
-        <translation>В&amp;ыход</translation>
+        <translation>終了(&amp;Q)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="944"/>
         <source>Exit</source>
-        <translation>Выход</translation>
+        <translation>終了</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="947"/>
@@ -7589,40 +7587,40 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="956"/>
         <source>&amp;About...</source>
-        <translation>&amp;О программе…</translation>
+        <translation>情報(&amp;A)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="959"/>
         <source>Show information about Sigil.</source>
-        <translation>Показать информацию о Sigil.</translation>
+        <translation>Sigilに関する情報を表示</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="964"/>
         <source>Add &amp;Cover...</source>
-        <translation>Добавить о&amp;бложку...</translation>
+        <translation>表紙を追加(&amp;C)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="967"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Добавить обложку&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;表紙を追加&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Добавляет обложку.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;表紙を追加します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="978"/>
         <source>&amp;Metadata Editor...</source>
-        <translation>Редактор &amp;метаданных...</translation>
+        <translation>メタデータエディター(&amp;M)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="981"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Редактор метаданных&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;メタデータエディター&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Изменять и отображать информацию о книге, включая автора и название.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;著者やタイトルを含む本に関する情報を編集/表示します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="986"/>
@@ -7632,16 +7630,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="995"/>
         <source>&amp;Generate Table Of Contents...</source>
-        <translation>&amp;Создать оглавление...</translation>
+        <translation>目次を生成(&amp;G)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="998"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Создать оглавление&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;目次を生成&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Создать новое оглавление из заголовков книги.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;本にある見出しから新しい目次を生成します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1003"/>
@@ -7651,30 +7649,28 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1008"/>
         <source>&amp;Edit Table Of Contents...</source>
-        <translation>Изменить оглавление...</translation>
+        <translation>目次を編集(&amp;E)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1011"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Изменить оглавление&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Изменить существующее оглавление.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1022"/>
         <source>&amp;Split At Cursor</source>
-        <translation>Разделить по &amp;курсору</translation>
+        <translation>カーソル位置で分割(&amp;S)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1025"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Разделить по курсору&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;カーソル位置で分割&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Разделить текущий файл на два с помощью курсора, как места разделения.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;分割ポイントとしてカーソルの位置を利用し、現在のファイルを2つに分割します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1030"/>
@@ -7684,7 +7680,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1039"/>
         <source>&amp;File...</source>
-        <translation>&amp;Файл...</translation>
+        <translation>ファイル(&amp;F)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1042"/>
@@ -7693,11 +7689,11 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can add files to your book by using the menu File - Add - Existing Files.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вставить файл&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;ファイルを挿入&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Выберите изображение, звуковой или видеофайл из книги для вставки в текст.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;ブックから画像、動画、オーディオファイルを選択してテキスト中に挿入します。&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вы можете добавить файлы в книгу через меню Файл - Вставка - Файл.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;メニューのファイル-追加-既存のファイルでブックにファイルを追加できます。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1049"/>
@@ -7707,72 +7703,72 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1058"/>
         <source>&amp;Special Character...</source>
-        <translation>Спе&amp;циальный символ...</translation>
+        <translation>特殊文字(&amp;S)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1061"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вставить специальный символ&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;特殊文字を挿入&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Выбрать символ для вставки в текст.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;テキストに挿入したい文字を選択してください。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1072"/>
         <source>I&amp;D...</source>
-        <translation>I&amp;D...</translation>
+        <translation>ID(&amp;D)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1075"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вставить ID&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;IDを挿入&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вставить или изменить якорь с ID, чтобы использовать его как ссылку&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;リンクターゲットとして使用するID名を含むアンカーを挿入/編集します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1086"/>
         <source>&amp;Link...</source>
-        <translation>&amp;Ссылка...</translation>
+        <translation>リンク(&amp;L)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1089"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вставить ссылку&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;リンクを挿入&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вставить или изменить гиперссылку.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;ターゲットにハイパーリンク付きのアンカーを挿入/編集します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1103"/>
         <source>&amp;Numbered List</source>
-        <translation>&amp;Нумерованный список</translation>
+        <translation>番号付け(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1106"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Нумерация&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;番号付け&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Создание нумерованного списка.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;番号付けしたリストを作成します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1120"/>
         <source>Bulle&amp;ted List</source>
-        <translation>&amp;Маркированный список</translation>
+        <translation>箇条書き(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1123"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Маркеры&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;箇条書き&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Создание маркированного списка.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;箇条書きのリストを作成します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1128"/>
@@ -7782,54 +7778,54 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1140"/>
         <source>Stri&amp;kethrough</source>
-        <translation>В&amp;ычёркивание</translation>
+        <translation>取り消し線(&amp;K)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1143"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Зачёркнутый&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;取り消し線&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Зачёркивание выделенного текста линией.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;選択されたテキスト範囲に直線を描きます。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1157"/>
         <source>&amp;Subscript</source>
-        <translation>&amp;Нижний индекс</translation>
+        <translation>下付き文字(&amp;S)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1160"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Подстрочный знак&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;下付き文字&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ввод маленьких букв ниже опорной линии текста.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;選択されたテキストを少し小さくして基準線より下に設定します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1174"/>
         <source>Su&amp;perscript</source>
-        <translation>&amp;Верхний индекс</translation>
+        <translation>上付き文字(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1177"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Надстрочный знак&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;上付き文字&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ввод маленьких букв выше опорной линии текста.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;選択されたテキストを少し小さくして基準線より上に設定します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1188"/>
         <source>&amp;Print...</source>
-        <translation>Пе&amp;чать…</translation>
+        <translation>印刷(&amp;P)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1191"/>
         <source>Print</source>
-        <translation>Печать</translation>
+        <translation>印刷</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1194"/>
@@ -7839,18 +7835,18 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1203"/>
         <source>Print Pre&amp;view...</source>
-        <translation>&amp;Просмотр печати…</translation>
+        <translation>印刷プレビュー(&amp;V)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1206"/>
         <source>Print Preview</source>
-        <translation>Просмотр печати</translation>
+        <translation>印刷プレビュー</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1211"/>
         <location filename="../../Form_Files/main.ui" line="1214"/>
         <source>Close</source>
-        <translation>Закрыть</translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1217"/>
@@ -7860,22 +7856,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1222"/>
         <source>Restructure Epub to Sigil Norm</source>
-        <translation>Изменить структуру Epub до Sigil Norm</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1225"/>
         <source>Restructure Epub to Sigil Standard Form</source>
-        <translation>Изменить структуру Epub до стандартной формы Sigil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1234"/>
         <source>Zoom &amp;In</source>
-        <translation>&amp;Увеличить</translation>
+        <translation>拡大(&amp;I)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1237"/>
         <source>Zoom In</source>
-        <translation>Увеличить масштаб</translation>
+        <translation>拡大</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1240"/>
@@ -7885,12 +7881,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1249"/>
         <source>Zoom &amp;Out</source>
-        <translation>У&amp;меньшить</translation>
+        <translation>縮小(&amp;O)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1252"/>
         <source>Zoom Out</source>
-        <translation>Уменьшить масштаб</translation>
+        <translation>縮小</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1255"/>
@@ -7900,16 +7896,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1264"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
-        <translation>&amp;Найти и заменить...</translation>
+        <translation>検索と置換(&amp;F)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1267"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Найти и заменить&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;検索と置換&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Найти и заменить текст в документе.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;ドキュメント中のテキストを検索したり置換します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1272"/>
@@ -7919,16 +7915,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1281"/>
         <source>Incre&amp;ase Indent</source>
-        <translation>У&amp;величить отступ</translation>
+        <translation>インデントを増やす(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1284"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Увеличить отступ&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;インデントを増やす&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Увеличивает расстояние от поля до абзаца.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;段落のインデントレベルを増やします。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1289"/>
@@ -7938,16 +7934,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1298"/>
         <source>&amp;Decrease Indent</source>
-        <translation>У&amp;меньшить отступ</translation>
+        <translation>インデントを減らす(&amp;D)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1301"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Уменьшить отступ&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;インデントを減らす&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Уменьшает расстояние от поля до абзаца.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;段落のインデントレベルを減らします。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1306"/>
@@ -7958,7 +7954,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1315"/>
         <source>Te&amp;xt Direction LTR</source>
-        <translation>Направление текста с&amp;лева направо</translation>
+        <translation>テキスト方向 左から右(&amp;X)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1318"/>
@@ -7968,15 +7964,15 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction left to right.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Направление теста слева-направо&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;左から右&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Устанавливает направление теста слева-направо.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;段落の方向を左から右にします。&lt;/p&gt;
     </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1331"/>
         <source>T&amp;ext Direction RTL</source>
-        <translation>Направление текста сп&amp;рава налево</translation>
+        <translation>テキスト方向 右から左(&amp;E)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1334"/>
@@ -7986,14 +7982,15 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction right to left.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Направление теста справа-налево&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;右から左&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Устанавливает направление теста справа-налево.&lt;/p&gt;</translation>
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;段落の方向を右から左にします。&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1347"/>
         <source>Text Directi&amp;on Default</source>
-        <translation>Направление текста по &amp;умолчанию</translation>
+        <translation>テキスト方向 デフォルト(&amp;O)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1350"/>
@@ -8003,25 +8000,25 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction to inherit from default.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;По умолчанию&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;デフォルト&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Устанавливает направление теста по умолчанию.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;段落の方向をデフォルトの方向から引き継ぎます。&lt;/p&gt;
     </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1359"/>
         <source>Remove &amp;Formatting</source>
-        <translation>Удалить &amp;форматирование</translation>
+        <translation>書式を削除(&amp;F)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1362"/>
         <source>Ctrl+Space</source>
-        <translation>Ctrl+Space</translation>
+        <translation>Ctrl+スペース</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1371"/>
         <source>&amp;Lowercase</source>
-        <translation>В &amp;нижнем регистре</translation>
+        <translation>小文字(&amp;L)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1374"/>
@@ -8031,9 +8028,10 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to lowercase.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;все строчные&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;小文字&lt;/b&gt;&lt;/p&gt;
 
- &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Устанавливает нижний регистр для выделенного текста.&lt;/p&gt;</translation>
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;選択されたテキストを小文字にします。&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1381"/>
@@ -8043,7 +8041,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1390"/>
         <source>&amp;Uppercase</source>
-        <translation>В &amp;верхнем регистре</translation>
+        <translation>大文字(&amp;U)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1393"/>
@@ -8053,9 +8051,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to uppercase.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Все заглавные&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;大文字&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Устанавливает верхний регистр для выделенного текста..&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;選択されたテキストを大文字にします。&lt;/p&gt;
     </translation>
     </message>
     <message>
@@ -8066,7 +8064,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1409"/>
         <source>&amp;Titlecase</source>
-        <translation>Регистр &amp;заголовка</translation>
+        <translation>タイトルケース(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1412"/>
@@ -8076,15 +8074,15 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize the first letter of each word selected.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Начинать С Прописных&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;タイトルケース&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Устанавливает верхний регистр для первой буквы каждого слова.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;選択された各単語の最初の文字を大文字にします。&lt;/p&gt;
     </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1425"/>
         <source>&amp;Capitalize</source>
-        <translation>&amp;Как в предложении</translation>
+        <translation>キャピタライズ(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1428"/>
@@ -8094,20 +8092,20 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize only the first word of the selected text.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Как в предложениях.&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;キャピタライズ&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Устанавливает верхний регистр только для первой буквы выделенного текста.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;選択されたテキストの最初の単語のみ大文字にします。&lt;/p&gt;
     </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1437"/>
         <source>Sigil Website...</source>
-        <translation>Сайт Sigil...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1442"/>
         <source>&amp;Next Tab</source>
-        <translation>&amp;Следующая вкладка</translation>
+        <translation>次のタブ(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1445"/>
@@ -8117,7 +8115,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1450"/>
         <source>&amp;Previous Tab</source>
-        <translation>&amp;Предыдущая вкладка</translation>
+        <translation>前のタブ(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1453"/>
@@ -8127,7 +8125,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1458"/>
         <source>&amp;Close Tab</source>
-        <translation>&amp;Закрыть вкладку</translation>
+        <translation>タブを閉じる(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1461"/>
@@ -8137,12 +8135,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1466"/>
         <source>Split At &amp;Markers</source>
-        <translation>Разделить по &amp;меткам глав</translation>
+        <translation>マーカー位置で分割(&amp;M)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1469"/>
         <source>Split At Sigil split file markers</source>
-        <translation>Разделить по маркеру разделения Sigil</translation>
+        <translation>Sigil分割ファイルマーカーで分割</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1472"/>
@@ -8152,12 +8150,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1477"/>
         <source>Split &amp;Marker</source>
-        <translation>&amp;Метка разделения</translation>
+        <translation>分割マーカー(&amp;M)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1480"/>
         <source>Insert Sigil split file marker</source>
-        <translation>Вставить метку Sigil для разделения глав</translation>
+        <translation>Sigil分割ファイルマーカーを挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1483"/>
@@ -8167,12 +8165,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1488"/>
         <source>User &amp;Guide...</source>
-        <translation>&amp;Руководство пользователя...</translation>
+        <translation>ユーザーガイド(&amp;G)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1491"/>
         <source>User Guide</source>
-        <translation>Руководство пользователя</translation>
+        <translation>ユーザーガイド</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1494"/>
@@ -8182,32 +8180,32 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1499"/>
         <source>&amp;Frequently Asked Questions...</source>
-        <translation>&amp;Часто задаваемые вопросы…</translation>
+        <translation>FAQ(&amp;F)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1502"/>
         <source>Frequently Asked Questions</source>
-        <translation>Часто задаваемые вопросы</translation>
+        <translation>FAQ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1507"/>
         <source>&amp;Tutorials...</source>
-        <translation>&amp;Уроки...</translation>
+        <translation>チュートリアル(&amp;T)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1510"/>
         <source>Tutorials</source>
-        <translation>Уроки</translation>
+        <translation>チュートリアル</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1515"/>
         <source>Well-Formed Check &amp;EPUB</source>
-        <translation>Проверка правильности  формата &amp;EPUB</translation>
+        <translation>EPUBの整形式チェック</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1518"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Проверка EPUB на правильность формирования&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Убедитесь, что документ соответствует минимальным требованиям для успешного анализа. Это не указывает на соответствие соответствующим стандартам EPUB.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;文書を正常に解析するために最低限必要な条件を満たしていることを確認します。これは、関連するepub標準への準拠を示すものではありません。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1521"/>
@@ -8217,7 +8215,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1526"/>
         <source>Validate Stylesheets With &amp;W3C</source>
-        <translation>Проверить таблицы стилей на &amp;W3C</translation>
+        <translation>W3Cでスタイルシートを検証(&amp;W)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1529"/>
@@ -8227,24 +8225,24 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your CSS stylesheets comply with W3C standards using the online W3C CSS Validation Service.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Проверить таблицы стилей с помощью W3C&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;W3Cでスタイルシートを検証&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Проверьте ваши CSS-файлы на соответствие стандартам W3C, используя онлайн-сервис валидации W3C.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;オンラインW3C CSS検証サービスを利用してCSSスタイルシートがW3C標準に従っているか検証します。&lt;/p&gt;
     </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1542"/>
         <source>&amp;Spellcheck...</source>
-        <translation>&amp;Орфография...</translation>
+        <translation>スペルチェック(&amp;S)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1545"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Проверка орфографии&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;スペルチェック&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Находит все слова с ошибками и позволяет добавить их в словарь или проигнорировать их.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;すべてのミススペルした単語を検索して、辞書に追加するか無視できるようにします。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1550"/>
@@ -8254,22 +8252,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1558"/>
         <source>&amp;Highlight Misspelled Words</source>
-        <translation>&amp;Подсвечивать слова с ошибками</translation>
+        <translation>ミススペル単語を強調する(&amp;H)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1561"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
-        <translation>Переключает выделение слов с ошибками в окне Просмотра кода.</translation>
+        <translation>コードビューでミススペル単語を強調するのを有効/無効にします。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1566"/>
         <source>&amp;Next Misspelled Word</source>
-        <translation>&amp;Следующее слово с ошибкой</translation>
+        <translation>次のミススペル単語(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1569"/>
         <source>Find the next misspelled word in the book.</source>
-        <translation>Найти следующую орфографическую ошибку в книге.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1572"/>
@@ -8279,37 +8277,37 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1577"/>
         <source>&amp;Add Misspelled Word</source>
-        <translation>&amp;Добавить в словарь</translation>
+        <translation>ミススペル単語を追加(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1580"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
-        <translation>Добавить текущее слово с ошибкой в словарь пользователя по умолчанию.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1585"/>
         <source>&amp;Ignore Misspelled Word</source>
-        <translation>Про&amp;игнорировать слово с ошибкой</translation>
+        <translation>ミススペル単語を無視(&amp;I)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1588"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
-        <translation>Игнорировать текущее слово с ошибкой, пока Sigil не будет перезагружен.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1593"/>
         <source>&amp;Clear Ignored Words</source>
-        <translation>&amp;Забыть игнорируемые слова</translation>
+        <translation>無視する単語をクリア(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1596"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
-        <translation>Очистить список игнорированных слов из проверки орфографии без перезагрузки Sigil.</translation>
+        <translation>Sigilを再起動せずにスペルチェックから今無視している単語をクリアします。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1601"/>
         <source>&amp;Index Editor...</source>
-        <translation>&amp;Редактор указателей...</translation>
+        <translation>インデックスエディター(&amp;I)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1604"/>
@@ -8319,17 +8317,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1609"/>
         <source>&amp;Delete Unused Media Files...</source>
-        <translation>У&amp;далить неиспользуемые медиафайлы...</translation>
+        <translation>未使用のメディアファイルを削除(&amp;D)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1614"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
-        <translation>Удалить неиспользуемые к&amp;лассы стилей...</translation>
+        <translation>未使用のスタイルシートクラスを削除(&amp;U)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1619"/>
         <source>&amp;Reports...</source>
-        <translation>От&amp;чёты...</translation>
+        <translation>レポート(&amp;R)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1622"/>
@@ -8339,7 +8337,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1631"/>
         <source>&amp;Donate...</source>
-        <translation>&amp;Пожертвовать...</translation>
+        <translation>寄付(&amp;B)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1634"/>
@@ -8347,15 +8345,15 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
 </source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Пожертвовать проекту&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;寄付&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Поддержать Sigil финансово.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Sigilを助けるため寄付します&lt;/p&gt;
 </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1642"/>
         <source>Close &amp;Other Tabs</source>
-        <translation>Закрыть &amp;все прочие вкладки</translation>
+        <translation>他のタブを閉じる(&amp;O)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1645"/>
@@ -8365,7 +8363,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1650"/>
         <source>Go To &amp;Line...</source>
-        <translation>Перейти к &amp;строке…</translation>
+        <translation>指定行に移動(&amp;L)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1653"/>
@@ -8375,7 +8373,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1658"/>
         <source>Find &amp;Next</source>
-        <translation>Найти &amp;следующее совпадение</translation>
+        <translation>次を検索(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1661"/>
@@ -8385,7 +8383,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1666"/>
         <source>Find &amp;Previous</source>
-        <translation>Найти &amp;предыдущее совпадение</translation>
+        <translation>前を検索(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1669"/>
@@ -8395,7 +8393,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1674"/>
         <source>Replace</source>
-        <translation>Заменить</translation>
+        <translation>置換</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1677"/>
@@ -8405,7 +8403,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1682"/>
         <source>&amp;Replace/Find Next</source>
-        <translation>Найти и заменить &amp;следующее</translation>
+        <translation>次を置換/検索(&amp;R)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1685"/>
@@ -8415,7 +8413,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1690"/>
         <source>R&amp;eplace/Find Previous</source>
-        <translation>Найти и заменить &amp;предыдущее</translation>
+        <translation>前を置換/検索(&amp;E)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1693"/>
@@ -8425,7 +8423,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1698"/>
         <source>Replace &amp;All</source>
-        <translation>Заменить &amp;всё</translation>
+        <translation>すべて置換(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1701"/>
@@ -8435,7 +8433,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1706"/>
         <source>&amp;Count All</source>
-        <translation>Пос&amp;читать всё</translation>
+        <translation>すべてカウント(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1709"/>
@@ -8445,32 +8443,32 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1714"/>
         <source>Mar&amp;k Selected Text</source>
-        <translation>От&amp;метить выделенный текст</translation>
+        <translation>選択されたテキストをマーク(&amp;K)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1722"/>
         <source>Find &amp;Next In File</source>
-        <translation>Найти и заменить в &amp;файле</translation>
+        <translation>ファイル中の次を検索(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1727"/>
         <source>&amp;Replace Next In File</source>
-        <translation>Заменить с&amp;ледующее в файле</translation>
+        <translation>ファイル中で次を置換(&amp;R)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1732"/>
         <source>Replace &amp;All In File</source>
-        <translation>&amp;Заменить всё в файле</translation>
+        <translation>ファイル中のものをすべて置換(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1737"/>
         <source>&amp;Count All In File</source>
-        <translation>&amp;Посчитать всё в файле</translation>
+        <translation>ファイル中ですべてカウント(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1742"/>
         <source>&amp;Saved Searches...</source>
-        <translation>Сохранённые Поиск и &amp;Замена…</translation>
+        <translation>保存された検索(&amp;S)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1745"/>
@@ -8480,12 +8478,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1750"/>
         <source>&amp;Clip Editor...</source>
-        <translation>Редактор &amp;фрагментов...</translation>
+        <translation>クリップエディター(&amp;C)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1753"/>
         <source>Open the Clip Editor.</source>
-        <translation>Открыть редактор фрагментов.</translation>
+        <translation>クリップエディターを開きます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1756"/>
@@ -8495,12 +8493,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1761"/>
         <source>Clip &amp;1</source>
-        <translation>Фрагмент &amp;1</translation>
+        <translation>クリップ&amp;1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1764"/>
         <source>Insert Clip 1</source>
-        <translation>Вставить фрагмент 1</translation>
+        <translation>クリップ1を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1767"/>
@@ -8510,12 +8508,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1772"/>
         <source>Clip &amp;2</source>
-        <translation>Фрагмент &amp;2</translation>
+        <translation>クリップ&amp;2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1775"/>
         <source>Insert Clip 2</source>
-        <translation>Вставить фрагмент 2</translation>
+        <translation>クリップ2を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1778"/>
@@ -8525,12 +8523,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1783"/>
         <source>Clip &amp;3</source>
-        <translation>Фрагмент &amp;3</translation>
+        <translation>クリップ&amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1786"/>
         <source>Insert Clip 3</source>
-        <translation>Вставить фрагмент 3</translation>
+        <translation>クリップ3を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1789"/>
@@ -8540,12 +8538,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1794"/>
         <source>Clip &amp;4</source>
-        <translation>Фрагмент &amp;4</translation>
+        <translation>クリップ&amp;4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1797"/>
         <source>Insert Clip 4</source>
-        <translation>Вставить фрагмент 4</translation>
+        <translation>クリップ4を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1800"/>
@@ -8555,12 +8553,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1805"/>
         <source>Clip &amp;5</source>
-        <translation>Фрагмент &amp;5</translation>
+        <translation>クリップ&amp;5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1808"/>
         <source>Insert Clip 5</source>
-        <translation>Вставить фрагмент 5</translation>
+        <translation>クリップ5を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1811"/>
@@ -8570,12 +8568,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1816"/>
         <source>Clip &amp;6</source>
-        <translation>Фрагмент &amp;6</translation>
+        <translation>クリップ&amp;6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1819"/>
         <source>Insert Clip 6</source>
-        <translation>Вставить фрагмент 6</translation>
+        <translation>クリップ6を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1822"/>
@@ -8585,12 +8583,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1827"/>
         <source>Clip &amp;7</source>
-        <translation>Фрагмент &amp;7</translation>
+        <translation>クリップ&amp;7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1830"/>
         <source>Insert Clip 7</source>
-        <translation>Вставить фрагмент 7</translation>
+        <translation>クリップ7を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1833"/>
@@ -8600,12 +8598,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1838"/>
         <source>Clip &amp;8</source>
-        <translation>Фрагмент &amp;8</translation>
+        <translation>クリップ&amp;8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1841"/>
         <source>Insert Clip 8</source>
-        <translation>Вставить фрагмент 8</translation>
+        <translation>クリップ8を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1844"/>
@@ -8615,12 +8613,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1849"/>
         <source>Clip &amp;9</source>
-        <translation>Фрагмент &amp;9</translation>
+        <translation>クリップ&amp;9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1852"/>
         <source>Insert Clip 9</source>
-        <translation>Вставить фрагмент 9</translation>
+        <translation>クリップ9を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1855"/>
@@ -8630,12 +8628,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1860"/>
         <source>Clip 1&amp;0</source>
-        <translation>Фрагмент 1&amp;0</translation>
+        <translation>クリップ1&amp;0</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1863"/>
         <source>Insert Clip 10</source>
-        <translation>Вставить фрагмент 10</translation>
+        <translation>クリップ10を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1866"/>
@@ -8645,107 +8643,107 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1871"/>
         <source>Clip 11</source>
-        <translation>Фрагмент 11</translation>
+        <translation>クリップ11</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1874"/>
         <source>Insert Clip 11</source>
-        <translation>Вставить фрагмент 11</translation>
+        <translation>クリップ11を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1879"/>
         <source>Clip 12</source>
-        <translation>Фрагмент 12</translation>
+        <translation>クリップ12</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1882"/>
         <source>Insert Clip 12</source>
-        <translation>Вставить фрагмент 12</translation>
+        <translation>クリップ12を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1887"/>
         <source>Clip 13</source>
-        <translation>Фрагмент 13</translation>
+        <translation>クリップ13</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1890"/>
         <source>Insert Clip 13</source>
-        <translation>Вставить фрагмент 13</translation>
+        <translation>クリップ13を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1895"/>
         <source>Clip 14</source>
-        <translation>Фрагмент 14</translation>
+        <translation>クリップ14</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1898"/>
         <source>Insert Clip 14</source>
-        <translation>Вставить фрагмент 14</translation>
+        <translation>クリップ14を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1903"/>
         <source>Clip 15</source>
-        <translation>Фрагмент 15</translation>
+        <translation>クリップ15</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1906"/>
         <source>Insert Clip 15</source>
-        <translation>Вставить фрагмент 15</translation>
+        <translation>クリップ15を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1911"/>
         <source>Clip 16</source>
-        <translation>Фрагмент 16</translation>
+        <translation>クリップ16</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1914"/>
         <source>Insert Clip 16</source>
-        <translation>Вставить фрагмент 16</translation>
+        <translation>クリップ16を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1919"/>
         <source>Clip 17</source>
-        <translation>Фрагмент 17</translation>
+        <translation>クリップ17</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1922"/>
         <source>Insert Clip 17</source>
-        <translation>Вставить фрагмент 17</translation>
+        <translation>クリップ17を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1927"/>
         <source>Clip 18</source>
-        <translation>Фрагмент 18</translation>
+        <translation>クリップ18</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1930"/>
         <source>Insert Clip 18</source>
-        <translation>Вставить фрагмент 18</translation>
+        <translation>クリップ18を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1935"/>
         <source>Clip 19</source>
-        <translation>Фрагмент 19</translation>
+        <translation>クリップ19</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1938"/>
         <source>Insert Clip 19</source>
-        <translation>Вставить фрагмент 19</translation>
+        <translation>クリップ19を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1943"/>
         <source>Clip 20</source>
-        <translation>Фрагмент 20</translation>
+        <translation>クリップ20</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1946"/>
         <source>Insert Clip 20</source>
-        <translation>Вставить фрагмент 20</translation>
+        <translation>クリップ20を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1951"/>
         <source>&amp;Preferences...</source>
-        <translation>&amp;Настройки...</translation>
+        <translation>環境設定(&amp;P)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1954"/>
@@ -8755,12 +8753,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1959"/>
         <source>&amp;Zoom Reset</source>
-        <translation>Исходный &amp;масштаб</translation>
+        <translation>ズームをリセット(&amp;Z)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1962"/>
         <source>Zoom Reset</source>
-        <translation>Исходный масштаб</translation>
+        <translation>ズームをリセット</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1965"/>
@@ -8770,16 +8768,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1977"/>
         <source>Heading &amp;1</source>
-        <translation>Заголовок &amp;1</translation>
+        <translation>見出し&amp;1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1980"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заголовок 1&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;見出し1&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отформатировать абзац как заголовок 1-го уровня.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;レベル1の見出しとしての段落のフォーマット。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1985"/>
@@ -8789,16 +8787,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1997"/>
         <source>Heading &amp;2</source>
-        <translation>Заголовок &amp;2</translation>
+        <translation>見出し&amp;2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2000"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заголовок 2&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;見出し2&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отформатировать абзац как заголовок 2-го уровня.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;レベル2の見出しとしての段落のフォーマット。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2005"/>
@@ -8808,16 +8806,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2017"/>
         <source>Heading &amp;3</source>
-        <translation>Заголовок &amp;3</translation>
+        <translation>見出し&amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2020"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заголовок 3&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;見出し3&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отформатировать абзац как заголовок 3-го уровня.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;レベル3の見出しとしての段落のフォーマット。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2025"/>
@@ -8827,16 +8825,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2037"/>
         <source>Heading &amp;4</source>
-        <translation>Заголовок &amp;4</translation>
+        <translation>見出し&amp;4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2040"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заголовок 4&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;見出し4&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отформатировать абзац как заголовок 4-го уровня.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;レベル4の見出しとしての段落のフォーマット。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2045"/>
@@ -8846,16 +8844,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2057"/>
         <source>Heading &amp;5</source>
-        <translation>Заголовок &amp;5</translation>
+        <translation>見出し&amp;5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2060"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заголовок 5&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;見出し5&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отформатировать абзац как заголовок 5-го уровня.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;レベル5の見出しとしての段落のフォーマット。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2065"/>
@@ -8865,16 +8863,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2077"/>
         <source>Heading &amp;6</source>
-        <translation>Заголовок &amp;6</translation>
+        <translation>見出し&amp;6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2080"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заголовок 6&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;見出し6&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отформатировать абзац как заголовок 6-го уровня.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;レベル6の見出しとしての段落のフォーマット。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2085"/>
@@ -8884,16 +8882,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2097"/>
         <source>&amp;Normal</source>
-        <translation>&amp;Обычный текст</translation>
+        <translation>通常(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2100"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Абзац&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;段落&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отформатировать как обычный абзац .&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;段落を通常の段落のフォーマットにします。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2105"/>
@@ -8903,66 +8901,66 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2113"/>
         <source>&amp;Preserve Existing Attributes</source>
-        <translation>&amp;Сохранять имеющиеся атрибуты</translation>
+        <translation>既存の属性を保持(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2116"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
-        <translation>Применяя этот стиль, сохранить существующие атрибуты тега</translation>
+        <translation>このスタイルを適用する際にタグの既存の属性をすべて保持する</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2121"/>
         <source>Blank HTML File</source>
-        <translation>Пустой файл HTML</translation>
+        <translation>空のHTMLファイル</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2124"/>
         <source>Add a new blank HTML file to the book.</source>
-        <translation>Добавить новый пустой HTML-файл в книгу.</translation>
+        <translation>新しい空のHTMLファイルをブックに追加します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2133"/>
         <source>Existing Files...</source>
-        <translation>Существующие файлы...</translation>
+        <translation>既存のファイル...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2136"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Добавить существующие файлы&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;既存のファイルを追加&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Добавить файлы с компьютера в книгу.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;コンピューターから本にファイルを追加します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2143"/>
         <source>Blank Stylesheet</source>
-        <translation>Пустой стиль</translation>
+        <translation>空のスタイルシート</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2146"/>
         <source>Add a new blank stylesheet to the book.</source>
-        <translation>Добавить новую пустую таблицу стилей в книгу.</translation>
+        <translation>新しい空のスタイルシートをブックに追加します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2151"/>
         <source>Blank SVG Image</source>
-        <translation>Пустое изображение SVG</translation>
+        <translation>空のSVG画像</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2154"/>
         <source>Add a new blank svg image file to the book.</source>
-        <translation>Добавить новый пустой SVG-файл в книгу.</translation>
+        <translation>新しい空のSVG画像ファイルを本に追加します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2159"/>
         <source>Pre&amp;vious File</source>
-        <translation>&amp;Предыдущий файл</translation>
+        <translation>前のファイル(&amp;V)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2162"/>
         <source>Open previous file of the same type.</source>
-        <translation>Открыть предыдущий файл того же типа.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2165"/>
@@ -8972,12 +8970,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2170"/>
         <source>Next &amp;File</source>
-        <translation>&amp;Следующий файл</translation>
+        <translation>次のファイル(&amp;F)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2173"/>
         <source>Open next file of the same type.</source>
-        <translation>Открыть следующий файл того же типа.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2176"/>
@@ -8987,22 +8985,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2181"/>
         <source>&amp;Add To Index Editor</source>
-        <translation>&amp;Добавить в редактор указателей</translation>
+        <translation>インデックスエディターに追加(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2184"/>
         <source>Add the selected text to the Index Editor.</source>
-        <translation>Добавить выбранный текст в указатель.</translation>
+        <translation>選択されたテキストをインデックスエディターに追加します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2189"/>
         <source>&amp;Mark For Index</source>
-        <translation>&amp;Пометить для указателя</translation>
+        <translation>インデックスをマーク(&amp;M)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2192"/>
         <source>Mark the selected text for inclusion in the Index.</source>
-        <translation>Отметить выбранный текст для включения в указатель.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2195"/>
@@ -9012,27 +9010,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2200"/>
         <source>&amp;Create Index</source>
-        <translation>Создать &amp;указатель</translation>
+        <translation>インデックスを作成(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2203"/>
         <source>Generate a new Index HTML file.</source>
-        <translation>Генерировать новый HTML-файл указателя.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2208"/>
         <source>&amp;Create HTML Table Of Contents</source>
-        <translation>Создать &amp;файл HTML с оглавлением</translation>
+        <translation>HTMLの目次を作成(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2211"/>
         <source>Create a new HTML file using the current TOC.</source>
-        <translation>Создать новый HTML-файл, используя текущее оглавление.</translation>
+        <translation>現在の目次を利用して新しいHTMLファイルを作成します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2216"/>
         <source>Book&amp;mark Location</source>
-        <translation>Добавить &amp;закладку</translation>
+        <translation>位置をブックマーク(&amp;M)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2219"/>
@@ -9042,7 +9040,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2224"/>
         <source>&amp;Go To Link Or Style</source>
-        <translation>Перейти &amp;к ссылке или стилю</translation>
+        <translation>リンクまたはスタイルに進む(&amp;G)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2227"/>
@@ -9052,7 +9050,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2236"/>
         <source>&amp;Back</source>
-        <translation>&amp;Назад</translation>
+        <translation>戻る(&amp;B)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2239"/>
@@ -9060,9 +9058,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
     </source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вернуться&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;戻る&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вернуться туда, куда вы последний раз перешли по ссылке или стилю или добавили закладку.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;最後に訪れたリンクまたはブックマークした位置に戻ります。&lt;/p&gt;
     </translation>
     </message>
     <message>
@@ -9073,7 +9071,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2250"/>
         <source>Edit/Paste From Clipboard &amp;History...</source>
-        <translation>Редактировать/Заменить данными из буфера обмена и истории</translation>
+        <translation>クリップボード履歴から編集/貼り付け(&amp;H)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2253"/>
@@ -9083,7 +9081,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2258"/>
         <source>&amp;Delete Line</source>
-        <translation>Удалить с&amp;троку</translation>
+        <translation>行を削除(&amp;D)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2261"/>
@@ -9093,62 +9091,62 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2266"/>
         <source>Manage Plugins</source>
-        <translation>Управление модулями</translation>
+        <translation>プラグインの管理</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2275"/>
         <source>Run Plugin 1</source>
-        <translation>Запустить подключаемый модуль 1</translation>
+        <translation>プラグイン 1 を実行</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2284"/>
         <source>Run Plugin 2</source>
-        <translation>Запустить подключаемый модуль 2</translation>
+        <translation>プラグイン 2 を実行</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2293"/>
         <source>Run Plugin 3</source>
-        <translation>Запустить подключаемый модуль 3</translation>
+        <translation>プラグイン 3 を実行</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2302"/>
         <source>Run Plugin 4</source>
-        <translation>Запустить подключаемый модуль 4</translation>
+        <translation>プラグイン 4 を実行</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2311"/>
         <source>Run Plugin 5</source>
-        <translation>Запустить подключаемый модуль 5</translation>
+        <translation>プラグイン 5 を実行</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2320"/>
         <source>Run Plugin 6</source>
-        <translation>Запустить подключаемый модуль 6</translation>
+        <translation>プラグイン 6 を実行</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2329"/>
         <source>Run Plugin 7</source>
-        <translation>Запустить подключаемый модуль 7</translation>
+        <translation>プラグイン 7 を実行</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2338"/>
         <source>Run Plugin 8</source>
-        <translation>Запустить подключаемый модуль 8</translation>
+        <translation>プラグイン 8 を実行</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2347"/>
         <source>Run Plugin 9</source>
-        <translation>Запустить подключаемый модуль 9</translation>
+        <translation>プラグイン 9 を実行</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2356"/>
         <source>Run Plugin 10</source>
-        <translation>Запустить подключаемый модуль 10</translation>
+        <translation>プラグイン 10 を実行</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2365"/>
         <source>Launch External Xhtml Editor</source>
-        <translation>Запустить внешний редактор Xhtml</translation>
+        <translation>外部XHTMLエディタを起動</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2368"/>
@@ -9158,47 +9156,47 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2373"/>
         <source>Mend and &amp;Prettify All HTML Files</source>
-        <translation>Исправить и &amp;Отформатировать все HTML-файлы</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2378"/>
         <source>&amp;Mend All HTML Files</source>
-        <translation>&amp;Исправить все HTML-файлы</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2383"/>
         <source>&amp;Update Manifest Properties</source>
-        <translation>&amp;Обновить атрибуты манифеста</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2388"/>
         <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
-        <translation>Генерировать &amp;NCX/Guide для epub2 ридера</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2393"/>
         <source>Create a Custom Empty Epub</source>
-        <translation>Создать пользовательский бланк Epub</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2398"/>
         <source>Remove the NCX and Guide</source>
-        <translation>Удалить NCX и руководство</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="338"/>
         <source>Input</source>
-        <translation>Ввод</translation>
+        <translation>入力</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="344"/>
         <source>Output</source>
-        <translation>Вывод</translation>
+        <translation>出力</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="356"/>
         <source>Validation</source>
-        <translation>Валидация</translation>
+        <translation>検証</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="405"/>
@@ -9247,498 +9245,493 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="406"/>
         <source>Are you sure you want to restructure this epub?
 This action cannot be reversed.</source>
-        <translation>Вы уверены, что хотите реструктурировать этот epub?
-Это действие не может быть отменено.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="419"/>
         <location filename="../../MainUI/MainWindow.cpp" line="427"/>
         <location filename="../../MainUI/MainWindow.cpp" line="434"/>
         <source>Restructure cancelled: %1, XML not well formed.</source>
-        <translation>Изменение структуры отменено: %1, неправильно сформирован XML.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="503"/>
         <source>Restructure completed.</source>
-        <translation>Изменение структуры завершено.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="578"/>
         <source>External XHtml Editor works only on Html Resources or OPF Resources!</source>
-        <translation>Внешний редактор XHtml работает только с HTML или OPF ресурсами!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="585"/>
         <source>No External Xhtml Editor has been specified:  See Preferences</source>
-        <translation>Внешний редактор Xhtml не указан: См. раздел &quot;Настройки&quot;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="592"/>
         <source>Specified External Xhtml Editor path does not exist</source>
-        <translation>Указанный путь для внешнего редактора Xhtml не существует</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="636"/>
         <source>Executing External Xhtml Editor</source>
-        <translation>Выполнить внешний редактор Xhtml</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="639"/>
         <source>Failed to Launch External Xhtml Editor</source>
-        <translation>Не удалось запустить внешний редактор Xhtml</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="736"/>
         <source>Navigation cancelled as location no longer exists.</source>
-        <translation>Переход отменён, так как конечное место больше не существует.</translation>
+        <translation>位置が存在しないため、ナビゲーションはキャンセルされました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="753"/>
         <source>Location bookmarked.</source>
-        <translation>Закладка добавлена.</translation>
+        <translation>位置をブックマークしました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="818"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
-        <translation>Вы уверены, что хотите открыть эту внешнюю ссылку?
-
-%1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="854"/>
         <source>was updated</source>
-        <translation>обновлён</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="861"/>
         <source>Warning</source>
-        <translation>Предупреждение</translation>
+        <translation>警告</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="861"/>
         <source>The file was NOT well formed and may be corrupted.</source>
-        <translation>У файла имеются ошибки в структуре и он может быть повреждён.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="889"/>
         <source>Opening this EPUB generated warnings.</source>
-        <translation>При открытии этого EPUB возникли предупреждения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="891"/>
         <source>Select Show Details for more information.</source>
-        <translation>Выберите «Показать детали» для получения дополнительной информации.</translation>
+        <translation>詳細な情報を見るには、詳細を表示を選択してください。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1016"/>
         <source>Sigil is closing...</source>
-        <translation>Sigil закрывается...</translation>
+        <translation>Sigilを閉じています...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1077"/>
         <source>New file created.</source>
-        <translation>Создан новый файл.</translation>
+        <translation>新しいファイルが作成されました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1102"/>
         <source>Open File</source>
-        <translation>Открыть файл</translation>
+        <translation>ファイルを開く</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1142"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
-        <translation>Файл больше не существует. Нажмите OK, чтобы убрать его из меню.
-%1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1220"/>
         <source>Save File</source>
-        <translation>Сохранить файл</translation>
+        <translation>ファイルを保存</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1274"/>
         <source>Save a Copy</source>
-        <translation>Сохранить копию</translation>
+        <translation>コピーを保存</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1313"/>
         <source>Epub layout discarded.</source>
-        <translation>Оформление Epub отклонено.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1320"/>
         <source>New epub created.</source>
-        <translation>Новая электронная книга создана.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1355"/>
         <source>Go To Line</source>
-        <translation>Перейти к строке</translation>
+        <translation>指定行に移動</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1355"/>
         <source>Line #</source>
-        <translation>Строка #</translation>
+        <translation>行番号</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1378"/>
         <source>Image does not exist: </source>
-        <translation>Изображение не существует: </translation>
+        <translation>画像がありません:</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1431"/>
         <source>or</source>
-        <translation>или</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1439"/>
         <source>No CSS styles named</source>
-        <translation>Нет названных CSS-стилей</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1439"/>
         <source>found, or stylesheet not linked.</source>
-        <translation>найдено, или таблица стилей не связана.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1516"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;p&gt;Указатель &lt;b&gt;%1&lt;/b&gt;, найденный в &lt;b&gt;%2&lt;/b&gt; не существует (и их может быть больше). Разделение или слияние в таких условиях может привести к нарушению ссылок.&lt;/p&gt;&lt;p&gt;Вы всё ещё хотите продолжить?&lt;/p&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1540"/>
         <source>Add Cover</source>
-        <translation>Добавить обложку</translation>
+        <translation>表紙を追加</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1589"/>
         <source>An existing Cover file has been found.</source>
-        <translation>Найден существующий файл обложки.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1645"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
-        <translation>Непредвиденная ошибка. Только изображение может быть использовано как обложка.</translation>
+        <translation>予期せぬエラーです。表紙には画像ファイルのみ使用できます。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1662"/>
         <source>Cover added.</source>
-        <translation>Обложка добавлена.</translation>
+        <translation>表紙を追加しました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1671"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1688"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1720"/>
         <source>Not Available for epub2.</source>
-        <translation>Недоступно для EPUB 2.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1679"/>
         <source>OPF Manifest Properties Updated.</source>
-        <translation>Обновлены свойства манифеста OPF.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1710"/>
         <source>NCX and Guide removed.</source>
-        <translation>NCX и руководство удалены.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1737"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1769"/>
         <source>NCX and Guide generation failed.</source>
-        <translation>Ошибка при создании NCX и руководства.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1807"/>
         <source>NCX and Guide generated.</source>
-        <translation>NCX и руководство созданы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1891"/>
         <source>An existing Index file has been found.</source>
-        <translation>Найден существующий индексный файл.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1982"/>
         <source>Styles deleted.</source>
-        <translation>Стили удалены.</translation>
+        <translation>スタイルが削除されました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1990"/>
         <source>Reports Being Generated.</source>
-        <translation>Создаются Отчёты.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2001"/>
         <source>Reports cancelled due to XML not well formed.</source>
-        <translation>Отчёты отменены из-за ошибок в структуре XML.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2095"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
-        <translation>Удалены неиспользуемые изображения из-за ошибок в структуре XML.</translation>
+        <translation>XMLがwell formedでないため、未使用のメディアファイルの削除をキャンセルしました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2161"/>
         <source>Unused media files deleted.</source>
-        <translation>Неиспользуемые изображения удалены.</translation>
+        <translation>未使用のメディアファイルを削除しました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2163"/>
         <source>There are no unused image, video or audio files to delete.</source>
-        <translation>Нет неиспользуемых медиафайлов.</translation>
+        <translation>削除すべき未使用の画像、動画、オーディオファイルがありません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2171"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
-        <translation>Удалены неиспользуемые стили из-за ошибок в структуре XML.</translation>
+        <translation>XMLがwell formedでないため、未使用のスタイルの削除をキャンセルしました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2188"/>
         <source>There are no unused stylesheet classes to delete.</source>
-        <translation>Нет неиспользуемых стилей CSS.</translation>
+        <translation>削除すべき未使用のスタイルシートクラスがありません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2200"/>
         <source>You cannot insert a file at this position.</source>
-        <translation>Невозможно вставить сюда файл.</translation>
+        <translation>この位置にはファイルを挿入できません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2207"/>
         <source>Insert File</source>
-        <translation>Вставить файл</translation>
+        <translation>ファイルを挿入</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2259"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Файл &quot;%1&quot; не существует.</translation>
+        <translation>ファイル &quot;%1&quot; は存在しません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2310"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2331"/>
         <source>You cannot insert an id at this position.</source>
-        <translation>Невозможно вставить сюда ID.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2326"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
-        <translation>ID недействителен — он должен начинаться с буквы, затем следует любое количество букв/цифр/знаков &quot;_&quot;, &quot;:&quot;, &quot;-&quot; или &quot;.&quot;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2344"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2362"/>
         <source>You cannot insert a link at this position.</source>
-        <translation>Невозможно вставить сюда ссылку.</translation>
+        <translation>この位置にリンクを挿入できません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2357"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation>Ссылка недействительна — она не должна содержать &quot;&lt;&quot; или &quot;&gt;&quot;</translation>
+        <translation>リンクは有効です - &apos;&lt;&apos;または&apos;&gt;&apos;は含めません</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2374"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
-        <translation>Вы не можете создать метку указателя в этом месте или без выделения текста.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2384"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation>Элемент недействителен — он не должен содержать &quot;&lt;&quot; или &quot;&gt;&quot;</translation>
+        <translation>エントリーが無効です - &apos;&lt;&apos; または &apos;&gt;&apos; を含むことはできません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2389"/>
         <source>You cannot mark an index at this position.</source>
-        <translation>Вы не можете создать метку указателя в этом месте.</translation>
+        <translation>この位置でインデックスをマークできません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2448"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2459"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2578"/>
         <source>Select the destination to paste into first.</source>
-        <translation>Выберите место для вставки в первую очередь.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2467"/>
         <source>Pasted clip entry %1.</source>
-        <translation>Вставленный элемент фрагмента %1.</translation>
+        <translation>クリップエントリー %1 を貼り付けます。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2625"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
-        <translation>Не выбран второй элемент для слияния.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2632"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
-        <translation>Вы уверены, что хотите соединить выбранные файлы?
-Это действие нельзя отменить.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2646"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
-        <translation>Слияние отменено: %1, ошибки в структуре XML.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2651"/>
         <source>Merge cancelled due to XML not well formed.</source>
-        <translation>Слияние отменено из-за ошибок в структуре XML.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2675"/>
         <source>Cannot merge file %1</source>
-        <translation>Невозможно слияние %1</translation>
+        <translation>ファイル %1 をマージできません</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2689"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
-        <translation>Слияние завершено. Может потребоваться обновление оглавления.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2707"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
-        <translation>Ссылка таблицы стилей отменена: %1, XML с ошибками в структуре.</translation>
+        <translation>スタイルシートへのリンクをキャンセル: %1, XMLが整形式ではありません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2832"/>
         <source>Word updated.</source>
-        <translation>Слово обновлено.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2904"/>
         <source>File(s) deleted.</source>
-        <translation>Файлы удалены.</translation>
+        <translation>ファイルを削除しました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2915"/>
         <source>Edit Table of Contents cancelled.</source>
-        <translation>Изменение оглавления отменено.</translation>
+        <translation>目次の編集をキャンセルしました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2920"/>
         <source>Table Of Contents edited.</source>
-        <translation>Оглавление изменено.</translation>
+        <translation>目次を編集しました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2938"/>
         <source>Generate TOC cancelled.</source>
-        <translation>Создание оглавления отменено.</translation>
+        <translation>目次の生成をキャンセルしました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2963"/>
         <source>Table Of Contents generated.</source>
-        <translation>Оглавление создано.</translation>
+        <translation>目次を生成しました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2965"/>
         <source>No Table Of Contents changes were necessary.</source>
-        <translation>Нет необходимых изменений оглавления.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3038"/>
         <source>An existing HTML Table of Contents file has been found.</source>
-        <translation>Найден существующий HTML-файл оглавления.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3127"/>
         <source>Text selection marked.</source>
-        <translation>Выделение отмечено.</translation>
+        <translation>テキスト選択をマークしました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3129"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3147"/>
         <source>Text selection unmarked.</source>
-        <translation>Отметка снята.</translation>
+        <translation>テキスト選択をマーク解除しました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3196"/>
         <source>Metadata Editor cancelled.</source>
-        <translation>Редактирование метаданных отменено.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3199"/>
         <source>Metadata edited.</source>
-        <translation>Метаданные отредактированы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3302"/>
         <source>RunPlugin</source>
-        <translation>ЗапуститьПлагин</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3327"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
-        <translation>В этом файле отсутствуют таблицы стилей CSS.</translation>
+        <translation>このEPUBには検証するCSSスタイルシートが含まれていません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3792"/>
         <source>Line: %1, Col: %2</source>
-        <translation>Строка: %1, Столбец: %2</translation>
+        <translation>行: %1 列: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3878"/>
         <source>File cannot be split at this position.</source>
-        <translation>Файл невозможно разделить в этой позиции.</translation>
+        <translation>この位置でファイルを分割することはできません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3884"/>
         <source>Cannot split since it may not be an HTML file.</source>
-        <translation>Невозможно разделить, поскольку это, возможно, не HTML-файл.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3890"/>
         <source>The Nav file cannot be split.</source>
-        <translation>Файл Nav нельзя разделить.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3907"/>
         <source>Split completed.</source>
-        <translation>Разделение завершено.</translation>
+        <translation>分割が完了しました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3925"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
-        <translation>Разделение невозможно, так как выделен не файл HTML.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3931"/>
         <source>Cannot split: %1 XML is not well formed</source>
-        <translation>Не удаётся разделить файл %1: ошибки в структуре XML</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3937"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
-        <translation>Не удаётся разделить, поскольку по крайней мере один файл может не быть HTML-файлом.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3970"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
-        <translation>Разделение завершено. Может потребоваться обновление оглавления.</translation>
+        <translation>分割が完了しました。必要に応じて目次を更新してください。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3972"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
-        <translation>Не найдено меток разделения файла. Используйте Вставка-&gt;Метка разделения.</translation>
+        <translation>分割ファイルマーカーが見つかりません。挿入-&gt;分割マーカーを使用してください。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4192"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
-        <translation>Этот документ был изменён.
-Вы хотите сохранить изменения?</translation>
+        <translation>ドキュメントは変更されています。
+変更点を保存しますか？</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4213"/>
         <source>Should Sigil overwrite this file?</source>
-        <translation>Должен ли Sigil перезаписать этот файл?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4385"/>
         <source>No importer for file type: %1</source>
-        <translation>Нет импортёра для файлового типа: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4392"/>
@@ -9747,120 +9740,116 @@ Do you want to save your changes?</source>
 %1 (line %2: %3)
 
 Try setting the Clean Source preference to Mend XHTML Source Code on Open and reloading the file.</source>
-        <translation>Следующий файл содержит ошибки или неправильно сформированный XML:
+        <translation>次のファイルは、無効なコンテンツまたは整形式でないXMLが原因でロードされませんでした:
 
-%1 (строка %2: %3)
+%1 (行 %2: %3)
 
-Попробуйте включить настройку &quot;Исправлять исходный код XHTML&quot; при открытии и сохранении,
-затем перезагрузите файл.</translation>
+[XHTMLソースコードを修繕するタイミング]の設定で、&quot;開く&quot;を指定して、ファイルを再読み込みしてください。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4397"/>
         <source>Loading file...</source>
-        <translation>Загрузка файла...</translation>
+        <translation>ファイルを読み込んでいます...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4411"/>
         <source>File loaded.</source>
-        <translation>Файл загружен.</translation>
+        <translation>ファイルを読み込みました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4438"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
-        <translation>Создатель этого файла зашифровал его. Sigil не может открывать такие файлы.</translation>
+        <translation>このファイルの作者はDRMでの暗号化を行っています。Sigilはこういったファイルは開けません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4445"/>
         <source>Cannot load EPUB: %1</source>
-        <translation>Не удалось загрузить EPUB: %1</translation>
+        <translation>EPUBをロードできません: %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4449"/>
         <source>Cannot load file %1: %2</source>
-        <translation>Не удалось загрузить файл %1: %2</translation>
+        <translation>ファイル %1 を読み込めません: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4477"/>
         <source>Saving EPUB...</source>
-        <translation>Сохранение файла EPUB...</translation>
+        <translation>EPUBを保存しています...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4486"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
-        <translation>Sigil не может сохранить файлы типа &quot;%1&quot;.
-Пожалуйста, выберите другой формат.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4511"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in some data loss.
 
 Do you want to automatically mend the files before saving?</source>
-        <translation>В этом EPUB есть HTML-файлы, имеющие ошибки в структуре, а текущие настройки &quot;Clean Source&quot; — автоматическое исправление при сохранении. Сохранение файла с ошибками в структуре приведёт к его автоматическому исправлению, что очень редко может вызвать потерю некоторых данных.
-
-Вы хотите автоматически исправить файлы перед сохранением?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4549"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
-        <translation>EPUB сохранён, но некоторые HTML-файлы имеют ошибки в структуре.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4551"/>
         <source>EPUB saved.</source>
-        <translation>EPUB сохранён.</translation>
+        <translation>EPUBを保存しました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4557"/>
         <source>Cannot save file %1: %2</source>
-        <translation>Невозможно сохранить файл %1: %2</translation>
+        <translation>ファイル %1 を保存できません: %2</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4690"/>
         <source>EPUB files (*.epub)</source>
-        <translation>Файлы EPUB (*.epub)</translation>
+        <translation>EPUBファイル (*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4691"/>
         <location filename="../../MainUI/MainWindow.cpp" line="4692"/>
         <location filename="../../MainUI/MainWindow.cpp" line="4693"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
-        <translation>Файлы HTML (*.htm *.html *.xhtml)</translation>
+        <translation>HTMLファイル (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4694"/>
         <source>Text files (*.txt)</source>
-        <translation>Текстовые файлы (*.txt)</translation>
+        <translation>テキストファイル (*.txt)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4695"/>
         <source>All files (*.*)</source>
-        <translation>Все файлы (*.*)</translation>
+        <translation>すべてのファイル (*.*)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4703"/>
         <source>EPUB file (*.epub)</source>
-        <translation>Файл EPUB (*.epub)</translation>
+        <translation>EPUBファイル (*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4715"/>
         <source>%1[*] - epub%2 - %3</source>
-        <translation>%1[*] — epub%2 — %3</translation>
+        <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4785"/>
         <source>Preserve existing heading attributes is now:</source>
-        <translation>Сохранить имеющиеся атрибуты заголовков прямо сейчас:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4786"/>
         <source>ON</source>
-        <translation>ВКЛ</translation>
+        <translation>ON</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4786"/>
         <source>OFF</source>
-        <translation>ВЫКЛ</translation>
+        <translation>オフ</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4811"/>
@@ -9873,2658 +9862,2658 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>Abridger</source>
-        <translation>Составитель конспекта (референт)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>A person, family, or organization contributing to a resource by shortening or condensing the original work but leaving the nature and content of the original work substantially unchanged. For substantial modifications that result in the creation of a new work, see Author.</source>
-        <translation>Человек, семья или организация, чей вклад заключается в подготовке сокращённого изложения оригинальной работы с сохранением сущности и содержания оригинала нетронутыми. Если модификации были существенны и привели к созданию нового произведения субъект должен быть указан как автор.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Actor</source>
-        <translation>Актёр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
-        <translation>Лицо или организация, которая в основном демонстрирует актёрское искусство в музыкальных или драматургических постановках или концертах.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Adapter</source>
-        <translation>Адаптатор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
-        <translation>Лицо или организации, которые 1) перерабатывют музыкальную композицию, как правило, для другого носителя, или 2) переписывают романы или рассказы для кинофильмов или других аудиовизуальных средств массовой информации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Analyst</source>
-        <translation>Аналитик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
-        <translation>Лицо или организации, которая проверяет, анализирует и интерпретирует данные или информацию в определённой области.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Animator</source>
-        <translation>Мультипликатор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
-        <translation>Лицо или организация, рисующие двухмерные фигуры, манипулирующего трёхмерными объектами и/или также создающего компьютерные программы для придания объектам и изображениям иллюзии движения. Обычно аниматор использует в качестве инструментов своей деятельности анимационные камеры, стенды, целлулоидные экраны, диапозитивы и чернила.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Annotator</source>
-        <translation>Аннотатор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
-        <translation>Лицо, которое пишет рукописные аннотации на печатные материалы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>Appellant</source>
-        <translation>Апеллянт</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>A person or organization who appeals a lower court&apos;s decision.</source>
-        <translation>Лицо или организация, обжалующие решение суда низшей инстанции.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>Appellee</source>
-        <translation>Ответчик по апелляции</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>A person or organization against whom an appeal is taken.</source>
-        <translation>Лицо или организация, в отношении которых подана апелляция.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Applicant</source>
-        <translation>Заявитель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
-        <translation>Лицо или организация, ответственные за подачу заявления, прошения или лицо или организация, которое признаётся имеющим право на результаты рассмотрения заявления, прошения (напр., на дарование прав, награду, титул, должность).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Architect</source>
-        <translation>Архитектор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
-        <translation>Лицо или организация, которые проектируют конструкции или контролируют их сооружение.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Arranger</source>
-        <translation>Аранжировщик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
-        <translation>Лицо или организация, переложившие музыкальное произведение обычно для иного, чем в оригинале, средства исполнения. При аранжировке музыкальная основа оригинала по существу не изменяется.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Art copyist</source>
-        <translation>Копиист произведения изобразительного искусства</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
-        <translation>Лицо (например, художник или скульптор), изготовляющее копии изобразительного искусства.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>Art director</source>
-        <translation>Арт-директор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>A person contributing to a motion picture or television production by overseeing the artists and craftspeople who build the sets.</source>
-        <translation>Человек, участвующий в создании кинофильмов или телевизионных программ, который администрирует и контролирует работу художников и декораторов, по сооружению декораций.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Artist</source>
-        <translation>Художник</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
-        <translation>Лицо или организация, задумавшее и возможно также создавшее оригинальный графический рисунок или произведение искусства. (Используется, если специальные коды (например, [egr], [etr]) нежелательны). Для иллюстраторов книг предпочтителен код [ill].</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Artistic director</source>
-        <translation>Художественный руководитель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
-        <translation>Лицо, ответственное за художественный стиль всей работы, включая выбор представленных произведений, и подбор руководящего режиссёрского персонала.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Assignee</source>
-        <translation>Цессионарий</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
-        <translation>Лицо или организация, которым была передана лицензия на печать или публикацию произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Associated name</source>
-        <translation>Ассоциированное имя</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
-        <translation>Лицо или организация, связанные или упомянутые в каталогизируемой единице или коллекции, но которое не может быть определено как «Бывший владелец» [fmo] или другим образом.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Attributed name</source>
-        <translation>Предполагаемый автор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
-        <translation>Лицо, в отношении которого имеются или имелись достаточные основания считать это лицо автором, создателем и т. п. произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Auctioneer</source>
-        <translation>Аукционист</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
-        <translation>Лицо или организация, ответственная за оценку и публичный аукцион товаров, в частности, книг, художественных произведений и т.д.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Author</source>
-        <translation>Автор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
-        <translation>Лицо или организация, несущие основную ответственность за интеллектуальное или художественное содержание произведения, обычно печатного текста. Этот термин может также использоваться, когда более чем один человек или организация несут такую ответственность.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Author in quotations or text extracts</source>
-        <translation>Автор цитат или выдержек из текста</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
-        <translation>Лицо или организация, чьё произведение широко цитируются в других произведениях, в создании которых он/она не принимали непосредственного участия. Такое цитирование особенно часто используется в каталогах выставок, коллекциях фотографий и т. п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Author of afterword, colophon, etc.</source>
-        <translation>Автор послесловия, колофона и т.п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
-        <translation>Лицо или организация, ответственные за послесловие, колофон и т.п., но не являющегося автором самого произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Author of dialog</source>
-        <translation>Автор диалогов</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
-        <translation>Лицо или организация, ответственные за диалоги или устные комментарии для сценария или звукозаписи.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Author of introduction, etc.</source>
-        <translation>Автор предисловия и т.п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
-        <translation>Лицо или организация, ответственные за введение, предисловие, вступление, другой критический вводный материал, но не являющегося автором самого произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Author of screenplay, etc.</source>
-        <translation>Автор сценария и т.п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
-        <translation>Лицо или организация, ответственные за сценарий кинофильма, диалоги, устные комментарии и т.д.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>Autographer</source>
-        <translation>Автографёр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>A person whose manuscript signature appears on an item.</source>
-        <translation>Человек, лично подписавший экземпляр произведения или вещь.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Bibliographic antecedent</source>
-        <translation>Библиографический предшественник, антецедент</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
-        <translation>Лицо или организация, ответственные за произведение, на котором основано произведение, представленное в библиографической записи. Данный код может применяться в записях на адаптации, указатели, продолжения и т. п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Binder</source>
-        <translation>Переплётчик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
-        <translation>Использование для лиц или организации, ответственных за оформление печатных или рукописных материалов.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Binding designer</source>
-        <translation>Оформитель обложки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
-        <translation>Использование для лиц или организации, ответственных за оформление дизайна книги, включая вид переплёта, тип используемых материалов, а также любые декоративные аспекты переплёта.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>Blurb writer</source>
-        <translation>Автор рекламного текста</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>A person or organization responsible for writing a commendation or testimonial for a work, which appears on or within the publication itself, frequently on the back or dust jacket of print publications or on advertising material for all media.</source>
-        <translation>Лицо или организация, ответственные за написание рекомендации или характеристики произведения, которое появляется на самой публикации или внутри неё, часто на оборотной стороне или суперобложке печатных публикаций или на рекламных материалах для всех СМИ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Book designer</source>
-        <translation>Оформитель книги</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
-        <translation>Лицо или организация, ответственные за всё графическое оформление книги, включая тип и расположение иллюстраций, выбор материалов и используемый процесс.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Book producer</source>
-        <translation>Производитель книг</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
-        <translation>Лицо или организация, ответственные за производство книг и других печатных материалов, если специальные коды (например, [bkd], [egr], [tyd], [prt]) не подходят.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Bookjacket designer</source>
-        <translation>Оформитель суперобложки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
-        <translation>Лицо или организация, ответственные за оформление мягкой обложки, созданной для или печатающейся вместе с книгой, включая выбор типа используемых материалов и любых деталей оформления суперобложки.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Bookplate designer</source>
-        <translation>Оформитель экслибриса</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
-        <translation>Лицо или организация, ответственные за оформление ярлыка, указывающего владельца книги, который обычно наклеивается на внутреннюю переднюю сторону обложки.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Bookseller</source>
-        <translation>Продавец книг</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
-        <translation>Лицо или организация, предоставляющие возможность приобретения книг и других библиографических материалов. Интерес к материалам в первую очередь коммерческий.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>Braille embosser</source>
-        <translation>Тиснитель Брайля</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>A person, family, or organization involved in manufacturing a resource by embossing Braille cells using a stylus, special embossing printer, or other device.</source>
-        <translation>Лицо, коллектив или организация, участвующие в изготовлении ресурса, путём тиснения шрифта Брайля, используя стилус, специальный принтер для тиснения или другое устройство.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>Broadcaster</source>
-        <translation>Транслятор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>A person, family, or organization involved in broadcasting a resource to an audience via radio, television, webcast, etc.</source>
-        <translation>Лицо, коллектив или организация, участвующие в трансляции ресурса аудитории по радио, телевидению, через интернет и прочие коммуникационные сети.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Calligrapher</source>
-        <translation>Каллиграф</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
-        <translation>Лицо или организация, которые демонстрируют искусство художественного письма, обычно как переписчик, копировщик.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Cartographer</source>
-        <translation>Картограф</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
-        <translation>Лицо или организация, ответственные за создание карт и других картографических материалов.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>Caster</source>
-        <translation>Литейщик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>A person, family, or organization involved in manufacturing a resource by pouring a liquid or molten substance into a mold and leaving it to solidify to take the shape of the mold.</source>
-        <translation>Лицо, коллектив или организация, участвующие в производстве продукции путём заливки жидкого или расплавленного материала в литейную форму и оставляя его затвердевать, чтобы получить отливку.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Censor</source>
-        <translation>Цензор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
-        <translation>Используется для обозначения официального или частного цензора.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Choreographer</source>
-        <translation>Хореограф</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
-        <translation>Лицо или организация, осуществляющие постановку танцев или других движений (например, жонглирование мечами) для музыкальных или театральных представлений и концертов.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Cinematographer</source>
-        <translation>Кинооператор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
-        <translation>Лицо или организация, ответственные за изображения, снятые для кинофильма. Кинооператор работает под руководством директора и может также называться директором по фотографии. Не путайте с видеооператором.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Client</source>
-        <translation>Клиент</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
-        <translation>Лицо или организация, для которых другое лицо или организация выполняют определённые задачи.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>Collection registrar</source>
-        <translation>Регистратор коллекций</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>A curator who lists or inventories the items in an aggregate work such as a collection of items or works.</source>
-        <translation>Куратор, который перечисляет или инвентаризирует элементы в совокупной работе, такой как коллекция предметов или работ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Collector</source>
-        <translation>Коллекционер</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
-        <translation>Лицо или организация, собравшие материал из различных источников, который впоследствии был классифицирован, описан и каталогизирован как коллекция. Коллекционер не является ни создателем материала, ни лицом, которому рукописные материалы коллекции были адресованы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Collotyper</source>
-        <translation>Фототипист</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
-        <translation>Лицо или организация, ответственные за производство фототипных оттисков с плёнки или другого коллоида на черниловосприимчивой и чернилоотталкивающей поверхности.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>Colorist</source>
-        <translation>Колорист</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>A person or organization responsible for applying color to drawings, prints, photographs, maps, moving images, etc.</source>
-        <translation>Лицо или организация, ответственные за применение цвета к рисункам, гравюрам, фотографиям, картам, движущимся изображениям и пр.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Commentator</source>
-        <translation>Комментатор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
-        <translation>Лицо или организация, предоставляющие интерпретацию, анализ или обсуждение содержания на записи, кинофильме или другой аудиовизуальной среде.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Commentator for written text</source>
-        <translation>Автор комментариев и примечаний к печатному тексту</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
-        <translation>Лицо или организация, ответственные за комментарии или пояснения к тексту. Для автора рукописной аннотации в печатной книге используется код [ann] — Автор аннотации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Compiler</source>
-        <translation>Составитель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
-        <translation>Лицо или организация, создающие произведение или публикацию путём отбора и объединения материала из разных произведений разных лиц или коллективов (организаций).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Complainant</source>
-        <translation>Истец возмещения</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
-        <translation>Сторона, которая обращается в суд для получения возмещения, обычно в производстве, основанном на нормах права справедливости (equity proceeding).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Complainant-appellant</source>
-        <translation>Истец-апеллянт по делу, рассматриваемому на основе права «справедливости»</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>Истец, обжалующий в апелляционном порядке решение одного суда в суде высшей инстанции для пересмотра решения, обычно в производстве, основанном на нормах права «справедливости» (equity proceeding).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Complainant-appellee</source>
-        <translation>Истец-ответчик по апелляции в деле, рассматриваемом на основе права «справедливости»</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>Истец, против которого апеллянтом подана апелляция в суд высшей инстанции для пересмотра решения, обычно в производстве, основанном на нормах права «справедливости» (equity proceeding).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Composer</source>
-        <translation>Композитор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
-        <translation>Лицо или организация, создавшая музыкальное произведение, как правило, музыкальное произведение в рукописном или печатном виде.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Compositor</source>
-        <translation>Наборщик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
-        <translation>Лицо или организация, ответственная за создание металлической формы или литейных форм из других материалов, использованных для создания текста и изображений в печатной продукции.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Conceptor</source>
-        <translation>Автор идеи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
-        <translation>Лицо или организация, ответственные за оригинальную идею, на которой основано произведение, включая автора научной концепции аудио-визуального материала и автора рекламной концепции.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Conductor</source>
-        <translation>Дирижёр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
-        <translation>Лицо, руководящее исполнительской группой (оркестром, хором, оперой и т.д.) в музыкальной или драматической постановке или представлении.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>Conservator</source>
-        <translation>Хранитель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>A person or organization responsible for documenting, preserving, or treating printed or manuscript material, works of art, artifacts, or other media.</source>
-        <translation>Лицо или организация, ответственная за документирование, сохранение или обработку печатных или рукописных материалов, произведений искусства, артефактов или других носителей.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Consultant</source>
-        <translation>Консультант</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
-        <translation>Лицо или организация, имеющие отношение к ресурсу, к которому обращаются за профессиональной консультацией или услугами в специализированной области знаний или обучения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Consultant to a project</source>
-        <translation>Консультант проекта</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
-        <translation>Лицо или организация, имеющие отношение к ресурсу и нанимаемые для общего интеллектуального наблюдения за стратегическими и оперативными задачами и для выработки или предложения решения или эффективного направления деятельности посредством анализа, разработки спецификаций или инструкций.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Contestant</source>
-        <translation>Противная сторона, выдвигающая в суде возражения против искового требования, постановления, решения и т. п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
-        <translation>Сторона, выступающая противником, конкурентом, или стороной, оспаривающей в судебном порядке поданный иск, решение, результат судебного разбирательства и т. д. в суде.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Contestant-appellant</source>
-        <translation>Противная сторона, выдвигающая в суде возражения против искового требования, постановления, решения и т. п. и подавшая апелляционную жалобу</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation>Сторона в споре, которая обжалует в апелляционном порядке решение суда низшей инстанции в суде высшей инстанции для пересмотра решения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Contestant-appellee</source>
-        <translation>Противная сторона, выдвигающая в суде возражения против искового требования, постановления, решения и т. п., против которой подана апелляционная жалоба в апелляционном процессе</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation>Сторона в споре, против которой апеллянтом подана апелляция в суд высшей инстанции для пересмотра решения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Contestee</source>
-        <translation>Противная сторона, отстаивающая своё исковое требование, постановление, решение и т. п., против которых ответчиком выдвинуты возражения в суде</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
-        <translation>Сторона в процессе, защищающаяся от предъявленного ей искового требования или оспаривающей вынесенное против неё решение или результат судебного разбирательства в судах «общего права».</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Contestee-appellant</source>
-        <translation>Противная сторона, отстаивающая своё исковое требование, постановление, решение и т. п., против которых ответчиком выдвинуты возражения в суде, и подавшая апелляционную жалобу</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation>Сторона, подающая апелляционную жалобу в суд высшей инстанции для пересмотра решения суда низшей инстанции.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Contestee-appellee</source>
-        <translation>Противная сторона, отстаивающая своё исковое требование, постановление, решение и т. п., против которых ответчиком выдвинуты возражения в суде и против которой подана апелляционная жалоба в апелляционном процессе </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation>Сторона, против которой подана апелляционная жалоба в суд высшей инстанции для пересмотра судебного решения по делу.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Contractor</source>
-        <translation>Подрядчик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
-        <translation>Лицо или организация, имеющие отношение к ресурсу, которые заключают соглашение с другим лицом или организацией на выполнение определённой задачи.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Contributor</source>
-        <translation>Соавтор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
-        <translation>Лицо или организация, произведение которого вошло в более крупное произведение, такое как антология, сериальное издание или другая компиляция авторских произведений. Этот код не следует использовать, если единственной ролью лица (или организации) относительно произведения является роль автора, издателя, составителя или переводчика.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Copyright claimant</source>
-        <translation>Заявитель авторского права</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
-        <translation>Лицо или организация, указанные в качестве владельцев авторских прав на момент регистрации. Авторское право может быть предоставлено или позднее передано другому лицу или организации, делая истца владельцем авторских прав.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Copyright holder</source>
-        <translation>Владелец авторского права</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
-        <translation>Лицо или организация, которым были предоставлены или переданы законные права на интеллектуальное содержание произведения и его копирование. Не всегда являясь создателем произведения, владелец авторского права обычно обладает исключительным правом на финансовую выгоду от продажи и использования произведения, защищенного знаком охраны авторского права.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Corrector</source>
-        <translation>Корректор рукописей</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
-        <translation>Лицо или организация, являющиеся корректором рукописей, например, начальник скриптория, исправляющий работу переписчика. Для обозначения корректора печатных материалов используется код pfr.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Correspondent</source>
-        <translation>Корреспондент</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
-        <translation>Лицо или организация, являющиеся либо автором, либо получателем письма или другой корреспонденции.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Costume designer</source>
-        <translation>Художник по костюмам</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
-        <translation>Лицо или организация, которые создают и делают костюмы, укладывают волосы и т. д. для музыкальной или театральной постановки или концерта.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>Court governed</source>
-        <translation>Суд действует сообразно</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>A court governed by court rules, regardless of their official nature (e.g., laws, administrative regulations.)</source>
-        <translation>Суд руководствуется судебными правилами, независимо от их официального характера (например, законов, административных правил).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>Court reporter</source>
-        <translation>Судебный репортёр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>A person, family, or organization contributing to a resource by preparing a court&apos;s opinions for publication.</source>
-        <translation>Лицо, коллектив или организация, чей вклад заключается в подготовке решения суда для публикации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Cover designer</source>
-        <translation>Дизайнер обложки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
-        <translation>Лицо или организация, ответственная за графический дизайн обложки книги, альбома, папки, коробки, контейнера и т.д. Лицо или организацию, ответственную за графический дизайн всей книги указывайте в графе &quot;Дизайнер книги&quot;; авторов обложек в графе &quot;Дизайнер обложки&quot;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Creator</source>
-        <translation>Создатель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
-        <translation>Лицо или организация, ответственная за интеллектуальную или творческую составляющую работы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Curator of an exhibition</source>
-        <translation>Организатор выставки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
-        <translation>Лицо или организация, ответственная за планирование и организацию выставки.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Dancer</source>
-        <translation>Танцор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
-        <translation>Лицо или организация, демонстрирующее преимущественно искусство танца в музыкальной или драматической постановке или концерте.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Data contributor</source>
-        <translation>Поставщик данных</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
-        <translation>Лицо или организация, предоставившая информацию для включения в базу данных или другой набор данных.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Data manager</source>
-        <translation>Менеджер данных</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
-        <translation>Лицо или организация, которые представляют данные для включения в базу данных или другой набор данных.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Dedicatee</source>
-        <translation>Посвящение</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
-        <translation>Лицо или организация, которой что-то посвящено, например, книга, рукопись и т.д. (но не получатель подарка).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Dedicator</source>
-        <translation>Посвящающий</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
-        <translation>Автор посвящения, которое может быть официальным заявлением или в эпистолярной или стихотворной форме.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Defendant</source>
-        <translation>Ответчик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
-        <translation>Сторона, которая защищается от предъявленного ей искового требования или отвергает это требование, и против которой направлены средства судебной защиты и взыскания, обычно, в судебном порядке.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Defendant-appellant</source>
-        <translation>Ответчик, подавший апелляционную жалобу</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation>Ответчик, подающий апелляционную жалобу в суд высшей инстанции для пересмотра решения суда низшей инстанции.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Defendant-appellee</source>
-        <translation>Ответчик, против которого подана апелляционная жалоба</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation>Ответчик, против которого подана апелляция в суд высшей инстанции для пересмотра судебного решения по делу.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Degree grantor</source>
-        <translation>Организация, утвердившая ученую степень</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
-        <translation>Используется для обозначения организации, утвердившей ученую степень, на соискание которой была представлена описываемая диссертация.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Delineator</source>
-        <translation>Чертёжник</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
-        <translation>Лицо или организация, выполняющие технические рисунки с других чертежей, эскизов и набросков.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Depicted</source>
-        <translation>Предмет изображения</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
-        <translation>Используется для обозначения предмета или лица, изображенного в произведении, особенно, в произведении искусства.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Depositor</source>
-        <translation>Депозитор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
-        <translation>Лицо или организация, размещающие материалы на хранение в библиотеке или репозитарии без передачи юридических прав.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Designer</source>
-        <translation>Оформитель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
-        <translation>Лицо или организация, ответственное за оформление, если более специальные коды ролей ([bkd], [tyd] и т.д.) не желательны.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Director</source>
-        <translation>Режиссёр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
-        <translation>Лицо или организация, ответственное за общую организацию работы или руководящее постановкой в театре, кино или звукозаписью.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Dissertant</source>
-        <translation>Диссертант</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
-        <translation>Лицо, представляющее научную работу для получения учёной степени или диплома о высшем образовании.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>Distribution place</source>
-        <translation>Место дистрибуции</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>A place from which a resource, e.g., a serial, is distributed.</source>
-        <translation>Место, из которого распространяется продукт, например, сериал.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Distributor</source>
-        <translation>Дистрибьютор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
-        <translation>Лицо или организация, обладающее исключительным или частичным правом на продажу документа.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Donor</source>
-        <translation>Даритель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
-        <translation>Лицо или организация, подарившие книгу, рукопись и т. д. её нынешнему владельцу. Дарители предыдущим владельцам обозначаются кодом [fmo] — Бывший владелец или [ins] — Автор дарственной надписи.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Draftsman</source>
-        <translation>Рисовальщик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
-        <translation>Лицо или организация, подготавливающие художественные или технические рисунки.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Dubious author</source>
-        <translation>Сомнительный автор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
-        <translation>Лицо или организация, приписывание авторства которому сомнительно или неверно.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Editor</source>
-        <translation>Редактор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
-        <translation>Лицо или организации, которые готовят произведение к публикации, в первую очередь не своё собственное, например, путём разъяснения текста, добавления вступительного текста или освещение другого важного вопроса, а также технического руководства редакцией.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>Editor of compilation</source>
-        <translation>Редактор сборника</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>A person, family, or organization contributing to a collective or aggregate work by selecting and putting together works, or parts of works, by one or more creators. For compilations of data, information, etc., that result in new works, see compiler.</source>
-        <translation>Лицо, коллектив или организация, вносящие вклад в коллективную или общую работу путём выбора и объединения произведений или частей произведений одного или нескольких создателей. Для компиляции данных, информации и т.д., которые приводят к новым произведениям, см. Составитель.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>Editor of moving image work</source>
-        <translation>Монтажёр видео</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>A person, family, or organization responsible for assembling, arranging, and trimming film, video, or other moving image formats, including both visual and audio aspects.</source>
-        <translation>Лицо, коллектив или организация, ответственные за сборку, организацию и обрезку фильмов, видео или других форматов движущихся изображений, включая визуальные и звуковые аспекты.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Electrician</source>
-        <translation>Осветитель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
-        <translation>Лицо, ответственное за настройку осветительной установки, фокусировку света для представления и управление освещением.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Electrotyper</source>
-        <translation>Изготовитель гальваностереотипов</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
-        <translation>Лицо или организация, создающие копию формы высокой печати методом гальванопластики.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Engineer</source>
-        <translation>Инженер</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
-        <translation>Лицо или организации, которая отвечает за техническое планирование и дизайн, особенно связанный со строительством.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Engraver</source>
-        <translation>Гравёр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
-        <translation>Лицо или организация, которые вырезают буквы, фигуры и т. д. на деревянной или металлической поверхности для печати.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Etcher</source>
-        <translation>Офортист</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
-        <translation>Лицо или организация, которое воспроизводит текст или изображение для печати, подвергая металл, стекло или другой материал окислению или коррозии при помощи какого-либо вещества.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>Event place</source>
-        <translation>Место проведения мероприятия</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>A place where an event such as a conference or a concert took place.</source>
-        <translation>Место, где состоялось такое мероприятие, как конференция или концерт.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Expert</source>
-        <translation>Эксперт</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
-        <translation>Лицо или организация, которому поручено описание и оценка вещей, особенно редких книг, произведений искусства и т.п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Facsimilist</source>
-        <translation>Факсимилист</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Use for a person or organization that executed the facsimile.</source>
-        <translation>Лицо или организация, выполнившие факсимиле.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Field director</source>
-        <translation>Руководитель полевых работ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
-        <translation>Лицо или организация, управляющие или контролирующие работу по сбору необработанных данных или осуществляющего исследование окружающей среды (обычно применимо к естественным и общественным наукам).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>Film director</source>
-        <translation>Режиссёр фильма</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>A director responsible for the general management and supervision of a filmed performance.</source>
-        <translation>Директор, ответственный за общее руководство и контроль качества съёмок.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>Film distributor</source>
-        <translation>Кинодистрибьютор, дистрибьютор фильма</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>A person, family, or organization involved in distributing a moving image resource to theatres or other distribution channels.</source>
-        <translation>Лицо, коллектив или организация, осуществляющие прокат (распространение) фильма в кинотеатрах или других каналах распространения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Film editor</source>
-        <translation>Режиссёр монтажа</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
-        <translation>Лицо или организация, являющиеся режиссёром монтажа кинокартины независимо от типа её физического носителя (например, ацетатная пленка, магнитная лента с изображением и звуком).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>Film producer</source>
-        <translation>Продюсер фильма</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>A producer responsible for most of the business aspects of a film.</source>
-        <translation>Продюсер ответственный за создание кинофильма (включая деловые аспекты и управление процессом производства кинофильма) и за его коммерческий успех.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>Filmmaker</source>
-        <translation>Создатель кинофильма, кинорежиссёр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>A person, family or organization responsible for creating an independent or personal film. A filmmaker is individually responsible for the conception and execution of all aspects of the film.</source>
-        <translation>Лицо, коллектив или организация, ответственные за создание независимого или личного фильма. Кинорежиссёр несёт индивидуальную ответственность за концепцию и исполнение всех аспектов фильма.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>First party</source>
-        <translation>Первичный правообладатель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
-        <translation>Лицо или организация, именуемые стороной, прописанной в договоре единственной или первой. В случае передачи прав таковым является лицо, совершающее передачу права, цедент, индоссант, лицензедатель, даритель и т.п. Несколько сторон могут быть совместно названы первичным правообладателем.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Forger</source>
-        <translation>Изготовитель подделки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
-        <translation>Лицо или организация, создающие или имитирующие какую-либо ценную или значимую вещь, в особенности с намерением совершения обмана.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Former owner</source>
-        <translation>Бывший владелец</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
-        <translation>Лицо или организация, когда-либо в прошлом являвшиеся собственником данного объекта, в т.ч. лицо или организация, которому он был подарен. Лицо или организацию, подарившие данный объект её нынешнему владельцу, следует обозначать кодом [dnr] — Даритель.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Funder</source>
-        <translation>Инвестор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
-        <translation>Лицо или организация, предоставившие финансовую поддержку при создании произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Geographic information specialist</source>
-        <translation>Специалист по географической информационной системе</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
-        <translation>Лицо, ответственное за развитие географической информационной системы (GIS) и интеграцию её данных в данные системы глобального позиционирования.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Honoree</source>
-        <translation>Объект чествования</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </source>
-        <translation>Лицо или организация, в честь которого или в память о котором подарена книга, рукопись и т.п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Host</source>
-        <translation>Гость</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
-        <translation>Лицо, приглашенное или регулярно ведущее теле- или радиопрограмму, на которую приглашаются другие участники, исполнители и т.д. (например, ток-шоу со знаменитостью).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>Host institution</source>
-        <translation>Принимающее учреждение</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>An organization hosting the event, exhibit, conference, etc., which gave rise to a resource, but having little or no responsibility for the content of the resource.</source>
-        <translation>Организация, принимающая форум, выставку, конференцию, конкурс и т.д., которая организовала его проведение, но практически не несёт ответственности за содержание мероприятия.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Illuminator</source>
-        <translation>Художник-иллюминатор рукописи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</source>
-        <translation>Лицо или организация, украшающие произведение (в особенности, рукописный материал) драгоценными металлами или краской обычно в виде искусных рисунков и узоров.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Illustrator</source>
-        <translation>Иллюстратор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
-        <translation>Лицо или организация, которые задумывают и, возможно, выполняют рисунок, узор, орнамент или иллюстрацию обычно для сопровождения текста.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Inscriber</source>
-        <translation>Автор дарственной надписи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Use for a person who has written a statement of dedication or gift.</source>
-        <translation>Лицо, подписавшего дарственную надпись.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Instrumentalist</source>
-        <translation>Инструменталист</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
-        <translation>Лицо или организация, главным образом играющие на каком-либо инструменте в музыкальной или театральной постановке или концерте.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Interviewee</source>
-        <translation>Интервьюируемый</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
-        <translation>Используется для обозначения лица или организации, у которых обычно берут интервью репортёры, опрашивающие или кто-то ещё, собирающие информацию.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Interviewer</source>
-        <translation>Интервьюер</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
-        <translation>Лицо или организация, действующие как репортёр, лицо, производящее опрос общественного мнения, либо как какой-либо другой агент, собирающий информацию во время совещания или мероприятия с одним или несколькими участниками.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Inventor</source>
-        <translation>Изобретатель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
-        <translation>Лицо или организация, которому принадлежит приоритет изобретения какого-либо полезного устройства или процесса, предназначенного для получения известного объекта или результата.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>Issuing body</source>
-        <translation>Полномочный орган</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>A person, family or organization issuing a work, such as an official organ of the body.</source>
-        <translation>Лицо, коллектив или организация, выдающие произведение,  как например, официальный орган выдавший документ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>Judge</source>
-        <translation>Судья</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>A person who hears and decides on legal matters in court.</source>
-        <translation>Лицо, которое слушает и принимает решения по правовым вопросам в суде.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>Jurisdiction governed</source>
-        <translation>Применимая юрисдикция</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>A jurisdiction governed by a law, regulation, etc., that was enacted by another jurisdiction.</source>
-        <translation>Юрисдикция, регулируемая законом, регламентом и т.д., которая была принята другой юрисдикцией.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Laboratory</source>
-        <translation>Лаборатория</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Use for an institution that provides scientific analyses of material samples.</source>
-        <translation>Используется для обозначения учреждения, осуществляющего научные исследования материальных образцов, проб.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Laboratory director</source>
-        <translation>Начальник лаборатории</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
-        <translation>Лицо или организация, руководящие или контролирующие работу, осуществляемую в подконтрольном окружении.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Landscape architect</source>
-        <translation>Ландшафтный архитектор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
-        <translation>Лицо или организация, чья работа предполагает координирование упорядочивания существующего и предложенного ландшафта.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Lead</source>
-        <translation>Руководитель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
-        <translation>Лицо или организация, берущие на себя основную ответственность за осуществление определённой деятельности или усилия. Используется с другим термином или кодом роли, чтобы показать бóльшую важность этого лица или организации относительно определенной специфической роли. Если используется несколько обозначений разных ролей, код led применяется только в том случае, когда он относится ко всем этим кодам.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Lender</source>
-        <translation>Дающий книгу в долг</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
-        <translation>Лицо или организация, позволяющие временное пользование книгой, рукописью и т. п., например, для фотокопирования или микрофильмирования.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Libelant</source>
-        <translation>Истец в морском и церковном судопроизводстве</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
-        <translation>Сторона, подающая иск по церковному или морскому делу.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Libelant-appellant</source>
-        <translation>Истец в морском и церковном судопроизводстве, подавший апелляционную жалобу</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation>Истец в морском и церковном судопроизводстве, подающий апелляционную жалобу в суд высшей инстанции для пересмотра решения суда низшей инстанции.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Libelant-appellee</source>
-        <translation>Истец в морском и церковном судопроизводстве, против которого подана апелляционная жалоба</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation>Истец в морском и церковном судопроизводстве, против которого в апелляционном процессе подана апелляционная жалоба в суд высшей инстанции для пересмотра судебного решения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Libelee</source>
-        <translation>Ответчик в морском и церковном судопроизводстве</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
-        <translation>Сторона, против которой была подана жалоба в суд по делам, связанным с вопросами церкви или адмиралтейства.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Libelee-appellant</source>
-        <translation>Ответчик в морском и церковном судопроизводстве, подавший апелляционную жалобу</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation>Ответчик, подающий апелляционную жалобу в суд высшей инстанции для пересмотра решения суда низшей инстанции по делам, связанным с вопросами церкви или адмиралтейства.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Libelee-appellee</source>
-        <translation>Ответчик в морском и церковном судопроизводстве, против которого подана апелляционная жалоба в апелляционном процессе</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation>Ответчик, против которого подана апелляция в суд высшей инстанции для пересмотра судебного решения по делу, связанному с вопросами церкви или адмиралтейства.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Librettist</source>
-        <translation>Либреттист</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
-        <translation>Лицо или организация, которые являются автором текста оперы, оратории и т. п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Licensee</source>
-        <translation>Лицензедержатель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
-        <translation>Лицо или организация, являющиеся первоначальным получателем прав на печать или публикацию.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Licensor</source>
-        <translation>Лицензиар</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
-        <translation>Лицо или организация, подписавшие лицензию, разрешение на печатание книги и пр.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Lighting designer</source>
-        <translation>Дизайнер освещения</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
-        <translation>Лицо или организация, ответственные за схему освещения театральной постановки, презентации, кинофильма и пр.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Lithographer</source>
-        <translation>Литограф</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
-        <translation>Лицо или организация, подготовившие камень или пластину для литографической печати, в том числе графический художник, нанёсший изображение непосредственно на поверхность, используемую для печати.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Lyricist</source>
-        <translation>Лирик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
-        <translation>Лицо или организация, создавшие текст песни.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>Manufacture place</source>
-        <translation>Место производства</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>The place of manufacture (e.g., printing, duplicating, casting, etc.) of a resource in a published form.</source>
-        <translation>Место производства (например, печати, тиражирования, литья и т.д.) ресурса в опубликованной форме.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Manufacturer</source>
-        <translation>Изготовитель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
-        <translation>Лицо или организация, создающие артефакт (объект, сделанный или модифицированный одним или несколькими лицами). Например, вазы, артиллерийские орудия, предметы мебели.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>Marbler</source>
-        <translation>Мраморщик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>The entity responsible for marbling paper, cloth, leather, etc. used in construction of a resource.</source>
-        <translation>Лицо, ответственное за мраморность бумаги, ткани, кожи и т.д., использованных при создании произведения или продукции.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Markup editor</source>
-        <translation>Редактор разметки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
-        <translation>Лицо или организация, осуществляющие кодирование SGML, HTML или XML-разметки метаданных, текста и т.д.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>Medium</source>
-        <translation>Медиум</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>A person held to be a channel of communication between the earthly world and a different world.</source>
-        <translation>Чувствительное физическое лицо, которое поддерживает канал связи между двумя мирами: материальным и духовным.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Metadata contact</source>
-        <translation>Составитель метаданных</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
-        <translation>Лицо или организация, которые несут основную ответственность за составление и ведение исходного описания набора метаданных (например, набора геопространственных метаданных).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Metal-engraver</source>
-        <translation>Гравёр по металлу</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
-        <translation>Лица или организации, ответственные за декорации, иллюстрации, буквы и пр., вырезанные на металлической поверхности для печати или декорирования.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>Minute taker</source>
-        <translation>Секретарь, стенографист</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>A person, family, or organization responsible for recording the minutes of a meeting.</source>
-        <translation>Лицо ответственное за запись протокола встречи.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Moderator</source>
-        <translation>Модератор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation>Лицо, которое ведёт программу (например, вещание), где обсуждаются темы, обычно с участием экспертов в обсуждаемых областях знания.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Monitor</source>
-        <translation>Наблюдатель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
-        <translation>Лицо или организация, контролирующего соблюдение условий договора и ответственного за подготовку отчёта и контроль за его распространением. Иногда упоминается как получатель гранта или контролирующее агентство.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Music copyist</source>
-        <translation>Музыкальный переписчик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Use for a person who transcribes or copies musical notation</source>
-        <translation>Лицо, записывающее или копирующее нотную запись.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Musical director</source>
-        <translation>Музыкальный директор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
-        <translation>Лицо, ответственное за основные решения по музыкальному обеспечению постановки, включая координирование работы композитора, звукового редактора, звукооператора, подбор музыкантов и организацию и/или звуковое сопровождение репетиций и представлений.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Musician</source>
-        <translation>Музыкант</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
-        <translation>Лицо или организация, исполняющего музыку или имеющего отношение к музыкальному содержанию произведения. Используется в том случае, когда невозможно или нежелательно более точное определение роли.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Narrator</source>
-        <translation>Рассказчик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
-        <translation>Лицо, повествующее о подробностях действия, происшествия или ходе событий.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>Onscreen presenter</source>
-        <translation>Экранный ведущий</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>A performer contributing to an expression of a work by appearing on screen in nonfiction moving image materials or introductions to fiction moving image materials to provide contextual or background information. Use when another term (e.g., Narrator, Host) is either not applicable or not desired.</source>
-        <translation>Исполнитель, способствующий выражению произведения, появляясь на экране в документальных произведениях или вводных материалах к художественным произведениям для предоставления контекстуальной или фоновой информации. Используйте, когда другой термин (например, Рассказчик, Гость) либо не применим, либо нежелателен.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Opponent</source>
-        <translation>Оппонент</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
-        <translation>Лицо или организация, ответственные за оппонирование научной работе или диссертации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Organizer of meeting</source>
-        <translation>Организатор встречи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
-        <translation>Лицо или организация, ответственные за организацию собрания, предметом которого является отчёт или судебное разбирательство.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Originator</source>
-        <translation>Инициатор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
-        <translation>Лицо или организация, выполняющие произведение, то есть имя человека или организации, связанных с интеллектуальным содержанием произведения. Данная категория не включает в себя издателя, соавтора или спонсора за исключением тех случаев, когда они также входят в состав коллективного автора.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Other</source>
-        <translation>Прочее</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
-        <translation>Используется для кодов, не имеющих эквивалентов в формате MARC 21 из перечней, отличных от данного, либо для терминов, которым код не присвоен.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Owner</source>
-        <translation>Владелец</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
-        <translation>Лицо или организация, в настоящее время владеющие предметом или коллекцией.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>Panelist</source>
-        <translation>Участник дискуссии</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source> performer contributing to a resource by participating in a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation>исполнитель вносит свой вклад в произведение или продукт, участвуя в программе (часто трансляции), где обсуждаются темы, как правило, с участием экспертов в областях, связанных с обсуждением.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Papermaker</source>
-        <translation>Изготовитель бумаги</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
-        <translation>Лицо или организация, ответственные за изготовление бумаги, обычно из древесины, ткани или другого волокнистого материала.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Patent applicant</source>
-        <translation>Заявитель на патент</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Use for a person or organization that applied for a patent.</source>
-        <translation>Лицо или организация, подавшие заявку на патент.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Patent holder</source>
-        <translation>Патентообладатель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Use for a person or organization that was granted the patent referred to by the item. </source>
-        <translation>Лицо или организация, которым был предоставлен патент, упомянутый в этом пункте.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Patron</source>
-        <translation>Покровитель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
-        <translation>Лицо или организация, ответственные за заказ произведения. Обычно покровитель использует свои средства или влияние, чтобы поддержать работу художников, писателей, и т.д. Эта категория включает тех, кто даёт заказ на оригинальные произведения и платит за них.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Performer</source>
-        <translation>Performer</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
-        <translation>Лицо или организация, которые демонстрируют музыкальные или актёрские навыки в музыкальной или драматической постановке или в развлекательной программе, если конкретные коды не уместны ([act], [dnc], [itr], [voc] и пр.). Если используются конкретные коды, [prf] используется для человека, основной навык которого неизвестен или не определён.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Permitting agency</source>
-        <translation>Разрешающее ведомство</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
-        <translation>Ведомство (обычно государственное учреждение), которое выдает разрешение на осуществление работы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Photographer</source>
-        <translation>Фотограф</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
-        <translation>Лицо или организация, ответственные за фотографирование, независимо от того, используются ли фотографии в их первоначальной форме или в качестве репродукций.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Plaintiff</source>
-        <translation>Истец</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
-        <translation>Сторона, которая подает жалобу или возбуждает дело в суде в частном порядке, обычно, с целью судебного рассмотрении дела.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Plaintiff-appellant</source>
-        <translation>Истец, подавший апелляционную жалобу</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation>Истец, подающий апелляционную жалобу в суд высшей инстанции для пересмотра решения суда низшей инстанции, обычно, с целью судебного рассмотрении дела.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Plaintiff-appellee</source>
-        <translation>Истец, против которого подана апелляционная жалоба</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation>Истец, против которого в апелляционном процессе подана апелляция в суд высшей инстанции для пересмотра судебного решения по делу, обычно, с целью судебного рассмотрения дела.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Platemaker</source>
-        <translation>Изготовитель печатных форм</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
-        <translation>Лицо или организация, ответственные за изготовление полиграфических печатных форм с целью печати изображений и/или текстов.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>Praeses</source>
-        <translation>Президент</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>A person who is the faculty moderator of an academic disputation, normally proposing a thesis and participating in the ensuing disputation.</source>
-        <translation>Лицо, имеющее право председательствовать на академическом диспуте, обычно предлагающее тезисы и участвующее в последующем диспуте.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>Presenter</source>
-        <translation>Ведущий</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>A person or organization mentioned in an &apos;X presents&apos; credit for moving image materials and who is associated with production, finance, or distribution in some way. A vanity credit; in early years, normally the head of a studio.</source>
-        <translation>Человек или организация, упомянутые как «X представляет», которые практически не участвовали в создании материалов с движущимися изображениями и которые в некотором роде связаны с производством, финансами или распространением. Кредиты тщеславия; в первые годы, преимущественно для руководителей студий.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Printer</source>
-        <translation>Печатник</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
-        <translation>Лицо или организация, которые печатают тексты, независимо от типа или метода печати.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Printer of plates</source>
-        <translation>Печатник с печатных форм</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
-        <translation>Лицо, выполняющее печать иллюстраций или элементов оформления с гравировальных досок.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Printmaker</source>
-        <translation>Гравировщик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
-        <translation>Лицо или организация, которые создают формы высокой печати или глубокой печати.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Process contact</source>
-        <translation>Организатор процесса</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
-        <translation>Лицо или организация, которые несут основную ответственность за выполнение или инициирование процесса, как например, при сборе наборов метаданных.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Producer</source>
-        <translation>Продюсер</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
-        <translation>Лицо, несущее главную ответственность за создание кинофильма, включая административно-финансовые вопросы, руководство производством и коммерческий успех фильма.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>Production company</source>
-        <translation>Продюсерская компания</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc.</source>
-        <translation>Организация, которая отвечает за финансовое, техническое и организационное управление производством для сцены, экрана, аудиозаписи, телевидения, веб-трансляции и т.д.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>Production designer</source>
-        <translation>Главный художник фильма</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>A person or organization responsible for designing the overall visual appearance of a moving image production.</source>
-        <translation>Лицо или организация, ответственные за разработку общего визуального оформления фильма.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Production manager</source>
-        <translation>Руководитель производства</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
-        <translation>Лицо, ответственное за решение всех технических и коммерческих вопросов постановки.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Production personnel</source>
-        <translation>Персонал художественно-постановочной части</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
-        <translation>Лицо или организация, связанные с постановкой (реквизитом, освещением, сценическими эффектами и т. п.) музыкального, драматического представления или концерта.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>Production place</source>
-        <translation>Место производства</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>The place of production (e.g., inscription, fabrication, construction, etc.) of a resource in an unpublished form.</source>
-        <translation>Место производства (например, написание, изготовление, строительство и т.д.) произведения или продукции в неопубликованном виде.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Programmer</source>
-        <translation>Программист</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
-        <translation>Лицо или организация, ответственное за создание и/или поддержку компьютерных программ, исходных кодов, машинно-исполнимых цифровых файлов и сопроводительной документации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Project director</source>
-        <translation>Руководитель проекта</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
-        <translation>Лицо или организация, ответственные за все существенные направления проекта, или осуществляющие руководство крупным проектом, или полностью несущие ответственность за реализацию проектов, или руководящие работой менеджеров проектов.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Proofreader</source>
-        <translation>Корректор печатного текста</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
-        <translation>Лицо, производящее корректуру печатного текста. Для рукописных материалов используется код [crr] — Корректор рукописей.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>Provider</source>
-        <translation>Провайдер</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>A person or organization who produces, publishes, manufactures, or distributes a resource if specific codes are not desired (e.g. [mfr], [pbl].)</source>
-        <translation>Лицо или организация, которые производят, публикуют, изготавливают или распространяют произведения или продукцию, если конкретные коды не требуются (например, [mfr], [pbl].)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>Publication place </source>
-        <translation>Место публикации</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>The place where a resource is published.</source>
-        <translation>Место публикации произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Publisher</source>
-        <translation>Издатель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
-        <translation>Лицо или организация, организующие или финансирующие издательский процесс, изготавливающие широкодоступный печатный материал, чаще текст, но также и ноты, изоиздания и т.п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Publishing director</source>
-        <translation>Ответственный редактор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
-        <translation>Лицо или организация, которые контролируют ход коллективной работы и обеспечивает ее последовательность или непрерывность. Эта категория включает главных редакторов, литературных редакторов, редакторов серий и т.д.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Puppeteer</source>
-        <translation>Кукловод</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
-        <translation>Лицо или организация, которые манипулируют, управляют куклами или марионетками в музыкальном, драматическом представлении или концерте.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>Radio director</source>
-        <translation>Радио-директор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>A director responsible for the general management and supervision of a radio program.</source>
-        <translation>Директор, ответственный за общее руководство и контроль за радиопрограммой.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>Radio producer</source>
-        <translation>Радио-продюсер</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>A producer responsible for most of the business aspects of a radio program.</source>
-        <translation>Продюсер, ответственный за большинство бизнес-аспектов радиопрограмм.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Recipient</source>
-        <translation>Получатель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
-        <translation>Лицо или организация, которому адресована корреспонденция.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>Recording engineer</source>
-        <translation>Инженер звукозаписи, видеозаписи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
-        <translation>Лицо или организация, ответственные за технические аспекты сеанса звуко- или видеозаписи.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>A person contributing to a resource by supervising the technical aspects of a sound or video recording session.</source>
-        <translation>Лицо, вносящее свой вклад в ресурс, контролируя технические аспекты сеанса звукозаписи или видеозаписи.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Redactor</source>
-        <translation>Редактор-составитель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
-        <translation>Лицо или организация, которые разрабатывают структуру описываемой единицы, не неся при этом интеллектуальной ответственности за её содержание.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Renderer</source>
-        <translation>Создатель эскизов</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
-        <translation>Лицо или организация, которые с архитектурных чертежей делают эскизы (то есть, изображения) в точной перспективе с целью дать представление о том, как будет выглядеть реализованный проект.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Reporter</source>
-        <translation>Репортёр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Use for a person or organization who writes or presents reports of news or current events on air or in print.</source>
-        <translation>Лицо или организация, которые пишут или представляют сообщение о новостях или текущих событиях в эфире или в печати.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Repository</source>
-        <translation>Репозитарий</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
-        <translation>Используется для обозначения ведомства, которое принимает данные или объекты материальной культуры и предоставляет услуги по длительному хранению и общедоступному использованию этих данных или объектов.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Research team head</source>
-        <translation>Руководитель исследовательской группы</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Use for a person who directed or managed a research project.</source>
-        <translation>Лицо, которое руководит исследовательским проектом.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Research team member</source>
-        <translation>Участник исследовательской группы</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
-        <translation>Лицо, которое является участником исследований, и чья роль не предусматривает руководства или управления проектом.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Researcher</source>
-        <translation>Исследователь</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Use for a person or organization responsible for performing research. </source>
-        <translation>Лицо или организация, ответственные за проведение научных исследований.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Respondent</source>
-        <translation>Ответчик по делу, рассматриваемому на основе права справедливости</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</source>
-        <translation>Сторона, которая предстает ответчиком в суде в соответствии с требованием возмещения, обычно в делах, рассматриваемых на основе права «справедливости» (особенно в бракоразводных процессах).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Respondent-appellant</source>
-        <translation>Ответчик по делу, рассмотренному на основе права справедливости, подавший апелляционную жалобу</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>Ответчик, подающий апелляционную жалобу в суд высшей инстанции для пересмотра решения суда низшей инстанции, обычно в делах, рассматриваемых на основе права «справедливости» (особенно в бракоразводных процессах).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>Respondent-appellee</source>
-        <translation>Ответчик по делу, рассмотренному на основе права справедливости, против которого подана апелляционная жалоба в апелляционном процессе</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>Ответчик, против которого подана апелляционная жалоба в суд высшей инстанции для пересмотра судебного решения, обычно в делах, рассматриваемых на основе права «справедливости» (особенно в бракоразводных процессах).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Responsible party</source>
-        <translation>Юридически ответственная сторона</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Use for a person or organization legally responsible for the content of the published material.</source>
-        <translation>Лицо или организация, несущие юридическую ответственность за содержание публикации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="330"/>
         <source>Restager</source>
-        <translation>Постановщик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="330"/>
         <source>Use for a person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content.</source>
-        <translation>Лицо или организация, не являющиеся первоначальным хореографом или режиссером, но ответственного за новую постановку хореографии или драматического произведения, привнося при этом минимальные изменения в содержание произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>Restorationist</source>
-        <translation>Реставратор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>A person, family, or organization responsible for the set of technical, editorial, and intellectual procedures aimed at compensating for the degradation of an item by bringing it back to a state as close as possible to its original condition.</source>
-        <translation>Лицо, коллектив или организация, ответственные за комплекс технических, редакционных и интеллектуальных процедур, направленных на компенсацию деградации предмета путём возвращения его в состояние, максимально близкое к его первоначальному состоянию.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Reviewer</source>
-        <translation>Рецензент</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</source>
-        <translation>Лицо или организация, являющиеся автором рецензии на книгу, кинокартину, постановку и т.п.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Rubricator</source>
-        <translation>Рубрикатор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</source>
-        <translation>Лицо, ответственное за части произведения, обычно заголовки и красные строки в рукописях, которые оформлялись цветом, отличным от основного, обычно красным.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Scenarist</source>
-        <translation>Сценарист</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Use for a person or organization who is the author of a motion picture screenplay.</source>
-        <translation>Автор сценария.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Scientific advisor</source>
-        <translation>Научный консультант</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
-        <translation>Лицо, которое использует свою научную, педагогическую или историческую компетенцию при разработке концепции и реализации произведения, в частности для аудиовизуальных материалов.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>Scribe</source>
-        <translation>Писарь</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</source>
-        <translation>Личный секретарь, пишущего под диктовку, и собственно писца рукописей. Для лиц, изготавливающих факсимильные копии текстов от руки, используется код [fac] — Факсимилист.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Sculptor</source>
-        <translation>Скульптор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
-        <translation>Лицо или организация, которые моделируют или вырезает трёхмерные фигуры.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Second party</source>
-        <translation>Сторона-правопреемник</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
-        <translation>Лицо или организация, именуемые в юридических документах «другой стороной». В случае передачи прав таковым является правопреемник, цессионарий, индоссат, лицензиат, получающий дотацию и т.п. Несколько сторон могут быть совместно названы стороной-правопреемником.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Secretary</source>
-        <translation>Секретарь</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Use for a person or organization who is a recorder, redactor, or other person responsible for expressing the views of a organization.</source>
-        <translation>Лицо или организация, выступающее в роли секретаря, редактора или иного лица, ответственного за выражение точки зрения организации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>Seller</source>
-        <translation>Продавец</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>A former owner of an item who sold that item to another owner.</source>
-        <translation>Бывший владелец объекта, продавший этот объект другому владельцу.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Set designer</source>
-        <translation>Художник-декоратор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Use for a person or organization who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set.</source>
-        <translation>Лицо или организация, которые переводят авторский замысел художника-постановщика с плоских эскизов на объёмные декорации для театрального представления, концерта, кинофильма, и т.д. Художники-декораторы делают детальные инструкции и спецификации для сооружения декораций.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="342"/>
         <source>Setting</source>
-        <translation>Сеттинг</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="342"/>
         <source>An entity in which the activity or plot of a work takes place, e.g. a geographic place, a time period, a building, an event.</source>
-        <translation>Среда, в которой происходит действие или сюжет произведения, например географическое место, период времени, здание, условия и обстоятельства действия.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Signer</source>
-        <translation>Автор подписи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</source>
-        <translation>Лицо, являющееся автором подписи без её пояснения или иного указания на происхождение этой подписи. Если речь идет о дарственной надписи/подписи, следует использовать код [ins] — Автор дарственной надписи.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Singer</source>
-        <translation>Певец</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</source>
-        <translation>Лицо, которое использует свой голос с музыкальным сопровождением или без него для исполнения музыкального произведения. Исполнение певца может включать слова или не включать их.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>Sound designer</source>
-        <translation>Звукорежиссёр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
-        <translation>Лицо, которое создаёт и воспроизводит звуковой ряд (в живую или записанный), установку микрофонов, установку уровней звука и координацию источников звука для произведения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>Speaker</source>
-        <translation>Диктор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
-        <translation>Лицо, участвующее в теле- или радиопрограмме, чьё выступление строго формализовано и подготовлено, как правило, заранее.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Sponsor</source>
-        <translation>Спонсор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
-        <translation>Лицо или организация, выдавшее договор или под эгидой которого произведение было написано, напечатано, опубликовано и т.д.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>Stage director</source>
-        <translation>Постановщик сцены</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>A person or organization contributing to a stage resource through the overall management and supervision of a performance.</source>
-        <translation>Лицо или организация, участвующие в сценической постановке посредством общего управления и контроля исполнения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Stage manager</source>
-        <translation>Помощник режиссера</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
-        <translation>Лицо, ответственное за всё происходящее на сцене, действующего в качестве руководителя всех групп и помогающего директору во время репетиций.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Standards body</source>
-        <translation>Орган по стандартизации</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Use for an organization responsible for the development or enforcement of a standard.</source>
-        <translation>Используется для организации, ответственной за разработку или внедрение стандарта.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Stereotyper</source>
-        <translation>Изготовитель стереотипов</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
-        <translation>Лицо или организация, изготовляющие новую монолитную печатную форму посредством отливания или копирования другой печатной формы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>Storyteller</source>
-        <translation>Рассказчик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
-        <translation>Используется для обозначения лица, передающего историю, предание, сказку в творческой и/или театральной интерпретации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Supporting host</source>
-        <translation>Принимающая сторона</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
-        <translation>Лицо или организация, которые поддерживают (предоставляя удобства, штат, другие ресурсы) проект, программу, конференцию, мероприятие, объекты данных, материальные объекты культуры.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Surveyor</source>
-        <translation>Землемер</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
-        <translation>Лицо или организация, которые производят замеры земельных участков и т.п. для определения местоположения, размеров и границ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Teacher</source>
-        <translation>Преподаватель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
-        <translation>Лицо, которое в контексте ресурса даёт объяснения по интеллектуальному предмету или демонстрирует техники при обучении физическим навыкам.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Technical director</source>
-        <translation>Технический директор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
-        <translation>Используется для обозначения лица, которое в конечном счете отвечает за декорации, реквизит, свет и звук.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>Television director</source>
-        <translation>Телережиссёр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>A director responsible for the general management and supervision of a television program.</source>
-        <translation>Директор, ответственный за общее руководство и контроль за телевизионной программой.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>Television producer</source>
-        <translation>Телепродюсер</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>A producer responsible for most of the business aspects of a television program.</source>
-        <translation>Продюсер, ответственный за большинство бизнес-аспектов телевизионных программ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>Thesis advisor</source>
-        <translation>Научный руководитель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
-        <translation>Используется для обозначения лица, под руководством которого соискатель ученой степени пишет и представляет научную работу, доклад или текст диссертации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>Transcriber</source>
-        <translation>Переписчик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
-        <translation>Лицо, которое делает копию с оригинального материала от руки или на печатной машинке, в том числе с материала, записанного под диктовку или с устной записи. Для обозначения лиц изготавливающих факсимиле от руки используется код [fac] —  Факсимилист.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>Translator</source>
-        <translation>Переводчик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
-        <translation>Лицо, осуществляющее перевод текста с одного языка на другой или с устаревшей формы языка на современную, более или менее точно следуя оригиналу.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Type designer</source>
-        <translation>Разработчик шрифта</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
-        <translation>Лицо или организация, которые разработали шрифт, используемый в конкретном элементе.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>Typographer</source>
-        <translation>Типограф, технический редактор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
-        <translation>Лицо или организация, несущее основную ответственность за подбор и использование шрифтов в данной книге. Если это же лицо отвечает и за другие аспекты графического оформления книги (например, Оформитель книги [bkd]), то возможно одновременное использование обоих кодов.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="364"/>
         <source>University place</source>
-        <translation>Университет, кампус</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="364"/>
         <source>A place where a university that is associated with a resource is located, for example, a university where an academic dissertation or thesis was presented.</source>
-        <translation>Место, где расположен университет, связанный с ресурсом, например, университет, в котором была представлена научная диссертация или научные тезисы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="365"/>
         <source>Videographer</source>
-        <translation>Оператор-видеопостановщик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="365"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
-        <translation>Лицо или организация, отвечающие за производство видеоматериалов, например, видеозапись сценической постановки, в отличие от коммерческого кинофильма. Может быть оператором или руководителем одного или нескольких операторов. Не путать с кинооператором-постановщиком.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="366"/>
         <source>Voice actor</source>
-        <translation>Актёр озвучивания</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="366"/>
         <source>An actor contributing to a resource by providing the voice for characters in radio and audio productions and for animated characters in moving image works, as well as by providing voice overs in radio and television commercials, dubbed resources, etc.</source>
-        <translation>Актёр, участвующий в создании произведения, предоставляя голос для персонажей в радио- и аудиопродукции,  для анимированных персонажей в мультипликационных фильмах, а также предоставляя голос за кадром в радио- и телевизионной рекламе, дублированных ресурсах и т.д.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="367"/>
         <source>Witness</source>
-        <translation>Свидетель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="367"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
-        <translation>Используется для обозначения лица, которое подтверждает правильность происшедшего события или поступка.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="368"/>
         <source>Wood-engraver</source>
-        <translation>Гравёр по дереву</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="368"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
-        <translation>Лицо или организация, которое (-ая) создает печатные формы, вырезая рельефные изображения на поперечном распиле деревянного блока.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="369"/>
         <source>Woodcutter</source>
-        <translation>Резчик по дереву</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="369"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
-        <translation>Лицо или организация, которое (-ая) создает печатные формы, вырезая рельефные изображения на продольном распиле деревянного блока.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="370"/>
         <source>Writer of accompanying material</source>
-        <translation>Автор текста сопроводительного материала</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="370"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
-        <translation>Лицо или организация, написавшие значительный материал, сопровождающий звукозапись или другой аудиовизуальный материал.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="371"/>
         <source>Writer of added commentary</source>
-        <translation>Автор добавленного комментария</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="371"/>
         <source>A person, family, or organization contributing to an expression of a work by providing an interpretation or critical explanation of the original work.</source>
-        <translation>Лицо, коллектив или организация, способствующая выражению произведения путём предоставления комментария, интерпретации или критического объяснения оригинальной работы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="372"/>
         <source>Writer of added lyrics</source>
-        <translation>Автор стихов к песне</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="372"/>
         <source>A writer of words added to an expression of a musical work. For lyric writing in collaboration with a composer to form an original work, see lyricist.</source>
-        <translation>Автор слов, добавленных к выражению музыкального произведения. Поэт в сотрудничестве с композитором, формируют оригинальное произведение, см. Лирик.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="373"/>
         <source>Writer of added text</source>
-        <translation>Автор добавленного текста</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="373"/>
         <source>A person, family, or organization contributing to a non-textual resource by providing text for the non-textual work (e.g., writing captions for photographs, descriptions of maps.)</source>
-        <translation>Лицо, коллектив или организация, которые вносят свой вклад в нетекстовое произведение, предоставляя текст для нетекстовой продукции (например, написание подписей к фотографиям, описание карт).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="374"/>
         <source>Writer of introduction</source>
-        <translation>Автор введения</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="374"/>
         <source>A person, family, or organization contributing to a resource by providing an introduction to the original work.</source>
-        <translation>Лицо, семья или организация, пополнившие ресурс введением к основному произведению.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="375"/>
         <source>Writer of preface</source>
-        <translation>Автор предисловия</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="375"/>
         <source>A person, family, or organization contributing to a resource by providing a preface to the original work.</source>
-        <translation>Лицо, семья или организация, пополнившие ресурс предисловием к основному произведению.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="376"/>
         <source>Writer of supplementary textual content</source>
-        <translation>Автор дополнительного текстового содержания</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="376"/>
         <source>A person, family, or organization contributing to a resource by providing supplementary textual content (e.g., an introduction, a preface) to the original work.</source>
-        <translation>Лицо, коллектив или организация, которые вносят свой вклад в произведение, создавая дополнительный текстовый контент (например, введение, предисловие) к оригинальному произведению.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -12532,42 +12521,42 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="20"/>
         <source>MetaData Editor</source>
-        <translation>Редактор метаданных</translation>
+        <translation>メタデータエディター</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="52"/>
         <source>Add a new metadata element.</source>
-        <translation>Добавить новый элемент метаданных.</translation>
+        <translation>新しいメタデータ要素を追加します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="55"/>
         <source>Add Metadata</source>
-        <translation>Добавить метаданные</translation>
+        <translation>メタデータを追加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="62"/>
         <source>Remove a metadata element or property.</source>
-        <translation>Удалить элемент метаданных или свойство.</translation>
+        <translation>メタデータ要素またはプロパティを削除します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="65"/>
         <source>Remove</source>
-        <translation>Удалить</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="72"/>
         <source>Add a new property or attribute to an existing metadata element.</source>
-        <translation>Добавить новое свойство или атрибут к существующему элементу метаданных.</translation>
+        <translation>新しいプロパティまたは属性を既存のメタデータ要素に追加します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="75"/>
         <source>Add Property</source>
-        <translation>Добавить свойство</translation>
+        <translation>プロパティを追加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="97"/>
         <source>Move selected metadata element or property up.</source>
-        <translation>Переместить выбранный элемент метаданных или свойство вверх.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="100"/>
@@ -12578,643 +12567,643 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="110"/>
         <source>Move selected metadata element or property down.</source>
-        <translation>Переместить выбранный элемент метаданных или свойство вниз.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="148"/>
         <source>Double-click in cell to edit its value.  Minimum metadata consists of main language, title, and at least one creator.</source>
-        <translation>Дважды щёлкните по ячейке, чтобы изменить её значение.  Минимальные метаданные состоят из основного языка, заголовка и по крайней мере одного создателя.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="172"/>
         <source>Use OK to commit your metdata changes to the epub, otherwise use Cancel.</source>
-        <translation>Используйте OK, чтобы зафиксировать изменения метаданных в epub, в противном случае используйте Отмена.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
         <source>Name</source>
-        <translation>Название</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
         <source>Value</source>
-        <translation>Значение</translation>
+        <translation>値</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="171"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="239"/>
         <source>[ISBN here]</source>
-        <translation>[Здесь ISBN]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="175"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="244"/>
         <source>[ISSN here]</source>
-        <translation>[Здесь ISBN]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="179"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="249"/>
         <source>[DOI here]</source>
-        <translation>[Здесь DOI]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="183"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="254"/>
         <source>[UUID here]</source>
-        <translation>[Здесь UIDD]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="194"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="272"/>
         <source>[Author name here]</source>
-        <translation>[Здесь имя автора]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="200"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="277"/>
         <source>[Creator name here]</source>
-        <translation>[Здесь имя создателя]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="204"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="281"/>
         <source>[Contributor name here]</source>
-        <translation>[Здесь имя соавтора]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="208"/>
         <source>[meta value here]</source>
-        <translation>[здесь значение meta]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="259"/>
         <source>[Custom identifier here]</source>
-        <translation>[Пользовательский идентификатор]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="448"/>
         <source>[Place value here]</source>
-        <translation>[Введите здесь значение]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="483"/>
         <source>[Your value here]</source>
-        <translation>[Ваше значение здесь]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="547"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <source>Author</source>
-        <translation>Автор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="547"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <source>Represents a primary author of the book or publication</source>
-        <translation>Основной автор книги или публикации</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="548"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="653"/>
         <source>Subject</source>
-        <translation>Тема</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="548"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="653"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
-        <translation>Произвольная фраза или ключевое слово, описывающее рассматриваемый предмет. При необходимости используйте несколько элементов &quot;тема&quot;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
         <source>Description</source>
-        <translation>Описание</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
         <source>Description of the publication&apos;s content.</source>
-        <translation>Описание содержания публикации.</translation>
+        <translation>出版物の内容の詳細</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
         <source>Publisher</source>
-        <translation>Издатель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
         <source>An entity responsible for making the publication available.</source>
-        <translation>Организация, ответственная за выпуск, издание публикации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="551"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="656"/>
         <source>Date: Publication</source>
-        <translation>Дата: публикация</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="551"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="656"/>
         <source>The date of publication.</source>
-        <translation>Дата публикации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="552"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="657"/>
         <source>Date: Creation</source>
-        <translation>Дата: создание</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="552"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="657"/>
         <source>The date of creation.</source>
-        <translation>Дата создания.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="553"/>
         <source>Date: Issued</source>
-        <translation>Дата: выпуск</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="553"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="658"/>
         <source>The date of modification.</source>
-        <translation>Дата изменения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="658"/>
         <source>Date: Modification</source>
-        <translation>Дата: изменение</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="555"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="659"/>
         <source>Type</source>
-        <translation>Тип</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="555"/>
         <source>Used to indicate that the given EPUB Publication is of a specialized type..</source>
-        <translation>Указывает, что данная EPUB-публикация специализированного типа...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="660"/>
         <source>Format</source>
-        <translation>Формат</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="660"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
-        <translation>Тип носителя или размеры публикации. Лучше указывать значение из контролируемого словаря (например, MIME-типов носителей).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="557"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="661"/>
         <source>Source</source>
-        <translation>Источник</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="557"/>
         <source>Identifies the related resource(s) from which this EPUB Publication is derived.</source>
-        <translation>Определяет соответствующие ресурсы, из которого формируется эта EPUB-публикация.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="662"/>
         <source>Language</source>
-        <translation>Язык</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
         <source>Specifies the language of the publication. Select from the dropdown menu</source>
-        <translation>Определяет язык публикации. Выберите из выпадающего меню</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="559"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
         <source>Relation</source>
-        <translation>Зависимость</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="559"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
-        <translation>Ссылка на связанный ресурс. Рекомендуемая наилучшая практика заключается в идентификации указанного ресурса с помощью строки или номера, соответствующего формальной системе идентификации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="560"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="664"/>
         <source>Coverage</source>
-        <translation>Охват</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="560"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="664"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
-        <translation>Степень или объём содержания контента публикации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="665"/>
         <source>Rights</source>
-        <translation>Права</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="665"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
-        <translation>Информация о правах, имеющихся в публикации и за ее пределами. Информация о правах часто включает права интеллектуальной собственности (ПИС), авторские права и различные права собственности. Если элемент «Права» отсутствует, нельзя делать какие-либо предположения относительно каких-либо прав, имеющихся в публикации или в отношении этой публикации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="651"/>
         <source>Creator</source>
-        <translation>Создатель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>Лицо или организация и т.д.,  ответственные за создание контента публикации EPUB. Свойство role может быть присоединено к элементу для указания функции, которую выполнил автор при создании контента.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="563"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
         <source>Contributor</source>
-        <translation>Соавтор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="563"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>Лицо или организация и т.д., которые сыграли второстепенную роль в создании контента публикации EPUB. Свойство role может быть присоединено к элементу для указания функции, которую выполнил соавтор при создании контента.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
         <source>Belongs to Collection</source>
-        <translation>Принадлежит к коллекции</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
         <source>Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.</source>
-        <translation>Определяет имя сборника, к которому принадлежит публикация EPUB. Публикация EPUB может принадлежать одному или нескольким сборникам.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
         <source>Title</source>
-        <translation>Название</translation>
+        <translation>タイトル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
         <source>A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.</source>
-        <translation>Название издания. Публикация может иметь только одно основное название, но может иметь множество других типов названий. К ним относятся основные, субтитры, короткие, сборники, издания и расширенные типы заголовков.</translation>
+        <translation>出版物のタイトル。出版物にはメインのタイトルが1つしかない場合もありますが、他の種類のタイトルが多数ある場合もあります。これらには、メイン、サブタイトル、ショート、コレクション、エディション、および拡張タイトルタイプが含まれます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
         <source>Identifier: DOI</source>
-        <translation>Идентификатор: DOI</translation>
+        <translation>識別子: DOI</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
         <source>Digital Object Identifier associated with the given EPUB publication.</source>
-        <translation>Digital Object Identifier, т.е. Идентификатор цифрового объекта, присвоенный этой EPUB-публикации.</translation>
+        <translation>特定のEPUB出版物に関連付けられるDOI（Digital Object Identifier: デジタルオブジェクト識別子）です。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="567"/>
         <source>Identifier: ISBN</source>
-        <translation>Идентификатор: ISBN</translation>
+        <translation>識別子: ISBN</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="567"/>
         <source>International Standard Book Number associated with the given EPUB publication.</source>
-        <translation>International Standard Book Number, т.е. Международный стандартный книжный номер, присвоенный этой EPUB-публикации.</translation>
+        <translation>特定のEPUB出版物に関連付けられるISBM（International Standard Book Number: 国際標準図書番号）です。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
         <source>Identifier: ISSN</source>
-        <translation>Идентификатор: ISSN</translation>
+        <translation>識別子: ISSN</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
         <source>International Standard Serial Number associated with the given EPUB publication.</source>
-        <translation>International Standard Serial Number, т.е. Международный стандартный серийный номер, присвоенный этой EPUB-публикации, если она принадлежит к периодическому изданию.</translation>
+        <translation>特定のEPUB出版物に関連付けられるISSN（International Standard Serial Number: 国際標準逐次刊行物番号）です。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="569"/>
         <source>Identifier: UUID</source>
-        <translation>Идентификатор: UUID</translation>
+        <translation>識別子: UUID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="569"/>
         <source>A Universally Unique Idenitifier generated for this EPUB publication.</source>
-        <translation>Universally Unique Identifier, присвоенный этой EPUB-публикации.</translation>
+        <translation>このEPUB出版物に対して生成されたUUID（Universally Unique Idenitifier）です。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="571"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
         <source>Custom Element</source>
-        <translation>Особый элемент</translation>
+        <translation>カスタム要素</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="571"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
         <source>[Custom element]</source>
-        <translation>[Особый элемент]</translation>
+        <translation>[カスタム要素]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="571"/>
         <source>An empty metadata element you can modify.</source>
-        <translation>Пустой элемент метаданных, который можно изменить.</translation>
+        <translation>変更可能な空のメタデータ要素を追加します。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
         <source>Meta Element (primary)</source>
-        <translation>Элемент Meta (основной)</translation>
+        <translation>メタデータ要素（プライマリ）</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
         <source>An empty primary meta element you can modify.</source>
-        <translation>Вы можете изменить пустой первичный meta-элемент.</translation>
+        <translation>変更可能な空のプライマリメタデータ要素を追加します。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="598"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="701"/>
         <source>Id Attribute</source>
-        <translation>Атрибут-идентификатор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="598"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="701"/>
         <source>Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.</source>
-        <translation>Необязательная, обычно короткая строка уникального идентификатора, используемая в качестве атрибута в документе Package (opf).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="599"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>
         <source>XML Language</source>
-        <translation>Язык XML</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="599"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:langauge, dc:date, or dc:identifier metadata elements.</source>
-        <translation>Необязательный атрибут с указанием языка. Использует те же коды, что и dc:language. Не для использования с элементами метаданных dc:langauge, dc:date или dc:identifier.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="600"/>
         <source>Text Direction: rtl</source>
-        <translation>Направление текста: RTL</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="600"/>
         <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>Необязательный атрибут, указывающий направление текста для этого элемента метаданных. Справа-налево (Right-to-Left). Не применим к элементам метаданных dc:language, dc:date и dc:identifier.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="601"/>
         <source>Text Direction: ltr</source>
-        <translation>Направление текста: LTR</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="601"/>
         <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>Необязательный атрибут, указывающий направление текста для этого элемента метаданных. Слева-направо (Left-to-Right). Не применим к элементам метаданных dc:language, dc:date и dc:identifier.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="602"/>
         <source>Title Type: main</source>
-        <translation>Тип заголовка: основной</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="602"/>
         <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
-        <translation>Указывает, что этот заголовок — основной заголовок публикации. Допустим только один основной заголовок.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="603"/>
         <source>Title Type: subtitle</source>
-        <translation>Тип заголовка: подзаголовок</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="603"/>
         <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
-        <translation>Указывает, что этот заголовок — подзаголовок публикации, если он существует.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="604"/>
         <source>Title Type: short</source>
-        <translation>Тип заголовка: короткий</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="604"/>
         <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
-        <translation>Указывает, что этот заголовок — сокращённый подзаголовок публикации, если он существует.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="605"/>
         <source>Title Type: collection</source>
-        <translation>Тип заголовка: коллекция</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="605"/>
         <source>Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.</source>
-        <translation>Указывает, что связанный заголовок является заголовком коллекции, к которой относится эта публикация, если она существует.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="606"/>
         <source>Title Type: edition</source>
-        <translation>Тип заголовка: издание</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="606"/>
         <source>Indicates that the associated title is an edition title for this publications if one exists.</source>
-        <translation>Указывает, что связанный заголовок является названием издания для этих публикаций, если оно существует.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="607"/>
         <source>Title Type: expanded</source>
-        <translation>Тип заголовка: расширенный</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="607"/>
         <source>Indicates that the associated title is an expanded title for this publication if one exists.</source>
-        <translation>Указывает, что связанный заголовок является расширенным заголовком для этой публикации, если она существует.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="608"/>
         <source>Alternate Script</source>
-        <translation>Другое письмо</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="608"/>
         <source>Provides an alternate expression of the associated property value in a language and script identified by an alternate-language attribute.</source>
-        <translation>Предоставляет альтернативное выражение связанного значения свойства в языке и скрипте, определяемом атрибутом альтернативного языка.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="609"/>
         <source>Alternate Language</source>
-        <translation>Другой язык</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="609"/>
         <source>Language code for the language used in the associated alternate-script property value.</source>
-        <translation>Код языка для значения соответствующего свойства alternate-script.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
         <source>Collection Type: set</source>
-        <translation>Тип коллекции: набор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
-        <translation>Свойство, используемое с &quot;belongs-to-collection&quot;. Указывает форму или характер коллекции. Значение &quot;set&quot; должно использоваться для конечного набора произведений, которые вместе составляют единую интеллектуальную единицу; как правило, выпускаются вместе и могут быть проданы как единое целое.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
         <source>Collection Type: series</source>
-        <translation>Тип коллекции: цикл</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
-        <translation>Свойство, используемое с &quot;belongs-to-collection&quot;. Указывает форму или характер коллекции.  Значение &quot;series&quot; должно использоваться для последовательности связанных произведений, которые формально идентифицируются как группа; как правило, бессрочные, с произведениями изданными в индивидуальном порядке в течение определённого времени.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="612"/>
         <source>Display Sequence</source>
-        <translation>Последовательность отображения</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="612"/>
         <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
-        <translation>Указывает числовую позицию, в которой отображается текущее свойство относительно идентичных свойств метаданных (например, для указания порядка отображения нескольких заголовков или нескольких авторов).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="613"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="703"/>
         <source>File as</source>
-        <translation>Файл как…</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="613"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="703"/>
         <source>Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.</source>
-        <translation>Предоставляет нормализованную форму связанного свойства для сортировки. Обычно используется с именами авторов, создателей и участников.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="614"/>
         <source>Group Position</source>
-        <translation>Позиция в группе</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="614"/>
         <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
-        <translation>Указывает числовую позицию, в которой Публикация EPUB упорядочена относительно других произведений, принадлежащих к той же группе (независимо от того, все публикации EPUB или нет).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>Identifier Type</source>
-        <translation>Тип идентификатора</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
-        <translation>Указывает форму или характер идентификатора. Когда значение типа идентификатора берётся из списка кодов или другого формального перечисления, атрибут схемы должен использоваться для идентификации его источника.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="616"/>
         <source>Meta Authority</source>
-        <translation>Метатег Authority</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="616"/>
         <source>Identifies the party or authority responsible for an instance of package metadata.</source>
-        <translation>Определяет сторону или орган, ответственный за экземпляр метаданных пакета.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="617"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="704"/>
         <source>Role</source>
-        <translation>Роль</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="617"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="704"/>
         <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
-        <translation>Описывает характер работы, выполняемой создателем или участником (например, что лицо является автором или редактором работы). Обычно используется со схемой mark:relators для контролируемого словаря.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="618"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="705"/>
         <source>Scheme</source>
-        <translation>Схема</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="618"/>
         <source>This attribute is typically added to dc:identifier, dc:source: dc:creator, or dc:contributor to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
-        <translation>Этот атрибут обычно добавляется к dc:identifier, dc:source, dc:creator или dc:contributor для указания используемой управляемой словарной системы. (например, marc:relators, чтобы указать допустимые значения для свойства роли).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="619"/>
         <source>Source of Pagination</source>
-        <translation>Источник разделения на страницы</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="619"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
-        <translation>Указывает на уникальный аспект адаптированного исходного ресурса, который был сохранен в данном исполнении публикации EPUB. В этой спецификации определяется значение нумерации страниц, указывающее, что указанный исходный элемент является источником свойств разрыва страницы, определенных в содержимом. Это значение следует устанавливать всякий раз, когда включена нумерация страниц и известен источник печати. Допустимые значения: pagination.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
         <source>Custom Property</source>
-        <translation>Особые свойства</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
         <source>[Custom property/attribute]</source>
-        <translation>[Особые свойства/атрибуты]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
         <source>An empty metadata property or attribute you can modify.</source>
-        <translation>Незаполненные свойства и атрибуты метаданных, которые вы можете изменить.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
-        <translation>Основной и единственный заголовок EPUB-публикации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="651"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>Представляет имя лица, организации и т.д., ответственного за создание содержимого публикации EPUB. Атрибуты opf:role, opf:scheme и opf:file-as могут быть добавлены к элементу для указания функции, которую сыграл создатель при создании контента.</translation>
+        <translation>EPUB出版物のコンテンツの作成に責任を持つ個人や組織などの名前を表します。opf：role、opf：scheme、opf：file-as属性を要素に付加して、コンテンツの作成時に作成者が果たした機能を示すことができます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
-        <translation>Представляет имя человека, организации и т.п., которые сыграли второстепенную роль в создании EPUB-публикации.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="659"/>
         <source>The nature or genre of the content of the resource.</source>
-        <translation>Сущность или происхождение содержимого ресурса.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="661"/>
         <source>A reference to a resource from which the present publication is derived.</source>
-        <translation>Ссылка на ресурс, на основе которого создана данная публикация.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="662"/>
         <source>A language used in the publication. Choose a RFC5646 value.</source>
-        <translation>Язык, выбранный в публикации. Выбирайте значения согласно RFC5646.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
@@ -13222,107 +13211,107 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
         <source>Identifier</source>
-        <translation>Идентификатор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
         <source>Digital Object Identifier</source>
-        <translation>Digital Object Identifier, т.е. Идентификатор Цифрового Объекта</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
         <source>International Standard Book Number</source>
-        <translation>International Standard Book Number, т.е. Международный Стандартный Книжный Номер</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
         <source>International Standard Serial Number</source>
-        <translation>Международный стандартный номер серии</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
         <source>Universally Unique Identifier</source>
-        <translation>Универсальный уникальный идентификатор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="670"/>
         <source>Identifier: Custom</source>
-        <translation>Идентификатор: пользовательский</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="670"/>
         <source>A custom identifier based on a specified scheme</source>
-        <translation>Пользовательский идентификатор, основывающийся на указанной схеме</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="671"/>
         <source>Series</source>
-        <translation>Серия</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="671"/>
         <source>Series title or name (from calibre)</source>
-        <translation>Название серии (из calibre)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="672"/>
         <source>Series Index</source>
-        <translation>Номер в серии</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="672"/>
         <source>Index of this book in the series (from calibre)</source>
-        <translation>Номер книги в серии (из calibre)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
         <source>Title for Sorting</source>
-        <translation>Заголовок для сортировки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
         <source>Version of ebook title to use for sorting (from calibre)</source>
-        <translation>Версия названия книги используемое при сортировке (как в Calibre)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
         <source>An empty element for you to modify</source>
-        <translation>Вы можете изменить пустой элемент.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>Необязательный атрибут, определяющий язык. Использует те же коды, что и dc:language. Не совместим с элементами метаданных dc:language, dc:date или dc:identifier.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="705"/>
         <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, or UUID.</source>
-        <translation>Этот атрибут обычно добавляется в dc:identifier для указания типа используемого идентификатора: DOI, ISBN, ISSN или UUID.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="706"/>
         <source>Event</source>
-        <translation>Событие</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="706"/>
         <source>This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.</source>
-        <translation>Этот атрибут обычно используется с элементами dc:date для пояснения даты: публикации, создания или изменения.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="707"/>
         <source>Custom Attribute</source>
-        <translation>Пользовательский атрибут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="707"/>
         <source>[Custom metadata property/attribute]</source>
-        <translation>[Особые свойства/атрибуты метаданных]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="707"/>
         <source>An empty metadata attribute you can modify.</source>
-        <translation>Пустой атрибут метаданных, который вы можете отредактировать.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -13331,7 +13320,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="173"/>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="175"/>
         <source>Start</source>
-        <translation>Начало</translation>
+        <translation>開始</translation>
     </message>
 </context>
 <context>
@@ -13339,31 +13328,30 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="713"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
-        <translation>Имя файла не может содержать символ &quot;%1&quot;.</translation>
+        <translation>ファイル名に文字 &quot;%1&quot; を含めることはできません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="724"/>
         <source>The filename cannot be empty.</source>
-        <translation>Имя файла не может быть пустым.</translation>
+        <translation>ファイル名は空にすることはできません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="736"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
-        <translation>Имя файла &quot;%1&quot; уже используется.
+        <translation>ファイル名 &quot;%1&quot; はすでに使用されています。
 </translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="748"/>
         <source>The book path cannot be empty.</source>
-        <translation>Путь к книге должен быть установлен.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="755"/>
         <source>That book path &quot;%1&quot; is already in use.
 </source>
-        <translation>Этот путь к книге &quot;%1&quot; уже используется.
-</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -13371,12 +13359,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1203"/>
         <source>[Title here]</source>
-        <translation>[Место заголовка]</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1209"/>
         <source>[Main title here]</source>
-        <translation>[Место для основного заголовка]</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -13384,27 +13372,27 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="14"/>
         <source>Open With Application Name</source>
-        <translation>Открыть с помощью приложения</translation>
+        <translation>アプリケーション名で開く</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="20"/>
         <source>Enter the name to display in the Open With menu for this application:</source>
-        <translation>Введите название для отображения в меню &quot;Открыть с помощью...&quot; для этого приложения:</translation>
+        <translation>[アプリケーションから開く]メニューに表示される、このアプリケーションの名前を入力します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="48"/>
         <source>Filename:</source>
-        <translation>Имя файла:</translation>
+        <translation>ファイル名:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="55"/>
         <source>Menu Name:</source>
-        <translation>Название меню:</translation>
+        <translation>メニュー名:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="62"/>
         <source>No File</source>
-        <translation>Нет файла</translation>
+        <translation>ファイルなし</translation>
     </message>
 </context>
 <context>
@@ -13412,32 +13400,32 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="14"/>
         <source>Plugin Runner</source>
-        <translation>Запуск подключаемого модуля</translation>
+        <translation>プラグイン実行</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="28"/>
         <source>Plugin:</source>
-        <translation>Модуль:</translation>
+        <translation>プラグイン:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="48"/>
         <source>Start</source>
-        <translation>Пуск</translation>
+        <translation>開始</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="61"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="90"/>
         <source>Message</source>
-        <translation>Сообщение</translation>
+        <translation>メッセージ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="103"/>
         <source>Details...</source>
-        <translation>Подробности...</translation>
+        <translation>詳細</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="110"/>
@@ -13447,183 +13435,182 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="139"/>
         <source>Status: </source>
-        <translation>Состояние: </translation>
+        <translation>状態:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="122"/>
         <source>Error: A plugin by that name does not exist</source>
-        <translation>Ошибка: подключаемый модуль с таким именем уже существует</translation>
+        <translation>エラー: そのような名前のプラグインはありません</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="153"/>
         <source>Error: Interpreter</source>
-        <translation>Ошибка: Интерпретатор</translation>
+        <translation>エラー: インタープリター</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="153"/>
         <source>has no path set</source>
-        <translation>не имеет указанного пути</translation>
+        <translation>には、パスが設定されていません</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="166"/>
         <source>Installation Error: plugin launcher</source>
-        <translation>Ошибка установки: запуск подключаемого модуля</translation>
+        <translation>インストールエラー: プラグイン起動</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="167"/>
         <source>does not exist</source>
-        <translation>не существует</translation>
+        <translation>が、存在しません</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="172"/>
         <source>Error: plugin engine</source>
-        <translation>Ошибка: подключаемый модуль</translation>
+        <translation>エラー: プラグインエンジン</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="173"/>
         <source>is not supported (yet!)</source>
-        <translation>не поддерживается (пока!)</translation>
+        <translation>が、サポートされていません（まだ）</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="179"/>
         <source>Status: ready</source>
-        <translation>Состояние: готово</translation>
+        <translation>状態: 準備完了</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="243"/>
         <source>Error: plugin can not start</source>
-        <translation>Ошибка: подключаемый модуль не запускается</translation>
+        <translation>エラー: プラグインを起動できません</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="395"/>
         <source>Status: running</source>
-        <translation>Состояние: выполнение</translation>
+        <translation>状態: 起動中</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="412"/>
         <source>Launcher process crashed</source>
-        <translation>В процессе запуска произошёл сбой</translation>
+        <translation>起動プロセスがクラッシュしました</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
         <source>Status: finished</source>
-        <translation>Состояние: завершено</translation>
+        <translation>状態: 完了</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="430"/>
         <source>Status: failed</source>
-        <translation>Состояние: ошибка</translation>
+        <translation>状態: 失敗</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="436"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="445"/>
         <source>Status: No Changes Made</source>
-        <translation>Состояние: нет изменений</translation>
+        <translation>状態: 変更なし</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="444"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
-        <translation>Ошибка: подключаемый модуль попытался удалить последний XHTML-файл. Изменения будут отменены.</translation>
+        <translation>エラー: プラグインは最後のXHTMLファイルを削除しようとしました .. 変更を中止します</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="508"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="594"/>
         <source>Status:</source>
-        <translation>Состояние:</translation>
+        <translation>状態:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="535"/>
         <source>Plugin failed to start</source>
-        <translation>Не удалось запустить модуль</translation>
+        <translation>プラグインの起動に失敗しました</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="543"/>
         <source>Status: error</source>
-        <translation>Состояние: ошибка</translation>
+        <translation>状態: エラー</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="572"/>
         <source>Plugin cancelled</source>
-        <translation>Подключаемый модуль отменён</translation>
+        <translation>プラグインをキャンセルしました</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="573"/>
         <source>Status: cancelled</source>
-        <translation>Состояние: отменено</translation>
+        <translation>状態: キャンセル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="666"/>
         <source>Error Parsing Result XML:  </source>
-        <translation>Ошибка при обработке результата XML: </translation>
+        <translation>結果XMLの解析エラー: </translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="723"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="738"/>
         <source>Status: checking</source>
-        <translation>Состояние: проверка</translation>
+        <translation>状態: チェック中</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="727"/>
         <source>Incorrect XHTML:</source>
-        <translation>Некорректный XHTML:</translation>
+        <translation>不正なXHTML:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="727"/>
         <source>Line/Col</source>
-        <translation>Строка/Столбец</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="754"/>
         <source>Check Report</source>
-        <translation>Отчёт проверки</translation>
+        <translation>確認レポート</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="755"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
-        <translation>Обнаружен неверный XHTML/XML
-Вы уверены, что хотите продолжить?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="773"/>
         <source>Status: cleaning up - deleting files</source>
-        <translation>Состояние: очистка — удаление файлов</translation>
+        <translation>状態: クリーンアップ - ファイルを削除中</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="806"/>
         <source>Status: deleting</source>
-        <translation>Состояние: удаление</translation>
+        <translation>状態: 削除中</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="845"/>
         <source>Status: Loading</source>
-        <translation>Состояние: загрузка</translation>
+        <translation>状態: 読み込み中</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="864"/>
         <source>Input Plugin</source>
-        <translation>Ввод подключаемого модуля</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="865"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
-        <translation>Текущая книга будет полностью заменена, возможна потеря всех несохранённых изменений. Вы уверены, что хотите продолжить?</translation>
+        <translation>現在のブックは完全に置き換えられ、保存されていない変更は失われます ... 続行してもよろしいですか</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="891"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="905"/>
         <source>Status: adding</source>
-        <translation>Состояние: добавление</translation>
+        <translation>状態: 追加中</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="943"/>
         <source>Status: cleaning up - modifying files</source>
-        <translation>Состояние: очистка — изменение файлов</translation>
+        <translation>状態: クリーンアップ - ファイルを変更中</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="980"/>
         <source>Status: modifying</source>
-        <translation>Состояние: изменение</translation>
+        <translation>状態: 変更中</translation>
     </message>
 </context>
 <context>
@@ -13632,187 +13619,187 @@ Are you Sure You Want to Continue?</source>
         <location filename="../../Form_Files/PPluginWidget.ui" line="14"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="154"/>
         <source>Plugins</source>
-        <translation>Модули</translation>
+        <translation>プラグイン</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="62"/>
         <source>Name</source>
-        <translation>Название</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="67"/>
         <source>Version</source>
-        <translation>Версия</translation>
+        <translation>バージョン</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="72"/>
         <source>Author</source>
-        <translation>Автор</translation>
+        <translation>著者</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="77"/>
         <source>Type</source>
-        <translation>Тип</translation>
+        <translation>タイプ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="82"/>
         <source>Interpreter</source>
-        <translation>Интерпретатор</translation>
+        <translation>インタープリター</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="96"/>
         <source>≥Python3.4:</source>
-        <translation>≥ Python 3.4:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="115"/>
         <source>Auto</source>
-        <translation>Авто</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="122"/>
         <source>Set</source>
-        <translation>Задать</translation>
+        <translation>設定</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="161"/>
         <source>Add Plugin</source>
-        <translation>Добавить</translation>
+        <translation>プラグインの追加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="168"/>
         <source>Remove All</source>
-        <translation>Удалить всё</translation>
+        <translation>すべて削除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="175"/>
         <source>Remove Plugin</source>
-        <translation>Удалить</translation>
+        <translation>プラグインの削除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="201"/>
         <source>Path to Interpreter Executable</source>
-        <translation>Путь интерпретатора</translation>
+        <translation>インタープリター実行ファイルパス</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="211"/>
         <source>Should the bundled Python interpreter be used if present?</source>
-        <translation>Использовать интерпретатор Python, поставляемый в комплекте, при его наличии?</translation>
+        <translation>バンドルされているPythonインタープリターを利用する場合に、チェック（既存のものを利用するする場合は、パスを指定）</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="214"/>
         <source>Use Bundled Python</source>
-        <translation>Использовать укомплектованный Python</translation>
+        <translation>バンドルされたPythonを利用</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="228"/>
         <source>Quick Launch Plugin Assignments</source>
-        <translation>Назначения для быстрого запуска подключаемого модуля</translation>
+        <translation>クイック起動プラグインの割り当て</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="238"/>
         <source>Plugin 1:</source>
-        <translation>Модуль 1:</translation>
+        <translation>プラグイン 1:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="248"/>
         <source>Plugin 2:</source>
-        <translation>Модуль 2:</translation>
+        <translation>プラグイン 2:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="258"/>
         <source>Plugin 3:</source>
-        <translation>Модуль 3:</translation>
+        <translation>プラグイン 3:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="268"/>
         <source>Plugin 4:</source>
-        <translation>Модуль 4:</translation>
+        <translation>プラグイン 4:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="278"/>
         <source>Plugin 5:</source>
-        <translation>Модуль 5:</translation>
+        <translation>プラグイン 5:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="303"/>
         <source>Plugin 6:</source>
-        <translation>Модуль 6:</translation>
+        <translation>プラグイン 6:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="313"/>
         <source>Plugin 7:</source>
-        <translation>Модуль 7:</translation>
+        <translation>プラグイン 7:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="323"/>
         <source>Plugin 8:</source>
-        <translation>Модуль 8:</translation>
+        <translation>プラグイン 8:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="333"/>
         <source>Plugin 9:</source>
-        <translation>Модуль 9:</translation>
+        <translation>プラグイン 9:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="343"/>
         <source>Plugin 10:</source>
-        <translation>Модуль 10:</translation>
+        <translation>プラグイン 10:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="207"/>
         <source>Select Plugin Zip Archive</source>
-        <translation>Выбор архива модуля</translation>
+        <translation>プラグインのZIPアーカイブを選択</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="209"/>
         <source>Plugin Files (*.zip)</source>
-        <translation>Файлы модулей (*.zip)</translation>
+        <translation>プラグインファイル (*.zip)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="227"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
-        <translation>Ошибка: подключаемый модуль plugin.xml недействителен или не поддерживается вашей ОС.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="230"/>
         <source>Warning: A plugin by that name already exists</source>
-        <translation>Внимание: подключаемый модуль с таким именем уже существует</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="233"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
-        <translation>Ошибка: подключаемый модуль не распаковался.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="236"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation>Ошибка: подключаемый модуль недействителен.</translation>
+        <translation>エラー: プラグインは、有効なSigilプラグインではありません。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="274"/>
         <source>Nothing is Selected.</source>
-        <translation>Ничего не выбрано.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="322"/>
         <source>Remove All Plugins</source>
-        <translation>Удалить все подключаемые модули</translation>
+        <translation>すべてのプラグインを削除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="323"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
-        <translation>Вы уверены, что хотите удалить все ваши подключаемые модули?</translation>
+        <translation>本当にすべてのプラグインを削除しますか?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="380"/>
         <source>Select Interpreter</source>
-        <translation>Выбрать интерпретатор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="409"/>
         <source>Incorrect Interpreter Path selected</source>
-        <translation>Выбран неправильный путь к интерпретатору</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -13820,7 +13807,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/Preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>Настройки</translation>
+        <translation>設定</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="106"/>
@@ -13830,12 +13817,12 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="106"/>
         <source>Changes will take effect when you restart Sigil.</source>
-        <translation>Внесённые изменения вступят в силу при следующем запуске Sigil.</translation>
+        <translation>変更した内容はSigilの再起動後に有効になります。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="183"/>
         <source>Open Preferences Location</source>
-        <translation>Открыть каталог</translation>
+        <translation>設定ファイルの場所を開く</translation>
     </message>
 </context>
 <context>
@@ -13843,44 +13830,44 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="14"/>
         <source>Preserve Entities</source>
-        <translation>Сохранённые объекты</translation>
+        <translation>エンティティの保持</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="32"/>
         <source>Entities to Preserve</source>
-        <translation>Объекты для сохранения</translation>
+        <translation>保持するエンティティ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="47"/>
         <source>Enter or paste entities to add to the list.
 Entities can be separated by lines, commas, or spaces.</source>
-        <translation>Введите или вставьте объекты для добавления в список.
-Объекты можно разделять запятыми, пробелами или переводом строки.</translation>
+        <translation>エンティティを入力または貼り付けて、リストに追加します。
+エンティティは、行、カンマ、スペースで区切ることができます。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="51"/>
         <source>Add</source>
-        <translation>Добавить</translation>
+        <translation>追加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="58"/>
         <source>Remove</source>
-        <translation>Удалить</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="65"/>
         <source>Remove All</source>
-        <translation>Удалить всё</translation>
+        <translation>すべて削除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="65"/>
         <source>Add Entities</source>
-        <translation>Добавление сущностей</translation>
+        <translation>エンティティを追加</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="65"/>
         <source>Entities:</source>
-        <translation>Объекты:</translation>
+        <translation>エンティティ:</translation>
     </message>
 </context>
 <context>
@@ -13891,27 +13878,27 @@ Entities can be separated by lines, commas, or spaces.</source>
         <location filename="../../MainUI/PreviewWindow.cpp" line="321"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="329"/>
         <source>Preview</source>
-        <translation>Предпросмотр</translation>
+        <translation>プレビュー</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="179"/>
         <source>Inspect Page</source>
-        <translation>Обследование Страницы.</translation>
+        <translation>ページの検査</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="182"/>
         <source>Select-All</source>
-        <translation>Всё-Выделено</translation>
+        <translation>すべて選択</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="185"/>
         <source>Copy Selection To ClipBoard</source>
-        <translation>Копировать выделенное в буфер обмена</translation>
+        <translation>選択範囲をクリップボードにコピー</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="188"/>
         <source>Update Preview Window</source>
-        <translation>Обновить окно предварительного просмотра</translation>
+        <translation>プレビューウィンドウの更新</translation>
     </message>
 </context>
 <context>
@@ -13919,77 +13906,76 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="1150"/>
         <source>Merging Files..</source>
-        <translation>Объединение файлов...</translation>
+        <translation>ファイルをマージ中...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/CleanSource.cpp" line="312"/>
         <source>Cleaning...</source>
-        <translation>Очистка...</translation>
+        <translation>クリーン化中...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Creating Index...</source>
-        <translation>Создаётся указатель...</translation>
+        <translation>インデックスの生成中...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="47"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="89"/>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="289"/>
         <source>Custom Epub Layout Designer</source>
-        <translation>Конструктор оформления Epub</translation>
+        <translation>カスタムEpubレイアウトデザイナー</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="161"/>
         <location filename="../../Misc/OpenExternally.cpp" line="243"/>
         <source>Applications</source>
-        <translation>Приложения</translation>
+        <translation>アプリケーション</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="176"/>
         <source>Select External Xhtml Editor</source>
-        <translation>Выбрать внешний редактор Xhtml</translation>
+        <translation>外部XHTMLエディタを選択</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Reports.cpp" line="124"/>
         <source>Creating reports...</source>
-        <translation>Создание отчётов...</translation>
+        <translation>レポートを作成中...</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="111"/>
         <source>Cannot read EPUB: %1</source>
-        <translation>Не удалось прочесть EPUB: %1</translation>
+        <translation>EPUBを読み込めません: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="245"/>
         <source>The OPF file does not contain a valid spine.</source>
-        <translation>OPF-файл не содержит валидной структуры (spine).</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="246"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="860"/>
         <source>Sigil has created a new one for you.</source>
-        <translation>Sigil создал новый для тебя.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="290"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
-        <translation>Ошибка обработки XML-шифрования.
-Строка: %1, столбец %2 - %3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="406"/>
         <source>Cannot unzip EPUB: %1</source>
-        <translation>Не удалось распаковать EPUB: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="462"/>
         <source>Possible evil or corrupt epub file name: %1</source>
-        <translation>Возможно испорченный или повреждённый файл epub: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="489"/>
@@ -13997,91 +13983,90 @@ Line: %1 Column %2 - %3</source>
         <location filename="../../Importers/ImportEPUB.cpp" line="515"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="523"/>
         <source>Cannot extract file: %1</source>
-        <translation>Не удалось извлечь файл: %1</translation>
+        <translation>ファイルを展開できません: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="535"/>
         <source>Cannot open EPUB: %1</source>
-        <translation>Не удалось открыть EPUB: %1</translation>
+        <translation>EPUBを開けません: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="589"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
-        <translation>Не удалось обработать файл container.xml.
-Срока: %1, столбец %2 - %3</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="601"/>
         <source>No appropriate OPF file found</source>
-        <translation>Не найден соответствующий OPF-файл</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="652"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
-        <translation>Не удалось прочесть OPF-файл.
-Строка: %1, столбец %2 - %3</translation>
+        <translation>OPF ファイルを読めません。
+行: %1 列 %2 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="739"/>
         <source>The OPF uses an unrecognized media type &quot;%1&quot; for file &quot;%2&quot;</source>
-        <translation>OPF использует нераспознанный тип медиа &quot;%1 &quot; для файла &quot;%2&quot;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="740"/>
         <source>A temporary media type of &quot;%1&quot; has been assigned. You should edit your OPF file to fix this problem.</source>
-        <translation>Назначен временный тип медиа &quot;%1&quot;. Вы должны отредактировать файл OPF, чтобы устранить эту проблему.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="763"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
-        <translation>Манифест OPF содержит повторяющиеся идентификаторы для: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="764"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
-        <translation>Временный идентификатор был назначен для загрузки этот EPUB. Вы должны отредактировать ваш файл OPF, чтобы удалить дублирование.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="835"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
-        <translation>OPF-файл не определил NCX-файл правильно.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="836"/>
         <source>Sigil has used the following file as the NCX:</source>
-        <translation>Sigil использовал следующий файл как NCX:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="859"/>
         <source>The OPF file does not contain an NCX file.</source>
-        <translation>OPF-файл не содержит NCX-файл.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="641"/>
         <source>Adding Existing Files..</source>
-        <translation>Добавление существующих файлов...</translation>
+        <translation>既存のファイルを追加中...</translation>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="258"/>
         <source>Open With</source>
-        <translation>Открыть с помощью...</translation>
+        <translation>アプリケーションから開く</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="44"/>
         <source>Counting occurrences..</source>
-        <translation>Подсчёт вхождений...</translation>
+        <translation>件数をカウントしています..</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="64"/>
         <source>Replacing search term...</source>
-        <translation>Замена искомого текста...</translation>
+        <translation>検索語を置換しています...</translation>
     </message>
     <message>
         <location filename="../../Misc/TOCHTMLWriter.cpp" line="111"/>
         <source>Table of Contents</source>
-        <translation>Оглавление</translation>
+        <translation>目次</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="97"/>
@@ -14091,45 +14076,45 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="98"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Доступна новая версия  Sigil — версия &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Вы хотите перейти на страницу загрузки?&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="466"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation>Невозможно прочитать файл %1:
-%2.</translation>
+        <translation>ファイル %1 を読み込めませんでした:
+%2。</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="593"/>
         <source>Sigil has encountered a problem.</source>
-        <translation>В Sigil обнаружена проблема.</translation>
+        <translation>Sigilで問題が発生しました。</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="594"/>
         <source>Sigil may need to close.</source>
-        <translation>Sigil может потребоваться закрыть.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="75"/>
         <source>Index</source>
-        <translation>Указатель</translation>
+        <translation>インデックス</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="211"/>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="279"/>
         <source>Invalid HTML file: %1</source>
-        <translation>Недействительный HTML-файл: %1</translation>
+        <translation>無効なHTMLファイル: %1</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="324"/>
         <source>Invalid OPF file: %1</source>
-        <translation>Недействительный OPF-файл: %1</translation>
+        <translation>無効なOPFファイル: %1</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="350"/>
         <source>Invalid NCX file: %1</source>
-        <translation>Недействительный NCX-файл: %1</translation>
+        <translation>無効なNCXファイル: %1</translation>
     </message>
 </context>
 <context>
@@ -14137,27 +14122,27 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="14"/>
         <source>RE File Renamer</source>
-        <translation>RE файл Renamer</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="42"/>
         <source>Enter Regular Expression to be Replaced</source>
-        <translation>Введите регулярное выражение для замены</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="55"/>
         <source>Regular Expression:</source>
-        <translation>Регулярное выражение:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="68"/>
         <source>Replacement:</source>
-        <translation>Замена:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="81"/>
         <source>Enter Replacement text (can use subgroups replacements)</source>
-        <translation>Введите текст замены (можно использовать замены подгрупп)</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -14165,17 +14150,17 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="14"/>
         <source>Rename Table</source>
-        <translation>Переименовать таблицу</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="39"/>
         <source>Prior Filename</source>
-        <translation>Предыдущее имя файла</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="44"/>
         <source>Revised Filename</source>
-        <translation>Изменённое имя файла</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -14183,7 +14168,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="20"/>
         <source>Rename Files</source>
-        <translation>Переименование файлов</translation>
+        <translation>ファイル名を変更</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="28"/>
@@ -14202,25 +14187,12 @@ current extensions will be kept.  If you just provide a file extension (e.g. .xh
 then only file extensions will be updated.  Be careful that any extension you use is 
 valid for all selected files.
 </source>
-        <translation>Введите начало имени для переименования всех выбранных файлов, например:
-
-filename001
-filename08.xhtml
-.html
-
-Все номера в конце имени файла, введённого вами, будут заменены последовательно
-начиная с предустановленного количества (по умолчанию равен 1, если не предустановлено никакое число), с ведущими нолями добавила в соответствии с количеством используемых цифр.
-
-Если вы вводите расширение файла, оно будет использоваться для всех файлов, в противном случае
-будут храниться текущее расширение. Если вы просто обеспечить расширение файла (например, .xhtml).
-Затем только расширения файлов только будут обновлены. Будьте осторожны, ведь любое расширение, которое вы используете,
-действительно для всех выбранных файлов.
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="45"/>
         <source>Rename Files Starting At: </source>
-        <translation>Переименовать файлы, начиная с: </translation>
+        <translation>次で始まるファイル名を変更:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="52"/>
@@ -14233,12 +14205,12 @@ filename08.xhtml
     <message>
         <location filename="../../Form_Files/Reports.ui" line="14"/>
         <source>Reports</source>
-        <translation>Отчёты</translation>
+        <translation>レポート</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Reports.ui" line="51"/>
         <source>Refresh</source>
-        <translation>Обновить</translation>
+        <translation>更新</translation>
     </message>
 </context>
 <context>
@@ -14246,105 +14218,97 @@ filename08.xhtml
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="14"/>
         <source>Saved Searches</source>
-        <translation>Сохранённые поисковые запросы</translation>
+        <translation>保存された検索</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation>Фильтровать по названию:</translation>
+        <translation>フィルター名:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation>Фильтровать по всем полям:</translation>
+        <translation>すべてフィルター:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Показать только записи, содержащие введённый вами текст.</translation>
+        <translation>入力したテキストを含むエントリーのみリスト表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="65"/>
         <source>Load the selected entry into the Find &amp; Replace window.</source>
-        <translation>Загрузить выбранный элемент в окно &quot;Поиска и замены&quot;.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="68"/>
         <source>Load Search</source>
-        <translation>Загрузка поиска</translation>
+        <translation>検索の読み込み</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="91"/>
         <source>Run Find using the selected entry.
 If a group is selected, find the first entry in the list, 
 then if not found look for the second entry in the list, etc.</source>
-        <translation>Запустите Найти с помощью выбранного элемента.
-Если выбрана группа, ищет первый элемент в списке,
-затем, если не найдено ищет второй элемент в списке, и т.д.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>Find</source>
-        <translation>Найти</translation>
+        <translation>検索</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="103"/>
         <source>Run Replace using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace.</source>
-        <translation>Запустите Заменить с помощью выбранной записи.
-Если выбрана группа, цикл повторяется для каждого элемента
-и останавливается на первой успешной замене.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="69"/>
         <source>Replace</source>
-        <translation>Заменить</translation>
+        <translation>置換</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="131"/>
         <source>Run Replace/Find using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace/find.</source>
-        <translation>Запустите Найти/Заменить с помощью выбранной записи.
-Если выбрана группа, цикл повторяется для каждого элемента
-и останавливается на первой успешной замене.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="136"/>
         <source>Replace/Find</source>
-        <translation>Найти и заменить</translation>
+        <translation>置換/検索</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="143"/>
         <source>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</source>
-        <translation>Запустите &quot;Заменить все&quot; для выбранных элементов в выбранном порядке.
-Выберите группу, чтобы заменить все элементы в группе по порядку.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="147"/>
         <source>Replace All</source>
-        <translation>Заменить всё</translation>
+        <translation>すべて置換</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="170"/>
         <source>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</source>
-        <translation>Выполнить &quot;Посчитать все&quot; для выбранных элементов в выбранном порядке,
-включая элементы в выбранных группах.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
         <source>Count All</source>
-        <translation>Посчитать всё</translation>
+        <translation>すべてカウント</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="199"/>
         <source>Move an entry up one level in the same group.</source>
-        <translation>Переместить элемент на одну позицию вверх в той же группе.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="202"/>
@@ -14357,107 +14321,107 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="229"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation>Переместить запись на уровень родительского элемента.</translation>
+        <translation>エントリーをその親のレベルに移動します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="258"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation>Вы должны выбрать пункт непосредственно под группой, чтобы переместить его в группу.</translation>
+        <translation>グループに移動するには、グループのすぐ下にあるアイテムを選択する必要があります。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="288"/>
         <source>Move an entry down one level in the same group.</source>
-        <translation>Переместить элемент на одну позицию вниз в той же группе.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="354"/>
         <source>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</source>
-        <translation>Нажмите кнопку &quot;Применить&quot;, чтобы загрузить &quot;Найти и заменить&quot; с выбранным поиском. Нажмите &quot;OK&quot;, чтобы загрузить свой поиск, сохранить данные и закрыть.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="62"/>
         <source>All searches default to Regex, All HTML Files, Down.</source>
-        <translation>Поиск по умолчанию: Регулярные выражения, Все HTML-файлы, Вниз.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="63"/>
         <source>Hold Ctrl down while clicking Find, Replace, etc. to temporarily search only the Current File.</source>
-        <translation>Удерживайте Ctrl при нажатии Найти, Заменить и т.д., чтобы временно искать только в текущем файле.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="64"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>Щёлкните правой кнопкой мыши на элементе, чтобы увидеть контекстное меню действий.</translation>
+        <translation>エントリーの上で右クリックするとアクションのコンテキストメニューが表示されます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="65"/>
         <source>You can also right click on the Find text box in the Find &amp; Replace window to select an entry.</source>
-        <translation>Вы также можете щёлкнуть правой кнопкой мыши на текстовом поле поиска в окне Найти и Заменить, чтобы выбрать элемент.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Name</source>
-        <translation>Название</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Name of your entry or group.</source>
-        <translation>Название фрагмента или группы.</translation>
+        <translation>エントリーまたはグループの名前。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>The text to put into the Find box.</source>
-        <translation>Текст для ввода в поле поиска.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="69"/>
         <source>The text to put into the Replace box.</source>
-        <translation>Текст для ввода в поле замены.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
         <source>Save</source>
-        <translation>Сохранить</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
         <source>Save your changes.</source>
-        <translation>Сохранить все изменения.</translation>
+        <translation>変更点を保存します。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>Если запущены другие экземпляры Sigil, они будут автоматически обновляться с вашими изменениями.</translation>
+        <translation>Sigilの他のインスタンスが実行されている場合は、変更内容が自動的に更新されます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="90"/>
         <source>Cannot save entries.</source>
-        <translation>Невозможно сохранить предустановки.</translation>
+        <translation>エントリーを保存できません。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="170"/>
         <source>Saved Searches loaded from file.</source>
-        <translation>Сохранённые поиски загружены из файла.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="206"/>
         <source>You cannot select more than one entry when using this action.</source>
-        <translation>Вы не можете выбрать больше одного элемента для этого действия.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="214"/>
         <source>You cannot select a group for this action.</source>
-        <translation>Вы не можете выбрать группу для этого действия.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="260"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation>Вы не можете выбрать элемент и группу, содержащую элемент.</translation>
+        <translation>エントリーおよびエントリーを含むグループは選択できません。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="343"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation>Вы не можете копировать или вырезать группы — используйте перетаскивание.</translation>
+        <translation>グループのコピーや切り取りはできません。ドラッグアンドドロップを使用してください。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="410"/>
@@ -14467,99 +14431,98 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="410"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>Вы уверены, что хотите перезагрузить все элементы? Это перезапишет любые несохранённые изменения.</translation>
+        <translation>すべてのエントリーを再読み込みしますか?これにより、保存されていない変更が上書きされます。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="430"/>
         <source>Import Search Entries</source>
-        <translation>Импортировать предустановки поиска и замены</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="510"/>
         <source>Export Selected Searches</source>
-        <translation>Экспортировать выбранные предустановки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="676"/>
         <source>Add Entry</source>
-        <translation>Добавить запись</translation>
+        <translation>エントリーを追加</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="677"/>
         <source>Add Group</source>
-        <translation>Добавить группу</translation>
+        <translation>グループを追加</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="678"/>
         <source>Edit</source>
-        <translation>Изменить</translation>
+        <translation>編集</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="679"/>
         <source>Cut</source>
-        <translation>Вырезать</translation>
+        <translation>切り取り </translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="680"/>
         <source>Copy</source>
-        <translation>Скопировать</translation>
+        <translation>コピー</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="681"/>
         <source>Paste</source>
-        <translation>Вставить</translation>
+        <translation>貼り付け</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="682"/>
         <source>Delete</source>
-        <translation>Удалить</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="683"/>
         <source>Import</source>
-        <translation>Импортировать</translation>
+        <translation>インポート</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="684"/>
         <source>Reload</source>
-        <translation>Перезагрузить</translation>
+        <translation>再読み込み</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="685"/>
         <source>Export</source>
-        <translation>Экспортировать</translation>
+        <translation>エクスポート</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="686"/>
         <source>Export All</source>
-        <translation>Экспортировать всё</translation>
+        <translation>すべて出力</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="687"/>
         <source>Collapse All</source>
-        <translation>Свернуть всё</translation>
+        <translation>すべて閉じる</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="688"/>
         <source>Expand All</source>
-        <translation>Развернуть всё</translation>
+        <translation>すべて展開</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="765"/>
         <source>Search entries saved.</source>
-        <translation>Найденные объекты сохраняются.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="794"/>
         <source>Sigil: Saved Searches</source>
-        <translation>Предустановки поиска и замены</translation>
+        <translation>Sigil: 保存された検索</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="795"/>
         <source>The Search entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>Найденные объекты изменены.
-Сохранить изменения?</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -14567,22 +14530,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
         <source>Name</source>
-        <translation>Название</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="67"/>
         <source>Find</source>
-        <translation>Найти</translation>
+        <translation>検索</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="68"/>
         <source>Replace</source>
-        <translation>Заменить</translation>
+        <translation>置換</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="604"/>
         <source>Unable to create file %1</source>
-        <translation>Невозможно создать файл %1</translation>
+        <translation>ファイル %1 を作成できません</translation>
     </message>
 </context>
 <context>
@@ -14590,7 +14553,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectCharacter.ui" line="14"/>
         <source>Insert Special Character</source>
-        <translation>Вставить специальный символ</translation>
+        <translation>特殊文字を挿入</translation>
     </message>
 </context>
 <context>
@@ -14598,83 +14561,83 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="14"/>
         <source>Insert File</source>
-        <translation>Вставить файл</translation>
+        <translation>ファイルを挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="46"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Перечислить только имена файлов, которые содержат текст, введённый вами.</translation>
+        <translation>入力したテキストを含むファイル名のみリスト表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="49"/>
         <source>Filter:</source>
-        <translation>Фильтр:</translation>
+        <translation>フィルター:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="59"/>
         <source>Choose which image, video, or audio files from your computer to add to
 your book and automatically insert into your document.</source>
-        <translation>Выберите медиафайлы на вашем компьютере для добавления в книгу и автоматической вставки в документ.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="63"/>
         <source>Other Files...</source>
-        <translation>Прочие...</translation>
+        <translation>他のファイル...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="129"/>
         <source>Thumbnail size:</source>
-        <translation>Размер Миниатюры:</translation>
+        <translation>サムネイルサイズ:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="82"/>
         <source>All</source>
-        <translation>Все</translation>
+        <translation>すべて</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="83"/>
         <source>Images</source>
-        <translation>Изображения</translation>
+        <translation>画像</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="84"/>
         <source>Video</source>
-        <translation>Видео</translation>
+        <translation>動画</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="85"/>
         <source>Audio</source>
-        <translation>Аудио</translation>
+        <translation>オーディオ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="129"/>
         <source>Files In the Book</source>
-        <translation>Файлы в книге</translation>
+        <translation>ブック中のファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="132"/>
         <source>Thumbnails</source>
-        <translation>Миниатюры</translation>
+        <translation>サムネイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="288"/>
         <source>shades</source>
-        <translation>оттенки</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="288"/>
         <source>colors</source>
-        <translation>цвета</translation>
+        <translation>カラー</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="289"/>
         <source>Grayscale</source>
-        <translation>Ч/Б</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectFiles.cpp" line="289"/>
         <source>Color</source>
-        <translation>Цветное</translation>
+        <translation>カラー</translation>
     </message>
 </context>
 <context>
@@ -14682,21 +14645,19 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Form_Files/SelectFolder.ui" line="14"/>
         <source>Select Destination Folder </source>
-        <translation>Выбор Папки Назначения</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFolder.ui" line="22"/>
         <source>Enter or select an ebook path to the desired destination folder.
 
 The dropdown box shows existing Folder paths for this file type.</source>
-        <translation>Введите или выберите путь к нужной папке для электронной книги.
-
-Раскрывающийся список показывает существующие пути к папкам для этого типа файлов.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFolder.ui" line="27"/>
         <source>Folders:</source>
-        <translation>Папки:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -14704,34 +14665,33 @@ The dropdown box shows existing Folder paths for this file type.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="14"/>
         <source>Select Target</source>
-        <translation>Выбор цели</translation>
+        <translation>ターゲットを選択</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="22"/>
         <source>List only the entries that match the text you enter.</source>
-        <translation>Перечислить только те элементы, соответствующие введённому тексту.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="25"/>
         <source>Filter:</source>
-        <translation>Фильтр:</translation>
+        <translation>フィルター:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="58"/>
         <source>Enter the target URL for this hyperlink.  You can select or 
 double click on existing destinations in your book from the list above.</source>
-        <translation>Введите URL для гиперссылки. Вы можете выбрать или
-дважды щёлкнуть на существующие места в книге в списке.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="62"/>
         <source>Target:</source>
-        <translation>Цель:</translation>
+        <translation>ターゲット:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectHyperlink.cpp" line="69"/>
         <source>Targets in the Book</source>
-        <translation>Цели в книге</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -14739,7 +14699,7 @@ double click on existing destinations in your book from the list above.</source>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="14"/>
         <source>Insert ID </source>
-        <translation>Вставить ID </translation>
+        <translation>IDを挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="22"/>
@@ -14748,11 +14708,7 @@ double click on existing destinations in your book from the list above.</source>
 The dropdown box shows existing ID names in the current file.
 
 ID names must be unique and start with a letter.</source>
-        <translation>Введите ID, чтобы использовать его как место назначения для гиперссылок, примечаний и элементов оглавления.
-
-В выпадающем списке можно увидеть существующие ID в текущем файле.
-
-ID должен быть уникален и начинаться с буквы.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="29"/>
@@ -14765,17 +14721,17 @@ ID должен быть уникален и начинаться с буквы.
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="14"/>
         <source>Mark For Index</source>
-        <translation>Пометка для указателя</translation>
+        <translation>インデックスをマーク</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="22"/>
         <source>Enter the index entry to create for the selected text.</source>
-        <translation>Введите элемент указателя, чтобы создать из выбранного текста.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="25"/>
         <source>Index Entry:</source>
-        <translation>Запись:</translation>
+        <translation>インデックスエントリー:</translation>
     </message>
 </context>
 <context>
@@ -14783,69 +14739,67 @@ ID должен быть уникален и начинаться с буквы.
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="14"/>
         <source>Spellcheck Dictionaries</source>
-        <translation>Проверка орфографии</translation>
+        <translation>スペルチェック辞書</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="34"/>
         <source>Dictionary:</source>
-        <translation>Словарь:</translation>
+        <translation>辞書:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="64"/>
         <source>Highlight misspelled words in Code View.</source>
-        <translation>Выделять слова с ошибками в окне просмотра кода.</translation>
+        <translation>コードビューでミススペル単語を強調します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="67"/>
         <source>Highlight Misspelled Words</source>
-        <translation>Подсвечивать слова с ошибками</translation>
+        <translation>ミススペル単語を強調する</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="74"/>
         <source>Check words with numbers in them.</source>
-        <translation>Проверять слова содержащие цифры.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="77"/>
         <source>Check Numbers</source>
-        <translation>Проверить числа</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="130"/>
         <source>User Dictionaries</source>
-        <translation>Пользовательские словари</translation>
+        <translation>ユーザー辞書</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="138"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="222"/>
         <source>Add</source>
-        <translation>Добавить</translation>
+        <translation>追加</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="145"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="213"/>
         <source>Rename</source>
-        <translation>Переименовать</translation>
+        <translation>名前を変更</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="152"/>
         <source>Copy</source>
-        <translation>Копировать</translation>
+        <translation>コピー</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="159"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="236"/>
         <source>Remove</source>
-        <translation>Удалить</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="162"/>
         <source>Remove the selected dictionary.
 
 You cannot remove the last dictionary.</source>
-        <translation>Удалить выбранный словарь
-
-Вы не можете удалить последний словарь.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="189"/>
@@ -14854,71 +14808,66 @@ spell checking.
 
 Select a dictionary to display its words,
 and to make it the default dictionary.</source>
-        <translation>Отметьте, какие словари включены для
-проверки орфографии.
-
-Выберите словарь для отображения этих слов,
-и сделайте его словарём по умолчанию.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="203"/>
         <source>User Dictionary Word List</source>
-        <translation>Список слов в пользовательском словаре</translation>
+        <translation>ユーザー辞書単語リスト</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="218"/>
         <source>Enter or paste words to add to the dictionary.
 Words can be separated by lines, commas, or spaces.</source>
-        <translation>Введите или вставьте слова для добавления в список.
-Слова можно разделять запятыми, пробелами, или строками.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="229"/>
         <source>Edit</source>
-        <translation>Изменить</translation>
+        <translation>編集</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="243"/>
         <source>Remove All</source>
-        <translation>Удалить всё</translation>
+        <translation>すべて削除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="272"/>
         <source>The default dictionary is used when you add words to the
 default dictionary or use the shortcuts for Add Misspelled Words.</source>
-        <translation>Словарь по умолчанию используется, когда вы добавляете слова в
-словарь по умолчанию или используете горячие клавиши для добавления слов с ошибками.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="276"/>
         <source>Default Dictionary:</source>
-        <translation>Словарь по умолчанию:</translation>
+        <translation>デフォルトの辞書:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="283"/>
         <source>none</source>
-        <translation>none</translation>
+        <translation>なし
+</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="53"/>
         <source>Enable</source>
-        <translation>Включить</translation>
+        <translation>有効</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="54"/>
         <source>Dictionary</source>
-        <translation>Словарь</translation>
+        <translation>辞書</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="110"/>
         <source>Add Dictionary</source>
-        <translation>Добавить словарь</translation>
+        <translation>辞書を追加</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="110"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="213"/>
         <source>Name:</source>
-        <translation>Название:</translation>
+        <translation>名前:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="124"/>
@@ -14927,38 +14876,38 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="234"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="253"/>
         <source>Error</source>
-        <translation>Ошибка</translation>
+        <translation>エラー</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="124"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="226"/>
         <source>A user dictionary already exists with this name!</source>
-        <translation>Пользовательский словарь с таким именем уже существует!</translation>
+        <translation>この名前のユーザー辞書はすでに存在します!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="133"/>
         <source>Add Words</source>
-        <translation>Добавить слова</translation>
+        <translation>単語を追加</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="133"/>
         <source>Words:</source>
-        <translation>Слова:</translation>
+        <translation>単語:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="164"/>
         <source>Could not create file!</source>
-        <translation>Не удалось создать файл!</translation>
+        <translation>ファイルを作成できません!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="234"/>
         <source>Could not rename file!</source>
-        <translation>Не удалось переименовать файл!</translation>
+        <translation>ファイル名を変更できません!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="253"/>
         <source>You cannot delete the last dictionary.</source>
-        <translation>Вы не можете удалить последний словарь.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -14966,83 +14915,79 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="14"/>
         <source>Spellcheck</source>
-        <translation>Проверка орфографии</translation>
+        <translation>スペルチェック</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation>Фильтр:</translation>
+        <translation>フィルター:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Показать только записи, содержащие введённый вами текст.</translation>
+        <translation>入力したテキストを含むエントリーのみリスト表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="58"/>
         <source>Ignore the selected words until Sigil
 is restarted or a new book is opened.</source>
-        <translation>Игнорировать выбранные слова, пока Sigil не
-будет перезагружен или не будет открыта новая книга.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="541"/>
         <source>Ignore</source>
-        <translation>Проигнорировать</translation>
+        <translation>無視</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="91"/>
         <source>Add the selected words to the
 dictionary selected below.</source>
-        <translation>Добавить выбранные слова в
-словарь, выбранный ниже.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="95"/>
         <source>Add To Dictionary:</source>
-        <translation>Добавить в словарь:</translation>
+        <translation>辞書に追加:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="134"/>
         <source>Change all occurrences of the selected word  in
 HTML files to the word you select or type below.
 The selected word does not have to be misspelled.</source>
-        <translation>Изменить все вхождения выделенного слова в
-HTML-файлах на слово, которое вы выберите или введёте ниже.
-Выбранное слово не должно содержать ошибки.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="139"/>
         <source>Change Selected Word To:</source>
-        <translation>Изменить выбранное слово на:</translation>
+        <translation>選択した単語を変更:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="181"/>
         <source>Show All Words</source>
-        <translation>Показать все слова</translation>
+        <translation>全単語を表示</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="188"/>
         <source>Sort words as AaBbCc instead of ABCabc.</source>
-        <translation>Сортировать слова как АаБбВв, вместо АБВабв.</translation>
+        <translation>単語をABCabcではなくAaBbCcのようにソートします。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="191"/>
         <source>Case-Insensitive Sort</source>
-        <translation>Сортировка без учёта регистра</translation>
+        <translation>大文字小文字を区別せずソート</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="215"/>
         <source>Re-check the HTML files for misspelled words.
 Use if you edit any HTML files while Spellcheck is open.</source>
-        <translation>Перепроверьте HTML-файлы для слов с ошибками.
-Используйте, если вы редактируете файлы HTML, а проверка правописания открыта.</translation>
+        <translation>HTMLファイルにミススペルした単語がないか再チェックします。
+スペルチェックを開いている間にHTMLファイルを編集する場合に利用してください。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="219"/>
         <source>Refresh</source>
-        <translation>Обновить</translation>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="54"/>
@@ -15073,78 +15018,78 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="178"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="217"/>
         <source>No words selected.</source>
-        <translation>Не выбранных слов.</translation>
+        <translation>単語が選択されていません。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="171"/>
         <source>Ignored word(s).</source>
-        <translation>Игнорированные слова.</translation>
+        <translation>無視する単語</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="206"/>
         <source>Added word(s) to dictionary.</source>
-        <translation>Слова добавлены в словарь.</translation>
+        <translation>辞書に単語を追加します。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="208"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
-        <translation>Слова добавлены в словарь. Словарь не включён в Настройках.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="223"/>
         <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
-        <translation>Новое слово не должно содержать &quot;&lt;&quot;, &quot;&gt;&quot; или &quot;&amp;&quot;.</translation>
+        <translation>新しい単語に &quot;&lt;&quot; や &quot;&gt;&quot; や &quot;&amp;&quot; を含むことはできません。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="234"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="302"/>
         <source>No</source>
-        <translation>Нет</translation>
+        <translation>いいえ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="253"/>
         <source>Word</source>
-        <translation>Слово</translation>
+        <translation>単語</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="254"/>
         <source>Count</source>
-        <translation>Кол-во</translation>
+        <translation>カウント</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="255"/>
         <source>Misspelled?</source>
-        <translation>Неверно?</translation>
+        <translation>ミススペルですか?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="300"/>
         <source>Yes</source>
-        <translation>Да</translation>
+        <translation>はい</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="318"/>
         <source>Misspelled Words</source>
-        <translation>Слов с  ошибками</translation>
+        <translation>ミススペル単語</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="318"/>
         <source>Total Unique Words</source>
-        <translation>Уникальных слов</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="542"/>
         <source>Add to Dictionary</source>
-        <translation>Добавить в словарь</translation>
+        <translation>辞書に追加</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="543"/>
         <source>Find in Text</source>
-        <translation>Найти в тексте</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="544"/>
         <source>Select All</source>
-        <translation>Выделить всё</translation>
+        <translation>すべて選択</translation>
     </message>
 </context>
 <context>
@@ -15152,52 +15097,52 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="14"/>
         <source>Style Classes in CSS Files</source>
-        <translation>Классы стилей в файлах CSS</translation>
+        <translation>CSSファイル中のスタイルクラス</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>Перечислить только имена файлов, которые содержат текст, введённый вами.</translation>
+        <translation>入力したテキストを含むファイル名のみリスト表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>Фильтр:</translation>
+        <translation>フィルター:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="86"/>
         <source>CSS File</source>
-        <translation>Файл CSS</translation>
+        <translation>CSSファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="87"/>
         <source>Class Selector</source>
-        <translation>Селектор класса</translation>
+        <translation>クラスセレクター</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="88"/>
         <source>Used In HTML File</source>
-        <translation>Используется в файле HTML</translation>
+        <translation>HTMLファイルで使用</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="94"/>
         <source>&lt;p&gt;This is a list of the class based selectors in all CSS files and whether or not the selector was matched from a style in an HTML file.&lt;p&gt;</source>
-        <translation>&lt;p&gt;Это список классов во всех CSS-файлах. Здесь также указано, определён класс в самом HTML-файле или нет.&lt;p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="95"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
-        <translation>&lt;p&gt;ВНИМАНИЕ:&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;NOTE:&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="96"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Из-за сложностей CSS необходимо проверить код вручную, чтобы быть уверенным, используется ли стиль или нет.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;CSSは複雑なため、スタイルが使用されているかどうかを確認するために、コードを手動でチェックする必要があります。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="258"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Сохранить отчёт как файл с разделителями запятыми</translation>
+        <translation>カンマ区切りのファイルとしてレポートを保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="272"/>
@@ -15207,12 +15152,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="272"/>
         <source>Cannot save report file.</source>
-        <translation>Не удалось сохранить файл отчёта.</translation>
+        <translation>レポートファイルを保存できません。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="283"/>
         <source>Delete From Stylesheet</source>
-        <translation>Удалить из каскадной таблицы</translation>
+        <translation>スタイルシートから削除</translation>
     </message>
 </context>
 <context>
@@ -15220,7 +15165,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Tabs/TabBar.cpp" line="80"/>
         <source>Close Other Tabs</source>
-        <translation>Закрыть все прочие вкладки</translation>
+        <translation>他のタブを閉じる</translation>
     </message>
 </context>
 <context>
@@ -15228,7 +15173,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Tabs/TabManager.cpp" line="259"/>
         <source>Cannot edit file</source>
-        <translation>Невозможно изменить файл</translation>
+        <translation>ファイルを編集できません</translation>
     </message>
 </context>
 <context>
@@ -15236,22 +15181,22 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="42"/>
         <source>Table Of Contents</source>
-        <translation>Оглавление</translation>
+        <translation>目次</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="127"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Файл &quot;%1&quot; не существует.</translation>
+        <translation>ファイル &quot;%1&quot; は存在しません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="158"/>
         <source>Collapse All</source>
-        <translation>Свернуть всё</translation>
+        <translation>すべて閉じる</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="159"/>
         <source>Expand All</source>
-        <translation>Развернуть всё</translation>
+        <translation>すべて開く</translation>
     </message>
 </context>
 <context>
@@ -15259,7 +15204,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Tabs/TextTab.cpp" line="310"/>
         <source>Print %1</source>
-        <translation>Печать %1</translation>
+        <translation>%1 を印刷</translation>
     </message>
 </context>
 <context>
@@ -15274,9 +15219,9 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
-        <translation>Запрошенное имя содержит символы, не входящие в ASCII. В именах файлов можно использовать только символы ASCII. Если в имени файла есть символы, не входящие в ASCII, то в некоторых программах для чтения книг EPUB не будет работать.
+        <translation>要求されたファイル名に非ASCII文字が含まれています。ファイル名にはASCII文字のみを使用する必要があります。非ASCII文字を使用すると、一部のリーダーでEPUBが機能しなくなる可能性があります。
 
-Продолжить использование этого имени?</translation>
+要求されたファイル名を使用しますか？</translation>
     </message>
 </context>
 <context>
@@ -15284,39 +15229,39 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="45"/>
         <source>Validation Results</source>
-        <translation>Результаты проверки</translation>
+        <translation>検証結果</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="239"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="243"/>
         <source>N/A</source>
-        <translation>Н/Д</translation>
+        <translation>N/A</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="266"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="282"/>
         <source>Message</source>
-        <translation>Сообщение</translation>
+        <translation>メッセージ</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="267"/>
         <source>No problems found!</source>
-        <translation>Недочётов не выявлено!</translation>
+        <translation>問題は見つかりませんでした！</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="282"/>
         <source>File</source>
-        <translation>Файл</translation>
+        <translation>ファイル</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="282"/>
         <source>Line</source>
-        <translation>Строка</translation>
+        <translation>行</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="282"/>
         <source>Offset</source>
-        <translation>Смещение</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -15324,7 +15269,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="20"/>
         <source>View Image</source>
-        <translation>Просмотреть изображение</translation>
+        <translation>画像を表示</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ViewImage.ui" line="27"/>
@@ -15337,22 +15282,22 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="43"/>
         <source>&lt;p&gt;The operation you requested cannot be performed because &lt;b&gt;%1&lt;/b&gt; is not a well-formed XML document.&lt;/p&gt;&lt;p&gt;An error was found &lt;b&gt;at or above line %2: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Manually&lt;/i&gt; option will let you fix the problem by hand.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Запрошенная операция не может быть выполнена, поскольку &lt;b&gt;%1&lt;/b&gt; имеет ошибки в структуре XML.&lt;/p&gt;&lt;p&gt;Ошибка найдена &lt;b&gt;на или над строкой %2: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;функция &lt;i&gt;Исправить вручную&lt;/i&gt; позволит вам исправить проблему вручную.&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="48"/>
         <source>&lt;p&gt;The &lt;i&gt;Fix Automatically&lt;/i&gt; option will instruct Sigil to try to repair the document. &lt;b&gt;This option may lead to loss of data!&lt;/b&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Опция &lt;i&gt;Исправить автоматически&lt;/i&gt; прикажет Sigil попробовать восстановить документ. &lt;b&gt;Эта функция может привести к потере данных!&lt;/b&gt;&lt;/p&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="55"/>
         <source>Fix &amp;Automatically</source>
-        <translation>Исправить &amp;автоматически</translation>
+        <translation>自動的に修正(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="57"/>
         <source>Fix &amp;Manually</source>
-        <translation>Исправить &amp;вручную</translation>
+        <translation>手動で修正(&amp;M)</translation>
     </message>
 </context>
 <context>
@@ -15360,1267 +15305,1267 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>quotation mark</source>
-        <translation>кавычка</translation>
+        <translation>引用符</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="98"/>
         <source>ampersand</source>
-        <translation>амперсант</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="99"/>
         <source>apostrophe</source>
-        <translation>апостроф</translation>
+        <translation>アポストロフィー</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="100"/>
         <source>less-than sign</source>
-        <translation>знак меньше</translation>
+        <translation>小なり記号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="101"/>
         <source>greater-than sign</source>
-        <translation>знак больше</translation>
+        <translation>大なり記号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="102"/>
         <source>no-break space</source>
-        <translation>неразрывный пробел</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="103"/>
         <source>inverted exclamation mark</source>
-        <translation>перевёрнутый восклицательный знак</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="104"/>
         <source>cent sign</source>
-        <translation>знак цента</translation>
+        <translation>セント記号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="105"/>
         <source>pound sign</source>
-        <translation>знак фунта стерлингов</translation>
+        <translation>ポンド記号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="106"/>
         <source>currency sign</source>
-        <translation>знак валюты</translation>
+        <translation>通貨記号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="107"/>
         <source>yen sign</source>
-        <translation>знак иены</translation>
+        <translation>円記号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="108"/>
         <source>broken bar</source>
-        <translation>прерывистая черта</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="109"/>
         <source>section sign</source>
-        <translation>знак параграфа</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="110"/>
         <source>diaeresis</source>
-        <translation>умляут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>copyright symbol</source>
-        <translation>символ авторского права</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="112"/>
         <source>feminine ordinal indicator</source>
-        <translation>женский порядковый указатель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="113"/>
         <source>left-pointing double angle quotation mark</source>
-        <translation>левая французская кавычка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="114"/>
         <source>not sign</source>
-        <translation>знак не</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="115"/>
         <source>soft hyphen</source>
-        <translation>мягкий перенос</translation>
+        <translation>ソフトハイフン</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="116"/>
         <source>registered sign</source>
-        <translation>знак правовой охраны товарного знака</translation>
+        <translation>登録商標マーク</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="117"/>
         <source>macron</source>
-        <translation>знак долготы над гласным</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="118"/>
         <source>degree symbol</source>
-        <translation>символ градуса</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="119"/>
         <source>plus-minus sign</source>
-        <translation>знак плюс-минус</translation>
+        <translation>プラスマイナス記号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="120"/>
         <source>superscript two</source>
-        <translation>надстрочное 2</translation>
+        <translation>上付き文字2</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="121"/>
         <source>superscript three</source>
-        <translation>надстрочное 3</translation>
+        <translation>上付き文字3</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="122"/>
         <source>acute accent</source>
-        <translation>акут</translation>
+        <translation>アキュート・アクセント</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="123"/>
         <source>micro sign</source>
-        <translation>значок микро</translation>
+        <translation>マイクロ記号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="124"/>
         <source>pilcrow sign</source>
-        <translation>знак абзаца</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="125"/>
         <source>middle dot</source>
-        <translation>интерпункт</translation>
+        <translation>中黒</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="126"/>
         <source>cedilla</source>
-        <translation>седиль</translation>
+        <translation>セディーユ</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="127"/>
         <source>superscript one</source>
-        <translation>надстрочное 1</translation>
+        <translation>上付き文字1</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="128"/>
         <source>masculine ordinal indicator</source>
-        <translation>мужской порядковый указатель</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="129"/>
         <source>right-pointing double angle quotation mark</source>
-        <translation>правая французская кавычка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="130"/>
         <source>vulgar fraction one quarter</source>
-        <translation>простая дробь четверть</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="131"/>
         <source>vulgar fraction one half</source>
-        <translation>простая дробь половина</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="132"/>
         <source>vulgar fraction three quarters</source>
-        <translation>простая дробь три четверти</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="133"/>
         <source>inverted question mark</source>
-        <translation>перевёрнутый вопросительный знак</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="134"/>
         <source>Latin capital letter A with grave accent</source>
-        <translation>латинская заглавная буква А-гравис</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="135"/>
         <source>Latin capital letter A with acute accent</source>
-        <translation>латинская заглавная буква A-акут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="136"/>
         <source>Latin capital letter A with circumflex</source>
-        <translation>латинская заглавная буква A с циркумфлексом</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="137"/>
         <source>Latin capital letter A with tilde</source>
-        <translation>латинская заглавная буква А-тильда</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="138"/>
         <source>Latin capital letter A with diaeresis</source>
-        <translation>латинская заглавная буква А-умляут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="139"/>
         <source>Latin capital letter A with ring above</source>
-        <translation>латинская заглавная буква А с кружочком сверху</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="140"/>
         <source>Latin capital letter AE</source>
-        <translation>латинская заглавная буква AE</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="141"/>
         <source>Latin capital letter C with cedilla</source>
-        <translation>латинская заглавная буква С с седилью</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="142"/>
         <source>Latin capital letter E with grave accent</source>
-        <translation>латинская заглавная буква E-гравис</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="143"/>
         <source>Latin capital letter E with acute accent</source>
-        <translation>латинская заглавная буква E-акут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="144"/>
         <source>Latin capital letter E with circumflex</source>
-        <translation>латинская заглавная буква E с циркумфлексом</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="145"/>
         <source>Latin capital letter E with diaeresis</source>
-        <translation>латинская заглавная буква E-умляут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="146"/>
         <source>Latin capital letter I with grave accent</source>
-        <translation>латинская заглавная буква I-гравис</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="147"/>
         <source>Latin capital letter I with acute accent</source>
-        <translation>латинская заглавная буква I-акут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="148"/>
         <source>Latin capital letter I with circumflex</source>
-        <translation>латинская заглавная буква I с циркумфлексом</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="149"/>
         <source>Latin capital letter I with diaeresis</source>
-        <translation>латинская заглавная буква I-умляут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="150"/>
         <source>Latin capital letter Eth</source>
-        <translation>латинская заглавная буква Eth</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="151"/>
         <source>Latin capital letter N with tilde</source>
-        <translation>латинская заглавная буква N-тильда</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="152"/>
         <source>Latin capital letter O with grave accent</source>
-        <translation>латинская заглавная буква O-гравис</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="153"/>
         <source>Latin capital letter O with acute accent</source>
-        <translation>латинская заглавная буква O-акут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="154"/>
         <source>Latin capital letter O with circumflex</source>
-        <translation>латинская заглавная буква O с циркумфлексом</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="155"/>
         <source>Latin capital letter O with tilde</source>
-        <translation>латинская заглавная буква O-тильда</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="156"/>
         <source>Latin capital letter O with diaeresis</source>
-        <translation>латинская заглавная буква O-умляут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="157"/>
         <source>multiplication sign</source>
-        <translation>знак умножения</translation>
+        <translation>乗算記号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="158"/>
         <source>Latin capital letter O with stroke</source>
-        <translation>латинская заглавная буква O диагонально перечёркнутая</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="159"/>
         <source>Latin capital letter U with grave accent</source>
-        <translation>латинская заглавная буква U-гравис</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="160"/>
         <source>Latin capital letter U with acute accent</source>
-        <translation>латинская заглавная буква U-акут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="161"/>
         <source>Latin capital letter U with circumflex</source>
-        <translation>латинская заглавная буква U с циркумфлексом</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="162"/>
         <source>Latin capital letter U with diaeresis</source>
-        <translation>латинская заглавная буква U-умляут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="163"/>
         <source>Latin capital letter Y with acute accent</source>
-        <translation>латинская заглавная буква Y-акут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="164"/>
         <source>Latin capital letter THORN</source>
-        <translation>латинская заглавная буква Торн</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="165"/>
         <source>Latin small letter sharp s</source>
-        <translation>эсцет</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="166"/>
         <source>Latin small letter a with grave accent</source>
-        <translation>латинская строчная буква a-гравис</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="167"/>
         <source>Latin small letter a with acute accent</source>
-        <translation>латинская строчная буква a-акут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="168"/>
         <source>Latin small letter a with circumflex</source>
-        <translation>латинская строчная буква a с циркумфлексом</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="169"/>
         <source>Latin small letter a with tilde</source>
-        <translation>латинская строчная буква a-тильда</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="170"/>
         <source>Latin small letter a with diaeresis</source>
-        <translation>латинская строчная буква a-умляут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="171"/>
         <source>Latin small letter a with ring above</source>
-        <translation>латинская строчная буква a с кружочком сверху</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="172"/>
         <source>Latin small letter ae</source>
-        <translation>латинская строчная буква ae</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="173"/>
         <source>Latin small letter c with cedilla</source>
-        <translation>латинская строчная буква с седилью</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="174"/>
         <source>Latin small letter e with grave accent</source>
-        <translation>латинская строчная буква e-гравис</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="175"/>
         <source>Latin small letter e with acute accent</source>
-        <translation>латинская строчная буква e-акут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="176"/>
         <source>Latin small letter e with circumflex</source>
-        <translation>латинская строчная буква e с циркумфлексом</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="177"/>
         <source>Latin small letter e with diaeresis</source>
-        <translation>латинская строчная буква e-умляут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="178"/>
         <source>Latin small letter i with grave accent</source>
-        <translation>латинская строчная буква i-гравис</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="179"/>
         <source>Latin small letter i with acute accent</source>
-        <translation>латинская строчная буква i-акут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="180"/>
         <source>Latin small letter i with circumflex</source>
-        <translation>латинская строчная буква i с циркумфлексом</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="181"/>
         <source>Latin small letter i with diaeresis</source>
-        <translation>латинская строчная буква i-умляут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="182"/>
         <source>Latin small letter eth</source>
-        <translation>латинская строчная буква eth</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="183"/>
         <source>Latin small letter n with tilde</source>
-        <translation>латинская строчная буква n-тильда</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="184"/>
         <source>Latin small letter o with grave accent</source>
-        <translation>латинская строчная буква o-гравис</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="185"/>
         <source>Latin small letter o with acute accent</source>
-        <translation>латинская строчная буква o-акут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="186"/>
         <source>Latin small letter o with circumflex</source>
-        <translation>латинская строчная буква o с циркумфлексом</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="187"/>
         <source>Latin small letter o with tilde</source>
-        <translation>латинская строчная буква o-тильда</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="188"/>
         <source>Latin small letter o with diaeresis</source>
-        <translation>латинская строчная буква o-умляут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="189"/>
         <source>division sign</source>
-        <translation>знак деления</translation>
+        <translation>除算記号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="190"/>
         <source>Latin small letter o with stroke</source>
-        <translation>латинская строчная o, диагонально перечёркнутая</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="191"/>
         <source>Latin small letter u with grave accent</source>
-        <translation>латинская строчная буква u-гравис</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="192"/>
         <source>Latin small letter u with acute accent</source>
-        <translation>латинская строчная буква u-акут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="193"/>
         <source>Latin small letter u with circumflex</source>
-        <translation>латинская строчная буква u с циркумфлексом</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="194"/>
         <source>Latin small letter u with diaeresis</source>
-        <translation>латинская строчная буква u-умляут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="195"/>
         <source>Latin small letter y with acute accent</source>
-        <translation>латинская строчная буква y-акут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="196"/>
         <source>Latin small letter thorn</source>
-        <translation>латинская строчная буква торн</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="197"/>
         <source>Latin small letter y with diaeresis</source>
-        <translation>латинская строчная буква y-умляут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Latin capital ligature oe</source>
-        <translation>латинская заглавная лигатура oe</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="199"/>
         <source>Latin small ligature oe</source>
-        <translation>латинская строчная лигатура oe</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="200"/>
         <source>Latin capital letter s with caron</source>
-        <translation>латинская заглавная буква S с гачеком</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="201"/>
         <source>Latin small letter s with caron</source>
-        <translation>латинская строчная буква s с гачеком</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>Latin capital letter y with diaeresis</source>
-        <translation>латинская заглавная буква y-умляут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="203"/>
         <source>Latin small letter f with hook</source>
-        <translation>латинская строчная f с крюком снизу</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="204"/>
         <source>modifier letter circumflex accent</source>
-        <translation>циркумфлекс</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="205"/>
         <source>small tilde</source>
-        <translation>малая тильда</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="206"/>
         <source>Greek capital letter Alpha</source>
-        <translation>греческая заглавная буква Альфа</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="207"/>
         <source>Greek capital letter Beta</source>
-        <translation>греческая заглавная буква Бета</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="208"/>
         <source>Greek capital letter Gamma</source>
-        <translation>греческая заглавная буква Гамма</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="209"/>
         <source>Greek capital letter Delta</source>
-        <translation>греческая заглавная буква Дельта</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="210"/>
         <source>Greek capital letter Epsilon</source>
-        <translation>греческая заглавная буква Эпсилон</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="211"/>
         <source>Greek capital letter Zeta</source>
-        <translation>греческая заглавная буква Дзета</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="212"/>
         <source>Greek capital letter Eta</source>
-        <translation>греческая заглавная буква Эта</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="213"/>
         <source>Greek capital letter Theta</source>
-        <translation>греческая заглавная буква Тета</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="214"/>
         <source>Greek capital letter Iota</source>
-        <translation>греческая заглавная буква Йота</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="215"/>
         <source>Greek capital letter Kappa</source>
-        <translation>греческая заглавная буква Каппа</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="216"/>
         <source>Greek capital letter Lambda</source>
-        <translation>греческая заглавная буква Лямбда</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="217"/>
         <source>Greek capital letter Mu</source>
-        <translation>греческая заглавная буква Мю</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="218"/>
         <source>Greek capital letter Nu</source>
-        <translation>греческая заглавная буква Ню</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="219"/>
         <source>Greek capital letter Xi</source>
-        <translation>греческая заглавная буква Кси</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="220"/>
         <source>Greek capital letter Omicron</source>
-        <translation>греческая заглавная буква Омикрон</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="221"/>
         <source>Greek capital letter Pi</source>
-        <translation>греческая заглавная буква Пи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="222"/>
         <source>Greek capital letter Rho</source>
-        <translation>греческая заглавная буква Ро</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="223"/>
         <source>Greek capital letter Sigma</source>
-        <translation>греческая заглавная буква Сигма</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="224"/>
         <source>Greek capital letter Tau</source>
-        <translation>греческая заглавная буква Тау</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="225"/>
         <source>Greek capital letter Upsilon</source>
-        <translation>греческая заглавная буква Ипсилон</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="226"/>
         <source>Greek capital letter Phi</source>
-        <translation>греческая заглавная буква Фи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="227"/>
         <source>Greek capital letter Chi</source>
-        <translation>греческая заглавная буква Хи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="228"/>
         <source>Greek capital letter Psi</source>
-        <translation>греческая заглавная буква Пси</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="229"/>
         <source>Greek capital letter Omega</source>
-        <translation>греческая заглавная буква Омега</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="230"/>
         <source>Greek small letter alpha</source>
-        <translation>греческая строчная буква альфа</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="231"/>
         <source>Greek small letter beta</source>
-        <translation>греческая строчная буква бета</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="232"/>
         <source>Greek small letter gamma</source>
-        <translation>греческая строчная буква гамма</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="233"/>
         <source>Greek small letter delta</source>
-        <translation>греческая строчная буква дельта</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="234"/>
         <source>Greek small letter epsilon</source>
-        <translation>греческая строчная буква эпсилон</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="235"/>
         <source>Greek small letter zeta</source>
-        <translation>греческая строчная буква дзета</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="236"/>
         <source>Greek small letter eta</source>
-        <translation>греческая строчная буква эта</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="237"/>
         <source>Greek small letter theta</source>
-        <translation>греческая строчная буква тета</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="238"/>
         <source>Greek small letter iota</source>
-        <translation>греческая строчная буква йота</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="239"/>
         <source>Greek small letter kappa</source>
-        <translation>греческая строчная буква каппа</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="240"/>
         <source>Greek small letter lambda</source>
-        <translation>греческая строчная буква лямбда</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="241"/>
         <source>Greek small letter mu</source>
-        <translation>греческая строчная буква мю</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="242"/>
         <source>Greek small letter nu</source>
-        <translation>греческая строчная буква ню</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="243"/>
         <source>Greek small letter xi</source>
-        <translation>греческая строчная буква кси</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="244"/>
         <source>Greek small letter omicron</source>
-        <translation>греческая строчная буква омикрон</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="245"/>
         <source>Greek small letter pi</source>
-        <translation>греческая строчная буква пи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="246"/>
         <source>Greek small letter rho</source>
-        <translation>греческая строчная буква ро</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="247"/>
         <source>Greek small letter final sigma</source>
-        <translation>греческая финальная строчная сигма</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="248"/>
         <source>Greek small letter sigma</source>
-        <translation>греческая строчная буква сигма</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="249"/>
         <source>Greek small letter tau</source>
-        <translation>греческая строчная буква тау</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="250"/>
         <source>Greek small letter upsilon</source>
-        <translation>греческая строчная буква ипсилон</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="251"/>
         <source>Greek small letter phi</source>
-        <translation>греческая строчная буква фи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="252"/>
         <source>Greek small letter chi</source>
-        <translation>греческая строчная буква хи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="253"/>
         <source>Greek small letter psi</source>
-        <translation>греческая строчная буква пси</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="254"/>
         <source>Greek small letter omega</source>
-        <translation>греческая строчная буква омега</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="255"/>
         <source>Greek theta symbol</source>
-        <translation>греческая буква тета</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="256"/>
         <source>Greek Upsilon with hook symbol</source>
-        <translation>греческий символ ипсилон с крючком</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="257"/>
         <source>Greek pi symbol</source>
-        <translation>греческий символ пи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="258"/>
         <source>en space</source>
-        <translation>пробел шириной в половину кегля</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="259"/>
         <source>em space</source>
-        <translation>пробел шириной в 1 кегль</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="260"/>
         <source>thin space</source>
-        <translation>пробел шириной в 1/5 кегля</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="261"/>
         <source>zero-width non-joiner</source>
-        <translation>разделитель нулевой ширины</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="262"/>
         <source>zero-width joiner</source>
-        <translation>соединитель нулевой ширины</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="263"/>
         <source>left-to-right mark</source>
-        <translation>знак смены направления слева-направо</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="264"/>
         <source>right-to-left mark</source>
-        <translation>знак смены направления справо-налево</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="265"/>
         <source>en dash</source>
-        <translation>среднее тире</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="266"/>
         <source>em dash</source>
-        <translation>длинное тире</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="267"/>
         <source>left single quotation mark</source>
-        <translation>левая английская одиночная кавычка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="268"/>
         <source>right single quotation mark</source>
-        <translation>правая английская одиночная кавычка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="269"/>
         <source>single low-9 quotation mark</source>
-        <translation>одиночная нижняя кавычка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="270"/>
         <source>left double quotation mark</source>
-        <translation>левая английская двойная кавычка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="271"/>
         <source>right double quotation mark</source>
-        <translation>правая английская двойная кавычка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="272"/>
         <source>double low-9 quotation mark</source>
-        <translation>двойная нижняя кавычка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="273"/>
         <source>dagger, obelisk</source>
-        <translation>типографский крестик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="274"/>
         <source>double dagger, double obelisk</source>
-        <translation>двойной крестик</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="275"/>
         <source>bullet</source>
-        <translation>маркер списка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="276"/>
         <source>horizontal ellipsis</source>
-        <translation>многоточие</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="277"/>
         <source>per mille sign</source>
-        <translation>знак промилле</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="278"/>
         <source>prime</source>
-        <translation>минута</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="279"/>
         <source>double prime</source>
-        <translation>секунда</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="280"/>
         <source>single left-pointing angle quotation mark</source>
-        <translation>одиночная левая угловая кавычка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="281"/>
         <source>single right-pointing angle quotation mark</source>
-        <translation>одиночная правая угловая кавычка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="282"/>
         <source>overline</source>
-        <translation>надчёркивание</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="283"/>
         <source>fraction slash</source>
-        <translation>косая черта</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="284"/>
         <source>euro sign</source>
-        <translation>знак евро</translation>
+        <translation>ユーロ記号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="285"/>
         <source>black-letter capital I</source>
-        <translation>готическая заглавная I</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="286"/>
         <source>script capital P</source>
-        <translation>прописная заглавная P</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="287"/>
         <source>black-letter capital R</source>
-        <translation>готическая заглавная R</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="288"/>
         <source>trademark symbol</source>
-        <translation>товарный знак</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="289"/>
         <source>alef symbol</source>
-        <translation>алеф</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="290"/>
         <source>leftwards arrow</source>
-        <translation>стрелка влево</translation>
+        <translation>左向矢印</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="291"/>
         <source>upwards arrow</source>
-        <translation>стрелка вверх</translation>
+        <translation>上向矢印</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="292"/>
         <source>rightwards arrow</source>
-        <translation>стрелка вправо</translation>
+        <translation>右向矢印</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="293"/>
         <source>downwards arrow</source>
-        <translation>стрелка вниз</translation>
+        <translation>下向矢印</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="294"/>
         <source>left right arrow</source>
-        <translation>двойная стрелка влево-вправо</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="295"/>
         <source>downwards arrow with corner leftwards</source>
-        <translation>стрелка вниз, с поворотом влево</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="296"/>
         <source>leftwards double arrow</source>
-        <translation>парные стрелки вниз</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="297"/>
         <source>upwards double arrow</source>
-        <translation>парные стрелки вверх</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="298"/>
         <source>rightwards double arrow</source>
-        <translation>парные стрелки вправо</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="299"/>
         <source>downwards double arrow</source>
-        <translation>парные стрелки вниз</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="300"/>
         <source>left right double arrow</source>
-        <translation>двойная стрелка влево-вправо</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="301"/>
         <source>for all</source>
-        <translation>для всех</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="302"/>
         <source>partial differential</source>
-        <translation>частный дифференциал</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="303"/>
         <source>there exists</source>
-        <translation>существует</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="304"/>
         <source>empty set</source>
-        <translation>пустое множество</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="305"/>
         <source>nabla</source>
-        <translation>набла</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="306"/>
         <source>element of</source>
-        <translation>принадлежит</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="307"/>
         <source>not an element of</source>
-        <translation>не принадлежит</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="308"/>
         <source>contains as member</source>
-        <translation>содержит</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="309"/>
         <source>n-ary product</source>
-        <translation>произведение</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="310"/>
         <source>n-ary summation</source>
-        <translation>сумма</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="311"/>
         <source>minus sign</source>
-        <translation>знак минус</translation>
+        <translation>マイナス記号</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="312"/>
         <source>asterisk operator</source>
-        <translation>звёздочка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="313"/>
         <source>square root</source>
-        <translation>квадратный корень</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="314"/>
         <source>proportional to</source>
-        <translation>пропорционально</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="315"/>
         <source>infinity</source>
-        <translation>бесконечность</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="316"/>
         <source>angle</source>
-        <translation>угол</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="317"/>
         <source>logical and</source>
-        <translation>логическое и</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="318"/>
         <source>logical or</source>
-        <translation>логическое или</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="319"/>
         <source>intersection</source>
-        <translation>пересечение</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="320"/>
         <source>union</source>
-        <translation>объединение</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="321"/>
         <source>integral</source>
-        <translation>интеграл</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="322"/>
         <source>therefore sign</source>
-        <translation>знак следовательно</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="323"/>
         <source>tilde operator</source>
-        <translation>оператор тильда</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="324"/>
         <source>congruent to</source>
-        <translation>конгруэнтно</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="325"/>
         <source>almost equal to</source>
-        <translation>приближённо равно</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="326"/>
         <source>not equal to</source>
-        <translation>не равно</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="327"/>
         <source>identical to</source>
-        <translation>тождественно равно</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="328"/>
         <source>less-than or equal to</source>
-        <translation>знак меньше или равно</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="329"/>
         <source>greater-than or equal to</source>
-        <translation>знак больше или равно</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="330"/>
         <source>subset of</source>
-        <translation>строго включено в</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="331"/>
         <source>superset of</source>
-        <translation>строго включает в себя</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="332"/>
         <source>not a subset of</source>
-        <translation>не включено в</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="333"/>
         <source>subset of or equal to</source>
-        <translation>включено в</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="334"/>
         <source>superset of or equal to</source>
-        <translation>включает в себя</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="335"/>
         <source>circled plus</source>
-        <translation>плюс в кружке</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="336"/>
         <source>circled times</source>
-        <translation>тензорное произведение</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="337"/>
         <source>up tack</source>
-        <translation>перпендикуляр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="338"/>
         <source>dot operator</source>
-        <translation>точечный оператор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="339"/>
         <source>left ceiling</source>
-        <translation>предельный уровень слева</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="340"/>
         <source>right ceiling</source>
-        <translation>предельный уровень справа</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="341"/>
         <source>left floor</source>
-        <translation>пол слева</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="342"/>
         <source>right floor</source>
-        <translation>пол справа</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="343"/>
         <source>left-pointing angle bracket</source>
-        <translation>левая угловая скобка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="344"/>
         <source>right-pointing angle bracket</source>
-        <translation>правая угловая скобка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="345"/>
         <source>lozenge</source>
-        <translation>ромб</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="346"/>
         <source>black spade suit</source>
-        <translation>пики закрашенные</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="347"/>
         <source>black club suit</source>
-        <translation>трефы закрашенные</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="348"/>
         <source>black heart suit</source>
-        <translation>черви закрашенные</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="349"/>
         <source>black diamond suit</source>
-        <translation>бубны закрашенные</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
