@@ -4,7 +4,7 @@
      if (!QGuiApplicationPrivate::is_app_closing)
          QGuiApplicationPrivate::instance()->modalWindowList.removeOne(this);
  
-+#if 0  // Disable this workaround to allow synchronize activate path to work
++#if 1  // May Need To Disable this workaround to allow synchronize activate path to work
 +
      // focus_window is normally cleared in destroy(), but the window may in
      // some cases end up becoming the focus window again. Clear it again
