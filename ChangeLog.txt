@@ -1,4 +1,4 @@
-pre-1.0
+Sigil-1.0.0
     Bug Fixes:
       - All bugs reported in alpha release have been fixed. 
         Special thanks to Vroni, BeckEBook, Doitsu, Odamizu, 
