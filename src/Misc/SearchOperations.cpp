@@ -45,7 +45,7 @@ int SearchOperations::CountInFiles(const QString &search_regex,
     progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
     int progress_value = 0;
     progress.setValue(progress_value);
-    // Count sequentially in order to see if occassional crashes are due to threading
+    // Count sequentially in order to see if occasional crashes are due to threading
     int count = 0;
     foreach(Resource * resource, resources) {
         progress.setValue(progress_value++);
@@ -65,7 +65,7 @@ int SearchOperations::ReplaceInAllFIles(const QString &search_regex,
     progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
     int progress_value = 0;
     progress.setValue(progress_value);
-    // Replace sequentially in order to see if occassional crashes are due to threading
+    // Replace sequentially in order to see if occasional crashes are due to threading
     int count = 0;
     foreach(Resource * resource, resources) {
         progress.setValue(progress_value++);

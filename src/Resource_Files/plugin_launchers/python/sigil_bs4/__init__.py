@@ -411,7 +411,7 @@ class BeautifulSoup(Tag):
         """Push a start tag on to the stack.
 
         If this method returns None, the tag was rejected by the
-        SoupStrainer. You should proceed as if the tag had not occured
+        SoupStrainer. You should proceed as if the tag had not occurred
         in the document. For instance, if this was a self-closing tag,
         don't call handle_endtag.
         """

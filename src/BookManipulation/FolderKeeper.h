@@ -220,7 +220,7 @@ public:
     void WatchResourceFile(const Resource *resource);
 
     /**
-     * Dueing Save operations from Sigil we need to suspend/resume file watching.
+     * During Save operations from Sigil we need to suspend/resume file watching.
      */
     void SuspendWatchingResources();
     void ResumeWatchingResources();

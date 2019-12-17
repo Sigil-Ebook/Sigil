@@ -330,31 +330,31 @@ void FlowTab::UpdateDisplay()
 void FlowTab::EmitContentChanged()
 {
     m_safeToLoad = false;
-    DBG qDebug() << "FlowTab emiting Content Changed";
+    DBG qDebug() << "FlowTab emitting Content Changed";
     emit ContentChanged();
 }
 
 void FlowTab::EmitUpdatePreview()
 {
-    DBG qDebug() << "FlowTab emiting UpdatePreview from EmitUpdatePreview";
+    DBG qDebug() << "FlowTab emitting UpdatePreview from EmitUpdatePreview";
     emit UpdatePreview();
 }
 
 void FlowTab::EmitUpdatePreviewImmediately()
 {
-      DBG qDebug() << "FlowTab emiting UpdatePreviewImmediately from EmitUpdatePreviewImmediately";
+      DBG qDebug() << "FlowTab emitting UpdatePreviewImmediately from EmitUpdatePreviewImmediately";
       emit UpdatePreviewImmediately();
 }
 
 void FlowTab::EmitScrollPreviewImmediately()
 {
-      DBG qDebug() << "FlowTab emiting ScrollPreviewImmediately from EmitScrollPreviewImmediately";
+      DBG qDebug() << "FlowTab emitting ScrollPreviewImmediately from EmitScrollPreviewImmediately";
       emit ScrollPreviewImmediately();
 }
 
 void FlowTab::EmitUpdateCursorPosition()
 {
-    DBG qDebug() << "FlowTab emiting UpdateCursorPosition from EmitUpdateCursorPosition";
+    DBG qDebug() << "FlowTab emitting UpdateCursorPosition from EmitUpdateCursorPosition";
     emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
 }
 

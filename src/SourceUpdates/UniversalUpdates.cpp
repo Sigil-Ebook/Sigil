@@ -258,14 +258,14 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
             source = CleanSource::Mend(source, version);
         }
         // Even though well formed checks might have already run we need to double check because cleaning might
-        // have tried to fix and may have failed or the user may have said to skip cleanning.
+        // have tried to fix and may have failed or the user may have said to skip cleaning.
         if (!XhtmlDoc::IsDataWellFormed(source, version)) {
             throw QObject::tr(NON_WELL_FORMED_MESSAGE);
         }
 
         source = PerformHTMLUpdates(source, newbookpath, html_updates, css_updates, currentpath, version)();
         html_resource->SetCurrentBookRelPath("");
-        // For files that are valid we need to do a second clean becasue PerformHTMLUpdates) will remove
+        // For files that are valid we need to do a second clean because PerformHTMLUpdates) will remove
         // the formatting.
         if (ss.cleanOn() & CLEANON_OPEN) {
             source = CleanSource::Mend(source, version);

@@ -422,7 +422,7 @@ void SpellCheckWidget::readSettings()
 
     loadUserDictionaryWordList();
 
-    // Set whether mispelled words are highlighted or not
+    // Set whether misspelled words are highlighted or not
     ui.HighlightMisspelled->setChecked(settings.spellCheck());
     ui.CheckNumbers->setChecked(settings.spellCheckNumbers());
 

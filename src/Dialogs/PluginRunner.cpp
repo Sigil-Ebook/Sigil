@@ -447,7 +447,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
         }
     }
 
-    // everthing looks good so now make any necessary changes
+    // everything looks good so now make any necessary changes
     bool book_modified = false;
 
     m_book->GetFolderKeeper()->SuspendWatchingResources();
@@ -676,7 +676,7 @@ bool PluginRunner::checkIsWellFormed()
     bool well_formed = true;
     bool proceed = true;
     QStringList errors;
-    // Build of list of xhtml, html, and xml files that were modifed or added
+    // Build of list of xhtml, html, and xml files that were modified or added
     QStringList xhtmlFilesToCheck;
     QStringList xmlFilesToCheck;
     if (!m_filesToAdd.isEmpty()) {

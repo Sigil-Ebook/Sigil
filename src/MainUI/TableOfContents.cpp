@@ -91,7 +91,7 @@ void TableOfContents::StartRefreshDelay()
 {
     // Repeatedly calling start() will re-start the timer
     // and that's exactly what we want.
-    // We want the timer to fire REFRESH_DELAY miliseconds
+    // We want the timer to fire REFRESH_DELAY milliseconds
     // after the user has stopped typing up the Nav/NCX.
     m_RefreshTimer.start();
 }

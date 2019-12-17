@@ -1082,7 +1082,7 @@ QHash<Resource *, QString> OPFResource::GetResourceManifestIDMapping(const QList
 void OPFResource::RemoveDCElements(OPFParser& p)
 {
     int pos = GetMainIdentifier(p);
-    // build list to be delted in reverse order
+    // build list to be deleted in reverse order
     QList<int> dellist;
     int n = p.m_metadata.count();
     for (int i = n-1; i >= 0; --i) {
@@ -1157,7 +1157,7 @@ void OPFResource::AddModificationDateMeta()
                 }
             }
         }
-        // otherwize create a new entry
+        // otherwise create a new entry
         MetaEntry me;
         me.m_name = QString("meta");
         me.m_content = datetime;
@@ -1187,7 +1187,7 @@ void OPFResource::AddModificationDateMeta()
             
         }
     }
-    // otherwize create a new entry
+    // otherwise create a new entry
     MetaEntry me;
     me.m_name = QString("dc:date");
     me.m_content = date;

@@ -334,7 +334,7 @@ QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
 
             // If we are the last group within the selector, we can safely remove the whole thing
             if (current_groups.count() > 1) {
-                // Darn, we arent. We will reassemble the group selector, calculate the difference in length
+                // Darn, we aren't. We will reassemble the group selector, calculate the difference in length
                 // between the old and new and then update all of the selectors for the group to assign a
                 // new offset for the opening bracket/closing bracket position.
                 for (int j = 0; j < current_groups.count(); j++) {

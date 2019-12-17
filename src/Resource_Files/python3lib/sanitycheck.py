@@ -81,7 +81,7 @@ class SanityCheck(object):
 
     # parses string version of tag to identify its name,
     # its type 'begin', 'end' or 'single', or one of the special handling types
-    # plus build a hashtable of its atributes
+    # plus build a hashtable of its attributes
     def parsetag(self, s):
         if self.has_error:
             return None, None, None

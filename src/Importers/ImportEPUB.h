@@ -194,7 +194,7 @@ private:
 
     /**
      * The map of all files in the publication's manifest;
-     * The keys are the element ID's, the vaules are the
+     * The keys are the element ID's, the values are the
      * mimetype of the file.
      */
     QMap<QString, QString> m_FileMimetypes;

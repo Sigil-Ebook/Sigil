@@ -61,7 +61,7 @@ class QuickXHTMLParser(object):
 
     # parses string version of tag to identify its name,
     # its type 'begin', 'end' or 'single',
-    # plus build a hashtable of its atributes
+    # plus build a hashtable of its attributes
     def parsetag(self, s):
         n = len(s)
         p = 1

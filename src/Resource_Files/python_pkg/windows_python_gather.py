@@ -251,7 +251,7 @@ def blot_pyqt5_init():
 
 
 def patch_pillow_init():
-    # PyPi-installed Pillow's __init__.py trys to modify doc strings
+    # PyPi-installed Pillow's __init__.py tries to modify doc strings
     # that are unavailable since we compile all of them away.
     _init_ = os.path.join(site_dest, 'PIL', '__init__.py')
     criteria = '(__doc__ =.*)$'

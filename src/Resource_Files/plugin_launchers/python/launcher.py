@@ -32,7 +32,7 @@ from compatibility_utils import unicode_argv, add_cp65001_codec, quoteurl
 
 # Sigil Python Script Launcher
 #
-# This launcher script is aways invoked by the script manager
+# This launcher script is always invoked by the script manager
 # for python scripts (both Python 2.7 and 3.4 and later).  It is passed in:
 # ebook_root, output directory, script type, and path to target script location
 #

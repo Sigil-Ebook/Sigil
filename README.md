@@ -39,7 +39,7 @@ will be left open.
 Linux Build and Install
 =======================
 
-For newer Linux systems like Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable, you should be able to compile Sigil using repo-provided dependencies. Instructions for doing so can be found in:
+For newer Linux systems like Ubuntu 16.04 (and its derivatives: like Mint 18), or Arch Linux, or Debian Unstable, you should be able to compile Sigil using repo-provided dependencies. Instructions for doing so can be found in:
 
 > [docs/Building_on_Linux.md](./docs/Building_on_Linux.md) ([or .html](./docs/Building_on_Linux.html))
 
@@ -102,7 +102,7 @@ Currently these projects include:
 * jQuery.ScrollTo-2.1.2 (src/Resource_Files/javascript/jquery.scrollTo-2.1.2.min.js)
 * MathJax.js Version 2.75: (src/Resource_Files/polyfills)
 
-In addtion, Sigil uses the following other packages that have been specifically
+In addition, Sigil uses the following other packages that have been specifically
 modified for use inside Sigil:
 
 * Beautiful Soup 4 (src/Resource_Files/plugin_launchers/sigil_bs4)

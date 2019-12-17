@@ -77,7 +77,7 @@ private:
      *
      * The widget is added to the list of available widgets and when the
      * entry in the list is selected the widget it shown in the widget display
-     * area to the right of the avaliable widget list.
+     * area to the right of the available widget list.
      *
      * @param widget The ReportsWidget to add to the dialog.
      */

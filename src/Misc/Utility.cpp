@@ -390,7 +390,7 @@ bool Utility::SMoveFile(const QString &oldfilepath, const QString &newfilepath)
         return true;
     }
 
-    // Ensure that the newfilepath doesn't already exist but due to case insenstive file systems
+    // Ensure that the newfilepath doesn't already exist but due to case insensitive file systems
     // check if we are actually moving to an identical path with a different case.
     if (QFileInfo(newfilepath).exists() && QFileInfo(oldfilepath) != QFileInfo(newfilepath)) {
         return false;
@@ -414,7 +414,7 @@ bool Utility::RenameFile(const QString &oldfilepath, const QString &newfilepath)
         return false;
     }
 
-    // Ensure that the newfilepath doesn't already exist but due to case insenstive file systems
+    // Ensure that the newfilepath doesn't already exist but due to case insensitive file systems
     // check if we are actually renaming to an identical path with a different case.
     if (QFileInfo(newfilepath).exists() && QFileInfo(oldfilepath) != QFileInfo(newfilepath)) {
         return false;
@@ -798,7 +798,7 @@ bool Utility::UnZip(const QString &zippath, const QString &destpath)
 	        }
 
                 // We use the dir object to create the path in the temporary directory.
-                // Unfortunately, we need a dir ojbect to do this as it's not a static function.
+                // Unfortunately, we need a dir object to do this as it's not a static function.
                 // Full file path in the temporary directory.
                 QString file_path = destpath + "/" + qfile_name;
                 QFileInfo qfile_info(file_path);
@@ -1004,7 +1004,7 @@ QString Utility::resolveRelativeSegmentsInFilePath(const QString& file_path, con
 
 
 // Generate relative path to destination from starting directory path
-// Both paths should be cannonical
+// Both paths should be canonical
 QString Utility::relativePath(const QString & destination, const QString & start_dir)
 {
     QString dest(destination);

@@ -704,7 +704,7 @@ else()
     add_executable( ${PROJECT_NAME} WIN32 ${ALL_SOURCES} )
 endif()
 
-# No need to explicity link Qt5::WinMain or to use the qt5_use_modules macro since CMAKE 2.8.11. We require CMAKE 3.0.0
+# No need to explicitly link Qt5::WinMain or to use the qt5_use_modules macro since CMAKE 2.8.11. We require CMAKE 3.0.0
 target_link_libraries( ${PROJECT_NAME} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} 
     ${MINIZIP_LIBRARIES} ${PYTHON_LIBRARIES} Qt5::Widgets  Qt5::Xml  Qt5::PrintSupport  Qt5::WebEngine  
     Qt5::WebEngineWidgets  Qt5::Network  Qt5::Concurrent )
@@ -716,7 +716,7 @@ if( NOT USE_SYSTEM_LIBS OR NOT PCRE_FOUND )
     add_definitions( -DPCRE_STATIC )
 endif()
 
-# Speed up stirng building
+# Speed up string building
 add_definitions( -DQT_USE_FAST_CONCATENATION )
 add_definitions( -DQT_USE_FAST_OPERATOR_PLUS )
 
@@ -931,7 +931,7 @@ elseif (MSVC)
     set( VCREDIST_VER "2017" )
     # We need to copy the CRT dlls
     # Add -DWIN_INSTALLER_USE_64BIT_CRT=1 to the cmake call if you want to build
-    # an installer for the x64 verison of Sigil. This will make sure that the
+    # an installer for the x64 version of Sigil. This will make sure that the
     # correct CRT libs are included in the installer.
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${TEMP_PACKAGE_DIR}/vendor/ )
     if ( WIN_INSTALLER_USE_64BIT_CRT )

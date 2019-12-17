@@ -58,7 +58,7 @@ macro( precompiled_header sources includes target_name header_name )
         separate_arguments( compile_flags )
         
         # Finally, build the precompiled header.
-        # We don't add the buil command to add_custom_target
+        # We don't add the build command to add_custom_target
         # because that would force a PCH rebuild even when
         # the ${header_name}.h file hasn't changed. We add it to
         # a special add_custom_command to work around this problem.        

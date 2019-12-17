@@ -253,7 +253,7 @@ class NavProcessor(object):
     # title should be xml decoded/unescaped
     def setLandmarks(self, landmarks):
         landmarks_xhtml =  self.buildLandmarks(landmarks)
-        # replace the landmarks from the navsrc with a placeholer
+        # replace the landmarks from the navsrc with a placeholder
         navsrc = self.content
         qp = QuickXHTMLParser()
         qp.setContent(navsrc)
@@ -333,7 +333,7 @@ class NavProcessor(object):
     # title should be xml decoded/unescaped
     def setPageList(self, pagelist):
         pagelist_xhtml =  self.buildPageList(pagelist)
-        # replace the pagelist from the navsrc with a placeholer
+        # replace the pagelist from the navsrc with a placeholder
         navsrc = self.content
         qp = QuickXHTMLParser()
         qp.setContent(navsrc)

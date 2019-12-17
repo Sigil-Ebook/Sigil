@@ -363,7 +363,7 @@ void MainWindow::loadPluginsMenu()
     }
 }
 
-// Keeps the Plugins menu and ManagePlugins submenu arround even if no plugins added yet
+// Keeps the Plugins menu and ManagePlugins submenu around even if no plugins added yet
 void MainWindow::unloadPluginsMenu()
 {
     if (m_menuPlugins != NULL) {

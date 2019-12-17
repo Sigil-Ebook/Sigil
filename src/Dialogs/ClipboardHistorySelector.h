@@ -35,7 +35,7 @@
 #include "ui_ClipboardHistorySelector.h"
 
 /**
- * The clipboard history window used for selecing entries to paste.
+ * The clipboard history window used for selecting entries to paste.
  */
 class ClipboardHistorySelector : public QDialog
 {

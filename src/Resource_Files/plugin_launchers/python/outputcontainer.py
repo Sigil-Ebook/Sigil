@@ -75,7 +75,7 @@ class OutputContainer(object):
         return self._w.sigil_spellcheck_lang
 
 
-# OPF Acess and Manipulation Routines
+# OPF Access and Manipulation Routines
 
 # toc and pagemap access routines
 
@@ -123,13 +123,13 @@ class OutputContainer(object):
 # metadata get/set
 
     def getmetadataxml(self):
-        # returns a utf-8 encoded metadata xml fragement
+        # returns a utf-8 encoded metadata xml fragment
         return self._w.getmetadataxml()
 
 # package tag get/set
 
     def getpackagetag(self):
-        # returns a utf-8 encoded metadata xml fragement
+        # returns a utf-8 encoded metadata xml fragment
         return self._w.getpackagetag()
 
 

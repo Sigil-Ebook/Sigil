@@ -1243,7 +1243,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
                 val = substitute_xml_entities_into_text(std::string(child->v.text.text));
             }
 
-            // if child of a structual element is text and follows a newline, indent it properly
+            // if child of a structural element is text and follows a newline, indent it properly
             if (is_structural && last_char == '\n') {
                 contents.append(indent_space);
                 ltrim(val);
@@ -1267,7 +1267,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
                     last_char='\n';
                 }
             }
-            // if child of a structual element is inline and follows a newline, indent it properly
+            // if child of a structural element is inline and follows a newline, indent it properly
             if (is_structural && in_set(nonbreaking_inline, childname) && (last_char == '\n')) {
                 contents.append(indent_space);
                 ltrim(val);

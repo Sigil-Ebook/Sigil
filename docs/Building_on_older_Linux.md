@@ -1,6 +1,6 @@
 # <center>Building Sigil on Older Linux Systems</centers>
 
-If your system's software repositories provide Qt5.9.x or higher and Python 3.4.x or higher, you may be able to compile Sigil using entirely repo-provided dependencies. These systems will likely be Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable. If your system qualifies, check out the [Building on Linux](./Building_on_Linux.md) documentation.
+If your system's software repositories provide Qt5.9.x or higher and Python 3.4.x or higher, you may be able to compile Sigil using entirely repo-provided dependencies. These systems will likely be Ubuntu 16.04 (and its derivatives: like Mint 18), or Arch Linux, or Debian Unstable. If your system qualifies, check out the [Building on Linux](./Building_on_Linux.md) documentation.
 
 Otherwise, continue on ...
 
@@ -55,7 +55,7 @@ If your software repos provide Python 3.4.0 or higher, by all means use them to 
 + python3-six
 + python3-css-parser (may have to use `pip3 install css-parser` if your distro has no package for this)
 
-The folllowing command can be copied and pasted for convenience:
+The following command can be copied and pasted for convenience:
 
 `sudo apt-get install python3 python3-dev libpython3 libpython3-dev python3-pip python3-lxml python3-six python3-css-parser`
 

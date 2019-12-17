@@ -108,7 +108,7 @@ void EditTOC::Save()
         NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
         navproc.GenerateNavTOCFromTOCEntries(ConvertTableToEntries());
     } else {
-        // this is safe as all epub2's must hve an ncx (if not we made one for them)
+        // this is safe as all epub2's must have an ncx (if not we made one for them)
         m_Book->GetNCX()->GenerateNCXFromTOCEntries(m_Book.data(), ConvertTableToEntries());
     }
 }
@@ -382,7 +382,7 @@ void EditTOC::SelectTarget()
 
     if (select_target.exec() == QDialog::Accepted) {
 	QString href = select_target.GetTarget();
-        // now convert ncx or nav realtive path back to bookpath 9epub root relative)
+        // now convert ncx or nav relative path back to bookpath 9epub root relative)
 	QString bookpath = Utility::buildBookPath(href, m_BaseResource->GetFolder()); 
         item->setText(bookpath);
     }

@@ -194,7 +194,7 @@ class EntitySubstitution(object):
 
         :param value: A string to be substituted. The less-than sign will
           become &lt;, the greater-than sign will become &gt;, and any
-          ampersands that are not part of an entity defition will
+          ampersands that are not part of an entity definition will
           become &amp;.
 
         :param make_quoted_attribute: If True, then the string will be
@@ -217,7 +217,7 @@ class EntitySubstitution(object):
         in that the goal is to make the result more readable (to those
         with ASCII displays) rather than to recover from
         errors. There's absolutely nothing wrong with a UTF-8 string
-        containg a LATIN SMALL LETTER E WITH ACUTE, but replacing that
+        containing a LATIN SMALL LETTER E WITH ACUTE, but replacing that
         character with "&eacute;" will make it more readable to some
         people.
         """

@@ -238,9 +238,9 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
         nextKey == Qt::Key_Meta    ||
         nextKey == Qt::Key_Alt     ||
         nextKey == Qt::Key_Backspace || // This button cannot be assigned, because we want to 'clear' shortcut after backspace push
-        ui.commandList->currentItem() == 0 // Do not allow writting in shortcut line edit if no item is selected
+        ui.commandList->currentItem() == 0 // Do not allow writing in shortcut line edit if no item is selected
        ) {
-        // If key was Qt::Key_Backspace additionaly clear sequence dialog
+        // If key was Qt::Key_Backspace additionally clear sequence dialog
         if (nextKey == Qt::Key_Backspace) {
             removeButtonClicked();
         }

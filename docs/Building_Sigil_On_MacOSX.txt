@@ -39,10 +39,10 @@ export PATH=${MYDEST}/Python.framework/Versions/3.7/bin:${PATH}
 mkdir build
 cd build
 
-# Select the appropriate cmake command from thge following depending
+# Select the appropriate cmake command from the following depending
 # on XCode version installed and macOS version
 
-# Mac OS Sierra (OSX 10.12) shoud use the following with XCode 8 or XCode 9
+# Mac OS Sierra (OSX 10.12) should use the following with XCode 8 or XCode 9
 cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
       -DCMAKE_BUILD_TYPE=Release \
@@ -51,7 +51,7 @@ cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/ \
       ../Sigil
 
-# Mac OS High Sierra (OSX 10.13) shoud use the following with XCode 9 or 10 
+# Mac OS High Sierra (OSX 10.13) should use the following with XCode 9 or 10 
 cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
       -DCMAKE_BUILD_TYPE=Release \
@@ -60,7 +60,7 @@ cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/ \
       ../Sigil
 
-# Mac OS Mojave (OSX 10.14) shoud use the following with XCode 10 
+# Mac OS Mojave (OSX 10.14) should use the following with XCode 10 
 cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
       -DCMAKE_BUILD_TYPE=Release \

@@ -463,7 +463,7 @@ void ImportEPUB::ExtractContainer()
                 }
 
                 // We use the dir object to create the path in the temporary directory.
-                // Unfortunately, we need a dir ojbect to do this as it's not a static function.
+                // Unfortunately, we need a dir object to do this as it's not a static function.
                 QDir dir(m_ExtractedFolderPath);
                 // Full file path in the temporary directory.
                 QString file_path = m_ExtractedFolderPath + "/" + qfile_name;

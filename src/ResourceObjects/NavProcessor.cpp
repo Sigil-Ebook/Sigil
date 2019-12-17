@@ -646,7 +646,7 @@ QList<NavTOCEntry>  NavProcessor::HeadingWalker(const Headings::Heading & headin
 // Interface from Dockable Table of Contents Widget to get the Nav TOC
 // Need to take our flat Nav TOC list and create a tree then convert that
 // tree to become a TOCModel::TOCEntry tree with returned root that is
-// used in the Tabel Of Contents Dockable Widget
+// used in the Table Of Contents Dockable Widget
 TOCModel::TOCEntry NavProcessor::GetRootTOCEntry()
 {
     TOCModel::TOCEntry root;

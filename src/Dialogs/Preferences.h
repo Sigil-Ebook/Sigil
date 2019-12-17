@@ -33,7 +33,7 @@
  * Allows the user to change settings related to how the application functions.
  *
  * The preferecnes exposed are instances of PreferencesWidget. They are loaded
- * and dynamically displayed based upon which one is seleted.
+ * and dynamically displayed based upon which one is selected.
  */
 class Preferences : public QDialog
 {
@@ -71,7 +71,7 @@ public:
      */
     bool isRefreshClipHistoryLimitRequired();
     /**
-     * Check this after dialog closes to determine if BookBrowser needs to be refeshed
+     * Check this after dialog closes to determine if BookBrowser needs to be refreshed
      */
     bool isRefreshBookBrowserRequired();
 
@@ -104,7 +104,7 @@ private:
      *
      * The widget is added to the list of available widgets and when the
      * entry in the list is selected the widget it shown in the widget display
-     * area to the right of the avaliable widget list.
+     * area to the right of the available widget list.
      *
      * @param widget The PreferencesWidget to add to the dialog.
      */

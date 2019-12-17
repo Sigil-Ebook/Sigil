@@ -147,7 +147,7 @@ var
   R: Integer;
 begin
   Result := True;
-  // Mimimum version of the VC++ Redistributable needed (currently VS2017 and later).
+  // Minimum version of the VC++ Redistributable needed (currently VS2017 and later).
   min_ver := '14.10.00000';
   if IsWin64 and not Is64BitInstallMode then
     // 32-bit version being installed on 64-bit machine

@@ -93,7 +93,7 @@ public:
      * @param keySequence The key sequence to set.
      * @param isDefault Whether this is a default key sequence.
      *
-     * @return ture if the key sequence was set. False if it is already in use
+     * @return true if the key sequence was set. False if it is already in use
      * and was not set.
      */
     bool setKeySequence(const QString &id, const QKeySequence &keySequence, bool isDefault = false);
@@ -185,7 +185,7 @@ public:
     bool defaultKeySequenceInUse(const QKeySequence &keySequence);
 
     /**
-     * Store all managed information presistantly.
+     * Store all managed information persistently.
      */
     void writeSettings();
 

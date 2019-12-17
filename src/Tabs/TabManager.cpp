@@ -357,7 +357,7 @@ void TabManager::MakeCentralTab(ContentTab *tab)
 // but this caused many issues with fast deleting and updating of 
 // this special pointer.
 //
-// This pointer only ever records the last curent ContentTab and it is 
+// This pointer only ever records the last current ContentTab and it is 
 // never shared outside the TabManager and it remains valid until the TabManager
 // itself is destroyed.  So there was no rhyme or reason for using or needing the 
 // QPointer type here especially with its associated problems with fast/recursive updates. 

@@ -177,7 +177,7 @@ def main():
 <head><title>testing & entities</title></head>
 <body>
   <p class="first second">this&nbsp;is&#160;the&#xa0;<i><b>copyright</i></b> symbol "&copy;"</p>
-  <p xmlns:xlink="http://www.w3.org/xlink" class="second" xlink:href="http://www.ggogle.com">this used to test atribute namespaces</p>
+  <p xmlns:xlink="http://www.w3.org/xlink" class="second" xlink:href="http://www.ggogle.com">this used to test attribute namespaces</p>
 </body>
 </html>
 """

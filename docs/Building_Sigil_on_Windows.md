@@ -144,7 +144,7 @@ The following three cmake options are used to manually specify which Python3 you
 
 -DPYTHON_EXECUTABLE=`<the full path to the python3.x binary (python.exe)>`
 
-If you don't want to build/include the bundled Python environment in the Sigil installer, use the -DPKG_SYSTEM_PYTHON=0 in the CMake configure command to disable it. **NOTE**: you'll have to configure an external Python interpeter for running Sigil plugins. The "Use Bundled Python" feature will be unavailable.
+If you don't want to build/include the bundled Python environment in the Sigil installer, use the -DPKG_SYSTEM_PYTHON=0 in the CMake configure command to disable it. **NOTE**: you'll have to configure an external Python interpreter for running Sigil plugins. The "Use Bundled Python" feature will be unavailable.
 
 ### Compiling Sigil
 
@@ -154,6 +154,6 @@ If you generated Visual Studio 2017 projects/solutions, then open the Sigil.sln 
 
 ### Building the Sigil installer package
 
-If you generated NMake Makefiles and have successfully compiled Sigil, then type `nmake makeinstaller` (at the same command prompt you just compiled Sigil with) to build the Sigil installer package. If it completes succesfully, the Sigil installer will be placed in the sigil-build directory's "installer" folder (NOTE: that's the *build* directory and not the *source* directory). If it doesn't complete succesfully, you may have to delete the "temp_folder" in the build directory before proceeding.
+If you generated NMake Makefiles and have successfully compiled Sigil, then type `nmake makeinstaller` (at the same command prompt you just compiled Sigil with) to build the Sigil installer package. If it completes successfully, the Sigil installer will be placed in the sigil-build directory's "installer" folder (NOTE: that's the *build* directory and not the *source* directory). If it doesn't complete successfully, you may have to delete the "temp_folder" in the build directory before proceeding.
 
-If you generated Visual Studio 2017 project/solutions and have built the ALL_BUILD project successfully, then select the "makeinstaller" project in the Solution Explorer and build the makeinstaller project from the Build menu (Build->Build makeinstaller). If it completes succesfully, the Sigil installer will be placed in the sigil-build directory's "installer" folder (NOTE: that's the *build* directory and not the *source* directory). If it doesn't complete succesfully, you may have to delete the "temp_folder" in the build directory before proceeding.
+If you generated Visual Studio 2017 project/solutions and have built the ALL_BUILD project successfully, then select the "makeinstaller" project in the Solution Explorer and build the makeinstaller project from the Build menu (Build->Build makeinstaller). If it completes successfully, the Sigil installer will be placed in the sigil-build directory's "installer" folder (NOTE: that's the *build* directory and not the *source* directory). If it doesn't complete successfully, you may have to delete the "temp_folder" in the build directory before proceeding.

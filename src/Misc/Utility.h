@@ -175,7 +175,7 @@ public:
     static QStringList ZipInspect(const QString &zippath);
 
     // Generate relative path to destination from starting directory path
-    // Both paths should be absolute and preferably cannonical
+    // Both paths should be absolute and preferably canonical
     static QString relativePath(const QString & destination, const QString & starting_dir); 
 
     // works with absolute or book paths

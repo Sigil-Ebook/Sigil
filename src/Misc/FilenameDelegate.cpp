@@ -46,7 +46,7 @@ bool FilenameDelegate::eventFilter(QObject *object, QEvent *event)
             edit->setSelection(0, pos);
 
 	    // Due to bug introduced into Qt sometime after version 5.6
-	    // the cursor is made not visibile whenever a qlinedit
+	    // the cursor is made not visible whenever a qlinedit
 	    // has a selection when first focused/selected.
 	    // No mouse click will cause the cursor to appear, only a key release event 
 	    // for some insane reason. So create a fake shift key press/release event that

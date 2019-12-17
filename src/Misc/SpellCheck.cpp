@@ -340,7 +340,7 @@ void SpellCheck::loadDictionaryNames()
     // will override installation supplied dictionaries.
     paths << user_directory;
     foreach(QString path, paths) {
-        // Find all dictionaries and add them to the avaliable list.
+        // Find all dictionaries and add them to the available list.
         QDir dictDir(path);
 
         if (dictDir.exists()) {

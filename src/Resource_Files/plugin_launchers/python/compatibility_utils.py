@@ -53,7 +53,7 @@ if PY2:
 if PY3:
     text_type = str
     binary_type = bytes
-    # if will be printing arbitraty binary data to stdout on python 3
+    # if will be printing arbitrary binary data to stdout on python 3
     # sys.stdin = sys.stdin.detach()
     # sys.stdout = sys.stdout.detach()
     # sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())

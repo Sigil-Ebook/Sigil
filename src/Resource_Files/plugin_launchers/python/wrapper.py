@@ -45,7 +45,7 @@ _launcher_version=20191216
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
-# Wrapper Class is used to peform record keeping for Sigil.  It keeps track of modified,
+# Wrapper Class is used to perform record keeping for Sigil.  It keeps track of modified,
 # added, and deleted files while providing some degree of protection against files under
 # Sigil's control from being directly manipulated.
 # Uses "write-on-modify" and so removes the need for wholesale copying of files
@@ -87,7 +87,7 @@ class Wrapper(object):
         self.plugin_name = plugin_name
         self.outdir = pathof(outdir)
 
-        # initialize the sigil cofiguration info passed in outdir with sigil.cfg
+        # initialize the sigil configuration info passed in outdir with sigil.cfg
         self.opfbookpath = None
         self.appdir = None
         self.usrsupdir = None

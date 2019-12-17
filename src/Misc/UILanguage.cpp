@@ -63,7 +63,7 @@ QStringList UILanguage::GetUILanguages()
     QStringList ui_languages;
     QStringList checked_dirs;
     foreach(QString path, GetPossibleTranslationPaths()) {
-        // Find all translation files and add them to the avaliable list.
+        // Find all translation files and add them to the available list.
         QDir translationDir(path);
 
         if (translationDir.exists() && !checked_dirs.contains(translationDir.absolutePath())) {

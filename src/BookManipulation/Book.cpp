@@ -397,7 +397,7 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf,
 							       QString(),
 							       folderpath);
 
-    // get the informtion we need to correctly fill the template
+    // get the information we need to correctly fill the template
     QString navbookpath = resource->GetRelativePath();
     QString navstylebookpath = styleresource->GetRelativePath();
     QString textdir = GetFolderKeeper()->GetDefaultFolderForGroup("Text");

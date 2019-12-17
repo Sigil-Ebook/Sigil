@@ -179,7 +179,7 @@ class MetadataProcessor(object):
                 # this is refinement that doesn't seem to point to anything in the opf
                 self.other.append(mentry)
         if _DEBUG:
-            print("recongized", self.rec)
+            print("recognized", self.rec)
             print("other", self.other)
             print("idlst", self.idlst)
 
@@ -227,7 +227,7 @@ def process_metadata(opfdata):
     return mdp
 
 
-# take edited recognized metdata in text tree form with properties and attributes 
+# take edited recognized metadata in text tree form with properties and attributes 
 # indented and convert it to structured metadata xml 
 def set_new_metadata(data, other, idlst, metatag, opfdata):
     newmd = []

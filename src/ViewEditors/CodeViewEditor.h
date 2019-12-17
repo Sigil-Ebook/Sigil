@@ -364,7 +364,7 @@ public:
     void SetReformatCSSEnabled(bool value);
 
     /**
-     * Control wheter the Reformat (clean) HTML submenu is avaliable on the context menu.
+     * Control whether the Reformat (clean) HTML submenu is available on the context menu.
      */
     bool ReformatHTMLEnabled();
     void SetReformatHTMLEnabled(bool value);

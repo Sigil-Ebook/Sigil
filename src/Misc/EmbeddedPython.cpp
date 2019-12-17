@@ -83,7 +83,7 @@
  *      if (rv == 0) {
  *          // no errors
  *      } else {
- *         // error occured 
+ *         // error occurred 
  *      }
  *  }
  *

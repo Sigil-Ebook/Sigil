@@ -51,14 +51,14 @@ public:
     SettingsStore(QString filename);
 
     /**
-     * The langauge to use for the user interface
+     * The language to use for the user interface
      *
      * @return The language as a string.
      */
     QString uiLanguage();
 
     /**
-     * The default langauge to use when creating new books.
+     * The default language to use when creating new books.
      *
      * @return The language as a string.
      */

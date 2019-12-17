@@ -46,18 +46,18 @@ To get Sigil's Qt5 requirements, `sudo apt-get install` the following packages:
 + qtwebengine5-dev
 
 
-The folllowing command can be copied and pasted for convenience:
+The following command can be copied and pasted for convenience:
 
 `sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools qtwebengine5-dev`
 
 ## <a name="thirdparty"/>3rd-Party Dependencies (optional step)
-Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them, `sudo apt-get install` the following packages.
+Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be available in your software repos. If you want to make use of them, `sudo apt-get install` the following packages.
 
 + libhunspell-dev
 + libpcre3-dev
 + libminizip-dev
 
-The folllowing command can be copied and pasted for convenience:
+The following command can be copied and pasted for convenience:
 
 `sudo apt-get install libhunspell-dev libpcre3-dev libminizip-dev`
 
@@ -72,7 +72,7 @@ On Ubuntu/Debian `sudo apt-get install` (at a minimum) the following packages:
 + python3-six
 + python3-css-parser (may have to use `pip3 install css-parser` if your distro has no package for this)
 
-The folllowing command can be copied and pasted for convenience:
+The following command can be copied and pasted for convenience:
 
 `sudo apt-get install python3-dev python3-pip python3-lxml python3-six python3-css-parser`
 
@@ -86,7 +86,7 @@ That's all the Python 3.4 (or higher) stuff you will need to get Sigil "up and r
 + python3-cssselect
 + python3-chardet
 
-The folllowing command can be copied and pasted for convenience:
+The following command can be copied and pasted for convenience:
 
 `sudo apt-get install python3-tk python3-pyqt5 python3-html5lib python3-regex python3-pillow python3-cssselect python3-chardet`
 

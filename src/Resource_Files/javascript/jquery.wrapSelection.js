@@ -299,7 +299,7 @@
 			this.startOffset = null;
 			this.endContainer = null;
 			this.endOffset = null;
-			this.collapsed = true;// Defualt is true if collapsed
+			this.collapsed = true;// Default is true if collapsed
 		},
 
 		GetContainedNodes: function() {
@@ -425,7 +425,7 @@
 				this.endOffset 		= myEnd.offset;
 				this.collapsed 	= (myStart.container == myEnd.container && myStart.offset == myEnd.offset);
 
-				myRange.select();// Fix Hightlight for IE that get's reset by getInitialContainer start node (myNode.insertData)
+				myRange.select();// Fix Highlight for IE that gets reset by getInitialContainer start node (myNode.insertData)
 				return true;
 			},
 

@@ -248,7 +248,7 @@ class OPFMetadataParser(object):
 
     # parses tag to identify:  [tname, ttype, tattr]
     #    tname: tag name,    ttype: tag type ('begin', 'end' or 'single');
-    #    tattr: dictionary of tag atributes
+    #    tattr: dictionary of tag attributes
     def _parsetag(self, s):
         n = len(s)
         p = 1
