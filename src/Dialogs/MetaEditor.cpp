@@ -551,7 +551,7 @@ void MetaEditor::loadMetadataElements()
          tr("Date: Publication") << "dc:date" << tr("The date of publication.") <<
          tr("Date: Creation") << "dcterms:created" << tr("The date of creation.") <<
          tr("Date: Issued") << "dcterms:issued" << tr("The date of modification.") <<
-         tr("Date: Modification") << "dcterms:modfied" << tr("The date of modification.") <<
+         tr("Date: Modification") << "dcterms:modified" << tr("The date of modification.") <<
          tr("Type") << "dc:type" << tr("Used to indicate that the given EPUB Publication is of a specialized type..") <<
          tr("Format") << "dc:format" << tr("The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).") <<
          tr("Source") << "dc:source" << tr("Identifies the related resource(s) from which this EPUB Publication is derived.") <<
@@ -596,7 +596,7 @@ void MetaEditor::loadMetadataProperties()
     QStringList data;
     data <<
          tr("Id Attribute") << "id" << tr("Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.") <<
-         tr("XML Language") << "xml:lang" << tr("Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:langauge, dc:date, or dc:identifier metadata elements.") <<
+         tr("XML Language") << "xml:lang" << tr("Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.") <<
          tr("Text Direction: rtl") << "dir:rtl" << tr("Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.") <<
          tr("Text Direction: ltr") << "dir:ltr" << tr("Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.") <<
          tr("Title Type: main") << "title-type:main" << tr("Indicates the associated title is the main title of the publication.  Only one main title should exist.") <<
