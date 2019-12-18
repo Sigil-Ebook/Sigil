@@ -1,4 +1,4 @@
-version: '0.9.991-{build}'
+version: '1.0.0-{build}'
 
 branches:
   only:
