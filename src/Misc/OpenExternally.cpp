@@ -249,10 +249,13 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
                                        + " (*)"
 #endif
                                        ;
-    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails;
 #ifdef Q_OS_MAC
-    options = options | QFileDialog::DontUseNativeDialog;
+    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ReadOnly;
+#else
+    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails;
 #endif
+
+    // Qt Bug, must use native FileDialog here otherwise treats .app as normal directory
 
     const QString selectedFile = QFileDialog::getOpenFileName(0,
                                  QObject::tr("Open With"),

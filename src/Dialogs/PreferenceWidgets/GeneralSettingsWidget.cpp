@@ -167,12 +167,15 @@ void GeneralSettingsWidget::setXEditorPath()
                                        + " (*)"
 #endif
       ;
-    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails;
+
 #ifdef Q_OS_MAC
-    options = options | QFileDialog::DontUseNativeDialog;
+    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ReadOnly;
+#else
+    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails;
 #endif
 
-    QString xeditorPath = QFileDialog::getOpenFileName(0,
+    // Qt Bug - you must use a native FileDialog on macOS otherwise it treats .app as a normal directory
+    QString xeditorPath = QFileDialog::getOpenFileName(this,
 						       QObject::tr("Select External Xhtml Editor"),
 						       LAST_LOCATION,
 						       NAME_FILTER,
