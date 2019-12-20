@@ -25,6 +25,7 @@
 #define BOOKBROWSER_H
 
 #include <QtCore/QSharedPointer>
+#include <QWidget>
 #include <QtWidgets/QDockWidget>
 
 #include "BookManipulation/Book.h"
@@ -277,7 +278,7 @@ private slots:
     void SaveAsFile(Resource *resource);
     void SaveAsFiles();
 
-    void OpenWith() const;
+    void OpenWith();
 
     void OpenWithEditor(int) const;
 
