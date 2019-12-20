@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2011 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2011 Grzegorz Wolszczak <grzechu81@gmail.com>
+**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2011      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2011      Grzegorz Wolszczak <grzechu81@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -23,6 +24,7 @@
 #include <QtCore/QEvent>
 #include <QtCore/QStringList>
 #include <QtGui/QKeyEvent>
+#include <QDebug>
 
 #include "KeyboardShortcutsWidget.h"
 #include "Misc/KeyboardShortcutManager.h"
@@ -247,6 +249,13 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
 
         return;
     }
+
+    qDebug() << "key:        " << event->key() << QKeySequence(event->key()).toString();
+    qDebug() << "modifiers:  " << event->modifiers();
+    qDebug() << "text:       " << event->text();
+    qDebug() << "nativeMods: " << event->nativeModifiers();
+    qDebug() << "nativeScan: " << event->nativeScanCode();
+    qDebug() << "nativeVKey: " << event->nativeVirtualKey();
 
     nextKey |= translateModifiers(event->modifiers(), event->text());
     ui.targetEdit->setText(QKeySequence(nextKey).toString());
