@@ -26,6 +26,8 @@
 
 #include "ResourceObjects/Resource.h"
 
+class QWidget;
+
 class OpenExternally
 {
 
@@ -44,7 +46,7 @@ public:
 
     static const QStringList editorDescriptionsForResourceType(const Resource::ResourceType type);
 
-    static const QString selectEditorForResourceType(const Resource::ResourceType type);
+    static const QString selectEditorForResourceType(const Resource::ResourceType type, QWidget *parent);
 
     static const QString prettyApplicationName(const QString &applicationpath);
 };

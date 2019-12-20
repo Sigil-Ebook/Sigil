@@ -213,7 +213,7 @@ void ImageTab::openWith()
 
     if (data.isValid()) {
         const QUrl &resourceUrl = data.toUrl();
-        const QString &editorPath = OpenExternally::selectEditorForResourceType((Resource::ResourceType) resourceUrl.port());
+        const QString &editorPath = OpenExternally::selectEditorForResourceType((Resource::ResourceType) resourceUrl.port(), this);
 
         if (!editorPath.isEmpty()) {
             if (OpenExternally::openFile(resourceUrl.toLocalFile(), editorPath)) {

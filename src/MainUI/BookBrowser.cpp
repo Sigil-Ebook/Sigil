@@ -907,7 +907,7 @@ void BookBrowser::SaveAsFiles()
     m_Book->GetFolderKeeper()->ResumeWatchingResources();
 }
 
-void BookBrowser::OpenWith() const
+void BookBrowser::OpenWith()
 {
     Resource *resource = GetCurrentResource();
 
@@ -915,7 +915,7 @@ void BookBrowser::OpenWith() const
         m_Book->GetFolderKeeper()->SuspendWatchingResources();
         resource->SaveToDisk();
         m_Book->GetFolderKeeper()->ResumeWatchingResources();
-        const QString &editorPath = OpenExternally::selectEditorForResourceType(resource->Type());
+        const QString &editorPath = OpenExternally::selectEditorForResourceType(resource->Type(), this);
 
         if (!editorPath.isEmpty()) {
             if (OpenExternally::openFile(resource->GetFullPath(), editorPath)) {
