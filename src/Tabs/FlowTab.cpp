@@ -717,6 +717,8 @@ void FlowTab::SplitSection()
         return;
     }
 
+    qDebug() << "   about to emit OldTabRequest with SplitSetion content for " << m_HTMLResource;
+
     if (m_wCodeView) {
         emit OldTabRequest(m_wCodeView->SplitSection(), m_HTMLResource);
     }
