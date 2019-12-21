@@ -2289,16 +2289,11 @@ void MainWindow::InsertFilesFromDisk()
     // We must disconnect the ResourcesAdded signal to avoid LoadTabContent being called
     // which results in the inserted image being cleared from the BV page immediately.
     disconnect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeletedOrMoved()));
-    QStringList filenames = m_BookBrowser->AddExisting(true);
+    QStringList bookpaths = m_BookBrowser->AddExisting(true);
     connect(m_BookBrowser, SIGNAL(ResourcesAdded()), this, SLOT(ResourcesAddedOrDeletedOrMoved()));
     // Since we disconnected the signal we will have missed forced clearing of cache
     MainWindow::clearMemoryCaches();
-    QStringList internal_filenames;
-    foreach(QString filename, filenames) {
-        QString internal_filename = filename.right(filename.length() - filename.lastIndexOf("/") - 1);
-        internal_filenames.append(internal_filename);
-    }
-    InsertFiles(internal_filenames);
+    InsertFiles(bookpaths);
 }
 
 void MainWindow::InsertSpecialCharacter()
