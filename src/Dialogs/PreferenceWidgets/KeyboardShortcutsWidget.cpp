@@ -192,7 +192,11 @@ void KeyboardShortcutsWidget::resetAllButtonClickedSlot()
     for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
         QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
         QKeySequence seq = sm->keyboardShortcut(item->text(COL_ID)).defaultKeySequence();
+#ifdef Q_OS_MAC
+        item->setText(COL_SHORTCUT, seq.toString(QKeySequence::NativeText));
+#else
         item->setText(COL_SHORTCUT, seq.toString(QKeySequence::PortableText));
+#endif
     }
 
     markSequencesAsDuplicatedIfNeeded();
@@ -209,7 +213,11 @@ void KeyboardShortcutsWidget::readSettings()
         if (!shortcut.isEmpty()) {
             QTreeWidgetItem *item = new QTreeWidgetItem();
             item->setText(COL_NAME, shortcut.name());
+#ifdef Q_OS_MAC
+            item->setText(COL_SHORTCUT, shortcut.keySequence().toString(QKeySequence::NativeText));
+#else
             item->setText(COL_SHORTCUT, shortcut.keySequence().toString(QKeySequence::PortableText));
+#endif
             item->setText(COL_DESCRIPTION, shortcut.description());
             item->setToolTip(COL_DESCRIPTION, shortcut.toolTip());
             item->setText(COL_ID, id);
@@ -256,7 +264,11 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
         return;
     }
 
+#ifdef Q_OS_MAC
+    qDebug() << "key:        " << event->key() << QKeySequence(event->key()).toString(QKeySequence::NativeText);
+#else
     qDebug() << "key:        " << event->key() << QKeySequence(event->key()).toString(QKeySequence::PortableText);
+#endif
     qDebug() << "modifiers:  " << event->modifiers();
     qDebug() << "text:       " << event->text();
     qDebug() << "nativeMods: " << event->nativeModifiers();
@@ -264,7 +276,11 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
     qDebug() << "nativeVKey: " << event->nativeVirtualKey();
 
     nextKey |= translateModifiers(event->modifiers(), event->text());
+#ifdef Q_OS_MAC
+    ui.targetEdit->setText(QKeySequence(nextKey).toString(QKeySequence::NativeText));
+#else
     ui.targetEdit->setText(QKeySequence(nextKey).toString(QKeySequence::PortableText));
+#endif
     event->accept();
 }
 
