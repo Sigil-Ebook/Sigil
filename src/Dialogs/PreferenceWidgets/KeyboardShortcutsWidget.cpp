@@ -193,7 +193,7 @@ void KeyboardShortcutsWidget::resetAllButtonClickedSlot()
         QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
         QKeySequence seq = sm->keyboardShortcut(item->text(COL_ID)).defaultKeySequence();
 #ifdef Q_OS_MAC
-        item->setText(COL_SHORTCUT, seq.toString(QKeySequence::NativeText));
+        item->setText(COL_SHORTCUT, seq.toString());
 #else
         item->setText(COL_SHORTCUT, seq.toString(QKeySequence::PortableText));
 #endif
@@ -214,7 +214,7 @@ void KeyboardShortcutsWidget::readSettings()
             QTreeWidgetItem *item = new QTreeWidgetItem();
             item->setText(COL_NAME, shortcut.name());
 #ifdef Q_OS_MAC
-            item->setText(COL_SHORTCUT, shortcut.keySequence().toString(QKeySequence::NativeText));
+            item->setText(COL_SHORTCUT, shortcut.keySequence().toString());
 #else
             item->setText(COL_SHORTCUT, shortcut.keySequence().toString(QKeySequence::PortableText));
 #endif
@@ -263,21 +263,10 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
 
         return;
     }
-
-#ifdef Q_OS_MAC
-    qDebug() << "key:        " << event->key() << QKeySequence(event->key()).toString(QKeySequence::NativeText);
-#else
-    qDebug() << "key:        " << event->key() << QKeySequence(event->key()).toString(QKeySequence::PortableText);
-#endif
-    qDebug() << "modifiers:  " << event->modifiers();
-    qDebug() << "text:       " << event->text();
-    qDebug() << "nativeMods: " << event->nativeModifiers();
-    qDebug() << "nativeScan: " << event->nativeScanCode();
-    qDebug() << "nativeVKey: " << event->nativeVirtualKey();
-
     nextKey |= translateModifiers(event->modifiers(), event->text());
+
 #ifdef Q_OS_MAC
-    ui.targetEdit->setText(QKeySequence(nextKey).toString(QKeySequence::NativeText));
+    ui.targetEdit->setText(QKeySequence(nextKey).toString());
 #else
     ui.targetEdit->setText(QKeySequence(nextKey).toString(QKeySequence::PortableText));
 #endif
