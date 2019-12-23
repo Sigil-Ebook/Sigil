@@ -45,7 +45,9 @@
 TabManager::TabManager(QWidget *parent)
     :
     QTabWidget(parent),
-    m_LastContentTab(NULL)
+    m_LastContentTab(NULL),
+    m_TabsToDelete(QList<ContentTab*>()),
+    m_tabs_deletion_in_use(false)
 {
     QTabBar *tab_bar = new TabBar(this);
     setTabBar(tab_bar);
@@ -374,6 +376,13 @@ void TabManager::EmitTabChanged(int new_index)
 
 void TabManager::DeleteTab(ContentTab *tab_to_delete)
 {
+
+    if (!m_TabsToDelete.contains(tab_to_delete)) {
+        m_TabsToDelete.prepend(tab_to_delete);
+    }
+    if (m_tabs_deletion_in_use) return;
+    m_tabs_deletion_in_use = true;
+
     qDebug() << "entering DeleteTab";
 
     // Important: This routine appears to be re-entered somehow
@@ -426,29 +435,35 @@ void TabManager::DeleteTab(ContentTab *tab_to_delete)
       // Debug: exiting  DeleteTab
       // Debug: exiting  DeleteTab
 
-    Q_ASSERT(tab_to_delete);
 
-    // to prevent segfaults, disconnect and reconnect the currentChanged()
-    // signal and invoke EmitTabChanged() manually after QTabBar::removeTab(int) 
-    // completes because QTabBar::setCurrentIndex(int) **somehow** invokes processEvents()
-    // ***BEFORE*** properly setting the current index
-    // this helps to prevent reentrancy.
-    disconnect(this, SIGNAL(currentChanged(int)), this, SLOT(EmitTabChanged(int)));
-    removeTab(indexOf(tab_to_delete));
-    connect(this, SIGNAL(currentChanged(int)), this, SLOT(EmitTabChanged(int)));
+    while(!m_TabsToDelete.isEmpty()) {
+	ContentTab *tab = m_TabsToDelete.takeLast();
 
-    // Only the current tab is ever connected to the main ui
-    // so do our own version of EmitTabChanged() only if needed
-    // to disconnect and reconnect ui signals
-    ContentTab *new_tab = qobject_cast<ContentTab *>(currentWidget());
-    if (m_LastContentTab != new_tab) {
-        // move updating of m_LastContentTab to be upfront *before* emitting the signal
-        ContentTab* prevtab = m_LastContentTab;
-        m_LastContentTab = new_tab;
-        // flow control is lost in following line
-        emit TabChanged(prevtab,  new_tab);
+        Q_ASSERT(tab);
+
+        // to prevent segfaults, disconnect and reconnect the currentChanged()
+        // signal and invoke EmitTabChanged() manually after QTabBar::removeTab(int) 
+        // completes because QTabBar::setCurrentIndex(int) **somehow** invokes processEvents()
+        // ***BEFORE*** properly setting the current index
+        // this helps to prevent reentrancy.
+        disconnect(this, SIGNAL(currentChanged(int)), this, SLOT(EmitTabChanged(int)));
+        removeTab(indexOf(tab));
+        connect(this, SIGNAL(currentChanged(int)), this, SLOT(EmitTabChanged(int)));
+
+        // Only the current tab is ever connected to the main ui
+        // so do our own version of EmitTabChanged() only if needed
+        // to disconnect and reconnect ui signals
+        ContentTab *new_tab = qobject_cast<ContentTab *>(currentWidget());
+        if (m_LastContentTab != new_tab) {
+            // move updating of m_LastContentTab to be upfront *before* emitting the signal
+            ContentTab* prevtab = m_LastContentTab;
+            m_LastContentTab = new_tab;
+            // flow control is lost in following line
+            emit TabChanged(prevtab,  new_tab);
+        }
+        tab->deleteLater();
+        m_tabs_deletion_in_use = !m_TabsToDelete.isEmpty();
     }
-    tab_to_delete->deleteLater();
     qDebug() << "exiting  DeleteTab";
 }
 

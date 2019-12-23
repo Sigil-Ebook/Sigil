@@ -289,6 +289,8 @@ private:
 
     bool m_CheckWellFormedErrors;
 
+    QList<ContentTab*> m_TabsToDelete;
+    bool m_tabs_deletion_in_use;
 };
 
 #endif // TABMANAGER_H
