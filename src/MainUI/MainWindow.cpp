@@ -2012,7 +2012,7 @@ void MainWindow::ReportsDialog()
         return;
     }
 
-    qDebug() << "Creating All of the Reports";
+    DBG qDebug() << "Creating All of the Reports";
     m_Reports->CreateReports(m_Book);
     
     QApplication::restoreOverrideCursor();
@@ -3342,6 +3342,8 @@ void MainWindow::ValidateStylesheetsWithW3C()
 
 void MainWindow::ChangeSignalsWhenTabChanges(ContentTab *old_tab, ContentTab *new_tab)
 {
+    qDebug() << "in ChangesSignalWhenTabChanges " << old_tab << new_tab;
+    if (old_tab == new_tab) return;
     BreakTabConnections(old_tab);
     MakeTabConnections(new_tab);
     // Clear selection if the tab changed.
@@ -3895,8 +3897,6 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource *origina
         QMessageBox::warning(this, tr("Sigil"), tr("The Nav file cannot be split."));
         return;
     }
-
-    qDebug() << "   invoking split at cursor for " << originating_resource;
 
     HTMLResource *html_resource = m_Book->CreateSectionBreakOriginalResource(content, originating_resource);
     m_BookBrowser->Refresh();

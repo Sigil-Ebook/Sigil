@@ -358,45 +358,98 @@ void TabManager::MakeCentralTab(ContentTab *tab)
 // this special pointer.
 //
 // This pointer only ever records the last curent ContentTab and it is 
-// never shared outside the TabManager and it remains valid until the TabManager
-// itself is destroyed.  So there was no rhyme or reason for using or needing the 
-// QPointer type here especially with its associated problems with fast/recursive updates. 
+// never shared outside the TabManager
 
 void TabManager::EmitTabChanged(int new_index)
 {
     ContentTab *current_tab = qobject_cast<ContentTab *>(currentWidget());
-    if (current_tab) {
-        if (m_LastContentTab != current_tab) {
-            emit TabChanged(m_LastContentTab, current_tab);
-            m_LastContentTab = current_tab;
-        }
-    } else {
-        // this should not happen but we do not want stale info in this pointer
-        m_LastContentTab = NULL;
+    // the result of the qobject_cast can be NULL and that is okay
+    if (m_LastContentTab != current_tab) {
+        ContentTab * prev_tab = m_LastContentTab;
+        m_LastContentTab = current_tab;
+        emit TabChanged(prev_tab, current_tab);
     }
 }
 
 
 void TabManager::DeleteTab(ContentTab *tab_to_delete)
 {
+    qDebug() << "entering DeleteTab";
+
+    // Important: This routine appears to be re-entered somehow
+    // due to processEvents causing control to leave and return
+    // *before* this routine can itself return so multiple
+    // delete tab requests are being processed at the same time!
+
+    // here is an actual sample debug output form deleting
+    // tabs as fast as possible using Ctrl-W
+
+      // Debug: entering DeleteTab
+      // Debug: in ChangesSignalWhenTabChanges  FlowTab(0x128c78b30) FlowTab(0x13034af30)
+      // Debug: exiting  DeleteTab
+      // Debug: entering DeleteTab
+      // Debug: in ChangesSignalWhenTabChanges  FlowTab(0x13034af30) FlowTab(0x119595e60)
+      // Debug: exiting  DeleteTab
+
+      // Debug: entering DeleteTab
+      // Debug: in ChangesSignalWhenTabChanges  FlowTab(0x119595e60) FlowTab(0x115207f60)
+      // Debug: entering DeleteTab
+
+      // Debug: in ChangesSignalWhenTabChanges  FlowTab(0x115207f60) FlowTab(0x11958a620)
+      // Debug: exiting  DeleteTab
+      // Debug: entering DeleteTab
+      // Debug: in ChangesSignalWhenTabChanges  FlowTab(0x11958a620) FlowTab(0x126c86e80)
+      // Debug: exiting  DeleteTab
+      // Debug: entering DeleteTab
+      // Debug: in ChangesSignalWhenTabChanges  FlowTab(0x126c86e80) FlowTab(0x1195daaf0)
+      // Debug: exiting  DeleteTab
+      // Debug: entering DeleteTab
+      // Debug: in ChangesSignalWhenTabChanges  FlowTab(0x1195daaf0) FlowTab(0x128c717d0)
+      // Debug: exiting  DeleteTab
+      // Debug: entering DeleteTab
+      // Debug: in ChangesSignalWhenTabChanges  FlowTab(0x128c717d0) FlowTab(0x1291c9150)
+      // Debug: exiting  DeleteTab
+      // Debug: entering DeleteTab
+      // Debug: in ChangesSignalWhenTabChanges  FlowTab(0x1291c9150) FlowTab(0x11955d210)
+      // Debug: exiting  DeleteTab
+      // Debug: exiting  DeleteTab
+      // Debug: entering DeleteTab
+      // Debug: in ChangesSignalWhenTabChanges  FlowTab(0x11955d210) FlowTab(0x128d01540)
+      // Debug: entering DeleteTab
+      // Debug: in ChangesSignalWhenTabChanges  FlowTab(0x128d01540) FlowTab(0x1094240b0)
+      // Debug: exiting  DeleteTab
+      // Debug: entering DeleteTab
+      // Debug: in ChangesSignalWhenTabChanges  FlowTab(0x1094240b0) FlowTab(0x109763800)
+      // Debug: exiting  DeleteTab
+      // Debug: entering DeleteTab
+      // Debug: in ChangesSignalWhenTabChanges  FlowTab(0x109763800) FlowTab(0x119ef3a50)
+      // Debug: exiting  DeleteTab
+      // Debug: exiting  DeleteTab
+
     Q_ASSERT(tab_to_delete);
+
     // to prevent segfaults, disconnect and reconnect the currentChanged()
     // signal and invoke EmitTabChanged() manually after QTabBar::removeTab(int) 
-    // completes because QTabBar::setCurrentIndex(int) somehow invokes processEvents()
+    // completes because QTabBar::setCurrentIndex(int) **somehow** invokes processEvents()
     // ***BEFORE*** properly setting the current index
+    // this helps to prevent reentrancy.
     disconnect(this, SIGNAL(currentChanged(int)), this, SLOT(EmitTabChanged(int)));
     removeTab(indexOf(tab_to_delete));
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(EmitTabChanged(int)));
-    // now do the short version of EmitTabChanged()
+
+    // Only the current tab is ever connected to the main ui
+    // so do our own version of EmitTabChanged() only if needed
+    // to disconnect and reconnect ui signals
     ContentTab *new_tab = qobject_cast<ContentTab *>(currentWidget());
-    if (new_tab) {
-        emit TabChanged(tab_to_delete, new_tab);
+    if (m_LastContentTab != new_tab) {
+        // move updating of m_LastContentTab to be upfront *before* emitting the signal
+        ContentTab* prevtab = m_LastContentTab;
         m_LastContentTab = new_tab;
-    } else {
-        // this should not happen but we do not want stale info in this pointer
-        m_LastContentTab = NULL;
+        // flow control is lost in following line
+        emit TabChanged(prevtab,  new_tab);
     }
     tab_to_delete->deleteLater();
+    qDebug() << "exiting  DeleteTab";
 }
 
 
