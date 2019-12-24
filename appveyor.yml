@@ -113,9 +113,11 @@ after_build:
     ninja -j4 makeinstaller
 
 deploy_script:
-- cmd: |-
-    python3 --version
-    python3 ../ci_scripts/gddeploy.py
+- ps: >-
+    if(-not $env:appveyor_pull_request_number) {
+        python --version
+        python ../ci_scripts/gddeploy.py
+    }
 
 #artifacts:
 #    path: build\installer\*.exe
