@@ -34,17 +34,17 @@ clone_script:
 
 install:
   - choco install ninja
-  - choco install gdrive
 
 environment:
-  GDRIVE_REFRESH_TOKEN:
-    secure: +J2q/4lkiBXik5Ttvt06vpNiWBjNIXx+jFnYw1rOR9sLkyksyXGj+NeNKQB8kPwE
-  GDRIVE_DIR:
-    secure: e/trZFJnPzo9saqwWWn6+E3ZPoItqflSviT92eeH3Qk76GuEHrPk9DrcG1bh3SNX
   global:
       INNO: C:\Program Files (x86)\Inno Setup 5
       REDIST: C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Redist\MSVC\%RedistVersion%\vcredist_%PLATFORM%.exe
       DOWNLOAD: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/MyQt%PLATFORM%_5.12.6_VS2017_WE.7z
+      GDRIVE: https://github.com/gdrive-org/gdrive/releases/download/2.1.0/gdrive-windows-x64.exe
+      GDRIVE_REFRESH_TOKEN:
+        secure: +J2q/4lkiBXik5Ttvt06vpNiWBjNIXx+jFnYw1rOR9sLkyksyXGj+NeNKQB8kPwE
+      GDRIVE_DIR:
+        secure: e/trZFJnPzo9saqwWWn6+E3ZPoItqflSviT92eeH3Qk76GuEHrPk9DrcG1bh3SNX
   matrix:
     - PYTHON: C:\Python37
       QT: C:\MyQt32\Qt5.12.2
@@ -95,6 +95,8 @@ before_build:
     pip3.7 install PyQt5==5.12.3 PyQt5-sip==4.19.18
     pip3.7 install lxml==4.4.2
     cd project\sigil\build
+    curl.exe -L -o gdrive.exe %GDRIVE%
+    c:\project\sigil\build\gdrive.exe version
     call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %PLATFORM%
     echo 'LIB = %LIB%'
     echo 'LIBPATH = %LIBPATH%'
@@ -115,9 +117,9 @@ after_build:
 deploy_script:
 - ps: >-
     if(-not $env:appveyor_pull_request_number) {
-        Get-Location
         python --version
-        python ../ci_scripts/gddeploy.py
+        c:\project\sigil\build\gdrive.exe version
+        python ..\ci_scripts\gddeploy.py
     }
 
 #artifacts:
