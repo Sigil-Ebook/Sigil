@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 
 import os
+import sys
 import subprocess
 import datetime
 import shutil
+import glob
 
 gparent = os.path.expandvars('$GDRIVE_DIR')
 grefresh_token = os.path.expandvars('$GDRIVE_REFRESH_TOKEN')
@@ -12,8 +14,17 @@ travis_branch = os.path.expandvars('$TRAVIS_BRANCH')
 travis_commit = os.path.expandvars('$TRAVIS_COMMIT')
 travis_build_number = os.path.expandvars('$TRAVIS_BUILD_NUMBER')
 
-origfilename = './bin/Sigil.tar.xz'
-newfilename = './bin/Sigil-{}-{}-build_num-{}.tar.xz'.format(travis_branch, travis_commit[:7],travis_build_number)
+if sys.platform.lower().startswith('darwin'):
+    origfilename = './bin/Sigil.tar.xz'
+    newfilename = './bin/Sigil-{}-{}-build_num-{}.tar.xz'.format(travis_branch, travis_commit[:7],travis_build_number)
+else:
+    names = glob.glob('./installer/Sigil-*-Setup.exe')
+    if names:
+        origfilename = names[0]
+        newfilename = './installer/Sigil-{}-{}-build_num-{}-Setup.exe'.format(travis_branch, travis_commit[:7],travis_build_number)
+    else:
+        exit(1)
+
 shutil.copy2(origfilename, newfilename)
 
 folder_name = datetime.date.today()
