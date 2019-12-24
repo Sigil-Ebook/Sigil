@@ -68,7 +68,7 @@ after_success:
   # Remote PRs won't set secure variables, so don't try to deploy
   - python3 --version
   - if [[ "$TRAVIS_SECURE_ENV_VARS" == true ]]; then
-        python3 ../ci_scripts/macgddeploy.py;
+        python3 ../ci_scripts/gddeploy.py;
     fi
 
 #deploy:
