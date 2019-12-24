@@ -115,6 +115,7 @@ after_build:
 deploy_script:
 - ps: >-
     if(-not $env:appveyor_pull_request_number) {
+        Get-Location
         python --version
         python ../ci_scripts/gddeploy.py
     }
