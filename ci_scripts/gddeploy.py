@@ -25,11 +25,10 @@ else:
     print('{}'.format(os.path.dirname(os.path.realpath(__file__))))
     names = glob.glob('./installer/Sigil-*-Setup.exe')
     print(names)
-    if names:
-        origfilename = names[0]
-        newfilename = './installer/Sigil-{}-{}-build_num-{}-Setup.exe'.format(appveyor_branch, appveyor_commit[:7], appveyor_build_number)
-    else:
+    if not names:
         exit(1)
+    origfilename = names[0]
+    newfilename = './installer/Sigil-{}-{}-build_num-{}-Setup.exe'.format(appveyor_branch, appveyor_commit[:7], appveyor_build_number)
 
 shutil.copy2(origfilename, newfilename)
 
