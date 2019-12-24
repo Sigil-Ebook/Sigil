@@ -20,15 +20,15 @@ if sys.platform.lower().startswith('darwin'):
 else:
     appveyor_branch = os.path.expandvars('$APPVEYOR_REPO_BRANCH')
     appveyor_commit = os.path.expandvars('$APPVEYOR_REPO_COMMIT')
-    appveyor_build_number = os.path.expandvars('$APPVEYOR_BUILD_VERSION')
+    appveyor_build_number = os.path.expandvars('$APPVEYOR_BUILD_NUMBER')
     print('{}'.format(os.getcwd()))
     print('{}'.format(os.path.dirname(os.path.realpath(__file__))))
-    names = glob.glob('./installer/Sigil-*-Setup.exe')
+    names = glob.glob('.\\installer\\Sigil-*-Setup.exe')
     print(names)
     if not names:
         exit(1)
     origfilename = names[0]
-    newfilename = './installer/Sigil-{}-{}-build_num-{}-Setup.exe'.format(appveyor_branch, appveyor_commit[:7], appveyor_build_number)
+    newfilename = '.\\installer\\Sigil-{}-{}-build_num-{}-Setup.exe'.format(appveyor_branch, appveyor_commit[:7], appveyor_build_number)
 
 shutil.copy2(origfilename, newfilename)
 
