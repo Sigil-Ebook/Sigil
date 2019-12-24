@@ -1017,7 +1017,7 @@ private:
     bool m_IsClosing;
 
     QList<QAction*> m_qlactions;
-    
+
     QActionGroup *m_headingActionGroup;
     /**
      * Holds all the widgets Qt Designer created for us.

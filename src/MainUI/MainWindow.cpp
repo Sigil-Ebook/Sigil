@@ -4895,7 +4895,7 @@ void MainWindow::ExtendUI()
     m_qlactions.append(ui.actionPlugin8);
     m_qlactions.append(ui.actionPlugin9);
     m_qlactions.append(ui.actionPlugin10);
-    
+
     // initialize action group from tbHeadings QToolButton actions
     foreach(QAction* ha, ui.tbHeadings->actions()) {
         if (!ha->isSeparator()) {
