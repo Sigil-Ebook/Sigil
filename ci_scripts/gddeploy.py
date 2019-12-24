@@ -18,10 +18,13 @@ if sys.platform.lower().startswith('darwin'):
     origfilename = './bin/Sigil.tar.xz'
     newfilename = './bin/Sigil-{}-{}-build_num-{}.tar.xz'.format(travis_branch, travis_commit[:7],travis_build_number)
 else:
-    names = glob.glob('./installer/Sigil-*-Setup.exe')
     appveyor_branch = os.path.expandvars('$APPVEYOR_REPO_BRANCH')
     appveyor_commit = os.path.expandvars('$APPVEYOR_REPO_COMMIT')
     appveyor_build_number = os.path.expandvars('$APPVEYOR_BUILD_VERSION')
+    print('{}'.format(os.getcwd()))
+    print('{}'.format(os.path.dirname(os.path.realpath(__file__))))
+    names = glob.glob('./installer/Sigil-*-Setup.exe')
+    print(names)
     if names:
         origfilename = names[0]
         newfilename = './installer/Sigil-{}-{}-build_num-{}-Setup.exe'.format(appveyor_branch, appveyor_commit[:7], appveyor_build_number)
