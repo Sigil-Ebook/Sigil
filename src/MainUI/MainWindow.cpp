@@ -24,7 +24,6 @@
 *************************************************************************/
 
 #include <QtCore/QFileInfo>
-#include <QtCore/QSignalMapper>
 #include <QtCore/QThread>
 #include <QtCore/QTimer>
 #include <QtConcurrent>
@@ -180,7 +179,7 @@ MainWindow::MainWindow(const QString &openfilepath,
     c_SaveFilters(GetSaveFiltersMap()),
     c_LoadFilters(GetLoadFiltersMap()),
     m_headingActionGroup(new QActionGroup(this)),
-    m_casingChangeMapper(new QSignalMapper(this)),
+    m_casingChangeGroup(new QActionGroup(this)),
     m_SearchEditor(new SearchEditor(this)),
     m_ClipEditor(new ClipEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
@@ -253,7 +252,7 @@ MainWindow::~MainWindow()
     if (m_IndexEditor) delete m_IndexEditor;
     if (m_ClipEditor) delete m_ClipEditor;
     if (m_SearchEditor) delete m_SearchEditor;
-    if (m_casingChangeMapper) delete m_casingChangeMapper;
+    if (m_casingChangeGroup) delete m_casingChangeGroup;
     if (m_headingActionGroup) delete m_headingActionGroup;
     if (m_lbZoomLabel) delete m_lbZoomLabel;
     if (m_slZoomSlider) delete m_slZoomSlider;
@@ -3082,7 +3081,7 @@ void MainWindow::CreateHTMLTOC()
 }
 
 
-void MainWindow::ChangeCasing(int casing_mode)
+void MainWindow::ChangeCasing(QAction* act)
 {
     ContentTab *tab = GetCurrentContentTab();
 
@@ -3090,31 +3089,20 @@ void MainWindow::ChangeCasing(int casing_mode)
         return;
     }
 
+    QString name = act->objectName();
     Utility::Casing casing;
 
-    switch (casing_mode) {
-        case Utility::Casing_Lowercase: {
-            casing = Utility::Casing_Lowercase;
-            break;
-        }
-
-        case Utility::Casing_Uppercase: {
-            casing = Utility::Casing_Uppercase;
-            break;
-        }
-
-        case Utility::Casing_Titlecase: {
-            casing = Utility::Casing_Titlecase;
-            break;
-        }
-
-        case Utility::Casing_Capitalize: {
-            casing = Utility::Casing_Capitalize;
-            break;
-        }
-
-        default:
-            return;
+    if (name.contains("lowercase", Qt::CaseInsensitive)) {
+        casing = Utility::Casing_Lowercase;
+    }
+    if (name.contains("uppercase", Qt::CaseInsensitive)) {
+        casing = Utility::Casing_Uppercase;
+    }
+    if (name.contains("titlecase", Qt::CaseInsensitive)) {
+        casing = Utility::Casing_Titlecase;
+    }
+    if (name.contains("capitalize", Qt::CaseInsensitive)) {
+        casing = Utility::Casing_Capitalize;
     }
 
     tab->ChangeCasing(casing);
@@ -4903,6 +4891,13 @@ void MainWindow::ExtendUI()
         }
     }
 
+    // initialize action group from tbCase QToolButton actions
+    foreach(QAction* ca, ui.tbCase->actions()) {
+        if (!ca->isSeparator()) {
+            m_casingChangeGroup->addAction(ca);
+        }
+    }
+
     m_FindReplace->ShowHide();
     // We want a nice frame around the tab manager
     QFrame *frame = new QFrame(this);
@@ -5710,15 +5705,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionDeleteUnusedMedia,    SIGNAL(triggered()), this, SLOT(DeleteUnusedMedia()));
     connect(ui.actionDeleteUnusedStyles,    SIGNAL(triggered()), this, SLOT(DeleteUnusedStyles()));
     // Change case
-    connect(ui.actionCasingLowercase,  SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));
-    connect(ui.actionCasingUppercase,  SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));
-    connect(ui.actionCasingTitlecase, SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));
-    connect(ui.actionCasingCapitalize, SIGNAL(triggered()), m_casingChangeMapper, SLOT(map()));
-    m_casingChangeMapper->setMapping(ui.actionCasingLowercase,  Utility::Casing_Lowercase);
-    m_casingChangeMapper->setMapping(ui.actionCasingUppercase,  Utility::Casing_Uppercase);
-    m_casingChangeMapper->setMapping(ui.actionCasingTitlecase, Utility::Casing_Titlecase);
-    m_casingChangeMapper->setMapping(ui.actionCasingCapitalize, Utility::Casing_Capitalize);
-    connect(m_casingChangeMapper, SIGNAL(mapped(int)), this, SLOT(ChangeCasing(int)));
+    connect(m_casingChangeGroup,    SIGNAL(triggered(QAction*)), this, SLOT(ChangeCasing(QAction*)));
     // View
     connect(ui.actionZoomIn,        SIGNAL(triggered()), this, SLOT(ZoomIn()));
     connect(ui.actionZoomOut,       SIGNAL(triggered()), this, SLOT(ZoomOut()));

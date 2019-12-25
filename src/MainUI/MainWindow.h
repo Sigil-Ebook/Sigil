@@ -617,7 +617,7 @@ private slots:
     void EditTOCDialog();
     void CreateHTMLTOC();
 
-    void ChangeCasing(int casing_mode);
+    void ChangeCasing(QAction* act);
 
     void MarkSelection();
     void ClearMarkedText(ContentTab *old_tab = NULL);
@@ -950,7 +950,7 @@ private:
     /**
      * Collects signals and sends specific parameters to the connected slots.
      */
-    QSignalMapper *m_casingChangeMapper;
+    QActionGroup *m_casingChangeGroup;
 
     /**
      * The Search Manager dialog
@@ -1018,7 +1018,11 @@ private:
 
     QList<QAction*> m_qlactions;
 
+    /**
+     * Collects signals and sends specific parameters to the connected slots.
+     */
     QActionGroup *m_headingActionGroup;
+
     /**
      * Holds all the widgets Qt Designer created for us.
      */
