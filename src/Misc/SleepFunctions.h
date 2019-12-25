@@ -38,9 +38,9 @@ public:
         QThread::sleep(seconds);
     }
 
-    // Sleep for num "miliseconds"
-    static void msleep(unsigned long miliseconds) {
-        QThread::msleep(miliseconds);
+    // Sleep for num "milliseconds"
+    static void msleep(unsigned long milliseconds) {
+        QThread::msleep(milliseconds);
     }
 
     // Sleep for num "microseconds"
