@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2018 Kevin B. Hendricks, Stratford, ON Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2018-2019 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -26,7 +26,8 @@
 #include <QtWidgets/QToolButton>
 #include <QtWidgets/QApplication>
 #include <QtCore/QSignalMapper>
-
+#include <QScrollArea>
+#include <QVBoxLayout>
 #include "Dialogs/SelectCharacter.h"
 #include "ResourceObjects/HTMLResource.h"
 
@@ -42,6 +43,13 @@ SelectCharacter::SelectCharacter(QWidget *parent)
     connectSignalsSlots();
     ReadSettings();
     SetList();
+    QWidget *viewport = new QWidget;
+    viewport->setLayout(ui.character_box);
+    QScrollArea * scrollArea = new QScrollArea;
+    scrollArea->setWidget(viewport);
+    QVBoxLayout *vbox = new QVBoxLayout;
+    vbox->addWidget(scrollArea);
+    setLayout(vbox);
 }
 
 SelectCharacter::~SelectCharacter()
