@@ -966,12 +966,11 @@ QHash<QString, QStringList> Book::GetHTMLFilesUsingImages()
 
     for (int i = 0; i < future.results().count(); i++) {
         QString html_bookpath;
-        QStringList media_filenames;
-        std::tie(html_bookpath, media_filenames) = future.resultAt(i);
-        foreach(QString media_filename, media_filenames) {
-	    Resource * resource = GetFolderKeeper()->GetResourceByBookPath(html_bookpath);
-            media_filename = Utility::buildBookPath(media_filename, resource->GetFolder());
-            html_files[media_filename].append(resource->ShortPathName());
+        QStringList image_bookpaths;
+        std::tie(html_bookpath, image_bookpaths) = future.resultAt(i);
+        foreach(QString bookpath, image_bookpaths) {
+            Resource * resource = m_Mainfolder->GetResourceByBookPath(html_bookpath);
+            html_files[bookpath].append(resource->ShortPathName());
         }
     }
 
