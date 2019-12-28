@@ -177,7 +177,7 @@ class OutputContainer(object):
         # yields manifest id, href, and mimetype
         for id in sorted(self._w.id_to_mime):
             mime = self._w.id_to_mime[id]
-            if mime.find('font-') > -1 or mime.endswith('-ttf') or mime.endswith('truetype') or mime.endswith('opentype'):
+            if 'font-' in mime or 'truetype' in mime or 'opentype' in mime or mime.startswith('font/'):
                 href = self._w.id_to_href[id]
                 yield id, href, mime
 
