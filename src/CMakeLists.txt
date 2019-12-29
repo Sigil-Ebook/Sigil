@@ -511,6 +511,7 @@ set( QRC_FILES
     Resource_Files/About/About.qrc
     Resource_Files/javascript/javascript.qrc
     Resource_Files/icon/icon.qrc
+    Resource_Files/dark/dark.qrc
     )
 
 if ( APPLE )

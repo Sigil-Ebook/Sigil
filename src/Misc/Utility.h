@@ -51,6 +51,12 @@ public:
     // Define the user preferences location to be used
     static QString DefinePrefsDir();
 
+    // Indicates Windows system dark mode is enabled
+    static bool IsWindowsSysDarkMode();
+
+    // Should Windows Sigil be using dark mode?
+    static bool WindowsShouldUseDarkMode();
+
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // Return correct path(s) for Linux hunspell dictionaries
     static QStringList LinuxHunspellDictionaryDirs();

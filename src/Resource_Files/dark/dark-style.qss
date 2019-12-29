@@ -1,0 +1,50 @@
+QToolBar {
+  border: 0;
+}
+
+QTabBar {
+  qproperty-drawBase:0;
+}
+
+QDockWidget::float-button, QDockWidget::close-button {
+  border: transparent;
+  background: transparent; 
+  padding: 0;
+  icon-size: 9px;
+}
+
+QDockWidget {
+  titlebar-normal-icon: url(:/dark/undock.svg);
+  titlebar-close-icon: url(':/dark/dock-close.svg');
+}
+
+QDockWidget::float-button:hover {
+  image: url(:/dark/undock-hover.svg);
+}
+
+QDockWidget::float-button:hover {
+  border: none;
+}
+
+QDockWidget::close-button:hover {
+  image: url(:/dark/dock-close-hover.svg);
+}
+
+QDockWidget::close-button:hover {
+  border: none;
+}
+
+QTabBar::close-button {
+  border: 0;
+  margin: 2px;
+  padding: 0;
+  image: url(:/dark/closetab-mini.svg);
+}
+
+QTabBar::close-button:hover {
+  image: url(:/dark/closetab-hover.svg);
+}
+
+QTabBar::close-button:pressed {
+  image: url(:/dark/closetab-pressed.svg);
+}

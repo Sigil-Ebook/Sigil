@@ -66,7 +66,7 @@ public:
         }
 
         r = option.rect.adjusted(1, 1, option.rect.height() - option.rect.width(), -2);
-        painter->setPen(Qt::black);
+        painter->setPen(QPalette().text().color());
         painter->setBrush(swatch_color);
         painter->drawRect(r);
     }

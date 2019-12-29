@@ -333,7 +333,7 @@ void KeyboardShortcutsWidget::markSequencesAsDuplicatedIfNeeded()
             foreach(QTreeWidgetItem * item, itemSet.values()) {
                 QFont font = item->font(COL_SHORTCUT);
                 font.setBold(false);
-                item->setForeground(COL_SHORTCUT, QColor(Qt::black));
+                item->setForeground(COL_SHORTCUT, QPalette().color(QPalette::Text));
                 item->setFont(COL_SHORTCUT, font);
             }
         }
