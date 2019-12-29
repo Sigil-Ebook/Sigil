@@ -106,6 +106,26 @@ QString Utility::DefinePrefsDir()
     }
 }
 
+bool Utility::IsWindowsSysDarkMode()
+{
+    QSettings s("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", QSettings::NativeFormat);
+    if (s.status() == QSettings::NoError) {
+        qDebug() << "Registry Value = " << s.value("AppsUseLightTheme");
+        return s.value("AppsUseLightTheme") == 0;
+    }
+    return false;
+}
+
+bool Utility::WindowsShouldUseDarkMode()
+{
+    QString override(GetEnvironmentVar("SIGIL_USES_DARK_MODE"));
+    // Strictly Env Var override until we go live (though IsWindowsSysDarkMode() does work)
+    //if (IsWindowsSysDarkMode() || (!override.isEmpty() && override == "1")) {
+    if (!override.isEmpty() && override == "1") {
+        return true;
+    }
+    return false;
+}
 
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 // Return correct path(s) for Linux hunspell dictionaries
