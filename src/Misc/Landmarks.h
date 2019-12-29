@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016  Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -25,6 +25,7 @@
 
 #include <QCoreApplication>
 #include <QHash>
+
 class QString;
 class QStringList;
 
@@ -46,15 +47,16 @@ public:
 
     static Landmarks *instance();
 
-    QString GetName(QString code);
-    QString GetDescriptionByCode(QString code);
-    QString GetDescriptionByName(QString name);
-    QString GetCode(QString name);
+    QString GetName(const QString &code);
+    QString GetTitle(const QString &code);
+    QString GetDescriptionByCode(const QString &code);
+    QString GetDescriptionByName(const QString &name);
+    QString GetCode(const QString &name);
     QStringList GetSortedNames();
-    bool isLandmarksCode(QString code);
-    bool isLandmarksName(QString name);
+    bool isLandmarksCode(const QString &code);
+    bool isLandmarksName(const QString &name);
     const QHash<QString, DescriptiveInfo> &GetCodeMap();
-    QString GuideLandMapping(QString code);
+    QString GuideLandMapping(const QString &code);
 
 private:
 
@@ -63,6 +65,8 @@ private:
     void SetLandmarksMap();
 
     void SetGuideLandMap();
+
+    void SetCodeToRawTitleMap();
 
     // code -> DescriptiveInfo -> name and description
     QHash<QString, DescriptiveInfo> m_CodeMap;
@@ -74,7 +78,11 @@ private:
 
     QHash<QString, QString> m_GuideLandMap;
     
+    QHash<QString,QString> m_CodeToRawTitle;
+
     static Landmarks *m_instance;
+
+
 };
 
 #endif // LANDMARKS_H

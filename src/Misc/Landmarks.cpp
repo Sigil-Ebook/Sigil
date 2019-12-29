@@ -22,7 +22,11 @@
 #include <QString>
 #include <QStringList>
 #include <QHash>
+#include <QTranslator>
+#include <QDir>
 
+#include "Misc/SettingsStore.h"
+#include "Misc/UILanguage.h"
 #include "Misc/Landmarks.h"
 
 Landmarks *Landmarks::m_instance = 0;
@@ -36,39 +40,78 @@ Landmarks *Landmarks::instance()
     return m_instance;
 }
 
+Landmarks::Landmarks()
+{
+    SetLandmarksMap();
+    SetGuideLandMap();
+    SetCodeToRawTitleMap();
+}
 
-QString Landmarks::GetName(QString code)
+
+QString Landmarks::GetName(const QString &code)
 {
     DescriptiveInfo rel = m_CodeMap.value(code, DescriptiveInfo() );
     return rel.name;
 }
 
 
-QString Landmarks::GetDescriptionByCode(QString code)
+QString Landmarks::GetTitle(const QString &code)
+{
+    if (!m_CodeToRawTitle.contains(code)) return code;
+
+    SettingsStore ss;
+
+    // Setup the book language translator and load the translation for the selected language
+    // Note the book language may differ from the ui language
+    bool translation_loaded = false;
+    QTranslator bookTranslator;
+    const QString qm_name = QString("sigil_%1").arg(ss.defaultMetadataLang());
+    // Run though all locations and stop once we find and are able to load
+    // an appropriate translation.
+    foreach(QString path, UILanguage::GetPossibleTranslationPaths()) {
+        if (QDir(path).exists()) {
+            if (bookTranslator.load(qm_name, path)) {
+                translation_loaded = true;
+                break;
+            }
+        }
+    }
+    // if no translator matched, use the user interface language so that
+    // the dev can fix them manually
+    if (!translation_loaded) {
+        return GetName(code);
+    }
+    
+    QString title = bookTranslator.translate("Landmarks", m_CodeToRawTitle[code].toUtf8().constData());
+    return title;
+}
+
+
+QString Landmarks::GetDescriptionByCode(const QString &code)
 {
     DescriptiveInfo rel = m_CodeMap.value(code, DescriptiveInfo());
     return rel.description;
 }
 
 
-QString Landmarks::GetDescriptionByName(QString name)
+QString Landmarks::GetDescriptionByName(const QString &name)
 {
     QString code = m_NameMap.value(name, QString());
     return GetDescriptionByCode(code);
 }
 
 
-QString Landmarks::GetCode(QString name)
+QString Landmarks::GetCode(const QString &name)
 {
     return m_NameMap.value(name, QString());
 }
 
-bool Landmarks::isLandmarksCode(QString code)
+bool Landmarks::isLandmarksCode(const QString &code)
 {
     return m_CodeMap.contains(code);
 }
 
-bool Landmarks::isLandmarksName(QString name)
+bool Landmarks::isLandmarksName(const QString &name)
 {
     return m_NameMap.contains(name);
 }
@@ -92,13 +135,7 @@ const QHash<QString, DescriptiveInfo> & Landmarks::GetCodeMap()
     return m_CodeMap;
 }
 
-Landmarks::Landmarks()
-{
-    SetLandmarksMap();
-    SetGuideLandMap();
-}
-
-QString Landmarks::GuideLandMapping(QString code)
+QString Landmarks::GuideLandMapping(const QString &code)
 {
   return m_GuideLandMap.value(code, QString());
 }
@@ -204,3 +241,59 @@ void Landmarks::SetGuideLandMap()
     m_GuideLandMap[ "toc"              ] = "toc";
 }
 
+
+void Landmarks::SetCodeToRawTitleMap()
+{
+    if (!m_CodeToRawTitle.isEmpty()) {
+        return;
+    }
+
+    m_CodeToRawTitle["acknowledgments"]  = "Acknowledgments";
+    m_CodeToRawTitle["afterword"]        = "Afterword";
+    m_CodeToRawTitle["annotation"]       = "Annotation";
+    m_CodeToRawTitle["appendix"]         = "Appendix";
+    m_CodeToRawTitle["assessment"]       = "Assessment";
+    m_CodeToRawTitle["backmatter"]       = "Back Matter";
+    m_CodeToRawTitle["bibliography"]     = "Bibliography";
+    m_CodeToRawTitle["bodymatter"]       = "Body Matter";
+    m_CodeToRawTitle["chapter"]          = "Chapter";
+    m_CodeToRawTitle["colophon"]         = "Colophon";
+    m_CodeToRawTitle["conclusion"]       = "Conclusion";
+    m_CodeToRawTitle["contributors"]     = "Contributors";
+    m_CodeToRawTitle["copyright-page"]   = "Copyright Page";
+    m_CodeToRawTitle["cover"]            = "Cover";
+    m_CodeToRawTitle["dedication"]       = "Dedication";
+    m_CodeToRawTitle["division"]         = "Division";
+    m_CodeToRawTitle["epigraph"]         = "Epigraph";
+    m_CodeToRawTitle["epilogue"]         = "Epilogue";
+    m_CodeToRawTitle["errata"]           = "Errata";
+    m_CodeToRawTitle["footnotes"]        = "Footnotes";
+    m_CodeToRawTitle["foreword"]         = "Foreword";
+    m_CodeToRawTitle["frontmatter"]      = "Front Matter";
+    m_CodeToRawTitle["glossary"]         = "Glossary";
+    m_CodeToRawTitle["halftitlepage"]    = "Half Title Page";
+    m_CodeToRawTitle["imprimatur"]       = "Imprimatur";
+    m_CodeToRawTitle["imprint"]          = "Imprint";
+    m_CodeToRawTitle["index"]            = "Index";
+    m_CodeToRawTitle["introduction"]     = "Introduction";
+    m_CodeToRawTitle["landmarks"]        = "Landmarks";
+    m_CodeToRawTitle["loa"]              = "List of Audio Clips";
+    m_CodeToRawTitle["loi"]              = "List of Illustrations";
+    m_CodeToRawTitle["lot"]              = "List of Tables";
+    m_CodeToRawTitle["lov"]              = "List of Video Clips";
+    m_CodeToRawTitle["notice"]           = "Notice";
+    m_CodeToRawTitle["other-credits"]    = "Other Credits";
+    m_CodeToRawTitle["page-list"]        = "Page List";
+    m_CodeToRawTitle["part"]             = "Part";
+    m_CodeToRawTitle["preamble"]         = "Preamble";
+    m_CodeToRawTitle["preface"]          = "Preface";
+    m_CodeToRawTitle["prologue"]         = "Prologue";
+    m_CodeToRawTitle["qna"]              = "Questions and Answers";
+    m_CodeToRawTitle["rearnotes"]        = "Rear Notes";
+    m_CodeToRawTitle["revision-history"] = "Revision History";
+    m_CodeToRawTitle["subchapter"]       = "Subchapter";
+    m_CodeToRawTitle["titlepage"]        = "Title Page";
+    m_CodeToRawTitle["toc"]              = "Table of Contents";
+    m_CodeToRawTitle["volume"]           = "Volume";
+    m_CodeToRawTitle["warning"]          = "Warning";
+}

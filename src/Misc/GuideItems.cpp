@@ -22,7 +22,11 @@
 #include <QString>
 #include <QStringList>
 #include <QHash>
+#include <QTranslator>
+#include <QDir>
 
+#include "Misc/SettingsStore.h"
+#include "Misc/UILanguage.h"
 #include "Misc/GuideItems.h"
 
 GuideItems *GuideItems::m_instance = 0;
@@ -37,7 +41,14 @@ GuideItems *GuideItems::instance()
 }
 
 
-QString GuideItems::GetName(QString code)
+GuideItems::GuideItems()
+{
+    SetGuideItemsMap();
+    SetCodeToRawTitleMap();
+}
+
+
+QString GuideItems::GetName(const QString &code)
 {
     DescriptiveInfo rel = m_CodeMap.value(code, DescriptiveInfo() );
     if (rel.name.isEmpty()) return code;
@@ -45,31 +56,63 @@ QString GuideItems::GetName(QString code)
 }
 
 
-QString GuideItems::GetDescriptionByCode(QString code)
+QString GuideItems::GetTitle(const QString &code)
+{
+    if (!m_CodeToRawTitle.contains(code)) return code;
+
+    SettingsStore ss;
+
+    // Setup the book language translator and load the translation for the selected language
+    // Note the book language may differ from the ui language
+    bool translation_loaded = false;
+    QTranslator bookTranslator;
+    const QString qm_name = QString("sigil_%1").arg(ss.defaultMetadataLang());
+    // Run though all locations and stop once we find and are able to load
+    // an appropriate translation.
+    foreach(QString path, UILanguage::GetPossibleTranslationPaths()) {
+        if (QDir(path).exists()) {
+            if (bookTranslator.load(qm_name, path)) {
+                translation_loaded = true;
+                break;
+            }
+        }
+    }
+    // if no translator matched, use the user interface language so that
+    // the dev can fix them manually
+    if (!translation_loaded) {
+        return GetName(code);
+    }
+    
+    QString title = bookTranslator.translate("GuideItems", m_CodeToRawTitle[code].toUtf8().constData());
+    return title;
+}
+
+
+QString GuideItems::GetDescriptionByCode(const QString &code)
 {
     DescriptiveInfo rel = m_CodeMap.value(code, DescriptiveInfo());
     return rel.description;
 }
 
 
-QString GuideItems::GetDescriptionByName(QString name)
+QString GuideItems::GetDescriptionByName(const QString &name)
 {
     QString code = m_NameMap.value(name, QString());
     return GetDescriptionByCode(code);
 }
 
 
-QString GuideItems::GetCode(QString name)
+QString GuideItems::GetCode(const QString &name)
 {
     return m_NameMap.value(name, QString());
 }
 
-bool GuideItems::isGuideItemsCode(QString code)
+bool GuideItems::isGuideItemsCode(const QString &code)
 {
     return m_CodeMap.contains(code);
 }
 
-bool GuideItems::isGuideItemsName(QString name)
+bool GuideItems::isGuideItemsName(const QString &name)
 {
     return m_NameMap.contains(name);
 }
@@ -93,10 +136,6 @@ const QHash<QString, DescriptiveInfo> & GuideItems::GetCodeMap()
     return m_CodeMap;
 }
 
-GuideItems::GuideItems()
-{
-    SetGuideItemsMap();
-}
 
 void GuideItems::SetGuideItemsMap()
 {
@@ -155,4 +194,47 @@ void GuideItems::SetGuideItemsMap()
         m_CodeMap.insert(code, rel);
         m_NameMap.insert(name, code);
     }
+}
+
+void GuideItems::SetCodeToRawTitleMap()
+{
+    if (!m_CodeToRawTitle.isEmpty()) {
+        return;
+    }
+    m_CodeToRawTitle["acknowledgements"]    = "Acknowledgements";
+    m_CodeToRawTitle["other.afterword"]     = "Afterword";
+    m_CodeToRawTitle["other.appendix"]      = "Appendix";
+    m_CodeToRawTitle["other.backmatter"]    = "Back Matter";
+    m_CodeToRawTitle["bibliography"]        = "Bibliography";
+    m_CodeToRawTitle["colophon"]            = "Colophon";
+    m_CodeToRawTitle["other.conclusion"]    = "Conclusion";
+    m_CodeToRawTitle["other.contributors"]  = "Contributors";
+    m_CodeToRawTitle["copyright-page"]      = "Copyright Page";
+    m_CodeToRawTitle["cover"]               = "Cover";
+    m_CodeToRawTitle["dedication"]          = "Dedication";
+    m_CodeToRawTitle["other.epilogue"]      = "Epilogue";
+    m_CodeToRawTitle["epigraph"]            = "Epigraph";
+    m_CodeToRawTitle["other.errata"]        = "Errata";
+    m_CodeToRawTitle["other.footnotes"]     = "Footnotes";
+    m_CodeToRawTitle["foreword"]            = "Foreword";
+    m_CodeToRawTitle["other.frontmatter"]   = "Front Matter";
+    m_CodeToRawTitle["glossary"]            = "Glossary";
+    m_CodeToRawTitle["other.halftitlepage"] = "Half Title Page";
+    m_CodeToRawTitle["other.imprimatur"]    = "Imprimatur";
+    m_CodeToRawTitle["other.imprint"]       = "Imprint";
+    m_CodeToRawTitle["index"]               = "Index";
+    m_CodeToRawTitle["other.introduction"]  = "Introduction";
+    m_CodeToRawTitle["loi"]                 = "List of Illustrations";
+    m_CodeToRawTitle["other.loa"]           = "List of Audio Clips";
+    m_CodeToRawTitle["lot"]                 = "List of Tables";
+    m_CodeToRawTitle["other.lov"]           = "List of Video Clips";
+    m_CodeToRawTitle["notes"]               = "Notes";
+    m_CodeToRawTitle["other.other-credits"] = "Other Credits";
+    m_CodeToRawTitle["other.preamble"]      = "Preamble";
+    m_CodeToRawTitle["preface"]             = "Preface";
+    m_CodeToRawTitle["other.prologue"]      = "Prologue";
+    m_CodeToRawTitle["other.rearnotes"]     = "Rear Notes";
+    m_CodeToRawTitle["text"]                = "Text";
+    m_CodeToRawTitle["title-page"]          = "Title Page";
+    m_CodeToRawTitle["toc"]                 = "Table of Contents";
 }
