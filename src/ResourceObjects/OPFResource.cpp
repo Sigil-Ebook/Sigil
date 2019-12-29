@@ -773,7 +773,7 @@ void OPFResource::SetGuideSemanticCodeForResource(QString code, const Resource *
 {
     if (code.isEmpty()) return;
     int pos = GetGuideReferenceForResourcePos(resource, p);
-    QString title = GuideItems::instance()->GetName(code);
+    QString title = GuideItems::instance()->GetTitle(code);
     if (pos > -1) {
         GuideEntry ge = p.m_guide.at(pos);
         ge.m_type = code;

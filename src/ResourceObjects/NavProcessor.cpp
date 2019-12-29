@@ -255,7 +255,7 @@ QString NavProcessor::BuildTOC(const QList<NavTOCEntry> & toclist)
     QString step = "  ";
     QString base = step.repeated(2);
     res << "\n" + step + "<nav epub:type=\"toc\" id=\"toc\">\n";
-    res << base + "<h1>" + Landmarks::instance()->GetName("toc") + "</h1>\n";
+    res << base + "<h1>" + Landmarks::instance()->GetTitle("toc") + "</h1>\n";
     res << base + "<ol>\n";
     foreach(NavTOCEntry te, toclist) {
         int lvl = te.lvl;
@@ -308,7 +308,7 @@ QString NavProcessor::BuildLandmarks(const QList<NavLandmarkEntry> & landlist)
     QString step = "  ";
     QString base = step.repeated(2);
     res << "\n" + step + "<nav epub:type=\"landmarks\" id=\"landmarks\" hidden=\"\">\n";
-    res << base + "<h1>" + Landmarks::instance()->GetName("landmarks") + "</h1>\n";
+    res << base + "<h1>" + Landmarks::instance()->GetTitle("landmarks") + "</h1>\n";
     res << base + "<ol>\n";
     foreach(NavLandmarkEntry le, landlist) {
         QString etype = le.etype;
@@ -330,7 +330,7 @@ QString NavProcessor::BuildPageList(const QList<NavPageListEntry> & pagelist)
     QString step = "  ";
     QString base = step.repeated(3);
     res << "\n" + step + "<nav epub:type=\"page-list\" id=\"page-list\" hidden=\"\">\n";
-    res << base + "<h1>" + Landmarks::instance()->GetName("page-list") + "</h1>\n";
+    res << base + "<h1>" + Landmarks::instance()->GetTitle("page-list") + "</h1>\n";
     res << "\n" + base + "<ol>\n";
     foreach(NavPageListEntry pe, pagelist) {
         QString pagename = Utility::EncodeXML(pe.pagename);
@@ -485,7 +485,7 @@ void NavProcessor::AddLandmarkCode(const Resource *resource, QString new_code, b
         current_code = le.etype;
     }
     if ((current_code != new_code) || !toggle) {
-        QString title = Landmarks::instance()->GetName(new_code);
+        QString title = Landmarks::instance()->GetTitle(new_code);
         if (pos > -1) {
             NavLandmarkEntry le = landlist.at(pos);
             le.etype = new_code;
