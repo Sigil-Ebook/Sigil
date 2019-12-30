@@ -366,6 +366,8 @@ private slots:
      */
     void ApplicationFocusChanged(QWidget *old, QWidget *now);
 
+    void ApplicationPaletteChanged();
+
     /** 
      *  Quick Launch Plugins via icon button
      */
@@ -1022,6 +1024,10 @@ private:
      * Collects signals and sends specific parameters to the connected slots.
      */
     QActionGroup *m_headingActionGroup;
+
+    QStyle * m_Style;
+
+    bool m_isDark;
 
     /**
      * Holds all the widgets Qt Designer created for us.

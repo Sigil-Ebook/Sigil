@@ -39,6 +39,10 @@ public:
 signals:
     void applicationActivated();
     void applicationDeactivated();
+    void applicationPaletteChanged();
+
+public slots:
+    void EmitPaletteChanged();
 
 protected:
     bool event(QEvent *pEvent);
