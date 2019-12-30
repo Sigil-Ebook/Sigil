@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2019 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Grant Drake
 **  Copyright (C) 2012 Dave Heiland
@@ -21,6 +22,9 @@
 **
 *************************************************************************/
 
+#include <QApplication>
+#include <QTimer>
+#include <QDebug>
 #include "MainUI/MainApplication.h"
 
 MainApplication::MainApplication(int &argc, char **argv)
@@ -35,6 +39,14 @@ bool MainApplication::event(QEvent *pEvent)
     } else if (pEvent->type() == QEvent::ApplicationDeactivate) {
         emit applicationDeactivated();
     }
-
+    if (pEvent->type() == QEvent::ApplicationPaletteChange) {
+        // qDebug() << "Application Palette Changed";
+	QTimer::singleShot(0, this, SLOT(EmitPaletteChanged()));
+    }
     return QApplication::event(pEvent);
+}
+
+void MainApplication::EmitPaletteChanged()
+{
+    emit applicationPaletteChanged();
 }

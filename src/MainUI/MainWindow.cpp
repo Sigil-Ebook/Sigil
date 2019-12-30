@@ -47,6 +47,8 @@
 #include <QFontMetrics>
 #include <QEvent>
 #include <QWindowStateChangeEvent>
+#include <QStyleFactory>
+#include <QStyle>
 #include <QDebug>
 
 #include "BookManipulation/CleanSource.h"
@@ -207,7 +209,8 @@ MainWindow::MainWindow(const QString &openfilepath,
     m_menuPluginsValidation(NULL),
     m_pluginList(QStringList()),
     m_SaveCSS(false),
-    m_IsClosing(false)
+    m_IsClosing(false),
+    m_Style(NULL)
 {
     ui.setupUi(this);
     // Telling Qt to delete this window
@@ -226,6 +229,13 @@ MainWindow::MainWindow(const QString &openfilepath,
     ChangeSignalsWhenTabChanges(NULL, m_TabManager->GetCurrentContentTab());
     LoadInitialFile(openfilepath, version, is_internal);
     loadPluginsMenu();
+#ifdef Q_OS_MAC
+    m_Style = QStyleFactory::create("macintosh");
+    QPalette app_palette = m_Style->standardPalette();
+#else
+    QPalette app_palette = QApplication::palette();
+#endif
+    m_isDark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
 }
 
 MainWindow::~MainWindow()
@@ -2392,6 +2402,22 @@ void MainWindow::MarkForIndex()
         if (!flow_tab->MarkForIndex(entry)) {
             QMessageBox::warning(this, tr("Sigil"), tr("You cannot mark an index at this position."));
         }
+    }
+}
+
+void MainWindow::ApplicationPaletteChanged()
+{
+    // on macOS the application palette actual text colors never seem to change when DarkMode is enabled
+    // so use a mac style standardPalette
+#ifdef Q_OS_MAC
+    QPalette app_palette = m_Style->standardPalette();
+#else
+    QPalette app_palette = QApplication::palette();
+#endif
+    bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
+    if (m_isDark != isdark) {
+	qDebug() << "Theme changed " << "was isDark:" << m_isDark << "now isDark:" << isdark;
+        m_isDark = isdark;
     }
 }
 
@@ -5636,6 +5662,9 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_PreviewWindow, SIGNAL(OpenUrlRequest(const QUrl &)), this, SLOT(OpenUrl(const QUrl &)));
     connect(m_PreviewWindow, SIGNAL(ScrollToFragmentRequest(const QString &)), this, SLOT(ScrollCVToFragment(const QString &)));
     connect(qApp, SIGNAL(focusChanged(QWidget *, QWidget *)), this, SLOT(ApplicationFocusChanged(QWidget *, QWidget *)));
+    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
+    connect(mainApplication, SIGNAL(applicationPaletteChanged()), this, SLOT(ApplicationPaletteChanged()));
+
     // File
     connect(ui.actionNew,           SIGNAL(triggered()), this, SLOT(NewDefault()));
     connect(ui.actionNewEpub2,      SIGNAL(triggered()), this, SLOT(NewEpub2()));
