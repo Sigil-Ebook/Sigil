@@ -43,12 +43,13 @@ public:
 
     enum AvailablePreferences {
         AppearancePrefs        = 0,
-        GeneralSettingsPrefs   = 1,
-        KeyboardShortcutsPrefs = 2,
-        LanguagePrefs          = 3,
-        SpellCheckPrefs        = 4,
-        PreserveEntitiesPrefs  = 5,
-        PluginsPrefs           = 6
+        DarkAppearancePrefs    = 1,
+        GeneralSettingsPrefs   = 2,
+        KeyboardShortcutsPrefs = 3,
+        LanguagePrefs          = 4,
+        SpellCheckPrefs        = 5,
+        PreserveEntitiesPrefs  = 6,
+        PluginsPrefs           = 7
     };
 
 
