@@ -109,6 +109,8 @@ public:
 	       Qt::WindowFlags flags = 0);
     ~MainWindow();
 
+    bool isDark();
+
     // returns true if MainWindow is Maximized or is FullScreen
     bool isMaxOrFull();
 

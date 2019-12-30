@@ -51,6 +51,9 @@ public:
     // Define the user preferences location to be used
     static QString DefinePrefsDir();
 
+    // Indicates macOS sytem is in dark mode
+    static bool IsMacDarkMode();
+
     // Indicates Windows system dark mode is enabled
     static bool IsWindowsSysDarkMode();
 

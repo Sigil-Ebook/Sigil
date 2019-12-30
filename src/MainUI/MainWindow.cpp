@@ -934,6 +934,10 @@ void MainWindow::DebugCurrentWidgetSizes()
     }
 }
 
+bool MainWindow::isDark() {
+    return m_isDark;
+}
+
 // somehow this routine needs to detect that the mainwindow has
 // been maximized or made fullscreen *before* that WindowState
 // has been set.
