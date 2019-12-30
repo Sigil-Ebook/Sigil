@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 - 2019  Kevin B. Hendricks, Stratford, ON
-**  Copyright (C) 2011, 2012, 2013  John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012, 2013  Dave Heiland
+**  Copyright (C) 2016-2019  Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2011-2013  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012-2013  Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -94,6 +94,32 @@ static QString KEY_CODE_VIEW_XHTML_DOCTYPE_COLOR = SETTINGS_GROUP + "/" + "code_
 static QString KEY_CODE_VIEW_XHTML_ENTITY_COLOR = SETTINGS_GROUP + "/" + "code_view_xhtml_entity_color";
 static QString KEY_CODE_VIEW_XHTML_HTML_COLOR = SETTINGS_GROUP + "/" + "code_view_xhtml_html_color";
 static QString KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR = SETTINGS_GROUP + "/" + "code_view_xhtml_html_comment_color";
+
+// Dark Appearance
+static QString KEY_CV_DARK_BACKGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_background_color";
+static QString KEY_CV_DARK_FOREGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_foreground_color";
+static QString KEY_CV_DARK_CSS_COMMENT_COLOR = SETTINGS_GROUP + "/" + "cv_dark_css_comment_color";
+static QString KEY_CV_DARK_CSS_PROPERTY_COLOR = SETTINGS_GROUP + "/" + "cv_dark_css_property_color";
+static QString KEY_CV_DARK_CSS_QUOTE_COLOR = SETTINGS_GROUP + "/" + "cv_dark_css_quote_color";
+static QString KEY_CV_DARK_CSS_SELECTOR_COLOR = SETTINGS_GROUP + "/" + "cv_dark_css_selector_color";
+static QString KEY_CV_DARK_CSS_VALUE_COLOR = SETTINGS_GROUP + "/" + "cv_dark_css_value_color";
+static QString KEY_CV_DARK_FONT_FAMILY = SETTINGS_GROUP + "/" + "cv_dark_font_family_standard";
+static QString KEY_CV_DARK_FONT_SIZE = SETTINGS_GROUP + "/" + "cv_dark_font_size";
+static QString KEY_CV_DARK_LINE_HIGHLIGHT_COLOR = SETTINGS_GROUP + "/" + "cv_dark_line_highlight_color";
+static QString KEY_CV_DARK_LINE_NUMBER_BACKGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_line_number_background_color";
+static QString KEY_CV_DARK_LINE_NUMBER_FOREGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_line_number_foreground_color";
+static QString KEY_CV_DARK_SELECTION_BACKGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_selection_background_color";
+static QString KEY_CV_DARK_SELECTION_FOREGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_selection_foreground_color";
+static QString KEY_CV_DARK_SPELLING_UNDERLINE_COLOR = SETTINGS_GROUP + "/" + "cv_dark_spelling_underline_color";
+static QString KEY_CV_DARK_XHTML_ATTRIBUTE_NAME_COLOR = SETTINGS_GROUP + "/" + "cv_dark_xhtml_attribute_name_color";
+static QString KEY_CV_DARK_XHTML_ATTRIBUTE_VALUE_COLOR = SETTINGS_GROUP + "/" + "cv_dark_xhtml_attribute_value_color";
+static QString KEY_CV_DARK_XHTML_CSS_COLOR = SETTINGS_GROUP + "/" + "cv_dark_xhtml_css_color";
+static QString KEY_CV_DARK_XHTML_CSS_COMMENT_COLOR = SETTINGS_GROUP + "/" + "cv_dark_xhtml_css_comment_color";
+static QString KEY_CV_DARK_XHTML_DOCTYPE_COLOR = SETTINGS_GROUP + "/" + "cv_dark_xhtml_doctype_color";
+static QString KEY_CV_DARK_XHTML_ENTITY_COLOR = SETTINGS_GROUP + "/" + "cv_dark_xhtml_entity_color";
+static QString KEY_CV_DARK_XHTML_HTML_COLOR = SETTINGS_GROUP + "/" + "cv_dark_xhtml_html_color";
+static QString KEY_CV_DARK_XHTML_HTML_COMMENT_COLOR = SETTINGS_GROUP + "/" + "cv_dark_xhtml_html_comment_color";
+// End Dark appearance
 
 static QString KEY_SPECIAL_CHARACTER_FONT_FAMILY = SETTINGS_GROUP + "/" + "special_character_font_family";
 static QString KEY_SPECIAL_CHARACTER_FONT_SIZE = SETTINGS_GROUP + "/" + "special_character_font_size";
@@ -348,6 +374,37 @@ SettingsStore::CodeViewAppearance SettingsStore::codeViewAppearance()
     return appearance;
 }
 
+SettingsStore::CodeViewAppearance SettingsStore::codeViewDarkAppearance()
+{
+    clearSettingsGroup();
+    SettingsStore::CodeViewAppearance appearance;
+    appearance.background_color = value(KEY_CV_DARK_BACKGROUND_COLOR, QColor(Qt::black)).value<QColor>();
+    appearance.foreground_color = value(KEY_CV_DARK_FOREGROUND_COLOR, QColor(Qt::white)).value<QColor>();
+    appearance.css_comment_color = value(KEY_CV_DARK_CSS_COMMENT_COLOR, QColor(Qt::green)).value<QColor>();
+    appearance.css_property_color = value(KEY_CV_DARK_CSS_PROPERTY_COLOR, QColor(Qt::blue)).value<QColor>();
+    appearance.css_quote_color = value(KEY_CV_DARK_CSS_QUOTE_COLOR, QColor(Qt::magenta)).value<QColor>();
+    appearance.css_selector_color = value(KEY_CV_DARK_CSS_SELECTOR_COLOR, QColor(Qt::red)).value<QColor>();
+    appearance.css_value_color = value(KEY_CV_DARK_CSS_VALUE_COLOR, QColor(Qt::yellow)).value<QColor>();
+    appearance.font_family = value(KEY_CV_DARK_FONT_FAMILY, "Courier New").toString();
+    appearance.font_size = value(KEY_CV_DARK_FONT_SIZE, 10).toInt();
+    QColor defaultlineColor = QColor(Qt::gray);
+    appearance.line_highlight_color = value(KEY_CV_DARK_LINE_HIGHLIGHT_COLOR, defaultlineColor).value<QColor>();
+    appearance.line_number_background_color = value(KEY_CV_DARK_LINE_NUMBER_BACKGROUND_COLOR, QColor(225, 225, 225)).value<QColor>();
+    appearance.line_number_foreground_color = value(KEY_CV_DARK_LINE_NUMBER_FOREGROUND_COLOR, QColor(125, 125, 125)).value<QColor>();
+    appearance.selection_background_color = value(KEY_CV_DARK_SELECTION_BACKGROUND_COLOR, QColor()).value<QColor>();
+    appearance.selection_foreground_color = value(KEY_CV_DARK_SELECTION_FOREGROUND_COLOR, QColor()).value<QColor>();
+    appearance.spelling_underline_color = value(KEY_CV_DARK_SPELLING_UNDERLINE_COLOR, QColor(Qt::red)).value<QColor>();
+    appearance.xhtml_attribute_name_color = value(KEY_CV_DARK_XHTML_ATTRIBUTE_NAME_COLOR, QColor(Qt::red)).value<QColor>();
+    appearance.xhtml_attribute_value_color = value(KEY_CV_DARK_XHTML_ATTRIBUTE_VALUE_COLOR, QColor(Qt::cyan)).value<QColor>();
+    appearance.xhtml_css_color = value(KEY_CV_DARK_XHTML_CSS_COLOR, QColor(Qt::yellow)).value<QColor>();
+    appearance.xhtml_css_comment_color = value(KEY_CV_DARK_XHTML_CSS_COMMENT_COLOR, QColor(Qt::green)).value<QColor>();
+    appearance.xhtml_doctype_color = value(KEY_CV_DARK_XHTML_DOCTYPE_COLOR, QColor(Qt::blue)).value<QColor>();
+    appearance.xhtml_entity_color = value(KEY_CV_DARK_XHTML_ENTITY_COLOR, QColor(Qt::magenta)).value<QColor>();
+    appearance.xhtml_html_color = value(KEY_CV_DARK_XHTML_HTML_COLOR, QColor(Qt::blue)).value<QColor>();
+    appearance.xhtml_html_comment_color = value(KEY_CV_DARK_XHTML_HTML_COMMENT_COLOR, QColor(Qt::green)).value<QColor>();
+    return appearance;
+}
+
 SettingsStore::SpecialCharacterAppearance SettingsStore::specialCharacterAppearance()
 {
     clearSettingsGroup();
@@ -587,6 +644,34 @@ void SettingsStore::setCodeViewAppearance(const SettingsStore::CodeViewAppearanc
     setValue(KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR, code_view_appearance.xhtml_html_comment_color);
 }
 
+void SettingsStore::setCodeViewDarkAppearance(const SettingsStore::CodeViewAppearance &code_view_appearance)
+{
+    clearSettingsGroup();
+    setValue(KEY_CV_DARK_BACKGROUND_COLOR, code_view_appearance.background_color);
+    setValue(KEY_CV_DARK_FOREGROUND_COLOR, code_view_appearance.foreground_color);
+    setValue(KEY_CV_DARK_CSS_COMMENT_COLOR, code_view_appearance.css_comment_color);
+    setValue(KEY_CV_DARK_CSS_PROPERTY_COLOR, code_view_appearance.css_property_color);
+    setValue(KEY_CV_DARK_CSS_QUOTE_COLOR, code_view_appearance.css_quote_color);
+    setValue(KEY_CV_DARK_CSS_SELECTOR_COLOR, code_view_appearance.css_selector_color);
+    setValue(KEY_CV_DARK_CSS_VALUE_COLOR, code_view_appearance.css_value_color);
+    setValue(KEY_CV_DARK_FONT_FAMILY, code_view_appearance.font_family);
+    setValue(KEY_CV_DARK_FONT_SIZE, code_view_appearance.font_size);
+    setValue(KEY_CV_DARK_LINE_HIGHLIGHT_COLOR, code_view_appearance.line_highlight_color);
+    setValue(KEY_CV_DARK_LINE_NUMBER_BACKGROUND_COLOR, code_view_appearance.line_number_background_color);
+    setValue(KEY_CV_DARK_LINE_NUMBER_FOREGROUND_COLOR, code_view_appearance.line_number_foreground_color);
+    setValue(KEY_CV_DARK_SELECTION_BACKGROUND_COLOR, code_view_appearance.selection_background_color);
+    setValue(KEY_CV_DARK_SELECTION_FOREGROUND_COLOR, code_view_appearance.selection_foreground_color);
+    setValue(KEY_CV_DARK_SPELLING_UNDERLINE_COLOR, code_view_appearance.spelling_underline_color);
+    setValue(KEY_CV_DARK_XHTML_ATTRIBUTE_NAME_COLOR, code_view_appearance.xhtml_attribute_name_color);
+    setValue(KEY_CV_DARK_XHTML_ATTRIBUTE_VALUE_COLOR, code_view_appearance.xhtml_attribute_value_color);
+    setValue(KEY_CV_DARK_XHTML_CSS_COLOR, code_view_appearance.xhtml_css_color);
+    setValue(KEY_CV_DARK_XHTML_CSS_COMMENT_COLOR, code_view_appearance.xhtml_css_comment_color);
+    setValue(KEY_CV_DARK_XHTML_DOCTYPE_COLOR, code_view_appearance.xhtml_doctype_color);
+    setValue(KEY_CV_DARK_XHTML_ENTITY_COLOR, code_view_appearance.xhtml_entity_color);
+    setValue(KEY_CV_DARK_XHTML_HTML_COLOR, code_view_appearance.xhtml_html_color);
+    setValue(KEY_CV_DARK_XHTML_HTML_COMMENT_COLOR, code_view_appearance.xhtml_html_comment_color);
+}
+
 void SettingsStore::setSpecialCharacterAppearance(const SettingsStore::SpecialCharacterAppearance &special_character_appearance)
 {
     clearSettingsGroup();
@@ -636,6 +721,31 @@ void SettingsStore::clearAppearanceSettings()
     remove(KEY_CODE_VIEW_XHTML_ENTITY_COLOR);
     remove(KEY_CODE_VIEW_XHTML_HTML_COLOR);
     remove(KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR);
+    // Dark Appearance
+    remove(KEY_CV_DARK_BACKGROUND_COLOR);
+    remove(KEY_CV_DARK_FOREGROUND_COLOR);
+    remove(KEY_CV_DARK_CSS_COMMENT_COLOR);
+    remove(KEY_CV_DARK_CSS_PROPERTY_COLOR);
+    remove(KEY_CV_DARK_CSS_QUOTE_COLOR);
+    remove(KEY_CV_DARK_CSS_SELECTOR_COLOR);
+    remove(KEY_CV_DARK_CSS_VALUE_COLOR);
+    remove(KEY_CV_DARK_FONT_FAMILY);
+    remove(KEY_CV_DARK_FONT_SIZE);
+    remove(KEY_CV_DARK_LINE_HIGHLIGHT_COLOR);
+    remove(KEY_CV_DARK_LINE_NUMBER_BACKGROUND_COLOR);
+    remove(KEY_CV_DARK_LINE_NUMBER_FOREGROUND_COLOR);
+    remove(KEY_CV_DARK_SELECTION_BACKGROUND_COLOR);
+    remove(KEY_CV_DARK_SELECTION_FOREGROUND_COLOR);
+    remove(KEY_CV_DARK_SPELLING_UNDERLINE_COLOR);
+    remove(KEY_CV_DARK_XHTML_ATTRIBUTE_NAME_COLOR);
+    remove(KEY_CV_DARK_XHTML_ATTRIBUTE_VALUE_COLOR);
+    remove(KEY_CV_DARK_XHTML_CSS_COLOR);
+    remove(KEY_CV_DARK_XHTML_CSS_COMMENT_COLOR);
+    remove(KEY_CV_DARK_XHTML_DOCTYPE_COLOR);
+    remove(KEY_CV_DARK_XHTML_ENTITY_COLOR);
+    remove(KEY_CV_DARK_XHTML_HTML_COLOR);
+    remove(KEY_CV_DARK_XHTML_HTML_COMMENT_COLOR);
+
     remove(KEY_SPECIAL_CHARACTER_FONT_FAMILY);
     remove(KEY_SPECIAL_CHARACTER_FONT_SIZE);
     remove(KEY_MAIN_MENU_ICON_SIZE);

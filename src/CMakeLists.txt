@@ -173,6 +173,8 @@ set( DIALOG_FILES
     Dialogs/Preferences.h
     Dialogs/PreferenceWidgets/AppearanceWidget.cpp
     Dialogs/PreferenceWidgets/AppearanceWidget.h
+    Dialogs/PreferenceWidgets/DarkAppearanceWidget.cpp
+    Dialogs/PreferenceWidgets/DarkAppearanceWidget.h
     Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp
     Dialogs/PreferenceWidgets/GeneralSettingsWidget.h
     Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp
@@ -459,6 +461,7 @@ set( UI_FILES
     Form_Files/HeadingSelector.ui
     Form_Files/FindReplace.ui
     Form_Files/PAppearanceWidget.ui
+    Form_Files/PDarkAppearanceWidget.ui
     Form_Files/Preferences.ui
     Form_Files/PKeyboardShortcutsWidget.ui
     Form_Files/PGeneralSettingsWidget.ui

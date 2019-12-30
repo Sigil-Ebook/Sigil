@@ -214,6 +214,9 @@ public:
      */
     CodeViewAppearance codeViewAppearance();
 
+    CodeViewAppearance codeViewDarkAppearance();
+
+
     /**
      * The appearance settings to use for editing in Code View.
      */
@@ -348,6 +351,8 @@ public slots:
      * Set the appearance settings to use for editing in Code View
      */
     void setCodeViewAppearance(const CodeViewAppearance &code_view_appearance);
+
+    void setCodeViewDarkAppearance(const CodeViewAppearance &code_view_appearance);
     /**
     * Set the default font settings to use for Special Characters popup window
     */

@@ -30,6 +30,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "PreferenceWidgets/AppearanceWidget.h"
+#include "PreferenceWidgets/DarkAppearanceWidget.h"
 #include "PreferenceWidgets/GeneralSettingsWidget.h"
 #include "PreferenceWidgets/KeyboardShortcutsWidget.h"
 #include "PreferenceWidgets/LanguageWidget.h"
@@ -51,6 +52,7 @@ Preferences::Preferences(QWidget *parent) :
     extendUI();
     // Create and load all of our preference widgets.;
     appendPreferenceWidget(new AppearanceWidget);
+    appendPreferenceWidget(new DarkAppearanceWidget);
     appendPreferenceWidget(new GeneralSettingsWidget);
     appendPreferenceWidget(new KeyboardShortcutsWidget);
     appendPreferenceWidget(new LanguageWidget);
