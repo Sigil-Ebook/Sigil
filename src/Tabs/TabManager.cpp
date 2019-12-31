@@ -127,12 +127,12 @@ void TabManager::CloseAllTabs(bool all)
     }
 }
 
-void TabManager::CloseTabForResource(const Resource *resource)
+void TabManager::CloseTabForResource(const Resource *resource, bool force)
 {
     int index = ResourceTabIndex(resource);
 
     if (index != -1) {
-        CloseTab(index);
+        CloseTab(index, force);
     }
 }
 
@@ -173,11 +173,14 @@ void TabManager::ReopenTabs()
     ContentTab *currentTab = GetCurrentContentTab();
     QList<Resource *> resources = GetTabResources();
     foreach(Resource *resource, resources) {
-        CloseTabForResource(resource);
+        CloseTabForResource(resource, true);
+        OpenResource(resource, -1, -1, QString());
     }
+#if 0
     foreach(Resource *resource, resources) {
         OpenResource(resource, -1, -1, QString());
     }
+#endif
     OpenResource(currentTab->GetLoadedResource(), -1, -1, QString());
 }
 

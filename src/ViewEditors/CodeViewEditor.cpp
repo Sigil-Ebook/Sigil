@@ -113,11 +113,25 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
 
     setFocusPolicy(Qt::StrongFocus);
     ConnectSignalsToSlots();
+    SetAppearance();
+}
+
+CodeViewEditor::~CodeViewEditor()
+{
+    m_ScrollOneLineUp->deleteLater();
+    m_ScrollOneLineDown->deleteLater();
+}
+
+
+void CodeViewEditor::SetAppearance()
+{
     SettingsStore settings;
 #ifdef Q_OS_MAC
     if (Utility::IsMacDarkMode()) {
+        qDebug() << "IsMacDarkMode returned: true";
         m_codeViewAppearance = settings.codeViewDarkAppearance();
     } else {
+        qDebug() << "IsMacDarkMode returned: false";
         m_codeViewAppearance = settings.codeViewAppearance();
     }
 #else
@@ -132,11 +146,6 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     Zoom();
 }
 
-CodeViewEditor::~CodeViewEditor()
-{
-    m_ScrollOneLineUp->deleteLater();
-    m_ScrollOneLineDown->deleteLater();
-}
 
 QSize CodeViewEditor::sizeHint() const
 {
@@ -2123,18 +2132,33 @@ void CodeViewEditor::UpdateLineNumberAreaFont(const QFont &font)
 
 void CodeViewEditor::SetAppearanceColors()
 {
-    QPalette pal = palette();
 
+#ifdef Q_OS_MAC
+    // use the application palette colors to set this widgets colors
+    QPalette app_pal = qApp->palette();
+    setPalette(app_pal);
+    // pal.setColor(QPalette::Base, app_pal.color(QPalette::Base));
+    // pal.setColor(QPalette::Window, app_pal.color(QPalette::Window));
+    // pal.setColor(QPalette::WindowText, app_pal.color(QPalette::WindowText));
+    // pal.setColor(QPalette::Text, app_pal.color(QPalette::Text));
+    // pal.setColor(QPalette::Highlight, app_pal(QPalette::Highlight));
+    // pal.setColor(QPalette::HighlightedText, app_pal(QPalette::HighlightedText));
+    return;
+#endif
+
+    QPalette pal = palette();
     if (m_codeViewAppearance.background_color.isValid()) {
         pal.setColor(QPalette::Base, m_codeViewAppearance.background_color);
         pal.setColor(QPalette::Window, m_codeViewAppearance.background_color);
         setBackgroundVisible(true);
+        qDebug() << "setting background color" << m_codeViewAppearance.background_color.name();
     } else {
         setBackgroundVisible(false);
     }
 
     if (m_codeViewAppearance.foreground_color.isValid()) {
         pal.setColor(QPalette::Text, m_codeViewAppearance.foreground_color);
+        qDebug() << "setting foreground color" << m_codeViewAppearance.foreground_color.name();
     }
 
     if (m_codeViewAppearance.selection_background_color.isValid()) {
@@ -2144,7 +2168,6 @@ void CodeViewEditor::SetAppearanceColors()
     if (m_codeViewAppearance.selection_foreground_color.isValid()) {
         pal.setColor(QPalette::HighlightedText, m_codeViewAppearance.selection_foreground_color);
     }
-
     setPalette(pal);
 }
 

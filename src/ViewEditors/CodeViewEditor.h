@@ -78,6 +78,8 @@ public:
     CodeViewEditor(HighlighterType highlighter_type, bool check_spelling = false, QWidget *parent = 0);
     ~CodeViewEditor();
 
+    void SetAppearance();
+
     QSize sizeHint() const;
 
     /**
@@ -443,7 +445,10 @@ public slots:
     void GoToLinkOrStyle();
 
     bool MarkSelection();
+
     bool ClearMarkedText();
+
+    void RehighlightDocument();
 
 protected:
 
@@ -501,8 +506,6 @@ private slots:
      * It does this based on the availability of undo.
      */
     void TextChangedFilter();
-
-    void RehighlightDocument();
 
     void PasteClipEntryFromName(const QString &name);
 
