@@ -126,15 +126,16 @@ CodeViewEditor::~CodeViewEditor()
 void CodeViewEditor::SetAppearance()
 {
     SettingsStore settings;
-#ifdef Q_OS_MAC
-    if (Utility::IsMacDarkMode()) {
-        qDebug() << "IsMacDarkMode returned: true";
+#if defined(Q_OS_MAC) || defined(Q_OS_WIN32)
+    if (Utility::IsDarkMode()) {
+        qDebug() << "IsDarkMode returned: true";
         m_codeViewAppearance = settings.codeViewDarkAppearance();
     } else {
-        qDebug() << "IsMacDarkMode returned: false";
+        qDebug() << "IsDarkMode returned: false";
         m_codeViewAppearance = settings.codeViewAppearance();
     }
 #else
+    // Linux and other platforms
     m_codeViewAppearance = settings.codeViewAppearance();
 #endif
     SetAppearanceColors();
@@ -2133,19 +2134,13 @@ void CodeViewEditor::UpdateLineNumberAreaFont(const QFont &font)
 void CodeViewEditor::SetAppearanceColors()
 {
 
-#ifdef Q_OS_MAC
-    // use the application palette colors to set this widgets colors
+#if defined(Q_OS_MAC) || defined(Q_OS_WIN32)
+    // use the current application palette colors to set this widgets colors
     QPalette app_pal = qApp->palette();
     setPalette(app_pal);
-    // pal.setColor(QPalette::Base, app_pal.color(QPalette::Base));
-    // pal.setColor(QPalette::Window, app_pal.color(QPalette::Window));
-    // pal.setColor(QPalette::WindowText, app_pal.color(QPalette::WindowText));
-    // pal.setColor(QPalette::Text, app_pal.color(QPalette::Text));
-    // pal.setColor(QPalette::Highlight, app_pal(QPalette::Highlight));
-    // pal.setColor(QPalette::HighlightedText, app_pal(QPalette::HighlightedText));
     return;
 #endif
-
+    // Linux and other platforms, let the user specify the colors
     QPalette pal = palette();
     if (m_codeViewAppearance.background_color.isValid()) {
         pal.setColor(QPalette::Base, m_codeViewAppearance.background_color);

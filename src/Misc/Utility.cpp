@@ -107,10 +107,17 @@ QString Utility::DefinePrefsDir()
     }
 }
 
-bool Utility::IsMacDarkMode()
+bool Utility::IsDarkMode()
 {
+#ifdef Q_OS_MAC
     MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
     return mainApplication->isDarkMode();
+#else
+    // Windows, Linux and Other platforms
+    QPalette app_palette = qApp->palette();
+    bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
+    return isdark;
+#endif
 }
 
 bool Utility::IsWindowsSysDarkMode()
