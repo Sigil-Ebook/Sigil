@@ -68,16 +68,12 @@ XHTMLHighlighter::XHTMLHighlighter(bool checkSpelling, QObject *parent)
 void XHTMLHighlighter::SetRules()
 {
     SettingsStore settings;
-#if defined(Q_OS_MAC) || defined(Q_OS_WIN32)
     if (Utility::IsDarkMode()) {
         m_codeViewAppearance = settings.codeViewDarkAppearance();
     } else {
         m_codeViewAppearance = settings.codeViewAppearance();
     }
-#else
-    // Linux and other platforms
-    m_codeViewAppearance = settings.codeViewAppearance();
-#endif
+
     QTextCharFormat html_format;
     QTextCharFormat doctype_format;
     QTextCharFormat html_comment_format;

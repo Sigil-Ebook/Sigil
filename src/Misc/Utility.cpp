@@ -133,9 +133,7 @@ bool Utility::IsWindowsSysDarkMode()
 bool Utility::WindowsShouldUseDarkMode()
 {
     QString override(GetEnvironmentVar("SIGIL_USES_DARK_MODE"));
-    // Strictly Env Var override until we go live (though IsWindowsSysDarkMode() does work)
-    //if (IsWindowsSysDarkMode() || (!override.isEmpty() && override == "1")) {
-    if (!override.isEmpty() && override == "1") {
+    if (IsWindowsSysDarkMode() || (!override.isEmpty() && override == "1")) {
         return true;
     }
     return false;
