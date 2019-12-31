@@ -114,7 +114,15 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     setFocusPolicy(Qt::StrongFocus);
     ConnectSignalsToSlots();
     SettingsStore settings;
+#ifdef Q_OS_MAC
+    if (Utility::IsMacDarkMode()) {
+        m_codeViewAppearance = settings.codeViewDarkAppearance();
+    } else {
+        m_codeViewAppearance = settings.codeViewAppearance();
+    }
+#else
     m_codeViewAppearance = settings.codeViewAppearance();
+#endif
     SetAppearanceColors();
     UpdateLineNumberAreaMargin();
     HighlightCurrentLine();

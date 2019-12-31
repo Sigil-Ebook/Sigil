@@ -229,13 +229,6 @@ MainWindow::MainWindow(const QString &openfilepath,
     ChangeSignalsWhenTabChanges(NULL, m_TabManager->GetCurrentContentTab());
     LoadInitialFile(openfilepath, version, is_internal);
     loadPluginsMenu();
-#ifdef Q_OS_MAC
-    m_Style = QStyleFactory::create("macintosh");
-    QPalette app_palette = m_Style->standardPalette();
-#else
-    QPalette app_palette = QApplication::palette();
-#endif
-    m_isDark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
 }
 
 MainWindow::~MainWindow()
@@ -2411,18 +2404,8 @@ void MainWindow::MarkForIndex()
 
 void MainWindow::ApplicationPaletteChanged()
 {
-    // on macOS the application palette actual text colors never seem to change when DarkMode is enabled
-    // so use a mac style standardPalette
-#ifdef Q_OS_MAC
-    QPalette app_palette = m_Style->standardPalette();
-#else
-    QPalette app_palette = QApplication::palette();
-#endif
-    bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
-    if (m_isDark != isdark) {
-	qDebug() << "Theme changed " << "was isDark:" << m_isDark << "now isDark:" << isdark;
-        m_isDark = isdark;
-    }
+    // we need to force a full reload of all Tabs and Preview Window
+    m_TabManager->ReopenTabs();
 }
 
 void MainWindow::ApplicationFocusChanged(QWidget *old, QWidget *now)

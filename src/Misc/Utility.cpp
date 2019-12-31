@@ -63,7 +63,7 @@
 #include "Misc/QCodePage437Codec.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SleepFunctions.h"
-#include "MainUI/MainWindow.h"
+#include "MainUI/MainApplication.h"
 
 #ifndef MAX_PATH
 // Set Max length to 256 because that's the max path size on many systems.
@@ -109,9 +109,8 @@ QString Utility::DefinePrefsDir()
 
 bool Utility::IsMacDarkMode()
 {
-    QWidget *mainWindow_w = GetMainWindow();
-    MainWindow *mainWindow = qobject_cast<MainWindow *>(mainWindow_w);
-    return mainWindow->isDark();
+    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
+    return mainApplication->isDarkMode();
 }
 
 bool Utility::IsWindowsSysDarkMode()

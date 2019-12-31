@@ -29,12 +29,16 @@
 #include <QEvent>
 #include <QtWidgets/QApplication>
 
+class QStyle;
+
 class MainApplication : public QApplication
 {
     Q_OBJECT
 
 public:
     MainApplication(int &argc, char **argv);
+
+    bool isDarkMode() { return m_isDark; }
 
 signals:
     void applicationActivated();
@@ -47,6 +51,9 @@ public slots:
 protected:
     bool event(QEvent *pEvent);
 
+private:
+    QStyle * m_Style;
+    bool m_isDark;
 };
 
 #endif // MAINAPPLICATION_H
