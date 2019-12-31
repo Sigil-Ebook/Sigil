@@ -21,6 +21,7 @@
 
 #include "Misc/CSSHighlighter.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 
 // TODO: This code was written by Nokia for Qt Designer, and it's horribly ugly.
 // I've tried to clean it up, but it's hopeless. Write a new CSS parser to replace this.
@@ -69,7 +70,11 @@ CSSHighlighter::CSSHighlighter(QObject *parent)
     : QSyntaxHighlighter(parent)
 {
     SettingsStore settings;
-    m_codeViewAppearance = settings.codeViewAppearance();
+    if (Utility::IsDarkMode()) {
+        m_codeViewAppearance = settings.codeViewDarkAppearance();
+    } else {
+        m_codeViewAppearance = settings.codeViewAppearance();
+    }
 }
 
 void CSSHighlighter::highlightBlock(const QString &text)

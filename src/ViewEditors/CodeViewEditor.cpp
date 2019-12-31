@@ -126,7 +126,6 @@ CodeViewEditor::~CodeViewEditor()
 void CodeViewEditor::SetAppearance()
 {
     SettingsStore settings;
-#if defined(Q_OS_MAC) || defined(Q_OS_WIN32)
     if (Utility::IsDarkMode()) {
         qDebug() << "IsDarkMode returned: true";
         m_codeViewAppearance = settings.codeViewDarkAppearance();
@@ -134,10 +133,7 @@ void CodeViewEditor::SetAppearance()
         qDebug() << "IsDarkMode returned: false";
         m_codeViewAppearance = settings.codeViewAppearance();
     }
-#else
-    // Linux and other platforms
-    m_codeViewAppearance = settings.codeViewAppearance();
-#endif
+
     SetAppearanceColors();
     UpdateLineNumberAreaMargin();
     HighlightCurrentLine();
@@ -2134,12 +2130,10 @@ void CodeViewEditor::UpdateLineNumberAreaFont(const QFont &font)
 void CodeViewEditor::SetAppearanceColors()
 {
 
-#if defined(Q_OS_MAC) || defined(Q_OS_WIN32)
-    // use the current application palette colors to set this widgets colors
     QPalette app_pal = qApp->palette();
     setPalette(app_pal);
     return;
-#endif
+#if 0
     // Linux and other platforms, let the user specify the colors
     QPalette pal = palette();
     if (m_codeViewAppearance.background_color.isValid()) {
@@ -2164,6 +2158,7 @@ void CodeViewEditor::SetAppearanceColors()
         pal.setColor(QPalette::HighlightedText, m_codeViewAppearance.selection_foreground_color);
     }
     setPalette(pal);
+#endif
 }
 
 
