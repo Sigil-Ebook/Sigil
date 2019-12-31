@@ -2405,6 +2405,7 @@ void MainWindow::MarkForIndex()
 void MainWindow::ApplicationPaletteChanged()
 {
     // we need to force a full reload of all Tabs and Preview Window
+    qDebug() << "ApplicationPaletteChanged";
     m_TabManager->ReopenTabs();
 }
 

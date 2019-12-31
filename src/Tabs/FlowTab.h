@@ -70,8 +70,8 @@ public:
 
     ~FlowTab();
 
-    // Overrides inherited from ContentTabs
 
+    // Overrides inherited from ContentTabs
     bool IsModified();
 
     bool CutEnabled();

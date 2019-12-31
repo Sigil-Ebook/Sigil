@@ -69,6 +69,7 @@ void MainApplication::EmitPaletteChanged()
     if (m_isDark != isdark) {
         qDebug() << "Theme changed " << "was isDark:" << m_isDark << "now isDark:" << isdark;
         m_isDark = isdark;
+        setPalette(app_palette);
         emit applicationPaletteChanged();
     }
 #endif
