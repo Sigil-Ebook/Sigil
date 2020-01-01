@@ -243,7 +243,7 @@ void setupHiDPI()
 {
     bool has_env_setting = false;
     QStringList env_vars;
-    env_vars << "QT_ENABLE_HIDPI_SCALING" << "QT_SACLE-FACTOR_ROUNDING_POLICY"
+    env_vars << "QT_ENABLE_HIGHDPI_SCALING" << "QT_SCALE_FACTOR_ROUNDING_POLICY"
              << "QT_AUTO_SCREEN_SCALE_FACTOR" << "QT_SCALE_FACTOR"
              << "QT_SCREEN_SCALE_FACTORS" << "QT_DEVICE_PIXEL_RATIO";
     foreach(QString v, env_vars) {
