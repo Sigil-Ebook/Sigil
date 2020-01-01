@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>652</width>
-    <height>598</height>
+    <width>516</width>
+    <height>564</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,6 +16,12 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QGroupBox" name="groupBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="toolTip">
       <string>Choose which version of Epub to use
 when creating new or empty Epubs in Sigil.</string>
@@ -23,7 +29,10 @@ when creating new or empty Epubs in Sigil.</string>
      <property name="title">
       <string>Create New or Empty Epubs as:</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout2">
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <layout class="QHBoxLayout" name="versionLayout">
       <item>
        <widget class="QRadioButton" name="EpubVersion2">
         <property name="toolTip">
@@ -53,8 +62,14 @@ when creating new or empty Epubs in Sigil.</string>
      </layout>
     </widget>
    </item>
-   <item>
+   <item alignment="Qt::AlignLeft|Qt::AlignTop">
     <widget class="QGroupBox" name="groupBox_2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="toolTip">
       <string>Choose when your not well formed HTML code is automatically 
 mended.</string>
@@ -62,8 +77,11 @@ mended.</string>
      <property name="title">
       <string>Mend Not Well Formed HTML Source Code On:</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <layout class="QHBoxLayout" name="mendLayout">
+      <item>
        <widget class="QCheckBox" name="MendOnOpen">
         <property name="toolTip">
          <string>Mend Not Well Formed HTML when opening an Epub or HTML file.</string>
@@ -73,7 +91,7 @@ mended.</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
+      <item alignment="Qt::AlignLeft">
        <widget class="QCheckBox" name="MendOnSave">
         <property name="toolTip">
          <string>Mend Not Well Formed HTML when saving an Epub.</string>
@@ -256,20 +274,23 @@ mended.</string>
      </layout>
     </widget>
    </item>
-   <item>
+   <item alignment="Qt::AlignLeft">
     <widget class="QGroupBox" name="groupBoxClipLimit">
      <property name="title">
       <string>Number of clipboard history items to save between sessions (0 disables):</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
+      <property name="topMargin">
+       <number>2</number>
+      </property>
+      <property name="rightMargin">
+       <number>12</number>
+      </property>
+      <property name="bottomMargin">
+       <number>2</number>
+      </property>
+      <item alignment="Qt::AlignLeft">
        <widget class="QSpinBox" name="clipLimitSpin">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>16777215</height>
-         </size>
-        </property>
         <property name="toolTip">
          <string>Use to limit (or disable) clipboard history saving between sessions</string>
         </property>
@@ -284,28 +305,21 @@ mended.</string>
         </property>
        </widget>
       </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
      </layout>
     </widget>
    </item>
    <item>
     <widget class="QGroupBox" name="groupBox_6">
      <property name="title">
-      <string>Set Folder where temporary files should be created</string>
+      <string>Set folder where temporary files should be created</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
+      <property name="topMargin">
+       <number>6</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
+      </property>
       <item row="0" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
@@ -333,9 +347,15 @@ mended.</string>
    <item>
     <widget class="QGroupBox" name="groupBox_7">
      <property name="title">
-      <string>Set your preferred alternative external xhtml editor</string>
+      <string>Set your preferred external xhtml editor</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_7">
+      <property name="topMargin">
+       <number>6</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
+      </property>
       <item row="0" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
@@ -344,7 +364,7 @@ mended.</string>
         <item>
          <widget class="QPushButton" name="clearButton7">
           <property name="text">
-           <string>clear</string>
+           <string>Clear</string>
           </property>
          </widget>
         </item>
@@ -359,19 +379,6 @@ mended.</string>
       </item>
      </layout>
     </widget>
-   </item>
-   <item>
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>11</height>
-      </size>
-     </property>
-    </spacer>
    </item>
   </layout>
  </widget>
