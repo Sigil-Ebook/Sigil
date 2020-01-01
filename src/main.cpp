@@ -239,6 +239,26 @@ void VerifyPlugins()
 }
 
 
+void setupHiDPI()
+{
+    bool has_env_setting = false;
+    QStringList env_vars;
+    env_vars << "QT_ENABLE_HIDPI_SCALING" << "QT_SACLE-FACTOR_ROUNDING_POLICY"
+             << "QT_AUTO_SCREEN_SCALE_FACTOR" << "QT_SCALE_FACTOR"
+             << "QT_SCREEN_SCALE_FACTORS" << "QT_DEVICE_PIXEL_RATIO";
+    foreach(QString v, env_vars) {
+        if (!Utility::GetEnvironmentVar(v).isEmpty()) {
+            has_env_setting = true;
+            break;
+        }
+    }
+    if (!has_env_setting) {
+        qDebug() << "Turning on Automatic High DPI scaling";
+        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    }
+}
+
+
 // Application entry point
 int main(int argc, char *argv[])
 {
@@ -252,11 +272,16 @@ int main(int argc, char *argv[])
     qInstallMessageHandler(MessageHandler);
 #endif
 
+#ifndef Q_OS_MAC
+    setupHiDPI();
+#endif
     // Set application information for easier use of QSettings classes
     QCoreApplication::setOrganizationName("sigil-ebook");
     QCoreApplication::setOrganizationDomain("sigil-ebook.com");
     QCoreApplication::setApplicationName("sigil");
     QCoreApplication::setApplicationVersion(SIGIL_VERSION);
+
+    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     
     // many qtbugs related to mixing 32 and 64 bit qt apps when shader disk cache is used
     // Only use if using Qt5.9.0 or higher
@@ -340,9 +365,9 @@ int main(int argc, char *argv[])
         app.installTranslator(&sigilTranslator);
 
 #ifdef Q_OS_WIN32
-        // Windows Dark Mode
+        // Fusion style is fully dpi aware on Windows
+        app.setStyle(QStyleFactory::create("fusion"));
         if (Utility::WindowsShouldUseDarkMode()) {
-            app.setStyle(QStyleFactory::create("fusion"));
             // qss stylesheet from resources
             QString dark_styles = Utility::ReadUnicodeTextFile(":/dark/dark-style.qss");
             app.setStyleSheet(dark_styles);
