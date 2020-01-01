@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>681</width>
-    <height>398</height>
+    <width>588</width>
+    <height>506</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -228,7 +228,7 @@
         <string>Quick Launch Plugin Assignments</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignLeft|Qt::AlignVCenter</set>
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>

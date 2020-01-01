@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>574</width>
-    <height>367</height>
+    <width>550</width>
+    <height>364</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -155,13 +155,13 @@
           </item>
           <item>
            <widget class="QPushButton" name="removeUserDict">
-            <property name="text">
-             <string>Remove</string>
-            </property>
             <property name="toolTip">
              <string>Remove the selected dictionary.
 
 You cannot remove the last dictionary.</string>
+            </property>
+            <property name="text">
+             <string>Remove</string>
             </property>
            </widget>
           </item>
