@@ -5204,6 +5204,10 @@ void MainWindow::ExtendUI()
 
     ExtendIconSizes();
     UpdateClipsUI();
+
+    QFont f = QFont(qApp->font());
+    qDebug() << "UI Font family: " << f.family();    
+    qDebug() << "UI Font size: " << f.pointSize();
 }
 
 void MainWindow::UpdateClipButton(int clip_number, QAction *ui_action)
