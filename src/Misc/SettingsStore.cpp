@@ -23,6 +23,7 @@
 
 #include <QtCore/QLocale>
 #include <QtCore/QCoreApplication>
+#include <QPalette>
 #include <QFile>
 #include <QDir>
 
@@ -389,8 +390,9 @@ SettingsStore::CodeViewAppearance SettingsStore::codeViewDarkAppearance()
     appearance.font_size = value(KEY_CV_DARK_FONT_SIZE, 10).toInt();
     QColor defaultlineColor = QColor(Qt::gray);
     appearance.line_highlight_color = value(KEY_CV_DARK_LINE_HIGHLIGHT_COLOR, defaultlineColor).value<QColor>();
-    appearance.line_number_background_color = value(KEY_CV_DARK_LINE_NUMBER_BACKGROUND_COLOR, QColor(225, 225, 225)).value<QColor>();
-    appearance.line_number_foreground_color = value(KEY_CV_DARK_LINE_NUMBER_FOREGROUND_COLOR, QColor(125, 125, 125)).value<QColor>();
+    //appearance.line_number_background_color = value(KEY_CV_DARK_LINE_NUMBER_BACKGROUND_COLOR, QColor(225, 225, 225)).value<QColor>();
+    appearance.line_number_background_color = value(KEY_CV_DARK_LINE_NUMBER_BACKGROUND_COLOR, QPalette().color(QPalette::AlternateBase)).value<QColor>();
+    appearance.line_number_foreground_color = value(KEY_CV_DARK_LINE_NUMBER_FOREGROUND_COLOR, QColor(229, 229, 229)).value<QColor>();
     appearance.selection_background_color = value(KEY_CV_DARK_SELECTION_BACKGROUND_COLOR, QColor()).value<QColor>();
     appearance.selection_foreground_color = value(KEY_CV_DARK_SELECTION_FOREGROUND_COLOR, QColor()).value<QColor>();
     appearance.spelling_underline_color = value(KEY_CV_DARK_SPELLING_UNDERLINE_COLOR, QColor(Qt::red)).value<QColor>();
