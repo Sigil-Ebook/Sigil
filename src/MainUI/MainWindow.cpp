@@ -4894,7 +4894,7 @@ void MainWindow::SetupUiFonts()
         f.setPointSize(9);
         qApp->setFont(f);
     }
-#elif defined(Q_OS_MACOS)
+#elif defined(Q_OS_MAC)
     // Just in case
 #else
     if ((f.family() == "Sans Serif" || f.family() == "Sans") && f.pointSize() == 9) {
