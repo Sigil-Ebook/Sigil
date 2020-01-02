@@ -64,6 +64,10 @@ bool MainApplication::event(QEvent *pEvent)
 void MainApplication::EmitPaletteChanged()
 {
 #ifdef Q_OS_MAC
+    // on macOS the application palette actual colors never seem to change after launch 
+    // even when DarkMode is enabled. So we use a mac style standardPalette to determine
+    // if a drak vs light mode transition has been made and then use it to set the 
+    // Application palette
     QPalette app_palette = m_Style->standardPalette();
     bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
     if (m_isDark != isdark) {
