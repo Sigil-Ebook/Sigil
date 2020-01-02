@@ -790,6 +790,11 @@ private:
     void PlatformSpecificTweaks();
 
     /**
+     * Tweak default UI fonts based on the OS platform.
+     */
+    void SetupUiFonts();
+
+    /**
      * Extends the UI with extra widgets and tweaks.
      * Qt Designer is not able to create all the widgets
      * we want in the MainWindow, so we use this function

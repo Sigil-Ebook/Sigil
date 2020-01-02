@@ -4884,6 +4884,28 @@ void MainWindow::PlatformSpecificTweaks()
 }
 
 
+void MainWindow::SetupUiFonts()
+{
+    QFont f = QFont(qApp->font());
+#ifdef Q_OS_WIN32
+    if (f.family() == "MS Shell Dlg 2" && f.pointSize() == 8) {
+        // Microsoft's recommended UI defaults
+        f.setFamily("Segoe UI");
+        f.setPointSize(9);
+        qApp->setFont(f);
+    }
+#elif defined(Q_OS_MACOS)
+    // Just in case
+#else
+    if ((f.family() == "Sans Serif" || f.family() == "Sans") && f.pointSize() == 9) {
+        f.setPointSize(10);
+        qApp->setFont(f);
+    }
+   
+#endif
+}
+
+
 void MainWindow::ExtendUI()
 {
     // initialize list of quick launch plugin actions
@@ -5202,6 +5224,7 @@ void MainWindow::ExtendUI()
     ui.tbCase->setFont(font);
 #endif
 
+    SetupUiFonts();
     ExtendIconSizes();
     UpdateClipsUI();
 
