@@ -714,6 +714,7 @@ QString Utility::getSpellingSafeText(const QString &raw_text)
     // Hunspell dictionaries typically store their main wordlist using
     // the dumb apostrophe variants only to save space and speed checking
     QString text(raw_text);
+    text.replace(QChar(0x00ad),"");
     return text.replace(QChar(0x2019),QChar(0x27));
 }
 
