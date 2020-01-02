@@ -109,7 +109,7 @@ public:
 	       Qt::WindowFlags flags = 0);
     ~MainWindow();
 
-    bool isDark();
+    void maybe_fixup_dockwidget_geometry(QDockWidget * widget);
 
     // returns true if MainWindow is Maximized or is FullScreen
     bool isMaxOrFull();
@@ -1033,8 +1033,6 @@ private:
     QActionGroup *m_headingActionGroup;
 
     QStyle * m_Style;
-
-    bool m_isDark;
 
     /**
      * Holds all the widgets Qt Designer created for us.

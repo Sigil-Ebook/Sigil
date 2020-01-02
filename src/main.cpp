@@ -275,14 +275,17 @@ int main(int argc, char *argv[])
 #ifndef Q_OS_MAC
     setupHiDPI();
 #endif
+
     // Set application information for easier use of QSettings classes
     QCoreApplication::setOrganizationName("sigil-ebook");
     QCoreApplication::setOrganizationDomain("sigil-ebook.com");
     QCoreApplication::setApplicationName("sigil");
     QCoreApplication::setApplicationVersion(SIGIL_VERSION);
 
+#ifndef Q_OS_MAC
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-    
+#endif
+
     // many qtbugs related to mixing 32 and 64 bit qt apps when shader disk cache is used
     // Only use if using Qt5.9.0 or higher
 #if QT_VERSION >= 0x050900

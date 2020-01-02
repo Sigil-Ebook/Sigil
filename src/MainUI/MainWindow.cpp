@@ -270,6 +270,27 @@ MainWindow::~MainWindow()
 
 }
 
+void MainWindow::maybe_fixup_dockwidget_geometry(QDockWidget* dw) 
+{
+    QRect screen_rect = qApp->desktop()->availableGeometry(dw);
+    qDebug() << "dockwidget screen: " << screen_rect;
+    qDebug() << "dockwidget widget: " << dw->geometry() << dw->isFloating();
+    qDebug() << "mainwindow screen: " << qApp->desktop()->availableGeometry(this);
+    if (dw->isFloating()) {
+        if (!dw->geometry().intersects(screen_rect)) {
+            qDebug() << "on a no longer available screen";
+#if 0
+            // shrink it to fit the current screen and move it here
+            int w = std::min(dw->width(), screen_rect.width() - 10);
+	    int h = std::min(dw->height(), screen_rect.height() - 10);
+	    dw->resize(w, h);
+	    dw->move((screen_rect.width() - w)/2, (screen_rect.height() - h)/2);
+#endif
+	}
+    }
+}
+
+
 // Note on Mac OS X you may only add a QMenu or SubMenu to the MenuBar Once!
 // Actions can be removed
 void MainWindow::loadPluginsMenu()
@@ -925,10 +946,6 @@ void MainWindow::DebugCurrentWidgetSizes()
         r = m_FindReplace->geometry();
         qDebug() << "find replace: " << r.x() << r.y() << r.width() << r.height();
     }
-}
-
-bool MainWindow::isDark() {
-    return m_isDark;
 }
 
 // somehow this routine needs to detect that the mainwindow has
@@ -5644,6 +5661,19 @@ void MainWindow::changeEvent(QEvent *e)
                 if (!m_LastState.isEmpty()) {
                     restoreState(m_LastState);
 		}
+
+                // restoreState properly handles moving floating Preview Window
+                // back to main screen if needed but keeps it hidden, only need to 
+                // use View to display it, at least on macOSX
+
+                // So only Use this to dump screen debug data now (no actual fixup is currently done)
+                // Handle Dock Widgets not being restored to correct screen
+                // See https://bugreports.qt.io/browse/QTBUG-77385
+                maybe_fixup_dockwidget_geometry(m_BookBrowser);
+                maybe_fixup_dockwidget_geometry(m_TableOfContents);
+                maybe_fixup_dockwidget_geometry(m_ValidationResultsView);
+                maybe_fixup_dockwidget_geometry(m_PreviewWindow);
+
 	    }
             m_FirstTime = false;
 
