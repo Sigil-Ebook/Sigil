@@ -42,6 +42,9 @@ QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetMisspelledWords(const Q
 {
     SpellCheck *sc = SpellCheck::instance();
     QString wordChars = sc->getWordChars();
+    // Adding a soft hyphen to wordChars to avoid treating this character
+    // as a boundary within a word
+    wordChars = wordChars + QChar(0x00ad);
     bool in_tag = false;
     bool in_invalid_word = false;
     bool in_entity = false;
