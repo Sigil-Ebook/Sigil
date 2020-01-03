@@ -109,6 +109,21 @@ QSharedPointer<Book> ImportHTML::GetBook(bool extract_metadata)
 	    m_AddedBookPaths << nav_resource->GetRelativePath();
         }
     }
+
+    // Before returning the new book, if it is epub2, make sure it has an ncx
+    if (m_EpubVersion.startsWith('2')) {
+        NCXResource* ncx_resource = m_Book->GetNCX();
+        if (!ncx_resource) {
+            // add NCX using default name and bookpath
+            ncx_resource = m_Book->GetFolderKeeper()->AddNCXToFolder(m_EpubVersion);
+            // Need to create a new manifest id for it.
+            // and take that manifest id and add it to the spine attribute
+            QString NCXId = m_Book->GetOPF()->AddNCXItem(ncx_resource->GetFullPath(),"ncx");
+            m_Book->GetOPF()->UpdateNCXOnSpine(NCXId);
+	    m_AddedBookPaths << ncx_resource->GetRelativePath();
+        }
+    }
+
     return m_Book;
 }
 
