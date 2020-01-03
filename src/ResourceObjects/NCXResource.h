@@ -61,7 +61,7 @@ public:
     void GenerateNCXFromTOCContents(const Book *book, TOCModel *toc_model);
     void GenerateNCXFromTOCEntries(const Book *book, TOCModel::TOCEntry toc_root_entry);
     void FillWithDefaultText(const QString &version, const QString &default_text_folder);
-
+    void FillWithDefaultTextToBookPath(const QString &version, const QString &start_bookpath);
 };
 
 #endif // NCXRESOURCE_H

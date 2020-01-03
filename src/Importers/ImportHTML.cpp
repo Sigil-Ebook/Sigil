@@ -120,9 +120,11 @@ QSharedPointer<Book> ImportHTML::GetBook(bool extract_metadata)
             ncx_resource = m_Book->GetFolderKeeper()->AddNCXToFolder(m_EpubVersion, ncxbookpath);
             // No Need to create a new manifest id for it as the empty epub2 already has an entry for it.
             // and already has "ncx" entry on the spine
+            // And properly fill the empty ncx with the default contents to point to the first xhtml file
+            QString first_xhtml_bookpath = m_AddedBookPaths.at(0);
+            ncx_resource->FillWithDefaultTextToBookPath(m_EpubVersion, first_xhtml_bookpath);
         }
     }
-
     return m_Book;
 }
 

@@ -183,3 +183,24 @@ void NCXResource::FillWithDefaultText(const QString &version, const QString &def
     SaveToDisk();
 }
 
+
+void NCXResource::FillWithDefaultTextToBookPath(const QString &version, const QString &start_bookpath)
+{
+    QString epubversion = version;
+    if (epubversion.isEmpty()) {
+        SettingsStore ss;
+        epubversion = ss.defaultVersion();
+    }
+    QString ncxbookpath = GetRelativePath();
+    QString texthref = Utility::URLEncodePath(Utility::buildRelativePath(ncxbookpath, start_bookpath));
+    if (epubversion.startsWith('2')) {
+        SetText(TEMPLATE_TEXT.arg(tr("Start")).arg(texthref));
+    } else {
+        SetText(TEMPLATE3_TEXT.arg(tr("Start")).arg(texthref));
+    }
+    // Make sure the file exists on disk.
+    // Among many reasons, this also solves the problem
+    // with the Book Browser not displaying an icon for this resource.
+    SaveToDisk();
+}
+
