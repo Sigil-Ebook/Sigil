@@ -48,6 +48,14 @@
 
 static const QString SETTINGS_GROUP = "previewwindow";
 
+static const QString DARK_STYLE =
+    "<style>\n"
+    "  :root { background-color: %1; color: %2; }\n"
+    "  a:link { color: red; }\n"
+    "  a:visited { color: green; }\n"
+    "</style>\n";
+
+
 #define DBG if(0)
 
 PreviewWindow::PreviewWindow(QWidget *parent)
@@ -227,12 +235,12 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     if (Utility::IsDarkMode()) {
         int endheadpos = text.indexOf("</head>");
         if (endheadpos > 1) {
-            QString inject_dark_style =
-                "<style>\n"
-	        "  body { background-color: black; color: white; }\n"
-                "  a:link { color: red; }\n"
-                "  a:visited { color: green; }\n"
-                "</style>\n";
+#ifdef Q_OS_MAC
+            // these css colors exactly match the background and foreground on macOS under DarkMode
+            QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd");
+#else
+            QString inject_dark_style = DARK_STYLE.arg("black").arg("white");
+#endif
 	    DBG qDebug() << "Preview injecting dark style: ";
             text.insert(endheadpos, inject_dark_style);
 	}
