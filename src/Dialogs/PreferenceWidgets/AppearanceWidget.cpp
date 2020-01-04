@@ -120,7 +120,11 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
     codeViewAppearance.xhtml_entity_color           = getListItemColor(i++);
     codeViewAppearance.xhtml_html_color             = getListItemColor(i++);
     codeViewAppearance.xhtml_html_comment_color     = getListItemColor(i++);
-    settings.setCodeViewAppearance(codeViewAppearance);
+    if (Utility::IsDarkMode()) {
+        settings.setCodeViewDarkAppearance(codeViewAppearance);
+    } else {
+        settings.setCodeViewAppearance(codeViewAppearance);
+    }
     SettingsStore::SpecialCharacterAppearance specialCharacterAppearance;
     specialCharacterAppearance.font_family = ui.cbSpecialCharacterFont->currentText();
     specialCharacterAppearance.font_size   = ui.specialCharacterFontSizeSpin->value();
@@ -174,7 +178,13 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     m_ShowFullPathOn = settings.showFullPathOn();
     ui.ShowFullPath->setChecked(settings.showFullPathOn());
     SettingsStore::PreviewAppearance PVAppearance = settings.previewAppearance();
-    SettingsStore::CodeViewAppearance codeViewAppearance = settings.codeViewAppearance();
+    SettingsStore::CodeViewAppearance codeViewAppearance;
+    if (Utility::IsDarkMode()) {
+        codeViewAppearance = settings.codeViewDarkAppearance();
+    } else {
+        codeViewAppearance = settings.codeViewAppearance();
+    }
+    //SettingsStore::CodeViewAppearance codeViewAppearance = settings.codeViewAppearance();
     SettingsStore::SpecialCharacterAppearance specialCharacterAppearance = settings.specialCharacterAppearance();
     loadComboValueOrDefault(ui.cbPreviewFontStandard,  PVAppearance.font_family_standard,    "Arial");
     loadComboValueOrDefault(ui.cbPreviewFontSerif,     PVAppearance.font_family_serif,       "Times New Roman");
