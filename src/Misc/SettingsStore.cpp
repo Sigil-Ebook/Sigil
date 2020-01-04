@@ -40,6 +40,7 @@ static QString KEY_ZOOM_IMAGE = SETTINGS_GROUP + "/" + "zoom_image";
 static QString KEY_ZOOM_TEXT = SETTINGS_GROUP + "/" + "zoom_text";
 static QString KEY_ZOOM_WEB = SETTINGS_GROUP + "/" + "zoom_web";
 static QString KEY_ZOOM_PREVIEW = SETTINGS_GROUP + "/" + "zoom_preview";
+static QString KEY_ZOOM_INSPECTOR = SETTINGS_GROUP + "/" + "zoom_inspector";
 static QString KEY_RENAME_TEMPLATE = SETTINGS_GROUP + "/" + "rename_template";
 static QString KEY_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "dictionary_name";
 static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
@@ -181,6 +182,12 @@ float SettingsStore::zoomPreview()
 {
     clearSettingsGroup();
     return value(KEY_ZOOM_PREVIEW, ZOOM_NORMAL).toFloat();
+}
+
+float SettingsStore::zoomInspector()
+{
+    clearSettingsGroup();
+    return value(KEY_ZOOM_INSPECTOR, ZOOM_NORMAL).toFloat();
 }
 
 QString SettingsStore::dictionary()
@@ -471,6 +478,12 @@ void SettingsStore::setZoomPreview(float zoom)
 {
     clearSettingsGroup();
     setValue(KEY_ZOOM_PREVIEW, zoom);
+}
+
+void SettingsStore::setZoomInspector(float zoom)
+{
+    clearSettingsGroup();
+    setValue(KEY_ZOOM_INSPECTOR, zoom);
 }
 
 void SettingsStore::setDictionary(const QString &name)

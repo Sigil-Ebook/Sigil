@@ -75,6 +75,7 @@ public:
     float zoomText();
     float zoomWeb();
     float zoomPreview();
+    float zoomInspector();
 
     /**
      * The name of the dictionary to use for spell check.
@@ -267,6 +268,7 @@ public slots:
     void setZoomText(float zoom);
     void setZoomWeb(float zoom);
     void setZoomPreview(float zoom);
+    void setZoomInspector(float zoom);
 
     /**
      * Set the name of the dictionary the user has selected.

@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2019  Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -28,6 +28,7 @@
 #include <QSize>
 #include <QVBoxLayout>
 #include <QtWebEngineWidgets/QWebEngineView>
+#include <QShortcut>
 
 class QWebEnginePage;
 
@@ -48,9 +49,19 @@ public:
     void  SaveSettings();
     void  LoadSettings();
 
+    void SetZoomFactor(float factor);
+    void SetCurrentZoomFactor(float factor);
+    float GetZoomFactor() const;
+    void Zoom();
+    void ZoomByStep(bool zoom_in);
+
 public slots:
     void InspectPageofView(QWebEngineView * view);
     void StopInspection();
+
+    void ZoomIn();
+    void ZoomOut();
+    void ZoomReset();
 
 protected slots:
     void UpdateFinishedState(bool okay);
@@ -62,6 +73,12 @@ private:
     QWebEngineView* m_view;
     bool m_LoadingFinished;
     bool m_LoadOkay;
+
+    float m_CurrentZoomFactor;
+    QShortcut * m_ZoomIn;
+    QShortcut * m_ZoomOut;
+    QShortcut * m_ZoomReset;
+
 };
 
 #endif // INSPECTOR_H
