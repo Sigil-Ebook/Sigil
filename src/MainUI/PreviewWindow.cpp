@@ -223,7 +223,23 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     DBG qDebug() << "PV UpdatePage " << filename_url;
     DBG foreach(ElementIndex ei, location) qDebug()<< "PV name: " << ei.name << " index: " << ei.index;
 
+    //if isDarkMode is set, inject a local style in head
+    if (Utility::IsDarkMode()) {
+        int endheadpos = text.indexOf("</head>");
+        if (endheadpos > 1) {
+            QString inject_dark_style =
+                "<style>\n"
+	        "  body { background-color: black; color: white; }\n"
+                "  a:link { color: red; }\n"
+                "  a:visited { color: green; }\n"
+                "</style>\n";
+	    DBG qDebug() << "Preview injecting dark style: ";
+            text.insert(endheadpos, inject_dark_style);
+	}
+    }
+
     // If the user has set a default stylesheet inject it
+    // it can override anything above it
     if (!m_usercssurl.isEmpty()) {
         int endheadpos = text.indexOf("</head>");
         if (endheadpos > 1) {

@@ -2424,6 +2424,7 @@ void MainWindow::ApplicationPaletteChanged()
     // we need to force a full reload of all Tabs and Preview Window
     qDebug() << "ApplicationPaletteChanged";
     m_TabManager->ReopenTabs();
+    UpdatePreview();
 }
 
 void MainWindow::ApplicationFocusChanged(QWidget *old, QWidget *now)
