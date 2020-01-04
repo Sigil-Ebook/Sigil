@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2011      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2015-2019  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2019  Doug Massay
+**  Copyright (C) 2011-2013  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -43,7 +44,6 @@ public:
 
     enum AvailablePreferences {
         AppearancePrefs        = 0,
-        //DarkAppearancePrefs    = 1,
         GeneralSettingsPrefs   = 1,
         KeyboardShortcutsPrefs = 2,
         LanguagePrefs          = 3,

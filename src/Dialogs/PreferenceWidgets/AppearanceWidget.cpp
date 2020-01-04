@@ -1,8 +1,9 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2012  John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012  Grant Drake
+**  Copyright (C) 2016-2019  Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2016-2020  Doug Massay
+**  Copyright (C) 2011-2013  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012-2013  Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -184,7 +185,6 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     } else {
         codeViewAppearance = settings.codeViewAppearance();
     }
-    //SettingsStore::CodeViewAppearance codeViewAppearance = settings.codeViewAppearance();
     SettingsStore::SpecialCharacterAppearance specialCharacterAppearance = settings.specialCharacterAppearance();
     loadComboValueOrDefault(ui.cbPreviewFontStandard,  PVAppearance.font_family_standard,    "Arial");
     loadComboValueOrDefault(ui.cbPreviewFontSerif,     PVAppearance.font_family_serif,       "Times New Roman");
