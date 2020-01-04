@@ -3,7 +3,7 @@ version: '1.0.0-{build}'
 branches:
   only:
   - master
-  - nomove
+  - appearance
   - /\d+\.\d+\.\d+(-\d+)?/
   
 clone_folder: c:\project\sigil
