@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -29,6 +29,7 @@ class QStringList;
 
 // These enable us to use constants defined
 // in one CPP file to be used in another
+extern const QString DARK_STYLE;
 extern const QString BODY_START;
 extern const QString BODY_END;
 extern const QString BREAK_TAG_INSERT;

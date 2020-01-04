@@ -48,7 +48,7 @@
 
 static const QString SETTINGS_GROUP = "previewwindow";
 
-static const QString DARK_STYLE =
+const QString DARK_STYLE =
     "<style>\n"
     "  :root { background-color: %1; color: %2; }\n"
     "  a:link { color: red; }\n"

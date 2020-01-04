@@ -43,6 +43,7 @@
 #include "Misc/SettingsStore.h"
 #include "ResourceObjects/ImageResource.h"
 #include "Tabs/ImageTab.h"
+#include "sigil_constants.h"
 
 const QString IMAGE_HTML_BASE =
     "<html>"
@@ -53,12 +54,14 @@ const QString IMAGE_HTML_BASE =
     "hr { width: 75%; }"
     "div { text-align: center; }"
     "</style>"
+    "</head>"
     "<body>"
     "<p><img src=\"%1\" /></p>"
     "<hr />"
     "<div>%2&times;%3px | %4 KB | %5%6</div>"
     "</body>"
     "</html>";
+
 
 ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     :
@@ -186,8 +189,21 @@ void ImageTab::RefreshContent()
         colorsInfo = QString(" %1bpp (%2 %3)").arg(img.bitPlaneCount()).arg(img.colorCount()).arg(colors_shades);
     }
 
-    const QString html = IMAGE_HTML_BASE.arg(imgUrl.toString()).arg(img.width()).arg(img.height()).arg(fsize)
+    QString html = IMAGE_HTML_BASE.arg(imgUrl.toString()).arg(img.width()).arg(img.height()).arg(fsize)
                          .arg(grayscale_color).arg(colorsInfo);
+
+    if (Utility::IsDarkMode()) {
+        int endheadpos = html.indexOf("</head>");
+        if (endheadpos > 1) {
+#ifdef Q_OS_MAC
+            // these css colors exactly match the background and foreground on macOS under DarkMode
+            QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd");
+#else
+            QString inject_dark_style = DARK_STYLE.arg("black").arg("white");
+#endif
+            html.insert(endheadpos, inject_dark_style);
+        }
+    }
     m_WebView->setHtml(html, imgUrl);
 }
 
