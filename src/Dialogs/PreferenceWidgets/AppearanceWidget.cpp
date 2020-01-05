@@ -121,10 +121,13 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
     codeViewAppearance.xhtml_entity_color           = getListItemColor(i++);
     codeViewAppearance.xhtml_html_color             = getListItemColor(i++);
     codeViewAppearance.xhtml_html_comment_color     = getListItemColor(i++);
-    if (Utility::IsDarkMode()) {
-        settings.setCodeViewDarkAppearance(codeViewAppearance);
-    } else {
-        settings.setCodeViewAppearance(codeViewAppearance);
+    // only save CV Appearance if mode was not changed since preference was open
+    if (m_wasDark == Utility::IsDarkMode()) {
+        if (Utility::IsDarkMode()) {
+            settings.setCodeViewDarkAppearance(codeViewAppearance);
+        } else {
+            settings.setCodeViewAppearance(codeViewAppearance);
+        }
     }
     SettingsStore::SpecialCharacterAppearance specialCharacterAppearance;
     specialCharacterAppearance.font_family = ui.cbSpecialCharacterFont->currentText();
@@ -182,8 +185,10 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     SettingsStore::CodeViewAppearance codeViewAppearance;
     if (Utility::IsDarkMode()) {
         codeViewAppearance = settings.codeViewDarkAppearance();
+        m_wasDark = true;
     } else {
         codeViewAppearance = settings.codeViewAppearance();
+        m_wasDark = false;
     }
     SettingsStore::SpecialCharacterAppearance specialCharacterAppearance = settings.specialCharacterAppearance();
     loadComboValueOrDefault(ui.cbPreviewFontStandard,  PVAppearance.font_family_standard,    "Arial");
