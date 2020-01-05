@@ -303,15 +303,7 @@ void SelectFiles::SetPreviewImage()
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
         QString html = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
 	if (Utility::IsDarkMode()) {
-	    int endheadpos = html.indexOf("</head>");
-	    if (endheadpos > 1) {
-#ifdef Q_OS_MAC
-		QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd");
-#else
-		QString inject_dark_style = DARK_STYLE.arg("black").arg("white");
-#endif
-		html.insert(endheadpos, inject_dark_style);
-	    }
+            html = Utility::AddDarkCSS(html);
 	}
         m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
@@ -325,15 +317,7 @@ void SelectFiles::SetPreviewImage()
         html = VIDEO_HTML_BASE.arg(resourceUrl.toString());
         m_PreviewLoaded = false;
 	if (Utility::IsDarkMode()) {
-	    int endheadpos = html.indexOf("</head>");
-	    if (endheadpos > 1) {
-#ifdef Q_OS_MAC
-		QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd");
-#else
-		QString inject_dark_style = DARK_STYLE.arg("black").arg("white");
-#endif
-		html.insert(endheadpos, inject_dark_style);
-	    }
+            html = Utility::AddDarkCSS(html);
 	}
         m_WebView->setHtml(html, resourceUrl);
         loading_resources = true;
@@ -345,15 +329,7 @@ void SelectFiles::SetPreviewImage()
         html = AUDIO_HTML_BASE.arg(resourceUrl.toString());
         m_PreviewLoaded = false;
 	if (Utility::IsDarkMode()) {
-	    int endheadpos = html.indexOf("</head>");
-	    if (endheadpos > 1) {
-#ifdef Q_OS_MAC
-		QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd");
-#else
-		QString inject_dark_style = DARK_STYLE.arg("black").arg("white");
-#endif
-		html.insert(endheadpos, inject_dark_style);
-	    }
+            html = Utility::AddDarkCSS(html);
 	}
         m_WebView->setHtml(html, resourceUrl);
         loading_resources = true;

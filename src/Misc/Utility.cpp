@@ -65,6 +65,15 @@
 #include "Misc/SleepFunctions.h"
 #include "MainUI/MainApplication.h"
 
+static const QString DARK_STYLE =
+    "<style>\n"
+    "  :root { background-color: %1; color: %2; }\n"
+    "  a:link { color: red; }\n"
+    "  a:visited { color: green; }\n"
+    "</style>\n"
+    "<link rel=\"stylesheet\" type=\"text/css\" "
+    "href=\"%3\" />\n";
+
 #ifndef MAX_PATH
 // Set Max length to 256 because that's the max path size on many systems.
 #define MAX_PATH 256
@@ -1161,4 +1170,29 @@ QStringList Utility::LocaleAwareSort(QStringList &names)
   // use uiCollator.compare(s1, s2)
   std::sort(names.begin(), names.end(), uiCollator);
   return names;
+}
+
+QString Utility::AddDarkCSS(const QString &html)
+{
+    QString text = html;
+    int endheadpos = text.indexOf("</head>");
+    if (endheadpos == -1) return text;
+    QString back = QPalette().color(QPalette::Window).name();
+    QString fore = QPalette().color(QPalette::Text).name();
+#ifdef Q_OS_MAC
+    QString dark_css_url = "qrc:///dark/mac_dark_scrollbar.css";
+#elif defined(Q_OS_WIN32)
+    QString dark_css_url = "qrc:///dark/win_dark_scrollbar.css";
+#else
+    // Linux Temporary
+    QString dark_css_url = "qrc:///dark/win_dark_scrollbar.css";
+    // qDebug() << "Text Color: " << QPalette().color(QPalette::Text).name();
+    // qDebug() << "Window Color: " << QPalette().color(QPalette::Window).name();
+    // qDebug() << "Base Color: " << QPalette().color(QPalette::Base).name();
+    // qDebug() << "AlternateBase Color: " << QPalette().color(QPalette::AlternateBase).name();
+#endif
+    QString inject_dark_style = DARK_STYLE.arg(back).arg(fore).arg(dark_css_url);
+    // qDebug() << "Injecting dark style: ";
+    text.insert(endheadpos, inject_dark_style);
+    return text;
 }

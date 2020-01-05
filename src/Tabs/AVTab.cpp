@@ -80,15 +80,7 @@ void AVTab::RefreshContent()
         html = VIDEO_HTML_BASE.arg(resourceUrl.toString());
     }
     if (Utility::IsDarkMode()) {
-        int endheadpos = html.indexOf("</head>");
-        if (endheadpos > 1) {
-#ifdef Q_OS_MAC
-            QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd");
-#else
-            QString inject_dark_style = DARK_STYLE.arg("black").arg("white");
-#endif
-            html.insert(endheadpos, inject_dark_style);
-        }
+        html = Utility::AddDarkCSS(html);
     }
     m_WebView->setHtml(html, resourceUrl);
 }

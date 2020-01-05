@@ -210,6 +210,9 @@ public:
     // perform a locale aware string sort
     static QStringList LocaleAwareSort(QStringList &names);
 
+    // inject dark mode css into html
+    static QString AddDarkCSS(const QString &html);
+
 };
 #endif // UTILITY_H
 

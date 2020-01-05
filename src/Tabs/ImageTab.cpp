@@ -193,16 +193,7 @@ void ImageTab::RefreshContent()
                          .arg(grayscale_color).arg(colorsInfo);
 
     if (Utility::IsDarkMode()) {
-        int endheadpos = html.indexOf("</head>");
-        if (endheadpos > 1) {
-#ifdef Q_OS_MAC
-            // these css colors exactly match the background and foreground on macOS under DarkMode
-            QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd");
-#else
-            QString inject_dark_style = DARK_STYLE.arg("black").arg("white");
-#endif
-            html.insert(endheadpos, inject_dark_style);
-        }
+	html = Utility::AddDarkCSS(html);
     }
     m_WebView->setHtml(html, imgUrl);
 }

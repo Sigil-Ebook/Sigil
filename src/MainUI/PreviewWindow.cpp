@@ -48,16 +48,6 @@
 
 static const QString SETTINGS_GROUP = "previewwindow";
 
-const QString DARK_STYLE =
-    "<style>\n"
-    "  :root { background-color: %1; color: %2; }\n"
-    "  a:link { color: red; }\n"
-    "  a:visited { color: green; }\n"
-    "</style>\n"
-    "<link rel=\"stylesheet\" type=\"text/css\" "
-    "href=\"%3\" />\n";
-
-
 #define DBG if(0)
 
 PreviewWindow::PreviewWindow(QWidget *parent)
@@ -235,28 +225,8 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
 
     //if isDarkMode is set, inject a local style in head
     if (Utility::IsDarkMode()) {
-        int endheadpos = text.indexOf("</head>");
-        if (endheadpos > 1) {
-#ifdef Q_OS_MAC
-            // these css colors exactly match the background and foreground on macOS under DarkMode
-            QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd").arg("qrc:///dark/mac_dark_scrollbar.css");
-#elif defined(Q_OS_WIN32)
-            QString back = QPalette().color(QPalette::Window).name();
-            QString fore = QPalette().color(QPalette::Text).name();
-            QString inject_dark_style = DARK_STYLE.arg(back).arg(fore).arg("qrc:///dark/win_dark_scrollbar.css");
-#else
-            QString back = QPalette().color(QPalette::Window).name();
-            QString fore = QPalette().color(QPalette::Text).name();
-            // Temporary
-            QString inject_dark_style = DARK_STYLE.arg(back).arg(fore).arg("qrc:///dark/win_dark_scrollbar.css");
-            DBG qDebug() << "Text Color: " << QPalette().color(QPalette::Text).name();
-            DBG qDebug() << "Window Color: " << QPalette().color(QPalette::Window).name();
-            DBG qDebug() << "Base Color: " << QPalette().color(QPalette::Base).name();
-            DBG qDebug() << "AlternateBase Color: " << QPalette().color(QPalette::AlternateBase).name();
-#endif
-	    DBG qDebug() << "Preview injecting dark style: ";
-            text.insert(endheadpos, inject_dark_style);
-	    }
+        text = Utility::AddDarkCSS(text);
+	DBG qDebug() << "Preview injecting dark style: ";
     }
 
     // If the user has set a default stylesheet inject it
