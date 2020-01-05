@@ -240,7 +240,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
 #ifdef Q_OS_MAC
             // these css colors exactly match the background and foreground on macOS under DarkMode
             QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd").arg("qrc:///dark/mac_dark_scrollbar.css");
-#elif Q_OS_WIN32
+#elif defined(Q_OS_WIN32)
             QString back = QPalette().color(QPalette::Window).name();
             QString fore = QPalette().color(QPalette::Text).name();
             QString inject_dark_style = DARK_STYLE.arg(back).arg(fore).arg("qrc:///dark/win_dark_scrollbar.css");
