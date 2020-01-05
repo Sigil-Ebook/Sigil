@@ -27,6 +27,7 @@
 #include <QtWebEngineWidgets/QWebEngineView>
 #include "MainUI/MainWindow.h"
 #include "Tabs/AVTab.h"
+#include "Misc/Utility.h"
 #include "sigil_constants.h"
 
 const QString AUDIO_HTML_BASE =
@@ -36,6 +37,7 @@ const QString AUDIO_HTML_BASE =
     "body { -webkit-user-select: none; }"
     "audio { display: block; margin-left: auto; margin-right: auto; }"
     "</style>"
+    "</head>"
     "<body>"
     "<p><audio controls=\"controls\" src=\"%1\"></audio></p>"
     "</body>"
@@ -48,6 +50,7 @@ const QString VIDEO_HTML_BASE =
     "body { -webkit-user-select: none; }"
     "video { display: block; margin-left: auto; margin-right: auto; }"
     "</style>"
+    "</head>"
     "<body>"
     "<p><video controls=\"controls\" width=\"560\" src=\"%1\"></video></p>"
     "</body>"
@@ -75,6 +78,17 @@ void AVTab::RefreshContent()
         html = AUDIO_HTML_BASE.arg(resourceUrl.toString());
     } else {
         html = VIDEO_HTML_BASE.arg(resourceUrl.toString());
+    }
+    if (Utility::IsDarkMode()) {
+        int endheadpos = html.indexOf("</head>");
+        if (endheadpos > 1) {
+#ifdef Q_OS_MAC
+            QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd");
+#else
+            QString inject_dark_style = DARK_STYLE.arg("black").arg("white");
+#endif
+            html.insert(endheadpos, inject_dark_style);
+        }
     }
     m_WebView->setHtml(html, resourceUrl);
 }

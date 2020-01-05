@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B, Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2020 Kevin B, Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -50,6 +50,7 @@ const QString IMAGE_HTML_BASE_PREVIEW =
     "body { -webkit-user-select: none; }"
     "img { display: block; margin-left: auto; margin-right: auto; border-style: solid; border-width: 1px; max-width: 95%; max-height: 95%}"
     "</style>"
+    "</head>"
     "<body>"
     "<div><img src=\"%1\" /></div>"
     "</body>"
@@ -301,6 +302,17 @@ void SelectFiles::SetPreviewImage()
         // MainWindow::clearMemoryCaches();
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
         QString html = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
+	if (Utility::IsDarkMode()) {
+	    int endheadpos = html.indexOf("</head>");
+	    if (endheadpos > 1) {
+#ifdef Q_OS_MAC
+		QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd");
+#else
+		QString inject_dark_style = DARK_STYLE.arg("black").arg("white");
+#endif
+		html.insert(endheadpos, inject_dark_style);
+	    }
+	}
         m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
         loading_resources = true;
@@ -312,6 +324,17 @@ void SelectFiles::SetPreviewImage()
         MainWindow::clearMemoryCaches();
         html = VIDEO_HTML_BASE.arg(resourceUrl.toString());
         m_PreviewLoaded = false;
+	if (Utility::IsDarkMode()) {
+	    int endheadpos = html.indexOf("</head>");
+	    if (endheadpos > 1) {
+#ifdef Q_OS_MAC
+		QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd");
+#else
+		QString inject_dark_style = DARK_STYLE.arg("black").arg("white");
+#endif
+		html.insert(endheadpos, inject_dark_style);
+	    }
+	}
         m_WebView->setHtml(html, resourceUrl);
         loading_resources = true;
         details = QString("%1 MB").arg(fmbsize);
@@ -321,6 +344,17 @@ void SelectFiles::SetPreviewImage()
         // MainWindow::clearMemoryCaches();
         html = AUDIO_HTML_BASE.arg(resourceUrl.toString());
         m_PreviewLoaded = false;
+	if (Utility::IsDarkMode()) {
+	    int endheadpos = html.indexOf("</head>");
+	    if (endheadpos > 1) {
+#ifdef Q_OS_MAC
+		QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd");
+#else
+		QString inject_dark_style = DARK_STYLE.arg("black").arg("white");
+#endif
+		html.insert(endheadpos, inject_dark_style);
+	    }
+	}
         m_WebView->setHtml(html, resourceUrl);
         loading_resources = true;
         details = QString("%1 MB").arg(fmbsize);

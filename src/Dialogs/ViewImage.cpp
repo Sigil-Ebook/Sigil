@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks
-**  Copyright (C) 2013 Dave Heiland
+**  Copyright (C) 2019-2020 Kevin B. Hendricks
+**  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -29,6 +29,7 @@
 #include "MainUI/MainWindow.h"
 #include "Dialogs/ViewImage.h"
 #include "ResourceObjects/ImageResource.h"
+#include "Misc/Utility.h"
 #include "sigil_constants.h"
 
 static QString SETTINGS_GROUP = "view_image";
@@ -57,8 +58,19 @@ void ViewImage::ShowImage(QString path)
 {
     ui.webView->page()->profile()->clearHttpCache();
     const QUrl resourceUrl = QUrl::fromLocalFile(path);
-    const QString imagehtml = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
-    ui.webView->setHtml(imagehtml, resourceUrl);
+    QString html = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
+    if (Utility::IsDarkMode()) {
+        int endheadpos = html.indexOf("</head>");
+        if (endheadpos > 1) {
+#ifdef Q_OS_MAC
+            QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd");
+#else
+            QString inject_dark_style = DARK_STYLE.arg("black").arg("white");
+#endif
+            html.insert(endheadpos, inject_dark_style);
+        }
+    }
+    ui.webView->setHtml(html, resourceUrl);
     QApplication::processEvents();
 }
 
