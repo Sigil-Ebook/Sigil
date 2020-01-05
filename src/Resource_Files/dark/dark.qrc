@@ -7,6 +7,8 @@
     <file>dock-close-hover.svg</file>
     <file>undock.svg</file>
     <file>undock-hover.svg</file>
-    <file>dark-style.qss</file>
+    <file>win-dark-style.qss</file>
+    <file>win_dark_scrollbar.css</file>
+    <file>mac_dark_scrollbar.css</file>
   </qresource>
 </RCC>

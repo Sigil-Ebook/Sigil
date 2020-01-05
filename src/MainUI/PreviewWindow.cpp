@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2015-2019 Doug Massay
-**  Copyright (C) 2012      Dave Heiland, John Schember
+**  Copyright (C) 2015-2019  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019       Doug Massay
+**  Copyright (C) 2012       Dave Heiland, John Schember
 **
 **  This file is part of Sigil.
 **
@@ -53,7 +53,9 @@ const QString DARK_STYLE =
     "  :root { background-color: %1; color: %2; }\n"
     "  a:link { color: red; }\n"
     "  a:visited { color: green; }\n"
-    "</style>\n";
+    "</style>\n"
+    "<link rel=\"stylesheet\" type=\"text/css\" "
+    "href=\"%3\" />\n";
 
 
 #define DBG if(0)
@@ -237,13 +239,24 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
         if (endheadpos > 1) {
 #ifdef Q_OS_MAC
             // these css colors exactly match the background and foreground on macOS under DarkMode
-            QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd");
+            QString inject_dark_style = DARK_STYLE.arg("#222").arg("#ddd").arg("qrc:///dark/mac_dark_scrollbar.css");
+#elif Q_OS_WIN32
+            QString back = QPalette().color(QPalette::Window).name();
+            QString fore = QPalette().color(QPalette::Text).name();
+            QString inject_dark_style = DARK_STYLE.arg(back).arg(fore).arg("qrc:///dark/win_dark_scrollbar.css");
 #else
-            QString inject_dark_style = DARK_STYLE.arg("black").arg("white");
+            QString back = QPalette().color(QPalette::Window).name();
+            QString fore = QPalette().color(QPalette::Text).name();
+            // Temporary
+            QString inject_dark_style = DARK_STYLE.arg(back).arg(fore).arg("qrc:///dark/win_dark_scrollbar.css");
+            DBG qDebug() << "Text Color: " << QPalette().color(QPalette::Text).name();
+            DBG qDebug() << "Window Color: " << QPalette().color(QPalette::Window).name();
+            DBG qDebug() << "Base Color: " << QPalette().color(QPalette::Base).name();
+            DBG qDebug() << "AlternateBase Color: " << QPalette().color(QPalette::AlternateBase).name();
 #endif
 	    DBG qDebug() << "Preview injecting dark style: ";
             text.insert(endheadpos, inject_dark_style);
-	}
+	    }
     }
 
     // If the user has set a default stylesheet inject it

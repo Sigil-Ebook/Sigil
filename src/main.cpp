@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2019 Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2018-2019  Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2019       Doug Massay
+**  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -372,7 +373,7 @@ int main(int argc, char *argv[])
         app.setStyle(QStyleFactory::create("fusion"));
         if (Utility::WindowsShouldUseDarkMode()) {
             // qss stylesheet from resources
-            QString dark_styles = Utility::ReadUnicodeTextFile(":/dark/dark-style.qss");
+            QString dark_styles = Utility::ReadUnicodeTextFile(":/dark/win-dark-style.qss");
             app.setStyleSheet(dark_styles);
 
             // Dark palette for Sigil
