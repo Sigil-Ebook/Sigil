@@ -24,8 +24,10 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
+
 #include <QCoreApplication>
 #include <QtCore/QString>
+#include <QColor>
 
 class QStringList;
 class QStringRef;
@@ -213,6 +215,8 @@ public:
     // inject dark mode css into html
     static QString AddDarkCSS(const QString &html);
 
+    // return the proper background color for QWebEngineView
+    static QColor WebViewBackgroundColor();
 };
 #endif // UTILITY_H
 

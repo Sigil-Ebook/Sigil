@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -25,6 +25,8 @@
 #include <QtWidgets/QLayout>
 #include <QtWebEngineWidgets/QWebEngineProfile>
 #include <QtWebEngineWidgets/QWebEngineView>
+#include <QGuiApplication>
+#include <QApplication>
 #include "MainUI/MainWindow.h"
 #include "Tabs/AVTab.h"
 #include "Misc/Utility.h"
@@ -60,6 +62,7 @@ AVTab::AVTab(Resource *resource, QWidget *parent)
     : ContentTab(resource, parent),
       m_WebView(new QWebEngineView(this))
 {
+    m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);
@@ -82,6 +85,7 @@ void AVTab::RefreshContent()
     if (Utility::IsDarkMode()) {
         html = Utility::AddDarkCSS(html);
     }
+    m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
     m_WebView->setHtml(html, resourceUrl);
 }
 

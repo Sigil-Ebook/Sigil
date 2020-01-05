@@ -22,6 +22,7 @@
 *************************************************************************/
 
 #include <QApplication>
+#include <QGuiApplication>
 #include <QtCore/QFileInfo>
 #include <QEventLoop>
 #include <QImage>
@@ -69,7 +70,7 @@ SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QStri
 {
     ui.setupUi(this);
     setWindowTitle(title);
-
+    m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);
@@ -305,6 +306,7 @@ void SelectFiles::SetPreviewImage()
 	if (Utility::IsDarkMode()) {
             html = Utility::AddDarkCSS(html);
 	}
+        m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
         m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
         loading_resources = true;
@@ -319,6 +321,8 @@ void SelectFiles::SetPreviewImage()
 	if (Utility::IsDarkMode()) {
             html = Utility::AddDarkCSS(html);
 	}
+        m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
+        m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
         loading_resources = true;
         details = QString("%1 MB").arg(fmbsize);
@@ -327,10 +331,11 @@ void SelectFiles::SetPreviewImage()
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
         // MainWindow::clearMemoryCaches();
         html = AUDIO_HTML_BASE.arg(resourceUrl.toString());
-        m_PreviewLoaded = false;
 	if (Utility::IsDarkMode()) {
             html = Utility::AddDarkCSS(html);
 	}
+        m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
+        m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
         loading_resources = true;
         details = QString("%1 MB").arg(fmbsize);

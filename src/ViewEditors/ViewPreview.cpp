@@ -32,6 +32,8 @@
 #include <QtWebEngineWidgets/QWebEnginePage>
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QtWebEngineWidgets/QWebEngineScript>
+#include <QApplication>
+#include <QGuiApplication>
 #include <QDebug>
 
 #include "Misc/SettingsStore.h"
@@ -82,6 +84,10 @@ ViewPreview::ViewPreview(QWidget *parent)
       m_LoadOkay(false)
 {
     setPage(m_ViewWebPage);
+    if (Utility::IsDarkMode()) {
+        QPalette pal = qApp->palette();
+	page()->setBackgroundColor(pal.color(QPalette::Window));
+    }
     setContextMenuPolicy(Qt::CustomContextMenu);
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
@@ -127,7 +133,6 @@ QSize ViewPreview::sizeHint() const
 
 void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
 {
-
     if (html.isEmpty()) {
         return;
     }

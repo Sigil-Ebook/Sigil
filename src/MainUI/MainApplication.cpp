@@ -42,6 +42,8 @@ MainApplication::MainApplication(int &argc, char **argv)
     m_Style = QStyleFactory::create("macintosh");
     QPalette app_palette = m_Style->standardPalette();
     m_isDark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
+    // do not forget to set the initial app palette as well
+    setPalette(app_palette);
 #endif
 }
 

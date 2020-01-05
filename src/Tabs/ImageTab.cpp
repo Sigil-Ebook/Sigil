@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -21,6 +21,7 @@
 *************************************************************************/
 
 #include <QApplication>
+#include <QGuiApplication>
 #include <QtCore/QDateTime>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
@@ -71,6 +72,7 @@ ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     m_OpenWithContextMenu(new QMenu(this)),
     m_openWithMapper(new QSignalMapper(this))
 {
+    m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
     m_WebView->setContextMenuPolicy(Qt::CustomContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);
@@ -195,6 +197,7 @@ void ImageTab::RefreshContent()
     if (Utility::IsDarkMode()) {
 	html = Utility::AddDarkCSS(html);
     }
+    m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
     m_WebView->setHtml(html, imgUrl);
 }
 

@@ -21,6 +21,8 @@
 *************************************************************************/
 
 #include <QtCore/QFileInfo>
+#include <QApplication>
+#include <QGuiApplication>
 #include <QtWidgets/QLayout>
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QtWebEngineWidgets/QWebEngineSettings>
@@ -39,6 +41,7 @@ ViewImage::ViewImage(QWidget *parent)
     QDialog(parent)
 {
     ui.setupUi(this);
+    ui.webView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
     ui.webView->setContextMenuPolicy(Qt::NoContextMenu);
     ui.webView->setFocusPolicy(Qt::NoFocus);
     ui.webView->setAcceptDrops(false);
@@ -62,6 +65,7 @@ void ViewImage::ShowImage(QString path)
     if (Utility::IsDarkMode()) {
 	html = Utility::AddDarkCSS(html);
     }
+    ui.webView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
     ui.webView->setHtml(html, resourceUrl);
     QApplication::processEvents();
 }
