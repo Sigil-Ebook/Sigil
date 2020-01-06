@@ -116,7 +116,7 @@ void SelectHyperlink::AddEntry(Resource *resource)
 	}
 
 	if (target.isEmpty()) target = filename;
-	if (filepath.isEmpty()) filepath = "./";
+	if (filepath.isEmpty()) filepath = "#";
 
         QList<QStandardItem *> rowItems;
         QStandardItem *target_item = new QStandardItem();
