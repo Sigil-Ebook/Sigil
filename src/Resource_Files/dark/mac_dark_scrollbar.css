@@ -12,3 +12,7 @@
     border-radius: 10px;
     background-clip: content-box;
 }
+
+::-webkit-scrollbar-corner {
+    background: rgb(61,61,61);
+}
