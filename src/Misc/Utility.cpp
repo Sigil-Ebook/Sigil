@@ -68,8 +68,8 @@
 static const QString DARK_STYLE =
     "<style>\n"
     "  :root { background-color: %1; color: %2; }\n"
-    "  a:link { color: red; }\n"
-    "  a:visited { color: green; }\n"
+    "  a:link { color: #ff9999; }\n"
+    "  a:visited { color: #99ff99; }\n"
     "</style>\n"
     "<link rel=\"stylesheet\" type=\"text/css\" "
     "href=\"%3\" />\n";
@@ -1178,21 +1178,16 @@ QString Utility::AddDarkCSS(const QString &html)
     int endheadpos = text.indexOf("</head>");
     if (endheadpos == -1) return text;
     QPalette pal = qApp->palette();
-    QString back = pal.color(QPalette::Window).name();
+    QString back = pal.color(QPalette::Base).name();
     QString fore = pal.color(QPalette::Text).name();
 #ifdef Q_OS_MAC
     // on macOS the Base role is used for the background not the Window role
-    back = pal.color(QPalette::Base).name(); 
     QString dark_css_url = "qrc:///dark/mac_dark_scrollbar.css";
 #elif defined(Q_OS_WIN32)
     QString dark_css_url = "qrc:///dark/win_dark_scrollbar.css";
 #else
     // Linux Temporary
     QString dark_css_url = "qrc:///dark/win_dark_scrollbar.css";
-    // qDebug() << "Text Color: " << pal.color(QPalette::Text).name();
-    // qDebug() << "Window Color: " << pal.color(QPalette::Window).name();
-    // qDebug() << "Base Color: " << pal.color(QPalette::Base).name();
-    // qDebug() << "AlternateBase Color: " << pal.color(QPalette::AlternateBase).name();
 #endif
     QString inject_dark_style = DARK_STYLE.arg(back).arg(fore).arg(dark_css_url);
     // qDebug() << "Injecting dark style: ";
@@ -1205,11 +1200,7 @@ QColor Utility::WebViewBackgroundColor()
     QColor back_color = Qt::white;
     if (IsDarkMode()) {
        QPalette pal = qApp->palette();
-#ifdef Q_OS_MAC
        back_color = pal.color(QPalette::Base);
-#else
-       back_color = pal.color(QPalette::Window);
-#endif
     }
     return back_color; 
 }
