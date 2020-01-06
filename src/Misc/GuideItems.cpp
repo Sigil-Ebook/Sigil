@@ -24,6 +24,7 @@
 #include <QHash>
 #include <QTranslator>
 #include <QDir>
+// #include <QDebug>
 
 #include "Misc/SettingsStore.h"
 #include "Misc/UILanguage.h"
@@ -58,6 +59,7 @@ QString GuideItems::GetName(const QString &code)
 
 QString GuideItems::GetTitle(const QString &code, const QString &lang)
 {
+    // qDebug() << "GuideItems: " << code << lang;
     if (!m_CodeToRawTitle.contains(code)) return code;
 
     // Setup the book language translator and load the translation for the selected language
@@ -71,6 +73,7 @@ QString GuideItems::GetTitle(const QString &code, const QString &lang)
         if (QDir(path).exists()) {
             if (bookTranslator.load(qm_name, path)) {
                 translation_loaded = true;
+                // qDebug() << "Loaded bookTranslator: " << qm_name << path;
                 break;
             }
         }
@@ -83,7 +86,7 @@ QString GuideItems::GetTitle(const QString &code, const QString &lang)
     
     QString title = bookTranslator.translate("GuideItems", m_CodeToRawTitle[code].toUtf8().constData());
     if (title.isEmpty()) {
-        QString title = bookTranslator.translate("Landmarks", m_CodeToRawTitle[code].toUtf8().constData());
+        title = bookTranslator.translate("Landmarks", m_CodeToRawTitle[code].toUtf8().constData());
     }
     return title;
 }
