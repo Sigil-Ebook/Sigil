@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks  Stratford, ON Canada
+**  Copyright (C) 2015-2020 Kevin B. Hendricks  Stratford, ON Canada
 **  Copyright (C) 2013      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -478,6 +478,16 @@ QStringList OPFResource::GetSpineOrderBookPaths() const
     return book_paths_in_reading_order;
 }
 
+QString OPFResource::GetPrimaryBookLanguage() const
+{
+    SettingsStore settings;
+    QString lang = settings.defaultMetadataLang();
+    QList<QVariant> languages = GetDCMetadataValues("dc:language");
+    if (!languages.isEmpty()) {
+        lang = languages.at(0).toString();
+    }
+    return lang;
+}
 
 QList<MetaEntry> OPFResource::GetDCMetadata() const
 {
@@ -773,7 +783,7 @@ void OPFResource::SetGuideSemanticCodeForResource(QString code, const Resource *
 {
     if (code.isEmpty()) return;
     int pos = GetGuideReferenceForResourcePos(resource, p);
-    QString title = GuideItems::instance()->GetTitle(code);
+    QString title = GuideItems::instance()->GetTitle(code, GetPrimaryBookLanguage());
     if (pos > -1) {
         GuideEntry ge = p.m_guide.at(pos);
         ge.m_type = code;

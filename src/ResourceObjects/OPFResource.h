@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford ON
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford ON
 **  Copyright (C) 2013      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -113,6 +113,9 @@ public:
      *        in order to the spine.
      **/
     // void SetSpineOrderFromFilenames(const QStringList spineOrder);
+
+    // returns first (primary) dc:language value found
+    QString GetPrimaryBookLanguage() const;
 
     /**
      * Returns the book's Dublin Core metadata.
