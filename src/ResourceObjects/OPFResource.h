@@ -199,7 +199,7 @@ private:
 
     QString GetGuideSemanticCodeForResource(const Resource *resource, const OPFParser &p) const;
 
-    void SetGuideSemanticCodeForResource(QString code, const Resource *resource, OPFParser &p);
+    void SetGuideSemanticCodeForResource(QString code, const Resource *resource, OPFParser &p, const QString &lang);
 
     void RemoveDuplicateGuideCodes(QString code, OPFParser &p);
 

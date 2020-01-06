@@ -704,6 +704,8 @@ void OPFResource::ClearSemanticCodesInGuide()
 
 void OPFResource::AddGuideSemanticCode(HTMLResource *html_resource, QString new_code, bool toggle)
 {
+    //first get primary book language
+    QString lang = GetPrimaryBookLanguage();
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
@@ -712,7 +714,7 @@ void OPFResource::AddGuideSemanticCode(HTMLResource *html_resource, QString new_
 
     if ((current_code != new_code) || !toggle) {
         RemoveDuplicateGuideCodes(new_code, p);
-        SetGuideSemanticCodeForResource(new_code, html_resource, p);
+        SetGuideSemanticCodeForResource(new_code, html_resource, p, lang);
     } else {
         // If the current code is the same as the new one,
         // we toggle it off.
@@ -779,11 +781,11 @@ void OPFResource::RemoveGuideReferenceForResource(const Resource *resource, OPFP
 }
 
 
-void OPFResource::SetGuideSemanticCodeForResource(QString code, const Resource *resource, OPFParser& p)
+void OPFResource::SetGuideSemanticCodeForResource(QString code, const Resource *resource, OPFParser& p, const QString &lang)
 {
     if (code.isEmpty()) return;
     int pos = GetGuideReferenceForResourcePos(resource, p);
-    QString title = GuideItems::instance()->GetTitle(code, GetPrimaryBookLanguage());
+    QString title = GuideItems::instance()->GetTitle(code, lang);
     if (pos > -1) {
         GuideEntry ge = p.m_guide.at(pos);
         ge.m_type = code;
