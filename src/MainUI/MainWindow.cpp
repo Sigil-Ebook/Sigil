@@ -5663,6 +5663,18 @@ void MainWindow::changeEvent(QEvent *e)
                     restoreState(m_LastState);
 		}
 
+                int numscreens = qApp->desktop()->numScreens();
+		for (int i = 0; i < numscreens; i++) {
+                    qDebug() << "Screen: " << i;
+		    qDebug() << "    screen  geo: " << qApp->desktop()->screenGeometry(i);
+                    QScreen *srn = QApplication::screens().at(i);
+		    qDebug() << "    avail   geo: " << srn->availableGeometry();
+		    qDebug() << "    geo        : " << srn->geometry();
+                    qDebug() << "    devideRatio: " << srn->devicePixelRatio();
+                    qDebug() << "    logical dpi: " << srn->logicalDotsPerInchX() << srn->logicalDotsPerInchY();
+                    qDebug() << "    physic  dpi: " << srn->physicalDotsPerInchX() << srn->physicalDotsPerInchY();
+		}
+
                 // restoreState properly handles moving floating Preview Window
                 // back to main screen if needed but keeps it hidden, only need to 
                 // use View to display it, at least on macOSX
