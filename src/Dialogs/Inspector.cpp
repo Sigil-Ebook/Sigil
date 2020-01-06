@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2019  Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -172,15 +172,16 @@ void Inspector::closeEvent(QCloseEvent* event)
 void Inspector::LoadSettings()
 {
     SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
+
+    // The zoom inspector setting is in the user preference group
     SetCurrentZoomFactor(settings.zoomInspector());
 
+    settings.beginGroup(SETTINGS_GROUP);
     QByteArray geometry = settings.value("geometry").toByteArray();
-
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
     } else {
-      resize(sizeHint());
+        resize(sizeHint());
     }
     settings.endGroup();
 }
