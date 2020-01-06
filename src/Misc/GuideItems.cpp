@@ -84,6 +84,9 @@ QString GuideItems::GetTitle(const QString &code)
     }
     
     QString title = bookTranslator.translate("GuideItems", m_CodeToRawTitle[code].toUtf8().constData());
+    if (title.isEmpty()) {
+        QString title = bookTranslator.translate("Landmarks", m_CodeToRawTitle[code].toUtf8().constData());
+    }
     return title;
 }
 
