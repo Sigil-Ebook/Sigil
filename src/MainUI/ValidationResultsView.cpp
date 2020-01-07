@@ -228,7 +228,11 @@ void ValidationResultsView::DisplayResults(const QList<ValidationResult> &result
 	    Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
 	    path = resource->ShortPathName();
 	} catch (ResourceDoesNotExist) {
-	    path = "***Invalid Book Path Provided ***";
+            if (bookpath.isEmpty()) {
+	        path = "***Invalid Book Path Provided ***";
+            } else {
+                path = bookpath;
+	    }
 	}
 	
         item = new QTableWidgetItem(RemoveEpubPathPrefix(path));
