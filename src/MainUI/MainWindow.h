@@ -1032,8 +1032,6 @@ private:
      */
     QActionGroup *m_headingActionGroup;
 
-    QStyle * m_Style;
-
     /**
      * Holds all the widgets Qt Designer created for us.
      */

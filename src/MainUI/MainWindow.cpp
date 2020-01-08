@@ -209,8 +209,7 @@ MainWindow::MainWindow(const QString &openfilepath,
     m_menuPluginsValidation(NULL),
     m_pluginList(QStringList()),
     m_SaveCSS(false),
-    m_IsClosing(false),
-    m_Style(NULL)
+    m_IsClosing(false)
 {
     ui.setupUi(this);
     // Telling Qt to delete this window
