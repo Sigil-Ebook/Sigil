@@ -84,10 +84,7 @@ ViewPreview::ViewPreview(QWidget *parent)
       m_LoadOkay(false)
 {
     setPage(m_ViewWebPage);
-    if (Utility::IsDarkMode()) {
-        QPalette pal = qApp->palette();
-	page()->setBackgroundColor(pal.color(QPalette::Window));
-    }
+    page()->setBackgroundColor(Utility::WebViewBackgroundColor());
     setContextMenuPolicy(Qt::CustomContextMenu);
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
