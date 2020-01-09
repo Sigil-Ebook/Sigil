@@ -349,7 +349,12 @@ QString FolderKeeper::GetBookPathByPathEnd(const QString& path_end) const
     foreach(Resource *resource, m_Resources.values()) {
         QString bookpath = resource->GetRelativePath();
         if (bookpath.endsWith(path_end, Qt::CaseInsensitive)) {
-            return bookpath ;
+	    // make sure full file names match too
+	    QString filename = bookpath.split('/').last();
+	    QString othername = path_end.split('/').last();
+            if (filename.compare(othername, Qt::CaseInsensitive) == 0) {
+                return bookpath ;
+	    }
         }
     }
     return "";
