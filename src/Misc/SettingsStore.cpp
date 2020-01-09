@@ -74,8 +74,8 @@ static QString KEY_PREVIEW_FONT_FAMILY_SERIF = SETTINGS_GROUP + "/" + "preview_f
 static QString KEY_PREVIEW_FONT_FAMILY_SANS_SERIF = SETTINGS_GROUP + "/" + "preview_font_family_sans_serif";
 static QString KEY_PREVIEW_FONT_SIZE = SETTINGS_GROUP + "/" + "preview_font_size";
 
-static QString KEY_CODE_VIEW_BACKGROUND_COLOR = SETTINGS_GROUP + "/" + "code_view_background_color";
-static QString KEY_CODE_VIEW_FOREGROUND_COLOR = SETTINGS_GROUP + "/" + "code_view_foreground_color";
+//static QString KEY_CODE_VIEW_BACKGROUND_COLOR = SETTINGS_GROUP + "/" + "code_view_background_color";
+//static QString KEY_CODE_VIEW_FOREGROUND_COLOR = SETTINGS_GROUP + "/" + "code_view_foreground_color";
 static QString KEY_CODE_VIEW_CSS_COMMENT_COLOR = SETTINGS_GROUP + "/" + "code_view_css_comment_color";
 static QString KEY_CODE_VIEW_CSS_PROPERTY_COLOR = SETTINGS_GROUP + "/" + "code_view_css_property_color";
 static QString KEY_CODE_VIEW_CSS_QUOTE_COLOR = SETTINGS_GROUP + "/" + "code_view_css_quote_color";
@@ -86,8 +86,8 @@ static QString KEY_CODE_VIEW_FONT_SIZE = SETTINGS_GROUP + "/" + "code_view_font_
 static QString KEY_CODE_VIEW_LINE_HIGHLIGHT_COLOR = SETTINGS_GROUP + "/" + "code_view_line_highlight_color";
 static QString KEY_CODE_VIEW_LINE_NUMBER_BACKGROUND_COLOR = SETTINGS_GROUP + "/" + "code_view_line_number_background_color";
 static QString KEY_CODE_VIEW_LINE_NUMBER_FOREGROUND_COLOR = SETTINGS_GROUP + "/" + "code_view_line_number_foreground_color";
-static QString KEY_CODE_VIEW_SELECTION_BACKGROUND_COLOR = SETTINGS_GROUP + "/" + "code_view_selection_background_color";
-static QString KEY_CODE_VIEW_SELECTION_FOREGROUND_COLOR = SETTINGS_GROUP + "/" + "code_view_selection_foreground_color";
+//static QString KEY_CODE_VIEW_SELECTION_BACKGROUND_COLOR = SETTINGS_GROUP + "/" + "code_view_selection_background_color";
+//static QString KEY_CODE_VIEW_SELECTION_FOREGROUND_COLOR = SETTINGS_GROUP + "/" + "code_view_selection_foreground_color";
 static QString KEY_CODE_VIEW_SPELLING_UNDERLINE_COLOR = SETTINGS_GROUP + "/" + "code_view_spelling_underline_color";
 static QString KEY_CODE_VIEW_XHTML_ATTRIBUTE_NAME_COLOR = SETTINGS_GROUP + "/" + "code_view_xhtml_attribute_name_color";
 static QString KEY_CODE_VIEW_XHTML_ATTRIBUTE_VALUE_COLOR = SETTINGS_GROUP + "/" + "code_view_xhtml_attribute_value_color";
@@ -99,8 +99,8 @@ static QString KEY_CODE_VIEW_XHTML_HTML_COLOR = SETTINGS_GROUP + "/" + "code_vie
 static QString KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR = SETTINGS_GROUP + "/" + "code_view_xhtml_html_comment_color";
 
 // Dark Appearance
-static QString KEY_CV_DARK_BACKGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_background_color";
-static QString KEY_CV_DARK_FOREGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_foreground_color";
+//static QString KEY_CV_DARK_BACKGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_background_color";
+//static QString KEY_CV_DARK_FOREGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_foreground_color";
 static QString KEY_CV_DARK_CSS_COMMENT_COLOR = SETTINGS_GROUP + "/" + "cv_dark_css_comment_color";
 static QString KEY_CV_DARK_CSS_PROPERTY_COLOR = SETTINGS_GROUP + "/" + "cv_dark_css_property_color";
 static QString KEY_CV_DARK_CSS_QUOTE_COLOR = SETTINGS_GROUP + "/" + "cv_dark_css_quote_color";
@@ -111,8 +111,8 @@ static QString KEY_CV_DARK_FONT_SIZE = SETTINGS_GROUP + "/" + "cv_dark_font_size
 static QString KEY_CV_DARK_LINE_HIGHLIGHT_COLOR = SETTINGS_GROUP + "/" + "cv_dark_line_highlight_color";
 static QString KEY_CV_DARK_LINE_NUMBER_BACKGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_line_number_background_color";
 static QString KEY_CV_DARK_LINE_NUMBER_FOREGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_line_number_foreground_color";
-static QString KEY_CV_DARK_SELECTION_BACKGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_selection_background_color";
-static QString KEY_CV_DARK_SELECTION_FOREGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_selection_foreground_color";
+//static QString KEY_CV_DARK_SELECTION_BACKGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_selection_background_color";
+//static QString KEY_CV_DARK_SELECTION_FOREGROUND_COLOR = SETTINGS_GROUP + "/" + "cv_dark_selection_foreground_color";
 static QString KEY_CV_DARK_SPELLING_UNDERLINE_COLOR = SETTINGS_GROUP + "/" + "cv_dark_spelling_underline_color";
 static QString KEY_CV_DARK_XHTML_ATTRIBUTE_NAME_COLOR = SETTINGS_GROUP + "/" + "cv_dark_xhtml_attribute_name_color";
 static QString KEY_CV_DARK_XHTML_ATTRIBUTE_VALUE_COLOR = SETTINGS_GROUP + "/" + "cv_dark_xhtml_attribute_value_color";
@@ -356,8 +356,8 @@ SettingsStore::CodeViewAppearance SettingsStore::codeViewAppearance()
 {
     clearSettingsGroup();
     SettingsStore::CodeViewAppearance appearance;
-    appearance.background_color = value(KEY_CODE_VIEW_BACKGROUND_COLOR, QColor()).value<QColor>();
-    appearance.foreground_color = value(KEY_CODE_VIEW_FOREGROUND_COLOR, QColor()).value<QColor>();
+    //appearance.background_color = value(KEY_CODE_VIEW_BACKGROUND_COLOR, QColor()).value<QColor>();
+    //appearance.foreground_color = value(KEY_CODE_VIEW_FOREGROUND_COLOR, QColor()).value<QColor>();
     appearance.css_comment_color = value(KEY_CODE_VIEW_CSS_COMMENT_COLOR, QColor(Qt::darkGreen)).value<QColor>();
     appearance.css_property_color = value(KEY_CODE_VIEW_CSS_PROPERTY_COLOR, QColor(Qt::darkBlue)).value<QColor>();
     appearance.css_quote_color = value(KEY_CODE_VIEW_CSS_QUOTE_COLOR, QColor(Qt::darkMagenta)).value<QColor>();
@@ -369,8 +369,8 @@ SettingsStore::CodeViewAppearance SettingsStore::codeViewAppearance()
     appearance.line_highlight_color = value(KEY_CODE_VIEW_LINE_HIGHLIGHT_COLOR, defaultlineColor).value<QColor>();
     appearance.line_number_background_color = value(KEY_CODE_VIEW_LINE_NUMBER_BACKGROUND_COLOR, QColor(225, 225, 225)).value<QColor>();
     appearance.line_number_foreground_color = value(KEY_CODE_VIEW_LINE_NUMBER_FOREGROUND_COLOR, QColor(125, 125, 125)).value<QColor>();
-    appearance.selection_background_color = value(KEY_CODE_VIEW_SELECTION_BACKGROUND_COLOR, QColor()).value<QColor>();
-    appearance.selection_foreground_color = value(KEY_CODE_VIEW_SELECTION_FOREGROUND_COLOR, QColor()).value<QColor>();
+    //appearance.selection_background_color = value(KEY_CODE_VIEW_SELECTION_BACKGROUND_COLOR, QColor()).value<QColor>();
+    //appearance.selection_foreground_color = value(KEY_CODE_VIEW_SELECTION_FOREGROUND_COLOR, QColor()).value<QColor>();
     appearance.spelling_underline_color = value(KEY_CODE_VIEW_SPELLING_UNDERLINE_COLOR, QColor(Qt::red)).value<QColor>();
     appearance.xhtml_attribute_name_color = value(KEY_CODE_VIEW_XHTML_ATTRIBUTE_NAME_COLOR, QColor(Qt::darkRed)).value<QColor>();
     appearance.xhtml_attribute_value_color = value(KEY_CODE_VIEW_XHTML_ATTRIBUTE_VALUE_COLOR, QColor(Qt::darkCyan)).value<QColor>();
@@ -387,8 +387,8 @@ SettingsStore::CodeViewAppearance SettingsStore::codeViewDarkAppearance()
 {
     clearSettingsGroup();
     SettingsStore::CodeViewAppearance appearance;
-    appearance.background_color = value(KEY_CV_DARK_BACKGROUND_COLOR, QColor(Qt::black)).value<QColor>();
-    appearance.foreground_color = value(KEY_CV_DARK_FOREGROUND_COLOR, QColor(Qt::white)).value<QColor>();
+    //appearance.background_color = value(KEY_CV_DARK_BACKGROUND_COLOR, QColor(Qt::black)).value<QColor>();
+    //appearance.foreground_color = value(KEY_CV_DARK_FOREGROUND_COLOR, QColor(Qt::white)).value<QColor>();
     appearance.css_comment_color = value(KEY_CV_DARK_CSS_COMMENT_COLOR, QColor(112, 109, 91)).value<QColor>();
     appearance.css_property_color = value(KEY_CV_DARK_CSS_PROPERTY_COLOR, QColor(159, 194, 138)).value<QColor>();
     appearance.css_quote_color = value(KEY_CV_DARK_CSS_QUOTE_COLOR, QColor(235, 147, 154)).value<QColor>();
@@ -399,8 +399,8 @@ SettingsStore::CodeViewAppearance SettingsStore::codeViewDarkAppearance()
     appearance.line_highlight_color = value(KEY_CV_DARK_LINE_HIGHLIGHT_COLOR, QColor(81, 81, 81)).value<QColor>();
     appearance.line_number_background_color = value(KEY_CV_DARK_LINE_NUMBER_BACKGROUND_COLOR, QPalette().color(QPalette::AlternateBase)).value<QColor>();
     appearance.line_number_foreground_color = value(KEY_CV_DARK_LINE_NUMBER_FOREGROUND_COLOR, QColor(229, 229, 229)).value<QColor>();
-    appearance.selection_background_color = value(KEY_CV_DARK_SELECTION_BACKGROUND_COLOR, QColor()).value<QColor>();
-    appearance.selection_foreground_color = value(KEY_CV_DARK_SELECTION_FOREGROUND_COLOR, QColor()).value<QColor>();
+    //appearance.selection_background_color = value(KEY_CV_DARK_SELECTION_BACKGROUND_COLOR, QColor()).value<QColor>();
+    //appearance.selection_foreground_color = value(KEY_CV_DARK_SELECTION_FOREGROUND_COLOR, QColor()).value<QColor>();
     appearance.spelling_underline_color = value(KEY_CV_DARK_SPELLING_UNDERLINE_COLOR, QColor(255, 55, 55)).value<QColor>();
     appearance.xhtml_attribute_name_color = value(KEY_CV_DARK_XHTML_ATTRIBUTE_NAME_COLOR, QColor(159, 194, 138)).value<QColor>();
     appearance.xhtml_attribute_value_color = value(KEY_CV_DARK_XHTML_ATTRIBUTE_VALUE_COLOR, QColor(232, 145, 152)).value<QColor>();
@@ -633,8 +633,8 @@ void SettingsStore::setPreviewAppearance(const SettingsStore::PreviewAppearance 
 void SettingsStore::setCodeViewAppearance(const SettingsStore::CodeViewAppearance &code_view_appearance)
 {
     clearSettingsGroup();
-    setValue(KEY_CODE_VIEW_BACKGROUND_COLOR, code_view_appearance.background_color);
-    setValue(KEY_CODE_VIEW_FOREGROUND_COLOR, code_view_appearance.foreground_color);
+    //setValue(KEY_CODE_VIEW_BACKGROUND_COLOR, code_view_appearance.background_color);
+    //setValue(KEY_CODE_VIEW_FOREGROUND_COLOR, code_view_appearance.foreground_color);
     setValue(KEY_CODE_VIEW_CSS_COMMENT_COLOR, code_view_appearance.css_comment_color);
     setValue(KEY_CODE_VIEW_CSS_PROPERTY_COLOR, code_view_appearance.css_property_color);
     setValue(KEY_CODE_VIEW_CSS_QUOTE_COLOR, code_view_appearance.css_quote_color);
@@ -645,8 +645,8 @@ void SettingsStore::setCodeViewAppearance(const SettingsStore::CodeViewAppearanc
     setValue(KEY_CODE_VIEW_LINE_HIGHLIGHT_COLOR, code_view_appearance.line_highlight_color);
     setValue(KEY_CODE_VIEW_LINE_NUMBER_BACKGROUND_COLOR, code_view_appearance.line_number_background_color);
     setValue(KEY_CODE_VIEW_LINE_NUMBER_FOREGROUND_COLOR, code_view_appearance.line_number_foreground_color);
-    setValue(KEY_CODE_VIEW_SELECTION_BACKGROUND_COLOR, code_view_appearance.selection_background_color);
-    setValue(KEY_CODE_VIEW_SELECTION_FOREGROUND_COLOR, code_view_appearance.selection_foreground_color);
+    //setValue(KEY_CODE_VIEW_SELECTION_BACKGROUND_COLOR, code_view_appearance.selection_background_color);
+    //setValue(KEY_CODE_VIEW_SELECTION_FOREGROUND_COLOR, code_view_appearance.selection_foreground_color);
     setValue(KEY_CODE_VIEW_SPELLING_UNDERLINE_COLOR, code_view_appearance.spelling_underline_color);
     setValue(KEY_CODE_VIEW_XHTML_ATTRIBUTE_NAME_COLOR, code_view_appearance.xhtml_attribute_name_color);
     setValue(KEY_CODE_VIEW_XHTML_ATTRIBUTE_VALUE_COLOR, code_view_appearance.xhtml_attribute_value_color);
@@ -661,8 +661,8 @@ void SettingsStore::setCodeViewAppearance(const SettingsStore::CodeViewAppearanc
 void SettingsStore::setCodeViewDarkAppearance(const SettingsStore::CodeViewAppearance &code_view_appearance)
 {
     clearSettingsGroup();
-    setValue(KEY_CV_DARK_BACKGROUND_COLOR, code_view_appearance.background_color);
-    setValue(KEY_CV_DARK_FOREGROUND_COLOR, code_view_appearance.foreground_color);
+    //setValue(KEY_CV_DARK_BACKGROUND_COLOR, code_view_appearance.background_color);
+    //setValue(KEY_CV_DARK_FOREGROUND_COLOR, code_view_appearance.foreground_color);
     setValue(KEY_CV_DARK_CSS_COMMENT_COLOR, code_view_appearance.css_comment_color);
     setValue(KEY_CV_DARK_CSS_PROPERTY_COLOR, code_view_appearance.css_property_color);
     setValue(KEY_CV_DARK_CSS_QUOTE_COLOR, code_view_appearance.css_quote_color);
@@ -673,8 +673,8 @@ void SettingsStore::setCodeViewDarkAppearance(const SettingsStore::CodeViewAppea
     setValue(KEY_CV_DARK_LINE_HIGHLIGHT_COLOR, code_view_appearance.line_highlight_color);
     setValue(KEY_CV_DARK_LINE_NUMBER_BACKGROUND_COLOR, code_view_appearance.line_number_background_color);
     setValue(KEY_CV_DARK_LINE_NUMBER_FOREGROUND_COLOR, code_view_appearance.line_number_foreground_color);
-    setValue(KEY_CV_DARK_SELECTION_BACKGROUND_COLOR, code_view_appearance.selection_background_color);
-    setValue(KEY_CV_DARK_SELECTION_FOREGROUND_COLOR, code_view_appearance.selection_foreground_color);
+    //setValue(KEY_CV_DARK_SELECTION_BACKGROUND_COLOR, code_view_appearance.selection_background_color);
+    //setValue(KEY_CV_DARK_SELECTION_FOREGROUND_COLOR, code_view_appearance.selection_foreground_color);
     setValue(KEY_CV_DARK_SPELLING_UNDERLINE_COLOR, code_view_appearance.spelling_underline_color);
     setValue(KEY_CV_DARK_XHTML_ATTRIBUTE_NAME_COLOR, code_view_appearance.xhtml_attribute_name_color);
     setValue(KEY_CV_DARK_XHTML_ATTRIBUTE_VALUE_COLOR, code_view_appearance.xhtml_attribute_value_color);
@@ -713,8 +713,8 @@ void SettingsStore::clearAppearanceSettings()
     remove(KEY_PREVIEW_FONT_FAMILY_SANS_SERIF);
     remove(KEY_PREVIEW_FONT_SIZE);
     if (!Utility::IsDarkMode()) {
-        remove(KEY_CODE_VIEW_BACKGROUND_COLOR);
-        remove(KEY_CODE_VIEW_FOREGROUND_COLOR);
+        //remove(KEY_CODE_VIEW_BACKGROUND_COLOR);
+        //remove(KEY_CODE_VIEW_FOREGROUND_COLOR);
         remove(KEY_CODE_VIEW_CSS_COMMENT_COLOR);
         remove(KEY_CODE_VIEW_CSS_PROPERTY_COLOR);
         remove(KEY_CODE_VIEW_CSS_QUOTE_COLOR);
@@ -725,8 +725,8 @@ void SettingsStore::clearAppearanceSettings()
         remove(KEY_CODE_VIEW_LINE_HIGHLIGHT_COLOR);
         remove(KEY_CODE_VIEW_LINE_NUMBER_BACKGROUND_COLOR);
         remove(KEY_CODE_VIEW_LINE_NUMBER_FOREGROUND_COLOR);
-        remove(KEY_CODE_VIEW_SELECTION_BACKGROUND_COLOR);
-        remove(KEY_CODE_VIEW_SELECTION_FOREGROUND_COLOR);
+        //remove(KEY_CODE_VIEW_SELECTION_BACKGROUND_COLOR);
+        //remove(KEY_CODE_VIEW_SELECTION_FOREGROUND_COLOR);
         remove(KEY_CODE_VIEW_SPELLING_UNDERLINE_COLOR);
         remove(KEY_CODE_VIEW_XHTML_ATTRIBUTE_NAME_COLOR);
         remove(KEY_CODE_VIEW_XHTML_ATTRIBUTE_VALUE_COLOR);
@@ -738,8 +738,8 @@ void SettingsStore::clearAppearanceSettings()
         remove(KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR);
     } else {
         // Dark Appearance
-        remove(KEY_CV_DARK_BACKGROUND_COLOR);
-        remove(KEY_CV_DARK_FOREGROUND_COLOR);
+        //remove(KEY_CV_DARK_BACKGROUND_COLOR);
+        //remove(KEY_CV_DARK_FOREGROUND_COLOR);
         remove(KEY_CV_DARK_CSS_COMMENT_COLOR);
         remove(KEY_CV_DARK_CSS_PROPERTY_COLOR);
         remove(KEY_CV_DARK_CSS_QUOTE_COLOR);
@@ -750,8 +750,8 @@ void SettingsStore::clearAppearanceSettings()
         remove(KEY_CV_DARK_LINE_HIGHLIGHT_COLOR);
         remove(KEY_CV_DARK_LINE_NUMBER_BACKGROUND_COLOR);
         remove(KEY_CV_DARK_LINE_NUMBER_FOREGROUND_COLOR);
-        remove(KEY_CV_DARK_SELECTION_BACKGROUND_COLOR);
-        remove(KEY_CV_DARK_SELECTION_FOREGROUND_COLOR);
+        //remove(KEY_CV_DARK_SELECTION_BACKGROUND_COLOR);
+        //remove(KEY_CV_DARK_SELECTION_FOREGROUND_COLOR);
         remove(KEY_CV_DARK_SPELLING_UNDERLINE_COLOR);
         remove(KEY_CV_DARK_XHTML_ATTRIBUTE_NAME_COLOR);
         remove(KEY_CV_DARK_XHTML_ATTRIBUTE_VALUE_COLOR);
