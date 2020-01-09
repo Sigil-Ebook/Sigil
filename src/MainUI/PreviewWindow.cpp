@@ -46,6 +46,8 @@
 #include "ViewEditors/ViewPreview.h"
 #include "sigil_constants.h"
 
+static const QStringList HEADERTAGS = QStringList() << "h1" << "h2" << "h3" << "h4" << "h5" << "h6";
+
 static const QString SETTINGS_GROUP = "previewwindow";
 
 #define DBG if(0)
@@ -552,7 +554,7 @@ bool PreviewWindow::fixup_fullscreen_svg_images(const QString &text)
     GumboNode* body_node  = body_tags.at(0);
 
     // loop through immediate children of body ignore script and style tags
-    // make sure div or svg is only child of body
+    // and empty headers to make sure the div or svg is only child of body
     QStringList child_names;
     int elcount = 0;
     GumboVector* children = &body_node->v.element.children;
@@ -560,12 +562,17 @@ bool PreviewWindow::fixup_fullscreen_svg_images(const QString &text)
         GumboNode* child = static_cast<GumboNode*>(children->data[i]);
         if (child->type == GUMBO_NODE_ELEMENT) {
 	    QString name = QString::fromStdString(gi.get_tag_name(child));
-	    if ((name != "script") && (name != "style")) {
-	        child_names << name;
-	        elcount++;
+	    bool ignore_tag = (name == "script") || (name == "style");
+	    if (HEADERTAGS.contains(name)) {
+		QString contents = gi.get_local_text_of_node(child);
+		ignore_tag = ignore_tag || contents.isEmpty();
+	    }
+	    if (!ignore_tag) {
+		child_names << name;
+		elcount++;
 	    }
 	    if (elcount > 1) break;
-        }
+	}
     }
     const QStringList allowed_tags = QStringList() << "div" << "svg"; 
     if ((elcount != 1) || !allowed_tags.contains(child_names.at(0))) return false;
