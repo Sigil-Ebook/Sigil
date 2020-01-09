@@ -265,12 +265,15 @@ void AppearanceWidget::customColorButtonClicked()
 
 void AppearanceWidget::resetAllButtonClicked()
 {
-    SettingsStore settings;
-    settings.clearAppearanceSettings();
-    SettingsStore::CodeViewAppearance codeViewAppearance = readSettings();
-    ui.codeViewColorsList->blockSignals(true);
-    loadCodeViewColorsList(codeViewAppearance);
-    ui.codeViewColorsList->blockSignals(false);
+    // only reset Appearanceprefs if mode was not changed since preference was open
+    if (m_wasDark == Utility::IsDarkMode()) {
+        SettingsStore settings;
+        settings.clearAppearanceSettings();
+        SettingsStore::CodeViewAppearance codeViewAppearance = readSettings();
+        ui.codeViewColorsList->blockSignals(true);
+        loadCodeViewColorsList(codeViewAppearance);
+        ui.codeViewColorsList->blockSignals(false);
+    }
 }
 
 void AppearanceWidget::newSliderValue(int value) {
