@@ -4963,7 +4963,7 @@ void MainWindow::ExtendUI()
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(1);
     frame->setObjectName(FRAME_NAME);
-    frame->setStyleSheet(TAB_STYLE_SHEET);
+    //frame->setStyleSheet(TAB_STYLE_SHEET);
     setCentralWidget(frame);
     m_BookBrowser = new BookBrowser(this);
     m_BookBrowser->setObjectName(BOOK_BROWSER_NAME);
