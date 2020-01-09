@@ -163,12 +163,6 @@ public:
         QString font_family;
         int font_size;
 
-        //QColor background_color;
-        //QColor foreground_color;
-
-        //QColor selection_background_color;
-        //QColor selection_foreground_color;
-
         QColor css_comment_color;
         QColor css_property_color;
         QColor css_quote_color;
