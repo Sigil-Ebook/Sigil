@@ -21,7 +21,7 @@
      </property>
      <widget class="QWidget" name="AppCVTab">
       <attribute name="title">
-       <string>CSS / Code View</string>
+       <string>Code View</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_7">
        <item>

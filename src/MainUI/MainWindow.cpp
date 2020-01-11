@@ -3276,7 +3276,7 @@ void MainWindow::PreferencesDialog()
     }
     if (prefers.isReloadPreviewRequired()) {
         if (m_PreviewWindow) {
-            m_PreviewWindow->ReloadPreview();
+            UpdatePreview();
         }
     }
 

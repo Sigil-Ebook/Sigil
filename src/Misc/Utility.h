@@ -216,7 +216,7 @@ public:
     static QString AddDarkCSS(const QString &html);
 
     // return the proper background color for QWebEngineView
-    static QColor WebViewBackgroundColor();
+    static QColor WebViewBackgroundColor(bool followpref = false);
 };
 #endif // UTILITY_H
 

@@ -1195,13 +1195,15 @@ QString Utility::AddDarkCSS(const QString &html)
     return text;
 }
 
-QColor Utility::WebViewBackgroundColor()
+QColor Utility::WebViewBackgroundColor(bool followpref)
 {
     QColor back_color = Qt::white;
     if (IsDarkMode()) {
-        SettingsStore ss;
-        if (!ss.previewDark()) {
-            return back_color;    
+        if (followpref) {
+            SettingsStore ss;
+            if (!ss.previewDark()) {
+                return back_color;    
+            }
         }
         QPalette pal = qApp->palette();
         back_color = pal.color(QPalette::Base);
