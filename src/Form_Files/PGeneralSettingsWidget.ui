@@ -6,378 +6,475 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>516</width>
-    <height>564</height>
+    <width>589</width>
+    <height>475</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>General Settings</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_5">
    <item>
-    <widget class="QGroupBox" name="groupBox">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
+    <widget class="QTabWidget" name="GenPrefs">
+     <property name="currentIndex">
+      <number>0</number>
      </property>
-     <property name="toolTip">
-      <string>Choose which version of Epub to use
+     <widget class="QWidget" name="tabGeneral">
+      <attribute name="title">
+       <string>Basics</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>Choose which version of Epub to use
 when creating new or empty Epubs in Sigil.</string>
-     </property>
-     <property name="title">
-      <string>Create New or Empty Epubs as:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-     <layout class="QHBoxLayout" name="versionLayout">
-      <item>
-       <widget class="QRadioButton" name="EpubVersion2">
-        <property name="toolTip">
-         <string>Epub Version 2.</string>
-        </property>
-        <property name="text">
-         <string>Version 2</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="EpubVersion3">
-        <property name="toolTip">
-         <string>Epub Version 3.</string>
-        </property>
-        <property name="text">
-         <string>Version 3</string>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item alignment="Qt::AlignLeft|Qt::AlignTop">
-    <widget class="QGroupBox" name="groupBox_2">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="toolTip">
-      <string>Choose when your not well formed HTML code is automatically 
+         </property>
+         <property name="title">
+          <string>Create New or Empty Epubs as:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <layout class="QHBoxLayout" name="versionLayout">
+          <item>
+           <widget class="QRadioButton" name="EpubVersion2">
+            <property name="toolTip">
+             <string>Epub Version 2.</string>
+            </property>
+            <property name="text">
+             <string>Version 2</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="EpubVersion3">
+            <property name="toolTip">
+             <string>Epub Version 3.</string>
+            </property>
+            <property name="text">
+             <string>Version 3</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>Choose when your not well formed HTML code is automatically 
 mended.</string>
-     </property>
-     <property name="title">
-      <string>Mend Not Well Formed HTML Source Code On:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-     <layout class="QHBoxLayout" name="mendLayout">
-      <item>
-       <widget class="QCheckBox" name="MendOnOpen">
-        <property name="toolTip">
-         <string>Mend Not Well Formed HTML when opening an Epub or HTML file.</string>
-        </property>
-        <property name="text">
-         <string>Open</string>
-        </property>
-       </widget>
-      </item>
-      <item alignment="Qt::AlignLeft">
-       <widget class="QCheckBox" name="MendOnSave">
-        <property name="toolTip">
-         <string>Mend Not Well Formed HTML when saving an Epub.</string>
-        </property>
-        <property name="text">
-         <string>Save</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="groupBox_3">
-     <property name="toolTip">
-      <string>Determine if Epubs are allowed to access non-multimedia remote resources.</string>
-     </property>
-     <property name="title">
-      <string> Control Access by Epubs to non-multimedia remote resources.</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_3">
-      <item row="0" column="0">
-       <widget class="QCheckBox" name="AllowRemote">
-        <property name="toolTip">
-         <string>Check to allow Epubs to access non-multimedia remote resources.</string>
-        </property>
-        <property name="text">
-         <string>Epubs may access all remote resources types.</string>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="groupBox_3a">
-     <property name="toolTip">
-      <string>Determine if javascript is allowed to be used by Epubs</string>
-     </property>
-     <property name="title">
-      <string> Control Use of Javascript by Epubs.</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_3a">
-      <item row="0" column="0">
-       <widget class="QCheckBox" name="AllowJavascript">
-        <property name="toolTip">
-         <string>Check to allow Epubs to use javascript.</string>
-        </property>
-        <property name="text">
-         <string>Epubs may use javascript.</string>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="groupBox_4">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="toolTip">
-      <string>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</string>
-     </property>
-     <property name="title">
-      <string>EPUB2 W3C Stylesheet Validation Level:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayoutcss2">
-      <item>
-       <widget class="QRadioButton" name="Epub2css20">
-        <property name="toolTip">
-         <string>W3C stylesheet validator will use CSS level 2 for EPUB2</string>
-        </property>
-        <property name="text">
-         <string>CSS Level 2</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="Epub2css21">
-        <property name="toolTip">
-         <string>W3C stylesheet validator will use CSS level 2.1 for EPUB2</string>
-        </property>
-        <property name="text">
-         <string>CSS Level 2.1</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="Epub2css30">
-        <property name="toolTip">
-         <string>W3C stylesheet validator will use CSS level 3 for EPUB2</string>
-        </property>
-        <property name="text">
-         <string>CSS Level 3</string>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="groupBox_5">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="toolTip">
-      <string>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</string>
-     </property>
-     <property name="title">
-      <string>EPUB3 W3C Stylesheet Validation Level:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayoutcss3">
-      <item>
-       <widget class="QRadioButton" name="Epub3css20">
-        <property name="toolTip">
-         <string>W3C stylesheet validator will use CSS level 2 for EPUB3</string>
-        </property>
-        <property name="text">
-         <string>CSS Level 2</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="Epub3css21">
-        <property name="toolTip">
-         <string>W3C stylesheet validator will use CSS level 2.1 for EPUB3</string>
-        </property>
-        <property name="text">
-         <string>CSS Level 2.1</string>
-        </property>
-        <property name="checked">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="Epub3css30">
-        <property name="toolTip">
-         <string>W3C stylesheet validator will use CSS level 3 for EPUB3</string>
-        </property>
-        <property name="text">
-         <string>CSS Level 3</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item alignment="Qt::AlignLeft">
-    <widget class="QGroupBox" name="groupBoxClipLimit">
-     <property name="title">
-      <string>Number of clipboard history items to save between sessions (0 disables):</string>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <property name="topMargin">
-       <number>2</number>
-      </property>
-      <property name="rightMargin">
-       <number>12</number>
-      </property>
-      <property name="bottomMargin">
-       <number>2</number>
-      </property>
-      <item alignment="Qt::AlignLeft">
-       <widget class="QSpinBox" name="clipLimitSpin">
-        <property name="toolTip">
-         <string>Use to limit (or disable) clipboard history saving between sessions</string>
-        </property>
-        <property name="minimum">
-         <number>0</number>
-        </property>
-        <property name="maximum">
-         <number>20</number>
-        </property>
-        <property name="value">
-         <number>20</number>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="groupBox_6">
-     <property name="title">
-      <string>Set folder where temporary files should be created</string>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_2">
-      <property name="topMargin">
-       <number>6</number>
-      </property>
-      <property name="bottomMargin">
-       <number>6</number>
-      </property>
-      <item row="0" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QLineEdit" name="lineEdit"/>
-        </item>
-        <item>
-         <widget class="QPushButton" name="autoButton">
-          <property name="text">
-           <string>Auto</string>
+         </property>
+         <property name="title">
+          <string>Mend Not Well Formed HTML Source Code On:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <layout class="QHBoxLayout" name="mendLayout">
+          <item>
+           <widget class="QCheckBox" name="MendOnOpen">
+            <property name="toolTip">
+             <string>Mend Not Well Formed HTML when opening an Epub or HTML file.</string>
+            </property>
+            <property name="text">
+             <string>Open</string>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignLeft">
+           <widget class="QCheckBox" name="MendOnSave">
+            <property name="toolTip">
+             <string>Mend Not Well Formed HTML when saving an Epub.</string>
+            </property>
+            <property name="text">
+             <string>Save</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBoxClipLimit">
+         <property name="title">
+          <string>Number of clipboard history items to save between sessions (0 disables):</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="topMargin">
+           <number>2</number>
           </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="browseButton">
-          <property name="text">
-           <string>Browse</string>
+          <property name="rightMargin">
+           <number>12</number>
           </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="groupBox_7">
-     <property name="title">
-      <string>Set your preferred external xhtml editor</string>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_7">
-      <property name="topMargin">
-       <number>6</number>
-      </property>
-      <property name="bottomMargin">
-       <number>6</number>
-      </property>
-      <item row="0" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_7">
-        <item>
-         <widget class="QLineEdit" name="lineEdit7"/>
-        </item>
-        <item>
-         <widget class="QPushButton" name="clearButton7">
-          <property name="text">
-           <string>Clear</string>
+          <property name="bottomMargin">
+           <number>2</number>
           </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="browseButton7">
-          <property name="text">
-           <string>Browse</string>
+          <item alignment="Qt::AlignLeft">
+           <widget class="QSpinBox" name="clipLimitSpin">
+            <property name="toolTip">
+             <string>Use to limit (or disable) clipboard history saving between sessions</string>
+            </property>
+            <property name="minimum">
+             <number>0</number>
+            </property>
+            <property name="maximum">
+             <number>20</number>
+            </property>
+            <property name="value">
+             <number>20</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_7">
+         <property name="title">
+          <string>Set your preferred external xhtml editor:</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_7">
+          <property name="topMargin">
+           <number>6</number>
           </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
+          <property name="bottomMargin">
+           <number>6</number>
+          </property>
+          <item row="0" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QLineEdit" name="lineEdit7"/>
+            </item>
+            <item>
+             <widget class="QPushButton" name="clearButton7">
+              <property name="text">
+               <string>Clear</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="browseButton7">
+              <property name="text">
+               <string>Browse</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabSecurity">
+      <attribute name="title">
+       <string>Security</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="toolTip">
+          <string>Determine if Epubs are allowed to access non-multimedia remote resources.</string>
+         </property>
+         <property name="title">
+          <string> Control Access by Epubs to non-multimedia remote resources:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="AllowRemote">
+            <property name="toolTip">
+             <string>Check to allow Epubs to access non-multimedia remote resources.</string>
+            </property>
+            <property name="text">
+             <string>Epubs may access all remote resources types.</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_3a">
+         <property name="toolTip">
+          <string>Determine if javascript is allowed to be used by Epubs</string>
+         </property>
+         <property name="title">
+          <string> Control Use of Javascript by Epubs.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QCheckBox" name="AllowJavascript">
+            <property name="toolTip">
+             <string>Check to allow Epubs to use javascript.</string>
+            </property>
+            <property name="text">
+             <string>Epubs may use javascript.</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabValidation">
+      <attribute name="title">
+       <string>Validation</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</string>
+         </property>
+         <property name="title">
+          <string>EPUB2 W3C Stylesheet Validation Level:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayoutcss2">
+          <item>
+           <widget class="QRadioButton" name="Epub2css20">
+            <property name="toolTip">
+             <string>W3C stylesheet validator will use CSS level 2 for EPUB2</string>
+            </property>
+            <property name="text">
+             <string>CSS Level 2</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="Epub2css21">
+            <property name="toolTip">
+             <string>W3C stylesheet validator will use CSS level 2.1 for EPUB2</string>
+            </property>
+            <property name="text">
+             <string>CSS Level 2.1</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="Epub2css30">
+            <property name="toolTip">
+             <string>W3C stylesheet validator will use CSS level 3 for EPUB2</string>
+            </property>
+            <property name="text">
+             <string>CSS Level 3</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</string>
+         </property>
+         <property name="title">
+          <string>EPUB3 W3C Stylesheet Validation Level:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayoutcss3">
+          <item>
+           <widget class="QRadioButton" name="Epub3css20">
+            <property name="toolTip">
+             <string>W3C stylesheet validator will use CSS level 2 for EPUB3</string>
+            </property>
+            <property name="text">
+             <string>CSS Level 2</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="Epub3css21">
+            <property name="toolTip">
+             <string>W3C stylesheet validator will use CSS level 2.1 for EPUB3</string>
+            </property>
+            <property name="text">
+             <string>CSS Level 2.1</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="Epub3css30">
+            <property name="toolTip">
+             <string>W3C stylesheet validator will use CSS level 3 for EPUB3</string>
+            </property>
+            <property name="text">
+             <string>CSS Level 3</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
+       <string>Advanced</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Unless you know exactly what you're doing, there's very little reason to ever change this setting. Use extreme caution!</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="title">
+          <string>Set folder where temporary files should be created:</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <property name="topMargin">
+           <number>6</number>
+          </property>
+          <property name="bottomMargin">
+           <number>6</number>
+          </property>
+          <item row="0" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QLineEdit" name="lineEdit"/>
+            </item>
+            <item>
+             <widget class="QPushButton" name="autoButton">
+              <property name="text">
+               <string>Auto</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="browseButton">
+              <property name="text">
+               <string>Browse</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>
