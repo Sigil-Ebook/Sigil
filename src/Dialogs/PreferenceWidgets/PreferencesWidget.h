@@ -47,7 +47,8 @@ public:
         ResultAction_ReloadTabs,              /**< All tabs need to be reloaded. */
         ResultAction_RestartSigil,            /**< Warn user that Sigil needs to be restarted. */
         ResultAction_RefreshClipHistoryLimit, /**< Reload cliboard history saving limit */
-        ResultAction_RefreshBookBrowser       /**< Refresh BookBrowser window */
+        ResultAction_RefreshBookBrowser,      /**< Refresh BookBrowser window */
+        ResultAction_ReloadPreview            /**< Reload Preview window */ 
     };
 
     /**

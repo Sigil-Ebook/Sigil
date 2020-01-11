@@ -90,6 +90,7 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
     SettingsStore settings;
     settings.setAppearancePrefsTabIndex(ui.tabAppearance->currentIndex());
     settings.setShowFullPathOn(ui.ShowFullPath->isChecked() ? 1 : 0);
+    settings.setPreviewDark(ui.PreviewDarkInDM->isChecked() ? 1 : 0);
     SettingsStore::PreviewAppearance PVAppearance;
     PVAppearance.font_family_standard     = ui.cbPreviewFontStandard->currentText();
     PVAppearance.font_family_serif        = ui.cbPreviewFontSerif->currentText();
@@ -164,6 +165,9 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
     if (m_ShowFullPathOn != (ui.ShowFullPath->isChecked() ? 1 : 0)) {
         return PreferencesWidget::ResultAction_RefreshBookBrowser;
     }
+    if (m_PreviewDark != (ui.PreviewDarkInDM->isChecked() ? 1 : 0)) {
+        return PreferencesWidget::ResultAction_ReloadPreview;
+    }
     return PreferencesWidget::ResultAction_None;
 }
 
@@ -173,6 +177,8 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     ui.tabAppearance->setCurrentIndex(settings.appearancePrefsTabIndex());
     m_ShowFullPathOn = settings.showFullPathOn();
     ui.ShowFullPath->setChecked(settings.showFullPathOn());
+    m_PreviewDark = settings.previewDark(); 
+    ui.PreviewDarkInDM->setChecked(settings.previewDark());
     SettingsStore::PreviewAppearance PVAppearance = settings.previewAppearance();
     SettingsStore::CodeViewAppearance codeViewAppearance;
     if (Utility::IsDarkMode()) {

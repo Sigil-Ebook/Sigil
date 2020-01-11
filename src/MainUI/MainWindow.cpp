@@ -3274,6 +3274,11 @@ void MainWindow::PreferencesDialog()
         SettingsStore settings;
         m_ClipboardHistoryLimit = settings.clipboardHistoryLimit();
     }
+    if (prefers.isReloadPreviewRequired()) {
+        if (m_PreviewWindow) {
+            m_PreviewWindow->ReloadPreview();
+        }
+    }
 
     if (m_SelectCharacter->isVisible()) {
         // To ensure any font size changes are immediately applied.

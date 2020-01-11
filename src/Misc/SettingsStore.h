@@ -140,6 +140,8 @@ public:
 
     int showFullPathOn();
 
+    int previewDark();
+
     int cleanOn();
 
     QStringList pluginMap();
@@ -327,6 +329,8 @@ public slots:
     void setJavascriptOn(int on);
 
     void setShowFullPathOn(int on);
+
+    void setPreviewDark(int enabled);
 
     void setCleanOn(int on);
 

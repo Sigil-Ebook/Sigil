@@ -46,7 +46,8 @@ Preferences::Preferences(QWidget *parent) :
     m_reloadTabs(false),
     m_restartSigil(false),
     m_refreshClipHistoryLimit(false),
-    m_refreshBookBrowser(false)
+    m_refreshBookBrowser(false),
+    m_reloadPreview(false)
 {
     ui.setupUi(this);
     extendUI();
@@ -96,6 +97,8 @@ void Preferences::saveSettings()
                 m_refreshClipHistoryLimit = true;
             } else if (widgetResult == PreferencesWidget::ResultAction_RefreshBookBrowser) {
                 m_refreshBookBrowser = true;
+            } else if (widgetResult == PreferencesWidget::ResultAction_ReloadPreview) {
+                m_reloadPreview = true;
             }
         }
     }
@@ -170,6 +173,11 @@ bool Preferences::isRefreshClipHistoryLimitRequired()
 bool Preferences::isRefreshBookBrowserRequired()
 {
     return m_refreshBookBrowser;
+}
+
+bool Preferences::isReloadPreviewRequired()
+{
+    return m_reloadPreview;
 }
 
 void Preferences::openPreferencesLocation()

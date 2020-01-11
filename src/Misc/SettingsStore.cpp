@@ -53,6 +53,7 @@ static QString KEY_CLEAN_ON = SETTINGS_GROUP + "/" + "clean_on";
 static QString KEY_REMOTE_ON = SETTINGS_GROUP + "/" + "remote_on";
 static QString KEY_JAVASCRIPT_ON = SETTINGS_GROUP + "/" + "javascript_on";
 static QString KEY_SHOWFULLPATH_ON = SETTINGS_GROUP + "/" + "showfullpath_on";
+static QString KEY_PREVIEW_DARK_IN_DM = SETTINGS_GROUP + "/" + "preview_dark_in_dm";
 static QString KEY_DEFAULT_VERSION = SETTINGS_GROUP + "/" + "default_version";
 static QString KEY_PRESERVE_ENTITY_NAMES = SETTINGS_GROUP + "/" + "preserve_entity_names";
 static QString KEY_PRESERVE_ENTITY_CODES = SETTINGS_GROUP + "/" + "preserve_entity_codes";
@@ -235,6 +236,12 @@ int SettingsStore::showFullPathOn()
 {
     clearSettingsGroup();
     return value(KEY_SHOWFULLPATH_ON, 0).toInt();
+}
+
+int SettingsStore::previewDark()
+{
+    clearSettingsGroup();
+    return value(KEY_PREVIEW_DARK_IN_DM, 1).toInt();
 }
 
 int SettingsStore::cleanOn()
@@ -523,6 +530,13 @@ void SettingsStore::setShowFullPathOn(int on)
     setValue(KEY_SHOWFULLPATH_ON, on);
 }
 
+void SettingsStore::setPreviewDark(int enabled)
+{
+    clearSettingsGroup();
+    setValue(KEY_PREVIEW_DARK_IN_DM, enabled);
+}
+
+
 void SettingsStore::setCleanOn(int on)
 {
     clearSettingsGroup();
@@ -734,6 +748,9 @@ void SettingsStore::clearAppearanceSettings()
     remove(KEY_SPECIAL_CHARACTER_FONT_FAMILY);
     remove(KEY_SPECIAL_CHARACTER_FONT_SIZE);
     remove(KEY_MAIN_MENU_ICON_SIZE);
+    remove(KEY_SHOWFULLPATH_ON);
+    remove(KEY_PREVIEW_DARK_IN_DM);
+    ;
 }
 
 void SettingsStore::clearSettingsGroup()

@@ -75,6 +75,10 @@ public:
      * Check this after dialog closes to determine if BookBrowser needs to be refeshed
      */
     bool isRefreshBookBrowserRequired();
+    /**
+     * Check this after dialog closes to determine if Preview page needs to be reloaded
+     */
+    bool isReloadPreviewRequired();
 
     void makeActive(int);
 
@@ -122,6 +126,7 @@ private:
     bool m_restartSigil;
     bool m_refreshClipHistoryLimit;
     bool m_refreshBookBrowser;
+    bool m_reloadPreview;
 
     Ui::Preferences ui;
 };
