@@ -84,10 +84,13 @@ ViewPreview::ViewPreview(QWidget *parent)
       m_LoadOkay(false)
 {
     setPage(m_ViewWebPage);
-    page()->setBackgroundColor(Utility::WebViewBackgroundColor());
+    // no need to check/change page background if user opts out of dark preview.
+    SettingsStore settings;
+    if (settings.previewDark()) {
+        page()->setBackgroundColor(Utility::WebViewBackgroundColor());
+    }
     setContextMenuPolicy(Qt::CustomContextMenu);
     // Set the Zoom factor but be sure no signals are set because of this.
-    SettingsStore settings;
     SetCurrentZoomFactor(settings.zoomPreview());
     page()->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, false);
     page()->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, false);
