@@ -1199,8 +1199,12 @@ QColor Utility::WebViewBackgroundColor()
 {
     QColor back_color = Qt::white;
     if (IsDarkMode()) {
-       QPalette pal = qApp->palette();
-       back_color = pal.color(QPalette::Base);
+        SettingsStore ss;
+        if (!ss.previewDark()) {
+            return back_color;    
+        }
+        QPalette pal = qApp->palette();
+        back_color = pal.color(QPalette::Base);
     }
     return back_color; 
 }

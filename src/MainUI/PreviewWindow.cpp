@@ -231,10 +231,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
         text = Utility::AddDarkCSS(text);
         DBG qDebug() << "Preview injecting dark style: ";
     }
-    // no need to check/change page background if user opts out of dark preview.
-    if (settings.previewDark()) {
-        m_Preview->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
-    }
+    m_Preview->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
 
     // If the user has set a default stylesheet inject it
     // it can override anything above it
