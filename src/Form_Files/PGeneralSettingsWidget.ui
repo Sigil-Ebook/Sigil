@@ -409,7 +409,7 @@ mended.</string>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_3">
+     <widget class="QWidget" name="tabAdvanced">
       <attribute name="title">
        <string>Advanced</string>
       </attribute>
