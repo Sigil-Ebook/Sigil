@@ -14,7 +14,7 @@
    <string>Appearance</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
+   <item alignment="Qt::AlignTop">
     <widget class="QTabWidget" name="tabAppearance">
      <property name="currentIndex">
       <number>0</number>
@@ -254,7 +254,7 @@
        <string>Preview</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_5">
-       <item>
+       <item alignment="Qt::AlignTop">
         <widget class="QGroupBox" name="groupBoxPreview">
          <property name="title">
           <string>Fonts:</string>
@@ -390,14 +390,14 @@ if a sans-serif font-family specified in your CSS</string>
         </widget>
        </item>
        <item>
-        <spacer name="verticalSpacer_2">
+        <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>312</height>
+           <height>40</height>
           </size>
          </property>
         </spacer>
