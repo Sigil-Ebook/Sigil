@@ -1,3 +1,11 @@
+a:link {
+    color: #ff9999;
+}
+
+a:visited {
+    color: #99ff99;
+}
+
 ::-webkit-scrollbar {
     width: 16px;
 }

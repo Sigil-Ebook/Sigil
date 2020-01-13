@@ -228,7 +228,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     //if isDarkMode is set, inject a local style in head
     SettingsStore settings;
     if (Utility::IsDarkMode() && settings.previewDark()) {
-        text = Utility::AddDarkCSS(text);
+        text = Utility::AddDarkStyleSheet(text);
         DBG qDebug() << "Preview injecting dark style: ";
     }
     m_Preview->page()->setBackgroundColor(Utility::WebViewBackgroundColor(true));
@@ -302,6 +302,14 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
  
     DBG qDebug() << "PreviewWindow UpdatePage load is Finished";
     DBG qDebug() << "PreviewWindow UpdatePage final step scroll to location";
+
+    // use javascript to set the proper colors on the body tag in a style
+    if (Utility::IsDarkMode() && settings.previewDark()) {
+	QPalette pal = qApp->palette();
+	QString back = pal.color(QPalette::Base).name();
+	QString fore = pal.color(QPalette::Text).name();
+        m_Preview->SetPreviewColors(back, fore);
+    }
 
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();

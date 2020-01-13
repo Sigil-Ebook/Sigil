@@ -1,3 +1,11 @@
+a:link {
+    color: #ff9999;
+}
+
+a:visited {
+    color: #99ff99;
+}
+
 /* scroll bar color change to match the dark scheme */
 /* width setting is required or nothing is changed */
 

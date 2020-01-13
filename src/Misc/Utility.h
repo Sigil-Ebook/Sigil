@@ -212,8 +212,11 @@ public:
     // perform a locale aware string sort
     static QStringList LocaleAwareSort(QStringList &names);
 
-    // inject dark mode css into html
+    // inject dark mode css into html for AVTab, ImageTab, ViewImage, and SelectFiles
     static QString AddDarkCSS(const QString &html);
+
+    // inject dark mode css into Preview
+    static QString AddDarkStyleSheet(const QString &html);
 
     // return the proper background color for QWebEngineView
     static QColor WebViewBackgroundColor(bool followpref = false);
