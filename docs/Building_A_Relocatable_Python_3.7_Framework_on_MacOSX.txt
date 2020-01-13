@@ -7,8 +7,15 @@
 #
 #
 #     For Python's pip3 and lzma module you will need to compile and install the headers 
-#     and static library versions of liblzma.a (xz), libssl.a (libopenssl), and libcrypto.a (libopenssl)
+#     and static library vercd ..sions of liblzma.a (xz), libssl.a (libopenssl), and libcrypto.a (libopenssl)
 #
+
+If you are using XCode 10.X on MacOSX 10.14.X, remember to install the command line tools 
+and their headers!  The headers are now not installed by default.  An installer package
+for the headers can be found here:
+
+/Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+
 
 # Download openssl-1.1.c.tar.gz or later from https://www.openssl.org/source
 
@@ -64,7 +71,7 @@ sudo make install
 #     https://www.tcl.tk/doc/howto/compile.html  (use --enable-framework --enable-aqua --enable-threads during configure)
 
 #     And finally as we will be building a required PyQt5 python module, you will need to have built or
-#     downloaded prebuilt versions of Qt 5.12.3 first
+#     downloaded prebuilt versions of Qt 5.12.6 first
 #       So see Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt
 
 
@@ -199,7 +206,7 @@ which python3
 
 # Must have the Qt5.12.6 bin directory in the path to specify which Qt to use
 # See Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt
-export PATH=/Users/${USER}/Qt5126/bin:${PATH}
+export PATH=/Users/${USER}/Qt512/bin:${PATH}
 which qmake
 
 export MACOSX_DEPLOYMENT_TARGET=10.12
