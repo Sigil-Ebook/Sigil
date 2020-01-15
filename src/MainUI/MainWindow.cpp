@@ -2488,6 +2488,17 @@ void MainWindow::PasteTextIntoCurrentTarget(const QString &text)
     m_LastPasteTarget->PasteText(text);
 }
 
+#if 0
+void MainWindow::PasteClipIntoCurrentTarget(QAction * act)
+{
+    int clip_number = act->data().toInt();
+    if ((clip_number > 0) && (clip_number <= m_clactions.count())) { 
+        PasteClipIntoCurrentTarget(clip_number);
+    }
+}
+#endif
+
+
 void MainWindow::PasteClipIntoCurrentTarget(int clip_number)
 {
     if (m_LastPasteTarget == NULL) {
@@ -2501,106 +2512,6 @@ void MainWindow::PasteClipIntoCurrentTarget(int clip_number)
         // Clear the statusbar afterwards but only if entries were pasted.
         ShowMessageOnStatusBar(tr("Pasted clip entry %1.").arg(clip_number));
     }
-}
-
-void MainWindow::PasteClip1IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(1);
-}
-
-void MainWindow::PasteClip2IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(2);
-}
-
-void MainWindow::PasteClip3IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(3);
-}
-
-void MainWindow::PasteClip4IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(4);
-}
-
-void MainWindow::PasteClip5IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(5);
-}
-
-void MainWindow::PasteClip6IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(6);
-}
-
-void MainWindow::PasteClip7IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(7);
-}
-
-void MainWindow::PasteClip8IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(8);
-}
-
-void MainWindow::PasteClip9IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(9);
-}
-
-void MainWindow::PasteClip10IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(10);
-}
-
-void MainWindow::PasteClip11IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(11);
-}
-
-void MainWindow::PasteClip12IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(12);
-}
-
-void MainWindow::PasteClip13IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(13);
-}
-
-void MainWindow::PasteClip14IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(14);
-}
-
-void MainWindow::PasteClip15IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(15);
-}
-
-void MainWindow::PasteClip16IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(16);
-}
-
-void MainWindow::PasteClip17IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(17);
-}
-
-void MainWindow::PasteClip18IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(18);
-}
-
-void MainWindow::PasteClip19IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(19);
-}
-
-void MainWindow::PasteClip20IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(20);
 }
 
 // How to deal with this as each clipEntry struct created with new and passed via
@@ -4942,6 +4853,54 @@ void MainWindow::ExtendUI()
     m_qlactions.append(ui.actionPlugin9);
     m_qlactions.append(ui.actionPlugin10);
 
+    // initilaize the list of clip actions
+    m_clactions.append(ui.actionClip1);
+    m_clactions.append(ui.actionClip2);
+    m_clactions.append(ui.actionClip3);
+    m_clactions.append(ui.actionClip4);
+    m_clactions.append(ui.actionClip5);
+    m_clactions.append(ui.actionClip6);
+    m_clactions.append(ui.actionClip7);
+    m_clactions.append(ui.actionClip8);
+    m_clactions.append(ui.actionClip9);
+    m_clactions.append(ui.actionClip10);
+    m_clactions.append(ui.actionClip11);
+    m_clactions.append(ui.actionClip12);
+    m_clactions.append(ui.actionClip13);
+    m_clactions.append(ui.actionClip14);
+    m_clactions.append(ui.actionClip15);
+    m_clactions.append(ui.actionClip16);
+    m_clactions.append(ui.actionClip17);
+    m_clactions.append(ui.actionClip18);
+    m_clactions.append(ui.actionClip19);
+    m_clactions.append(ui.actionClip20);
+    m_clactions.append(ui.actionClip21);
+    m_clactions.append(ui.actionClip22);
+    m_clactions.append(ui.actionClip23);
+    m_clactions.append(ui.actionClip24);
+    m_clactions.append(ui.actionClip25);
+    m_clactions.append(ui.actionClip26);
+    m_clactions.append(ui.actionClip27);
+    m_clactions.append(ui.actionClip28);
+    m_clactions.append(ui.actionClip29);
+    m_clactions.append(ui.actionClip30);
+    m_clactions.append(ui.actionClip31);
+    m_clactions.append(ui.actionClip32);
+    m_clactions.append(ui.actionClip33);
+    m_clactions.append(ui.actionClip34);
+    m_clactions.append(ui.actionClip35);
+    m_clactions.append(ui.actionClip36);
+    m_clactions.append(ui.actionClip37);
+    m_clactions.append(ui.actionClip38);
+    m_clactions.append(ui.actionClip39);
+    m_clactions.append(ui.actionClip40);
+
+    int i = 1;
+    foreach(QAction * clipaction, m_clactions) {
+        clipaction->setData(i);
+        i++;
+    }
+    
     // initialize action group from tbHeadings QToolButton actions
     foreach(QAction* ha, ui.tbHeadings->actions()) {
         if (!ha->isSeparator()) {
@@ -5027,6 +4986,7 @@ void MainWindow::ExtendUI()
     ui.menuToolbars->addAction(ui.toolBarTextDirection->toggleViewAction());
     ui.toolBarTextDirection->setVisible(false);
     ui.menuToolbars->addAction(ui.toolBarClips->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarClips2->toggleViewAction());
     ui.toolBarClips->setVisible(false);
     m_lbCursorPosition = new QLabel(QString(""), statusBar());
     statusBar()->addPermanentWidget(m_lbCursorPosition);
@@ -5219,6 +5179,27 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionClip18, "MainWindow.Clip18");
     sm->registerAction(this, ui.actionClip19, "MainWindow.Clip19");
     sm->registerAction(this, ui.actionClip20, "MainWindow.Clip20");
+    // Clips2
+    sm->registerAction(this, ui.actionClip21, "MainWindow.Clip21");
+    sm->registerAction(this, ui.actionClip22, "MainWindow.Clip22");
+    sm->registerAction(this, ui.actionClip23, "MainWindow.Clip23");
+    sm->registerAction(this, ui.actionClip24, "MainWindow.Clip24");
+    sm->registerAction(this, ui.actionClip25, "MainWindow.Clip25");
+    sm->registerAction(this, ui.actionClip26, "MainWindow.Clip26");
+    sm->registerAction(this, ui.actionClip27, "MainWindow.Clip27");
+    sm->registerAction(this, ui.actionClip28, "MainWindow.Clip28");
+    sm->registerAction(this, ui.actionClip29, "MainWindow.Clip29");
+    sm->registerAction(this, ui.actionClip30, "MainWindow.Clip30");
+    sm->registerAction(this, ui.actionClip31, "MainWindow.Clip31");
+    sm->registerAction(this, ui.actionClip32, "MainWindow.Clip32");
+    sm->registerAction(this, ui.actionClip33, "MainWindow.Clip33");
+    sm->registerAction(this, ui.actionClip34, "MainWindow.Clip34");
+    sm->registerAction(this, ui.actionClip35, "MainWindow.Clip35");
+    sm->registerAction(this, ui.actionClip36, "MainWindow.Clip36");
+    sm->registerAction(this, ui.actionClip37, "MainWindow.Clip37");
+    sm->registerAction(this, ui.actionClip38, "MainWindow.Clip38");
+    sm->registerAction(this, ui.actionClip39, "MainWindow.Clip39");
+    sm->registerAction(this, ui.actionClip40, "MainWindow.Clip40");
 
     // for plugins
     sm->registerAction(this, ui.actionPlugin1,  "MainWindow.Plugins.RunPlugin1");
@@ -5255,10 +5236,11 @@ void MainWindow::ExtendUI()
     qDebug() << "UI Font size: " << f.pointSize();
 }
 
-void MainWindow::UpdateClipButton(int clip_number, QAction *ui_action)
+void MainWindow::UpdateClipButton(QAction *ui_action)
 {
     // clipEntry is a simple struct created by GetEntry with new,
     // no reference counting or smart pointers so they must be cleaned up appropriately
+    int clip_number = ui_action->data().toInt();
     ClipEditorModel::clipEntry *clip_entry = ClipEditorModel::instance()->GetEntryFromNumber(clip_number);
 
     if (clip_entry) {
@@ -5278,26 +5260,9 @@ void MainWindow::UpdateClipButton(int clip_number, QAction *ui_action)
 
 void MainWindow::UpdateClipsUI()
 {
-    UpdateClipButton(1, ui.actionClip1);
-    UpdateClipButton(2, ui.actionClip2);
-    UpdateClipButton(3, ui.actionClip3);
-    UpdateClipButton(4, ui.actionClip4);
-    UpdateClipButton(5, ui.actionClip5);
-    UpdateClipButton(6, ui.actionClip6);
-    UpdateClipButton(7, ui.actionClip7);
-    UpdateClipButton(8, ui.actionClip8);
-    UpdateClipButton(9, ui.actionClip9);
-    UpdateClipButton(10, ui.actionClip10);
-    UpdateClipButton(11, ui.actionClip11);
-    UpdateClipButton(12, ui.actionClip12);
-    UpdateClipButton(13, ui.actionClip13);
-    UpdateClipButton(14, ui.actionClip14);
-    UpdateClipButton(15, ui.actionClip15);
-    UpdateClipButton(16, ui.actionClip16);
-    UpdateClipButton(17, ui.actionClip17);
-    UpdateClipButton(18, ui.actionClip18);
-    UpdateClipButton(19, ui.actionClip19);
-    UpdateClipButton(20, ui.actionClip20);
+    foreach(QAction * clipaction, m_clactions) {
+        UpdateClipButton(clipaction);
+    }
 }
 
 void MainWindow::ExtendIconSizes()
@@ -5814,27 +5779,18 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionGoBackFromLinkOrStyle,  SIGNAL(triggered()), this,   SLOT(GoBackFromLinkOrStyle()));
     connect(ui.actionSplitOnSGFSectionMarkers, SIGNAL(triggered()),  this,   SLOT(SplitOnSGFSectionMarkers()));
     connect(ui.actionPasteClipboardHistory,    SIGNAL(triggered()),  this,   SLOT(ShowPasteClipboardHistoryDialog()));
+
     // Clips
-    connect(ui.actionClip1,       SIGNAL(triggered()), this, SLOT(PasteClip1IntoCurrentTarget()));
-    connect(ui.actionClip2,       SIGNAL(triggered()), this, SLOT(PasteClip2IntoCurrentTarget()));
-    connect(ui.actionClip3,       SIGNAL(triggered()), this, SLOT(PasteClip3IntoCurrentTarget()));
-    connect(ui.actionClip4,       SIGNAL(triggered()), this, SLOT(PasteClip4IntoCurrentTarget()));
-    connect(ui.actionClip5,       SIGNAL(triggered()), this, SLOT(PasteClip5IntoCurrentTarget()));
-    connect(ui.actionClip6,       SIGNAL(triggered()), this, SLOT(PasteClip6IntoCurrentTarget()));
-    connect(ui.actionClip7,       SIGNAL(triggered()), this, SLOT(PasteClip7IntoCurrentTarget()));
-    connect(ui.actionClip8,       SIGNAL(triggered()), this, SLOT(PasteClip8IntoCurrentTarget()));
-    connect(ui.actionClip9,       SIGNAL(triggered()), this, SLOT(PasteClip9IntoCurrentTarget()));
-    connect(ui.actionClip10,      SIGNAL(triggered()), this, SLOT(PasteClip10IntoCurrentTarget()));
-    connect(ui.actionClip11,      SIGNAL(triggered()), this, SLOT(PasteClip11IntoCurrentTarget()));
-    connect(ui.actionClip12,      SIGNAL(triggered()), this, SLOT(PasteClip12IntoCurrentTarget()));
-    connect(ui.actionClip13,      SIGNAL(triggered()), this, SLOT(PasteClip13IntoCurrentTarget()));
-    connect(ui.actionClip14,      SIGNAL(triggered()), this, SLOT(PasteClip14IntoCurrentTarget()));
-    connect(ui.actionClip15,      SIGNAL(triggered()), this, SLOT(PasteClip15IntoCurrentTarget()));
-    connect(ui.actionClip16,      SIGNAL(triggered()), this, SLOT(PasteClip16IntoCurrentTarget()));
-    connect(ui.actionClip17,      SIGNAL(triggered()), this, SLOT(PasteClip17IntoCurrentTarget()));
-    connect(ui.actionClip18,      SIGNAL(triggered()), this, SLOT(PasteClip18IntoCurrentTarget()));
-    connect(ui.actionClip19,      SIGNAL(triggered()), this, SLOT(PasteClip19IntoCurrentTarget()));
-    connect(ui.actionClip20,      SIGNAL(triggered()), this, SLOT(PasteClip20IntoCurrentTarget()));
+    foreach(QAction* clipaction, m_clactions) {
+	// Use the new signal/slot syntax and use a lambda to
+	// eliminate the need for the obsoleted QSignalMapper.
+	// [captured variables]() {...anonymous processing to do...;}
+        int i = clipaction->data().toInt();
+	connect(clipaction, &QAction::triggered, this, [this,i]() {
+                MainWindow::PasteClipIntoCurrentTarget(i);
+		});
+    }
+
     // Slider
     connect(m_slZoomSlider,         SIGNAL(valueChanged(int)), this, SLOT(SliderZoom(int)));
     // We also update the label when the slider moves... this is to show
