@@ -312,7 +312,7 @@ void MainWindow::loadPluginsMenu()
         connect(pa, &QAction::triggered, this, [this,i]() {
             MainWindow::QuickLaunchPlugin(i);
         });
-	    i++;
+        i++;
     }
 
     QHash<QString, Plugin *> plugins = pdb->all_plugins();
@@ -4853,54 +4853,26 @@ void MainWindow::ExtendUI()
     m_qlactions.append(ui.actionPlugin9);
     m_qlactions.append(ui.actionPlugin10);
 
-    // initilaize the list of clip actions
-    m_clactions.append(ui.actionClip1);
-    m_clactions.append(ui.actionClip2);
-    m_clactions.append(ui.actionClip3);
-    m_clactions.append(ui.actionClip4);
-    m_clactions.append(ui.actionClip5);
-    m_clactions.append(ui.actionClip6);
-    m_clactions.append(ui.actionClip7);
-    m_clactions.append(ui.actionClip8);
-    m_clactions.append(ui.actionClip9);
-    m_clactions.append(ui.actionClip10);
-    m_clactions.append(ui.actionClip11);
-    m_clactions.append(ui.actionClip12);
-    m_clactions.append(ui.actionClip13);
-    m_clactions.append(ui.actionClip14);
-    m_clactions.append(ui.actionClip15);
-    m_clactions.append(ui.actionClip16);
-    m_clactions.append(ui.actionClip17);
-    m_clactions.append(ui.actionClip18);
-    m_clactions.append(ui.actionClip19);
-    m_clactions.append(ui.actionClip20);
-    m_clactions.append(ui.actionClip21);
-    m_clactions.append(ui.actionClip22);
-    m_clactions.append(ui.actionClip23);
-    m_clactions.append(ui.actionClip24);
-    m_clactions.append(ui.actionClip25);
-    m_clactions.append(ui.actionClip26);
-    m_clactions.append(ui.actionClip27);
-    m_clactions.append(ui.actionClip28);
-    m_clactions.append(ui.actionClip29);
-    m_clactions.append(ui.actionClip30);
-    m_clactions.append(ui.actionClip31);
-    m_clactions.append(ui.actionClip32);
-    m_clactions.append(ui.actionClip33);
-    m_clactions.append(ui.actionClip34);
-    m_clactions.append(ui.actionClip35);
-    m_clactions.append(ui.actionClip36);
-    m_clactions.append(ui.actionClip37);
-    m_clactions.append(ui.actionClip38);
-    m_clactions.append(ui.actionClip39);
-    m_clactions.append(ui.actionClip40);
-
-    int i = 1;
-    foreach(QAction * clipaction, m_clactions) {
-        clipaction->setData(i);
-        i++;
+    // initialize the first set of clip actions
+    foreach(QAction * clipaction, ui.toolBarClips->actions()) {
+        if (!clipaction->isSeparator()) {
+            QString strIndex = clipaction->objectName();
+            strIndex.replace(QString("actionClip"), QString(""));
+            clipaction->setData(strIndex.toInt());
+            m_clactions.append(clipaction);
+        }
     }
-    
+
+    // initialize the second set of clip actions
+    foreach(QAction * clipaction, ui.toolBarClips2->actions()) {
+        if (!clipaction->isSeparator()) {
+            QString strIndex = clipaction->objectName();
+            strIndex.replace(QString("actionClip"), QString(""));
+            clipaction->setData(strIndex.toInt());
+            m_clactions.append(clipaction);
+        }
+    }
+
     // initialize action group from tbHeadings QToolButton actions
     foreach(QAction* ha, ui.tbHeadings->actions()) {
         if (!ha->isSeparator()) {
@@ -5158,48 +5130,12 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionDonate, "MainWindow.Donate");
     sm->registerAction(this, ui.actionSigilWebsite, "MainWindow.SigilWebsite");
     sm->registerAction(this, ui.actionAbout, "MainWindow.About");
+
     // Clips
-    sm->registerAction(this, ui.actionClip1, "MainWindow.Clip1");
-    sm->registerAction(this, ui.actionClip2, "MainWindow.Clip2");
-    sm->registerAction(this, ui.actionClip3, "MainWindow.Clip3");
-    sm->registerAction(this, ui.actionClip4, "MainWindow.Clip4");
-    sm->registerAction(this, ui.actionClip5, "MainWindow.Clip5");
-    sm->registerAction(this, ui.actionClip6, "MainWindow.Clip6");
-    sm->registerAction(this, ui.actionClip7, "MainWindow.Clip7");
-    sm->registerAction(this, ui.actionClip8, "MainWindow.Clip8");
-    sm->registerAction(this, ui.actionClip9, "MainWindow.Clip9");
-    sm->registerAction(this, ui.actionClip10, "MainWindow.Clip10");
-    sm->registerAction(this, ui.actionClip11, "MainWindow.Clip11");
-    sm->registerAction(this, ui.actionClip12, "MainWindow.Clip12");
-    sm->registerAction(this, ui.actionClip13, "MainWindow.Clip13");
-    sm->registerAction(this, ui.actionClip14, "MainWindow.Clip14");
-    sm->registerAction(this, ui.actionClip15, "MainWindow.Clip15");
-    sm->registerAction(this, ui.actionClip16, "MainWindow.Clip16");
-    sm->registerAction(this, ui.actionClip17, "MainWindow.Clip17");
-    sm->registerAction(this, ui.actionClip18, "MainWindow.Clip18");
-    sm->registerAction(this, ui.actionClip19, "MainWindow.Clip19");
-    sm->registerAction(this, ui.actionClip20, "MainWindow.Clip20");
-    // Clips2
-    sm->registerAction(this, ui.actionClip21, "MainWindow.Clip21");
-    sm->registerAction(this, ui.actionClip22, "MainWindow.Clip22");
-    sm->registerAction(this, ui.actionClip23, "MainWindow.Clip23");
-    sm->registerAction(this, ui.actionClip24, "MainWindow.Clip24");
-    sm->registerAction(this, ui.actionClip25, "MainWindow.Clip25");
-    sm->registerAction(this, ui.actionClip26, "MainWindow.Clip26");
-    sm->registerAction(this, ui.actionClip27, "MainWindow.Clip27");
-    sm->registerAction(this, ui.actionClip28, "MainWindow.Clip28");
-    sm->registerAction(this, ui.actionClip29, "MainWindow.Clip29");
-    sm->registerAction(this, ui.actionClip30, "MainWindow.Clip30");
-    sm->registerAction(this, ui.actionClip31, "MainWindow.Clip31");
-    sm->registerAction(this, ui.actionClip32, "MainWindow.Clip32");
-    sm->registerAction(this, ui.actionClip33, "MainWindow.Clip33");
-    sm->registerAction(this, ui.actionClip34, "MainWindow.Clip34");
-    sm->registerAction(this, ui.actionClip35, "MainWindow.Clip35");
-    sm->registerAction(this, ui.actionClip36, "MainWindow.Clip36");
-    sm->registerAction(this, ui.actionClip37, "MainWindow.Clip37");
-    sm->registerAction(this, ui.actionClip38, "MainWindow.Clip38");
-    sm->registerAction(this, ui.actionClip39, "MainWindow.Clip39");
-    sm->registerAction(this, ui.actionClip40, "MainWindow.Clip40");
+    foreach(QAction * clipaction, m_clactions) {
+        QString clip_number = clipaction->data().toString();
+        sm->registerAction(this, clipaction, "MainWindow.Clip" + clip_number);
+    }
 
     // for plugins
     sm->registerAction(this, ui.actionPlugin1,  "MainWindow.Plugins.RunPlugin1");
@@ -5786,9 +5722,9 @@ void MainWindow::ConnectSignalsToSlots()
 	// eliminate the need for the obsoleted QSignalMapper.
 	// [captured variables]() {...anonymous processing to do...;}
         int i = clipaction->data().toInt();
-	connect(clipaction, &QAction::triggered, this, [this,i]() {
+        connect(clipaction, &QAction::triggered, this, [this,i]() {
                 MainWindow::PasteClipIntoCurrentTarget(i);
-		});
+        });
     }
 
     // Slider
