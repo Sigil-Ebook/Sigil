@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2020      Doug Massay
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Grant Drake
 **
@@ -57,6 +58,7 @@ private:
     SettingsStore::CodeViewAppearance m_codeViewAppearance;
     QColor m_currentColor;
     int m_ShowFullPathOn;
+    QString m_HighDPI;
     int m_PreviewDark;
     bool m_wasDark;
 
