@@ -332,7 +332,7 @@ public slots:
 
     void setShowFullPathOn(int on);
 
-    void SettingsStore::setHighDPI(const QString &value)
+    void setHighDPI(const QString &value);
 
     void setPreviewDark(int enabled);
 
