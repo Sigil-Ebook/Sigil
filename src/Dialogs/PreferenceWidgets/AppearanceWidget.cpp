@@ -80,7 +80,7 @@ AppearanceWidget::AppearanceWidget()
     ui.setupUi(this);
     // Custom delegate for painting the color swatches
     ui.codeViewColorsList->setItemDelegate(new ColorSwatchDelegate(ui.codeViewColorsList));
-    ui.comboHighDPI->addItem("Detect", "On", "Off");
+    ui.comboHighDPI->addItems({"Detect", "On", "Off"});
     m_codeViewAppearance = readSettings();
     loadCodeViewColorsList(m_codeViewAppearance);
     connectSignalsToSlots();
@@ -181,7 +181,7 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     ui.ShowFullPath->setChecked(settings.showFullPathOn());
     m_HighDPI = settings.highDPI();
     int dpiIndex = ui.comboHighDPI->findText(m_HighDPI);
-    ui.comboHighDPI->setCurrentIndex(dpiIndex));
+    ui.comboHighDPI->setCurrentIndex(dpiIndex);
     m_PreviewDark = settings.previewDark(); 
     ui.PreviewDarkInDM->setChecked(settings.previewDark());
     SettingsStore::PreviewAppearance PVAppearance = settings.previewAppearance();
