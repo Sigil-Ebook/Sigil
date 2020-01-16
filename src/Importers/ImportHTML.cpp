@@ -243,7 +243,8 @@ QHash<QString, QString> ImportHTML::LoadFolderStructure(const QString &source)
 QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_paths)
 {
     QHash<QString, QString> updates;
-    QDir folder(QFileInfo(m_FullFilePath).absoluteDir());
+    QFileInfo hinfo = QFileInfo(m_FullFilePath);
+    QDir folder(hinfo.absoluteDir());
     // Load the media files (images, video, audio) into the book and
     // update all references with new urls
     foreach(QString file_path, file_paths) {
@@ -263,9 +264,13 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
 
             updates[ fullfilepath ] = newpath;
         } catch (FileDoesNotExist) {
+            // Do not touch link if it is already broken
+            QString target_file = hinfo.absolutePath() + "/" + file_path;
+            target_file = Utility::resolveRelativeSegmentsInFilePath(target_file, "/");
+            updates[target_file] = "";
             // Do nothing. If the referenced file does not exist,
             // well then we don't load it.
-            // TODO: log this.
+            qDebug() << "broken link ImportHTML" << m_FullFilePath << file_path << target_file;
         }
     }
     return updates;
@@ -275,7 +280,8 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
 QHash<QString, QString> ImportHTML::LoadStyleFiles(const QStringList & file_paths )
 {
     QHash<QString, QString> updates;
-    QDir folder(QFileInfo(m_FullFilePath).absoluteDir());
+    QFileInfo hinfo = QFileInfo(m_FullFilePath);
+    QDir folder(hinfo.absoluteDir());
     foreach(QString file_path, file_paths) {
         try {
             QString filename = QFileInfo(file_path).fileName();
@@ -293,9 +299,13 @@ QHash<QString, QString> ImportHTML::LoadStyleFiles(const QStringList & file_path
 
             updates[ fullfilepath ] = newpath;
         } catch (FileDoesNotExist) {
+            // Do not touch link if it is already broken
+            QString target_file = hinfo.absolutePath() + "/" + file_path;
+            target_file = Utility::resolveRelativeSegmentsInFilePath(target_file, "/");
+            updates[target_file] = "";
             // Do nothing. If the referenced file does not exist,
             // well then we don't load it.
-            // TODO: log this.
+            qDebug() << "broken link ImportHTML" << m_FullFilePath << file_path << target_file;
         }
     }
 
