@@ -1,3 +1,35 @@
+pre-Sigil-1.1.0
+    New Features:
+      - Added Support for Dark Mode for Windows, Linux and macOSX (Thanks BeckyEbook!)
+      - Added ability to use Dark Mode for Preview (controlled by Preferences)
+      - Added Zoom Keys Ctrl +/- support to the Inspector (for improved Accessibility)
+      - Added support for a second Clip bar with up to 20 additional clips
+      - Select Special Character Dialog now support scrollbars
+      - Guide and Nav titles are now translated into ebook language (if translations available)
+      - All Report Names have been shortened to allow larger font sizes for better Accessibility
+      - Added improved contrast icons (Thank you BeckyEbook!)
+      - Completely reworked all Sigil Preference Dialogs to make them more screen/user friendly
+      - Improve High DPI Preference Settings for Windows users
+      
+    Bug Fixes:
+      - Replaced deprecated QSignalMapper code with QActionGroups throughout Sigil's code base
+      - Fixed bug in "open-with" on macOSX that did not allow .app files to be selected
+      - Soft hyphens characters are now handled properly by Spellchecking [PR from BeckyEbook]
+      - Fixed bug in 'split at cursor" that created extra empty pages
+      - Fix bug in Insert Files from Disk
+      - Fixed same thread re-entrancy issues with tab creation / deletion code due to Qt signal/slot handling
+      - Fixed source code typos [PR from luzpaz]
+      - Fixed incorrect number of "times used" in Image Reports
+      - Fixed plugin font_iter() code to properly handle new Iana.org font media types
+      - Broken links are no longer changed during ImportHTML (Add Existing...) operations
+      - Cover svg image "vh" "vw" fixup code now properly handles empty headers on cover page
+      - GetBookpathByPathEnd() will now work properly and thereby better handle detection of file
+           name conflicts during imports
+      - Better handle file name info from Validation plugins
+      - Inserting Links now creates proper links for top of page of the same file
+      - Fix ImportHTML when creating a new book to properly add an NCX if needed
+      - Include official QT backported fixes to Qt 5.12.6 to make it more stable
+
 Sigil-1.0.0
     Bug Fixes:
       - All bugs reported in alpha release have been fixed. 
