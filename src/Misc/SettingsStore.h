@@ -140,6 +140,8 @@ public:
 
     int showFullPathOn();
 
+    QString highDPI();
+
     int previewDark();
 
     int cleanOn();
@@ -329,6 +331,8 @@ public slots:
     void setJavascriptOn(int on);
 
     void setShowFullPathOn(int on);
+
+    void SettingsStore::setHighDPI(const QString &value)
 
     void setPreviewDark(int enabled);
 
