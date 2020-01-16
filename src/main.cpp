@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2018-2019  Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2019       Doug Massay
+**  Copyright (C) 2019-2020  Doug Massay
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -240,7 +240,7 @@ void VerifyPlugins()
 }
 
 
-void setupHiDPI()
+void setupHighDPI()
 {
     bool has_env_setting = false;
     QStringList env_vars;
@@ -253,9 +253,19 @@ void setupHiDPI()
             break;
         }
     }
-    if (!has_env_setting) {
+    SettingsStore ss;
+    QString highdpi = ss.highDPI();
+    if (highdpi == "On" || (highdpi == "Detect" && !has_env_setting)) {
         qDebug() << "Turning on Automatic High DPI scaling";
-        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
+    } else if (highdpi == "Off") {
+        qDebug() << "Turning off Automatic High DPI scaling";
+        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, false);
+        foreach(QString v, env_vars) {
+            bool irrel = qunsetenv(v.toUtf8().constData());
+        }
+    } else {
+        qDebug() << "Not Controlling Automatic High DPI scaling";
     }
 }
 
@@ -274,7 +284,7 @@ int main(int argc, char *argv[])
 #endif
 
 #ifndef Q_OS_MAC
-    setupHiDPI();
+    setupHighDPI();
 #endif
 
     // Set application information for easier use of QSettings classes
