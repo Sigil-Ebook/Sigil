@@ -286,10 +286,6 @@ int main(int argc, char *argv[])
     qInstallMessageHandler(MessageHandler);
 #endif
 
-#ifndef Q_OS_MAC
-    setupHighDPI();
-#endif
-
     // Set application information for easier use of QSettings classes
     QCoreApplication::setOrganizationName("sigil-ebook");
     QCoreApplication::setOrganizationDomain("sigil-ebook.com");
@@ -297,6 +293,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationVersion(SIGIL_VERSION);
 
 #ifndef Q_OS_MAC
+    setupHighDPI();
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif
 
