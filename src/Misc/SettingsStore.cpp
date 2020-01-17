@@ -239,10 +239,10 @@ int SettingsStore::showFullPathOn()
     return value(KEY_SHOWFULLPATH_ON, 0).toInt();
 }
 
-QString SettingsStore::highDPI()
+int SettingsStore::highDPI()
 {
     clearSettingsGroup();
-    return value(KEY_HIGHDPI_SETTING, "Detect").toString();
+    return value(KEY_HIGHDPI_SETTING, 0).toInt();
 }
 
 int SettingsStore::previewDark()
@@ -537,7 +537,7 @@ void SettingsStore::setShowFullPathOn(int on)
     setValue(KEY_SHOWFULLPATH_ON, on);
 }
 
-void SettingsStore::setHighDPI(const QString &value)
+void SettingsStore::setHighDPI(int value)
 {
     clearSettingsGroup();
     setValue(KEY_HIGHDPI_SETTING, value);

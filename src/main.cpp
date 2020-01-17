@@ -256,12 +256,12 @@ void setupHighDPI()
     }
     qDebug() << "INI Location: " << QStandardPaths::writableLocation(QStandardPaths::DataLocation);
     SettingsStore ss;
-    QString highdpi = ss.highDPI();
+    int highdpi = ss.highDPI();
     qDebug() << "High DPI Setting: " << highdpi;
-    if (highdpi == "On" || (highdpi == "Detect" && !has_env_setting)) {
+    if (highdpi == 1 || (highdpi == 0 && !has_env_setting)) {
         qDebug() << "Turning on Automatic High DPI scaling";
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
-    } else if (highdpi == "Off") {
+    } else if (highdpi == "2") {
         qDebug() << "Turning off Automatic High DPI scaling";
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, false);
         foreach(QString v, env_vars) {

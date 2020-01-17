@@ -141,7 +141,7 @@ public:
 
     int showFullPathOn();
 
-    QString highDPI();
+    int highDPI();
 
     int previewDark();
 
@@ -333,7 +333,7 @@ public slots:
 
     void setShowFullPathOn(int on);
 
-    void setHighDPI(const QString &value);
+    void setHighDPI(int value);
 
     void setPreviewDark(int enabled);
 

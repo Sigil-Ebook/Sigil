@@ -58,7 +58,7 @@ private:
     SettingsStore::CodeViewAppearance m_codeViewAppearance;
     QColor m_currentColor;
     int m_ShowFullPathOn;
-    QString m_HighDPI;
+    int m_HighDPI;
     int m_PreviewDark;
     bool m_wasDark;
 

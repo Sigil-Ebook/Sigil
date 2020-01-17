@@ -80,7 +80,7 @@ AppearanceWidget::AppearanceWidget()
     ui.setupUi(this);
     // Custom delegate for painting the color swatches
     ui.codeViewColorsList->setItemDelegate(new ColorSwatchDelegate(ui.codeViewColorsList));
-    ui.comboHighDPI->addItems({"Detect", "On", "Off"});
+    ui.comboHighDPI->addItems({tr("Detect"), tr("On"), tr("Off")});
     m_codeViewAppearance = readSettings();
     loadCodeViewColorsList(m_codeViewAppearance);
     connectSignalsToSlots();
@@ -92,7 +92,7 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
     settings.setAppearancePrefsTabIndex(ui.tabAppearance->currentIndex());
     settings.setShowFullPathOn(ui.ShowFullPath->isChecked() ? 1 : 0);
     settings.setPreviewDark(ui.PreviewDarkInDM->isChecked() ? 1 : 0);
-    settings.setHighDPI(ui.comboHighDPI->currentText());
+    settings.setHighDPI(ui.comboHighDPI->currentIndex());
     SettingsStore::PreviewAppearance PVAppearance;
     PVAppearance.font_family_standard     = ui.cbPreviewFontStandard->currentText();
     PVAppearance.font_family_serif        = ui.cbPreviewFontSerif->currentText();
@@ -180,8 +180,7 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     m_ShowFullPathOn = settings.showFullPathOn();
     ui.ShowFullPath->setChecked(settings.showFullPathOn());
     m_HighDPI = settings.highDPI();
-    int dpiIndex = ui.comboHighDPI->findText(m_HighDPI);
-    ui.comboHighDPI->setCurrentIndex(dpiIndex);
+    ui.comboHighDPI->setCurrentIndex(m_HighDPI);
     m_PreviewDark = settings.previewDark(); 
     ui.PreviewDarkInDM->setChecked(settings.previewDark());
     SettingsStore::PreviewAppearance PVAppearance = settings.previewAppearance();
