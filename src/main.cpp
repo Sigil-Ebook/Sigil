@@ -31,6 +31,7 @@
 #include <QtCore/QTextCodec>
 #include <QtCore/QThreadPool>
 #include <QtCore/QTranslator>
+#include <QtCore/QStandardPaths>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMessageBox>
 #include <QXmlStreamReader>
@@ -253,8 +254,10 @@ void setupHighDPI()
             break;
         }
     }
+    qDebug() << "INI Location: " << QStandardPaths::writableLocation(QStandardPaths::DataLocation);
     SettingsStore ss;
     QString highdpi = ss.highDPI();
+    qDebug() << "High DPI Setting: " << highdpi;
     if (highdpi == "On" || (highdpi == "Detect" && !has_env_setting)) {
         qDebug() << "Turning on Automatic High DPI scaling";
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
