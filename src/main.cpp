@@ -261,7 +261,7 @@ void setupHighDPI()
     if (highdpi == 1 || (highdpi == 0 && !has_env_setting)) {
         qDebug() << "Turning on Automatic High DPI scaling";
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
-    } else if (highdpi == "2") {
+    } else if (highdpi == 2) {
         qDebug() << "Turning off Automatic High DPI scaling";
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, false);
         foreach(QString v, env_vars) {
