@@ -789,5 +789,7 @@ QString NavProcessor::ConvertBookPathToNavRelative(const QString & bookpath)
     if (!fragment.isEmpty()) {
         new_href = new_href + "#" + fragment;
     }
+    // finally handle case of link from nav to nav top of file
+    if (new_href.isEmpty()) new_href = "#";
     return new_href;
 }
