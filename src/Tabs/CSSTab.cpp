@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -28,6 +29,16 @@ CSSTab::CSSTab(CSSResource *resource, int line_to_scroll_to, int position_to_scr
 {
     m_wCodeView->SetReformatCSSEnabled(true);
     connect(m_wCodeView, SIGNAL(PageUpdated()), this, SLOT(EmitCSSUpdated()));
+}
+
+bool CSSTab::PasteClipNumber(int clip_number)
+{
+    return m_wCodeView->PasteClipNumber(clip_number);
+}
+
+bool CSSTab::PasteClipEntries(QList<ClipEditorModel::clipEntry *>clips)
+{
+    return m_wCodeView->PasteClipEntries(clips);
 }
 
 void CSSTab::EmitCSSUpdated()

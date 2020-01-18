@@ -106,6 +106,7 @@
 #include "SourceUpdates/LinkUpdates.h"
 #include "SourceUpdates/WordUpdates.h"
 #include "Tabs/FlowTab.h"
+#include "Tabs/CSSTab.h"
 #include "Tabs/OPFTab.h"
 #include "Tabs/TabManager.h"
 #include "MainUI/MainApplication.h"
@@ -2543,14 +2544,18 @@ void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::
 
 void MainWindow::PasteClipEntriesIntoPreviousTarget(const QList<ClipEditorModel::clipEntry *> &clips)
 {
-    FlowTab *flow_tab = GetCurrentFlowTab();
-    if (flow_tab && flow_tab->GetLoadedResource()->Type() == Resource::HTMLResourceType) {
-        bool applied = flow_tab->PasteClipEntries(clips);
-        if (applied) {
-            flow_tab->setFocus();
-            // Clear the statusbar afterwards but only if entries were pasted.
-            ShowMessageOnStatusBar();
-        }
+    ContentTab *tab = GetCurrentContentTab();
+    if (tab == NULL)  return;
+    FlowTab *flow_tab = qobject_cast<FlowTab *>(tab);
+    if (flow_tab && flow_tab->PasteClipEntries(clips)) {
+        flow_tab->setFocus();
+        ShowMessageOnStatusBar();
+	return;
+    }
+    CSSTab * css_tab = qobject_cast<CSSTab *>(tab);
+    if (css_tab && css_tab->PasteClipEntries(clips)) {
+        css_tab->setFocus();
+        ShowMessageOnStatusBar();
     }
 }
 
