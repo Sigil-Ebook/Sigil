@@ -4821,8 +4821,13 @@ void MainWindow::PlatformSpecificTweaks()
     sizeMenuIcons();
 }
 
+QString MainWindow::GetOriginalUIFont()
+{
+    return m_originalUIFont;
+}
 
-void MainWindow::SetupUiFonts()
+
+void MainWindow::SetupUiFont()
 {
     QFont f = QFont(qApp->font());
 #ifdef Q_OS_WIN32
@@ -4841,6 +4846,8 @@ void MainWindow::SetupUiFonts()
     }
    
 #endif
+    m_originalUIFont = f.toString();
+    qDebug() << "Original UI font: " << m_originalUIFont;
 }
 
 
@@ -5168,13 +5175,18 @@ void MainWindow::ExtendUI()
     ui.tbCase->setFont(font);
 #endif
 
-    SetupUiFonts();
-    ExtendIconSizes();
-    UpdateClipsUI();
-
+    SetupUiFont();
+    SettingsStore ss;
+    if (!ss.uiFont().isEmpty()) {
+        QFont font;
+        if (font.fromString(ss.uiFont()))
+            qApp->setFont(font);
+    }
     QFont f = QFont(qApp->font());
     qDebug() << "UI Font family: " << f.family();    
     qDebug() << "UI Font size: " << f.pointSize();
+    ExtendIconSizes();
+    UpdateClipsUI();
 }
 
 void MainWindow::UpdateClipButton(QAction *ui_action)

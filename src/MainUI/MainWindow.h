@@ -204,6 +204,8 @@ public:
     QString GetCurrentFilePath();
 
     void DebugCurrentWidgetSizes();
+    
+    QString GetOriginalUIFont();
 
 public slots:
 
@@ -772,7 +774,7 @@ private:
     /**
      * Tweak default UI fonts based on the OS platform.
      */
-    void SetupUiFonts();
+    void SetupUiFont();
 
     /**
      * Extends the UI with extra widgets and tweaks.
@@ -1004,6 +1006,8 @@ private:
     QStringList m_pluginList;
     bool m_SaveCSS;
     bool m_IsClosing;
+
+    QString m_originalUIFont;
 
     QList<QAction*> m_qlactions;
 

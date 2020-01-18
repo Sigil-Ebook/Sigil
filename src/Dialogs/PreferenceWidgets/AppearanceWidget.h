@@ -44,6 +44,7 @@ public:
 
 private slots:
     void customColorButtonClicked();
+    void changeUIFontButtonClicked();
     void resetAllButtonClicked();
     void newSliderValue(int value);
 

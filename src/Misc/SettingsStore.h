@@ -58,6 +58,8 @@ public:
      */
     QString uiLanguage();
 
+    QString uiFont();
+
     /**
      * The default langauge to use when creating new books.
      *
@@ -248,6 +250,8 @@ public slots:
      * @param lang The language to set.
      */
     void setUILanguage(const QString &language_code);
+    
+    void setUIFont(const QString &font_data);
 
     /**
      * Set the default language to use when creating new books.

@@ -28,6 +28,8 @@
 #include <QtGui/QPainter>
 #include <QtWidgets/QStyledItemDelegate>
 #include <QtWebEngineWidgets/QWebEngineSettings>
+#include <QFontDialog>
+#include <QDebug>
 
 #include "AppearanceWidget.h"
 #include "Misc/SettingsStore.h"
@@ -173,6 +175,9 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     if (m_PreviewDark != (ui.PreviewDarkInDM->isChecked() ? 1 : 0)) {
         results = results | PreferencesWidget::ResultAction_ReloadPreview;
     }
+    if (m_HighDPI != (ui.comboHighDPI->currentIndex())) {
+        results = results | PreferencesWidget::ResultAction_RestartSigil;
+    }
     results = results & PreferencesWidget::ResultAction_Mask;
     return results;
 }
@@ -277,6 +282,21 @@ void AppearanceWidget::customColorButtonClicked()
     }
 }
 
+void AppearanceWidget::changeUIFontButtonClicked()
+{
+    bool ok;
+    QFont font = QFontDialog::getFont(
+                &ok, QFont("Helvetica [Cronyx]", 10), this);
+    if (ok) {
+        // the user clicked OK and font is set to the font the user selected
+        qDebug() << font.toString();
+    } else {
+        // the user canceled the dialog; font is set to the initial
+        // value, in this case Helvetica [Cronyx], 10
+        qDebug() << font.toString();
+    }
+}
+
 void AppearanceWidget::resetAllButtonClicked()
 {
     // only reset Appearanceprefs if mode was not changed since preference was open
@@ -302,6 +322,7 @@ void AppearanceWidget::newSliderValue(int value) {
 void AppearanceWidget::connectSignalsToSlots()
 {
     connect(ui.customColorButton, SIGNAL(clicked()), this, SLOT(customColorButtonClicked()));
+    connect(ui.changeUIFontButton, SIGNAL(clicked()), this, SLOT(changeUIFontButtonClicked()));
     connect(ui.resetAllButton,    SIGNAL(clicked()), this, SLOT(resetAllButtonClicked()));
     connect(ui.iconSizeSlider,    SIGNAL(valueChanged(int)), this, SLOT(newSliderValue(int)));
 }
