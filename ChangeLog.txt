@@ -10,6 +10,8 @@ pre-Sigil-1.1.0
       - Added improved contrast icons (Thank you BeckyEbook!)
       - Completely reworked all Sigil Preference Dialogs to make them more screen/user friendly
       - Improve High DPI Preference Settings for Windows users
+      - Clips from the Clips QDockwidget window can now be used in CSS Tabs as well.
+      - The plugin interface has been extended to show current colorMode and primary colors
       
     Bug Fixes:
       - Replaced deprecated QSignalMapper code with QActionGroups throughout Sigil's code base
@@ -29,6 +31,8 @@ pre-Sigil-1.1.0
       - Inserting Links now creates proper links for top of page of the same file
       - Fix ImportHTML when creating a new book to properly add an NCX if needed
       - Include official QT backported fixes to Qt 5.12.6 to make it more stable
+      - The nav will now properly handle internal links to top of page of the nav itself
+
 
 Sigil-1.0.0
     Bug Fixes:

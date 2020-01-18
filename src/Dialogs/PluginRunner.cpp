@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2014-2019 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2014-2020 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -29,6 +29,8 @@
 #include <QMessageBox>
 #include <QStandardPaths>
 #include <QProcessEnvironment>
+#include <QApplication>
+#include <QPalette>
 
 #include "MainUI/MainWindow.h"
 #include "MainUI/BookBrowser.h"
@@ -227,6 +229,19 @@ void PluginRunner::writeSigilCFG()
         cfg << QString("False");
     }
     cfg << m_mainWindow->GetCurrentFilePath();
+    if (Utility::IsDarkMode()) {
+        cfg << QString("dark");
+    } else {
+        cfg << QString("light");
+    }
+    QStringList colors;
+    QPalette pal = qApp->palette();
+    colors << pal.color(QPalette::Window).name();
+    colors << pal.color(QPalette::Base).name();
+    colors << pal.color(QPalette::Text).name();
+    colors << pal.color(QPalette::Highlight).name();
+    colors << pal.color(QPalette::HighlightedText).name();
+    cfg << colors.join(",");
     QList <Resource *> selected_resources = m_bookBrowser->AllSelectedResources();
     foreach(Resource * resource, selected_resources) {
         cfg << resource->GetRelativePath();

@@ -376,6 +376,19 @@ class BookContainer(object):
         return self._w.map_id_to_over.get(id, ow)
 
 
+    # New in Sigil 1.1
+    # ----------------
+    
+    # returns "light" or "dark"
+    def colorMode(self):
+        return self._w.colorMode()
+
+    # returns color as css or javascript hex color string #xxxxxx
+    # acccepts the following color roles in a case insensitive manner:
+    #    "Window", "Base", "Text", "Highlight", "HighlightedText"
+    def color(self, role):
+        return self._w.color(role)
+
 
     # New in Sigil 1.0
     # ----------------
