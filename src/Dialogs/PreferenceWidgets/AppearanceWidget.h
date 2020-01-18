@@ -40,7 +40,7 @@ class AppearanceWidget : public PreferencesWidget
 
 public:
     AppearanceWidget();
-    PreferencesWidget::ResultAction saveSettings();
+    PreferencesWidget::ResultActions saveSettings();
 
 private slots:
     void customColorButtonClicked();

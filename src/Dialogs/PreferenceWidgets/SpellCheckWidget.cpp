@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2013 Dave Heiland
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2013      Dave Heiland
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -64,10 +64,12 @@ void SpellCheckWidget::setUpTable()
     ui.userDictList->setAlternatingRowColors(true);
 }
 
-PreferencesWidget::ResultAction SpellCheckWidget::saveSettings()
+PreferencesWidget::ResultActions SpellCheckWidget::saveSettings()
 {
+    PreferencesWidget::ResultActions results = PreferencesWidget::ResultAction_None;
+
     if (!m_isDirty) {
-        return PreferencesWidget::ResultAction_None;
+        return results;
     }
 
     // Save the current dictionary's word list
@@ -89,7 +91,9 @@ PreferencesWidget::ResultAction SpellCheckWidget::saveSettings()
     SpellCheck *sc = SpellCheck::instance();
     sc->setDictionary(settings.dictionary(), true);
 
-    return PreferencesWidget::ResultAction_RefreshSpelling;
+    results = results | PreferencesWidget::ResultAction_RefreshSpelling;
+    results = results & PreferencesWidget::ResultAction_Mask;
+    return results;
 }
 
 QStringList SpellCheckWidget::EnabledDictionaries()

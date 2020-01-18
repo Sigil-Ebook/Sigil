@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
-**  Copyright (C) 2011 Grzegorz Wolszczak <grzechu81@gmail.com>
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2011      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2011      Grzegorz Wolszczak <grzechu81@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -38,7 +39,7 @@ class KeyboardShortcutsWidget : public PreferencesWidget
 
 public:
     KeyboardShortcutsWidget();
-    PreferencesWidget::ResultAction saveSettings();
+    PreferencesWidget::ResultActions saveSettings();
 
     /**
      * Filter events.

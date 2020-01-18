@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019  Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2016-2020  Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2016-2020  Doug Massay
 **  Copyright (C) 2011-2013  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013  Grant Drake
@@ -86,7 +86,7 @@ AppearanceWidget::AppearanceWidget()
     connectSignalsToSlots();
 }
 
-PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
+PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
 {
     SettingsStore settings;
     settings.setAppearancePrefsTabIndex(ui.tabAppearance->currentIndex());
@@ -140,6 +140,9 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
     web_settings->setFontFamily(QWebEngineSettings::SerifFont,       PVAppearance.font_family_serif);
     web_settings->setFontFamily(QWebEngineSettings::SansSerifFont,   PVAppearance.font_family_sans_serif);
 
+    // now determine Result Actions
+    PreferencesWidget::ResultActions results = PreferencesWidget::ResultAction_None;
+
     // CV settings require the tab to be closed/reopened. It is easiest to tell the user
     // to reopen tabs or reload, perhaps in future the Preferences widget may have a signal
     // to the MainWindow requesting a reload of all open tabs.
@@ -162,15 +165,16 @@ PreferencesWidget::ResultAction AppearanceWidget::saveSettings()
         (m_codeViewAppearance.xhtml_entity_color           != codeViewAppearance.xhtml_entity_color) ||
         (m_codeViewAppearance.xhtml_html_color             != codeViewAppearance.xhtml_html_color) ||
         (m_codeViewAppearance.xhtml_html_comment_color     != codeViewAppearance.xhtml_html_comment_color)) {
-        return PreferencesWidget::ResultAction_ReloadTabs;
+        results = results | PreferencesWidget::ResultAction_ReloadTabs;
     }
     if (m_ShowFullPathOn != (ui.ShowFullPath->isChecked() ? 1 : 0)) {
-        return PreferencesWidget::ResultAction_RefreshBookBrowser;
+        results = results | PreferencesWidget::ResultAction_RefreshBookBrowser;
     }
     if (m_PreviewDark != (ui.PreviewDarkInDM->isChecked() ? 1 : 0)) {
-        return PreferencesWidget::ResultAction_ReloadPreview;
+        results = results | PreferencesWidget::ResultAction_ReloadPreview;
     }
-    return PreferencesWidget::ResultAction_None;
+    results = results & PreferencesWidget::ResultAction_Mask;
+    return results;
 }
 
 SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
