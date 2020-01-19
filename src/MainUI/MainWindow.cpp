@@ -4821,36 +4821,6 @@ void MainWindow::PlatformSpecificTweaks()
     sizeMenuIcons();
 }
 
-QString MainWindow::GetOriginalUIFont()
-{
-    return m_originalUIFont;
-}
-
-
-void MainWindow::SetupUiFont()
-{
-    QFont f = QFont(qApp->font());
-#ifdef Q_OS_WIN32
-    if (f.family() == "MS Shell Dlg 2" && f.pointSize() == 8) {
-        // Microsoft's recommended UI defaults
-        f.setFamily("Segoe UI");
-        f.setPointSize(9);
-        qApp->setFont(f);
-    }
-#elif defined(Q_OS_MAC)
-    // Just in case
-#else
-    if ((f.family() == "Sans Serif" || f.family() == "Sans") && f.pointSize() == 9) {
-        f.setPointSize(10);
-        qApp->setFont(f);
-    }
-   
-#endif
-    m_originalUIFont = f.toString();
-    qDebug() << "Original UI font: " << m_originalUIFont;
-}
-
-
 void MainWindow::ExtendUI()
 {
     // initialize list of quick launch plugin actions
@@ -5175,16 +5145,6 @@ void MainWindow::ExtendUI()
     ui.tbCase->setFont(font);
 #endif
 
-    SetupUiFont();
-    SettingsStore ss;
-    if (!ss.uiFont().isEmpty()) {
-        QFont font;
-        if (font.fromString(ss.uiFont()))
-            qApp->setFont(font);
-    }
-    QFont f = QFont(qApp->font());
-    qDebug() << "UI Font family: " << f.family();    
-    qDebug() << "UI Font size: " << f.pointSize();
     ExtendIconSizes();
     UpdateClipsUI();
 }

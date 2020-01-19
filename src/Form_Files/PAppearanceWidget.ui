@@ -505,7 +505,7 @@ if a sans-serif font-family specified in your CSS</string>
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="uiFontLE"/>
+           <widget class="QLineEdit" name="editUIFont"/>
           </item>
           <item>
            <widget class="QPushButton" name="changeUIFontButton">

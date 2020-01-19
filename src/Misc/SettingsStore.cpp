@@ -38,6 +38,7 @@ static QString SETTINGS_GROUP = "user_preferences";
 static QString KEY_DEFAULT_METADATA_LANGUAGE = SETTINGS_GROUP + "/" + "default_metadata_lang";
 static QString KEY_UI_LANGUAGE = SETTINGS_GROUP + "/" + "ui_language";
 static QString KEY_UI_FONT = SETTINGS_GROUP + "/" + "ui_font";
+static QString KEY_ORIGINAL_UI_FONT = SETTINGS_GROUP + "/" + "original_ui_font";
 static QString KEY_ZOOM_IMAGE = SETTINGS_GROUP + "/" + "zoom_image";
 static QString KEY_ZOOM_TEXT = SETTINGS_GROUP + "/" + "zoom_text";
 static QString KEY_ZOOM_WEB = SETTINGS_GROUP + "/" + "zoom_web";
@@ -148,6 +149,12 @@ QString SettingsStore::uiFont()
 {
     clearSettingsGroup();
     return value(KEY_UI_FONT, "").toString();
+}
+
+QString SettingsStore::originalUIFont()
+{
+    clearSettingsGroup();
+    return value(KEY_ORIGINAL_UI_FONT, "").toString();
 }
 
 QString SettingsStore::defaultMetadataLang()
@@ -458,6 +465,12 @@ void SettingsStore::setUIFont(const QString &font_data)
 {
     clearSettingsGroup();
     setValue(KEY_UI_FONT, font_data);
+}
+
+void SettingsStore::setOriginalUIFont(const QString &font_data)
+{
+    clearSettingsGroup();
+    setValue(KEY_ORIGINAL_UI_FONT, font_data);
 }
 
 void SettingsStore::setExternalXEditorPath(const QString &path)
@@ -776,6 +789,7 @@ void SettingsStore::clearAppearanceSettings()
     remove(KEY_MAIN_MENU_ICON_SIZE);
     remove(KEY_SHOWFULLPATH_ON);
     remove(KEY_HIGHDPI_SETTING);
+    remove(KEY_UI_FONT);
     remove(KEY_PREVIEW_DARK_IN_DM);
     ;
 }

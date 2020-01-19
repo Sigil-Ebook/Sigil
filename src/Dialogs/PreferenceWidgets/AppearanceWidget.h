@@ -53,6 +53,7 @@ private:
     void loadComboValueOrDefault(QFontComboBox *fontComboBox, const QString &value, const QString &defaultValue);
     void loadCodeViewColorsList(SettingsStore::CodeViewAppearance);
     void addColorItem(const QString &text, const QColor &color);
+    void updateUIFontDisplay();
     QColor getListItemColor(const int &row = -1);
     void connectSignalsToSlots();
 
@@ -62,6 +63,9 @@ private:
     int m_HighDPI;
     int m_PreviewDark;
     bool m_wasDark;
+    QString m_initUIFont;
+    QString m_currentUIFont;
+    bool m_uiFontResetFlag;
 
     Ui::AppearanceWidget ui;
 };

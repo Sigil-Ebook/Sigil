@@ -85,6 +85,7 @@ AppearanceWidget::AppearanceWidget()
     ui.comboHighDPI->addItems({tr("Detect"), tr("On"), tr("Off")});
     m_codeViewAppearance = readSettings();
     loadCodeViewColorsList(m_codeViewAppearance);
+    m_uiFontResetFlag = false;
     connectSignalsToSlots();
 }
 
@@ -95,6 +96,7 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     settings.setShowFullPathOn(ui.ShowFullPath->isChecked() ? 1 : 0);
     settings.setPreviewDark(ui.PreviewDarkInDM->isChecked() ? 1 : 0);
     settings.setHighDPI(ui.comboHighDPI->currentIndex());
+    settings.setUIFont(m_currentUIFont);
     SettingsStore::PreviewAppearance PVAppearance;
     PVAppearance.font_family_standard     = ui.cbPreviewFontStandard->currentText();
     PVAppearance.font_family_serif        = ui.cbPreviewFontSerif->currentText();
@@ -178,6 +180,10 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     if (m_HighDPI != (ui.comboHighDPI->currentIndex())) {
         results = results | PreferencesWidget::ResultAction_RestartSigil;
     }
+    if ((m_currentUIFont != m_initUIFont) || m_uiFontResetFlag) {
+        results = results | PreferencesWidget::ResultAction_RestartSigil;
+    }
+    m_uiFontResetFlag = false;
     results = results & PreferencesWidget::ResultAction_Mask;
     return results;
 }
@@ -190,7 +196,14 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     ui.ShowFullPath->setChecked(settings.showFullPathOn());
     m_HighDPI = settings.highDPI();
     ui.comboHighDPI->setCurrentIndex(m_HighDPI);
-    m_PreviewDark = settings.previewDark(); 
+    if (!settings.uiFont().isEmpty()) {
+        m_initUIFont = settings.uiFont();
+    } else {
+        m_initUIFont = settings.originalUIFont();
+    }
+    m_currentUIFont = m_initUIFont;
+    updateUIFontDisplay();
+    m_PreviewDark = settings.previewDark();
     ui.PreviewDarkInDM->setChecked(settings.previewDark());
     SettingsStore::PreviewAppearance PVAppearance = settings.previewAppearance();
     SettingsStore::CodeViewAppearance codeViewAppearance;
@@ -282,18 +295,24 @@ void AppearanceWidget::customColorButtonClicked()
     }
 }
 
+void AppearanceWidget::updateUIFontDisplay()
+{
+    QFont f;
+    f.fromString(m_currentUIFont);
+    ui.editUIFont->setText(f.family() + QString(" - %1pt").arg(f.pointSize()));
+    ui.editUIFont->setReadOnly(true);
+}
+
 void AppearanceWidget::changeUIFontButtonClicked()
 {
     bool ok;
-    QFont font = QFontDialog::getFont(
-                &ok, QFont("Helvetica [Cronyx]", 10), this);
+    QFont f;
+    f.fromString(m_currentUIFont);
+    QFont font = QFontDialog::getFont(&ok, f, this);
     if (ok) {
-        // the user clicked OK and font is set to the font the user selected
-        qDebug() << font.toString();
-    } else {
-        // the user canceled the dialog; font is set to the initial
-        // value, in this case Helvetica [Cronyx], 10
-        qDebug() << font.toString();
+        m_currentUIFont = font.toString();
+        updateUIFontDisplay();
+        qDebug() << m_currentUIFont;
     }
 }
 
@@ -303,10 +322,13 @@ void AppearanceWidget::resetAllButtonClicked()
     if (m_wasDark == Utility::IsDarkMode()) {
         SettingsStore settings;
         settings.clearAppearanceSettings();
+        m_uiFontResetFlag = true;
         SettingsStore::CodeViewAppearance codeViewAppearance = readSettings();
         ui.codeViewColorsList->blockSignals(true);
         loadCodeViewColorsList(codeViewAppearance);
         ui.codeViewColorsList->blockSignals(false);
+        m_initUIFont = settings.originalUIFont();
+        updateUIFontDisplay();
     }
 }
 

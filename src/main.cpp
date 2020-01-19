@@ -254,10 +254,9 @@ void setupHighDPI()
             break;
         }
     }
-    qDebug() << "INI Location: " << QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+
     SettingsStore ss;
     int highdpi = ss.highDPI();
-    qDebug() << "High DPI Setting: " << highdpi;
     if (highdpi == 1 || (highdpi == 0 && !has_env_setting)) {
         qDebug() << "Turning on Automatic High DPI scaling";
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
@@ -323,6 +322,7 @@ int main(int argc, char *argv[])
     removeMacosSpecificMenuItems();
 #endif
 
+
     // Install an event filter for the application
     // so we can catch OS X's file open events
     // This needs to be done upfront to prevent events from
@@ -350,6 +350,35 @@ int main(int argc, char *argv[])
 
         QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
         SettingsStore settings;
+
+        QFont f = QFont(app.font());
+#ifdef Q_OS_WIN32
+        if (f.family() == "MS Shell Dlg 2" && f.pointSize() == 8) {
+            // Microsoft's recommended UI defaults
+            f.setFamily("Segoe UI");
+            f.setPointSize(9);
+            app.setFont(f);
+        }
+#elif defined(Q_OS_MAC)
+        // Just in case
+#else
+        if (f.family() == "Sans Serif" && f.pointSize() == 9) {
+            f.setPointSize(10);
+            app.setFont(f);
+        }
+
+#endif
+        settings.setOriginalUIFont(f.toString());
+        qDebug() << "Original UI font: " << f.toString();
+        if (!settings.uiFont().isEmpty()) {
+            QFont font;
+            if (font.fromString(settings.uiFont()))
+                app.setFont(font);
+        }
+        qDebug() << "UI Font family: " << app.font().family();    
+        qDebug() << "UI Font size: " << app.font().pointSize();
+
+
         // Setup the qtbase_ translator and load the translation for the selected language
         QTranslator qtbaseTranslator;
         const QString qm_name_qtbase = QString("qtbase_%1").arg(settings.uiLanguage());

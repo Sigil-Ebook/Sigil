@@ -205,8 +205,6 @@ public:
 
     void DebugCurrentWidgetSizes();
     
-    QString GetOriginalUIFont();
-
 public slots:
 
     void OpenUrl(const QUrl &url);
@@ -1006,8 +1004,6 @@ private:
     QStringList m_pluginList;
     bool m_SaveCSS;
     bool m_IsClosing;
-
-    QString m_originalUIFont;
 
     QList<QAction*> m_qlactions;
 
