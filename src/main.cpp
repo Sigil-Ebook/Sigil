@@ -351,32 +351,31 @@ int main(int argc, char *argv[])
         QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
         SettingsStore settings;
 
-        QFont f = QFont(app.font());
+        QFont f = QFont(QApplication::font());
 #ifdef Q_OS_WIN32
         if (f.family() == "MS Shell Dlg 2" && f.pointSize() == 8) {
             // Microsoft's recommended UI defaults
             f.setFamily("Segoe UI");
             f.setPointSize(9);
-            app.setFont(f);
+            QApplication::setFont(f);
         }
 #elif defined(Q_OS_MAC)
         // Just in case
 #else
         if (f.family() == "Sans Serif" && f.pointSize() == 9) {
             f.setPointSize(10);
-            app.setFont(f);
+            QApplication::setFont(f);
         }
-
 #endif
         settings.setOriginalUIFont(f.toString());
         qDebug() << "Original UI font: " << f.toString();
         if (!settings.uiFont().isEmpty()) {
             QFont font;
             if (font.fromString(settings.uiFont()))
-                app.setFont(font);
+                QApplication::setFont(font);
         }
-        qDebug() << "UI Font family: " << app.font().family();    
-        qDebug() << "UI Font size: " << app.font().pointSize();
+        qDebug() << "UI Font family: " << QApplication::font().family();    
+        qDebug() << "UI Font size: " << QApplication::font().pointSize();
 
 
         // Setup the qtbase_ translator and load the translation for the selected language
@@ -408,9 +407,9 @@ int main(int argc, char *argv[])
         app.installTranslator(&sigilTranslator);
 
 #ifdef Q_OS_WIN32
-        // Fusion style is fully dpi aware on Windows
-        app.setStyle(QStyleFactory::create("fusion"));
         if (Utility::WindowsShouldUseDarkMode()) {
+            // Fusion style is fully dpi aware on Windows
+            app.setStyle(QStyleFactory::create("fusion"));
             // qss stylesheet from resources
             QString dark_styles = Utility::ReadUnicodeTextFile(":/dark/win-dark-style.qss");
             app.setStyleSheet(dark_styles);
