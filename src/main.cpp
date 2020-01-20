@@ -374,6 +374,19 @@ int main(int argc, char *argv[])
             if (font.fromString(settings.uiFont()))
                 QApplication::setFont(font);
         }
+#ifndef Q_OS_MAC
+        // redo on a timer to ensure
+        if (!settings.uiFont().isEmpty()) {
+            QFont font;
+            if (font.fromString(settings.uiFont())) {
+                QTimer::singleShot(0, [=]() {
+                    QApplication::setFont(font);
+                    qDebug() << "Setting app font with timer";
+                } );
+            }
+        }
+#endif
+
         qDebug() << "UI Font family: " << QApplication::font().family();    
         qDebug() << "UI Font size: " << QApplication::font().pointSize();
 
