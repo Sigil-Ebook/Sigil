@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2019  Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2018-2020  Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2019-2020  Doug Massay
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -157,6 +157,7 @@ static QIcon GetApplicationIcon()
 void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &message)
 {
     QString error_message;
+    QString context_file;
     QString qt_debug_message;
 
     switch (type) {
@@ -179,6 +180,9 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
         case QtCriticalMsg:
             qt_debug_message = QString("Critical: %1").arg(message.toLatin1().constData());
             error_message = QString(message.toLatin1().constData());
+            if (context.file) context_file = QString(context.file);
+
+	    
 #ifdef Q_OS_WIN32
             // On Windows there is a known issue with the clipboard that results in some copy
             // operations in controls being intermittently blocked. Rather than presenting
@@ -213,7 +217,10 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
             }
 
 #endif
-            Utility::DisplayExceptionErrorDialog(QString("Critical: %1").arg(error_message));
+            // screen out error messages from inspector / devtools
+            if (!context_file.startsWith("chrome-devtools://devtools")) {
+                Utility::DisplayExceptionErrorDialog(QString("Critical: %1").arg(error_message));
+	    }
             break;
 
         case QtFatalMsg:
