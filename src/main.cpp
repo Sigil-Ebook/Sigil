@@ -351,46 +351,6 @@ int main(int argc, char *argv[])
         QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
         SettingsStore settings;
 
-        QFont f = QFont(QApplication::font());
-#ifdef Q_OS_WIN32
-        if (f.family() == "MS Shell Dlg 2" && f.pointSize() == 8) {
-            // Microsoft's recommended UI defaults
-            f.setFamily("Segoe UI");
-            f.setPointSize(9);
-            QApplication::setFont(f);
-        }
-#elif defined(Q_OS_MAC)
-        // Just in case
-#else
-        if (f.family() == "Sans Serif" && f.pointSize() == 9) {
-            f.setPointSize(10);
-            QApplication::setFont(f);
-        }
-#endif
-        settings.setOriginalUIFont(f.toString());
-        qDebug() << "Original UI font: " << f.toString();
-        if (!settings.uiFont().isEmpty()) {
-            QFont font;
-            if (font.fromString(settings.uiFont()))
-                QApplication::setFont(font);
-        }
-#ifndef Q_OS_MAC
-        // redo on a timer to ensure
-        if (!settings.uiFont().isEmpty()) {
-            QFont font;
-            if (font.fromString(settings.uiFont())) {
-                QTimer::singleShot(0, [=]() {
-                    QApplication::setFont(font);
-                    qDebug() << "Setting app font with timer";
-                } );
-            }
-        }
-#endif
-
-        qDebug() << "UI Font family: " << QApplication::font().family();    
-        qDebug() << "UI Font size: " << QApplication::font().pointSize();
-
-
         // Setup the qtbase_ translator and load the translation for the selected language
         QTranslator qtbaseTranslator;
         const QString qm_name_qtbase = QString("qtbase_%1").arg(settings.uiLanguage());
@@ -460,6 +420,46 @@ int main(int argc, char *argv[])
             app.setPalette(darkPalette);
         }
 #endif
+
+        // Set ui font from preferences after dark theming
+        QFont f = QFont(QApplication::font());
+#ifdef Q_OS_WIN32
+        if (f.family() == "MS Shell Dlg 2" && f.pointSize() == 8) {
+            // Microsoft's recommended UI defaults
+            f.setFamily("Segoe UI");
+            f.setPointSize(9);
+            QApplication::setFont(f);
+        }
+#elif defined(Q_OS_MAC)
+        // Just in case
+#else
+        if (f.family() == "Sans Serif" && f.pointSize() == 9) {
+            f.setPointSize(10);
+            QApplication::setFont(f);
+        }
+#endif
+        settings.setOriginalUIFont(f.toString());
+        qDebug() << "Original UI font: " << f.toString();
+        if (!settings.uiFont().isEmpty()) {
+            QFont font;
+            if (font.fromString(settings.uiFont()))
+                QApplication::setFont(font);
+        }
+#ifndef Q_OS_MAC
+        // redo on a timer to ensure
+        if (!settings.uiFont().isEmpty()) {
+            QFont font;
+            if (font.fromString(settings.uiFont())) {
+                QTimer::singleShot(0, [=]() {
+                    QApplication::setFont(font);
+                    qDebug() << "Setting app font with timer";
+                } );
+            }
+        }
+#endif
+        qDebug() << "UI Font family: " << QApplication::font().family();    
+        qDebug() << "UI Font size: " << QApplication::font().pointSize();
+        // End of UI font stuff
 
         // Check for existing qt_styles.qss in Prefs dir and load it if present
         QString qt_stylesheet_path = Utility::DefinePrefsDir() + "/qt_styles.qss";
