@@ -65,7 +65,7 @@ void WebEngPage::EmitLinkClicked()
 void WebEngPage::javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessageLevel level, 
 				  const QString & message, int lineNumber, const QString & sourceID)
 {
-  const QString logEntry = message + " on line:" % QString::number(lineNumber) % " Source:" + sourceID;
-  qDebug() << "Javascript error: " << level << logEntry;
+    const QString logEntry = message + " on line:" % QString::number(lineNumber) % " Source:" + sourceID;
+    qDebug() << "Javascript error: " << level << logEntry;
 }
 

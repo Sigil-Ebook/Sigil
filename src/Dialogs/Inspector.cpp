@@ -24,7 +24,9 @@
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QtWebEngineWidgets/QWebEnginePage>
 #include <QtWebEngineWidgets/QWebEngineSettings>
+#include <QtWebEngineWidgets/QWebEngineProfile>
 #include <QApplication>
+#include <QDir>
 
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -55,6 +57,16 @@ Inspector::Inspector(QWidget *parent, Qt::WindowFlags flags) :
     // QtWebEngine WebInspector needs to run javascript in MainWorld
     // so override the app default but just for this inspector
     m_inspectView->page()->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
+
+    // The Inspector also needs access to local-storage to save its dark mode settings between launches
+    m_inspectView->page()->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
+    QString inspectorStorePath = Utility::DefinePrefsDir() + "/local-devtools";
+    QDir storageDir(inspectorStorePath);
+    if (!storageDir.exists()) {
+	storageDir.mkpath(inspectorStorePath);
+    }
+    m_inspectView->page()->profile()->setPersistentStoragePath(inspectorStorePath);
+
     LoadSettings();
     connect(m_inspectView->page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
     connect(m_inspectView->page(), SIGNAL(loadStarted()),      this, SLOT(LoadingStarted()));
