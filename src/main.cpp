@@ -218,7 +218,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
 
 #endif
             // screen out error messages from inspector / devtools
-            if (!context_file.startsWith("chrome-devtools://devtools")) {
+            if (!context_file.contains("devtools://devtools")) {
                 Utility::DisplayExceptionErrorDialog(QString("Critical: %1").arg(error_message));
 	    }
             break;
