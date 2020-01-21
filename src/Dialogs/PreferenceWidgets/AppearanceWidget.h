@@ -66,6 +66,7 @@ private:
     QString m_initUIFont;
     QString m_currentUIFont;
     bool m_uiFontResetFlag;
+    bool m_isHighDPIComboEnabled;
 
     Ui::AppearanceWidget ui;
 };

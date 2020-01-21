@@ -29,7 +29,6 @@
 #include <QtWidgets/QStyledItemDelegate>
 #include <QtWebEngineWidgets/QWebEngineSettings>
 #include <QFontDialog>
-#include <QDebug>
 
 #include "AppearanceWidget.h"
 #include "Misc/SettingsStore.h"
@@ -77,12 +76,21 @@ public:
 
 AppearanceWidget::AppearanceWidget()
     :
-    m_currentColor(QColor())
+    m_currentColor(QColor()),
+    m_isHighDPIComboEnabled(true)
 {
+
+#ifdef Q_OS_MAC
+    // Disable the HighDPI combobox on Mac
+    m_isHighDPIComboEnabled = false;
+#endif
+
     ui.setupUi(this);
     // Custom delegate for painting the color swatches
     ui.codeViewColorsList->setItemDelegate(new ColorSwatchDelegate(ui.codeViewColorsList));
     ui.comboHighDPI->addItems({tr("Detect"), tr("On"), tr("Off")});
+    // The HighDPI setting is unused/unnecessary on Mac
+    ui.comboHighDPI->setEnabled(m_isHighDPIComboEnabled);
     m_codeViewAppearance = readSettings();
     loadCodeViewColorsList(m_codeViewAppearance);
     m_uiFontResetFlag = false;
@@ -95,7 +103,10 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     settings.setAppearancePrefsTabIndex(ui.tabAppearance->currentIndex());
     settings.setShowFullPathOn(ui.ShowFullPath->isChecked() ? 1 : 0);
     settings.setPreviewDark(ui.PreviewDarkInDM->isChecked() ? 1 : 0);
-    settings.setHighDPI(ui.comboHighDPI->currentIndex());
+    // Don't try to get the index of a disabled combobox
+    if (m_isHighDPIComboEnabled) {
+        settings.setHighDPI(ui.comboHighDPI->currentIndex());
+    }
     settings.setUIFont(m_currentUIFont);
     SettingsStore::PreviewAppearance PVAppearance;
     PVAppearance.font_family_standard     = ui.cbPreviewFontStandard->currentText();
@@ -177,8 +188,11 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     if (m_PreviewDark != (ui.PreviewDarkInDM->isChecked() ? 1 : 0)) {
         results = results | PreferencesWidget::ResultAction_ReloadPreview;
     }
-    if (m_HighDPI != (ui.comboHighDPI->currentIndex())) {
-        results = results | PreferencesWidget::ResultAction_RestartSigil;
+    // Don't try to get the index of a disabled combobox
+    if (m_isHighDPIComboEnabled) {
+        if (m_HighDPI != (ui.comboHighDPI->currentIndex())) {
+            results = results | PreferencesWidget::ResultAction_RestartSigil;
+        }
     }
     if ((m_currentUIFont != m_initUIFont) || m_uiFontResetFlag) {
         results = results | PreferencesWidget::ResultAction_RestartSigil;
@@ -194,8 +208,11 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     ui.tabAppearance->setCurrentIndex(settings.appearancePrefsTabIndex());
     m_ShowFullPathOn = settings.showFullPathOn();
     ui.ShowFullPath->setChecked(settings.showFullPathOn());
-    m_HighDPI = settings.highDPI();
-    ui.comboHighDPI->setCurrentIndex(m_HighDPI);
+    // Don't try to set the index of a disabled combobox
+    if (m_isHighDPIComboEnabled) {
+        m_HighDPI = settings.highDPI();
+        ui.comboHighDPI->setCurrentIndex(m_HighDPI);
+    }
     if (!settings.uiFont().isEmpty()) {
         m_initUIFont = settings.uiFont();
     } else {
@@ -312,7 +329,6 @@ void AppearanceWidget::changeUIFontButtonClicked()
     if (ok) {
         m_currentUIFont = font.toString();
         updateUIFontDisplay();
-        qDebug() << m_currentUIFont;
     }
 }
 
