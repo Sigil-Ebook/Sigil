@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2020  Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2018-2020  Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2019-2020  Doug Massay
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -38,7 +38,6 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QTextStream>
-#include <QDebug>
 
 #include "Misc/PluginDB.h"
 #include "Misc/UILanguage.h"
@@ -265,16 +264,14 @@ void setupHighDPI()
     SettingsStore ss;
     int highdpi = ss.highDPI();
     if (highdpi == 1 || (highdpi == 0 && !has_env_setting)) {
-        // qDebug() << "Turning on Automatic High DPI scaling";
+        // Turning on Automatic High DPI scaling
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
     } else if (highdpi == 2) {
-        // qDebug() << "Turning off Automatic High DPI scaling";
+        // Turning off Automatic High DPI scaling
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, false);
         foreach(QString v, env_vars) {
             bool irrel = qunsetenv(v.toUtf8().constData());
         }
-    } else {
-        // qDebug() << "Not Controlling Automatic High DPI scaling";
     }
 }
 
@@ -446,26 +443,22 @@ int main(int argc, char *argv[])
         }
 #endif
         settings.setOriginalUIFont(f.toString());
-        // qDebug() << "Original UI font: " << f.toString();
         if (!settings.uiFont().isEmpty()) {
             QFont font;
             if (font.fromString(settings.uiFont()))
                 QApplication::setFont(font);
         }
 #ifndef Q_OS_MAC
-        // redo on a timer to ensure
+        // redo on a timer to ensure in all cases
         if (!settings.uiFont().isEmpty()) {
             QFont font;
             if (font.fromString(settings.uiFont())) {
                 QTimer::singleShot(0, [=]() {
                     QApplication::setFont(font);
-                    // qDebug() << "Setting app font with timer";
                 } );
             }
         }
 #endif
-        // qDebug() << "UI Font family: " << QApplication::font().family();    
-        // qDebug() << "UI Font size: " << QApplication::font().pointSize();
         // End of UI font stuff
 
         // Check for existing qt_styles.qss in Prefs dir and load it if present
@@ -482,9 +475,7 @@ int main(int argc, char *argv[])
         // a value which for Mac OS X is hardcoded to 1000 ms
         // This was the only way I could get Qt to disable cursor blinking on a Mac if desired
         if (qEnvironmentVariableIsSet("SIGIL_DISABLE_CURSOR_BLINK")) {
-            // qDebug() << "trying to disable text cursor blinking";
             app.setCursorFlashTime(0);
-            // qDebug() << "cursorFlashTime: " << app.cursorFlashTime();
         }
         // We set the window icon explicitly on Linux.
         // On Windows this is handled by the RC file,

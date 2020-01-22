@@ -89,6 +89,13 @@ AppearanceWidget::AppearanceWidget()
     // Custom delegate for painting the color swatches
     ui.codeViewColorsList->setItemDelegate(new ColorSwatchDelegate(ui.codeViewColorsList));
     ui.comboHighDPI->addItems({tr("Detect"), tr("On"), tr("Off")});
+    QString highdpi_tooltip = "<p><dt><b>" + tr("Detect") + "</b><dd>" + tr("Detect whether any high dpi scaling should take place.");
+    highdpi_tooltip += " " + tr("Defers to any Qt environment variables that are set to control high dpi behavior.") + "</dd>";
+    highdpi_tooltip += "<dt><b>" + tr("On") + "</b><dd>" + tr("Turns on high dpi scaling and ignores any Qt environment variables");
+    highdpi_tooltip += " " + tr("that are set controlling high dpi behavior.") + "</dd>";
+    highdpi_tooltip += "<dt><b>" + tr("Off") + "</b><dd>" + tr("Turns off high dpi scaling regardless if any Qt environment");
+    highdpi_tooltip += " " + tr("variables controlling high dpi behavior are set.") + "</dd>";
+    ui.comboHighDPI->setToolTip(highdpi_tooltip);
     // The HighDPI setting is unused/unnecessary on Mac
     ui.comboHighDPI->setEnabled(m_isHighDPIComboEnabled);
     m_codeViewAppearance = readSettings();
